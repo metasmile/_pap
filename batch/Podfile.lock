@@ -1,0 +1,20 @@
+PODS:
+  - Hero (0.3.6)
+  - Realm (2.10.1):
+    - Realm/Headers (= 2.10.1)
+  - Realm/Headers (2.10.1)
+  - RealmSwift (2.10.1):
+    - Realm (= 2.10.1)
+
+DEPENDENCIES:
+  - Hero
+  - RealmSwift
+
+SPEC CHECKSUMS:
+  Hero: d3c6f4dd80cdcdbb339be64e57ae3b5c3ab9938c
+  Realm: fc7a317a5c2c9ba91f5f235ede4e2ea76e9eba0c
+  RealmSwift: 505ed6c15942a2e76f5cfa78a8667cfa997ee75b
+
+PODFILE CHECKSUM: 901ed1f1526a081e0deb1d7ec8294dba159ec56e
+
+COCOAPODS: 1.2.0.beta.1

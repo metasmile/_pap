@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoCollectionViewCell" customModule="batch" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView" destination="eJc-gq-5xN" id="v9S-eC-euN"/>
+                <outlet property="selectionView" destination="Sk1-cQ-NDN" id="krd-K1-sez"/>
+                <outlet property="selectionViewHeight" destination="JzI-iM-bWg" id="YaT-XY-g61"/>
+                <outlet property="selectionViewWidth" destination="P8b-TA-U0q" id="Bmh-d0-gdb"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="180"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eJc-gq-5xN">
+                    <rect key="frame" x="0.0" y="0.0" width="100" height="180"/>
+                </imageView>
+                <view hidden="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sk1-cQ-NDN">
+                    <rect key="frame" x="0.0" y="40" width="100" height="100"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="JzI-iM-bWg"/>
+                        <constraint firstAttribute="width" constant="100" id="P8b-TA-U0q"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="eJc-gq-5xN" secondAttribute="trailing" id="45q-37-Ham"/>
+                <constraint firstItem="Sk1-cQ-NDN" firstAttribute="centerX" secondItem="eJc-gq-5xN" secondAttribute="centerX" id="7J6-WU-yxE"/>
+                <constraint firstAttribute="bottom" secondItem="eJc-gq-5xN" secondAttribute="bottom" id="KMK-q1-P0S"/>
+                <constraint firstItem="Sk1-cQ-NDN" firstAttribute="centerY" secondItem="eJc-gq-5xN" secondAttribute="centerY" id="VMo-0H-UvF"/>
+                <constraint firstItem="eJc-gq-5xN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gqe-JM-IcQ"/>
+                <constraint firstItem="eJc-gq-5xN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xcA-g5-yJE"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="34" y="119"/>
+        </view>
+    </objects>
+</document>
