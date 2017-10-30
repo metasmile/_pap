@@ -16,7 +16,57 @@ protocol BatchEditViewControllerDelegate {
     func batchEditViewControllerDidCancelEditing(_ editor: BatchEditViewController)
 }
 
-class BatchEditViewController: UIViewController {
+class EditToolbarViewController: UIViewController {
+    var doneButton: UIBarButtonItem?
+    
+    var editToolbarItems: [UIBarButtonItem] {
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.doneButtonDidTap))
+        self.doneButton = doneButton
+        
+        let fixedSpace = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        fixedSpace.width = 10
+        
+        return [
+            UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancelButtonDidTap)),
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+            UIBarButtonItem(image: UIImage(named: "Flip Vertical"), style: .plain, target: self, action: #selector(self.verticalFlipButtonDidTap)),
+            fixedSpace,
+            UIBarButtonItem(image: UIImage(named: "Flip Horizontal"), style: .plain, target: self, action: #selector(self.horizontalFlipButtonDidTap)),
+            fixedSpace,
+            UIBarButtonItem(image: UIImage(named: "Rotate Left"), style: .plain, target: self, action: #selector(self.rotationLeftButtonDidTap)),
+            fixedSpace,
+            UIBarButtonItem(image: UIImage(named: "Rotate Right"), style: .plain, target: self, action: #selector(self.rotationRightButtonDidTap)),
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+            doneButton
+        ]
+    }
+    
+    func cancelButtonDidTap(sender: Any) {
+        
+    }
+    
+    func horizontalFlipButtonDidTap(sender: Any) {
+        
+    }
+    
+    func verticalFlipButtonDidTap(sender: Any) {
+        
+    }
+    
+    func rotationLeftButtonDidTap(sender: Any) {
+        
+    }
+    
+    func rotationRightButtonDidTap(sender: Any) {
+        
+    }
+    
+    func doneButtonDidTap(sender: Any) {
+        
+    }
+}
+
+class BatchEditViewController: EditToolbarViewController {
     var delegate: BatchEditViewControllerDelegate?
     
     var photos: [PHAsset]? {
@@ -35,7 +85,8 @@ class BatchEditViewController: UIViewController {
     var editTaskQueue = TaskQueue()
     
     @IBOutlet weak var previewCollectionView: UICollectionView!
-    
+    @IBOutlet weak var editToolbar: FloatingToolbar!
+    @IBOutlet weak var editToolbarBottomLayout: NSLayoutConstraint!
     @IBOutlet weak var dimmedView: UIView!
     
     @IBOutlet weak var batchProgressView: BatchProgressView!
@@ -46,30 +97,22 @@ class BatchEditViewController: UIViewController {
         
         title = "Batch Edit"
         
-        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancelButtonDidTap))
-        navigationItem.setLeftBarButton(cancelButton, animated: false)
+        editToolbar.toolbarItems = editToolbarItems
         
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.doneButtonDidTap))
-        navigationItem.setRightBarButton(doneButton, animated: false)
-        
-        navigationController?.setToolbarHidden(false, animated: false)
-        
-        let toolBarItems = [
-            UIBarButtonItem(barButtonSystemItem: .undo, target: self, action: #selector(self.undoButtonDidTap)),
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            UIBarButtonItem(title: "Flip v", style: .plain, target: self, action: #selector(self.verticalFlipButtonDidTap)),
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            UIBarButtonItem(title: "Flip h", style: .plain, target: self, action: #selector(self.horizontalFlipButtonDidTap)),
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            UIBarButtonItem(title: "Rotate", style: .plain, target: self, action: #selector(self.rotationButtonDidTap)),
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        ]
-        setToolbarItems(toolBarItems, animated: false)
         updateToolBarButtonStatus()
         
-        batchProgressViewBottomLayout.constant = -batchProgressView.bounds.height
-        
         setupPreviewCollectionView()
+    }
+    
+    @available(iOS 11.0, *)
+    override func viewSafeAreaInsetsDidChange() {
+        super.viewSafeAreaInsetsDidChange()
+        
+        batchProgressViewBottomLayout.constant = -(batchProgressView.bounds.height + safeAreaInsets.bottom)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
     }
     
     // MARK: - Editing
@@ -78,8 +121,8 @@ class BatchEditViewController: UIViewController {
         return batchEditItems.map({ $0.editItem.hasChanges }).contains(true)
     }
     
-    func updateBatchEdit() {
-        updatePreviews()
+    func updateBatchEdit(animated: Bool = true) {
+        updatePreviews(animated: animated)
         updateToolBarButtonStatus()
     }
     
@@ -108,7 +151,7 @@ class BatchEditViewController: UIViewController {
         updateBatchEdit()
     }
     
-    private func updatePreviews() {
+    private func updatePreviews(animated: Bool = true) {
         let numberOfItems = previewCollectionView.numberOfItems(inSection: 0)
         guard numberOfItems > 0 else { return }
         
@@ -119,20 +162,20 @@ class BatchEditViewController: UIViewController {
         previewCollectionView.performBatchUpdates({
             
         }) { (finished) in
-            guard let indexPath = visibleIndexPath else { return }
+            guard let indexPath = visibleIndexPath, animated == true else { return }
             self.previewCollectionView.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.centeredHorizontally, animated: false)
         }
         
         let visibleIndexPaths = previewCollectionView.indexPathsForVisibleItems
         for indexPath in visibleIndexPaths {
             guard let cell = self.previewCollectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else { continue }
-            cell.setImageEditItem(self.batchEditItems[indexPath.item].editItem, animated: true)
+            cell.setImageEditItem(self.batchEditItems[indexPath.item].editItem, animated: animated)
         }
     }
     
     // MARK: - Navigation Bar Actions
     
-    func cancelButtonDidTap(sender: Any) {
+    override func cancelButtonDidTap(sender: Any) {
         guard hasChanges else {
             delegate?.batchEditViewControllerDidCancelEditing(self)
             return
@@ -149,8 +192,7 @@ class BatchEditViewController: UIViewController {
     // MARK: - Tool Bar Actions
     
     func updateToolBarButtonStatus() {
-        navigationItem.rightBarButtonItem?.isEnabled = hasChanges
-        toolbarItems?.first?.isEnabled = hasChanges
+        doneButton?.isEnabled = hasChanges
     }
     
     func resetButtonDidTap(sender: Any) {
@@ -161,19 +203,23 @@ class BatchEditViewController: UIViewController {
         undoBatchEditing()
     }
     
-    func horizontalFlipButtonDidTap(sender: Any) {
+    override func horizontalFlipButtonDidTap(sender: Any) {
         addTransformItem(HorizontalFlipTransformItem())
     }
     
-    func verticalFlipButtonDidTap(sender: Any) {
+    override func verticalFlipButtonDidTap(sender: Any) {
         addTransformItem(VerticalFlipTransformItem())
     }
     
-    func rotationButtonDidTap(sender: Any) {
+    override func rotationLeftButtonDidTap(sender: Any) {
+        addTransformItem(RotationTransformItem(degrees: -90))
+    }
+    
+    override func rotationRightButtonDidTap(sender: Any) {
         addTransformItem(RotationTransformItem(degrees: 90))
     }
     
-    func doneButtonDidTap(sender: Any) {
+    override func doneButtonDidTap(sender: Any) {
         self.previewCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
         self.previewCollectionView.performBatchUpdates(nil, completion: { [unowned self] (finished) in
             self.runBatchProcessing()
@@ -183,22 +229,24 @@ class BatchEditViewController: UIViewController {
 
 extension BatchEditViewController {
     func runBatchProcessing() {
+        batchProgressView.title = "Start Batch Editing..."
+        batchProgressView.setProgress(0, animated: false)
+        
         UIView.transition(with: dimmedView, duration: 0.2, options: .transitionCrossDissolve, animations: {
             self.dimmedView.isHidden = false
         }, completion: nil)
         
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        editToolbarBottomLayout.constant = -(editToolbar.bounds.height + safeAreaInsets.bottom)
+        editToolbar.animateUsingSpringIfLayoutConstraintsChanged()
+        
         batchProgressViewBottomLayout.constant = 10
-        UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: .beginFromCurrentState, animations: {
+        UIView.animate(withDuration: 0.3, delay: 0.3, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: .beginFromCurrentState, animations: {
             self.batchProgressView.superview?.layoutIfNeeded()
         }) { (finished) in
             
         }
-        
-        batchProgressView.title = "Start Batch Editing..."
-        batchProgressView.setProgress(0, animated: false)
-        
-        navigationController?.setNavigationBarHidden(true, animated: true)
-        navigationController?.setToolbarHidden(true, animated: true)
         
         var assetChangeInfos = [(PHAsset, PHContentEditingOutput)]()
         
@@ -238,17 +286,17 @@ extension BatchEditViewController {
                 }
             }, completionHandler: { (success, info) in
                 DispatchQueue.main.async { [unowned self] in
-                    self.navigationController?.setNavigationBarHidden(false, animated: true)
-                    self.navigationController?.setToolbarHidden(false, animated: true)
-                    
                     self.batchProgressView.title = nil
                     self.batchProgressView.setProgress(0, animated: false)
                     
-                    self.batchProgressViewBottomLayout.constant = -self.batchProgressView.bounds.height
+                    self.batchProgressViewBottomLayout.constant = -(self.batchProgressView.bounds.height + self.safeAreaInsets.bottom)
                     UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: .beginFromCurrentState, animations: {
                         self.batchProgressView.superview?.layoutIfNeeded()
                     }) { (finished) in
+                        self.navigationController?.setNavigationBarHidden(false, animated: true)
                         
+                        self.editToolbarBottomLayout.constant = 10
+                        self.editToolbar.animateUsingSpringIfLayoutConstraintsChanged()
                     }
                     
                     UIView.transition(with: self.dimmedView, duration: 0.2, options: .transitionCrossDissolve, animations: {
@@ -383,7 +431,7 @@ extension BatchEditViewController: PhotoEditViewControllerDelegate {
         
         batchEditItems[indexPath.item].editItem.transformItems.append(contentsOf: editItem.transformItems)
         
-        updateBatchEdit()
+        updateBatchEdit(animated: false)
     }
 }
 

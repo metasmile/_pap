@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A66CD4E1F9592A600A97726 /* FloatingToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A66CD4D1F9592A600A97726 /* FloatingToolbar.xib */; };
+		0A66CD501F95935500A97726 /* FloatingToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A66CD4F1F95935500A97726 /* FloatingToolbar.swift */; };
 		0A7459E91F709ADA00CA70E1 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7459E81F709ADA00CA70E1 /* Geometry.swift */; };
+		0A88FF751FA04AD6001C0DC6 /* FloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A88FF741FA04AD6001C0DC6 /* FloatingView.swift */; };
 		0A8C4ADE1F3C15BF00B7246A /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8C4ADD1F3C15BF00B7246A /* RoundedButton.swift */; };
 		0A8D18E11F15DEEF00AABEF7 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D18E01F15DEEF00AABEF7 /* CustomView.swift */; };
 		0A9CC9291F8774EC00AC91A6 /* PhotoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CC9281F8774EC00AC91A6 /* PhotoEditViewController.swift */; };
@@ -26,7 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A66CD4D1F9592A600A97726 /* FloatingToolbar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FloatingToolbar.xib; path = Resources/Interfaces/FloatingToolbar.xib; sourceTree = "<group>"; };
+		0A66CD4F1F95935500A97726 /* FloatingToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FloatingToolbar.swift; path = Classes/FloatingToolbar.swift; sourceTree = "<group>"; };
 		0A7459E81F709ADA00CA70E1 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geometry.swift; path = Classes/Geometry.swift; sourceTree = "<group>"; };
+		0A88FF741FA04AD6001C0DC6 /* FloatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FloatingView.swift; path = Classes/FloatingView.swift; sourceTree = "<group>"; };
 		0A8C4ADD1F3C15BF00B7246A /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundedButton.swift; path = Classes/RoundedButton.swift; sourceTree = "<group>"; };
 		0A8D18E01F15DEEF00AABEF7 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomView.swift; path = Classes/CustomView.swift; sourceTree = "<group>"; };
 		0A9CC9281F8774EC00AC91A6 /* PhotoEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoEditViewController.swift; path = Classes/PhotoEditViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +89,8 @@
 				0A8D18E01F15DEEF00AABEF7 /* CustomView.swift */,
 				0A8C4ADD1F3C15BF00B7246A /* RoundedButton.swift */,
 				0A9E4AFB1F8F303200E3E805 /* BatchProgressView.swift */,
+				0A88FF741FA04AD6001C0DC6 /* FloatingView.swift */,
+				0A66CD4F1F95935500A97726 /* FloatingToolbar.swift */,
 			);
 			name = "Custom Controls";
 			sourceTree = "<group>";
@@ -101,6 +109,7 @@
 				0A9EC7731F30735B00F1EF3A /* PhotoCollectionViewCell.xib */,
 				0AB938351F82127A00181359 /* PhotoCollectionTitleView.xib */,
 				0A9E4AF91F8F300200E3E805 /* BatchProgressView.xib */,
+				0A66CD4D1F9592A600A97726 /* FloatingToolbar.xib */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -248,6 +257,7 @@
 				0ABFCF951F14B7F80078A583 /* Launch Screen.storyboard in Resources */,
 				0ABFCF931F14B7CB0078A583 /* Assets.xcassets in Resources */,
 				0A9EC7741F30735B00F1EF3A /* PhotoCollectionViewCell.xib in Resources */,
+				0A66CD4E1F9592A600A97726 /* FloatingToolbar.xib in Resources */,
 				0AB938361F82127A00181359 /* PhotoCollectionTitleView.xib in Resources */,
 				0A9E4AFA1F8F300200E3E805 /* BatchProgressView.xib in Resources */,
 				0ABFCF911F14B7190078A583 /* AppStoryboard.storyboard in Resources */,
@@ -317,7 +327,9 @@
 				0AA1A07D1F4D1232006297DF /* BatchItem.swift in Sources */,
 				0ABFCF991F14B8A70078A583 /* PhotoPickerViewController.swift in Sources */,
 				0A8C4ADE1F3C15BF00B7246A /* RoundedButton.swift in Sources */,
+				0A66CD501F95935500A97726 /* FloatingToolbar.swift in Sources */,
 				0A7459E91F709ADA00CA70E1 /* Geometry.swift in Sources */,
+				0A88FF751FA04AD6001C0DC6 /* FloatingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

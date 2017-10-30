@@ -9,23 +9,53 @@
 import UIKit
 
 @IBDesignable
-class RoundedView: UIView {
-    @IBInspectable
-    var cornerRadius: CGFloat = 6 {
-        didSet {
-            layer.cornerRadius = cornerRadius
-            layer.masksToBounds = true
-        }
+class DesignableView: UIView {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        initialize()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        initialize()
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        initialize()
     }
     
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
+        
+        initialize()
+    }
+    
+    open func initialize() {
+        
     }
 }
 
+class RoundedView: DesignableView {
+    @IBInspectable
+    var cornerRadius: CGFloat = 6 {
+        didSet {
+            layer.cornerRadius = cornerRadius
+        }
+    }
+    
+    override func initialize() {
+        super.initialize()
+        
+        clipsToBounds = true
+    }
+}
 
-@IBDesignable
-class CustomView: UIView {
+class CustomView: DesignableView {
+    var containerView: UIView?
     var contentView: UIView?
     
     var nibName: String {
@@ -51,25 +81,19 @@ class CustomView: UIView {
         initialize()
     }
     
-    private func initialize() {
+    override func initialize() {
+        let containerView = self.containerView ?? self
+        
         guard let view = loadViewFromNib() else { return }
-        addSubview(view)
+        containerView.addSubview(view)
         
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        view.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        view.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        view.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        view.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
+        view.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
+        view.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
+        view.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
         
         contentView = view
-    }
-    
-    override func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-        
-        initialize()
-        
-        contentView?.prepareForInterfaceBuilder()
     }
 }
 

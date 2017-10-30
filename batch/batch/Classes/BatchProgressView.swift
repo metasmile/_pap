@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BatchProgressView: CustomView {
+class BatchProgressView: FloatingContentView {
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!

@@ -25,10 +25,15 @@ class FetchResultItem: NSObject {
 class PhotoPickerViewController: UIViewController {
     @IBOutlet weak var photoCollectionView: UICollectionView!
     
+    @IBOutlet weak var editToolBar: FloatingToolbar!
+    @IBOutlet weak var editToolBarBottomLayout: NSLayoutConstraint!
+    
     var collections: PHFetchResult<PHAssetCollection>?
     var fetchResults: [FetchResultItem]?
     
     var orderedSelectedIndexPaths = NSMutableOrderedSet()
+    
+    var editButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,25 +63,43 @@ class PhotoPickerViewController: UIViewController {
             navigationController?.navigationBar.prefersLargeTitles = true
         }
         
-        updateToolBarItems(false)
+        editButton = UIBarButtonItem(title: "", style: .done, target: self, action: #selector(self.editButtonDidTap))
+        
+        editToolBar.toolbarItems = [
+            UIBarButtonItem(image: UIImage(named: "cancel"), style: .plain, target: self, action: #selector(self.cancelAllSelection)),
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+            editButton
+        ]
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        layoutToolbar()
     }
     
     deinit {
         PHPhotoLibrary.shared().unregisterChangeObserver(self)
     }
     
-    func updateToolBarItems(_ animated: Bool = true) {
-        let numberOfSelectedPhotos = photoCollectionView.indexPathsForSelectedItems?.count ?? 0
-        let hidesToolbar = numberOfSelectedPhotos == 0
-        if navigationController?.isToolbarHidden != hidesToolbar {
-            navigationController?.setToolbarHidden(hidesToolbar, animated: animated)
+    func layoutToolbar() {
+        if photoCollectionView.indexPathsForSelectedItems?.count == 0 {
+            editToolBarBottomLayout.constant = -(editToolBar.bounds.height + safeAreaInsets.bottom)
+            photoCollectionView.contentInset.bottom = 0
         }
+        else {
+            editToolBarBottomLayout.constant = 10
+            photoCollectionView.contentInset.bottom = editToolBar.bounds.height + 10
+        }
+    }
+    
+    func updateToolBarItems(_ animated: Bool = true) {
+        layoutToolbar()
+        editToolBar.animateUsingSpringIfLayoutConstraintsChanged()
         
-        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancelAllSelection))
-        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let editButton = UIBarButtonItem(title: "Edit \(numberOfSelectedPhotos) \(numberOfSelectedPhotos == 1 ? "Photo" : "Photos")", style: .done, target: self, action: #selector(self.editButtonDidTap))
+        let numberOfSelectedPhotos = photoCollectionView.indexPathsForSelectedItems?.count ?? 0
         
-        setToolbarItems([cancelButton, space, editButton], animated: animated)
+        editButton.title = "Edit \(numberOfSelectedPhotos) \(numberOfSelectedPhotos == 1 ? "Photo" : "Photos")"
     }
 }
 
@@ -129,11 +152,11 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     fileprivate func showPhotoLibrarySettingsAlert() {
-        let alert = UIAlertController(title: "사진 접근 허용", message: "앱 설정에서 사진 접근을 허용해주세요.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "설정", style: .default, handler: { (action) in
+        let alert = UIAlertController(title: "Photos Access Disabled", message: "Please open settings and allow access to your photos", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: { (action) in
             UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
         }))
-        alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
     
@@ -388,3 +411,13 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
     }
 }
 
+extension UIViewController {
+    var safeAreaInsets: UIEdgeInsets {
+        if #available(iOS 11.0, *) {
+            return view.safeAreaInsets
+        }
+        else {
+            return UIEdgeInsets(top: topLayoutGuide.length, left: 0, bottom: bottomLayoutGuide.length, right: 0)
+        }
+    }
+}
