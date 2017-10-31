@@ -66,7 +66,7 @@ class PhotoPickerViewController: UIViewController {
         editButton = UIBarButtonItem(title: "", style: .done, target: self, action: #selector(self.editButtonDidTap))
         
         editToolBar.toolbarItems = [
-            UIBarButtonItem(image: UIImage(named: "cancel"), style: .plain, target: self, action: #selector(self.cancelAllSelection)),
+            UIBarButtonItem(image: UIImage(named: "Cancel"), style: .plain, target: self, action: #selector(self.cancelAllSelection)),
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
             editButton
         ]
@@ -327,6 +327,7 @@ extension PhotoPickerViewController: PHPhotoLibraryChangeObserver {
                     indexPaths.append(IndexPath(item: item, section: section))
                 }
             }
+            guard indexPaths.count > 0 else { return }
             self.photoCollectionView.reloadItems(at: indexPaths)
             self.updateToolBarItems()
         }

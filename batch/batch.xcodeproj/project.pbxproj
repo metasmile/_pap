@@ -13,6 +13,8 @@
 		0A88FF751FA04AD6001C0DC6 /* FloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A88FF741FA04AD6001C0DC6 /* FloatingView.swift */; };
 		0A8C4ADE1F3C15BF00B7246A /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8C4ADD1F3C15BF00B7246A /* RoundedButton.swift */; };
 		0A8D18E11F15DEEF00AABEF7 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D18E01F15DEEF00AABEF7 /* CustomView.swift */; };
+		0A8FDA051FA76EF8002380AA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A8FDA041FA76EF8002380AA /* Launch Screen.storyboard */; };
+		0A8FDA071FA8035D002380AA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8FDA061FA8035D002380AA /* StringExtension.swift */; };
 		0A9CC9291F8774EC00AC91A6 /* PhotoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CC9281F8774EC00AC91A6 /* PhotoEditViewController.swift */; };
 		0A9E4AFA1F8F300200E3E805 /* BatchProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A9E4AF91F8F300200E3E805 /* BatchProgressView.xib */; };
 		0A9E4AFC1F8F303200E3E805 /* BatchProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E4AFB1F8F303200E3E805 /* BatchProgressView.swift */; };
@@ -23,7 +25,6 @@
 		0ABFCF7C1F14B65C0078A583 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABFCF7B1F14B65C0078A583 /* AppDelegate.swift */; };
 		0ABFCF911F14B7190078A583 /* AppStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ABFCF901F14B7190078A583 /* AppStoryboard.storyboard */; };
 		0ABFCF931F14B7CB0078A583 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ABFCF921F14B7CB0078A583 /* Assets.xcassets */; };
-		0ABFCF951F14B7F80078A583 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ABFCF941F14B7F80078A583 /* Launch Screen.storyboard */; };
 		0ABFCF991F14B8A70078A583 /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABFCF981F14B8A70078A583 /* PhotoPickerViewController.swift */; };
 		28B58A4258EFA57A287EE746 /* Pods_batch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281B8EE7F3B930519ABFAAA4 /* Pods_batch.framework */; };
 /* End PBXBuildFile section */
@@ -35,6 +36,8 @@
 		0A88FF741FA04AD6001C0DC6 /* FloatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FloatingView.swift; path = Classes/FloatingView.swift; sourceTree = "<group>"; };
 		0A8C4ADD1F3C15BF00B7246A /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundedButton.swift; path = Classes/RoundedButton.swift; sourceTree = "<group>"; };
 		0A8D18E01F15DEEF00AABEF7 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomView.swift; path = Classes/CustomView.swift; sourceTree = "<group>"; };
+		0A8FDA041FA76EF8002380AA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "Resources/Launch Screen.storyboard"; sourceTree = "<group>"; };
+		0A8FDA061FA8035D002380AA /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = Classes/StringExtension.swift; sourceTree = "<group>"; };
 		0A9CC9281F8774EC00AC91A6 /* PhotoEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoEditViewController.swift; path = Classes/PhotoEditViewController.swift; sourceTree = "<group>"; };
 		0A9E4AF91F8F300200E3E805 /* BatchProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BatchProgressView.xib; path = Resources/Interfaces/BatchProgressView.xib; sourceTree = "<group>"; };
 		0A9E4AFB1F8F303200E3E805 /* BatchProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BatchProgressView.swift; path = Classes/BatchProgressView.swift; sourceTree = "<group>"; };
@@ -47,7 +50,6 @@
 		0ABFCF871F14B65C0078A583 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0ABFCF901F14B7190078A583 /* AppStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = AppStoryboard.storyboard; path = Resources/Interfaces/AppStoryboard.storyboard; sourceTree = "<group>"; };
 		0ABFCF921F14B7CB0078A583 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
-		0ABFCF941F14B7F80078A583 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "Resources/Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0ABFCF981F14B8A70078A583 /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoPickerViewController.swift; path = Classes/PhotoPickerViewController.swift; sourceTree = "<group>"; };
 		281B8EE7F3B930519ABFAAA4 /* Pods_batch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_batch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		614D248BD87AEAE91795DFC4 /* Pods-batch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch.release.xcconfig"; path = "Pods/Target Support Files/Pods-batch/Pods-batch.release.xcconfig"; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				0A7459E81F709ADA00CA70E1 /* Geometry.swift */,
+				0A8FDA061FA8035D002380AA /* StringExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -148,7 +151,7 @@
 			children = (
 				0ABFCF8E1F14B6F40078A583 /* User Interfaces */,
 				0ABFCF921F14B7CB0078A583 /* Assets.xcassets */,
-				0ABFCF941F14B7F80078A583 /* Launch Screen.storyboard */,
+				0A8FDA041FA76EF8002380AA /* Launch Screen.storyboard */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -254,13 +257,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0ABFCF951F14B7F80078A583 /* Launch Screen.storyboard in Resources */,
 				0ABFCF931F14B7CB0078A583 /* Assets.xcassets in Resources */,
 				0A9EC7741F30735B00F1EF3A /* PhotoCollectionViewCell.xib in Resources */,
 				0A66CD4E1F9592A600A97726 /* FloatingToolbar.xib in Resources */,
 				0AB938361F82127A00181359 /* PhotoCollectionTitleView.xib in Resources */,
 				0A9E4AFA1F8F300200E3E805 /* BatchProgressView.xib in Resources */,
 				0ABFCF911F14B7190078A583 /* AppStoryboard.storyboard in Resources */,
+				0A8FDA051FA76EF8002380AA /* Launch Screen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +330,7 @@
 				0AA1A07D1F4D1232006297DF /* BatchItem.swift in Sources */,
 				0ABFCF991F14B8A70078A583 /* PhotoPickerViewController.swift in Sources */,
 				0A8C4ADE1F3C15BF00B7246A /* RoundedButton.swift in Sources */,
+				0A8FDA071FA8035D002380AA /* StringExtension.swift in Sources */,
 				0A66CD501F95935500A97726 /* FloatingToolbar.swift in Sources */,
 				0A7459E91F709ADA00CA70E1 /* Geometry.swift in Sources */,
 				0A88FF751FA04AD6001C0DC6 /* FloatingView.swift in Sources */,
@@ -434,9 +438,9 @@
 			baseConfigurationReference = E6C115FBD773BA835480B08C /* Pods-batch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = GQSL8K29RW;
 				INFOPLIST_FILE = batch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ai.codeful.batch;
 				PRODUCT_NAME = "${TARGET_NAME}";
@@ -449,9 +453,9 @@
 			baseConfigurationReference = 614D248BD87AEAE91795DFC4 /* Pods-batch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = GQSL8K29RW;
 				INFOPLIST_FILE = batch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ai.codeful.batch;
 				PRODUCT_NAME = "${TARGET_NAME}";

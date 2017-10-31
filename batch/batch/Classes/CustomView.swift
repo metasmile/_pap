@@ -43,7 +43,7 @@ class RoundedView: DesignableView {
     @IBInspectable
     var cornerRadius: CGFloat = 6 {
         didSet {
-            layer.cornerRadius = cornerRadius
+            layoutIfNeeded()
         }
     }
     
@@ -51,6 +51,15 @@ class RoundedView: DesignableView {
         super.initialize()
         
         clipsToBounds = true
+    }
+    
+    override func layoutIfNeeded() {
+        super.layoutSubviews()
+        
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).cgPath
+        maskLayer.fillColor = UIColor.black.cgColor
+        layer.mask = maskLayer
     }
 }
 

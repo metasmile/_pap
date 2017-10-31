@@ -53,8 +53,10 @@ class FloatingView: DesignableView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        roundedContainerView.layoutIfNeeded()
+        
         borderLayer.path = UIBezierPath(roundedRect: roundedContainerView.frame, cornerRadius: roundedContainerView.cornerRadius).cgPath
-        shadowLayer.shadowPath = UIBezierPath(roundedRect: roundedContainerView.frame, cornerRadius: roundedContainerView.cornerRadius * 0.5).cgPath
+        shadowLayer.shadowPath = UIBezierPath(roundedRect: roundedContainerView.frame, cornerRadius: roundedContainerView.cornerRadius).cgPath
     }
 }
 

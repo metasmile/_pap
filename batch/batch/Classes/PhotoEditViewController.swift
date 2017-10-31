@@ -55,12 +55,12 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
         editToolbar.toolbar.barTintColor = UIColor(red: 31 / 255.0, green: 31 / 255.0, blue: 31 / 255.0, alpha: 1.0)
         
         editToolbar.toolbarItems = editToolbarItems
+        
+        doneButton?.image = UIImage(named: "Edit Done Bar Button")
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        photoZoomingView.contentInset.bottom = editToolbar.bounds.height + 48
         
         updatePreview()
     }
@@ -77,17 +77,18 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
     
     func updateImageViewLayout() {
         if let image = image {
-            let bounds = UIEdgeInsetsInsetRect(photoZoomingView.bounds, photoZoomingView.contentInset)
+            let bounding    Box = UIEdgeInsetsInsetRect(photoZoomingView.bounds, UIEdgeInsets(top: safeAreaInsets.top, left: safeAreaInsets.left, bottom: safeAreaInsets.bottom + editToolbar.bounds.height, right: safeAreaInsets.right))
+            
             let scale = image.size.width / image.size.applying(editItem.transform).magnitude.width
             
-            let contentSize = image.size.aspectFit(in: bounds.size).applying(CGAffineTransform(scaleX: scale, y: scale)).magnitude
+            let contentSize = image.size.aspectFit(in: boundingBox.size).applying(CGAffineTransform(scaleX: scale, y: scale)).magnitude
             zoomingContentView.frame.size = contentSize
             
             imageView.frame.origin = .zero
             imageView.frame.size = contentSize
             photoZoomingView.contentSize = contentSize
             
-            zoomingContentView.center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
+            zoomingContentView.center = CGPoint(x: boundingBox.width / 2, y: boundingBox.height / 2)
             imageView.center = CGPoint(x: contentSize.width / 2, y: contentSize.height / 2)
         }
     }
