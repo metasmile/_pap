@@ -21,6 +21,8 @@
 		0A9EC7741F30735B00F1EF3A /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A9EC7731F30735B00F1EF3A /* PhotoCollectionViewCell.xib */; };
 		0AA1A07D1F4D1232006297DF /* BatchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA1A07C1F4D1232006297DF /* BatchItem.swift */; };
 		0AA382621F4ECA420031BAB5 /* BatchEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA382611F4ECA420031BAB5 /* BatchEditViewController.swift */; };
+		0AA891701FA9662A00748799 /* BadgeIconView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA8916F1FA9662A00748799 /* BadgeIconView.xib */; };
+		0AA891721FA967B700748799 /* BadgeIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA891711FA967B700748799 /* BadgeIconView.swift */; };
 		0AB938361F82127A00181359 /* PhotoCollectionTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AB938351F82127A00181359 /* PhotoCollectionTitleView.xib */; };
 		0ABFCF7C1F14B65C0078A583 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABFCF7B1F14B65C0078A583 /* AppDelegate.swift */; };
 		0ABFCF911F14B7190078A583 /* AppStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ABFCF901F14B7190078A583 /* AppStoryboard.storyboard */; };
@@ -44,6 +46,8 @@
 		0A9EC7731F30735B00F1EF3A /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PhotoCollectionViewCell.xib; path = Resources/Interfaces/PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		0AA1A07C1F4D1232006297DF /* BatchItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BatchItem.swift; path = Classes/BatchItem.swift; sourceTree = "<group>"; };
 		0AA382611F4ECA420031BAB5 /* BatchEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BatchEditViewController.swift; path = Classes/BatchEditViewController.swift; sourceTree = "<group>"; };
+		0AA8916F1FA9662A00748799 /* BadgeIconView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BadgeIconView.xib; path = Resources/Interfaces/BadgeIconView.xib; sourceTree = "<group>"; };
+		0AA891711FA967B700748799 /* BadgeIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BadgeIconView.swift; path = Classes/BadgeIconView.swift; sourceTree = "<group>"; };
 		0AB938351F82127A00181359 /* PhotoCollectionTitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PhotoCollectionTitleView.xib; path = Resources/Interfaces/PhotoCollectionTitleView.xib; sourceTree = "<group>"; };
 		0ABFCF781F14B65C0078A583 /* batch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = batch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ABFCF7B1F14B65C0078A583 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +98,7 @@
 				0A9E4AFB1F8F303200E3E805 /* BatchProgressView.swift */,
 				0A88FF741FA04AD6001C0DC6 /* FloatingView.swift */,
 				0A66CD4F1F95935500A97726 /* FloatingToolbar.swift */,
+				0AA891711FA967B700748799 /* BadgeIconView.swift */,
 			);
 			name = "Custom Controls";
 			sourceTree = "<group>";
@@ -113,6 +118,7 @@
 				0AB938351F82127A00181359 /* PhotoCollectionTitleView.xib */,
 				0A9E4AF91F8F300200E3E805 /* BatchProgressView.xib */,
 				0A66CD4D1F9592A600A97726 /* FloatingToolbar.xib */,
+				0AA8916F1FA9662A00748799 /* BadgeIconView.xib */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -258,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0ABFCF931F14B7CB0078A583 /* Assets.xcassets in Resources */,
+				0AA891701FA9662A00748799 /* BadgeIconView.xib in Resources */,
 				0A9EC7741F30735B00F1EF3A /* PhotoCollectionViewCell.xib in Resources */,
 				0A66CD4E1F9592A600A97726 /* FloatingToolbar.xib in Resources */,
 				0AB938361F82127A00181359 /* PhotoCollectionTitleView.xib in Resources */,
@@ -333,6 +340,7 @@
 				0A8FDA071FA8035D002380AA /* StringExtension.swift in Sources */,
 				0A66CD501F95935500A97726 /* FloatingToolbar.swift in Sources */,
 				0A7459E91F709ADA00CA70E1 /* Geometry.swift in Sources */,
+				0AA891721FA967B700748799 /* BadgeIconView.swift in Sources */,
 				0A88FF751FA04AD6001C0DC6 /* FloatingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

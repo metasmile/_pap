@@ -50,7 +50,7 @@ class RoundedView: DesignableView {
     override func initialize() {
         super.initialize()
         
-        clipsToBounds = true
+        layoutIfNeeded()
     }
     
     override func layoutIfNeeded() {
@@ -133,7 +133,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
         initialize()
     }
     
-    private func initialize() {
+    func initialize() {
         guard let view = loadViewFromNib() else { return }
         contentView.addSubview(view)
         

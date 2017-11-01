@@ -353,12 +353,26 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         didSet {
             selectionViewWidth.constant = selectionViewSize.width
             selectionViewHeight.constant = selectionViewSize.height
+            
+            selectionBorderLayer.path = UIBezierPath(rect: CGRect(origin: .zero, size: selectionViewSize)).cgPath
         }
     }
+    
+    var selectionBorderLayer: CAShapeLayer!
     
     var indexPath: IndexPath?
     var imageRequestId: PHImageRequestID?
     var imageContentMode = PHImageContentMode.aspectFit
+    
+    override func initialize() {
+        super.initialize()
+        
+        selectionBorderLayer = CAShapeLayer()
+        selectionBorderLayer.strokeColor = tintColor.cgColor
+        selectionBorderLayer.lineWidth = 6
+        selectionBorderLayer.fillColor = UIColor.clear.cgColor
+        selectionView.layer.addSublayer(selectionBorderLayer)
+    }
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -372,6 +386,12 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
             PhotoManager.cachingImageManager.cancelImageRequest(imageRequestId)
         }
         imageRequestId = nil
+    }
+    
+    override func tintColorDidChange() {
+        super.tintColorDidChange()
+        
+        selectionBorderLayer.strokeColor = tintColor.cgColor
     }
     
     func setAsset(_ asset: PHAsset, at indexPath: IndexPath) {
