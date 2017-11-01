@@ -77,16 +77,16 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
     
     func updateImageViewLayout() {
         if let image = image {
-            let bounding    Box = UIEdgeInsetsInsetRect(photoZoomingView.bounds, UIEdgeInsets(top: safeAreaInsets.top, left: safeAreaInsets.left, bottom: safeAreaInsets.bottom + editToolbar.bounds.height, right: safeAreaInsets.right))
+            let boundingBox = UIEdgeInsetsInsetRect(photoZoomingView.bounds, UIEdgeInsets(top: safeAreaInsets.top, left: safeAreaInsets.left, bottom: safeAreaInsets.bottom + editToolbar.bounds.height, right: safeAreaInsets.right))
             
-            let scale = image.size.width / image.size.applying(editItem.transform).magnitude.width
+            let actualContentSize = image.size.applying(editItem.transform).magnitude.aspectFit(in: boundingBox.size)
+            let contentSize = actualContentSize.applying(editItem.transform.inverted()).magnitude
             
-            let contentSize = image.size.aspectFit(in: boundingBox.size).applying(CGAffineTransform(scaleX: scale, y: scale)).magnitude
             zoomingContentView.frame.size = contentSize
             
             imageView.frame.origin = .zero
             imageView.frame.size = contentSize
-            photoZoomingView.contentSize = contentSize
+            photoZoomingView.contentSize = actualContentSize
             
             zoomingContentView.center = CGPoint(x: boundingBox.width / 2, y: boundingBox.height / 2)
             imageView.center = CGPoint(x: contentSize.width / 2, y: contentSize.height / 2)
