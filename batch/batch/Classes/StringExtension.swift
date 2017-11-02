@@ -12,4 +12,10 @@ extension String {
     var localizedString: String {
         return NSLocalizedString(self, comment: "")
     }
+    
+    func localizedFormattedString(_ arguments: CVarArg...) -> String {
+        return withVaList(arguments) {
+            return NSString(format: self.localizedString, arguments: $0) as String
+        }
+    }
 }

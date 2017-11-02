@@ -66,7 +66,7 @@ class PhotoPickerViewController: UIViewController {
         editButton = UIBarButtonItem(title: "", style: .done, target: self, action: #selector(self.editButtonDidTap))
         
         editToolBar.toolbarItems = [
-            UIBarButtonItem(image: UIImage(named: "Cancel"), style: .plain, target: self, action: #selector(self.cancelAllSelection)),
+            UIBarButtonItem(image: UIImage(named: "Cancel".localizedString), style: .plain, target: self, action: #selector(self.cancelAllSelection)),
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
             editButton
         ]
@@ -97,9 +97,7 @@ class PhotoPickerViewController: UIViewController {
         layoutToolbar()
         editToolBar.animateUsingSpringIfLayoutConstraintsChanged()
         
-        let numberOfSelectedPhotos = photoCollectionView.indexPathsForSelectedItems?.count ?? 0
-        
-        editButton.title = "Edit \(numberOfSelectedPhotos) \(numberOfSelectedPhotos == 1 ? "Photo" : "Photos")"
+        editButton.title = "Edit %d photo(s)".localizedFormattedString(photoCollectionView.indexPathsForSelectedItems?.count ?? 0)
     }
 }
 
@@ -152,11 +150,11 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     fileprivate func showPhotoLibrarySettingsAlert() {
-        let alert = UIAlertController(title: "Photos Access Disabled", message: "Please open settings and allow access to your photos", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: { (action) in
+        let alert = UIAlertController(title: "Photos Access Disabled".localizedString, message: "Please open settings and allow access to your photos".localizedString, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Open Settings".localizedString, style: .default, handler: { (action) in
             UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel".localizedString, style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
     
@@ -222,7 +220,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionElementKindSectionHeader {
             let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "PhotoCollectionTitleView", for: indexPath) as! PhotoCollectionTitleView
-            view.title = "Select photos to batch edit"
+            view.title = "Select photos to batch edit".localizedString
             return view
         }
         else {

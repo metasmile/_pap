@@ -23,6 +23,8 @@
 		0AA382621F4ECA420031BAB5 /* BatchEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA382611F4ECA420031BAB5 /* BatchEditViewController.swift */; };
 		0AA891701FA9662A00748799 /* BadgeIconView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA8916F1FA9662A00748799 /* BadgeIconView.xib */; };
 		0AA891721FA967B700748799 /* BadgeIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA891711FA967B700748799 /* BadgeIconView.swift */; };
+		0AA891751FA96D1A00748799 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AA891771FA96D1A00748799 /* Localizable.strings */; };
+		0AA8917A1FA9899900748799 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 0AA8917C1FA9899A00748799 /* Localizable.stringsdict */; };
 		0AB938361F82127A00181359 /* PhotoCollectionTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AB938351F82127A00181359 /* PhotoCollectionTitleView.xib */; };
 		0ABFCF7C1F14B65C0078A583 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABFCF7B1F14B65C0078A583 /* AppDelegate.swift */; };
 		0ABFCF911F14B7190078A583 /* AppStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ABFCF901F14B7190078A583 /* AppStoryboard.storyboard */; };
@@ -48,6 +50,8 @@
 		0AA382611F4ECA420031BAB5 /* BatchEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BatchEditViewController.swift; path = Classes/BatchEditViewController.swift; sourceTree = "<group>"; };
 		0AA8916F1FA9662A00748799 /* BadgeIconView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BadgeIconView.xib; path = Resources/Interfaces/BadgeIconView.xib; sourceTree = "<group>"; };
 		0AA891711FA967B700748799 /* BadgeIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BadgeIconView.swift; path = Classes/BadgeIconView.swift; sourceTree = "<group>"; };
+		0AA891761FA96D1A00748799 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0AA8917B1FA9899A00748799 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		0AB938351F82127A00181359 /* PhotoCollectionTitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PhotoCollectionTitleView.xib; path = Resources/Interfaces/PhotoCollectionTitleView.xib; sourceTree = "<group>"; };
 		0ABFCF781F14B65C0078A583 /* batch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = batch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ABFCF7B1F14B65C0078A583 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +162,8 @@
 				0ABFCF8E1F14B6F40078A583 /* User Interfaces */,
 				0ABFCF921F14B7CB0078A583 /* Assets.xcassets */,
 				0A8FDA041FA76EF8002380AA /* Launch Screen.storyboard */,
+				0AA891771FA96D1A00748799 /* Localizable.strings */,
+				0AA8917C1FA9899A00748799 /* Localizable.stringsdict */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -264,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0ABFCF931F14B7CB0078A583 /* Assets.xcassets in Resources */,
+				0AA8917A1FA9899900748799 /* Localizable.stringsdict in Resources */,
 				0AA891701FA9662A00748799 /* BadgeIconView.xib in Resources */,
 				0A9EC7741F30735B00F1EF3A /* PhotoCollectionViewCell.xib in Resources */,
 				0A66CD4E1F9592A600A97726 /* FloatingToolbar.xib in Resources */,
@@ -271,6 +278,7 @@
 				0A9E4AFA1F8F300200E3E805 /* BatchProgressView.xib in Resources */,
 				0ABFCF911F14B7190078A583 /* AppStoryboard.storyboard in Resources */,
 				0A8FDA051FA76EF8002380AA /* Launch Screen.storyboard in Resources */,
+				0AA891751FA96D1A00748799 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +354,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0AA891771FA96D1A00748799 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0AA891761FA96D1A00748799 /* en */,
+			);
+			name = Localizable.strings;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0AA8917C1FA9899A00748799 /* Localizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0AA8917B1FA9899A00748799 /* en */,
+			);
+			name = Localizable.stringsdict;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		0ABFCF881F14B65C0078A583 /* Debug */ = {

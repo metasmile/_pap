@@ -31,7 +31,7 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Edit"
+        title = "Edit".localizedString
         
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.barStyle = .black

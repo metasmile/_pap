@@ -95,7 +95,7 @@ class BatchEditViewController: EditToolbarViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Batch Edit"
+        title = "Batch Edit".localizedString
         
         editToolbar.toolbarItems = editToolbarItems
         
@@ -182,10 +182,10 @@ class BatchEditViewController: EditToolbarViewController {
         }
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Discard Changes", style: .destructive, handler: { (action) in
+        alert.addAction(UIAlertAction(title: "Discard Changes".localizedString, style: .destructive, handler: { (action) in
             self.delegate?.batchEditViewControllerDidCancelEditing(self)
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel".localizedString, style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
     
@@ -229,7 +229,7 @@ class BatchEditViewController: EditToolbarViewController {
 
 extension BatchEditViewController {
     func runBatchProcessing() {
-        batchProgressView.title = "Start Batch Editing..."
+        batchProgressView.title = "Start Batch Editing...".localizedString
         batchProgressView.setProgress(0, animated: false)
         
         UIView.transition(with: dimmedView, duration: 0.2, options: .transitionCrossDissolve, animations: {
@@ -261,7 +261,7 @@ extension BatchEditViewController {
                     }
                     
                     DispatchQueue.main.async { [weak self] in
-                        self?.batchProgressView.title = "Processing..."
+                        self?.batchProgressView.title = "Processing...".localizedString
                         self?.batchProgressView.setProgress(Float(i + 1) / Float(self?.batchEditItems.count ?? 1), animated: true)
                         
                         self?.previewCollectionView.scrollToItem(at: IndexPath(item: i, section: 0), at: .centeredHorizontally, animated: true)
@@ -278,7 +278,7 @@ extension BatchEditViewController {
         editTaskQueue.performNext()
         
         mainTaskGroup.notify(queue: DispatchQueue.main) { [unowned self] in
-            self.batchProgressView.title = "Saving Photos..."
+            self.batchProgressView.title = "Saving Photos...".localizedString
             
             PHPhotoLibrary.shared().performChanges({
                 for assetChangeInfo in assetChangeInfos {
