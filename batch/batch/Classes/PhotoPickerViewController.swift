@@ -294,6 +294,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         navigationController.isHeroEnabled = true
         navigationController.heroModalAnimationType = .selectBy(presenting:.zoom, dismissing:.zoomOut)
         navigationController.heroNavigationAnimationType = .none
+        navigationController.modalPresentationStyle = .overCurrentContext
         
         present(navigationController, animated: true, completion: nil)
     }

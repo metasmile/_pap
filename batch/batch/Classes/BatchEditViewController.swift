@@ -346,6 +346,8 @@ extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewD
         cell.imageView.layer.transform = CATransform3DIdentity
         cell.imageView.transform = batchEditItems[indexPath.item].editItem.transform
         
+        cell.imageView.heroModifiers = [.fade]
+        
         let photoEditViewController = storyboard?.instantiateViewController(withIdentifier: "PhotoEditViewController") as! PhotoEditViewController
         photoEditViewController.image = cell.imageView.image?.applyTransform(batchEditItems[indexPath.item].editItem.transform)
         photoEditViewController.indexPathInBatch = indexPath
