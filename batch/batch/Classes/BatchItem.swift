@@ -13,14 +13,18 @@ import MobileCoreServices
 class TaskQueue: NSObject {
     private var taskItems = [DispatchWorkItem]()
     private let taskQueue = DispatchQueue(label: "ai.codeful.batch.dispatchQueue.taskQueue")
+    private var finishBlock: (() -> Void)?
     
-    func addTask(_ task: DispatchWorkItem) {
-        taskItems.append(task)
+    func addTask(_ task: @escaping () -> Void) {
+        taskItems.append(DispatchWorkItem(block: task))
     }
     
     func performNext() {
         if !taskItems.isEmpty {
             taskQueue.async(execute: taskItems.removeFirst())
+        }
+        else {
+            finishBlock?()
         }
     }
     
@@ -33,6 +37,12 @@ class TaskQueue: NSObject {
             taskItem.cancel()
         }
         taskItems.removeAll()
+        
+        finishBlock = nil
+    }
+    
+    func setFinishBlock(_ block: (() -> Void)?) {
+        finishBlock = block
     }
 }
 

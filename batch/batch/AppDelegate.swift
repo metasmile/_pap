@@ -21,6 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // global tint color
         // r:255 g:117 b:0
         
+        // https://www.foxmovies.com/movies/murder-on-the-orient-express
+        // 99 192 244
+        
+        
         UINavigationBar.appearance().barTintColor = UIColor.white
         UINavigationBar.appearance().shadowImage = UIImage()
         

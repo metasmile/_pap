@@ -99,6 +99,9 @@ class BatchEditViewController: EditToolbarViewController {
         
         editToolbar.toolbarItems = editToolbarItems
         
+        batchProgressView.titleLabel.textColor = view.tintColor
+        batchProgressView.cancelButton.addTarget(self, action: #selector(self.cancelBatchButtonDidTap), for: .touchUpInside)
+        
         updateToolBarButtonStatus()
         
         setupPreviewCollectionView()
@@ -116,6 +119,50 @@ class BatchEditViewController: EditToolbarViewController {
     }
     
     // MARK: - Editing
+    
+    func cancelBatchButtonDidTap(sender: Any) {
+        editTaskQueue.cancel()
+        
+        closeBatchProgressView()
+    }
+    
+    fileprivate func closeBatchProgressView() {
+        batchProgressView.title = nil
+        batchProgressView.setProgress(0, animated: false)
+        
+        batchProgressViewBottomLayout.constant = -(self.batchProgressView.bounds.height + self.safeAreaInsets.bottom)
+        UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: .beginFromCurrentState, animations: {
+            self.batchProgressView.superview?.layoutIfNeeded()
+        }) { (finished) in
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            
+            self.editToolbarBottomLayout.constant = 10
+            self.editToolbar.animateUsingSpringIfLayoutConstraintsChanged()
+        }
+        
+        UIView.transition(with: self.dimmedView, duration: 0.2, options: .transitionCrossDissolve, animations: {
+            self.dimmedView.isHidden = true
+        }, completion: nil)
+    }
+    
+    fileprivate func showBatchProgressView() {
+        batchProgressView.title = "Start Batch Editing...".localizedString
+        batchProgressView.setProgress(0, animated: false)
+        
+        UIView.transition(with: dimmedView, duration: 0.2, options: .transitionCrossDissolve, animations: {
+            self.dimmedView.isHidden = false
+        }, completion: nil)
+        
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        editToolbarBottomLayout.constant = -(editToolbar.bounds.height + safeAreaInsets.bottom)
+        editToolbar.animateUsingSpringIfLayoutConstraintsChanged()
+        
+        batchProgressViewBottomLayout.constant = 10
+        UIView.animate(withDuration: 0.3, delay: 0.3, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: .beginFromCurrentState, animations: {
+            self.batchProgressView.superview?.layoutIfNeeded()
+        }, completion: nil)
+    }
     
     var hasChanges: Bool {
         return batchEditItems.map({ $0.editItem.hasChanges }).contains(true)
@@ -229,32 +276,12 @@ class BatchEditViewController: EditToolbarViewController {
 
 extension BatchEditViewController {
     func runBatchProcessing() {
-        batchProgressView.title = "Start Batch Editing...".localizedString
-        batchProgressView.setProgress(0, animated: false)
-        
-        UIView.transition(with: dimmedView, duration: 0.2, options: .transitionCrossDissolve, animations: {
-            self.dimmedView.isHidden = false
-        }, completion: nil)
-        
-        navigationController?.setNavigationBarHidden(true, animated: true)
-        
-        editToolbarBottomLayout.constant = -(editToolbar.bounds.height + safeAreaInsets.bottom)
-        editToolbar.animateUsingSpringIfLayoutConstraintsChanged()
-        
-        batchProgressViewBottomLayout.constant = 10
-        UIView.animate(withDuration: 0.3, delay: 0.3, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: .beginFromCurrentState, animations: {
-            self.batchProgressView.superview?.layoutIfNeeded()
-        }) { (finished) in
-            
-        }
+        showBatchProgressView()
         
         var assetChangeInfos = [(PHAsset, PHContentEditingOutput)]()
         
-        let mainTaskGroup = DispatchGroup()
         for (i, batchEditItem) in batchEditItems.enumerated() {
-            mainTaskGroup.enter()
-            
-            editTaskQueue.addTask(DispatchWorkItem { [weak self] in
+            editTaskQueue.addTask({ [weak self] in
                 batchEditItem.runEditing { [weak self] (asset, contentEditingOutput) in
                     if let asset = asset, let contentEditingOutput = contentEditingOutput {
                         assetChangeInfos.append((asset, contentEditingOutput))
@@ -266,8 +293,6 @@ extension BatchEditViewController {
                         
                         self?.previewCollectionView.scrollToItem(at: IndexPath(item: i, section: 0), at: .centeredHorizontally, animated: true)
                         self?.previewCollectionView.performBatchUpdates(nil, completion: { [weak self] (finished) in
-                            mainTaskGroup.leave()
-                            
                             self?.editTaskQueue.performNext()
                         })
                     }
@@ -275,9 +300,7 @@ extension BatchEditViewController {
             })
         }
         
-        editTaskQueue.performNext()
-        
-        mainTaskGroup.notify(queue: DispatchQueue.main) { [unowned self] in
+        editTaskQueue.setFinishBlock { [unowned self] in
             self.batchProgressView.title = "Saving Photos...".localizedString
             
             PHPhotoLibrary.shared().performChanges({
@@ -286,22 +309,7 @@ extension BatchEditViewController {
                 }
             }, completionHandler: { (success, info) in
                 DispatchQueue.main.async { [unowned self] in
-                    self.batchProgressView.title = nil
-                    self.batchProgressView.setProgress(0, animated: false)
-                    
-                    self.batchProgressViewBottomLayout.constant = -(self.batchProgressView.bounds.height + self.safeAreaInsets.bottom)
-                    UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: .beginFromCurrentState, animations: {
-                        self.batchProgressView.superview?.layoutIfNeeded()
-                    }) { (finished) in
-                        self.navigationController?.setNavigationBarHidden(false, animated: true)
-                        
-                        self.editToolbarBottomLayout.constant = 10
-                        self.editToolbar.animateUsingSpringIfLayoutConstraintsChanged()
-                    }
-                    
-                    UIView.transition(with: self.dimmedView, duration: 0.2, options: .transitionCrossDissolve, animations: {
-                        self.dimmedView.isHidden = true
-                    }, completion: nil)
+                    self.closeBatchProgressView()
                     
                     if success {
                         self.delegate?.batchEditViewControllerDidFinishEditing(self)
@@ -309,6 +317,7 @@ extension BatchEditViewController {
                 }
             })
         }
+        editTaskQueue.performNext()
     }
 }
 
