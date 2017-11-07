@@ -5,6 +5,7 @@ target 'batch' do
   
   pod 'RealmSwift'
   pod 'Hero'
+  pod 'Firebase/Core'
 end
 
 post_install do |installer|

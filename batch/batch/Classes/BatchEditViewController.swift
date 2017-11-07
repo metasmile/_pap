@@ -10,6 +10,7 @@ import UIKit
 import Photos
 import AVFoundation
 import Hero
+import Firebase
 
 protocol BatchEditViewControllerDelegate {
     func batchEditViewControllerDidFinishEditing(_ editor: BatchEditViewController)
@@ -312,6 +313,7 @@ extension BatchEditViewController {
                     self.closeBatchProgressView()
                     
                     if success {
+                        Analytics.logEvent("log.export.save", parameters: ["number_of_items": self.batchEditItems.count])
                         self.delegate?.batchEditViewControllerDidFinishEditing(self)
                     }
                 }

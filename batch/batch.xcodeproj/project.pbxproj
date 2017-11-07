@@ -10,6 +10,7 @@
 		0A66CD4E1F9592A600A97726 /* FloatingToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A66CD4D1F9592A600A97726 /* FloatingToolbar.xib */; };
 		0A66CD501F95935500A97726 /* FloatingToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A66CD4F1F95935500A97726 /* FloatingToolbar.swift */; };
 		0A7459E91F709ADA00CA70E1 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7459E81F709ADA00CA70E1 /* Geometry.swift */; };
+		0A771E901FB1429800BBFCD7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A771E8F1FB1429700BBFCD7 /* GoogleService-Info.plist */; };
 		0A88FF751FA04AD6001C0DC6 /* FloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A88FF741FA04AD6001C0DC6 /* FloatingView.swift */; };
 		0A8C4ADE1F3C15BF00B7246A /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8C4ADD1F3C15BF00B7246A /* RoundedButton.swift */; };
 		0A8D18E11F15DEEF00AABEF7 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D18E01F15DEEF00AABEF7 /* CustomView.swift */; };
@@ -37,6 +38,7 @@
 		0A66CD4D1F9592A600A97726 /* FloatingToolbar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FloatingToolbar.xib; path = Resources/Interfaces/FloatingToolbar.xib; sourceTree = "<group>"; };
 		0A66CD4F1F95935500A97726 /* FloatingToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FloatingToolbar.swift; path = Classes/FloatingToolbar.swift; sourceTree = "<group>"; };
 		0A7459E81F709ADA00CA70E1 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geometry.swift; path = Classes/Geometry.swift; sourceTree = "<group>"; };
+		0A771E8F1FB1429700BBFCD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0A88FF741FA04AD6001C0DC6 /* FloatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FloatingView.swift; path = Classes/FloatingView.swift; sourceTree = "<group>"; };
 		0A8C4ADD1F3C15BF00B7246A /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundedButton.swift; path = Classes/RoundedButton.swift; sourceTree = "<group>"; };
 		0A8D18E01F15DEEF00AABEF7 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomView.swift; path = Classes/CustomView.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				0ABFCF8D1F14B6EF0078A583 /* Resources */,
 				0ABFCF7B1F14B65C0078A583 /* AppDelegate.swift */,
 				0ABFCF871F14B65C0078A583 /* Info.plist */,
+				0A771E8F1FB1429700BBFCD7 /* GoogleService-Info.plist */,
 			);
 			path = batch;
 			sourceTree = "<group>";
@@ -242,7 +245,7 @@
 					0ABFCF771F14B65C0078A583 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = GQSL8K29RW;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -277,6 +280,7 @@
 				0AB938361F82127A00181359 /* PhotoCollectionTitleView.xib in Resources */,
 				0A9E4AFA1F8F300200E3E805 /* BatchProgressView.xib in Resources */,
 				0ABFCF911F14B7190078A583 /* AppStoryboard.storyboard in Resources */,
+				0A771E901FB1429800BBFCD7 /* GoogleService-Info.plist in Resources */,
 				0A8FDA051FA76EF8002380AA /* Launch Screen.storyboard in Resources */,
 				0AA891751FA96D1A00748799 /* Localizable.strings in Resources */,
 			);
@@ -475,12 +479,15 @@
 			baseConfigurationReference = E6C115FBD773BA835480B08C /* Pods-batch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = GQSL8K29RW;
 				INFOPLIST_FILE = batch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ai.codeful.batch;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "59a052c1-a410-47bf-abf1-6c628d0fb071";
+				PROVISIONING_PROFILE_SPECIFIER = "batch development provisioning";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -490,12 +497,16 @@
 			baseConfigurationReference = 614D248BD87AEAE91795DFC4 /* Pods-batch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = GQSL8K29RW;
 				INFOPLIST_FILE = batch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ai.codeful.batch;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "513f518b-4fd1-4ea4-a57c-9e66388f4cad";
+				PROVISIONING_PROFILE_SPECIFIER = "batch app store provisioning";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
