@@ -12,7 +12,7 @@ import MobileCoreServices
 
 class TaskQueue: NSObject {
     private var taskItems = [DispatchWorkItem]()
-    private let taskQueue = DispatchQueue(label: "com.stells.btch.dispatchQueue.taskQueue")
+    private let taskQueue = DispatchQueue(label: "com.stells.batch.dispatchQueue.taskQueue")
     private var finishBlock: (() -> Void)?
     
     func addTask(_ task: @escaping () -> Void) {
