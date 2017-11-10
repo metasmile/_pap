@@ -513,7 +513,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stells.btch;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "8b4e7d11-03bb-4c1e-b986-53aefcf93a06";
+				PROVISIONING_PROFILE = "296806e3-0389-405c-8e4a-94d419f77f52";
 				PROVISIONING_PROFILE_SPECIFIER = "com.stells.btch Development";
 				SWIFT_VERSION = 3.0;
 			};
