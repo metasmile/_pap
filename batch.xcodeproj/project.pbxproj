@@ -511,10 +511,10 @@
 				INFOPLIST_FILE = batch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.stells.batch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stells.btch;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "8b4e7d11-03bb-4c1e-b986-53aefcf93a06";
-				PROVISIONING_PROFILE_SPECIFIER = "com.stells.batch Development";
+				PROVISIONING_PROFILE_SPECIFIER = "com.stells.btch Development";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -530,10 +530,10 @@
 				INFOPLIST_FILE = batch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.stells.batch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stells.btch;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "e3ed7be2-b932-4a72-bd92-ee88ffa8c04e";
-				PROVISIONING_PROFILE_SPECIFIER = "com.stells.batch AppStore";
+				PROVISIONING_PROFILE = "b1f5f5c2-24cb-4415-8168-a5703f1264d4";
+				PROVISIONING_PROFILE_SPECIFIER = "com.stells.btch AppStore";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

@@ -1,11 +1,11 @@
-default_target: com.stells.batch
+default_target: com.stells.btch
 supported_languages: [en-US]
 
 # emoji : http://www.emoji-cheat-sheet.com/
 global_notices:
     en-US: ''
 
-com.stells.batch:
+com.stells.btch:
     version: '1.0'
     Base:
         marketing_url: ''
@@ -13,6 +13,6 @@ com.stells.batch:
         support_url: ''
         promotional_text: ''
     en-US:
-        name: Batch: Photos Editor
+        name: Batch - Photos Editor
         subtitle: ''
         release_notes: ''
