@@ -27,18 +27,20 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
     var indexPathInBatch: IndexPath?
     
     var transitionID: String?
+
+    let iOSStandardEditorBackgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Edit".localizedString
-        
+
+        view.backgroundColor = iOSStandardEditorBackgroundColor
+
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.barStyle = .black
-        navigationController?.navigationBar.barTintColor = UIView().tintColor
-        
-        view.backgroundColor = UIView().tintColor
-        
+        navigationController?.navigationBar.barTintColor = iOSStandardEditorBackgroundColor
+
         zoomingContentView = UIView(frame: view.bounds)
         photoZoomingView.addSubview(zoomingContentView)
         
@@ -50,9 +52,10 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
         photoZoomingView.minimumZoomScale = 1
         photoZoomingView.maximumZoomScale = 4
         
-        editToolbar.borderColor = UIView().tintColor
+        editToolbar.borderColor = iOSStandardEditorBackgroundColor
         editToolbar.toolbar.barStyle = .black
-        editToolbar.toolbar.barTintColor = UIView().tintColor
+        editToolbar.toolbar.tintColor = UIColor.white
+        editToolbar.toolbar.barTintColor = iOSStandardEditorBackgroundColor
         
         editToolbar.toolbarItems = editToolbarItems
         

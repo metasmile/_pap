@@ -368,7 +368,7 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         selectionCheckView.backgroundColor = UIColor.clear
 
         selectionView.addSubview(selectionCheckView)
-        selectionView.backgroundColor = UIColor(white: 1, alpha: 0.2)
+        selectionView.backgroundColor = UIColor(white: 1, alpha: 0.25)
 
     }
     
