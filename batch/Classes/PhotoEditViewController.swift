@@ -35,9 +35,9 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
         
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.barStyle = .black
-        navigationController?.navigationBar.barTintColor = UIColor(red: 31 / 255.0, green: 31 / 255.0, blue: 31 / 255.0, alpha: 1.0)
+        navigationController?.navigationBar.barTintColor = UIView().tintColor
         
-        view.backgroundColor = UIColor(red: 31 / 255.0, green: 31 / 255.0, blue: 31 / 255.0, alpha: 1.0)
+        view.backgroundColor = UIView().tintColor
         
         zoomingContentView = UIView(frame: view.bounds)
         photoZoomingView.addSubview(zoomingContentView)
@@ -50,9 +50,9 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
         photoZoomingView.minimumZoomScale = 1
         photoZoomingView.maximumZoomScale = 4
         
-        editToolbar.borderColor = UIColor(red: 31 / 255.0, green: 31 / 255.0, blue: 31 / 255.0, alpha: 1.0)
+        editToolbar.borderColor = UIView().tintColor
         editToolbar.toolbar.barStyle = .black
-        editToolbar.toolbar.barTintColor = UIColor(red: 31 / 255.0, green: 31 / 255.0, blue: 31 / 255.0, alpha: 1.0)
+        editToolbar.toolbar.barTintColor = UIView().tintColor
         
         editToolbar.toolbarItems = editToolbarItems
         

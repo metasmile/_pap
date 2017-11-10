@@ -262,7 +262,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let interitemSpacing = self.collectionView(collectionView, layout: collectionViewLayout, minimumInteritemSpacingForSectionAt: indexPath.item)
-        let numberOfItemInRow: CGFloat = 3
+        let numberOfItemInRow: CGFloat = 4
         
         let gridWidth = (UIEdgeInsetsInsetRect(collectionView.bounds, collectionView.contentInset).width - interitemSpacing * (numberOfItemInRow - 1)) / numberOfItemInRow
         return CGSize(width: gridWidth, height: gridWidth)
@@ -352,25 +352,24 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         didSet {
             selectionViewWidth.constant = selectionViewSize.width
             selectionViewHeight.constant = selectionViewSize.height
-            
-            selectionBorderLayer.path = UIBezierPath(rect: CGRect(origin: .zero, size: selectionViewSize)).cgPath
         }
     }
     
-    var selectionBorderLayer: CAShapeLayer!
+    var selectionCheckView: CheckMark!
     
     var indexPath: IndexPath?
     var imageRequestId: PHImageRequestID?
     var imageContentMode = PHImageContentMode.aspectFit
-    
+
     override func initialize() {
         super.initialize()
-        
-        selectionBorderLayer = CAShapeLayer()
-        selectionBorderLayer.strokeColor = tintColor.cgColor
-        selectionBorderLayer.lineWidth = 6
-        selectionBorderLayer.fillColor = UIColor.clear.cgColor
-        selectionView.layer.addSublayer(selectionBorderLayer)
+
+        selectionCheckView = CheckMark(frame: CGRect(origin: .zero, size: CGSize(width: 28, height: 28)))
+        selectionCheckView.backgroundColor = UIColor.clear
+
+        selectionView.addSubview(selectionCheckView)
+        selectionView.backgroundColor = UIColor(white: 1, alpha: 0.2)
+
     }
     
     override func prepareForReuse() {
@@ -389,10 +388,8 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
     
     override func tintColorDidChange() {
         super.tintColorDidChange()
-        
-        selectionBorderLayer.strokeColor = tintColor.cgColor
     }
-    
+
     func setAsset(_ asset: PHAsset, at indexPath: IndexPath) {
         self.indexPath = indexPath
         prepareForDisplay(with: asset)
@@ -408,6 +405,7 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
     
     override var isSelected: Bool {
         didSet {
+            selectionCheckView.checked = isSelected
             selectionView.isHidden = !isSelected
         }
     }
@@ -419,6 +417,10 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         
         let imageSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight)
         selectionViewSize = (imageContentMode == .aspectFit ? AVMakeRect(aspectRatio: imageSize, insideRect: imageView.bounds) : imageView.bounds).size
+
+        let checkmarkSize = selectionCheckView.bounds.size
+        let checkmarkmargin:CGFloat = 2.0
+        selectionCheckView.frame = CGRect(origin: CGPoint(x: selectionViewSize.height-checkmarkSize.width-checkmarkmargin, y: selectionViewSize.width-checkmarkSize.height-checkmarkmargin), size: checkmarkSize)
     }
     
     private func updateImageViewContentMode() {
