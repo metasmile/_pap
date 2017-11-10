@@ -393,8 +393,14 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
     func setAsset(_ asset: PHAsset, at indexPath: IndexPath) {
         self.indexPath = indexPath
         prepareForDisplay(with: asset)
-        
-        imageRequestId = PhotoManager.cachingImageManager.requestImage(for: asset, targetSize: imageView.bounds.size, contentMode: imageContentMode, options: nil) { [weak self] (image, info) in
+
+        let requestOptions = PHImageRequestOptions()
+        requestOptions.resizeMode = .fast
+
+        let targetSizeScale = UIScreen.main.scale
+        let targetSize = CGSize(width: imageView.bounds.size.width*targetSizeScale, height: imageView.bounds.size.height*targetSizeScale)
+
+        imageRequestId = PhotoManager.cachingImageManager.requestImage(for: asset, targetSize: targetSize, contentMode: imageContentMode, options: requestOptions) { [weak self] (image, info) in
             DispatchQueue.main.async { [weak self] in
                 guard self?.indexPath == indexPath else { return }
                 self?.imageView.image = image
