@@ -358,9 +358,11 @@ extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewD
         cell.imageView.transform = batchEditItems[indexPath.item].editItem.transform
         
         cell.imageView.heroModifiers = [.fade]
+
+        let transformForTargetCellImage = batchEditItems[indexPath.item].editItem.transform;
         
         let photoEditViewController = storyboard?.instantiateViewController(withIdentifier: "PhotoEditViewController") as! PhotoEditViewController
-        photoEditViewController.image = cell.imageView.image?.applyTransform(batchEditItems[indexPath.item].editItem.transform)
+        photoEditViewController.image = cell.imageView.image?.applyTransform(transformForTargetCellImage)
         photoEditViewController.indexPathInBatch = indexPath
         photoEditViewController.delegate = self
         
@@ -382,6 +384,28 @@ extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewD
         present(navigationController, animated: true, completion: nil)
         
         collectionView.deselectItem(at: indexPath, animated: true)
+
+        //load screen-sized image after photoEditViewController was initialized
+        if cell.asset != nil {
+
+            let requestOptions = PHImageRequestOptions()
+            requestOptions.version = .current
+            requestOptions.deliveryMode = .highQualityFormat
+            requestOptions.resizeMode = .fast
+            let targetSizeScale = UIScreen.main.scale
+            let targetSize = CGSize(width: self.view.bounds.width*targetSizeScale, height: self.view.bounds.height*targetSizeScale)
+
+            PHImageManager.default().requestImage(for: cell.asset!, targetSize: targetSize, contentMode: .aspectFit, options: requestOptions) { [weak self] (image, info) in
+                DispatchQueue.global().async {
+                    let transformedIamge = image?.applyTransform(transformForTargetCellImage)
+                    DispatchQueue.main.async {
+                        photoEditViewController.image = transformedIamge
+                        photoEditViewController.updateImageViewLayout()
+                    }
+                }
+            }
+
+        }
     }
     
     // MARK: - UICollectionViewDataSourcePrefetching

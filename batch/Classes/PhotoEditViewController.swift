@@ -93,6 +93,8 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
             
             zoomingContentView.center = CGPoint(x: boundingBox.width / 2, y: boundingBox.height / 2)
             imageView.center = CGPoint(x: contentSize.width / 2, y: contentSize.height / 2)
+
+            imageView.image = image
         }
     }
     
