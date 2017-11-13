@@ -39,7 +39,6 @@ class PhotoPickerViewController: UIViewController {
         super.viewDidLoad()
         
         photoCollectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: "PhotoCollectionViewCell")
-        photoCollectionView.register(PhotoCollectionTitleView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "PhotoCollectionTitleView")
         photoCollectionView.allowsMultipleSelection = true
         
         if PHPhotoLibrary.authorizationStatus() == .authorized {
@@ -217,17 +216,6 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if kind == UICollectionElementKindSectionHeader {
-            let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "PhotoCollectionTitleView", for: indexPath) as! PhotoCollectionTitleView
-            view.title = "Select photos to batch edit".localizedString
-            return view
-        }
-        else {
-            return UICollectionReusableView()
-        }
-    }
-    
     // MARK: - UICollectionViewDataSourcePrefetching
     
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
@@ -255,10 +243,6 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     // MARK: - UICollectionViewDelegateFlowLayout
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: 48)
-    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let interitemSpacing = self.collectionView(collectionView, layout: collectionViewLayout, minimumInteritemSpacingForSectionAt: indexPath.item)
