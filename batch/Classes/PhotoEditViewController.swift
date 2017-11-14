@@ -21,7 +21,12 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
     
     var zoomingContentView: UIView!
     var imageView: UIImageView!
-    var image: UIImage?
+    var image: UIImage? {
+        didSet {
+            guard isViewLoaded else { return }
+            updateImageViewLayout()
+        }
+    }
     var editItem = EditItem()
     var placeholderView: UIView?
     var indexPathInBatch: IndexPath?
@@ -146,10 +151,6 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
         
         updatePreview { [unowned self] in
             self.delegate?.photoEditViewController(self, didFinishEditing: nil, at: self.indexPathInBatch)
-            
-            self.dismiss(animated: true, completion: {
-                self.placeholderView?.removeFromSuperview()
-            })
         }
     }
     
@@ -159,10 +160,6 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
         
         placeholderView?.transform = editItem.transform
         delegate?.photoEditViewController(self, didFinishEditing: self.editItem, at: self.indexPathInBatch)
-        
-        dismiss(animated: true, completion: {
-            self.placeholderView?.removeFromSuperview()
-        })
     }
     
     // MARK: - UIScrollViewDelegate

@@ -169,8 +169,8 @@ class BatchEditViewController: EditToolbarViewController {
         return batchEditItems.map({ $0.editItem.hasChanges }).contains(true)
     }
     
-    func updateBatchEdit(animated: Bool = true) {
-        updatePreviews(animated: animated)
+    func updateBatchEdit(animated: Bool = true, completion: (() -> Void)? = nil) {
+        updatePreviews(animated: animated, completion: completion)
         updateToolBarButtonStatus()
     }
     
@@ -199,9 +199,9 @@ class BatchEditViewController: EditToolbarViewController {
         updateBatchEdit()
     }
     
-    private func updatePreviews(animated: Bool = true) {
+    private func updatePreviews(animated: Bool = true, completion: (() -> Void)? = nil) {
         let numberOfItems = previewCollectionView.numberOfItems(inSection: 0)
-        guard numberOfItems > 0 else { return }
+        guard numberOfItems > 0 else { completion?(); return }
         
         let visibleRect = CGRect(origin: previewCollectionView.contentOffset, size: previewCollectionView.bounds.size)
         let visibleIndexPath = previewCollectionView.indexPathForItem(at: CGPoint(x: visibleRect.midX, y: visibleRect.midY)) ?? previewCollectionView.indexPathsForVisibleItems.last
@@ -210,8 +210,9 @@ class BatchEditViewController: EditToolbarViewController {
         previewCollectionView.performBatchUpdates({
             
         }) { (finished) in
-            guard let indexPath = visibleIndexPath, animated == true else { return }
+            guard let indexPath = visibleIndexPath, animated == true else { completion?(); return }
             self.previewCollectionView.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.centeredHorizontally, animated: false)
+            completion?()
         }
         
         let visibleIndexPaths = previewCollectionView.indexPathsForVisibleItems
@@ -386,7 +387,7 @@ extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewD
         collectionView.deselectItem(at: indexPath, animated: true)
 
         //load screen-sized image after photoEditViewController was initialized
-        if cell.asset != nil {
+        if let asset = cell.asset {
 
             let requestOptions = PHImageRequestOptions()
             requestOptions.version = .current
@@ -395,12 +396,11 @@ extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewD
             let targetSizeScale = UIScreen.main.scale
             let targetSize = CGSize(width: self.view.bounds.width*targetSizeScale, height: self.view.bounds.height*targetSizeScale)
 
-            PHImageManager.default().requestImage(for: cell.asset!, targetSize: targetSize, contentMode: .aspectFit, options: requestOptions) { [weak self] (image, info) in
+            PHImageManager.default().requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: requestOptions) { (image, info) in
                 DispatchQueue.global().async {
                     let transformedIamge = image?.applyTransform(transformForTargetCellImage)
                     DispatchQueue.main.async {
                         photoEditViewController.image = transformedIamge
-                        photoEditViewController.updateImageViewLayout()
                     }
                 }
             }
@@ -464,11 +464,26 @@ extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewD
 
 extension BatchEditViewController: PhotoEditViewControllerDelegate {
     func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: EditItem?, at indexPath: IndexPath?) {
-        guard let editItem = editItem, let indexPath = indexPath else { return }
+        guard let editItem = editItem, let indexPath = indexPath else {
+            photoEditor.dismiss(animated: true, completion: {
+                photoEditor.placeholderView?.removeFromSuperview()
+            })
+            return
+        }
         
         batchEditItems[indexPath.item].editItem.transformItems.append(contentsOf: editItem.transformItems)
         
-        updateBatchEdit(animated: false)
+        updateBatchEdit(animated: false) {
+            if let cell = self.previewCollectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell, let snapshot = photoEditor.placeholderView {
+                let cellBoundsInView = cell.imageView.convert(cell.imageView.bounds, to: self.view)
+                let diff = cellBoundsInView.minX - snapshot.frame.minX
+                self.previewCollectionView.contentOffset.x += diff
+            }
+            
+            photoEditor.dismiss(animated: true, completion: {
+                photoEditor.placeholderView?.removeFromSuperview()
+            })
+        }
     }
 }
 
