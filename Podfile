@@ -6,6 +6,8 @@ target 'batch' do
   pod 'RealmSwift'
   pod 'Hero'
   pod 'Firebase/Core'
+  pod 'Fabric'
+  pod 'Crashlytics'
 end
 
 post_install do |installer|
