@@ -1,1 +1,1 @@
-batch,batch editor,batch photo editor,multiple photos,photos,orientation,rotation,flip,correction
+photoshop,editor,afterlight,utility,vsco,multiple photos,rotation,resolution,resize,adobe,capture
