@@ -8,6 +8,8 @@
 
 import UIKit
 import Hero
+import AVFoundation
+import Photos
 
 protocol PhotoEditViewControllerDelegate {
     func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: EditItem?, at indexPath: IndexPath?)
@@ -20,16 +22,19 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
     var delegate: PhotoEditViewControllerDelegate?
     
     var zoomingContentView: UIView!
-    var imageView: UIImageView!
+    var assetView: STAssetView!
     var image: UIImage? {
         didSet {
             guard isViewLoaded else { return }
-            updateImageViewLayout()
+            updateAssetViewLayout()
         }
     }
     var editItem = EditItem()
     var placeholderView: UIView?
     var indexPathInBatch: IndexPath?
+    
+    var asset: PHAsset?
+    var preferredTransform: CGAffineTransform = .identity
     
     var transitionID: String?
 
@@ -45,14 +50,14 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.barTintColor = iOSStandardEditorBackgroundColor
-
+        
         zoomingContentView = UIView(frame: view.bounds)
         photoZoomingView.addSubview(zoomingContentView)
         
-        imageView = UIImageView(image: image)
-        imageView.contentMode = .scaleAspectFit
-        imageView.heroID = transitionID
-        zoomingContentView.addSubview(imageView)
+        assetView = STAssetView(frame: zoomingContentView.bounds)
+        assetView.contentMode = .scaleAspectFit
+        assetView.heroID = transitionID
+        zoomingContentView.addSubview(assetView)
         
         photoZoomingView.minimumZoomScale = 1
         photoZoomingView.maximumZoomScale = 4
@@ -65,6 +70,21 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
         editToolbar.toolbarItems = editToolbarItems
         
         doneButton?.image = UIImage(named: "Edit Done Bar Button")
+        
+        assetView.preferredTransform = preferredTransform
+        
+        if let asset = asset {
+            if asset.mediaType == .image {
+                assetView.setImageAsset(asset, completion: { [unowned self] (image) in
+                    self.image = image?.applyTransform(self.preferredTransform)
+                    self.assetView.image = self.image
+                })
+            }
+            else if asset.mediaType == .video {
+                assetView.setVideoAsset(asset)
+                assetView.playWithLooping()
+            }
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -83,24 +103,24 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
     
     // MARK: - Layout
     
-    func updateImageViewLayout() {
-        if let image = image {
-            let boundingBox = UIEdgeInsetsInsetRect(photoZoomingView.bounds, UIEdgeInsets(top: safeAreaInsets.top, left: safeAreaInsets.left, bottom: safeAreaInsets.bottom + editToolbar.bounds.height, right: safeAreaInsets.right))
-            
-            let actualContentSize = image.size.applying(editItem.transform).magnitude.aspectFit(in: boundingBox.size)
-            let contentSize = actualContentSize.applying(editItem.transform.inverted()).magnitude
-            
-            zoomingContentView.frame.size = contentSize
-            
-            imageView.frame.origin = .zero
-            imageView.frame.size = contentSize
-            photoZoomingView.contentSize = actualContentSize
-            
-            zoomingContentView.center = CGPoint(x: boundingBox.width / 2, y: boundingBox.height / 2)
-            imageView.center = CGPoint(x: contentSize.width / 2, y: contentSize.height / 2)
-
-            imageView.image = image
-        }
+    func updateAssetViewLayout() {
+        guard let image = image else { return }
+        
+        let boundingBox = UIEdgeInsetsInsetRect(photoZoomingView.bounds, UIEdgeInsets(top: safeAreaInsets.top, left: safeAreaInsets.left, bottom: safeAreaInsets.bottom + editToolbar.bounds.height, right: safeAreaInsets.right))
+        
+        let actualContentSize = image.size.applying(editItem.transform).magnitude.aspectFit(in: boundingBox.size)
+        let contentSize = actualContentSize.applying(editItem.transform.inverted()).magnitude
+        
+        zoomingContentView.frame.size = contentSize
+        
+        assetView.frame.origin = .zero
+        assetView.frame.size = contentSize
+        photoZoomingView.contentSize = actualContentSize
+        
+        zoomingContentView.center = CGPoint(x: boundingBox.width / 2, y: boundingBox.height / 2)
+        assetView.center = CGPoint(x: contentSize.width / 2, y: contentSize.height / 2)
+        
+        assetView.image = image
     }
     
     // MARK: - Navigation Bar Actions
@@ -119,10 +139,10 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
     }
     
     private func updatePreview(_ completion: (() -> Void)? = nil) {
-        updateImageViewLayout()
+        updateAssetViewLayout()
         
         UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: .beginFromCurrentState, animations: {
-            self.imageView.layer.transform = self.editItem.transform3d
+            self.assetView.layer.transform = self.editItem.transform3d
         }) { (finished) in
             completion?()
         }
@@ -155,8 +175,8 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
     }
     
     override func doneButtonDidTap(sender: Any) {
-        imageView.layer.transform = CATransform3DIdentity
-        imageView.transform = editItem.transform
+        assetView.layer.transform = CATransform3DIdentity
+        assetView.transform = editItem.transform
         
         placeholderView?.transform = editItem.transform
         delegate?.photoEditViewController(self, didFinishEditing: self.editItem, at: self.indexPathInBatch)

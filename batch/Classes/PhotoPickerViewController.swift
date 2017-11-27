@@ -165,7 +165,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         
         let options = PHFetchOptions()
         options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-        options.predicate = NSPredicate(format: "mediaType == %d", PHAssetMediaType.image.rawValue)
+//        options.predicate = NSPredicate(format: "mediaType == %d", PHAssetMediaType.image.rawValue)
         
         DispatchQueue.global().async {
             self.collections = PHAssetCollection.fetchAssetCollections(with: collectionType, subtype: collectionSubType, options: nil)
@@ -188,7 +188,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         return fetchResults?[indexPath.section].assets[indexPath.item]
     }
     
-    func cancelAllSelection() {
+    @objc func cancelAllSelection() {
         guard let indexPaths = photoCollectionView.indexPathsForSelectedItems else { return }
         for indexPath in indexPaths {
             photoCollectionView.deselectItem(at: indexPath, animated: true)
@@ -262,7 +262,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     
     // MARK: - Navigation
     
-    func editButtonDidTap(sender: Any) {
+    @objc func editButtonDidTap(sender: Any) {
         guard photoCollectionView.indexPathsForSelectedItems?.isEmpty == false, let selectedIndexPaths = orderedSelectedIndexPaths.array as? [IndexPath] else { return }
         
         let batchEditViewController = storyboard?.instantiateViewController(withIdentifier: "BatchEditViewController") as! BatchEditViewController

@@ -24,7 +24,7 @@ extension UIBarButtonItem {
         
         let fontSize: CGFloat = 17
         
-        button.setAttributedTitle(NSAttributedString(string: title, attributes: [NSFontAttributeName: style == .done ? UIFont.boldSystemFont(ofSize: fontSize) : UIFont.systemFont(ofSize: fontSize) ]), for: .normal)
+        button.setAttributedTitle(NSAttributedString(string: title, attributes: [NSAttributedStringKey.font: style == .done ? UIFont.boldSystemFont(ofSize: fontSize) : UIFont.systemFont(ofSize: fontSize) ]), for: .normal)
         button.addTarget(target, action: action, for: .touchUpInside)
         
         button.sizeToFit()

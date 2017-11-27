@@ -112,13 +112,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="297"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="snN-Y1-Aml">
-                                                    <rect key="frame" x="0.0" y="48.5" width="200" height="200"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BdX-BK-30y" customClass="STAssetView" customModule="batch" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="48" width="200" height="200"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="200" id="b82-6g-dZK"/>
-                                                        <constraint firstAttribute="height" constant="200" id="vWj-IL-goU"/>
+                                                        <constraint firstAttribute="width" constant="200" id="IaC-Da-Aqv"/>
+                                                        <constraint firstAttribute="height" constant="200" id="NNC-2V-x0M"/>
                                                     </constraints>
-                                                </imageView>
+                                                </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="IYf-ee-Zmg">
                                                     <rect key="frame" x="10" y="0.0" width="180" height="29"/>
                                                     <subviews>
@@ -141,17 +141,17 @@
                                         <constraints>
                                             <constraint firstItem="IYf-ee-Zmg" firstAttribute="top" secondItem="fZb-6c-CTO" secondAttribute="top" id="AVt-2u-cmP"/>
                                             <constraint firstAttribute="trailing" secondItem="IYf-ee-Zmg" secondAttribute="trailing" constant="10" id="VTC-Rn-kOp"/>
+                                            <constraint firstItem="BdX-BK-30y" firstAttribute="centerX" secondItem="fZb-6c-CTO" secondAttribute="centerX" id="VWL-mJ-HFW"/>
+                                            <constraint firstItem="BdX-BK-30y" firstAttribute="centerY" secondItem="fZb-6c-CTO" secondAttribute="centerY" id="b4c-Ag-VTl"/>
                                             <constraint firstItem="IYf-ee-Zmg" firstAttribute="leading" secondItem="fZb-6c-CTO" secondAttribute="leading" constant="10" id="pHs-FC-9lN"/>
-                                            <constraint firstItem="snN-Y1-Aml" firstAttribute="centerY" secondItem="fZb-6c-CTO" secondAttribute="centerY" id="rFP-de-pMH"/>
-                                            <constraint firstItem="snN-Y1-Aml" firstAttribute="centerX" secondItem="fZb-6c-CTO" secondAttribute="centerX" id="rRA-zs-RtY"/>
                                         </constraints>
                                         <size key="customSize" width="200" height="297"/>
                                         <connections>
+                                            <outlet property="assetView" destination="BdX-BK-30y" id="9ni-oB-V3e"/>
+                                            <outlet property="assetViewHeight" destination="NNC-2V-x0M" id="Lzc-zW-xg7"/>
+                                            <outlet property="assetViewWidth" destination="IaC-Da-Aqv" id="H5E-xA-UM5"/>
                                             <outlet property="fileLabel" destination="wdD-v9-aFW" id="2mW-Jt-94A"/>
                                             <outlet property="imageInfoViewTop" destination="AVt-2u-cmP" id="YB1-LG-aSO"/>
-                                            <outlet property="imageView" destination="snN-Y1-Aml" id="xbs-Kj-hqT"/>
-                                            <outlet property="imageViewHeight" destination="vWj-IL-goU" id="7Cq-Dq-MyP"/>
-                                            <outlet property="imageViewWidth" destination="b82-6g-dZK" id="A1Z-YI-FXs"/>
                                             <outlet property="resolutionLabel" destination="VB4-KU-gaP" id="yfA-dM-Ons"/>
                                         </connections>
                                     </collectionViewCell>

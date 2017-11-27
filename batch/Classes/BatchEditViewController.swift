@@ -42,27 +42,27 @@ class EditToolbarViewController: UIViewController {
         ]
     }
     
-    func cancelButtonDidTap(sender: Any) {
+    @objc func cancelButtonDidTap(sender: Any) {
         
     }
     
-    func horizontalFlipButtonDidTap(sender: Any) {
+    @objc func horizontalFlipButtonDidTap(sender: Any) {
         
     }
     
-    func verticalFlipButtonDidTap(sender: Any) {
+    @objc func verticalFlipButtonDidTap(sender: Any) {
         
     }
     
-    func rotationLeftButtonDidTap(sender: Any) {
+    @objc func rotationLeftButtonDidTap(sender: Any) {
         
     }
     
-    func rotationRightButtonDidTap(sender: Any) {
+    @objc func rotationRightButtonDidTap(sender: Any) {
         
     }
     
-    func doneButtonDidTap(sender: Any) {
+    @objc func doneButtonDidTap(sender: Any) {
         
     }
 }
@@ -119,9 +119,21 @@ class BatchEditViewController: EditToolbarViewController {
         super.viewDidLayoutSubviews()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        playAssetIfExistsInCenterOfView()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        stopAllPlayAssets()
+    }
+    
     // MARK: - Editing
     
-    func cancelBatchButtonDidTap(sender: Any) {
+    @objc func cancelBatchButtonDidTap(sender: Any) {
         editTaskQueue.cancel()
         
         closeBatchProgressView()
@@ -285,7 +297,7 @@ extension BatchEditViewController {
         for (i, batchEditItem) in batchEditItems.enumerated() {
             editTaskQueue.addTask({ [weak self] in
                 batchEditItem.runEditing { [weak self] (asset, contentEditingOutput) in
-                    if let asset = asset, let contentEditingOutput = contentEditingOutput {
+                    if let asset = asset, let contentEditingOutput = contentEditingOutput, asset.mediaType == .image {
                         assetChangeInfos.append((asset, contentEditingOutput))
                     }
                     
@@ -338,7 +350,7 @@ extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PreviewCollectionViewCell", for: indexPath) as! PreviewCollectionViewCell
         if let photo = batchEditItems[indexPath.item].asset, let image = placeholderImages[photo] {
-            cell.imageView.image = image
+            cell.assetView.image = image
         }
         cell.setBatchEditItem(batchEditItems[indexPath.item], at: indexPath)
         return cell
@@ -355,22 +367,24 @@ extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else { return }
         
-        cell.imageView.layer.transform = CATransform3DIdentity
-        cell.imageView.transform = batchEditItems[indexPath.item].editItem.transform
+        cell.assetView.layer.transform = CATransform3DIdentity
+        cell.assetView.transform = batchEditItems[indexPath.item].editItem.transform
         
-        cell.imageView.heroModifiers = [.fade]
+        cell.assetView.heroModifiers = [.fade]
 
         let transformForTargetCellImage = batchEditItems[indexPath.item].editItem.transform;
         
         let photoEditViewController = storyboard?.instantiateViewController(withIdentifier: "PhotoEditViewController") as! PhotoEditViewController
-        photoEditViewController.image = cell.imageView.image?.applyTransform(transformForTargetCellImage)
+        photoEditViewController.image = cell.assetView.image?.applyTransform(transformForTargetCellImage)
+        photoEditViewController.asset = cell.asset
+        photoEditViewController.preferredTransform = transformForTargetCellImage
         photoEditViewController.indexPathInBatch = indexPath
         photoEditViewController.delegate = self
         
         let transitionID = "PhotoEditViewTransition"
         let snapshotImageView = UIImageView(image: photoEditViewController.image)
         snapshotImageView.contentMode = .scaleAspectFit
-        snapshotImageView.frame = cell.imageView.convert(cell.imageView.bounds, to: view)
+        snapshotImageView.frame = cell.assetView.convert(cell.assetView.bounds, to: view)
         snapshotImageView.heroID = transitionID
         snapshotImageView.heroModifiers = [.durationMatchLongest]
         view.addSubview(snapshotImageView)
@@ -385,27 +399,6 @@ extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewD
         present(navigationController, animated: true, completion: nil)
         
         collectionView.deselectItem(at: indexPath, animated: true)
-
-        //load screen-sized image after photoEditViewController was initialized
-        if let asset = cell.asset {
-
-            let requestOptions = PHImageRequestOptions()
-            requestOptions.version = .current
-            requestOptions.deliveryMode = .highQualityFormat
-            requestOptions.resizeMode = .fast
-            let targetSizeScale = UIScreen.main.scale
-            let targetSize = CGSize(width: self.view.bounds.width*targetSizeScale, height: self.view.bounds.height*targetSizeScale)
-
-            PHImageManager.default().requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: requestOptions) { (image, info) in
-                DispatchQueue.global().async {
-                    let transformedIamge = image?.applyTransform(transformForTargetCellImage)
-                    DispatchQueue.main.async {
-                        photoEditViewController.image = transformedIamge
-                    }
-                }
-            }
-
-        }
     }
     
     // MARK: - UICollectionViewDataSourcePrefetching
@@ -462,6 +455,32 @@ extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewD
     }
 }
 
+extension BatchEditViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        playAssetIfExistsInCenterOfView()
+    }
+    
+    fileprivate func playAssetIfExistsInCenterOfView() {
+        for cell in previewCollectionView.visibleCells {
+            guard let cell = cell as? PreviewCollectionViewCell else { continue }
+            let cellBoundsInView = cell.assetView.convert(cell.assetView.bounds, to: view)
+            if cellBoundsInView.contains(CGPoint(x: view.frame.midX, y: view.frame.midY)) {
+                cell.assetView.playWithLooping()
+            }
+            else {
+                cell.assetView.pause()
+            }
+        }
+    }
+    
+    fileprivate func stopAllPlayAssets() {
+        for cell in previewCollectionView.visibleCells {
+            guard let cell = cell as? PreviewCollectionViewCell else { continue }
+            cell.assetView.pause()
+        }
+    }
+}
+
 extension BatchEditViewController: PhotoEditViewControllerDelegate {
     func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: EditItem?, at indexPath: IndexPath?) {
         guard let editItem = editItem, let indexPath = indexPath else {
@@ -475,7 +494,7 @@ extension BatchEditViewController: PhotoEditViewControllerDelegate {
         
         updateBatchEdit(animated: false) {
             if let cell = self.previewCollectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell, let snapshot = photoEditor.placeholderView {
-                let cellBoundsInView = cell.imageView.convert(cell.imageView.bounds, to: self.view)
+                let cellBoundsInView = cell.assetView.convert(cell.assetView.bounds, to: self.view)
                 let diff = cellBoundsInView.minX - snapshot.frame.minX
                 self.previewCollectionView.contentOffset.x += diff
             }
@@ -488,14 +507,15 @@ extension BatchEditViewController: PhotoEditViewControllerDelegate {
 }
 
 class PreviewCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var assetView: STAssetView!
+    
     var indexPath: IndexPath?
     var asset: PHAsset?
     var imageRequestId: PHImageRequestID?
     var imageContentMode = PHImageContentMode.aspectFit
     
-    @IBOutlet weak var imageViewWidth: NSLayoutConstraint!
-    @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var assetViewWidth: NSLayoutConstraint!
+    @IBOutlet weak var assetViewHeight: NSLayoutConstraint!
     
     @IBOutlet weak var imageInfoViewTop: NSLayoutConstraint!
     @IBOutlet weak var fileLabel: UILabel!
@@ -504,8 +524,8 @@ class PreviewCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        imageView.heroID = nil
-        imageView.image = nil
+        assetView.heroID = nil
+        assetView.asset = nil
         indexPath = nil
         
         if let imageRequestId = imageRequestId {
@@ -523,8 +543,8 @@ class PreviewCollectionViewCell: UICollectionViewCell {
         let boundingSize = CGSize(width: kEditItemPreviewWidth, height: kEditItemPreviewWidth)
         let photoSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight).aspectFit(in: boundingSize)
         
-        imageViewWidth.constant = photoSize.width
-        imageViewHeight.constant = photoSize.height
+        assetViewWidth.constant = photoSize.width
+        assetViewHeight.constant = photoSize.height
         
         DispatchQueue.main.async { [weak self] in
             guard self?.indexPath == indexPath else { return }
@@ -537,37 +557,23 @@ class PreviewCollectionViewCell: UICollectionViewCell {
             self?.setImageEditItem(item.editItem)
         }
         
-        let targetSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight).aspectFill(in: boundingSize)
-        let options = PHImageRequestOptions()
-        options.isNetworkAccessAllowed = true
-        options.isSynchronous = false
-        
-        DispatchQueue.global().async { [weak self] in
-            guard self?.indexPath == indexPath else { return }
-            
-            self?.imageRequestId = PhotoManager.cachingImageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: options) { [weak self] (image, info) in
-                guard self?.indexPath == indexPath else { return }
-                
-                DispatchQueue.main.async { [weak self] in
-                    guard self?.indexPath == indexPath else { return }
-                    self?.imageView.image = image
-                }
-            }
-        }
+        assetView.setAsset(asset, cancelDrawingIfNeeded: { [weak self] in
+            return self?.indexPath != indexPath
+        })
     }
     
     func setImageEditItem(_ editItem: EditItem, animated: Bool = false) {
         if animated {
             UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: .beginFromCurrentState, animations: { [weak self] in
-                self?.imageView.layer.transform = editItem.transform3d
+                self?.assetView.layer.transform = editItem.transform3d
             }) { (finished) in
             }
         }
         else {
-            imageView.layer.transform = editItem.transform3d
+            assetView.layer.transform = editItem.transform3d
         }
         
-        imageInfoViewTop.constant = (bounds.height + CGSize(width: imageViewWidth.constant, height: imageViewHeight.constant).applying(editItem.transform).magnitude.height) / 2 + 10
+        imageInfoViewTop.constant = (bounds.height + CGSize(width: assetViewWidth.constant, height: assetViewHeight.constant).applying(editItem.transform).magnitude.height) / 2 + 10
         
         if let asset = self.asset {
             let assetSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight)
