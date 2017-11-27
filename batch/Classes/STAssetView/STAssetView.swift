@@ -101,7 +101,7 @@ class STAssetView: UIView {
         cancelCurrentImageRequest()
         
         imageLayer.contents = nil
-        videoLayer.player?.pause()
+        pause()
         
         image = nil
         playerItem = nil
@@ -235,6 +235,7 @@ extension STAssetView {
         imageRequestID = STAssetView.imageManager.requestAVAsset(forVideo: asset, options: videoRequestOptions) { (video, audioMix, info) in
             if let video = video {
                 let playerItem = AVPlayerItem(asset: video)
+                playerItem.audioMix = audioMix
                 completion(playerItem)
             }
             else {
@@ -278,7 +279,7 @@ extension STAssetView {
     
     private func addVideoLooping() {
         if let playerItem = playerItem {
-            playerLoopingObserver = NotificationCenter.default.addObserver(forName: Notification.Name.AVPlayerItemDidPlayToEndTime, object: playerItem, queue: nil, using: { [weak self] (notification) in
+            playerLoopingObserver = NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: playerItem, queue: OperationQueue.main, using: { [weak self] (notification) in
                 self?.start(to: kCMTimeZero)
             })
         }
@@ -286,7 +287,7 @@ extension STAssetView {
     
     private func removeVideoLooping() {
         if let observer = playerLoopingObserver {
-            NotificationCenter.default.removeObserver(observer)
+            NotificationCenter.default.removeObserver(observer, name: .AVPlayerItemDidPlayToEndTime, object: playerItem)
         }
         playerLoopingObserver = nil
     }

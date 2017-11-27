@@ -81,8 +81,10 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
                 })
             }
             else if asset.mediaType == .video {
-                assetView.setVideoAsset(asset)
-                assetView.playWithLooping()
+                assetView.setVideoAsset(asset, completion: { [unowned self] (playerItem) in
+                    self.assetView.playerItem = playerItem
+                    self.assetView.playWithLooping()
+                })
             }
         }
     }
