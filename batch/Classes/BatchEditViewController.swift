@@ -297,7 +297,7 @@ extension BatchEditViewController {
         for (i, batchEditItem) in batchEditItems.enumerated() {
             editTaskQueue.addTask({ [weak self] in
                 batchEditItem.runEditing { [weak self] (asset, contentEditingOutput) in
-                    if let asset = asset, let contentEditingOutput = contentEditingOutput, asset.mediaType == .image {
+                    if let asset = asset, let contentEditingOutput = contentEditingOutput {
                         assetChangeInfos.append((asset, contentEditingOutput))
                     }
                     

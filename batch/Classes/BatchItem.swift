@@ -51,12 +51,21 @@ class BatchEditItem: NSObject {
     var editItem = EditItem()
     
     func runEditing(_ completion: @escaping (PHAsset?, PHContentEditingOutput?) -> Void) {
-        loadImage({ [weak self] (image) in
-            self?.editImage(image, completion: completion)
-        })
+        if asset?.mediaType == .image {
+            loadImage { [weak self] (image) in
+                self?.editImage(image, completion: completion)
+            }
+        }
+        else if asset?.mediaType == .video {
+            loadVideo { [weak self] (video, audioMix) in
+                self?.editVideo(video, audioMix: audioMix, completion: completion)
+            }
+        }
     }
-    
-    private func loadImage(_ completion: @escaping ((UIImage?) -> Void)) {
+}
+
+extension BatchEditItem {
+    fileprivate func loadImage(_ completion: @escaping ((UIImage?) -> Void)) {
         guard let asset = self.asset else {
             completion(nil)
             return
@@ -84,7 +93,7 @@ class BatchEditItem: NSObject {
         }
     }
     
-    private func editImage(_ image: UIImage?, completion: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) {
+    fileprivate func editImage(_ image: UIImage?, completion: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) {
         guard let image = image?.applyTransform(editItem.transform), let asset = self.asset else {
             completion(nil, nil)
             return
@@ -121,6 +130,104 @@ class BatchEditItem: NSObject {
             }
             
             completion(asset, contentEditingOutput)
+        }
+    }
+}
+
+extension BatchEditItem {
+    fileprivate func loadVideo(_ completion: @escaping ((AVAsset?, AVAudioMix?) -> Void)) {
+        guard let asset = self.asset else {
+            completion(nil, nil)
+            return
+        }
+        
+        let options = PHVideoRequestOptions()
+        options.deliveryMode = .highQualityFormat
+        options.isNetworkAccessAllowed = true
+        options.version = .current
+        options.progressHandler = { progress, error, stop, info in
+            print("\(progress)")
+        }
+        
+        PHImageManager.default().requestAVAsset(forVideo: asset, options: options) { (video, audioMix, info) in
+            completion(video, audioMix)
+        }
+    }
+    
+    fileprivate func editVideo(_ video: AVAsset?, audioMix: AVAudioMix?, completion: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) {
+        guard
+            let video = video,
+            let videoTrack = video.tracks(withMediaType: .video).first,
+            let asset = asset
+        else {
+            completion(nil, nil)
+            return
+        }
+        
+        let audioTrack = video.tracks(withMediaType: .audio).first
+        
+        let transform = videoTrack.preferredTransform.concatenating(editItem.transform)
+        let preferredVideoSize = videoTrack.naturalSize.applying(transform).magnitude
+        let timeRange = CMTimeRangeMake(kCMTimeZero, video.duration)
+        
+        let composition = AVMutableComposition()
+        guard let compositionVideoTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid) else {
+            completion(nil, nil)
+            return
+        }
+        let compositionAudioTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
+        
+        try? compositionVideoTrack.insertTimeRange(timeRange, of: videoTrack, at: kCMTimeZero)
+        
+        if let audioTrack = audioTrack {
+            do {
+                try compositionAudioTrack?.insertTimeRange(timeRange, of: audioTrack, at: kCMTimeZero)
+            } catch {
+                if let track = compositionAudioTrack {
+                    composition.removeTrack(track)
+                }
+            }
+        }
+        
+        compositionVideoTrack.preferredTransform = transform
+        
+        let videoComposition = AVMutableVideoComposition(propertiesOf: composition)
+        videoComposition.renderSize = preferredVideoSize
+        videoComposition.frameDuration = CMTimeMake(1, videoTrack.naturalTimeScale)
+        
+        //
+        
+        asset.requestContentEditingInput(with: nil) { (input, info) in
+            guard let input = input else {
+                completion(nil, nil)
+                return
+            }
+            
+            guard let dataInfo = "Edited".data(using: .utf8) else {
+                completion(nil, nil)
+                return
+            }
+            
+            let contentEditingOutput = PHContentEditingOutput(contentEditingInput: input)
+            contentEditingOutput.adjustmentData = PHAdjustmentData(formatIdentifier: Bundle.main.bundleIdentifier ?? "", formatVersion: "1.0", data: dataInfo)
+            
+            let exportSession = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetPassthrough)
+            exportSession?.outputFileType = AVFileType.mov
+            exportSession?.outputURL = contentEditingOutput.renderedContentURL
+            exportSession?.videoComposition = videoComposition
+            exportSession?.exportAsynchronously {
+                guard let status = exportSession?.status else { return }
+                switch status {
+                case .completed:
+                    completion(asset, contentEditingOutput)
+                case .failed, .cancelled:
+                    completion(nil, nil)
+                case .exporting:
+                    print(exportSession?.progress)
+                default:
+                    break
+                }
+            }
         }
     }
 }
@@ -212,6 +319,18 @@ class HorizontalFlipTransformItem: TransformItem {
     
     override var transform3d: CATransform3D {
         return CATransform3DMakeRotation(.pi, 0, 1, 0)
+    }
+}
+
+extension PHAsset {
+    //https://developer.apple.com/library/content/samplecode/UsingPhotosFramework/Listings/Shared_AssetViewController_swift.html
+    func revertToOriginal() {
+        PHPhotoLibrary.shared().performChanges({
+            let request = PHAssetChangeRequest(for: self)
+            request.revertAssetContentToOriginal()
+        }, completionHandler: { success, error in
+            if !success { print("can't revert asset: \(String(describing: error))") }
+        })
     }
 }
 
