@@ -354,6 +354,7 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
                 formatter.unitsStyle = .positional
                 formatter.allowedUnits = [.minute, .second]
                 formatter.zeroFormattingBehavior = [.pad]
+                formatter.collapsesLargestUnit = true
                 _durationLabelFormat = formatter
             }
             return _durationLabelFormat!
