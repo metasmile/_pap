@@ -329,17 +329,34 @@ class PhotoCollectionTitleView: CustomCollectionReusableView {
 
 class PhotoCollectionViewCell: CustomCollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
+    //TODO: wrap a view as a decorationrenderview later
     @IBOutlet weak var selectionView: UIView!
     @IBOutlet weak var selectionViewWidth: NSLayoutConstraint!
     @IBOutlet weak var selectionViewHeight: NSLayoutConstraint!
+
+    var selectionCheckView: CheckMark!
+
     private var selectionViewSize: CGSize = .zero {
         didSet {
             selectionViewWidth.constant = selectionViewSize.width
             selectionViewHeight.constant = selectionViewSize.height
         }
     }
-    
-    var selectionCheckView: CheckMark!
+
+    private static var _durationLabelFormat: DateComponentsFormatter?
+    static var durationLabelFormat: DateComponentsFormatter {
+        get {
+            if _durationLabelFormat == nil {
+                let formatter = DateComponentsFormatter()
+                formatter.unitsStyle = .positional
+                formatter.allowedUnits = [.minute, .second]
+                formatter.zeroFormattingBehavior = [.pad]
+                _durationLabelFormat = formatter
+            }
+            return _durationLabelFormat!
+        }
+        set(value) { _durationLabelFormat = value }
+    }
     
     var indexPath: IndexPath?
     var imageRequestId: PHImageRequestID?
@@ -383,6 +400,13 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
 
         let targetSizeScale = UIScreen.main.scale
         let targetSize = CGSize(width: imageView.bounds.size.width*targetSizeScale, height: imageView.bounds.size.height*targetSizeScale)
+
+        if asset.mediaType == .video {
+
+            let formattedDuration = PhotoCollectionViewCell.durationLabelFormat.string(from: asset.duration)
+            print(formattedDuration)
+
+        }
 
         imageRequestId = PhotoManager.cachingImageManager.requestImage(for: asset, targetSize: targetSize, contentMode: imageContentMode, options: requestOptions) { [weak self] (image, info) in
             DispatchQueue.main.async { [weak self] in
