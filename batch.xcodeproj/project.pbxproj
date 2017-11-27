@@ -34,6 +34,7 @@
 		0ABFCF991F14B8A70078A583 /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABFCF981F14B8A70078A583 /* PhotoPickerViewController.swift */; };
 		28B58A4258EFA57A287EE746 /* Pods_batch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281B8EE7F3B930519ABFAAA4 /* Pods_batch.framework */; };
 		4F71DB5DAD9BF2C4EF5C4FA0 /* CheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2465BD7BAD13DA17B6D /* CheckMarkView.swift */; };
+		4F71DC974B06CAE26F7EBFBC /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DED41994345222015B8E /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		0ABFCF981F14B8A70078A583 /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoPickerViewController.swift; path = Classes/PhotoPickerViewController.swift; sourceTree = "<group>"; };
 		281B8EE7F3B930519ABFAAA4 /* Pods_batch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_batch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F71D2465BD7BAD13DA17B6D /* CheckMarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckMarkView.swift; sourceTree = "<group>"; };
+		4F71DED41994345222015B8E /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		614D248BD87AEAE91795DFC4 /* Pods-batch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch.release.xcconfig"; path = "Pods/Target Support Files/Pods-batch/Pods-batch.release.xcconfig"; sourceTree = "<group>"; };
 		E6C115FBD773BA835480B08C /* Pods-batch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-batch/Pods-batch.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +112,7 @@
 				0A66CD4F1F95935500A97726 /* FloatingToolbar.swift */,
 				0AA891711FA967B700748799 /* BadgeIconView.swift */,
 				4F71D2465BD7BAD13DA17B6D /* CheckMarkView.swift */,
+				4F71DED41994345222015B8E /* GradientView.swift */,
 			);
 			name = "Custom Controls";
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				0AA891721FA967B700748799 /* BadgeIconView.swift in Sources */,
 				0A88FF751FA04AD6001C0DC6 /* FloatingView.swift in Sources */,
 				4F71DB5DAD9BF2C4EF5C4FA0 /* CheckMarkView.swift in Sources */,
+				4F71DC974B06CAE26F7EBFBC /* GradientView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

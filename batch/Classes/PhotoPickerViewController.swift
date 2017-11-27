@@ -334,6 +334,9 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
     @IBOutlet weak var selectionViewWidth: NSLayoutConstraint!
     @IBOutlet weak var selectionViewHeight: NSLayoutConstraint!
 
+    @IBOutlet weak var durationLabelView: UIView!
+    @IBOutlet weak var durationLabelForVideo: UILabel!
+
     var selectionCheckView: CheckMark!
 
     private var selectionViewSize: CGSize = .zero {
@@ -401,13 +404,6 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         let targetSizeScale = UIScreen.main.scale
         let targetSize = CGSize(width: imageView.bounds.size.width*targetSizeScale, height: imageView.bounds.size.height*targetSizeScale)
 
-        if asset.mediaType == .video {
-
-            let formattedDuration = PhotoCollectionViewCell.durationLabelFormat.string(from: asset.duration)
-            print(formattedDuration)
-
-        }
-
         imageRequestId = PhotoManager.cachingImageManager.requestImage(for: asset, targetSize: targetSize, contentMode: imageContentMode, options: requestOptions) { [weak self] (image, info) in
             DispatchQueue.main.async { [weak self] in
                 guard self?.indexPath == indexPath else { return }
@@ -435,6 +431,13 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         let checkmarkSize = selectionCheckView.bounds.size
         let checkmarkmargin:CGFloat = 2.0
         selectionCheckView.frame = CGRect(origin: CGPoint(x: selectionViewSize.height-checkmarkSize.width-checkmarkmargin, y: selectionViewSize.width-checkmarkSize.height-checkmarkmargin), size: checkmarkSize)
+
+        //duration label
+        let visibleDurationLabel = asset.mediaType == .video
+        durationLabelView.isHidden = !visibleDurationLabel
+        if visibleDurationLabel {
+            durationLabelForVideo.text = PhotoCollectionViewCell.durationLabelFormat.string(from: asset.duration)
+        }
     }
     
     private func updateImageViewContentMode() {
