@@ -340,8 +340,9 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
     @IBOutlet weak var selectionViewWidth: NSLayoutConstraint!
     @IBOutlet weak var selectionViewHeight: NSLayoutConstraint!
 
-    @IBOutlet weak var durationLabelView: UIView!
+    @IBOutlet weak var decorationContainerView: UIView!
     @IBOutlet weak var durationLabelForVideo: UILabel!
+    @IBOutlet weak var iconForLivePhotos: UIImageView!
 
     var selectionCheckView: CheckMark!
 
@@ -381,6 +382,7 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         selectionView.addSubview(selectionCheckView)
         selectionView.backgroundColor = UIColor(white: 1, alpha: 0.25)
 
+        iconForLivePhotos.tintColor = UIColor.white
     }
     
     override func prepareForReuse() {
@@ -440,11 +442,15 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         selectionCheckView.frame = CGRect(origin: CGPoint(x: selectionViewSize.height-checkmarkSize.width-checkmarkmargin, y: selectionViewSize.width-checkmarkSize.height-checkmarkmargin), size: checkmarkSize)
 
         //duration label
-        let visibleDurationLabel = asset.mediaType == .video
-        durationLabelView.isHidden = !visibleDurationLabel
-        if visibleDurationLabel {
+        durationLabelForVideo.isHidden = asset.mediaType != .video
+        if !durationLabelForVideo.isHidden{
             durationLabelForVideo.text = PhotoCollectionViewCell.durationLabelFormat.string(from: asset.duration)
         }
+
+        //live photo icon
+        iconForLivePhotos.isHidden = !asset.mediaSubtypes.contains(.photoLive)
+
+        decorationContainerView.isHidden = durationLabelForVideo.isHidden && iconForLivePhotos.isHidden
     }
     
     private func updateImageViewContentMode() {
