@@ -292,13 +292,18 @@ extension BatchEditViewController {
     func runBatchProcessing() {
         showBatchProgressView()
         
-        var assetChangeInfos = [(PHAsset, PHContentEditingOutput)]()
+        struct AssetChangeInfo {
+            var asset: PHAsset
+            var contentEditingOutput: PHContentEditingOutput
+        }
+        
+        var assetChangeInfos = [AssetChangeInfo]()
         
         for (i, batchEditItem) in batchEditItems.enumerated() {
             editTaskQueue.addTask({ [weak self] in
                 batchEditItem.runEditing { [weak self] (asset, contentEditingOutput) in
                     if let asset = asset, let contentEditingOutput = contentEditingOutput {
-                        assetChangeInfos.append((asset, contentEditingOutput))
+                        assetChangeInfos.append(AssetChangeInfo(asset: asset, contentEditingOutput: contentEditingOutput))
                     }
                     
                     DispatchQueue.main.async { [weak self] in
@@ -319,7 +324,7 @@ extension BatchEditViewController {
             
             PHPhotoLibrary.shared().performChanges({
                 for assetChangeInfo in assetChangeInfos {
-                    PHAssetChangeRequest(for: assetChangeInfo.0).contentEditingOutput = assetChangeInfo.1
+                    PHAssetChangeRequest(for: assetChangeInfo.asset).contentEditingOutput = assetChangeInfo.contentEditingOutput
                 }
             }, completionHandler: { (success, info) in
                 DispatchQueue.main.async { [unowned self] in

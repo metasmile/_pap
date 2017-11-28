@@ -112,6 +112,7 @@ class STAssetView: UIView {
     fileprivate func clearDrawing() {
         cancelCurrentImageRequest()
         
+        isLivePhotoPlaying = false
         livePhotoView.isHidden = true
         imageLayer.contents = nil
         pause()

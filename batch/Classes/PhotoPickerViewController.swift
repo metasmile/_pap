@@ -176,10 +176,14 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
             
             DispatchQueue.main.async {
                 self.photoCollectionView.reloadData()
-                self.photoCollectionView.performBatchUpdates(nil, completion: { (finished) in
-                    guard let numberOfSection = self.fetchResults?.count, numberOfSection > 0, let numberOfItemsInSection = self.fetchResults?[numberOfSection - 1].assets.count else { return }
-                    self.photoCollectionView.scrollToItem(at: IndexPath(item: numberOfItemsInSection - 1, section: numberOfSection - 1), at: .bottom, animated: false)
-                })
+                
+                guard
+                    let numberOfSection = self.fetchResults?.count,
+                    numberOfSection > 0,
+                    let numberOfItemsInSection = self.fetchResults?[numberOfSection - 1].assets.count
+                else { return }
+                
+                self.photoCollectionView.scrollToItem(at: IndexPath(item: numberOfItemsInSection - 1, section: numberOfSection - 1), at: .bottom, animated: false)
             }
         }
     }

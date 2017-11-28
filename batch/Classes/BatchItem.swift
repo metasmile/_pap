@@ -52,8 +52,13 @@ class BatchEditItem: NSObject {
     
     func runEditing(_ completion: @escaping (PHAsset?, PHContentEditingOutput?) -> Void) {
         if asset?.mediaType == .image {
-            loadImage { [weak self] (image) in
-                self?.editImage(image, completion: completion)
+            if asset?.mediaSubtypes == .photoLive {
+                self.editLivePhoto(completion)
+            }
+            else {
+                loadImage { [weak self] (image) in
+                    self?.editImage(image, completion: completion)
+                }
             }
         }
         else if asset?.mediaType == .video {
@@ -133,6 +138,124 @@ extension BatchEditItem {
             }
             
             completion(asset, contentEditingOutput)
+        }
+    }
+}
+
+extension BatchEditItem {
+    fileprivate func loadLivePhoto(_ completion: @escaping ((PHLivePhoto?) -> Void)) {
+        guard let asset = self.asset else {
+            completion(nil)
+            return
+        }
+        
+        let options = PHLivePhotoRequestOptions()
+        options.deliveryMode = .highQualityFormat
+        options.isNetworkAccessAllowed = true
+        options.version = .current
+        options.progressHandler = { progress, error, stop, info in
+            print("\(progress)")
+        }
+        
+        PHImageManager.default().requestLivePhoto(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: .default, options: options, resultHandler: { (livePhoto, info) in
+            completion(livePhoto)
+        })
+    }
+    
+    fileprivate func editLivePhoto(_ completion: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) {
+        guard
+            let asset = self.asset
+            else {
+                completion(nil, nil)
+                return
+        }
+        
+        asset.requestContentEditingInput(with: nil) { (input, info) in
+            guard let input = input else {
+                completion(nil, nil)
+                return
+            }
+            
+            guard let dataInfo = "Edited".data(using: .utf8) else {
+                completion(nil, nil)
+                return
+            }
+            
+            let contentEditingOutput = PHContentEditingOutput(contentEditingInput: input)
+            contentEditingOutput.adjustmentData = PHAdjustmentData(formatIdentifier: Bundle.main.bundleIdentifier ?? "", formatVersion: "1.0", data: dataInfo)
+            
+            let editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: input)
+            editingContext?.frameProcessor = { frame, error in
+                return frame.image.transformed(by: self.editItem.transform)
+            }
+            
+            editingContext?.saveLivePhoto(to: contentEditingOutput, options: nil, completionHandler: { (success, error) in
+                guard success else {
+                    completion(nil, nil)
+                    return
+                }
+                completion(asset, contentEditingOutput)
+            })
+        }
+    }
+    
+    fileprivate func editLivePhoto(_ livePhoto: PHLivePhoto?, completion: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) {
+        guard
+            let livePhoto = livePhoto
+        else {
+            completion(nil, nil)
+            return
+        }
+
+        let resources = PHAssetResource.assetResources(for: livePhoto)
+
+        guard
+            let videoResource = resources.first(where: { $0.type == PHAssetResourceType.pairedVideo }),
+            let photoResource = resources.first(where: { $0.type == PHAssetResourceType.photo })
+        else {
+            completion(nil, nil)
+            return
+        }
+
+        var pairedVideo: AVAsset?
+        var pairedPhoto: UIImage?
+        let retrievePairedResourcesHandler = { [weak self] in
+            guard
+                let editItem = self?.editItem,
+                let video = pairedVideo?.applyTransform(editItem.transform),
+                let photo = pairedPhoto?.applyTransform(editItem.transform)
+            else { return }
+
+
+        }
+
+        var videoData = Data()
+        var photoData = Data()
+
+        PHAssetResourceManager.default().requestData(for: videoResource, options: nil, dataReceivedHandler: { (data) in
+            videoData.append(data)
+        }) { (error) in
+            guard error == nil else {
+                completion(nil, nil)
+                return
+            }
+
+            let pairedVideoFileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("pairedVideo.mov")
+            try? videoData.write(to: pairedVideoFileURL, options: Data.WritingOptions.atomicWrite)
+            pairedVideo = AVAsset(url: pairedVideoFileURL)
+            retrievePairedResourcesHandler()
+        }
+
+        PHAssetResourceManager.default().requestData(for: photoResource, options: nil, dataReceivedHandler: { (data) in
+            photoData.append(data)
+        }) { (error) in
+            guard error == nil else {
+                completion(nil, nil)
+                return
+            }
+
+            pairedPhoto = UIImage(data: photoData)
+            retrievePairedResourcesHandler()
         }
     }
 }
