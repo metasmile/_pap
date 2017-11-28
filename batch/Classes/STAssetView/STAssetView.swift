@@ -19,21 +19,25 @@ import PhotosUI
 class STAssetView: UIView {
     fileprivate var imageLayer: CALayer
     fileprivate var videoLayer: AVPlayerLayer
+    fileprivate var livePhotoView: PHLivePhotoView
     
     var preferredTransform: CGAffineTransform = .identity {
         didSet {
             videoLayer.transform = CATransform3DMakeAffineTransform(preferredTransform)
+            livePhotoView.transform = preferredTransform
         }
     }
     
     override init(frame: CGRect) {
         imageLayer = CALayer()
         videoLayer = AVPlayerLayer()
+        livePhotoView = PHLivePhotoView(frame: CGRect(origin: .zero, size: frame.size))
         
         super.init(frame: frame)
         
         layer.addSublayer(imageLayer)
         layer.addSublayer(videoLayer)
+        addSubview(livePhotoView)
         
         initialize()
     }
@@ -41,11 +45,13 @@ class STAssetView: UIView {
     required init?(coder aDecoder: NSCoder) {
         imageLayer = CALayer()
         videoLayer = AVPlayerLayer()
+        livePhotoView = PHLivePhotoView(frame: .zero)
         
         super.init(coder: aDecoder)
         
         layer.addSublayer(imageLayer)
         layer.addSublayer(videoLayer)
+        addSubview(livePhotoView)
         
         initialize()
     }
@@ -53,8 +59,12 @@ class STAssetView: UIView {
     fileprivate func initialize() {
         videoLayer.player = AVPlayer()
         
+        livePhotoView.isHidden = true
+        livePhotoView.delegate = self
+        
         imageRequestOptions = defaultImageRequestOptions
         videoRequestOptions = defaultVideoRequestOptions
+        livePhotoRequestOptions = defaultLivePhotoRequestOptions
     }
     
     override func layoutSubviews() {
@@ -63,11 +73,14 @@ class STAssetView: UIView {
         CATransaction.setDisableActions(true)
         imageLayer.frame = bounds
         videoLayer.frame = bounds
+        livePhotoView.frame = bounds
         CATransaction.setDisableActions(false)
     }
     
     override var contentMode: UIViewContentMode {
         didSet {
+            livePhotoView.contentMode = contentMode
+            
             switch contentMode {
             case .scaleAspectFill:
                 imageLayer.contentsGravity = kCAGravityResizeAspectFill
@@ -88,11 +101,10 @@ class STAssetView: UIView {
     
     var asset: PHAsset? {
         didSet {
+            clearDrawing()
+            
             if let asset = asset {
                 setAsset(asset)
-            }
-            else {
-                clearDrawing()
             }
         }
     }
@@ -100,6 +112,7 @@ class STAssetView: UIView {
     fileprivate func clearDrawing() {
         cancelCurrentImageRequest()
         
+        livePhotoView.isHidden = true
         imageLayer.contents = nil
         pause()
         
@@ -140,6 +153,17 @@ class STAssetView: UIView {
     }
     var videoRequestOptions: PHVideoRequestOptions?
     
+    private var defaultLivePhotoRequestOptions: PHLivePhotoRequestOptions {
+        let livePhotoRequestOptions = PHLivePhotoRequestOptions()
+        livePhotoRequestOptions.deliveryMode = .opportunistic
+        livePhotoRequestOptions.isNetworkAccessAllowed = true
+        livePhotoRequestOptions.progressHandler = { progress, error, stop, info in
+            
+        }
+        return livePhotoRequestOptions
+    }
+    var livePhotoRequestOptions: PHLivePhotoRequestOptions?
+    
     // MARK: Media type
     
     var image: UIImage? {
@@ -154,6 +178,12 @@ class STAssetView: UIView {
         }
     }
     
+    var livePhoto: PHLivePhoto? {
+        didSet {
+            livePhotoView.livePhoto = livePhoto
+        }
+    }
+    
     // MARK: Video
     
     var isPlaying: Bool {
@@ -165,6 +195,10 @@ class STAssetView: UIView {
     }
     
     fileprivate var playerLoopingObserver: Any?
+    
+    // MARK: Live Photo
+    
+    open var isLivePhotoPlaying: Bool = false
 }
 
 //MARK: - Draw asset
@@ -179,9 +213,25 @@ extension STAssetView {
         }
     }
     
-    func setImageAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: ((UIImage?) -> Void)? = nil) {
+    func setImageAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: ((UIImage?) -> Void)? = nil, completionWithLivePhoto: ((PHLivePhoto?) -> Void)? = nil) {
         if asset.mediaSubtypes == .photoLive {
+            livePhotoView.isHidden = false
             
+            loadLivePhoto(for: asset) { [weak self] livePhoto in
+                guard !cancellation() else {
+                    self?.cancelCurrentImageRequest()
+                    return
+                }
+                
+                DispatchQueue.main.async { [weak self] in
+                    if let completion = completionWithLivePhoto {
+                        completion(livePhoto)
+                    }
+                    else {
+                        self?.livePhoto = livePhoto
+                    }
+                }
+            }
         }
         else {
             loadImage(for: asset) { [weak self] image in
@@ -243,7 +293,16 @@ extension STAssetView {
             }
         }
     }
+    
+    fileprivate func loadLivePhoto(for asset: PHAsset, completion: @escaping (PHLivePhoto?) -> Void) {
+        let targetSize = CGSize(width: bounds.width * UIScreen.main.nativeScale, height: bounds.height * UIScreen.main.nativeScale)
+        imageRequestID = STAssetView.imageManager.requestLivePhoto(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: livePhotoRequestOptions, resultHandler: { (livePhoto, info) in
+            completion(livePhoto)
+        })
+    }
 }
+
+// Video Controls
 
 extension STAssetView {
     func play() {
@@ -290,5 +349,17 @@ extension STAssetView {
             NotificationCenter.default.removeObserver(observer, name: .AVPlayerItemDidPlayToEndTime, object: playerItem)
         }
         playerLoopingObserver = nil
+    }
+}
+
+// Live Photo
+
+extension STAssetView: PHLivePhotoViewDelegate {
+    func livePhotoView(_ livePhotoView: PHLivePhotoView, willBeginPlaybackWith playbackStyle: PHLivePhotoViewPlaybackStyle) {
+        isLivePhotoPlaying = true
+    }
+    
+    func livePhotoView(_ livePhotoView: PHLivePhotoView, didEndPlaybackWith playbackStyle: PHLivePhotoViewPlaybackStyle) {
+        isLivePhotoPlaying = false
     }
 }

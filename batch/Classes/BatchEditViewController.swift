@@ -365,7 +365,10 @@ extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewD
     // MARK: - UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else { return }
+        guard
+            let cell = collectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell,
+            cell.assetView.isLivePhotoPlaying == false
+        else { return }
         
         cell.assetView.layer.transform = CATransform3DIdentity
         cell.assetView.transform = batchEditItems[indexPath.item].editItem.transform

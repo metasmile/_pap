@@ -59,7 +59,7 @@ class PhotoPickerViewController: UIViewController {
         }
         
         if #available(iOS 11.0, *) {
-            navigationController?.navigationBar.prefersLargeTitles = true
+//            navigationController?.navigationBar.prefersLargeTitles = true
         }
         
         editButton = UIBarButtonItem(title: "", style: .done, target: self, action: #selector(self.editButtonDidTap))
@@ -74,6 +74,8 @@ class PhotoPickerViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
+        photoCollectionView.contentInset.bottom = editToolBar.bounds.height + 20
+        
         layoutToolbar()
     }
     
@@ -84,11 +86,9 @@ class PhotoPickerViewController: UIViewController {
     func layoutToolbar() {
         if photoCollectionView.indexPathsForSelectedItems?.count == 0 {
             editToolBarBottomLayout.constant = -(editToolBar.bounds.height + safeAreaInsets.bottom)
-            photoCollectionView.contentInset.bottom = 0
         }
         else {
             editToolBarBottomLayout.constant = 10
-            photoCollectionView.contentInset.bottom = editToolBar.bounds.height + 10
         }
     }
     
@@ -164,8 +164,6 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         self.photoCollectionView.reloadData()
         
         let options = PHFetchOptions()
-        options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-//        options.predicate = NSPredicate(format: "mediaType == %d", PHAssetMediaType.image.rawValue)
         
         DispatchQueue.global().async {
             self.collections = PHAssetCollection.fetchAssetCollections(with: collectionType, subtype: collectionSubType, options: nil)
@@ -178,6 +176,10 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
             
             DispatchQueue.main.async {
                 self.photoCollectionView.reloadData()
+                self.photoCollectionView.performBatchUpdates(nil, completion: { (finished) in
+                    guard let numberOfSection = self.fetchResults?.count, numberOfSection > 0, let numberOfItemsInSection = self.fetchResults?[numberOfSection - 1].assets.count else { return }
+                    self.photoCollectionView.scrollToItem(at: IndexPath(item: numberOfItemsInSection - 1, section: numberOfSection - 1), at: .bottom, animated: false)
+                })
             }
         }
     }

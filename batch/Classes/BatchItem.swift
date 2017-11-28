@@ -94,7 +94,10 @@ extension BatchEditItem {
     }
     
     fileprivate func editImage(_ image: UIImage?, completion: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) {
-        guard let image = image?.applyTransform(editItem.transform), let asset = self.asset else {
+        guard
+            let image = image?.applyTransform(editItem.transform),
+            let asset = self.asset
+        else {
             completion(nil, nil)
             return
         }
@@ -156,46 +159,13 @@ extension BatchEditItem {
     
     fileprivate func editVideo(_ video: AVAsset?, audioMix: AVAudioMix?, completion: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) {
         guard
-            let video = video,
+            let video = video?.applyTransform(editItem.transform),
             let videoTrack = video.tracks(withMediaType: .video).first,
             let asset = asset
         else {
             completion(nil, nil)
             return
         }
-        
-        let audioTrack = video.tracks(withMediaType: .audio).first
-        
-        let transform = videoTrack.preferredTransform.concatenating(editItem.transform)
-        let preferredVideoSize = videoTrack.naturalSize.applying(transform).magnitude
-        let timeRange = CMTimeRangeMake(kCMTimeZero, video.duration)
-        
-        let composition = AVMutableComposition()
-        guard let compositionVideoTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid) else {
-            completion(nil, nil)
-            return
-        }
-        let compositionAudioTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
-        
-        try? compositionVideoTrack.insertTimeRange(timeRange, of: videoTrack, at: kCMTimeZero)
-        
-        if let audioTrack = audioTrack {
-            do {
-                try compositionAudioTrack?.insertTimeRange(timeRange, of: audioTrack, at: kCMTimeZero)
-            } catch {
-                if let track = compositionAudioTrack {
-                    composition.removeTrack(track)
-                }
-            }
-        }
-        
-        compositionVideoTrack.preferredTransform = transform
-        
-        let videoComposition = AVMutableVideoComposition(propertiesOf: composition)
-        videoComposition.renderSize = preferredVideoSize
-        videoComposition.frameDuration = CMTimeMake(1, videoTrack.naturalTimeScale)
-        
-        //
         
         asset.requestContentEditingInput(with: nil) { (input, info) in
             guard let input = input else {
@@ -211,10 +181,15 @@ extension BatchEditItem {
             let contentEditingOutput = PHContentEditingOutput(contentEditingInput: input)
             contentEditingOutput.adjustmentData = PHAdjustmentData(formatIdentifier: Bundle.main.bundleIdentifier ?? "", formatVersion: "1.0", data: dataInfo)
             
-            let exportSession = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetPassthrough)
+            let videoComposition = AVMutableVideoComposition(propertiesOf: video)
+            videoComposition.renderSize = videoTrack.naturalSize.applying(self.editItem.transform).magnitude
+            videoComposition.frameDuration = CMTimeMake(1, videoTrack.naturalTimeScale)
+            
+            let exportSession = AVAssetExportSession(asset: video, presetName: AVAssetExportPresetPassthrough)
             exportSession?.outputFileType = AVFileType.mov
             exportSession?.outputURL = contentEditingOutput.renderedContentURL
             exportSession?.videoComposition = videoComposition
+            exportSession?.shouldOptimizeForNetworkUse = false
             exportSession?.exportAsynchronously {
                 guard let status = exportSession?.status else { return }
                 switch status {
@@ -222,8 +197,6 @@ extension BatchEditItem {
                     completion(asset, contentEditingOutput)
                 case .failed, .cancelled:
                     completion(nil, nil)
-                case .exporting:
-                    print(exportSession?.progress)
                 default:
                     break
                 }
@@ -374,7 +347,43 @@ extension UIImage {
             }
         }
     }
-    
+}
+
+extension AVAsset {
+    func applyTransform(_ transform: CGAffineTransform) -> AVAsset {
+        guard
+            let videoTrack = tracks(withMediaType: .video).first
+        else {
+            return self
+        }
+        
+        let audioTrack = tracks(withMediaType: .audio).first
+        
+        let transform = videoTrack.preferredTransform.concatenating(transform)
+        let timeRange = CMTimeRangeMake(kCMTimeZero, duration)
+        
+        let composition = AVMutableComposition()
+        guard let compositionVideoTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid) else {
+            return self
+        }
+        let compositionAudioTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
+        
+        try? compositionVideoTrack.insertTimeRange(timeRange, of: videoTrack, at: kCMTimeZero)
+        
+        if let audioTrack = audioTrack {
+            do {
+                try compositionAudioTrack?.insertTimeRange(timeRange, of: audioTrack, at: kCMTimeZero)
+            } catch {
+                if let track = compositionAudioTrack {
+                    composition.removeTrack(track)
+                }
+            }
+        }
+        
+        compositionVideoTrack.preferredTransform = transform
+        
+        return composition
+    }
 }
 
 //https://gist.github.com/schickling/b5d86cb070130f80bb40

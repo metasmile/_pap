@@ -78,6 +78,8 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
                 assetView.setImageAsset(asset, completion: { [unowned self] (image) in
                     self.image = image?.applyTransform(self.preferredTransform)
                     self.assetView.image = self.image
+                }, completionWithLivePhoto: { [unowned self] (livePhoto) in
+                    self.assetView.livePhoto = livePhoto
                 })
             }
             else if asset.mediaType == .video {
