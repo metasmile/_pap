@@ -18,9 +18,13 @@ protocol BatchEditViewControllerDelegate {
 }
 
 class EditToolbarViewController: UIViewController {
+    var cancelButton: UIBarButtonItem?
     var doneButton: UIBarButtonItem?
     
     var editToolbarItems: [UIBarButtonItem] {
+        let cancelButton = UIBarButtonItem(image: UIImage(named: "Cancel"), style: .plain, target: self, action: #selector(self.cancelButtonDidTap))
+        self.cancelButton = cancelButton
+        
         let doneButton = UIBarButtonItem(image: UIImage(named: "Batch Done Bar Button"), style: .done, target: self, action: #selector(self.doneButtonDidTap))
         self.doneButton = doneButton
         
@@ -28,7 +32,7 @@ class EditToolbarViewController: UIViewController {
         fixedSpace.width = 10
         
         return [
-            UIBarButtonItem(image: UIImage(named: "Cancel"), style: .plain, target: self, action: #selector(self.cancelButtonDidTap)),
+//            cancelButton,
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
             UIBarButtonItem(image: UIImage(named: "Flip Vertical"), style: .plain, target: self, action: #selector(self.verticalFlipButtonDidTap)),
             fixedSpace,
@@ -38,7 +42,7 @@ class EditToolbarViewController: UIViewController {
             fixedSpace,
             UIBarButtonItem(image: UIImage(named: "Rotate Right"), style: .plain, target: self, action: #selector(self.rotationRightButtonDidTap)),
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            doneButton
+//            doneButton
         ]
     }
     
@@ -99,6 +103,9 @@ class BatchEditViewController: EditToolbarViewController {
         title = "Batch Edit".localizedString
         
         editToolbar.toolbarItems = editToolbarItems
+        
+        navigationItem.leftBarButtonItem = cancelButton
+        navigationItem.rightBarButtonItem = doneButton
         
         batchProgressView.titleLabel.textColor = view.tintColor
         batchProgressView.cancelButton.addTarget(self, action: #selector(self.cancelBatchButtonDidTap), for: .touchUpInside)
