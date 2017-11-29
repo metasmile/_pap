@@ -68,7 +68,7 @@
                             <constraint firstAttribute="trailing" secondItem="Fza-uH-EMZ" secondAttribute="trailing" id="Yan-jI-G96"/>
                             <constraint firstItem="Fza-uH-EMZ" firstAttribute="top" secondItem="Fnk-hf-u1J" secondAttribute="top" id="tjE-XA-Vyq"/>
                             <constraint firstItem="Fza-uH-EMZ" firstAttribute="leading" secondItem="Fnk-hf-u1J" secondAttribute="leading" id="wUD-zf-uNj"/>
-                            <constraint firstItem="4MU-Uk-sfl" firstAttribute="top" secondItem="Fza-uH-EMZ" secondAttribute="bottom" id="x9z-6g-tag"/>
+                            <constraint firstAttribute="bottom" secondItem="Fza-uH-EMZ" secondAttribute="bottom" id="x9z-6g-tag"/>
                         </constraints>
                     </view>
                     <toolbarItems/>

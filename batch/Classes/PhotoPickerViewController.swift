@@ -8,6 +8,7 @@
 
 import UIKit
 import Photos
+import PhotosUI
 import Hero
 
 class FetchResultItem: NSObject {
@@ -323,16 +324,6 @@ extension PhotoPickerViewController: PHPhotoLibraryChangeObserver {
     }
 }
 
-class PhotoCollectionTitleView: CustomCollectionReusableView {
-    @IBOutlet weak var titleLabel: UILabel!
-    
-    @IBInspectable var title: String? {
-        didSet {
-            titleLabel.text = title
-        }
-    }
-}
-
 class PhotoCollectionViewCell: CustomCollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     //TODO: wrap a view as a decorationrenderview later
@@ -382,7 +373,7 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         selectionView.addSubview(selectionCheckView)
         selectionView.backgroundColor = UIColor(white: 1, alpha: 0.25)
 
-        iconForLivePhotos.tintColor = UIColor.white
+        iconForLivePhotos.image = PHLivePhotoView.livePhotoBadgeImage(options: .overContent)
     }
     
     override func prepareForReuse() {

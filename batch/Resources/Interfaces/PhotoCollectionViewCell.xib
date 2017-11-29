@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -28,13 +29,11 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eJc-gq-5xN">
                     <rect key="frame" x="0.0" y="0.0" width="100" height="180"/>
                 </imageView>
-                <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qXl-5L-ADI" customClass="GradientView" customModule="batch" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="160" width="100" height="20"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qXl-5L-ADI" customClass="GradientView" customModule="batch" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="156" width="100" height="24"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0:39" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0D-pa-CND">
-                            <rect key="frame" x="4" y="3" width="52" height="15"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:39" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0D-pa-CND">
+                            <rect key="frame" x="6" y="5.5" width="90" height="14.5"/>
                             <accessibility key="accessibilityConfiguration">
                                 <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                             </accessibility>
@@ -42,13 +41,15 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="Live Photo Icon" translatesAutoresizingMaskIntoConstraints="NO" id="0KB-TD-3q8">
-                            <rect key="frame" x="3" y="0.0" width="15" height="15"/>
-                            <autoresizingMask key="autoresizingMask"/>
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0KB-TD-3q8">
+                            <rect key="frame" x="2" y="0.0" width="22" height="22"/>
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <accessibility key="accessibilityConfiguration">
                                 <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                             </accessibility>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="0KB-TD-3q8" secondAttribute="height" multiplier="1:1" id="yUg-f2-cFh"/>
+                            </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                     <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -59,6 +60,15 @@
                     <accessibility key="accessibilityConfiguration">
                         <accessibilityTraits key="traits" notEnabled="YES"/>
                     </accessibility>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="N0D-pa-CND" secondAttribute="trailing" constant="4" id="ERL-is-Qxu"/>
+                        <constraint firstAttribute="height" constant="24" id="UhE-CV-EKa"/>
+                        <constraint firstItem="N0D-pa-CND" firstAttribute="leading" secondItem="qXl-5L-ADI" secondAttribute="leading" constant="6" id="UhH-S0-KUv"/>
+                        <constraint firstItem="0KB-TD-3q8" firstAttribute="leading" secondItem="qXl-5L-ADI" secondAttribute="leading" constant="2" id="Ygj-Z8-RGM"/>
+                        <constraint firstItem="0KB-TD-3q8" firstAttribute="top" secondItem="qXl-5L-ADI" secondAttribute="top" id="hPT-RU-uEn"/>
+                        <constraint firstAttribute="bottom" secondItem="N0D-pa-CND" secondAttribute="bottom" constant="4" id="lu4-xc-fkN"/>
+                        <constraint firstAttribute="bottom" secondItem="0KB-TD-3q8" secondAttribute="bottom" constant="2" id="whY-46-Ppf"/>
+                    </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="startColor">
                             <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -80,9 +90,12 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="eJc-gq-5xN" secondAttribute="trailing" id="45q-37-Ham"/>
                 <constraint firstItem="Sk1-cQ-NDN" firstAttribute="centerX" secondItem="eJc-gq-5xN" secondAttribute="centerX" id="7J6-WU-yxE"/>
+                <constraint firstAttribute="trailing" secondItem="qXl-5L-ADI" secondAttribute="trailing" id="Evt-sE-9Q2"/>
                 <constraint firstAttribute="bottom" secondItem="eJc-gq-5xN" secondAttribute="bottom" id="KMK-q1-P0S"/>
+                <constraint firstItem="qXl-5L-ADI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="TxJ-kE-68m"/>
                 <constraint firstItem="Sk1-cQ-NDN" firstAttribute="centerY" secondItem="eJc-gq-5xN" secondAttribute="centerY" id="VMo-0H-UvF"/>
                 <constraint firstItem="eJc-gq-5xN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gqe-JM-IcQ"/>
+                <constraint firstAttribute="bottom" secondItem="qXl-5L-ADI" secondAttribute="bottom" id="qbj-aO-2mQ"/>
                 <constraint firstItem="eJc-gq-5xN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xcA-g5-yJE"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -90,7 +103,4 @@
             <point key="canvasLocation" x="34" y="119"/>
         </view>
     </objects>
-    <resources>
-        <image name="Live Photo Icon" width="31" height="31"/>
-    </resources>
 </document>
