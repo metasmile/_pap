@@ -26,7 +26,8 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
     var image: UIImage? {
         didSet {
             guard isViewLoaded else { return }
-            updateAssetViewLayout()
+            assetView.image = image
+            layoutAssetView()
         }
     }
     var editItem = EditItem()
@@ -72,6 +73,8 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
         doneButton?.image = UIImage(named: "Edit Done Bar Button")
         
         assetView.preferredTransform = preferredTransform
+        assetView.image = image
+        layoutAssetView()
         
         if let asset = asset {
             if asset.mediaType == .image {
@@ -107,12 +110,13 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
     
     // MARK: - Layout
     
-    func updateAssetViewLayout() {
-        guard let image = image else { return }
+    func layoutAssetView() {
+        guard let asset = asset else { return }
+        let preferredSize = asset.size.applying(preferredTransform).magnitude
         
         let boundingBox = UIEdgeInsetsInsetRect(photoZoomingView.bounds, UIEdgeInsets(top: safeAreaInsets.top, left: safeAreaInsets.left, bottom: safeAreaInsets.bottom + editToolbar.bounds.height, right: safeAreaInsets.right))
         
-        let actualContentSize = image.size.applying(editItem.transform).magnitude.aspectFit(in: boundingBox.size)
+        let actualContentSize = preferredSize.applying(editItem.transform).magnitude.aspectFit(in: boundingBox.size)
         let contentSize = actualContentSize.applying(editItem.transform.inverted()).magnitude
         
         zoomingContentView.frame.size = contentSize
@@ -123,8 +127,6 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
         
         zoomingContentView.center = CGPoint(x: boundingBox.width / 2, y: boundingBox.height / 2)
         assetView.center = CGPoint(x: contentSize.width / 2, y: contentSize.height / 2)
-        
-        assetView.image = image
     }
     
     // MARK: - Navigation Bar Actions
@@ -143,7 +145,7 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
     }
     
     private func updatePreview(_ completion: (() -> Void)? = nil) {
-        updateAssetViewLayout()
+        layoutAssetView()
         
         UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: .beginFromCurrentState, animations: {
             self.assetView.layer.transform = self.editItem.transform3d

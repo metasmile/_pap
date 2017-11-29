@@ -430,6 +430,12 @@ extension PHAsset {
     }
 }
 
+extension PHAsset {
+    var size: CGSize {
+        return CGSize(width: pixelWidth, height: pixelHeight)
+    }
+}
+
 extension UIImage {
     func flipHorizontally() -> UIImage {
         return withHorizontallyFlippedOrientation()
