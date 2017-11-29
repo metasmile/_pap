@@ -69,9 +69,6 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
         
         editToolbar.toolbarItems = editToolbarItems
         
-        navigationItem.leftBarButtonItem = cancelButton
-        navigationItem.rightBarButtonItem = doneButton
-        
         doneButton?.image = UIImage(named: "Edit Done Bar Button")
         
         assetView.preferredTransform = preferredTransform
