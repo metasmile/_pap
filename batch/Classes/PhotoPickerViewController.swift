@@ -97,7 +97,23 @@ class PhotoPickerViewController: UIViewController {
         layoutToolbar()
         editToolBar.animateUsingSpringIfLayoutConstraintsChanged()
         
-        editButton.title = "Edit %d photo(s)".localizedFormattedString(photoCollectionView.indexPathsForSelectedItems?.count ?? 0)
+        let selectedAssets = photoCollectionView.indexPathsForSelectedItems?.flatMap({ self.asset(at: $0) })
+        let numberOfVideos = selectedAssets?.filter({ $0.mediaType == .video }).count ?? 0
+        let numberOfPhotos = selectedAssets?.filter({ $0.mediaType == .image }).count ?? 0
+        
+        var itemType = "item"
+        if numberOfPhotos > 0 && numberOfVideos == 0 {
+            itemType = "photo"
+        }
+        else if numberOfVideos > 0 && numberOfPhotos == 0 {
+            itemType = "video"
+        }
+        else {
+            itemType = "item"
+        }
+        
+        
+        editButton.title = "Edit %d \(itemType)(s)".localizedFormattedString(photoCollectionView.indexPathsForSelectedItems?.count ?? 0)
     }
 }
 

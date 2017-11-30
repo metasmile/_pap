@@ -4,8 +4,9 @@
 
 "Cancel" = "Cancel";
 
-"Select photos to batch edit" = "Select photos to batch edit";
 "Edit %d photo(s)" = "Edit %d photo(s)";
+"Edit %d video(s)" = "Edit %d video(s)";
+"Edit %d item(s)" = "Edit %d item(s)";
 "Batch Edit" = "Batch Edit";
 "Edit" = "Edit";
 "Discard Changes" = "Discard Changes";
