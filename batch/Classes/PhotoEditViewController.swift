@@ -23,10 +23,10 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
     
     var zoomingContentView: UIView!
     var assetView: STAssetView!
-    var image: UIImage? {
+    var placeholderImage: UIImage? {
         didSet {
             guard isViewLoaded else { return }
-            assetView.image = image
+            assetView.image = placeholderImage
             layoutAssetView()
         }
     }
@@ -73,14 +73,13 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
         doneButton?.image = UIImage(named: "Edit Done Bar Button")
         
         assetView.preferredTransform = preferredTransform
-        assetView.image = image
+        assetView.image = placeholderImage
         layoutAssetView()
         
         if let asset = asset {
             if asset.mediaType == .image {
                 assetView.setImageAsset(asset, completion: { [unowned self] (image) in
-                    self.image = image?.applyTransform(self.preferredTransform)
-                    self.assetView.image = self.image
+                    self.assetView.image = image
                 }, completionWithLivePhoto: { [unowned self] (livePhoto) in
                     self.assetView.livePhoto = livePhoto
                 })

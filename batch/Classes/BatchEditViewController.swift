@@ -379,18 +379,19 @@ extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewD
         cell.assetView.transform = batchEditItems[indexPath.item].editItem.transform
         
         cell.assetView.heroModifiers = [.fade]
-
-        let transformForTargetCellImage = batchEditItems[indexPath.item].editItem.transform;
+        
+        let placeholderImage = cell.assetView.image
+        let preferredTransform = batchEditItems[indexPath.item].editItem.transform;
         
         let photoEditViewController = storyboard?.instantiateViewController(withIdentifier: "PhotoEditViewController") as! PhotoEditViewController
-        photoEditViewController.image = cell.assetView.image?.applyTransform(transformForTargetCellImage)
+        photoEditViewController.placeholderImage = placeholderImage
         photoEditViewController.asset = cell.asset
-        photoEditViewController.preferredTransform = transformForTargetCellImage
+        photoEditViewController.preferredTransform = preferredTransform
         photoEditViewController.indexPathInBatch = indexPath
         photoEditViewController.delegate = self
         
         let transitionID = "PhotoEditViewTransition"
-        let snapshotImageView = UIImageView(image: photoEditViewController.image)
+        let snapshotImageView = UIImageView(image: placeholderImage?.applyTransform(preferredTransform))
         snapshotImageView.contentMode = .scaleAspectFit
         snapshotImageView.frame = cell.assetView.convert(cell.assetView.bounds, to: view)
         snapshotImageView.heroID = transitionID

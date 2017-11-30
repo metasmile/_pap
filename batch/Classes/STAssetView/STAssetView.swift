@@ -23,6 +23,7 @@ class STAssetView: UIView {
     
     var preferredTransform: CGAffineTransform = .identity {
         didSet {
+            imageLayer.transform = CATransform3DMakeAffineTransform(preferredTransform)
             videoLayer.transform = CATransform3DMakeAffineTransform(preferredTransform)
             livePhotoView.transform = preferredTransform
         }
