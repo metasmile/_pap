@@ -18,27 +18,38 @@ protocol BatchEditViewControllerDelegate {
 }
 
 class EditToolbarViewController: UIViewController {
+    var cancelButton: UIBarButtonItem?
     var doneButton: UIBarButtonItem?
     
-    var editToolbarItems: [UIBarButtonItem] {
-        let doneButton = UIBarButtonItem(image: UIImage(named: "Batch Done Bar Button"), style: .done, target: self, action: #selector(self.doneButtonDidTap))
-        self.doneButton = doneButton
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        let fixedSpace = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-        fixedSpace.width = 10
+        cancelButton = UIBarButtonItem(image: UIImage(named: "Cancel"), style: .plain, target: self, action: #selector(self.cancelButtonDidTap))
+        doneButton = UIBarButtonItem(image: UIImage(named: "Batch Done Bar Button"), style: .done, target: self, action: #selector(self.doneButtonDidTap))
         
+        navigationItem.leftBarButtonItem = cancelButton
+        navigationItem.rightBarButtonItem = doneButton
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if navigationController?.navigationBar.barStyle == UIBarStyle.black {
+            cancelButton?.tintColor = .white
+            doneButton?.tintColor = .white
+        }
+        else {
+            cancelButton?.tintColor = .black
+            doneButton?.tintColor = .black
+        }
+    }
+    
+    var appDockItems: [AppDockItem] {
         return [
-            UIBarButtonItem(image: UIImage(named: "Cancel"), style: .plain, target: self, action: #selector(self.cancelButtonDidTap)),
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            UIBarButtonItem(image: UIImage(named: "Flip Vertical"), style: .plain, target: self, action: #selector(self.verticalFlipButtonDidTap)),
-            fixedSpace,
-            UIBarButtonItem(image: UIImage(named: "Flip Horizontal"), style: .plain, target: self, action: #selector(self.horizontalFlipButtonDidTap)),
-            fixedSpace,
-            UIBarButtonItem(image: UIImage(named: "Rotate Left"), style: .plain, target: self, action: #selector(self.rotationLeftButtonDidTap)),
-            fixedSpace,
-            UIBarButtonItem(image: UIImage(named: "Rotate Right"), style: .plain, target: self, action: #selector(self.rotationRightButtonDidTap)),
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            doneButton
+            AppDockItem(title: "Flip Vertical", appIcon: UIImage(named: "Flip Vertical"), run: { self.verticalFlipButtonDidTap() }),
+            AppDockItem(title: "Flip Horizontal", appIcon: UIImage(named: "Flip Horizontal"), run: { self.horizontalFlipButtonDidTap() }),
+            AppDockItem(title: "Rotate Left", appIcon: UIImage(named: "Rotate Left"), run: { self.rotationLeftButtonDidTap() }),
+            AppDockItem(title: "Rotate Right", appIcon: UIImage(named: "Rotate Right"), run: { self.rotationRightButtonDidTap() })
         ]
     }
     
@@ -46,19 +57,19 @@ class EditToolbarViewController: UIViewController {
         
     }
     
-    @objc func horizontalFlipButtonDidTap(sender: Any) {
+    func horizontalFlipButtonDidTap() {
         
     }
     
-    @objc func verticalFlipButtonDidTap(sender: Any) {
+    func verticalFlipButtonDidTap() {
         
     }
     
-    @objc func rotationLeftButtonDidTap(sender: Any) {
+    func rotationLeftButtonDidTap() {
         
     }
     
-    @objc func rotationRightButtonDidTap(sender: Any) {
+    func rotationRightButtonDidTap() {
         
     }
     
@@ -86,8 +97,8 @@ class BatchEditViewController: EditToolbarViewController {
     var editTaskQueue = TaskQueue()
     
     @IBOutlet weak var previewCollectionView: UICollectionView!
-    @IBOutlet weak var editToolbar: FloatingToolbar!
-    @IBOutlet weak var editToolbarBottomLayout: NSLayoutConstraint!
+    @IBOutlet weak var appDockView: STAppDockView!
+    @IBOutlet weak var appDockViewBottomLayout: NSLayoutConstraint!
     @IBOutlet weak var dimmedView: UIView!
     
     @IBOutlet weak var batchProgressView: BatchProgressView!
@@ -98,7 +109,7 @@ class BatchEditViewController: EditToolbarViewController {
         
         title = "Batch Edit".localizedString
         
-        editToolbar.toolbarItems = editToolbarItems
+        appDockView.items = appDockItems
         
         batchProgressView.titleLabel.textColor = view.tintColor
         batchProgressView.cancelButton.addTarget(self, action: #selector(self.cancelBatchButtonDidTap), for: .touchUpInside)
@@ -149,8 +160,8 @@ class BatchEditViewController: EditToolbarViewController {
         }) { (finished) in
             self.navigationController?.setNavigationBarHidden(false, animated: true)
             
-            self.editToolbarBottomLayout.constant = 10
-            self.editToolbar.animateUsingSpringIfLayoutConstraintsChanged()
+            self.appDockViewBottomLayout.constant = 10
+            self.appDockView.animateUsingSpringIfLayoutConstraintsChanged()
         }
         
         UIView.transition(with: self.dimmedView, duration: 0.2, options: .transitionCrossDissolve, animations: {
@@ -168,8 +179,8 @@ class BatchEditViewController: EditToolbarViewController {
         
         navigationController?.setNavigationBarHidden(true, animated: true)
         
-        editToolbarBottomLayout.constant = -(editToolbar.bounds.height + safeAreaInsets.bottom)
-        editToolbar.animateUsingSpringIfLayoutConstraintsChanged()
+        appDockViewBottomLayout.constant = -(appDockView.bounds.height + safeAreaInsets.bottom)
+        appDockView.animateUsingSpringIfLayoutConstraintsChanged()
         
         batchProgressViewBottomLayout.constant = 10
         UIView.animate(withDuration: 0.3, delay: 0.3, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: .beginFromCurrentState, animations: {
@@ -264,19 +275,19 @@ class BatchEditViewController: EditToolbarViewController {
         undoBatchEditing()
     }
     
-    override func horizontalFlipButtonDidTap(sender: Any) {
+    override func horizontalFlipButtonDidTap() {
         addTransformItem(HorizontalFlipTransformItem())
     }
     
-    override func verticalFlipButtonDidTap(sender: Any) {
+    override func verticalFlipButtonDidTap() {
         addTransformItem(VerticalFlipTransformItem())
     }
     
-    override func rotationLeftButtonDidTap(sender: Any) {
+    override func rotationLeftButtonDidTap() {
         addTransformItem(RotationTransformItem(degrees: -90))
     }
     
-    override func rotationRightButtonDidTap(sender: Any) {
+    override func rotationRightButtonDidTap() {
         addTransformItem(RotationTransformItem(degrees: 90))
     }
     

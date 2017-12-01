@@ -162,11 +162,8 @@
                                     <outlet property="prefetchDataSource" destination="ShF-us-R7M" id="TNo-qi-Ks8"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJW-wn-3qT" customClass="FloatingToolbar" customModule="batch" customModuleProvider="target">
-                                <rect key="frame" x="10" y="597" width="355" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="5op-C2-cLo"/>
-                                </constraints>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="60" translatesAutoresizingMaskIntoConstraints="NO" id="FPS-FO-haH" customClass="STAppDockView" customModule="batch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zhz-Qr-6IX">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -183,14 +180,14 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="dHU-se-tmh" secondAttribute="trailing" constant="10" id="1Yh-ou-ska"/>
                             <constraint firstItem="zhz-Qr-6IX" firstAttribute="leading" secondItem="t2k-Gu-mig" secondAttribute="leading" id="3pZ-JG-yDM"/>
+                            <constraint firstItem="FPS-FO-haH" firstAttribute="leading" secondItem="t2k-Gu-mig" secondAttribute="leading" id="6hk-Ec-yPc"/>
                             <constraint firstItem="zhz-Qr-6IX" firstAttribute="top" secondItem="t2k-Gu-mig" secondAttribute="top" id="CZk-O4-sww"/>
-                            <constraint firstItem="NJW-wn-3qT" firstAttribute="leading" secondItem="t2k-Gu-mig" secondAttribute="leading" constant="10" id="Hbr-GK-ASr"/>
-                            <constraint firstItem="21a-ao-jSA" firstAttribute="top" secondItem="NJW-wn-3qT" secondAttribute="bottom" constant="10" id="Hry-EU-Ewn"/>
                             <constraint firstItem="9wI-kx-zQk" firstAttribute="top" secondItem="t2k-Gu-mig" secondAttribute="top" id="JTb-2g-Tnd"/>
+                            <constraint firstAttribute="trailing" secondItem="FPS-FO-haH" secondAttribute="trailing" id="K94-jk-IGs"/>
                             <constraint firstItem="21a-ao-jSA" firstAttribute="top" secondItem="dHU-se-tmh" secondAttribute="bottom" constant="10" id="Lti-6m-a0t"/>
                             <constraint firstItem="9wI-kx-zQk" firstAttribute="leading" secondItem="t2k-Gu-mig" secondAttribute="leading" id="PL7-Xe-D72"/>
                             <constraint firstAttribute="trailing" secondItem="9wI-kx-zQk" secondAttribute="trailing" id="Ru0-dh-gyo"/>
-                            <constraint firstAttribute="trailing" secondItem="NJW-wn-3qT" secondAttribute="trailing" constant="10" id="bYW-nJ-d43"/>
+                            <constraint firstAttribute="bottom" secondItem="FPS-FO-haH" secondAttribute="bottom" id="aQi-fe-5RX"/>
                             <constraint firstAttribute="trailing" secondItem="zhz-Qr-6IX" secondAttribute="trailing" id="dCA-yg-k01"/>
                             <constraint firstAttribute="bottom" secondItem="9wI-kx-zQk" secondAttribute="bottom" id="e5A-uQ-zUG"/>
                             <constraint firstAttribute="bottom" secondItem="zhz-Qr-6IX" secondAttribute="bottom" id="xdN-th-qfR"/>
@@ -198,11 +195,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="appDockView" destination="FPS-FO-haH" id="Kmy-iv-UG9"/>
+                        <outlet property="appDockViewBottomLayout" destination="aQi-fe-5RX" id="6Hx-P3-gub"/>
                         <outlet property="batchProgressView" destination="dHU-se-tmh" id="KYY-9U-0lq"/>
                         <outlet property="batchProgressViewBottomLayout" destination="Lti-6m-a0t" id="Zze-IO-JpZ"/>
                         <outlet property="dimmedView" destination="zhz-Qr-6IX" id="DYp-SS-5XU"/>
-                        <outlet property="editToolbar" destination="NJW-wn-3qT" id="WPC-EZ-rIf"/>
-                        <outlet property="editToolbarBottomLayout" destination="Hry-EU-Ewn" id="0Pg-JM-w98"/>
                         <outlet property="previewCollectionView" destination="9wI-kx-zQk" id="14S-Iz-VnU"/>
                     </connections>
                 </viewController>
@@ -228,26 +225,23 @@
                                     <outlet property="delegate" destination="oyw-5W-GwR" id="iri-LD-ftn"/>
                                 </connections>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ljV-41-1wD" customClass="FloatingToolbar" customModule="batch" customModuleProvider="target">
-                                <rect key="frame" x="10" y="597" width="355" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="GKs-q5-MDe"/>
-                                </constraints>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="60" translatesAutoresizingMaskIntoConstraints="NO" id="6HC-cV-Fmb" customClass="STAppDockView" customModule="batch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ljV-41-1wD" firstAttribute="leading" secondItem="57g-e2-YJi" secondAttribute="leading" constant="10" id="21e-bh-qrw"/>
+                            <constraint firstAttribute="trailing" secondItem="6HC-cV-Fmb" secondAttribute="trailing" id="3To-PZ-j9l"/>
                             <constraint firstItem="Yge-jY-8N3" firstAttribute="leading" secondItem="57g-e2-YJi" secondAttribute="leading" id="57f-ag-z46"/>
-                            <constraint firstItem="ZXS-Wm-Jes" firstAttribute="top" secondItem="ljV-41-1wD" secondAttribute="bottom" constant="10" id="DSE-It-fMZ"/>
-                            <constraint firstAttribute="trailing" secondItem="ljV-41-1wD" secondAttribute="trailing" constant="10" id="Fe6-TF-NLe"/>
+                            <constraint firstAttribute="bottom" secondItem="6HC-cV-Fmb" secondAttribute="bottom" id="FKA-o5-Dqu"/>
                             <constraint firstItem="Yge-jY-8N3" firstAttribute="top" secondItem="57g-e2-YJi" secondAttribute="top" id="OPV-13-dBM"/>
+                            <constraint firstItem="6HC-cV-Fmb" firstAttribute="leading" secondItem="57g-e2-YJi" secondAttribute="leading" id="gvU-l8-xiX"/>
                             <constraint firstAttribute="trailing" secondItem="Yge-jY-8N3" secondAttribute="trailing" id="mUx-ZJ-JZL"/>
                             <constraint firstAttribute="bottom" secondItem="Yge-jY-8N3" secondAttribute="bottom" id="y1h-2o-Dne"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="editToolbar" destination="ljV-41-1wD" id="2ga-LS-Ao4"/>
+                        <outlet property="appDockView" destination="6HC-cV-Fmb" id="aQ0-zt-WH4"/>
                         <outlet property="photoZoomingView" destination="Yge-jY-8N3" id="vSu-Sg-Hex"/>
                     </connections>
                 </viewController>

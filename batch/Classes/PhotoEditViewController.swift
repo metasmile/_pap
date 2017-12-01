@@ -17,7 +17,7 @@ protocol PhotoEditViewControllerDelegate {
 
 class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
     @IBOutlet weak var photoZoomingView: UIScrollView!
-    @IBOutlet weak var editToolbar: FloatingToolbar!
+    @IBOutlet weak var appDockView: STAppDockView!
     
     var delegate: PhotoEditViewControllerDelegate?
     
@@ -63,12 +63,13 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
         photoZoomingView.minimumZoomScale = 1
         photoZoomingView.maximumZoomScale = 4
         
-        editToolbar.borderColor = iOSStandardEditorBackgroundColor
-        editToolbar.toolbar.barStyle = .black
-        editToolbar.toolbar.tintColor = UIColor.white
-        editToolbar.toolbar.barTintColor = iOSStandardEditorBackgroundColor
+//        editToolbar.borderColor = iOSStandardEditorBackgroundColor
+//        editToolbar.toolbar.barStyle = .black
+//        editToolbar.toolbar.tintColor = UIColor.white
+//        editToolbar.toolbar.barTintColor = iOSStandardEditorBackgroundColor
         
-        editToolbar.toolbarItems = editToolbarItems
+        appDockView.barStyle = .black
+        appDockView.items = appDockItems
         
         doneButton?.image = UIImage(named: "Edit Done Bar Button")
         
@@ -113,7 +114,7 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
         guard let asset = asset else { return }
         let preferredSize = asset.size.applying(preferredTransform).magnitude
         
-        let boundingBox = UIEdgeInsetsInsetRect(photoZoomingView.bounds, UIEdgeInsets(top: safeAreaInsets.top, left: safeAreaInsets.left, bottom: safeAreaInsets.bottom + editToolbar.bounds.height, right: safeAreaInsets.right))
+        let boundingBox = UIEdgeInsetsInsetRect(photoZoomingView.bounds, UIEdgeInsets(top: safeAreaInsets.top, left: safeAreaInsets.left, bottom: appDockView.bounds.height, right: safeAreaInsets.right))
         
         let actualContentSize = preferredSize.applying(editItem.transform).magnitude.aspectFit(in: boundingBox.size)
         let contentSize = actualContentSize.applying(editItem.transform.inverted()).magnitude
@@ -155,19 +156,19 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
     
     // MARK: - Tool Bar Actions
     
-    override func horizontalFlipButtonDidTap(sender: Any) {
+    override func horizontalFlipButtonDidTap() {
         addTransformItem(HorizontalFlipTransformItem())
     }
     
-    override func verticalFlipButtonDidTap(sender: Any) {
+    override func verticalFlipButtonDidTap() {
         addTransformItem(VerticalFlipTransformItem())
     }
     
-    override func rotationLeftButtonDidTap(sender: Any) {
+    override func rotationLeftButtonDidTap() {
         addTransformItem(RotationTransformItem(degrees: -90))
     }
     
-    override func rotationRightButtonDidTap(sender: Any) {
+    override func rotationRightButtonDidTap() {
         addTransformItem(RotationTransformItem(degrees: 90))
     }
     
