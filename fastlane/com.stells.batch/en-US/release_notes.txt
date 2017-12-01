@@ -1,1 +1,2 @@
-
++ Add Video and Live Photos support. Shortly, Batch will become an editor which enables to edit everything in your Camera Roll. Stay with us!
+• Several functional improvements and fixes.
