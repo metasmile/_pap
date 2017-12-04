@@ -25,6 +25,7 @@
 		0AA86ED51FD1199A00E6E1B0 /* STAppDock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA86ED41FD1199A00E6E1B0 /* STAppDock.swift */; };
 		0AA86ED71FD11EEF00E6E1B0 /* STAppDockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA86ED61FD11EEF00E6E1B0 /* STAppDockView.xib */; };
 		0AA86ED91FD12BF600E6E1B0 /* STAppDockViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA86ED81FD12BF600E6E1B0 /* STAppDockViewCell.xib */; };
+		0AA86EDD1FD3A4B900E6E1B0 /* BatchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA86EDC1FD3A4B900E6E1B0 /* BatchRequest.swift */; };
 		0AA891751FA96D1A00748799 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AA891771FA96D1A00748799 /* Localizable.strings */; };
 		0AA8917A1FA9899900748799 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 0AA8917C1FA9899A00748799 /* Localizable.stringsdict */; };
 		0AAA57081FCB9BFF00C9915A /* STAssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAA57071FCB9BFF00C9915A /* STAssetView.swift */; };
@@ -56,6 +57,7 @@
 		0AA86ED41FD1199A00E6E1B0 /* STAppDock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = STAppDock.swift; path = Classes/STAppDock.swift; sourceTree = "<group>"; };
 		0AA86ED61FD11EEF00E6E1B0 /* STAppDockView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = STAppDockView.xib; path = Resources/Interfaces/STAppDockView.xib; sourceTree = "<group>"; };
 		0AA86ED81FD12BF600E6E1B0 /* STAppDockViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = STAppDockViewCell.xib; path = Resources/Interfaces/STAppDockViewCell.xib; sourceTree = "<group>"; };
+		0AA86EDC1FD3A4B900E6E1B0 /* BatchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BatchRequest.swift; path = Classes/BatchRequest.swift; sourceTree = "<group>"; };
 		0AA891761FA96D1A00748799 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0AA8917B1FA9899A00748799 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		0AAA57071FCB9BFF00C9915A /* STAssetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = STAssetView.swift; path = Classes/STAssetView/STAssetView.swift; sourceTree = "<group>"; };
@@ -144,6 +146,14 @@
 			name = "Batch App Dock";
 			sourceTree = "<group>";
 		};
+		0AA86EDB1FD3A48E00E6E1B0 /* Batch App */ = {
+			isa = PBXGroup;
+			children = (
+				0AA86EDC1FD3A4B900E6E1B0 /* BatchRequest.swift */,
+			);
+			name = "Batch App";
+			sourceTree = "<group>";
+		};
 		0AAA57061FCB9B9D00C9915A /* STAssetView */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +224,7 @@
 		0ABFCF961F14B8830078A583 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0AA86EDB1FD3A48E00E6E1B0 /* Batch App */,
 				0AA86ED31FD1196C00E6E1B0 /* Batch App Dock */,
 				0AAA57061FCB9B9D00C9915A /* STAssetView */,
 				0A7459E71F709AC800CA70E1 /* Extensions */,
@@ -403,6 +414,7 @@
 				0ABFCF7C1F14B65C0078A583 /* AppDelegate.swift in Sources */,
 				0AA1A07D1F4D1232006297DF /* BatchItem.swift in Sources */,
 				0ABFCF991F14B8A70078A583 /* PhotoPickerViewController.swift in Sources */,
+				0AA86EDD1FD3A4B900E6E1B0 /* BatchRequest.swift in Sources */,
 				0A8C4ADE1F3C15BF00B7246A /* RoundedButton.swift in Sources */,
 				0A8FDA071FA8035D002380AA /* StringExtension.swift in Sources */,
 				0AAA57081FCB9BFF00C9915A /* STAssetView.swift in Sources */,

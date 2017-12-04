@@ -94,7 +94,7 @@ class BatchEditViewController: EditToolbarViewController {
     var placeholderImages = [PHAsset: UIImage?]()
     
     var batchEditItems = [BatchEditItem]()
-    var editTaskQueue = TaskQueue()
+    var batchRequest: BatchEditSequenceRequest?
     
     @IBOutlet weak var previewCollectionView: UICollectionView!
     @IBOutlet weak var appDockView: STAppDockView!
@@ -145,7 +145,7 @@ class BatchEditViewController: EditToolbarViewController {
     // MARK: - Editing
     
     @objc func cancelBatchButtonDidTap(sender: Any) {
-        editTaskQueue.cancel()
+        batchRequest?.cancel()
         
         closeBatchProgressView()
     }
@@ -303,39 +303,25 @@ extension BatchEditViewController {
     func runBatchProcessing() {
         showBatchProgressView()
         
-        struct AssetChangeInfo {
-            var asset: PHAsset
-            var contentEditingOutput: PHContentEditingOutput
-        }
+        previewCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
         
-        var assetChangeInfos = [AssetChangeInfo]()
-        
-        for (i, batchEditItem) in batchEditItems.enumerated() {
-            editTaskQueue.addTask({ [weak self] in
-                batchEditItem.runEditing { [weak self] (asset, contentEditingOutput) in
-                    if let asset = asset, let contentEditingOutput = contentEditingOutput {
-                        assetChangeInfos.append(AssetChangeInfo(asset: asset, contentEditingOutput: contentEditingOutput))
-                    }
-                    
-                    DispatchQueue.main.async { [weak self] in
-                        self?.batchProgressView.title = "Processing...".localizedString
-                        self?.batchProgressView.setProgress(Float(i + 1) / Float(self?.batchEditItems.count ?? 1), animated: true)
-                        
-                        self?.previewCollectionView.scrollToItem(at: IndexPath(item: i, section: 0), at: .centeredHorizontally, animated: true)
-                        self?.previewCollectionView.performBatchUpdates(nil, completion: { [weak self] (finished) in
-                            self?.editTaskQueue.performNext()
-                        })
-                    }
-                }
-            })
-        }
-        
-        editTaskQueue.setFinishBlock { [unowned self] in
-            self.batchProgressView.title = "Saving Photos...".localizedString
+        batchRequest = BatchEditSequenceRequest()
+        batchRequest?.perform(batchEditItems.map({ BatchEditRequest($0) }), { (progress, idx) in
+            DispatchQueue.main.async { [weak self] in
+                self?.batchProgressView.title = "Processing...".localizedString
+                self?.batchProgressView.setProgress(progress, animated: true)
+                
+                guard let item = idx, let numberOfItems = self?.batchEditItems.count, item + 1 < numberOfItems else { return }
+                self?.previewCollectionView.scrollToItem(at: IndexPath(item: item + 1, section: 0), at: .centeredHorizontally, animated: true)
+            }
+        }) { (results) in
+            DispatchQueue.main.async {
+                self.batchProgressView.title = "Saving Photos...".localizedString
+            }
             
             PHPhotoLibrary.shared().performChanges({
-                for assetChangeInfo in assetChangeInfos {
-                    PHAssetChangeRequest(for: assetChangeInfo.asset).contentEditingOutput = assetChangeInfo.contentEditingOutput
+                for result in results {
+                    PHAssetChangeRequest(for: result.asset).contentEditingOutput = result.contentEditingOutput
                 }
             }, completionHandler: { (success, info) in
                 DispatchQueue.main.async { [unowned self] in
@@ -348,7 +334,6 @@ extension BatchEditViewController {
                 }
             })
         }
-        editTaskQueue.performNext()
     }
 }
 
