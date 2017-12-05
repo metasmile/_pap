@@ -37,6 +37,11 @@ class PhotoPickerViewController: AppDockViewController {
         
         photoCollectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: "PhotoCollectionViewCell")
         photoCollectionView.allowsMultipleSelection = true
+
+        //peek and pop
+        if traitCollection.forceTouchCapability == .available {
+            registerForPreviewing(with: self, sourceView: photoCollectionView)  // self here is UIViewController type, and view is property of UIViewController
+        }
         
         batchPreviewView = BatchPreviewView(frame: .zero)
         
@@ -133,6 +138,24 @@ extension PhotoPickerViewController {
             
             title = "Edit %d \(itemType)(s)".localizedFormattedString(photoCollectionView.indexPathsForSelectedItems?.count ?? 0)
         }
+    }
+}
+
+
+
+extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let indexPath = photoCollectionView?.indexPathForItem(at: location) else { return nil }
+        guard let cell = photoCollectionView?.cellForItem(at: indexPath) else { return nil }
+
+        let detailvc = PhotoPickerDetailViewController()
+        detailvc.asset = self.asset(at: indexPath)
+
+        return detailvc
+    }
+
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+
     }
 }
 
