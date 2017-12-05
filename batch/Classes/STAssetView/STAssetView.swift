@@ -216,6 +216,7 @@ extension STAssetView {
     }
     
     func setImageAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: ((UIImage?) -> Void)? = nil, completionWithLivePhoto: ((PHLivePhoto?) -> Void)? = nil) {
+
         if asset.mediaSubtypes == .photoLive {
             livePhotoView.isHidden = false
             
@@ -227,6 +228,7 @@ extension STAssetView {
                 
                 DispatchQueue.main.async { [weak self] in
                     if let completion = completionWithLivePhoto {
+                        print(livePhoto)
                         completion(livePhoto)
                     }
                     else {
@@ -279,6 +281,7 @@ extension STAssetView {
     fileprivate func loadImage(for asset: PHAsset, completion: @escaping (UIImage?) -> Void) {
         let targetSize = CGSize(width: bounds.width * UIScreen.main.nativeScale, height: bounds.height * UIScreen.main.nativeScale)
         imageRequestID = STAssetView.imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: imageRequestOptions) { (image, info) in
+
             completion(image)
         }
     }

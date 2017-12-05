@@ -8,30 +8,32 @@ import Photos
 
 class PhotoPickerDetailViewController: UIViewController {
 
-    private lazy var imageView: STAssetView = {
-        let assetView = STAssetView()
-        assetView.contentMode = .scaleAspectFit
-        assetView.translatesAutoresizingMaskIntoConstraints = false
-        return assetView
-    }()
-
-    var asset: PHAsset? {
-        didSet {
-
-            if asset != nil{
-                imageView.setAsset(asset!, cancelDrawingIfNeeded: { [weak self] in
-                    return false
-                })
-            }
-
-        }
-    }
+    var asset: PHAsset?
+//    var asset: PHAsset? {
+//        didSet {
+//
+//            if asset != nil{
+//
+//                assetView.setAsset(asset!, cancelDrawingIfNeeded: { [weak self] in
+//                    return false
+//                })
+//            }
+//
+//        }
+//    }
 
     // MARK: - Private Properties
 
     fileprivate let imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     fileprivate let messageInsets = UIEdgeInsets(top: 32, left: 14, bottom: 0, right: 16)
     fileprivate let textInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+
+    private lazy var assetView: STAssetView = {
+        let assetView = STAssetView()
+        assetView.contentMode = .scaleAspectFit
+        assetView.translatesAutoresizingMaskIntoConstraints = false
+        return assetView
+    }()
 
     fileprivate lazy var bubbleView: UIView = {
         let view = UIView()
@@ -68,30 +70,43 @@ class PhotoPickerDetailViewController: UIViewController {
         // Configure view
         view.backgroundColor = UIColor.white
 
+
+        messageView.frame = view.bounds
+        assetView.frame = view.bounds
+
+        if asset != nil{
+
+            assetView.setAsset(asset!, cancelDrawingIfNeeded: { [weak self] in
+                return false
+            })
+            assetView.play()
+        }
+
+
         // Compose child views
         bubbleView.addSubview(textLabel)
-        messageView.addSubview(imageView)
+        messageView.addSubview(assetView)
         messageView.addSubview(bubbleView)
         view.addSubview(messageView)
 
-        // Attach the message view
-
-        NSLayoutConstraint(
-                item: messageView,
-                attribute: .top,
-                relatedBy: .equal,
-                toItem: topLayoutGuide,
-                attribute: .bottom,
-                multiplier: 1,
-                constant: messageInsets.top).isActive = true
-
-        // Attach the image view
-        imageView.setContentCompressionResistancePriority(UILayoutPriority.required, for: .horizontal)
-        imageView.setContentHuggingPriority(UILayoutPriority.required, for: .horizontal)
-
-        imageView.centerYAnchor.constraint(equalTo: bubbleView.centerYAnchor).isActive = true
-
-        // Attach the bubble view
-        bubbleView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 8).isActive = true
+//        // Attach the message view
+//
+//        NSLayoutConstraint(
+//                item: messageView,
+//                attribute: .top,
+//                relatedBy: .equal,
+//                toItem: topLayoutGuide,
+//                attribute: .bottom,
+//                multiplier: 1,
+//                constant: messageInsets.top).isActive = true
+//
+//        // Attach the image view
+//        assetView.setContentCompressionResistancePriority(UILayoutPriority.required, for: .horizontal)
+//        assetView.setContentHuggingPriority(UILayoutPriority.required, for: .horizontal)
+//
+//        assetView.centerYAnchor.constraint(equalTo: bubbleView.centerYAnchor).isActive = true
+//
+//        // Attach the bubble view
+//        bubbleView.leadingAnchor.constraint(equalTo: assetView.trailingAnchor, constant: 8).isActive = true
     }
 }
