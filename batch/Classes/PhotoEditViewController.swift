@@ -15,9 +15,8 @@ protocol PhotoEditViewControllerDelegate {
     func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: EditItem?, at indexPath: IndexPath?)
 }
 
-class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
+class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     @IBOutlet weak var photoZoomingView: UIScrollView!
-    @IBOutlet weak var appDockView: STAppDockView!
     
     var delegate: PhotoEditViewControllerDelegate?
     
@@ -69,7 +68,6 @@ class PhotoEditViewController: EditToolbarViewController, UIScrollViewDelegate {
 //        editToolbar.toolbar.barTintColor = iOSStandardEditorBackgroundColor
         
         appDockView.barStyle = .black
-        appDockView.items = appDockItems
         
         doneButton?.image = UIImage(named: "Edit Done Bar Button")
         

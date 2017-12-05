@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sgp-gD-2V8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13770" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sgp-gD-2V8">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -53,19 +53,16 @@
                                     <outlet property="prefetchDataSource" destination="lkB-fw-5jX" id="HOL-gV-bJ4"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zyv-J4-2a6" customClass="FloatingToolbar" customModule="batch" customModuleProvider="target">
-                                <rect key="frame" x="10" y="597" width="355" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="MPS-T3-wag"/>
-                                </constraints>
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSB-9d-oZd" customClass="STAppDockView" customModule="batch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="zyv-J4-2a6" secondAttribute="trailing" constant="10" id="KYT-j7-jNn"/>
-                            <constraint firstItem="zyv-J4-2a6" firstAttribute="leading" secondItem="Fnk-hf-u1J" secondAttribute="leading" constant="10" id="PvF-fW-ozj"/>
-                            <constraint firstItem="4MU-Uk-sfl" firstAttribute="top" secondItem="zyv-J4-2a6" secondAttribute="bottom" constant="10" id="XdI-qe-vSb"/>
+                            <constraint firstAttribute="bottom" secondItem="WSB-9d-oZd" secondAttribute="bottom" id="KXa-CC-qgz"/>
                             <constraint firstAttribute="trailing" secondItem="Fza-uH-EMZ" secondAttribute="trailing" id="Yan-jI-G96"/>
+                            <constraint firstItem="WSB-9d-oZd" firstAttribute="leading" secondItem="Fnk-hf-u1J" secondAttribute="leading" id="bG8-GH-vwt"/>
+                            <constraint firstAttribute="trailing" secondItem="WSB-9d-oZd" secondAttribute="trailing" id="k3r-SZ-pvU"/>
                             <constraint firstItem="Fza-uH-EMZ" firstAttribute="top" secondItem="Fnk-hf-u1J" secondAttribute="top" id="tjE-XA-Vyq"/>
                             <constraint firstItem="Fza-uH-EMZ" firstAttribute="leading" secondItem="Fnk-hf-u1J" secondAttribute="leading" id="wUD-zf-uNj"/>
                             <constraint firstAttribute="bottom" secondItem="Fza-uH-EMZ" secondAttribute="bottom" id="x9z-6g-tag"/>
@@ -74,8 +71,8 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Batch" id="nKx-xc-xBf"/>
                     <connections>
-                        <outlet property="editToolBar" destination="zyv-J4-2a6" id="nPE-IV-Q0c"/>
-                        <outlet property="editToolBarBottomLayout" destination="XdI-qe-vSb" id="ni9-y4-EdW"/>
+                        <outlet property="appDockView" destination="WSB-9d-oZd" id="QFO-Yg-W2b"/>
+                        <outlet property="appDockViewBottomLayout" destination="KXa-CC-qgz" id="HDX-zE-byI"/>
                         <outlet property="photoCollectionView" destination="Fza-uH-EMZ" id="25a-Kq-na0"/>
                     </connections>
                 </viewController>

@@ -43,6 +43,12 @@ class BatchEditRequest: BatchRequest {
             completion?(result)
         }
     }
+    
+    override func cancel() {
+        super.cancel()
+        
+        batchEditItem?.cancelEditing()
+    }
 }
 
 class BatchEditSequenceRequest: BatchRequest {
@@ -76,6 +82,7 @@ class BatchEditSequenceRequest: BatchRequest {
         
         batchQueue.setFinishBlock {
             completionHandler?(results)
+            self.requests = nil
         }
         batchQueue.performNext()
     }
@@ -85,7 +92,7 @@ class BatchEditSequenceRequest: BatchRequest {
         
         guard let requests = self.requests else { return }
         for request in requests {
-            request.batchEditItem?.cancelEditing()
+            request.cancel()
         }
     }
 }

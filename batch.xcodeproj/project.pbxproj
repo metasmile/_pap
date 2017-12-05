@@ -21,6 +21,7 @@
 		0A9E4AFC1F8F303200E3E805 /* BatchProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E4AFB1F8F303200E3E805 /* BatchProgressView.swift */; };
 		0A9EC7741F30735B00F1EF3A /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A9EC7731F30735B00F1EF3A /* PhotoCollectionViewCell.xib */; };
 		0AA1A07D1F4D1232006297DF /* BatchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA1A07C1F4D1232006297DF /* BatchItem.swift */; };
+		0AA37B281FD53163002803B8 /* AppDockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA37B271FD53163002803B8 /* AppDockViewController.swift */; };
 		0AA382621F4ECA420031BAB5 /* BatchEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA382611F4ECA420031BAB5 /* BatchEditViewController.swift */; };
 		0AA86ED51FD1199A00E6E1B0 /* STAppDock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA86ED41FD1199A00E6E1B0 /* STAppDock.swift */; };
 		0AA86ED71FD11EEF00E6E1B0 /* STAppDockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA86ED61FD11EEF00E6E1B0 /* STAppDockView.xib */; };
@@ -53,6 +54,7 @@
 		0A9E4AFB1F8F303200E3E805 /* BatchProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BatchProgressView.swift; path = Classes/BatchProgressView.swift; sourceTree = "<group>"; };
 		0A9EC7731F30735B00F1EF3A /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PhotoCollectionViewCell.xib; path = Resources/Interfaces/PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		0AA1A07C1F4D1232006297DF /* BatchItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BatchItem.swift; path = Classes/BatchItem.swift; sourceTree = "<group>"; };
+		0AA37B271FD53163002803B8 /* AppDockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDockViewController.swift; path = Classes/AppDockViewController.swift; sourceTree = "<group>"; };
 		0AA382611F4ECA420031BAB5 /* BatchEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BatchEditViewController.swift; path = Classes/BatchEditViewController.swift; sourceTree = "<group>"; };
 		0AA86ED41FD1199A00E6E1B0 /* STAppDock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = STAppDock.swift; path = Classes/STAppDock.swift; sourceTree = "<group>"; };
 		0AA86ED61FD11EEF00E6E1B0 /* STAppDockView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = STAppDockView.xib; path = Resources/Interfaces/STAppDockView.xib; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				0ABFCF981F14B8A70078A583 /* PhotoPickerViewController.swift */,
 				0AA382611F4ECA420031BAB5 /* BatchEditViewController.swift */,
 				0A9CC9281F8774EC00AC91A6 /* PhotoEditViewController.swift */,
+				0AA37B271FD53163002803B8 /* AppDockViewController.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				0A9E4AFC1F8F303200E3E805 /* BatchProgressView.swift in Sources */,
 				0ABFCF7C1F14B65C0078A583 /* AppDelegate.swift in Sources */,
 				0AA1A07D1F4D1232006297DF /* BatchItem.swift in Sources */,
+				0AA37B281FD53163002803B8 /* AppDockViewController.swift in Sources */,
 				0ABFCF991F14B8A70078A583 /* PhotoPickerViewController.swift in Sources */,
 				0AA86EDD1FD3A4B900E6E1B0 /* BatchRequest.swift in Sources */,
 				0A8C4ADE1F3C15BF00B7246A /* RoundedButton.swift in Sources */,

@@ -22,9 +22,11 @@ struct AppDockItem {
 
 class STAppDockView: CustomView {
     @IBOutlet weak var backgroundView: UIToolbar!
+    @IBOutlet weak var topAccessoryView: UIStackView!
+    @IBOutlet weak var topAccessoryViewHeightLayout: NSLayoutConstraint!
     @IBOutlet weak var dockView: UIView!
     @IBOutlet weak var appCollectionView: UICollectionView!
-    @IBOutlet weak var dockAccessoryView: UIView!
+    @IBOutlet weak var bottomAccessoryView: UIView!
     
     var items = [AppDockItem]() {
         didSet {
@@ -34,6 +36,9 @@ class STAppDockView: CustomView {
     
     override func initialize() {
         super.initialize()
+        
+        setContentHuggingPriority(.defaultLow, for: .vertical)
+        setContentCompressionResistancePriority(.required, for: .vertical)
         
         appCollectionView.register(STAppDockViewCell.self, forCellWithReuseIdentifier: "STAppDockViewCell")
     }
@@ -57,6 +62,31 @@ class STAppDockView: CustomView {
     var barStyle: UIBarStyle = UIBarStyle.default {
         didSet {
             backgroundView.barStyle = barStyle
+        }
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: UIViewNoIntrinsicMetric, height: topAccessoryView.bounds.height + dockView.bounds.height + bottomAccessoryView.bounds.height)
+    }
+    
+    func setAccessoryViewToTop(_ view: UIView?, animated: Bool = true) {
+        _ = topAccessoryView.arrangedSubviews.map({ topAccessoryView.removeArrangedSubview($0) })
+        addAccessoryViewToTop(view, animated: animated)
+    }
+    
+    func addAccessoryViewToTop(_ view: UIView?, animated: Bool = true) {
+        if let view = view {
+            topAccessoryView.addArrangedSubview(view)
+        }
+        topAccessoryViewHeightLayout.constant = 44 * CGFloat(topAccessoryView.arrangedSubviews.count)
+        
+        layoutIfNeeded()
+        invalidateIntrinsicContentSize()
+        
+        if animated {
+            UIView.animate(withDuration: 0.2, animations: {
+                self.superview?.layoutIfNeeded()
+            })
         }
     }
 }

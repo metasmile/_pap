@@ -51,7 +51,7 @@ class TaskQueue: NSObject {
 }
 
 class BatchEditItem: NSObject {
-    fileprivate var imageRequestID: PHImageRequestID?
+    fileprivate var imageRequestID: PHImageRequestID = PHInvalidImageRequestID
     
     var asset: PHAsset?
     var editItem = EditItem()
@@ -75,8 +75,8 @@ class BatchEditItem: NSObject {
     }
     
     func cancelEditing() {
-        guard let imageRequestID = imageRequestID else { return }
         PHImageManager.default().cancelImageRequest(imageRequestID)
+        imageRequestID = PHInvalidImageRequestID
     }
 }
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13770" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,77 +14,76 @@
             <connections>
                 <outlet property="appCollectionView" destination="3j3-5w-cI5" id="oRA-Lr-NQ2"/>
                 <outlet property="backgroundView" destination="80u-cl-a9L" id="R0g-OO-LWh"/>
-                <outlet property="dockAccessoryView" destination="8u0-vY-4kx" id="F2M-lm-xbC"/>
+                <outlet property="bottomAccessoryView" destination="8u0-vY-4kx" id="HQE-Yx-Vg6"/>
                 <outlet property="dockView" destination="Ccg-Ud-fcA" id="6fC-r6-sQp"/>
+                <outlet property="topAccessoryView" destination="g8f-8B-KA8" id="w0H-6f-WjS"/>
+                <outlet property="topAccessoryViewHeightLayout" destination="quC-3l-Vgg" id="X2a-gY-rL7"/>
             </connections>
         </placeholder>
-        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" verticalHuggingPriority="100" id="NdN-JT-aJa">
             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NdN-JT-aJa">
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80u-cl-a9L">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                    <items/>
+                </toolbar>
+                <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="g8f-8B-KA8">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                    <constraints>
+                        <constraint firstAttribute="height" id="quC-3l-Vgg"/>
+                    </constraints>
+                </stackView>
+                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ccg-Ud-fcA">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                     <subviews>
-                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80u-cl-a9L">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-                            <items/>
-                        </toolbar>
-                        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ccg-Ud-fcA">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-                            <subviews>
-                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="3j3-5w-cI5">
-                                    <rect key="frame" x="0.0" y="4" width="375" height="52"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="i1i-Zp-jUv">
-                                        <size key="itemSize" width="50" height="50"/>
-                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    </collectionViewFlowLayout>
-                                    <connections>
-                                        <outlet property="dataSource" destination="-1" id="n38-MD-6pi"/>
-                                        <outlet property="delegate" destination="-1" id="3a8-Tt-886"/>
-                                    </connections>
-                                </collectionView>
-                            </subviews>
-                            <constraints>
-                                <constraint firstItem="3j3-5w-cI5" firstAttribute="leading" secondItem="Ccg-Ud-fcA" secondAttribute="leading" id="2QQ-Em-ggH"/>
-                                <constraint firstAttribute="height" priority="750" constant="60" id="ACb-fT-cyq"/>
-                                <constraint firstAttribute="bottom" secondItem="3j3-5w-cI5" secondAttribute="bottom" constant="4" id="fVt-tu-qzS"/>
-                                <constraint firstItem="3j3-5w-cI5" firstAttribute="top" secondItem="Ccg-Ud-fcA" secondAttribute="top" constant="4" id="h0d-3M-TGP"/>
-                                <constraint firstAttribute="trailing" secondItem="3j3-5w-cI5" secondAttribute="trailing" id="kaJ-xo-Do5"/>
-                            </constraints>
-                        </view>
-                        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8u0-vY-4kx">
-                            <rect key="frame" x="0.0" y="60" width="375" height="0.0"/>
-                        </view>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="3j3-5w-cI5">
+                            <rect key="frame" x="0.0" y="4" width="375" height="52"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="i1i-Zp-jUv">
+                                <size key="itemSize" width="50" height="50"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="n38-MD-6pi"/>
+                                <outlet property="delegate" destination="-1" id="3a8-Tt-886"/>
+                            </connections>
+                        </collectionView>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="Ccg-Ud-fcA" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="3er-ib-ek6"/>
-                        <constraint firstItem="80u-cl-a9L" firstAttribute="top" secondItem="NdN-JT-aJa" secondAttribute="top" id="8rK-gB-KWh"/>
-                        <constraint firstAttribute="bottom" secondItem="8u0-vY-4kx" secondAttribute="bottom" id="9O7-N7-g7f"/>
-                        <constraint firstAttribute="trailing" secondItem="Ccg-Ud-fcA" secondAttribute="trailing" id="BhW-Bt-vAZ"/>
-                        <constraint firstItem="Ccg-Ud-fcA" firstAttribute="bottom" secondItem="6bG-Xh-UqJ" secondAttribute="bottom" id="FOT-7M-nDF"/>
-                        <constraint firstAttribute="trailing" secondItem="8u0-vY-4kx" secondAttribute="trailing" id="Nf5-Op-bg2"/>
-                        <constraint firstAttribute="bottom" secondItem="80u-cl-a9L" secondAttribute="bottom" id="PwW-SO-qZE"/>
-                        <constraint firstItem="8u0-vY-4kx" firstAttribute="top" secondItem="Ccg-Ud-fcA" secondAttribute="bottom" id="TpO-nP-D6I"/>
-                        <constraint firstItem="80u-cl-a9L" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="geg-He-zdk"/>
-                        <constraint firstItem="Ccg-Ud-fcA" firstAttribute="top" secondItem="NdN-JT-aJa" secondAttribute="top" id="iNG-mZ-e3L"/>
-                        <constraint firstItem="8u0-vY-4kx" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="qUL-xU-QJP"/>
-                        <constraint firstAttribute="trailing" secondItem="80u-cl-a9L" secondAttribute="trailing" id="xvx-od-t24"/>
+                        <constraint firstItem="3j3-5w-cI5" firstAttribute="leading" secondItem="Ccg-Ud-fcA" secondAttribute="leading" id="2QQ-Em-ggH"/>
+                        <constraint firstAttribute="height" constant="60" id="ACb-fT-cyq"/>
+                        <constraint firstAttribute="bottom" secondItem="3j3-5w-cI5" secondAttribute="bottom" constant="4" id="fVt-tu-qzS"/>
+                        <constraint firstItem="3j3-5w-cI5" firstAttribute="top" secondItem="Ccg-Ud-fcA" secondAttribute="top" constant="4" id="h0d-3M-TGP"/>
+                        <constraint firstAttribute="trailing" secondItem="3j3-5w-cI5" secondAttribute="trailing" id="kaJ-xo-Do5"/>
                     </constraints>
-                    <viewLayoutGuide key="safeArea" id="6bG-Xh-UqJ"/>
+                </view>
+                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8u0-vY-4kx">
+                    <rect key="frame" x="0.0" y="60" width="375" height="0.0"/>
                 </view>
             </subviews>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="NdN-JT-aJa" secondAttribute="bottom" id="OId-Br-1oK"/>
-                <constraint firstItem="NdN-JT-aJa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="OeX-Iw-Fum"/>
-                <constraint firstAttribute="trailing" secondItem="NdN-JT-aJa" secondAttribute="trailing" id="c0C-mg-nHz"/>
-                <constraint firstItem="NdN-JT-aJa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gcI-W3-e8a"/>
+                <constraint firstItem="Ccg-Ud-fcA" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="3er-ib-ek6"/>
+                <constraint firstItem="80u-cl-a9L" firstAttribute="top" secondItem="NdN-JT-aJa" secondAttribute="top" id="8rK-gB-KWh"/>
+                <constraint firstAttribute="bottom" secondItem="8u0-vY-4kx" secondAttribute="bottom" id="9O7-N7-g7f"/>
+                <constraint firstAttribute="trailing" secondItem="Ccg-Ud-fcA" secondAttribute="trailing" id="BhW-Bt-vAZ"/>
+                <constraint firstItem="Ccg-Ud-fcA" firstAttribute="bottom" secondItem="6bG-Xh-UqJ" secondAttribute="bottom" id="FOT-7M-nDF"/>
+                <constraint firstItem="g8f-8B-KA8" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="K9Z-yJ-Rsr"/>
+                <constraint firstAttribute="trailing" secondItem="8u0-vY-4kx" secondAttribute="trailing" id="Nf5-Op-bg2"/>
+                <constraint firstItem="g8f-8B-KA8" firstAttribute="top" secondItem="NdN-JT-aJa" secondAttribute="top" priority="750" id="Oex-N9-FlS"/>
+                <constraint firstAttribute="bottom" secondItem="80u-cl-a9L" secondAttribute="bottom" id="PwW-SO-qZE"/>
+                <constraint firstItem="8u0-vY-4kx" firstAttribute="top" secondItem="Ccg-Ud-fcA" secondAttribute="bottom" id="TpO-nP-D6I"/>
+                <constraint firstAttribute="trailing" secondItem="g8f-8B-KA8" secondAttribute="trailing" id="fJx-sF-2ek"/>
+                <constraint firstItem="80u-cl-a9L" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="geg-He-zdk"/>
+                <constraint firstItem="Ccg-Ud-fcA" firstAttribute="top" secondItem="g8f-8B-KA8" secondAttribute="bottom" id="la4-rk-jqn"/>
+                <constraint firstItem="8u0-vY-4kx" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="qUL-xU-QJP"/>
+                <constraint firstAttribute="trailing" secondItem="80u-cl-a9L" secondAttribute="trailing" id="xvx-od-t24"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="33.5" y="55"/>
+            <viewLayoutGuide key="safeArea" id="6bG-Xh-UqJ"/>
         </view>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
     </objects>
 </document>
