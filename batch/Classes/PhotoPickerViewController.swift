@@ -25,6 +25,7 @@ class FetchResultItem: NSObject {
 
 class PhotoPickerViewController: AppDockViewController {
     @IBOutlet weak var photoCollectionView: UICollectionView!
+    var batchPreviewView: BatchPreviewView!
     
     var collections: PHFetchResult<PHAssetCollection>?
     var fetchResults: [FetchResultItem]?
@@ -36,6 +37,8 @@ class PhotoPickerViewController: AppDockViewController {
         
         photoCollectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: "PhotoCollectionViewCell")
         photoCollectionView.allowsMultipleSelection = true
+        
+        batchPreviewView = BatchPreviewView(frame: .zero)
         
         if PHPhotoLibrary.authorizationStatus() == .authorized {
             
@@ -54,8 +57,10 @@ class PhotoPickerViewController: AppDockViewController {
             }
         }
         
-        view.layoutIfNeeded()
-        updateTitleForSelectedItems()
+        title = "Batch".localizedString
+        
+        navigationItem.setLeftBarButton(nil, animated: true)
+        navigationItem.setRightBarButton(nil, animated: true)
     }
     
     deinit {
@@ -113,7 +118,7 @@ extension PhotoPickerViewController {
             navigationItem.setLeftBarButton(cancelButton, animated: true)
             navigationItem.setRightBarButton(doneButton, animated: true)
             
-            appDockView.setAccessoryViewToTop(UIView(frame: .zero))
+            appDockView.setAccessoryViewToTop(batchPreviewView)
             
             var itemType = "item"
             if numberOfPhotos > 0 && numberOfVideos == 0 {
@@ -223,6 +228,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
             photoCollectionView.deselectItem(at: indexPath, animated: true)
         }
         orderedSelectedIndexPaths.removeAllObjects()
+        batchPreviewView.removeAllBatchEditItems()
         updateTitleForSelectedItems()
     }
     
@@ -263,12 +269,16 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         updateTitleForSelectedItems()
         
         orderedSelectedIndexPaths.add(indexPath)
+        
+        batchPreviewView.addBatchEditItem(with: self.asset(at: indexPath))
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        updateTitleForSelectedItems()
-        
         orderedSelectedIndexPaths.remove(indexPath)
+        
+        batchPreviewView.removeBatchEditItem(with: self.asset(at: indexPath))
+        
+        updateTitleForSelectedItems()
     }
     
     // MARK: - UICollectionViewDelegateFlowLayout
