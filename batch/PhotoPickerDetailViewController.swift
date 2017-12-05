@@ -60,8 +60,6 @@ class PhotoPickerDetailViewController: UIViewController {
         return label
     }()
 
-    // MARK: - Lifecycle
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -75,11 +73,8 @@ class PhotoPickerDetailViewController: UIViewController {
         assetView.frame = view.bounds
 
         if asset != nil{
-
-            assetView.setAsset(asset!, cancelDrawingIfNeeded: { [weak self] in
-                return false
-            })
-            assetView.play()
+            assetView.asset = asset!
+            assetView.playAny()
         }
 
 
@@ -108,5 +103,13 @@ class PhotoPickerDetailViewController: UIViewController {
 //
 //        // Attach the bubble view
 //        bubbleView.leadingAnchor.constraint(equalTo: assetView.trailingAnchor, constant: 8).isActive = true
+    }
+
+
+    // MARK: - Lifecycle
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        assetView.stopAny()
     }
 }

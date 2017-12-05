@@ -58,7 +58,7 @@ class BatchEditItem: NSObject {
     
     func runEditing(_ progressHandler: ((Float) -> Void)? = nil, _ completionHandler: @escaping (PHAsset?, PHContentEditingOutput?) -> Void) {
         if asset?.mediaType == .image {
-            if asset?.mediaSubtypes == .photoLive {
+            if asset!.mediaSubtypes.contains(.photoLive) {
                 self.editLivePhoto(completionHandler)
             }
             else {

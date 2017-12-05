@@ -403,10 +403,10 @@ extension BatchEditViewController: UIScrollViewDelegate {
             guard let cell = cell as? PreviewCollectionViewCell else { continue }
             let cellBoundsInView = cell.assetView.convert(cell.assetView.bounds, to: view)
             if cellBoundsInView.contains(CGPoint(x: view.frame.midX, y: view.frame.midY)) {
-                cell.assetView.playWithLooping()
+                cell.assetView.playVideoWithLooping()
             }
             else {
-                cell.assetView.pause()
+                cell.assetView.pauseVideo()
             }
         }
     }
@@ -414,7 +414,7 @@ extension BatchEditViewController: UIScrollViewDelegate {
     fileprivate func stopAllPlayAssets() {
         for cell in previewCollectionView.visibleCells {
             guard let cell = cell as? PreviewCollectionViewCell else { continue }
-            cell.assetView.pause()
+            cell.assetView.pauseVideo()
         }
     }
 }

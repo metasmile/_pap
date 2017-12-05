@@ -116,7 +116,7 @@ class STAssetView: UIView {
         isLivePhotoPlaying = false
         livePhotoView.isHidden = true
         imageLayer.contents = nil
-        pause()
+        pauseVideo()
         
         image = nil
         playerItem = nil
@@ -188,7 +188,7 @@ class STAssetView: UIView {
     
     // MARK: Video
     
-    var isPlaying: Bool {
+    var isVideoPlaying: Bool {
         return videoLayer.player?.rate != 0
     }
     
@@ -214,9 +214,8 @@ extension STAssetView {
             setVideoAsset(asset, cancelDrawingIfNeeded: cancellation, completion: completion)
         }
     }
-    
-    func setImageAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: ((UIImage?) -> Void)? = nil, completionWithLivePhoto: ((PHLivePhoto?) -> Void)? = nil) {
 
+    func setImageAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: ((UIImage?) -> Void)? = nil, completionWithLivePhoto: ((PHLivePhoto?) -> Void)? = nil) {
         if asset.mediaSubtypes == .photoLive {
             livePhotoView.isHidden = false
             
@@ -228,7 +227,6 @@ extension STAssetView {
                 
                 DispatchQueue.main.async { [weak self] in
                     if let completion = completionWithLivePhoto {
-                        print(livePhoto)
                         completion(livePhoto)
                     }
                     else {
@@ -307,44 +305,79 @@ extension STAssetView {
     }
 }
 
-// Video Controls
-
 extension STAssetView {
-    func play() {
-        guard !isPlaying else { return }
+    // Abs
+    func playAny() {
+        guard asset != nil else { return }
+
+        if asset!.mediaSubtypes.contains(.photoLive) {
+            self.playLivePhoto()
+
+        } else if asset!.mediaType == .video {
+            self.playVideo()
+        }
+    }
+
+    func stopAny() {
+        guard asset != nil else { return }
+
+        if asset!.mediaSubtypes.contains(.photoLive) {
+            self.stopVideo()
+
+        } else if asset!.mediaType == .video {
+            self.stopLivePhoto()
+        }
+    }
+
+    //Live Photos
+    func playLivePhoto() {
+        guard !isLivePhotoPlaying else { return }
+
+        livePhotoView.startPlayback(with: .full)
+    }
+
+    func stopLivePhoto() {
+        guard isLivePhotoPlaying else { return }
+        livePhotoView.stopPlayback()
+    }
+
+    //Videos
+
+    func playVideo() {
+        guard !isVideoPlaying else { return }
         videoLayer.player?.play()
     }
     
-    func playWithLooping() {
-        play()
+    func playVideoWithLooping() {
+        playVideo()
         addVideoLooping()
     }
     
-    func start(to seekTime: CMTime = kCMTimeZero) {
-        guard !isPlaying else { return }
-        seek(to: seekTime)
+    func startVideo(to seekTime: CMTime = kCMTimeZero) {
+        guard !isVideoPlaying else { return }
+        seekVideo(to: seekTime)
         videoLayer.player?.play()
     }
     
-    func pause() {
-        guard isPlaying else { return }
+    func pauseVideo() {
+        guard isVideoPlaying else { return }
         videoLayer.player?.pause()
         removeVideoLooping()
     }
     
-    func stop() {
-        pause()
-        seek(to: kCMTimeZero)
+    func stopVideo() {
+        pauseVideo()
+        seekVideo(to: kCMTimeZero)
     }
     
-    func seek(to: CMTime, toleranceBefore: CMTime = kCMTimeZero, toleranceAfter: CMTime = kCMTimeZero) {
+    func seekVideo(to: CMTime, toleranceBefore: CMTime = kCMTimeZero, toleranceAfter: CMTime = kCMTimeZero) {
         playerItem?.seek(to: to, toleranceBefore: toleranceBefore, toleranceAfter: toleranceAfter)
     }
     
     private func addVideoLooping() {
         if let playerItem = playerItem {
             playerLoopingObserver = NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: playerItem, queue: OperationQueue.main, using: { [weak self] (notification) in
-                self?.start(to: kCMTimeZero)
+                self?.startVideo(to: kCMTimeZero)
             })
         }
     }

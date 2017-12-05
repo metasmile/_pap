@@ -86,7 +86,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
             else if asset.mediaType == .video {
                 assetView.setVideoAsset(asset, completion: { [unowned self] (playerItem) in
                     self.assetView.playerItem = playerItem
-                    self.assetView.playWithLooping()
+                    self.assetView.playVideoWithLooping()
                 })
             }
         }
