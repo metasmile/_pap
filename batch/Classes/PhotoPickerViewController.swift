@@ -441,18 +441,60 @@ extension PhotoPickerViewController: PHPhotoLibraryChangeObserver {
         guard let fetchResults = self.fetchResults else { return }
         
         DispatchQueue.main.async {
-            var indexPaths = [IndexPath]()
+            var changedIndexPaths = [IndexPath]()
+            var insertedIndexPaths = [IndexPath]()
+            var removedIndexPaths = [IndexPath]()
+            
+            struct PhotoLibraryChangedInfo {
+                var indexPath: IndexPath
+                var index: Int
+            }
             
             for (section, fetchResult) in fetchResults.enumerated() {
                 guard let changeDetails = changeInstance.changeDetails(for: fetchResult.fetchResult) else { continue }
-                for object in changeDetails.changedObjects {
-                    guard let item = fetchResult.assets.index(of: object) else { continue }
-                    fetchResult.assets[item] = object
-                    indexPaths.append(IndexPath(item: item, section: section))
+                
+                if let changedInfos = changeDetails.changedIndexes?.enumerated().map({ PhotoLibraryChangedInfo(indexPath: IndexPath(item: $0.element, section: section), index: $0.offset) }) {
+                    for changedInfo in changedInfos {
+                        fetchResult.assets[changedInfo.indexPath.item] = changeDetails.changedObjects[changedInfo.index]
+                        changedIndexPaths.append(changedInfo.indexPath)
+                    }
+                }
+                
+                if let changedInfos = changeDetails.insertedIndexes?.enumerated().map({ PhotoLibraryChangedInfo(indexPath: IndexPath(item: $0.element, section: section), index: $0.offset) }) {
+                    for changedInfo in changedInfos {
+                        let insertedAsset = changeDetails.insertedObjects[changedInfo.index]
+                        guard !fetchResult.assets.contains(insertedAsset) else { continue }
+                        fetchResult.assets.insert(insertedAsset, at: changedInfo.indexPath.item)
+                        insertedIndexPaths.append(changedInfo.indexPath)
+                    }
+                }
+                if let indexPaths = changeDetails.removedIndexes?.map({ IndexPath(item: $0, section: section) }) {
+                    removedIndexPaths.append(contentsOf: indexPaths)
+                }
+                
+                if changeDetails.hasMoves {
+                    changeDetails.enumerateMoves({ (from, to) in
+                        self.photoCollectionView.moveItem(at: IndexPath(item: from, section: section), to: IndexPath(item: to, section: section))
+                    })
                 }
             }
-            guard indexPaths.count > 0 else { return }
-            self.photoCollectionView.reloadItems(at: indexPaths)
+            
+            self.photoCollectionView.performBatchUpdates({
+//                if removedIndexPaths.count > 0 {
+//                    self.photoCollectionView.deleteItems(at: removedIndexPaths)
+//                }
+                
+                if insertedIndexPaths.count > 0 {
+                    self.photoCollectionView.insertItems(at: insertedIndexPaths)
+                }
+                
+                if changedIndexPaths.count > 0 {
+                    self.photoCollectionView.reloadItems(at: changedIndexPaths)
+                }
+            }, completion: { (finished) in
+                
+            })
+            
             self.updateTitleForSelectedItems()
         }
     }
