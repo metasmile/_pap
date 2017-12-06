@@ -272,7 +272,7 @@ extension BatchEditViewController {
 
 extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewDataSourcePrefetching, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func setupPreviewCollectionView() {
-        
+        previewCollectionView.register(PreviewCollectionViewCell.self, forCellWithReuseIdentifier: "PreviewCollectionViewCell")
     }
     
     // MARK: - UICollectionViewDataSource
@@ -440,83 +440,6 @@ extension BatchEditViewController: PhotoEditViewControllerDelegate {
             photoEditor.dismiss(animated: true, completion: {
                 photoEditor.placeholderView?.removeFromSuperview()
             })
-        }
-    }
-}
-
-class PreviewCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var assetView: STAssetView!
-    
-    var indexPath: IndexPath?
-    var asset: PHAsset?
-    var imageRequestId: PHImageRequestID?
-    var imageContentMode = PHImageContentMode.aspectFit
-    
-    @IBOutlet weak var assetViewWidth: NSLayoutConstraint!
-    @IBOutlet weak var assetViewHeight: NSLayoutConstraint!
-    
-    @IBOutlet weak var imageInfoViewTop: NSLayoutConstraint!
-    @IBOutlet weak var fileLabel: UILabel!
-    @IBOutlet weak var resolutionLabel: UILabel!
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        
-        assetView.heroID = nil
-        assetView.asset = nil
-        indexPath = nil
-        
-        if let imageRequestId = imageRequestId {
-            PhotoManager.cachingImageManager.cancelImageRequest(imageRequestId)
-        }
-        imageRequestId = nil
-    }
-    
-    func setBatchEditItem(_ item: BatchEditItem, at indexPath: IndexPath) {
-        guard let asset = item.asset else { return }
-        
-        self.asset = asset
-        self.indexPath = indexPath
-        
-        let boundingSize = CGSize(width: kEditItemPreviewWidth, height: kEditItemPreviewWidth)
-        let photoSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight).aspectFit(in: boundingSize)
-        
-        assetViewWidth.constant = photoSize.width
-        assetViewHeight.constant = photoSize.height
-        
-        DispatchQueue.main.async { [weak self] in
-            guard self?.indexPath == indexPath else { return }
-            
-            let resources = PHAssetResource.assetResources(for: asset)
-            if let firstResource = resources.first {
-                self?.fileLabel.text = firstResource.originalFilename
-            }
-            
-            self?.setImageEditItem(item.editItem)
-        }
-        
-        assetView.setAsset(asset, cancelDrawingIfNeeded: { [weak self] in
-            return self?.indexPath != indexPath
-        })
-    }
-    
-    func setImageEditItem(_ editItem: EditItem, animated: Bool = false) {
-        if animated {
-            UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: .beginFromCurrentState, animations: { [weak self] in
-                self?.assetView.layer.transform = editItem.transform3d
-            }) { (finished) in
-            }
-        }
-        else {
-            assetView.layer.transform = editItem.transform3d
-        }
-        
-        imageInfoViewTop.constant = (bounds.height + CGSize(width: assetViewWidth.constant, height: assetViewHeight.constant).applying(editItem.transform).magnitude.height) / 2 + 10
-        
-        if let asset = self.asset {
-            let assetSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight)
-            let transformedAssetSize = assetSize.applying(editItem.transform).magnitude
-            resolutionLabel.text = "\(Int(transformedAssetSize.width)) x \(Int(transformedAssetSize.height))"
         }
     }
 }

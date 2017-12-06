@@ -101,58 +101,7 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PreviewCollectionViewCell" id="fZb-6c-CTO" customClass="PreviewCollectionViewCell" customModule="batch" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="297"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="297"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BdX-BK-30y" customClass="STAssetView" customModule="batch" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="48" width="200" height="200"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="200" id="IaC-Da-Aqv"/>
-                                                        <constraint firstAttribute="height" constant="200" id="NNC-2V-x0M"/>
-                                                    </constraints>
-                                                </view>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="IYf-ee-Zmg">
-                                                    <rect key="frame" x="10" y="0.0" width="180" height="29"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdD-v9-aFW">
-                                                            <rect key="frame" x="0.0" y="0.0" width="180" height="14.5"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
-                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VB4-KU-gaP">
-                                                            <rect key="frame" x="0.0" y="14.5" width="180" height="14.5"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                            </subviews>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstItem="IYf-ee-Zmg" firstAttribute="top" secondItem="fZb-6c-CTO" secondAttribute="top" id="AVt-2u-cmP"/>
-                                            <constraint firstAttribute="trailing" secondItem="IYf-ee-Zmg" secondAttribute="trailing" constant="10" id="VTC-Rn-kOp"/>
-                                            <constraint firstItem="BdX-BK-30y" firstAttribute="centerX" secondItem="fZb-6c-CTO" secondAttribute="centerX" id="VWL-mJ-HFW"/>
-                                            <constraint firstItem="BdX-BK-30y" firstAttribute="centerY" secondItem="fZb-6c-CTO" secondAttribute="centerY" id="b4c-Ag-VTl"/>
-                                            <constraint firstItem="IYf-ee-Zmg" firstAttribute="leading" secondItem="fZb-6c-CTO" secondAttribute="leading" constant="10" id="pHs-FC-9lN"/>
-                                        </constraints>
-                                        <size key="customSize" width="200" height="297"/>
-                                        <connections>
-                                            <outlet property="assetView" destination="BdX-BK-30y" id="9ni-oB-V3e"/>
-                                            <outlet property="assetViewHeight" destination="NNC-2V-x0M" id="Lzc-zW-xg7"/>
-                                            <outlet property="assetViewWidth" destination="IaC-Da-Aqv" id="H5E-xA-UM5"/>
-                                            <outlet property="fileLabel" destination="wdD-v9-aFW" id="2mW-Jt-94A"/>
-                                            <outlet property="imageInfoViewTop" destination="AVt-2u-cmP" id="YB1-LG-aSO"/>
-                                            <outlet property="resolutionLabel" destination="VB4-KU-gaP" id="yfA-dM-Ons"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                                 <connections>
                                     <outlet property="dataSource" destination="ShF-us-R7M" id="RCG-3A-TtI"/>
                                     <outlet property="delegate" destination="ShF-us-R7M" id="y0G-7h-ShG"/>

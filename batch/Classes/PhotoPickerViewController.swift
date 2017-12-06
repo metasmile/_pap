@@ -44,6 +44,7 @@ class PhotoPickerViewController: AppDockViewController {
         }
         
         batchPreviewView = BatchPreviewView(frame: .zero)
+        batchPreviewView.delegate = self
         
         if PHPhotoLibrary.authorizationStatus() == .authorized {
             
@@ -80,28 +81,37 @@ class PhotoPickerViewController: AppDockViewController {
     }
     
     override func cancelButtonDidTap(sender: Any) {
-        cancelAllSelection()
+        if batchPreviewView.hasChanges {
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Discard Changes".localizedString, style: .destructive, handler: { (action) in
+                self.cancelAllSelection()
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel".localizedString, style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+        else {
+            cancelAllSelection()
+        }
     }
     
     override func doneButtonDidTap(sender: Any) {
-        guard photoCollectionView.indexPathsForSelectedItems?.isEmpty == false, let selectedIndexPaths = orderedSelectedIndexPaths.array as? [IndexPath] else { return }
-        
-        let batchEditViewController = storyboard?.instantiateViewController(withIdentifier: "BatchEditViewController") as! BatchEditViewController
-        batchEditViewController.photos = selectedIndexPaths.flatMap({ asset(at: $0) })
-        batchEditViewController.delegate = self
-        
-        for indexPath in selectedIndexPaths {
-            guard let photo = asset(at: indexPath), let cell = photoCollectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell else { continue }
-            batchEditViewController.placeholderImages[photo] = cell.imageView.image
-        }
-        
-        let navigationController = UINavigationController(rootViewController: batchEditViewController)
-        navigationController.isHeroEnabled = true
-        navigationController.heroModalAnimationType = .selectBy(presenting:.zoom, dismissing:.zoomOut)
-        navigationController.heroNavigationAnimationType = .none
-        navigationController.modalPresentationStyle = .overCurrentContext
-        
-        present(navigationController, animated: true, completion: nil)
+        //
+    }
+    
+    override func horizontalFlipButtonDidTap() {
+        batchPreviewView.addTransformItem(HorizontalFlipTransformItem())
+    }
+    
+    override func verticalFlipButtonDidTap() {
+        batchPreviewView.addTransformItem(VerticalFlipTransformItem())
+    }
+    
+    override func rotationLeftButtonDidTap() {
+        batchPreviewView.addTransformItem(RotationTransformItem(degrees: -90))
+    }
+    
+    override func rotationRightButtonDidTap() {
+        batchPreviewView.addTransformItem(RotationTransformItem(degrees: 90))
     }
 }
 
@@ -141,8 +151,6 @@ extension PhotoPickerViewController {
     }
 }
 
-
-
 extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = photoCollectionView?.indexPathForItem(at: location) else { return nil }
@@ -155,6 +163,29 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
 
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
 
+    }
+}
+
+extension PhotoPickerViewController: BatchPreviewViewDelegate {
+    func batchPreviewView(_ view: BatchPreviewView, didSelectItemAt indexPath: IndexPath) {
+        guard photoCollectionView.indexPathsForSelectedItems?.isEmpty == false, let selectedIndexPaths = orderedSelectedIndexPaths.array as? [IndexPath] else { return }
+        
+        let batchEditViewController = storyboard?.instantiateViewController(withIdentifier: "BatchEditViewController") as! BatchEditViewController
+        batchEditViewController.photos = selectedIndexPaths.flatMap({ asset(at: $0) })
+        batchEditViewController.delegate = self
+        
+        for indexPath in selectedIndexPaths {
+            guard let photo = asset(at: indexPath), let cell = photoCollectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell else { continue }
+            batchEditViewController.placeholderImages[photo] = cell.imageView.image
+        }
+        
+        let navigationController = UINavigationController(rootViewController: batchEditViewController)
+        navigationController.isHeroEnabled = true
+        navigationController.heroModalAnimationType = .selectBy(presenting:.zoom, dismissing:.zoomOut)
+        navigationController.heroNavigationAnimationType = .none
+        navigationController.modalPresentationStyle = .overCurrentContext
+        
+        present(navigationController, animated: true, completion: nil)
     }
 }
 
@@ -481,17 +512,6 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
             imageView.contentMode = .scaleAspectFill
         default:
             imageView.contentMode = .scaleAspectFit
-        }
-    }
-}
-
-extension UIViewController {
-    var safeAreaInsets: UIEdgeInsets {
-        if #available(iOS 11.0, *) {
-            return view.safeAreaInsets
-        }
-        else {
-            return UIEdgeInsets(top: topLayoutGuide.length, left: 0, bottom: bottomLayoutGuide.length, right: 0)
         }
     }
 }

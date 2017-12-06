@@ -22,6 +22,8 @@
 		0A9EBAE31FD6F37200E83778 /* BatchPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9EBAE21FD6F37200E83778 /* BatchPreviewView.swift */; };
 		0A9EBAE51FD6F3AF00E83778 /* BatchPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A9EBAE41FD6F3AF00E83778 /* BatchPreviewView.xib */; };
 		0A9EC7741F30735B00F1EF3A /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A9EC7731F30735B00F1EF3A /* PhotoCollectionViewCell.xib */; };
+		0AA166941FD7A7F10004205C /* PreviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA166931FD7A7F10004205C /* PreviewCollectionViewCell.xib */; };
+		0AA166961FD7A8710004205C /* PreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA166951FD7A8710004205C /* PreviewCollectionViewCell.swift */; };
 		0AA1A07D1F4D1232006297DF /* BatchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA1A07C1F4D1232006297DF /* BatchItem.swift */; };
 		0AA37B281FD53163002803B8 /* AppDockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA37B271FD53163002803B8 /* AppDockViewController.swift */; };
 		0AA382621F4ECA420031BAB5 /* BatchEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA382611F4ECA420031BAB5 /* BatchEditViewController.swift */; };
@@ -58,6 +60,8 @@
 		0A9EBAE21FD6F37200E83778 /* BatchPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BatchPreviewView.swift; path = Classes/BatchPreviewView.swift; sourceTree = "<group>"; };
 		0A9EBAE41FD6F3AF00E83778 /* BatchPreviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BatchPreviewView.xib; path = Classes/BatchPreviewView.xib; sourceTree = "<group>"; };
 		0A9EC7731F30735B00F1EF3A /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PhotoCollectionViewCell.xib; path = Resources/Interfaces/PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		0AA166931FD7A7F10004205C /* PreviewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PreviewCollectionViewCell.xib; path = Resources/Interfaces/PreviewCollectionViewCell.xib; sourceTree = "<group>"; };
+		0AA166951FD7A8710004205C /* PreviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PreviewCollectionViewCell.swift; path = Classes/PreviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		0AA1A07C1F4D1232006297DF /* BatchItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BatchItem.swift; path = Classes/BatchItem.swift; sourceTree = "<group>"; };
 		0AA37B271FD53163002803B8 /* AppDockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDockViewController.swift; path = Classes/AppDockViewController.swift; sourceTree = "<group>"; };
 		0AA382611F4ECA420031BAB5 /* BatchEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BatchEditViewController.swift; path = Classes/BatchEditViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 			children = (
 				0A9EBAE21FD6F37200E83778 /* BatchPreviewView.swift */,
 				0A9EBAE41FD6F3AF00E83778 /* BatchPreviewView.xib */,
+				0AA166951FD7A8710004205C /* PreviewCollectionViewCell.swift */,
+				0AA166931FD7A7F10004205C /* PreviewCollectionViewCell.xib */,
 			);
 			name = Selector;
 			sourceTree = "<group>";
@@ -340,6 +346,7 @@
 				0A771E901FB1429800BBFCD7 /* GoogleService-Info.plist in Resources */,
 				0A9EBAE51FD6F3AF00E83778 /* BatchPreviewView.xib in Resources */,
 				0AA86ED71FD11EEF00E6E1B0 /* STAppDockView.xib in Resources */,
+				0AA166941FD7A7F10004205C /* PreviewCollectionViewCell.xib in Resources */,
 				0A8FDA051FA76EF8002380AA /* Launch Screen.storyboard in Resources */,
 				0AA891751FA96D1A00748799 /* Localizable.strings in Resources */,
 			);
@@ -427,6 +434,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AA166961FD7A8710004205C /* PreviewCollectionViewCell.swift in Sources */,
 				0AA382621F4ECA420031BAB5 /* BatchEditViewController.swift in Sources */,
 				0A9CC9291F8774EC00AC91A6 /* PhotoEditViewController.swift in Sources */,
 				0AA86ED51FD1199A00E6E1B0 /* STAppDock.swift in Sources */,

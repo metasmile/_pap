@@ -9,15 +9,63 @@
 import UIKit
 import Photos
 
+protocol BatchPreviewViewDelegate {
+    func batchPreviewView(_ view: BatchPreviewView, didSelectItemAt indexPath: IndexPath)
+}
+
 class BatchPreviewView: CustomView {
     @IBOutlet weak var collectionView: UICollectionView!
     fileprivate var batchEditItems = [BatchEditItem]()
+    var delegate: BatchPreviewViewDelegate?
+    
+    var hasChanges: Bool {
+        return batchEditItems.map({ $0.editItem.hasChanges }).contains(true)
+    }
     
     override func initialize() {
         super.initialize()
         
-        collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: "PhotoCollectionViewCell")
-        collectionView.allowsSelection = false
+        collectionView.register(PreviewCollectionViewCell.self, forCellWithReuseIdentifier: "PreviewCollectionViewCell")
+        updateAlignment(animated: false)
+    }
+}
+
+extension BatchPreviewView {
+    func addTransformItem(_ transformItem: TransformItem) {
+        for batchEditItem in batchEditItems {
+            batchEditItem.editItem.addTransformItem(transformItem)
+        }
+        
+        updatePreviews()
+    }
+    
+    func resetTransformItems() {
+        for batchEditItem in batchEditItems {
+            batchEditItem.editItem.resetTransforms()
+        }
+        
+        updatePreviews()
+    }
+    
+    private func updatePreviews(animated: Bool = true, completion: (() -> Void)? = nil) {
+        let visibleRect = CGRect(origin: collectionView.contentOffset, size: collectionView.bounds.size)
+        let visibleIndexPath = collectionView.indexPathForItem(at: CGPoint(x: visibleRect.midX, y: visibleRect.midY)) ?? collectionView.indexPathsForVisibleItems.last
+        
+        collectionView.collectionViewLayout.invalidateLayout()
+        collectionView.performBatchUpdates({
+            
+        }) { (finished) in
+            guard let indexPath = visibleIndexPath, animated == true else { completion?(); return }
+            self.collectionView.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.centeredHorizontally, animated: false)
+            completion?()
+        }
+        
+        let visibleIndexPaths = collectionView.indexPathsForVisibleItems
+        for indexPath in visibleIndexPaths {
+            guard let cell = self.collectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else { continue }
+            cell.setImageEditItem(self.batchEditItems[indexPath.item].editItem, animated: animated)
+        }
+        
         updateAlignment(animated: false)
     }
 }
@@ -90,17 +138,16 @@ extension BatchPreviewView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as! PhotoCollectionViewCell
-        if let asset = batchEditItems[indexPath.item].asset {
-            cell.imageContentMode = .aspectFit
-            cell.setAsset(asset, at: indexPath)
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PreviewCollectionViewCell", for: indexPath) as! PreviewCollectionViewCell
+        cell.setBatchEditItemForPreview(batchEditItems[indexPath.item], at: indexPath)
         return cell
     }
 }
 
 extension BatchPreviewView: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.batchPreviewView(self, didSelectItemAt: indexPath)
+    }
 }
 
 extension BatchPreviewView: UICollectionViewDelegateFlowLayout {
@@ -126,6 +173,6 @@ extension BatchPreviewView: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 1
     }
 }

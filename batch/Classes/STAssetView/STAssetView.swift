@@ -273,6 +273,26 @@ extension STAssetView {
     }
 }
 
+extension STAssetView {
+    func setThumbnailAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: ((UIImage?) -> Void)? = nil) {
+        loadImage(for: asset) { [weak self] image in
+            guard !cancellation() else {
+                self?.cancelCurrentImageRequest()
+                return
+            }
+            
+            DispatchQueue.main.async { [weak self] in
+                if let completion = completion {
+                    completion(image)
+                }
+                else {
+                    self?.image = image
+                }
+            }
+        }
+    }
+}
+
 //MARK: - Load media from asset
 
 extension STAssetView {
