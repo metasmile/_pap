@@ -177,12 +177,12 @@
 			name = "Batch App";
 			sourceTree = "<group>";
 		};
-		0AAA57061FCB9B9D00C9915A /* STAssetView */ = {
+		0AAA57061FCB9B9D00C9915A /* CodeKit */ = {
 			isa = PBXGroup;
 			children = (
 				0AAA57071FCB9BFF00C9915A /* STAssetView.swift */,
 			);
-			name = STAssetView;
+			name = CodeKit;
 			sourceTree = "<group>";
 		};
 		0ABFCF6F1F14B65C0078A583 = {
@@ -250,7 +250,7 @@
 				0A9EBAE11FD6F34300E83778 /* Selector */,
 				0AA86EDB1FD3A48E00E6E1B0 /* Batch App */,
 				0AA86ED31FD1196C00E6E1B0 /* Batch App Dock */,
-				0AAA57061FCB9B9D00C9915A /* STAssetView */,
+				0AAA57061FCB9B9D00C9915A /* CodeKit */,
 				0A7459E71F709AC800CA70E1 /* Extensions */,
 				0AA1A07B1F4D121A006297DF /* Edit */,
 				0A8C4ADC1F3C159300B7246A /* Custom Controls */,

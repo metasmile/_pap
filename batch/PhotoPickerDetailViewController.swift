@@ -9,107 +9,53 @@ import Photos
 class PhotoPickerDetailViewController: UIViewController {
 
     var asset: PHAsset?
-//    var asset: PHAsset? {
+//    {
 //        didSet {
-//
-//            if asset != nil{
-//
-//                assetView.setAsset(asset!, cancelDrawingIfNeeded: { [weak self] in
-//                    return false
-//                })
+//            if let asset = asset {
+//                assetView.asset = asset
 //            }
-//
 //        }
 //    }
 
-    // MARK: - Private Properties
-
-    fileprivate let imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    fileprivate let messageInsets = UIEdgeInsets(top: 32, left: 14, bottom: 0, right: 16)
-    fileprivate let textInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-
     private lazy var assetView: STAssetView = {
         let assetView = STAssetView()
-        assetView.contentMode = .scaleAspectFit
+        assetView.contentMode = .scaleAspectFill
         assetView.translatesAutoresizingMaskIntoConstraints = false
         return assetView
     }()
 
-    fileprivate lazy var bubbleView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.blue
-        view.layer.cornerRadius = 8
-        view.layer.masksToBounds = true
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
-    fileprivate lazy var messageView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-
-    fileprivate lazy var textLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.numberOfLines = 0
-        label.textAlignment = .left
-        label.textColor = UIColor.white
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "Detail"
 
-        // Configure view
-        view.backgroundColor = UIColor.white
-
-
-        messageView.frame = view.bounds
-        assetView.frame = view.bounds
-
         if let asset = asset {
+            let w = self.view.bounds.width
+            assetView.frame = CGRect(x:0, y:0, width: w, height: w/(asset.size.width/asset.size.height))
             assetView.asset = asset
-            assetView.playAny()
         }
 
+        view.addSubview(assetView)
 
-        // Compose child views
-        bubbleView.addSubview(textLabel)
-        messageView.addSubview(assetView)
-        messageView.addSubview(bubbleView)
-        view.addSubview(messageView)
+        self.preferredContentSize = assetView.bounds.size
 
-//        // Attach the message view
-//
-//        NSLayoutConstraint(
-//                item: messageView,
-//                attribute: .top,
-//                relatedBy: .equal,
-//                toItem: topLayoutGuide,
-//                attribute: .bottom,
-//                multiplier: 1,
-//                constant: messageInsets.top).isActive = true
-//
-//        // Attach the image view
-//        assetView.setContentCompressionResistancePriority(UILayoutPriority.required, for: .horizontal)
-//        assetView.setContentHuggingPriority(UILayoutPriority.required, for: .horizontal)
-//
-//        assetView.centerYAnchor.constraint(equalTo: bubbleView.centerYAnchor).isActive = true
-//
-//        // Attach the bubble view
-//        bubbleView.leadingAnchor.constraint(equalTo: assetView.trailingAnchor, constant: 8).isActive = true
+        assetView.playAny()
     }
 
-
-    // MARK: - Lifecycle
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
         assetView.stopAny()
+    }
+
+    override var previewActionItems: [UIPreviewActionItem] {
+        return [UIPreviewAction(title: "Add This Item", style: .default) { action, controller in
+
+        }]
     }
 }
