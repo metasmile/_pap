@@ -15,6 +15,10 @@ class TaskQueue: NSObject {
     private let taskQueue = DispatchQueue(label: "com.stells.batch.dispatchQueue.taskQueue")
     private var finishBlock: (() -> Void)?
     
+    var remainTasks: Int {
+        return taskItems.count
+    }
+    
     func addTask(_ task: @escaping () -> Void) {
         taskItems.append(DispatchWorkItem(block: task))
     }
@@ -47,32 +51,39 @@ class TaskQueue: NSObject {
 }
 
 class BatchEditItem: NSObject {
+    fileprivate var imageRequestID: PHImageRequestID = PHInvalidImageRequestID
+    
     var asset: PHAsset?
     var editItem = EditItem()
     
-    func runEditing(_ completion: @escaping (PHAsset?, PHContentEditingOutput?) -> Void) {
+    func runEditing(_ progressHandler: ((Float) -> Void)? = nil, _ completionHandler: @escaping (PHAsset?, PHContentEditingOutput?) -> Void) {
         if asset?.mediaType == .image {
-            if asset?.mediaSubtypes == .photoLive {
-                self.editLivePhoto(completion)
+            if asset!.mediaSubtypes.contains(.photoLive) {
+                self.editLivePhoto(completionHandler)
             }
             else {
-                loadImage { [weak self] (image) in
-                    self?.editImage(image, completion: completion)
+                loadImage(progressHandler) { [weak self] (image) in
+                    self?.editImage(image, completion: completionHandler)
                 }
             }
         }
         else if asset?.mediaType == .video {
-            loadVideo { [weak self] (video, audioMix) in
-                self?.editVideo(video, audioMix: audioMix, completion: completion)
+            loadVideo(progressHandler) { [weak self] (video, audioMix) in
+                self?.editVideo(video, audioMix: audioMix, completion: completionHandler)
             }
         }
+    }
+    
+    func cancelEditing() {
+        PHImageManager.default().cancelImageRequest(imageRequestID)
+        imageRequestID = PHInvalidImageRequestID
     }
 }
 
 extension BatchEditItem {
-    fileprivate func loadImage(_ completion: @escaping ((UIImage?) -> Void)) {
+    fileprivate func loadImage(_ progressHandler: ((Float) -> Void)? = nil, _ completionHandler: @escaping ((UIImage?) -> Void)) {
         guard let asset = self.asset else {
-            completion(nil)
+            completionHandler(nil)
             return
         }
         
@@ -83,38 +94,38 @@ extension BatchEditItem {
         options.resizeMode = .none
         options.version = .current
         options.progressHandler = { progress, error, stop, info in
-            print("\(progress)")
+            progressHandler?(Float(progress))
         }
         
-        PHImageManager.default().requestImage(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: PHImageContentMode.default, options: options) { (image, info) in
+        imageRequestID = PHImageManager.default().requestImage(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: PHImageContentMode.default, options: options) { (image, info) in
             guard let image = image else {
-                completion(nil)
+                completionHandler(nil)
                 return
             }
             
             if let degraded = info?[PHImageResultIsDegradedKey] as? NSNumber, !degraded.boolValue {
-                completion(image)
+                completionHandler(image)
             }
         }
     }
     
-    fileprivate func editImage(_ image: UIImage?, completion: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) {
+    fileprivate func editImage(_ image: UIImage?, completion completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) {
         guard
             let image = image?.applyTransform(editItem.transform),
             let asset = self.asset
         else {
-            completion(nil, nil)
+            completionHandler(nil, nil)
             return
         }
         
         asset.requestContentEditingInput(with: nil) { (input, info) in
             guard let input = input else {
-                completion(nil, nil)
+                completionHandler(nil, nil)
                 return
             }
             
             guard let dataInfo = "Edited".data(using: .utf8) else {
-                completion(nil, nil)
+                completionHandler(nil, nil)
                 return
             }
             
@@ -133,19 +144,19 @@ extension BatchEditItem {
 //            }
             
             guard (try? outputData?.write(to: contentEditingOutput.renderedContentURL, options: .atomic)) != nil else {
-                completion(nil, nil)
+                completionHandler(nil, nil)
                 return
             }
             
-            completion(asset, contentEditingOutput)
+            completionHandler(asset, contentEditingOutput)
         }
     }
 }
 
 extension BatchEditItem {
-    fileprivate func loadLivePhoto(_ completion: @escaping ((PHLivePhoto?) -> Void)) {
+    fileprivate func loadLivePhoto(_ progressHandler: ((Float) -> Void)? = nil, _ completionHandler: @escaping ((PHLivePhoto?) -> Void)) {
         guard let asset = self.asset else {
-            completion(nil)
+            completionHandler(nil)
             return
         }
         
@@ -154,30 +165,30 @@ extension BatchEditItem {
         options.isNetworkAccessAllowed = true
         options.version = .current
         options.progressHandler = { progress, error, stop, info in
-            print("\(progress)")
+            progressHandler?(Float(progress))
         }
         
-        PHImageManager.default().requestLivePhoto(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: .default, options: options, resultHandler: { (livePhoto, info) in
-            completion(livePhoto)
+        imageRequestID = PHImageManager.default().requestLivePhoto(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: .default, options: options, resultHandler: { (livePhoto, info) in
+            completionHandler(livePhoto)
         })
     }
     
-    fileprivate func editLivePhoto(_ completion: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) {
+    fileprivate func editLivePhoto(_ completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) {
         guard
             let asset = self.asset
             else {
-                completion(nil, nil)
+                completionHandler(nil, nil)
                 return
         }
         
         asset.requestContentEditingInput(with: nil) { (input, info) in
             guard let input = input else {
-                completion(nil, nil)
+                completionHandler(nil, nil)
                 return
             }
             
             guard let dataInfo = "Edited".data(using: .utf8) else {
-                completion(nil, nil)
+                completionHandler(nil, nil)
                 return
             }
             
@@ -191,19 +202,19 @@ extension BatchEditItem {
             
             editingContext?.saveLivePhoto(to: contentEditingOutput, options: nil, completionHandler: { (success, error) in
                 guard success else {
-                    completion(nil, nil)
+                    completionHandler(nil, nil)
                     return
                 }
-                completion(asset, contentEditingOutput)
+                completionHandler(asset, contentEditingOutput)
             })
         }
     }
     
-    fileprivate func editLivePhoto(_ livePhoto: PHLivePhoto?, completion: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) {
+    fileprivate func editLivePhoto(_ livePhoto: PHLivePhoto?, completion completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) {
         guard
             let livePhoto = livePhoto
         else {
-            completion(nil, nil)
+            completionHandler(nil, nil)
             return
         }
 
@@ -213,7 +224,7 @@ extension BatchEditItem {
             let videoResource = resources.first(where: { $0.type == PHAssetResourceType.pairedVideo }),
             let photoResource = resources.first(where: { $0.type == PHAssetResourceType.photo })
         else {
-            completion(nil, nil)
+            completionHandler(nil, nil)
             return
         }
 
@@ -236,7 +247,7 @@ extension BatchEditItem {
             videoData.append(data)
         }) { (error) in
             guard error == nil else {
-                completion(nil, nil)
+                completionHandler(nil, nil)
                 return
             }
 
@@ -250,7 +261,7 @@ extension BatchEditItem {
             photoData.append(data)
         }) { (error) in
             guard error == nil else {
-                completion(nil, nil)
+                completionHandler(nil, nil)
                 return
             }
 
@@ -261,9 +272,9 @@ extension BatchEditItem {
 }
 
 extension BatchEditItem {
-    fileprivate func loadVideo(_ completion: @escaping ((AVAsset?, AVAudioMix?) -> Void)) {
+    fileprivate func loadVideo(_ progressHandler: ((Float) -> Void)? = nil, _ completionHandler: @escaping ((AVAsset?, AVAudioMix?) -> Void)) {
         guard let asset = self.asset else {
-            completion(nil, nil)
+            completionHandler(nil, nil)
             return
         }
         
@@ -272,32 +283,32 @@ extension BatchEditItem {
         options.isNetworkAccessAllowed = true
         options.version = .current
         options.progressHandler = { progress, error, stop, info in
-            print("\(progress)")
+            progressHandler?(Float(progress))
         }
         
-        PHImageManager.default().requestAVAsset(forVideo: asset, options: options) { (video, audioMix, info) in
-            completion(video, audioMix)
+        imageRequestID = PHImageManager.default().requestAVAsset(forVideo: asset, options: options) { (video, audioMix, info) in
+            completionHandler(video, audioMix)
         }
     }
     
-    fileprivate func editVideo(_ video: AVAsset?, audioMix: AVAudioMix?, completion: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) {
+    fileprivate func editVideo(_ video: AVAsset?, audioMix: AVAudioMix?, completion completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) {
         guard
             let video = video?.applyTransform(editItem.transform),
             let videoTrack = video.tracks(withMediaType: .video).first,
             let asset = asset
         else {
-            completion(nil, nil)
+            completionHandler(nil, nil)
             return
         }
         
         asset.requestContentEditingInput(with: nil) { (input, info) in
             guard let input = input else {
-                completion(nil, nil)
+                completionHandler(nil, nil)
                 return
             }
             
             guard let dataInfo = "Edited".data(using: .utf8) else {
-                completion(nil, nil)
+                completionHandler(nil, nil)
                 return
             }
             
@@ -317,9 +328,9 @@ extension BatchEditItem {
                 guard let status = exportSession?.status else { return }
                 switch status {
                 case .completed:
-                    completion(asset, contentEditingOutput)
+                    completionHandler(asset, contentEditingOutput)
                 case .failed, .cancelled:
-                    completion(nil, nil)
+                    completionHandler(nil, nil)
                 default:
                     break
                 }

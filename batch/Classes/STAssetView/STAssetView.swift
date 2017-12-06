@@ -116,7 +116,7 @@ class STAssetView: UIView {
         isLivePhotoPlaying = false
         livePhotoView.isHidden = true
         imageLayer.contents = nil
-        pause()
+        pauseVideo()
         
         image = nil
         playerItem = nil
@@ -188,7 +188,7 @@ class STAssetView: UIView {
     
     // MARK: Video
     
-    var isPlaying: Bool {
+    var isVideoPlaying: Bool {
         return videoLayer.player?.rate != 0
     }
     
@@ -214,7 +214,7 @@ extension STAssetView {
             setVideoAsset(asset, cancelDrawingIfNeeded: cancellation, completion: completion)
         }
     }
-    
+
     func setImageAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: ((UIImage?) -> Void)? = nil, completionWithLivePhoto: ((PHLivePhoto?) -> Void)? = nil) {
         if asset.mediaSubtypes == .photoLive {
             livePhotoView.isHidden = false
@@ -273,12 +273,33 @@ extension STAssetView {
     }
 }
 
+extension STAssetView {
+    func setThumbnailAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: ((UIImage?) -> Void)? = nil) {
+        loadImage(for: asset) { [weak self] image in
+            guard !cancellation() else {
+                self?.cancelCurrentImageRequest()
+                return
+            }
+            
+            DispatchQueue.main.async { [weak self] in
+                if let completion = completion {
+                    completion(image)
+                }
+                else {
+                    self?.image = image
+                }
+            }
+        }
+    }
+}
+
 //MARK: - Load media from asset
 
 extension STAssetView {
     fileprivate func loadImage(for asset: PHAsset, completion: @escaping (UIImage?) -> Void) {
         let targetSize = CGSize(width: bounds.width * UIScreen.main.nativeScale, height: bounds.height * UIScreen.main.nativeScale)
         imageRequestID = STAssetView.imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: imageRequestOptions) { (image, info) in
+
             completion(image)
         }
     }
@@ -304,44 +325,79 @@ extension STAssetView {
     }
 }
 
-// Video Controls
-
 extension STAssetView {
-    func play() {
-        guard !isPlaying else { return }
+    // Abs
+    func playAny() {
+        guard let asset = asset else { return }
+
+        if asset.mediaSubtypes.contains(.photoLive) {
+            self.playLivePhoto()
+
+        } else if asset.mediaType == .video {
+            self.playVideo()
+        }
+    }
+
+    func stopAny() {
+        guard let asset = asset else { return }
+
+        if asset.mediaSubtypes.contains(.photoLive) {
+            self.stopVideo()
+
+        } else if asset.mediaType == .video {
+            self.stopLivePhoto()
+        }
+    }
+
+    //Live Photos
+    func playLivePhoto() {
+        guard !isLivePhotoPlaying else { return }
+
+        livePhotoView.startPlayback(with: .full)
+    }
+
+    func stopLivePhoto() {
+        guard isLivePhotoPlaying else { return }
+        livePhotoView.stopPlayback()
+    }
+
+    //Videos
+
+    func playVideo() {
+        guard !isVideoPlaying else { return }
         videoLayer.player?.play()
     }
     
-    func playWithLooping() {
-        play()
+    func playVideoWithLooping() {
+        playVideo()
         addVideoLooping()
     }
     
-    func start(to seekTime: CMTime = kCMTimeZero) {
-        guard !isPlaying else { return }
-        seek(to: seekTime)
+    func startVideo(to seekTime: CMTime = kCMTimeZero) {
+        guard !isVideoPlaying else { return }
+        seekVideo(to: seekTime)
         videoLayer.player?.play()
     }
     
-    func pause() {
-        guard isPlaying else { return }
+    func pauseVideo() {
+        guard isVideoPlaying else { return }
         videoLayer.player?.pause()
         removeVideoLooping()
     }
     
-    func stop() {
-        pause()
-        seek(to: kCMTimeZero)
+    func stopVideo() {
+        pauseVideo()
+        seekVideo(to: kCMTimeZero)
     }
     
-    func seek(to: CMTime, toleranceBefore: CMTime = kCMTimeZero, toleranceAfter: CMTime = kCMTimeZero) {
+    func seekVideo(to: CMTime, toleranceBefore: CMTime = kCMTimeZero, toleranceAfter: CMTime = kCMTimeZero) {
         playerItem?.seek(to: to, toleranceBefore: toleranceBefore, toleranceAfter: toleranceAfter)
     }
     
     private func addVideoLooping() {
         if let playerItem = playerItem {
             playerLoopingObserver = NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: playerItem, queue: OperationQueue.main, using: { [weak self] (notification) in
-                self?.start(to: kCMTimeZero)
+                self?.startVideo(to: kCMTimeZero)
             })
         }
     }

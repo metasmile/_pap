@@ -23,24 +23,31 @@ class FetchResultItem: NSObject {
     }
 }
 
-class PhotoPickerViewController: UIViewController {
+class PhotoPickerViewController: AppDockViewController {
     @IBOutlet weak var photoCollectionView: UICollectionView!
-    
-    @IBOutlet weak var editToolBar: FloatingToolbar!
-    @IBOutlet weak var editToolBarBottomLayout: NSLayoutConstraint!
-    
+    var batchPreviewView: BatchPreviewView!
+    var progressBar: UIProgressView!
+
     var collections: PHFetchResult<PHAssetCollection>?
     var fetchResults: [FetchResultItem]?
     
     var orderedSelectedIndexPaths = NSMutableOrderedSet()
     
-    var editButton: UIBarButtonItem!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        //photos collection
         photoCollectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: "PhotoCollectionViewCell")
         photoCollectionView.allowsMultipleSelection = true
+
+        //peek and pop
+        if traitCollection.forceTouchCapability == .available {
+            registerForPreviewing(with: self, sourceView: photoCollectionView)  // self here is UIViewController type, and view is property of UIViewController
+        }
+
+        //preview
+        batchPreviewView = BatchPreviewView(frame: .zero)
+        batchPreviewView.delegate = self
         
         if PHPhotoLibrary.authorizationStatus() == .authorized {
             
@@ -58,70 +65,203 @@ class PhotoPickerViewController: UIViewController {
                 self.reloadPhotos(with: .smartAlbum, subtype: .smartAlbumUserLibrary)
             }
         }
-        
-        if #available(iOS 11.0, *) {
-//            navigationController?.navigationBar.prefersLargeTitles = true
+
+        //navigation controller accessories
+        title = "Batch".localizedString
+
+        navigationItem.setLeftBarButton(nil, animated: true)
+        navigationItem.setRightBarButton(nil, animated: true)
+
+        //navigation bar progress
+        if let navigationVC = self.navigationController {
+            progressBar = UIProgressView(progressViewStyle: .bar)
+            progressBar.isHidden = false
+
+            navigationVC.navigationBar.addSubview(progressBar)
+
+            let bottomConstraint = NSLayoutConstraint(item: navigationVC.navigationBar, attribute: .bottom, relatedBy: .equal, toItem: progressBar, attribute: .bottom, multiplier: 1, constant: 1)
+            let leftConstraint = NSLayoutConstraint(item: navigationVC.navigationBar, attribute: .leading, relatedBy: .equal, toItem: progressBar, attribute: .leading, multiplier: 1, constant: 0)
+            let rightConstraint = NSLayoutConstraint(item: navigationVC.navigationBar, attribute: .trailing, relatedBy: .equal, toItem: progressBar, attribute: .trailing, multiplier: 1, constant: 0)
+
+            progressBar.translatesAutoresizingMaskIntoConstraints = false
+            navigationVC.view.addConstraints([bottomConstraint, leftConstraint, rightConstraint])
         }
-        
-        editButton = UIBarButtonItem(title: "", style: .done, target: self, action: #selector(self.editButtonDidTap))
-        
-        editToolBar.toolbarItems = [
-            UIBarButtonItem(image: UIImage(named: "Cancel".localizedString), style: .plain, target: self, action: #selector(self.cancelAllSelection)),
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            editButton
-        ]
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        photoCollectionView.contentInset.bottom = editToolBar.bounds.height + 20
-        
-        layoutToolbar()
     }
     
     deinit {
         PHPhotoLibrary.shared().unregisterChangeObserver(self)
     }
     
-    func layoutToolbar() {
-        if photoCollectionView.indexPathsForSelectedItems?.count == 0 {
-            editToolBarBottomLayout.constant = -(editToolBar.bounds.height + safeAreaInsets.bottom)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        photoCollectionView.contentInset.bottom = appDockView.bounds.height - safeAreaInsets.bottom
+        photoCollectionView.scrollIndicatorInsets.bottom = photoCollectionView.contentInset.bottom
+    }
+    
+    override func cancelButtonDidTap(sender: Any) {
+        //FIXME: BatchPreviewState
+        //FIXME: .ready?
+        //FIXME: .selecting?
+        //FIXME: .processing?
+        if batchPreviewView.isProcessing {
+            batchPreviewView.cancelBatchProcessing()
         }
         else {
-            editToolBarBottomLayout.constant = 10
+            if batchPreviewView.hasChanges {
+                let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Discard Changes".localizedString, style: .destructive, handler: { (action) in
+                    self.cancelAllSelection()
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel".localizedString, style: .cancel, handler: nil))
+                present(alert, animated: true, completion: nil)
+            }
+            else {
+                cancelAllSelection()
+            }
         }
     }
     
-    func updateToolBarItems(_ animated: Bool = true) {
-        layoutToolbar()
-        editToolBar.animateUsingSpringIfLayoutConstraintsChanged()
-        
+    override func doneButtonDidTap(sender: Any) {
+        batchPreviewView.runBatchProcessing()
+    }
+    
+    override func horizontalFlipButtonDidTap() {
+        batchPreviewView.addTransformItem(HorizontalFlipTransformItem())
+    }
+    
+    override func verticalFlipButtonDidTap() {
+        batchPreviewView.addTransformItem(VerticalFlipTransformItem())
+    }
+    
+    override func rotationLeftButtonDidTap() {
+        batchPreviewView.addTransformItem(RotationTransformItem(degrees: -90))
+    }
+    
+    override func rotationRightButtonDidTap() {
+        batchPreviewView.addTransformItem(RotationTransformItem(degrees: 90))
+    }
+}
+
+extension PhotoPickerViewController {
+    func updateTitleForSelectedItems() {
         let selectedAssets = photoCollectionView.indexPathsForSelectedItems?.flatMap({ self.asset(at: $0) })
         let numberOfVideos = selectedAssets?.filter({ $0.mediaType == .video }).count ?? 0
         let numberOfPhotos = selectedAssets?.filter({ $0.mediaType == .image }).count ?? 0
         
-        var itemType = "item"
-        if numberOfPhotos > 0 && numberOfVideos == 0 {
-            itemType = "photo"
-        }
-        else if numberOfVideos > 0 && numberOfPhotos == 0 {
-            itemType = "video"
+        if numberOfPhotos + numberOfVideos == 0 {
+            title = "Batch".localizedString
+            
+            navigationItem.setLeftBarButton(nil, animated: true)
+            navigationItem.setRightBarButton(nil, animated: true)
+            
+            appDockView.setAccessoryViewToTop(nil)
         }
         else {
-            itemType = "item"
+            navigationItem.setLeftBarButton(cancelButton, animated: true)
+            navigationItem.setRightBarButton(doneButton, animated: true)
+            
+            appDockView.setAccessoryViewToTop(batchPreviewView)
+            
+            var itemType = "item"
+            if numberOfPhotos > 0 && numberOfVideos == 0 {
+                itemType = "photo"
+            }
+            else if numberOfVideos > 0 && numberOfPhotos == 0 {
+                itemType = "video"
+            }
+            else {
+                itemType = "item"
+            }
+            
+            title = "Edit %d \(itemType)(s)".localizedFormattedString(photoCollectionView.indexPathsForSelectedItems?.count ?? 0)
         }
-        
-        
-        editButton.title = "Edit %d \(itemType)(s)".localizedFormattedString(photoCollectionView.indexPathsForSelectedItems?.count ?? 0)
     }
 }
 
-// MARK: - Constraints
+extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
 
-extension UIView {
-    func constraint(withIdentifier identifier: String) -> NSLayoutConstraint? {
-        return constraints.first(where: { $0.identifier == identifier })
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let indexPath = photoCollectionView?.indexPathForItem(at: location) else { return nil }
+        guard let cell = photoCollectionView?.cellForItem(at: indexPath) else { return nil }
+
+        let vc = PhotoPickerDetailViewController()
+        vc.asset = self.asset(at: indexPath)
+        vc.actionItems = [UIPreviewAction(title: "Select this Item".localizedString, style: .default) { action, controller in
+            self.photoCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredVertically)
+            self.collectionView(self.photoCollectionView, didSelectItemAt: indexPath)
+        }]
+
+        previewingContext.sourceRect = cell.frame
+        return vc
+    }
+
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+
+    }
+}
+
+extension PhotoPickerViewController: BatchPreviewViewDelegate {
+    func batchPreviewView(_ view: BatchPreviewView, didSelectItemAt indexPath: IndexPath) {
+        guard photoCollectionView.indexPathsForSelectedItems?.isEmpty == false, let selectedIndexPaths = orderedSelectedIndexPaths.array as? [IndexPath] else { return }
+        
+        let batchEditViewController = storyboard?.instantiateViewController(withIdentifier: "BatchEditViewController") as! BatchEditViewController
+        batchEditViewController.batchEditItems = batchPreviewView.batchEditItems
+        batchEditViewController.delegate = self
+        batchEditViewController.initialIndexPath = indexPath
+        
+        for indexPath in selectedIndexPaths {
+            guard let photo = asset(at: indexPath), let cell = photoCollectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell else { continue }
+            batchEditViewController.placeholderImages[photo] = cell.imageView.image
+        }
+        
+        let navigationController = UINavigationController(rootViewController: batchEditViewController)
+        navigationController.isHeroEnabled = true
+        navigationController.heroModalAnimationType = .selectBy(presenting:.zoom, dismissing:.zoomOut)
+        navigationController.heroNavigationAnimationType = .none
+        navigationController.modalPresentationStyle = .overCurrentContext
+        
+        present(navigationController, animated: true, completion: nil)
+    }
+    
+    func batchPreviewViewWillBeginEdit(_ view: BatchPreviewView) {
+        title = "Start Batch Editing...".localizedString
+
+        let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        loadingIndicator.startAnimating()
+        navigationItem.setRightBarButton(UIBarButtonItem(customView: loadingIndicator), animated: true)
+
+        progressBar.isHidden = false
+        progressBar.progress = 0
+        UIView.animate(withDuration: 0.2) {
+            self.progressBar.alpha = 1
+        }
+    }
+    
+    func batchPreviewView(_ view: BatchPreviewView, didUpdateProgress progress: Float) {
+        title = "Processing...\(Int(progress * 100))%".localizedString
+
+        progressBar.setProgress(progress, animated: true)
+    }
+    
+    func batchPreviewViewWillBeginExport(_ view: BatchPreviewView) {
+        title = "Saving Photos...".localizedString
+
+        UIView.animate(withDuration: 0.6) {
+            self.progressBar.alpha = 0
+        }
+    }
+    
+    func batchPreviewViewDidEndEdit(_ view: BatchPreviewView) {
+        cancelAllSelection()
+
+        progressBar.isHidden = true
+    }
+    
+    func batchPreviewViewDidCancelEdit(_ view: BatchPreviewView) {
+        updateTitleForSelectedItems()
+
+        progressBar.isHidden = true
     }
 }
 
@@ -178,7 +318,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         self.collections = nil
         self.fetchResults = nil
         
-        self.photoCollectionView.reloadData()
+        photoCollectionView.reloadData()
         
         let options = PHFetchOptions()
         
@@ -217,7 +357,8 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
             photoCollectionView.deselectItem(at: indexPath, animated: true)
         }
         orderedSelectedIndexPaths.removeAllObjects()
-        updateToolBarItems()
+        batchPreviewView.removeAllBatchEditItems()
+        updateTitleForSelectedItems()
     }
     
     // MARK: - UICollectionViewDataSource
@@ -254,15 +395,19 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     // MARK: - UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        updateToolBarItems()
+        updateTitleForSelectedItems()
         
         orderedSelectedIndexPaths.add(indexPath)
+        
+        batchPreviewView.addBatchEditItem(with: self.asset(at: indexPath))
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        updateToolBarItems()
-        
         orderedSelectedIndexPaths.remove(indexPath)
+        
+        batchPreviewView.removeBatchEditItem(with: self.asset(at: indexPath))
+        
+        updateTitleForSelectedItems()
     }
     
     // MARK: - UICollectionViewDelegateFlowLayout
@@ -282,29 +427,6 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 1
     }
-    
-    // MARK: - Navigation
-    
-    @objc func editButtonDidTap(sender: Any) {
-        guard photoCollectionView.indexPathsForSelectedItems?.isEmpty == false, let selectedIndexPaths = orderedSelectedIndexPaths.array as? [IndexPath] else { return }
-        
-        let batchEditViewController = storyboard?.instantiateViewController(withIdentifier: "BatchEditViewController") as! BatchEditViewController
-        batchEditViewController.photos = selectedIndexPaths.flatMap({ asset(at: $0) })
-        batchEditViewController.delegate = self
-        
-        for indexPath in selectedIndexPaths {
-            guard let photo = asset(at: indexPath), let cell = photoCollectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell else { continue }
-            batchEditViewController.placeholderImages[photo] = cell.imageView.image
-        }
-        
-        let navigationController = UINavigationController(rootViewController: batchEditViewController)
-        navigationController.isHeroEnabled = true
-        navigationController.heroModalAnimationType = .selectBy(presenting:.zoom, dismissing:.zoomOut)
-        navigationController.heroNavigationAnimationType = .none
-        navigationController.modalPresentationStyle = .overCurrentContext
-        
-        present(navigationController, animated: true, completion: nil)
-    }
 }
 
 extension PhotoPickerViewController: BatchEditViewControllerDelegate {
@@ -323,19 +445,61 @@ extension PhotoPickerViewController: PHPhotoLibraryChangeObserver {
         guard let fetchResults = self.fetchResults else { return }
         
         DispatchQueue.main.async {
-            var indexPaths = [IndexPath]()
+            var changedIndexPaths = [IndexPath]()
+            var insertedIndexPaths = [IndexPath]()
+            var removedIndexPaths = [IndexPath]()
+            
+            struct PhotoLibraryChangedInfo {
+                var indexPath: IndexPath
+                var index: Int
+            }
             
             for (section, fetchResult) in fetchResults.enumerated() {
                 guard let changeDetails = changeInstance.changeDetails(for: fetchResult.fetchResult) else { continue }
-                for object in changeDetails.changedObjects {
-                    guard let item = fetchResult.assets.index(of: object) else { continue }
-                    fetchResult.assets[item] = object
-                    indexPaths.append(IndexPath(item: item, section: section))
+                
+                if let changedInfos = changeDetails.changedIndexes?.enumerated().map({ PhotoLibraryChangedInfo(indexPath: IndexPath(item: $0.element, section: section), index: $0.offset) }) {
+                    for changedInfo in changedInfos {
+                        fetchResult.assets[changedInfo.indexPath.item] = changeDetails.changedObjects[changedInfo.index]
+                        changedIndexPaths.append(changedInfo.indexPath)
+                    }
+                }
+                
+                if let changedInfos = changeDetails.insertedIndexes?.enumerated().map({ PhotoLibraryChangedInfo(indexPath: IndexPath(item: $0.element, section: section), index: $0.offset) }) {
+                    for changedInfo in changedInfos {
+                        let insertedAsset = changeDetails.insertedObjects[changedInfo.index]
+                        guard !fetchResult.assets.contains(insertedAsset) else { continue }
+                        fetchResult.assets.insert(insertedAsset, at: changedInfo.indexPath.item)
+                        insertedIndexPaths.append(changedInfo.indexPath)
+                    }
+                }
+                if let indexPaths = changeDetails.removedIndexes?.map({ IndexPath(item: $0, section: section) }) {
+                    removedIndexPaths.append(contentsOf: indexPaths)
+                }
+                
+                if changeDetails.hasMoves {
+                    changeDetails.enumerateMoves({ (from, to) in
+                        self.photoCollectionView.moveItem(at: IndexPath(item: from, section: section), to: IndexPath(item: to, section: section))
+                    })
                 }
             }
-            guard indexPaths.count > 0 else { return }
-            self.photoCollectionView.reloadItems(at: indexPaths)
-            self.updateToolBarItems()
+            
+            self.photoCollectionView.performBatchUpdates({
+//                if removedIndexPaths.count > 0 {
+//                    self.photoCollectionView.deleteItems(at: removedIndexPaths)
+//                }
+                
+                if insertedIndexPaths.count > 0 {
+                    self.photoCollectionView.insertItems(at: insertedIndexPaths)
+                }
+                
+                if changedIndexPaths.count > 0 {
+                    self.photoCollectionView.reloadItems(at: changedIndexPaths)
+                }
+            }, completion: { (finished) in
+                
+            })
+            
+            self.updateTitleForSelectedItems()
         }
     }
 }
@@ -466,17 +630,6 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
             imageView.contentMode = .scaleAspectFill
         default:
             imageView.contentMode = .scaleAspectFit
-        }
-    }
-}
-
-extension UIViewController {
-    var safeAreaInsets: UIEdgeInsets {
-        if #available(iOS 11.0, *) {
-            return view.safeAreaInsets
-        }
-        else {
-            return UIEdgeInsets(top: topLayoutGuide.length, left: 0, bottom: bottomLayoutGuide.length, right: 0)
         }
     }
 }

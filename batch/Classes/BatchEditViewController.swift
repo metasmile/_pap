@@ -17,77 +17,16 @@ protocol BatchEditViewControllerDelegate {
     func batchEditViewControllerDidCancelEditing(_ editor: BatchEditViewController)
 }
 
-class EditToolbarViewController: UIViewController {
-    var doneButton: UIBarButtonItem?
-    
-    var editToolbarItems: [UIBarButtonItem] {
-        let doneButton = UIBarButtonItem(image: UIImage(named: "Batch Done Bar Button"), style: .done, target: self, action: #selector(self.doneButtonDidTap))
-        self.doneButton = doneButton
-        
-        let fixedSpace = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-        fixedSpace.width = 10
-        
-        return [
-            UIBarButtonItem(image: UIImage(named: "Cancel"), style: .plain, target: self, action: #selector(self.cancelButtonDidTap)),
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            UIBarButtonItem(image: UIImage(named: "Flip Vertical"), style: .plain, target: self, action: #selector(self.verticalFlipButtonDidTap)),
-            fixedSpace,
-            UIBarButtonItem(image: UIImage(named: "Flip Horizontal"), style: .plain, target: self, action: #selector(self.horizontalFlipButtonDidTap)),
-            fixedSpace,
-            UIBarButtonItem(image: UIImage(named: "Rotate Left"), style: .plain, target: self, action: #selector(self.rotationLeftButtonDidTap)),
-            fixedSpace,
-            UIBarButtonItem(image: UIImage(named: "Rotate Right"), style: .plain, target: self, action: #selector(self.rotationRightButtonDidTap)),
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            doneButton
-        ]
-    }
-    
-    @objc func cancelButtonDidTap(sender: Any) {
-        
-    }
-    
-    @objc func horizontalFlipButtonDidTap(sender: Any) {
-        
-    }
-    
-    @objc func verticalFlipButtonDidTap(sender: Any) {
-        
-    }
-    
-    @objc func rotationLeftButtonDidTap(sender: Any) {
-        
-    }
-    
-    @objc func rotationRightButtonDidTap(sender: Any) {
-        
-    }
-    
-    @objc func doneButtonDidTap(sender: Any) {
-        
-    }
-}
-
-class BatchEditViewController: EditToolbarViewController {
+class BatchEditViewController: AppDockViewController {
     var delegate: BatchEditViewControllerDelegate?
     
-    var photos: [PHAsset]? {
-        didSet {
-            guard let photos = photos else { return }
-            for photo in photos {
-                let batchEditItem = BatchEditItem()
-                batchEditItem.asset = photo
-                batchEditItems.append(batchEditItem)
-            }
-        }
-    }
     var placeholderImages = [PHAsset: UIImage?]()
     
     var batchEditItems = [BatchEditItem]()
-    var editTaskQueue = TaskQueue()
+    var initialIndexPath: IndexPath?
+    var batchRequest: BatchEditSequenceRequest?
     
     @IBOutlet weak var previewCollectionView: UICollectionView!
-    @IBOutlet weak var editToolbar: FloatingToolbar!
-    @IBOutlet weak var editToolbarBottomLayout: NSLayoutConstraint!
     @IBOutlet weak var dimmedView: UIView!
     
     @IBOutlet weak var batchProgressView: BatchProgressView!
@@ -97,8 +36,6 @@ class BatchEditViewController: EditToolbarViewController {
         super.viewDidLoad()
         
         title = "Batch Edit".localizedString
-        
-        editToolbar.toolbarItems = editToolbarItems
         
         batchProgressView.titleLabel.textColor = view.tintColor
         batchProgressView.cancelButton.addTarget(self, action: #selector(self.cancelBatchButtonDidTap), for: .touchUpInside)
@@ -134,7 +71,7 @@ class BatchEditViewController: EditToolbarViewController {
     // MARK: - Editing
     
     @objc func cancelBatchButtonDidTap(sender: Any) {
-        editTaskQueue.cancel()
+        batchRequest?.cancel()
         
         closeBatchProgressView()
     }
@@ -149,8 +86,7 @@ class BatchEditViewController: EditToolbarViewController {
         }) { (finished) in
             self.navigationController?.setNavigationBarHidden(false, animated: true)
             
-            self.editToolbarBottomLayout.constant = 10
-            self.editToolbar.animateUsingSpringIfLayoutConstraintsChanged()
+            self.showAppDock()
         }
         
         UIView.transition(with: self.dimmedView, duration: 0.2, options: .transitionCrossDissolve, animations: {
@@ -168,8 +104,7 @@ class BatchEditViewController: EditToolbarViewController {
         
         navigationController?.setNavigationBarHidden(true, animated: true)
         
-        editToolbarBottomLayout.constant = -(editToolbar.bounds.height + safeAreaInsets.bottom)
-        editToolbar.animateUsingSpringIfLayoutConstraintsChanged()
+        hideAppDock()
         
         batchProgressViewBottomLayout.constant = 10
         UIView.animate(withDuration: 0.3, delay: 0.3, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: .beginFromCurrentState, animations: {
@@ -264,19 +199,19 @@ class BatchEditViewController: EditToolbarViewController {
         undoBatchEditing()
     }
     
-    override func horizontalFlipButtonDidTap(sender: Any) {
+    override func horizontalFlipButtonDidTap() {
         addTransformItem(HorizontalFlipTransformItem())
     }
     
-    override func verticalFlipButtonDidTap(sender: Any) {
+    override func verticalFlipButtonDidTap() {
         addTransformItem(VerticalFlipTransformItem())
     }
     
-    override func rotationLeftButtonDidTap(sender: Any) {
+    override func rotationLeftButtonDidTap() {
         addTransformItem(RotationTransformItem(degrees: -90))
     }
     
-    override func rotationRightButtonDidTap(sender: Any) {
+    override func rotationRightButtonDidTap() {
         addTransformItem(RotationTransformItem(degrees: 90))
     }
     
@@ -292,39 +227,25 @@ extension BatchEditViewController {
     func runBatchProcessing() {
         showBatchProgressView()
         
-        struct AssetChangeInfo {
-            var asset: PHAsset
-            var contentEditingOutput: PHContentEditingOutput
-        }
+        previewCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
         
-        var assetChangeInfos = [AssetChangeInfo]()
-        
-        for (i, batchEditItem) in batchEditItems.enumerated() {
-            editTaskQueue.addTask({ [weak self] in
-                batchEditItem.runEditing { [weak self] (asset, contentEditingOutput) in
-                    if let asset = asset, let contentEditingOutput = contentEditingOutput {
-                        assetChangeInfos.append(AssetChangeInfo(asset: asset, contentEditingOutput: contentEditingOutput))
-                    }
-                    
-                    DispatchQueue.main.async { [weak self] in
-                        self?.batchProgressView.title = "Processing...".localizedString
-                        self?.batchProgressView.setProgress(Float(i + 1) / Float(self?.batchEditItems.count ?? 1), animated: true)
-                        
-                        self?.previewCollectionView.scrollToItem(at: IndexPath(item: i, section: 0), at: .centeredHorizontally, animated: true)
-                        self?.previewCollectionView.performBatchUpdates(nil, completion: { [weak self] (finished) in
-                            self?.editTaskQueue.performNext()
-                        })
-                    }
-                }
-            })
-        }
-        
-        editTaskQueue.setFinishBlock { [unowned self] in
-            self.batchProgressView.title = "Saving Photos...".localizedString
+        batchRequest = BatchEditSequenceRequest()
+        batchRequest?.perform(batchEditItems.map({ BatchEditRequest($0) }), { (progress, idx) in
+            DispatchQueue.main.async { [weak self] in
+                self?.batchProgressView.title = "Processing...".localizedString
+                self?.batchProgressView.setProgress(progress, animated: true)
+                
+                guard let item = idx, let numberOfItems = self?.batchEditItems.count, item + 1 < numberOfItems else { return }
+                self?.previewCollectionView.scrollToItem(at: IndexPath(item: item + 1, section: 0), at: .centeredHorizontally, animated: true)
+            }
+        }) { (results) in
+            DispatchQueue.main.async {
+                self.batchProgressView.title = "Saving Photos...".localizedString
+            }
             
             PHPhotoLibrary.shared().performChanges({
-                for assetChangeInfo in assetChangeInfos {
-                    PHAssetChangeRequest(for: assetChangeInfo.asset).contentEditingOutput = assetChangeInfo.contentEditingOutput
+                for result in results {
+                    PHAssetChangeRequest(for: result.asset).contentEditingOutput = result.contentEditingOutput
                 }
             }, completionHandler: { (success, info) in
                 DispatchQueue.main.async { [unowned self] in
@@ -337,13 +258,12 @@ extension BatchEditViewController {
                 }
             })
         }
-        editTaskQueue.performNext()
     }
 }
 
 extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewDataSourcePrefetching, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func setupPreviewCollectionView() {
-        
+        previewCollectionView.register(PreviewCollectionViewCell.self, forCellWithReuseIdentifier: "PreviewCollectionViewCell")
     }
     
     // MARK: - UICollectionViewDataSource
@@ -362,6 +282,11 @@ extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let indexPath = initialIndexPath {
+            previewCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+            initialIndexPath = nil
+        }
+        
         if let cell = cell as? PreviewCollectionViewCell {
             cell.setImageEditItem(self.batchEditItems[indexPath.item].editItem)
         }
@@ -474,10 +399,10 @@ extension BatchEditViewController: UIScrollViewDelegate {
             guard let cell = cell as? PreviewCollectionViewCell else { continue }
             let cellBoundsInView = cell.assetView.convert(cell.assetView.bounds, to: view)
             if cellBoundsInView.contains(CGPoint(x: view.frame.midX, y: view.frame.midY)) {
-                cell.assetView.playWithLooping()
+                cell.assetView.playVideoWithLooping()
             }
             else {
-                cell.assetView.pause()
+                cell.assetView.pauseVideo()
             }
         }
     }
@@ -485,7 +410,7 @@ extension BatchEditViewController: UIScrollViewDelegate {
     fileprivate func stopAllPlayAssets() {
         for cell in previewCollectionView.visibleCells {
             guard let cell = cell as? PreviewCollectionViewCell else { continue }
-            cell.assetView.pause()
+            cell.assetView.pauseVideo()
         }
     }
 }
@@ -511,83 +436,6 @@ extension BatchEditViewController: PhotoEditViewControllerDelegate {
             photoEditor.dismiss(animated: true, completion: {
                 photoEditor.placeholderView?.removeFromSuperview()
             })
-        }
-    }
-}
-
-class PreviewCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var assetView: STAssetView!
-    
-    var indexPath: IndexPath?
-    var asset: PHAsset?
-    var imageRequestId: PHImageRequestID?
-    var imageContentMode = PHImageContentMode.aspectFit
-    
-    @IBOutlet weak var assetViewWidth: NSLayoutConstraint!
-    @IBOutlet weak var assetViewHeight: NSLayoutConstraint!
-    
-    @IBOutlet weak var imageInfoViewTop: NSLayoutConstraint!
-    @IBOutlet weak var fileLabel: UILabel!
-    @IBOutlet weak var resolutionLabel: UILabel!
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        
-        assetView.heroID = nil
-        assetView.asset = nil
-        indexPath = nil
-        
-        if let imageRequestId = imageRequestId {
-            PhotoManager.cachingImageManager.cancelImageRequest(imageRequestId)
-        }
-        imageRequestId = nil
-    }
-    
-    func setBatchEditItem(_ item: BatchEditItem, at indexPath: IndexPath) {
-        guard let asset = item.asset else { return }
-        
-        self.asset = asset
-        self.indexPath = indexPath
-        
-        let boundingSize = CGSize(width: kEditItemPreviewWidth, height: kEditItemPreviewWidth)
-        let photoSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight).aspectFit(in: boundingSize)
-        
-        assetViewWidth.constant = photoSize.width
-        assetViewHeight.constant = photoSize.height
-        
-        DispatchQueue.main.async { [weak self] in
-            guard self?.indexPath == indexPath else { return }
-            
-            let resources = PHAssetResource.assetResources(for: asset)
-            if let firstResource = resources.first {
-                self?.fileLabel.text = firstResource.originalFilename
-            }
-            
-            self?.setImageEditItem(item.editItem)
-        }
-        
-        assetView.setAsset(asset, cancelDrawingIfNeeded: { [weak self] in
-            return self?.indexPath != indexPath
-        })
-    }
-    
-    func setImageEditItem(_ editItem: EditItem, animated: Bool = false) {
-        if animated {
-            UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: .beginFromCurrentState, animations: { [weak self] in
-                self?.assetView.layer.transform = editItem.transform3d
-            }) { (finished) in
-            }
-        }
-        else {
-            assetView.layer.transform = editItem.transform3d
-        }
-        
-        imageInfoViewTop.constant = (bounds.height + CGSize(width: assetViewWidth.constant, height: assetViewHeight.constant).applying(editItem.transform).magnitude.height) / 2 + 10
-        
-        if let asset = self.asset {
-            let assetSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight)
-            let transformedAssetSize = assetSize.applying(editItem.transform).magnitude
-            resolutionLabel.text = "\(Int(transformedAssetSize.width)) x \(Int(transformedAssetSize.height))"
         }
     }
 }

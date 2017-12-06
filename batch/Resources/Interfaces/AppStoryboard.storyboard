@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sgp-gD-2V8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13770" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sgp-gD-2V8">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -53,19 +53,16 @@
                                     <outlet property="prefetchDataSource" destination="lkB-fw-5jX" id="HOL-gV-bJ4"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zyv-J4-2a6" customClass="FloatingToolbar" customModule="batch" customModuleProvider="target">
-                                <rect key="frame" x="10" y="597" width="355" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="MPS-T3-wag"/>
-                                </constraints>
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSB-9d-oZd" customClass="STAppDockView" customModule="batch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="zyv-J4-2a6" secondAttribute="trailing" constant="10" id="KYT-j7-jNn"/>
-                            <constraint firstItem="zyv-J4-2a6" firstAttribute="leading" secondItem="Fnk-hf-u1J" secondAttribute="leading" constant="10" id="PvF-fW-ozj"/>
-                            <constraint firstItem="4MU-Uk-sfl" firstAttribute="top" secondItem="zyv-J4-2a6" secondAttribute="bottom" constant="10" id="XdI-qe-vSb"/>
+                            <constraint firstAttribute="bottom" secondItem="WSB-9d-oZd" secondAttribute="bottom" id="KXa-CC-qgz"/>
                             <constraint firstAttribute="trailing" secondItem="Fza-uH-EMZ" secondAttribute="trailing" id="Yan-jI-G96"/>
+                            <constraint firstItem="WSB-9d-oZd" firstAttribute="leading" secondItem="Fnk-hf-u1J" secondAttribute="leading" id="bG8-GH-vwt"/>
+                            <constraint firstAttribute="trailing" secondItem="WSB-9d-oZd" secondAttribute="trailing" id="k3r-SZ-pvU"/>
                             <constraint firstItem="Fza-uH-EMZ" firstAttribute="top" secondItem="Fnk-hf-u1J" secondAttribute="top" id="tjE-XA-Vyq"/>
                             <constraint firstItem="Fza-uH-EMZ" firstAttribute="leading" secondItem="Fnk-hf-u1J" secondAttribute="leading" id="wUD-zf-uNj"/>
                             <constraint firstAttribute="bottom" secondItem="Fza-uH-EMZ" secondAttribute="bottom" id="x9z-6g-tag"/>
@@ -74,8 +71,8 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Batch" id="nKx-xc-xBf"/>
                     <connections>
-                        <outlet property="editToolBar" destination="zyv-J4-2a6" id="nPE-IV-Q0c"/>
-                        <outlet property="editToolBarBottomLayout" destination="XdI-qe-vSb" id="ni9-y4-EdW"/>
+                        <outlet property="appDockView" destination="WSB-9d-oZd" id="QFO-Yg-W2b"/>
+                        <outlet property="appDockViewBottomLayout" destination="KXa-CC-qgz" id="HDX-zE-byI"/>
                         <outlet property="photoCollectionView" destination="Fza-uH-EMZ" id="25a-Kq-na0"/>
                     </connections>
                 </viewController>
@@ -104,69 +101,15 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PreviewCollectionViewCell" id="fZb-6c-CTO" customClass="PreviewCollectionViewCell" customModule="batch" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="297"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="297"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BdX-BK-30y" customClass="STAssetView" customModule="batch" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="48" width="200" height="200"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="200" id="IaC-Da-Aqv"/>
-                                                        <constraint firstAttribute="height" constant="200" id="NNC-2V-x0M"/>
-                                                    </constraints>
-                                                </view>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="IYf-ee-Zmg">
-                                                    <rect key="frame" x="10" y="0.0" width="180" height="29"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdD-v9-aFW">
-                                                            <rect key="frame" x="0.0" y="0.0" width="180" height="14.5"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
-                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VB4-KU-gaP">
-                                                            <rect key="frame" x="0.0" y="14.5" width="180" height="14.5"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                            </subviews>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstItem="IYf-ee-Zmg" firstAttribute="top" secondItem="fZb-6c-CTO" secondAttribute="top" id="AVt-2u-cmP"/>
-                                            <constraint firstAttribute="trailing" secondItem="IYf-ee-Zmg" secondAttribute="trailing" constant="10" id="VTC-Rn-kOp"/>
-                                            <constraint firstItem="BdX-BK-30y" firstAttribute="centerX" secondItem="fZb-6c-CTO" secondAttribute="centerX" id="VWL-mJ-HFW"/>
-                                            <constraint firstItem="BdX-BK-30y" firstAttribute="centerY" secondItem="fZb-6c-CTO" secondAttribute="centerY" id="b4c-Ag-VTl"/>
-                                            <constraint firstItem="IYf-ee-Zmg" firstAttribute="leading" secondItem="fZb-6c-CTO" secondAttribute="leading" constant="10" id="pHs-FC-9lN"/>
-                                        </constraints>
-                                        <size key="customSize" width="200" height="297"/>
-                                        <connections>
-                                            <outlet property="assetView" destination="BdX-BK-30y" id="9ni-oB-V3e"/>
-                                            <outlet property="assetViewHeight" destination="NNC-2V-x0M" id="Lzc-zW-xg7"/>
-                                            <outlet property="assetViewWidth" destination="IaC-Da-Aqv" id="H5E-xA-UM5"/>
-                                            <outlet property="fileLabel" destination="wdD-v9-aFW" id="2mW-Jt-94A"/>
-                                            <outlet property="imageInfoViewTop" destination="AVt-2u-cmP" id="YB1-LG-aSO"/>
-                                            <outlet property="resolutionLabel" destination="VB4-KU-gaP" id="yfA-dM-Ons"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                                 <connections>
                                     <outlet property="dataSource" destination="ShF-us-R7M" id="RCG-3A-TtI"/>
                                     <outlet property="delegate" destination="ShF-us-R7M" id="y0G-7h-ShG"/>
                                     <outlet property="prefetchDataSource" destination="ShF-us-R7M" id="TNo-qi-Ks8"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJW-wn-3qT" customClass="FloatingToolbar" customModule="batch" customModuleProvider="target">
-                                <rect key="frame" x="10" y="597" width="355" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="5op-C2-cLo"/>
-                                </constraints>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="60" translatesAutoresizingMaskIntoConstraints="NO" id="FPS-FO-haH" customClass="STAppDockView" customModule="batch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zhz-Qr-6IX">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -183,14 +126,14 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="dHU-se-tmh" secondAttribute="trailing" constant="10" id="1Yh-ou-ska"/>
                             <constraint firstItem="zhz-Qr-6IX" firstAttribute="leading" secondItem="t2k-Gu-mig" secondAttribute="leading" id="3pZ-JG-yDM"/>
+                            <constraint firstItem="FPS-FO-haH" firstAttribute="leading" secondItem="t2k-Gu-mig" secondAttribute="leading" id="6hk-Ec-yPc"/>
                             <constraint firstItem="zhz-Qr-6IX" firstAttribute="top" secondItem="t2k-Gu-mig" secondAttribute="top" id="CZk-O4-sww"/>
-                            <constraint firstItem="NJW-wn-3qT" firstAttribute="leading" secondItem="t2k-Gu-mig" secondAttribute="leading" constant="10" id="Hbr-GK-ASr"/>
-                            <constraint firstItem="21a-ao-jSA" firstAttribute="top" secondItem="NJW-wn-3qT" secondAttribute="bottom" constant="10" id="Hry-EU-Ewn"/>
                             <constraint firstItem="9wI-kx-zQk" firstAttribute="top" secondItem="t2k-Gu-mig" secondAttribute="top" id="JTb-2g-Tnd"/>
+                            <constraint firstAttribute="trailing" secondItem="FPS-FO-haH" secondAttribute="trailing" id="K94-jk-IGs"/>
                             <constraint firstItem="21a-ao-jSA" firstAttribute="top" secondItem="dHU-se-tmh" secondAttribute="bottom" constant="10" id="Lti-6m-a0t"/>
                             <constraint firstItem="9wI-kx-zQk" firstAttribute="leading" secondItem="t2k-Gu-mig" secondAttribute="leading" id="PL7-Xe-D72"/>
                             <constraint firstAttribute="trailing" secondItem="9wI-kx-zQk" secondAttribute="trailing" id="Ru0-dh-gyo"/>
-                            <constraint firstAttribute="trailing" secondItem="NJW-wn-3qT" secondAttribute="trailing" constant="10" id="bYW-nJ-d43"/>
+                            <constraint firstAttribute="bottom" secondItem="FPS-FO-haH" secondAttribute="bottom" id="aQi-fe-5RX"/>
                             <constraint firstAttribute="trailing" secondItem="zhz-Qr-6IX" secondAttribute="trailing" id="dCA-yg-k01"/>
                             <constraint firstAttribute="bottom" secondItem="9wI-kx-zQk" secondAttribute="bottom" id="e5A-uQ-zUG"/>
                             <constraint firstAttribute="bottom" secondItem="zhz-Qr-6IX" secondAttribute="bottom" id="xdN-th-qfR"/>
@@ -198,11 +141,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="appDockView" destination="FPS-FO-haH" id="Kmy-iv-UG9"/>
+                        <outlet property="appDockViewBottomLayout" destination="aQi-fe-5RX" id="6Hx-P3-gub"/>
                         <outlet property="batchProgressView" destination="dHU-se-tmh" id="KYY-9U-0lq"/>
                         <outlet property="batchProgressViewBottomLayout" destination="Lti-6m-a0t" id="Zze-IO-JpZ"/>
                         <outlet property="dimmedView" destination="zhz-Qr-6IX" id="DYp-SS-5XU"/>
-                        <outlet property="editToolbar" destination="NJW-wn-3qT" id="WPC-EZ-rIf"/>
-                        <outlet property="editToolbarBottomLayout" destination="Hry-EU-Ewn" id="0Pg-JM-w98"/>
                         <outlet property="previewCollectionView" destination="9wI-kx-zQk" id="14S-Iz-VnU"/>
                     </connections>
                 </viewController>
@@ -228,26 +171,23 @@
                                     <outlet property="delegate" destination="oyw-5W-GwR" id="iri-LD-ftn"/>
                                 </connections>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ljV-41-1wD" customClass="FloatingToolbar" customModule="batch" customModuleProvider="target">
-                                <rect key="frame" x="10" y="597" width="355" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="GKs-q5-MDe"/>
-                                </constraints>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="60" translatesAutoresizingMaskIntoConstraints="NO" id="6HC-cV-Fmb" customClass="STAppDockView" customModule="batch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ljV-41-1wD" firstAttribute="leading" secondItem="57g-e2-YJi" secondAttribute="leading" constant="10" id="21e-bh-qrw"/>
+                            <constraint firstAttribute="trailing" secondItem="6HC-cV-Fmb" secondAttribute="trailing" id="3To-PZ-j9l"/>
                             <constraint firstItem="Yge-jY-8N3" firstAttribute="leading" secondItem="57g-e2-YJi" secondAttribute="leading" id="57f-ag-z46"/>
-                            <constraint firstItem="ZXS-Wm-Jes" firstAttribute="top" secondItem="ljV-41-1wD" secondAttribute="bottom" constant="10" id="DSE-It-fMZ"/>
-                            <constraint firstAttribute="trailing" secondItem="ljV-41-1wD" secondAttribute="trailing" constant="10" id="Fe6-TF-NLe"/>
+                            <constraint firstAttribute="bottom" secondItem="6HC-cV-Fmb" secondAttribute="bottom" id="FKA-o5-Dqu"/>
                             <constraint firstItem="Yge-jY-8N3" firstAttribute="top" secondItem="57g-e2-YJi" secondAttribute="top" id="OPV-13-dBM"/>
+                            <constraint firstItem="6HC-cV-Fmb" firstAttribute="leading" secondItem="57g-e2-YJi" secondAttribute="leading" id="gvU-l8-xiX"/>
                             <constraint firstAttribute="trailing" secondItem="Yge-jY-8N3" secondAttribute="trailing" id="mUx-ZJ-JZL"/>
                             <constraint firstAttribute="bottom" secondItem="Yge-jY-8N3" secondAttribute="bottom" id="y1h-2o-Dne"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="editToolbar" destination="ljV-41-1wD" id="2ga-LS-Ao4"/>
+                        <outlet property="appDockView" destination="6HC-cV-Fmb" id="aQ0-zt-WH4"/>
                         <outlet property="photoZoomingView" destination="Yge-jY-8N3" id="vSu-Sg-Hex"/>
                     </connections>
                 </viewController>
