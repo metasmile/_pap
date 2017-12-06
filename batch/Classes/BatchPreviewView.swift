@@ -144,6 +144,10 @@ extension BatchPreviewView {
             collectionView.contentInset = contentInset
         }
     }
+    
+    func reloadBatchEditItems() {
+        updatePreviews()
+    }
 }
 
 extension BatchPreviewView {

@@ -23,6 +23,7 @@ class BatchEditViewController: AppDockViewController {
     var placeholderImages = [PHAsset: UIImage?]()
     
     var batchEditItems = [BatchEditItem]()
+    var initialIndexPath: IndexPath?
     var batchRequest: BatchEditSequenceRequest?
     
     @IBOutlet weak var previewCollectionView: UICollectionView!
@@ -281,6 +282,11 @@ extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let indexPath = initialIndexPath {
+            previewCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+            initialIndexPath = nil
+        }
+        
         if let cell = cell as? PreviewCollectionViewCell {
             cell.setImageEditItem(self.batchEditItems[indexPath.item].editItem)
         }

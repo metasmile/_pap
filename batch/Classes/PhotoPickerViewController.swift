@@ -182,6 +182,7 @@ extension PhotoPickerViewController: BatchPreviewViewDelegate {
         let batchEditViewController = storyboard?.instantiateViewController(withIdentifier: "BatchEditViewController") as! BatchEditViewController
         batchEditViewController.batchEditItems = batchPreviewView.batchEditItems
         batchEditViewController.delegate = self
+        batchEditViewController.initialIndexPath = indexPath
         
         for indexPath in selectedIndexPaths {
             guard let photo = asset(at: indexPath), let cell = photoCollectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell else { continue }
