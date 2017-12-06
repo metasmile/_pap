@@ -72,8 +72,8 @@ class PhotoPickerDetailViewController: UIViewController {
         messageView.frame = view.bounds
         assetView.frame = view.bounds
 
-        if asset != nil{
-            assetView.asset = asset!
+        if let asset = asset {
+            assetView.asset = asset
             assetView.playAny()
         }
 

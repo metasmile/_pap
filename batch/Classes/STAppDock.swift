@@ -70,6 +70,7 @@ class STAppDockView: CustomView {
     }
     
     func setAccessoryViewToTop(_ view: UIView?, animated: Bool = true) {
+        guard !hasAccessoryView(view) else { return }
         _ = topAccessoryView.arrangedSubviews.map({ topAccessoryView.removeArrangedSubview($0) })
         addAccessoryViewToTop(view, animated: animated)
     }
@@ -88,6 +89,11 @@ class STAppDockView: CustomView {
                 self.superview?.layoutIfNeeded()
             })
         }
+    }
+    
+    fileprivate func hasAccessoryView(_ view: UIView?) -> Bool {
+        guard let view = view else { return false }
+        return topAccessoryView.arrangedSubviews.contains(view)
     }
 }
 

@@ -308,23 +308,23 @@ extension STAssetView {
 extension STAssetView {
     // Abs
     func playAny() {
-        guard asset != nil else { return }
+        guard let asset = asset else { return }
 
-        if asset!.mediaSubtypes.contains(.photoLive) {
+        if asset.mediaSubtypes.contains(.photoLive) {
             self.playLivePhoto()
 
-        } else if asset!.mediaType == .video {
+        } else if asset.mediaType == .video {
             self.playVideo()
         }
     }
 
     func stopAny() {
-        guard asset != nil else { return }
+        guard let asset = asset else { return }
 
-        if asset!.mediaSubtypes.contains(.photoLive) {
+        if asset.mediaSubtypes.contains(.photoLive) {
             self.stopVideo()
 
-        } else if asset!.mediaType == .video {
+        } else if asset.mediaType == .video {
             self.stopLivePhoto()
         }
     }

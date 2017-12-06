@@ -18,6 +18,7 @@ class BatchPreviewView: CustomView {
         
         collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: "PhotoCollectionViewCell")
         collectionView.allowsSelection = false
+        updateAlignment(animated: false)
     }
 }
 
@@ -38,13 +39,21 @@ extension BatchPreviewView {
     func removeBatchEditItem(with asset: PHAsset?) {
         guard let item = batchEditItems.index(where: { $0.asset == asset }) else { return }
         
+        let indexPath = IndexPath(item: item, section: 0)
+        
         batchEditItems.remove(at: item)
-        collectionView.deleteItems(at: [ IndexPath(item: item, section: 0)])
+        collectionView.deleteItems(at: [indexPath])
         updateAlignment()
+        
+        if batchEditItems.count > 0 {
+            let nearestItem = max(min(item - 1, batchEditItems.count - 2), 0)
+            collectionView.scrollToItem(at: IndexPath(item: nearestItem, section: 0), at: .centeredHorizontally, animated: true)
+        }
     }
     
     func removeAllBatchEditItems() {
         let indexPaths = (0..<batchEditItems.count).map({ IndexPath(item: $0, section: 0) })
+        
         batchEditItems.removeAll()
         collectionView.deleteItems(at: indexPaths)
         updateAlignment()
