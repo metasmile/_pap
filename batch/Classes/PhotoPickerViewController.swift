@@ -200,6 +200,11 @@ extension PhotoPickerViewController: BatchPreviewViewDelegate {
     
     func batchPreviewViewWillBeginEdit(_ view: BatchPreviewView) {
         title = "Start Batch Editing...".localizedString
+        
+        let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        loadingIndicator.startAnimating()
+        
+        navigationItem.setRightBarButton(UIBarButtonItem(customView: loadingIndicator), animated: true)
     }
     
     func batchPreviewView(_ view: BatchPreviewView, didUpdateProgress progress: Float) {
