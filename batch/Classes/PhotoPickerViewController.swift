@@ -26,7 +26,8 @@ class FetchResultItem: NSObject {
 class PhotoPickerViewController: AppDockViewController {
     @IBOutlet weak var photoCollectionView: UICollectionView!
     var batchPreviewView: BatchPreviewView!
-    
+    var progressBar: UIProgressView!
+
     var collections: PHFetchResult<PHAssetCollection>?
     var fetchResults: [FetchResultItem]?
     
@@ -34,7 +35,8 @@ class PhotoPickerViewController: AppDockViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        //photos collection
         photoCollectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: "PhotoCollectionViewCell")
         photoCollectionView.allowsMultipleSelection = true
 
@@ -42,7 +44,8 @@ class PhotoPickerViewController: AppDockViewController {
         if traitCollection.forceTouchCapability == .available {
             registerForPreviewing(with: self, sourceView: photoCollectionView)  // self here is UIViewController type, and view is property of UIViewController
         }
-        
+
+        //preview
         batchPreviewView = BatchPreviewView(frame: .zero)
         batchPreviewView.delegate = self
         
@@ -62,11 +65,27 @@ class PhotoPickerViewController: AppDockViewController {
                 self.reloadPhotos(with: .smartAlbum, subtype: .smartAlbumUserLibrary)
             }
         }
-        
+
+        //navigation controller accessories
         title = "Batch".localizedString
-        
+
         navigationItem.setLeftBarButton(nil, animated: true)
         navigationItem.setRightBarButton(nil, animated: true)
+
+        //navigation bar progress
+        if let navigationVC = self.navigationController {
+            progressBar = UIProgressView(progressViewStyle: .bar)
+            progressBar.isHidden = false
+
+            navigationVC.navigationBar.addSubview(progressBar)
+
+            let bottomConstraint = NSLayoutConstraint(item: navigationVC.navigationBar, attribute: .bottom, relatedBy: .equal, toItem: progressBar, attribute: .bottom, multiplier: 1, constant: 1)
+            let leftConstraint = NSLayoutConstraint(item: navigationVC.navigationBar, attribute: .leading, relatedBy: .equal, toItem: progressBar, attribute: .leading, multiplier: 1, constant: 0)
+            let rightConstraint = NSLayoutConstraint(item: navigationVC.navigationBar, attribute: .trailing, relatedBy: .equal, toItem: progressBar, attribute: .trailing, multiplier: 1, constant: 0)
+
+            progressBar.translatesAutoresizingMaskIntoConstraints = false
+            navigationVC.view.addConstraints([bottomConstraint, leftConstraint, rightConstraint])
+        }
     }
     
     deinit {
@@ -200,27 +219,42 @@ extension PhotoPickerViewController: BatchPreviewViewDelegate {
     
     func batchPreviewViewWillBeginEdit(_ view: BatchPreviewView) {
         title = "Start Batch Editing...".localizedString
-        
+
         let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         loadingIndicator.startAnimating()
-        
         navigationItem.setRightBarButton(UIBarButtonItem(customView: loadingIndicator), animated: true)
+
+        progressBar.isHidden = false
+        progressBar.progress = 0
+        UIView.animate(withDuration: 0.2) {
+            self.progressBar.alpha = 1
+        }
     }
     
     func batchPreviewView(_ view: BatchPreviewView, didUpdateProgress progress: Float) {
         title = "Processing...\(Int(progress * 100))%".localizedString
+
+        progressBar.setProgress(progress, animated: true)
     }
     
     func batchPreviewViewWillBeginExport(_ view: BatchPreviewView) {
         title = "Saving Photos...".localizedString
+
+        UIView.animate(withDuration: 0.6) {
+            self.progressBar.alpha = 0
+        }
     }
     
     func batchPreviewViewDidEndEdit(_ view: BatchPreviewView) {
         cancelAllSelection()
+
+        progressBar.isHidden = true
     }
     
     func batchPreviewViewDidCancelEdit(_ view: BatchPreviewView) {
         updateTitleForSelectedItems()
+
+        progressBar.isHidden = true
     }
 }
 
