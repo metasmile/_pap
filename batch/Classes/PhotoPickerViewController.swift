@@ -180,7 +180,7 @@ extension PhotoPickerViewController: BatchPreviewViewDelegate {
         guard photoCollectionView.indexPathsForSelectedItems?.isEmpty == false, let selectedIndexPaths = orderedSelectedIndexPaths.array as? [IndexPath] else { return }
         
         let batchEditViewController = storyboard?.instantiateViewController(withIdentifier: "BatchEditViewController") as! BatchEditViewController
-        batchEditViewController.photos = selectedIndexPaths.flatMap({ asset(at: $0) })
+        batchEditViewController.batchEditItems = batchPreviewView.batchEditItems
         batchEditViewController.delegate = self
         
         for indexPath in selectedIndexPaths {

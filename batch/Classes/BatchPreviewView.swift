@@ -20,7 +20,7 @@ protocol BatchPreviewViewDelegate {
 
 class BatchPreviewView: CustomView {
     @IBOutlet weak var collectionView: UICollectionView!
-    fileprivate var batchEditItems = [BatchEditItem]()
+    fileprivate (set) var batchEditItems = [BatchEditItem]()
     var delegate: BatchPreviewViewDelegate?
     var batchRequest: BatchEditSequenceRequest?
     
@@ -151,6 +151,8 @@ extension BatchPreviewView {
         guard batchRequest == nil else { return }
         
         delegate?.batchPreviewViewWillBeginEdit(self)
+        
+        collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
         
         batchRequest = BatchEditSequenceRequest()
         batchRequest?.perform(batchEditItems.map({ BatchEditRequest($0) }), { (progress, idx) in

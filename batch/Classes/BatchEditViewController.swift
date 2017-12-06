@@ -20,16 +20,6 @@ protocol BatchEditViewControllerDelegate {
 class BatchEditViewController: AppDockViewController {
     var delegate: BatchEditViewControllerDelegate?
     
-    var photos: [PHAsset]? {
-        didSet {
-            guard let photos = photos else { return }
-            for photo in photos {
-                let batchEditItem = BatchEditItem()
-                batchEditItem.asset = photo
-                batchEditItems.append(batchEditItem)
-            }
-        }
-    }
     var placeholderImages = [PHAsset: UIImage?]()
     
     var batchEditItems = [BatchEditItem]()
