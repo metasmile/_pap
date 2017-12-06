@@ -180,16 +180,20 @@ extension PhotoPickerViewController {
 }
 
 extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
+
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = photoCollectionView?.indexPathForItem(at: location) else { return nil }
         guard let cell = photoCollectionView?.cellForItem(at: indexPath) else { return nil }
 
-        let detailvc = PhotoPickerDetailViewController()
-        detailvc.asset = self.asset(at: indexPath)
+        let vc = PhotoPickerDetailViewController()
+        vc.asset = self.asset(at: indexPath)
+        vc.actionItems = [UIPreviewAction(title: "Select this Item".localizedString, style: .default) { action, controller in
+            self.photoCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredVertically)
+            self.collectionView(self.photoCollectionView, didSelectItemAt: indexPath)
+        }]
 
         previewingContext.sourceRect = cell.frame
-
-        return detailvc
+        return vc
     }
 
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {

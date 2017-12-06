@@ -9,13 +9,7 @@ import Photos
 class PhotoPickerDetailViewController: UIViewController {
 
     var asset: PHAsset?
-//    {
-//        didSet {
-//            if let asset = asset {
-//                assetView.asset = asset
-//            }
-//        }
-//    }
+    var actionItems:[UIPreviewActionItem]?
 
     private lazy var assetView: STAssetView = {
         let assetView = STAssetView()
@@ -24,27 +18,25 @@ class PhotoPickerDetailViewController: UIViewController {
         return assetView
     }()
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Detail"
+        title = "Detail".localizedString
 
         if let asset = asset {
+            view.addSubview(assetView)
+
             let w = self.view.bounds.width
-            assetView.frame = CGRect(x:0, y:0, width: w, height: w/(asset.size.width/asset.size.height))
+            var f = assetView.frame
+            f.size = CGSize(width: w, height: w/(asset.size.width/asset.size.height))
+
+            assetView.frame = f
             assetView.asset = asset
+
+            self.preferredContentSize = assetView.bounds.size
+
+            assetView.playAny()
         }
-
-        view.addSubview(assetView)
-
-        self.preferredContentSize = assetView.bounds.size
-
-        assetView.playAny()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -54,8 +46,7 @@ class PhotoPickerDetailViewController: UIViewController {
     }
 
     override var previewActionItems: [UIPreviewActionItem] {
-        return [UIPreviewAction(title: "Add This Item", style: .default) { action, controller in
-
-        }]
+        guard let actionItems = actionItems, actionItems.count > 0 else { return super.previewActionItems }
+        return actionItems
     }
 }
