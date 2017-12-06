@@ -182,9 +182,12 @@ extension PhotoPickerViewController {
 extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = photoCollectionView?.indexPathForItem(at: location) else { return nil }
-        
+        guard let cell = photoCollectionView?.cellForItem(at: indexPath) else { return nil }
+
         let detailvc = PhotoPickerDetailViewController()
         detailvc.asset = self.asset(at: indexPath)
+
+        previewingContext.sourceRect = cell.frame
 
         return detailvc
     }
