@@ -11,15 +11,25 @@ import Photos
 
 protocol BatchPreviewViewDelegate {
     func batchPreviewView(_ view: BatchPreviewView, didSelectItemAt indexPath: IndexPath)
+    func batchPreviewViewWillBeginExport(_ view: BatchPreviewView)
+    func batchPreviewView(_ view: BatchPreviewView, didUpdateProgress progress: Float)
+    func batchPreviewViewWillBeginEdit(_ view: BatchPreviewView)
+    func batchPreviewViewDidEndEdit(_ view: BatchPreviewView)
+    func batchPreviewViewDidCancelEdit(_ view: BatchPreviewView)
 }
 
 class BatchPreviewView: CustomView {
     @IBOutlet weak var collectionView: UICollectionView!
     fileprivate var batchEditItems = [BatchEditItem]()
     var delegate: BatchPreviewViewDelegate?
+    var batchRequest: BatchEditSequenceRequest?
     
     var hasChanges: Bool {
         return batchEditItems.map({ $0.editItem.hasChanges }).contains(true)
+    }
+    
+    var isProcessing: Bool {
+        return batchRequest != nil
     }
     
     override func initialize() {
@@ -32,6 +42,8 @@ class BatchPreviewView: CustomView {
 
 extension BatchPreviewView {
     func addTransformItem(_ transformItem: TransformItem) {
+        guard !isProcessing else { return }
+        
         for batchEditItem in batchEditItems {
             batchEditItem.editItem.addTransformItem(transformItem)
         }
@@ -40,6 +52,8 @@ extension BatchPreviewView {
     }
     
     func resetTransformItems() {
+        guard !isProcessing else { return }
+        
         for batchEditItem in batchEditItems {
             batchEditItem.editItem.resetTransforms()
         }
@@ -132,6 +146,54 @@ extension BatchPreviewView {
     }
 }
 
+extension BatchPreviewView {
+    func runBatchProcessing() {
+        guard batchRequest == nil else { return }
+        
+        delegate?.batchPreviewViewWillBeginEdit(self)
+        
+        batchRequest = BatchEditSequenceRequest()
+        batchRequest?.perform(batchEditItems.map({ BatchEditRequest($0) }), { (progress, idx) in
+            guard self.isProcessing else { return }
+            DispatchQueue.main.async { [unowned self] in
+                self.delegate?.batchPreviewView(self, didUpdateProgress: progress)
+                
+                guard let item = idx, item + 1 < self.batchEditItems.count else { return }
+                self.collectionView.scrollToItem(at: IndexPath(item: item + 1, section: 0), at: .centeredHorizontally, animated: true)
+            }
+        }) { (results) in
+            guard self.isProcessing else { return }
+            
+            DispatchQueue.main.async { [unowned self] in
+                self.delegate?.batchPreviewViewWillBeginExport(self)
+            }
+            
+            PHPhotoLibrary.shared().performChanges({
+                for result in results {
+                    PHAssetChangeRequest(for: result.asset).contentEditingOutput = result.contentEditingOutput
+                }
+            }, completionHandler: { (success, info) in
+                DispatchQueue.main.async { [unowned self] in
+                    if success {
+                        self.delegate?.batchPreviewViewDidEndEdit(self)
+                    }
+                    else {
+                        self.delegate?.batchPreviewViewDidCancelEdit(self)
+                    }
+                    self.batchRequest = nil
+                }
+            })
+        }
+    }
+    
+    func cancelBatchProcessing() {
+        batchRequest?.cancel()
+        batchRequest = nil
+        
+        delegate?.batchPreviewViewDidCancelEdit(self)
+    }
+}
+
 extension BatchPreviewView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return batchEditItems.count
@@ -145,6 +207,10 @@ extension BatchPreviewView: UICollectionViewDataSource {
 }
 
 extension BatchPreviewView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        return !isProcessing
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.batchPreviewView(self, didSelectItemAt: indexPath)
     }

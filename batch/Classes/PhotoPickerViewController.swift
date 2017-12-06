@@ -81,21 +81,30 @@ class PhotoPickerViewController: AppDockViewController {
     }
     
     override func cancelButtonDidTap(sender: Any) {
-        if batchPreviewView.hasChanges {
-            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "Discard Changes".localizedString, style: .destructive, handler: { (action) in
-                self.cancelAllSelection()
-            }))
-            alert.addAction(UIAlertAction(title: "Cancel".localizedString, style: .cancel, handler: nil))
-            present(alert, animated: true, completion: nil)
+        //FIXME: BatchPreviewState
+        //FIXME: .ready?
+        //FIXME: .selecting?
+        //FIXME: .processing?
+        if batchPreviewView.isProcessing {
+            batchPreviewView.cancelBatchProcessing()
         }
         else {
-            cancelAllSelection()
+            if batchPreviewView.hasChanges {
+                let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Discard Changes".localizedString, style: .destructive, handler: { (action) in
+                    self.cancelAllSelection()
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel".localizedString, style: .cancel, handler: nil))
+                present(alert, animated: true, completion: nil)
+            }
+            else {
+                cancelAllSelection()
+            }
         }
     }
     
     override func doneButtonDidTap(sender: Any) {
-        //
+        batchPreviewView.runBatchProcessing()
     }
     
     override func horizontalFlipButtonDidTap() {
@@ -186,6 +195,26 @@ extension PhotoPickerViewController: BatchPreviewViewDelegate {
         navigationController.modalPresentationStyle = .overCurrentContext
         
         present(navigationController, animated: true, completion: nil)
+    }
+    
+    func batchPreviewViewWillBeginEdit(_ view: BatchPreviewView) {
+        title = "Start Batch Editing...".localizedString
+    }
+    
+    func batchPreviewView(_ view: BatchPreviewView, didUpdateProgress progress: Float) {
+        title = "Processing...\(Int(progress * 100))%".localizedString
+    }
+    
+    func batchPreviewViewWillBeginExport(_ view: BatchPreviewView) {
+        title = "Saving Photos...".localizedString
+    }
+    
+    func batchPreviewViewDidEndEdit(_ view: BatchPreviewView) {
+        cancelAllSelection()
+    }
+    
+    func batchPreviewViewDidCancelEdit(_ view: BatchPreviewView) {
+        updateTitleForSelectedItems()
     }
 }
 
