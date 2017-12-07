@@ -45,17 +45,6 @@ class STAppDockView: CustomView {
     
     func reloadAppDock() {
         appCollectionView.collectionViewLayout.prepare()
-        let contentWidth = appCollectionView.collectionViewLayout.collectionViewContentSize.width
-        if contentWidth > appCollectionView.bounds.width {
-            appCollectionView.contentInset.left = 0
-            appCollectionView.contentInset.right = 0
-        }
-        else {
-            let inset = (appCollectionView.bounds.width - contentWidth) / 2
-            appCollectionView.contentInset.left = inset
-            appCollectionView.contentInset.right = inset
-        }
-        
         appCollectionView.reloadData()
     }
     
@@ -128,9 +117,24 @@ extension STAppDockView: UICollectionViewDelegateFlowLayout {
         let squareSize = collectionView.bounds.height
         return CGSize(width: squareSize, height: squareSize)
     }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let itemSize = self.collectionView(collectionView, layout: collectionViewLayout, sizeForItemAt: IndexPath(item: 0, section: section))
+        let numberOfItems = CGFloat(collectionView.numberOfItems(inSection: section))
+
+        let minimumInteritemSpacing = self.collectionView(collectionView, layout: collectionViewLayout, minimumInteritemSpacingForSectionAt:section)
+        let combinedItemWidth = (numberOfItems * itemSize.width) + ((numberOfItems - 1)  * minimumInteritemSpacing)
+
+        let padding = (collectionView.frame.width - combinedItemWidth) / 2
+        return UIEdgeInsets(top: 0, left: padding, bottom: 0, right: padding)
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return self.collectionView(collectionView, layout: collectionViewLayout, minimumLineSpacingForSectionAt:section)
     }
 }
 
