@@ -11,25 +11,15 @@ import Photos
 import PhotosUI
 import Hero
 
-class FetchResultItem: NSObject {
-    var fetchResult: PHFetchResult<PHAsset> = PHFetchResult()
-    var assets: [PHAsset] = []
-    
-    convenience init(_ fetchResult: PHFetchResult<PHAsset>) {
-        self.init()
-        
-        self.fetchResult = fetchResult
-        self.assets = fetchResult.objects(at: IndexSet(0..<fetchResult.count))
-    }
-}
-
 class PhotoPickerViewController: AppDockViewController {
     @IBOutlet weak var photoCollectionView: UICollectionView!
+    var initialPhotoCollectionIndexPath: IndexPath?
+    
     var batchPreviewView: BatchPreviewView!
     var progressBar: UIProgressView!
 
     var collections: PHFetchResult<PHAssetCollection>?
-    var fetchResults: [FetchResultItem]?
+    var fetchResults: [PHFetchResult<PHAsset>]?
     
     var orderedSelectedIndexPaths = NSMutableOrderedSet()
     
@@ -325,22 +315,18 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         DispatchQueue.global().async {
             self.collections = PHAssetCollection.fetchAssetCollections(with: collectionType, subtype: collectionSubType, options: nil)
             
-            self.fetchResults = [FetchResultItem]()
+            self.fetchResults = [PHFetchResult<PHAsset>]()
             self.collections?.enumerateObjects({ (collection, idx, stop) in
                 let fetchResult = PHAsset.fetchAssets(in: collection, options: options)
-                self.fetchResults?.append(FetchResultItem(fetchResult))
+                self.fetchResults?.append(fetchResult)
             })
+            
+            if let numberOfSection = self.fetchResults?.count, numberOfSection > 0, let numberOfItemsInSection = self.fetchResults?[numberOfSection - 1].count, numberOfItemsInSection > 0 {
+                self.initialPhotoCollectionIndexPath = IndexPath(item: numberOfItemsInSection - 1, section: numberOfSection - 1)
+            }
             
             DispatchQueue.main.async {
                 self.photoCollectionView.reloadData()
-                
-                guard
-                    let numberOfSection = self.fetchResults?.count,
-                    numberOfSection > 0,
-                    let numberOfItemsInSection = self.fetchResults?[numberOfSection - 1].assets.count
-                else { return }
-                
-                self.photoCollectionView.scrollToItem(at: IndexPath(item: numberOfItemsInSection - 1, section: numberOfSection - 1), at: .bottom, animated: false)
             }
         }
     }
@@ -348,7 +334,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     // MARK: - Data
     
     private func asset(at indexPath: IndexPath) -> PHAsset? {
-        return fetchResults?[indexPath.section].assets[indexPath.item]
+        return fetchResults?[indexPath.section][indexPath.item]
     }
     
     @objc func cancelAllSelection() {
@@ -368,7 +354,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return fetchResults?[section].assets.count ?? 0
+        return fetchResults?[section].count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -393,6 +379,13 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     // MARK: - UICollectionViewDelegate
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let indexPath = initialPhotoCollectionIndexPath {
+            collectionView.scrollToItem(at: indexPath, at: .bottom, animated: false)
+            initialPhotoCollectionIndexPath = nil
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         updateTitleForSelectedItems()
@@ -440,66 +433,98 @@ extension PhotoPickerViewController: BatchEditViewControllerDelegate {
     }
 }
 
+// https://developer.apple.com/documentation/photos/phphotolibrarychangeobserver
 extension PhotoPickerViewController: PHPhotoLibraryChangeObserver {
     func photoLibraryDidChange(_ changeInstance: PHChange) {
         guard let fetchResults = self.fetchResults else { return }
         
         DispatchQueue.main.async {
-            var changedIndexPaths = [IndexPath]()
-            var insertedIndexPaths = [IndexPath]()
-            var removedIndexPaths = [IndexPath]()
-            
-            struct PhotoLibraryChangedInfo {
-                var indexPath: IndexPath
-                var index: Int
-            }
-            
             for (section, fetchResult) in fetchResults.enumerated() {
-                guard let changeDetails = changeInstance.changeDetails(for: fetchResult.fetchResult) else { continue }
-                
-                if let changedInfos = changeDetails.changedIndexes?.enumerated().map({ PhotoLibraryChangedInfo(indexPath: IndexPath(item: $0.element, section: section), index: $0.offset) }) {
-                    for changedInfo in changedInfos {
-                        fetchResult.assets[changedInfo.indexPath.item] = changeDetails.changedObjects[changedInfo.index]
-                        changedIndexPaths.append(changedInfo.indexPath)
+                if let changes = changeInstance.changeDetails(for: fetchResult) {
+                    // Keep the new fetch result for future use.
+                    self.fetchResults?[section] = changes.fetchResultAfterChanges
+                    if changes.hasIncrementalChanges {
+                        // If there are incremental diffs, animate them in the collection view.
+                        self.photoCollectionView.performBatchUpdates({
+                            // For indexes to make sense, updates must be in this order:
+                            // delete, insert, reload, move
+                            if let removed = changes.removedIndexes, removed.count > 0 {
+                                self.photoCollectionView.deleteItems(at: removed.map { IndexPath(item: $0, section:section) })
+                            }
+                            if let inserted = changes.insertedIndexes, inserted.count > 0 {
+                                self.photoCollectionView.insertItems(at: inserted.map { IndexPath(item: $0, section:section) })
+                            }
+                            if let changed = changes.changedIndexes, changed.count > 0 {
+                                self.photoCollectionView.reloadItems(at: changed.map { IndexPath(item: $0, section:section) })
+                            }
+                            changes.enumerateMoves { fromIndex, toIndex in
+                                self.photoCollectionView.moveItem(at: IndexPath(item: fromIndex, section: section), to: IndexPath(item: toIndex, section: section))
+                            }
+                        })
+                    } else {
+                        // Reload the collection view if incremental diffs are not available.
+                        self.photoCollectionView.reloadData()
+                        break
                     }
-                }
-                
-                if let changedInfos = changeDetails.insertedIndexes?.enumerated().map({ PhotoLibraryChangedInfo(indexPath: IndexPath(item: $0.element, section: section), index: $0.offset) }) {
-                    for changedInfo in changedInfos {
-                        let insertedAsset = changeDetails.insertedObjects[changedInfo.index]
-                        guard !fetchResult.assets.contains(insertedAsset) else { continue }
-                        fetchResult.assets.insert(insertedAsset, at: changedInfo.indexPath.item)
-                        insertedIndexPaths.append(changedInfo.indexPath)
-                    }
-                }
-                if let indexPaths = changeDetails.removedIndexes?.map({ IndexPath(item: $0, section: section) }) {
-                    removedIndexPaths.append(contentsOf: indexPaths)
-                }
-                
-                if changeDetails.hasMoves {
-                    changeDetails.enumerateMoves({ (from, to) in
-                        self.photoCollectionView.moveItem(at: IndexPath(item: from, section: section), to: IndexPath(item: to, section: section))
-                    })
                 }
             }
+
             
-            self.photoCollectionView.performBatchUpdates({
-//                if removedIndexPaths.count > 0 {
-//                    self.photoCollectionView.deleteItems(at: removedIndexPaths)
+//            var changedIndexPaths = [IndexPath]()
+//            var insertedIndexPaths = [IndexPath]()
+//            var removedIndexPaths = [IndexPath]()
+//
+//            struct PhotoLibraryChangedInfo {
+//                var indexPath: IndexPath
+//                var index: Int
+//            }
+//
+//            for (section, fetchResult) in fetchResults.enumerated() {
+//                guard let changeDetails = changeInstance.changeDetails(for: fetchResult.fetchResult) else { continue }
+//
+//                if let changedInfos = changeDetails.changedIndexes?.enumerated().map({ PhotoLibraryChangedInfo(indexPath: IndexPath(item: $0.element, section: section), index: $0.offset) }) {
+//                    for changedInfo in changedInfos {
+//                        fetchResult.assets[changedInfo.indexPath.item] = changeDetails.changedObjects[changedInfo.index]
+//                        changedIndexPaths.append(changedInfo.indexPath)
+//                    }
 //                }
-                
-                if insertedIndexPaths.count > 0 {
-                    self.photoCollectionView.insertItems(at: insertedIndexPaths)
-                }
-                
-                if changedIndexPaths.count > 0 {
-                    self.photoCollectionView.reloadItems(at: changedIndexPaths)
-                }
-            }, completion: { (finished) in
-                
-            })
-            
-            self.updateTitleForSelectedItems()
+//
+//                if let changedInfos = changeDetails.insertedIndexes?.enumerated().map({ PhotoLibraryChangedInfo(indexPath: IndexPath(item: $0.element, section: section), index: $0.offset) }) {
+//                    for changedInfo in changedInfos {
+//                        let insertedAsset = changeDetails.insertedObjects[changedInfo.index]
+//                        guard !fetchResult.assets.contains(insertedAsset) else { continue }
+//                        fetchResult.assets.insert(insertedAsset, at: changedInfo.indexPath.item)
+//                        insertedIndexPaths.append(changedInfo.indexPath)
+//                    }
+//                }
+//                if let indexPaths = changeDetails.removedIndexes?.map({ IndexPath(item: $0, section: section) }) {
+//                    removedIndexPaths.append(contentsOf: indexPaths)
+//                }
+//
+//                if changeDetails.hasMoves {
+//                    changeDetails.enumerateMoves({ (from, to) in
+//                        self.photoCollectionView.moveItem(at: IndexPath(item: from, section: section), to: IndexPath(item: to, section: section))
+//                    })
+//                }
+//            }
+//
+//            self.photoCollectionView.performBatchUpdates({
+////                if removedIndexPaths.count > 0 {
+////                    self.photoCollectionView.deleteItems(at: removedIndexPaths)
+////                }
+//
+//                if insertedIndexPaths.count > 0 {
+//                    self.photoCollectionView.insertItems(at: insertedIndexPaths)
+//                }
+//
+//                if changedIndexPaths.count > 0 {
+//                    self.photoCollectionView.reloadItems(at: changedIndexPaths)
+//                }
+//            }, completion: { (finished) in
+//
+//            })
+//
+//            self.updateTitleForSelectedItems()
         }
     }
 }
