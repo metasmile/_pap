@@ -1,0 +1,34 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "ปิดใช้งานการเข้าถึงรูปภาพแล้ว";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "โปรดเปิดการตั้งค่าและอนุญาตให้เข้าถึงรูปภาพของคุณ";
+/*Translated from: Open Settings*/
+"Open Settings" = "เปิดการตั้งค่า";
+/*Translated from: Cancel*/
+"Cancel" = "ยกเลิก";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Edit %d photo(s)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Edit %d video(s)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Edit %d item(s)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "แก้ไขเป็นกลุ่ม";
+/*Translated from: Edit*/
+"Edit" = "แก้ไข";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "ยกเลิกการเปลี่ยนแปลง";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "เริ่มต้นการแก้ไขแบทช์ ...";
+/*Translated from: Processing...*/
+"Processing..." = "กำลังประมวลผล ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "กำลังบันทึกรูปภาพ ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "เลือกรูปภาพนี้";
+/*Translated from: Select this video*/
+"Select this video" = "เลือกวิดีโอนี้";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "ยกเลิกการเลือกรูปภาพนี้";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "ยกเลิกการเลือกวิดีโอนี้";

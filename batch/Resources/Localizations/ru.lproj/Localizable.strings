@@ -1,0 +1,34 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Фотографий Доступ отключен";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Откройте настройки и разрешите доступ к своим фотографиям.";
+/*Translated from: Open Settings*/
+"Open Settings" = "Открыть настройки";
+/*Translated from: Cancel*/
+"Cancel" = "Отмена";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Edit %d photo(s)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Edit %d video(s)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Edit %d item(s)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Редактирование партии";
+/*Translated from: Edit*/
+"Edit" = "редактировать";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Отменить изменения";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Начало пакетного редактирования ...";
+/*Translated from: Processing...*/
+"Processing..." = "Обработка ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Сохранение фотографий ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Выберите эту фотографию";
+/*Translated from: Select this video*/
+"Select this video" = "Выберите это видео";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Снять выделение";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Отменить выбор этого видео";

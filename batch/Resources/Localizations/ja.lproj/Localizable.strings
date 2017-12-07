@@ -1,0 +1,34 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "写真アクセス無効";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "設定を開いて写真へのアクセスを許可してください";
+/*Translated from: Open Settings*/
+"Open Settings" = "設定を開く";
+/*Translated from: Cancel*/
+"Cancel" = "キャンセル";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Edit %d photo(s)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Edit %d video(s)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Edit %d item(s)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "バッチ編集";
+/*Translated from: Edit*/
+"Edit" = "編集";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "変更を破棄";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "バッチ編集を開始...";
+/*Translated from: Processing...*/
+"Processing..." = "処理...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "写真を保存中...";
+/*Translated from: Select this photo*/
+"Select this photo" = "この写真を選択";
+/*Translated from: Select this video*/
+"Select this video" = "このビデオを選択";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "この写真の選択を解除する";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "このビデオの選択を解除する";

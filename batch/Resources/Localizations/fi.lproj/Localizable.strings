@@ -1,0 +1,34 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Valokuvien käyttö estetty";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Avaa asetuksia ja anna heidän käyttää valokuvasi";
+/*Translated from: Open Settings*/
+"Open Settings" = "Avaa asetukset";
+/*Translated from: Cancel*/
+"Cancel" = "Peruuttaa";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Edit %d photo(s)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Edit %d video(s)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Edit %d item(s)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Erän muokkaus";
+/*Translated from: Edit*/
+"Edit" = "Muokata";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Hylkää muutokset";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Aloita eränmuokkaus ...";
+/*Translated from: Processing...*/
+"Processing..." = "Processing ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Valokuvien tallentaminen ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Valitse tämä valokuva";
+/*Translated from: Select this video*/
+"Select this video" = "Valitse tämä video";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Poista valittu kuva";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Poista tämä video pois";

@@ -1,0 +1,34 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "تم تعطيل الوصول إلى الصور";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "الرجاء فتح الإعدادات والسماح بالوصول إلى صورك";
+/*Translated from: Open Settings*/
+"Open Settings" = "أفتح الإعدادات";
+/*Translated from: Cancel*/
+"Cancel" = "إلغاء";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Edit %d photo(s)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Edit %d video(s)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Edit %d item(s)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "دفعة تحرير";
+/*Translated from: Edit*/
+"Edit" = "تصحيح";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "تجاهل التغييرات";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "بدء تعديل الدفعة ...";
+/*Translated from: Processing...*/
+"Processing..." = "معالجة...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "جار حفظ الصور ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "حدد هذه الصورة";
+/*Translated from: Select this video*/
+"Select this video" = "حدد هذا الفيديو";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "ألغ تحديد هذه الصورة";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "ألغ تحديد هذا الفيديو";

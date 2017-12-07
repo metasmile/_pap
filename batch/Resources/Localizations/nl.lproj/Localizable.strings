@@ -1,0 +1,34 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Foto's Toegang uitgeschakeld";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Please open settings and allow access to your photos";
+/*Translated from: Open Settings*/
+"Open Settings" = "Open Settings";
+/*Translated from: Cancel*/
+"Cancel" = "Annuleer";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Edit %d photo(s)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Edit %d video(s)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Edit %d item(s)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Batchbewerking";
+/*Translated from: Edit*/
+"Edit" = "Bewerk";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Veranderingen ongedaan maken";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Start Batch Editing ...";
+/*Translated from: Processing...*/
+"Processing..." = "Verwerken...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Foto's opslaan ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Selecteer deze foto";
+/*Translated from: Select this video*/
+"Select this video" = "Selecteer deze video";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Maak de selectie van deze foto ongedaan";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Deselecteer deze video";
