@@ -207,6 +207,10 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
 
 extension PhotoPickerViewController: BatchPreviewViewDelegate {
     func batchPreviewView(_ view: BatchPreviewView, didSelectItemAt indexPath: IndexPath) {
+        guard let selectedAsset = view.batchEditItems[indexPath.item].asset, let indexPathInPhotoPicker = self.indexPath(of: selectedAsset) else { return }
+        photoCollectionView.scrollToItem(at: indexPathInPhotoPicker, at: .centeredVertically, animated: true)
+        
+        
 //        guard photoCollectionView.indexPathsForSelectedItems?.isEmpty == false, let selectedIndexPaths = orderedSelectedIndexPaths.array as? [IndexPath] else { return }
 //
 //        let batchEditViewController = storyboard?.instantiateViewController(withIdentifier: "BatchEditViewController") as! BatchEditViewController
@@ -349,6 +353,14 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     
     private func asset(at indexPath: IndexPath) -> PHAsset? {
         return fetchResults?[indexPath.section][indexPath.item]
+    }
+    
+    private func indexPath(of asset: PHAsset) -> IndexPath? {
+        return fetchResults?.enumerated().flatMap({
+            let item = $0.element.index(of: asset)
+            guard item != NSNotFound else { return nil }
+            return IndexPath(item: item, section: $0.offset)
+        }).first
     }
     
     @objc func cancelAllSelection() {
