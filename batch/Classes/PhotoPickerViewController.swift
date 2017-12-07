@@ -21,15 +21,13 @@ class PhotoPickerViewController: AppDockViewController {
     var collections: PHFetchResult<PHAssetCollection>?
     var fetchResults: [PHFetchResult<PHAsset>]?
     
-    var orderedSelectedIndexPaths = NSMutableOrderedSet()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //photos collection
         photoCollectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: "PhotoCollectionViewCell")
         photoCollectionView.allowsMultipleSelection = true
-
+        
         //peek and pop
         if traitCollection.forceTouchCapability == .available {
             registerForPreviewing(with: self, sourceView: photoCollectionView)  // self here is UIViewController type, and view is property of UIViewController
@@ -174,13 +172,29 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = photoCollectionView?.indexPathForItem(at: location) else { return nil }
         guard let cell = photoCollectionView?.cellForItem(at: indexPath) else { return nil }
+        
+        let selectedAsset = self.asset(at: indexPath)
 
         let vc = PhotoPickerDetailViewController()
-        vc.asset = self.asset(at: indexPath)
-        vc.actionItems = [UIPreviewAction(title: "Select this Item".localizedString, style: .default) { action, controller in
-            self.photoCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredVertically)
-            self.collectionView(self.photoCollectionView, didSelectItemAt: indexPath)
-        }]
+        vc.asset = selectedAsset
+        
+        var typeWord = "photo"
+        if selectedAsset?.mediaType == .video {
+            typeWord = "video"
+        }
+        
+        if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == true {
+            vc.actionItems = [UIPreviewAction(title: "Deselect this \(typeWord)".localizedString, style: .default) { action, controller in
+                self.photoCollectionView.deselectItem(at: indexPath, animated: false)
+                self.collectionView(self.photoCollectionView, didDeselectItemAt: indexPath)
+            }]
+        }
+        else {
+            vc.actionItems = [UIPreviewAction(title: "Select this \(typeWord)".localizedString, style: .default) { action, controller in
+                self.photoCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+                self.collectionView(self.photoCollectionView, didSelectItemAt: indexPath)
+            }]
+        }
 
         previewingContext.sourceRect = cell.frame
         return vc
@@ -193,25 +207,25 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
 
 extension PhotoPickerViewController: BatchPreviewViewDelegate {
     func batchPreviewView(_ view: BatchPreviewView, didSelectItemAt indexPath: IndexPath) {
-        guard photoCollectionView.indexPathsForSelectedItems?.isEmpty == false, let selectedIndexPaths = orderedSelectedIndexPaths.array as? [IndexPath] else { return }
-        
-        let batchEditViewController = storyboard?.instantiateViewController(withIdentifier: "BatchEditViewController") as! BatchEditViewController
-        batchEditViewController.batchEditItems = batchPreviewView.batchEditItems
-        batchEditViewController.delegate = self
-        batchEditViewController.initialIndexPath = indexPath
-        
-        for indexPath in selectedIndexPaths {
-            guard let photo = asset(at: indexPath), let cell = photoCollectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell else { continue }
-            batchEditViewController.placeholderImages[photo] = cell.imageView.image
-        }
-        
-        let navigationController = UINavigationController(rootViewController: batchEditViewController)
-        navigationController.isHeroEnabled = true
-        navigationController.heroModalAnimationType = .selectBy(presenting:.zoom, dismissing:.zoomOut)
-        navigationController.heroNavigationAnimationType = .none
-        navigationController.modalPresentationStyle = .overCurrentContext
-        
-        present(navigationController, animated: true, completion: nil)
+//        guard photoCollectionView.indexPathsForSelectedItems?.isEmpty == false, let selectedIndexPaths = orderedSelectedIndexPaths.array as? [IndexPath] else { return }
+//
+//        let batchEditViewController = storyboard?.instantiateViewController(withIdentifier: "BatchEditViewController") as! BatchEditViewController
+//        batchEditViewController.batchEditItems = batchPreviewView.batchEditItems
+//        batchEditViewController.delegate = self
+//        batchEditViewController.initialIndexPath = indexPath
+//
+//        for indexPath in selectedIndexPaths {
+//            guard let photo = asset(at: indexPath), let cell = photoCollectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell else { continue }
+//            batchEditViewController.placeholderImages[photo] = cell.imageView.image
+//        }
+//
+//        let navigationController = UINavigationController(rootViewController: batchEditViewController)
+//        navigationController.isHeroEnabled = true
+//        navigationController.heroModalAnimationType = .selectBy(presenting:.zoom, dismissing:.zoomOut)
+//        navigationController.heroNavigationAnimationType = .none
+//        navigationController.modalPresentationStyle = .overCurrentContext
+//
+//        present(navigationController, animated: true, completion: nil)
     }
     
     func batchPreviewViewWillBeginEdit(_ view: BatchPreviewView) {
@@ -342,7 +356,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         for indexPath in indexPaths {
             photoCollectionView.deselectItem(at: indexPath, animated: true)
         }
-        orderedSelectedIndexPaths.removeAllObjects()
+        
         batchPreviewView.removeAllBatchEditItems()
         updateTitleForSelectedItems()
     }
@@ -390,14 +404,10 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         updateTitleForSelectedItems()
         
-        orderedSelectedIndexPaths.add(indexPath)
-        
         batchPreviewView.addBatchEditItem(with: self.asset(at: indexPath))
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        orderedSelectedIndexPaths.remove(indexPath)
-        
         batchPreviewView.removeBatchEditItem(with: self.asset(at: indexPath))
         
         updateTitleForSelectedItems()

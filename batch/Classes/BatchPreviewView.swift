@@ -86,6 +86,8 @@ extension BatchPreviewView {
 
 extension BatchPreviewView {
     func addBatchEditItem(with asset: PHAsset?) {
+        guard !batchEditItems.contains(where: { $0.asset == asset }) else { return }
+        
         let indexPath = IndexPath(item: batchEditItems.count, section: 0)
         
         let batchEditItem = BatchEditItem()

@@ -14,3 +14,9 @@
 "Start Batch Editing..." = "Start Batch Editing...";
 "Processing..." = "Processing...";
 "Saving Photos..." = "Saving Photos...";
+
+"Select this photo" = "Select this photo";
+"Select this video" = "Select this video";
+
+"Deselect this photo" = "Deselect this photo";
+"Deselect this video" = "Deselect this video";
