@@ -22,6 +22,7 @@
 		0A9EBAE31FD6F37200E83778 /* BatchPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9EBAE21FD6F37200E83778 /* BatchPreviewView.swift */; };
 		0A9EBAE51FD6F3AF00E83778 /* BatchPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A9EBAE41FD6F3AF00E83778 /* BatchPreviewView.xib */; };
 		0A9EC7741F30735B00F1EF3A /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A9EC7731F30735B00F1EF3A /* PhotoCollectionViewCell.xib */; };
+		0A9F86D01FDA756800D25EB6 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9F86CF1FDA756800D25EB6 /* PhotoCollectionViewCell.swift */; };
 		0AA166941FD7A7F10004205C /* PreviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA166931FD7A7F10004205C /* PreviewCollectionViewCell.xib */; };
 		0AA166961FD7A8710004205C /* PreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA166951FD7A8710004205C /* PreviewCollectionViewCell.swift */; };
 		0AA1A07D1F4D1232006297DF /* BatchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA1A07C1F4D1232006297DF /* BatchItem.swift */; };
@@ -96,6 +97,7 @@
 		0A9EBAE21FD6F37200E83778 /* BatchPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BatchPreviewView.swift; path = Classes/BatchPreviewView.swift; sourceTree = "<group>"; };
 		0A9EBAE41FD6F3AF00E83778 /* BatchPreviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BatchPreviewView.xib; path = Classes/BatchPreviewView.xib; sourceTree = "<group>"; };
 		0A9EC7731F30735B00F1EF3A /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PhotoCollectionViewCell.xib; path = Resources/Interfaces/PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		0A9F86CF1FDA756800D25EB6 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoCollectionViewCell.swift; path = Classes/PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		0AA166931FD7A7F10004205C /* PreviewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PreviewCollectionViewCell.xib; path = Resources/Interfaces/PreviewCollectionViewCell.xib; sourceTree = "<group>"; };
 		0AA166951FD7A8710004205C /* PreviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PreviewCollectionViewCell.swift; path = Classes/PreviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		0AA1A07C1F4D1232006297DF /* BatchItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BatchItem.swift; path = Classes/BatchItem.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				0A9EBAE41FD6F3AF00E83778 /* BatchPreviewView.xib */,
 				0AA166951FD7A8710004205C /* PreviewCollectionViewCell.swift */,
 				0AA166931FD7A7F10004205C /* PreviewCollectionViewCell.xib */,
+				0A9F86CF1FDA756800D25EB6 /* PhotoCollectionViewCell.swift */,
 			);
 			name = Selector;
 			sourceTree = "<group>";
@@ -900,6 +903,7 @@
 				0ABFCF7C1F14B65C0078A583 /* AppDelegate.swift in Sources */,
 				0AA1A07D1F4D1232006297DF /* BatchItem.swift in Sources */,
 				0AA37B281FD53163002803B8 /* AppDockViewController.swift in Sources */,
+				0A9F86D01FDA756800D25EB6 /* PhotoCollectionViewCell.swift in Sources */,
 				0ABFCF991F14B8A70078A583 /* PhotoPickerViewController.swift in Sources */,
 				0AA86EDD1FD3A4B900E6E1B0 /* BatchRequest.swift in Sources */,
 				0A8C4ADE1F3C15BF00B7246A /* RoundedButton.swift in Sources */,

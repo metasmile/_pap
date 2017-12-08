@@ -21,6 +21,9 @@ class PhotoPickerViewController: AppDockViewController {
     var collections: PHFetchResult<PHAssetCollection>?
     var fetchResults: [PHFetchResult<PHAsset>]?
     
+    var dragSelectionStartGesture: UISwipeGestureRecognizer!
+    var dragSelectionGesture: STDragSelectionGestureRecognizer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -75,6 +78,15 @@ class PhotoPickerViewController: AppDockViewController {
             progressBar.translatesAutoresizingMaskIntoConstraints = false
             navigationVC.view.addConstraints([bottomConstraint, leftConstraint, rightConstraint])
         }
+        
+        dragSelectionStartGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.dragSelectionStartGestureDidRecognize))
+        dragSelectionStartGesture.delegate = self
+        dragSelectionStartGesture.direction = [.left, .right]
+        photoCollectionView.addGestureRecognizer(dragSelectionStartGesture)
+        
+        dragSelectionGesture = STDragSelectionGestureRecognizer(target: self, action: #selector(self.dragSelectionGestureDidRecognize))
+        dragSelectionGesture.delegate = self
+        photoCollectionView.addGestureRecognizer(dragSelectionGesture)
     }
     
     deinit {
@@ -270,6 +282,10 @@ extension PhotoPickerViewController: PhotoEditViewControllerDelegate {
     
     fileprivate func selectItemInPhotoPicker(with asset: PHAsset?) {
         guard let indexPath = self.indexPath(of: asset) else { return }
+        selectItemIfNotSelected(at: indexPath)
+    }
+    
+    fileprivate func selectItemIfNotSelected(at indexPath: IndexPath) {
         if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == false {
             photoCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
             collectionView(photoCollectionView, didSelectItemAt: indexPath)
@@ -583,132 +599,98 @@ extension PhotoPickerViewController: PHPhotoLibraryChangeObserver {
     }
 }
 
-class PhotoCollectionViewCell: CustomCollectionViewCell {
-    @IBOutlet weak var imageView: UIImageView!
-    //TODO: wrap a view as a decorationrenderview later
-    @IBOutlet weak var selectionView: UIView!
-    @IBOutlet weak var selectionViewWidth: NSLayoutConstraint!
-    @IBOutlet weak var selectionViewHeight: NSLayoutConstraint!
-
-    @IBOutlet weak var decorationContainerView: UIView!
-    @IBOutlet weak var durationLabelForVideo: UILabel!
-    @IBOutlet weak var iconForLivePhotos: UIImageView!
-
-    var selectionCheckView: CheckMark!
-
-    private var selectionViewSize: CGSize = .zero {
-        didSet {
-            selectionViewWidth.constant = selectionViewSize.width
-            selectionViewHeight.constant = selectionViewSize.height
-        }
-    }
-
-    private static var _durationLabelFormat: DateComponentsFormatter?
-    static var durationLabelFormat: DateComponentsFormatter {
-        get {
-            if _durationLabelFormat == nil {
-                let formatter = DateComponentsFormatter()
-                formatter.unitsStyle = .positional
-                formatter.allowedUnits = [.minute, .second]
-                formatter.zeroFormattingBehavior = [.pad]
-                formatter.collapsesLargestUnit = true
-                _durationLabelFormat = formatter
-            }
-            return _durationLabelFormat!
-        }
-        set(value) { _durationLabelFormat = value }
+extension PhotoPickerViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
     
-    var indexPath: IndexPath?
-    var imageRequestId: PHImageRequestID?
-    var imageContentMode = PHImageContentMode.aspectFit
-
-    override func initialize() {
-        super.initialize()
-
-        selectionCheckView = CheckMark(frame: CGRect(origin: .zero, size: CGSize(width: 28, height: 28)))
-        selectionCheckView.backgroundColor = UIColor.clear
-
-        selectionView.addSubview(selectionCheckView)
-        selectionView.backgroundColor = UIColor(white: 1, alpha: 0.25)
-
-        iconForLivePhotos.image = PHLivePhotoView.livePhotoBadgeImage(options: .overContent)
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
+    @objc func dragSelectionStartGestureDidRecognize(sender: UISwipeGestureRecognizer) {
+        dragSelectionGesture.reset()
         
-        isSelected = false
+        let touchLocation = sender.location(in: sender.view)
+        guard let indexPath = photoCollectionView.indexPathForItem(at: touchLocation) else { return }
+        dragSelectionGesture.selectionMode = photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == true ? .deselect : .select
+        dragSelectionGesture.beginIndexPath = indexPath
+        dragSelectionGesture.beginLocation = touchLocation
+        dragSelection(at: indexPath)
         
-        imageView.image = nil
-        indexPath = nil
+        photoCollectionView.isScrollEnabled = false
+    }
+    
+    @objc func dragSelectionGestureDidRecognize(sender: STDragSelectionGestureRecognizer) {
+        guard sender.selectionMode != .none else { return }
         
-        if let imageRequestId = imageRequestId {
-            PhotoManager.cachingImageManager.cancelImageRequest(imageRequestId)
-        }
-        imageRequestId = nil
-    }
-    
-    override func tintColorDidChange() {
-        super.tintColorDidChange()
-    }
-
-    func setAsset(_ asset: PHAsset, at indexPath: IndexPath) {
-        self.indexPath = indexPath
-        prepareForDisplay(with: asset)
-
-        let requestOptions = PHImageRequestOptions()
-        requestOptions.resizeMode = .fast
-
-        let targetSizeScale = UIScreen.main.scale
-        let targetSize = CGSize(width: imageView.bounds.size.width*targetSizeScale, height: imageView.bounds.size.height*targetSizeScale)
-
-        imageRequestId = PhotoManager.cachingImageManager.requestImage(for: asset, targetSize: targetSize, contentMode: imageContentMode, options: requestOptions) { [weak self] (image, info) in
-            DispatchQueue.main.async { [weak self] in
-                guard self?.indexPath == indexPath else { return }
-                self?.imageView.image = image
-            }
-            self?.imageRequestId = nil
-        }
-    }
-    
-    override var isSelected: Bool {
-        didSet {
-            selectionCheckView.checked = isSelected
-            selectionView.isHidden = !isSelected
-        }
-    }
-    
-    // MARK: - Prepare rendering
-    
-    private func prepareForDisplay(with asset: PHAsset) {
-        updateImageViewContentMode()
-        
-        let imageSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight)
-        selectionViewSize = (imageContentMode == .aspectFit ? AVMakeRect(aspectRatio: imageSize, insideRect: imageView.bounds) : imageView.bounds).size
-
-        let checkmarkSize = selectionCheckView.bounds.size
-        let checkmarkmargin:CGFloat = 2.0
-        selectionCheckView.frame = CGRect(origin: CGPoint(x: selectionViewSize.height-checkmarkSize.width-checkmarkmargin, y: selectionViewSize.width-checkmarkSize.height-checkmarkmargin), size: checkmarkSize)
-
-        //duration label
-        durationLabelForVideo.isHidden = asset.mediaType != .video
-        if !durationLabelForVideo.isHidden{
-            durationLabelForVideo.text = PhotoCollectionViewCell.durationLabelFormat.string(from: asset.duration)
-        }
-
-        //live photo icon
-        iconForLivePhotos.isHidden = !asset.mediaSubtypes.contains(.photoLive)
-
-        decorationContainerView.isHidden = durationLabelForVideo.isHidden && iconForLivePhotos.isHidden
-    }
-    
-    private func updateImageViewContentMode() {
-        switch imageContentMode {
-        case .aspectFill:
-            imageView.contentMode = .scaleAspectFill
+        switch sender.state {
+        case .began:
+            break
+        case .changed:
+            drag(at: sender.location(in: sender.view), with: sender.selectionMode)
         default:
-            imageView.contentMode = .scaleAspectFit
+            photoCollectionView.isScrollEnabled = true
+            sender.reset()
         }
+    }
+    
+    private func drag(at location: CGPoint, with selectionMode: STDragSelectionMode) {
+        guard let beginLocation = dragSelectionGesture.beginLocation else { return }
+        
+        let draggingArea = CGRect(x: min(beginLocation.x, location.x), y: min(beginLocation.y, location.y), width: (beginLocation.x - location.x).magnitude, height: (beginLocation.y - location.y).magnitude)
+        
+        var indexPaths = [IndexPath]()
+        for visibleIndexPath in photoCollectionView.indexPathsForVisibleItems {
+            guard let visibleLayoutAttributes = photoCollectionView.layoutAttributesForItem(at: visibleIndexPath) else { continue }
+            if draggingArea.intersects(visibleLayoutAttributes.frame) {
+                indexPaths.append(visibleIndexPath)
+            }
+        }
+        
+        if selectionMode == .select {
+            dragSelection(with: indexPaths)
+        }
+        else if selectionMode == .deselect {
+            dragDeselection(with: indexPaths)
+        }
+    }
+    
+    private func dragSelection(with indexPaths: [IndexPath]) {
+        _ = indexPaths.map({ self.dragSelection(at: $0) })
+    }
+    
+    private func dragDeselection(with indexPaths: [IndexPath]) {
+        _ = indexPaths.map({ self.dragDeselection(at: $0) })
+    }
+    
+    private func dragSelection(at indexPath: IndexPath) {
+        if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == false {
+            photoCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+            collectionView(photoCollectionView, didSelectItemAt: indexPath)
+        }
+    }
+    
+    private func dragDeselection(at indexPath: IndexPath) {
+        if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == true {
+            photoCollectionView.deselectItem(at: indexPath, animated: false)
+            collectionView(photoCollectionView, didDeselectItemAt: indexPath)
+        }
+    }
+}
+
+enum STDragSelectionMode {
+    case none
+    case select
+    case deselect
+}
+
+class STDragSelectionGestureRecognizer: UIPanGestureRecognizer {
+    var beginIndexPath: IndexPath?
+    var ignoredIndexPaths: [IndexPath]?
+    var beginLocation: CGPoint?
+    var selectionMode = STDragSelectionMode.none
+    
+    @objc func reset() {
+        beginIndexPath = nil
+        beginLocation = nil
+        ignoredIndexPaths = nil
+        selectionMode = .none
     }
 }
