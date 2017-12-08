@@ -32,3 +32,7 @@
 "Deselect this photo" = "Poista valittu kuva";
 /*Translated from: Deselect this video*/
 "Deselect this video" = "Poista tämä video pois";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Muokkaa tätä kuvaa";
+/*Translated from: Edit this video*/
+"Edit this video" = "Muokkaa tätä videota";

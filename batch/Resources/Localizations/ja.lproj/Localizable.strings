@@ -32,3 +32,7 @@
 "Deselect this photo" = "この写真の選択を解除する";
 /*Translated from: Deselect this video*/
 "Deselect this video" = "このビデオの選択を解除する";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "この写真を編集";
+/*Translated from: Edit this video*/
+"Edit this video" = "このビデオを編集する";
