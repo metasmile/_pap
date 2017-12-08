@@ -39,6 +39,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     var transitionID: String?
 
     let iOSStandardEditorBackgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1)
+    var actionItems: [UIPreviewActionItem]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -129,13 +130,6 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     
     // MARK: - Navigation Bar Actions
     
-    func undoButtonDidTap(sender: Any) {
-        guard !editItem.transformItems.isEmpty else { return }
-        editItem.transformItems.removeLast()
-        
-        updatePreview()
-    }
-    
     private func addTransformItem(_ transformItem: TransformItem) {
         editItem.addTransformItem(transformItem)
         
@@ -171,7 +165,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     }
     
     override func cancelButtonDidTap(sender: Any) {
-        editItem.transformItems.removeAll()
+        editItem.resetTransforms()
         
         updatePreview { [unowned self] in
             self.delegate?.photoEditViewController(self, didFinishEditing: nil, at: self.indexPathInBatch)
@@ -199,3 +193,9 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     }
 }
 
+extension PhotoEditViewController {
+    override var previewActionItems: [UIPreviewActionItem] {
+        guard let actionItems = actionItems, actionItems.count > 0 else { return super.previewActionItems }
+        return actionItems
+    }
+}

@@ -121,15 +121,6 @@ class BatchEditViewController: AppDockViewController {
         updateToolBarButtonStatus()
     }
     
-    private func undoBatchEditing() {
-        for batchEditItem in batchEditItems {
-            guard !batchEditItem.editItem.transformItems.isEmpty else { continue }
-            batchEditItem.editItem.transformItems.removeLast()
-        }
-        
-        updateBatchEdit()
-    }
-    
     private func addTransformItem(_ transformItem: TransformItem) {
         for batchEditItem in batchEditItems {
             batchEditItem.editItem.addTransformItem(transformItem)
@@ -193,10 +184,6 @@ class BatchEditViewController: AppDockViewController {
     
     func resetButtonDidTap(sender: Any) {
         resetTransformItems()
-    }
-    
-    func undoButtonDidTap(sender: Any) {
-        undoBatchEditing()
     }
     
     override func horizontalFlipButtonDidTap() {
@@ -424,7 +411,7 @@ extension BatchEditViewController: PhotoEditViewControllerDelegate {
             return
         }
         
-        batchEditItems[indexPath.item].editItem.transformItems.append(contentsOf: editItem.transformItems)
+        batchEditItems[indexPath.item].editItem.merge(editItem)
         
         updateBatchEdit(animated: false) {
             if let cell = self.previewCollectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell, let snapshot = photoEditor.placeholderView {

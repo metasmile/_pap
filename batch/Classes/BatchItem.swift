@@ -342,7 +342,7 @@ extension BatchEditItem {
 let kEditItemPreviewWidth: CGFloat = UIScreen.main.bounds.width * 0.9
 
 class EditItem: NSObject {
-    var transformItems = [TransformItem]()
+    private (set) var transformItems = [TransformItem]()
     
     var hasChanges: Bool {
         return !transformItems.isEmpty //!transform.isIdentity
@@ -350,6 +350,10 @@ class EditItem: NSObject {
     
     func addTransformItem(_ item: TransformItem) {
         transformItems.append(item)
+    }
+    
+    func merge(_ editItem: EditItem) {
+        transformItems.append(contentsOf: editItem.transformItems)
     }
     
     func resetTransforms() {

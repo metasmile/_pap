@@ -23,6 +23,10 @@ class PhotoPickerViewController: AppDockViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //preview
+        batchPreviewView = BatchPreviewView(frame: .zero)
+        batchPreviewView.delegate = self
 
         //photos collection
         photoCollectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: "PhotoCollectionViewCell")
@@ -31,11 +35,8 @@ class PhotoPickerViewController: AppDockViewController {
         //peek and pop
         if traitCollection.forceTouchCapability == .available {
             registerForPreviewing(with: self, sourceView: photoCollectionView)  // self here is UIViewController type, and view is property of UIViewController
+            registerForPreviewing(with: self, sourceView: batchPreviewView)
         }
-
-        //preview
-        batchPreviewView = BatchPreviewView(frame: .zero)
-        batchPreviewView.delegate = self
         
         if PHPhotoLibrary.authorizationStatus() == .authorized {
             
@@ -168,40 +169,121 @@ extension PhotoPickerViewController {
 }
 
 extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
-
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        guard let indexPath = photoCollectionView?.indexPathForItem(at: location) else { return nil }
-        guard let cell = photoCollectionView?.cellForItem(at: indexPath) else { return nil }
-        
-        let selectedAsset = self.asset(at: indexPath)
+        if previewingContext.sourceView == photoCollectionView {
+            guard let indexPath = photoCollectionView.indexPathForItem(at: location) else { return nil }
+            guard let selectedAsset = self.asset(at: indexPath) else { return nil }
+            guard let cell = photoCollectionView.cellForItem(at: indexPath) else { return nil }
+            
+            let vc = PhotoPickerDetailViewController()
+            vc.asset = selectedAsset
+            setActions(with: selectedAsset, at: indexPath, to: vc)
 
-        let vc = PhotoPickerDetailViewController()
-        vc.asset = selectedAsset
-        
-        var typeWord = "photo"
-        if selectedAsset?.mediaType == .video {
-            typeWord = "video"
+            previewingContext.sourceRect = cell.frame
+            return vc
         }
-        
-        if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == true {
-            vc.actionItems = [UIPreviewAction(title: "Deselect this \(typeWord)".localizedString, style: .default) { action, controller in
-                self.photoCollectionView.deselectItem(at: indexPath, animated: false)
-                self.collectionView(self.photoCollectionView, didDeselectItemAt: indexPath)
-            }]
+        else if previewingContext.sourceView == batchPreviewView {
+            guard let indexPath = batchPreviewView.collectionView.indexPathForItem(at: batchPreviewView.convert(location, to: batchPreviewView.collectionView)) else { return nil }
+            guard let cell = batchPreviewView.collectionView.cellForItem(at: indexPath) else { return nil }
+            
+            let batchEditItem = batchPreviewView.batchEditItems[indexPath.item]
+            guard let selectedAsset = batchEditItem.asset else { return nil }
+            guard let selectedIndexPath = self.indexPath(of: selectedAsset) else { return nil }
+            
+            let vc = PhotoPickerDetailViewController()
+            vc.asset = selectedAsset
+            vc.batchEditItem = batchEditItem
+            setActions(with: selectedAsset, at: selectedIndexPath, to: vc)
+            
+            previewingContext.sourceRect = batchPreviewView.collectionView.convert(cell.frame, to: batchPreviewView)
+            return vc
         }
         else {
-            vc.actionItems = [UIPreviewAction(title: "Select this \(typeWord)".localizedString, style: .default) { action, controller in
-                self.photoCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
-                self.collectionView(self.photoCollectionView, didSelectItemAt: indexPath)
-            }]
+            return nil
         }
-
-        previewingContext.sourceRect = cell.frame
-        return vc
     }
 
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        if let vc = viewControllerToCommit as? PhotoPickerDetailViewController {
+            if let batchEditItem = vc.batchEditItem {
+                showPhotoEditor(with: batchEditItem)
+            }
+            else {
+                showPhotoEditorAndSelectIfNeeded(with: vc.asset)
+            }
+        }
+    }
+    
+    private func setActions(with asset: PHAsset, at indexPath: IndexPath, to vc: PhotoPickerDetailViewController) {
+        var typeWord = "photo"
+        if asset.mediaType == .video {
+            typeWord = "video"
+        }
+        
+        let editAction = UIPreviewAction(title: "Edit this \(typeWord)", style: .default) { (action, controller) in
+            self.showPhotoEditorAndSelectIfNeeded(with: asset)
+        }
+        
+        if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == true {
+            vc.actionItems = [
+                UIPreviewAction(title: "Deselect this \(typeWord)".localizedString, style: .default) { action, controller in
+                    self.photoCollectionView.deselectItem(at: indexPath, animated: false)
+                    self.collectionView(self.photoCollectionView, didDeselectItemAt: indexPath)
+                },
+                editAction
+            ]
+        }
+        else {
+            vc.actionItems = [
+                UIPreviewAction(title: "Select this \(typeWord)".localizedString, style: .default) { action, controller in
+                    self.photoCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+                    self.collectionView(self.photoCollectionView, didSelectItemAt: indexPath)
+                },
+                editAction
+            ]
+        }
+    }
+}
 
+extension PhotoPickerViewController: PhotoEditViewControllerDelegate {
+    fileprivate func showPhotoEditor(with batchEditItem: BatchEditItem?) {
+        guard let batchEditItem = batchEditItem else { return }
+        let photoEditViewController = storyboard?.instantiateViewController(withIdentifier: "PhotoEditViewController") as! PhotoEditViewController
+        photoEditViewController.asset = batchEditItem.asset
+        photoEditViewController.preferredTransform = batchEditItem.editItem.transform
+        photoEditViewController.delegate = self
+        if let item = batchPreviewView.batchEditItems.index(of: batchEditItem) {
+            photoEditViewController.indexPathInBatch = IndexPath(item: item, section: 0)
+        }
+        
+        let navigationController = UINavigationController(rootViewController: photoEditViewController)
+        navigationController.isHeroEnabled = true
+        navigationController.heroModalAnimationType = .fade
+        navigationController.heroNavigationAnimationType = .fade
+        present(navigationController, animated: true, completion: nil)
+    }
+    
+    fileprivate func showPhotoEditorAndSelectIfNeeded(with asset: PHAsset?) {
+        selectItemInPhotoPicker(with: asset)
+        showPhotoEditor(with: batchPreviewView.batchEditItems.first(where: { $0.asset == asset }))
+    }
+    
+    fileprivate func selectItemInPhotoPicker(with asset: PHAsset?) {
+        guard let indexPath = self.indexPath(of: asset) else { return }
+        if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == false {
+            photoCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+            collectionView(photoCollectionView, didSelectItemAt: indexPath)
+        }
+    }
+    
+    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: EditItem?, at indexPath: IndexPath?) {
+        if let editItem = editItem, let indexPath = indexPath {
+            batchPreviewView.batchEditItems[indexPath.item].editItem.merge(editItem)
+        }
+        
+        photoEditor.dismiss(animated: true, completion: {
+            self.batchPreviewView.reloadBatchEditItems()
+        })
     }
 }
 
@@ -267,7 +349,10 @@ extension PhotoPickerViewController: BatchPreviewViewDelegate {
     }
     
     func batchPreviewViewDidCancelEdit(_ view: BatchPreviewView) {
-        updateTitleForSelectedItems()
+        // waiting for remaining processing
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+            self.updateTitleForSelectedItems()
+        }
 
         progressBar.isHidden = true
     }
@@ -355,7 +440,8 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         return fetchResults?[indexPath.section][indexPath.item]
     }
     
-    private func indexPath(of asset: PHAsset) -> IndexPath? {
+    private func indexPath(of asset: PHAsset?) -> IndexPath? {
+        guard let asset = asset else { return nil }
         return fetchResults?.enumerated().flatMap({
             let item = $0.element.index(of: asset)
             guard item != NSNotFound else { return nil }
@@ -482,71 +568,17 @@ extension PhotoPickerViewController: PHPhotoLibraryChangeObserver {
                             changes.enumerateMoves { fromIndex, toIndex in
                                 self.photoCollectionView.moveItem(at: IndexPath(item: fromIndex, section: section), to: IndexPath(item: toIndex, section: section))
                             }
+                        }, completion: { _ in
+                            self.updateTitleForSelectedItems()
                         })
                     } else {
                         // Reload the collection view if incremental diffs are not available.
                         self.photoCollectionView.reloadData()
+                        self.updateTitleForSelectedItems()
                         break
                     }
                 }
             }
-
-            
-//            var changedIndexPaths = [IndexPath]()
-//            var insertedIndexPaths = [IndexPath]()
-//            var removedIndexPaths = [IndexPath]()
-//
-//            struct PhotoLibraryChangedInfo {
-//                var indexPath: IndexPath
-//                var index: Int
-//            }
-//
-//            for (section, fetchResult) in fetchResults.enumerated() {
-//                guard let changeDetails = changeInstance.changeDetails(for: fetchResult.fetchResult) else { continue }
-//
-//                if let changedInfos = changeDetails.changedIndexes?.enumerated().map({ PhotoLibraryChangedInfo(indexPath: IndexPath(item: $0.element, section: section), index: $0.offset) }) {
-//                    for changedInfo in changedInfos {
-//                        fetchResult.assets[changedInfo.indexPath.item] = changeDetails.changedObjects[changedInfo.index]
-//                        changedIndexPaths.append(changedInfo.indexPath)
-//                    }
-//                }
-//
-//                if let changedInfos = changeDetails.insertedIndexes?.enumerated().map({ PhotoLibraryChangedInfo(indexPath: IndexPath(item: $0.element, section: section), index: $0.offset) }) {
-//                    for changedInfo in changedInfos {
-//                        let insertedAsset = changeDetails.insertedObjects[changedInfo.index]
-//                        guard !fetchResult.assets.contains(insertedAsset) else { continue }
-//                        fetchResult.assets.insert(insertedAsset, at: changedInfo.indexPath.item)
-//                        insertedIndexPaths.append(changedInfo.indexPath)
-//                    }
-//                }
-//                if let indexPaths = changeDetails.removedIndexes?.map({ IndexPath(item: $0, section: section) }) {
-//                    removedIndexPaths.append(contentsOf: indexPaths)
-//                }
-//
-//                if changeDetails.hasMoves {
-//                    changeDetails.enumerateMoves({ (from, to) in
-//                        self.photoCollectionView.moveItem(at: IndexPath(item: from, section: section), to: IndexPath(item: to, section: section))
-//                    })
-//                }
-//            }
-//
-//            self.photoCollectionView.performBatchUpdates({
-////                if removedIndexPaths.count > 0 {
-////                    self.photoCollectionView.deleteItems(at: removedIndexPaths)
-////                }
-//
-//                if insertedIndexPaths.count > 0 {
-//                    self.photoCollectionView.insertItems(at: insertedIndexPaths)
-//                }
-//
-//                if changedIndexPaths.count > 0 {
-//                    self.photoCollectionView.reloadItems(at: changedIndexPaths)
-//                }
-//            }, completion: { (finished) in
-//
-//            })
-//
-//            self.updateTitleForSelectedItems()
         }
     }
 }
