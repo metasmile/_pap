@@ -101,6 +101,9 @@ class PhotoPickerViewController: AppDockViewController {
     }
     
     override func cancelButtonDidTap(sender: Any) {
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
+        
         //FIXME: BatchPreviewState
         //FIXME: .ready?
         //FIXME: .selecting?
@@ -513,6 +516,24 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
             collectionView.scrollToItem(at: indexPath, at: .bottom, animated: false)
             initialPhotoCollectionIndexPath = nil
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        if batchPreviewView.isProcessing {
+            let generator = UIImpactFeedbackGenerator(style: .medium)
+            generator.impactOccurred()
+            return false
+        }
+        return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
+        if batchPreviewView.isProcessing {
+            let generator = UIImpactFeedbackGenerator(style: .medium)
+            generator.impactOccurred()
+            return false
+        }
+        return true
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
