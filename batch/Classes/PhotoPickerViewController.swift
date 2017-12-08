@@ -186,6 +186,10 @@ extension PhotoPickerViewController {
 extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         if previewingContext.sourceView == photoCollectionView {
+            //prevent 3d touch pressure while dragging
+            dragSelectionStartGesture.require(toFail: previewingContext.previewingGestureRecognizerForFailureRelationship)
+            dragSelectionGesture.require(toFail: previewingContext.previewingGestureRecognizerForFailureRelationship)
+
             guard let indexPath = photoCollectionView.indexPathForItem(at: location) else { return nil }
             guard let selectedAsset = self.asset(at: indexPath) else { return nil }
             guard let cell = photoCollectionView.cellForItem(at: indexPath) else { return nil }
