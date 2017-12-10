@@ -196,6 +196,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
             
             let vc = PhotoPickerDetailViewController()
             vc.asset = selectedAsset
+            vc.batchEditItem = batchPreviewView.batchEditItems.first(where: { $0.asset == selectedAsset })
             setActions(with: selectedAsset, at: indexPath, to: vc)
 
             previewingContext.sourceRect = cell.frame
@@ -554,11 +555,12 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     
     // MARK: - UICollectionViewDelegateFlowLayout
     
+    fileprivate var kPhotoPickerNumberOfItemsInRow: CGFloat { return 4 }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let interitemSpacing = self.collectionView(collectionView, layout: collectionViewLayout, minimumInteritemSpacingForSectionAt: indexPath.item)
-        let numberOfItemInRow: CGFloat = 4
         
-        let gridWidth = (UIEdgeInsetsInsetRect(collectionView.bounds, collectionView.contentInset).width - interitemSpacing * (numberOfItemInRow - 1)) / numberOfItemInRow
+        let gridWidth = (UIEdgeInsetsInsetRect(collectionView.bounds, collectionView.contentInset).width - interitemSpacing * (kPhotoPickerNumberOfItemsInRow - 1)) / kPhotoPickerNumberOfItemsInRow
         return CGSize(width: gridWidth, height: gridWidth)
     }
     
@@ -637,6 +639,7 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
         dragSelectionGesture.selectionMode = photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == true ? .deselect : .select
         dragSelectionGesture.beginIndexPath = indexPath
         dragSelectionGesture.beginLocation = touchLocation
+        dragSelectionGesture.ignoredIndexPaths = photoCollectionView.indexPathsForSelectedItems
         dragSelection(at: indexPath)
         
         photoCollectionView.isScrollEnabled = false
@@ -657,16 +660,45 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
     }
     
     private func drag(at location: CGPoint, with selectionMode: STDragSelectionMode) {
-        guard let beginLocation = dragSelectionGesture.beginLocation else { return }
+        guard
+            let beginLocation = dragSelectionGesture.beginLocation,
+            let beginIndexPath = dragSelectionGesture.beginIndexPath
+        else { return }
         
-        let draggingArea = CGRect(x: min(beginLocation.x, location.x), y: min(beginLocation.y, location.y), width: (beginLocation.x - location.x).magnitude, height: (beginLocation.y - location.y).magnitude)
+        var draggingArea = CGRect(x: min(beginLocation.x, location.x), y: min(beginLocation.y, location.y), width: (beginLocation.x - location.x).magnitude, height: (beginLocation.y - location.y).magnitude)
+        
+//        kPhotoPickerNumberOfItemsInRow
+        
+        var groupDirection = 0
+        if let currentIndexPath = photoCollectionView.indexPathForItem(at: location) {
+            let beginRow = beginIndexPath.item / Int(kPhotoPickerNumberOfItemsInRow)
+            let currentRow = currentIndexPath.item / Int(kPhotoPickerNumberOfItemsInRow)
+            
+            groupDirection = currentRow - beginRow
+        }
+        
+        if groupDirection != 0 {
+            draggingArea.origin.x = 0
+            draggingArea.size.width = photoCollectionView.bounds.width
+        }
         
         var indexPaths = [IndexPath]()
         for visibleIndexPath in photoCollectionView.indexPathsForVisibleItems {
+            if groupDirection > 0 {
+                guard visibleIndexPath.item >= beginIndexPath.item else { continue }
+            }
+            else if groupDirection < 0 {
+                guard visibleIndexPath.item <= beginIndexPath.item else { continue }
+            }
+            
             guard let visibleLayoutAttributes = photoCollectionView.layoutAttributesForItem(at: visibleIndexPath) else { continue }
             if draggingArea.intersects(visibleLayoutAttributes.frame) {
                 indexPaths.append(visibleIndexPath)
             }
+        }
+        
+        dragSelectionGesture.ignoredIndexPaths?.forEach { ignoredIndexPath in
+            
         }
         
         if selectionMode == .select {
