@@ -78,11 +78,6 @@ class PhotoPickerViewController: AppDockViewController {
             navigationVC.view.addConstraints([bottomConstraint, leftConstraint, rightConstraint])
         }
         
-//        dragSelectionStartGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.dragSelectionStartGestureDidRecognize))
-//        dragSelectionStartGesture.delegate = self
-//        dragSelectionStartGesture.direction = [.left, .right]
-//        photoCollectionView.addGestureRecognizer(dragSelectionStartGesture)
-        
         dragSelectionGesture = STDragSelectionGestureRecognizer(target: self, action: #selector(self.dragSelectionGestureDidRecognize))
         dragSelectionGesture.delegate = self
         photoCollectionView.addGestureRecognizer(dragSelectionGesture)
@@ -634,11 +629,12 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
     }
     
     @objc func dragSelectionGestureDidRecognize(sender: STDragSelectionGestureRecognizer) {
+        let touchLocation = sender.location(in: sender.view)
+        
         switch sender.state {
         case .began:
             dragSelectionGesture.reset()
             
-            let touchLocation = sender.location(in: sender.view)
             guard let indexPath = photoCollectionView.indexPathForItem(at: touchLocation) else { return }
             dragSelectionGesture.selectionMode = photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == true ? .deselect : .select
             dragSelectionGesture.beginIndexPath = indexPath
@@ -650,14 +646,15 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
             
             photoCollectionView.isScrollEnabled = false
         case .changed:
-            drag(at: sender.location(in: sender.view), with: sender.selectionMode)
+            drag(at: touchLocation, with: sender.selectionMode)
+            panWithDragging(at: touchLocation)
         default:
             photoCollectionView.isScrollEnabled = true
             sender.reset()
         }
     }
     
-    private func drag(at location: CGPoint, with selectionMode: STDragSelectionMode) {
+    private func drag(at location: CGPoint, with selectionMode: STDragSelectionGestureRecognizer.DragSelectionMode) {
         guard
             let beginLocation = dragSelectionGesture.beginLocation,
             let beginIndexPath = dragSelectionGesture.beginIndexPath,
@@ -727,16 +724,6 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
                 ignoredIndexPaths.append(indexPath)
             }
             
-            if groupedIndexPaths.count == 1 {
-                if !ignoredIndexPaths.contains(currentIndexPath) {
-                    ignoredIndexPaths.append(currentIndexPath)
-                }
-                
-                if let index = groupedIndexPaths.index(of: currentIndexPath) {
-                    groupedIndexPaths.remove(at: index)
-                }
-            }
-            
             dragDeselection(with: groupedIndexPaths)
             dragSelection(with: ignoredIndexPaths)
         }
@@ -763,24 +750,84 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
             collectionView(photoCollectionView, didDeselectItemAt: indexPath)
         }
     }
-}
-
-enum STDragSelectionMode {
-    case none
-    case select
-    case deselect
+    
+    private func panWithDragging(at location: CGPoint) {
+        let pointInScreen = photoCollectionView.convert(location, to: view)
+        let boundingInsets = UIEdgeInsetsMake(safeAreaInsets.top, 0, photoCollectionView.contentInset.bottom, 0)
+        let boundingArea = UIEdgeInsetsInsetRect(photoCollectionView.frame, boundingInsets)
+        guard !boundingArea.contains(pointInScreen) else { return }
+        
+        var panVelocity: CGFloat = 0
+        let scrollDirection: STDragSelectionGestureRecognizer.AutoPanningDirection = (pointInScreen.y <= boundingArea.minY) ? .up : .down
+        switch scrollDirection {
+        case .up:
+            panVelocity = (boundingInsets.top - pointInScreen.y) / boundingInsets.top
+            dragSelectionGesture.panAutomatically {
+                let autoPanningOffsetY = self.photoCollectionView.contentOffset.y - STDragSelectionGestureRecognizer.kSTDragSelectionGestureRecognizerAutoPanningIncrement * panVelocity
+                let beginOfContentOffsetY = -boundingInsets.top
+                if autoPanningOffsetY > beginOfContentOffsetY {
+                    self.photoCollectionView.contentOffset.y = autoPanningOffsetY
+                }
+                else {
+                    self.photoCollectionView.contentOffset.y = beginOfContentOffsetY
+                }
+            }
+        case .down:
+            panVelocity = (pointInScreen.y - boundingArea.maxY) / boundingInsets.bottom
+            dragSelectionGesture.panAutomatically {
+                let autoPanningOffsetY = self.photoCollectionView.contentOffset.y + STDragSelectionGestureRecognizer.kSTDragSelectionGestureRecognizerAutoPanningIncrement * panVelocity
+                let endOfContentOffsetY = self.photoCollectionView.contentSize.height - self.appDockView.frame.minY
+                if autoPanningOffsetY < endOfContentOffsetY {
+                    self.photoCollectionView.contentOffset.y = autoPanningOffsetY
+                }
+                else {
+                    self.photoCollectionView.contentOffset.y = endOfContentOffsetY
+                }
+            }
+        }
+    }
 }
 
 class STDragSelectionGestureRecognizer: UIPanGestureRecognizer {
+    static var kSTDragSelectionGestureRecognizerAutoPanningIncrement: CGFloat = 10
+    
+    enum DragSelectionMode {
+        case none
+        case select
+        case deselect
+    }
+    
+    enum AutoPanningDirection {
+        case up
+        case down
+    }
+    
     var beginIndexPath: IndexPath?
     var ignoredIndexPaths: [IndexPath]?
     var beginLocation: CGPoint?
-    var selectionMode = STDragSelectionMode.none
+    var selectionMode = STDragSelectionGestureRecognizer.DragSelectionMode.none
+    var autoPanningTimer: CADisplayLink?
     
     @objc func reset() {
         beginIndexPath = nil
         beginLocation = nil
         ignoredIndexPaths = nil
         selectionMode = .none
+        autoPanningTimer?.remove(from: .main, forMode: .commonModes)
+        autoPanningTimer = nil
+        panHandler = nil
+    }
+    
+    private var panHandler: (() -> Void)?
+    func panAutomatically(_ panBlock: (() -> Void)?) {
+        if autoPanningTimer == nil {
+            autoPanningTimer = CADisplayLink(target: self, selector: #selector(self.autoPanningTimerDidChange))
+            autoPanningTimer?.add(to: .main, forMode: .commonModes)
+        }
+        panHandler = panBlock
+    }
+    
+    @objc func autoPanningTimerDidChange(sender: CADisplayLink) {
+        self.panHandler?()
     }
 }
