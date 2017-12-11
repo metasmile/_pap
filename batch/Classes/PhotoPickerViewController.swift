@@ -21,7 +21,6 @@ class PhotoPickerViewController: AppDockViewController {
     var collections: PHFetchResult<PHAssetCollection>?
     var fetchResults: [PHFetchResult<PHAsset>]?
     
-    var dragSelectionStartGesture: UISwipeGestureRecognizer!
     var dragSelectionGesture: STDragSelectionGestureRecognizer!
     
     override func viewDidLoad() {
@@ -79,10 +78,10 @@ class PhotoPickerViewController: AppDockViewController {
             navigationVC.view.addConstraints([bottomConstraint, leftConstraint, rightConstraint])
         }
         
-        dragSelectionStartGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.dragSelectionStartGestureDidRecognize))
-        dragSelectionStartGesture.delegate = self
-        dragSelectionStartGesture.direction = [.left, .right]
-        photoCollectionView.addGestureRecognizer(dragSelectionStartGesture)
+//        dragSelectionStartGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.dragSelectionStartGestureDidRecognize))
+//        dragSelectionStartGesture.delegate = self
+//        dragSelectionStartGesture.direction = [.left, .right]
+//        photoCollectionView.addGestureRecognizer(dragSelectionStartGesture)
         
         dragSelectionGesture = STDragSelectionGestureRecognizer(target: self, action: #selector(self.dragSelectionGestureDidRecognize))
         dragSelectionGesture.delegate = self
@@ -187,7 +186,6 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         if previewingContext.sourceView == photoCollectionView {
             //prevent 3d touch pressure while dragging
-            dragSelectionStartGesture.require(toFail: previewingContext.previewingGestureRecognizerForFailureRelationship)
             dragSelectionGesture.require(toFail: previewingContext.previewingGestureRecognizerForFailureRelationship)
 
             guard let indexPath = photoCollectionView.indexPathForItem(at: location) else { return nil }
@@ -627,30 +625,30 @@ extension PhotoPickerViewController: PHPhotoLibraryChangeObserver {
 }
 
 extension PhotoPickerViewController: UIGestureRecognizerDelegate {
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if gestureRecognizer == dragSelectionGesture {
+            let velocity = dragSelectionGesture.velocity(in: dragSelectionGesture.view)
+            return velocity.x.magnitude > velocity.y.magnitude
+        }
         return true
     }
     
-    @objc func dragSelectionStartGestureDidRecognize(sender: UISwipeGestureRecognizer) {
-        dragSelectionGesture.reset()
-        
-        let touchLocation = sender.location(in: sender.view)
-        guard let indexPath = photoCollectionView.indexPathForItem(at: touchLocation) else { return }
-        dragSelectionGesture.selectionMode = photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == true ? .deselect : .select
-        dragSelectionGesture.beginIndexPath = indexPath
-        dragSelectionGesture.beginLocation = touchLocation
-        dragSelectionGesture.ignoredIndexPaths = photoCollectionView.indexPathsForSelectedItems
-        dragSelection(at: indexPath)
-        
-        photoCollectionView.isScrollEnabled = false
-    }
-    
     @objc func dragSelectionGestureDidRecognize(sender: STDragSelectionGestureRecognizer) {
-        guard sender.selectionMode != .none else { return }
-        
         switch sender.state {
         case .began:
-            break
+            dragSelectionGesture.reset()
+            
+            let touchLocation = sender.location(in: sender.view)
+            guard let indexPath = photoCollectionView.indexPathForItem(at: touchLocation) else { return }
+            dragSelectionGesture.selectionMode = photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == true ? .deselect : .select
+            dragSelectionGesture.beginIndexPath = indexPath
+            dragSelectionGesture.beginLocation = touchLocation
+            
+            dragSelection(at: indexPath)
+            
+            dragSelectionGesture.ignoredIndexPaths = photoCollectionView.indexPathsForSelectedItems
+            
+            photoCollectionView.isScrollEnabled = false
         case .changed:
             drag(at: sender.location(in: sender.view), with: sender.selectionMode)
         default:
@@ -662,12 +660,11 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
     private func drag(at location: CGPoint, with selectionMode: STDragSelectionMode) {
         guard
             let beginLocation = dragSelectionGesture.beginLocation,
-            let beginIndexPath = dragSelectionGesture.beginIndexPath
+            let beginIndexPath = dragSelectionGesture.beginIndexPath,
+            let currentIndexPath = photoCollectionView.indexPathForItem(at: location)
         else { return }
         
         var draggingArea = CGRect(x: min(beginLocation.x, location.x), y: min(beginLocation.y, location.y), width: (beginLocation.x - location.x).magnitude, height: (beginLocation.y - location.y).magnitude)
-        
-//        kPhotoPickerNumberOfItemsInRow
         
         var groupDirection = 0
         if let currentIndexPath = photoCollectionView.indexPathForItem(at: location) {
@@ -682,30 +679,66 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
             draggingArea.size.width = photoCollectionView.bounds.width
         }
         
-        var indexPaths = [IndexPath]()
+        var groupedIndexPaths = [IndexPath]()
         for visibleIndexPath in photoCollectionView.indexPathsForVisibleItems {
             if groupDirection > 0 {
-                guard visibleIndexPath.item >= beginIndexPath.item else { continue }
+                guard
+                    visibleIndexPath.item >= beginIndexPath.item,
+                    visibleIndexPath.item <= currentIndexPath.item
+                else { continue }
             }
             else if groupDirection < 0 {
-                guard visibleIndexPath.item <= beginIndexPath.item else { continue }
+                guard
+                    visibleIndexPath.item <= beginIndexPath.item,
+                    visibleIndexPath.item >= currentIndexPath.item
+                else { continue }
             }
             
-            guard let visibleLayoutAttributes = photoCollectionView.layoutAttributesForItem(at: visibleIndexPath) else { continue }
-            if draggingArea.intersects(visibleLayoutAttributes.frame) {
-                indexPaths.append(visibleIndexPath)
-            }
-        }
-        
-        dragSelectionGesture.ignoredIndexPaths?.forEach { ignoredIndexPath in
+            guard
+                let visibleLayoutAttributes = photoCollectionView.layoutAttributesForItem(at: visibleIndexPath),
+                draggingArea.intersects(visibleLayoutAttributes.frame)
+            else { continue }
             
+            groupedIndexPaths.append(visibleIndexPath)
         }
         
+        var ignoredIndexPaths = [IndexPath]()
         if selectionMode == .select {
-            dragSelection(with: indexPaths)
+            photoCollectionView.indexPathsForSelectedItems?.forEach { indexPath in
+                guard
+                    dragSelectionGesture.ignoredIndexPaths?.contains(indexPath) == false,
+                    !groupedIndexPaths.contains(indexPath)
+                else { return }
+                
+                ignoredIndexPaths.append(indexPath)
+            }
+            
+            dragDeselection(with: ignoredIndexPaths)
+            dragSelection(with: groupedIndexPaths)
         }
         else if selectionMode == .deselect {
-            dragDeselection(with: indexPaths)
+            dragSelectionGesture.ignoredIndexPaths?.forEach { indexPath in
+                guard !groupedIndexPaths.contains(indexPath) else { return }
+                ignoredIndexPaths.append(indexPath)
+            }
+            
+            photoCollectionView.indexPathsForSelectedItems?.forEach { indexPath in
+                guard !groupedIndexPaths.contains(indexPath), !ignoredIndexPaths.contains(indexPath) else { return }
+                ignoredIndexPaths.append(indexPath)
+            }
+            
+            if groupedIndexPaths.count == 1 {
+                if !ignoredIndexPaths.contains(currentIndexPath) {
+                    ignoredIndexPaths.append(currentIndexPath)
+                }
+                
+                if let index = groupedIndexPaths.index(of: currentIndexPath) {
+                    groupedIndexPaths.remove(at: index)
+                }
+            }
+            
+            dragDeselection(with: groupedIndexPaths)
+            dragSelection(with: ignoredIndexPaths)
         }
     }
     
