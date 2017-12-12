@@ -1,5 +1,5 @@
-+ Introducing entirely new interface.
-  • Smartest and quickest selection and preview system.
-  • No more additional navigation and the page to edit a bunch of photos at once.
-  • 3D Touch Peek and Pop support.
-• A considerable amount of improvements and bug fixes.
++ Easy but fast infinity scroll selection.
+  • Swipe horizontally. You can select a massive amount of photos at the moment.
++ Individual photo editing mode support: Strongly press a thumbnail via 3d Touch.
+• Swipe horizontally, you can select more easily and fast!
+• Several bug fixes and usability improvements.
