@@ -7,11 +7,11 @@
 /*Translated from: Cancel*/
 "Cancel" = "Скасувати";
 /*Translated from: Edit %d photo(s)*/
-"Edit %d photo(s)" = "Edit %d photo(s)";
+"Edit %d photo(s)" = "Редагувати %d фото (и)";
 /*Translated from: Edit %d video(s)*/
-"Edit %d video(s)" = "Edit %d video(s)";
+"Edit %d video(s)" = "Редагувати %d відео (и)";
 /*Translated from: Edit %d item(s)*/
-"Edit %d item(s)" = "Edit %d item(s)";
+"Edit %d item(s)" = "Змінити %d елемент (и)";
 /*Translated from: Batch Edit*/
 "Batch Edit" = "Пакетний редагування";
 /*Translated from: Edit*/

@@ -7,11 +7,11 @@
 /*Translated from: Cancel*/
 "Cancel" = "İptal etmek";
 /*Translated from: Edit %d photo(s)*/
-"Edit %d photo(s)" = "Edit %d photo(s)";
+"Edit %d photo(s)" = "%d Fotoğraflarını düzenle";
 /*Translated from: Edit %d video(s)*/
-"Edit %d video(s)" = "Edit %d video(s)";
+"Edit %d video(s)" = "%d Videoları düzenle";
 /*Translated from: Edit %d item(s)*/
-"Edit %d item(s)" = "Edit %d item(s)";
+"Edit %d item(s)" = "%d Öğeyi düzenle";
 /*Translated from: Batch Edit*/
 "Batch Edit" = "Toplu Düzenle";
 /*Translated from: Edit*/
