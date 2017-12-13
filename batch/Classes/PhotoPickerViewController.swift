@@ -659,39 +659,64 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
         else { return }
         
         var draggingArea = CGRect(x: min(beginLocation.x, location.x), y: min(beginLocation.y, location.y), width: (beginLocation.x - location.x).magnitude, height: (beginLocation.y - location.y).magnitude)
+        draggingArea.origin.x = 0
+        draggingArea.size.width = photoCollectionView.bounds.width
         
-        var groupDirection = 0
+        var groupDirection = STDragSelectionGestureRecognizer.AutoPanningDirection.none
         if let currentIndexPath = photoCollectionView.indexPathForItem(at: location) {
             let beginRow = beginIndexPath.item / Int(kPhotoPickerNumberOfItemsInRow)
             let currentRow = currentIndexPath.item / Int(kPhotoPickerNumberOfItemsInRow)
-            
-            groupDirection = currentRow - beginRow
+
+            let diffRow = currentRow - beginRow
+            if diffRow > 0 {
+                groupDirection = .down
+            }
+            else if diffRow < 0 {
+                groupDirection = .up
+            }
         }
-        
-        if groupDirection != 0 {
-            draggingArea.origin.x = 0
-            draggingArea.size.width = photoCollectionView.bounds.width
+        else {
+            let diffLocation = location.y - beginLocation.y
+            if diffLocation > 0 {
+                groupDirection = .down
+            }
+            else if diffLocation < 0 {
+                groupDirection = .up
+            }
         }
         
         var groupedIndexPaths = [IndexPath]()
         photoCollectionView.collectionViewLayout.layoutAttributesForElements(in: draggingArea)?.forEach { layoutAttributes in
-            guard let currentIndexPath = photoCollectionView.indexPathForItem(at: location) else { return }
-            
             let indexPath = layoutAttributes.indexPath
             
-            if groupDirection > 0 {
-                guard
-                    indexPath.item >= beginIndexPath.item,
-                    indexPath.item <= currentIndexPath.item
-                else { return }
+            if let currentIndexPath = photoCollectionView.indexPathForItem(at: location) {
+                switch groupDirection {
+                case .down:
+                    guard indexPath >= beginIndexPath, indexPath <= currentIndexPath else { return }
+                case .up:
+                    guard indexPath <= beginIndexPath, indexPath >= currentIndexPath else { return }
+                default:
+                    if currentIndexPath < beginIndexPath { // pan to left
+                        guard indexPath <= beginIndexPath, indexPath >= currentIndexPath else { return }
+                    }
+                    else if currentIndexPath > beginIndexPath { // pan to right
+                        guard indexPath >= beginIndexPath, indexPath <= currentIndexPath else { return }
+                    }
+                    else {
+                        return
+                    }
+                }
             }
-            else if groupDirection < 0 {
-                guard
-                    indexPath.item <= beginIndexPath.item,
-                    indexPath.item >= currentIndexPath.item
-                else { return }
+            else {
+                switch groupDirection {
+                case .down:
+                    guard indexPath >= beginIndexPath else { return }
+                case .up:
+                    guard indexPath <= beginIndexPath else { return }
+                default:
+                    break
+                }
             }
-            
             groupedIndexPaths.append(indexPath)
         }
         
@@ -785,6 +810,8 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
                     collectionView.contentOffset.y = endOfContentOffsetY
                 }
             }
+        default:
+            break
         }
     }
 }
@@ -799,6 +826,7 @@ class STDragSelectionGestureRecognizer: UIPanGestureRecognizer {
     }
     
     enum AutoPanningDirection {
+        case none
         case up
         case down
     }
