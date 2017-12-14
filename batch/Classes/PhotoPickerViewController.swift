@@ -703,7 +703,7 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
                         guard indexPath >= beginIndexPath, indexPath <= currentIndexPath else { return }
                     }
                     else {
-                        return
+                        guard currentIndexPath == indexPath else { return }
                     }
                 }
             }
@@ -714,7 +714,7 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
                 case .up:
                     guard indexPath <= beginIndexPath else { return }
                 default:
-                    break
+                    return
                 }
             }
             groupedIndexPaths.append(indexPath)
