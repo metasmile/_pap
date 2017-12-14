@@ -14,7 +14,7 @@ class PhotoPickerDetailViewController: UIViewController {
 
     private lazy var assetView: STAssetView = {
         let assetView = STAssetView()
-        assetView.contentMode = .scaleAspectFill
+        assetView.contentMode = .scaleAspectFit
         assetView.translatesAutoresizingMaskIntoConstraints = false
         return assetView
     }()
@@ -28,8 +28,12 @@ class PhotoPickerDetailViewController: UIViewController {
             view.addSubview(assetView)
             
             let preferredTransform = batchEditItem?.editItem.transform ?? .identity
-            let actualContentSize = asset.size.applying(preferredTransform).magnitude.aspectFit(in: view.bounds.size)
-            let contentSize = asset.size.aspectFit(in: view.bounds.size)
+            let preferredSize = asset.size
+            
+            let boundingSize = preferredSize.width > preferredSize.height ? view.bounds.size.applying(preferredTransform).magnitude : view.bounds.size
+            
+            let actualContentSize = preferredSize.applying(preferredTransform).magnitude.aspectFit(in: boundingSize)
+            let contentSize = preferredSize.aspectFit(in: boundingSize)
             
             assetView.frame.origin = .zero
             assetView.frame.size = contentSize

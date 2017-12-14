@@ -66,7 +66,8 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         self.asset = asset
         self.indexPath = indexPath
         
-        let photoSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight).aspectFit(in: bounds.size)
+        let boundingSize = asset.pixelWidth > asset.pixelHeight ? bounds.size.applying(item.editItem.transform).magnitude : bounds.size
+        let photoSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight).aspectFit(in: boundingSize)
         
         assetViewWidth.constant = photoSize.width
         assetViewHeight.constant = photoSize.height
