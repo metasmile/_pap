@@ -1,6 +1,1 @@
-+ Easy but fast infinity scroll selection.
-  • Swipe horizontally. You can select a massive amount of photos at the moment.
-+ Individual photo editing mode support: Strongly press a thumbnail via 3d Touch.
-+ Support 38 languages apart from English.
-• Swipe horizontally, you can select more easily and fast!
 • Several bug fixes and usability improvements.
