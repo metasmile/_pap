@@ -23,3 +23,16 @@
 
 "Edit this photo" = "Edit this photo";
 "Edit this video" = "Edit this video";
+
+"%d Photo" = "%@ Photo";
+"%d Video" = "%@ Video";
+
+"%d Photos" = "%@ Photos";
+"%d Videos" = "%@ Videos";
+
+"Edit %d Photo" = "Edit %@ Photo";
+"Edit %d Video" = "Edit %@ Video";
+
+"Edit %d Photos" = "Edit %@ Photos";
+"Edit %d Videos" = "Edit %@ Videos";
+"Edit %d Items" = "Edit %@ Items";

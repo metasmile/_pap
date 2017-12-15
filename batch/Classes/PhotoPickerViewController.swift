@@ -32,6 +32,7 @@ class PhotoPickerViewController: AppDockViewController {
 
         //photos collection
         photoCollectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: "PhotoCollectionViewCell")
+        photoCollectionView.register(PhotoPickerFooterView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: "PhotoPickerFooterView")
         photoCollectionView.allowsMultipleSelection = true
         
         //peek and pop
@@ -146,8 +147,9 @@ extension PhotoPickerViewController {
         let selectedAssets = photoCollectionView.indexPathsForSelectedItems?.flatMap({ self.asset(at: $0) })
         let numberOfVideos = selectedAssets?.filter({ $0.mediaType == .video }).count ?? 0
         let numberOfPhotos = selectedAssets?.filter({ $0.mediaType == .image }).count ?? 0
+        let numberOfItems = numberOfPhotos + numberOfVideos
         
-        if numberOfPhotos + numberOfVideos == 0 {
+        if numberOfItems == 0 {
             title = "Batch".localizedString
             
             navigationItem.setLeftBarButton(nil, animated: true)
@@ -161,18 +163,18 @@ extension PhotoPickerViewController {
             
             appDockView.setAccessoryViewToTop(batchPreviewView)
             
-            var itemType = "item"
             if numberOfPhotos > 0 && numberOfVideos == 0 {
-                itemType = "photo"
+                let pluralizedString = "Photo" + (numberOfPhotos == 1 ? "" : "s")
+                title = "Edit %d \(pluralizedString)".localizedFormattedString(numberOfPhotos.decimalStyleString)
             }
             else if numberOfVideos > 0 && numberOfPhotos == 0 {
-                itemType = "video"
+                let pluralizedString = "Video" + (numberOfVideos == 1 ? "" : "s")
+                title = "Edit %d \(pluralizedString)".localizedFormattedString(numberOfVideos.decimalStyleString)
             }
             else {
-                itemType = "item"
+                let pluralizedString = "Item" + (numberOfItems == 1 ? "" : "s")
+                title = "Edit %d \(pluralizedString)".localizedFormattedString(numberOfItems.decimalStyleString)
             }
-            
-            title = "Edit %d \(itemType)(s)".localizedFormattedString(photoCollectionView.indexPathsForSelectedItems?.count ?? 0)
         }
     }
 }
@@ -492,6 +494,50 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "PhotoPickerFooterView", for: indexPath) as! PhotoPickerFooterView
+        view.text = generatePhotoPickerText()
+        return view
+    }
+    
+    fileprivate func generatePhotoPickerText() -> String {
+        var numberOfImages = 0
+        var numberOfVideos = 0
+        
+        fetchResults?.forEach { fetchResult in
+            numberOfImages += fetchResult.countOfAssets(with: PHAssetMediaType.image)
+            numberOfVideos += fetchResult.countOfAssets(with: PHAssetMediaType.video)
+        }
+        
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        var footerText = ""
+        if numberOfImages > 0 {
+            if numberOfImages == 1 {
+                footerText += "%d Photo".localizedFormattedString(numberOfImages.decimalStyleString)
+            }
+            else {
+                footerText += "%d Photos".localizedFormattedString(numberOfImages.decimalStyleString)
+            }
+        }
+        
+        if numberOfVideos > 0 {
+            if numberOfImages > 0 {
+                footerText += ", "
+            }
+            
+            if numberOfVideos == 1 {
+                footerText += "%d Video".localizedFormattedString(numberOfVideos.decimalStyleString)
+            }
+            else {
+                footerText += "%d Videos".localizedFormattedString(numberOfVideos.decimalStyleString)
+            }
+        }
+        
+        return footerText
+    }
+    
     // MARK: - UICollectionViewDataSourcePrefetching
     
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
@@ -561,6 +607,10 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 1
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.bounds.width, height: 60)
+    }
 }
 
 extension PhotoPickerViewController: BatchEditViewControllerDelegate {
@@ -603,11 +653,17 @@ extension PhotoPickerViewController: PHPhotoLibraryChangeObserver {
                             }
                         }, completion: { _ in
                             self.updateTitleForSelectedItems()
+                            if let footer = self.photoCollectionView.visibleSupplementaryViews(ofKind: UICollectionElementKindSectionFooter).last as? PhotoPickerFooterView {
+                                footer.text = self.generatePhotoPickerText()
+                            }
                         })
                     } else {
                         // Reload the collection view if incremental diffs are not available.
                         self.photoCollectionView.reloadData()
                         self.updateTitleForSelectedItems()
+                        if let footer = self.photoCollectionView.visibleSupplementaryViews(ofKind: UICollectionElementKindSectionFooter).last as? PhotoPickerFooterView {
+                            footer.text = self.generatePhotoPickerText()
+                        }
                         break
                     }
                 }
@@ -862,5 +918,48 @@ class STDragSelectionGestureRecognizer: UIPanGestureRecognizer {
     
     @objc func autoPanningTimerDidChange(sender: CADisplayLink) {
         self.panHandler?()
+    }
+}
+
+class PhotoPickerFooterView: UICollectionReusableView {
+    var label: UILabel!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        initialize()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        initialize()
+    }
+    
+    private func initialize() {
+        label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.textAlignment = .center
+        addSubview(label)
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        label.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        label.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        label.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+    }
+    
+    var text: String? {
+        didSet {
+            label.text = text
+        }
+    }
+}
+
+extension Int {
+    var decimalStyleString: String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        return numberFormatter.string(from: NSNumber(value: self)) ?? "\(self)"
     }
 }

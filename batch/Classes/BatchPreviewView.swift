@@ -69,8 +69,8 @@ extension BatchPreviewView {
         collectionView.performBatchUpdates({
             
         }) { (finished) in
-            guard let indexPath = visibleIndexPath, animated == true else { completion?(); return }
-            self.collectionView.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.centeredHorizontally, animated: false)
+//            guard let indexPath = visibleIndexPath, animated == true else { completion?(); return }
+//            self.collectionView.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.centeredHorizontally, animated: false)
             completion?()
         }
         
