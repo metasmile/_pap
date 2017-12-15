@@ -36,3 +36,21 @@
 "Edit this photo" = "इस फ़ोटो को संपादित करें";
 /*Translated from: Edit this video*/
 "Edit this video" = "इस वीडियो को संपादित करें";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Photo";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ वीडियो";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ तस्वीरें";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ वीडियो";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Edit %@ Photo";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "%@ वीडियो संपादित करें";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "%@ तस्वीरें संपादित करें";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "%@ वीडियो संपादित करें";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "%@ आइटम संपादित करें";

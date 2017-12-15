@@ -36,3 +36,21 @@
 "Edit this photo" = "Редагувати цю фотографію";
 /*Translated from: Edit this video*/
 "Edit this video" = "Відредагуйте це відео";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Фотографія";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Відео";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Фотографії";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Відео";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Редагувати %@ Фото";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Редагувати %@ Відео";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Редагувати %@ Фотографії";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Редагувати %@ відео";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Змінити %@ елементи";

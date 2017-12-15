@@ -36,3 +36,21 @@
 "Edit this photo" = "Bu fotoğrafı düzenle";
 /*Translated from: Edit this video*/
 "Edit this video" = "Bu videoyu düzenle";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Fotoğraf";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Video";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Fotoğraflar";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Videolar";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "%@ Fotoğraf düzenle";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "%@ Videoyu düzenle";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "%@ Fotoğraflar düzenleyin";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "%@ Videoları düzenle";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "%@ Öğeleri Düzenle";

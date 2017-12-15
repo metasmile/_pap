@@ -36,3 +36,21 @@
 "Edit this photo" = "Chỉnh sửa ảnh này";
 /*Translated from: Edit this video*/
 "Edit this video" = "Chỉnh sửa video này";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Ảnh";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Video";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Hình ảnh";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Video";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Chỉnh sửa %@ Ảnh";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Chỉnh sửa %@ Video";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Chỉnh sửa %@ Hình ảnh";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Chỉnh sửa %@ Video";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Chỉnh sửa %@ Mục";

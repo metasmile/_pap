@@ -36,3 +36,21 @@
 "Edit this photo" = "この写真を編集";
 /*Translated from: Edit this video*/
 "Edit this video" = "このビデオを編集する";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@写真";
+/*Translated from: %@ Video*/
+"%d Video" = "%@動画";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@写真";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@動画";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "%@写真を編集";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "%@動画を編集";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "%@写真を編集";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "%@動画を編集";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "%@アイテムを編集する";

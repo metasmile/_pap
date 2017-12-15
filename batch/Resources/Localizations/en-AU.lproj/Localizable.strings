@@ -36,3 +36,21 @@
 "Edit this photo" = "Edit this photo";
 /*Translated from: Edit this video*/
 "Edit this video" = "Edit this video";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Photo";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Video";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Photos";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Videos";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Edit %@ Photo";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Edit %@ Video";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Edit %@ Photos";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Edit %@ Videos";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Edit %@ Items";

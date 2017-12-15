@@ -36,3 +36,21 @@
 "Edit this photo" = "이 사진 수정";
 /*Translated from: Edit this video*/
 "Edit this video" = "이 비디오 편집";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ 사진";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ 동영상";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ 사진";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ 동영상";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "%@ 사진 수정";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "%@ 동영상 편집";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "%@ 사진 수정";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "%@ 동영상 수정";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "%@ 항목 편집";

@@ -36,3 +36,21 @@
 "Edit this photo" = "แก้ไขรูปภาพนี้";
 /*Translated from: Edit this video*/
 "Edit this video" = "แก้ไขวิดีโอนี้";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ รูปภาพ";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ วิดีโอ";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ รูปภาพ";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ วิดีโอ";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "แก้ไข %@ รูปภาพ";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "แก้ไข %@ วิดีโอ";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "แก้ไข %@ รูปภาพ";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "แก้ไข %@ วิดีโอ";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "แก้ไข %@ รายการ";

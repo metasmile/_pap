@@ -36,3 +36,21 @@
 "Edit this photo" = "Επεξεργασία αυτής της φωτογραφίας";
 /*Translated from: Edit this video*/
 "Edit this video" = "Επεξεργαστείτε αυτό το βίντεο";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Φωτογραφία";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Βίντεο";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Φωτογραφίες";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Βίντεο";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Επεξεργασία %@ Φωτογραφία";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Επεξεργαστείτε το %@ Βίντεο";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Επεξεργαστείτε τις %@ Φωτογραφίες";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Επεξεργασία %@ Βίντεο";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Επεξεργαστείτε τα %@ Στοιχεία";

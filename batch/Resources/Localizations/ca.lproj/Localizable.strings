@@ -36,3 +36,21 @@
 "Edit this photo" = "Editeu aquesta foto";
 /*Translated from: Edit this video*/
 "Edit this video" = "Editeu aquest vídeo";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Foto";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Vídeo";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Fotos";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Vídeos";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Edita %@ Foto";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Edita %@ vídeo";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Edita %@ Fotos";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Edita %@ Vídeos";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Edita els ítems %@";

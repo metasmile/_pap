@@ -36,3 +36,21 @@
 "Edit this photo" = "Upravte tuto fotku";
 /*Translated from: Edit this video*/
 "Edit this video" = "Upravte toto video";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Fotografie";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Video";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Fotky";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Videa";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Upravte %@ Foto";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Upravte %@ Video";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Upravte %@ Fotky";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Upravte %@ Videa";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Upravte položku %@ Položky";

@@ -36,3 +36,21 @@
 "Edit this photo" = "Szerkessze ezt a fotót";
 /*Translated from: Edit this video*/
 "Edit this video" = "Szerkessze ezt a videót";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Fotó";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Videó";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Fotók";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Videók";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Szerkesztés: %@ Fotó";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "%@ Videó szerkesztése";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "%@ Fotók szerkesztése";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "%@ Videók szerkesztése";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "%@ Elemek szerkesztése";

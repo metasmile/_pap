@@ -36,3 +36,21 @@
 "Edit this photo" = "Bearbeiten Sie dieses Foto";
 /*Translated from: Edit this video*/
 "Edit this video" = "Bearbeite dieses Video";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Foto";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Video";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Fotos";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Videos";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Bearbeiten Sie %@ Foto";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Bearbeiten Sie %@ Video";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Bearbeiten Sie %@ Fotos";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Edit %@ Videos";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Bearbeiten Sie %@ Elemente";

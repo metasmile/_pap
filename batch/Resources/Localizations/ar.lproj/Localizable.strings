@@ -36,3 +36,21 @@
 "Edit this photo" = "عدل هذه الصورة";
 /*Translated from: Edit this video*/
 "Edit this video" = "تعديل هذا الفيديو";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ صورة";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ الفيديو";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ صور";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ مقاطع الفيديو";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "تحرير %@ صورة";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "تحرير %@ فيديو";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "تحرير %@ صور";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "تحرير %@ مقاطع الفيديو";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "تحرير %@ عناصر";
