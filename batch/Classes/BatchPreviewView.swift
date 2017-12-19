@@ -62,8 +62,8 @@ extension BatchPreviewView {
     }
     
     private func updatePreviews(animated: Bool = true, completion: (() -> Void)? = nil) {
-        let visibleRect = CGRect(origin: collectionView.contentOffset, size: collectionView.bounds.size)
-        let visibleIndexPath = collectionView.indexPathForItem(at: CGPoint(x: visibleRect.midX, y: visibleRect.midY)) ?? collectionView.indexPathsForVisibleItems.last
+//        let visibleRect = CGRect(origin: collectionView.contentOffset, size: collectionView.bounds.size)
+//        let visibleIndexPath = collectionView.indexPathForItem(at: CGPoint(x: visibleRect.midX, y: visibleRect.midY)) ?? collectionView.indexPathsForVisibleItems.last
         
         collectionView.collectionViewLayout.invalidateLayout()
         collectionView.performBatchUpdates({

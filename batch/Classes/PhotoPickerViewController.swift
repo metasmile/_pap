@@ -232,7 +232,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
             typeWord = "video"
         }
         
-        let editAction = UIPreviewAction(title: "Edit this \(typeWord)", style: .default) { (action, controller) in
+        let editAction = UIPreviewAction(title: "Edit this \(typeWord)".localizedString, style: .default) { (action, controller) in
             self.showPhotoEditorAndSelectIfNeeded(with: asset)
         }
         
@@ -345,7 +345,7 @@ extension PhotoPickerViewController: BatchPreviewViewDelegate {
     }
     
     func batchPreviewView(_ view: BatchPreviewView, didUpdateProgress progress: Float) {
-        title = "Processing...\(Int(progress * 100))%".localizedString
+        title = "Processing...".localizedString + " \(Int(progress * 100))%"
 
         progressBar.setProgress(progress, animated: true)
     }
