@@ -5,6 +5,13 @@
 
 import Foundation
 
+public enum BatchAppLifecycleUnit:UInt {
+    case systemMemory
+    case task
+    case performCycle
+    case permanent
+}
+
 public final class BatchAppLifecycleManager{
     public static let shared = BatchAppLifecycleManager()
 

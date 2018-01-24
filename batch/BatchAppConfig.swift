@@ -5,10 +5,10 @@
 
 import Foundation
 
-public protocol BatchAppConfigable{
+public protocol TaskConfigable {
 
 }
 
-public class BatchAppConfigItem: BatchAppConfigable{
+public class BatchAppConfigItem: TaskConfigable {
 
 }

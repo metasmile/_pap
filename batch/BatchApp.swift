@@ -5,13 +5,6 @@
 
 import Foundation
 
-public enum BatchAppLifecycleUnit:UInt {
-    case systemMemory
-    case task
-    case performCycle
-    case permanent
-}
-
 public class BatchAppInfo:ItemObject {
     private(set) public var identifier:String
     private(set) public var appClass:BatchApp.Type
@@ -30,16 +23,16 @@ public class BatchAppInfo:ItemObject {
 //BatchApp
 public struct BatchAppResult {
     internal(set) public var info:BatchAppInfo
-    internal(set) public var results:[BatchTaskRespondable]
+    internal(set) public var results:[TaskRespondable]
 }
 
 protocol BatchAppTaskable {
-    func taskClass() -> BatchTaskable.Type
-    func instantiateTask(_ requestToken:String) -> BatchTaskable?
+    func taskClass() -> Taskable.Type
+    func instantiateTask(_ requestToken:String) -> Taskable?
 }
 
 protocol BatchAppFinalizable {
-    func finalizeTasks(_ response:BatchAppResult, _ asyncSignal:BatchTaskAsyncSignalable) -> BatchAppResult
+    func finalizeTasks(_ response:BatchAppResult, _ asyncSignal: TaskAsyncSignalable) -> BatchAppResult
 }
 
 protocol BatchAppLifecycleDelegatable {
@@ -48,23 +41,23 @@ protocol BatchAppLifecycleDelegatable {
 }
 
 public class BatchApp: ItemObject, BatchAppTaskable {
-    private(set) public var config: BatchAppConfigable?
+    private(set) public var config: TaskConfigable?
 
     public class var info: BatchAppInfo{
         fatalError("Subclasses need to implement the \(#function) method.")
     }
 
-    required public init(_ config:BatchAppConfigable?=nil){
+    required public init(_ config: TaskConfigable?=nil){
         self.config = config
         super.init()
     }
 
-    public func taskClass() -> BatchTaskable.Type{
+    public func taskClass() -> Taskable.Type{
         fatalError("Subclasses need to implement the \(#function) method.")
     }
 
-    public func instantiateTask(_ requestToken:String) -> BatchTaskable? {
+    public func instantiateTask(_ requestToken:String) -> Taskable? {
         let taskClass = self.taskClass()
-        return taskClass.init(BatchTaskInfo(requestToken, taskClass.self))
+        return taskClass.init(TaskInfo(requestToken, taskClass.self))
     }
 }

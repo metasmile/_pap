@@ -6,25 +6,25 @@
 import Foundation
 
 
-struct BatchTaskWorkItem: BatchTaskRespondable, BatchAppRespondable, Equatable {
+struct BatchAppTaskWorkItem: TaskRespondable, BatchAppRespondable, Equatable {
     let request:BatchAppTaskRequest
-    let info:BatchTaskInfo
-    let task:BatchTaskable
+    let info: TaskInfo
+    let task: Taskable
 
-    fileprivate(set) var result:BatchTaskResultable?
+    fileprivate(set) var result: TaskResultable?
 }
 
-extension BatchTaskWorkItem {
+extension BatchAppTaskWorkItem {
 
     // if canceled by requester, return false, passed, return true
-    func response(_ state:BatchTaskState) -> Bool{
+    func response(_ state: TaskState) -> Bool{
         task.info.state = state
         var canceled = false
         request.responseHandler?(self, &canceled)
         return !canceled
     }
 
-    static func ==(lhs: BatchTaskWorkItem, rhs: BatchTaskWorkItem) -> Bool {
+    static func ==(lhs: BatchAppTaskWorkItem, rhs: BatchAppTaskWorkItem) -> Bool {
         let lhsInfo = lhs.info, rhsInfo = rhs.info
         return lhsInfo.token == rhsInfo.token
                 && lhsInfo.requestToken == rhsInfo.requestToken
@@ -34,26 +34,26 @@ extension BatchTaskWorkItem {
 }
 
 struct BatchTaskOperationQueueResultItem {
-    var finished:[BatchTaskWorkItem]?
+    var finished:[BatchAppTaskWorkItem]?
 }
 
 protocol BatchTaskOperationQueueOperationDelegate: class {
     func mainOperationQueue() -> DispatchQueue
 
-    func willPerformTask(_ queue: BatchTaskOperationQueue, _ workItem: BatchTaskWorkItem)
-    func didCompleteTask(_ queue: BatchTaskOperationQueue, _ workItem: BatchTaskWorkItem)
-    func didCancelTask(_ queue: BatchTaskOperationQueue, _ workItem: BatchTaskWorkItem)
-    func didFailTask(_ queue: BatchTaskOperationQueue, _ workItem: BatchTaskWorkItem)
+    func willPerformTask(_ queue: BatchAppTaskOperationQueue, _ workItem: BatchAppTaskWorkItem)
+    func didCompleteTask(_ queue: BatchAppTaskOperationQueue, _ workItem: BatchAppTaskWorkItem)
+    func didCancelTask(_ queue: BatchAppTaskOperationQueue, _ workItem: BatchAppTaskWorkItem)
+    func didFailTask(_ queue: BatchAppTaskOperationQueue, _ workItem: BatchAppTaskWorkItem)
 
-    func didFinishAllTasksInQueue(_ queue: BatchTaskOperationQueue, _ result: BatchTaskOperationQueueResultItem)
+    func didFinishAllTasksInQueue(_ queue: BatchAppTaskOperationQueue, _ result: BatchTaskOperationQueueResultItem)
 }
 
-class BatchTaskOperationQueue: ItemQueue<BatchTaskWorkItem> {
+class BatchAppTaskOperationQueue: ItemQueue<BatchAppTaskWorkItem> {
 
-    private var finshedQueue = ItemQueue<BatchTaskWorkItem>()
+    private var finshedQueue = ItemQueue<BatchAppTaskWorkItem>()
     private weak var delegate: BatchTaskOperationQueueOperationDelegate?
 
-    private(set) public var currentTask:BatchTaskInfo?
+    private(set) public var currentTask: TaskInfo?
     private(set) public var cancelled = false
     private(set) public var suspended = false
 
@@ -65,7 +65,7 @@ class BatchTaskOperationQueue: ItemQueue<BatchTaskWorkItem> {
             , target: nil
     )
 
-    private let asyncSignal = BatchTaskDefaultSignal()
+    private let asyncSignal = TaskDefaultSignal()
 
     internal var label:String{
         return self.queue.label
@@ -76,13 +76,13 @@ class BatchTaskOperationQueue: ItemQueue<BatchTaskWorkItem> {
     }
 
     //overriden
-    final func isEnqueued(_ item: BatchTaskWorkItem) -> Bool{
+    final func isEnqueued(_ item: BatchAppTaskWorkItem) -> Bool{
         return self.iterator().contains { e -> Bool in
             e.info.requestToken == item.info.requestToken
         }
     }
 
-    override func enqueue(_ item: BatchTaskWorkItem, reverse: Bool=false) {
+    override func enqueue(_ item: BatchAppTaskWorkItem, reverse: Bool=false) {
         if isEnqueued(item) { return }
 
         item.info.queueLabel = self.label
@@ -95,7 +95,7 @@ class BatchTaskOperationQueue: ItemQueue<BatchTaskWorkItem> {
         return self.delegate?.mainOperationQueue() ?? DispatchQueue.main
     }
 
-    private func dispatchState(_ item: BatchTaskWorkItem, _ state:BatchTaskState) -> Bool{
+    private func dispatchState(_ item: BatchAppTaskWorkItem, _ state: TaskState) -> Bool{
         let response = item.response(state)
 
         let d = self.delegate
@@ -139,7 +139,7 @@ class BatchTaskOperationQueue: ItemQueue<BatchTaskWorkItem> {
         }
     }
 
-    private func tryItem(_ item: BatchTaskWorkItem, _ async:BatchTaskAsyncSignalable, cancel:Bool=false){
+    private func tryItem(_ item: BatchAppTaskWorkItem, _ async: TaskAsyncSignalable, cancel:Bool=false){
         guard !cancel && self.dispatchState(item, .performing) else{
             item.task.cancel(async)
             self.dispatchState(item, .cancelled)

@@ -5,7 +5,7 @@
 
 import Foundation
 
-public enum BatchTaskState: UInt{
+public enum TaskState: UInt{
     case unqueued
     case idling
     case performing
@@ -14,26 +14,31 @@ public enum BatchTaskState: UInt{
     case completed
 }
 
-public enum BatchTaskLoad: UInt{
+public enum TaskLoad: UInt{
     case light
     case normal
     case heavy
     case exclusive
 }
 
+public enum TaskError: Error {
+    case precondition
+    case exception
+    case timeout
+}
 
 /*
  app task parameter
  */
 
-public protocol BatchTaskParameterable: Sourceable {
+public protocol TaskParameterable: Sourceable {
     var sources:[Sourceable]? { set get }
-    var configs:[BatchAppConfigable]? { set get }
+    var configs:[TaskConfigable]? { set get }
 }
 
-public class BatchTaskParameter: Item<[Sourceable]>, BatchTaskParameterable {
+public class TaskParameter: Item<[Sourceable]>, TaskParameterable {
     public var sources: [Sourceable]?
-    public var configs: [BatchAppConfigable]?
+    public var configs: [TaskConfigable]?
 
     override func bind(_ bindingObject: [Sourceable]?) -> [Sourceable]? {
         self.sources = bindingObject
@@ -41,54 +46,31 @@ public class BatchTaskParameter: Item<[Sourceable]>, BatchTaskParameterable {
     }
 }
 
-/*
-app task responsable
-*/
-public enum BatchTaskResultState: UInt{
-    case remained
-    case finished
-}
-
 //internal
-public protocol BatchTaskResultable: Sourceable {
+public protocol TaskResultable: Sourceable {
     var results:[Sourceable]? { set get }
 }
 
 //final
-public protocol BatchTaskRespondable{
-    var result:BatchTaskResultable? { get }
-    var info:BatchTaskInfo { get }
+public protocol TaskRespondable {
+    var result: TaskResultable? { get }
+    var info: TaskInfo { get }
 }
-
-public protocol BatchAppRespondable{
-    var request:BatchAppTaskRequest { get }
-    var info:BatchTaskInfo  { get }
-    var appInfo:BatchAppInfo { get }
-}
-
-extension BatchAppRespondable{
-    var appInfo:BatchAppInfo {
-        get{
-            return self.request.appClass.info
-        }
-    }
-}
-
 
 /*
  app task
  */
 
 //TaskLoad
-public class BatchTaskInfo: Item<String> {
+public class TaskInfo: Item<String> {
     private(set) public var token:String
     private(set) public var requestToken:String
-    private(set) public var taskType:BatchTaskable.Type
+    private(set) public var taskType: Taskable.Type
 
-    internal(set) public var state:BatchTaskState = .unqueued
+    internal(set) public var state: TaskState = .unqueued
     internal(set) public var queueLabel:String?
 
-    required public init(_ requestToken: String, _ taskType:BatchTaskable.Type){
+    required public init(_ requestToken: String, _ taskType: Taskable.Type){
         self.requestToken = requestToken
         self.taskType = taskType
         self.token = UUID().uuidString
@@ -97,26 +79,26 @@ public class BatchTaskInfo: Item<String> {
 }
 
 //task - async
-public protocol BatchTaskSignalable {}
-public protocol BatchTaskAsyncSignalable: BatchTaskSignalable {
+public protocol TaskSignalable {}
+public protocol TaskAsyncSignalable: TaskSignalable {
     var began:Bool { get }
     func begin()
     func end() -> Self
     func stopUntilEnd()
 }
 
-public protocol BatchTaskSignalControllable {
+public protocol TaskSignalControllable {
     func done()
     func finally(_ queue:DispatchQueue?,_ completion: DispatchWorkItem) -> Self
 }
 
-class BatchTaskDefaultSignal{
+public final class TaskDefaultSignal {
     internal let dispatchGroup:DispatchGroup = DispatchGroup()
     private let _offsetSyncQueue:DispatchQueue = DispatchQueue(label:"com.stells.internal__sync_queue_\(UUID().uuidString)")
     private var offset:Int = 0
 }
 
-extension BatchTaskDefaultSignal : BatchTaskAsyncSignalable, BatchTaskSignalControllable{
+extension TaskDefaultSignal: TaskAsyncSignalable, TaskSignalControllable {
     public var began:Bool {
         return offset>0
     }
@@ -169,33 +151,26 @@ extension BatchTaskDefaultSignal : BatchTaskAsyncSignalable, BatchTaskSignalCont
     }
 }
 
-//resource
-public enum BatchTaskError: Error {
-    case precondition
-    case exception
-    case timeout
+public protocol Taskable {
+    var info: TaskInfo {  get }
+
+    init(_ info: TaskInfo)
+
+    func perform(_ param: TaskParameterable, _ async: TaskAsyncSignalable?) throws -> TaskResultable?
+
+    func cancel(_ async: TaskAsyncSignalable?)
 }
 
-public protocol BatchTaskable{
-    var info: BatchTaskInfo {  get }
+public class TaskPrototype: Item<TaskInfo> {
+    private(set) public var info: TaskInfo
 
-    init(_ info: BatchTaskInfo)
-
-    func perform(_ param:BatchTaskParameterable, _ async:BatchTaskAsyncSignalable?) throws -> BatchTaskResultable?
-
-    func cancel(_ async:BatchTaskAsyncSignalable?)
-}
-
-public class BatchTaskPrototype: Item<BatchTaskInfo> {
-    private(set) public var info: BatchTaskInfo
-
-    required public init(_ info: BatchTaskInfo){
+    required public init(_ info: TaskInfo){
         self.info = info
         super.init()
     }
 }
 
-public class BatchTaskRequestPrototype<AppClassType, ParameterType, ResponseType>: ItemObject {
+public class TaskRequestPrototype<AppClassType, ParameterType, ResponseType>: ItemObject {
     public typealias ResponseHandler = (ResponseType,_ cancel:inout Bool) -> Void
     private(set) public var appClass:AppClassType
     private(set) internal var responseHandler:ResponseHandler?

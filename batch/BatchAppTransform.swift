@@ -17,13 +17,13 @@ class BatchApp_Transfrom: BatchApp, BatchAppFinalizable{
         }
     }
 
-    private class _TransfromTask: BatchTaskPrototype, BatchTaskable{
+    private class _TransfromTask: TaskPrototype, Taskable {
 
-        public func cancel(_ async:BatchTaskAsyncSignalable?){
+        public func cancel(_ async: TaskAsyncSignalable?){
             print("--->", #function, type(of:self), self.info.requestToken)
         }
 
-        public func perform(_ param:BatchTaskParameterable,_ async:BatchTaskAsyncSignalable?) throws -> BatchTaskResultable?  {
+        public func perform(_ param: TaskParameterable, _ async: TaskAsyncSignalable?) throws -> TaskResultable?  {
 
             async?.begin()
             param.configs
@@ -41,11 +41,11 @@ class BatchApp_Transfrom: BatchApp, BatchAppFinalizable{
         }
     }
 
-    override public func taskClass() -> BatchTaskable.Type {
+    override public func taskClass() -> Taskable.Type {
         return _TransfromTask.self
     }
 
-    public func finalizeTasks(_ response: BatchAppResult, _ asyncSignal: BatchTaskAsyncSignalable) -> BatchAppResult {
+    public func finalizeTasks(_ response: BatchAppResult, _ asyncSignal: TaskAsyncSignalable) -> BatchAppResult {
 //        asyncSignal.begin()
 
         print("------------->"
@@ -55,7 +55,7 @@ class BatchApp_Transfrom: BatchApp, BatchAppFinalizable{
         )
 
         print("Result Status ---> total: ", response.results.count)
-        let statuses:[BatchTaskState] = [
+        let statuses:[TaskState] = [
             .unqueued
             ,.idling
             ,.performing
