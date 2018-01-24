@@ -12,11 +12,16 @@ public enum BatchAppLifecycleUnit:UInt {
     case permanent
 }
 
-public final class BatchAppLifecycleManager{
-    public static let shared = BatchAppLifecycleManager()
+protocol AppLifecycleDelegatable {
+    func didInstantiate() -> Bool
+    func willUninstantiate() -> Bool
+}
+
+public final class AppLifecycleManager {
+    public static let shared = AppLifecycleManager()
 
     private var _instanceCreationQueue:DispatchQueue
-    private var _instances:[String:BatchApp]
+    private var _instances:[String: App]
 
     private init() {
         _instances = [:]
@@ -32,13 +37,13 @@ public final class BatchAppLifecycleManager{
         }
     }
 
-    public func acquire(_ info:BatchAppInfo) -> BatchApp?{
+    public func acquire(_ info: AppInfo) -> App?{
         return _instanceCreationQueue.sync(flags: .barrier) { [unowned info] in
             _acquire(info)
         }
     }
 
-    private func _acquire(_ info:BatchAppInfo) -> BatchApp?{
+    private func _acquire(_ info: AppInfo) -> App?{
         assert(info.identifier != nil, "app identifier is empty")
         assert(info.appClass != nil, "app class is empty")
 
@@ -56,7 +61,7 @@ public final class BatchAppLifecycleManager{
     }
 
 
-    public func discard(_ info:BatchAppInfo) -> Bool{
+    public func discard(_ info: AppInfo) -> Bool{
         assert(info.lifeCycleUnit != .permanent, "Discarding app's life cycle mode is permanent.")
         if info.lifeCycleUnit == .permanent{
             return false
@@ -77,7 +82,7 @@ public final class BatchAppLifecycleManager{
         }
     }
 
-    private func _discard(_ info:BatchAppInfo) -> Bool{
+    private func _discard(_ info: AppInfo) -> Bool{
         if _instances.keys.contains(info.identifier){
             _instances.removeValue(forKey: info.identifier)
             return true

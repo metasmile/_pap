@@ -9,6 +9,6 @@ public protocol TaskConfigable {
 
 }
 
-public class BatchAppConfigItem: TaskConfigable {
+public class AppConfigItem: TaskConfigable {
 
 }

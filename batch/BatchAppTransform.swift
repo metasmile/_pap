@@ -6,11 +6,11 @@
 import Foundation
 import QuartzCore
 
-class BatchApp_Transfrom: BatchApp, BatchAppFinalizable{
+class BatchApp_Transfrom: App, AppFinalizable {
 
-    override public class var info: BatchAppInfo{
+    override public class var info: AppInfo {
         get{
-            let info = BatchAppInfo("com.stells.batch.transform", self)
+            let info = AppInfo("com.stells.batch.transform", self)
             info.displayName = "Transform"
             info.iconImage = ImageSourceItem("batchappicon_transfrom.pdf")
             return info
@@ -45,7 +45,7 @@ class BatchApp_Transfrom: BatchApp, BatchAppFinalizable{
         return _TransfromTask.self
     }
 
-    public func finalizeTasks(_ response: BatchAppResult, _ asyncSignal: TaskAsyncSignalable) -> BatchAppResult {
+    public func finalizeTasks(_ response: AppResult, _ asyncSignal: TaskAsyncSignalable) -> AppResult {
 //        asyncSignal.begin()
 
         print("------------->"

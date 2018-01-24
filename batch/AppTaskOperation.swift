@@ -6,15 +6,15 @@
 import Foundation
 
 
-struct BatchAppTaskWorkItem: TaskRespondable, BatchAppRespondable, Equatable {
-    let request:BatchAppTaskRequest
+struct AppTaskWorkItem: TaskRespondable, AppRespondable, Equatable {
+    let request:AppTaskRequest
     let info: TaskInfo
     let task: Taskable
 
     fileprivate(set) var result: TaskResultable?
 }
 
-extension BatchAppTaskWorkItem {
+extension AppTaskWorkItem {
 
     // if canceled by requester, return false, passed, return true
     func response(_ state: TaskState) -> Bool{
@@ -24,7 +24,7 @@ extension BatchAppTaskWorkItem {
         return !canceled
     }
 
-    static func ==(lhs: BatchAppTaskWorkItem, rhs: BatchAppTaskWorkItem) -> Bool {
+    static func ==(lhs: AppTaskWorkItem, rhs: AppTaskWorkItem) -> Bool {
         let lhsInfo = lhs.info, rhsInfo = rhs.info
         return lhsInfo.token == rhsInfo.token
                 && lhsInfo.requestToken == rhsInfo.requestToken
@@ -33,25 +33,25 @@ extension BatchAppTaskWorkItem {
     }
 }
 
-struct BatchTaskOperationQueueResultItem {
-    var finished:[BatchAppTaskWorkItem]?
+struct AppTaskOperationQueueResultItem {
+    var finished:[AppTaskWorkItem]?
 }
 
-protocol BatchTaskOperationQueueOperationDelegate: class {
+protocol AppTaskOperationQueueOperationDelegate: class {
     func mainOperationQueue() -> DispatchQueue
 
-    func willPerformTask(_ queue: BatchAppTaskOperationQueue, _ workItem: BatchAppTaskWorkItem)
-    func didCompleteTask(_ queue: BatchAppTaskOperationQueue, _ workItem: BatchAppTaskWorkItem)
-    func didCancelTask(_ queue: BatchAppTaskOperationQueue, _ workItem: BatchAppTaskWorkItem)
-    func didFailTask(_ queue: BatchAppTaskOperationQueue, _ workItem: BatchAppTaskWorkItem)
+    func willPerformTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem)
+    func didCompleteTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem)
+    func didCancelTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem)
+    func didFailTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem)
 
-    func didFinishAllTasksInQueue(_ queue: BatchAppTaskOperationQueue, _ result: BatchTaskOperationQueueResultItem)
+    func didFinishAllTasksInQueue(_ queue: AppTaskOperationQueue, _ result: AppTaskOperationQueueResultItem)
 }
 
-class BatchAppTaskOperationQueue: ItemQueue<BatchAppTaskWorkItem> {
+class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
 
-    private var finshedQueue = ItemQueue<BatchAppTaskWorkItem>()
-    private weak var delegate: BatchTaskOperationQueueOperationDelegate?
+    private var finshedQueue = ItemQueue<AppTaskWorkItem>()
+    private weak var delegate: AppTaskOperationQueueOperationDelegate?
 
     private(set) public var currentTask: TaskInfo?
     private(set) public var cancelled = false
@@ -71,18 +71,18 @@ class BatchAppTaskOperationQueue: ItemQueue<BatchAppTaskWorkItem> {
         return self.queue.label
     }
 
-    required init(delegate: BatchTaskOperationQueueOperationDelegate) {
+    required init(delegate: AppTaskOperationQueueOperationDelegate) {
         self.delegate = delegate
     }
 
     //overriden
-    final func isEnqueued(_ item: BatchAppTaskWorkItem) -> Bool{
+    final func isEnqueued(_ item: AppTaskWorkItem) -> Bool{
         return self.iterator().contains { e -> Bool in
             e.info.requestToken == item.info.requestToken
         }
     }
 
-    override func enqueue(_ item: BatchAppTaskWorkItem, reverse: Bool=false) {
+    override func enqueue(_ item: AppTaskWorkItem, reverse: Bool=false) {
         if isEnqueued(item) { return }
 
         item.info.queueLabel = self.label
@@ -95,7 +95,7 @@ class BatchAppTaskOperationQueue: ItemQueue<BatchAppTaskWorkItem> {
         return self.delegate?.mainOperationQueue() ?? DispatchQueue.main
     }
 
-    private func dispatchState(_ item: BatchAppTaskWorkItem, _ state: TaskState) -> Bool{
+    private func dispatchState(_ item: AppTaskWorkItem, _ state: TaskState) -> Bool{
         let response = item.response(state)
 
         let d = self.delegate
@@ -133,13 +133,13 @@ class BatchAppTaskOperationQueue: ItemQueue<BatchAppTaskWorkItem> {
     }
 
     private func dispatchFinishedResults(){
-        let queueResult = BatchTaskOperationQueueResultItem(finished: self.finshedQueue.dequeueAll())
+        let queueResult = AppTaskOperationQueueResultItem(finished: self.finshedQueue.dequeueAll())
         self.mainOperationQueue.async {
             self.delegate?.didFinishAllTasksInQueue(self, queueResult)
         }
     }
 
-    private func tryItem(_ item: BatchAppTaskWorkItem, _ async: TaskAsyncSignalable, cancel:Bool=false){
+    private func tryItem(_ item: AppTaskWorkItem, _ async: TaskAsyncSignalable, cancel:Bool=false){
         guard !cancel && self.dispatchState(item, .performing) else{
             item.task.cancel(async)
             self.dispatchState(item, .cancelled)
@@ -198,8 +198,8 @@ class BatchAppTaskOperationQueue: ItemQueue<BatchAppTaskWorkItem> {
 
                 // discard app if configured
                 if finishedItem.appInfo.lifeCycleUnit == .task {
-                    BatchAppLifecycleManager.shared.discard(finishedItem.appInfo)
-                    assert(!BatchAppLifecycleManager.shared.acquired.contains(finishedItem.appInfo.identifier))
+                    AppLifecycleManager.shared.discard(finishedItem.appInfo)
+                    assert(!AppLifecycleManager.shared.acquired.contains(finishedItem.appInfo.identifier))
                 }
 
                 // perform next task

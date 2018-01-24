@@ -5,37 +5,37 @@
 
 import Foundation
 
-public protocol BatchAppReactable{
+public protocol AppReactable {
     typealias ProgressHanlder = (
-            _ result:BatchAppResult
+            _ result: AppResult
             , _ progress:Double
-            , _ remained:[BatchAppRespondable]
-            , _ finished:[BatchAppRespondable]
+            , _ remained:[AppRespondable]
+            , _ finished:[AppRespondable]
     ) -> Void
 
     var progressHandler:ProgressHanlder? { get }
-    func when(progress:@escaping ProgressHanlder) -> BatchAppReactable
+    func when(progress:@escaping ProgressHanlder) -> AppReactable
 
     typealias FinishHandler = (
-            _ results:[BatchAppResult]
-            , _ for:[BatchAppRespondable]
+            _ results:[AppResult]
+            , _ for:[AppRespondable]
     ) -> Void
 
     var finishHandler:FinishHandler?  { get }
-    func when(finish:@escaping FinishHandler) -> BatchAppReactable
+    func when(finish:@escaping FinishHandler) -> AppReactable
 }
 
-public class BatchAppReactionItem: ItemObject, BatchAppReactable{
+public class AppReactionItem: ItemObject, AppReactable {
     private(set) public var progressHandler:ProgressHanlder?
 
-    public func when(progress:@escaping ProgressHanlder) -> BatchAppReactable {
+    public func when(progress:@escaping ProgressHanlder) -> AppReactable {
         self.progressHandler = progress
         return self
     }
 
     private(set) public var finishHandler:FinishHandler?
 
-    public func when(finish:@escaping FinishHandler) -> BatchAppReactable {
+    public func when(finish:@escaping FinishHandler) -> AppReactable {
         self.finishHandler = finish
         return self
     }

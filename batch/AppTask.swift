@@ -5,49 +5,49 @@
 
 import Foundation
 
-public typealias BatchAppTaskRequest = TaskRequestPrototype<BatchApp.Type, TaskParameterable, TaskRespondable>
+public typealias AppTaskRequest = TaskRequestPrototype<App.Type, TaskParameterable, TaskRespondable>
 
-public protocol BatchAppRespondable{
-    var request:BatchAppTaskRequest { get }
+public protocol AppRespondable {
+    var request:AppTaskRequest { get }
     var info: TaskInfo { get }
-    var appInfo:BatchAppInfo { get }
+    var appInfo: AppInfo { get }
 }
 
-extension BatchAppRespondable{
-    var appInfo:BatchAppInfo {
+extension AppRespondable {
+    var appInfo: AppInfo {
         get{
             return self.request.appClass.info
         }
     }
 }
 
-public protocol BatchAppTaskManagerDelegate: class {
-    func didRespond(result:BatchAppResult, progress:Double, remained:[BatchAppRespondable], finished:[BatchAppRespondable])
-    func didFinish(results:[BatchAppResult], for:[BatchAppRespondable])
+public protocol AppTaskManagerDelegate: class {
+    func didRespond(result: AppResult, progress:Double, remained:[AppRespondable], finished:[AppRespondable])
+    func didFinish(results:[AppResult], for:[AppRespondable])
 }
 
-public protocol BatchAppTaskManagerTaskDelegate: BatchAppTaskManagerDelegate {
-    func willPerformTask(info:BatchAppRespondable)
-    func didCompleteTask(info:BatchAppRespondable)
-    func didCancelTask(info:BatchAppRespondable)
-    func didFailTask(info:BatchAppRespondable)
+public protocol AppTaskManagerTaskDelegate: AppTaskManagerDelegate {
+    func willPerformTask(info: AppRespondable)
+    func didCompleteTask(info: AppRespondable)
+    func didCancelTask(info: AppRespondable)
+    func didFailTask(info: AppRespondable)
 }
 
-public class BatchAppTaskManager: BatchTaskOperationQueueOperationDelegate {
+public class AppTaskManager: AppTaskOperationQueueOperationDelegate {
 
-    static let shared = BatchAppTaskManager(8)
+    static let shared = AppTaskManager(8)
 
-    public weak var delegate:BatchAppTaskManagerDelegate?
+    public weak var delegate:AppTaskManagerDelegate?
 
-    let sharedSyncQueue:DispatchQueue = DispatchQueue(label:"com.stells.batch__internal_BatchAppTaskManager")
+    let sharedSyncQueue:DispatchQueue = DispatchQueue(label:"com.stells.batch__internal_AppTaskManager")
 
-    private var _queuePool = [String: BatchAppTaskOperationQueue]()
-    private var _requestedWorkItems = [String: BatchAppTaskWorkItem]()
+    private var _queuePool = [String: AppTaskOperationQueue]()
+    private var _requestedWorkItems = [String: AppTaskWorkItem]()
 
-    private var _reactionItem:BatchAppReactable?
+    private var _reactionItem: AppReactable?
 
     //TODO: improve queue assign performance
-    private var _currentQueue: BatchAppTaskOperationQueue {
+    private var _currentQueue: AppTaskOperationQueue {
         print("load queues",_queuePool.map{ $0.value.count } )
         return (_queuePool.min { a, b in a.value.count < b.value.count })!.value
     }
@@ -64,15 +64,15 @@ public class BatchAppTaskManager: BatchTaskOperationQueueOperationDelegate {
     private init(_ maxConcurrentCount:UInt=1) {
         assert(maxConcurrentCount>0, "concurrentCount must be 1 or higher.")
         for var qn in 0 ..< maxConcurrentCount{
-            let q = BatchAppTaskOperationQueue(delegate:self)
+            let q = AppTaskOperationQueue(delegate:self)
             _queuePool[q.label] = q
         }
     }
 
-    private func createTask(_ request:BatchAppTaskRequest) -> Taskable?{
+    private func createTask(_ request:AppTaskRequest) -> Taskable?{
         let appInfo = request.appClass.info
 
-        guard let appInstance = BatchAppLifecycleManager.shared.acquire(appInfo)
+        guard let appInstance = AppLifecycleManager.shared.acquire(appInfo)
         , let task = appInstance.instantiateTask(request.token)
 
                 else {
@@ -82,8 +82,8 @@ public class BatchAppTaskManager: BatchTaskOperationQueueOperationDelegate {
         return Optional(task)
     }
 
-    private func getCurrentWorkItems() -> [BatchAppTaskWorkItem] {
-        return _queuePool.values.flatMap { q -> [BatchAppTaskWorkItem] in
+    private func getCurrentWorkItems() -> [AppTaskWorkItem] {
+        return _queuePool.values.flatMap { q -> [AppTaskWorkItem] in
             Array(q.iterator())
         }
     }
@@ -94,13 +94,13 @@ public class BatchAppTaskManager: BatchTaskOperationQueueOperationDelegate {
         }
     }
 
-    public func request(_ request:BatchAppTaskRequest) -> TaskInfo?{
+    public func request(_ request:AppTaskRequest) -> TaskInfo?{
         let info = append(request:request)
         perform(true)
         return info
     }
 
-    public func remove(request:BatchAppTaskRequest){
+    public func remove(request:AppTaskRequest){
         sharedSyncQueue.sync(flags:.barrier){
 
             guard let queuedTaskItem = _requestedWorkItems[request.token]
@@ -129,7 +129,7 @@ public class BatchAppTaskManager: BatchTaskOperationQueueOperationDelegate {
     }
 
     //TODO: improve item append performance.
-    public func append(request:BatchAppTaskRequest) -> TaskInfo?{
+    public func append(request:AppTaskRequest) -> TaskInfo?{
         return sharedSyncQueue.sync(flags:.barrier){
 
             if let queued = self.query(by:[request.token]).first {
@@ -141,7 +141,7 @@ public class BatchAppTaskManager: BatchTaskOperationQueueOperationDelegate {
                 return nil
             }
 
-            let item = BatchAppTaskWorkItem(
+            let item = AppTaskWorkItem(
                     request: request
                     , info: task.info
                     , task: task
@@ -170,7 +170,7 @@ public class BatchAppTaskManager: BatchTaskOperationQueueOperationDelegate {
         return true
     }
 
-    public func perform(_ reaction:BatchAppReactable?=nil) -> Bool {
+    public func perform(_ reaction: AppReactable?=nil) -> Bool {
         if reaction != nil{
             sharedSyncQueue.sync(flags:.barrier){ [unowned self] in
                 self._reactionItem = reaction
@@ -191,23 +191,23 @@ public class BatchAppTaskManager: BatchTaskOperationQueueOperationDelegate {
         return DispatchQueue.main
     }
 
-    func willPerformTask(_ queue: BatchAppTaskOperationQueue, _ workItem: BatchAppTaskWorkItem) {
-        (self.delegate as? BatchAppTaskManagerTaskDelegate)?.willPerformTask(info: workItem)
+    func willPerformTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem) {
+        (self.delegate as? AppTaskManagerTaskDelegate)?.willPerformTask(info: workItem)
     }
 
-    func didFailTask(_ queue: BatchAppTaskOperationQueue, _ workItem: BatchAppTaskWorkItem) {
-        (self.delegate as? BatchAppTaskManagerTaskDelegate)?.didFailTask(info: workItem)
+    func didFailTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem) {
+        (self.delegate as? AppTaskManagerTaskDelegate)?.didFailTask(info: workItem)
     }
 
-    func didCompleteTask(_ queue: BatchAppTaskOperationQueue, _ workItem: BatchAppTaskWorkItem) {
-        (self.delegate as? BatchAppTaskManagerTaskDelegate)?.didCompleteTask(info: workItem)
+    func didCompleteTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem) {
+        (self.delegate as? AppTaskManagerTaskDelegate)?.didCompleteTask(info: workItem)
     }
 
-    func didCancelTask(_ queue: BatchAppTaskOperationQueue, _ workItem: BatchAppTaskWorkItem) {
-        (self.delegate as? BatchAppTaskManagerTaskDelegate)?.didCancelTask(info: workItem)
+    func didCancelTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem) {
+        (self.delegate as? AppTaskManagerTaskDelegate)?.didCancelTask(info: workItem)
     }
 
-    func didFinishAllTasksInQueue(_ queue: BatchAppTaskOperationQueue, _ result: BatchTaskOperationQueueResultItem) {
+    func didFinishAllTasksInQueue(_ queue: AppTaskOperationQueue, _ result: AppTaskOperationQueueResultItem) {
 
         if let finishedWorkItems = result.finished{
             sharedSyncQueue.sync(flags:.barrier){
@@ -220,16 +220,16 @@ public class BatchAppTaskManager: BatchTaskOperationQueueOperationDelegate {
 
     //counter
     //TODO: multi-apps for each requestToken
-    private var _responsesForEachApps = [String:BatchAppResult]()
-    private var _respondedWorkItems = [BatchAppRespondable]()
+    private var _responsesForEachApps = [String: AppResult]()
+    private var _respondedWorkItems = [AppRespondable]()
 
-    private func _countFinishedTaskByEachQueues(_ queue: BatchAppTaskOperationQueue, _ workItem: BatchAppTaskWorkItem) {
+    private func _countFinishedTaskByEachQueues(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem) {
         let appClass = workItem.request.appClass
         let appInfo = appClass.info
         let appId = appInfo.identifier
 
         if !_responsesForEachApps.keys.contains(appId){
-            _responsesForEachApps[appId] = BatchAppResult(info: appInfo, results: [TaskRespondable]())
+            _responsesForEachApps[appId] = AppResult(info: appInfo, results: [TaskRespondable]())
         }
         _responsesForEachApps[appId]?.results.append(workItem)
 
@@ -277,25 +277,25 @@ public class BatchAppTaskManager: BatchTaskOperationQueueOperationDelegate {
         }
     }
 
-    private func _finializeAllAppTasks(_ resultByApps:[String:BatchAppResult]) -> [BatchAppResult] {
+    private func _finializeAllAppTasks(_ resultByApps:[String: AppResult]) -> [AppResult] {
         let asyncSignal = TaskDefaultSignal()
-        var finalizedResults = [BatchAppResult]()
+        var finalizedResults = [AppResult]()
 
         for var result in resultByApps.values {
-            guard let appInstance = BatchAppLifecycleManager.shared.acquire(result.info) else{
+            guard let appInstance = AppLifecycleManager.shared.acquire(result.info) else{
                 assert(false,"App doest not exist any longer. Check it on lifecycle manager.")
                 continue
             }
 
-            if let appInstanceAsFinalizable = appInstance as? BatchAppFinalizable {
+            if let appInstanceAsFinalizable = appInstance as? AppFinalizable {
                 finalizedResults.append(appInstanceAsFinalizable.finalizeTasks(result, asyncSignal))
             }else{
                 finalizedResults.append(result)
             }
 
             if result.info.lifeCycleUnit == .performCycle {
-                BatchAppLifecycleManager.shared.discard(result.info)
-                assert(!BatchAppLifecycleManager.shared.acquired.contains(result.info.identifier))
+                AppLifecycleManager.shared.discard(result.info)
+                assert(!AppLifecycleManager.shared.acquired.contains(result.info.identifier))
             }
         }
 

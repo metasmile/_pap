@@ -5,45 +5,25 @@
 
 import Foundation
 
-public class BatchAppInfo:ItemObject {
+public class AppInfo:ItemObject {
     private(set) public var identifier:String
-    private(set) public var appClass:BatchApp.Type
+    private(set) public var appClass: App.Type
 
     public var displayName:String?
     public var iconImage:ImageSourceItem?
     public var lifeCycleUnit:BatchAppLifecycleUnit = .systemMemory
 
-    required public init(_ identifier:String, _ appClass: BatchApp.Type){
+    required public init(_ identifier:String, _ appClass: App.Type){
         self.identifier = identifier
         self.appClass = appClass
         super.init()
     }
 }
 
-//BatchApp
-public struct BatchAppResult {
-    internal(set) public var info:BatchAppInfo
-    internal(set) public var results:[TaskRespondable]
-}
-
-protocol BatchAppTaskable {
-    func taskClass() -> Taskable.Type
-    func instantiateTask(_ requestToken:String) -> Taskable?
-}
-
-protocol BatchAppFinalizable {
-    func finalizeTasks(_ response:BatchAppResult, _ asyncSignal: TaskAsyncSignalable) -> BatchAppResult
-}
-
-protocol BatchAppLifecycleDelegatable {
-    func didInstantiate() -> Bool
-    func willUninstantiate() -> Bool
-}
-
-public class BatchApp: ItemObject, BatchAppTaskable {
+public class App: ItemObject, AppTaskable {
     private(set) public var config: TaskConfigable?
 
-    public class var info: BatchAppInfo{
+    public class var info: AppInfo {
         fatalError("Subclasses need to implement the \(#function) method.")
     }
 
@@ -61,3 +41,18 @@ public class BatchApp: ItemObject, BatchAppTaskable {
         return taskClass.init(TaskInfo(requestToken, taskClass.self))
     }
 }
+
+public struct AppResult {
+    internal(set) public var info: AppInfo
+    internal(set) public var results:[TaskRespondable]
+}
+
+protocol AppTaskable {
+    func taskClass() -> Taskable.Type
+    func instantiateTask(_ requestToken:String) -> Taskable?
+}
+
+protocol AppFinalizable {
+    func finalizeTasks(_ response: AppResult, _ asyncSignal: TaskAsyncSignalable) -> AppResult
+}
+

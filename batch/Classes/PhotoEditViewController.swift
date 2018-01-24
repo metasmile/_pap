@@ -24,7 +24,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     var delegate: PhotoEditViewControllerDelegate?
     
     var zoomingContentView: UIView!
-    var assetView: STAssetView!
+    var assetView: AssetView!
     var placeholderImage: UIImage? {
         didSet {
             guard isViewLoaded else { return }
@@ -58,7 +58,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         zoomingContentView = UIView(frame: view.bounds)
         photoZoomingView.addSubview(zoomingContentView)
         
-        assetView = STAssetView(frame: zoomingContentView.bounds)
+        assetView = AssetView(frame: zoomingContentView.bounds)
         assetView.contentMode = .scaleAspectFit
         assetView.heroID = transitionID
         zoomingContentView.addSubview(assetView)

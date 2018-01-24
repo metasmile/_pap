@@ -1,5 +1,5 @@
 //
-//  BatchRequest.swift
+//  BatchEditRequest.swift
 //  batch
 //
 //  Created by Hyojin Mo on 2017. 12. 3..

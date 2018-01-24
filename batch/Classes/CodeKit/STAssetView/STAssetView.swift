@@ -16,7 +16,7 @@ import Photos
 import AVFoundation
 import PhotosUI
 
-class STAssetView: UIView {
+class AssetView: UIView {
     fileprivate var imageLayer: CALayer
     fileprivate var videoLayer: AVPlayerLayer
     fileprivate var livePhotoView: PHLivePhotoView
@@ -124,7 +124,7 @@ class STAssetView: UIView {
     
     fileprivate func cancelCurrentImageRequest() {
         if let imageRequestID = imageRequestID {
-            STAssetView.imageManager.cancelImageRequest(imageRequestID)
+            AssetView.imageManager.cancelImageRequest(imageRequestID)
         }
         self.imageRequestID = nil
     }
@@ -205,7 +205,7 @@ class STAssetView: UIView {
 
 //MARK: - Draw asset
 
-extension STAssetView {
+extension AssetView {
     func setAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: ((Any?) -> Void)? = nil) {
         if asset.mediaType == .image {
             setImageAsset(asset, cancelDrawingIfNeeded: cancellation, completion: completion)
@@ -273,7 +273,7 @@ extension STAssetView {
     }
 }
 
-extension STAssetView {
+extension AssetView {
     func setThumbnailAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: ((UIImage?) -> Void)? = nil) {
         loadImage(for: asset) { [weak self] image in
             guard !cancellation() else {
@@ -295,17 +295,17 @@ extension STAssetView {
 
 //MARK: - Load media from asset
 
-extension STAssetView {
+extension AssetView {
     fileprivate func loadImage(for asset: PHAsset, completion: @escaping (UIImage?) -> Void) {
         let targetSize = CGSize(width: bounds.width * UIScreen.main.nativeScale, height: bounds.height * UIScreen.main.nativeScale)
-        imageRequestID = STAssetView.imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: imageRequestOptions) { (image, info) in
+        imageRequestID = AssetView.imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: imageRequestOptions) { (image, info) in
 
             completion(image)
         }
     }
     
     fileprivate func loadVideo(for asset: PHAsset, completion: @escaping (AVPlayerItem?) -> Void) {
-        imageRequestID = STAssetView.imageManager.requestAVAsset(forVideo: asset, options: videoRequestOptions) { (video, audioMix, info) in
+        imageRequestID = AssetView.imageManager.requestAVAsset(forVideo: asset, options: videoRequestOptions) { (video, audioMix, info) in
             if let video = video {
                 let playerItem = AVPlayerItem(asset: video)
                 playerItem.audioMix = audioMix
@@ -319,13 +319,13 @@ extension STAssetView {
     
     fileprivate func loadLivePhoto(for asset: PHAsset, completion: @escaping (PHLivePhoto?) -> Void) {
         let targetSize = CGSize(width: bounds.width * UIScreen.main.nativeScale, height: bounds.height * UIScreen.main.nativeScale)
-        imageRequestID = STAssetView.imageManager.requestLivePhoto(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: livePhotoRequestOptions, resultHandler: { (livePhoto, info) in
+        imageRequestID = AssetView.imageManager.requestLivePhoto(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: livePhotoRequestOptions, resultHandler: { (livePhoto, info) in
             completion(livePhoto)
         })
     }
 }
 
-extension STAssetView {
+extension AssetView {
     // Abs
     func playAny() {
         guard let asset = asset else { return }
@@ -412,7 +412,7 @@ extension STAssetView {
 
 // Live Photo
 
-extension STAssetView: PHLivePhotoViewDelegate {
+extension AssetView: PHLivePhotoViewDelegate {
     func livePhotoView(_ livePhotoView: PHLivePhotoView, willBeginPlaybackWith playbackStyle: PHLivePhotoViewPlaybackStyle) {
         isLivePhotoPlaying = true
     }

@@ -12,8 +12,8 @@ class PhotoPickerDetailViewController: UIViewController {
     var actionItems:[UIPreviewActionItem]?
     var batchEditItem: BatchEditItem?
 
-    private lazy var assetView: STAssetView = {
-        let assetView = STAssetView()
+    private lazy var assetView: AssetView = {
+        let assetView = AssetView()
         assetView.contentMode = .scaleAspectFit
         assetView.translatesAutoresizingMaskIntoConstraints = false
         return assetView
