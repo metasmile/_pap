@@ -1,5 +1,5 @@
 //
-//  STAssetView.swift
+//  AssetView.swift
 //  batch
 //
 //  Created by Hyojin Mo on 2017. 11. 27..
