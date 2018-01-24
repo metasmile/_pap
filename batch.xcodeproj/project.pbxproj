@@ -42,21 +42,29 @@
 		4F71D0DA282B291282460314 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D2973EF3E2EEA95BB75C /* Localizable.strings */; };
 		4F71D0DA48145F19DC7D3C78 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D0465818737363AC2F21 /* Localizable.strings */; };
 		4F71D1026669AC77493062A5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D6FCA06144FFCE03095F /* Localizable.strings */; };
+		4F71D10563DEA30DE2E562D2 /* BatchAppTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DFD8A2DADE972E80B001 /* BatchAppTask.swift */; };
 		4F71D118B669E82F2B55A817 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D12588991C3FDEE3FB44 /* Localizable.strings */; };
+		4F71D194C5F36C5A7BB1EA7E /* Sourceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA0323F25F71D0EF2EE6 /* Sourceable.swift */; };
 		4F71D1EC0191FF848067761E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D975D41FEE6C3B165054 /* Localizable.strings */; };
 		4F71D2614748F4E556D5365A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DAE5887558D4E4B7D144 /* Localizable.strings */; };
+		4F71D2D2CF84ED29E4A1ED02 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D89F3850DE4667332519 /* Item.swift */; };
 		4F71D3257F8705A8937718BB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DCACF84A1DA9BF620678 /* Localizable.strings */; };
 		4F71D338BCF0947F9B174437 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DE60BD22267627AD3369 /* Localizable.strings */; };
 		4F71D4230BFCF16EAFF45A93 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DBDD238052BB562A1520 /* Localizable.strings */; };
 		4F71D44A6DE27B497526C12B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D2770A3ABFFB8B2F162F /* Localizable.strings */; };
 		4F71D46A2E01D6568FC60D46 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D8823AC97D63EC7BA13A /* Localizable.strings */; };
 		4F71D5C38A3A314B3F982C68 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D637F755EE4CEE5006C1 /* Localizable.strings */; };
+		4F71D760C8DCECB3DDC59844 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5F397502710E3224CC9 /* Object.swift */; };
+		4F71D784403CB0B777A77673 /* BatchAppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA0C0336AE95CE485DC5 /* BatchAppConfig.swift */; };
 		4F71D7C58B5BF1E8207B9AAE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D84417A2C4589C62460B /* Localizable.strings */; };
 		4F71D7DAD5763166CE0B4A89 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DAE2B3174CD120B13469 /* Localizable.strings */; };
 		4F71D894BA4AF87D4280F895 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D15BDF00971756358C3B /* Localizable.strings */; };
+		4F71D8A2AAEB13A2A8854942 /* BatchAppTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA8D4E5709F9CA697F06 /* BatchAppTransform.swift */; };
 		4F71D8C8C2085D0C1F338230 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D358848AEDDF518D0F51 /* Localizable.stringsdict */; };
 		4F71D8D45A66CFFA55C5E823 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DD86C410B7171864EDFB /* Localizable.strings */; };
+		4F71D8DF982B7B7E03C4AEAD /* BatchTaskOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D9F67EDBD9AD2EDD7863 /* BatchTaskOperation.swift */; };
 		4F71D900A88D0FA54F182C93 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D787FA7288346F55C7D2 /* Localizable.strings */; };
+		4F71D92EFFE6AB7CB8466FBF /* BatchAppTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D567FF4955BC3319335A /* BatchAppTaskManager.swift */; };
 		4F71D94449F2D394F3FD67D9 /* PhotoPickerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D67696ED68B67F19CD2D /* PhotoPickerDetailViewController.swift */; };
 		4F71D9D2E011306A0C3E3D3C /* STAssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA77EDA73C4377CF8FC5 /* STAssetView.swift */; };
 		4F71DA1C35BDC970075FE453 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D45095297800225E20DF /* Localizable.strings */; };
@@ -74,11 +82,16 @@
 		4F71DC974B06CAE26F7EBFBC /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DED41994345222015B8E /* GradientView.swift */; };
 		4F71DCA098F2543CE22F03D8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D9D826CB9368FA0D3030 /* Localizable.strings */; };
 		4F71DD360A7154C52841BA2B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D138433504A2ED1451C7 /* Localizable.strings */; };
+		4F71DE1055F93BCCA07C584C /* BatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4305F2FF55CF563B2C1 /* BatchApp.swift */; };
 		4F71DE2A4C6974A1B8D6C2EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D2193E4724FAF0ED8057 /* Localizable.strings */; };
 		4F71DE4FC79A776D17773600 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D2C9711FAEC6CE18FD81 /* Localizable.strings */; };
 		4F71DE5FFC482B127E18C983 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D8E2B5D85DC216C35E0F /* Localizable.strings */; };
 		4F71DE7C4238DC4EB1557C64 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D337E9B5A50C5C9ACE1D /* Localizable.strings */; };
 		4F71DEDB6C65F93312302E62 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DF0F772F08504E1E690D /* Localizable.strings */; };
+		4F71DEE2A09FA8815BF5B87D /* BatchTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB49D7129C6702AFF2A2 /* BatchTask.swift */; };
+		4F71DEE986744E4AA7F72A12 /* BatchAppLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7795DB2374E3A9EDC77 /* BatchAppLifecycle.swift */; };
+		4F71DEF75AD939F5E3E57CCD /* SourceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0829FE6313ECC97AD80 /* SourceItem.swift */; };
+		4F71DF6C670056CD58E53A5B /* BatchAppReactable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0B9B95A1591D63C3ACD /* BatchAppReactable.swift */; };
 		4F71DF84A842026E8D838578 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D887CED2C76BAA073A04 /* Localizable.strings */; };
 		4F71DFE1512BF9DD6B2AB666 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D83EA1B944E9FD7CF74E /* Localizable.strings */; };
 /* End PBXBuildFile section */
@@ -116,6 +129,8 @@
 		0ABFCF921F14B7CB0078A583 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		0ABFCF981F14B8A70078A583 /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoPickerViewController.swift; path = Classes/PhotoPickerViewController.swift; sourceTree = "<group>"; };
 		281B8EE7F3B930519ABFAAA4 /* Pods_batch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_batch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F71D0829FE6313ECC97AD80 /* SourceItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceItem.swift; sourceTree = "<group>"; };
+		4F71D0B9B95A1591D63C3ACD /* BatchAppReactable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchAppReactable.swift; sourceTree = "<group>"; };
 		4F71D0EF623C8441D279F9EF /* th */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = th; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D13BC023ADD52581C963 /* pt_PT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = pt_PT; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D1C5AA013F26B01195B5 /* zh_CN */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = zh_CN; path = Localizable.strings; sourceTree = "<group>"; };
@@ -128,28 +143,38 @@
 		4F71D34C9ED95194C6049CBC /* en-GB */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = "en-GB"; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D3C7C1CE983059638522 /* hi */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = hi; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D3CC1CD448379874CFD8 /* nl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = nl; path = Localizable.strings; sourceTree = "<group>"; };
+		4F71D4305F2FF55CF563B2C1 /* BatchApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchApp.swift; sourceTree = "<group>"; };
 		4F71D44B93D442C1A29F2A4F /* ro */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ro; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D474B8EB459D65B262A9 /* vi */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = vi; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D491C461449E0AAF6754 /* sk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = sk; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D51065FD6291C02F6F60 /* uk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = uk; path = Localizable.strings; sourceTree = "<group>"; };
+		4F71D567FF4955BC3319335A /* BatchAppTaskManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchAppTaskManager.swift; sourceTree = "<group>"; };
 		4F71D57DEC15CB9F9006B19F /* es */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D5E0CD7DB061EEEA1608 /* el */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = el; path = Localizable.strings; sourceTree = "<group>"; };
+		4F71D5F397502710E3224CC9 /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
 		4F71D5F451FA76B82B1CA2BB /* it */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = it; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D6033841E6E5B5B3890A /* es_MX */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = es_MX; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D67696ED68B67F19CD2D /* PhotoPickerDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerDetailViewController.swift; sourceTree = "<group>"; };
 		4F71D6885682DC1EDF20D4D6 /* Base */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Base; path = Localizable.strings; sourceTree = "<group>"; };
+		4F71D7795DB2374E3A9EDC77 /* BatchAppLifecycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchAppLifecycle.swift; sourceTree = "<group>"; };
 		4F71D7AEEEE1B45DEE86ED9A /* ar */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ar; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D81FED9664274B59247E /* pl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = pl; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D884AE168A3F257D1058 /* fr_CA */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fr_CA; path = Localizable.strings; sourceTree = "<group>"; };
+		4F71D89F3850DE4667332519 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		4F71D913359C96D491EF956D /* pt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = pt; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D940F3555AFC73F93365 /* ko */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ko; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D9DED43932FEE703A003 /* fi */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fi; path = Localizable.strings; sourceTree = "<group>"; };
+		4F71D9F67EDBD9AD2EDD7863 /* BatchTaskOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchTaskOperation.swift; sourceTree = "<group>"; };
+		4F71DA0323F25F71D0EF2EE6 /* Sourceable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sourceable.swift; sourceTree = "<group>"; };
+		4F71DA0C0336AE95CE485DC5 /* BatchAppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchAppConfig.swift; sourceTree = "<group>"; };
 		4F71DA2181531C3B9ED2FC02 /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71DA5B89606EF48C6B4543 /* ca */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ca; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71DA77EDA73C4377CF8FC5 /* STAssetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STAssetView.swift; sourceTree = "<group>"; };
+		4F71DA8D4E5709F9CA697F06 /* BatchAppTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchAppTransform.swift; sourceTree = "<group>"; };
 		4F71DA9A515F5BA703A54591 /* ja */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ja; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71DB0BE89ADC6F301D2F4A /* en-AU */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = "en-AU"; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71DB3E4F4F185F2492D245 /* cs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = cs; path = Localizable.strings; sourceTree = "<group>"; };
+		4F71DB49D7129C6702AFF2A2 /* BatchTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchTask.swift; sourceTree = "<group>"; };
 		4F71DB4D726887E340A334FE /* Base */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.stringsdict; name = Base; path = Localizable.stringsdict; sourceTree = "<group>"; };
 		4F71DB8E76378BA0C14401DE /* hr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = hr; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71DBCF0DEBB7C45E3D4CB1 /* zh_HK */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = zh_HK; path = Localizable.strings; sourceTree = "<group>"; };
@@ -160,6 +185,7 @@
 		4F71DED41994345222015B8E /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		4F71DF5E3D4E03A0AA20BB11 /* he */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = he; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71DFA68826746F9F8F754F /* id */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = id; path = Localizable.strings; sourceTree = "<group>"; };
+		4F71DFD8A2DADE972E80B001 /* BatchAppTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchAppTask.swift; sourceTree = "<group>"; };
 		614D248BD87AEAE91795DFC4 /* Pods-batch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch.release.xcconfig"; path = "Pods/Target Support Files/Pods-batch/Pods-batch.release.xcconfig"; sourceTree = "<group>"; };
 		E6C115FBD773BA835480B08C /* Pods-batch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-batch/Pods-batch.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -238,22 +264,30 @@
 			name = Interfaces;
 			sourceTree = "<group>";
 		};
-		0AA86ED31FD1196C00E6E1B0 /* Batch App Dock */ = {
+		0AA86ED31FD1196C00E6E1B0 /* BatchAppDock */ = {
 			isa = PBXGroup;
 			children = (
 				0AA86ED41FD1199A00E6E1B0 /* STAppDock.swift */,
 				0AA86ED61FD11EEF00E6E1B0 /* STAppDockView.xib */,
 				0AA86ED81FD12BF600E6E1B0 /* STAppDockViewCell.xib */,
 			);
-			name = "Batch App Dock";
+			name = BatchAppDock;
 			sourceTree = "<group>";
 		};
-		0AA86EDB1FD3A48E00E6E1B0 /* Batch App */ = {
+		0AA86EDB1FD3A48E00E6E1B0 /* Batch */ = {
 			isa = PBXGroup;
 			children = (
 				0AA86EDC1FD3A4B900E6E1B0 /* BatchRequest.swift */,
+				4F71DA0C0336AE95CE485DC5 /* BatchAppConfig.swift */,
+				4F71D4305F2FF55CF563B2C1 /* BatchApp.swift */,
+				4F71DFD8A2DADE972E80B001 /* BatchAppTask.swift */,
+				4F71D7795DB2374E3A9EDC77 /* BatchAppLifecycle.swift */,
+				4F71D0B9B95A1591D63C3ACD /* BatchAppReactable.swift */,
+				4F71D567FF4955BC3319335A /* BatchAppTaskManager.swift */,
+				4F71D9F67EDBD9AD2EDD7863 /* BatchTaskOperation.swift */,
+				4F71DB49D7129C6702AFF2A2 /* BatchTask.swift */,
 			);
-			name = "Batch App";
+			name = Batch;
 			sourceTree = "<group>";
 		};
 		0ABFCF6F1F14B65C0078A583 = {
@@ -318,8 +352,8 @@
 			isa = PBXGroup;
 			children = (
 				0A9EBAE11FD6F34300E83778 /* Selector */,
-				0AA86EDB1FD3A48E00E6E1B0 /* Batch App */,
-				0AA86ED31FD1196C00E6E1B0 /* Batch App Dock */,
+				0AA86EDB1FD3A48E00E6E1B0 /* Batch */,
+				0AA86ED31FD1196C00E6E1B0 /* BatchAppDock */,
 				0A7459E71F709AC800CA70E1 /* Extensions */,
 				0AA1A07B1F4D121A006297DF /* Edit */,
 				0A8C4ADC1F3C159300B7246A /* Custom Controls */,
@@ -329,6 +363,7 @@
 				0AA37B271FD53163002803B8 /* AppDockViewController.swift */,
 				4F71D67696ED68B67F19CD2D /* PhotoPickerDetailViewController.swift */,
 				4F71D2EACB3C0ECE4939A9E0 /* CodeKit */,
+				4F71DCB7FD70D9D27E5C6324 /* Apps */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -401,6 +436,10 @@
 			isa = PBXGroup;
 			children = (
 				4F71D97A52EB95A742380292 /* STAssetView */,
+				4F71D5F397502710E3224CC9 /* Object.swift */,
+				4F71D89F3850DE4667332519 /* Item.swift */,
+				4F71DA0323F25F71D0EF2EE6 /* Sourceable.swift */,
+				4F71D0829FE6313ECC97AD80 /* SourceItem.swift */,
 			);
 			name = CodeKit;
 			path = Classes/CodeKit;
@@ -589,6 +628,14 @@
 				4F71D358848AEDDF518D0F51 /* Localizable.stringsdict */,
 			);
 			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		4F71DCB7FD70D9D27E5C6324 /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				4F71DA8D4E5709F9CA697F06 /* BatchAppTransform.swift */,
+			);
+			name = Apps;
 			sourceTree = "<group>";
 		};
 		4F71DD3693769A2291D991D5 /* hu.lproj */ = {
@@ -941,6 +988,19 @@
 				4F71DC974B06CAE26F7EBFBC /* GradientView.swift in Sources */,
 				4F71D94449F2D394F3FD67D9 /* PhotoPickerDetailViewController.swift in Sources */,
 				4F71D9D2E011306A0C3E3D3C /* STAssetView.swift in Sources */,
+				4F71D760C8DCECB3DDC59844 /* Object.swift in Sources */,
+				4F71D2D2CF84ED29E4A1ED02 /* Item.swift in Sources */,
+				4F71D194C5F36C5A7BB1EA7E /* Sourceable.swift in Sources */,
+				4F71D784403CB0B777A77673 /* BatchAppConfig.swift in Sources */,
+				4F71DE1055F93BCCA07C584C /* BatchApp.swift in Sources */,
+				4F71D8A2AAEB13A2A8854942 /* BatchAppTransform.swift in Sources */,
+				4F71DEF75AD939F5E3E57CCD /* SourceItem.swift in Sources */,
+				4F71D10563DEA30DE2E562D2 /* BatchAppTask.swift in Sources */,
+				4F71DEE986744E4AA7F72A12 /* BatchAppLifecycle.swift in Sources */,
+				4F71DF6C670056CD58E53A5B /* BatchAppReactable.swift in Sources */,
+				4F71D92EFFE6AB7CB8466FBF /* BatchAppTaskManager.swift in Sources */,
+				4F71D8DF982B7B7E03C4AEAD /* BatchTaskOperation.swift in Sources */,
+				4F71DEE2A09FA8815BF5B87D /* BatchTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
