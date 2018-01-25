@@ -5,39 +5,7 @@
 
 import Foundation
 
-
-struct AppTaskWorkItem: TaskRespondable, AppRespondable, Equatable {
-    let request:AppTaskRequest
-    let info: TaskInfo
-    let task: Taskable
-
-    fileprivate(set) var result: TaskResultable?
-}
-
-extension AppTaskWorkItem {
-
-    // if canceled by requester, return false, passed, return true
-    func response(_ state: TaskState) -> Bool{
-        task.info.state = state
-        var canceled = false
-        request.responseHandler?(self, &canceled)
-        return !canceled
-    }
-
-    static func ==(lhs: AppTaskWorkItem, rhs: AppTaskWorkItem) -> Bool {
-        let lhsInfo = lhs.info, rhsInfo = rhs.info
-        return lhsInfo.token == rhsInfo.token
-                && lhsInfo.requestToken == rhsInfo.requestToken
-                && lhsInfo.taskType == rhs.info.taskType
-                && lhsInfo.state == rhsInfo.state
-    }
-}
-
-struct AppTaskOperationQueueResultItem {
-    var finished:[AppTaskWorkItem]?
-}
-
-protocol AppTaskOperationQueueOperationDelegate: class {
+protocol AppTaskOperationQueueDelegate: class {
     func mainOperationQueue() -> DispatchQueue
 
     func willPerformTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem)
@@ -45,13 +13,13 @@ protocol AppTaskOperationQueueOperationDelegate: class {
     func didCancelTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem)
     func didFailTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem)
 
-    func didFinishAllTasksInQueue(_ queue: AppTaskOperationQueue, _ result: AppTaskOperationQueueResultItem)
+    func didFinishAllTasksInQueue(_ queue: AppTaskOperationQueue, _ result: AppTaskResultItem)
 }
 
 class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
 
     private var finshedQueue = ItemQueue<AppTaskWorkItem>()
-    private weak var delegate: AppTaskOperationQueueOperationDelegate?
+    private weak var delegate: AppTaskOperationQueueDelegate?
 
     private(set) public var currentTask: TaskInfo?
     private(set) public var cancelled = false
@@ -71,7 +39,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
         return self.queue.label
     }
 
-    required init(delegate: AppTaskOperationQueueOperationDelegate) {
+    required init(delegate: AppTaskOperationQueueDelegate) {
         self.delegate = delegate
     }
 
@@ -133,7 +101,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
     }
 
     private func dispatchFinishedResults(){
-        let queueResult = AppTaskOperationQueueResultItem(finished: self.finshedQueue.dequeueAll())
+        let queueResult = AppTaskResultItem(finished: self.finshedQueue.dequeueAll())
         self.mainOperationQueue.async {
             self.delegate?.didFinishAllTasksInQueue(self, queueResult)
         }

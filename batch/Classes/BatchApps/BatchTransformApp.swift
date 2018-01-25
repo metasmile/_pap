@@ -6,7 +6,7 @@
 import Foundation
 import QuartzCore
 
-class BatchApp_Transfrom: App, AppFinalizable {
+class BatchTransformApp: App, FinalizableTaskableApp {
 
     override public class var info: AppInfo {
         get{
@@ -45,7 +45,7 @@ class BatchApp_Transfrom: App, AppFinalizable {
         return _TransfromTask.self
     }
 
-    public func finalizeTasks(_ response: AppResult, _ asyncSignal: TaskAsyncSignalable) -> AppResult {
+    public func finalizeTasks(_ response: AppTaskResult, _ asyncSignal: TaskAsyncSignalable) -> AppTaskResult {
 //        asyncSignal.begin()
 
         print("------------->"

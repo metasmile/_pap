@@ -7,44 +7,30 @@ import Foundation
 
 public typealias AppTaskRequest = TaskRequestPrototype<App.Type, TaskParameterable, TaskRespondable>
 
-public protocol AppRespondable {
-    var request:AppTaskRequest { get }
-    var info: TaskInfo { get }
-    var appInfo: AppInfo { get }
-}
-
-extension AppRespondable {
-    var appInfo: AppInfo {
-        get{
-            return self.request.appClass.info
-        }
-    }
-}
-
 public protocol AppTaskManagerDelegate: class {
-    func didRespond(result: AppResult, progress:Double, remained:[AppRespondable], finished:[AppRespondable])
-    func didFinish(results:[AppResult], for:[AppRespondable])
+    func didRespond(result: AppTaskResult, progress:Double, remained:[AppTaskRespondable], finished:[AppTaskRespondable])
+    func didFinish(results:[AppTaskResult], for:[AppTaskRespondable])
 }
 
 public protocol AppTaskManagerTaskDelegate: AppTaskManagerDelegate {
-    func willPerformTask(info: AppRespondable)
-    func didCompleteTask(info: AppRespondable)
-    func didCancelTask(info: AppRespondable)
-    func didFailTask(info: AppRespondable)
+    func willPerformTask(info: AppTaskRespondable)
+    func didCompleteTask(info: AppTaskRespondable)
+    func didCancelTask(info: AppTaskRespondable)
+    func didFailTask(info: AppTaskRespondable)
 }
 
-public class AppTaskManager: AppTaskOperationQueueOperationDelegate {
+public class AppTaskManager: AppTaskOperationQueueDelegate {
 
     static let shared = AppTaskManager(8)
 
     public weak var delegate:AppTaskManagerDelegate?
 
-    let sharedSyncQueue:DispatchQueue = DispatchQueue(label:"com.stells.batch__internal_AppTaskManager")
+    let sharedSyncQueue:DispatchQueue = DispatchQueue(label:"com.stells.batch__internal_AppTaskManager"+UUID().uuidString)
 
     private var _queuePool = [String: AppTaskOperationQueue]()
     private var _requestedWorkItems = [String: AppTaskWorkItem]()
 
-    private var _reactionItem: AppReactable?
+    private var _reactionItem: AppTaskReactable?
 
     //TODO: improve queue assign performance
     private var _currentQueue: AppTaskOperationQueue {
@@ -170,7 +156,7 @@ public class AppTaskManager: AppTaskOperationQueueOperationDelegate {
         return true
     }
 
-    public func perform(_ reaction: AppReactable?=nil) -> Bool {
+    public func perform(_ reaction: AppTaskReactable?=nil) -> Bool {
         if reaction != nil{
             sharedSyncQueue.sync(flags:.barrier){ [unowned self] in
                 self._reactionItem = reaction
@@ -207,7 +193,7 @@ public class AppTaskManager: AppTaskOperationQueueOperationDelegate {
         (self.delegate as? AppTaskManagerTaskDelegate)?.didCancelTask(info: workItem)
     }
 
-    func didFinishAllTasksInQueue(_ queue: AppTaskOperationQueue, _ result: AppTaskOperationQueueResultItem) {
+    func didFinishAllTasksInQueue(_ queue: AppTaskOperationQueue, _ result: AppTaskResultItem) {
 
         if let finishedWorkItems = result.finished{
             sharedSyncQueue.sync(flags:.barrier){
@@ -220,8 +206,8 @@ public class AppTaskManager: AppTaskOperationQueueOperationDelegate {
 
     //counter
     //TODO: multi-apps for each requestToken
-    private var _responsesForEachApps = [String: AppResult]()
-    private var _respondedWorkItems = [AppRespondable]()
+    private var _responsesForEachApps = [String: AppTaskResult]()
+    private var _respondedWorkItems = [AppTaskRespondable]()
 
     private func _countFinishedTaskByEachQueues(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem) {
         let appClass = workItem.request.appClass
@@ -229,7 +215,7 @@ public class AppTaskManager: AppTaskOperationQueueOperationDelegate {
         let appId = appInfo.identifier
 
         if !_responsesForEachApps.keys.contains(appId){
-            _responsesForEachApps[appId] = AppResult(info: appInfo, results: [TaskRespondable]())
+            _responsesForEachApps[appId] = AppTaskResult(info: appInfo, results: [TaskRespondable]())
         }
         _responsesForEachApps[appId]?.results.append(workItem)
 
@@ -277,9 +263,9 @@ public class AppTaskManager: AppTaskOperationQueueOperationDelegate {
         }
     }
 
-    private func _finializeAllAppTasks(_ resultByApps:[String: AppResult]) -> [AppResult] {
+    private func _finializeAllAppTasks(_ resultByApps:[String: AppTaskResult]) -> [AppTaskResult] {
         let asyncSignal = TaskDefaultSignal()
-        var finalizedResults = [AppResult]()
+        var finalizedResults = [AppTaskResult]()
 
         for var result in resultByApps.values {
             guard let appInstance = AppLifecycleManager.shared.acquire(result.info) else{
@@ -287,7 +273,7 @@ public class AppTaskManager: AppTaskOperationQueueOperationDelegate {
                 continue
             }
 
-            if let appInstanceAsFinalizable = appInstance as? AppFinalizable {
+            if let appInstanceAsFinalizable = appInstance as? FinalizableTaskableApp {
                 finalizedResults.append(appInstanceAsFinalizable.finalizeTasks(result, asyncSignal))
             }else{
                 finalizedResults.append(result)

@@ -5,22 +5,7 @@
 
 import Foundation
 
-public class AppInfo:ItemObject {
-    private(set) public var identifier:String
-    private(set) public var appClass: App.Type
-
-    public var displayName:String?
-    public var iconImage:ImageSourceItem?
-    public var lifeCycleUnit:BatchAppLifecycleUnit = .systemMemory
-
-    required public init(_ identifier:String, _ appClass: App.Type){
-        self.identifier = identifier
-        self.appClass = appClass
-        super.init()
-    }
-}
-
-public class App: ItemObject, AppTaskable {
+public class App: ItemObject, TaskableApp {
     private(set) public var config: TaskConfigable?
 
     public class var info: AppInfo {
@@ -42,17 +27,26 @@ public class App: ItemObject, AppTaskable {
     }
 }
 
-public struct AppResult {
-    internal(set) public var info: AppInfo
-    internal(set) public var results:[TaskRespondable]
+public class AppInfo:ItemObject {
+    private(set) public var identifier:String
+    private(set) public var appClass: App.Type
+
+    public var displayName:String?
+    public var iconImage:ImageSourceItem?
+    public var lifeCycleUnit: AppLifecycleUnit = .systemMemory
+
+    required public init(_ identifier:String, _ appClass: App.Type){
+        self.identifier = identifier
+        self.appClass = appClass
+        super.init()
+    }
 }
 
-protocol AppTaskable {
+protocol TaskableApp {
     func taskClass() -> Taskable.Type
     func instantiateTask(_ requestToken:String) -> Taskable?
 }
 
-protocol AppFinalizable {
-    func finalizeTasks(_ response: AppResult, _ asyncSignal: TaskAsyncSignalable) -> AppResult
+protocol FinalizableTaskableApp {
+    func finalizeTasks(_ response: AppTaskResult, _ asyncSignal: TaskAsyncSignalable) -> AppTaskResult
 }
-

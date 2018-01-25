@@ -14,14 +14,8 @@ public class SourceItem<SourceableProtocols>: BindableObject<SourceItem.conforms
     }
 }
 
-public class ImageSourceItem: SourceItem<ImageSourceable & DataSourceable & RemoteSourceable>{
+public class ImageSourceItem: SourceItem<ImageSourceable & DataSourceable & RemoteSourceable>{}
 
-}
+public class RemoteDataSourceItem: SourceItem<DataSourceable & RemoteSourceable>{}
 
-public class RemoteDataSourceItem: SourceItem<DataSourceable & RemoteSourceable>{
-
-}
-
-public class PhotosSourceItem: SourceItem<ImageSourceable & PhotosSourceable>{
-
-}
+public class PhotosSourceItem: SourceItem<ImageSourceable & PHAssetSourceable>{}

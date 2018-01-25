@@ -5,7 +5,7 @@
 
 import Foundation
 
-public enum BatchAppLifecycleUnit:UInt {
+public enum AppLifecycleUnit:UInt {
     case systemMemory
     case task
     case performCycle
