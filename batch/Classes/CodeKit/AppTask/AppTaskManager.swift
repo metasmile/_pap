@@ -21,15 +21,26 @@ public protocol AppTaskManagerTaskDelegate: AppTaskManagerDelegate {
 
 public class AppTaskManager: AppTaskOperationQueueDelegate {
 
-    static let shared = AppTaskManager(8)
+    fileprivate static let sharedSyncQueue:DispatchQueue = DispatchQueue(label:"com.stells.batch__shared_AppTaskManager")
+
+    private static var _sharedManagers = [UInt:AppTaskManager]()
+
+    public static func shared(_ maxConcurrentCount:UInt) -> AppTaskManager{
+        guard let manager = _sharedManagers[maxConcurrentCount] else{
+            return sharedSyncQueue.sync(flags:.barrier){
+                let _manager = AppTaskManager(maxConcurrentCount)
+                _sharedManagers[maxConcurrentCount] = _manager
+                return _manager
+            }
+        }
+        return manager
+    }
 
     public weak var delegate:AppTaskManagerDelegate?
 
-    let sharedSyncQueue:DispatchQueue = DispatchQueue(label:"com.stells.batch__internal_AppTaskManager"+UUID().uuidString)
-
+    private let syncQueue:DispatchQueue = DispatchQueue(label:"com.stells.batch__internal_AppTaskManager"+UUID().uuidString)
     private var _queuePool = [String: AppTaskOperationQueue]()
     private var _requestedWorkItems = [String: AppTaskWorkItem]()
-
     private var _reactionItem: AppTaskReactable?
 
     //TODO: improve queue assign performance
@@ -87,7 +98,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
     }
 
     public func remove(request:AppTaskRequest){
-        sharedSyncQueue.sync(flags:.barrier){
+        syncQueue.sync(flags:.barrier){
 
             guard let queuedTaskItem = _requestedWorkItems[request.token]
             , let queueLabel = queuedTaskItem.info.queueLabel
@@ -116,7 +127,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
 
     //TODO: improve item append performance.
     public func append(request:AppTaskRequest) -> TaskInfo?{
-        return sharedSyncQueue.sync(flags:.barrier){
+        return syncQueue.sync(flags:.barrier){
 
             if let queued = self.query(by:[request.token]).first {
                 assert(queued.state != .unqueued, "queued.state is unqueued")
@@ -158,7 +169,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
 
     public func perform(_ reaction: AppTaskReactable?=nil) -> Bool {
         if reaction != nil{
-            sharedSyncQueue.sync(flags:.barrier){ [unowned self] in
+            syncQueue.sync(flags:.barrier){ [unowned self] in
                 self._reactionItem = reaction
             }
         }
@@ -196,7 +207,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
     func didFinishAllTasksInQueue(_ queue: AppTaskOperationQueue, _ result: AppTaskResultItem) {
 
         if let finishedWorkItems = result.finished{
-            sharedSyncQueue.sync(flags:.barrier){
+            syncQueue.sync(flags:.barrier){
                 for var workItem in finishedWorkItems{
                     _countFinishedTaskByEachQueues(queue, workItem)
                 }
