@@ -5,25 +5,31 @@
 
 import Foundation
 
-public class App: ItemObject, TaskableApp {
-    private(set) public var config: TaskConfigable?
+public protocol App {
+    static var info: AppInfo { get }
 
-    public class var info: AppInfo {
-        fatalError("Subclasses need to implement the \(#function) method.")
-    }
+    var config: TaskConfigable? { get }
+
+    //taskClass can be changed by config
+    var taskClass:Taskable.Type { get }
+
+    init(_ config: TaskConfigable?)
+}
+
+protocol ParameterbleApp {
+    func parameterClass() -> TaskParameterable.Type
+}
+
+protocol FinalizableApp {
+    func finalizeTasks(_ response: AppTaskResult, _ asyncSignal: TaskAsyncSignalable) -> AppTaskResult
+}
+
+public class AppPrototype: ItemObject {
+    private(set) public var config: TaskConfigable?
 
     required public init(_ config: TaskConfigable?=nil){
         self.config = config
         super.init()
-    }
-
-    public func taskClass() -> Taskable.Type{
-        fatalError("Subclasses need to implement the \(#function) method.")
-    }
-
-    public func instantiateTask(_ requestToken:String) -> Taskable? {
-        let taskClass = self.taskClass()
-        return taskClass.init(TaskInfo(requestToken, taskClass.self))
     }
 }
 
@@ -40,13 +46,4 @@ public class AppInfo:ItemObject {
         self.appClass = appClass
         super.init()
     }
-}
-
-protocol TaskableApp {
-    func taskClass() -> Taskable.Type
-    func instantiateTask(_ requestToken:String) -> Taskable?
-}
-
-protocol FinalizableTaskableApp {
-    func finalizeTasks(_ response: AppTaskResult, _ asyncSignal: TaskAsyncSignalable) -> AppTaskResult
 }

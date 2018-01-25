@@ -5,10 +5,6 @@
 
 import Foundation
 
-public protocol TaskConfigable {
-
-}
-
 public class AppConfigItem: TaskConfigable {
 
 }

@@ -31,6 +31,10 @@ public enum TaskError: Error {
  app task parameter
  */
 
+public protocol TaskConfigable {
+
+}
+
 public protocol TaskParameterable: Sourceable {
     var sources:[Sourceable]? { set get }
     var configs:[TaskConfigable]? { set get }
@@ -170,7 +174,7 @@ public class TaskPrototype: Item<TaskInfo> {
     }
 }
 
-public class TaskRequestPrototype<AppClassType, ParameterType, ResponseType>: ItemObject {
+public final class TaskRequest<AppClassType, ParameterType, ResponseType>: ItemObject {
     public typealias ResponseHandler = (ResponseType,_ cancel:inout Bool) -> Void
     private(set) public var appClass:AppClassType
     private(set) internal var responseHandler:ResponseHandler?

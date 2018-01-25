@@ -1,5 +1,5 @@
 //
-//  STAppDock.swift
+//  AppDock.swift
 //  batch
 //
 //  Created by Hyojin Mo on 2017. 12. 1..

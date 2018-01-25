@@ -6,9 +6,19 @@
 import Foundation
 import QuartzCore
 
-class BatchTransformApp: App, FinalizableTaskableApp {
 
-    override public class var info: AppInfo {
+extension EditItem: TaskConfigable{
+
+}
+
+public struct TransformAppParam: TaskParameterable{
+    public var sources:[Sourceable]?
+    public var configs:[TaskConfigable]?
+}
+
+public class TransformApp: AppPrototype, App, FinalizableApp {
+
+    public static var info: AppInfo {
         get{
             let info = AppInfo("com.stells.batch.transform", self)
             info.displayName = "Transform"
@@ -17,31 +27,7 @@ class BatchTransformApp: App, FinalizableTaskableApp {
         }
     }
 
-    private class _TransfromTask: TaskPrototype, Taskable {
-
-        public func cancel(_ async: TaskAsyncSignalable?){
-            print("--->", #function, type(of:self), self.info.requestToken)
-        }
-
-        public func perform(_ param: TaskParameterable, _ async: TaskAsyncSignalable?) throws -> TaskResultable?  {
-
-            async?.begin()
-            param.configs
-
-            let c = CACurrentMediaTime()
-            DispatchQueue.global().async {
-                sleep(UInt32(arc4random_uniform(2)))
-                print("--->", #function, type(of:self), self.info.requestToken, CACurrentMediaTime()-c)
-                async?.end()
-            }
-
-            async?.stopUntilEnd()
-
-            return nil
-        }
-    }
-
-    override public func taskClass() -> Taskable.Type {
+    public var taskClass:Taskable.Type{
         return _TransfromTask.self
     }
 
@@ -72,5 +58,30 @@ class BatchTransformApp: App, FinalizableTaskableApp {
 //        asyncSignal.stopUntilEnd()
 
         return response
+    }
+}
+
+
+private class _TransfromTask: TaskPrototype, Taskable {
+
+    public func cancel(_ async: TaskAsyncSignalable?){
+        print("--->", #function, type(of:self), self.info.requestToken)
+    }
+
+    public func perform(_ param: TaskParameterable, _ async: TaskAsyncSignalable?) throws -> TaskResultable?  {
+
+        async?.begin()
+        param.configs
+
+        let c = CACurrentMediaTime()
+        DispatchQueue.global().async {
+            sleep(UInt32(arc4random_uniform(2)))
+            print("--->", #function, type(of:self), self.info.requestToken, CACurrentMediaTime()-c)
+            async?.end()
+        }
+
+        async?.stopUntilEnd()
+
+        return nil
     }
 }
