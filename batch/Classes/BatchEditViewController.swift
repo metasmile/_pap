@@ -210,11 +210,14 @@ class BatchEditViewController: AppDockViewController {
     }
 }
 
+extension EditItem: TaskConfigable{}
+
 extension BatchEditViewController {
     func runBatchProcessing() {
         showBatchProgressView()
         
         previewCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
+
 
         // done.
         AppTaskManager.shared(3).append(request:AppTaskRequest(

@@ -37,6 +37,22 @@ public protocol Task {
     func cancel(_ async: TaskAsyncSignalable?)
 }
 
+protocol TypedTask: Task{
+    associatedtype ParamType
+    associatedtype ResultType
+    func perform<ParamType:TaskParameterable, ResultType:TaskResultable>(_ param:ParamType, _ async: TaskAsyncSignalable?) throws -> ResultType?
+}
+
+extension TypedTask{
+    public func perform(_ param: TaskParameterable, _ async: TaskAsyncSignalable?) throws -> TaskResultable? {
+        return try self.perform(param, async)
+    }
+
+    func perform<ParamType, ResultType>(_ param:ParamType, _ async: TaskAsyncSignalable?) throws -> ResultType? {
+        return nil
+    }
+}
+
 public class TaskPrototype: Item<TaskInfo> {
     private(set) public var info: TaskInfo
 
