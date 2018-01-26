@@ -17,7 +17,7 @@ public struct AppTaskResult {
 struct AppTaskWorkItem: TaskRespondable, AppTaskRespondable, Equatable {
     let request:AppTaskRequest
     let info: TaskInfo
-    let task: Taskable
+    let task: Task
 
     internal(set) var result: TaskResultable?
 }

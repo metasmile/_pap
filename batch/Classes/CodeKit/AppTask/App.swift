@@ -11,7 +11,7 @@ public protocol App {
     var config: TaskConfigable? { get }
 
     //taskClass can be changed by config
-    var taskClass:Taskable.Type { get }
+    var taskClass: Task.Type { get }
 
     init(_ config: TaskConfigable?)
 }

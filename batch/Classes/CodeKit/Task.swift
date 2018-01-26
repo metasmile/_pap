@@ -27,6 +27,47 @@ public enum TaskError: Error {
     case timeout
 }
 
+public protocol Task {
+    var info: TaskInfo {  get }
+
+    init(_ info: TaskInfo)
+
+    func perform(_ param: TaskParameterable, _ async: TaskAsyncSignalable?) throws -> TaskResultable?
+
+    func cancel(_ async: TaskAsyncSignalable?)
+}
+
+public class TaskPrototype: Item<TaskInfo> {
+    private(set) public var info: TaskInfo
+
+    required public init(_ info: TaskInfo){
+        self.info = info
+        super.init()
+    }
+}
+
+public final class TaskRequest<AppClassType, ParameterType, ResponseType>: ItemObject {
+    public typealias ResponseHandler = (ResponseType,_ cancel:inout Bool) -> Void
+    private(set) public var appClass:AppClassType
+    private(set) internal var responseHandler:ResponseHandler?
+    private(set) public var param:ParameterType
+    private(set) public var token:String
+
+    required public init(_ appClass:AppClassType, _ param:ParameterType){
+        self.appClass = appClass
+        self.param = param
+        self.token = UUID().uuidString
+    }
+
+    convenience public init(_ appClass:AppClassType,
+                            _ param:ParameterType,
+                            _ responseHandler:@escaping ResponseHandler) {
+
+        self.init(appClass,param)
+        self.responseHandler = responseHandler
+    }
+}
+
 /*
  app task parameter
  */
@@ -69,12 +110,12 @@ public protocol TaskRespondable {
 public class TaskInfo: Item<String> {
     private(set) public var token:String
     private(set) public var requestToken:String
-    private(set) public var taskType: Taskable.Type
+    private(set) public var taskType: Task.Type
 
     internal(set) public var state: TaskState = .unqueued
     internal(set) public var queueLabel:String?
 
-    required public init(_ requestToken: String, _ taskType: Taskable.Type){
+    required public init(_ requestToken: String, _ taskType: Task.Type){
         self.requestToken = requestToken
         self.taskType = taskType
         self.token = UUID().uuidString
@@ -155,43 +196,3 @@ extension TaskDefaultSignal: TaskAsyncSignalable, TaskSignalControllable {
     }
 }
 
-public protocol Taskable {
-    var info: TaskInfo {  get }
-
-    init(_ info: TaskInfo)
-
-    func perform(_ param: TaskParameterable, _ async: TaskAsyncSignalable?) throws -> TaskResultable?
-
-    func cancel(_ async: TaskAsyncSignalable?)
-}
-
-public class TaskPrototype: Item<TaskInfo> {
-    private(set) public var info: TaskInfo
-
-    required public init(_ info: TaskInfo){
-        self.info = info
-        super.init()
-    }
-}
-
-public final class TaskRequest<AppClassType, ParameterType, ResponseType>: ItemObject {
-    public typealias ResponseHandler = (ResponseType,_ cancel:inout Bool) -> Void
-    private(set) public var appClass:AppClassType
-    private(set) internal var responseHandler:ResponseHandler?
-    private(set) public var param:ParameterType
-    private(set) public var token:String
-
-    required public init(_ appClass:AppClassType, _ param:ParameterType){
-        self.appClass = appClass
-        self.param = param
-        self.token = UUID().uuidString
-    }
-
-    convenience public init(_ appClass:AppClassType,
-                            _ param:ParameterType,
-                            _ responseHandler:@escaping ResponseHandler) {
-
-        self.init(appClass,param)
-        self.responseHandler = responseHandler
-    }
-}

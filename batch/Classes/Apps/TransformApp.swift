@@ -16,7 +16,8 @@ public struct TransformAppParam: TaskParameterable{
     public var configs:[TaskConfigable]?
 }
 
-public class TransformApp: AppPrototype, App, FinalizableApp {
+
+public class TransformApp: AppPrototype, App, FinalizableApp  {
 
     public static var info: AppInfo {
         get{
@@ -27,7 +28,7 @@ public class TransformApp: AppPrototype, App, FinalizableApp {
         }
     }
 
-    public var taskClass:Taskable.Type{
+    public var taskClass: Task.Type {
         return _TransfromTask.self
     }
 
@@ -62,7 +63,7 @@ public class TransformApp: AppPrototype, App, FinalizableApp {
 }
 
 
-private class _TransfromTask: TaskPrototype, Taskable {
+private class _TransfromTask: TaskPrototype, Task {
 
     public func cancel(_ async: TaskAsyncSignalable?){
         print("--->", #function, type(of:self), self.info.requestToken)

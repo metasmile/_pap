@@ -66,7 +66,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         }
     }
 
-    private func createTask(_ request:AppTaskRequest) -> Taskable?{
+    private func createTask(_ request:AppTaskRequest) -> Task?{
         let appInfo = request.appClass.info
 
         guard let appInstance = AppLifecycleManager.shared.acquire(appInfo) else {
@@ -134,7 +134,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
                 return queued
             }
 
-            guard let task: Taskable = createTask(request) else {
+            guard let task: Task = createTask(request) else {
                 return nil
             }
 
