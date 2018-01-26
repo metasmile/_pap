@@ -9,7 +9,7 @@
 import UIKit
 
 class AppDockViewController: UIViewController {
-    @IBOutlet weak var appDockView: STAppDockView!
+    @IBOutlet weak var appDockView: AppDockView!
     @IBOutlet weak var appDockViewBottomLayout: NSLayoutConstraint!
     
     var cancelButton: UIBarButtonItem?

@@ -20,7 +20,7 @@ struct AppDockItem {
 
 // MARK: -
 
-class STAppDockView: CustomView {
+class AppDockView: CustomView {
     @IBOutlet weak var backgroundView: UIToolbar!
     @IBOutlet weak var topAccessoryView: UIStackView!
     @IBOutlet weak var topAccessoryViewHeightLayout: NSLayoutConstraint!
@@ -40,7 +40,7 @@ class STAppDockView: CustomView {
         setContentHuggingPriority(.defaultLow, for: .vertical)
         setContentCompressionResistancePriority(.required, for: .vertical)
         
-        appCollectionView.register(STAppDockViewCell.self, forCellWithReuseIdentifier: "STAppDockViewCell")
+        appCollectionView.register(AppDockViewCell.self, forCellWithReuseIdentifier: "STAppDockViewCell")
     }
     
     func reloadAppDock() {
@@ -88,13 +88,13 @@ class STAppDockView: CustomView {
 
 // MARK: -
 
-extension STAppDockView: UICollectionViewDataSource {
+extension AppDockView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "STAppDockViewCell", for: indexPath) as! STAppDockViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "STAppDockViewCell", for: indexPath) as! AppDockViewCell
         cell.appIconImageView.image = items[indexPath.item].appIcon?.withRenderingMode(.alwaysTemplate)
         switch barStyle {
         case .black:
@@ -106,13 +106,13 @@ extension STAppDockView: UICollectionViewDataSource {
     }
 }
 
-extension STAppDockView: UICollectionViewDelegate {
+extension AppDockView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         items[indexPath.item].run()
     }
 }
 
-extension STAppDockView: UICollectionViewDelegateFlowLayout {
+extension AppDockView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let squareSize = collectionView.bounds.height
         return CGSize(width: squareSize, height: squareSize)
@@ -140,7 +140,7 @@ extension STAppDockView: UICollectionViewDelegateFlowLayout {
 
 // MARK: -
 
-class STAppDockViewCell: CustomCollectionViewCell {
+class AppDockViewCell: CustomCollectionViewCell {
     @IBOutlet weak var appContentView: UIView!
     @IBOutlet weak var appIconImageView: UIImageView!
 }
