@@ -7,16 +7,6 @@ import Foundation
 import QuartzCore
 
 
-extension EditItem: TaskConfigable{
-
-}
-
-public struct TransformAppParam: TaskParameterable{
-    public var sources:[Sourceable]?
-    public var configs:[TaskConfigable]?
-}
-
-
 public class TransformApp: AppPrototype, App, FinalizableApp  {
 
     public static var info: AppInfo {
@@ -29,7 +19,7 @@ public class TransformApp: AppPrototype, App, FinalizableApp  {
     }
 
     public var taskClass: Task.Type {
-        return _TransfromTask.self
+        return _TransfromTask<TransformAppParam>.self
     }
 
     public func finalizeTasks(_ response: AppTaskResult, _ asyncSignal: TaskAsyncSignalable) -> AppTaskResult {
@@ -63,13 +53,29 @@ public class TransformApp: AppPrototype, App, FinalizableApp  {
 }
 
 
-private class _TransfromTask: TaskPrototype, Task {
+extension EditItem: TaskConfigable{
 
-    public func cancel(_ async: TaskAsyncSignalable?){
-        print("--->", #function, type(of:self), self.info.requestToken)
+}
+
+public struct TransformAppParam: TaskParameterable{
+    public var sources:[Sourceable]?
+    public var configs:[TaskConfigable]?
+}
+
+protocol TypedTask: Task{
+    associatedtype Parameter_T
+    associatedtype Return_T
+    func perform<Parameter_T:TaskParameterable>(_ param:Parameter_T, _ async: TaskAsyncSignalable?) throws -> Return_T?
+}
+
+extension TypedTask{
+    public func perform(_ param: TaskParameterable, _ async: TaskAsyncSignalable?) throws -> TaskResultable? {
+        return try self.perform(param, async)
     }
+}
 
-    public func perform(_ param: TaskParameterable, _ async: TaskAsyncSignalable?) throws -> TaskResultable?  {
+extension TypedTask where Parameter_T == TransformAppParam{
+    func perform(_ param: TransformAppParam, _ async: TaskAsyncSignalable?) throws -> TaskResultable?  {
 
         async?.begin()
         param.configs
@@ -83,6 +89,18 @@ private class _TransfromTask: TaskPrototype, Task {
 
         async?.stopUntilEnd()
 
+        return nil
+    }
+}
+
+private class _TransfromTask<T>: TaskPrototype, TypedTask {
+    typealias Parameter_T = T
+
+    public func cancel(_ async: TaskAsyncSignalable?){
+        print("--->", #function, type(of:self), self.info.requestToken)
+    }
+
+    func perform<Parameter_T>(_ param:Parameter_T, _ async: TaskAsyncSignalable?) throws -> TaskResultable? {
         return nil
     }
 }
