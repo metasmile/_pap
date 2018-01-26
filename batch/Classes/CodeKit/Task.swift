@@ -98,16 +98,6 @@ public protocol TaskParam: Sourceable {
     var configs:[TaskConfigable]? { set get }
 }
 
-public class TaskParameter: Item<[Sourceable]>, TaskParam {
-    public var sources: [Sourceable]?
-    public var configs: [TaskConfigable]?
-
-    override func bind(_ bindingObject: [Sourceable]?) -> [Sourceable]? {
-        self.sources = bindingObject
-        return bindingObject
-    }
-}
-
 //internal
 public protocol TaskResultable: Sourceable {
     var results:[Sourceable]? { set get }

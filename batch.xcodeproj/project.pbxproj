@@ -37,7 +37,6 @@
 		0ABFCF991F14B8A70078A583 /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABFCF981F14B8A70078A583 /* PhotoPickerViewController.swift */; };
 		28B58A4258EFA57A287EE746 /* Pods_batch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281B8EE7F3B930519ABFAAA4 /* Pods_batch.framework */; };
 		4F71D0526AC691FEFBBD169B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DEDA58D74A0E9E2ECE06 /* Localizable.strings */; };
-		4F71D0B3B392F1D5678CDF27 /* HelloApps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6C0BA9A4A467F0D39DE /* HelloApps.swift */; };
 		4F71D0D8F36D5DD098B730C9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D6650B343BD1FD52C090 /* Localizable.strings */; };
 		4F71D0DA282B291282460314 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D2973EF3E2EEA95BB75C /* Localizable.strings */; };
 		4F71D0DA48145F19DC7D3C78 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D0465818737363AC2F21 /* Localizable.strings */; };
@@ -65,8 +64,9 @@
 		4F71D8A2AAEB13A2A8854942 /* TransformApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA8D4E5709F9CA697F06 /* TransformApp.swift */; };
 		4F71D8C8C2085D0C1F338230 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D358848AEDDF518D0F51 /* Localizable.stringsdict */; };
 		4F71D8D45A66CFFA55C5E823 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DD86C410B7171864EDFB /* Localizable.strings */; };
+		4F71D8DABBBD6C7570A6042E /* HelloBatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF2E58751E7641EB78DE /* HelloBatchApp.swift */; };
 		4F71D900A88D0FA54F182C93 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D787FA7288346F55C7D2 /* Localizable.strings */; };
-		4F71D908AB7384132BB66508 /* HelloBatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D74B433D046BF6CFBE11 /* HelloBatchApp.swift */; };
+		4F71D942AC419DB77C567FB2 /* HelloApps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC5FEFE4BF3361E38AF5 /* HelloApps.swift */; };
 		4F71D94449F2D394F3FD67D9 /* PhotoPickerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D67696ED68B67F19CD2D /* PhotoPickerDetailViewController.swift */; };
 		4F71D9D2E011306A0C3E3D3C /* AssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA77EDA73C4377CF8FC5 /* AssetView.swift */; };
 		4F71DA1C35BDC970075FE453 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D45095297800225E20DF /* Localizable.strings */; };
@@ -159,8 +159,6 @@
 		4F71D6033841E6E5B5B3890A /* es_MX */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = es_MX; path = es_MX.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F71D67696ED68B67F19CD2D /* PhotoPickerDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerDetailViewController.swift; sourceTree = "<group>"; };
 		4F71D6885682DC1EDF20D4D6 /* Base */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		4F71D6C0BA9A4A467F0D39DE /* HelloApps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloApps.swift; sourceTree = "<group>"; };
-		4F71D74B433D046BF6CFBE11 /* HelloBatchApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloBatchApp.swift; sourceTree = "<group>"; };
 		4F71D7A791F06122924E0876 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		4F71D7AEEEE1B45DEE86ED9A /* ar */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F71D81FED9664274B59247E /* pl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -183,11 +181,13 @@
 		4F71DB4D726887E340A334FE /* Base */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.stringsdict; name = Base; path = Base.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		4F71DB8E76378BA0C14401DE /* hr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F71DBCF0DEBB7C45E3D4CB1 /* zh_HK */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = zh_HK; path = zh_HK.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4F71DC5FEFE4BF3361E38AF5 /* HelloApps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloApps.swift; sourceTree = "<group>"; };
 		4F71DD1540B017CB97037AD9 /* ru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F71DDDD93F75F5FAAA0F0AE /* tr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F71DE512C4F83778C8F5378 /* da */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F71DEA03C0274D1BC60952F /* zh_TW */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = zh_TW; path = zh_TW.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F71DED41994345222015B8E /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		4F71DF2E58751E7641EB78DE /* HelloBatchApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloBatchApp.swift; sourceTree = "<group>"; };
 		4F71DF5E3D4E03A0AA20BB11 /* he */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F71DFA68826746F9F8F754F /* id */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		614D248BD87AEAE91795DFC4 /* Pods-batch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch.release.xcconfig"; path = "Pods/Target Support Files/Pods-batch/Pods-batch.release.xcconfig"; sourceTree = "<group>"; };
@@ -360,7 +360,7 @@
 				0A9CC9281F8774EC00AC91A6 /* PhotoEditViewController.swift */,
 				4F71D67696ED68B67F19CD2D /* PhotoPickerDetailViewController.swift */,
 				0ABFCF981F14B8A70078A583 /* PhotoPickerViewController.swift */,
-				4F71D3F927DB065FC50389CC /* HelloApps */,
+				4F71D451733B8320254C1516 /* @HelloApps */,
 			);
 			name = Classes;
 			path = Classes;
@@ -473,14 +473,14 @@
 			path = es_MX.lproj;
 			sourceTree = "<group>";
 		};
-		4F71D3F927DB065FC50389CC /* HelloApps */ = {
+		4F71D451733B8320254C1516 /* @HelloApps */ = {
 			isa = PBXGroup;
 			children = (
-				4F71D74B433D046BF6CFBE11 /* HelloBatchApp.swift */,
-				4F71D6C0BA9A4A467F0D39DE /* HelloApps.swift */,
+				4F71DC5FEFE4BF3361E38AF5 /* HelloApps.swift */,
+				4F71DF2E58751E7641EB78DE /* HelloBatchApp.swift */,
 			);
-			name = HelloApps;
-			path = batch/HelloApps;
+			name = "@HelloApps";
+			path = "batch/@HelloApps";
 			sourceTree = SOURCE_ROOT;
 		};
 		4F71D4852A5D5EEB3AC24500 /* ca.lproj */ = {
@@ -1033,8 +1033,8 @@
 				4F71D896A7F10961FAC286B0 /* Sourceable.swift in Sources */,
 				4F71DEC1BA867A484FAE70B6 /* SourceItem.swift in Sources */,
 				4F71DD3950B7D688CA10BF08 /* PHAssetSourceable.swift in Sources */,
-				4F71D908AB7384132BB66508 /* HelloBatchApp.swift in Sources */,
-				4F71D0B3B392F1D5678CDF27 /* HelloApps.swift in Sources */,
+				4F71D942AC419DB77C567FB2 /* HelloApps.swift in Sources */,
+				4F71D8DABBBD6C7570A6042E /* HelloBatchApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

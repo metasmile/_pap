@@ -66,42 +66,42 @@ extension AppTaskRespondable {
 /*
     Reactable
 */
+public typealias AppTaskReactableProgressHanlder = (
+        _ result: AppTaskResult
+        , _ progress:Double
+        , _ remained:[AppTaskRespondable]
+        , _ finished:[AppTaskRespondable]
+) -> Void
+
+public typealias AppTaskReactableFinishHandler = (
+        _ results:[AppTaskResult]
+        , _ for:[AppTaskRespondable]
+) -> Void
+
 public protocol AppTaskReactable {
-    typealias ProgressHanlder = (
-            _ result: AppTaskResult
-            , _ progress:Double
-            , _ remained:[AppTaskRespondable]
-            , _ finished:[AppTaskRespondable]
-    ) -> Void
+    var progressHandler: AppTaskReactableProgressHanlder? { get }
+    func when(progress:@escaping AppTaskReactableProgressHanlder) -> AppTaskReactable
 
-    var progressHandler:ProgressHanlder? { get }
-    func when(progress:@escaping ProgressHanlder) -> AppTaskReactable
-
-    typealias FinishHandler = (
-            _ results:[AppTaskResult]
-            , _ for:[AppTaskRespondable]
-    ) -> Void
-
-    var finishHandler:FinishHandler?  { get }
-    func when(finish:@escaping FinishHandler) -> AppTaskReactable
+    var finishHandler: AppTaskReactableFinishHandler?  { get }
+    func when(finish:@escaping AppTaskReactableFinishHandler) -> AppTaskReactable
 }
 
-public class AppTaskReactionItem: ItemObject, AppTaskReactable {
-    private(set) public var progressHandler:ProgressHanlder?
+public class AppTaskReaction: ItemObject, AppTaskReactable {
+    private(set) public var progressHandler: AppTaskReactableProgressHanlder?
 
-    public func when(progress:@escaping ProgressHanlder) -> AppTaskReactable {
+    public func when(progress:@escaping AppTaskReactableProgressHanlder) -> AppTaskReactable {
         self.progressHandler = progress
         return self
     }
 
-    private(set) public var finishHandler:FinishHandler?
+    private(set) public var finishHandler: AppTaskReactableFinishHandler?
 
-    public func when(finish:@escaping FinishHandler) -> AppTaskReactable {
+    public func when(finish:@escaping AppTaskReactableFinishHandler) -> AppTaskReactable {
         self.finishHandler = finish
         return self
     }
 
-    public init(finish: FinishHandler?=nil){
+    public init(finish: AppTaskReactableFinishHandler?=nil){
         super.init()
         if let _finish = finish{
             self.when(finish:_finish)

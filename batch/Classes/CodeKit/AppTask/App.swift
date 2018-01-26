@@ -14,18 +14,10 @@ public protocol App {
     static var taskClass: Task.Type { get }
 
     init(_ config: TaskConfigable?)
-
-    static var paramClass: TaskParam.Protocol { get }
-}
-
-public extension App{
-    public static var paramClass: TaskParam.Protocol {
-        return TaskParam.self
-    }
 }
 
 protocol TypedApp: App {
-    associatedtype ParamType:TaskParam
+    associatedtype ParamType: TaskParam
     static var paramClass: ParamType.Type { get }
 }
 

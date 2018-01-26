@@ -17,7 +17,7 @@ public struct HelloTaskResult: TaskResultable{
     public var results:[Sourceable]?
 }
 
-public protocol HelloTaskParam: TaskParam{
+public protocol HelloTaskParam: TaskParam {
 
 }
 

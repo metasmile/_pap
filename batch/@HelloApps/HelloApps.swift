@@ -1,0 +1,66 @@
+//
+// Created by BLACKGENE on 26/01/2018.
+// Copyright (c) 2018 Stells. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+extension NSObject{
+
+    //HELLO: all the operations such as perform, request, cancel, suspend is time,queue-independent
+    func helloAppTaskManager() {
+
+        //HELLO: this means max 3 parrellel queues will be performed.
+        AppTaskManager.shared(3)
+
+        //HELLO: start immediately.
+        let firstRequest = AppTaskRequest(
+                TransformApp.self
+                , TransformAppParam(sources: [UIImage() /* or PHAsset */], configs: [EditItem()])
+        )
+        AppTaskManager.shared(3).request(firstRequest)
+
+
+        //HELLO: append first to start lazily
+        AppTaskManager.shared(3).append(request:AppTaskRequest(
+                TransformApp.self
+                , TransformAppParam(sources: [UIImage() /* or PHAsset */], configs: [EditItem()])
+        ))
+
+        AppTaskManager.shared(3).append(request:AppTaskRequest(
+                HelloTypedBatchApp.self
+
+                //HELLO: can use already typed App-dependent parameter object via AppClass.paramClass.init( ... )
+                , HelloTypedBatchApp.paramClass.init(sources: [UIImage() /* or PHAsset */], configs: [EditItem()])
+        ))
+
+        
+        //HELLO: start with reaction item
+        let reaction = AppTaskReaction().when(progress:{ result, progress, remained, finished in
+            //HELLO: progress -> whole progress. 0-1
+            //HELLO: result -> lastly finished result for now
+            //HELLO: remained -> remaining tasks
+            //HELLO: finished -> finished tasks until now
+
+        }).when(finish: { results, forResponses in
+            //HELLO: results -> Whole results.
+            //HELLO: forResponses -> forResponses request info etc...
+
+        })
+
+        let started = AppTaskManager.shared(3).perform(reaction)
+
+        //HELLO: pause.
+        AppTaskManager.shared(3).suspend()
+
+        //HELLO: restart
+        AppTaskManager.shared(3).perform()
+
+        //HELLO: remove from current queue. can remove request while .idling
+        AppTaskManager.shared(3).remove(request: firstRequest)
+
+        //HELLO: cancel all apps.
+        AppTaskManager.shared(3).cancel()
+    }
+}
