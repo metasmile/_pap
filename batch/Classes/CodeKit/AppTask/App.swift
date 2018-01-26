@@ -11,13 +11,22 @@ public protocol App {
     var config: TaskConfigable? { get }
 
     //taskClass can be changed by config
-    var taskClass: Task.Type { get }
+    static var taskClass: Task.Type { get }
 
     init(_ config: TaskConfigable?)
+
+    static var paramClass: TaskParam.Protocol { get }
 }
 
-protocol ParameterbleApp {
-    func parameterClass() -> TaskParameterable.Type
+public extension App{
+    public static var paramClass: TaskParam.Protocol {
+        return TaskParam.self
+    }
+}
+
+protocol TypedApp: App {
+    associatedtype ParamType:TaskParam
+    static var paramClass: ParamType.Type { get }
 }
 
 protocol FinalizableApp {

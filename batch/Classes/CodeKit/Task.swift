@@ -32,7 +32,7 @@ public protocol Task {
 
     init(_ info: TaskInfo)
 
-    func perform(_ param: TaskParameterable, _ async: TaskAsyncSignalable?) throws -> TaskResultable?
+    func perform(_ param: TaskParam, _ async: TaskAsyncSignalable?) throws -> TaskResultable?
 
     func cancel(_ async: TaskAsyncSignalable?)
 }
@@ -40,11 +40,12 @@ public protocol Task {
 protocol TypedTask: Task{
     associatedtype ParamType
     associatedtype ResultType
-    func perform<ParamType:TaskParameterable, ResultType:TaskResultable>(_ param:ParamType, _ async: TaskAsyncSignalable?) throws -> ResultType?
+
+    func perform<ParamType: TaskParam, ResultType:TaskResultable>(_ param:ParamType, _ async: TaskAsyncSignalable?) throws -> ResultType?
 }
 
 extension TypedTask{
-    public func perform(_ param: TaskParameterable, _ async: TaskAsyncSignalable?) throws -> TaskResultable? {
+    public func perform(_ param: TaskParam, _ async: TaskAsyncSignalable?) throws -> TaskResultable? {
         return try self.perform(param, async)
     }
 
@@ -92,12 +93,12 @@ public protocol TaskConfigable {
 
 }
 
-public protocol TaskParameterable: Sourceable {
+public protocol TaskParam: Sourceable {
     var sources:[Sourceable]? { set get }
     var configs:[TaskConfigable]? { set get }
 }
 
-public class TaskParameter: Item<[Sourceable]>, TaskParameterable {
+public class TaskParameter: Item<[Sourceable]>, TaskParam {
     public var sources: [Sourceable]?
     public var configs: [TaskConfigable]?
 

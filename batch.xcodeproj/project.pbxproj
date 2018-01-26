@@ -37,6 +37,7 @@
 		0ABFCF991F14B8A70078A583 /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABFCF981F14B8A70078A583 /* PhotoPickerViewController.swift */; };
 		28B58A4258EFA57A287EE746 /* Pods_batch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281B8EE7F3B930519ABFAAA4 /* Pods_batch.framework */; };
 		4F71D0526AC691FEFBBD169B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DEDA58D74A0E9E2ECE06 /* Localizable.strings */; };
+		4F71D0B3B392F1D5678CDF27 /* HelloApps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6C0BA9A4A467F0D39DE /* HelloApps.swift */; };
 		4F71D0D8F36D5DD098B730C9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D6650B343BD1FD52C090 /* Localizable.strings */; };
 		4F71D0DA282B291282460314 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D2973EF3E2EEA95BB75C /* Localizable.strings */; };
 		4F71D0DA48145F19DC7D3C78 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D0465818737363AC2F21 /* Localizable.strings */; };
@@ -65,6 +66,7 @@
 		4F71D8C8C2085D0C1F338230 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D358848AEDDF518D0F51 /* Localizable.stringsdict */; };
 		4F71D8D45A66CFFA55C5E823 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DD86C410B7171864EDFB /* Localizable.strings */; };
 		4F71D900A88D0FA54F182C93 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D787FA7288346F55C7D2 /* Localizable.strings */; };
+		4F71D908AB7384132BB66508 /* HelloBatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D74B433D046BF6CFBE11 /* HelloBatchApp.swift */; };
 		4F71D94449F2D394F3FD67D9 /* PhotoPickerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D67696ED68B67F19CD2D /* PhotoPickerDetailViewController.swift */; };
 		4F71D9D2E011306A0C3E3D3C /* AssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA77EDA73C4377CF8FC5 /* AssetView.swift */; };
 		4F71DA1C35BDC970075FE453 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D45095297800225E20DF /* Localizable.strings */; };
@@ -89,7 +91,6 @@
 		4F71DE2A4C6974A1B8D6C2EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D2193E4724FAF0ED8057 /* Localizable.strings */; };
 		4F71DE4FC79A776D17773600 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D2C9711FAEC6CE18FD81 /* Localizable.strings */; };
 		4F71DE5FFC482B127E18C983 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D8E2B5D85DC216C35E0F /* Localizable.strings */; };
-		4F71DE6AB1DFA1B99FF15E78 /* HelloBatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D078BEFED3B9B223E99C /* HelloBatchApp.swift */; };
 		4F71DE7C4238DC4EB1557C64 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D337E9B5A50C5C9ACE1D /* Localizable.strings */; };
 		4F71DEC1BA867A484FAE70B6 /* SourceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D37BE27E637934A4E8DE /* SourceItem.swift */; };
 		4F71DEDB6C65F93312302E62 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DF0F772F08504E1E690D /* Localizable.strings */; };
@@ -129,7 +130,6 @@
 		0ABFCF921F14B7CB0078A583 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Assets.xcassets; sourceTree = "<group>"; };
 		0ABFCF981F14B8A70078A583 /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoPickerViewController.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
 		281B8EE7F3B930519ABFAAA4 /* Pods_batch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_batch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F71D078BEFED3B9B223E99C /* HelloBatchApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloBatchApp.swift; sourceTree = "<group>"; };
 		4F71D0EF623C8441D279F9EF /* th */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F71D13BC023ADD52581C963 /* pt_PT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = pt_PT; path = pt_PT.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F71D1C5AA013F26B01195B5 /* zh_CN */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = zh_CN; path = zh_CN.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -159,6 +159,8 @@
 		4F71D6033841E6E5B5B3890A /* es_MX */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = es_MX; path = es_MX.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F71D67696ED68B67F19CD2D /* PhotoPickerDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerDetailViewController.swift; sourceTree = "<group>"; };
 		4F71D6885682DC1EDF20D4D6 /* Base */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4F71D6C0BA9A4A467F0D39DE /* HelloApps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloApps.swift; sourceTree = "<group>"; };
+		4F71D74B433D046BF6CFBE11 /* HelloBatchApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloBatchApp.swift; sourceTree = "<group>"; };
 		4F71D7A791F06122924E0876 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		4F71D7AEEEE1B45DEE86ED9A /* ar */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F71D81FED9664274B59247E /* pl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 				0A9CC9281F8774EC00AC91A6 /* PhotoEditViewController.swift */,
 				4F71D67696ED68B67F19CD2D /* PhotoPickerDetailViewController.swift */,
 				0ABFCF981F14B8A70078A583 /* PhotoPickerViewController.swift */,
+				4F71D3F927DB065FC50389CC /* HelloApps */,
 			);
 			name = Classes;
 			path = Classes;
@@ -469,6 +472,16 @@
 			);
 			path = es_MX.lproj;
 			sourceTree = "<group>";
+		};
+		4F71D3F927DB065FC50389CC /* HelloApps */ = {
+			isa = PBXGroup;
+			children = (
+				4F71D74B433D046BF6CFBE11 /* HelloBatchApp.swift */,
+				4F71D6C0BA9A4A467F0D39DE /* HelloApps.swift */,
+			);
+			name = HelloApps;
+			path = batch/HelloApps;
+			sourceTree = SOURCE_ROOT;
 		};
 		4F71D4852A5D5EEB3AC24500 /* ca.lproj */ = {
 			isa = PBXGroup;
@@ -653,7 +666,6 @@
 			isa = PBXGroup;
 			children = (
 				4F71DA8D4E5709F9CA697F06 /* TransformApp.swift */,
-				4F71D078BEFED3B9B223E99C /* HelloBatchApp.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -1021,7 +1033,8 @@
 				4F71D896A7F10961FAC286B0 /* Sourceable.swift in Sources */,
 				4F71DEC1BA867A484FAE70B6 /* SourceItem.swift in Sources */,
 				4F71DD3950B7D688CA10BF08 /* PHAssetSourceable.swift in Sources */,
-				4F71DE6AB1DFA1B99FF15E78 /* HelloBatchApp.swift in Sources */,
+				4F71D908AB7384132BB66508 /* HelloBatchApp.swift in Sources */,
+				4F71D0B3B392F1D5678CDF27 /* HelloApps.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

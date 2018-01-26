@@ -18,7 +18,7 @@ public class TransformApp: AppPrototype, App, FinalizableApp  {
         }
     }
 
-    public var taskClass: Task.Type {
+    public static var taskClass: Task.Type {
         return _TransfromTask.self
     }
 
@@ -52,7 +52,7 @@ public class TransformApp: AppPrototype, App, FinalizableApp  {
     }
 }
 
-public struct TransformAppParam: TaskParameterable{
+public struct TransformAppParam: TaskParam {
     public var sources:[Sourceable]?
     public var configs:[TaskConfigable]?
 }

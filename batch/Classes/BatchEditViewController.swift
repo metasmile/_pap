@@ -218,13 +218,6 @@ extension BatchEditViewController {
         
         previewCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
 
-
-        // done.
-        AppTaskManager.shared(3).append(request:AppTaskRequest(
-                TransformApp.self
-                , TransformAppParam(sources: [UIImage() /* or PHAsset */], configs: [EditItem()])
-        ))
-
         batchRequest = BatchEditSequenceRequest()
         batchRequest?.perform(batchEditItems.map({ BatchEditRequest($0) }), { (progress, idx) in
             DispatchQueue.main.async { [weak self] in

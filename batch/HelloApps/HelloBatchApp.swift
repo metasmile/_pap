@@ -8,17 +8,22 @@ import Dispatch
 import UIKit
 
 //TODO: more strictful parameter type for public
-struct HelloTaskParameter: TaskParameterable{
-    var sources:[Sourceable]?
-    var configs:[TaskConfigable]?
+public struct HelloTaskParameter: TaskParam {
+    public var sources:[Sourceable]?
+    public var configs:[TaskConfigable]?
 }
 
-struct HelloTaskResult: TaskResultable{
-    var results:[Sourceable]?
+public struct HelloTaskResult: TaskResultable{
+    public var results:[Sourceable]?
+}
+
+public protocol HelloTaskParam: TaskParam{
+
 }
 
 //HELLO: This app "HelloBatchApp" is supporting "FinalizableApp" for example PHAsset handling.
-public class HelloBatchApp: AppPrototype, App, FinalizableApp  {
+public class HelloBatchApp: AppPrototype, App, FinalizableApp {
+
     public static var info: AppInfo {
         get{
             let info = AppInfo("com.stells.batch.hello", self)
@@ -29,7 +34,7 @@ public class HelloBatchApp: AppPrototype, App, FinalizableApp  {
     }
 
     //HELLO: In the near future, multiple Task will be supported.
-    public var taskClass: Task.Type {
+    public static var taskClass: Task.Type {
 
         HelloVariousTask<HelloTaskParameter, HelloTaskResult>.self
         HelloVariousTask<HelloCustomTaskParameter, HelloCustomTaskResult>.self
@@ -37,8 +42,6 @@ public class HelloBatchApp: AppPrototype, App, FinalizableApp  {
         HelloAsyncTask.self
 
         return HelloTask.self
-
-
     }
 
     public func finalizeTasks(_ response: AppTaskResult, _ asyncSignal: TaskAsyncSignalable) -> AppTaskResult {
@@ -46,6 +49,13 @@ public class HelloBatchApp: AppPrototype, App, FinalizableApp  {
         return response
     }
 }
+
+//HELLO: Restricted apps own parameter type
+public class HelloTypedBatchApp: HelloBatchApp, TypedApp {
+    public typealias ParamType = HelloTaskParameter
+    public static var paramClass: ParamType.Type{ return ParamType.self }
+}
+
 
 //HELLO: HelloTask - Default Task
 private class HelloTask: TaskPrototype, TypedTask{
@@ -122,7 +132,7 @@ private class HelloAsyncTask: TaskPrototype, TypedTask{
 }
 
 //HELLO: HelloVariousTask - Generic + Fully protocolized Task
-protocol HelloCustomTaskParameter: TaskParameterable{
+protocol HelloCustomTaskParameter: TaskParam {
 
 }
 

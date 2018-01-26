@@ -5,7 +5,7 @@
 
 import Foundation
 
-public typealias AppTaskRequest = TaskRequest<App.Type, TaskParameterable, TaskRespondable>
+public typealias AppTaskRequest = TaskRequest<App.Type, TaskParam, TaskRespondable>
 
 public protocol AppTaskManagerDelegate: class {
     func didRespond(result: AppTaskResult, progress:Double, remained:[AppTaskRespondable], finished:[AppTaskRespondable])
@@ -74,7 +74,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
             return nil
         }
 
-        let taskClass = appInstance.taskClass
+        let taskClass = appInfo.appClass.taskClass
         let task = taskClass.init(TaskInfo(request.token, taskClass.self))
         return Optional(task)
     }
