@@ -4,6 +4,8 @@
 //
 
 import Foundation
+import Dispatch
+import UIKit
 
 //TODO: more strictful parameter type for public
 struct HelloTaskParameter: TaskParameterable{
@@ -37,7 +39,7 @@ public class HelloBatchApp: AppPrototype, App, FinalizableApp  {
     }
 }
 
-//HELLO: Task
+//HELLO: HelloTask - Default Task
 private class HelloTask: TaskPrototype, TypedTask{
     typealias ParamType = HelloTaskParameter
     typealias ResultType = HelloTaskResult
@@ -73,5 +75,40 @@ private extension TypedTask
     func perform(_ param: HelloTaskParameter, _ async: TaskAsyncSignalable?) throws -> HelloTaskResult?  {
 
         return nil
+    }
+}
+
+//HELLO: HelloAsyncTask - Async Task
+private class HelloAsyncTask: TaskPrototype, TypedTask{
+    typealias ParamType = HelloTaskParameter
+    typealias ResultType = HelloTaskResult
+
+    public func cancel(_ async: TaskAsyncSignalable?){
+        //HELLO: same as "perform", all the cancellation processes are also affected by this.
+    }
+
+    func perform(_ param: ParamType, _ async: TaskAsyncSignalable?) throws -> ResultType?  {
+        var helloResult:ResultType? = nil
+
+        //HELLO: use begin() if this task internally need async code.
+        async?.begin()
+
+        DispatchQueue.global().async {
+            if let image = param.sources?.first as? ImageSourceable{
+                //HELLO: process an image ... or fetch some remote resources from AFNetworking for example
+                image.asImage
+
+                helloResult = HelloTaskResult(results: [UIImage()])
+
+                //HELLO: async process is finished.
+                async?.end()
+            }
+        }
+
+        //HELLO: next tasks in same queue for each apps are waiting until below processes are finished.
+        async?.stopUntilEnd()
+
+        //HELLO: if "async?.end()" is called, and then sync return -> next task will start
+        return helloResult
     }
 }
