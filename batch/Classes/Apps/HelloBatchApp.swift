@@ -30,7 +30,15 @@ public class HelloBatchApp: AppPrototype, App, FinalizableApp  {
 
     //HELLO: In the near future, multiple Task will be supported.
     public var taskClass: Task.Type {
+
+        HelloVariousTask<HelloTaskParameter, HelloTaskResult>.self
+        HelloVariousTask<HelloCustomTaskParameter, HelloCustomTaskResult>.self
+        HelloParameterSpecificTask<HelloCustomTaskParameter>.self
+        HelloAsyncTask.self
+
         return HelloTask.self
+
+
     }
 
     public func finalizeTasks(_ response: AppTaskResult, _ asyncSignal: TaskAsyncSignalable) -> AppTaskResult {
@@ -112,3 +120,36 @@ private class HelloAsyncTask: TaskPrototype, TypedTask{
         return helloResult
     }
 }
+
+//HELLO: HelloVariousTask - Generic + Fully protocolized Task
+protocol HelloCustomTaskParameter: TaskParameterable{
+
+}
+
+protocol HelloCustomTaskResult: TaskResultable{
+
+}
+
+private class HelloVariousTask<CustomParameterType, CustomResultType>: TaskPrototype, TypedTask{
+    typealias ParamType = CustomParameterType
+    typealias ResultType = CustomResultType
+
+    public func cancel(_ async: TaskAsyncSignalable?){}
+
+    func perform<CustomParameterType, CustomResultType>(_ param:CustomParameterType, _ async: TaskAsyncSignalable?) throws -> CustomResultType? {
+        return nil
+    }
+}
+
+private class HelloParameterSpecificTask<T> : HelloVariousTask<T, HelloCustomTaskResult>{
+
+}
+
+private extension HelloVariousTask where CustomParameterType:HelloCustomTaskParameter, CustomResultType:HelloCustomTaskResult {
+
+    func perform(_ param: HelloCustomTaskParameter, _ async: TaskAsyncSignalable?) throws -> HelloCustomTaskResult?  {
+        return nil
+    }
+}
+
+//HELLO: Go infinity Tasks ...
