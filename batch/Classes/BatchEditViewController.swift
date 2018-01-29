@@ -22,7 +22,7 @@ class BatchEditViewController: AppDockViewController {
     
     var placeholderImages = [PHAsset: UIImage?]()
     
-    var batchEditItems = [BatchEditItem]()
+    var batchEditItems = [TransformAppEditItem]()
     var initialIndexPath: IndexPath?
     var batchRequest: BatchEditSequenceRequest?
     

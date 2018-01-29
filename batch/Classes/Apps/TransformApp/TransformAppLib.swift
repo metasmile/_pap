@@ -1,5 +1,5 @@
 //
-//  BatchItem.swift
+//  TransformAppLib.swift
 //  batch
 //
 //  Created by Hyojin Mo on 2017. 8. 23..
@@ -50,7 +50,7 @@ class TaskQueue: NSObject {
     }
 }
 
-class BatchEditItem: NSObject {
+class TransformAppEditItem: NSObject {
     fileprivate var imageRequestID: PHImageRequestID = PHInvalidImageRequestID
     
     var asset: PHAsset?
@@ -80,7 +80,7 @@ class BatchEditItem: NSObject {
     }
 }
 
-extension BatchEditItem {
+extension TransformAppEditItem {
     fileprivate func loadImage(_ progressHandler: ((Float) -> Void)? = nil, _ completionHandler: @escaping ((UIImage?) -> Void)) {
         guard let asset = self.asset else {
             completionHandler(nil)
@@ -153,7 +153,7 @@ extension BatchEditItem {
     }
 }
 
-extension BatchEditItem {
+extension TransformAppEditItem {
     fileprivate func loadLivePhoto(_ progressHandler: ((Float) -> Void)? = nil, _ completionHandler: @escaping ((PHLivePhoto?) -> Void)) {
         guard let asset = self.asset else {
             completionHandler(nil)
@@ -271,7 +271,7 @@ extension BatchEditItem {
     }
 }
 
-extension BatchEditItem {
+extension TransformAppEditItem {
     fileprivate func loadVideo(_ progressHandler: ((Float) -> Void)? = nil, _ completionHandler: @escaping ((AVAsset?, AVAudioMix?) -> Void)) {
         guard let asset = self.asset else {
             completionHandler(nil, nil)
@@ -579,6 +579,99 @@ extension UIImage {
             guard let cgImage = self.cgImage else { return }
             ctx.cgContext.concatenate(transform)
             ctx.cgContext.draw(cgImage, in: CGRect(origin: .zero, size: rotatedSize))
+        }
+    }
+}
+
+
+/*
+ under construction
+*/
+
+struct BatchEditRequestResult {
+    var asset: PHAsset
+    var contentEditingOutput: PHContentEditingOutput
+}
+
+class BatchRequest: NSObject {
+    func cancel() {
+
+    }
+}
+
+class BatchEditRequest: BatchRequest {
+    fileprivate var batchEditItem: TransformAppEditItem?
+
+    init(_ batchEditItem: TransformAppEditItem) {
+        super.init()
+
+        self.batchEditItem = batchEditItem
+    }
+
+    func perform(_ progress: ((Float) -> Void)? = nil, _ completion: ((BatchEditRequestResult?) -> Void)? = nil) {
+        guard let batchEditItem = batchEditItem else {
+            completion?(nil)
+            return
+        }
+
+        batchEditItem.runEditing(progress) { (asset, contentEditingOutput) in
+            var result: BatchEditRequestResult?
+            if let asset = asset, let contentEditingOutput = contentEditingOutput {
+                result = BatchEditRequestResult(asset: asset, contentEditingOutput: contentEditingOutput)
+            }
+            completion?(result)
+        }
+    }
+
+    override func cancel() {
+        super.cancel()
+
+        batchEditItem?.cancelEditing()
+    }
+}
+
+class BatchEditSequenceRequest: BatchRequest {
+    fileprivate var batchQueue = TaskQueue()
+    fileprivate var requests: [BatchEditRequest]?
+
+    func perform(_ requests: [BatchEditRequest], _ progressHandler: ((Float, Int?) -> Void)? = nil, _ completionHandler: (([BatchEditRequestResult]) -> Void)? = nil) {
+        self.requests = requests
+
+        let numberOfRequests = requests.count
+        var results = [BatchEditRequestResult]()
+
+        let progressPerRequest = 1 / Float(numberOfRequests)
+
+        for (idx, request) in requests.enumerated() {
+            autoreleasepool {
+                self.batchQueue.addTask({
+                    request.perform({ progress in
+                        progressHandler?(Float(idx) / Float(numberOfRequests) + progressPerRequest * progress, nil)
+                    }) { result in
+                        if let result = result {
+                            results.append(result)
+                        }
+                        progressHandler?(Float(idx + 1) / Float(numberOfRequests), idx)
+
+                        self.batchQueue.performNext()
+                    }
+                })
+            }
+        }
+
+        batchQueue.setFinishBlock {
+            completionHandler?(results)
+            self.requests = nil
+        }
+        batchQueue.performNext()
+    }
+
+    override func cancel() {
+        batchQueue.cancel()
+
+        guard let requests = self.requests else { return }
+        for request in requests {
+            request.cancel()
         }
     }
 }

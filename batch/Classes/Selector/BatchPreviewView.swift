@@ -20,7 +20,7 @@ protocol BatchPreviewViewDelegate {
 
 class BatchPreviewView: CustomView {
     @IBOutlet weak var collectionView: UICollectionView!
-    fileprivate (set) var batchEditItems = [BatchEditItem]()
+    fileprivate (set) var batchEditItems = [TransformAppEditItem]()
     var delegate: BatchPreviewViewDelegate?
     var batchRequest: BatchEditSequenceRequest?
     
@@ -90,7 +90,7 @@ extension BatchPreviewView {
         
         let indexPath = IndexPath(item: batchEditItems.count, section: 0)
         
-        let batchEditItem = BatchEditItem()
+        let batchEditItem = TransformAppEditItem()
         batchEditItem.asset = asset
         batchEditItems.append(batchEditItem)
         

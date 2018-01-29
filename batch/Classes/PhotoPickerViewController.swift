@@ -258,7 +258,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
 }
 
 extension PhotoPickerViewController: PhotoEditViewControllerDelegate {
-    fileprivate func showPhotoEditor(with batchEditItem: BatchEditItem?) {
+    fileprivate func showPhotoEditor(with batchEditItem: TransformAppEditItem?) {
         guard let batchEditItem = batchEditItem else { return }
         let photoEditViewController = storyboard?.instantiateViewController(withIdentifier: "PhotoEditViewController") as! PhotoEditViewController
         photoEditViewController.asset = batchEditItem.asset

@@ -25,7 +25,6 @@
 		0A9F86D01FDA756800D25EB6 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9F86CF1FDA756800D25EB6 /* PhotoCollectionViewCell.swift */; };
 		0AA166941FD7A7F10004205C /* PreviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA166931FD7A7F10004205C /* PreviewCollectionViewCell.xib */; };
 		0AA166961FD7A8710004205C /* PreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA166951FD7A8710004205C /* PreviewCollectionViewCell.swift */; };
-		0AA1A07D1F4D1232006297DF /* BatchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA1A07C1F4D1232006297DF /* BatchItem.swift */; };
 		0AA37B281FD53163002803B8 /* AppDockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA37B271FD53163002803B8 /* AppDockViewController.swift */; };
 		0AA382621F4ECA420031BAB5 /* BatchEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA382611F4ECA420031BAB5 /* BatchEditViewController.swift */; };
 		0AA86ED51FD1199A00E6E1B0 /* AppDock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA86ED41FD1199A00E6E1B0 /* AppDock.swift */; };
@@ -59,9 +58,9 @@
 		4F71D7C58B5BF1E8207B9AAE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D84417A2C4589C62460B /* Localizable.strings */; };
 		4F71D7DAD5763166CE0B4A89 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DAE2B3174CD120B13469 /* Localizable.strings */; };
 		4F71D7F6EFFEB93368DE3224 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7A791F06122924E0876 /* AppConfig.swift */; };
+		4F71D831D9490CABE288091D /* TransformAppLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DCC9EA521C6BCDC35D0C /* TransformAppLib.swift */; };
 		4F71D894BA4AF87D4280F895 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D15BDF00971756358C3B /* Localizable.strings */; };
 		4F71D896A7F10961FAC286B0 /* Sourceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB3F65BB0609398D99C6 /* Sourceable.swift */; };
-		4F71D8A2AAEB13A2A8854942 /* TransformApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA8D4E5709F9CA697F06 /* TransformApp.swift */; };
 		4F71D8C8C2085D0C1F338230 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D358848AEDDF518D0F51 /* Localizable.stringsdict */; };
 		4F71D8D45A66CFFA55C5E823 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DD86C410B7171864EDFB /* Localizable.strings */; };
 		4F71D8DABBBD6C7570A6042E /* HelloBatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF2E58751E7641EB78DE /* HelloBatchApp.swift */; };
@@ -81,8 +80,8 @@
 		4F71DBAF091384939D15EB20 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DA77AFAFC3B702DAEEF3 /* Localizable.strings */; };
 		4F71DBB20F2FE262A7A9C4FA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D704AF0662CA5111B7FA /* Localizable.strings */; };
 		4F71DBD98B4F2FB24C7423E9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D3EF40045B6A722DA146 /* Localizable.strings */; };
+		4F71DC22FD9B858071B69A44 /* TransformApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF6BFEDA4BEFBADD5320 /* TransformApp.swift */; };
 		4F71DC55BD7BDFF401B7AB59 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8588D09A8F77A3F89CF /* Task.swift */; };
-		4F71DC8DF2AEBACBF0FA5DA0 /* BatchEditRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D36D9CDDFD32333A94B4 /* BatchEditRequest.swift */; };
 		4F71DC974B06CAE26F7EBFBC /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DED41994345222015B8E /* GradientView.swift */; };
 		4F71DCA098F2543CE22F03D8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D9D826CB9368FA0D3030 /* Localizable.strings */; };
 		4F71DD360A7154C52841BA2B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D138433504A2ED1451C7 /* Localizable.strings */; };
@@ -117,7 +116,6 @@
 		0A9F86CF1FDA756800D25EB6 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoCollectionViewCell.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		0AA166931FD7A7F10004205C /* PreviewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PreviewCollectionViewCell.xib; path = PreviewCollectionViewCell.xib; sourceTree = "<group>"; };
 		0AA166951FD7A8710004205C /* PreviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PreviewCollectionViewCell.swift; path = PreviewCollectionViewCell.swift; sourceTree = "<group>"; };
-		0AA1A07C1F4D1232006297DF /* BatchItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BatchItem.swift; path = BatchItem.swift; sourceTree = "<group>"; };
 		0AA37B271FD53163002803B8 /* AppDockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDockViewController.swift; path = AppDockViewController.swift; sourceTree = "<group>"; };
 		0AA382611F4ECA420031BAB5 /* BatchEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BatchEditViewController.swift; path = BatchEditViewController.swift; sourceTree = "<group>"; };
 		0AA86ED41FD1199A00E6E1B0 /* AppDock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDock.swift; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 		4F71D3040845E37A18D32812 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		4F71D3240381293CED953B54 /* AppLifecycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLifecycle.swift; sourceTree = "<group>"; };
 		4F71D34C9ED95194C6049CBC /* en-GB */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		4F71D36D9CDDFD32333A94B4 /* BatchEditRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BatchEditRequest.swift; path = BatchEditRequest.swift; sourceTree = "<group>"; };
 		4F71D37BE27E637934A4E8DE /* SourceItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceItem.swift; sourceTree = "<group>"; };
 		4F71D39BFF3C82EBB8C70AB3 /* PHAssetSourceable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAssetSourceable.swift; sourceTree = "<group>"; };
 		4F71D3C7C1CE983059638522 /* hi */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -172,7 +169,6 @@
 		4F71DA2181531C3B9ED2FC02 /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F71DA5B89606EF48C6B4543 /* ca */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F71DA77EDA73C4377CF8FC5 /* AssetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetView.swift; sourceTree = "<group>"; };
-		4F71DA8D4E5709F9CA697F06 /* TransformApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformApp.swift; sourceTree = "<group>"; };
 		4F71DA9A515F5BA703A54591 /* ja */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F71DAD13EC98589E1C308AB /* AppTaskOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTaskOperationQueue.swift; sourceTree = "<group>"; };
 		4F71DB0BE89ADC6F301D2F4A /* en-AU */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = "en-AU"; path = "en-AU.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -182,6 +178,7 @@
 		4F71DB8E76378BA0C14401DE /* hr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F71DBCF0DEBB7C45E3D4CB1 /* zh_HK */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = zh_HK; path = zh_HK.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F71DC5FEFE4BF3361E38AF5 /* HelloApps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloApps.swift; sourceTree = "<group>"; };
+		4F71DCC9EA521C6BCDC35D0C /* TransformAppLib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformAppLib.swift; sourceTree = "<group>"; };
 		4F71DD1540B017CB97037AD9 /* ru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F71DDDD93F75F5FAAA0F0AE /* tr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F71DE512C4F83778C8F5378 /* da */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -189,6 +186,7 @@
 		4F71DED41994345222015B8E /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		4F71DF2E58751E7641EB78DE /* HelloBatchApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloBatchApp.swift; sourceTree = "<group>"; };
 		4F71DF5E3D4E03A0AA20BB11 /* he */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4F71DF6BFEDA4BEFBADD5320 /* TransformApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformApp.swift; sourceTree = "<group>"; };
 		4F71DFA68826746F9F8F754F /* id */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		614D248BD87AEAE91795DFC4 /* Pods-batch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch.release.xcconfig"; path = "Pods/Target Support Files/Pods-batch/Pods-batch.release.xcconfig"; sourceTree = "<group>"; };
 		E6C115FBD773BA835480B08C /* Pods-batch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-batch/Pods-batch.debug.xcconfig"; sourceTree = "<group>"; };
@@ -256,8 +254,6 @@
 		0AA1A07B1F4D121A006297DF /* Edit */ = {
 			isa = PBXGroup;
 			children = (
-				4F71D36D9CDDFD32333A94B4 /* BatchEditRequest.swift */,
-				0AA1A07C1F4D1232006297DF /* BatchItem.swift */,
 			);
 			name = Edit;
 			path = Edit;
@@ -595,6 +591,14 @@
 			path = th.lproj;
 			sourceTree = "<group>";
 		};
+		4F71D8FA3D2655407D04999F /* TransformApp */ = {
+			isa = PBXGroup;
+			children = (
+				4F71DCC9EA521C6BCDC35D0C /* TransformAppLib.swift */,
+			);
+			path = TransformApp;
+			sourceTree = "<group>";
+		};
 		4F71D97A52EB95A742380292 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -665,7 +669,8 @@
 		4F71DCB7FD70D9D27E5C6324 /* Apps */ = {
 			isa = PBXGroup;
 			children = (
-				4F71DA8D4E5709F9CA697F06 /* TransformApp.swift */,
+				4F71D8FA3D2655407D04999F /* TransformApp */,
+				4F71DF6BFEDA4BEFBADD5320 /* TransformApp.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -1005,7 +1010,6 @@
 				0A8D18E11F15DEEF00AABEF7 /* CustomView.swift in Sources */,
 				0A9E4AFC1F8F303200E3E805 /* BatchProgressView.swift in Sources */,
 				0ABFCF7C1F14B65C0078A583 /* AppDelegate.swift in Sources */,
-				0AA1A07D1F4D1232006297DF /* BatchItem.swift in Sources */,
 				0AA37B281FD53163002803B8 /* AppDockViewController.swift in Sources */,
 				0A9F86D01FDA756800D25EB6 /* PhotoCollectionViewCell.swift in Sources */,
 				0ABFCF991F14B8A70078A583 /* PhotoPickerViewController.swift in Sources */,
@@ -1021,9 +1025,7 @@
 				4F71D9D2E011306A0C3E3D3C /* AssetView.swift in Sources */,
 				4F71D760C8DCECB3DDC59844 /* Object.swift in Sources */,
 				4F71D2D2CF84ED29E4A1ED02 /* Item.swift in Sources */,
-				4F71D8A2AAEB13A2A8854942 /* TransformApp.swift in Sources */,
 				4F71DC55BD7BDFF401B7AB59 /* Task.swift in Sources */,
-				4F71DC8DF2AEBACBF0FA5DA0 /* BatchEditRequest.swift in Sources */,
 				4F71D7F6EFFEB93368DE3224 /* AppConfig.swift in Sources */,
 				4F71D370787DC77E5C687706 /* App.swift in Sources */,
 				4F71D31FED8AA8ECAC8F92A9 /* AppTaskManager.swift in Sources */,
@@ -1035,6 +1037,8 @@
 				4F71DD3950B7D688CA10BF08 /* PHAssetSourceable.swift in Sources */,
 				4F71D942AC419DB77C567FB2 /* HelloApps.swift in Sources */,
 				4F71D8DABBBD6C7570A6042E /* HelloBatchApp.swift in Sources */,
+				4F71D831D9490CABE288091D /* TransformAppLib.swift in Sources */,
+				4F71DC22FD9B858071B69A44 /* TransformApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
