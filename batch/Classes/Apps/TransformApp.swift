@@ -5,9 +5,9 @@
 
 import Foundation
 import QuartzCore
+import Photos
 
-
-public class TransformApp: AppPrototype, App, FinalizableApp  {
+public class TransformApp: AppPrototype, App, FinalizableApp {
 
     public static var info: AppInfo {
         get{
@@ -22,33 +22,9 @@ public class TransformApp: AppPrototype, App, FinalizableApp  {
         return _TransfromTask.self
     }
 
-    public func finalizeTasks(_ response: AppTaskResult, _ asyncSignal: TaskAsyncSignalable) -> AppTaskResult {
-//        asyncSignal.begin()
+    public func finalize(result: AppTaskResult, _ asyncSignal: TaskAsyncSignalable) -> AppTaskResult {
 
-        print("------------->"
-                , #function
-                , type(of:self)
-                , response.results.map{ ($0.info.requestToken, $0.info.token, $0.info.state) }
-        )
-
-        print("Result Status ---> total: ", response.results.count)
-        let statuses:[TaskState] = [
-            .unqueued
-            ,.idling
-            ,.performing
-            ,.cancelled
-            ,.failed
-            ,.completed
-        ]
-
-        for var s in statuses{
-            print(s, response.results.filter{ $0.info.state==s }.count)
-        }
-
-//        asyncSignal.end()
-//        asyncSignal.stopUntilEnd()
-
-        return response
+        return result
     }
 }
 

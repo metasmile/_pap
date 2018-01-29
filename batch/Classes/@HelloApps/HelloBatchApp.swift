@@ -44,9 +44,9 @@ public class HelloBatchApp: AppPrototype, App, FinalizableApp {
         return HelloTask.self
     }
 
-    public func finalizeTasks(_ response: AppTaskResult, _ asyncSignal: TaskAsyncSignalable) -> AppTaskResult {
+    public func finalize(result: AppTaskResult, _ asyncSignal: TaskAsyncSignalable) -> AppTaskResult {
 
-        return response
+        return result
     }
 }
 

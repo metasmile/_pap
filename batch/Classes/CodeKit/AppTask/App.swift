@@ -22,7 +22,7 @@ protocol TypedApp: App {
 }
 
 protocol FinalizableApp {
-    func finalizeTasks(_ response: AppTaskResult, _ asyncSignal: TaskAsyncSignalable) -> AppTaskResult
+    func finalize(result: AppTaskResult, _ asyncSignal: TaskAsyncSignalable) -> AppTaskResult
 }
 
 public class AppPrototype: ItemObject {
