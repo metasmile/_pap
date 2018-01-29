@@ -34,17 +34,19 @@ public class AppPrototype: ItemObject {
     }
 }
 
-public class AppInfo:ItemObject {
-    private(set) public var identifier:String
-    private(set) public var appClass: Appable.Type
+public struct AppInfo: Hashable {
+    let identifier:String
+    let appClass: Appable.Type
+    let displayName:String
+    let iconImage:ImageSourceItem
+    let lifeCycleUnit: AppLifecycleUnit = .systemMemory
 
-    public var displayName:String?
-    public var iconImage:ImageSourceItem?
-    public var lifeCycleUnit: AppLifecycleUnit = .systemMemory
+    public var hashValue: Int {
+        return self.identifier.hashValue
+    }
 
-    required public init(_ identifier:String, _ appClass: Appable.Type){
-        self.identifier = identifier
-        self.appClass = appClass
-        super.init()
+    public static func ==(lhs: AppInfo, rhs: AppInfo) -> Bool {
+        return lhs.identifier == rhs.identifier
     }
 }
+

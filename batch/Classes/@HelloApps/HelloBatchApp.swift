@@ -24,14 +24,12 @@ public protocol HelloTaskParam: TaskParamable {
 //HELLO: This app "HelloBatchApp" is supporting "FinalizableApp" for example PHAsset handling.
 public class HelloBatchApp: AppPrototype, Appable, FinalizableAppable {
 
-    public static var info: AppInfo {
-        get{
-            let info = AppInfo("com.stells.batch.hello", self)
-            info.displayName = "Hello Batch"
-            info.iconImage = ImageSourceItem("batch_app_icon.pdf")
-            return info
-        }
-    }
+    public static let info = AppInfo(
+            identifier: "com.stells.batch.hello"
+            , appClass: HelloBatchApp.self
+            , displayName: "Hello Batch"
+            , iconImage: ImageSourceItem("batch_app_icon.pdf")
+    )
 
     //HELLO: In the near future, multiple Task will be supported.
     public static var taskClass: Taskable.Type {

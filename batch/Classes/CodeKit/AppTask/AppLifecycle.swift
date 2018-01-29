@@ -38,7 +38,7 @@ public final class AppLifecycleManager {
     }
 
     public func acquire(_ info: AppInfo) -> Appable?{
-        return _instanceCreationQueue.sync(flags: .barrier) { [unowned info] in
+        return _instanceCreationQueue.sync(flags: .barrier) {
             _acquire(info)
         }
     }
@@ -67,7 +67,7 @@ public final class AppLifecycleManager {
             return false
         }
 
-        return _instanceCreationQueue.sync(flags: .barrier) { [unowned info] in
+        return _instanceCreationQueue.sync(flags: .barrier) {
             _discard(info)
         }
     }

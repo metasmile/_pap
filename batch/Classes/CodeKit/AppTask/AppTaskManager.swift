@@ -9,7 +9,7 @@ public typealias AppTaskRequest = TaskRequest<Appable.Type, TaskParamable, TaskR
 
 public protocol AppTaskManagerDelegate: class {
     func didRespond(result: AppTaskResult, progress:Double, remained:[AppTaskRespondable], finished:[AppTaskRespondable])
-    func didFinish(results:[AppTaskResult], for:[AppTaskRespondable])
+    func didFinish(results:[AppInfo:AppTaskResult], for:[AppTaskRespondable])
 }
 
 public protocol AppTaskManagerTaskDelegate: AppTaskManagerDelegate {
@@ -40,7 +40,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
 
     private let syncQueue:DispatchQueue = DispatchQueue(label:"com.stells.batch__internal_AppTaskManager"+UUID().uuidString)
     private var _queuePool = [String: AppTaskOperationQueue]()
-    private var _requestedWorkItems = [String: AppTaskWorkItem]()
+    private var _staticRequestedWorkItems = [String: AppTaskWorkItem]()
     private var _reactionItem: AppTaskReactable?
 
     //TODO: improve queue assign performance
@@ -87,7 +87,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
 
     public func query(by requestTokens:[String]) -> [TaskInfo] {
         return requestTokens.flatMap { token -> TaskInfo? in
-            _requestedWorkItems[token]?.info
+            _staticRequestedWorkItems[token]?.info
         }
     }
 
@@ -100,7 +100,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
     public func remove(request:AppTaskRequest){
         syncQueue.sync(flags:.barrier){
 
-            guard let queuedTaskItem = _requestedWorkItems[request.token]
+            guard let queuedTaskItem = _staticRequestedWorkItems[request.token]
             , let queueLabel = queuedTaskItem.info.queueLabel
             , let queue = self._queuePool[queueLabel]
 
@@ -121,7 +121,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
             }
 
             assert(removedItem.info.requestToken==request.token)
-            _requestedWorkItems.removeValue(forKey: removedItem.info.requestToken)
+            _staticRequestedWorkItems.removeValue(forKey: removedItem.info.requestToken)
         }
     }
 
@@ -146,7 +146,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
             )
 
             self._currentQueue.enqueue(item)
-            _requestedWorkItems[item.request.token] = item
+            _staticRequestedWorkItems[item.request.token] = item
 
             return item.task.info
         }
@@ -217,51 +217,51 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
 
     //counter
     //TODO: multi-apps for each requestToken
-    private var _responsesForEachApps = [String: AppTaskResult]()
-    private var _respondedWorkItems = [AppTaskRespondable]()
+    private var _responsesForEachApps = [AppInfo:AppTaskResult]()
+    private var _staticRespondedWorkItems = [AppTaskRespondable]()
 
     private func _countFinishedTaskByEachQueues(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem) {
         let appClass = workItem.request.appClass
         let appInfo = appClass.info
         let appId = appInfo.identifier
 
-        if !_responsesForEachApps.keys.contains(appId){
-            _responsesForEachApps[appId] = AppTaskResult(info: appInfo, results: [TaskRespondable]())
+        if !_responsesForEachApps.keys.contains(appInfo){
+            _responsesForEachApps[appInfo] = AppTaskResult(info: appInfo, results: [TaskRespondable]())
         }
-        _responsesForEachApps[appId]?.results.append(workItem)
+        _responsesForEachApps[appInfo]?.results.append(workItem)
 
-        _respondedWorkItems.append(workItem)
-        _requestedWorkItems.removeValue(forKey: workItem.info.requestToken)
+        _staticRespondedWorkItems.append(workItem)
+        _staticRequestedWorkItems.removeValue(forKey: workItem.info.requestToken)
 
-        print("Remaining tasks: ",_requestedWorkItems.count)
+        print("Remaining tasks: ", _staticRequestedWorkItems.count)
 
         //progress
-        if let currentResult = _responsesForEachApps[appId]{
-            let creq = _requestedWorkItems.count
-            let cres = _respondedWorkItems.count
+        if let currentResult = _responsesForEachApps[appInfo]{
+            let creq = _staticRequestedWorkItems.count
+            let cres = _staticRespondedWorkItems.count
             let progress = Double(cres)/Double(creq + cres)
-            let remainedResponses = Array(self._requestedWorkItems.values)
+            let remainedResponses = Array(self._staticRequestedWorkItems.values)
 
             self.mainOperationQueue().async { [unowned self] in
 
                 self.delegate?.didRespond(result: currentResult
                         , progress: progress
                         , remained: remainedResponses
-                        , finished: self._respondedWorkItems)
+                        , finished: self._staticRespondedWorkItems)
 
                 self._reactionItem?.progressHandler?(
                         currentResult
                         ,progress
                         ,remainedResponses
-                        ,self._respondedWorkItems
+                        ,self._staticRespondedWorkItems
                 )
             }
         }
 
         //all finished
-        if _requestedWorkItems.count==0 {
+        if _staticRequestedWorkItems.count==0 {
             let finalResults = self._finializeAllAppTasks(_responsesForEachApps)
-            let respondedWorkItems = self._respondedWorkItems
+            let respondedWorkItems = self._staticRespondedWorkItems
 
             self.mainOperationQueue().async { [unowned self] in
                 self._reactionItem?.finishHandler?(finalResults, respondedWorkItems)
@@ -269,25 +269,25 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
             }
 
             //clean buffered results
-            _requestedWorkItems.removeAll()
+            _staticRequestedWorkItems.removeAll()
             _responsesForEachApps.removeAll()
         }
     }
 
-    private func _finializeAllAppTasks(_ resultByApps:[String: AppTaskResult]) -> [AppTaskResult] {
+    private func _finializeAllAppTasks(_ resultByApps:[AppInfo:AppTaskResult]) -> [AppInfo:AppTaskResult] {
         let asyncSignal = TaskDefaultSignal()
-        var finalizedResults = [AppTaskResult]()
+        var finalizedResults = [AppInfo:AppTaskResult]()
 
         for var result in resultByApps.values {
             guard let appInstance = AppLifecycleManager.shared.acquire(result.info) else{
                 assert(false,"App doest not exist any longer. Check it on lifecycle manager.")
                 continue
             }
-
+            
             if let appInstanceAsFinalizable = appInstance as? FinalizableAppable {
-                finalizedResults.append(appInstanceAsFinalizable.finalize(result:result, asyncSignal))
+                finalizedResults[result.info] = appInstanceAsFinalizable.finalize(result:result, asyncSignal)
             }else{
-                finalizedResults.append(result)
+                finalizedResults[result.info] = result
             }
 
             if result.info.lifeCycleUnit == .performCycle {

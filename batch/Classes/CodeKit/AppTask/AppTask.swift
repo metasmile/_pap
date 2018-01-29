@@ -81,7 +81,7 @@ public typealias AppTaskReactableProgressHanlder = (
 ) -> Void
 
 public typealias AppTaskReactableFinishHandler = (
-        _ results:[AppTaskResult]
+        _ resultsByApps:[AppInfo:AppTaskResult]
         , _ for:[AppTaskRespondable]
 ) -> Void
 

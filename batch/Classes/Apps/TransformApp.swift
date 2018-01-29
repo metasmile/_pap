@@ -9,14 +9,12 @@ import Photos
 
 public class TransformApp: AppPrototype, Appable, FinalizableAppable {
 
-    public static var info: AppInfo {
-        get{
-            let info = AppInfo("com.stells.batch.transform", self)
-            info.displayName = "Transform"
-            info.iconImage = ImageSourceItem("batchappicon_transfrom.pdf")
-            return info
-        }
-    }
+    public static let info = AppInfo(
+            identifier: "com.stells.batch.transform"
+            , appClass: TransformApp.self
+            , displayName: "Transform"
+            , iconImage: ImageSourceItem("batchappicon_transfrom.pdf")
+    )
 
     public static var taskClass: Taskable.Type {
         return _TransfromTask.self
