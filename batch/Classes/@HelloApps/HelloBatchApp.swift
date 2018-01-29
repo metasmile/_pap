@@ -8,7 +8,7 @@ import Dispatch
 import UIKit
 
 //TODO: more strictful parameter type for public
-public struct HelloTaskParameter: TaskParam {
+public struct HelloTaskParameter: TaskParamable {
     public var sources:[Sourceable]?
     public var configs:[TaskConfigable]?
 }
@@ -17,12 +17,12 @@ public struct HelloTaskResult: TaskResultable{
     public var results:[Sourceable]?
 }
 
-public protocol HelloTaskParam: TaskParam {
+public protocol HelloTaskParam: TaskParamable {
 
 }
 
 //HELLO: This app "HelloBatchApp" is supporting "FinalizableApp" for example PHAsset handling.
-public class HelloBatchApp: AppPrototype, App, FinalizableApp {
+public class HelloBatchApp: AppPrototype, Appable, FinalizableAppable {
 
     public static var info: AppInfo {
         get{
@@ -34,7 +34,7 @@ public class HelloBatchApp: AppPrototype, App, FinalizableApp {
     }
 
     //HELLO: In the near future, multiple Task will be supported.
-    public static var taskClass: Task.Type {
+    public static var taskClass: Taskable.Type {
 
         HelloVariousTask<HelloTaskParameter, HelloTaskResult>.self
         HelloVariousTask<HelloCustomTaskParameter, HelloCustomTaskResult>.self
@@ -51,14 +51,14 @@ public class HelloBatchApp: AppPrototype, App, FinalizableApp {
 }
 
 //HELLO: Restricted apps own parameter type
-public class HelloTypedBatchApp: HelloBatchApp, TypedApp {
+public class HelloTypedBatchApp: HelloBatchApp, TypedAppable {
     public typealias ParamType = HelloTaskParameter
     public static var paramClass: ParamType.Type{ return ParamType.self }
 }
 
 
 //HELLO: HelloTask - Default Task
-private class HelloTask: TaskPrototype, TypedTask{
+private class HelloTask: TaskPrototype, TypedTaskable {
     typealias ParamType = HelloTaskParameter
     typealias ResultType = HelloTaskResult
 
@@ -74,7 +74,7 @@ private class HelloTask: TaskPrototype, TypedTask{
 }
 
 //HELLO: "HelloTask-specific" task implementation
-private extension TypedTask
+private extension TypedTaskable
         where Self== HelloTask, Self.ParamType == HelloTaskParameter, Self.ResultType == HelloTaskResult {
 
     func perform(_ param: HelloTaskParameter, _ async: TaskAsyncSignalable?) throws -> HelloTaskResult?  {
@@ -87,7 +87,7 @@ private extension TypedTask
 }
 
 //HELLO: more general perform implementation apart from specific task type
-private extension TypedTask
+private extension TypedTaskable
         where ParamType == HelloTaskParameter, ResultType == HelloTaskResult {
 
     func perform(_ param: HelloTaskParameter, _ async: TaskAsyncSignalable?) throws -> HelloTaskResult?  {
@@ -97,7 +97,7 @@ private extension TypedTask
 }
 
 //HELLO: HelloAsyncTask - Async Task
-private class HelloAsyncTask: TaskPrototype, TypedTask{
+private class HelloAsyncTask: TaskPrototype, TypedTaskable {
     typealias ParamType = HelloTaskParameter
     typealias ResultType = HelloTaskResult
 
@@ -132,7 +132,7 @@ private class HelloAsyncTask: TaskPrototype, TypedTask{
 }
 
 //HELLO: HelloVariousTask - Generic + Fully protocolized Task
-protocol HelloCustomTaskParameter: TaskParam {
+protocol HelloCustomTaskParameter: TaskParamable {
 
 }
 
@@ -140,7 +140,7 @@ protocol HelloCustomTaskResult: TaskResultable{
 
 }
 
-private class HelloVariousTask<CustomParameterType, CustomResultType>: TaskPrototype, TypedTask{
+private class HelloVariousTask<CustomParameterType, CustomResultType>: TaskPrototype, TypedTaskable {
     typealias ParamType = CustomParameterType
     typealias ResultType = CustomResultType
 

@@ -5,23 +5,23 @@
 
 import Foundation
 
-public protocol App {
+public protocol Appable {
     static var info: AppInfo { get }
 
     var config: TaskConfigable? { get }
 
     //taskClass can be changed by config
-    static var taskClass: Task.Type { get }
+    static var taskClass: Taskable.Type { get }
 
     init(_ config: TaskConfigable?)
 }
 
-protocol TypedApp: App {
-    associatedtype ParamType: TaskParam
+protocol TypedAppable: Appable {
+    associatedtype ParamType: TaskParamable
     static var paramClass: ParamType.Type { get }
 }
 
-protocol FinalizableApp {
+protocol FinalizableAppable {
     func finalize(result: AppTaskResult, _ asyncSignal: TaskAsyncSignalable) -> AppTaskResult
 }
 
@@ -36,13 +36,13 @@ public class AppPrototype: ItemObject {
 
 public class AppInfo:ItemObject {
     private(set) public var identifier:String
-    private(set) public var appClass: App.Type
+    private(set) public var appClass: Appable.Type
 
     public var displayName:String?
     public var iconImage:ImageSourceItem?
     public var lifeCycleUnit: AppLifecycleUnit = .systemMemory
 
-    required public init(_ identifier:String, _ appClass: App.Type){
+    required public init(_ identifier:String, _ appClass: Appable.Type){
         self.identifier = identifier
         self.appClass = appClass
         super.init()

@@ -27,25 +27,25 @@ public enum TaskError: Error {
     case timeout
 }
 
-public protocol Task {
+public protocol Taskable {
     var info: TaskInfo {  get }
 
     init(_ info: TaskInfo)
 
-    func perform(_ param: TaskParam, _ async: TaskAsyncSignalable?) throws -> TaskResultable?
+    func perform(_ param: TaskParamable, _ async: TaskAsyncSignalable?) throws -> TaskResultable?
 
     func cancel(_ async: TaskAsyncSignalable?)
 }
 
-protocol TypedTask: Task{
+protocol TypedTaskable: Taskable {
     associatedtype ParamType
     associatedtype ResultType
 
-    func perform<ParamType: TaskParam, ResultType:TaskResultable>(_ param:ParamType, _ async: TaskAsyncSignalable?) throws -> ResultType?
+    func perform<ParamType: TaskParamable, ResultType:TaskResultable>(_ param:ParamType, _ async: TaskAsyncSignalable?) throws -> ResultType?
 }
 
-extension TypedTask{
-    public func perform(_ param: TaskParam, _ async: TaskAsyncSignalable?) throws -> TaskResultable? {
+extension TypedTaskable {
+    public func perform(_ param: TaskParamable, _ async: TaskAsyncSignalable?) throws -> TaskResultable? {
         return try self.perform(param, async)
     }
 
@@ -94,7 +94,7 @@ public protocol TaskConfigable {
 
 }
 
-public protocol TaskParam: Sourceable {
+public protocol TaskParamable: Sourceable {
     var sources:[Sourceable]? { set get }
     var configs:[TaskConfigable]? { set get }
 }
@@ -118,12 +118,12 @@ public protocol TaskRespondable {
 public class TaskInfo: Item<String> {
     private(set) public var token:String
     private(set) public var requestToken:String
-    private(set) public var taskType: Task.Type
+    private(set) public var taskType: Taskable.Type
 
     internal(set) public var state: TaskState = .unqueued
     internal(set) public var queueLabel:String?
 
-    required public init(_ requestToken: String, _ taskType: Task.Type){
+    required public init(_ requestToken: String, _ taskType: Taskable.Type){
         self.requestToken = requestToken
         self.taskType = taskType
         self.token = UUID().uuidString

@@ -7,7 +7,7 @@ import Foundation
 import QuartzCore
 import Photos
 
-public class TransformApp: AppPrototype, App, FinalizableApp {
+public class TransformApp: AppPrototype, Appable, FinalizableAppable {
 
     public static var info: AppInfo {
         get{
@@ -18,7 +18,7 @@ public class TransformApp: AppPrototype, App, FinalizableApp {
         }
     }
 
-    public static var taskClass: Task.Type {
+    public static var taskClass: Taskable.Type {
         return _TransfromTask.self
     }
 
@@ -28,13 +28,13 @@ public class TransformApp: AppPrototype, App, FinalizableApp {
     }
 }
 
-public struct TransformAppParam: TaskParam {
+public struct TransformAppParam: TaskParamable {
     public var sources:[Sourceable]?
     public var configs:[TaskConfigable]?
 }
 
 
-private class _TransfromTask: TaskPrototype, TypedTask{
+private class _TransfromTask: TaskPrototype, TypedTaskable {
     typealias ParamType = TransformAppParam
     typealias ResultType = TaskResultable
 

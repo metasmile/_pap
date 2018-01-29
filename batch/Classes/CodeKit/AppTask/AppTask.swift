@@ -6,9 +6,16 @@
 import Foundation
 
 
-public struct AppTaskResult {
+public protocol AppTaskResultable{
+    associatedtype ResultType
+    var info: AppInfo {get}
+    var results:ResultType {get}
+}
+
+public struct AppTaskResult: AppTaskResultable {
+    public typealias ResultType = [TaskRespondable]
     internal(set) public var info: AppInfo
-    internal(set) public var results:[TaskRespondable]
+    internal(set) public var results:ResultType
 }
 
 /*
@@ -17,7 +24,7 @@ public struct AppTaskResult {
 struct AppTaskWorkItem: TaskRespondable, AppTaskRespondable, Equatable {
     let request:AppTaskRequest
     let info: TaskInfo
-    let task: Task
+    let task: Taskable
 
     internal(set) var result: TaskResultable?
 }

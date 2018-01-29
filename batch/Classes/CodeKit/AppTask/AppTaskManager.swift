@@ -5,7 +5,7 @@
 
 import Foundation
 
-public typealias AppTaskRequest = TaskRequest<App.Type, TaskParam, TaskRespondable>
+public typealias AppTaskRequest = TaskRequest<Appable.Type, TaskParamable, TaskRespondable>
 
 public protocol AppTaskManagerDelegate: class {
     func didRespond(result: AppTaskResult, progress:Double, remained:[AppTaskRespondable], finished:[AppTaskRespondable])
@@ -66,7 +66,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         }
     }
 
-    private func createTask(_ request:AppTaskRequest) -> Task?{
+    private func createTask(_ request:AppTaskRequest) -> Taskable?{
         let appInfo = request.appClass.info
 
         guard let appInstance = AppLifecycleManager.shared.acquire(appInfo) else {
@@ -134,7 +134,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
                 return queued
             }
 
-            guard let task: Task = createTask(request) else {
+            guard let task: Taskable = createTask(request) else {
                 return nil
             }
 
@@ -284,7 +284,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
                 continue
             }
 
-            if let appInstanceAsFinalizable = appInstance as? FinalizableApp {
+            if let appInstanceAsFinalizable = appInstance as? FinalizableAppable {
                 finalizedResults.append(appInstanceAsFinalizable.finalize(result:result, asyncSignal))
             }else{
                 finalizedResults.append(result)

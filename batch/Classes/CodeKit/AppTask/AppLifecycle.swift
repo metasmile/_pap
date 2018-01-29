@@ -21,7 +21,7 @@ public final class AppLifecycleManager {
     public static let shared = AppLifecycleManager()
 
     private var _instanceCreationQueue:DispatchQueue
-    private var _instances:[String: App]
+    private var _instances:[String: Appable]
 
     private init() {
         _instances = [:]
@@ -37,13 +37,13 @@ public final class AppLifecycleManager {
         }
     }
 
-    public func acquire(_ info: AppInfo) -> App?{
+    public func acquire(_ info: AppInfo) -> Appable?{
         return _instanceCreationQueue.sync(flags: .barrier) { [unowned info] in
             _acquire(info)
         }
     }
 
-    private func _acquire(_ info: AppInfo) -> App?{
+    private func _acquire(_ info: AppInfo) -> Appable?{
         assert(info.identifier != nil, "app identifier is empty")
         assert(info.appClass != nil, "app class is empty")
 
