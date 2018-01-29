@@ -292,7 +292,7 @@ extension PhotoPickerViewController: PhotoEditViewControllerDelegate {
         }
     }
     
-    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: EditItem?, at indexPath: IndexPath?) {
+    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: TransformEditItem?, at indexPath: IndexPath?) {
         if let editItem = editItem, let indexPath = indexPath {
             batchPreviewView.batchEditItems[indexPath.item].editItem.merge(editItem)
         }

@@ -7,6 +7,7 @@ import Foundation
 import QuartzCore
 import Photos
 
+
 public class TransformApp: AppPrototype, Appable, FinalizableAppable {
 
     public static let info = AppInfo(
@@ -24,11 +25,6 @@ public class TransformApp: AppPrototype, Appable, FinalizableAppable {
 
         return result
     }
-}
-
-public struct TransformAppParam: TaskParamable {
-    public var sources:[Sourceable]?
-    public var configs:[TaskConfigable]?
 }
 
 

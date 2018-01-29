@@ -1,5 +1,5 @@
 //
-//  TransformAppLib.swift
+//  Contents.swift
 //  batch
 //
 //  Created by Hyojin Mo on 2017. 8. 23..
@@ -52,10 +52,11 @@ class TaskQueue: NSObject {
 
 class TransformAppEditItem: NSObject {
     fileprivate var imageRequestID: PHImageRequestID = PHInvalidImageRequestID
-    
     var asset: PHAsset?
-    var editItem = EditItem()
-    
+    var editItem = TransformEditItem()
+}
+
+extension TransformAppEditItem {
     func runEditing(_ progressHandler: ((Float) -> Void)? = nil, _ completionHandler: @escaping (PHAsset?, PHContentEditingOutput?) -> Void) {
         if asset?.mediaType == .image {
             if asset!.mediaSubtypes.contains(.photoLive) {
@@ -73,14 +74,12 @@ class TransformAppEditItem: NSObject {
             }
         }
     }
-    
+
     func cancelEditing() {
         PHImageManager.default().cancelImageRequest(imageRequestID)
         imageRequestID = PHInvalidImageRequestID
     }
-}
 
-extension TransformAppEditItem {
     fileprivate func loadImage(_ progressHandler: ((Float) -> Void)? = nil, _ completionHandler: @escaping ((UIImage?) -> Void)) {
         guard let asset = self.asset else {
             completionHandler(nil)
@@ -341,159 +340,8 @@ extension TransformAppEditItem {
 
 let kEditItemPreviewWidth: CGFloat = UIScreen.main.bounds.width * 0.9
 
-class EditItem: NSObject {
-    private (set) var transformItems = [TransformItem]()
-    
-    var hasChanges: Bool {
-        return !transformItems.isEmpty //!transform.isIdentity
-    }
-    
-    func addTransformItem(_ item: TransformItem) {
-        transformItems.append(item)
-    }
-    
-    func merge(_ editItem: EditItem) {
-        transformItems.append(contentsOf: editItem.transformItems)
-    }
-    
-    func resetTransforms() {
-        transformItems.removeAll()
-    }
-    
-    var transform: CGAffineTransform {
-        var t = CGAffineTransform.identity
-        for transformItem in transformItems {
-            t = t.concatenating(transformItem.transform)
-        }
-        return t
-    }
-    
-    var transform3d: CATransform3D {
-        var t = CATransform3DIdentity
-        t.m34 = -1 / kEditItemPreviewWidth
-        
-        for transformItem in transformItems {
-            t = CATransform3DConcat(t, transformItem.transform3d)
-        }
-        return t
-    }
-}
 
-class TransformItem: NSObject {
-    var transform: CGAffineTransform {
-        return .identity
-    }
-    
-    var transform3d: CATransform3D {
-        return CATransform3DIdentity
-    }
-}
-
-class RotationTransformItem: TransformItem {
-    var angle: CGFloat = 0
-    
-    override var transform: CGAffineTransform {
-        return CGAffineTransform(rotationAngle: angle)
-    }
-    
-    override var transform3d: CATransform3D {
-        return CATransform3DMakeRotation(angle, 0, 0, 1)
-    }
-    
-    init(degrees: CGFloat) {
-        super.init()
-        
-        self.angle = degrees.degreesToRadians
-    }
-    
-    init(radians: CGFloat) {
-        super.init()
-        
-        self.angle = radians
-    }
-}
-
-class VerticalFlipTransformItem: TransformItem {
-    override var transform: CGAffineTransform {
-        return CGAffineTransform(scaleX: 1, y: -1)
-    }
-    
-    override var transform3d: CATransform3D {
-        return CATransform3DMakeRotation(.pi, 1, 0, 0)
-    }
-}
-
-class HorizontalFlipTransformItem: TransformItem {
-    override var transform: CGAffineTransform {
-        return CGAffineTransform(scaleX: -1, y: 1)
-    }
-    
-    override var transform3d: CATransform3D {
-        return CATransform3DMakeRotation(.pi, 0, 1, 0)
-    }
-}
-
-extension PHAsset {
-    //https://developer.apple.com/library/content/samplecode/UsingPhotosFramework/Listings/Shared_AssetViewController_swift.html
-    func revertToOriginal() {
-        PHPhotoLibrary.shared().performChanges({
-            let request = PHAssetChangeRequest(for: self)
-            request.revertAssetContentToOriginal()
-        }, completionHandler: { success, error in
-            if !success { print("can't revert asset: \(String(describing: error))") }
-        })
-    }
-}
-
-extension PHAsset {
-    var size: CGSize {
-        return CGSize(width: pixelWidth, height: pixelHeight)
-    }
-}
-
-extension UIImage {
-    func flipHorizontally() -> UIImage {
-        return withHorizontallyFlippedOrientation()
-    }
-    
-    func flipVertically() -> UIImage {
-        return UIGraphicsImageRenderer(size: size, format: imageRendererFormat).image { (ctx) in
-            guard let cgImage = self.cgImage else { return }
-            ctx.cgContext.draw(cgImage, in: CGRect(origin: .zero, size: size))
-            ctx.cgContext.scaleBy(x: 1, y: -1)
-        }
-    }
-    
-    func rotate(by degrees: CGFloat) -> UIImage {
-        return applyTransform(CGAffineTransform(rotationAngle: degrees.degreesToRadians))
-    }
-    
-    func rotate(with transform: CGAffineTransform) -> UIImage {
-        let renderSize = size.applying(transform).magnitude
-        return UIGraphicsImageRenderer(size: renderSize, format: imageRendererFormat).image { (ctx) in
-            ctx.cgContext.translateBy(x: renderSize.width / 2, y: renderSize.height / 2)
-            ctx.cgContext.rotate(by: transform.radians)
-            ctx.cgContext.scaleBy(x: 1, y: -1)
-            if let cgImage = self.cgImage {
-                ctx.cgContext.draw(cgImage, in: CGRect(x: -self.size.width / 2, y: -self.size.height / 2, width: self.size.width, height: self.size.height))
-            }
-        }
-    }
-    
-    func applyTransform(_ transform: CGAffineTransform) -> UIImage {
-        let renderSize = size.applying(transform).magnitude
-        return UIGraphicsImageRenderer(size: renderSize, format: imageRendererFormat).image { (ctx) in
-            ctx.cgContext.translateBy(x: renderSize.width / 2, y: renderSize.height / 2)
-            ctx.cgContext.concatenate(transform)
-            ctx.cgContext.scaleBy(x: 1, y: -1)
-            if let cgImage = self.cgImage {
-                ctx.cgContext.draw(cgImage, in: CGRect(x: -self.size.width / 2, y: -self.size.height / 2, width: self.size.width, height: self.size.height))
-            }
-        }
-    }
-}
-
-extension AVAsset {
+private extension AVAsset {
     func applyTransform(_ transform: CGAffineTransform) -> AVAsset {
         guard
             let videoTrack = tracks(withMediaType: .video).first
@@ -531,7 +379,7 @@ extension AVAsset {
 }
 
 //https://gist.github.com/schickling/b5d86cb070130f80bb40
-extension UIImage {
+private extension UIImage {
     func fixedOrientation() -> UIImage {
         guard imageOrientation != .up else { return self }
         
@@ -588,10 +436,6 @@ extension UIImage {
  under construction
 */
 
-struct BatchEditRequestResult {
-    var asset: PHAsset
-    var contentEditingOutput: PHContentEditingOutput
-}
 
 class BatchRequest: NSObject {
     func cancel() {
@@ -608,16 +452,16 @@ class BatchEditRequest: BatchRequest {
         self.batchEditItem = batchEditItem
     }
 
-    func perform(_ progress: ((Float) -> Void)? = nil, _ completion: ((BatchEditRequestResult?) -> Void)? = nil) {
+    func perform(_ progress: ((Float) -> Void)? = nil, _ completion: ((TransformAppResult?) -> Void)? = nil) {
         guard let batchEditItem = batchEditItem else {
             completion?(nil)
             return
         }
 
         batchEditItem.runEditing(progress) { (asset, contentEditingOutput) in
-            var result: BatchEditRequestResult?
+            var result: TransformAppResult?
             if let asset = asset, let contentEditingOutput = contentEditingOutput {
-                result = BatchEditRequestResult(asset: asset, contentEditingOutput: contentEditingOutput)
+                result = TransformAppResult(asset: asset, contentEditingOutput: contentEditingOutput)
             }
             completion?(result)
         }
@@ -634,11 +478,11 @@ class BatchEditSequenceRequest: BatchRequest {
     fileprivate var batchQueue = TaskQueue()
     fileprivate var requests: [BatchEditRequest]?
 
-    func perform(_ requests: [BatchEditRequest], _ progressHandler: ((Float, Int?) -> Void)? = nil, _ completionHandler: (([BatchEditRequestResult]) -> Void)? = nil) {
+    func perform(_ requests: [BatchEditRequest], _ progressHandler: ((Float, Int?) -> Void)? = nil, _ completionHandler: (([TransformAppResult]) -> Void)? = nil) {
         self.requests = requests
 
         let numberOfRequests = requests.count
-        var results = [BatchEditRequestResult]()
+        var results = [TransformAppResult]()
 
         let progressPerRequest = 1 / Float(numberOfRequests)
 

@@ -28,7 +28,7 @@ class PhotoPickerDetailViewController: UIViewController {
             view.addSubview(assetView)
             
             let preferredTransform = batchEditItem?.editItem.transform ?? .identity
-            let preferredSize = asset.size
+            let preferredSize = asset.pixelSize
             
             let boundingSize = preferredSize.width > preferredSize.height ? view.bounds.size.applying(preferredTransform).magnitude : view.bounds.size
             

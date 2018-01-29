@@ -15,7 +15,7 @@ import Photos
 
 
 protocol PhotoEditViewControllerDelegate {
-    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: EditItem?, at indexPath: IndexPath?)
+    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: TransformEditItem?, at indexPath: IndexPath?)
 }
 
 class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
@@ -32,7 +32,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
             layoutAssetView()
         }
     }
-    var editItem = EditItem()
+    var editItem = TransformEditItem()
     var placeholderView: UIView?
     var indexPathInBatch: IndexPath?
     
@@ -114,7 +114,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     
     func layoutAssetView() {
         guard let asset = asset else { return }
-        let preferredSize = asset.size.applying(preferredTransform).magnitude
+        let preferredSize = asset.pixelSize.applying(preferredTransform).magnitude
         
         let boundingBox = UIEdgeInsetsInsetRect(photoZoomingView.bounds, UIEdgeInsets(top: safeAreaInsets.top, left: safeAreaInsets.left, bottom: appDockView.bounds.height, right: safeAreaInsets.right))
         

@@ -99,6 +99,14 @@ public protocol TaskParamable: Sourceable {
     var configs:[TaskConfigable]? { set get }
 }
 
+public protocol TypedTaskParamable: TaskParamable {
+    associatedtype SourceType
+    associatedtype ConfigType
+
+    var sources:[SourceType]? { set get }
+    var configs:[ConfigType]? { set get }
+}
+
 //internal
 public protocol TaskResultable: Sourceable {
     var results:[Sourceable]? { set get }

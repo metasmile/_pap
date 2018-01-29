@@ -210,8 +210,6 @@ class BatchEditViewController: AppDockViewController {
     }
 }
 
-extension EditItem: TaskConfigable{}
-
 extension BatchEditViewController {
     func runBatchProcessing() {
         showBatchProgressView()
@@ -405,7 +403,7 @@ extension BatchEditViewController: UIScrollViewDelegate {
 }
 
 extension BatchEditViewController: PhotoEditViewControllerDelegate {
-    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: EditItem?, at indexPath: IndexPath?) {
+    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: TransformEditItem?, at indexPath: IndexPath?) {
         guard let editItem = editItem, let indexPath = indexPath else {
             photoEditor.dismiss(animated: true, completion: {
                 photoEditor.placeholderView?.removeFromSuperview()
