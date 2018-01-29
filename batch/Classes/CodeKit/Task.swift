@@ -64,9 +64,10 @@ public class TaskPrototype: Item<TaskInfo> {
 }
 
 public final class TaskRequest<AppClassType, ParameterType, ResponseType>: ItemObject {
-    public typealias ResponseHandler = (ResponseType,_ cancel:inout Bool) -> Void
+    public typealias ResponseHandler = (ResponseType, _ cancel:inout Bool) -> Void
+
     private(set) public var appClass:AppClassType
-    private(set) internal var responseHandler:ResponseHandler?
+    private(set) var responseHandler:ResponseHandler?
     private(set) public var param:ParameterType
     private(set) public var token:String
 

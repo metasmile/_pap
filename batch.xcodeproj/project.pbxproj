@@ -348,6 +348,7 @@
 		0ABFCF961F14B8830078A583 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4F71D451733B8320254C1516 /* @HelloApps */,
 				0AA86ED31FD1196C00E6E1B0 /* AppDock */,
 				4F71DCB7FD70D9D27E5C6324 /* Apps */,
 				4F71D2EACB3C0ECE4939A9E0 /* CodeKit */,
@@ -360,7 +361,6 @@
 				0A9CC9281F8774EC00AC91A6 /* PhotoEditViewController.swift */,
 				4F71D67696ED68B67F19CD2D /* PhotoPickerDetailViewController.swift */,
 				0ABFCF981F14B8A70078A583 /* PhotoPickerViewController.swift */,
-				4F71D451733B8320254C1516 /* @HelloApps */,
 			);
 			name = Classes;
 			path = Classes;
@@ -447,11 +447,11 @@
 			isa = PBXGroup;
 			children = (
 				4F71D040A83C02DEE803C86D /* AppTask */,
+				4F71DBD8B1EA7E512BFA8988 /* Sourceable */,
 				4F71D97A52EB95A742380292 /* Views */,
 				4F71D89F3850DE4667332519 /* Item.swift */,
 				4F71D5F397502710E3224CC9 /* Object.swift */,
 				4F71D8588D09A8F77A3F89CF /* Task.swift */,
-				4F71DBD8B1EA7E512BFA8988 /* Sourceable */,
 			);
 			name = CodeKit;
 			path = CodeKit;
@@ -480,8 +480,8 @@
 				4F71DF2E58751E7641EB78DE /* HelloBatchApp.swift */,
 			);
 			name = "@HelloApps";
-			path = "batch/@HelloApps";
-			sourceTree = SOURCE_ROOT;
+			path = "@HelloApps";
+			sourceTree = "<group>";
 		};
 		4F71D4852A5D5EEB3AC24500 /* ca.lproj */ = {
 			isa = PBXGroup;
@@ -638,9 +638,9 @@
 		4F71DBD8B1EA7E512BFA8988 /* Sourceable */ = {
 			isa = PBXGroup;
 			children = (
-				4F71DB3F65BB0609398D99C6 /* Sourceable.swift */,
-				4F71D37BE27E637934A4E8DE /* SourceItem.swift */,
 				4F71D39BFF3C82EBB8C70AB3 /* PHAssetSourceable.swift */,
+				4F71D37BE27E637934A4E8DE /* SourceItem.swift */,
+				4F71DB3F65BB0609398D99C6 /* Sourceable.swift */,
 			);
 			path = Sourceable;
 			sourceTree = "<group>";

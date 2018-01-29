@@ -28,6 +28,19 @@ extension NSObject{
                 , TransformAppParam(sources: [UIImage() /* or PHAsset */], configs: [EditItem()])
         ))
 
+        //HELLO: independent result of the request for each completion block
+        let appCls = HelloTypedBatchApp.self
+        let p = appCls.paramClass.init(sources: [UIImage()], configs: [EditItem()])
+        let r = AppTaskRequest(appCls, p) { res, cancel in
+            res.info.state == .performing
+            res.result?.results
+
+            //HELLO: need to cancel (inout &cancel)
+            cancel = true
+         }
+        AppTaskManager.shared(3).append(request:r)
+
+
         AppTaskManager.shared(3).append(request:AppTaskRequest(
                 HelloTypedBatchApp.self
 
