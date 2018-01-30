@@ -49,9 +49,9 @@ public class HelloBatchApp: AppPrototype, Appable, FinalizableAppable {
 }
 
 //HELLO: Restricted apps own parameter type
-public class HelloTypedBatchApp: HelloBatchApp, TypedAppable {
+public class HelloTypedBatchApp: HelloBatchApp, ParamableAppable {
     public typealias ParamType = HelloTaskParameter
-    public static var paramClass: ParamType.Type{ return ParamType.self }
+    public static let paramClass: ParamType.Type = ParamType.self
 }
 
 

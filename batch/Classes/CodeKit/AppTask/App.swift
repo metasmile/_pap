@@ -16,8 +16,8 @@ public protocol Appable {
     init(_ config: TaskConfigable?)
 }
 
-protocol TypedAppable: Appable {
-    associatedtype ParamType: TaskParamable
+protocol ParamableAppable {
+    associatedtype ParamType:TaskParamable
     static var paramClass: ParamType.Type { get }
 }
 

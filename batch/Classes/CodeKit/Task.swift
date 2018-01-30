@@ -40,6 +40,14 @@ public protocol Taskable {
 protocol TypedTaskable: Taskable {
     associatedtype ParamType
     associatedtype ResultType
+    //TODO: Option or Requirement.
+    /*
+        associatedtype AsyncType = TaskAsyncSignalable?
+        //TaskAsyncSignalable? -> Optional -> Async process is an option for this task.
+
+        associatedtype AsyncType = TaskAsyncSignalable
+        ////TaskAsyncSignalable -> Non-Optional -> Async is a requirement for this task.
+    */
 
     func perform<ParamType: TaskParamable, ResultType:TaskResultable>(_ param:ParamType, _ async: TaskAsyncSignalable?) throws -> ResultType?
 }
@@ -94,23 +102,11 @@ public protocol TaskConfigable {
 
 }
 
-public protocol TaskParamable: Sourceable {
-    var sources:[Sourceable]? { set get }
-    var configs:[TaskConfigable]? { set get }
-}
+public protocol TaskParamable{}
 
-public protocol TypedTaskParamable: TaskParamable {
-    associatedtype SourceType
-    associatedtype ConfigType
-
-    var sources:[SourceType]? { set get }
-    var configs:[ConfigType]? { set get }
-}
 
 //internal
-public protocol TaskResultable: Sourceable {
-    var results:[Sourceable]? { set get }
-}
+public protocol TaskResultable {}
 
 //final
 public protocol TaskRespondable {

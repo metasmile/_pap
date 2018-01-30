@@ -6,54 +6,57 @@
 import Foundation
 import QuartzCore
 import Photos
+import UIKit
+import MobileCoreServices
 
 
-public class TransformApp: AppPrototype, Appable, FinalizableAppable {
+public struct TransformAppTaskResult {
+    var asset: PHAsset
+    var contentEditingOutput: PHContentEditingOutput
+}
+
+public class TransformApp: AppPrototype, Appable, ParamableAppable, FinalizableAppable {
+    public typealias ParamType = TransformAppEditItem
+    public static let paramClass: ParamType.Type = ParamType.self
+
+    public static let taskClass:Taskable.Type = _TransfromTask.self
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.transform"
             , appClass: TransformApp.self
-            , displayName: "Transform"
+            , displayName: "TransformApp"
             , iconImage: ImageSourceItem("batchappicon_transfrom.pdf")
     )
 
-    public static var taskClass: Taskable.Type {
-        return _TransfromTask.self
-    }
-
     public func finalize(result: AppTaskResult, _ asyncSignal: TaskAsyncSignalable) -> AppTaskResult {
-
         return result
     }
 }
 
-
 private class _TransfromTask: TaskPrototype, TypedTaskable {
-    typealias ParamType = TransformAppParam
-    typealias ResultType = TaskResultable
+    public typealias ParamType = TransformAppEditItem
+    public typealias ResultType = TransformAppTaskResult
 
-    var aaa:String?
+    weak var item:TransformAppEditItem?
 
     public func cancel(_ async: TaskAsyncSignalable?){
-        print("--->", #function, type(of:self), self.info.requestToken)
+        item?.cancelEditing()
     }
 
-    func perform(_ param: TransformAppParam, _ async: TaskAsyncSignalable?) throws -> TaskResultable?  {
-
-        let str = self.aaa
-
+    func perform(_ batchEditItem: TransformAppEditItem, _ async: TaskAsyncSignalable?) throws -> TransformAppTaskResult?  {
+        item = batchEditItem
         async?.begin()
-        param.configs
 
-        let c = CACurrentMediaTime()
-        DispatchQueue.global().async {
-            sleep(UInt32(arc4random_uniform(2)))
-            print("--->", #function, type(of:self), self.info.requestToken, CACurrentMediaTime()-c)
+        var result: TransformAppTaskResult?
+
+        batchEditItem.runEditing(nil) { (asset, contentEditingOutput) in
+            if let asset = asset, let contentEditingOutput = contentEditingOutput {
+                result = TransformAppTaskResult(asset: asset, contentEditingOutput: contentEditingOutput)
+            }
             async?.end()
         }
 
         async?.stopUntilEnd()
-
-        return nil
+        return result
     }
 }

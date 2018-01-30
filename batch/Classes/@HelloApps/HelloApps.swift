@@ -16,30 +16,29 @@ extension NSObject{
 
         //HELLO: start immediately.
         let firstRequest = AppTaskRequest(
-                TransformApp.self
-                , TransformAppParam(sources: [UIImage() /* or PHAsset */], configs: [TransformEditItem()])
+                HelloTypedBatchApp.self
+                , HelloTypedBatchApp.paramClass.init(sources: [UIImage()], configs: [TransformEditItem()])
         )
         AppTaskManager.shared(3).request(firstRequest)
 
 
         //HELLO: append first to start lazily
         AppTaskManager.shared(3).append(request:AppTaskRequest(
-                TransformApp.self
-                , TransformAppParam(sources: [UIImage() /* or PHAsset */], configs: [TransformEditItem()])
+                HelloTypedBatchApp.self
+                , HelloTypedBatchApp.paramClass.init(sources: [UIImage()], configs: [TransformEditItem()])
         ))
+
 
         //HELLO: independent result of the request for each completion block
         let appCls = HelloTypedBatchApp.self
         let p = appCls.paramClass.init(sources: [UIImage()], configs: [TransformEditItem()])
         let r = AppTaskRequest(appCls, p) { res, cancel in
             res.info.state == .performing
-            res.result?.results
 
             //HELLO: need to cancel (inout &cancel)
             cancel = true
          }
         AppTaskManager.shared(3).append(request:r)
-
 
         AppTaskManager.shared(3).append(request:AppTaskRequest(
                 HelloTypedBatchApp.self

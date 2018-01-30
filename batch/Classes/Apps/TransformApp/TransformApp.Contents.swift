@@ -1,5 +1,5 @@
 //
-//  Contents.swift
+//  TransformApp.Contents.swift
 //  batch
 //
 //  Created by Hyojin Mo on 2017. 8. 23..
@@ -10,19 +10,112 @@ import UIKit
 import Photos
 import MobileCoreServices
 
+public class TransformEditItem: TaskConfigable {
+    private (set) var transformItems = [TransformItem]()
+
+    var hasChanges: Bool {
+        return !transformItems.isEmpty //!transform.isIdentity
+    }
+
+    func addTransformItem(_ item: TransformItem) {
+        transformItems.append(item)
+    }
+
+    func merge(_ editItem: TransformEditItem) {
+        transformItems.append(contentsOf: editItem.transformItems)
+    }
+
+    func resetTransforms() {
+        transformItems.removeAll()
+    }
+
+    var transform: CGAffineTransform {
+        var t = CGAffineTransform.identity
+        for transformItem in transformItems {
+            t = t.concatenating(transformItem.transform)
+        }
+        return t
+    }
+
+    var transform3d: CATransform3D {
+        var t = CATransform3DIdentity
+        t.m34 = -1 / kEditItemPreviewWidth
+
+        for transformItem in transformItems {
+            t = CATransform3DConcat(t, transformItem.transform3d)
+        }
+        return t
+    }
+}
+
+class TransformItem: NSObject {
+    var transform: CGAffineTransform {
+        return .identity
+    }
+
+    var transform3d: CATransform3D {
+        return CATransform3DIdentity
+    }
+}
+
+class RotationTransformItem: TransformItem {
+    var angle: CGFloat = 0
+
+    override var transform: CGAffineTransform {
+        return CGAffineTransform(rotationAngle: angle)
+    }
+
+    override var transform3d: CATransform3D {
+        return CATransform3DMakeRotation(angle, 0, 0, 1)
+    }
+
+    init(degrees: CGFloat) {
+        super.init()
+
+        self.angle = degrees.degreesToRadians
+    }
+
+    init(radians: CGFloat) {
+        super.init()
+
+        self.angle = radians
+    }
+}
+
+class VerticalFlipTransformItem: TransformItem {
+    override var transform: CGAffineTransform {
+        return CGAffineTransform(scaleX: 1, y: -1)
+    }
+
+    override var transform3d: CATransform3D {
+        return CATransform3DMakeRotation(.pi, 1, 0, 0)
+    }
+}
+
+class HorizontalFlipTransformItem: TransformItem {
+    override var transform: CGAffineTransform {
+        return CGAffineTransform(scaleX: -1, y: 1)
+    }
+
+    override var transform3d: CATransform3D {
+        return CATransform3DMakeRotation(.pi, 0, 1, 0)
+    }
+}
+
+
 class TaskQueue: NSObject {
     private var taskItems = [DispatchWorkItem]()
     private let taskQueue = DispatchQueue(label: "com.stells.batch.dispatchQueue.taskQueue")
     private var finishBlock: (() -> Void)?
-    
+
     var remainTasks: Int {
         return taskItems.count
     }
-    
+
     func addTask(_ task: @escaping () -> Void) {
         taskItems.append(DispatchWorkItem(block: task))
     }
-    
+
     func performNext() {
         if !taskItems.isEmpty {
             taskQueue.async(execute: taskItems.removeFirst())
@@ -31,26 +124,26 @@ class TaskQueue: NSObject {
             finishBlock?()
         }
     }
-    
+
     var isProcessing: Bool {
         return !taskItems.isEmpty
     }
-    
+
     func cancel() {
         for taskItem in taskItems {
             taskItem.cancel()
         }
         taskItems.removeAll()
-        
+
         finishBlock = nil
     }
-    
+
     func setFinishBlock(_ block: (() -> Void)?) {
         finishBlock = block
     }
 }
 
-class TransformAppEditItem: NSObject {
+public class TransformAppEditItem: NSObject, TaskParamable {
     fileprivate var imageRequestID: PHImageRequestID = PHInvalidImageRequestID
     var asset: PHAsset?
     var editItem = TransformEditItem()
@@ -85,7 +178,7 @@ extension TransformAppEditItem {
             completionHandler(nil)
             return
         }
-        
+
         let options = PHImageRequestOptions()
         options.deliveryMode = .highQualityFormat
         options.isNetworkAccessAllowed = true
@@ -95,19 +188,19 @@ extension TransformAppEditItem {
         options.progressHandler = { progress, error, stop, info in
             progressHandler?(Float(progress))
         }
-        
+
         imageRequestID = PHImageManager.default().requestImage(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: PHImageContentMode.default, options: options) { (image, info) in
             guard let image = image else {
                 completionHandler(nil)
                 return
             }
-            
+
             if let degraded = info?[PHImageResultIsDegradedKey] as? NSNumber, !degraded.boolValue {
                 completionHandler(image)
             }
         }
     }
-    
+
     fileprivate func editImage(_ image: UIImage?, completion completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) {
         guard
             let image = image?.applyTransform(editItem.transform),
@@ -116,21 +209,21 @@ extension TransformAppEditItem {
             completionHandler(nil, nil)
             return
         }
-        
+
         asset.requestContentEditingInput(with: nil) { (input, info) in
             guard let input = input else {
                 completionHandler(nil, nil)
                 return
             }
-            
+
             guard let dataInfo = "Edited".data(using: .utf8) else {
                 completionHandler(nil, nil)
                 return
             }
-            
+
             let contentEditingOutput = PHContentEditingOutput(contentEditingInput: input)
             contentEditingOutput.adjustmentData = PHAdjustmentData(formatIdentifier: Bundle.main.bundleIdentifier ?? "", formatVersion: "1.0", data: dataInfo)
-            
+
             // renderedContentURL supports only JPEG and MOV ...
             // so... always export JPEG
             let outputData = UIImageJPEGRepresentation(image, 1)
@@ -141,12 +234,12 @@ extension TransformAppEditItem {
 //            default:
 //                outputData = UIImageJPEGRepresentation(image, 1)
 //            }
-            
+
             guard (try? outputData?.write(to: contentEditingOutput.renderedContentURL, options: .atomic)) != nil else {
                 completionHandler(nil, nil)
                 return
             }
-            
+
             completionHandler(asset, contentEditingOutput)
         }
     }
@@ -158,7 +251,7 @@ extension TransformAppEditItem {
             completionHandler(nil)
             return
         }
-        
+
         let options = PHLivePhotoRequestOptions()
         options.deliveryMode = .highQualityFormat
         options.isNetworkAccessAllowed = true
@@ -166,12 +259,12 @@ extension TransformAppEditItem {
         options.progressHandler = { progress, error, stop, info in
             progressHandler?(Float(progress))
         }
-        
+
         imageRequestID = PHImageManager.default().requestLivePhoto(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: .default, options: options, resultHandler: { (livePhoto, info) in
             completionHandler(livePhoto)
         })
     }
-    
+
     fileprivate func editLivePhoto(_ completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) {
         guard
             let asset = self.asset
@@ -179,26 +272,26 @@ extension TransformAppEditItem {
                 completionHandler(nil, nil)
                 return
         }
-        
+
         asset.requestContentEditingInput(with: nil) { (input, info) in
             guard let input = input else {
                 completionHandler(nil, nil)
                 return
             }
-            
+
             guard let dataInfo = "Edited".data(using: .utf8) else {
                 completionHandler(nil, nil)
                 return
             }
-            
+
             let contentEditingOutput = PHContentEditingOutput(contentEditingInput: input)
             contentEditingOutput.adjustmentData = PHAdjustmentData(formatIdentifier: Bundle.main.bundleIdentifier ?? "", formatVersion: "1.0", data: dataInfo)
-            
+
             let editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: input)
             editingContext?.frameProcessor = { frame, error in
                 return frame.image.transformed(by: self.editItem.transform)
             }
-            
+
             editingContext?.saveLivePhoto(to: contentEditingOutput, options: nil, completionHandler: { (success, error) in
                 guard success else {
                     completionHandler(nil, nil)
@@ -208,7 +301,7 @@ extension TransformAppEditItem {
             })
         }
     }
-    
+
     fileprivate func editLivePhoto(_ livePhoto: PHLivePhoto?, completion completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) {
         guard
             let livePhoto = livePhoto
@@ -276,7 +369,7 @@ extension TransformAppEditItem {
             completionHandler(nil, nil)
             return
         }
-        
+
         let options = PHVideoRequestOptions()
         options.deliveryMode = .highQualityFormat
         options.isNetworkAccessAllowed = true
@@ -284,12 +377,12 @@ extension TransformAppEditItem {
         options.progressHandler = { progress, error, stop, info in
             progressHandler?(Float(progress))
         }
-        
+
         imageRequestID = PHImageManager.default().requestAVAsset(forVideo: asset, options: options) { (video, audioMix, info) in
             completionHandler(video, audioMix)
         }
     }
-    
+
     fileprivate func editVideo(_ video: AVAsset?, audioMix: AVAudioMix?, completion completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) {
         guard
             let video = video?.applyTransform(editItem.transform),
@@ -299,25 +392,25 @@ extension TransformAppEditItem {
             completionHandler(nil, nil)
             return
         }
-        
+
         asset.requestContentEditingInput(with: nil) { (input, info) in
             guard let input = input else {
                 completionHandler(nil, nil)
                 return
             }
-            
+
             guard let dataInfo = "Edited".data(using: .utf8) else {
                 completionHandler(nil, nil)
                 return
             }
-            
+
             let contentEditingOutput = PHContentEditingOutput(contentEditingInput: input)
             contentEditingOutput.adjustmentData = PHAdjustmentData(formatIdentifier: Bundle.main.bundleIdentifier ?? "", formatVersion: "1.0", data: dataInfo)
-            
+
             let videoComposition = AVMutableVideoComposition(propertiesOf: video)
             videoComposition.renderSize = videoTrack.naturalSize.applying(self.editItem.transform).magnitude
             videoComposition.frameDuration = CMTimeMake(1, videoTrack.naturalTimeScale)
-            
+
             let exportSession = AVAssetExportSession(asset: video, presetName: AVAssetExportPresetPassthrough)
             exportSession?.outputFileType = AVFileType.mov
             exportSession?.outputURL = contentEditingOutput.renderedContentURL
@@ -348,20 +441,20 @@ private extension AVAsset {
         else {
             return self
         }
-        
+
         let audioTrack = tracks(withMediaType: .audio).first
-        
+
         let transform = videoTrack.preferredTransform.concatenating(transform)
         let timeRange = CMTimeRangeMake(kCMTimeZero, duration)
-        
+
         let composition = AVMutableComposition()
         guard let compositionVideoTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid) else {
             return self
         }
         let compositionAudioTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
-        
+
         try? compositionVideoTrack.insertTimeRange(timeRange, of: videoTrack, at: kCMTimeZero)
-        
+
         if let audioTrack = audioTrack {
             do {
                 try compositionAudioTrack?.insertTimeRange(timeRange, of: audioTrack, at: kCMTimeZero)
@@ -371,9 +464,9 @@ private extension AVAsset {
                 }
             }
         }
-        
+
         compositionVideoTrack.preferredTransform = transform
-        
+
         return composition
     }
 }
@@ -382,9 +475,9 @@ private extension AVAsset {
 private extension UIImage {
     func fixedOrientation() -> UIImage {
         guard imageOrientation != .up else { return self }
-        
+
         var transform = CGAffineTransform.identity
-        
+
         switch imageOrientation {
         case .down, .downMirrored:
             transform = transform.translatedBy(x: size.width, y: size.height)
@@ -401,7 +494,7 @@ private extension UIImage {
         case .up, .upMirrored:
             break
         }
-        
+
         switch imageOrientation {
         case .upMirrored, .downMirrored:
             transform.translatedBy(x: size.width, y: 0)
@@ -413,7 +506,7 @@ private extension UIImage {
         case .up, .down, .left, .right:
             break
         }
-        
+
         var rotatedSize = size
         switch imageOrientation {
         case .left, .leftMirrored, .right, .rightMirrored:
@@ -422,7 +515,7 @@ private extension UIImage {
         default:
             break
         }
-        
+
         return UIGraphicsImageRenderer(size: rotatedSize, format: imageRendererFormat).image { (ctx) in
             guard let cgImage = self.cgImage else { return }
             ctx.cgContext.concatenate(transform)
@@ -452,16 +545,16 @@ class BatchEditRequest: BatchRequest {
         self.batchEditItem = batchEditItem
     }
 
-    func perform(_ progress: ((Float) -> Void)? = nil, _ completion: ((TransformAppResult?) -> Void)? = nil) {
+    func perform(_ progress: ((Float) -> Void)? = nil, _ completion: ((TransformAppTaskResult?) -> Void)? = nil) {
         guard let batchEditItem = batchEditItem else {
             completion?(nil)
             return
         }
 
         batchEditItem.runEditing(progress) { (asset, contentEditingOutput) in
-            var result: TransformAppResult?
+            var result: TransformAppTaskResult?
             if let asset = asset, let contentEditingOutput = contentEditingOutput {
-                result = TransformAppResult(asset: asset, contentEditingOutput: contentEditingOutput)
+                result = TransformAppTaskResult(asset: asset, contentEditingOutput: contentEditingOutput)
             }
             completion?(result)
         }
@@ -478,11 +571,11 @@ class BatchEditSequenceRequest: BatchRequest {
     fileprivate var batchQueue = TaskQueue()
     fileprivate var requests: [BatchEditRequest]?
 
-    func perform(_ requests: [BatchEditRequest], _ progressHandler: ((Float, Int?) -> Void)? = nil, _ completionHandler: (([TransformAppResult]) -> Void)? = nil) {
+    func perform(_ requests: [BatchEditRequest], _ progressHandler: ((Float, Int?) -> Void)? = nil, _ completionHandler: (([TransformAppTaskResult]) -> Void)? = nil) {
         self.requests = requests
 
         let numberOfRequests = requests.count
-        var results = [TransformAppResult]()
+        var results = [TransformAppTaskResult]()
 
         let progressPerRequest = 1 / Float(numberOfRequests)
 
@@ -490,7 +583,9 @@ class BatchEditSequenceRequest: BatchRequest {
             autoreleasepool {
                 self.batchQueue.addTask({
                     request.perform({ progress in
+
                         progressHandler?(Float(idx) / Float(numberOfRequests) + progressPerRequest * progress, nil)
+
                     }) { result in
                         if let result = result {
                             results.append(result)
