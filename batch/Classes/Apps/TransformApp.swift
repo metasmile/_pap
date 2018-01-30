@@ -10,12 +10,15 @@ import UIKit
 import MobileCoreServices
 
 
-public struct TransformAppTaskResult {
+public struct TransformAppTaskResult:TaskResultable {
     var asset: PHAsset
+//    var indexPath:IndexPath?
     var contentEditingOutput: PHContentEditingOutput
 }
 
 public class TransformApp: AppPrototype, Appable, ParamableAppable, FinalizableAppable {
+    //TODO: Result type
+
     public typealias ParamType = TransformAppEditItem
     public static let paramClass: ParamType.Type = ParamType.self
 
@@ -44,19 +47,28 @@ private class _TransfromTask: TaskPrototype, TypedTaskable {
     }
 
     func perform(_ batchEditItem: TransformAppEditItem, _ async: TaskAsyncSignalable?) throws -> TransformAppTaskResult?  {
+        print("start",batchEditItem)
         item = batchEditItem
+
         async?.begin()
 
         var result: TransformAppTaskResult?
 
         batchEditItem.runEditing(nil) { (asset, contentEditingOutput) in
             if let asset = asset, let contentEditingOutput = contentEditingOutput {
-                result = TransformAppTaskResult(asset: asset, contentEditingOutput: contentEditingOutput)
+                result = TransformAppTaskResult(
+                        asset: asset,
+//                        indexPath: self.item?.indexPath,
+                        contentEditingOutput: contentEditingOutput)
             }
             async?.end()
         }
 
         async?.stopUntilEnd()
+
+        print("end",batchEditItem)
         return result
+
+
     }
 }

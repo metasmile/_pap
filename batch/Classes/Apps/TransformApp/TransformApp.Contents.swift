@@ -145,6 +145,8 @@ class TaskQueue: NSObject {
 
 public class TransformAppEditItem: NSObject, TaskParamable {
     fileprivate var imageRequestID: PHImageRequestID = PHInvalidImageRequestID
+
+//    var indexPath:IndexPath?
     var asset: PHAsset?
     var editItem = TransformEditItem()
 }
@@ -554,7 +556,7 @@ class BatchEditRequest: BatchRequest {
         batchEditItem.runEditing(progress) { (asset, contentEditingOutput) in
             var result: TransformAppTaskResult?
             if let asset = asset, let contentEditingOutput = contentEditingOutput {
-                result = TransformAppTaskResult(asset: asset, contentEditingOutput: contentEditingOutput)
+                result = TransformAppTaskResult(asset: asset ,/* indexPath: batchEditItem.indexPath*/ contentEditingOutput: contentEditingOutput)
             }
             completion?(result)
         }

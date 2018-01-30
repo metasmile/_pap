@@ -12,18 +12,17 @@ extension NSObject{
     func helloAppTaskManager() {
 
         //HELLO: this means max 3 parrellel queues will be performed.
-        AppTaskManager.shared(3)
+        AppTaskManager.shared(2)
 
         //HELLO: start immediately.
         let firstRequest = AppTaskRequest(
                 HelloTypedBatchApp.self
                 , HelloTypedBatchApp.paramClass.init(sources: [UIImage()], configs: [TransformEditItem()])
         )
-        AppTaskManager.shared(3).request(firstRequest)
-
+        AppTaskManager.shared(2).request(firstRequest)
 
         //HELLO: append first to start lazily
-        AppTaskManager.shared(3).append(request:AppTaskRequest(
+        AppTaskManager.shared(2).append(request:AppTaskRequest(
                 HelloTypedBatchApp.self
                 , HelloTypedBatchApp.paramClass.init(sources: [UIImage()], configs: [TransformEditItem()])
         ))
@@ -38,9 +37,9 @@ extension NSObject{
             //HELLO: need to cancel (inout &cancel)
             cancel = true
          }
-        AppTaskManager.shared(3).append(request:r)
+        AppTaskManager.shared(2).append(request:r)
 
-        AppTaskManager.shared(3).append(request:AppTaskRequest(
+        AppTaskManager.shared(2).append(request:AppTaskRequest(
                 HelloTypedBatchApp.self
 
                 //HELLO: can use already typed App-dependent parameter object via AppClass.paramClass.init( ... )
@@ -55,25 +54,25 @@ extension NSObject{
             //HELLO: remained -> remaining tasks
             //HELLO: finished -> finished tasks until now
 
-        }).when(finish: { results, forResponses in
+        }).when(finish: { results, allResults, forResponses in
             //HELLO: results -> Whole results.
             //HELLO: forResponses -> forResponses request info etc...
 
             results.first?.key.identifier
         })
 
-        let started = AppTaskManager.shared(3).perform(reaction)
+        let started = AppTaskManager.shared(2).perform(reaction)
 
         //HELLO: pause.
-        AppTaskManager.shared(3).suspend()
+        AppTaskManager.shared(2).suspend()
 
         //HELLO: restart
-        AppTaskManager.shared(3).perform()
+        AppTaskManager.shared(2).perform()
 
         //HELLO: remove from current queue. can remove request while .idling
-        AppTaskManager.shared(3).remove(request: firstRequest)
+        AppTaskManager.shared(2).remove(request: firstRequest)
 
         //HELLO: cancel all apps.
-        AppTaskManager.shared(3).cancel()
+        AppTaskManager.shared(2).cancel()
     }
 }

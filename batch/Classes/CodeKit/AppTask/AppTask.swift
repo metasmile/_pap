@@ -26,7 +26,7 @@ struct AppTaskWorkItem: TaskRespondable, AppTaskRespondable, Equatable {
     let info: TaskInfo
     let task: Taskable
 
-    internal(set) var result: TaskResultable?
+    internal(set) public var result: TaskResultable?
 }
 
 extension AppTaskWorkItem {
@@ -75,13 +75,14 @@ extension AppTaskRespondable {
 */
 public typealias AppTaskReactableProgressHanlder = (
         _ result: AppTaskResult
-        , _ progress:Double
+        , _ progress:Float
         , _ remained:[AppTaskRespondable]
         , _ finished:[AppTaskRespondable]
 ) -> Void
 
 public typealias AppTaskReactableFinishHandler = (
         _ resultsByApps:[AppInfo:AppTaskResult]
+        , _ allResults:[TaskResultable]
         , _ for:[AppTaskRespondable]
 ) -> Void
 

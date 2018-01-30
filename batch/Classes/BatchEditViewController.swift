@@ -71,7 +71,8 @@ class BatchEditViewController: AppDockViewController {
     // MARK: - Editing
     
     @objc func cancelBatchButtonDidTap(sender: Any) {
-        batchRequest?.cancel()
+        AppTaskManager.shared(2).cancel()
+//        batchRequest?.cancel()
         
         closeBatchProgressView()
     }
@@ -213,38 +214,96 @@ class BatchEditViewController: AppDockViewController {
 extension BatchEditViewController {
     func runBatchProcessing() {
         showBatchProgressView()
-        
+
         previewCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
 
-        batchRequest = BatchEditSequenceRequest()
-        batchRequest?.perform(batchEditItems.map({ BatchEditRequest($0) }), { (progress, idx) in
+
+//TODO: TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
+        batchEditItems.forEach { item in
+            AppTaskManager.shared(2).append(request: AppTaskRequest(TransformApp.self, item) { res, cancel in
+                print(item)
+            })
+        }
+
+        let reaction = AppTaskReaction()
+        reaction.when { result, progress, respondables, respondables1 in
+
+            assert(result.results.first?.result is TransformAppTaskResult)
+            guard let _result = result.results.first?.result as? TransformAppTaskResult else{
+//                , let _resultIndexPath = _result.indexPath else {
+                return
+            }
+
             DispatchQueue.main.async { [weak self] in
                 self?.batchProgressView.title = "Processing...".localizedString
-                self?.batchProgressView.setProgress(progress, animated: true)
-                
-                guard let item = idx, let numberOfItems = self?.batchEditItems.count, item + 1 < numberOfItems else { return }
-                self?.previewCollectionView.scrollToItem(at: IndexPath(item: item + 1, section: 0), at: .centeredHorizontally, animated: true)
+                self?.batchProgressView.setProgress(Float(progress), animated: true)
+//                self?.previewCollectionView.scrollToItem(at: _resultIndexPath, at: .centeredHorizontally, animated: true)
             }
-        }) { (results) in
+
+        }
+        reaction.when { resultsByApps, allResults, respondables in
+
             DispatchQueue.main.async {
                 self.batchProgressView.title = "Saving Photos...".localizedString
             }
-            
+
+            guard let results = allResults as? [TransformAppTaskResult] else {
+                return
+            }
+
             PHPhotoLibrary.shared().performChanges({
                 for result in results {
                     PHAssetChangeRequest(for: result.asset).contentEditingOutput = result.contentEditingOutput
                 }
             }, completionHandler: { (success, info) in
+
                 DispatchQueue.main.async { [unowned self] in
                     self.closeBatchProgressView()
-                    
+
                     if success {
                         Analytics.logEvent("log.export.save", parameters: ["number_of_items": self.batchEditItems.count])
                         self.delegate?.batchEditViewControllerDidFinishEditing(self)
                     }
                 }
             })
+
+
         }
+        AppTaskManager.shared(2).perform(reaction)
+//TODO: TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
+
+
+//        batchRequest = BatchEditSequenceRequest()
+//        batchRequest?.perform(batchEditItems.map({ BatchEditRequest($0) }), { (progress, idx) in
+//            DispatchQueue.main.async { [weak self] in
+//                self?.batchProgressView.title = "Processing...".localizedString
+//                self?.batchProgressView.setProgress(progress, animated: true)
+//
+//                guard let item = idx, let numberOfItems = self?.batchEditItems.count, item + 1 < numberOfItems else { return }
+//                self?.previewCollectionView.scrollToItem(at: IndexPath(item: item + 1, section: 0), at: .centeredHorizontally, animated: true)
+//            }
+//        }) { (results) in
+//            DispatchQueue.main.async {
+//                self.batchProgressView.title = "Saving Photos...".localizedString
+//            }
+//
+//            PHPhotoLibrary.shared().performChanges({
+//                for result in results {
+//                    PHAssetChangeRequest(for: result.asset).contentEditingOutput = result.contentEditingOutput
+//                }
+//            }, completionHandler: { (success, info) in
+//
+//                DispatchQueue.main.async { [unowned self] in
+//                    self.closeBatchProgressView()
+//
+//                    if success {
+//                        Analytics.logEvent("log.export.save", parameters: ["number_of_items": self.batchEditItems.count])
+//                        self.delegate?.batchEditViewControllerDidFinishEditing(self)
+//                    }
+//                }
+//            })
+//        }
+
     }
 }
 

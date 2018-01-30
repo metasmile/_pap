@@ -8,8 +8,8 @@ import Foundation
 public typealias AppTaskRequest = TaskRequest<Appable.Type, TaskParamable, TaskRespondable>
 
 public protocol AppTaskManagerDelegate: class {
-    func didRespond(result: AppTaskResult, progress:Double, remained:[AppTaskRespondable], finished:[AppTaskRespondable])
-    func didFinish(results:[AppInfo:AppTaskResult], for:[AppTaskRespondable])
+    func didRespond(result: AppTaskResult, progress:Float, remained:[AppTaskRespondable], finished:[AppTaskRespondable])
+    func didFinish(resultsByApps:[AppInfo:AppTaskResult], allResults:[TaskResultable], forResponses:[AppTaskRespondable])
 }
 
 public protocol AppTaskManagerTaskDelegate: AppTaskManagerDelegate {
@@ -85,6 +85,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         }
     }
 
+    //TODO: query by all of each request's properties.
     public func query(by requestTokens:[String]) -> [TaskInfo] {
         return requestTokens.flatMap { token -> TaskInfo? in
             _staticRequestedWorkItems[token]?.info
@@ -126,6 +127,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
     }
 
     //TODO: improve item append performance.
+    //TODO: check conforms TaskParamable type.
     public func append(request:AppTaskRequest) -> TaskInfo?{
         return syncQueue.sync(flags:.barrier){
 
@@ -218,7 +220,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
     //counter
     //TODO: multi-apps for each requestToken
     private var _responsesForEachApps = [AppInfo:AppTaskResult]()
-    private var _staticRespondedWorkItems = [AppTaskRespondable]()
+    private var _staticRespondedWorkItems = [AppTaskWorkItem]()
 
     private func _countFinishedTaskByEachQueues(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem) {
         let appClass = workItem.request.appClass
@@ -226,7 +228,10 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         let appId = appInfo.identifier
 
         if !_responsesForEachApps.keys.contains(appInfo){
-            _responsesForEachApps[appInfo] = AppTaskResult(info: appInfo, results: [TaskRespondable]())
+            _responsesForEachApps[appInfo] = AppTaskResult(
+                    info: appInfo,
+                    results: [TaskRespondable]()
+            )
         }
         _responsesForEachApps[appInfo]?.results.append(workItem)
 
@@ -239,7 +244,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         if let currentResult = _responsesForEachApps[appInfo]{
             let creq = _staticRequestedWorkItems.count
             let cres = _staticRespondedWorkItems.count
-            let progress = Double(cres)/Double(creq + cres)
+            let progress = Float(cres)/Float(creq + cres)
             let remainedResponses = Array(self._staticRequestedWorkItems.values)
 
             self.mainOperationQueue().async { [unowned self] in
@@ -262,10 +267,13 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         if _staticRequestedWorkItems.count==0 {
             let finalResults = self._finializeAllAppTasks(_responsesForEachApps)
             let respondedWorkItems = self._staticRespondedWorkItems
+            let resultOfWorkItems = respondedWorkItems.flatMap { (item: AppTaskWorkItem) -> TaskResultable? in
+                item.result
+            }
 
             self.mainOperationQueue().async { [unowned self] in
-                self._reactionItem?.finishHandler?(finalResults, respondedWorkItems)
-                self.delegate?.didFinish(results: finalResults, for: respondedWorkItems)
+                self._reactionItem?.finishHandler?(finalResults, resultOfWorkItems, respondedWorkItems)
+                self.delegate?.didFinish(resultsByApps: finalResults, allResults: resultOfWorkItems, forResponses: respondedWorkItems)
             }
 
             //clean buffered results
