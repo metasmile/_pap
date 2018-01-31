@@ -154,11 +154,11 @@ extension BatchPreviewView {
     }
 }
 
-let TaskManager = AppTaskManager.shared(6)
+let TaskManager = AppTaskManager.shared(4)
 
 extension BatchPreviewView {
     func runBatchProcessing() {
-        guard batchRequest == nil else { return }
+//        guard batchRequest == nil else { return }
         
         delegate?.batchPreviewViewWillBeginEdit(self)
         
@@ -219,7 +219,7 @@ extension BatchPreviewView {
                     else {
                         self.delegate?.batchPreviewViewDidCancelEdit(self)
                     }
-                    self.batchRequest = nil
+//                    self.batchRequest = nil
                 }
             })
 
@@ -265,8 +265,10 @@ extension BatchPreviewView {
     }
     
     func cancelBatchProcessing() {
-        batchRequest?.cancel()
-        batchRequest = nil
+        TaskManager.cancel()
+
+//        batchRequest?.cancel()
+//        batchRequest = nil
         
         delegate?.batchPreviewViewDidCancelEdit(self)
     }
