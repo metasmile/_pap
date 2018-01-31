@@ -40,8 +40,14 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
 
     private let syncQueue:DispatchQueue = DispatchQueue(label:"com.stells.batch__internal_AppTaskManager"+UUID().uuidString)
     private var _queuePool = [String: AppTaskOperationQueue]()
-    private var _staticRequestedWorkItems = [String: AppTaskWorkItem]()
+
+    //react
     private var _reactionItem: AppTaskReactable?
+
+    //result collection
+    private var _staticResponsesForEachApps = [AppInfo:AppTaskResult]()
+    private var _staticRequestedWorkItems = [String: AppTaskWorkItem]()
+    private var _staticRespondedWorkItems = [AppTaskWorkItem]()
 
     //TODO: improve queue assign performance
     private var _currentQueue: AppTaskOperationQueue {
@@ -230,21 +236,19 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
 
     //counter
     //TODO: multi-apps for each requestToken
-    private var _responsesForEachApps = [AppInfo:AppTaskResult]()
-    private var _staticRespondedWorkItems = [AppTaskWorkItem]()
 
     private func _countFinishedTaskByEachQueues(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem) {
         let appClass = workItem.request.appClass
         let appInfo = appClass.info
         let appId = appInfo.identifier
 
-        if !_responsesForEachApps.keys.contains(appInfo){
-            _responsesForEachApps[appInfo] = AppTaskResult(
+        if !_staticResponsesForEachApps.keys.contains(appInfo){
+            _staticResponsesForEachApps[appInfo] = AppTaskResult(
                     info: appInfo,
                     results: [TaskRespondable]()
             )
         }
-        _responsesForEachApps[appInfo]?.results.append(workItem)
+        _staticResponsesForEachApps[appInfo]?.results.append(workItem)
 
         _staticRespondedWorkItems.append(workItem)
         _staticRequestedWorkItems.removeValue(forKey: workItem.info.requestToken)
@@ -252,7 +256,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         print("Remaining tasks: ", _staticRequestedWorkItems.count)
 
         //progress
-        if let currentResult = _responsesForEachApps[appInfo]{
+        if let currentResult = _staticResponsesForEachApps[appInfo]{
             let creq = _staticRequestedWorkItems.count
             let cres = _staticRespondedWorkItems.count
             let progress = Float(cres)/Float(creq + cres)
@@ -276,7 +280,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
 
         //all finished
         if _staticRequestedWorkItems.count==0 {
-            let finalResults = self._finializeAllAppTasks(_responsesForEachApps)
+            let finalResults = self._finializeAllAppTasks(_staticResponsesForEachApps)
             let respondedWorkItems = self._staticRespondedWorkItems
             let resultOfWorkItems = respondedWorkItems.flatMap { (item: AppTaskWorkItem) -> TaskResultable? in
                 item.result
@@ -288,8 +292,9 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
             }
 
             //clean buffered results
+            _staticRespondedWorkItems.removeAll()
             _staticRequestedWorkItems.removeAll()
-            _responsesForEachApps.removeAll()
+            _staticResponsesForEachApps.removeAll()
         }
     }
 

@@ -23,13 +23,16 @@ class BatchPreviewView: CustomView {
     fileprivate (set) var batchEditItems = [TransformAppEditItem]()
     var delegate: BatchPreviewViewDelegate?
     var batchRequest: BatchEditSequenceRequest?
+
+    let TaskManager = AppTaskManager.shared(4)
     
     var hasChanges: Bool {
         return batchEditItems.map({ $0.editItem.hasChanges }).contains(true)
     }
     
     var isProcessing: Bool {
-        return batchRequest != nil
+        return TaskManager.count > 0
+//        return batchRequest != nil
     }
     
     override func initialize() {
@@ -153,8 +156,6 @@ extension BatchPreviewView {
         updatePreviews()
     }
 }
-
-let TaskManager = AppTaskManager.shared(4)
 
 extension BatchPreviewView {
     func runBatchProcessing() {

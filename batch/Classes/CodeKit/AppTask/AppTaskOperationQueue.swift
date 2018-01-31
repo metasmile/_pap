@@ -101,13 +101,17 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
     }
 
     private func dispatchFinishedResults(){
+        assert(self.count==0)
+        assert(self.finshedQueue.count>0)
+        print("dispatchFinishedResults", self.count, self.finshedQueue.count)
+
         let queueResult = AppTaskResultItem(finished: self.finshedQueue.dequeueAll())
         self.mainOperationQueue.async {
             self.delegate?.didFinishAllTasksInQueue(self, queueResult)
         }
     }
 
-    private func tryItem(_ item: inout AppTaskWorkItem, _ async: TaskAsyncSignalable, cancel:Bool=false){
+    private func tryItem(_ item: AppTaskWorkItem, _ async: TaskAsyncSignalable, cancel:Bool=false){
         guard !cancel && self.dispatchState(item, .performing) else{
             item.task.cancel(async)
             self.dispatchState(item, .cancelled)
@@ -130,7 +134,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
             return
         }
 
-        guard var item = self.peek() else {
+        guard let item = self.peek() else {
             if currentTask != nil {
                 currentTask = nil
                 cancelled = false
@@ -145,7 +149,6 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
         guard currentTask?.token != item.info.token else {
             return
         }
-        assert(item.info != nil, "item.info must not be nil")
 
         currentTask = item.info
 
@@ -153,7 +156,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
 
         queue.async { [unowned self] in
 
-            self.tryItem(&item, self.asyncSignal, cancel: _cancelled)
+            self.tryItem(item, self.asyncSignal, cancel: _cancelled)
 
             self.mainOperationQueue.async{
 
