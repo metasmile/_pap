@@ -107,7 +107,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
         }
     }
 
-    private func tryItem(_ item: AppTaskWorkItem, _ async: TaskAsyncSignalable, cancel:Bool=false){
+    private func tryItem(_ item: inout AppTaskWorkItem, _ async: TaskAsyncSignalable, cancel:Bool=false){
         guard !cancel && self.dispatchState(item, .performing) else{
             item.task.cancel(async)
             self.dispatchState(item, .cancelled)
@@ -115,9 +115,9 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
         }
 
         do {
-            var _mutableItem = item
-            _mutableItem.result = try item.task.perform(item.request.param, async)
-            self.dispatchState(_mutableItem, .completed)
+            item.result = try item.task.perform(item.request.param, async)
+
+            self.dispatchState(item, .completed)
 
         } catch _ {
             self.dispatchState(item, .failed)
@@ -130,7 +130,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
             return
         }
 
-        guard let item = self.peek() else {
+        guard var item = self.peek() else {
             if currentTask != nil {
                 currentTask = nil
                 cancelled = false
@@ -153,7 +153,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
 
         queue.async { [unowned self] in
 
-            self.tryItem(item, self.asyncSignal, cancel: _cancelled)
+            self.tryItem(&item, self.asyncSignal, cancel: _cancelled)
 
             self.mainOperationQueue.async{
 

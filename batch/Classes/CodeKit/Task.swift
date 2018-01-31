@@ -37,31 +37,6 @@ public protocol Taskable {
     func cancel(_ async: TaskAsyncSignalable?)
 }
 
-protocol TypedTaskable: Taskable {
-    associatedtype ParamType
-    associatedtype ResultType
-    //TODO: Option or Requirement.
-    /*
-        associatedtype AsyncType = TaskAsyncSignalable?
-        //TaskAsyncSignalable? -> Optional -> Async process is an option for this task.
-
-        associatedtype AsyncType = TaskAsyncSignalable
-        ////TaskAsyncSignalable -> Non-Optional -> Async is a requirement for this task.
-    */
-
-    func perform<ParamType: TaskParamable, ResultType:TaskResultable>(_ param:ParamType, _ async: TaskAsyncSignalable?) throws -> ResultType?
-}
-
-extension TypedTaskable {
-    public func perform(_ param: TaskParamable, _ async: TaskAsyncSignalable?) throws -> TaskResultable? {
-        return try self.perform(param, async)
-    }
-
-    func perform<ParamType, ResultType>(_ param:ParamType, _ async: TaskAsyncSignalable?) throws -> ResultType? {
-        return nil
-    }
-}
-
 public class TaskPrototype: Item<TaskInfo> {
     private(set) public var info: TaskInfo
 

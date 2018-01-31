@@ -34,12 +34,12 @@ public class HelloBatchApp: AppPrototype, Appable, FinalizableAppable {
     //HELLO: In the near future, multiple Task will be supported.
     public static var taskClass: Taskable.Type {
 
-        HelloVariousTask<HelloTaskParameter, HelloTaskResult>.self
-        HelloVariousTask<HelloCustomTaskParameter, HelloCustomTaskResult>.self
-        HelloParameterSpecificTask<HelloCustomTaskParameter>.self
-        HelloAsyncTask.self
+//        HelloVariousTask<HelloTaskParameter, HelloTaskResult>.self
+//        HelloVariousTask<HelloCustomTaskParameter, HelloCustomTaskResult>.self
+//        HelloParameterSpecificTask<HelloCustomTaskParameter>.self
+        return HelloAsyncTask.self
 
-        return HelloTask.self
+//        return HelloTask.self
     }
 
     public func finalize(result: AppTaskResult, _ asyncSignal: TaskAsyncSignalable) -> AppTaskResult {
@@ -56,46 +56,45 @@ public class HelloTypedBatchApp: HelloBatchApp, ParamableAppable {
 
 
 //HELLO: HelloTask - Default Task
-private class HelloTask: TaskPrototype, TypedTaskable {
-    typealias ParamType = HelloTaskParameter
-    typealias ResultType = HelloTaskResult
-
-    var property:String?
-
-    public func cancel(_ async: TaskAsyncSignalable?){
-
-    }
-
-    func perform(_ param: ParamType, _ async: TaskAsyncSignalable?) throws -> ResultType?  {
-        return nil
-    }
-}
-
-//HELLO: "HelloTask-specific" task implementation
-private extension TypedTaskable
-        where Self== HelloTask, Self.ParamType == HelloTaskParameter, Self.ResultType == HelloTaskResult {
-
-    func perform(_ param: HelloTaskParameter, _ async: TaskAsyncSignalable?) throws -> HelloTaskResult?  {
-
-        //HELLO: can access property. using "where Self== HelloTask"
-        let prop = self.property
-
-        return nil
-    }
-}
-
-//HELLO: more general perform implementation apart from specific task type
-private extension TypedTaskable
-        where ParamType == HelloTaskParameter, ResultType == HelloTaskResult {
-
-    func perform(_ param: HelloTaskParameter, _ async: TaskAsyncSignalable?) throws -> HelloTaskResult?  {
-
-        return nil
-    }
-}
+//private class HelloTask: TaskPrototype, Taskable {
+//    typealias ParamType = HelloTaskParameter
+//    typealias ResultType = HelloTaskResult
+//
+//    var property:String?
+//
+//    public func cancel(_ async: TaskAsyncSignalable?){
+//
+//    }
+//
+//    func perform(_ param: ParamType, _ async: TaskAsyncSignalable?) throws -> ResultType?  {
+//        return nil
+//    }
+//}
+//
+////HELLO: "HelloTask-specific" task implementation
+//private extension Taskable where Self==HelloTask{
+//
+//    func perform<T,U>(_ param: T, _ async: TaskAsyncSignalable?) throws -> U?{
+//
+//        //HELLO: can access property. using "where Self== HelloTask"
+//        let prop = self.property
+//
+//        return nil
+//    }
+//}
+//
+////HELLO: more general perform implementation apart from specific task type
+//private extension Taskable
+//        where ParamType == HelloTaskParameter, ResultType == HelloTaskResult {
+//
+//    func perform(_ param: HelloTaskParameter, _ async: TaskAsyncSignalable?) throws -> HelloTaskResult?  {
+//
+//        return nil
+//    }
+//}
 
 //HELLO: HelloAsyncTask - Async Task
-private class HelloAsyncTask: TaskPrototype, TypedTaskable {
+private class HelloAsyncTask: TaskPrototype, Taskable {
     typealias ParamType = HelloTaskParameter
     typealias ResultType = HelloTaskResult
 
@@ -103,7 +102,11 @@ private class HelloAsyncTask: TaskPrototype, TypedTaskable {
         //HELLO: same as "perform", all the cancellation processes are also affected by this.
     }
 
-    func perform(_ param: ParamType, _ async: TaskAsyncSignalable?) throws -> ResultType?  {
+    public func perform(_ param: TaskParamable, _ async: TaskAsyncSignalable?) throws -> TaskResultable? {
+        return try self._perform(param as! HelloTaskParameter, async)
+    }
+
+    func _perform(_ param: HelloTaskParameter, _ async: TaskAsyncSignalable?) throws -> HelloTaskResult?  {
         var helloResult:ResultType? = nil
 
         //HELLO: use begin() if this task internally need async code.
@@ -138,26 +141,26 @@ protocol HelloCustomTaskResult: TaskResultable{
 
 }
 
-private class HelloVariousTask<CustomParameterType, CustomResultType>: TaskPrototype, TypedTaskable {
-    typealias ParamType = CustomParameterType
-    typealias ResultType = CustomResultType
+//private class HelloVariousTask<CustomParameterType, CustomResultType>: TaskPrototype, Taskable {
+//    typealias ParamType = CustomParameterType
+//    typealias ResultType = CustomResultType
+//
+//    public func cancel(_ async: TaskAsyncSignalable?){}
+//
+//    func perform(_ param:CustomParameterType, _ async: TaskAsyncSignalable?) throws -> CustomResultType? {
+//        return nil
+//    }
+//}
 
-    public func cancel(_ async: TaskAsyncSignalable?){}
+//private class HelloParameterSpecificTask<T> : HelloVariousTask<T, HelloCustomTaskResult>{
+//
+//}
 
-    func perform<CustomParameterType, CustomResultType>(_ param:CustomParameterType, _ async: TaskAsyncSignalable?) throws -> CustomResultType? {
-        return nil
-    }
-}
-
-private class HelloParameterSpecificTask<T> : HelloVariousTask<T, HelloCustomTaskResult>{
-
-}
-
-private extension HelloVariousTask where CustomParameterType:HelloCustomTaskParameter, CustomResultType:HelloCustomTaskResult {
-
-    func perform(_ param: HelloCustomTaskParameter, _ async: TaskAsyncSignalable?) throws -> HelloCustomTaskResult?  {
-        return nil
-    }
-}
+//private extension HelloVariousTask where CustomParameterType:HelloCustomTaskParameter, CustomResultType:HelloCustomTaskResult {
+//
+//    func perform(_ param: HelloCustomTaskParameter, _ async: TaskAsyncSignalable?) throws -> HelloCustomTaskResult?  {
+//        return nil
+//    }
+//}
 
 //HELLO: Go infinity Tasks ...

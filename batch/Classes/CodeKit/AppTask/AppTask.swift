@@ -21,12 +21,18 @@ public struct AppTaskResult: AppTaskResultable {
 /*
     WorkItem
 */
-struct AppTaskWorkItem: TaskRespondable, AppTaskRespondable, Equatable {
+class AppTaskWorkItem: TaskRespondable, AppTaskRespondable{
     let request:AppTaskRequest
     let info: TaskInfo
     let task: Taskable
 
     internal(set) public var result: TaskResultable?
+
+    init(request:AppTaskRequest, info:TaskInfo, task:Taskable){
+        self.request=request
+        self.info=info
+        self.task=task
+    }
 }
 
 extension AppTaskWorkItem {

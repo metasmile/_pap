@@ -36,7 +36,7 @@ public class TransformApp: AppPrototype, Appable, ParamableAppable, FinalizableA
     }
 }
 
-private class _TransfromTask: TaskPrototype, TypedTaskable {
+private class _TransfromTask: TaskPrototype, Taskable {
     public typealias ParamType = TransformAppEditItem
     public typealias ResultType = TransformAppTaskResult
 
@@ -46,7 +46,11 @@ private class _TransfromTask: TaskPrototype, TypedTaskable {
         item?.cancelEditing()
     }
 
-    func perform(_ batchEditItem: TransformAppEditItem, _ async: TaskAsyncSignalable?) throws -> TransformAppTaskResult?  {
+    public func perform(_ param: TaskParamable, _ async: TaskAsyncSignalable?) throws -> TaskResultable? {
+        return try self._perform(param as! TransformAppEditItem, async)
+    }
+
+    private func _perform(_ batchEditItem: TransformAppEditItem, _ async: TaskAsyncSignalable?) throws -> TransformAppTaskResult?  {
         print("start",batchEditItem)
         item = batchEditItem
 
@@ -66,7 +70,7 @@ private class _TransfromTask: TaskPrototype, TypedTaskable {
 
         async?.stopUntilEnd()
 
-        print("end",batchEditItem)
+        print("end",result)
         return result
 
 

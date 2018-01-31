@@ -144,7 +144,6 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
                     request: request
                     , info: task.info
                     , task: task
-                    , result: nil
             )
 
             self._currentQueue.enqueue(item)
@@ -196,25 +195,37 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
 
     func didFailTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem) {
         (self.delegate as? AppTaskManagerTaskDelegate)?.didFailTask(info: workItem)
+
+        syncQueue.sync(flags:.barrier){
+            _countFinishedTaskByEachQueues(queue, workItem)
+        }
     }
 
     func didCompleteTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem) {
         (self.delegate as? AppTaskManagerTaskDelegate)?.didCompleteTask(info: workItem)
+
+        syncQueue.sync(flags:.barrier){
+            _countFinishedTaskByEachQueues(queue, workItem)
+        }
     }
 
     func didCancelTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem) {
         (self.delegate as? AppTaskManagerTaskDelegate)?.didCancelTask(info: workItem)
+
+        syncQueue.sync(flags:.barrier){
+            _countFinishedTaskByEachQueues(queue, workItem)
+        }
     }
 
     func didFinishAllTasksInQueue(_ queue: AppTaskOperationQueue, _ result: AppTaskResultItem) {
 
-        if let finishedWorkItems = result.finished{
-            syncQueue.sync(flags:.barrier){
-                for var workItem in finishedWorkItems{
-                    _countFinishedTaskByEachQueues(queue, workItem)
-                }
-            }
-        }
+//        if let finishedWorkItems = result.finished{
+//            syncQueue.sync(flags:.barrier){
+//                for var workItem in finishedWorkItems{
+//                    _countFinishedTaskByEachQueues(queue, workItem)
+//                }
+//            }
+//        }
     }
 
     //counter

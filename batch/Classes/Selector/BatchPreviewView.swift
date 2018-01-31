@@ -154,6 +154,8 @@ extension BatchPreviewView {
     }
 }
 
+let TaskManager = AppTaskManager.shared(6)
+
 extension BatchPreviewView {
     func runBatchProcessing() {
         guard batchRequest == nil else { return }
@@ -165,21 +167,26 @@ extension BatchPreviewView {
 
         //TODO: TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
         batchEditItems.forEach { item in
-            AppTaskManager.shared(2).append(request: AppTaskRequest(TransformApp.self, item) { res, cancel in
+            TaskManager.append(request: AppTaskRequest(TransformApp.self, item) { res, cancel in
                 print(item)
             })
         }
 
         let reaction = AppTaskReaction()
         reaction.when { result, progress, respondables, respondables1 in
+            print("------------- progress",progress)
 
-            assert(result.results.first?.result is TransformAppTaskResult)
-            guard let _result = result.results.first?.result as? TransformAppTaskResult else{
-//                , let _resultIndexPath = _result.indexPath else {
-                return
-            }
+            let _result = result.results.first?.result
 
-            guard self.isProcessing else { return }
+            print(_result)
+
+//            guard let _result = result.results.first?.result as? TransformAppTaskResult else{
+////                , let _resultIndexPath = _result.indexPath else {
+//                assert(false)
+//                return
+//            }
+
+//            guard self.isProcessing else { return }
             DispatchQueue.main.async { [unowned self] in
                 self.delegate?.batchPreviewView(self, didUpdateProgress: progress)
 //                self.collectionView.scrollToItem(at: _resultIndexPath, at: .centeredHorizontally, animated: true)
@@ -187,12 +194,14 @@ extension BatchPreviewView {
 
         }
         reaction.when { resultsByApps, allResults, respondables in
+            print(allResults)
+            let results = allResults as! [TransformAppTaskResult]
 
-            guard let results = allResults as? [TransformAppTaskResult] else {
-                return
-            }
+//            guard let results = allResults as! [TransformAppTaskResult] else {
+//                return
+//            }
 
-            guard self.isProcessing else { return }
+//            guard self.isProcessing else { return }
 
             DispatchQueue.main.async { [unowned self] in
                 self.delegate?.batchPreviewViewWillBeginExport(self)
@@ -216,7 +225,7 @@ extension BatchPreviewView {
 
 
         }
-        AppTaskManager.shared(2).perform(reaction)
+        TaskManager.perform(reaction)
         //TODO: TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
 
 
