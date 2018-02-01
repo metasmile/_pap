@@ -22,7 +22,6 @@ class BatchPreviewView: CustomView {
     @IBOutlet weak var collectionView: UICollectionView!
     fileprivate (set) var batchEditItems = [TransformAppEditItem]()
     var delegate: BatchPreviewViewDelegate?
-    var batchRequest: BatchEditSequenceRequest?
 
     let TaskManager = AppTaskManager.shared(4)
     
@@ -32,7 +31,6 @@ class BatchPreviewView: CustomView {
     
     var isProcessing: Bool {
         return TaskManager.count > 0
-//        return batchRequest != nil
     }
     
     override func initialize() {
@@ -159,14 +157,12 @@ extension BatchPreviewView {
 
 extension BatchPreviewView {
     func runBatchProcessing() {
-//        guard batchRequest == nil else { return }
 
+        //TODO: append dynamically more items where Set(batchEditItems) - Set(alreadyqueued Items) TaskManager.query(by:_)
         delegate?.batchPreviewViewWillBeginEdit(self)
-        
         collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
 
-
-        //TODO: TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
+        //TODO: TaskManager.append immediatly from UI action instead of using "batchEditItems"
         batchEditItems.forEach { item in
             TaskManager.append(request: AppTaskRequest(TransformApp.self, item) { res, cancel in
                 
@@ -174,31 +170,24 @@ extension BatchPreviewView {
         }
 
         let reaction = AppTaskReaction().when { result, progress, respondables, respondables1 in
-            print("------------- progress",progress)
 
-            let _ = result.results.first?.result
+            guard let _ = result.results.first?.result as? TransformAppTaskResult else{
+                assert(false,"Result item type is wrong.")
+                return
+            }
 
-//            guard let _result = result.results.first?.result as? TransformAppTaskResult else{
-////                , let _resultIndexPath = _result.indexPath else {
-//                assert(false)
-//                return
-//            }
-
-//            guard self.isProcessing else { return }
             DispatchQueue.main.async { [unowned self] in
                 self.delegate?.batchPreviewView(self, didUpdateProgress: progress)
 //                self.collectionView.scrollToItem(at: _resultIndexPath, at: .centeredHorizontally, animated: true)
             }
 
         }.when { resultsByApps, allResults, respondables in
-            print(allResults)
-            let results = allResults as! [TransformAppTaskResult]
-
-//            guard let results = allResults as! [TransformAppTaskResult] else {
-//                return
-//            }
-
-//            guard self.isProcessing else { return }
+            assert(!self.isProcessing)
+            
+            guard let results = allResults as? [TransformAppTaskResult] else {
+                assert(false,"Result item type is wrong.")
+                return
+            }
 
             DispatchQueue.main.async { [unowned self] in
                 self.delegate?.batchPreviewViewWillBeginExport(self)
@@ -216,56 +205,18 @@ extension BatchPreviewView {
                     else {
                         self.delegate?.batchPreviewViewDidCancelEdit(self)
                     }
-//                    self.batchRequest = nil
                 }
             })
         }
 
         TaskManager.perform(reaction)
-        //TODO: TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
-
-
-        //TODO: Original
-//        batchRequest = BatchEditSequenceRequest()
-//        batchRequest?.perform(batchEditItems.map({ BatchEditRequest($0) }), { (progress, idx) in
-//            guard self.isProcessing else { return }
-//            DispatchQueue.main.async { [unowned self] in
-//                self.delegate?.batchPreviewView(self, didUpdateProgress: progress)
-//
-//                guard let item = idx, item + 1 < self.batchEditItems.count else { return }
-//                self.collectionView.scrollToItem(at: IndexPath(item: item + 1, section: 0), at: .centeredHorizontally, animated: true)
-//            }
-//        }) { (results) in
-//            guard self.isProcessing else { return }
-//
-//            DispatchQueue.main.async { [unowned self] in
-//                self.delegate?.batchPreviewViewWillBeginExport(self)
-//            }
-//
-//            PHPhotoLibrary.shared().performChanges({
-//                for result in results {
-//                    PHAssetChangeRequest(for: result.asset).contentEditingOutput = result.contentEditingOutput
-//                }
-//            }, completionHandler: { (success, info) in
-//                DispatchQueue.main.async { [unowned self] in
-//                    if success {
-//                        self.delegate?.batchPreviewViewDidEndEdit(self)
-//                    }
-//                    else {
-//                        self.delegate?.batchPreviewViewDidCancelEdit(self)
-//                    }
-//                    self.batchRequest = nil
-//                }
-//            })
-//        }
     }
     
     func cancelBatchProcessing() {
+        assert(self.isProcessing)
+
         TaskManager.cancel()
 
-//        batchRequest?.cancel()
-//        batchRequest = nil
-        
         delegate?.batchPreviewViewDidCancelEdit(self)
     }
 }

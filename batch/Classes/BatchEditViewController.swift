@@ -24,7 +24,6 @@ class BatchEditViewController: AppDockViewController {
     
     var batchEditItems = [TransformAppEditItem]()
     var initialIndexPath: IndexPath?
-    var batchRequest: BatchEditSequenceRequest?
     
     @IBOutlet weak var previewCollectionView: UICollectionView!
     @IBOutlet weak var dimmedView: UIView!

@@ -102,47 +102,6 @@ class HorizontalFlipTransformItem: TransformItem {
     }
 }
 
-
-class TaskQueue: NSObject {
-    private var taskItems = [DispatchWorkItem]()
-    private let taskQueue = DispatchQueue(label: "com.stells.batch.dispatchQueue.taskQueue")
-    private var finishBlock: (() -> Void)?
-
-    var remainTasks: Int {
-        return taskItems.count
-    }
-
-    func addTask(_ task: @escaping () -> Void) {
-        taskItems.append(DispatchWorkItem(block: task))
-    }
-
-    func performNext() {
-        if !taskItems.isEmpty {
-            taskQueue.async(execute: taskItems.removeFirst())
-        }
-        else {
-            finishBlock?()
-        }
-    }
-
-    var isProcessing: Bool {
-        return !taskItems.isEmpty
-    }
-
-    func cancel() {
-        for taskItem in taskItems {
-            taskItem.cancel()
-        }
-        taskItems.removeAll()
-
-        finishBlock = nil
-    }
-
-    func setFinishBlock(_ block: (() -> Void)?) {
-        finishBlock = block
-    }
-}
-
 public class TransformAppEditItem: NSObject, TaskParamable {
     fileprivate var imageRequestID: PHImageRequestID = PHInvalidImageRequestID
 
@@ -567,53 +526,5 @@ class BatchEditRequest: BatchRequest {
         super.cancel()
 
         batchEditItem?.cancelEditing()
-    }
-}
-
-class BatchEditSequenceRequest: BatchRequest {
-    fileprivate var batchQueue = TaskQueue()
-    fileprivate var requests: [BatchEditRequest]?
-
-    func perform(_ requests: [BatchEditRequest], _ progressHandler: ((Float, Int?) -> Void)? = nil, _ completionHandler: (([TransformAppTaskResult]) -> Void)? = nil) {
-        self.requests = requests
-
-        let numberOfRequests = requests.count
-        var results = [TransformAppTaskResult]()
-
-        let progressPerRequest = 1 / Float(numberOfRequests)
-
-        for (idx, request) in requests.enumerated() {
-            autoreleasepool {
-                self.batchQueue.addTask({
-                    request.perform({ progress in
-
-                        progressHandler?(Float(idx) / Float(numberOfRequests) + progressPerRequest * progress, nil)
-
-                    }) { result in
-                        if let result = result {
-                            results.append(result)
-                        }
-                        progressHandler?(Float(idx + 1) / Float(numberOfRequests), idx)
-
-                        self.batchQueue.performNext()
-                    }
-                })
-            }
-        }
-
-        batchQueue.setFinishBlock {
-            completionHandler?(results)
-            self.requests = nil
-        }
-        batchQueue.performNext()
-    }
-
-    override func cancel() {
-        batchQueue.cancel()
-
-        guard let requests = self.requests else { return }
-        for request in requests {
-            request.cancel()
-        }
     }
 }

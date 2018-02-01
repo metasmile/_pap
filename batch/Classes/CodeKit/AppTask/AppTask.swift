@@ -54,11 +54,6 @@ extension AppTaskWorkItem {
     }
 }
 
-struct AppTaskResultItem {
-    var finished:[AppTaskWorkItem]?
-}
-
-
 /*
     Respondable
 */
@@ -80,16 +75,16 @@ extension AppTaskRespondable {
     Reactable
 */
 public typealias AppTaskReactableProgressHanlder = (
-        _ result: AppTaskResult
+        _ progressedResult: AppTaskResult
         , _ progress:Float
-        , _ remained:[AppTaskRespondable]
-        , _ finished:[AppTaskRespondable]
+        , _ remainedResponses:[AppTaskRespondable]
+        , _ completedResponses:[AppTaskRespondable]
 ) -> Void
 
 public typealias AppTaskReactableFinishHandler = (
-        _ resultsByApps:[AppInfo:AppTaskResult]
-        , _ allResults:[TaskResultable]
-        , _ for:[AppTaskRespondable]
+        _ finishedResultsForEachApps:[AppInfo:AppTaskResult]
+        , _ finishedAllResults:[TaskResultable]
+        , _ forAllResponse:[AppTaskRespondable]
 ) -> Void
 
 public protocol AppTaskReactable {

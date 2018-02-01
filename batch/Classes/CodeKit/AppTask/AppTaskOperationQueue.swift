@@ -13,7 +13,7 @@ protocol AppTaskOperationQueueDelegate: class {
     func didCancelTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem)
     func didFailTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem)
 
-    func didFinishAllTasksInQueue(_ queue: AppTaskOperationQueue, _ result: AppTaskResultItem)
+    func didFinishAllTasksInQueue(_ queue: AppTaskOperationQueue, _ result: [AppTaskWorkItem]?)
 }
 
 class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
@@ -106,7 +106,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
         assert(self.finshedQueue.count>0)
         print("dispatchFinishedResults", self.count, self.finshedQueue.count)
 
-        let queueResult = AppTaskResultItem(finished: self.finshedQueue.dequeueAll())
+        let queueResult = self.finshedQueue.dequeueAll()
         self.mainOperationQueue.async {
             self.delegate?.didFinishAllTasksInQueue(self, queueResult)
         }
