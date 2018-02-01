@@ -507,16 +507,16 @@ class BatchEditRequest: BatchRequest {
         self.batchEditItem = batchEditItem
     }
 
-    func perform(_ progress: ((Float) -> Void)? = nil, _ completion: ((TransformAppTaskResult?) -> Void)? = nil) {
+    func perform(_ progress: ((Float) -> Void)? = nil, _ completion: ((TransformAppTaskRespondable?) -> Void)? = nil) {
         guard let batchEditItem = batchEditItem else {
             completion?(nil)
             return
         }
 
         batchEditItem.runEditing(progress) { (asset, contentEditingOutput) in
-            var result: TransformAppTaskResult?
+            var result: TransformAppTaskRespondable?
             if let asset = asset, let contentEditingOutput = contentEditingOutput {
-                result = TransformAppTaskResult(asset: asset ,/* indexPath: batchEditItem.indexPath*/ contentEditingOutput: contentEditingOutput)
+                result = TransformAppTaskRespondable(asset: asset ,/* indexPath: batchEditItem.indexPath*/ contentEditingOutput: contentEditingOutput)
             }
             completion?(result)
         }

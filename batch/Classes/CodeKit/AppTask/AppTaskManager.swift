@@ -5,11 +5,11 @@
 
 import Foundation
 
-public typealias AppTaskRequest = TaskRequest<Appable.Type, TaskParamable, TaskRespondable>
+public typealias AppTaskRequest = TaskRequest<Appable.Type, TaskParamable, AppTaskRespondable>
 
 public protocol AppTaskManagerDelegate: class {
-    func didRespond(result: AppTaskResult, progress:Float, remained:[AppTaskRespondable], finished:[AppTaskRespondable])
-    func didFinish(resultsByApps:[AppInfo:AppTaskResult], allResults:[TaskResultable], forResponses:[AppTaskRespondable])
+    func didRespond(forCurrent: AppTaskRespondable, progress:Float, remained:[AppTaskRespondable], finished:[AppTaskRespondable])
+    func didFinish(forEachApps:[AppInfo:[AppTaskRespondable]], forAll:[AppTaskRespondable])
 }
 
 public protocol AppTaskManagerTaskDelegate: AppTaskManagerDelegate {
@@ -45,7 +45,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
     private var _reactionItem: AppTaskReactable?
 
     //result collection
-    private var _staticResponsesForEachApps = [AppInfo:AppTaskResult]()
+    private var _staticResponsesForEachApps = [AppInfo: [AppTaskRespondable]]()
     private var _staticRequestedWorkItems = [String: AppTaskWorkItem]()
     private var _staticRespondedWorkItems = [AppTaskWorkItem]()
 
@@ -246,12 +246,9 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         let appInfo = appClass.info
 
         if !_staticResponsesForEachApps.keys.contains(appInfo){
-            _staticResponsesForEachApps[appInfo] = AppTaskResult(
-                    info: appInfo,
-                    results: [TaskRespondable]()
-            )
+            _staticResponsesForEachApps[appInfo] = [AppTaskRespondable]()
         }
-        _staticResponsesForEachApps[appInfo]?.results.append(workItem)
+        _staticResponsesForEachApps[appInfo]?.append(workItem)
 
         _staticRespondedWorkItems.append(workItem)
         _staticRequestedWorkItems.removeValue(forKey: workItem.info.requestToken)
@@ -259,39 +256,34 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         print("Remaining tasks: ", _staticRequestedWorkItems.count)
 
         //progress
-        if let currentResult = _staticResponsesForEachApps[appInfo]{
-            let creq = _staticRequestedWorkItems.count
-            let cres = _staticRespondedWorkItems.count
-            let progress = Float(cres)/Float(creq + cres)
-            let remainedResponses = Array(self._staticRequestedWorkItems.values)
+        let creq = _staticRequestedWorkItems.count
+        let cres = _staticRespondedWorkItems.count
+        let progress = Float(cres)/Float(creq + cres)
+        let remainedResponses = Array(self._staticRequestedWorkItems.values)
 
-            self.mainOperationQueue().async { [unowned self] in
+        self.mainOperationQueue().async { [unowned self] in
 
-                self.delegate?.didRespond(result: currentResult
-                        , progress: progress
-                        , remained: remainedResponses
-                        , finished: self._staticRespondedWorkItems)
+            self.delegate?.didRespond(forCurrent: workItem
+                    , progress: progress
+                    , remained: remainedResponses
+                    , finished: self._staticRespondedWorkItems)
 
-                self._reactionItem?.progressHandler?(
-                        currentResult
-                        ,progress
-                        ,remainedResponses
-                        ,self._staticRespondedWorkItems
-                )
-            }
+            self._reactionItem?.progressHandler?(
+                    workItem
+                    ,progress
+                    ,remainedResponses
+                    ,self._staticRespondedWorkItems
+            )
         }
 
         //all finished
         if _staticRequestedWorkItems.count==0 {
-            let finalResults = self._finializeAllAppTasks(_staticResponsesForEachApps)
+            let responseForEachApps = self._finializeAllAppTasks(_staticResponsesForEachApps)
             let respondedWorkItems = self._staticRespondedWorkItems
-            let resultOfWorkItems = respondedWorkItems.flatMap { (item: AppTaskWorkItem) -> TaskResultable? in
-                item.result
-            }
 
             self.mainOperationQueue().async { [unowned self] in
-                self._reactionItem?.finishHandler?(finalResults, resultOfWorkItems, respondedWorkItems)
-                self.delegate?.didFinish(resultsByApps: finalResults, allResults: resultOfWorkItems, forResponses: respondedWorkItems)
+                self._reactionItem?.finishHandler?(responseForEachApps, respondedWorkItems)
+                self.delegate?.didFinish(forEachApps: responseForEachApps, forAll: respondedWorkItems)
             }
 
             //clean buffered results
@@ -301,25 +293,25 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         }
     }
 
-    private func _finializeAllAppTasks(_ resultByApps:[AppInfo:AppTaskResult]) -> [AppInfo:AppTaskResult] {
+    private func _finializeAllAppTasks(_ resForEachApps:[AppInfo: [AppTaskRespondable]]) -> [AppInfo: [AppTaskRespondable]] {
         let asyncSignal = TaskDefaultSignal()
-        var finalizedResults = [AppInfo:AppTaskResult]()
+        var finalizedResults = [AppInfo: [AppTaskRespondable]]()
 
-        for result in resultByApps.values {
-            guard let appInstance = AppLifecycleManager.shared.acquire(result.info) else{
+        for (appInfo, reses) in resForEachApps{
+            guard let appInstance = AppLifecycleManager.shared.acquire(appInfo) else{
                 assert(false,"App doest not exist any longer. Check it on lifecycle manager.")
                 continue
             }
-            
+
             if let appInstanceAsFinalizable = appInstance as? FinalizableAppable {
-                finalizedResults[result.info] = appInstanceAsFinalizable.finalize(result:result, asyncSignal)
+                finalizedResults[appInfo] = appInstanceAsFinalizable.finalize(result: reses, asyncSignal)
             }else{
-                finalizedResults[result.info] = result
+                finalizedResults[appInfo] = reses
             }
 
-            if result.info.lifeCycleUnit == .performCycle {
-                AppLifecycleManager.shared.discard(result.info)
-                assert(!AppLifecycleManager.shared.acquired.contains(result.info.identifier))
+            if appInfo.lifeCycleUnit == .performCycle {
+                AppLifecycleManager.shared.discard(appInfo)
+                assert(!AppLifecycleManager.shared.acquired.contains(appInfo.identifier))
             }
         }
 

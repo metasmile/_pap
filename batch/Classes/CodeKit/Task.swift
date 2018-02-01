@@ -83,13 +83,6 @@ public protocol TaskParamable{}
 //internal
 public protocol TaskResultable {}
 
-//final
-public protocol TaskRespondable {
-    var request: AppTaskRequest { get }
-    var result: TaskResultable? { get }
-    var info: TaskInfo { get }
-}
-
 /*
  app task
  */

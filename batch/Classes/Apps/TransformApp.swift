@@ -10,7 +10,7 @@ import UIKit
 import MobileCoreServices
 
 
-public struct TransformAppTaskResult:TaskResultable {
+public struct TransformAppTaskRespondable:TaskResultable {
     var asset: PHAsset
 //    var indexPath:IndexPath?
     var contentEditingOutput: PHContentEditingOutput
@@ -31,14 +31,14 @@ public class TransformApp: AppPrototype, Appable, ParamableAppable, FinalizableA
             , iconImage: ImageSourceItem("batchappicon_transfrom.pdf")
     )
 
-    public func finalize(result: AppTaskResult, _ asyncSignal: TaskAsyncSignalable) -> AppTaskResult {
+    public func finalize(result: [AppTaskRespondable], _ asyncSignal: TaskAsyncSignalable) -> [AppTaskRespondable] {
         return result
     }
 }
 
 private class _TransfromAppTask: TaskPrototype, Taskable {
     public typealias ParamType = TransformAppEditItem
-    public typealias ResultType = TransformAppTaskResult
+    public typealias ResultType = TransformAppTaskRespondable
 
     weak var item:TransformAppEditItem?
 
@@ -50,17 +50,17 @@ private class _TransfromAppTask: TaskPrototype, Taskable {
         return try self._perform(param as! TransformAppEditItem, async)
     }
 
-    private func _perform(_ batchEditItem: TransformAppEditItem, _ async: TaskAsyncSignalable?) throws -> TransformAppTaskResult?  {
+    private func _perform(_ batchEditItem: TransformAppEditItem, _ async: TaskAsyncSignalable?) throws -> TransformAppTaskRespondable?  {
         print("start",batchEditItem)
         item = batchEditItem
 
         async?.begin()
 
-        var result: TransformAppTaskResult?
+        var result: TransformAppTaskRespondable?
 
         batchEditItem.runEditing(nil) { (asset, contentEditingOutput) in
             if let asset = asset, let contentEditingOutput = contentEditingOutput {
-                result = TransformAppTaskResult(
+                result = TransformAppTaskRespondable(
                         asset: asset,
 //                        indexPath: self.item?.indexPath,
                         contentEditingOutput: contentEditingOutput)

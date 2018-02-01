@@ -164,14 +164,12 @@ extension BatchPreviewView {
 
         //TODO: TaskManager.append immediatly from UI action instead of using "batchEditItems"
         batchEditItems.forEach { item in
-            TaskManager.append(request: AppTaskRequest(TransformApp.self, item) { res, cancel in
-                
-            })
+            TaskManager.append(request: AppTaskRequest(TransformApp.self, item))
         }
 
-        let reaction = AppTaskReaction().when { result, progress, respondables, respondables1 in
+        let reaction = AppTaskReaction().when { response, progress, respondables, respondables1 in
 
-            guard let _ = result.results.first?.result as? TransformAppTaskResult else{
+            guard let _ = response.result as? TransformAppTaskRespondable else{
                 assert(false,"Result item type is wrong.")
                 return
             }
@@ -181,13 +179,10 @@ extension BatchPreviewView {
 //                self.collectionView.scrollToItem(at: _resultIndexPath, at: .centeredHorizontally, animated: true)
             }
 
-        }.when { resultsByApps, allResults, respondables in
+        }.when { resultsByApps, respondables in
             assert(!self.isProcessing)
-            
-            guard let results = allResults as? [TransformAppTaskResult] else {
-                assert(false,"Result item type is wrong.")
-                return
-            }
+
+            let results = respondables.flatMap { $0.result as? TransformAppTaskRespondable }
 
             DispatchQueue.main.async { [unowned self] in
                 self.delegate?.batchPreviewViewWillBeginExport(self)

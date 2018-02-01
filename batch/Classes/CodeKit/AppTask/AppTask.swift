@@ -6,22 +6,19 @@
 import Foundation
 
 
-public protocol AppTaskResultable{
-    associatedtype ResultType
-    var info: AppInfo {get}
-    var results:ResultType {get}
+public protocol AppTaskRespondable {
+    var request: AppTaskRequest { get }
+    var result: TaskResultable? { get }
+    var info: TaskInfo { get }
 }
 
-public struct AppTaskResult: AppTaskResultable {
-    public typealias ResultType = [TaskRespondable]
-    internal(set) public var info: AppInfo
-    internal(set) public var results:ResultType
+extension AppTaskRespondable {
+    public var appInfo:AppInfo{
+        return self.request.appClass.info
+    }
 }
 
-/*
-    WorkItem
-*/
-class AppTaskWorkItem: TaskRespondable, AppTaskRespondable{
+class AppTaskWorkItem: AppTaskRespondable {
     let request:AppTaskRequest
     let info: TaskInfo
     let task: Taskable
@@ -55,36 +52,18 @@ extension AppTaskWorkItem {
 }
 
 /*
-    Respondable
-*/
-public protocol AppTaskRespondable {
-    var request:AppTaskRequest { get }
-    var info: TaskInfo { get }
-    var appInfo: AppInfo { get }
-}
-
-extension AppTaskRespondable {
-    var appInfo: AppInfo {
-        get{
-            return self.request.appClass.info
-        }
-    }
-}
-
-/*
     Reactable
 */
 public typealias AppTaskReactableProgressHanlder = (
-        _ progressedResult: AppTaskResult
+        _ progressedResult: AppTaskRespondable
         , _ progress:Float
         , _ remainedResponses:[AppTaskRespondable]
         , _ completedResponses:[AppTaskRespondable]
 ) -> Void
 
 public typealias AppTaskReactableFinishHandler = (
-        _ finishedResultsForEachApps:[AppInfo:AppTaskResult]
-        , _ finishedAllResults:[TaskResultable]
-        , _ forAllResponse:[AppTaskRespondable]
+        _ byApps:[AppInfo: [AppTaskRespondable]]
+        , _ forAllResponses:[AppTaskRespondable]
 ) -> Void
 
 public protocol AppTaskReactable {

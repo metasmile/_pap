@@ -227,9 +227,8 @@ extension BatchEditViewController {
         let reaction = AppTaskReaction()
         reaction.when { result, progress, respondables, respondables1 in
 
-            assert(result.results.first?.result is TransformAppTaskResult)
-            guard let _result = result.results.first?.result as? TransformAppTaskResult else{
-//                , let _resultIndexPath = _result.indexPath else {
+            assert(result.result is TransformAppTaskRespondable)
+            guard let _ = result.result as? TransformAppTaskRespondable else{
                 return
             }
 
@@ -240,15 +239,13 @@ extension BatchEditViewController {
             }
 
         }
-        reaction.when { resultsByApps, allResults, respondables in
+        reaction.when { finishedResultsForEachApps, respondables in
 
             DispatchQueue.main.async {
                 self.batchProgressView.title = "Saving Photos...".localizedString
             }
 
-            guard let results = allResults as? [TransformAppTaskResult] else {
-                return
-            }
+            let results = respondables.flatMap { $0.result as? TransformAppTaskRespondable }
 
             PHPhotoLibrary.shared().performChanges({
                 for result in results {
@@ -265,7 +262,6 @@ extension BatchEditViewController {
                     }
                 }
             })
-
 
         }
         AppTaskManager.shared(2).perform(reaction)

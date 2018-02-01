@@ -54,11 +54,10 @@ extension NSObject{
             //HELLO: remained -> remaining tasks
             //HELLO: finished -> finished tasks until now
 
-        }).when(finish: { results, allResults, forResponses in
+        }).when(finish:{ forEachApps, forResponses in
             //HELLO: results -> Whole results.
             //HELLO: forResponses -> forResponses request info etc...
 
-            results.first?.key.identifier
         })
 
         let _ = AppTaskManager.shared(2).perform(reaction)

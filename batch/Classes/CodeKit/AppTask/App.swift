@@ -22,7 +22,7 @@ protocol ParamableAppable {
 }
 
 protocol FinalizableAppable {
-    func finalize(result: AppTaskResult, _ asyncSignal: TaskAsyncSignalable) -> AppTaskResult
+    func finalize(result: [AppTaskRespondable], _ asyncSignal: TaskAsyncSignalable) -> [AppTaskRespondable]
 }
 
 public class AppPrototype: ItemObject {
