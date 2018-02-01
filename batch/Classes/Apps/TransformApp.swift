@@ -12,7 +12,6 @@ import MobileCoreServices
 
 public struct TransformAppTaskRespondable:TaskResultable {
     var asset: PHAsset
-//    var indexPath:IndexPath?
     var contentEditingOutput: PHContentEditingOutput
 }
 
@@ -51,18 +50,16 @@ private class _TransfromAppTask: TaskPrototype, Taskable {
     }
 
     private func _perform(_ batchEditItem: TransformAppEditItem, _ async: TaskAsyncSignalable?) throws -> TransformAppTaskRespondable?  {
-        print("start",batchEditItem)
         item = batchEditItem
 
-        async?.begin()
-
         var result: TransformAppTaskRespondable?
+
+        async?.begin()
 
         batchEditItem.runEditing(nil) { (asset, contentEditingOutput) in
             if let asset = asset, let contentEditingOutput = contentEditingOutput {
                 result = TransformAppTaskRespondable(
                         asset: asset,
-//                        indexPath: self.item?.indexPath,
                         contentEditingOutput: contentEditingOutput)
             }
             async?.end()
@@ -70,7 +67,7 @@ private class _TransfromAppTask: TaskPrototype, Taskable {
 
         async?.stopUntilEnd()
 
-        print("end", result ?? "[nil]")
+        assert(result != nil, "The result of task is nil. for \(self)")
         return result
 
 

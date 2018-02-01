@@ -90,10 +90,10 @@ extension BatchPreviewView {
         guard !batchEditItems.contains(where: { $0.asset == asset }) else { return }
         
         let indexPath = IndexPath(item: batchEditItems.count, section: 0)
-        
+
         let batchEditItem = TransformAppEditItem()
         batchEditItem.asset = asset
-//        batchEditItem.indexPath = indexPath
+        batchEditItem.indexSection = (indexPath.item, indexPath.section)
 
         batchEditItems.append(batchEditItem)
 
@@ -167,16 +167,19 @@ extension BatchPreviewView {
             TaskManager.append(request: AppTaskRequest(TransformApp.self, item))
         }
 
-        let reaction = AppTaskReaction().when { response, progress, respondables, respondables1 in
-
+        let reaction = AppTaskReaction().when { response, progress, remained, completed in
             guard let _ = response.result as? TransformAppTaskRespondable else{
                 assert(false,"Result item type is wrong.")
                 return
             }
 
-            DispatchQueue.main.async { [unowned self] in
-                self.delegate?.batchPreviewView(self, didUpdateProgress: progress)
-//                self.collectionView.scrollToItem(at: _resultIndexPath, at: .centeredHorizontally, animated: true)
+            let requestedParam = response.request.param as? TransformAppEditItem
+            let totalCount = remained.count+completed.count
+
+            self.delegate?.batchPreviewView(self, didUpdateProgress: progress)
+
+            if let param = requestedParam, let (_index, _section) = param.indexSection {
+                self.collectionView.scrollToItem(at: IndexPath(item: Int(Float(totalCount-1)*progress), section: _section), at: .centeredHorizontally, animated: true)
             }
 
         }.when { resultsByApps, respondables in
@@ -184,9 +187,7 @@ extension BatchPreviewView {
 
             let results = respondables.flatMap { $0.result as? TransformAppTaskRespondable }
 
-            DispatchQueue.main.async { [unowned self] in
-                self.delegate?.batchPreviewViewWillBeginExport(self)
-            }
+            self.delegate?.batchPreviewViewWillBeginExport(self)
 
             PHPhotoLibrary.shared().performChanges({
                 for result in results {

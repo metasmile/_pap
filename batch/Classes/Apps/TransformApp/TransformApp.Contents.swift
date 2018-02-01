@@ -105,9 +105,9 @@ class HorizontalFlipTransformItem: TransformItem {
 public class TransformAppEditItem: NSObject, TaskParamable {
     fileprivate var imageRequestID: PHImageRequestID = PHInvalidImageRequestID
 
-//    var indexPath:IndexPath?
     var asset: PHAsset?
     var editItem = TransformEditItem()
+    var indexSection:(Int, Int)?
 }
 
 extension TransformAppEditItem {

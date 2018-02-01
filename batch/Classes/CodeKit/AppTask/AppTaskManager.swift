@@ -260,19 +260,20 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         let cres = _staticRespondedWorkItems.count
         let progress = Float(cres)/Float(creq + cres)
         let remainedResponses = Array(self._staticRequestedWorkItems.values)
+        let finishedResponses = self._staticRespondedWorkItems
 
         self.mainOperationQueue().async { [unowned self] in
 
             self.delegate?.didRespond(forCurrent: workItem
                     , progress: progress
                     , remained: remainedResponses
-                    , finished: self._staticRespondedWorkItems)
+                    , finished: finishedResponses)
 
             self._reactionItem?.progressHandler?(
                     workItem
                     ,progress
                     ,remainedResponses
-                    ,self._staticRespondedWorkItems
+                    ,finishedResponses
             )
         }
 

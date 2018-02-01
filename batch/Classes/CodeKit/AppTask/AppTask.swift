@@ -74,6 +74,7 @@ public protocol AppTaskReactable {
     func when(finish:@escaping AppTaskReactableFinishHandler) -> AppTaskReactable
 }
 
+//TODO: custom queue when calling back
 public class AppTaskReaction: ItemObject, AppTaskReactable {
     private(set) public var progressHandler: AppTaskReactableProgressHanlder?
 
