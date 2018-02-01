@@ -44,9 +44,6 @@ public final class AppLifecycleManager {
     }
 
     private func _acquire(_ info: AppInfo) -> Appable?{
-        assert(info.identifier != nil, "app identifier is empty")
-        assert(info.appClass != nil, "app class is empty")
-
         let appIdentifier = info.identifier
         let appClass = info.appClass
 
@@ -60,7 +57,7 @@ public final class AppLifecycleManager {
         return appInstance
     }
 
-
+    @discardableResult
     public func discard(_ info: AppInfo) -> Bool{
         assert(info.lifeCycleUnit != .permanent, "Discarding app's life cycle mode is permanent.")
         if info.lifeCycleUnit == .permanent{

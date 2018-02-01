@@ -66,7 +66,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
 
     private init(_ maxConcurrentCount:UInt=1) {
         assert(maxConcurrentCount>0, "concurrentCount must be 1 or higher.")
-        for var qn in 0 ..< maxConcurrentCount{
+        for _ in 0 ..< maxConcurrentCount{
             let q = AppTaskOperationQueue(delegate:self)
             _queuePool[q.label] = q
         }
@@ -75,7 +75,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
     private func createTask(_ request:AppTaskRequest) -> Taskable?{
         let appInfo = request.appClass.info
 
-        guard let appInstance = AppLifecycleManager.shared.acquire(appInfo) else {
+        guard let _ = AppLifecycleManager.shared.acquire(appInfo) else {
             assert(false, "Task Creation was failed for an App \(request.appClass)")
             return nil
         }
@@ -98,6 +98,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         }
     }
 
+    @discardableResult
     public func request(_ request:AppTaskRequest) -> TaskInfo?{
         let info = append(request:request)
         perform(true)
@@ -134,6 +135,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
 
     //TODO: improve item append performance.
     //TODO: check conforms TaskParamable type.
+    @discardableResult
     public func append(request:AppTaskRequest) -> TaskInfo?{
         return syncQueue.sync(flags:.barrier){
 
@@ -158,13 +160,14 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
             return item.task.info
         }
     }
-
+    
+    @discardableResult
     private func perform(_ preventIfSuspended:Bool=false) -> Bool {
         if _queuePool.count==0 {
             return false
         }
 
-        for var queue in _queuePool.values{
+        for queue in _queuePool.values {
             if preventIfSuspended && queue.suspended{
                 return false
             }
@@ -174,6 +177,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         return true
     }
 
+    @discardableResult
     public func perform(_ reaction: AppTaskReactable?=nil) -> Bool {
         if reaction != nil{
             syncQueue.sync(flags:.barrier){ [unowned self] in
@@ -240,7 +244,6 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
     private func _countFinishedTaskByEachQueues(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem) {
         let appClass = workItem.request.appClass
         let appInfo = appClass.info
-        let appId = appInfo.identifier
 
         if !_staticResponsesForEachApps.keys.contains(appInfo){
             _staticResponsesForEachApps[appInfo] = AppTaskResult(
@@ -302,7 +305,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         let asyncSignal = TaskDefaultSignal()
         var finalizedResults = [AppInfo:AppTaskResult]()
 
-        for var result in resultByApps.values {
+        for result in resultByApps.values {
             guard let appInstance = AppLifecycleManager.shared.acquire(result.info) else{
                 assert(false,"App doest not exist any longer. Check it on lifecycle manager.")
                 continue

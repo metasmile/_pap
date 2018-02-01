@@ -116,12 +116,17 @@ public protocol TaskSignalable {}
 public protocol TaskAsyncSignalable: TaskSignalable {
     var began:Bool { get }
     func begin()
-    func end() -> Self
+    
     func stopUntilEnd()
+    
+    @discardableResult 
+    func end() -> Self
 }
 
 public protocol TaskSignalControllable {
     func done()
+    
+    @discardableResult
     func finally(_ queue:DispatchQueue?,_ completion: DispatchWorkItem) -> Self
 }
 
@@ -161,7 +166,7 @@ extension TaskDefaultSignal: TaskAsyncSignalable, TaskSignalControllable {
         }
         return self
     }
-
+    
     public func stopUntilEnd() {
         assert(self.began,"stopUntilEnd() was called before begin(), or, after end() in same queue.")
         if self.began{

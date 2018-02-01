@@ -100,35 +100,35 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A66CD4D1F9592A600A97726 /* FloatingToolbar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FloatingToolbar.xib; path = FloatingToolbar.xib; sourceTree = "<group>"; };
-		0A66CD4F1F95935500A97726 /* FloatingToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FloatingToolbar.swift; path = FloatingToolbar.swift; sourceTree = "<group>"; };
-		0A7459E81F709ADA00CA70E1 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geometry.swift; path = Geometry.swift; sourceTree = "<group>"; };
+		0A66CD4D1F9592A600A97726 /* FloatingToolbar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FloatingToolbar.xib; sourceTree = "<group>"; };
+		0A66CD4F1F95935500A97726 /* FloatingToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingToolbar.swift; sourceTree = "<group>"; };
+		0A7459E81F709ADA00CA70E1 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		0A771E8F1FB1429700BBFCD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		0A88FF741FA04AD6001C0DC6 /* FloatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FloatingView.swift; path = FloatingView.swift; sourceTree = "<group>"; };
-		0A8C4ADD1F3C15BF00B7246A /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundedButton.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
-		0A8D18E01F15DEEF00AABEF7 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomView.swift; path = CustomView.swift; sourceTree = "<group>"; };
-		0A8FDA041FA76EF8002380AA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		0A8FDA061FA8035D002380AA /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = StringExtension.swift; sourceTree = "<group>"; };
-		0A9CC9281F8774EC00AC91A6 /* PhotoEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoEditViewController.swift; path = PhotoEditViewController.swift; sourceTree = "<group>"; };
-		0A9E4AF91F8F300200E3E805 /* BatchProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BatchProgressView.xib; path = BatchProgressView.xib; sourceTree = "<group>"; };
-		0A9E4AFB1F8F303200E3E805 /* BatchProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BatchProgressView.swift; path = BatchProgressView.swift; sourceTree = "<group>"; };
-		0A9EBAE21FD6F37200E83778 /* BatchPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BatchPreviewView.swift; path = BatchPreviewView.swift; sourceTree = "<group>"; };
-		0A9EBAE41FD6F3AF00E83778 /* BatchPreviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BatchPreviewView.xib; path = BatchPreviewView.xib; sourceTree = "<group>"; };
-		0A9EC7731F30735B00F1EF3A /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PhotoCollectionViewCell.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
-		0A9F86CF1FDA756800D25EB6 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoCollectionViewCell.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
-		0AA166931FD7A7F10004205C /* PreviewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PreviewCollectionViewCell.xib; path = PreviewCollectionViewCell.xib; sourceTree = "<group>"; };
-		0AA166951FD7A8710004205C /* PreviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PreviewCollectionViewCell.swift; path = PreviewCollectionViewCell.swift; sourceTree = "<group>"; };
-		0AA37B271FD53163002803B8 /* AppDockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDockViewController.swift; path = AppDockViewController.swift; sourceTree = "<group>"; };
-		0AA382611F4ECA420031BAB5 /* BatchEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BatchEditViewController.swift; path = BatchEditViewController.swift; sourceTree = "<group>"; };
+		0A88FF741FA04AD6001C0DC6 /* FloatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingView.swift; sourceTree = "<group>"; };
+		0A8C4ADD1F3C15BF00B7246A /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		0A8D18E01F15DEEF00AABEF7 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		0A8FDA041FA76EF8002380AA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		0A8FDA061FA8035D002380AA /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		0A9CC9281F8774EC00AC91A6 /* PhotoEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditViewController.swift; sourceTree = "<group>"; };
+		0A9E4AF91F8F300200E3E805 /* BatchProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BatchProgressView.xib; sourceTree = "<group>"; };
+		0A9E4AFB1F8F303200E3E805 /* BatchProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchProgressView.swift; sourceTree = "<group>"; };
+		0A9EBAE21FD6F37200E83778 /* BatchPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchPreviewView.swift; sourceTree = "<group>"; };
+		0A9EBAE41FD6F3AF00E83778 /* BatchPreviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BatchPreviewView.xib; sourceTree = "<group>"; };
+		0A9EC7731F30735B00F1EF3A /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		0A9F86CF1FDA756800D25EB6 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		0AA166931FD7A7F10004205C /* PreviewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewCollectionViewCell.xib; sourceTree = "<group>"; };
+		0AA166951FD7A8710004205C /* PreviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		0AA37B271FD53163002803B8 /* AppDockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDockViewController.swift; sourceTree = "<group>"; };
+		0AA382611F4ECA420031BAB5 /* BatchEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchEditViewController.swift; sourceTree = "<group>"; };
 		0AA86ED41FD1199A00E6E1B0 /* AppDock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDock.swift; sourceTree = "<group>"; };
 		0AA86ED61FD11EEF00E6E1B0 /* AppDockView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppDockView.xib; sourceTree = "<group>"; };
 		0AA86ED81FD12BF600E6E1B0 /* AppDockViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppDockViewCell.xib; sourceTree = "<group>"; };
 		0ABFCF781F14B65C0078A583 /* batch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = batch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ABFCF7B1F14B65C0078A583 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0ABFCF871F14B65C0078A583 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0ABFCF901F14B7190078A583 /* AppStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = AppStoryboard.storyboard; path = AppStoryboard.storyboard; sourceTree = "<group>"; };
-		0ABFCF921F14B7CB0078A583 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Assets.xcassets; sourceTree = "<group>"; };
-		0ABFCF981F14B8A70078A583 /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoPickerViewController.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
+		0ABFCF901F14B7190078A583 /* AppStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AppStoryboard.storyboard; sourceTree = "<group>"; };
+		0ABFCF921F14B7CB0078A583 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0ABFCF981F14B8A70078A583 /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
 		281B8EE7F3B930519ABFAAA4 /* Pods_batch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_batch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F71D0EF623C8441D279F9EF /* th */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F71D13BC023ADD52581C963 /* pt_PT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = pt_PT; path = pt_PT.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 		4F71D7A791F06122924E0876 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		4F71D7AEEEE1B45DEE86ED9A /* ar */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F71D81FED9664274B59247E /* pl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
-		4F71D8588D09A8F77A3F89CF /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Task.swift; path = Task.swift; sourceTree = "<group>"; };
+		4F71D8588D09A8F77A3F89CF /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		4F71D884AE168A3F257D1058 /* fr_CA */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fr_CA; path = fr_CA.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F71D89F3850DE4667332519 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		4F71D8BA896BACAC477A1E38 /* AppTaskManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTaskManager.swift; sourceTree = "<group>"; };
@@ -223,7 +223,6 @@
 				0A7459E81F709ADA00CA70E1 /* Geometry.swift */,
 				0A8FDA061FA8035D002380AA /* StringExtension.swift */,
 			);
-			name = Extensions;
 			path = Extensions;
 			sourceTree = "<group>";
 		};
@@ -238,7 +237,6 @@
 				4F71DED41994345222015B8E /* GradientView.swift */,
 				0A8C4ADD1F3C15BF00B7246A /* RoundedButton.swift */,
 			);
-			name = "Custom Controls";
 			path = "Custom Controls";
 			sourceTree = "<group>";
 		};
@@ -251,16 +249,7 @@
 				0AA166951FD7A8710004205C /* PreviewCollectionViewCell.swift */,
 				0AA166931FD7A7F10004205C /* PreviewCollectionViewCell.xib */,
 			);
-			name = Selector;
 			path = Selector;
-			sourceTree = "<group>";
-		};
-		0AA1A07B1F4D121A006297DF /* Edit */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Edit;
-			path = Edit;
 			sourceTree = "<group>";
 		};
 		0AA347DF1F15B29A004EE8E6 /* Interfaces */ = {
@@ -270,7 +259,6 @@
 				0A66CD4D1F9592A600A97726 /* FloatingToolbar.xib */,
 				0A9EC7731F30735B00F1EF3A /* PhotoCollectionViewCell.xib */,
 			);
-			name = Interfaces;
 			path = Interfaces;
 			sourceTree = "<group>";
 		};
@@ -322,7 +310,6 @@
 				0ABFCF921F14B7CB0078A583 /* Assets.xcassets */,
 				0A8FDA041FA76EF8002380AA /* Launch Screen.storyboard */,
 			);
-			name = Resources;
 			path = Resources;
 			sourceTree = "<group>";
 		};
@@ -332,7 +319,6 @@
 				0AA347DF1F15B29A004EE8E6 /* Interfaces */,
 				0ABFCF8F1F14B6FB0078A583 /* Storyboards */,
 			);
-			name = "User Interfaces";
 			path = "User Interfaces";
 			sourceTree = "<group>";
 		};
@@ -341,7 +327,6 @@
 			children = (
 				0ABFCF901F14B7190078A583 /* AppStoryboard.storyboard */,
 			);
-			name = Storyboards;
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
@@ -353,7 +338,6 @@
 				4F71DCB7FD70D9D27E5C6324 /* Apps */,
 				4F71D2EACB3C0ECE4939A9E0 /* CodeKit */,
 				0A8C4ADC1F3C159300B7246A /* Custom Controls */,
-				0AA1A07B1F4D121A006297DF /* Edit */,
 				0A7459E71F709AC800CA70E1 /* Extensions */,
 				0A9EBAE11FD6F34300E83778 /* Selector */,
 				0AA37B271FD53163002803B8 /* AppDockViewController.swift */,
@@ -362,7 +346,6 @@
 				4F71D67696ED68B67F19CD2D /* PhotoPickerDetailViewController.swift */,
 				0ABFCF981F14B8A70078A583 /* PhotoPickerViewController.swift */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -455,7 +438,6 @@
 				4F71DF0B9E9077B1E03FF885 /* PHAsset.swift */,
 				4F71D8588D09A8F77A3F89CF /* Task.swift */,
 			);
-			name = CodeKit;
 			path = CodeKit;
 			sourceTree = "<group>";
 		};
@@ -481,7 +463,6 @@
 				4F71DC5FEFE4BF3361E38AF5 /* HelloApps.swift */,
 				4F71DF2E58751E7641EB78DE /* HelloBatchApp.swift */,
 			);
-			name = "@HelloApps";
 			path = "@HelloApps";
 			sourceTree = "<group>";
 		};
@@ -772,7 +753,6 @@
 				4F71D0464F5C58AA32471AD6 /* zh_HK.lproj */,
 				4F71DD697E158D7EF680D50D /* zh_TW.lproj */,
 			);
-			name = Localizations;
 			path = Localizations;
 			sourceTree = "<group>";
 		};
@@ -1420,6 +1400,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1462,6 +1443,7 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1476,6 +1458,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1512,6 +1495,7 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;

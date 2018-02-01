@@ -328,8 +328,8 @@ extension TransformAppEditItem {
         let retrievePairedResourcesHandler = { [weak self] in
             guard
                 let editItem = self?.editItem,
-                let video = pairedVideo?.applyTransform(editItem.transform),
-                let photo = pairedPhoto?.applyTransform(editItem.transform)
+                let _ = pairedVideo?.applyTransform(editItem.transform),
+                let _ = pairedPhoto?.applyTransform(editItem.transform)
             else { return }
 
 

@@ -63,6 +63,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
         return self.delegate?.mainOperationQueue() ?? DispatchQueue.main
     }
 
+    @discardableResult
     private func dispatchState(_ item: AppTaskWorkItem, _ state: TaskState) -> Bool{
         let response = item.response(state)
 

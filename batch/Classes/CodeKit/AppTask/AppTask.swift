@@ -103,6 +103,7 @@ public protocol AppTaskReactable {
 public class AppTaskReaction: ItemObject, AppTaskReactable {
     private(set) public var progressHandler: AppTaskReactableProgressHanlder?
 
+    @discardableResult
     public func when(progress:@escaping AppTaskReactableProgressHanlder) -> AppTaskReactable {
         self.progressHandler = progress
         return self
@@ -110,6 +111,7 @@ public class AppTaskReaction: ItemObject, AppTaskReactable {
 
     private(set) public var finishHandler: AppTaskReactableFinishHandler?
 
+    @discardableResult
     public func when(finish:@escaping AppTaskReactableFinishHandler) -> AppTaskReactable {
         self.finishHandler = finish
         return self

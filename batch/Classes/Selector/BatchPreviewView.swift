@@ -160,7 +160,7 @@ extension BatchPreviewView {
 extension BatchPreviewView {
     func runBatchProcessing() {
 //        guard batchRequest == nil else { return }
-        
+
         delegate?.batchPreviewViewWillBeginEdit(self)
         
         collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
@@ -169,17 +169,14 @@ extension BatchPreviewView {
         //TODO: TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
         batchEditItems.forEach { item in
             TaskManager.append(request: AppTaskRequest(TransformApp.self, item) { res, cancel in
-                print(item)
+                
             })
         }
 
-        let reaction = AppTaskReaction()
-        reaction.when { result, progress, respondables, respondables1 in
+        let reaction = AppTaskReaction().when { result, progress, respondables, respondables1 in
             print("------------- progress",progress)
 
-            let _result = result.results.first?.result
-
-            print(_result)
+            let _ = result.results.first?.result
 
 //            guard let _result = result.results.first?.result as? TransformAppTaskResult else{
 ////                , let _resultIndexPath = _result.indexPath else {
@@ -193,8 +190,7 @@ extension BatchPreviewView {
 //                self.collectionView.scrollToItem(at: _resultIndexPath, at: .centeredHorizontally, animated: true)
             }
 
-        }
-        reaction.when { resultsByApps, allResults, respondables in
+        }.when { resultsByApps, allResults, respondables in
             print(allResults)
             let results = allResults as! [TransformAppTaskResult]
 
@@ -223,9 +219,8 @@ extension BatchPreviewView {
 //                    self.batchRequest = nil
                 }
             })
-
-
         }
+
         TaskManager.perform(reaction)
         //TODO: TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
 

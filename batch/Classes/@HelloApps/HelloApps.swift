@@ -61,7 +61,7 @@ extension NSObject{
             results.first?.key.identifier
         })
 
-        let started = AppTaskManager.shared(2).perform(reaction)
+        let _ = AppTaskManager.shared(2).perform(reaction)
 
         //HELLO: pause.
         AppTaskManager.shared(2).suspend()

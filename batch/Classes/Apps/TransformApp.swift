@@ -22,7 +22,7 @@ public class TransformApp: AppPrototype, Appable, ParamableAppable, FinalizableA
     public typealias ParamType = TransformAppEditItem
     public static let paramClass: ParamType.Type = ParamType.self
 
-    public static let taskClass:Taskable.Type = _TransfromTask.self
+    public static let taskClass:Taskable.Type = _TransfromAppTask.self
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.transform"
@@ -36,7 +36,7 @@ public class TransformApp: AppPrototype, Appable, ParamableAppable, FinalizableA
     }
 }
 
-private class _TransfromTask: TaskPrototype, Taskable {
+private class _TransfromAppTask: TaskPrototype, Taskable {
     public typealias ParamType = TransformAppEditItem
     public typealias ResultType = TransformAppTaskResult
 
@@ -70,7 +70,7 @@ private class _TransfromTask: TaskPrototype, Taskable {
 
         async?.stopUntilEnd()
 
-        print("end",result)
+        print("end", result ?? "[nil]")
         return result
 
 
