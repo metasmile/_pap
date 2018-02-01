@@ -291,6 +291,7 @@ extension TransformAppEditItem {
 
             let editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: input)
             editingContext?.frameProcessor = { frame, error in
+                //FIXME: convert transform into CoreImage coordinates
                 return frame.image.transformed(by: self.editItem.transform)
             }
 
