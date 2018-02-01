@@ -4,11 +4,15 @@
 //
 
 import Foundation
+import Dispatch
 
 public typealias AppTaskRequest = TaskRequest<Appable.Type, TaskParamable, AppTaskRespondable>
 
 public protocol AppTaskManagerDelegate: class {
+    func delegatingQueue() -> DispatchQueue?
+    
     func didRespond(forCurrent: AppTaskRespondable, progress:Float, remained:[AppTaskRespondable], finished:[AppTaskRespondable])
+    
     func didFinish(forEachApps:[AppInfo:[AppTaskRespondable]], forAll:[AppTaskRespondable])
 }
 
@@ -195,7 +199,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         _queuePool.forEach { (k,v) in v.suspend() }
     }
 
-    func mainOperationQueue() -> DispatchQueue{
+    func delegatingQueue(from: AppTaskOperationQueue) -> DispatchQueue {
         return DispatchQueue.main
     }
 
@@ -262,30 +266,35 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         let remainedResponses = Array(self._staticRequestedWorkItems.values)
         let finishedResponses = self._staticRespondedWorkItems
 
-        self.mainOperationQueue().async { [unowned self] in
-
+        (self.delegate?.delegatingQueue() ?? DispatchQueue.main).async { [unowned self] in
             self.delegate?.didRespond(forCurrent: workItem
                     , progress: progress
                     , remained: remainedResponses
                     , finished: finishedResponses)
-
-            self._reactionItem?.progressHandler?(
-                    workItem
-                    ,progress
-                    ,remainedResponses
-                    ,finishedResponses
-            )
         }
 
+        (self._reactionItem?.targetQueue ?? DispatchQueue.main).async { [unowned self] in
+            self._reactionItem?.progressHandler?(
+                workItem
+                ,progress
+                ,remainedResponses
+                ,finishedResponses
+            )
+        }
+        
         //all finished
         if _staticRequestedWorkItems.count==0 {
             let responseForEachApps = self._finializeAllAppTasks(_staticResponsesForEachApps)
             let respondedWorkItems = self._staticRespondedWorkItems
 
-            self.mainOperationQueue().async { [unowned self] in
-                self._reactionItem?.finishHandler?(responseForEachApps, respondedWorkItems)
+            (self.delegate?.delegatingQueue() ?? DispatchQueue.main).async { [unowned self] in
                 self.delegate?.didFinish(forEachApps: responseForEachApps, forAll: respondedWorkItems)
             }
+
+            (self._reactionItem?.targetQueue ?? DispatchQueue.main).async { [unowned self] in
+                self._reactionItem?.finishHandler?(responseForEachApps, respondedWorkItems)
+            }
+
 
             //clean buffered results
             _staticRespondedWorkItems.removeAll()

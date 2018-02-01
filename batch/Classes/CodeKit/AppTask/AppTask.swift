@@ -4,7 +4,7 @@
 //
 
 import Foundation
-
+import Dispatch
 
 public protocol AppTaskRespondable {
     var request: AppTaskRequest { get }
@@ -67,6 +67,8 @@ public typealias AppTaskReactableFinishHandler = (
 ) -> Void
 
 public protocol AppTaskReactable {
+    var targetQueue:DispatchQueue? { get }
+
     var progressHandler: AppTaskReactableProgressHanlder? { get }
     func when(progress:@escaping AppTaskReactableProgressHanlder) -> AppTaskReactable
 
@@ -74,8 +76,18 @@ public protocol AppTaskReactable {
     func when(finish:@escaping AppTaskReactableFinishHandler) -> AppTaskReactable
 }
 
+extension AppTaskReactable{
+    public var targetQueue:DispatchQueue{
+        get {
+            return self.targetQueue ?? DispatchQueue.main
+        }
+    }
+}
+
 //TODO: custom queue when calling back
 public class AppTaskReaction: ItemObject, AppTaskReactable {
+    internal(set) public var targetQueue:DispatchQueue?
+    
     private(set) public var progressHandler: AppTaskReactableProgressHanlder?
 
     @discardableResult
@@ -94,6 +106,14 @@ public class AppTaskReaction: ItemObject, AppTaskReactable {
 
     public init(finish: AppTaskReactableFinishHandler?=nil){
         super.init()
+        if let _finish = finish{
+            self.when(finish:_finish)
+        }
+    }
+
+    public init(queue:DispatchQueue?=DispatchQueue.main, finish: AppTaskReactableFinishHandler?=nil){
+        super.init()
+        self.targetQueue = queue
         if let _finish = finish{
             self.when(finish:_finish)
         }

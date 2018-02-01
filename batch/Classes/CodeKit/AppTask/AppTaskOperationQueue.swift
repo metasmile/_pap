@@ -6,7 +6,7 @@
 import Foundation
 
 protocol AppTaskOperationQueueDelegate: class {
-    func mainOperationQueue() -> DispatchQueue
+    func delegatingQueue(from:AppTaskOperationQueue) -> DispatchQueue
 
     func willPerformTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem)
     func didCompleteTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem)
@@ -59,8 +59,8 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
     }
 
     //external interface
-    private var mainOperationQueue:DispatchQueue {
-        return self.delegate?.mainOperationQueue() ?? DispatchQueue.main
+    private var _delegatingQueue:DispatchQueue {
+        return self.delegate?.delegatingQueue(from: self) ?? DispatchQueue.main
     }
 
     @discardableResult
@@ -89,7 +89,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
         }
 
         if let _exe = exe{
-            self.mainOperationQueue.async(execute: _exe)
+            self._delegatingQueue.async(execute: _exe)
         }
 
         print("> "
@@ -107,7 +107,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
         print("dispatchFinishedResults", self.count, self.finshedQueue.count)
 
         let queueResult = self.finshedQueue.dequeueAll()
-        self.mainOperationQueue.async {
+        self._delegatingQueue.async {
             self.delegate?.didFinishAllTasksInQueue(self, queueResult)
         }
     }
@@ -159,7 +159,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
 
             self.tryItem(item, self.asyncSignal, cancel: _cancelled)
 
-            self.mainOperationQueue.async{
+            self._delegatingQueue.async{
 
                 // dequeue
                 guard let finishedItem = self.dequeue() else {
