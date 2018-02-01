@@ -64,12 +64,15 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
     }
 
     @discardableResult
-    private func dispatchState(_ item: AppTaskWorkItem, _ state: TaskState) -> Bool{
+    private func dispatchState(_ item: AppTaskWorkItem, _ state: TaskState, _ error:TaskError?=nil) -> Bool{
         let response = item.response(state)
 
         let d = self.delegate
 
         var exe:(() -> Void)?
+
+        //set error
+        item.info.error = error
 
         switch(item.info.state){
         case .performing:
@@ -120,12 +123,19 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
         }
 
         do {
-            item.result = try item.task.perform(item.request.param, async)
+            if let result = try item.task.perform(item.request.param, async){
+                item.result = result
+                self.dispatchState(item, .completed)
+                return
+            }
 
-            self.dispatchState(item, .completed)
+            throw TaskError.invalidResult
 
-        } catch _ {
-            self.dispatchState(item, .failed)
+        } catch let e as TaskError {
+            self.dispatchState(item, .failed, e)
+
+        } catch {
+            self.dispatchState(item, .failed, TaskError.unknown)
         }
     }
 

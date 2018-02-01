@@ -51,7 +51,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
     //result collection
     private var _staticResponsesForEachApps = [AppInfo: [AppTaskRespondable]]()
     private var _staticRequestedWorkItems = [String: AppTaskWorkItem]()
-    private var _staticRespondedWorkItems = [AppTaskWorkItem]()
+    private var _staticFinishedWorkItems = [AppTaskWorkItem]()
 
     //TODO: improve queue assign performance
     private var _currentQueue: AppTaskOperationQueue {
@@ -254,17 +254,18 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         }
         _staticResponsesForEachApps[appInfo]?.append(workItem)
 
-        _staticRespondedWorkItems.append(workItem)
         _staticRequestedWorkItems.removeValue(forKey: workItem.info.requestToken)
+        _staticFinishedWorkItems.append(workItem)
 
         print("Remaining tasks: ", _staticRequestedWorkItems.count)
 
         //progress
         let creq = _staticRequestedWorkItems.count
-        let cres = _staticRespondedWorkItems.count
+        let cres = _staticFinishedWorkItems.count
         let progress = Float(cres)/Float(creq + cres)
+
         let remainedResponses = Array(self._staticRequestedWorkItems.values)
-        let finishedResponses = self._staticRespondedWorkItems
+        let finishedResponses = self._staticFinishedWorkItems
 
         (self.delegate?.delegatingQueue() ?? DispatchQueue.main).async { [unowned self] in
             self.delegate?.didRespond(forCurrent: workItem
@@ -278,14 +279,14 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
                 workItem
                 ,progress
                 ,remainedResponses
-                ,finishedResponses
+                , finishedResponses
             )
         }
         
         //all finished
         if _staticRequestedWorkItems.count==0 {
             let responseForEachApps = self._finializeAllAppTasks(_staticResponsesForEachApps)
-            let respondedWorkItems = self._staticRespondedWorkItems
+            let respondedWorkItems = self._staticFinishedWorkItems
 
             (self.delegate?.delegatingQueue() ?? DispatchQueue.main).async { [unowned self] in
                 self.delegate?.didFinish(forEachApps: responseForEachApps, forAll: respondedWorkItems)
@@ -295,9 +296,8 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
                 self._reactionItem?.finishHandler?(responseForEachApps, respondedWorkItems)
             }
 
-
             //clean buffered results
-            _staticRespondedWorkItems.removeAll()
+            _staticFinishedWorkItems.removeAll()
             _staticRequestedWorkItems.removeAll()
             _staticResponsesForEachApps.removeAll()
         }

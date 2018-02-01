@@ -22,9 +22,11 @@ public enum TaskLoad: UInt{
 }
 
 public enum TaskError: Error {
-    case precondition
-    case exception
+    case invalidParam
+    case invalidResult
+    case internalException
     case timeout
+    case unknown
 }
 
 public protocol Taskable {
@@ -95,6 +97,7 @@ public class TaskInfo: Item<String> {
 
     internal(set) public var state: TaskState = .unqueued
     internal(set) public var queueLabel:String?
+    internal(set) var error:TaskError?
 
     required public init(_ requestToken: String, _ taskType: Taskable.Type){
         self.requestToken = requestToken
