@@ -247,7 +247,16 @@ extension TransformAppEditItem {
             let editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: input)
             editingContext?.frameProcessor = { frame, error in
                 //FIXME: convert transform into CoreImage coordinates
-                return frame.image.transformed(by: self.editItem.transform)
+                let editItemConvertedCoordinates = TransformEditItem()
+                self.editItem.transformItems.forEach({ (transformItem) in
+                    if let rotationItem = transformItem as? RotationTransformItem {
+                        editItemConvertedCoordinates.addTransformItem(RotationTransformItem(radians: -rotationItem.angle))
+                    }
+                    else {
+                        editItemConvertedCoordinates.addTransformItem(transformItem)
+                    }
+                })
+                return frame.image.transformed(by: editItemConvertedCoordinates.transform)
             }
 
             editingContext?.saveLivePhoto(to: contentEditingOutput, options: nil, completionHandler: { (success, error) in
