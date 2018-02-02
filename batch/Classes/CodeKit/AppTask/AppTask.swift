@@ -35,8 +35,11 @@ class AppTaskWorkItem: AppTaskRespondable {
 extension AppTaskWorkItem {
 
     // if canceled by requester, return false, passed, return true
-    func response(_ state: TaskState) -> Bool{
+    @discardableResult
+    func response(_ state: TaskState, _ error:TaskError?=nil) -> Bool{
         task.info.state = state
+        task.info.error = error
+
         var canceled = false
         request.responseHandler?(self, &canceled)
         return !canceled

@@ -63,16 +63,9 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
         return self.delegate?.delegatingQueue(from: self) ?? DispatchQueue.main
     }
 
-    @discardableResult
-    private func dispatchState(_ item: AppTaskWorkItem, _ state: TaskState, _ error:TaskError?=nil) -> Bool{
-        let response = item.response(state)
-
+    private func dispatchFinishedForEach(item: AppTaskWorkItem) {
         let d = self.delegate
-
         var exe:(() -> Void)?
-
-        //set error
-        item.info.error = error
 
         switch(item.info.state){
         case .performing:
@@ -100,11 +93,9 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
                 , item.task.info.requestToken, "->"
                 , item.task.info.token, "->"
                 , self.queue.label)
-
-        return response
     }
 
-    private func dispatchFinishedResults(){
+    private func dispatchFinishedAll(){
         assert(self.count==0)
         assert(self.finshedQueue.count>0)
         print("dispatchFinishedResults", self.count, self.finshedQueue.count)
@@ -116,26 +107,26 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
     }
 
     private func tryItem(_ item: AppTaskWorkItem, _ async: TaskAsyncSignalable, cancel:Bool=false){
-        guard !cancel && self.dispatchState(item, .performing) else{
+        guard !cancel && item.response(.performing) else{
             item.task.cancel(async)
-            self.dispatchState(item, .cancelled)
+            item.response(.cancelled)
             return
         }
 
         do {
             if let result = try item.task.perform(item.request.param, async){
                 item.result = result
-                self.dispatchState(item, .completed)
+                item.response(.completed)
                 return
             }
 
             throw TaskError.invalidResult
 
         } catch let e as TaskError {
-            self.dispatchState(item, .failed, e)
+            item.response(.failed, e)
 
         } catch {
-            self.dispatchState(item, .failed, TaskError.unknown)
+            item.response(.failed, TaskError.unknown)
         }
     }
 
@@ -150,7 +141,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
                 currentTask = nil
                 cancelled = false
 
-                dispatchFinishedResults()
+                dispatchFinishedAll()
 
                 print("-------> finished queue", self.queue.label)
             }
@@ -177,6 +168,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
                     return
                 }
                 self.finshedQueue.enqueue(finishedItem)
+                self.dispatchFinishedForEach(item:finishedItem)
 
                 // discard app if configured
                 if finishedItem.appInfo.lifeCycleUnit == .task {
@@ -191,10 +183,8 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
     }
 
     func cancel(){
-        assert(self.count>0, "There is not existed any items, but tried to cancel.")
         assert(cancelled==false, "cancelled is already true. What's wrong??")
-
-        if self.count==0{
+        if cancelled || self.count==0{
             return
         }
 

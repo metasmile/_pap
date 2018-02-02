@@ -232,14 +232,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
     }
 
     func didFinishAllTasksInQueue(_ queue: AppTaskOperationQueue, _ result: [AppTaskWorkItem]?) {
-
-//        if let finishedWorkItems = result.finished{
-//            syncQueue.sync(flags:.barrier){
-//                for var workItem in finishedWorkItems{
-//                    _countFinishedTaskByEachQueues(queue, workItem)
-//                }
-//            }
-//        }
+        
     }
 
     //counter

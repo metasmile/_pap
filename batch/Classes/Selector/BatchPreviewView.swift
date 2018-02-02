@@ -12,7 +12,10 @@ import Photos
 protocol BatchPreviewViewDelegate {
     func batchPreviewView(_ view: BatchPreviewView, didSelectItemAt indexPath: IndexPath)
     func batchPreviewViewWillBeginExport(_ view: BatchPreviewView)
+
     func batchPreviewView(_ view: BatchPreviewView, didUpdateProgress progress: Float)
+    func batchPreviewViewDidCancelProgress(_ view: BatchPreviewView)
+
     func batchPreviewViewWillBeginEdit(_ view: BatchPreviewView)
     func batchPreviewViewDidEndEdit(_ view: BatchPreviewView)
     func batchPreviewViewDidCancelEdit(_ view: BatchPreviewView)
@@ -173,10 +176,18 @@ extension BatchPreviewView {
             let requestedParam = response.request.param as? TransformAppEditItem
             let totalCount = remained.count+completed.count
 
-            self.delegate?.batchPreviewView(self, didUpdateProgress: progress)
+            switch (response.info.state) {
+                case .completed:
+                    self.delegate?.batchPreviewView(self, didUpdateProgress: progress)
 
-            if let param = requestedParam, let (_index, _section) = param.indexSection {
-                self.collectionView.scrollToItem(at: IndexPath(item: Int(Float(totalCount-1)*progress), section: _section), at: .centeredHorizontally, animated: true)
+                    if let param = requestedParam, let (_, _section) = param.indexSection {
+                        self.collectionView.scrollToItem(at: IndexPath(item: Int(Float(totalCount-1)*progress), section: _section), at: .centeredHorizontally, animated: true)
+                    }
+
+                case .cancelled:
+                    self.delegate?.batchPreviewViewDidCancelProgress(self)
+
+                default: break
             }
 
         }.when { resultsByApps, respondables in

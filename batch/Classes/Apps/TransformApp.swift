@@ -39,10 +39,8 @@ private class _TransfromAppTask: TaskPrototype, Taskable {
     public typealias ParamType = TransformAppEditItem
     public typealias ResultType = TransformAppTaskRespondable
 
-    weak var item:TransformAppEditItem?
-
     public func cancel(_ async: TaskAsyncSignalable?){
-        item?.cancelEditing()
+
     }
 
     public func perform(_ param: TaskParamable, _ async: TaskAsyncSignalable?) throws -> TaskResultable? {
@@ -50,8 +48,6 @@ private class _TransfromAppTask: TaskPrototype, Taskable {
     }
 
     private func _perform(_ batchEditItem: TransformAppEditItem, _ async: TaskAsyncSignalable?) throws -> TransformAppTaskRespondable?  {
-        item = batchEditItem
-
         var result: TransformAppTaskRespondable?
 
         async?.begin()
@@ -66,8 +62,6 @@ private class _TransfromAppTask: TaskPrototype, Taskable {
         }
 
         async?.stopUntilEnd()
-
-        assert(result != nil, "The result of task is nil. for \(self)")
         return result
 
 

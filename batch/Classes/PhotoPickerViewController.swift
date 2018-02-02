@@ -349,7 +349,15 @@ extension PhotoPickerViewController: BatchPreviewViewDelegate {
 
         progressBar.setProgress(progress, animated: true)
     }
-    
+
+    func batchPreviewViewDidCancelProgress(_ view: BatchPreviewView) {
+        title = "Cancelling...".localizedString
+
+        UIView.animate(withDuration: 0.6) {
+            self.progressBar.alpha = 0
+        }
+    }
+
     func batchPreviewViewWillBeginExport(_ view: BatchPreviewView) {
         title = "Saving Photos...".localizedString
 
