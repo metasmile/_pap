@@ -1,0 +1,58 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "تم تعطيل الوصول إلى الصور";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "الرجاء فتح الإعدادات والسماح بالوصول إلى صورك";
+/*Translated from: Open Settings*/
+"Open Settings" = "أفتح الإعدادات";
+/*Translated from: Cancel*/
+"Cancel" = "إلغاء";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "تعديل %d صورة (صور)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "تعديل %d مقطع (مقاطع) فيديو";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "تعديل %d عنصر (عناصر)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "دفعة تحرير";
+/*Translated from: Edit*/
+"Edit" = "تصحيح";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "تجاهل التغييرات";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "بدء تعديل الدفعة ...";
+/*Translated from: Processing...*/
+"Processing..." = "معالجة...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "إلغاء ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "جار حفظ الصور ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "حدد هذه الصورة";
+/*Translated from: Select this video*/
+"Select this video" = "حدد هذا الفيديو";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "ألغ تحديد هذه الصورة";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "ألغ تحديد هذا الفيديو";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "عدل هذه الصورة";
+/*Translated from: Edit this video*/
+"Edit this video" = "تعديل هذا الفيديو";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ صورة";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ الفيديو";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ صور";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ مقاطع الفيديو";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "تحرير %@ صورة";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "تحرير %@ فيديو";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "تحرير %@ صور";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "تحرير %@ مقاطع الفيديو";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "تحرير %@ عناصر";

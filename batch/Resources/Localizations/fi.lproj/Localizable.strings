@@ -1,0 +1,58 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Valokuvien käyttö estetty";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Avaa asetuksia ja anna heidän käyttää valokuvasi";
+/*Translated from: Open Settings*/
+"Open Settings" = "Avaa asetukset";
+/*Translated from: Cancel*/
+"Cancel" = "Peruuttaa";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Muokkaa %d valokuvaa";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Muokkaa %d videoita";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Muokkaa %d tuotetta";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Erän muokkaus";
+/*Translated from: Edit*/
+"Edit" = "Muokata";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Hylkää muutokset";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Aloita eränmuokkaus ...";
+/*Translated from: Processing...*/
+"Processing..." = "Processing ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Peruuttaminen ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Valokuvien tallentaminen ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Valitse tämä valokuva";
+/*Translated from: Select this video*/
+"Select this video" = "Valitse tämä video";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Poista valittu kuva";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Poista tämä video pois";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Muokkaa tätä kuvaa";
+/*Translated from: Edit this video*/
+"Edit this video" = "Muokkaa tätä videota";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Kuva";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Video";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Valokuvat";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Videot";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Muokkaa %@ valokuvaa";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Muokkaa %@ videota";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Muokkaa %@ valokuvia";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Muokkaa %@ Videot";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Muokkaa %@ kohteita";

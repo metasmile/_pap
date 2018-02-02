@@ -1,0 +1,58 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Photos Accès désactivé";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Veuillez ouvrir les paramètres et autoriser l'accès à vos photos";
+/*Translated from: Open Settings*/
+"Open Settings" = "Ouvrir les paramètres";
+/*Translated from: Cancel*/
+"Cancel" = "Annuler";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Edit %d photo(s)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Modifier %d vidéo (s)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Modifier %d élément (s)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Modifier le lot";
+/*Translated from: Edit*/
+"Edit" = "modifier";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Annuler les modifications";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Démarrer l'édition par lots ...";
+/*Translated from: Processing...*/
+"Processing..." = "En traitement...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Annulation ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Saving Photos...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Sélectionnez cette photo";
+/*Translated from: Select this video*/
+"Select this video" = "Sélectionnez cette vidéo";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Désélectionnez cette photo";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Désélectionner cette vidéo";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Modifier cette photo";
+/*Translated from: Edit this video*/
+"Edit this video" = "Modifier cette vidéo";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Photo";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Vidéo";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Photos";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Vidéos";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Edit %@ Photo";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Modifier %@ Vidéo";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Edit %@ Photos";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Modifier %@ Vidéos";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Modifier les %@ éléments";

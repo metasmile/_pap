@@ -1,0 +1,58 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Fotók hozzáférés letiltva";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Nyissa meg a beállításokat, és engedélyezze a fényképekhez való hozzáférést";
+/*Translated from: Open Settings*/
+"Open Settings" = "Nyisd meg a beállításokat";
+/*Translated from: Cancel*/
+"Cancel" = "Megszünteti";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "%d Kép szerkesztése";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "%d Videók szerkesztése";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "%d Elemek szerkesztése";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Batch Szerkesztés";
+/*Translated from: Edit*/
+"Edit" = "szerkesztése";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Módosítások elvetése";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Kötegelt szerkesztés indítása ...";
+/*Translated from: Processing...*/
+"Processing..." = "Feldolgozás...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Visszavonás ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Fotók mentése ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Válassza ezt a fotót";
+/*Translated from: Select this video*/
+"Select this video" = "Válassza ezt a videót";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Törölje ezt a fotót";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Törölje ezt a videót";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Szerkessze ezt a fotót";
+/*Translated from: Edit this video*/
+"Edit this video" = "Szerkessze ezt a videót";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Fotó";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Videó";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Fotók";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Videók";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Szerkesztés: %@ Fotó";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "%@ Videó szerkesztése";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "%@ Fotók szerkesztése";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "%@ Videók szerkesztése";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "%@ Elemek szerkesztése";

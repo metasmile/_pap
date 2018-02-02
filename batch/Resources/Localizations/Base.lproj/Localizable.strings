@@ -1,0 +1,39 @@
+"Photos Access Disabled" = "Photos Access Disabled";
+"Please open settings and allow access to your photos" = "Please open settings and allow access to your photos";
+"Open Settings" = "Open Settings";
+
+"Cancel" = "Cancel";
+
+"Edit %d photo(s)" = "Edit %d photo(s)";
+"Edit %d video(s)" = "Edit %d video(s)";
+"Edit %d item(s)" = "Edit %d item(s)";
+"Batch Edit" = "Batch Edit";
+"Edit" = "Edit";
+"Discard Changes" = "Discard Changes";
+
+"Start Batch Editing..." = "Start Batch Editing...";
+"Processing..." = "Processing...";
+"Cancelling..." = "Cancelling...";
+"Saving Photos..." = "Saving Photos...";
+
+"Select this photo" = "Select this photo";
+"Select this video" = "Select this video";
+
+"Deselect this photo" = "Deselect this photo";
+"Deselect this video" = "Deselect this video";
+
+"Edit this photo" = "Edit this photo";
+"Edit this video" = "Edit this video";
+
+"%d Photo" = "%@ Photo";
+"%d Video" = "%@ Video";
+
+"%d Photos" = "%@ Photos";
+"%d Videos" = "%@ Videos";
+
+"Edit %d Photo" = "Edit %@ Photo";
+"Edit %d Video" = "Edit %@ Video";
+
+"Edit %d Photos" = "Edit %@ Photos";
+"Edit %d Videos" = "Edit %@ Videos";
+"Edit %d Items" = "Edit %@ Items";

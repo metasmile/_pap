@@ -1,0 +1,58 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Fotosadgang er deaktiveret";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Åbn venligst indstillinger og giv adgang til dine billeder";
+/*Translated from: Open Settings*/
+"Open Settings" = "Åbn indstillinger";
+/*Translated from: Cancel*/
+"Cancel" = "Afbestille";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Rediger %d billede (r)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Rediger %d video (r)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Rediger %d vare (r)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Batch Edit";
+/*Translated from: Edit*/
+"Edit" = "Redigere";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Kassere ændringer";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Start batch redigering ...";
+/*Translated from: Processing...*/
+"Processing..." = "Forarbejdning...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Annullerer ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Gemmer billeder ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Vælg dette billede";
+/*Translated from: Select this video*/
+"Select this video" = "Vælg denne video";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Fravælg dette billede";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Fravælg denne video";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Rediger dette billede";
+/*Translated from: Edit this video*/
+"Edit this video" = "Rediger denne video";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Foto";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Video";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Billeder";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Videoer";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Rediger %@ Foto";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Rediger %@ Video";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Rediger %@ Fotos";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Rediger %@ Videoer";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Rediger %@ elementer";

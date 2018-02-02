@@ -1,0 +1,58 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Fotoğraflar Erişim Engellendi";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Lütfen ayarları açın ve fotoğraflarınıza erişime izin verin";
+/*Translated from: Open Settings*/
+"Open Settings" = "Ayarları aç";
+/*Translated from: Cancel*/
+"Cancel" = "İptal etmek";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "%d Fotoğraflarını düzenle";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "%d Videoları düzenle";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "%d Öğeyi düzenle";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Toplu Düzenle";
+/*Translated from: Edit*/
+"Edit" = "Düzenle";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Değişiklikleri gözardı et";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Toplu Düzenlemeye Başla ...";
+/*Translated from: Processing...*/
+"Processing..." = "İşleme...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "İptal...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Fotoğraf Tasarrufu ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Bu fotoğrafı seç";
+/*Translated from: Select this video*/
+"Select this video" = "Bu videoyu seçin";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Bu fotoğrafın seçimini kaldır";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Bu videonun seçimini kaldır";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Bu fotoğrafı düzenle";
+/*Translated from: Edit this video*/
+"Edit this video" = "Bu videoyu düzenle";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Fotoğraf";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Video";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Fotoğraflar";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Videolar";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "%@ Fotoğraf düzenle";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "%@ Videoyu düzenle";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "%@ Fotoğraflar düzenleyin";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "%@ Videoları düzenle";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "%@ Öğeleri Düzenle";

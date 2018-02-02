@@ -1,0 +1,58 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Фотографий Доступ отключен";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Откройте настройки и разрешите доступ к своим фотографиям.";
+/*Translated from: Open Settings*/
+"Open Settings" = "Открыть настройки";
+/*Translated from: Cancel*/
+"Cancel" = "Отмена";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Изменить %d фото (ы)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Редактировать %d видео (ы)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Изменить %d элемент (ы)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Редактирование партии";
+/*Translated from: Edit*/
+"Edit" = "редактировать";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Отменить изменения";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Начало пакетного редактирования ...";
+/*Translated from: Processing...*/
+"Processing..." = "Обработка ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Отмена ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Сохранение фотографий ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Выберите эту фотографию";
+/*Translated from: Select this video*/
+"Select this video" = "Выберите это видео";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Снять выделение";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Отменить выбор этого видео";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Редактировать эту фотографию";
+/*Translated from: Edit this video*/
+"Edit this video" = "Редактировать это видео";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Фото";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Видео";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Фотографии";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Видео";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Изменить %@ Фото";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Изменить %@ Видео";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Изменить %@ Фото";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Изменить %@ видео";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Изменить %@ Элементы";
