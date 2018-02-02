@@ -113,7 +113,7 @@ public class TransformAppEditItem: NSObject, TaskParamable {
 extension TransformAppEditItem {
     func runEditing(_ progressHandler: ((Float) -> Void)? = nil, _ completionHandler: @escaping (PHAsset?, PHContentEditingOutput?) -> Void) {
         if asset?.mediaType == .image {
-            if asset!.mediaSubtypes.contains(.photoLive) {
+            if asset?.mediaSubtypes.contains(.photoLive) == true {
                 self.editLivePhoto(completionHandler)
             }
             else {
@@ -130,6 +130,7 @@ extension TransformAppEditItem {
     }
 
     func cancelEditing() {
+        //FIXME: synchronous requests can't be cancelled
         PHImageManager.default().cancelImageRequest(imageRequestID)
         imageRequestID = PHInvalidImageRequestID
     }
@@ -184,24 +185,19 @@ extension TransformAppEditItem {
 
             let contentEditingOutput = PHContentEditingOutput(contentEditingInput: input)
             contentEditingOutput.adjustmentData = PHAdjustmentData(formatIdentifier: Bundle.main.bundleIdentifier ?? "", formatVersion: "1.0", data: dataInfo)
+            
+            DispatchQueue.global().async {
+                // renderedContentURL supports only JPEG and MOV ...
+                // so... always export JPEG
+                let outputData = UIImageJPEGRepresentation(image, 1)
+                
+                guard (try? outputData?.write(to: contentEditingOutput.renderedContentURL, options: .atomic)) != nil else {
+                    completionHandler(nil, nil)
+                    return
+                }
 
-            // renderedContentURL supports only JPEG and MOV ...
-            // so... always export JPEG
-            let outputData = UIImageJPEGRepresentation(image, 1)
-//            var outputData: Data?
-//            switch input.uniformTypeIdentifier {
-//            case String(kUTTypePNG)?:
-//                outputData = UIImagePNGRepresentation(image)
-//            default:
-//                outputData = UIImageJPEGRepresentation(image, 1)
-//            }
-
-            guard (try? outputData?.write(to: contentEditingOutput.renderedContentURL, options: .atomic)) != nil else {
-                completionHandler(nil, nil)
-                return
+                completionHandler(asset, contentEditingOutput)
             }
-
-            completionHandler(asset, contentEditingOutput)
         }
     }
 }
