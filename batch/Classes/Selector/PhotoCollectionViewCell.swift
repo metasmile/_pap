@@ -30,20 +30,13 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         }
     }
     
-    private static var _durationLabelFormat: DateComponentsFormatter?
     static var durationLabelFormat: DateComponentsFormatter {
-        get {
-            if _durationLabelFormat == nil {
-                let formatter = DateComponentsFormatter()
-                formatter.unitsStyle = .positional
-                formatter.allowedUnits = [.minute, .second]
-                formatter.zeroFormattingBehavior = [.pad]
-                formatter.collapsesLargestUnit = true
-                _durationLabelFormat = formatter
-            }
-            return _durationLabelFormat!
-        }
-        set(value) { _durationLabelFormat = value }
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .positional
+        formatter.allowedUnits = [.minute, .second]
+        formatter.zeroFormattingBehavior = [.pad]
+        formatter.collapsesLargestUnit = false
+        return formatter
     }
     
     var indexPath: IndexPath?
