@@ -8,6 +8,7 @@
 
 import UIKit
 import Photos
+import Crashlytics
 
 protocol BatchPreviewViewDelegate {
     func batchPreviewView(_ view: BatchPreviewView, didSelectItemAt indexPath: IndexPath)
@@ -211,6 +212,18 @@ extension BatchPreviewView {
                     }
                 }
             })
+
+            //log
+            for (app, results) in resultsByApps{
+                for r in results{
+                    if let e = r.info.error{
+                        Crashlytics.sharedInstance().recordError(e, withAdditionalUserInfo: [
+                            "app.identifier":app.identifier
+                            ,"task.state": "\(r.info.state)"
+                        ])
+                    }
+                }
+            }
         }
 
         TaskManager.perform(reaction)

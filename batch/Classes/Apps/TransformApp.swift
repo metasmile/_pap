@@ -8,7 +8,7 @@ import QuartzCore
 import Photos
 import UIKit
 import MobileCoreServices
-
+import Crashlytics
 
 public struct TransformAppTaskRespondable:TaskResultable {
     var asset: PHAsset

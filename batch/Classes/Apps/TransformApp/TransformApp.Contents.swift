@@ -134,6 +134,7 @@ public class TransformAppEditItem: NSObject, TaskParamable {
 
 extension TransformAppEditItem {
 
+    //TODO: should not allow access runEditing, cancelEditing without app.
     func runEditing(_ progressHandler: ((Float) -> Void)? = nil, _ completionHandler: @escaping (PHAsset?, PHContentEditingOutput?) -> Void) {
 
         //REMIND: from ios9, addObserver will be automatically unregister without dealloc
@@ -178,12 +179,15 @@ extension TransformAppEditItem {
             }
         }
     }
+}
 
+// Image
+extension TransformAppEditItem{
     fileprivate func editImage(_ image: UIImage?, completion completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) -> [_PHAssetRequestID]? {
         guard
-            let image = image?.applyTransform(editItem.transform),
-            let asset = self.asset
-        else {
+                let image = image?.applyTransform(editItem.transform),
+                let asset = self.asset
+                else {
             completionHandler(nil, nil)
             return nil
         }
@@ -220,6 +224,7 @@ extension TransformAppEditItem {
     }
 }
 
+// Live Photo
 extension TransformAppEditItem {
     fileprivate func editLivePhoto(_ completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) -> [_PHAssetRequestID]? {
         guard
@@ -338,6 +343,7 @@ extension TransformAppEditItem {
     }
 }
 
+// Video
 extension TransformAppEditItem {
     fileprivate func editVideo(_ video: AVAsset?, audioMix: AVAudioMix? = nil, completion completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) -> [_PHAssetRequestID]?{
         guard

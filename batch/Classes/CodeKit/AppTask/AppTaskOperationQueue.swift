@@ -110,9 +110,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
         let param = item.request.param
 
         guard !cancel && item.response(.performing) else{
-
             async.done()
-
             item.task.cancel(param, async)
             item.response(.cancelled)
             return
@@ -123,7 +121,6 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
             if let result = try item.task.perform(param, async){
                 item.result = result
                 item.response(.completed)
-
                 return
             }
 
