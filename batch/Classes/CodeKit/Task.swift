@@ -36,7 +36,7 @@ public protocol Taskable {
 
     func perform(_ param: TaskParamable, _ async: TaskAsyncSignalable?) throws -> TaskResultable?
 
-    func cancel(_ async: TaskAsyncSignalable?)
+    func cancel(_ param:TaskParamable, _ async: TaskAsyncSignalable?)
 }
 
 public class TaskPrototype: Item<TaskInfo> {

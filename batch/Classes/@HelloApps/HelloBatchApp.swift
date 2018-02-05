@@ -98,7 +98,7 @@ private class HelloAsyncTask: TaskPrototype, Taskable {
     typealias ParamType = HelloTaskParameter
     typealias ResultType = HelloTaskResult
 
-    public func cancel(_ async: TaskAsyncSignalable?){
+    public func cancel(_ param: TaskParamable, _ async: TaskAsyncSignalable?){
         //HELLO: same as "perform", all the cancellation processes are also affected by this.
     }
 

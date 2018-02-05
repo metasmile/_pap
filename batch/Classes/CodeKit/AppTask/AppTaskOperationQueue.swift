@@ -108,7 +108,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
 
     private func tryItem(_ item: AppTaskWorkItem, _ async: TaskAsyncSignalable, cancel:Bool=false){
         guard !cancel && item.response(.performing) else{
-            item.task.cancel(async)
+            item.task.cancel(item.request.param, async)
             item.response(.cancelled)
             return
         }

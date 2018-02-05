@@ -35,16 +35,22 @@ public class TransformApp: AppPrototype, Appable, ParamableAppable, FinalizableA
     }
 }
 
+//TODO: retrictful conforms param type
 private class _TransfromAppTask: TaskPrototype, Taskable {
     public typealias ParamType = TransformAppEditItem
     public typealias ResultType = TransformAppTaskRespondable
 
-    public func cancel(_ async: TaskAsyncSignalable?){
-
+    public func cancel(_ param:TaskParamable, _ async: TaskAsyncSignalable?){
+        
+        (param as? TransformAppEditItem)?.cancelEditing()
     }
 
     public func perform(_ param: TaskParamable, _ async: TaskAsyncSignalable?) throws -> TaskResultable? {
-        return try self._perform(param as! TransformAppEditItem, async)
+        assert(param is TransformAppEditItem, "TaskParamable type of this app is \(TransformAppEditItem.self)")
+        guard let _param = param as? TransformAppEditItem else{
+            throw TaskError.invalidParam
+        }
+        return try self._perform(_param, async)
     }
 
     private func _perform(_ batchEditItem: TransformAppEditItem, _ async: TaskAsyncSignalable?) throws -> TransformAppTaskRespondable?  {
