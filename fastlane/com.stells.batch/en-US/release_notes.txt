@@ -1,1 +1,2 @@
-• Several bug fixes and usability improvements.
++ Parallel processing support optimized for the latest Multi-Core devices:
+  • Huge performance improvement up to 25%!
