@@ -216,7 +216,7 @@ extension AssetView {
     }
 
     func setImageAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: ((UIImage?) -> Void)? = nil, completionWithLivePhoto: ((PHLivePhoto?) -> Void)? = nil) {
-        if asset.mediaSubtypes == .photoLive {
+        if asset.mediaSubtypes.contains(.photoLive) {
             livePhotoView.isHidden = false
             
             loadLivePhoto(for: asset) { [weak self] livePhoto in
