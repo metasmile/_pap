@@ -214,6 +214,12 @@ extension BatchPreviewView {
         }
 
         TaskManager.perform(reaction)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.fetchProgressChanged), name: RemoteSourceFetchNotification.Name.progressChanged, object: nil)
+    }
+    
+    @objc func fetchProgressChanged(sender: NSNotification) {
+        print(sender.userInfo?[RemoteSourceFetchNotification.UserInfo.Key.progress])
     }
     
     func cancelBatchProcessing() {
