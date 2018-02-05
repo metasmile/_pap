@@ -59,6 +59,10 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         return (_queuePool.min { a, b in a.value.count < b.value.count })!.value
     }
 
+    public final var maxConcurrentCount:Int{
+        return self._queuePool.count
+    }
+
     public var count:Int{
         var iter = _queuePool.values.makeIterator()
         var c = 0

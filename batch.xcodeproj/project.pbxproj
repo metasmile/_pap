@@ -64,6 +64,7 @@
 		4F71D843895CA6C04861BB23 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DE76B9AD7227C9F78AE5 /* Localizable.strings */; };
 		4F71D87B789944E2A62057C7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D3E7CBB71E5919EAEEB6 /* Localizable.strings */; };
 		4F71D896A7F10961FAC286B0 /* Sourceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB3F65BB0609398D99C6 /* Sourceable.swift */; };
+		4F71D8CB2584EB6FA21077E8 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF6A3F2621A2EFC5A30F /* System.swift */; };
 		4F71D8DABBBD6C7570A6042E /* HelloBatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF2E58751E7641EB78DE /* HelloBatchApp.swift */; };
 		4F71D91244FDCFE9DC644E76 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DF5E6FB47FF24A1584B4 /* Localizable.strings */; };
 		4F71D942AC419DB77C567FB2 /* HelloApps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC5FEFE4BF3361E38AF5 /* HelloApps.swift */; };
@@ -189,6 +190,7 @@
 		4F71DF0B9E9077B1E03FF885 /* PHAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAsset.swift; sourceTree = "<group>"; };
 		4F71DF1ACB1AF25316653CA9 /* pt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = pt; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71DF2E58751E7641EB78DE /* HelloBatchApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloBatchApp.swift; sourceTree = "<group>"; };
+		4F71DF6A3F2621A2EFC5A30F /* System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 		4F71DF8C80BDBCFC85F39CBC /* ru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ru; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71DF8FD2E3706781E2B4A4 /* pl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = pl; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71DFCA8020E56BB968A0A8 /* hu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = hu; path = Localizable.strings; sourceTree = "<group>"; };
@@ -459,6 +461,7 @@
 				4F71D5F397502710E3224CC9 /* Object.swift */,
 				4F71DF0B9E9077B1E03FF885 /* PHAsset.swift */,
 				4F71D8588D09A8F77A3F89CF /* Task.swift */,
+				4F71DF6A3F2621A2EFC5A30F /* System.swift */,
 			);
 			path = CodeKit;
 			sourceTree = "<group>";
@@ -1027,6 +1030,7 @@
 				4F71D0EE87C6D3822EA3AFCC /* Image.swift in Sources */,
 				4F71DF2C64FB728A71352F0A /* PHAsset.swift in Sources */,
 				4F71D9E8A7252B55E0E61286 /* TransformApp.swift in Sources */,
+				4F71D8CB2584EB6FA21077E8 /* System.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,7 +27,43 @@ class BatchPreviewView: CustomView {
     fileprivate (set) var batchEditItems = [TransformAppEditItem]()
     var delegate: BatchPreviewViewDelegate?
 
-    let TaskManager = AppTaskManager.shared(4)
+    //TODO: make AppTaskLoad, AppTaskLoadBalancer, ordering to dynamically adjust via current system condition.
+    let TaskManager = AppTaskManager.shared({ () -> UInt in
+        //https://en.wikipedia.org/wiki/List_of_iOS_devices
+        let remainingMem = ProcessInfo.processInfo.physicalRemainingMemory/(1024*1024)
+
+        switch (ProcessInfo.processInfo.processorCount){
+                //iPhone 8	iPhone 8 Plus	iPhone X
+            case 6 where remainingMem >= 2000:
+                return 4
+            case 6 where remainingMem >= 1000:
+                return 3
+            case 6 where remainingMem < 1000:
+                return 2
+
+                //iPhone 7	iPhone 7 Plus
+            case 4 where remainingMem >= 2000:
+                // a case for iPhone 7 Plus
+                return 4
+            case 4 where remainingMem >= 1000:
+                // a case for iPhone 7 Plus
+                return 3
+            case 4:
+                // a case for iPhone 7 Plus
+                return 2
+            case 4:
+                return 3
+
+            case ..<4 where remainingMem>1000:
+                return 3
+
+            case ..<4:
+                return 2
+
+            default:
+                return 1
+        }
+    }())
     
     var hasChanges: Bool {
         return batchEditItems.map({ $0.editItem.hasChanges }).contains(true)
@@ -39,6 +75,8 @@ class BatchPreviewView: CustomView {
     
     override func initialize() {
         super.initialize()
+
+        print("[i] TaskManager.maxConcurrentCount: ",TaskManager.maxConcurrentCount)
         
         collectionView.register(PreviewCollectionViewCell.self, forCellWithReuseIdentifier: "PreviewCollectionViewCell")
         updateAlignment(animated: false)
