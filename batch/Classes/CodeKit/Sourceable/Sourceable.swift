@@ -14,6 +14,14 @@ public protocol ImageSourceable:Sourceable {
     var asImage:UIImage? { get }
 }
 
+public protocol VideoSourceable:Sourceable {
+    var asVideo:AVAsset? { get }
+}
+
+public protocol LivePhotoSourceable:Sourceable {
+    var asLivePhoto:PHLivePhoto? { get }
+}
+
 public protocol DataSourceable:Sourceable {
     var asData:Data? { get }
 }

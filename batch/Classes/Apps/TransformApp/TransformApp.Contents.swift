@@ -114,18 +114,14 @@ extension TransformAppEditItem {
     func runEditing(_ progressHandler: ((Float) -> Void)? = nil, _ completionHandler: @escaping (PHAsset?, PHContentEditingOutput?) -> Void) {
         if asset?.mediaType == .image {
             if asset?.mediaSubtypes.contains(.photoLive) == true {
-                self.editLivePhoto(completionHandler)
+                editLivePhoto(completionHandler)
             }
             else {
-                loadImage(progressHandler) { [weak self] (image) in
-                    self?.editImage(image, completion: completionHandler)
-                }
+                editImage(asset?.asImage, completion: completionHandler)
             }
         }
         else if asset?.mediaType == .video {
-            loadVideo(progressHandler) { [weak self] (video, audioMix) in
-                self?.editVideo(video, audioMix: audioMix, completion: completionHandler)
-            }
+            editVideo(asset?.asVideo, completion: completionHandler)
         }
     }
 
@@ -133,34 +129,6 @@ extension TransformAppEditItem {
         //FIXME: synchronous requests can't be cancelled
         PHImageManager.default().cancelImageRequest(imageRequestID)
         imageRequestID = PHInvalidImageRequestID
-    }
-
-    fileprivate func loadImage(_ progressHandler: ((Float) -> Void)? = nil, _ completionHandler: @escaping ((UIImage?) -> Void)) {
-        guard let asset = self.asset else {
-            completionHandler(nil)
-            return
-        }
-
-        let options = PHImageRequestOptions()
-        options.deliveryMode = .highQualityFormat
-        options.isNetworkAccessAllowed = true
-        options.isSynchronous = true
-        options.resizeMode = .none
-        options.version = .current
-        options.progressHandler = { progress, error, stop, info in
-            progressHandler?(Float(progress))
-        }
-
-        imageRequestID = PHImageManager.default().requestImage(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: PHImageContentMode.default, options: options) { (image, info) in
-            guard let image = image else {
-                completionHandler(nil)
-                return
-            }
-
-            if let degraded = info?[PHImageResultIsDegradedKey] as? NSNumber, !degraded.boolValue {
-                completionHandler(image)
-            }
-        }
     }
 
     fileprivate func editImage(_ image: UIImage?, completion completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) {
@@ -203,25 +171,6 @@ extension TransformAppEditItem {
 }
 
 extension TransformAppEditItem {
-    fileprivate func loadLivePhoto(_ progressHandler: ((Float) -> Void)? = nil, _ completionHandler: @escaping ((PHLivePhoto?) -> Void)) {
-        guard let asset = self.asset else {
-            completionHandler(nil)
-            return
-        }
-
-        let options = PHLivePhotoRequestOptions()
-        options.deliveryMode = .highQualityFormat
-        options.isNetworkAccessAllowed = true
-        options.version = .current
-        options.progressHandler = { progress, error, stop, info in
-            progressHandler?(Float(progress))
-        }
-
-        imageRequestID = PHImageManager.default().requestLivePhoto(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: .default, options: options, resultHandler: { (livePhoto, info) in
-            completionHandler(livePhoto)
-        })
-    }
-
     fileprivate func editLivePhoto(_ completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) {
         guard
             let asset = self.asset
@@ -246,7 +195,6 @@ extension TransformAppEditItem {
 
             let editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: input)
             editingContext?.frameProcessor = { frame, error in
-                //FIXME: convert transform into CoreImage coordinates
                 let editItemConvertedCoordinates = TransformEditItem()
                 self.editItem.transformItems.forEach({ (transformItem) in
                     if let rotationItem = transformItem as? RotationTransformItem {
@@ -331,26 +279,7 @@ extension TransformAppEditItem {
 }
 
 extension TransformAppEditItem {
-    fileprivate func loadVideo(_ progressHandler: ((Float) -> Void)? = nil, _ completionHandler: @escaping ((AVAsset?, AVAudioMix?) -> Void)) {
-        guard let asset = self.asset else {
-            completionHandler(nil, nil)
-            return
-        }
-
-        let options = PHVideoRequestOptions()
-        options.deliveryMode = .highQualityFormat
-        options.isNetworkAccessAllowed = true
-        options.version = .current
-        options.progressHandler = { progress, error, stop, info in
-            progressHandler?(Float(progress))
-        }
-
-        imageRequestID = PHImageManager.default().requestAVAsset(forVideo: asset, options: options) { (video, audioMix, info) in
-            completionHandler(video, audioMix)
-        }
-    }
-
-    fileprivate func editVideo(_ video: AVAsset?, audioMix: AVAudioMix?, completion completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) {
+    fileprivate func editVideo(_ video: AVAsset?, audioMix: AVAudioMix? = nil, completion completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) {
         guard
             let video = video?.applyTransform(editItem.transform),
             let videoTrack = video.tracks(withMediaType: .video).first,
@@ -382,6 +311,7 @@ extension TransformAppEditItem {
             exportSession?.outputFileType = AVFileType.mov
             exportSession?.outputURL = contentEditingOutput.renderedContentURL
             exportSession?.videoComposition = videoComposition
+            exportSession?.audioMix = audioMix
             exportSession?.shouldOptimizeForNetworkUse = false
             exportSession?.exportAsynchronously {
                 guard let status = exportSession?.status else { return }

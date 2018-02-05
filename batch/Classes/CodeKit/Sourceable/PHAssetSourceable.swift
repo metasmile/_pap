@@ -6,8 +6,9 @@
 import Foundation
 import Photos
 
-private struct _RemoteSourceFetchNotification {
+public struct RemoteSourceFetchNotification {
     enum Name {
+        static let fetchBagan = Notification.Name("RemoteSourceFetchNotificationFetchBagan")
         static let progressChanged = Notification.Name("RemoteSourceFetchNotificationProgressChanged")
     }
 
@@ -19,13 +20,26 @@ private struct _RemoteSourceFetchNotification {
     }
 }
 
-extension PHAsset: ImageSourceable, DataSourceable, RemoteSourceable, PHAssetSourceable {
+extension PHAsset: ImageSourceable, DataSourceable, RemoteSourceable, PHAssetSourceable, VideoSourceable, LivePhotoSourceable {
     public var asImage:UIImage? {
         get {
+            let signal = TaskDefaultSignal()
+            signal.begin()
+            
             var result: UIImage? = nil
-            PHImageManager.default().requestImage(for: self, targetSize: PHImageManagerMaximumSize, contentMode: .default, options: fullResolutionImageRequestOptions) { (image, info) in
+            let imageRequestID = PHImageManager.default().requestImage(for: self, targetSize: PHImageManagerMaximumSize, contentMode: .default, options: fullResolutionImageRequestOptions) { (image, info) in
                 result = image
+                
+                _ = signal.end()
             }
+            
+            let userInfo: [String: Any] = [
+                RemoteSourceFetchNotification.UserInfo.Key.imageRequestID: imageRequestID
+            ]
+            NotificationCenter.default.post(name: RemoteSourceFetchNotification.Name.fetchBagan, object: self, userInfo: userInfo)
+            
+            signal.stopUntilEnd()
+            
             return result
         }
     }
@@ -36,18 +50,82 @@ extension PHAsset: ImageSourceable, DataSourceable, RemoteSourceable, PHAssetSou
 
     private var fullResolutionImageRequestOptions: PHImageRequestOptions {
         let options = PHImageRequestOptions()
-        options.isSynchronous = true
+        options.isSynchronous = false
         options.isNetworkAccessAllowed = true
         options.deliveryMode = .highQualityFormat
         options.resizeMode = .exact
         options.progressHandler = { progress, error, stop, info in
-            guard let imageRequestID = info?[PHImageResultRequestIDKey] as? UInt32 else { return }
             let userInfo: [String: Any] = [
-                _RemoteSourceFetchNotification.UserInfo.Key.imageRequestID: imageRequestID,
-                _RemoteSourceFetchNotification.UserInfo.Key.progress: progress
+                RemoteSourceFetchNotification.UserInfo.Key.progress: progress
             ]
-            NotificationCenter.default.post(name: _RemoteSourceFetchNotification.Name.progressChanged, object: self, userInfo: userInfo)
+            NotificationCenter.default.post(name: RemoteSourceFetchNotification.Name.progressChanged, object: self, userInfo: userInfo)
         }
         return options
+    }
+    
+    private var highQualityVideoRequestOptions: PHVideoRequestOptions {
+        let options = PHVideoRequestOptions()
+        options.deliveryMode = .highQualityFormat
+        options.isNetworkAccessAllowed = true
+        options.version = .current
+        options.progressHandler = { progress, error, stop, info in
+            let userInfo: [String: Any] = [
+                RemoteSourceFetchNotification.UserInfo.Key.progress: progress
+            ]
+            NotificationCenter.default.post(name: RemoteSourceFetchNotification.Name.progressChanged, object: self, userInfo: userInfo)
+        }
+        return options
+    }
+    
+    public var asVideo: AVAsset? {
+        let signal = TaskDefaultSignal()
+        signal.begin()
+        
+        var result: AVAsset?
+        let imageRequestID = PHImageManager.default().requestAVAsset(forVideo: self, options: highQualityVideoRequestOptions) { (video, audioMix, info) in
+            result = video
+            _ = signal.end()
+        }
+        
+        let userInfo: [String: Any] = [
+            RemoteSourceFetchNotification.UserInfo.Key.imageRequestID: imageRequestID
+        ]
+        NotificationCenter.default.post(name: RemoteSourceFetchNotification.Name.fetchBagan, object: self, userInfo: userInfo)
+        
+        signal.stopUntilEnd()
+        return result
+    }
+    
+    private var highQualityLivePhotoRequestOptions: PHLivePhotoRequestOptions {
+        let options = PHLivePhotoRequestOptions()
+        options.deliveryMode = .highQualityFormat
+        options.isNetworkAccessAllowed = true
+        options.version = .current
+        options.progressHandler = { progress, error, stop, info in
+            let userInfo: [String: Any] = [
+                RemoteSourceFetchNotification.UserInfo.Key.progress: progress
+            ]
+            NotificationCenter.default.post(name: RemoteSourceFetchNotification.Name.progressChanged, object: self, userInfo: userInfo)
+        }
+        return options
+    }
+    
+    public var asLivePhoto: PHLivePhoto? {
+        let signal = TaskDefaultSignal()
+        signal.begin()
+        
+        var result: PHLivePhoto?
+        let imageRequestID = PHImageManager.default().requestLivePhoto(for: self, targetSize: PHImageManagerMaximumSize, contentMode: .default, options: highQualityLivePhotoRequestOptions, resultHandler: { (livePhoto, info) in
+            result = livePhoto
+            _ = signal.end()
+        })
+        
+        let userInfo: [String: Any] = [
+            RemoteSourceFetchNotification.UserInfo.Key.imageRequestID: imageRequestID
+        ]
+        NotificationCenter.default.post(name: RemoteSourceFetchNotification.Name.fetchBagan, object: self, userInfo: userInfo)
+        
+        signal.stopUntilEnd()
+        return result
     }
 }
