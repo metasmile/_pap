@@ -107,17 +107,23 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
     }
 
     private func tryItem(_ item: AppTaskWorkItem, _ async: TaskAsyncSignalable & TaskSignalControllable, cancel:Bool=false){
+        let param = item.request.param
+
         guard !cancel && item.response(.performing) else{
+
             async.done()
-            item.task.cancel(item.request.param, async)
+
+            item.task.cancel(param, async)
             item.response(.cancelled)
             return
         }
 
         do {
-            if let result = try item.task.perform(item.request.param, async){
+
+            if let result = try item.task.perform(param, async){
                 item.result = result
                 item.response(.completed)
+
                 return
             }
 
@@ -173,6 +179,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
                 self.finshedQueue.enqueue(finishedItem)
                 self.dispatchFinishedForEach(item:finishedItem)
 
+
                 // discard app if configured
                 if finishedItem.appInfo.lifeCycleUnit == .task {
                     AppLifecycleManager.shared.discard(finishedItem.appInfo)
@@ -191,6 +198,14 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
             return
         }
 
+        //cancel currently progressing item
+        if let currentItem = self.peek() {
+            queue.async(flags:.barrier){ [unowned self] in
+                self.tryItem(currentItem, self.asyncSignal, cancel: true)
+            }
+        }
+
+        //set cancel flag and then from next item may cancel before it performs.
         cancelled = true
 
         if currentTask == nil{
