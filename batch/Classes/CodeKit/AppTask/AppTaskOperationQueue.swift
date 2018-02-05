@@ -106,8 +106,9 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
         }
     }
 
-    private func tryItem(_ item: AppTaskWorkItem, _ async: TaskAsyncSignalable, cancel:Bool=false){
+    private func tryItem(_ item: AppTaskWorkItem, _ async: TaskAsyncSignalable & TaskSignalControllable, cancel:Bool=false){
         guard !cancel && item.response(.performing) else{
+            async.done()
             item.task.cancel(item.request.param, async)
             item.response(.cancelled)
             return
@@ -123,9 +124,11 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
             throw TaskError.invalidResult
 
         } catch let e as TaskError {
+            async.done()
             item.response(.failed, e)
 
         } catch {
+            async.done()
             item.response(.failed, TaskError.unknown)
         }
     }
