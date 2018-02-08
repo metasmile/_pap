@@ -117,4 +117,4 @@ Preview.html
 *.mobileprovision
 *.pyc
 *.log.zip
-
+*.dSYM
