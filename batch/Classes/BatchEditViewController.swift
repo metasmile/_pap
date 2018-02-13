@@ -242,7 +242,7 @@ extension BatchEditViewController {
         reaction.when { finishedResultsForEachApps, respondables in
 
             DispatchQueue.main.async {
-                self.batchProgressView.title = "Saving PHAsset...".localizedString
+                self.batchProgressView.title = "Saving Photos...".localizedString
             }
 
             let results = respondables.flatMap { $0.result as? TransformAppTaskRespondable }
@@ -279,7 +279,7 @@ extension BatchEditViewController {
 //            }
 //        }) { (results) in
 //            DispatchQueue.main.async {
-//                self.batchProgressView.title = "Saving PHAsset...".localizedString
+//                self.batchProgressView.title = "Saving Photos...".localizedString
 //            }
 //
 //            PHPhotoLibrary.shared().performChanges({

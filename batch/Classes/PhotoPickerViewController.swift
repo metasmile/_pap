@@ -361,7 +361,7 @@ extension PhotoPickerViewController: BatchPreviewViewDelegate {
     }
 
     func batchPreviewViewWillBeginExport(_ view: BatchPreviewView) {
-        title = "Saving PHAsset...".localizedString
+        title = "Saving Photos...".localizedString
 
         UIView.animate(withDuration: 0.6) {
             self.progressBar.alpha = 0
@@ -384,7 +384,7 @@ extension PhotoPickerViewController: BatchPreviewViewDelegate {
     }
 }
 
-// MARK: - PHAsset
+// MARK: - Photos
 
 class PhotoManager: NSObject {
     static let cachingImageManager = PHCachingImageManager()
@@ -425,7 +425,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     fileprivate func showPhotoLibrarySettingsAlert() {
-        let alert = UIAlertController(title: "PHAsset Access Disabled".localizedString, message: "Please open settings and allow access to your photos".localizedString, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Photos Access Disabled".localizedString, message: "Please open settings and allow access to your photos".localizedString, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Open Settings".localizedString, style: .default, handler: { (action) in
             UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
         }))
@@ -528,7 +528,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
                 footerText += "%d Photo".localizedFormattedString(numberOfImages.decimalStyleString)
             }
             else {
-                footerText += "%d PHAsset".localizedFormattedString(numberOfImages.decimalStyleString)
+                footerText += "%d Photos".localizedFormattedString(numberOfImages.decimalStyleString)
             }
         }
         
