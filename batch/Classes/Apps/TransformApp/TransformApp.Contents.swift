@@ -129,7 +129,7 @@ public class TransformAppEditItem: NSObject, TaskParamable {
 
     var asset: PHAsset?
     var editItem = TransformEditItem()
-    var indexSection:(Int, Int)?
+    var indexPath:IndexPath?
 }
 
 extension TransformAppEditItem {

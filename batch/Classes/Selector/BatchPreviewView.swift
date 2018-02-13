@@ -135,7 +135,7 @@ extension BatchPreviewView {
 
         let batchEditItem = TransformAppEditItem()
         batchEditItem.asset = asset
-        batchEditItem.indexSection = (indexPath.item, indexPath.section)
+        batchEditItem.indexPath = indexPath
 
         batchEditItems.append(batchEditItem)
 
@@ -219,8 +219,8 @@ extension BatchPreviewView {
                 case .completed:
                     self.delegate?.batchPreviewView(self, didUpdateProgress: progress)
 
-                    if let param = requestedParam, let (_, _section) = param.indexSection {
-                        self.collectionView.scrollToItem(at: IndexPath(item: Int(Float(totalCount-1)*progress), section: _section), at: .centeredHorizontally, animated: true)
+                    if let param = requestedParam, let index = param.indexPath {
+                        self.collectionView.scrollToItem(at: IndexPath(item: Int(Float(totalCount-1)*progress), section: index.section), at: .centeredHorizontally, animated: true)
                     }
 
                 case .cancelled:
