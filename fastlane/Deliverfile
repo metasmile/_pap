@@ -12,3 +12,4 @@ team_id "DAGHHLSPPQ" # Developer Portal Team ID
 app_identifier "com.stells.batch"
 metadata_path "./fastlane/com.stells.batch"
 ipa "batch.ipa"
+username "croing09@gmail.com"
