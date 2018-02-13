@@ -18,7 +18,7 @@ public struct TransformAppTaskRespondable:TaskResultable {
 public class TransformApp: AppPrototype, Appable, ParamableAppable, FinalizableAppable {
     //TODO: Result type
 
-    public typealias ParamType = TransformAppEditItem
+    public typealias ParamType = PHAssetItem
     public static let paramClass: ParamType.Type = ParamType.self
 
     public static let taskClass:Taskable.Type = _TransfromAppTask.self
@@ -37,23 +37,23 @@ public class TransformApp: AppPrototype, Appable, ParamableAppable, FinalizableA
 
 //TODO: retrictful conforms param type
 private class _TransfromAppTask: TaskPrototype, Taskable {
-    public typealias ParamType = TransformAppEditItem
+    public typealias ParamType = PHAssetItem
     public typealias ResultType = TransformAppTaskRespondable
 
     public func cancel(_ param:TaskParamable, _ async: TaskAsyncSignalable?){
         
-        (param as? TransformAppEditItem)?.cancelEditing()
+        (param as? PHAssetItem)?.cancelEditing()
     }
 
     public func perform(_ param: TaskParamable, _ async: TaskAsyncSignalable?) throws -> TaskResultable? {
-        assert(param is TransformAppEditItem, "TaskParamable type of this app is \(TransformAppEditItem.self)")
-        guard let _param = param as? TransformAppEditItem else{
+        assert(param is PHAssetItem, "TaskParamable type of this app is \(PHAssetItem.self)")
+        guard let _param = param as? PHAssetItem else{
             throw TaskError.invalidParam
         }
         return try self._perform(_param, async)
     }
 
-    private func _perform(_ batchEditItem: TransformAppEditItem, _ async: TaskAsyncSignalable?) throws -> TransformAppTaskRespondable?  {
+    private func _perform(_ batchEditItem: PHAssetItem, _ async: TaskAsyncSignalable?) throws -> TransformAppTaskRespondable?  {
         var result: TransformAppTaskRespondable?
 
         async?.begin()

@@ -349,7 +349,7 @@ extension AssetView {
         }
     }
 
-    //Live Photos
+    //Live PHAsset
     func playLivePhoto() {
         guard !isLivePhotoPlaying else { return }
 

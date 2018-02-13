@@ -102,37 +102,7 @@ class HorizontalFlipTransformItem: TransformItem {
     }
 }
 
-//TODO: generalize later into PHAssetResourcable
-private class _PHAssetRequestID {
-    enum DefaultValue{
-        static let forImage = PHInvalidImageRequestID
-        static let forResourceData = PHInvalidAssetResourceDataRequestID
-        static let forEditingInput = Int.min
-    }
-
-    fileprivate var forImage:PHImageRequestID
-    fileprivate var forResourceData:PHAssetResourceDataRequestID
-    fileprivate var forEditingInput:PHContentEditingInputRequestID
-
-    init(forImage: PHImageRequestID = DefaultValue.forImage,
-         forResourceData: PHAssetResourceDataRequestID = DefaultValue.forResourceData,
-         forEditingInput: PHContentEditingInputRequestID = DefaultValue.forEditingInput) {
-
-        self.forImage = forImage
-        self.forResourceData = forResourceData
-        self.forEditingInput = forEditingInput
-    }
-}
-
-public class TransformAppEditItem: NSObject, TaskParamable {
-    fileprivate var requestIDs = [_PHAssetRequestID]()
-
-    var asset: PHAsset?
-    var editItem = TransformEditItem()
-    var indexPath:IndexPath?
-}
-
-extension TransformAppEditItem {
+extension PHAssetItem {
 
     //TODO: should not allow access runEditing, cancelEditing without app.
     func runEditing(_ progressHandler: ((Float) -> Void)? = nil, _ completionHandler: @escaping (PHAsset?, PHContentEditingOutput?) -> Void) {
@@ -140,22 +110,22 @@ extension TransformAppEditItem {
         //REMIND: from ios9, addObserver will be automatically unregister without dealloc
         NotificationCenter.default.addObserver(forName: RemoteSourceFetchNotification.Name.fetchBagan, object: asset, queue: nil) { notification in
             if let _requestId = notification.userInfo?[RemoteSourceFetchNotification.UserInfo.Key.imageRequestID] as? PHImageRequestID{
-                self.requestIDs.append(_PHAssetRequestID(forImage:_requestId))
+                self.requestIDs.append(PHAssetRequestID(forImage:_requestId))
             }
         }
 
-        var requestIDs:[_PHAssetRequestID]?
+        var requestIDs:[PHAssetRequestID]?
 
-        if asset?.mediaType == .image {
-            if asset?.mediaSubtypes.contains(.photoLive) == true {
+        if asset.mediaType == .image {
+            if asset.mediaSubtypes.contains(.photoLive) == true {
                 requestIDs = editLivePhoto(completionHandler)
             }
             else {
-                requestIDs = editImage(asset?.asImage, completion: completionHandler)
+                requestIDs = editImage(asset.asImage, completion: completionHandler)
             }
         }
-        else if asset?.mediaType == .video {
-            requestIDs = editVideo(asset?.asVideo, completion: completionHandler)
+        else if asset.mediaType == .video {
+            requestIDs = editVideo(asset.asVideo, completion: completionHandler)
         }
 
         if let _requestIDs = requestIDs {
@@ -166,15 +136,15 @@ extension TransformAppEditItem {
     func cancelEditing() {
 
         for req in requestIDs{
-            if req.forImage != _PHAssetRequestID.DefaultValue.forImage{
+            if req.forImage != PHAssetRequestID.DefaultValue.forImage{
                 PHImageManager.default().cancelImageRequest(req.forImage)
             }
 
-            if req.forEditingInput != _PHAssetRequestID.DefaultValue.forEditingInput{
-                asset?.cancelContentEditingInputRequest(req.forEditingInput)
+            if req.forEditingInput != PHAssetRequestID.DefaultValue.forEditingInput{
+                asset.cancelContentEditingInputRequest(req.forEditingInput)
             }
 
-            if req.forResourceData != _PHAssetRequestID.DefaultValue.forResourceData{
+            if req.forResourceData != PHAssetRequestID.DefaultValue.forResourceData{
                 PHAssetResourceManager.default().cancelDataRequest(req.forResourceData)
             }
         }
@@ -182,12 +152,11 @@ extension TransformAppEditItem {
 }
 
 // Image
-extension TransformAppEditItem{
-    fileprivate func editImage(_ image: UIImage?, completion completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) -> [_PHAssetRequestID]? {
-        guard
-                let image = image?.applyTransform(editItem.transform),
-                let asset = self.asset
-                else {
+extension PHAssetItem{
+    fileprivate func editImage(_ image: UIImage?, completion completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) -> [PHAssetRequestID]? {
+        let asset = self.asset
+
+        guard let image = image?.applyTransform(editItem.transform) else {
             completionHandler(nil, nil)
             return nil
         }
@@ -220,19 +189,14 @@ extension TransformAppEditItem{
             }
         }
 
-        return [_PHAssetRequestID(forEditingInput: req)]
+        return [PHAssetRequestID(forEditingInput: req)]
     }
 }
 
 // Live Photo
-extension TransformAppEditItem {
-    fileprivate func editLivePhoto(_ completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) -> [_PHAssetRequestID]? {
-        guard
-            let asset = self.asset
-            else {
-                completionHandler(nil, nil)
-                return nil
-        }
+extension PHAssetItem {
+    fileprivate func editLivePhoto(_ completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) -> [PHAssetRequestID]? {
+        let asset = self.asset
 
         let req = asset.requestContentEditingInput(with: nil) { (input, info) in
             guard let input = input else {
@@ -271,10 +235,10 @@ extension TransformAppEditItem {
             })
         }
 
-        return [_PHAssetRequestID(forEditingInput: req)]
+        return [PHAssetRequestID(forEditingInput: req)]
     }
 
-    fileprivate func editLivePhoto(_ livePhoto: PHLivePhoto?, completion completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) -> [_PHAssetRequestID]? {
+    fileprivate func editLivePhoto(_ livePhoto: PHLivePhoto?, completion completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) -> [PHAssetRequestID]? {
         guard
             let livePhoto = livePhoto
         else {
@@ -307,7 +271,7 @@ extension TransformAppEditItem {
         var videoData = Data()
         var photoData = Data()
 
-        var reqIDs = [_PHAssetRequestID]()
+        var reqIDs = [PHAssetRequestID]()
 
         //
         let req1 = PHAssetResourceManager.default().requestData(for: videoResource, options: nil, dataReceivedHandler: { (data) in
@@ -323,7 +287,7 @@ extension TransformAppEditItem {
             pairedVideo = AVAsset(url: pairedVideoFileURL)
             retrievePairedResourcesHandler()
         }
-        reqIDs.append(_PHAssetRequestID(forResourceData: req1))
+        reqIDs.append(PHAssetRequestID(forResourceData: req1))
 
         //
         let req2 = PHAssetResourceManager.default().requestData(for: photoResource, options: nil, dataReceivedHandler: { (data) in
@@ -337,25 +301,27 @@ extension TransformAppEditItem {
             pairedPhoto = UIImage(data: photoData)
             retrievePairedResourcesHandler()
         }
-        reqIDs.append(_PHAssetRequestID(forResourceData: req2))
+        reqIDs.append(PHAssetRequestID(forResourceData: req2))
 
         return reqIDs
     }
 }
 
 // Video
-extension TransformAppEditItem {
-    fileprivate func editVideo(_ video: AVAsset?, audioMix: AVAudioMix? = nil, completion completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) -> [_PHAssetRequestID]?{
+extension PHAssetItem {
+    fileprivate func editVideo(_ video: AVAsset?, audioMix: AVAudioMix? = nil, completion completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) -> [PHAssetRequestID]?{
+        let asset = self.asset
+
         guard
             let video = video?.applyTransform(editItem.transform),
-            let videoTrack = video.tracks(withMediaType: .video).first,
-            let asset = asset
+            let videoTrack = video.tracks(withMediaType: .video).first
+
         else {
             completionHandler(nil, nil)
             return nil
         }
 
-        var reqIDs = [_PHAssetRequestID]()
+        var reqIDs = [PHAssetRequestID]()
 
         let r = asset.requestContentEditingInput(with: nil) { (input, info) in
             guard let input = input else {
@@ -394,7 +360,7 @@ extension TransformAppEditItem {
             }
         }
 
-        reqIDs.append(_PHAssetRequestID(forEditingInput: r))
+        reqIDs.append(PHAssetRequestID(forEditingInput: r))
 
         return reqIDs
     }
@@ -506,9 +472,9 @@ class BatchRequest: NSObject {
 }
 
 class BatchEditRequest: BatchRequest {
-    fileprivate var batchEditItem: TransformAppEditItem?
+    fileprivate var batchEditItem: PHAssetItem?
 
-    init(_ batchEditItem: TransformAppEditItem) {
+    init(_ batchEditItem: PHAssetItem) {
         super.init()
 
         self.batchEditItem = batchEditItem

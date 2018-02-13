@@ -22,7 +22,7 @@ class BatchEditViewController: AppDockViewController {
     
     var placeholderImages = [PHAsset: UIImage?]()
     
-    var batchEditItems = [TransformAppEditItem]()
+    var batchEditItems = [PHAssetItem]()
     var initialIndexPath: IndexPath?
     
     @IBOutlet weak var previewCollectionView: UICollectionView!
@@ -242,7 +242,7 @@ extension BatchEditViewController {
         reaction.when { finishedResultsForEachApps, respondables in
 
             DispatchQueue.main.async {
-                self.batchProgressView.title = "Saving Photos...".localizedString
+                self.batchProgressView.title = "Saving PHAsset...".localizedString
             }
 
             let results = respondables.flatMap { $0.result as? TransformAppTaskRespondable }
@@ -279,7 +279,7 @@ extension BatchEditViewController {
 //            }
 //        }) { (results) in
 //            DispatchQueue.main.async {
-//                self.batchProgressView.title = "Saving Photos...".localizedString
+//                self.batchProgressView.title = "Saving PHAsset...".localizedString
 //            }
 //
 //            PHPhotoLibrary.shared().performChanges({
@@ -315,7 +315,9 @@ extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PreviewCollectionViewCell", for: indexPath) as! PreviewCollectionViewCell
-        if let photo = batchEditItems[indexPath.item].asset, let image = placeholderImages[photo] {
+        let photo = batchEditItems[indexPath.item].asset
+
+        if let image = placeholderImages[photo] {
             cell.assetView.image = image
         }
         cell.setBatchEditItem(batchEditItems[indexPath.item], at: indexPath)
@@ -395,7 +397,8 @@ extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewD
     // MARK: - UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        guard let asset = batchEditItems[indexPath.item].asset else { return .zero }
+        let asset = batchEditItems[indexPath.item].asset
+
         let contentInset: UIEdgeInsets
         if #available(iOS 11.0, *) {
             contentInset = collectionView.adjustedContentInset

@@ -10,7 +10,7 @@ class PhotoPickerDetailViewController: UIViewController {
 
     var asset: PHAsset?
     var actionItems:[UIPreviewActionItem]?
-    var batchEditItem: TransformAppEditItem?
+    var batchEditItem: PHAssetItem?
 
     private lazy var assetView: AssetView = {
         let assetView = AssetView()
