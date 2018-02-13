@@ -22,7 +22,7 @@ class BatchEditViewController: AppDockViewController {
     
     var placeholderImages = [PHAsset: UIImage?]()
     
-    var batchEditItems = [PHAssetItem]()
+    var targetAssetItems = [PHAssetItem]()
     var initialIndexPath: IndexPath?
     
     @IBOutlet weak var previewCollectionView: UICollectionView!
@@ -113,7 +113,7 @@ class BatchEditViewController: AppDockViewController {
     }
     
     var hasChanges: Bool {
-        return batchEditItems.map({ $0.editItem.hasChanges }).contains(true)
+        return targetAssetItems.map({ $0.editItem.hasChanges }).contains(true)
     }
     
     func updateBatchEdit(animated: Bool = true, completion: (() -> Void)? = nil) {
@@ -122,16 +122,16 @@ class BatchEditViewController: AppDockViewController {
     }
     
     private func addTransformItem(_ transformItem: TransformItem) {
-        for batchEditItem in batchEditItems {
-            batchEditItem.editItem.addTransformItem(transformItem)
+        for assetEditItem in targetAssetItems {
+            assetEditItem.editItem.append(transformItem)
         }
         
         updateBatchEdit()
     }
     
     private func resetTransformItems() {
-        for batchEditItem in batchEditItems {
-            batchEditItem.editItem.resetTransforms()
+        for batchEditItem in targetAssetItems {
+            batchEditItem.editItem.reset()
         }
         
         updateBatchEdit()
@@ -156,7 +156,7 @@ class BatchEditViewController: AppDockViewController {
         let visibleIndexPaths = previewCollectionView.indexPathsForVisibleItems
         for indexPath in visibleIndexPaths {
             guard let cell = self.previewCollectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else { continue }
-            cell.setImageEditItem(self.batchEditItems[indexPath.item].editItem, animated: animated)
+            cell.setImageEditItem(self.targetAssetItems[indexPath.item].editItem, animated: animated)
         }
     }
     
@@ -218,7 +218,7 @@ extension BatchEditViewController {
 
 
 //TODO: TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
-        batchEditItems.forEach { item in
+        targetAssetItems.forEach { item in
             AppTaskManager.shared(2).append(request: AppTaskRequest(TransformApp.self, item) { res, cancel in
                 print(item)
             })
@@ -257,7 +257,7 @@ extension BatchEditViewController {
                     self.closeBatchProgressView()
 
                     if success {
-                        Analytics.logEvent("log.export.save", parameters: ["number_of_items": self.batchEditItems.count])
+                        Analytics.logEvent("log.export.save", parameters: ["number_of_items": self.targetAssetItems.count])
                         self.delegate?.batchEditViewControllerDidFinishEditing(self)
                     }
                 }
@@ -310,17 +310,17 @@ extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewD
     // MARK: - UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return batchEditItems.count
+        return targetAssetItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PreviewCollectionViewCell", for: indexPath) as! PreviewCollectionViewCell
-        let photo = batchEditItems[indexPath.item].asset
+        let photo = targetAssetItems[indexPath.item].asset
 
         if let image = placeholderImages[photo] {
             cell.assetView.image = image
         }
-        cell.setBatchEditItem(batchEditItems[indexPath.item], at: indexPath)
+        cell.setBatchEditItem(targetAssetItems[indexPath.item], at: indexPath)
         return cell
     }
     
@@ -331,7 +331,7 @@ extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewD
         }
         
         if let cell = cell as? PreviewCollectionViewCell {
-            cell.setImageEditItem(self.batchEditItems[indexPath.item].editItem)
+            cell.setImageEditItem(self.targetAssetItems[indexPath.item].editItem)
         }
     }
     
@@ -344,12 +344,12 @@ extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewD
         else { return }
         
         cell.assetView.layer.transform = CATransform3DIdentity
-        cell.assetView.transform = batchEditItems[indexPath.item].editItem.transform
+        cell.assetView.transform = targetAssetItems[indexPath.item].editItem.transform
         
         cell.assetView.heroModifiers = [.fade]
         
         let placeholderImage = cell.assetView.image
-        let preferredTransform = batchEditItems[indexPath.item].editItem.transform;
+        let preferredTransform = targetAssetItems[indexPath.item].editItem.transform;
         
         let photoEditViewController = storyboard?.instantiateViewController(withIdentifier: "PhotoEditViewController") as! PhotoEditViewController
         photoEditViewController.placeholderImage = placeholderImage
@@ -383,21 +383,21 @@ extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
             let cellSize = self.collectionView(collectionView, layout: collectionView.collectionViewLayout, sizeForItemAt: indexPath)
-            PhotoManager.cachingImageManager.startCachingImages(for: indexPaths.flatMap({ self.batchEditItems[$0.item].asset }), targetSize: cellSize, contentMode: .aspectFit, options: nil)
+            PhotoManager.cachingImageManager.startCachingImages(for: indexPaths.flatMap({ self.targetAssetItems[$0.item].asset }), targetSize: cellSize, contentMode: .aspectFit, options: nil)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
             let cellSize = self.collectionView(collectionView, layout: collectionView.collectionViewLayout, sizeForItemAt: indexPath)
-            PhotoManager.cachingImageManager.stopCachingImages(for: indexPaths.flatMap({ self.batchEditItems[$0.item].asset }), targetSize: cellSize, contentMode: .aspectFit, options: nil)
+            PhotoManager.cachingImageManager.stopCachingImages(for: indexPaths.flatMap({ self.targetAssetItems[$0.item].asset }), targetSize: cellSize, contentMode: .aspectFit, options: nil)
         }
     }
     
     // MARK: - UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let asset = batchEditItems[indexPath.item].asset
+        let asset = targetAssetItems[indexPath.item].asset
 
         let contentInset: UIEdgeInsets
         if #available(iOS 11.0, *) {
@@ -410,7 +410,7 @@ extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewD
         let contentSize = UIEdgeInsetsInsetRect(collectionView.bounds, contentInset).size
         let boundingSize = CGSize(width: kEditItemPreviewWidth, height: kEditItemPreviewWidth)
         let photoSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight).aspectFit(in: boundingSize)
-        let cellSize = photoSize.applying(batchEditItems[indexPath.item].editItem.transform).magnitude
+        let cellSize = photoSize.applying(targetAssetItems[indexPath.item].editItem.transform).magnitude
         return CGSize(width: cellSize.width, height: contentSize.height)
     }
     
@@ -459,8 +459,8 @@ extension BatchEditViewController: UIScrollViewDelegate {
     }
 }
 
-extension BatchEditViewController: PhotoEditViewControllerDelegate {
-    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: TransformEditItem?, at indexPath: IndexPath?) {
+extension BatchEditViewController: TransformEditViewControllerDelegate {
+    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: EditableItem<TransformItem>?, at indexPath: IndexPath?) {
         guard let editItem = editItem, let indexPath = indexPath else {
             photoEditor.dismiss(animated: true, completion: {
                 photoEditor.placeholderView?.removeFromSuperview()
@@ -468,7 +468,7 @@ extension BatchEditViewController: PhotoEditViewControllerDelegate {
             return
         }
         
-        batchEditItems[indexPath.item].editItem.merge(editItem)
+        targetAssetItems[indexPath.item].editItem.merge(with:editItem)
         
         updateBatchEdit(animated: false) {
             if let cell = self.previewCollectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell, let snapshot = photoEditor.placeholderView {

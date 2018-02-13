@@ -11,17 +11,14 @@ import Hero
 import AVFoundation
 import Photos
 
-
-
-
-protocol PhotoEditViewControllerDelegate {
-    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: TransformEditItem?, at indexPath: IndexPath?)
+protocol TransformEditViewControllerDelegate {
+    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: EditableItem<TransformItem>?, at indexPath: IndexPath?)
 }
 
 class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     @IBOutlet weak var photoZoomingView: UIScrollView!
-    
-    var delegate: PhotoEditViewControllerDelegate?
+
+    var delegate: TransformEditViewControllerDelegate?
     
     var zoomingContentView: UIView!
     var assetView: AssetView!
@@ -32,7 +29,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
             layoutAssetView()
         }
     }
-    var editItem = TransformEditItem()
+    var editItem = EditableItem<TransformItem>()
     var placeholderView: UIView?
     var indexPathInBatch: IndexPath?
     
@@ -134,7 +131,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     // MARK: - Navigation Bar Actions
     
     private func addTransformItem(_ transformItem: TransformItem) {
-        editItem.addTransformItem(transformItem)
+        editItem.append(transformItem)
         
         updatePreview()
     }
@@ -168,7 +165,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     }
     
     override func cancelButtonDidTap(sender: Any) {
-        editItem.resetTransforms()
+        editItem.reset()
         
         updatePreview { [unowned self] in
             self.delegate?.photoEditViewController(self, didFinishEditing: nil, at: self.indexPathInBatch)

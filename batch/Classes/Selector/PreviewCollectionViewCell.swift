@@ -83,7 +83,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         })
     }
     
-    func setImageEditItem(_ editItem: TransformEditItem, animated: Bool = false) {
+    func setImageEditItem<T>(_ editItem: EditableItem<T>, animated: Bool = false) where T:TransformItem {
         if animated {
             UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: .beginFromCurrentState, animations: { [weak self] in
                 self?.assetView.layer.transform = editItem.transform3d
@@ -97,7 +97,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         imageInfoViewTop.constant = (bounds.height + CGSize(width: assetViewWidth.constant, height: assetViewHeight.constant).applying(editItem.transform).magnitude.height) / 2 + 10
     }
     
-    private func setAssetInfo(_ asset: PHAsset, editItem: TransformEditItem) {
+    private func setAssetInfo<T>(_ asset: PHAsset, editItem: EditableItem<T>) where T:TransformItem {
         let resources = PHAssetResource.assetResources(for: asset)
         if let firstResource = resources.first {
             fileLabel.text = firstResource.originalFilename

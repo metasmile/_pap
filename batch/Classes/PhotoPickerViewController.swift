@@ -258,7 +258,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
     }
 }
 
-extension PhotoPickerViewController: PhotoEditViewControllerDelegate {
+extension PhotoPickerViewController: TransformEditViewControllerDelegate {
     fileprivate func showPhotoEditor(with batchEditItem: PHAssetItem?) {
         guard let batchEditItem = batchEditItem else { return }
         let photoEditViewController = storyboard?.instantiateViewController(withIdentifier: "PhotoEditViewController") as! PhotoEditViewController
@@ -293,9 +293,9 @@ extension PhotoPickerViewController: PhotoEditViewControllerDelegate {
         }
     }
     
-    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: TransformEditItem?, at indexPath: IndexPath?) {
+    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: EditableItem<TransformItem>?, at indexPath: IndexPath?) {
         if let editItem = editItem, let indexPath = indexPath {
-            batchPreviewView.targetAssetItems[indexPath.item].editItem.merge(editItem)
+            batchPreviewView.targetAssetItems[indexPath.item].editItem.merge(with:editItem)
         }
         
         photoEditor.dismiss(animated: true, completion: {

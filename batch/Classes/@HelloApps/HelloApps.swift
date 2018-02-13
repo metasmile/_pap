@@ -17,20 +17,20 @@ extension NSObject{
         //HELLO: start immediately.
         let firstRequest = AppTaskRequest(
                 HelloTypedBatchApp.self
-                , HelloTypedBatchApp.paramClass.init(sources: [UIImage()], configs: [TransformEditItem()])
+                , HelloTypedBatchApp.paramClass.init(sources: [UIImage()], configs: [EditableItem<TransformItem>()])
         )
         AppTaskManager.shared(2).request(firstRequest)
 
         //HELLO: append first to start lazily
         AppTaskManager.shared(2).append(request:AppTaskRequest(
                 HelloTypedBatchApp.self
-                , HelloTypedBatchApp.paramClass.init(sources: [UIImage()], configs: [TransformEditItem()])
+                , HelloTypedBatchApp.paramClass.init(sources: [UIImage()], configs: [EditableItem<TransformItem>()])
         ))
 
 
         //HELLO: independent result of the request for each completion block
         let appCls = HelloTypedBatchApp.self
-        let p = appCls.paramClass.init(sources: [UIImage()], configs: [TransformEditItem()])
+        let p = appCls.paramClass.init(sources: [UIImage()], configs: [EditableItem<TransformItem>()])
         let r = AppTaskRequest(appCls, p) { res, cancel in
             res.info.state == .performing
 
@@ -43,7 +43,7 @@ extension NSObject{
                 HelloTypedBatchApp.self
 
                 //HELLO: can use already typed App-dependent parameter object via AppClass.paramClass.init( ... )
-                , HelloTypedBatchApp.paramClass.init(sources: [UIImage() /* or PHAsset */], configs: [TransformEditItem()])
+                , HelloTypedBatchApp.paramClass.init(sources: [UIImage() /* or PHAsset */], configs: [EditableItem<TransformItem>()])
         ))
 
         

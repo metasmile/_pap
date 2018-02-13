@@ -10,7 +10,7 @@ public class PHAssetItem: ItemObject {
     var asset: PHAsset
     var indexPath:IndexPath?
 
-    var editItem = TransformEditItem()
+    var editItem = EditableItem<TransformItem>()
     var requestIDs = [PHAssetRequestID]()
 
     required public init(_ asset: PHAsset) {

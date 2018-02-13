@@ -10,28 +10,10 @@ import UIKit
 import Photos
 import MobileCoreServices
 
-public class TransformEditItem: TaskConfigable {
-    private (set) var transformItems = [TransformItem]()
-
-    var hasChanges: Bool {
-        return !transformItems.isEmpty //!transform.isIdentity
-    }
-
-    func addTransformItem(_ item: TransformItem) {
-        transformItems.append(item)
-    }
-
-    func merge(_ editItem: TransformEditItem) {
-        transformItems.append(contentsOf: editItem.transformItems)
-    }
-
-    func resetTransforms() {
-        transformItems.removeAll()
-    }
-
+extension EditableItem where T:TransformItem{
     var transform: CGAffineTransform {
         var t = CGAffineTransform.identity
-        for transformItem in transformItems {
+        for transformItem in self.iterator() {
             t = t.concatenating(transformItem.transform)
         }
         return t
@@ -41,22 +23,13 @@ public class TransformEditItem: TaskConfigable {
         var t = CATransform3DIdentity
         t.m34 = -1 / kEditItemPreviewWidth
 
-        for transformItem in transformItems {
+        for transformItem in self.iterator() {
             t = CATransform3DConcat(t, transformItem.transform3d)
         }
         return t
     }
 }
 
-class TransformItem: NSObject {
-    var transform: CGAffineTransform {
-        return .identity
-    }
-
-    var transform3d: CATransform3D {
-        return CATransform3DIdentity
-    }
-}
 
 class RotationTransformItem: TransformItem {
     var angle: CGFloat = 0
@@ -214,15 +187,15 @@ extension PHAssetItem {
 
             let editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: input)
             editingContext?.frameProcessor = { frame, error in
-                let editItemConvertedCoordinates = TransformEditItem()
-                self.editItem.transformItems.forEach({ (transformItem) in
+                let editItemConvertedCoordinates = EditableItem<TransformItem>()
+                for transformItem in self.editItem.iterator(){
                     if let rotationItem = transformItem as? RotationTransformItem {
-                        editItemConvertedCoordinates.addTransformItem(RotationTransformItem(radians: -rotationItem.angle))
+                        editItemConvertedCoordinates.append(RotationTransformItem(radians: -rotationItem.angle))
                     }
                     else {
-                        editItemConvertedCoordinates.addTransformItem(transformItem)
+                        editItemConvertedCoordinates.append(transformItem)
                     }
-                })
+                }
                 return frame.image.transformed(by: editItemConvertedCoordinates.transform)
             }
 

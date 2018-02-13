@@ -88,7 +88,7 @@ extension BatchPreviewView {
         guard !isProcessing else { return }
         
         for batchEditItem in targetAssetItems {
-            batchEditItem.editItem.addTransformItem(transformItem)
+            batchEditItem.editItem.append(transformItem)
         }
         
         updatePreviews()
@@ -98,7 +98,7 @@ extension BatchPreviewView {
         guard !isProcessing else { return }
         
         for batchEditItem in targetAssetItems {
-            batchEditItem.editItem.resetTransforms()
+            batchEditItem.editItem.reset()
         }
         
         updatePreviews()
