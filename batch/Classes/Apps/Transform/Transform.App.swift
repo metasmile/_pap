@@ -26,7 +26,7 @@ public class TransformApp: AppPrototype, Appable, ParamableAppable, FinalizableA
     public static let info = AppInfo(
             identifier: "com.stells.batch.transform"
             , appClass: TransformApp.self
-            , displayName: "TransformApp"
+            , displayName: "Transform"
             , iconImage: ImageSourceItem("batchappicon_transfrom.pdf")
     )
 
