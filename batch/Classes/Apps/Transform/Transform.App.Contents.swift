@@ -78,7 +78,7 @@ class HorizontalFlipTransformItem: TransformItem {
 extension PHAssetItem {
 
     //TODO: should not allow access runEditing, cancelEditing without app.
-    func runEditing(_ progressHandler: ((Float) -> Void)? = nil, _ completionHandler: @escaping (PHAsset?, PHContentEditingOutput?) -> Void) {
+    func runEditing(_ progressHandler: ((Float) -> Void)? = nil, _ completionHandler: @escaping PHAssetEditableCompletionHandler) {
 
         //REMIND: from ios9, addObserver will be automatically unregister without dealloc
         NotificationCenter.default.addObserver(forName: RemoteSourceFetchNotification.Name.fetchBagan, object: asset, queue: nil) { notification in
@@ -94,7 +94,7 @@ extension PHAssetItem {
                 requestIDs = editLivePhoto(completionHandler)
             }
             else {
-                requestIDs = editImage(asset.asImage, completion: completionHandler)
+                requestIDs = self.edit(completion: completionHandler)
             }
         }
         else if asset.mediaType == .video {
@@ -124,12 +124,40 @@ extension PHAssetItem {
     }
 }
 
-// Image
-extension PHAssetItem{
-    fileprivate func editImage(_ image: UIImage?, completion completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) -> [PHAssetRequestID]? {
+//TODO: UNDER CONSTRUCTION UNDER CONSTRUCTION UNDER CONSTRUCTION
+public typealias PHAssetEditableCompletionHandler = (PHAsset?, PHContentEditingOutput?) -> Void
+
+protocol _Processable{
+    associatedtype ResultType
+    func process() -> ResultType?
+}
+
+protocol ImageProcessable: _Processable where Self.ResultType : UIImage {
+
+}
+
+protocol VideoProcessable: _Processable where Self.ResultType : AVMutableVideoComposition{
+
+}
+
+protocol LivePhotoProcessable: _Processable where Self.ResultType == Photos.PHLivePhotoFrameProcessingBlock{
+
+}
+
+protocol PHAssetEditable{
+    func edit(completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
+}
+
+extension PHAssetItem: PHAssetEditable, ImageProcessable{
+
+    func process() -> UIImage? {
+        return self.asset.asImage?.applyTransform(self.editItem.transform)
+    }
+
+    func edit(completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
         let asset = self.asset
 
-        guard let image = image?.applyTransform(editItem.transform) else {
+        guard let image = self.process() else {
             completionHandler(nil, nil)
             return nil
         }
@@ -165,10 +193,53 @@ extension PHAssetItem{
         return [PHAssetRequestID(forEditingInput: req)]
     }
 }
+//TODO: UNDER CONSTRUCTION UNDER CONSTRUCTION UNDER CONSTRUCTION
+
+// Image
+//extension PHAssetItem{
+//    fileprivate func editImage(_ image: UIImage?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
+//        let asset = self.asset
+//
+//        guard let image = image?.applyTransform(editItem.transform) else {
+//            completionHandler(nil, nil)
+//            return nil
+//        }
+//
+//        let req = asset.requestContentEditingInput(with: nil) { (input, info) in
+//            guard let input = input else {
+//                completionHandler(nil, nil)
+//                return
+//            }
+//
+//            guard let dataInfo = "Edited".data(using: .utf8) else {
+//                completionHandler(nil, nil)
+//                return
+//            }
+//
+//            let contentEditingOutput = PHContentEditingOutput(contentEditingInput: input)
+//            contentEditingOutput.adjustmentData = PHAdjustmentData(formatIdentifier: Bundle.main.bundleIdentifier ?? "", formatVersion: "1.0", data: dataInfo)
+//
+//            DispatchQueue.global().async {
+//                // renderedContentURL supports only JPEG and MOV ...
+//                // so... always export JPEG
+//                let outputData = UIImageJPEGRepresentation(image, 1)
+//
+//                guard (try? outputData?.write(to: contentEditingOutput.renderedContentURL, options: .atomic)) != nil else {
+//                    completionHandler(nil, nil)
+//                    return
+//                }
+//
+//                completionHandler(asset, contentEditingOutput)
+//            }
+//        }
+//
+//        return [PHAssetRequestID(forEditingInput: req)]
+//    }
+//}
 
 // Live Photo
 extension PHAssetItem {
-    fileprivate func editLivePhoto(_ completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) -> [PHAssetRequestID]? {
+    fileprivate func editLivePhoto(_ completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
         let asset = self.asset
 
         let req = asset.requestContentEditingInput(with: nil) { (input, info) in
@@ -211,7 +282,7 @@ extension PHAssetItem {
         return [PHAssetRequestID(forEditingInput: req)]
     }
 
-    fileprivate func editLivePhoto(_ livePhoto: PHLivePhoto?, completion completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) -> [PHAssetRequestID]? {
+    fileprivate func editLivePhoto(_ livePhoto: PHLivePhoto?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
         guard
             let livePhoto = livePhoto
         else {
@@ -282,7 +353,7 @@ extension PHAssetItem {
 
 // Video
 extension PHAssetItem {
-    fileprivate func editVideo(_ video: AVAsset?, audioMix: AVAudioMix? = nil, completion completionHandler: @escaping ((PHAsset?, PHContentEditingOutput?) -> Void)) -> [PHAssetRequestID]?{
+    fileprivate func editVideo(_ video: AVAsset?, audioMix: AVAudioMix? = nil, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?{
         let asset = self.asset
 
         guard
