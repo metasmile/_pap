@@ -30,7 +30,190 @@ extension EditableItem where T:TransformItem{
     }
 }
 
+extension PHAssetItem: PHAssetImageEditable, PHAssetVideoEditable, PHAssetLivePhotoEditable{
 
+    func edit<T>(processor:T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
+            where T:ImageProcessable {
+
+        let asset = self.asset
+
+        guard let image = asset.asImage?.applyTransform(self.editItem.transform) else {
+            completionHandler(nil, nil)
+            return nil
+        }
+
+        let r = self.requestContentEditing { _item in
+            guard let item = _item else{
+                completionHandler(nil,nil)
+                return
+            }
+
+            DispatchQueue.global().async {
+                // renderedContentURL supports only JPEG and MOV ...
+                // so... always export JPEG
+                let outputData = UIImageJPEGRepresentation(image, 1)
+
+                guard (try? outputData?.write(to: item.output.renderedContentURL, options: .atomic)) != nil else {
+                    completionHandler(nil, nil)
+                    return
+                }
+
+                completionHandler(asset, item.output)
+            }
+        }
+        return [PHAssetRequestID(forEditingInput: r)]
+    }
+
+    func edit<T>(processor:T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
+            where T:LivePhotoProcessable {
+
+        let r = self.requestContentEditing { _item in
+            guard let item = _item else{
+                completionHandler(nil,nil)
+                return
+            }
+
+            let editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: item.input)
+            editingContext?.frameProcessor = { frame, error in
+                let editItemConvertedCoordinates = EditableItem<TransformItem>()
+                for transformItem in self.editItem.iterator(){
+                    if let rotationItem = transformItem as? RotationTransformItem {
+                        editItemConvertedCoordinates.append(RotationTransformItem(radians: -rotationItem.angle))
+                    }
+                    else {
+                        editItemConvertedCoordinates.append(transformItem)
+                    }
+                }
+                return frame.image.transformed(by: editItemConvertedCoordinates.transform)
+            }
+
+            editingContext?.saveLivePhoto(to: item.output, options: nil, completionHandler: { (success, error) in
+                guard success else {
+                    completionHandler(nil, nil)
+                    return
+                }
+                completionHandler(self.asset, item.output)
+            })
+        }
+
+        return [PHAssetRequestID(forEditingInput: r)]
+    }
+
+    func edit<T>(processor:T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
+        where T: LivePhotoAdvancedProcessor {
+
+        guard let livePhoto = self.asset.asLivePhoto else {
+            completionHandler(nil, nil)
+            return nil
+        }
+
+        let resources = PHAssetResource.assetResources(for: livePhoto)
+
+        guard
+                let videoResource = resources.first(where: { $0.type == PHAssetResourceType.pairedVideo }),
+                let photoResource = resources.first(where: { $0.type == PHAssetResourceType.photo })
+                else {
+            completionHandler(nil, nil)
+            return nil
+        }
+
+        var pairedVideo: AVAsset?
+        var pairedPhoto: UIImage?
+        let retrievePairedResourcesHandler = { [weak self] in
+            guard
+                    let editItem = self?.editItem,
+                    let _ = pairedVideo?.applyTransform(editItem.transform),
+                    let _ = pairedPhoto?.applyTransform(editItem.transform)
+                    else { return }
+        }
+
+        var videoData = Data()
+        var photoData = Data()
+
+        var reqIDs = [PHAssetRequestID]()
+
+        //
+        let req1 = PHAssetResourceManager.default().requestData(for: videoResource, options: nil, dataReceivedHandler: { (data) in
+            videoData.append(data)
+        }) { (error) in
+            guard error == nil else {
+                completionHandler(nil, nil)
+                return
+            }
+
+            let pairedVideoFileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("pairedVideo.mov")
+            try? videoData.write(to: pairedVideoFileURL, options: Data.WritingOptions.atomicWrite)
+            pairedVideo = AVAsset(url: pairedVideoFileURL)
+            retrievePairedResourcesHandler()
+        }
+        reqIDs.append(PHAssetRequestID(forResourceData: req1))
+
+        //
+        let req2 = PHAssetResourceManager.default().requestData(for: photoResource, options: nil, dataReceivedHandler: { (data) in
+            photoData.append(data)
+        }) { (error) in
+            guard error == nil else {
+                completionHandler(nil, nil)
+                return
+            }
+
+            pairedPhoto = UIImage(data: photoData)
+            retrievePairedResourcesHandler()
+        }
+        reqIDs.append(PHAssetRequestID(forResourceData: req2))
+
+        return reqIDs
+    }
+
+    func edit<T>(processor:T, /*audioMix: AVAudioMix? = nil,*/ completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
+            where T:VideoProcessable {
+
+        let asset = self.asset
+
+        guard
+                let video = asset.asVideo?.applyTransform(editItem.transform),
+                let videoTrack = video.tracks(withMediaType: .video).first
+
+                else {
+            completionHandler(nil, nil)
+            return nil
+        }
+
+        var reqIDs = [PHAssetRequestID]()
+
+        let r = self.requestContentEditing { _item in
+            guard let item = _item else{
+                completionHandler(nil,nil)
+                return
+            }
+
+            let videoComposition = AVMutableVideoComposition(propertiesOf: video)
+            videoComposition.renderSize = videoTrack.naturalSize.applying(self.editItem.transform).magnitude
+            videoComposition.frameDuration = CMTimeMake(1, videoTrack.naturalTimeScale)
+
+            let exportSession = AVAssetExportSession(asset: video, presetName: AVAssetExportPresetPassthrough)
+            exportSession?.outputFileType = AVFileType.mov
+            exportSession?.outputURL = item.output.renderedContentURL
+            exportSession?.videoComposition = videoComposition
+//            exportSession?.audioMix = audioMix
+            exportSession?.shouldOptimizeForNetworkUse = false
+            exportSession?.exportAsynchronously {
+                guard let status = exportSession?.status else { return }
+                switch status {
+                    case .completed:
+                        completionHandler(asset, item.output)
+                    case .failed, .cancelled:
+                        completionHandler(nil, nil)
+                    default:
+                        break
+                }
+            }
+        }
+
+        reqIDs.append(PHAssetRequestID(forEditingInput: r))
+        return reqIDs
+    }
+}
 class RotationTransformItem: TransformItem {
     var angle: CGFloat = 0
 
@@ -75,344 +258,7 @@ class HorizontalFlipTransformItem: TransformItem {
     }
 }
 
-extension PHAssetItem {
-
-    //TODO: should not allow access runEditing, cancelEditing without app.
-    func runEditing(_ progressHandler: ((Float) -> Void)? = nil, _ completionHandler: @escaping PHAssetEditableCompletionHandler) {
-
-        //REMIND: from ios9, addObserver will be automatically unregister without dealloc
-        NotificationCenter.default.addObserver(forName: RemoteSourceFetchNotification.Name.fetchBagan, object: asset, queue: nil) { notification in
-            if let _requestId = notification.userInfo?[RemoteSourceFetchNotification.UserInfo.Key.imageRequestID] as? PHImageRequestID{
-                self.requestIDs.append(PHAssetRequestID(forImage:_requestId))
-            }
-        }
-
-        var requestIDs:[PHAssetRequestID]?
-
-        if asset.mediaType == .image {
-            if asset.mediaSubtypes.contains(.photoLive) == true {
-                requestIDs = editLivePhoto(completionHandler)
-            }
-            else {
-                requestIDs = self.edit(completion: completionHandler)
-            }
-        }
-        else if asset.mediaType == .video {
-            requestIDs = editVideo(asset.asVideo, completion: completionHandler)
-        }
-
-        if let _requestIDs = requestIDs {
-            self.requestIDs += _requestIDs
-        }
-    }
-
-    func cancelEditing() {
-
-        for req in requestIDs{
-            if req.forImage != PHAssetRequestID.DefaultValue.forImage{
-                PHImageManager.default().cancelImageRequest(req.forImage)
-            }
-
-            if req.forEditingInput != PHAssetRequestID.DefaultValue.forEditingInput{
-                asset.cancelContentEditingInputRequest(req.forEditingInput)
-            }
-
-            if req.forResourceData != PHAssetRequestID.DefaultValue.forResourceData{
-                PHAssetResourceManager.default().cancelDataRequest(req.forResourceData)
-            }
-        }
-    }
-}
-
-//TODO: UNDER CONSTRUCTION UNDER CONSTRUCTION UNDER CONSTRUCTION
-public typealias PHAssetEditableCompletionHandler = (PHAsset?, PHContentEditingOutput?) -> Void
-
-protocol _Processable{
-    associatedtype ResultType
-    func process() -> ResultType?
-}
-
-protocol ImageProcessable: _Processable where Self.ResultType : UIImage {
-
-}
-
-protocol VideoProcessable: _Processable where Self.ResultType : AVMutableVideoComposition{
-
-}
-
-protocol LivePhotoProcessable: _Processable where Self.ResultType == Photos.PHLivePhotoFrameProcessingBlock{
-
-}
-
-protocol PHAssetEditable{
-    func edit(completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
-}
-
-extension PHAssetItem: PHAssetEditable, ImageProcessable{
-
-    func process() -> UIImage? {
-        return self.asset.asImage?.applyTransform(self.editItem.transform)
-    }
-
-    func edit(completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
-        let asset = self.asset
-
-        guard let image = self.process() else {
-            completionHandler(nil, nil)
-            return nil
-        }
-
-        let req = asset.requestContentEditingInput(with: nil) { (input, info) in
-            guard let input = input else {
-                completionHandler(nil, nil)
-                return
-            }
-
-            guard let dataInfo = "Edited".data(using: .utf8) else {
-                completionHandler(nil, nil)
-                return
-            }
-
-            let contentEditingOutput = PHContentEditingOutput(contentEditingInput: input)
-            contentEditingOutput.adjustmentData = PHAdjustmentData(formatIdentifier: Bundle.main.bundleIdentifier ?? "", formatVersion: "1.0", data: dataInfo)
-
-            DispatchQueue.global().async {
-                // renderedContentURL supports only JPEG and MOV ...
-                // so... always export JPEG
-                let outputData = UIImageJPEGRepresentation(image, 1)
-
-                guard (try? outputData?.write(to: contentEditingOutput.renderedContentURL, options: .atomic)) != nil else {
-                    completionHandler(nil, nil)
-                    return
-                }
-
-                completionHandler(asset, contentEditingOutput)
-            }
-        }
-
-        return [PHAssetRequestID(forEditingInput: req)]
-    }
-}
-//TODO: UNDER CONSTRUCTION UNDER CONSTRUCTION UNDER CONSTRUCTION
-
-// Image
-//extension PHAssetItem{
-//    fileprivate func editImage(_ image: UIImage?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
-//        let asset = self.asset
-//
-//        guard let image = image?.applyTransform(editItem.transform) else {
-//            completionHandler(nil, nil)
-//            return nil
-//        }
-//
-//        let req = asset.requestContentEditingInput(with: nil) { (input, info) in
-//            guard let input = input else {
-//                completionHandler(nil, nil)
-//                return
-//            }
-//
-//            guard let dataInfo = "Edited".data(using: .utf8) else {
-//                completionHandler(nil, nil)
-//                return
-//            }
-//
-//            let contentEditingOutput = PHContentEditingOutput(contentEditingInput: input)
-//            contentEditingOutput.adjustmentData = PHAdjustmentData(formatIdentifier: Bundle.main.bundleIdentifier ?? "", formatVersion: "1.0", data: dataInfo)
-//
-//            DispatchQueue.global().async {
-//                // renderedContentURL supports only JPEG and MOV ...
-//                // so... always export JPEG
-//                let outputData = UIImageJPEGRepresentation(image, 1)
-//
-//                guard (try? outputData?.write(to: contentEditingOutput.renderedContentURL, options: .atomic)) != nil else {
-//                    completionHandler(nil, nil)
-//                    return
-//                }
-//
-//                completionHandler(asset, contentEditingOutput)
-//            }
-//        }
-//
-//        return [PHAssetRequestID(forEditingInput: req)]
-//    }
-//}
-
-// Live Photo
-extension PHAssetItem {
-    fileprivate func editLivePhoto(_ completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
-        let asset = self.asset
-
-        let req = asset.requestContentEditingInput(with: nil) { (input, info) in
-            guard let input = input else {
-                completionHandler(nil, nil)
-                return
-            }
-
-            guard let dataInfo = "Edited".data(using: .utf8) else {
-                completionHandler(nil, nil)
-                return
-            }
-
-            let contentEditingOutput = PHContentEditingOutput(contentEditingInput: input)
-            contentEditingOutput.adjustmentData = PHAdjustmentData(formatIdentifier: Bundle.main.bundleIdentifier ?? "", formatVersion: "1.0", data: dataInfo)
-
-            let editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: input)
-            editingContext?.frameProcessor = { frame, error in
-                let editItemConvertedCoordinates = EditableItem<TransformItem>()
-                for transformItem in self.editItem.iterator(){
-                    if let rotationItem = transformItem as? RotationTransformItem {
-                        editItemConvertedCoordinates.append(RotationTransformItem(radians: -rotationItem.angle))
-                    }
-                    else {
-                        editItemConvertedCoordinates.append(transformItem)
-                    }
-                }
-                return frame.image.transformed(by: editItemConvertedCoordinates.transform)
-            }
-
-            editingContext?.saveLivePhoto(to: contentEditingOutput, options: nil, completionHandler: { (success, error) in
-                guard success else {
-                    completionHandler(nil, nil)
-                    return
-                }
-                completionHandler(asset, contentEditingOutput)
-            })
-        }
-
-        return [PHAssetRequestID(forEditingInput: req)]
-    }
-
-    fileprivate func editLivePhoto(_ livePhoto: PHLivePhoto?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
-        guard
-            let livePhoto = livePhoto
-        else {
-            completionHandler(nil, nil)
-            return nil
-        }
-
-        let resources = PHAssetResource.assetResources(for: livePhoto)
-
-        guard
-            let videoResource = resources.first(where: { $0.type == PHAssetResourceType.pairedVideo }),
-            let photoResource = resources.first(where: { $0.type == PHAssetResourceType.photo })
-        else {
-            completionHandler(nil, nil)
-            return nil
-        }
-
-        var pairedVideo: AVAsset?
-        var pairedPhoto: UIImage?
-        let retrievePairedResourcesHandler = { [weak self] in
-            guard
-                let editItem = self?.editItem,
-                let _ = pairedVideo?.applyTransform(editItem.transform),
-                let _ = pairedPhoto?.applyTransform(editItem.transform)
-            else { return }
-
-
-        }
-
-        var videoData = Data()
-        var photoData = Data()
-
-        var reqIDs = [PHAssetRequestID]()
-
-        //
-        let req1 = PHAssetResourceManager.default().requestData(for: videoResource, options: nil, dataReceivedHandler: { (data) in
-            videoData.append(data)
-        }) { (error) in
-            guard error == nil else {
-                completionHandler(nil, nil)
-                return
-            }
-
-            let pairedVideoFileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("pairedVideo.mov")
-            try? videoData.write(to: pairedVideoFileURL, options: Data.WritingOptions.atomicWrite)
-            pairedVideo = AVAsset(url: pairedVideoFileURL)
-            retrievePairedResourcesHandler()
-        }
-        reqIDs.append(PHAssetRequestID(forResourceData: req1))
-
-        //
-        let req2 = PHAssetResourceManager.default().requestData(for: photoResource, options: nil, dataReceivedHandler: { (data) in
-            photoData.append(data)
-        }) { (error) in
-            guard error == nil else {
-                completionHandler(nil, nil)
-                return
-            }
-
-            pairedPhoto = UIImage(data: photoData)
-            retrievePairedResourcesHandler()
-        }
-        reqIDs.append(PHAssetRequestID(forResourceData: req2))
-
-        return reqIDs
-    }
-}
-
-// Video
-extension PHAssetItem {
-    fileprivate func editVideo(_ video: AVAsset?, audioMix: AVAudioMix? = nil, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?{
-        let asset = self.asset
-
-        guard
-            let video = video?.applyTransform(editItem.transform),
-            let videoTrack = video.tracks(withMediaType: .video).first
-
-        else {
-            completionHandler(nil, nil)
-            return nil
-        }
-
-        var reqIDs = [PHAssetRequestID]()
-
-        let r = asset.requestContentEditingInput(with: nil) { (input, info) in
-            guard let input = input else {
-                completionHandler(nil, nil)
-                return
-            }
-
-            guard let dataInfo = "Edited".data(using: .utf8) else {
-                completionHandler(nil, nil)
-                return
-            }
-
-            let contentEditingOutput = PHContentEditingOutput(contentEditingInput: input)
-            contentEditingOutput.adjustmentData = PHAdjustmentData(formatIdentifier: Bundle.main.bundleIdentifier ?? "", formatVersion: "1.0", data: dataInfo)
-
-            let videoComposition = AVMutableVideoComposition(propertiesOf: video)
-            videoComposition.renderSize = videoTrack.naturalSize.applying(self.editItem.transform).magnitude
-            videoComposition.frameDuration = CMTimeMake(1, videoTrack.naturalTimeScale)
-
-            let exportSession = AVAssetExportSession(asset: video, presetName: AVAssetExportPresetPassthrough)
-            exportSession?.outputFileType = AVFileType.mov
-            exportSession?.outputURL = contentEditingOutput.renderedContentURL
-            exportSession?.videoComposition = videoComposition
-            exportSession?.audioMix = audioMix
-            exportSession?.shouldOptimizeForNetworkUse = false
-            exportSession?.exportAsynchronously {
-                guard let status = exportSession?.status else { return }
-                switch status {
-                case .completed:
-                    completionHandler(asset, contentEditingOutput)
-                case .failed, .cancelled:
-                    completionHandler(nil, nil)
-                default:
-                    break
-                }
-            }
-        }
-
-        reqIDs.append(PHAssetRequestID(forEditingInput: r))
-
-        return reqIDs
-    }
-}
-
 let kEditItemPreviewWidth: CGFloat = UIScreen.main.bounds.width * 0.9
-
-
 private extension AVAsset {
     func applyTransform(_ transform: CGAffineTransform) -> AVAsset {
         guard
@@ -500,48 +346,5 @@ private extension UIImage {
             ctx.cgContext.concatenate(transform)
             ctx.cgContext.draw(cgImage, in: CGRect(origin: .zero, size: rotatedSize))
         }
-    }
-}
-
-
-/*
- under construction
-*/
-
-
-class BatchRequest: NSObject {
-    func cancel() {
-
-    }
-}
-
-class BatchEditRequest: BatchRequest {
-    fileprivate var batchEditItem: PHAssetItem?
-
-    init(_ batchEditItem: PHAssetItem) {
-        super.init()
-
-        self.batchEditItem = batchEditItem
-    }
-
-    func perform(_ progress: ((Float) -> Void)? = nil, _ completion: ((TransformAppTaskRespondable?) -> Void)? = nil) {
-        guard let batchEditItem = batchEditItem else {
-            completion?(nil)
-            return
-        }
-
-        batchEditItem.runEditing(progress) { (asset, contentEditingOutput) in
-            var result: TransformAppTaskRespondable?
-            if let asset = asset, let contentEditingOutput = contentEditingOutput {
-                result = TransformAppTaskRespondable(asset: asset ,/* indexPath: batchEditItem.indexPath*/ contentEditingOutput: contentEditingOutput)
-            }
-            completion?(result)
-        }
-    }
-
-    override func cancel() {
-        super.cancel()
-
-        batchEditItem?.cancelEditing()
     }
 }

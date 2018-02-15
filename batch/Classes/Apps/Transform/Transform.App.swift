@@ -37,6 +37,7 @@ public class TransformApp: AppPrototype, Appable, ParamableAppable, FinalizableA
 
 //TODO: retrictful conforms param type
 private class _TransfromAppTask: TaskPrototype, Taskable {
+
     public typealias ParamType = PHAssetItem
     public typealias ResultType = TransformAppTaskRespondable
 
@@ -53,12 +54,12 @@ private class _TransfromAppTask: TaskPrototype, Taskable {
         return try self._perform(_param, async)
     }
 
-    private func _perform(_ batchEditItem: PHAssetItem, _ async: TaskAsyncSignalable?) throws -> TransformAppTaskRespondable?  {
+    private func _perform(_ assetItem: PHAssetItem, _ async: TaskAsyncSignalable?) throws -> TransformAppTaskRespondable?  {
         var result: TransformAppTaskRespondable?
 
         async?.begin()
 
-        batchEditItem.runEditing(nil) { (asset, contentEditingOutput) in
+        assetItem.runEditing(nil) { (asset, contentEditingOutput) in
             if let asset = asset, let contentEditingOutput = contentEditingOutput {
                 result = TransformAppTaskRespondable(
                         asset: asset,
