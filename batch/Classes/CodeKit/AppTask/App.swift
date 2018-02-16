@@ -16,12 +16,12 @@ public protocol Appable {
     init(_ config: TaskConfigable?)
 }
 
-protocol ParamableAppable {
-    associatedtype ParamType:TaskParamable
-    static var paramClass: ParamType.Type { get }
+public protocol ParamableAppable {
+    associatedtype ParamType
+    static func paramClass() -> ParamType.Type
 }
 
-protocol FinalizableAppable {
+public protocol FinalizableAppable {
     func finalize(result: [AppTaskRespondable], _ asyncSignal: TaskAsyncSignalable) -> [AppTaskRespondable]
 }
 

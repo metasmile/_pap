@@ -133,6 +133,11 @@ extension BatchPreviewView {
 
         let indexPath = IndexPath(item: targetAssetItems.count, section: 0)
 
+        //TODO: newly add CurrentSelected App.
+        //TODO: init param by CurrentSelected App.
+//        let selectedApp = AppLifecycleManager.shared.acquire(TransformApp.info) as? ParamableAppable
+//        targetAssetItems.append( selectedApp.paramClass().init(_asset, indexPath: indexPath) )
+
         targetAssetItems.append( TransformAppAsset(_asset, indexPath: indexPath) )
 
         collectionView.insertItems(at: [indexPath])

@@ -17,11 +17,15 @@ public struct TransformAppTaskRespondable:TaskResultable {
     var contentEditingOutput: PHContentEditingOutput
 }
 
+
+public extension ParamableAppable where Self.ParamType:TransformAppAsset{
+    public static func paramClass() -> TransformAppAsset.Type {
+        return TransformAppAsset.self
+    }
+}
+
 public class TransformApp: AppPrototype, Appable, ParamableAppable, FinalizableAppable {
     //TODO: Result type
-
-    public typealias ParamType = TransformAppAsset
-    public static let paramClass: ParamType.Type = ParamType.self
 
     public static let taskClass:Taskable.Type = _TransfromAppTask.self
 

@@ -21,6 +21,14 @@ public protocol HelloTaskParam: TaskParamable {
 
 }
 
+public class HelloTypedBatchApp: HelloBatchApp, ParamableAppable{
+    public typealias ParamType = HelloTaskParameter
+    public static func paramClass() -> HelloTaskParameter.Type {
+        return HelloTaskParameter.self
+    }
+}
+
+
 //HELLO: This app "HelloBatchApp" is supporting "FinalizableApp" for example PHAsset handling.
 public class HelloBatchApp: AppPrototype, Appable, FinalizableAppable {
 
@@ -49,10 +57,7 @@ public class HelloBatchApp: AppPrototype, Appable, FinalizableAppable {
 }
 
 //HELLO: Restricted apps own parameter type
-public class HelloTypedBatchApp: HelloBatchApp, ParamableAppable {
-    public typealias ParamType = HelloTaskParameter
-    public static let paramClass: ParamType.Type = ParamType.self
-}
+
 
 
 //HELLO: HelloTask - Default Task
