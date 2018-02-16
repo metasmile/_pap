@@ -24,7 +24,7 @@ protocol BatchPreviewViewDelegate {
 
 class BatchPreviewView: CustomView {
     @IBOutlet weak var collectionView: UICollectionView!
-    fileprivate (set) var targetAssetItems = [TransformablePHAssetItem]()
+    fileprivate (set) var targetAssetItems = [TransformAppAsset]()
     var delegate: BatchPreviewViewDelegate?
 
     //TODO: make AppTaskLoad, AppTaskLoadBalancer, ordering to dynamically adjust via current system condition.
@@ -133,7 +133,7 @@ extension BatchPreviewView {
 
         let indexPath = IndexPath(item: targetAssetItems.count, section: 0)
 
-        targetAssetItems.append( TransformablePHAssetItem(_asset, indexPath: indexPath) )
+        targetAssetItems.append( TransformAppAsset(_asset, indexPath: indexPath) )
 
         collectionView.insertItems(at: [indexPath])
 
@@ -209,7 +209,7 @@ extension BatchPreviewView {
         let reaction = AppTaskReaction().when { response, progress, remained, completed in
             assert(response.info.state != .completed || response.info.state == .completed && response.result != nil, "task state is .completed but result is nil")
 
-            let requestedParam = response.request.param as? TransformablePHAssetItem
+            let requestedParam = response.request.param as? TransformAppAsset
             let totalCount = remained.count+completed.count
 
             switch (response.info.state) {

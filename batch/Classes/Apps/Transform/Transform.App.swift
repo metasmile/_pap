@@ -10,7 +10,7 @@ import UIKit
 import MobileCoreServices
 import Crashlytics
 
-public class TransformablePHAssetItem: PHAssetItem<TransformItem> {}
+public class TransformAppAsset: PHAssetItem<TransformItem> {}
 
 public struct TransformAppTaskRespondable:TaskResultable {
     var asset: PHAsset
@@ -20,7 +20,7 @@ public struct TransformAppTaskRespondable:TaskResultable {
 public class TransformApp: AppPrototype, Appable, ParamableAppable, FinalizableAppable {
     //TODO: Result type
 
-    public typealias ParamType = TransformablePHAssetItem
+    public typealias ParamType = TransformAppAsset
     public static let paramClass: ParamType.Type = ParamType.self
 
     public static let taskClass:Taskable.Type = _TransfromAppTask.self
@@ -40,23 +40,23 @@ public class TransformApp: AppPrototype, Appable, ParamableAppable, FinalizableA
 //TODO: retrictful conforms param type
 private class _TransfromAppTask: TaskPrototype, Taskable {
 
-    public typealias ParamType = TransformablePHAssetItem
+    public typealias ParamType = TransformAppAsset
     public typealias ResultType = TransformAppTaskRespondable
 
     public func cancel(_ param:TaskParamable, _ async: TaskAsyncSignalable?){
         
-        (param as? TransformablePHAssetItem)?.cancelEditing()
+        (param as? TransformAppAsset)?.cancelEditing()
     }
 
     public func perform(_ param: TaskParamable, _ async: TaskAsyncSignalable?) throws -> TaskResultable? {
-        assert(param is TransformablePHAssetItem, "TaskParamable type of this app is \(TransformablePHAssetItem.self)")
-        guard let _param = param as? TransformablePHAssetItem else{
+        assert(param is TransformAppAsset, "TaskParamable type of this app is \(TransformAppAsset.self)")
+        guard let _param = param as? TransformAppAsset else{
             throw TaskError.invalidParam
         }
         return try self._perform(_param, async)
     }
 
-    private func _perform(_ assetItem: TransformablePHAssetItem, _ async: TaskAsyncSignalable?) throws -> TransformAppTaskRespondable?  {
+    private func _perform(_ assetItem: TransformAppAsset, _ async: TaskAsyncSignalable?) throws -> TransformAppTaskRespondable?  {
         var result: TransformAppTaskRespondable?
 
         async?.begin()

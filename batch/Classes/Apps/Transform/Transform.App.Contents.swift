@@ -30,7 +30,7 @@ extension EditableItem where T:TransformItem{
     }
 }
 
-extension TransformablePHAssetItem: PHAssetImageEditable, PHAssetVideoEditable, PHAssetLivePhotoEditable{
+extension TransformAppAsset: PHAssetImageEditable, PHAssetVideoEditable, PHAssetLivePhotoEditable{
 
     func edit<T>(processor:T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
             where T:ImageProcessable {

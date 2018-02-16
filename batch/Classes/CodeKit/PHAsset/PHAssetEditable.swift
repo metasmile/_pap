@@ -13,7 +13,7 @@ struct PHAssetContentEditingItem {
     var output:PHContentEditingOutput
 }
 
-extension TransformablePHAssetItem {
+extension TransformAppAsset {
     func requestContentEditing(_ block: @escaping PHAssetContentEditingHandler) -> PHContentEditingInputRequestID {
         var requestID:PHContentEditingInputRequestID?
 

@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-extension TransformablePHAssetItem: TaskParamable{}
+extension TransformAppAsset: TaskParamable{}
 
 public protocol Editable{
     var hasChanges: Bool { get }
