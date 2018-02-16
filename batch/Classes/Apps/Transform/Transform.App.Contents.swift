@@ -30,7 +30,7 @@ extension EditableItem where T:TransformItem{
     }
 }
 
-extension PHAssetItem: PHAssetImageEditable, PHAssetVideoEditable, PHAssetLivePhotoEditable{
+extension TransformablePHAssetItem: PHAssetImageEditable, PHAssetVideoEditable, PHAssetLivePhotoEditable{
 
     func edit<T>(processor:T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
             where T:ImageProcessable {
@@ -214,6 +214,7 @@ extension PHAssetItem: PHAssetImageEditable, PHAssetVideoEditable, PHAssetLivePh
         return reqIDs
     }
 }
+
 class RotationTransformItem: TransformItem {
     var angle: CGFloat = 0
 

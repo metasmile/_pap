@@ -6,11 +6,23 @@
 import Foundation
 import Photos
 
-public class PHAssetItem: ItemObject {
+protocol _PHAssetItemable: class {
+    associatedtype EditableType
+
+    var asset: PHAsset { set get }
+    var indexPath:IndexPath? { set get }
+
+    var editItem:EditableItem<EditableType> { get }
+    var requestIDs:[PHAssetRequestID] { get }
+}
+
+public class PHAssetItem<T>: ItemObject, _PHAssetItemable {
+    typealias EditableType = T
+
     var asset: PHAsset
     var indexPath:IndexPath?
 
-    var editItem = EditableItem<TransformItem>()
+    var editItem = EditableItem<EditableType>()
     var requestIDs = [PHAssetRequestID]()
 
     required public init(_ asset: PHAsset) {
@@ -22,6 +34,7 @@ public class PHAssetItem: ItemObject {
         self.indexPath = indexPath
     }
 }
+
 
 public class PHAssetRequestID {
     enum DefaultValue{

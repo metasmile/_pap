@@ -37,7 +37,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         imageRequestId = nil
     }
     
-    func setBatchEditItem(_ item: PHAssetItem, at indexPath: IndexPath) {
+    func setBatchEditItem(_ item: TransformablePHAssetItem, at indexPath: IndexPath) {
         let asset = item.asset
 
         self.asset = asset
@@ -60,7 +60,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         })
     }
     
-    func setBatchEditItemForPreview(_ item: PHAssetItem, at indexPath: IndexPath) {
+    func setBatchEditItemForPreview(_ item: TransformablePHAssetItem, at indexPath: IndexPath) {
         let asset = item.asset
         
         self.asset = asset

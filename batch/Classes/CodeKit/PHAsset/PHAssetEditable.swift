@@ -13,7 +13,7 @@ struct PHAssetContentEditingItem {
     var output:PHContentEditingOutput
 }
 
-extension PHAssetItem {
+extension TransformablePHAssetItem {
     func requestContentEditing(_ block: @escaping PHAssetContentEditingHandler) -> PHContentEditingInputRequestID {
         var requestID:PHContentEditingInputRequestID?
 
@@ -49,15 +49,15 @@ extension PHAssetItem {
 
         if let requestIDs = { () -> [PHAssetRequestID]? in
             switch (asset.mediaType){
-            case .image where asset.mediaSubtypes.contains(.photoLive):
-                return self.edit(processor: LivePhotoProcessor(), completion: completionHandler)
-//                return self.edit(processor: LivePhotoAdvancedProcessor(), completion: completionHandler)
-            case .image:
-                return self.edit(processor: ImageProcessor(), completion: completionHandler)
-            case .video:
-                return self.edit(processor: VideoProcessor(), completion: completionHandler)
-            default:
-                return nil
+                case .image where asset.mediaSubtypes.contains(.photoLive):
+                    return self.edit(processor: LivePhotoProcessor(), completion: completionHandler)
+        //                return self.edit(processor: LivePhotoAdvancedProcessor(), completion: completionHandler)
+                case .image:
+                    return self.edit(processor: ImageProcessor(), completion: completionHandler)
+                case .video:
+                    return self.edit(processor: VideoProcessor(), completion: completionHandler)
+                default:
+                    return nil
             }
         }() {
 

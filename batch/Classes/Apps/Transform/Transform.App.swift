@@ -10,6 +10,8 @@ import UIKit
 import MobileCoreServices
 import Crashlytics
 
+public class TransformablePHAssetItem: PHAssetItem<TransformItem> {}
+
 public struct TransformAppTaskRespondable:TaskResultable {
     var asset: PHAsset
     var contentEditingOutput: PHContentEditingOutput
@@ -18,7 +20,7 @@ public struct TransformAppTaskRespondable:TaskResultable {
 public class TransformApp: AppPrototype, Appable, ParamableAppable, FinalizableAppable {
     //TODO: Result type
 
-    public typealias ParamType = PHAssetItem
+    public typealias ParamType = TransformablePHAssetItem
     public static let paramClass: ParamType.Type = ParamType.self
 
     public static let taskClass:Taskable.Type = _TransfromAppTask.self
@@ -38,23 +40,23 @@ public class TransformApp: AppPrototype, Appable, ParamableAppable, FinalizableA
 //TODO: retrictful conforms param type
 private class _TransfromAppTask: TaskPrototype, Taskable {
 
-    public typealias ParamType = PHAssetItem
+    public typealias ParamType = TransformablePHAssetItem
     public typealias ResultType = TransformAppTaskRespondable
 
     public func cancel(_ param:TaskParamable, _ async: TaskAsyncSignalable?){
         
-        (param as? PHAssetItem)?.cancelEditing()
+        (param as? TransformablePHAssetItem)?.cancelEditing()
     }
 
     public func perform(_ param: TaskParamable, _ async: TaskAsyncSignalable?) throws -> TaskResultable? {
-        assert(param is PHAssetItem, "TaskParamable type of this app is \(PHAssetItem.self)")
-        guard let _param = param as? PHAssetItem else{
+        assert(param is TransformablePHAssetItem, "TaskParamable type of this app is \(TransformablePHAssetItem.self)")
+        guard let _param = param as? TransformablePHAssetItem else{
             throw TaskError.invalidParam
         }
         return try self._perform(_param, async)
     }
 
-    private func _perform(_ assetItem: PHAssetItem, _ async: TaskAsyncSignalable?) throws -> TransformAppTaskRespondable?  {
+    private func _perform(_ assetItem: TransformablePHAssetItem, _ async: TaskAsyncSignalable?) throws -> TransformAppTaskRespondable?  {
         var result: TransformAppTaskRespondable?
 
         async?.begin()
