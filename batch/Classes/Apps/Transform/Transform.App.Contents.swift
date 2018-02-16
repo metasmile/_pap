@@ -10,31 +10,9 @@ import UIKit
 import Photos
 import MobileCoreServices
 
-extension EditableItem where T:TransformItem{
-    var transform: CGAffineTransform {
-        var t = CGAffineTransform.identity
-        for transformItem in self.iterator() {
-            t = t.concatenating(transformItem.transform)
-        }
-        return t
-    }
+extension TransformAppAsset: PHAssetImageEditable {
 
-    var transform3d: CATransform3D {
-        var t = CATransform3DIdentity
-        t.m34 = -1 / kEditItemPreviewWidth
-
-        for transformItem in self.iterator() {
-            t = CATransform3DConcat(t, transformItem.transform3d)
-        }
-        return t
-    }
-}
-
-extension TransformAppAsset: PHAssetImageEditable, PHAssetVideoEditable, PHAssetLivePhotoEditable{
-
-    func edit<T>(processor:T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
-            where T:ImageProcessable {
-
+    func edit<T: ImageProcessable>(processor: T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
         let asset = self.asset
 
         guard let image = asset.asImage?.applyTransform(self.editItem.transform) else {
@@ -63,9 +41,11 @@ extension TransformAppAsset: PHAssetImageEditable, PHAssetVideoEditable, PHAsset
         }
         return [PHAssetRequestID(forEditingInput: r)]
     }
+}
 
-    func edit<T>(processor:T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
-            where T:LivePhotoProcessable {
+extension TransformAppAsset: PHAssetLivePhotoEditable {
+
+    func edit<T:LivePhotoProcessable>(processor:T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
 
         let r = self.requestContentEditing { _item in
             guard let item = _item else{
@@ -99,8 +79,7 @@ extension TransformAppAsset: PHAssetImageEditable, PHAssetVideoEditable, PHAsset
         return [PHAssetRequestID(forEditingInput: r)]
     }
 
-    func edit<T>(processor:T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
-        where T: LivePhotoAdvancedProcessor {
+    func edit<T:LivePhotoAdvancedProcessor>(processor:T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
 
         guard let livePhoto = self.asset.asLivePhoto else {
             completionHandler(nil, nil)
@@ -164,7 +143,9 @@ extension TransformAppAsset: PHAssetImageEditable, PHAssetVideoEditable, PHAsset
 
         return reqIDs
     }
+}
 
+extension TransformAppAsset: PHAssetVideoEditable {
     func edit<T>(processor:T, /*audioMix: AVAudioMix? = nil,*/ completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
             where T:VideoProcessable {
 
@@ -200,12 +181,12 @@ extension TransformAppAsset: PHAssetImageEditable, PHAssetVideoEditable, PHAsset
             exportSession?.exportAsynchronously {
                 guard let status = exportSession?.status else { return }
                 switch status {
-                    case .completed:
-                        completionHandler(asset, item.output)
-                    case .failed, .cancelled:
-                        completionHandler(nil, nil)
-                    default:
-                        break
+                case .completed:
+                    completionHandler(asset, item.output)
+                case .failed, .cancelled:
+                    completionHandler(nil, nil)
+                default:
+                    break
                 }
             }
         }
@@ -215,56 +196,13 @@ extension TransformAppAsset: PHAssetImageEditable, PHAssetVideoEditable, PHAsset
     }
 }
 
-class RotationTransformItem: TransformItem {
-    var angle: CGFloat = 0
-
-    override var transform: CGAffineTransform {
-        return CGAffineTransform(rotationAngle: angle)
-    }
-
-    override var transform3d: CATransform3D {
-        return CATransform3DMakeRotation(angle, 0, 0, 1)
-    }
-
-    init(degrees: CGFloat) {
-        super.init()
-
-        self.angle = degrees.degreesToRadians
-    }
-
-    init(radians: CGFloat) {
-        super.init()
-
-        self.angle = radians
-    }
-}
-
-class VerticalFlipTransformItem: TransformItem {
-    override var transform: CGAffineTransform {
-        return CGAffineTransform(scaleX: 1, y: -1)
-    }
-
-    override var transform3d: CATransform3D {
-        return CATransform3DMakeRotation(.pi, 1, 0, 0)
-    }
-}
-
-class HorizontalFlipTransformItem: TransformItem {
-    override var transform: CGAffineTransform {
-        return CGAffineTransform(scaleX: -1, y: 1)
-    }
-
-    override var transform3d: CATransform3D {
-        return CATransform3DMakeRotation(.pi, 0, 1, 0)
-    }
-}
 
 let kEditItemPreviewWidth: CGFloat = UIScreen.main.bounds.width * 0.9
 private extension AVAsset {
     func applyTransform(_ transform: CGAffineTransform) -> AVAsset {
         guard
-            let videoTrack = tracks(withMediaType: .video).first
-        else {
+                let videoTrack = tracks(withMediaType: .video).first
+                else {
             return self
         }
 

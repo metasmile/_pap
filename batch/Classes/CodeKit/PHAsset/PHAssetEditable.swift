@@ -6,6 +6,34 @@
 import Foundation
 import Photos
 
+
+typealias PHAssetContentEditingHandler = (PHAssetContentEditingItem?) -> Void
+typealias PHAssetEditableCompletionHandler = (PHAsset?, PHContentEditingOutput?) -> Void
+
+protocol PHAssetProcessable {}
+
+protocol ImageProcessable: PHAssetProcessable {}
+class ImageProcessor: ImageProcessable {}
+
+protocol VideoProcessable: PHAssetProcessable {}
+class VideoProcessor: VideoProcessable {}
+
+protocol LivePhotoProcessable: PHAssetProcessable {}
+class LivePhotoProcessor: LivePhotoProcessable {}
+class LivePhotoAdvancedProcessor: LivePhotoProcessor {}
+
+protocol PHAssetImageEditable {
+    func edit<T:ImageProcessable>(processor:T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
+}
+
+protocol PHAssetVideoEditable{
+    func edit<T:VideoProcessable>(processor:T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
+}
+
+protocol PHAssetLivePhotoEditable{
+    func edit<T:LivePhotoProcessable>(processor:T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
+}
+
 struct PHAssetContentEditingItem {
     var requestID: PHContentEditingInputRequestID
     var input:PHContentEditingInput
@@ -13,7 +41,7 @@ struct PHAssetContentEditingItem {
     var output:PHContentEditingOutput
 }
 
-extension TransformAppAsset {
+extension PHAssetItem {
     func requestContentEditing(_ block: @escaping PHAssetContentEditingHandler) -> PHContentEditingInputRequestID {
         var requestID:PHContentEditingInputRequestID?
 
@@ -48,14 +76,15 @@ extension TransformAppAsset {
         }
 
         if let requestIDs = { () -> [PHAssetRequestID]? in
+
             switch (asset.mediaType){
                 case .image where asset.mediaSubtypes.contains(.photoLive):
-                    return self.edit(processor: LivePhotoProcessor(), completion: completionHandler)
+                    return (self as? PHAssetLivePhotoEditable)?.edit(processor: LivePhotoProcessor(), completion: completionHandler)
         //                return self.edit(processor: LivePhotoAdvancedProcessor(), completion: completionHandler)
                 case .image:
-                    return self.edit(processor: ImageProcessor(), completion: completionHandler)
+                    return (self as? PHAssetImageEditable)?.edit(processor: ImageProcessor(), completion: completionHandler)
                 case .video:
-                    return self.edit(processor: VideoProcessor(), completion: completionHandler)
+                    return (self as? PHAssetVideoEditable)?.edit(processor: VideoProcessor(), completion: completionHandler)
                 default:
                     return nil
             }
@@ -81,31 +110,4 @@ extension TransformAppAsset {
             }
         }
     }
-}
-
-typealias PHAssetContentEditingHandler = (PHAssetContentEditingItem?) -> Void
-typealias PHAssetEditableCompletionHandler = (PHAsset?, PHContentEditingOutput?) -> Void
-
-protocol PHAssetProcessable {}
-
-protocol ImageProcessable: PHAssetProcessable {}
-class ImageProcessor: ImageProcessable {}
-
-protocol VideoProcessable: PHAssetProcessable {}
-class VideoProcessor: VideoProcessable {}
-
-protocol LivePhotoProcessable: PHAssetProcessable {}
-class LivePhotoProcessor: LivePhotoProcessable {}
-class LivePhotoAdvancedProcessor: LivePhotoProcessor {}
-
-protocol PHAssetImageEditable {
-    func edit<T:ImageProcessable>(processor:T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
-}
-
-protocol PHAssetVideoEditable{
-    func edit<T:VideoProcessable>(processor:T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
-}
-
-protocol PHAssetLivePhotoEditable{
-    func edit<T:LivePhotoProcessable>(processor:T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
 }
