@@ -37,7 +37,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         imageRequestId = nil
     }
     
-    func setEditItem(_ item: TransformAppAsset, at indexPath: IndexPath) {
+    func setEditItem(_ item: PHAssetItem<TransformItem>, at indexPath: IndexPath) {
         let asset = item.asset
 
         self.asset = asset

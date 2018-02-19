@@ -10,7 +10,7 @@ import UIKit
 import Photos
 import MobileCoreServices
 
-extension TransformAppAsset: PHAssetImageEditable {
+extension _TransformAppAsset: PHAssetImageEditable {
 
     func edit<T: ImageProcessable>(processor: T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
         let asset = self.asset
@@ -43,7 +43,7 @@ extension TransformAppAsset: PHAssetImageEditable {
     }
 }
 
-extension TransformAppAsset: PHAssetLivePhotoEditable {
+extension _TransformAppAsset: PHAssetLivePhotoEditable {
 
     func edit<T:LivePhotoProcessable>(processor:T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
 
@@ -145,7 +145,7 @@ extension TransformAppAsset: PHAssetLivePhotoEditable {
     }
 }
 
-extension TransformAppAsset: PHAssetVideoEditable {
+extension _TransformAppAsset: PHAssetVideoEditable {
     func edit<T>(processor:T, /*audioMix: AVAudioMix? = nil,*/ completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
             where T:VideoProcessable {
 

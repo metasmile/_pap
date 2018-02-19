@@ -22,7 +22,7 @@ class BatchEditViewController: AppDockViewController {
     
     var placeholderImages = [PHAsset: UIImage?]()
     
-    var targetAssetItems = [TransformAppAsset]()
+    var targetAssetItems = [PHAssetItem<TransformItem>]()
     var initialIndexPath: IndexPath?
     
     @IBOutlet weak var previewCollectionView: UICollectionView!
