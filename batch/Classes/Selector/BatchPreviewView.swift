@@ -24,8 +24,10 @@ protocol BatchPreviewViewDelegate {
 
 class BatchPreviewView: CustomView {
     @IBOutlet weak var collectionView: UICollectionView!
-    fileprivate (set) var targetAssetItems = [TransformAppAsset]()
+    fileprivate (set) var targetAssetItems = [PHAssetItem<TransformItem>]()
     var delegate: BatchPreviewViewDelegate?
+
+    var selectedApp:Appable.Type?
 
     //TODO: make AppTaskLoad, AppTaskLoadBalancer, ordering to dynamically adjust via current system condition.
     let TaskManager = AppTaskManager.shared({ () -> UInt in
@@ -87,8 +89,8 @@ extension BatchPreviewView {
     func addTransformItem(_ transformItem: TransformItem) {
         guard !isProcessing else { return }
         
-        for batchEditItem in targetAssetItems {
-            batchEditItem.editItem.append(transformItem)
+        for item in targetAssetItems {
+            item.editItem.append(transformItem)
         }
         
         updatePreviews()
@@ -97,8 +99,8 @@ extension BatchPreviewView {
     func resetTransformItems() {
         guard !isProcessing else { return }
         
-        for batchEditItem in targetAssetItems {
-            batchEditItem.editItem.reset()
+        for item in targetAssetItems {
+            item.editItem.reset()
         }
         
         updatePreviews()
@@ -128,26 +130,31 @@ extension BatchPreviewView {
 }
 
 extension BatchPreviewView {
-    func addBatchEditItem(with asset: PHAsset?) {
+    func addEditItem(with asset: PHAsset?) {
         guard let _asset = asset, !targetAssetItems.contains(where: { $0.asset == asset }) else { return }
-
         let indexPath = IndexPath(item: targetAssetItems.count, section: 0)
 
-        //TODO: newly add CurrentSelected App.
-        //TODO: init param by CurrentSelected App.
-//        let selectedApp = AppLifecycleManager.shared.acquire(TransformApp.info) as? ParamableAppable
-//        targetAssetItems.append( selectedApp.paramClass().init(_asset, indexPath: indexPath) )
+        selectedApp = TransformApp.self // virtually selected.
 
-        targetAssetItems.append( TransformAppAsset(_asset, indexPath: indexPath) )
+        //TODO: parameter router ex: check and automatically assign for N type of params [PHAssetParamable.Type, ...]
+        //TODO: relpace all PHAssetItem<TransformItem> -> more flexable protocol type
+        if let selectedAppsParamClass = selectedApp?.paramClass as? PHAssetParamable.Type
+            , let selectedAppsParam = selectedAppsParamClass.init(_asset, indexPath: indexPath) as? PHAssetItem<TransformItem>{
 
-        collectionView.insertItems(at: [indexPath])
+            targetAssetItems.append(selectedAppsParam)
 
-        updateAlignment()
+            collectionView.insertItems(at: [indexPath])
 
-        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            updateAlignment()
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+
+
+        } else{
+            assert(false, "Does not implement yet for param type of \(selectedApp?.info.appClass)")
+        }
     }
     
-    func removeBatchEditItem(with asset: PHAsset?) {
+    func removeEditItem(with asset: PHAsset?) {
         guard let item = targetAssetItems.index(where: { $0.asset == asset }) else { return }
         
         let indexPath = IndexPath(item: item, section: 0)
@@ -162,7 +169,7 @@ extension BatchPreviewView {
         }
     }
     
-    func removeAllBatchEditItems() {
+    func removeAllEditItems() {
         let indexPaths = (0..<targetAssetItems.count).map({ IndexPath(item: $0, section: 0) })
         
         targetAssetItems.removeAll()
@@ -194,7 +201,7 @@ extension BatchPreviewView {
         }
     }
     
-    func reloadBatchEditItems() {
+    func reloadEditItems() {
         updatePreviews()
     }
 }
@@ -202,11 +209,11 @@ extension BatchPreviewView {
 extension BatchPreviewView {
     func runBatchProcessing() {
 
-        //TODO: append dynamically more items where Set(batchEditItems) - Set(alreadyqueued Items) TaskManager.query(by:_)
+        //TODO: append dynamically more items where Set(EditItems) - Set(alreadyqueued Items) TaskManager.query(by:_)
         delegate?.batchPreviewViewWillBeginEdit(self)
         collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
 
-        //TODO: TaskManager.append immediatly from UI action instead of using "batchEditItems"
+        //TODO: TaskManager.append immediatly from UI action instead of using "EditItems"
         targetAssetItems.forEach { item in
             TaskManager.append(request: AppTaskRequest(TransformApp.self, item))
         }
@@ -291,7 +298,7 @@ extension BatchPreviewView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PreviewCollectionViewCell", for: indexPath) as! PreviewCollectionViewCell
-        cell.setBatchEditItemForPreview(targetAssetItems[indexPath.item], at: indexPath)
+        cell.setEditItemForPreview(targetAssetItems[indexPath.item], at: indexPath)
         return cell
     }
 }

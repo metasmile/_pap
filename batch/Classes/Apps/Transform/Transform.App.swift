@@ -17,17 +17,13 @@ public struct TransformAppTaskRespondable:TaskResultable {
     var contentEditingOutput: PHContentEditingOutput
 }
 
-
-public extension ParamableAppable where Self.ParamType:TransformAppAsset{
-    public static func paramClass() -> TransformAppAsset.Type {
-        return TransformAppAsset.self
-    }
-}
-
-public class TransformApp: AppPrototype, Appable, ParamableAppable, FinalizableAppable {
+public class TransformApp: AppPrototype, Appable, FinalizableAppable {
     //TODO: Result type
+    public typealias ParamType = TransformAppAsset
 
     public static let taskClass:Taskable.Type = _TransfromAppTask.self
+
+    public static let paramClass:TaskParamable.Type = TransformAppAsset.self
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.transform"

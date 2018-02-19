@@ -188,7 +188,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
             
             let vc = PhotoPickerDetailViewController()
             vc.asset = selectedAsset
-            vc.batchEditItem = batchPreviewView.targetAssetItems.first(where: { $0.asset == selectedAsset })
+            vc.assetEditItem = batchPreviewView.targetAssetItems.first(where: { $0.asset == selectedAsset })
             setActions(with: selectedAsset, at: indexPath, to: vc)
 
             previewingContext.sourceRect = cell.frame
@@ -198,14 +198,14 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
             guard let indexPath = batchPreviewView.collectionView.indexPathForItem(at: batchPreviewView.convert(location, to: batchPreviewView.collectionView)) else { return nil }
             guard let cell = batchPreviewView.collectionView.cellForItem(at: indexPath) else { return nil }
             
-            let batchEditItem = batchPreviewView.targetAssetItems[indexPath.item]
-            let selectedAsset = batchEditItem.asset
+            let selectedAssetItem = batchPreviewView.targetAssetItems[indexPath.item]
+            let selectedAsset = selectedAssetItem.asset
 
             guard let selectedIndexPath = self.indexPath(of: selectedAsset) else { return nil }
             
             let vc = PhotoPickerDetailViewController()
             vc.asset = selectedAsset
-            vc.batchEditItem = batchEditItem
+            vc.assetEditItem = selectedAssetItem
             setActions(with: selectedAsset, at: selectedIndexPath, to: vc)
             
             previewingContext.sourceRect = batchPreviewView.collectionView.convert(cell.frame, to: batchPreviewView)
@@ -218,8 +218,8 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
 
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         if let vc = viewControllerToCommit as? PhotoPickerDetailViewController {
-            if let batchEditItem = vc.batchEditItem {
-                showPhotoEditor(with: batchEditItem)
+            if let editItem = vc.assetEditItem {
+                showPhotoEditor(with: editItem)
             }
             else {
                 showPhotoEditorAndSelectIfNeeded(with: vc.asset)
@@ -259,13 +259,14 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
 }
 
 extension PhotoPickerViewController: TransformEditViewControllerDelegate {
-    fileprivate func showPhotoEditor(with batchEditItem: TransformAppAsset?) {
-        guard let batchEditItem = batchEditItem else { return }
+    fileprivate func showPhotoEditor(with editItem: PHAssetItem<TransformItem>?) {
+        guard let _editItem = editItem else { return }
+
         let photoEditViewController = storyboard?.instantiateViewController(withIdentifier: "PhotoEditViewController") as! PhotoEditViewController
-        photoEditViewController.asset = batchEditItem.asset
-        photoEditViewController.preferredTransform = batchEditItem.editItem.transform
+        photoEditViewController.asset = _editItem.asset
+        photoEditViewController.preferredTransform = _editItem.editItem.transform
         photoEditViewController.delegate = self
-        if let item = batchPreviewView.targetAssetItems.index(of: batchEditItem) {
+        if let item = batchPreviewView.targetAssetItems.index(of: _editItem) {
             photoEditViewController.indexPathInBatch = IndexPath(item: item, section: 0)
         }
         
@@ -299,7 +300,7 @@ extension PhotoPickerViewController: TransformEditViewControllerDelegate {
         }
         
         photoEditor.dismiss(animated: true, completion: {
-            self.batchPreviewView.reloadBatchEditItems()
+            self.batchPreviewView.reloadEditItems()
         })
     }
 }
@@ -314,7 +315,7 @@ extension PhotoPickerViewController: BatchPreviewViewDelegate {
 //        guard photoCollectionView.indexPathsForSelectedItems?.isEmpty == false, let selectedIndexPaths = orderedSelectedIndexPaths.array as? [IndexPath] else { return }
 //
 //        let batchEditViewController = storyboard?.instantiateViewController(withIdentifier: "BatchEditViewController") as! BatchEditViewController
-//        batchEditViewController.batchEditItems = batchPreviewView.batchEditItems
+//        batchEditViewController.EditItems = batchPreviewView.EditItems
 //        batchEditViewController.delegate = self
 //        batchEditViewController.initialIndexPath = indexPath
 //
@@ -481,7 +482,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
             photoCollectionView.deselectItem(at: indexPath, animated: true)
         }
         
-        batchPreviewView.removeAllBatchEditItems()
+        batchPreviewView.removeAllEditItems()
         updateTitleForSelectedItems()
     }
     
@@ -590,11 +591,11 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         updateTitleForSelectedItems()
         
-        batchPreviewView.addBatchEditItem(with: self.asset(at: indexPath))
+        batchPreviewView.addEditItem(with: self.asset(at: indexPath))
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        batchPreviewView.removeBatchEditItem(with: self.asset(at: indexPath))
+        batchPreviewView.removeEditItem(with: self.asset(at: indexPath))
         
         updateTitleForSelectedItems()
     }

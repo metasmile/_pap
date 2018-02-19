@@ -21,7 +21,7 @@ public protocol HelloTaskParam: TaskParamable {
 
 }
 
-public class HelloTypedBatchApp: HelloBatchApp, ParamableAppable{
+public class HelloTypedBatchApp: HelloBatchApp{
     public typealias ParamType = HelloTaskParameter
     public static func paramClass() -> HelloTaskParameter.Type {
         return HelloTaskParameter.self
@@ -49,6 +49,9 @@ public class HelloBatchApp: AppPrototype, Appable, FinalizableAppable {
 
 //        return HelloTask.self
     }
+
+    public static let paramClass:TaskParamable.Type = PHAssetItem<TransformItem>.self
+
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: TaskAsyncSignalable) -> [AppTaskRespondable] {
 

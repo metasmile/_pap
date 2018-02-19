@@ -13,12 +13,9 @@ public protocol Appable {
     //taskClass can be changed by config
     static var taskClass: Taskable.Type { get }
 
-    init(_ config: TaskConfigable?)
-}
+    static var paramClass: TaskParamable.Type { get }
 
-public protocol ParamableAppable {
-    associatedtype ParamType
-    static func paramClass() -> ParamType.Type
+    init(_ config: TaskConfigable?)
 }
 
 public protocol FinalizableAppable {

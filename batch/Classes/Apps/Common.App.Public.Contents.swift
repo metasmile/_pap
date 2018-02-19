@@ -6,7 +6,23 @@
 import Foundation
 import UIKit
 
-extension TransformAppAsset: TaskParamable{}
+public protocol EditableValue {
+
+}
+
+public protocol EditableTransformValue: EditableValue {
+    var asTransform: CGAffineTransform { get }
+    var asTransform3d: CATransform3D { get }
+}
+
+extension TransformItem{
+    public var asTransform: CGAffineTransform {
+        return self.transform
+    }
+    public var asTransform3d: CATransform3D {
+        return self.transform3d
+    }
+}
 
 public protocol Editable{
     var hasChanges: Bool { get }
@@ -33,4 +49,3 @@ public class EditableItem<T>: MutableItemList<T>, Editable, TaskConfigable {
         return false
     }
 }
-

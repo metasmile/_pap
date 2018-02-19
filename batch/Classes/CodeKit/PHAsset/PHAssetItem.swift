@@ -6,35 +6,31 @@
 import Foundation
 import Photos
 
-protocol _PHAssetItemable: class {
-    associatedtype EditableType
-
-    var asset: PHAsset { set get }
-    var indexPath:IndexPath? { set get }
-
-    var editItem:EditableItem<EditableType> { get }
+public protocol PHAssetParamable: TaskParamable{
+    var asset: PHAsset { get }
+    var indexPath:IndexPath? { get }
     var requestIDs:[PHAssetRequestID] { get }
+
+    init(_ asset: PHAsset)
+    init(_ asset: PHAsset, indexPath:IndexPath)
 }
 
-public class PHAssetItem<T>: ItemObject, _PHAssetItemable {
-    typealias EditableType = T
-
-    var asset: PHAsset
-    var indexPath:IndexPath?
+public class PHAssetItem<EditableType>: ItemObject, PHAssetParamable {
+    public var asset: PHAsset
+    public var indexPath:IndexPath?
+    public var requestIDs = [PHAssetRequestID]()
 
     var editItem = EditableItem<EditableType>()
-    var requestIDs = [PHAssetRequestID]()
 
     required public init(_ asset: PHAsset) {
         self.asset = asset
     }
 
-    convenience public init(_ asset: PHAsset, indexPath:IndexPath) {
+    convenience required public init(_ asset: PHAsset, indexPath:IndexPath) {
         self.init(asset)
         self.indexPath = indexPath
     }
 }
-
 
 public class PHAssetRequestID {
     enum DefaultValue{

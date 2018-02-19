@@ -130,8 +130,8 @@ class BatchEditViewController: AppDockViewController {
     }
     
     private func resetTransformItems() {
-        for batchEditItem in targetAssetItems {
-            batchEditItem.editItem.reset()
+        for item in targetAssetItems {
+            item.editItem.reset()
         }
         
         updateBatchEdit()
@@ -269,12 +269,12 @@ extension BatchEditViewController {
 
 
 //        batchRequest = BatchEditSequenceRequest()
-//        batchRequest?.perform(batchEditItems.map({ BatchEditRequest($0) }), { (progress, idx) in
+//        batchRequest?.perform(EditItems.map({ BatchEditRequest($0) }), { (progress, idx) in
 //            DispatchQueue.main.async { [weak self] in
 //                self?.batchProgressView.title = "Processing...".localizedString
 //                self?.batchProgressView.setProgress(progress, animated: true)
 //
-//                guard let item = idx, let numberOfItems = self?.batchEditItems.count, item + 1 < numberOfItems else { return }
+//                guard let item = idx, let numberOfItems = self?.EditItems.count, item + 1 < numberOfItems else { return }
 //                self?.previewCollectionView.scrollToItem(at: IndexPath(item: item + 1, section: 0), at: .centeredHorizontally, animated: true)
 //            }
 //        }) { (results) in
@@ -292,7 +292,7 @@ extension BatchEditViewController {
 //                    self.closeBatchProgressView()
 //
 //                    if success {
-//                        Analytics.logEvent("log.export.save", parameters: ["number_of_items": self.batchEditItems.count])
+//                        Analytics.logEvent("log.export.save", parameters: ["number_of_items": self.EditItems.count])
 //                        self.delegate?.batchEditViewControllerDidFinishEditing(self)
 //                    }
 //                }
@@ -320,7 +320,7 @@ extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewD
         if let image = placeholderImages[photo] {
             cell.assetView.image = image
         }
-        cell.setBatchEditItem(targetAssetItems[indexPath.item], at: indexPath)
+        cell.setEditItem(targetAssetItems[indexPath.item], at: indexPath)
         return cell
     }
     
