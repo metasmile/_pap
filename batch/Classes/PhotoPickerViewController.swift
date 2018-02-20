@@ -82,6 +82,14 @@ class PhotoPickerViewController: AppDockViewController {
         dragSelectionGesture = STDragSelectionGestureRecognizer(target: self, action: #selector(self.dragSelectionGestureDidRecognize))
         dragSelectionGesture.delegate = self
         photoCollectionView.addGestureRecognizer(dragSelectionGesture)
+
+
+        //TODO:TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
+
+        let garaIconViewFrame = CGRect(origin: .zero, size: CGSize(width:60,height:60) )
+        UIImageView(frame: garaIconViewFrame)
+
+        //TODO:TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
     }
     
     deinit {

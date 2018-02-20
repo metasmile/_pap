@@ -1,5 +1,5 @@
 //
-//  StringExtension.swift
+//  CodeKit.String.swift
 //  batch
 //
 //  Created by Hyojin Mo on 2017. 10. 31..

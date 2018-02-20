@@ -80,7 +80,7 @@
             </objects>
             <point key="canvasLocation" x="157.59999999999999" y="188.45577211394306"/>
         </scene>
-        <!--Batch Edit View Controller-->
+        <!--Batch Edit Views Controller-->
         <scene sceneID="io0-Q2-bwn">
             <objects>
                 <viewController storyboardIdentifier="BatchEditViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ShF-us-R7M" customClass="BatchEditViewController" customModule="batch" customModuleProvider="target" sceneMemberID="viewController">
@@ -153,7 +153,7 @@
             </objects>
             <point key="canvasLocation" x="992.79999999999995" y="187.55622188905548"/>
         </scene>
-        <!--Photo Edit View Controller-->
+        <!--Photo Edit Views Controller-->
         <scene sceneID="TqP-bS-mpI">
             <objects>
                 <viewController storyboardIdentifier="PhotoEditViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oyw-5W-GwR" customClass="PhotoEditViewController" customModule="batch" customModuleProvider="target" sceneMemberID="viewController">
