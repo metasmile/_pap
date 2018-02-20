@@ -14,7 +14,7 @@ import UIKit
 
 struct AppDockItem {
     var title = ""
-    var appIcon: UIImage?
+    var appIcon:BundleImageSourceable?
     var run = {}
 }
 
@@ -95,7 +95,9 @@ extension AppDockView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "STAppDockViewCell", for: indexPath) as! AppDockViewCell
-        cell.appIconImageView.image = items[indexPath.item].appIcon?.withRenderingMode(.alwaysTemplate)
+        let iconImage = items[indexPath.item].appIcon?.asNamedUIImage
+
+        cell.appIconImageView.image = iconImage?.withRenderingMode(.alwaysTemplate)
         switch barStyle {
         case .black:
             cell.appIconImageView.tintColor = .white

@@ -42,10 +42,10 @@ class AppDockViewController: UIViewController {
     
     var appDockItems: [AppDockItem] {
         return [
-            AppDockItem(title: "Flip Vertical", appIcon: UIImage(named: "Flip Vertical"), run: { self.verticalFlipButtonDidTap() }),
-            AppDockItem(title: "Flip Horizontal", appIcon: UIImage(named: "Flip Horizontal"), run: { self.horizontalFlipButtonDidTap() }),
-            AppDockItem(title: "Rotate Left", appIcon: UIImage(named: "Rotate Left"), run: { self.rotationLeftButtonDidTap() }),
-            AppDockItem(title: "Rotate Right", appIcon: UIImage(named: "Rotate Right"), run: { self.rotationRightButtonDidTap() })
+            AppDockItem(title: "Flip Vertical", appIcon: "Flip Vertical", run: { self.verticalFlipButtonDidTap() }),
+            AppDockItem(title: "Flip Horizontal", appIcon: "Flip Horizontal", run: { self.horizontalFlipButtonDidTap() }),
+            AppDockItem(title: "Rotate Left", appIcon: "Rotate Left", run: { self.rotationLeftButtonDidTap() }),
+            AppDockItem(title: "Rotate Right", appIcon: "Rotate Right", run: { self.rotationRightButtonDidTap() })
         ]
     }
     
