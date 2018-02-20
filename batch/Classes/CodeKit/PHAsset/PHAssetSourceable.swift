@@ -21,7 +21,7 @@ public struct RemoteSourceFetchNotification {
 }
 
 extension PHAsset: ImageSourceable, DataSourceable, RemoteSourceable, PHAssetSourceable, VideoSourceable, LivePhotoSourceable {
-    public var asImage:UIImage? {
+    public var asUIImage:UIImage? {
         get {
             let signal = TaskDefaultSignal()
             signal.begin()
@@ -46,7 +46,7 @@ extension PHAsset: ImageSourceable, DataSourceable, RemoteSourceable, PHAssetSou
 
     public var asData:Data? { get { return nil } }
     public var asURL:URL? { get { return nil } }
-    public var asAsset:PHAsset? { get { return self } }
+    public var asPHAsset:PHAsset? { get { return self } }
 
     private var fullResolutionImageRequestOptions: PHImageRequestOptions {
         let options = PHImageRequestOptions()
@@ -77,7 +77,7 @@ extension PHAsset: ImageSourceable, DataSourceable, RemoteSourceable, PHAssetSou
         return options
     }
     
-    public var asVideo: AVAsset? {
+    public var asAVAsset: AVAsset? {
         let signal = TaskDefaultSignal()
         signal.begin()
         
@@ -110,7 +110,7 @@ extension PHAsset: ImageSourceable, DataSourceable, RemoteSourceable, PHAssetSou
         return options
     }
     
-    public var asLivePhoto: PHLivePhoto? {
+    public var asPHLivePhoto: PHLivePhoto? {
         let signal = TaskDefaultSignal()
         signal.begin()
         

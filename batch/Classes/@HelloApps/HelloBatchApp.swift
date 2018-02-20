@@ -123,7 +123,7 @@ private class HelloAsyncTask: TaskPrototype, Taskable {
         DispatchQueue.global().async {
             if let image = param.sources?.first as? ImageSourceable{
                 //HELLO: process an image ... or fetch some remote resources from AFNetworking for example
-                image.asImage
+                image.asUIImage
 
                 helloResult = HelloTaskResult(results: [UIImage()])
 

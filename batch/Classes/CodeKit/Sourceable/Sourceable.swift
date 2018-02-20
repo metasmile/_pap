@@ -12,15 +12,19 @@ public protocol Sourceable {
 }
 
 public protocol ImageSourceable:Sourceable {
-    var asImage:UIImage? { get }
+    var asUIImage:UIImage? { get }
+}
+
+public protocol BundleImageSourceable:Sourceable {
+    var asNamedUIImage:UIImage? { get }
 }
 
 public protocol VideoSourceable:Sourceable {
-    var asVideo:AVAsset? { get }
+    var asAVAsset:AVAsset? { get }
 }
 
 public protocol LivePhotoSourceable:Sourceable {
-    var asLivePhoto:PHLivePhoto? { get }
+    var asPHLivePhoto:PHLivePhoto? { get }
 }
 
 public protocol DataSourceable:Sourceable {
@@ -32,7 +36,7 @@ public protocol RemoteSourceable:Sourceable {
 }
 
 public protocol PHAssetSourceable:Sourceable {
-    var asAsset:PHAsset? { get }
+    var asPHAsset:PHAsset? { get }
 }
 
 public protocol StringSourceable:Sourceable {
@@ -40,7 +44,7 @@ public protocol StringSourceable:Sourceable {
 }
 
 extension UIImage: ImageSourceable, DataSourceable, RemoteSourceable, PHAssetSourceable, StringSourceable {
-    public var asImage:UIImage? { get { return self } }
+    public var asUIImage:UIImage? { get { return self } }
     public var asData:Data? {
         get {
             return UIImagePNGRepresentation(self)
@@ -55,16 +59,16 @@ extension UIImage: ImageSourceable, DataSourceable, RemoteSourceable, PHAssetSou
             return nil
         }
     }
-    public var asAsset:PHAsset? { get { return nil } }
+    public var asPHAsset:PHAsset? { get { return nil } }
 }
 
 extension CALayer: ImageSourceable {
-    public var asImage:UIImage? { get { return nil } }
+    public var asUIImage:UIImage? { get { return nil } }
     public var asData:UIImage? { get { return nil } }
 }
 
 extension Data: ImageSourceable, DataSourceable, RemoteSourceable, StringSourceable {
-    public var asImage:UIImage? { get { return nil } }
+    public var asUIImage:UIImage? { get { return nil } }
     public var asData:Data? { get { return self } }
     public var asURL:URL? { get { return nil } }
     public var asString:String? {
@@ -75,7 +79,7 @@ extension Data: ImageSourceable, DataSourceable, RemoteSourceable, StringSourcea
 }
 
 extension URL: ImageSourceable, DataSourceable, RemoteSourceable {
-    public var asImage:UIImage? {
+    public var asUIImage:UIImage? {
         return UIImage(contentsOfFile: self.path)
     }
 
@@ -92,10 +96,20 @@ extension URL: ImageSourceable, DataSourceable, RemoteSourceable {
     }
 }
 
-extension String: ImageSourceable, DataSourceable, RemoteSourceable {
-    public var asImage:UIImage? {
+extension String: ImageSourceable, BundleImageSourceable, DataSourceable, RemoteSourceable {
+    public var asUIImage:UIImage? {
+        if let image = asNamedUIImage {
+            return image
+        }
+
+        assert(false, "Does not supported this string format. \(self)")
         return nil
     }
+
+    public var asNamedUIImage:UIImage? {
+        return UIImage(named: self)
+    }
+
     public var asData:Data? { get { return nil } }
     public var asURL:URL? { get { return nil } }
 }

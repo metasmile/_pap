@@ -15,7 +15,7 @@ extension _TransformAppAsset: PHAssetImageEditable {
     func edit<T: ImageProcessable>(processor: T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
         let asset = self.asset
 
-        guard let image = asset.asImage?.applyTransform(self.editItem.transform) else {
+        guard let image = asset.asUIImage?.applyTransform(self.editItem.transform) else {
             completionHandler(nil, nil)
             return nil
         }
@@ -81,7 +81,7 @@ extension _TransformAppAsset: PHAssetLivePhotoEditable {
 
     func edit<T:LivePhotoAdvancedProcessor>(processor:T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
 
-        guard let livePhoto = self.asset.asLivePhoto else {
+        guard let livePhoto = self.asset.asPHLivePhoto else {
             completionHandler(nil, nil)
             return nil
         }
@@ -152,7 +152,7 @@ extension _TransformAppAsset: PHAssetVideoEditable {
         let asset = self.asset
 
         guard
-                let video = asset.asVideo?.applyTransform(editItem.transform),
+                let video = asset.asAVAsset?.applyTransform(editItem.transform),
                 let videoTrack = video.tracks(withMediaType: .video).first
 
                 else {
