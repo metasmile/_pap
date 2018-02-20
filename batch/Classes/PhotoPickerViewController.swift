@@ -85,9 +85,24 @@ class PhotoPickerViewController: AppDockViewController {
 
 
         //TODO:TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
+        return
 
-        let garaIconViewFrame = CGRect(origin: .zero, size: CGSize(width:60,height:60) )
-        UIImageView(frame: garaIconViewFrame)
+        let apps:[Appable.Type] = [
+            TransformApp.self,
+            RevertApp.self
+        ]
+
+        let f = CGRect(origin: .zero, size: CGSize(width:30,height:30) )
+
+        for (i, app) in apps.enumerated(){
+            let iv = UIImageView(frame: f)
+            iv.image = app.info.iconImage?.asUIImage
+            print(iv.image)
+
+            photoCollectionView.addSubview(iv)
+            iv.x = CGFloat(i) * f.size.width
+            iv.centerY = photoCollectionView.centerY
+        }
 
         //TODO:TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
     }

@@ -17,6 +17,7 @@ public protocol ImageSourceable:Sourceable {
 
 public protocol BundleImageSourceable:Sourceable {
     var asNamedUIImage:UIImage? { get }
+    var asContentOfFileUIImage:UIImage? { get }
 }
 
 public protocol VideoSourceable:Sourceable {
@@ -80,7 +81,7 @@ extension Data: ImageSourceable, DataSourceable, RemoteSourceable, StringSourcea
 
 extension URL: ImageSourceable, DataSourceable, RemoteSourceable {
     public var asUIImage:UIImage? {
-        return UIImage(contentsOfFile: self.path)
+        return UIImage(contentsOfFile: self.absoluteString)
     }
 
     public var asData:Data? {
@@ -102,12 +103,20 @@ extension String: ImageSourceable, BundleImageSourceable, DataSourceable, Remote
             return image
         }
 
+        if let image = asContentOfFileUIImage {
+            return image
+        }
+
         assert(false, "Does not supported this string format. \(self)")
         return nil
     }
 
     public var asNamedUIImage:UIImage? {
         return UIImage(named: self)
+    }
+
+    public var asContentOfFileUIImage:UIImage? {
+        return UIImage(contentsOfFile: self.asBundlePath)
     }
 
     public var asData:Data? { get { return nil } }

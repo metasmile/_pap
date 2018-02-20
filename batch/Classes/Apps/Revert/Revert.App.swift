@@ -14,7 +14,7 @@ public class RevertApp: AppPrototype, Appable, FinalizableAppable {
             identifier: "com.stells.batch.revert"
             , appClass: RevertApp.self
             , displayName: "Revert"
-            , iconImage: Bundle.main.url(forResource: "Revert.App.Icon", withExtension: "png")
+            , iconImage: "Revert.App.Icon"
     )
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: TaskAsyncSignalable) -> [AppTaskRespondable] {

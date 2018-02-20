@@ -9,6 +9,10 @@
 import UIKit
 
 extension String {
+    var asBundlePath: String{
+        return Bundle.main.bundleURL.appendingPathComponent(self).path
+    }
+
     var localizedString: String {
         return NSLocalizedString(self, comment: "")
     }
