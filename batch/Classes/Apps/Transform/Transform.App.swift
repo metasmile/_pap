@@ -26,7 +26,7 @@ public class TransformApp: AppPrototype, Appable, FinalizableAppable {
             identifier: "com.stells.batch.transform"
             , appClass: TransformApp.self
             , displayName: "Transform"
-            , iconImage: ImageSourceItem("batchappicon_transfrom.pdf")
+            , iconImage: Bundle.main.url(forResource: "imageName", withExtension: "png")
     )
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: TaskAsyncSignalable) -> [AppTaskRespondable] {

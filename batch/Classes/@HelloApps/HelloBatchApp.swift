@@ -36,7 +36,7 @@ public class HelloBatchApp: AppPrototype, Appable, FinalizableAppable {
             identifier: "com.stells.batch.hello"
             , appClass: HelloBatchApp.self
             , displayName: "Hello Batch"
-            , iconImage: ImageSourceItem("batch_app_icon.pdf")
+            , iconImage: nil
     )
 
     //HELLO: In the near future, multiple Task will be supported.

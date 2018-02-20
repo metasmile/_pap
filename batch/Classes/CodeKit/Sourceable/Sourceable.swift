@@ -5,6 +5,7 @@
 
 import Foundation
 import Photos
+import UIKit
 
 public protocol Sourceable {
 
@@ -74,14 +75,27 @@ extension Data: ImageSourceable, DataSourceable, RemoteSourceable, StringSourcea
 }
 
 extension URL: ImageSourceable, DataSourceable, RemoteSourceable {
-    public var asImage:UIImage? { get { return nil } }
-    public var asData:Data? { get { return nil } }
-    public var asURL:URL? { get { return nil } }
+    public var asImage:UIImage? {
+        return UIImage(contentsOfFile: self.path)
+    }
+
+    public var asData:Data? {
+        do {
+            return try Data(contentsOf: self)
+        } catch {
+            return nil
+        }
+    }
+
+    public var asURL:URL? {
+        return self
+    }
 }
 
 extension String: ImageSourceable, DataSourceable, RemoteSourceable {
-    public var asImage:UIImage? { get { return nil } }
+    public var asImage:UIImage? {
+        return nil
+    }
     public var asData:Data? { get { return nil } }
     public var asURL:URL? { get { return nil } }
 }
-

@@ -15,12 +15,22 @@ public protocol PHAssetParamable: TaskParamable{
     init(_ asset: PHAsset, indexPath:IndexPath)
 }
 
-public class PHAssetItem<EditableType>: ItemObject, PHAssetParamable {
+public protocol PHAssetEditableResultable: TaskResultable{
+    var asset: PHAsset { get }
+    var contentEditingOutput: PHContentEditingOutput  { get }
+}
+
+public struct PHAssetResultItem:PHAssetEditableResultable {
+    public var asset: PHAsset
+    public var contentEditingOutput: PHContentEditingOutput
+}
+
+public class PHAssetItem<EditableValueType>: ItemObject, PHAssetParamable {
     public var asset: PHAsset
     public var indexPath:IndexPath?
     public var requestIDs = [PHAssetRequestID]()
 
-    var editItem = EditableItem<EditableType>()
+    var editItem = EditableItem<EditableValueType>()
 
     required public init(_ asset: PHAsset) {
         self.asset = asset

@@ -241,7 +241,8 @@ extension BatchPreviewView {
         }.when { resultsByApps, respondables in
             assert(!self.isProcessing)
 
-            let results = respondables.flatMap { $0.result as? TransformAppTaskRespondable }
+            let results = respondables.flatMap { $0.result as? PHAssetResultItem
+            }
 
             self.delegate?.batchPreviewViewWillBeginExport(self)
 

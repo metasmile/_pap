@@ -227,8 +227,8 @@ extension BatchEditViewController {
         let reaction = AppTaskReaction()
         reaction.when { result, progress, respondables, respondables1 in
 
-            assert(result.result is TransformAppTaskRespondable)
-            guard let _ = result.result as? TransformAppTaskRespondable else{
+            assert(result.result is PHAssetResultItem)
+            guard let _ = result.result as? PHAssetResultItem else{
                 return
             }
 
@@ -245,7 +245,8 @@ extension BatchEditViewController {
                 self.batchProgressView.title = "Saving Photos...".localizedString
             }
 
-            let results = respondables.flatMap { $0.result as? TransformAppTaskRespondable }
+            let results = respondables.flatMap { $0.result as? PHAssetResultItem
+            }
 
             PHPhotoLibrary.shared().performChanges({
                 for result in results {

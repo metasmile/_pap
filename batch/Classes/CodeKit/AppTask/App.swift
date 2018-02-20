@@ -35,7 +35,7 @@ public struct AppInfo: Hashable {
     let identifier:String
     let appClass: Appable.Type
     let displayName:String
-    let iconImage:ImageSourceItem
+    let iconImage:ImageSourceable?
     let lifeCycleUnit: AppLifecycleUnit = .systemMemory
 
     public var hashValue: Int {
