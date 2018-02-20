@@ -34,6 +34,7 @@
 		0ABFCF991F14B8A70078A583 /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABFCF981F14B8A70078A583 /* PhotoPickerViewController.swift */; };
 		28B58A4258EFA57A287EE746 /* Pods_batch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281B8EE7F3B930519ABFAAA4 /* Pods_batch.framework */; };
 		4F71D010D95D69F8964FF0CA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D1794336220F99D94A32 /* Localizable.strings */; };
+		4F71D0332FEF1A75631DCA55 /* CodeKit.UIView.GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA767BA21A5D0572DC1D /* CodeKit.UIView.GestureRecognizer.swift */; };
 		4F71D042921A4C8173C8EA64 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D945BAAFABA6C67E5231 /* Localizable.strings */; };
 		4F71D052D62EB675DB2F0B5A /* PHAssetSourceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D49286EE4D795ACB1A90 /* PHAssetSourceable.swift */; };
 		4F71D0BB9B18BD59987C2185 /* Common.App.Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8242392C908CCDF3022 /* Common.App.Contents.swift */; };
@@ -188,6 +189,7 @@
 		4F71D9132E288C4DBAF0AA6E /* Transform.App.Icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Transform.App.Icon@3x.png"; sourceTree = "<group>"; };
 		4F71D97ABE55B0BAF2872ADD /* CodeKit.Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Math.swift; sourceTree = "<group>"; };
 		4F71D9B67DC325EADDCB0E21 /* CodeKit.UIView.Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIView.Geometry.swift; sourceTree = "<group>"; };
+		4F71DA767BA21A5D0572DC1D /* CodeKit.UIView.GestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIView.GestureRecognizer.swift; sourceTree = "<group>"; };
 		4F71DAD13EC98589E1C308AB /* AppTaskOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTaskOperationQueue.swift; sourceTree = "<group>"; };
 		4F71DB3F65BB0609398D99C6 /* Sourceable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sourceable.swift; sourceTree = "<group>"; };
 		4F71DBD7919C9DC7B8A540B4 /* AssetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetView.swift; sourceTree = "<group>"; };
@@ -487,6 +489,7 @@
 				4F71D97ABE55B0BAF2872ADD /* CodeKit.Math.swift */,
 				4F71D9B67DC325EADDCB0E21 /* CodeKit.UIView.Geometry.swift */,
 				4F71D2D58B2BABE8F1BC0389 /* CodeKit.URL.swift */,
+				4F71DA767BA21A5D0572DC1D /* CodeKit.UIView.GestureRecognizer.swift */,
 			);
 			path = CodeKit;
 			sourceTree = "<group>";
@@ -1091,6 +1094,7 @@
 				4F71D84BD5F180E4F7E110A2 /* CodeKit.Math.swift in Sources */,
 				4F71D93445F8C95769402C54 /* CodeKit.UIView.Geometry.swift in Sources */,
 				4F71D6C988FC52C61B1BD17B /* CodeKit.URL.swift in Sources */,
+				4F71D0332FEF1A75631DCA55 /* CodeKit.UIView.GestureRecognizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

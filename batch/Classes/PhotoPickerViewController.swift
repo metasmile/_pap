@@ -85,7 +85,7 @@ class PhotoPickerViewController: AppDockViewController {
 
 
         //TODO:TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
-        return
+//        return
 
         let apps:[Appable.Type] = [
             TransformApp.self,
@@ -97,11 +97,27 @@ class PhotoPickerViewController: AppDockViewController {
         for (i, app) in apps.enumerated(){
             let iv = UIImageView(frame: f)
             iv.image = app.info.iconImage?.asUIImage
-            print(iv.image)
+            iv.isUserInteractionEnabled = true
 
-            photoCollectionView.addSubview(iv)
-            iv.x = CGFloat(i) * f.size.width
-            iv.centerY = photoCollectionView.centerY
+            self.view.addSubview(iv)
+            iv.x = CGFloat(i) * (f.size.width+5)
+            iv.bottom = self.view.bottom
+            iv.addTapGestureRecognizer {
+
+                self.batchPreviewView.selectedApp = app
+                print("Selected app: \(app)")
+
+                UIView.animate(withDuration: 0.6,
+                        animations: {
+                            iv.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+                        },
+                        completion: { _ in
+                            UIView.animate(withDuration: 0.6) {
+                                iv.transform = CGAffineTransform.identity
+                            }
+                        })
+
+            }
         }
 
         //TODO:TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
