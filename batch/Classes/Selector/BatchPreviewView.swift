@@ -134,8 +134,6 @@ extension BatchPreviewView {
         guard let _asset = asset, !targetAssetItems.contains(where: { $0.asset == asset }) else { return }
         let indexPath = IndexPath(item: targetAssetItems.count, section: 0)
 
-        selectedApp = TransformApp.self // virtually selected.
-
         //TODO: parameter router ex: check and automatically assign for N type of params [PHAssetParamable.Type, ...]
         //TODO: relpace all PHAssetItem<TransformItem> -> more flexable protocol type
         if let selectedAppsParamClass = selectedApp?.paramClass as? PHAssetParamable.Type
@@ -150,7 +148,7 @@ extension BatchPreviewView {
 
 
         } else{
-            assert(false, "Does not implement yet for param type of \(selectedApp?.info.appClass)")
+            print("[!] Does not implement yet for param type of \(selectedApp?.info.appClass)")
         }
     }
     
@@ -207,7 +205,14 @@ extension BatchPreviewView {
 }
 
 extension BatchPreviewView {
-    func runBatchProcessing() {
+
+    @discardableResult
+    func runBatchProcessing() -> Bool {
+
+        guard let _selectedApp = self.selectedApp else {
+            assert(false, "selectedApp is nil")
+            return false
+        }
 
         //TODO: append dynamically more items where Set(EditItems) - Set(alreadyqueued Items) TaskManager.query(by:_)
         delegate?.batchPreviewViewWillBeginEdit(self)
@@ -215,7 +220,7 @@ extension BatchPreviewView {
 
         //TODO: TaskManager.append immediatly from UI action instead of using "EditItems"
         targetAssetItems.forEach { item in
-            TaskManager.append(request: AppTaskRequest(TransformApp.self, item))
+            TaskManager.append(request: AppTaskRequest(_selectedApp.info.appClass, item))
         }
 
         let reaction = AppTaskReaction().when { response, progress, remained, completed in
@@ -241,8 +246,7 @@ extension BatchPreviewView {
         }.when { resultsByApps, respondables in
             assert(!self.isProcessing)
 
-            let results = respondables.flatMap { $0.result as? PHAssetResultItem
-            }
+            let results = respondables.flatMap { $0.result as? PHAssetResultItem }
 
             self.delegate?.batchPreviewViewWillBeginExport(self)
 
@@ -277,6 +281,8 @@ extension BatchPreviewView {
         TaskManager.perform(reaction)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.fetchProgressChanged), name: RemoteSourceFetchNotification.Name.progressChanged, object: nil)
+
+        return true
     }
     
     @objc func fetchProgressChanged(sender: NSNotification) {

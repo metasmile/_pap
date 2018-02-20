@@ -33,10 +33,12 @@ public class AppPrototype: ItemObject {
 
 public struct AppInfo: Hashable {
     let identifier:String
+    let version:String
+    let state:AppState
     let appClass: Appable.Type
     let displayName:String
     let iconImage:ImageSourceable?
-    let lifeCycleUnit: AppLifecycleUnit = .systemMemory
+    let lifeCycleUnit: AppLifecycleUnit
 
     public var hashValue: Int {
         return self.identifier.hashValue

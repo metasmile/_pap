@@ -34,9 +34,12 @@ public class HelloBatchApp: AppPrototype, Appable, FinalizableAppable {
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.hello"
+            , version: "0.1"
+            , state: .develop
             , appClass: HelloBatchApp.self
             , displayName: "Hello Batch"
             , iconImage: nil
+            , lifeCycleUnit: .systemMemory
     )
 
     //HELLO: In the near future, multiple Task will be supported.

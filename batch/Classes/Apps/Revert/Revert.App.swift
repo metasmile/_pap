@@ -12,9 +12,12 @@ public class RevertApp: AppPrototype, Appable, FinalizableAppable {
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.revert"
+            , version: "0.1"
+            , state: .develop
             , appClass: RevertApp.self
             , displayName: "Revert"
             , iconImage: "Revert.App.Icon"
+            , lifeCycleUnit: .systemMemory
     )
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: TaskAsyncSignalable) -> [AppTaskRespondable] {

@@ -12,11 +12,6 @@ import Crashlytics
 
 class _TransformAppAsset: PHAssetItem<TransformItem> {}
 
-public struct TransformAppTaskRespondable:TaskResultable {
-    var asset: PHAsset
-    var contentEditingOutput: PHContentEditingOutput
-}
-
 public class TransformApp: AppPrototype, Appable, FinalizableAppable {
     public static let taskClass:Taskable.Type = _TransfromAppTask.self
 
@@ -24,9 +19,12 @@ public class TransformApp: AppPrototype, Appable, FinalizableAppable {
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.transform"
+            , version: "1.0"
+            , state: .release
             , appClass: TransformApp.self
             , displayName: "Transform"
             , iconImage: "Transform.App.Icon"
+            , lifeCycleUnit: .systemMemory
     )
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: TaskAsyncSignalable) -> [AppTaskRespondable] {
@@ -38,7 +36,7 @@ public class TransformApp: AppPrototype, Appable, FinalizableAppable {
 private class _TransfromAppTask: TaskPrototype, Taskable {
 
     public typealias ParamType = _TransformAppAsset
-    public typealias ResultType = TransformAppTaskRespondable
+    public typealias ResultType = PHAssetResultItem
 
     public func cancel(_ param:TaskParamable, _ async: TaskAsyncSignalable?){
         
@@ -53,14 +51,14 @@ private class _TransfromAppTask: TaskPrototype, Taskable {
         return try self._perform(_param, async)
     }
 
-    private func _perform(_ assetItem: _TransformAppAsset, _ async: TaskAsyncSignalable?) throws -> TransformAppTaskRespondable?  {
-        var result: TransformAppTaskRespondable?
+    private func _perform(_ assetItem: _TransformAppAsset, _ async: TaskAsyncSignalable?) throws -> PHAssetResultItem?  {
+        var result: PHAssetResultItem?
 
         async?.begin()
 
         assetItem.runEditing(nil) { (asset, contentEditingOutput) in
             if let asset = asset, let contentEditingOutput = contentEditingOutput {
-                result = TransformAppTaskRespondable(
+                result = PHAssetResultItem(
                         asset: asset,
                         contentEditingOutput: contentEditingOutput)
             }

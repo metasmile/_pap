@@ -105,20 +105,28 @@ class PhotoPickerViewController: AppDockViewController {
             iv.addTapGestureRecognizer {
 
                 self.batchPreviewView.selectedApp = app
-                print("Selected app: \(app)")
+                print("Selected App: \(app)")
 
-                UIView.animate(withDuration: 0.6,
+                let previousTitle = self.title
+                self.title = "Selected App: \(app.info.displayName)"
+                Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { timer in
+                    self.title = previousTitle
+                }
+
+                UIView.animate(withDuration: 0.15,
                         animations: {
                             iv.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
                         },
                         completion: { _ in
-                            UIView.animate(withDuration: 0.6) {
+                            UIView.animate(withDuration: 0.1) {
                                 iv.transform = CGAffineTransform.identity
                             }
                         })
 
             }
         }
+
+        self.batchPreviewView.selectedApp = TransformApp.self
 
         //TODO:TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
     }
@@ -161,6 +169,31 @@ class PhotoPickerViewController: AppDockViewController {
     }
     
     override func doneButtonDidTap(sender: Any) {
+
+        //TODO: TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
+        guard let _selectedApp = batchPreviewView.selectedApp else {
+            assert(false, "Select an app first.")
+        }
+
+        switch (_selectedApp.info.state){
+            case .develop:
+                print("[!] Unable to run. Selected app's state is \(_selectedApp.info.state)")
+
+                self.cancelAllSelection()
+
+                let previousTitle = self.title
+                self.title = "Selected app is not ready."
+                Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { timer in
+                    self.title = previousTitle
+                }
+
+                return
+
+            default:
+                break
+        }
+        //TODO: TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
+
         batchPreviewView.runBatchProcessing()
     }
     
