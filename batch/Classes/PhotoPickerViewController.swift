@@ -104,7 +104,7 @@ class PhotoPickerViewController: AppDockViewController {
             iv.bottom = self.view.bottom
             iv.addTapGestureRecognizer {
 
-                self.batchPreviewView.selectedApp = app
+                BatchAppCenter.shared.current = app
                 print("Selected App: \(app)")
 
                 let previousTitle = self.title
@@ -126,7 +126,7 @@ class PhotoPickerViewController: AppDockViewController {
             }
         }
 
-        self.batchPreviewView.selectedApp = TransformApp.self
+        BatchAppCenter.shared.current = TransformApp.self
 
         //TODO:TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
     }
@@ -171,13 +171,11 @@ class PhotoPickerViewController: AppDockViewController {
     override func doneButtonDidTap(sender: Any) {
 
         //TODO: TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
-        guard let _selectedApp = batchPreviewView.selectedApp else {
-            assert(false, "Select an app first.")
-        }
+        let app = BatchAppCenter.shared.current
 
-        switch (_selectedApp.info.state){
+        switch (app.info.state){
             case .develop:
-                print("[!] Unable to run. Selected app's state is \(_selectedApp.info.state)")
+                print("[!] Unable to run. Selected app's state is \(app.info.state)")
 
                 self.cancelAllSelection()
 
