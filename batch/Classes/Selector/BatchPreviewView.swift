@@ -208,15 +208,22 @@ extension BatchPreviewView {
 
     @discardableResult
     func runBatchProcessing() -> Bool {
+        let targetSection = 0 //TODO: previously support multiple sections
 
         guard let _selectedApp = self.selectedApp else {
             assert(false, "selectedApp is nil")
             return false
         }
 
+        guard collectionView.numberOfItems(inSection: targetSection) > 0 else {
+            assert(false, "selected items does not exist.")
+            return false
+        }
+
         //TODO: append dynamically more items where Set(EditItems) - Set(alreadyqueued Items) TaskManager.query(by:_)
         delegate?.batchPreviewViewWillBeginEdit(self)
-        collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
+
+        collectionView.scrollToItem(at: IndexPath(item: 0, section: targetSection), at: .centeredHorizontally, animated: true)
 
         //TODO: TaskManager.append immediatly from UI action instead of using "EditItems"
         targetAssetItems.forEach { item in
