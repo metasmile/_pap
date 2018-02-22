@@ -83,18 +83,24 @@ class PhotoPickerViewController: AppDockViewController {
         dragSelectionGesture.delegate = self
         photoCollectionView.addGestureRecognizer(dragSelectionGesture)
 
+        NotificationCenter.default.addObserver(forName: BatchAppCenterNotification.Name.didChangeCurrent, object: BatchAppCenter.default, queue: nil) { notification in
+            //TODO: when app changed, selection should be maintained.
+            //TODO for test add Revert app with generalized param type
+
+            self.cancelAllSelection()
+
+            let previousTitle = self.title
+            self.title = "Selected App: \(BatchAppCenter.default.current.info.displayName)"
+            Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { timer in
+                self.title = previousTitle
+            }
+        }
+
 
         //TODO:TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
-//        return
-
-        let apps:[Appable.Type] = [
-            TransformApp.self,
-            RevertApp.self
-        ]
-
         let f = CGRect(origin: .zero, size: CGSize(width:30,height:30) )
 
-        for (i, app) in apps.enumerated(){
+        for (i, app) in BatchAppCenter.default.apps.enumerated(){
             let iv = UIImageView(frame: f)
             iv.image = app.info.iconImage?.asUIImage
             iv.isUserInteractionEnabled = true
@@ -103,15 +109,8 @@ class PhotoPickerViewController: AppDockViewController {
             iv.x = CGFloat(i) * (f.size.width+5)
             iv.bottom = self.view.bottom
             iv.addTapGestureRecognizer {
-
-                BatchAppCenter.shared.current = app
+                BatchAppCenter.default.current = app
                 print("Selected App: \(app)")
-
-                let previousTitle = self.title
-                self.title = "Selected App: \(app.info.displayName)"
-                Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { timer in
-                    self.title = previousTitle
-                }
 
                 UIView.animate(withDuration: 0.15,
                         animations: {
@@ -126,7 +125,7 @@ class PhotoPickerViewController: AppDockViewController {
             }
         }
 
-        BatchAppCenter.shared.current = TransformApp.self
+        BatchAppCenter.default.current = TransformApp.self
 
         //TODO:TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
     }
@@ -171,7 +170,7 @@ class PhotoPickerViewController: AppDockViewController {
     override func doneButtonDidTap(sender: Any) {
 
         //TODO: TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
-        let app = BatchAppCenter.shared.current
+        let app = BatchAppCenter.default.current
 
         switch (app.info.state){
             case .develop:

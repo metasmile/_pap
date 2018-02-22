@@ -27,58 +27,18 @@ class BatchPreviewView: CustomView {
     fileprivate (set) var targetAssetItems = [PHAssetItem<TransformItem>]()
     var delegate: BatchPreviewViewDelegate?
 
-    var selectedApp:Appable.Type?
-
-    //TODO: make AppTaskLoad, AppTaskLoadBalancer, ordering to dynamically adjust via current system condition.
-    let TaskManager = AppTaskManager.shared({ () -> UInt in
-        //https://en.wikipedia.org/wiki/List_of_iOS_devices
-        let remainingMem = ProcessInfo.processInfo.physicalRemainingMemory/(1024*1024)
-
-        switch (ProcessInfo.processInfo.processorCount){
-                //iPhone 8	iPhone 8 Plus	iPhone X
-            case 6 where remainingMem >= 2000:
-                return 4
-            case 6 where remainingMem >= 1000:
-                return 3
-            case 6 where remainingMem < 1000:
-                return 2
-
-                //iPhone 7	iPhone 7 Plus
-            case 4 where remainingMem >= 2000:
-                // a case for iPhone 7 Plus
-                return 4
-            case 4 where remainingMem >= 1000:
-                // a case for iPhone 7 Plus
-                return 3
-            case 4:
-                // a case for iPhone 7 Plus
-                return 2
-            case 4:
-                return 3
-
-            case ..<4 where remainingMem>1000:
-                return 3
-
-            case ..<4:
-                return 2
-
-            default:
-                return 1
-        }
-    }())
-    
     var hasChanges: Bool {
         return targetAssetItems.map({ $0.editItem.hasChanges }).contains(true)
     }
     
     var isProcessing: Bool {
-        return TaskManager.count > 0
+        return BatchAppCenter.default.task.count > 0
     }
     
     override func initialize() {
         super.initialize()
 
-        print("[i] TaskManager.maxConcurrentCount: ",TaskManager.maxConcurrentCount)
+        print("[i] BatchAppCenter.default.task.maxConcurrentCount: ",BatchAppCenter.default.task.maxConcurrentCount)
         
         collectionView.register(PreviewCollectionViewCell.self, forCellWithReuseIdentifier: "PreviewCollectionViewCell")
         updateAlignment(animated: false)
@@ -136,7 +96,7 @@ extension BatchPreviewView {
 
         //TODO: parameter router ex: check and automatically assign for N type of params [PHAssetParamable.Type, ...]
         //TODO: relpace all PHAssetItem<TransformItem> -> more flexable protocol type
-        if let selectedAppsParamClass = BatchAppCenter.shared.current.paramClass as? PHAssetParamable.Type
+        if let selectedAppsParamClass = BatchAppCenter.default.current.paramClass as? PHAssetParamable.Type
             , let selectedAppsParam = selectedAppsParamClass.init(_asset, indexPath: indexPath) as? PHAssetItem<TransformItem>{
 
             targetAssetItems.append(selectedAppsParam)
@@ -148,7 +108,7 @@ extension BatchPreviewView {
 
 
         } else{
-            print("[!] Does not implement yet for param type of \(BatchAppCenter.shared.current.info.appClass)")
+            print("[!] Does not implement yet for param type of \(BatchAppCenter.default.current.info.appClass)")
         }
     }
     
@@ -210,24 +170,19 @@ extension BatchPreviewView {
     func runBatchProcessing() -> Bool {
         let targetSection = 0 //TODO: previously support multiple sections
 
-        guard let _selectedApp = self.selectedApp else {
-            assert(false, "selectedApp is nil")
-            return false
-        }
-
         guard collectionView.numberOfItems(inSection: targetSection) > 0 else {
             assert(false, "selected items does not exist.")
             return false
         }
 
-        //TODO: append dynamically more items where Set(EditItems) - Set(alreadyqueued Items) TaskManager.query(by:_)
+        //TODO: append dynamically more items where Set(EditItems) - Set(alreadyqueued Items) BatchAppCenter.default.task.query(by:_)
         delegate?.batchPreviewViewWillBeginEdit(self)
 
         collectionView.scrollToItem(at: IndexPath(item: 0, section: targetSection), at: .centeredHorizontally, animated: true)
 
-        //TODO: TaskManager.append immediatly from UI action instead of using "EditItems"
+        //TODO: BatchAppCenter.default.task.append immediatly from UI action instead of using "EditItems"
         targetAssetItems.forEach { item in
-            TaskManager.append(request: AppTaskRequest(_selectedApp.info.appClass, item))
+            BatchAppCenter.default.task.append(request: AppTaskRequest(BatchAppCenter.default.current, item))
         }
 
         let reaction = AppTaskReaction().when { response, progress, remained, completed in
@@ -285,7 +240,7 @@ extension BatchPreviewView {
             }
         }
 
-        TaskManager.perform(reaction)
+        BatchAppCenter.default.task.perform(reaction)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.fetchProgressChanged), name: RemoteSourceFetchNotification.Name.progressChanged, object: nil)
 
@@ -299,7 +254,7 @@ extension BatchPreviewView {
     func cancelBatchProcessing() {
         assert(self.isProcessing)
 
-        TaskManager.cancel()
+        BatchAppCenter.default.task.cancel()
 
         delegate?.batchPreviewViewDidCancelEdit(self)
     }
