@@ -166,7 +166,7 @@ extension TaskDefaultSignal: TaskAsyncSignalable, TaskSignalControllable {
     }
     
     public func stopUntilEnd() {
-        assert(self.began,"stopUntilEnd() was called before begin(), or, after end() in same queue.")
+        print("[!] self.began==false, \(#function) was called before begin(), or, after end() in same queue.")
         if self.began{
             dispatchGroup.wait()
         }

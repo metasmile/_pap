@@ -8,8 +8,6 @@ import Photos
 
 private typealias RevertAppParam = PHAssetItem<BatchAppPHAssetState>
 
-extension Bool: TaskResultable{}
-
 public class RevertApp: AppPrototype, Appable, FinalizableAppable {
     public static let taskType:Taskable.Type = _RevertAppTask.self
 
@@ -26,14 +24,34 @@ public class RevertApp: AppPrototype, Appable, FinalizableAppable {
     )
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: TaskAsyncSignalable) -> [AppTaskRespondable] {
+
+        let resultAssets = result.flatMap { ($0.result as? PHAssetResultable)?.asset }
+
+        guard resultAssets.count > 0 else {
+            return result
+        }
+
+        asyncSignal.begin()
+
+        PHPhotoLibrary.shared().performChanges({
+            for asset in resultAssets{
+                PHAssetChangeRequest(for: asset).revertAssetContentToOriginal()
+            }
+        }, completionHandler: { success, error in
+            if !success {
+                print("[!] Can't revert asset: \(String(describing: error))")
+            }
+
+            asyncSignal.end()
+        })
+
+        asyncSignal.stopUntilEnd()
         return result
     }
 }
 
 private class _RevertAppTask: TaskPrototype, Taskable {
-    public func cancel(_ param:TaskParamable, _ async: TaskAsyncSignalable?){
-
-    }
+    public func cancel(_ param:TaskParamable, _ async: TaskAsyncSignalable?){}
 
     public func perform(_ param: TaskParamable, _ async: TaskAsyncSignalable?) throws -> TaskResultable? {
         assert(param is RevertAppParam, "TaskParamable type of this app is \(RevertAppParam.self)")
@@ -42,32 +60,11 @@ private class _RevertAppTask: TaskPrototype, Taskable {
             throw TaskError.invalidParam
         }
 
-        var reverted = false
-        async?.begin()
+        //TODO: if asset does not need to revert, throw invalidParam, so it will be natually skipped/canceled.
 
-        PHPhotoLibrary.shared().performChanges({
-            let request = PHAssetChangeRequest(for: _param.asset)
-            request.revertAssetContentToOriginal()
-
-        }, completionHandler: { success, error in
-            reverted = success
-
-            if !success {
-                print("can't revert asset: \(String(describing: error))")
-            }
-
-            async?.end()
-        })
-
-        async?.stopUntilEnd()
-
-        if !reverted{
-            throw TaskError.invalidResult
-        }
+//        throw TaskError.invalidParam
 
         return PHAssetResultItem(asset:_param.asset, contentEditingOutput: nil)
-
-        return reverted
     }
 }
 
