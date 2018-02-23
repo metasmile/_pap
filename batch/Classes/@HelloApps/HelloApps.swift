@@ -57,7 +57,7 @@ extension NSObject{
             //HELLO: remained -> remaining tasks
             //HELLO: finished -> finished tasks until now
 
-        }).when(finish:{ forEachApps, forResponses in
+        }).did(finish:{ forEachApps, forResponses in
             //HELLO: results -> Whole results.
             //HELLO: forResponses -> forResponses request info etc...
 

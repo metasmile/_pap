@@ -6,14 +6,14 @@
 import Foundation
 import Photos
 
-private typealias RevertAppAsset = PHAssetItem<BatchAppPHAssetState>
+private typealias RevertAppParam = PHAssetItem<BatchAppPHAssetState>
 
 extension Bool: TaskResultable{}
 
 public class RevertApp: AppPrototype, Appable, FinalizableAppable {
     public static let taskType:Taskable.Type = _RevertAppTask.self
 
-    public static let paramType:TaskParamable.Type = RevertAppAsset.self
+    public static let paramType:TaskParamable.Type = RevertAppParam.self
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.revert"
@@ -31,16 +31,14 @@ public class RevertApp: AppPrototype, Appable, FinalizableAppable {
 }
 
 private class _RevertAppTask: TaskPrototype, Taskable {
-    public typealias ResultType = PHAssetResultItem
-
     public func cancel(_ param:TaskParamable, _ async: TaskAsyncSignalable?){
 
     }
 
     public func perform(_ param: TaskParamable, _ async: TaskAsyncSignalable?) throws -> TaskResultable? {
-        assert(param is RevertAppAsset, "TaskParamable type of this app is \(RevertAppAsset.self)")
+        assert(param is RevertAppParam, "TaskParamable type of this app is \(RevertAppParam.self)")
 
-        guard let _param = param as? RevertAppAsset else{
+        guard let _param = param as? RevertAppParam else{
             throw TaskError.invalidParam
         }
 
@@ -66,6 +64,8 @@ private class _RevertAppTask: TaskPrototype, Taskable {
         if !reverted{
             throw TaskError.invalidResult
         }
+
+        return PHAssetResultItem(asset:_param.asset, contentEditingOutput: nil)
 
         return reverted
     }

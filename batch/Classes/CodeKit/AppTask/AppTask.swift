@@ -57,6 +57,8 @@ extension AppTaskWorkItem {
 /*
     Reactable
 */
+
+// Appable
 public typealias AppTaskReactableProgressHanlder = (
         _ progressedResult: AppTaskRespondable
         , _ progress:Float
@@ -69,14 +71,22 @@ public typealias AppTaskReactableFinishHandler = (
         , _ forAllResponses:[AppTaskRespondable]
 ) -> Void
 
+public typealias AppTaskReactableWillFinishHandler = (
+        _ byApps:[AppInfo: [AppTaskRespondable]]
+        , _ forAllResponses:[AppTaskRespondable]
+) -> Void
+
 public protocol AppTaskReactable {
     var targetQueue:DispatchQueue? { get }
 
     var progressHandler: AppTaskReactableProgressHanlder? { get }
-    func when(progress:@escaping AppTaskReactableProgressHanlder) -> AppTaskReactable
+    func when(progress:@escaping AppTaskReactableProgressHanlder) -> Self
 
-    var finishHandler: AppTaskReactableFinishHandler?  { get }
-    func when(finish:@escaping AppTaskReactableFinishHandler) -> AppTaskReactable
+    var willFinishHandler: AppTaskReactableWillFinishHandler?  { get }
+    func will(finish:@escaping AppTaskReactableWillFinishHandler) -> Self
+
+    var didFinishHandler: AppTaskReactableFinishHandler?  { get }
+    func did(finish:@escaping AppTaskReactableFinishHandler) -> Self
 }
 
 extension AppTaskReactable{
@@ -90,27 +100,38 @@ extension AppTaskReactable{
 //TODO: custom queue when calling back
 public class AppTaskReaction: ItemObject, AppTaskReactable {
     internal(set) public var targetQueue:DispatchQueue?
-    
+
+    //progress
     private(set) public var progressHandler: AppTaskReactableProgressHanlder?
 
     @discardableResult
-    public func when(progress:@escaping AppTaskReactableProgressHanlder) -> AppTaskReactable {
+    public func when(progress:@escaping AppTaskReactableProgressHanlder) -> Self {
         self.progressHandler = progress
         return self
     }
 
-    private(set) public var finishHandler: AppTaskReactableFinishHandler?
+    //finalize
+    private(set) public var willFinishHandler: AppTaskReactableWillFinishHandler?
 
     @discardableResult
-    public func when(finish:@escaping AppTaskReactableFinishHandler) -> AppTaskReactable {
-        self.finishHandler = finish
+    public func will(finish:@escaping AppTaskReactableWillFinishHandler) -> Self {
+        self.willFinishHandler = finish
+        return self
+    }
+
+    //finish
+    private(set) public var didFinishHandler: AppTaskReactableFinishHandler?
+
+    @discardableResult
+    public func did(finish:@escaping AppTaskReactableFinishHandler) -> Self {
+        self.didFinishHandler = finish
         return self
     }
 
     public init(finish: AppTaskReactableFinishHandler?=nil){
         super.init()
         if let _finish = finish{
-            self.when(finish:_finish)
+            self.did(finish:_finish)
         }
     }
 
@@ -118,7 +139,9 @@ public class AppTaskReaction: ItemObject, AppTaskReactable {
         super.init()
         self.targetQueue = queue
         if let _finish = finish{
-            self.when(finish:_finish)
+            self.did(finish:_finish)
         }
     }
 }
+
+

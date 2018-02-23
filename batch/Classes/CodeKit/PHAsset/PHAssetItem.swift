@@ -15,14 +15,14 @@ public protocol PHAssetParamable: TaskParamable{
     init(_ asset: PHAsset, indexPath:IndexPath)
 }
 
-public protocol PHAssetEditableResultable: TaskResultable{
+public protocol PHAssetResultable: TaskResultable{
     var asset: PHAsset { get }
-    var contentEditingOutput: PHContentEditingOutput  { get }
+    var contentEditingOutput: PHContentEditingOutput?  { get }
 }
 
-public struct PHAssetResultItem:PHAssetEditableResultable {
+public struct PHAssetResultItem: PHAssetResultable {
     public var asset: PHAsset
-    public var contentEditingOutput: PHContentEditingOutput
+    public var contentEditingOutput: PHContentEditingOutput?
 }
 
 public class PHAssetItem<EditStateValueType>: ItemObject, PHAssetParamable {

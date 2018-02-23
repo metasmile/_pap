@@ -37,12 +37,11 @@ public final class BatchAppCenter{
         }
     }
 
-    public var apps:[Appable.Type]{
-        return [
-            TransformApp.self,
-            RevertApp.self
-        ]
-    }
+    public let apps:[Appable.Type] = [
+        TransformApp.self,
+        RevertApp.self
+    ]
+
     public func apps(by query: BatchAppCenterQuery) -> [Appable.Type]?{
         return self.apps.filter { app in
             return app.info.state == query.state

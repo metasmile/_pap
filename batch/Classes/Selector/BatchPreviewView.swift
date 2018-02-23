@@ -185,7 +185,9 @@ extension BatchPreviewView {
             BatchAppCenter.default.task.append(request: AppTaskRequest(BatchAppCenter.default.current, item))
         }
 
-        let reaction = AppTaskReaction().when { response, progress, remained, completed in
+        let reaction = AppTaskReaction()
+
+        reaction.when(progress:{ response, progress, remained, completed in
             assert(response.info.state != .completed || response.info.state == .completed && response.result != nil, "task state is .completed but result is nil")
 
             let requestedParam = response.request.param as? PHAssetItem<BatchAppPHAssetState>
@@ -205,12 +207,19 @@ extension BatchPreviewView {
                 default: break
             }
 
-        }.when { resultsByApps, respondables in
+        }).will(finish: { resultsByApps, respondables in
+
+
+        }).did(finish: { resultsByApps, respondables in
             assert(!self.isProcessing)
 
-            let results = respondables.flatMap { $0.result as? PHAssetResultItem }
+            let results = respondables.flatMap {
+                $0.result as? PHAssetResultable
+            }
 
             self.delegate?.batchPreviewViewWillBeginExport(self)
+
+            let editedResults = results.filter { resultable in resultable.contentEditingOutput != nil }
 
             PHPhotoLibrary.shared().performChanges({
                 for result in results {
@@ -238,7 +247,7 @@ extension BatchPreviewView {
                     }
                 }
             }
-        }
+        })
 
         BatchAppCenter.default.task.perform(reaction)
         
