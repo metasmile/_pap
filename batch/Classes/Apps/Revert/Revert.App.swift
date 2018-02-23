@@ -60,11 +60,21 @@ private class _RevertAppTask: TaskPrototype, Taskable {
             throw TaskError.invalidParam
         }
 
-        //TODO: if asset does not need to revert, throw invalidParam, so it will be natually skipped/canceled.
+        var adjusted = false
 
-//        throw TaskError.invalidParam
+        async?.begin()
+        _param.asset.fetchAdjustmentData { data in
+            adjusted = data != nil
+            async?.end()
+        }
 
-        return PHAssetResultItem(asset:_param.asset, contentEditingOutput: nil)
+        async?.stopUntilEnd()
+
+        if adjusted{
+            return PHAssetResultItem(asset:_param.asset, contentEditingOutput: nil)
+        }
+
+        throw TaskError.rejectedParam
     }
 }
 

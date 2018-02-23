@@ -20,4 +20,15 @@ extension PHAsset {
     var pixelSize: CGSize {
         return CGSize(width: pixelWidth, height: pixelHeight)
     }
+
+    public final func fetchAdjustmentData(completionHandler:@escaping (PHAdjustmentData?) -> Void){
+        let options: PHContentEditingInputRequestOptions = PHContentEditingInputRequestOptions()
+        options.canHandleAdjustmentData = { _ -> Bool in
+            return true
+        }
+
+        self.requestContentEditingInput(with: options, completionHandler: { (contentEditingInput, info) in
+            completionHandler(contentEditingInput?.adjustmentData)
+        })
+    }
 }

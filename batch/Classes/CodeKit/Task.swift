@@ -22,6 +22,7 @@ public enum TaskLoad: UInt{
 }
 
 public enum TaskError: Error {
+    case rejectedParam
     case invalidParam
     case invalidResult
     case internalException
@@ -166,9 +167,10 @@ extension TaskDefaultSignal: TaskAsyncSignalable, TaskSignalControllable {
     }
     
     public func stopUntilEnd() {
-        print("[!] self.began==false, \(#function) was called before begin(), or, after end() in same queue.")
         if self.began{
             dispatchGroup.wait()
+        }else{
+            print("[!] self.began==false, \(#function) was called before begin(), or, after end() in same queue.")
         }
     }
 
