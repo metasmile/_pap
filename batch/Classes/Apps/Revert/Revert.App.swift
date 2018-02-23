@@ -4,18 +4,18 @@
 //
 
 import Foundation
-
+import Photos
 
 public class RevertApp: AppPrototype, Appable, FinalizableAppable {
-    public static let taskClass:Taskable.Type = _RevertAppTask.self
+    public static let taskType:Taskable.Type = _RevertAppTask.self
 
-    public static let paramClass:TaskParamable.Type = PHAssetItem<BatchAppPHAssetState>.self
+    public static let paramType:TaskParamable.Type = PHAssetItem<BatchAppPHAssetState>.self
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.revert"
             , version: "0.1"
             , state: .develop
-            , appClass: RevertApp.self
+            , appType: RevertApp.self
             , displayName: "Revert"
             , iconImage: "Revert.App.Icon"
             , lifeCycleUnit: .systemMemory
@@ -34,6 +34,15 @@ private class _RevertAppTask: TaskPrototype, Taskable {
     }
 
     public func perform(_ param: TaskParamable, _ async: TaskAsyncSignalable?) throws -> TaskResultable? {
+
+//        PHPhotoLibrary.shared().performChanges({
+//            let request = PHAssetChangeRequest(for: self)
+//            request.revertAssetContentToOriginal()
+//        }, completionHandler: { success, error in
+//            if !success { print("can't revert asset: \(String(describing: error))") }
+//        })
+
+
         return nil
     }
 }

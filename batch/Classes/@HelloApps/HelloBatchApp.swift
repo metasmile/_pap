@@ -23,7 +23,7 @@ public protocol HelloTaskParam: TaskParamable {
 
 public class HelloTypedBatchApp: HelloBatchApp{
     public typealias ParamType = HelloTaskParameter
-    public static func paramClass() -> HelloTaskParameter.Type {
+    public static func paramType() -> HelloTaskParameter.Type {
         return HelloTaskParameter.self
     }
 }
@@ -36,14 +36,14 @@ public class HelloBatchApp: AppPrototype, Appable, FinalizableAppable {
             identifier: "com.stells.batch.hello"
             , version: "0.1"
             , state: .develop
-            , appClass: HelloBatchApp.self
+            , appType: HelloBatchApp.self
             , displayName: "Hello Batch"
             , iconImage: nil
             , lifeCycleUnit: .systemMemory
     )
 
     //HELLO: In the near future, multiple Task will be supported.
-    public static var taskClass: Taskable.Type {
+    public static var taskType: Taskable.Type {
 
 //        HelloVariousTask<HelloTaskParameter, HelloTaskResult>.self
 //        HelloVariousTask<HelloCustomTaskParameter, HelloCustomTaskResult>.self
@@ -53,7 +53,7 @@ public class HelloBatchApp: AppPrototype, Appable, FinalizableAppable {
 //        return HelloTask.self
     }
 
-    public static let paramClass:TaskParamable.Type = PHAssetItem<BatchAppPHAssetState>.self
+    public static let paramType:TaskParamable.Type = PHAssetItem<BatchAppPHAssetState>.self
 
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: TaskAsyncSignalable) -> [AppTaskRespondable] {

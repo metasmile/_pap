@@ -96,8 +96,8 @@ extension BatchPreviewView {
 
         //TODO: parameter router ex: check and automatically assign for N type of params [PHAssetParamable.Type, ...]
         //TODO: relpace all PHAssetItem<TransformItem> -> more flexable protocol type
-        if let selectedAppsParamClass = BatchAppCenter.default.current.paramClass as? PHAssetParamable.Type
-            , let selectedAppsParam = selectedAppsParamClass.init(_asset, indexPath: indexPath) as? PHAssetItem<BatchAppPHAssetState>{
+        if let selectedAppsParamType = BatchAppCenter.default.current.paramType as? PHAssetParamable.Type
+            , let selectedAppsParam = selectedAppsParamType.init(_asset, indexPath: indexPath) as? PHAssetItem<BatchAppPHAssetState>{
 
             targetAssetItems.append(selectedAppsParam)
 
@@ -108,7 +108,7 @@ extension BatchPreviewView {
 
 
         } else{
-            print("[!] Does not implement yet for param type of \(BatchAppCenter.default.current.info.appClass)")
+            print("[!] Does not implement yet for param type of \(BatchAppCenter.default.current.info.appType)")
         }
     }
     

@@ -10,10 +10,10 @@ public protocol Appable {
 
     var config: TaskConfigable? { get }
 
-    //taskClass can be changed by config
-    static var taskClass: Taskable.Type { get }
+    //taskType can be changed by config
+    static var taskType: Taskable.Type { get }
 
-    static var paramClass: TaskParamable.Type { get }
+    static var paramType: TaskParamable.Type { get }
 
     init(_ config: TaskConfigable?)
 }
@@ -35,7 +35,7 @@ public struct AppInfo: Hashable {
     let identifier:String
     let version:String
     let state:AppState
-    let appClass: Appable.Type
+    let appType: Appable.Type
     let displayName:String
     let iconImage:ImageSourceable?
     let lifeCycleUnit: AppLifecycleUnit

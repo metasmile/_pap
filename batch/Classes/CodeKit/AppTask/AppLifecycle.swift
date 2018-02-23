@@ -51,10 +51,10 @@ public final class AppLifecycleManager {
 
     private func _acquire(_ info: AppInfo) -> Appable?{
         let appIdentifier = info.identifier
-        let appClass = info.appClass
+        let appType = info.appType
 
         guard let appInstance = _instances[appIdentifier] else{
-            let _appInstance = appClass.init(nil)
+            let _appInstance = appType.init(nil)
 
             _instances[appIdentifier] = _appInstance
 

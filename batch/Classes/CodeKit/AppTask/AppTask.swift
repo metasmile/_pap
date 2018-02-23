@@ -14,7 +14,7 @@ public protocol AppTaskRespondable {
 
 extension AppTaskRespondable {
     public var appInfo:AppInfo{
-        return self.request.appClass.info
+        return self.request.appType.info
     }
 }
 

@@ -81,15 +81,15 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
     }
 
     private func createTask(_ request:AppTaskRequest) -> Taskable?{
-        let appInfo = request.appClass.info
+        let appInfo = request.appType.info
 
         guard let _ = AppLifecycleManager.shared.acquire(appInfo) else {
-            assert(false, "Task Creation was failed for an App \(request.appClass)")
+            assert(false, "Task Creation was failed for an App \(request.appType)")
             return nil
         }
 
-        let taskClass = appInfo.appClass.taskClass
-        let task = taskClass.init(TaskInfo(request.token, taskClass.self))
+        let taskType = appInfo.appType.taskType
+        let task = taskType.init(TaskInfo(request.token, taskType.self, request.appType))
         return Optional(task)
     }
 
@@ -243,8 +243,8 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
     //TODO: multi-apps for each requestToken
 
     private func _countFinishedTaskByEachQueues(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem) {
-        let appClass = workItem.request.appClass
-        let appInfo = appClass.info
+        let appType = workItem.request.appType
+        let appInfo = appType.info
 
         if !_staticResponsesForEachApps.keys.contains(appInfo){
             _staticResponsesForEachApps[appInfo] = [AppTaskRespondable]()

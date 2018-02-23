@@ -48,25 +48,25 @@ public class TaskPrototype: Item<TaskInfo> {
     }
 }
 
-public final class TaskRequest<AppClassType, ParameterType, ResponseType>: ItemObject {
+public final class TaskRequest<AppType, ParameterType, ResponseType>: ItemObject {
     public typealias ResponseHandler = (ResponseType, _ cancel:inout Bool) -> Void
 
-    private(set) public var appClass:AppClassType
+    private(set) public var appType: AppType
     private(set) var responseHandler:ResponseHandler?
     private(set) public var param:ParameterType
     private(set) public var token:String
 
-    required public init(_ appClass:AppClassType, _ param:ParameterType){
-        self.appClass = appClass
+    required public init(_ appType: AppType, _ param:ParameterType){
+        self.appType = appType
         self.param = param
         self.token = UUID().uuidString
     }
 
-    convenience public init(_ appClass:AppClassType,
+    convenience public init(_ appType: AppType,
                             _ param:ParameterType,
                             _ responseHandler:@escaping ResponseHandler) {
 
-        self.init(appClass,param)
+        self.init(appType,param)
         self.responseHandler = responseHandler
     }
 }
@@ -94,15 +94,17 @@ public class TaskInfo: Item<String> {
     private(set) public var token:String
     private(set) public var requestToken:String
     private(set) public var taskType: Taskable.Type
+    private(set) public var appType: Appable.Type
 
     internal(set) public var state: TaskState = .unqueued
     internal(set) public var queueLabel:String?
     internal(set) var error:TaskError?
 
-    required public init(_ requestToken: String, _ taskType: Taskable.Type){
+    required public init(_ requestToken: String, _ taskType: Taskable.Type, _ appType: Appable.Type){
         self.requestToken = requestToken
         self.taskType = taskType
         self.token = UUID().uuidString
+        self.appType = appType
         super.init()
     }
 }

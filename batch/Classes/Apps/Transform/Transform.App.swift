@@ -13,15 +13,15 @@ import Crashlytics
 class _TransformAppAsset: PHAssetItem<BatchAppPHAssetState> {}
 
 public class TransformApp: AppPrototype, Appable, FinalizableAppable {
-    public static let taskClass:Taskable.Type = _TransfromAppTask.self
+    public static let taskType:Taskable.Type = _TransfromAppTask.self
 
-    public static let paramClass:TaskParamable.Type = _TransformAppAsset.self
+    public static let paramType:TaskParamable.Type = _TransformAppAsset.self
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.transform"
             , version: "1.0"
             , state: .release
-            , appClass: TransformApp.self
+            , appType: TransformApp.self
             , displayName: "Transform"
             , iconImage: "Transform.App.Icon"
             , lifeCycleUnit: .systemMemory
