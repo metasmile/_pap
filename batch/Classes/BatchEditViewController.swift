@@ -217,58 +217,6 @@ extension BatchEditViewController {
         previewCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
 
 
-//TODO: TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
-        targetAssetItems.forEach { item in
-            AppTaskManager.shared(2).append(request: AppTaskRequest(TransformApp.self, item) { res, cancel in
-                print(item)
-            })
-        }
-
-        let reaction = AppTaskReaction()
-        reaction.when { result, progress, respondables, respondables1 in
-
-            assert(result.result is PHAssetResultItem)
-            guard let _ = result.result as? PHAssetResultItem else{
-                return
-            }
-
-            DispatchQueue.main.async { [weak self] in
-                self?.batchProgressView.title = "Processing...".localizedString
-                self?.batchProgressView.setProgress(Float(progress), animated: true)
-//                self?.previewCollectionView.scrollToItem(at: _resultIndexPath, at: .centeredHorizontally, animated: true)
-            }
-
-        }
-        reaction.when { finishedResultsForEachApps, respondables in
-
-            DispatchQueue.main.async {
-                self.batchProgressView.title = "Saving Photos...".localizedString
-            }
-
-            let results = respondables.flatMap { $0.result as? PHAssetResultItem
-            }
-
-            PHPhotoLibrary.shared().performChanges({
-                for result in results {
-                    PHAssetChangeRequest(for: result.asset).contentEditingOutput = result.contentEditingOutput
-                }
-            }, completionHandler: { (success, info) in
-
-                DispatchQueue.main.async { [unowned self] in
-                    self.closeBatchProgressView()
-
-                    if success {
-                        Analytics.logEvent("log.export.save", parameters: ["number_of_items": self.targetAssetItems.count])
-                        self.delegate?.batchEditViewControllerDidFinishEditing(self)
-                    }
-                }
-            })
-
-        }
-        AppTaskManager.shared(2).perform(reaction)
-//TODO: TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
-
-
 //        batchRequest = BatchEditSequenceRequest()
 //        batchRequest?.perform(EditItems.map({ BatchEditRequest($0) }), { (progress, idx) in
 //            DispatchQueue.main.async { [weak self] in

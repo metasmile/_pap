@@ -26,11 +26,10 @@ public final class BatchAppCenter{
 
     init(defaultApp app:Appable.Type){
         self.current = app
-        self.previous = app
     }
 
     // Collection
-    public var previous:Appable.Type
+    private(set) public var previous:Appable.Type?
     public var current:Appable.Type {
         didSet {
             self.previous = oldValue

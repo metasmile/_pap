@@ -18,7 +18,7 @@ public class RevertApp: AppPrototype, Appable, FinalizableAppable {
     public static let info = AppInfo(
             identifier: "com.stells.batch.revert"
             , version: "0.1"
-            , state: .develop
+            , state: .beta
             , appType: RevertApp.self
             , displayName: "Revert"
             , iconImage: "Revert.App.Icon"
@@ -38,7 +38,8 @@ private class _RevertAppTask: TaskPrototype, Taskable {
     }
 
     public func perform(_ param: TaskParamable, _ async: TaskAsyncSignalable?) throws -> TaskResultable? {
-        assert(param is RevertAppAsset.Type, "TaskParamable type of this app is \(_TransformAppAsset.self)")
+        assert(param is RevertAppAsset, "TaskParamable type of this app is \(RevertAppAsset.self)")
+
         guard let _param = param as? RevertAppAsset else{
             throw TaskError.invalidParam
         }
