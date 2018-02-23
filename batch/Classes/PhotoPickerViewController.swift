@@ -96,8 +96,13 @@ class PhotoPickerViewController: AppDockViewController {
             }
         }
 
+        #if DEBUG
+            self.debug_attachMultiAppSelector()
+        #endif
+    }
 
-        //TODO:TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
+//TODO:TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
+    func debug_attachMultiAppSelector(){
         let f = CGRect(origin: .zero, size: CGSize(width:30,height:30) )
 
         for (i, app) in BatchAppCenter.default.apps.enumerated(){
@@ -126,9 +131,8 @@ class PhotoPickerViewController: AppDockViewController {
         }
 
         BatchAppCenter.default.current = TransformApp.self
-
-        //TODO:TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
     }
+//TODO:TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
     
     deinit {
         PHPhotoLibrary.shared().unregisterChangeObserver(self)
