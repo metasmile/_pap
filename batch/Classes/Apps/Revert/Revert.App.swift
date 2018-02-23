@@ -6,10 +6,14 @@
 import Foundation
 import Photos
 
+private typealias RevertAppAsset = PHAssetItem<BatchAppPHAssetState>
+
+extension Bool: TaskResultable{}
+
 public class RevertApp: AppPrototype, Appable, FinalizableAppable {
     public static let taskType:Taskable.Type = _RevertAppTask.self
 
-    public static let paramType:TaskParamable.Type = PHAssetItem<BatchAppPHAssetState>.self
+    public static let paramType:TaskParamable.Type = RevertAppAsset.self
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.revert"
@@ -30,20 +34,39 @@ private class _RevertAppTask: TaskPrototype, Taskable {
     public typealias ResultType = PHAssetResultItem
 
     public func cancel(_ param:TaskParamable, _ async: TaskAsyncSignalable?){
-        (param as? PHAssetItem<Any>)?.cancelEditing()
+
     }
 
     public func perform(_ param: TaskParamable, _ async: TaskAsyncSignalable?) throws -> TaskResultable? {
+        assert(param is RevertAppAsset.Type, "TaskParamable type of this app is \(_TransformAppAsset.self)")
+        guard let _param = param as? RevertAppAsset else{
+            throw TaskError.invalidParam
+        }
 
-//        PHPhotoLibrary.shared().performChanges({
-//            let request = PHAssetChangeRequest(for: self)
-//            request.revertAssetContentToOriginal()
-//        }, completionHandler: { success, error in
-//            if !success { print("can't revert asset: \(String(describing: error))") }
-//        })
+        var reverted = false
+        async?.begin()
 
+        PHPhotoLibrary.shared().performChanges({
+            let request = PHAssetChangeRequest(for: _param.asset)
+            request.revertAssetContentToOriginal()
 
-        return nil
+        }, completionHandler: { success, error in
+            reverted = success
+
+            if !success {
+                print("can't revert asset: \(String(describing: error))")
+            }
+
+            async?.end()
+        })
+
+        async?.stopUntilEnd()
+
+        if !reverted{
+            throw TaskError.invalidResult
+        }
+
+        return reverted
     }
 }
 
