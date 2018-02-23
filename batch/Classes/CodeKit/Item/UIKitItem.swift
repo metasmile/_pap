@@ -6,12 +6,3 @@
 import Foundation
 import UIKit
 
-public class TransformItem: ItemObject {
-    var transform: CGAffineTransform {
-        return .identity
-    }
-
-    var transform3d: CATransform3D {
-        return CATransform3DIdentity
-    }
-}

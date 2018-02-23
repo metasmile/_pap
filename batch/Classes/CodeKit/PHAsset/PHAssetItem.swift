@@ -25,12 +25,11 @@ public struct PHAssetResultItem:PHAssetEditableResultable {
     public var contentEditingOutput: PHContentEditingOutput
 }
 
-public class PHAssetItem<EditableValueType>: ItemObject, PHAssetParamable {
+public class PHAssetItem<EditStateValueType>: ItemObject, PHAssetParamable {
     public var asset: PHAsset
     public var indexPath:IndexPath?
     public var requestIDs = [PHAssetRequestID]()
-
-    var editItem = EditableItem<EditableValueType>()
+    public var editState = StateValueSet<EditStateValueType>()
 
     required public init(_ asset: PHAsset) {
         self.asset = asset

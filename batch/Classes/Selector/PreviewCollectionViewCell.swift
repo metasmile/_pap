@@ -37,7 +37,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         imageRequestId = nil
     }
     
-    func setEditItem(_ item: PHAssetItem<TransformItem>, at indexPath: IndexPath) {
+    func setEditItem(_ item: PHAssetItem<BatchAppPHAssetState>, at indexPath: IndexPath) {
         let asset = item.asset
 
         self.asset = asset
@@ -51,8 +51,8 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         DispatchQueue.main.async { [weak self] in
             guard self?.indexPath == indexPath else { return }
             
-            self?.setAssetInfo(asset, editItem: item.editItem)
-            self?.setImageEditItem(item.editItem)
+            self?.setAssetInfo(asset, editItem: item.editState)
+            self?.setImageEditItem(item.editState)
         }
         
         assetView.setAsset(asset, cancelDrawingIfNeeded: { [weak self] in
@@ -60,13 +60,13 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         })
     }
     
-    func setEditItemForPreview(_ item: PHAssetItem<TransformItem>, at indexPath: IndexPath) {
+    func setEditItemForPreview(_ item: PHAssetItem<BatchAppPHAssetState>, at indexPath: IndexPath) {
         let asset = item.asset
         
         self.asset = asset
         self.indexPath = indexPath
         
-        let boundingSize = asset.pixelWidth > asset.pixelHeight ? bounds.size.applying(item.editItem.transform).magnitude : bounds.size
+        let boundingSize = asset.pixelWidth > asset.pixelHeight ? bounds.size.applying(item.editState.transform).magnitude : bounds.size
         let photoSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight).aspectFit(in: boundingSize)
         
         assetViewWidth.constant = photoSize.width
@@ -75,7 +75,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         DispatchQueue.main.async { [weak self] in
             guard self?.indexPath == indexPath else { return }
             
-            self?.setImageEditItem(item.editItem)
+            self?.setImageEditItem(item.editState)
         }
         
         assetView.setThumbnailAsset(asset, cancelDrawingIfNeeded: { [weak self] in
@@ -83,7 +83,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         })
     }
     
-    func setImageEditItem<T>(_ editItem: EditableItem<T>, animated: Bool = false) where T:TransformItem {
+    func setImageEditItem<T>(_ editItem: StateValueSet<T>, animated: Bool = false) where T: BatchAppPHAssetState {
         if animated {
             UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: .beginFromCurrentState, animations: { [weak self] in
                 self?.assetView.layer.transform = editItem.transform3d
@@ -97,7 +97,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         imageInfoViewTop.constant = (bounds.height + CGSize(width: assetViewWidth.constant, height: assetViewHeight.constant).applying(editItem.transform).magnitude.height) / 2 + 10
     }
     
-    private func setAssetInfo<T>(_ asset: PHAsset, editItem: EditableItem<T>) where T:TransformItem {
+    private func setAssetInfo<T>(_ asset: PHAsset, editItem: StateValueSet<T>) where T: BatchAppPHAssetState {
         let resources = PHAssetResource.assetResources(for: asset)
         if let firstResource = resources.first {
             fileLabel.text = firstResource.originalFilename

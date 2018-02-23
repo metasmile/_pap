@@ -53,7 +53,7 @@ public class HelloBatchApp: AppPrototype, Appable, FinalizableAppable {
 //        return HelloTask.self
     }
 
-    public static let paramClass:TaskParamable.Type = PHAssetItem<TransformItem>.self
+    public static let paramClass:TaskParamable.Type = PHAssetItem<BatchAppPHAssetState>.self
 
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: TaskAsyncSignalable) -> [AppTaskRespondable] {

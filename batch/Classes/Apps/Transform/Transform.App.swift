@@ -10,7 +10,7 @@ import UIKit
 import MobileCoreServices
 import Crashlytics
 
-class _TransformAppAsset: PHAssetItem<TransformItem> {}
+class _TransformAppAsset: PHAssetItem<BatchAppPHAssetState> {}
 
 public class TransformApp: AppPrototype, Appable, FinalizableAppable {
     public static let taskClass:Taskable.Type = _TransfromAppTask.self
@@ -39,7 +39,7 @@ private class _TransfromAppTask: TaskPrototype, Taskable {
     public typealias ResultType = PHAssetResultItem
 
     public func cancel(_ param:TaskParamable, _ async: TaskAsyncSignalable?){
-        
+
         (param as? _TransformAppAsset)?.cancelEditing()
     }
 

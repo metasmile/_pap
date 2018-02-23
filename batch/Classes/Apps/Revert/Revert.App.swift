@@ -5,10 +5,11 @@
 
 import Foundation
 
+
 public class RevertApp: AppPrototype, Appable, FinalizableAppable {
     public static let taskClass:Taskable.Type = _RevertAppTask.self
 
-    public static let paramClass:TaskParamable.Type = PHAssetItem<Any>.self
+    public static let paramClass:TaskParamable.Type = PHAssetItem<BatchAppPHAssetState>.self
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.revert"

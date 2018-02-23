@@ -328,12 +328,12 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
 }
 
 extension PhotoPickerViewController: TransformEditViewControllerDelegate {
-    fileprivate func showPhotoEditor(with editItem: PHAssetItem<TransformItem>?) {
+    fileprivate func showPhotoEditor(with editItem: PHAssetItem<BatchAppPHAssetState>?) {
         guard let _editItem = editItem else { return }
 
         let photoEditViewController = storyboard?.instantiateViewController(withIdentifier: "PhotoEditViewController") as! PhotoEditViewController
         photoEditViewController.asset = _editItem.asset
-        photoEditViewController.preferredTransform = _editItem.editItem.transform
+        photoEditViewController.preferredTransform = _editItem.editState.transform
         photoEditViewController.delegate = self
         if let item = batchPreviewView.targetAssetItems.index(of: _editItem) {
             photoEditViewController.indexPathInBatch = IndexPath(item: item, section: 0)
@@ -363,9 +363,9 @@ extension PhotoPickerViewController: TransformEditViewControllerDelegate {
         }
     }
     
-    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: EditableItem<TransformItem>?, at indexPath: IndexPath?) {
+    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: StateValueSet<BatchAppPHAssetState>?, at indexPath: IndexPath?) {
         if let editItem = editItem, let indexPath = indexPath {
-            batchPreviewView.targetAssetItems[indexPath.item].editItem.merge(with:editItem)
+            batchPreviewView.targetAssetItems[indexPath.item].editState.merge(with:editItem)
         }
         
         photoEditor.dismiss(animated: true, completion: {

@@ -22,7 +22,7 @@ class BatchEditViewController: AppDockViewController {
     
     var placeholderImages = [PHAsset: UIImage?]()
     
-    var targetAssetItems = [PHAssetItem<TransformItem>]()
+    var targetAssetItems = [PHAssetItem<BatchAppPHAssetState>]()
     var initialIndexPath: IndexPath?
     
     @IBOutlet weak var previewCollectionView: UICollectionView!
@@ -113,7 +113,7 @@ class BatchEditViewController: AppDockViewController {
     }
     
     var hasChanges: Bool {
-        return targetAssetItems.map({ $0.editItem.hasChanges }).contains(true)
+        return targetAssetItems.map({ $0.editState.hasChanges }).contains(true)
     }
     
     func updateBatchEdit(animated: Bool = true, completion: (() -> Void)? = nil) {
@@ -121,9 +121,9 @@ class BatchEditViewController: AppDockViewController {
         updateToolBarButtonStatus()
     }
     
-    private func addTransformItem(_ transformItem: TransformItem) {
+    private func addTransformItem(_ transformItem: BatchAppPHAssetState) {
         for assetEditItem in targetAssetItems {
-            assetEditItem.editItem.append(transformItem)
+            assetEditItem.editState.append(transformItem)
         }
         
         updateBatchEdit()
@@ -131,7 +131,7 @@ class BatchEditViewController: AppDockViewController {
     
     private func resetTransformItems() {
         for item in targetAssetItems {
-            item.editItem.reset()
+            item.editState.reset()
         }
         
         updateBatchEdit()
@@ -156,7 +156,7 @@ class BatchEditViewController: AppDockViewController {
         let visibleIndexPaths = previewCollectionView.indexPathsForVisibleItems
         for indexPath in visibleIndexPaths {
             guard let cell = self.previewCollectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else { continue }
-            cell.setImageEditItem(self.targetAssetItems[indexPath.item].editItem, animated: animated)
+            cell.setImageEditItem(self.targetAssetItems[indexPath.item].editState, animated: animated)
         }
     }
     
@@ -332,7 +332,7 @@ extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewD
         }
         
         if let cell = cell as? PreviewCollectionViewCell {
-            cell.setImageEditItem(self.targetAssetItems[indexPath.item].editItem)
+            cell.setImageEditItem(self.targetAssetItems[indexPath.item].editState)
         }
     }
     
@@ -345,12 +345,12 @@ extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewD
         else { return }
         
         cell.assetView.layer.transform = CATransform3DIdentity
-        cell.assetView.transform = targetAssetItems[indexPath.item].editItem.transform
+        cell.assetView.transform = targetAssetItems[indexPath.item].editState.transform
         
         cell.assetView.heroModifiers = [.fade]
         
         let placeholderImage = cell.assetView.image
-        let preferredTransform = targetAssetItems[indexPath.item].editItem.transform;
+        let preferredTransform = targetAssetItems[indexPath.item].editState.transform;
         
         let photoEditViewController = storyboard?.instantiateViewController(withIdentifier: "PhotoEditViewController") as! PhotoEditViewController
         photoEditViewController.placeholderImage = placeholderImage
@@ -411,7 +411,7 @@ extension BatchEditViewController: UICollectionViewDataSource, UICollectionViewD
         let contentSize = UIEdgeInsetsInsetRect(collectionView.bounds, contentInset).size
         let boundingSize = CGSize(width: kEditItemPreviewWidth, height: kEditItemPreviewWidth)
         let photoSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight).aspectFit(in: boundingSize)
-        let cellSize = photoSize.applying(targetAssetItems[indexPath.item].editItem.transform).magnitude
+        let cellSize = photoSize.applying(targetAssetItems[indexPath.item].editState.transform).magnitude
         return CGSize(width: cellSize.width, height: contentSize.height)
     }
     
@@ -438,7 +438,7 @@ extension BatchEditViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         playAssetIfExistsInCenterOfView()
     }
-    
+
     fileprivate func playAssetIfExistsInCenterOfView() {
         for cell in previewCollectionView.visibleCells {
             guard let cell = cell as? PreviewCollectionViewCell else { continue }
@@ -461,7 +461,7 @@ extension BatchEditViewController: UIScrollViewDelegate {
 }
 
 extension BatchEditViewController: TransformEditViewControllerDelegate {
-    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: EditableItem<TransformItem>?, at indexPath: IndexPath?) {
+    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: StateValueSet<BatchAppPHAssetState>?, at indexPath: IndexPath?) {
         guard let editItem = editItem, let indexPath = indexPath else {
             photoEditor.dismiss(animated: true, completion: {
                 photoEditor.placeholderView?.removeFromSuperview()
@@ -469,7 +469,7 @@ extension BatchEditViewController: TransformEditViewControllerDelegate {
             return
         }
         
-        targetAssetItems[indexPath.item].editItem.merge(with:editItem)
+        targetAssetItems[indexPath.item].editState.merge(with:editItem)
         
         updateBatchEdit(animated: false) {
             if let cell = self.previewCollectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell, let snapshot = photoEditor.placeholderView {

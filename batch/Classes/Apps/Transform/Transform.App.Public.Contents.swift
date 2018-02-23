@@ -6,11 +6,21 @@
 import Foundation
 import UIKit
 
-public extension EditableItem where T:TransformItem{
+extension BatchAppPHAssetState {
+    var transform: CGAffineTransform {
+        return .identity
+    }
+
+    var transform3d: CATransform3D {
+        return CATransform3DIdentity
+    }
+}
+
+public extension StateValueSet where T: BatchAppPHAssetState {
     var transform: CGAffineTransform {
         var t = CGAffineTransform.identity
-        for transformItem in self.iterator() {
-            t = t.concatenating(transformItem.transform)
+        for value in self.iterator() {
+            t = t.concatenating(value.transform)
         }
         return t
     }
@@ -19,14 +29,15 @@ public extension EditableItem where T:TransformItem{
         var t = CATransform3DIdentity
         t.m34 = -1 / kEditItemPreviewWidth
 
-        for transformItem in self.iterator() {
-            t = CATransform3DConcat(t, transformItem.transform3d)
+        for value in self.iterator() {
+            t = CATransform3DConcat(t, value.transform3d)
         }
         return t
     }
 }
 
-public class RotationTransformItem: TransformItem {
+
+public class RotationTransformItem: BatchAppPHAssetState {
     var angle: CGFloat = 0
 
     override var transform: CGAffineTransform {
@@ -50,7 +61,7 @@ public class RotationTransformItem: TransformItem {
     }
 }
 
-public class VerticalFlipTransformItem: TransformItem {
+public class VerticalFlipTransformItem: BatchAppPHAssetState {
     override var transform: CGAffineTransform {
         return CGAffineTransform(scaleX: 1, y: -1)
     }
@@ -60,7 +71,7 @@ public class VerticalFlipTransformItem: TransformItem {
     }
 }
 
-public class HorizontalFlipTransformItem: TransformItem {
+public class HorizontalFlipTransformItem: BatchAppPHAssetState {
     override var transform: CGAffineTransform {
         return CGAffineTransform(scaleX: -1, y: 1)
     }

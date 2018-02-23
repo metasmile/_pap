@@ -15,7 +15,7 @@ extension _TransformAppAsset: PHAssetImageEditable {
     func edit<T: ImageProcessable>(processor: T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
         let asset = self.asset
 
-        guard let image = asset.asUIImage?.applyTransform(self.editItem.transform) else {
+        guard let image = asset.asUIImage?.applyTransform(self.editState.transform) else {
             completionHandler(nil, nil)
             return nil
         }
@@ -55,8 +55,8 @@ extension _TransformAppAsset: PHAssetLivePhotoEditable {
 
             let editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: item.input)
             editingContext?.frameProcessor = { frame, error in
-                let editItemConvertedCoordinates = EditableItem<TransformItem>()
-                for transformItem in self.editItem.iterator(){
+                let editItemConvertedCoordinates = StateValueSet<BatchAppPHAssetState>()
+                for transformItem in self.editState.iterator(){
                     if let rotationItem = transformItem as? RotationTransformItem {
                         editItemConvertedCoordinates.append(RotationTransformItem(radians: -rotationItem.angle))
                     }
@@ -100,7 +100,7 @@ extension _TransformAppAsset: PHAssetLivePhotoEditable {
         var pairedPhoto: UIImage?
         let retrievePairedResourcesHandler = { [weak self] in
             guard
-                    let editItem = self?.editItem,
+                    let editItem = self?.editState,
                     let _ = pairedVideo?.applyTransform(editItem.transform),
                     let _ = pairedPhoto?.applyTransform(editItem.transform)
                     else { return }
@@ -152,7 +152,7 @@ extension _TransformAppAsset: PHAssetVideoEditable {
         let asset = self.asset
 
         guard
-                let video = asset.asAVAsset?.applyTransform(editItem.transform),
+                let video = asset.asAVAsset?.applyTransform(editState.transform),
                 let videoTrack = video.tracks(withMediaType: .video).first
 
                 else {
@@ -169,7 +169,7 @@ extension _TransformAppAsset: PHAssetVideoEditable {
             }
 
             let videoComposition = AVMutableVideoComposition(propertiesOf: video)
-            videoComposition.renderSize = videoTrack.naturalSize.applying(self.editItem.transform).magnitude
+            videoComposition.renderSize = videoTrack.naturalSize.applying(self.editState.transform).magnitude
             videoComposition.frameDuration = CMTimeMake(1, videoTrack.naturalTimeScale)
 
             let exportSession = AVAssetExportSession(asset: video, presetName: AVAssetExportPresetPassthrough)

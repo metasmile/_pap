@@ -24,11 +24,11 @@ protocol BatchPreviewViewDelegate {
 
 class BatchPreviewView: CustomView {
     @IBOutlet weak var collectionView: UICollectionView!
-    fileprivate (set) var targetAssetItems = [PHAssetItem<TransformItem>]()
+    fileprivate (set) var targetAssetItems = [PHAssetItem<BatchAppPHAssetState>]()
     var delegate: BatchPreviewViewDelegate?
 
     var hasChanges: Bool {
-        return targetAssetItems.map({ $0.editItem.hasChanges }).contains(true)
+        return targetAssetItems.map({ $0.editState.hasChanges }).contains(true)
     }
     
     var isProcessing: Bool {
@@ -46,11 +46,11 @@ class BatchPreviewView: CustomView {
 }
 
 extension BatchPreviewView {
-    func addTransformItem(_ transformItem: TransformItem) {
+    func addTransformItem(_ transformItem: BatchAppPHAssetState) {
         guard !isProcessing else { return }
         
         for item in targetAssetItems {
-            item.editItem.append(transformItem)
+            item.editState.append(transformItem)
         }
         
         updatePreviews()
@@ -60,7 +60,7 @@ extension BatchPreviewView {
         guard !isProcessing else { return }
         
         for item in targetAssetItems {
-            item.editItem.reset()
+            item.editState.reset()
         }
         
         updatePreviews()
@@ -82,7 +82,7 @@ extension BatchPreviewView {
         let visibleIndexPaths = collectionView.indexPathsForVisibleItems
         for indexPath in visibleIndexPaths {
             guard let cell = self.collectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else { continue }
-            cell.setImageEditItem(self.targetAssetItems[indexPath.item].editItem, animated: animated)
+            cell.setImageEditItem(self.targetAssetItems[indexPath.item].editState, animated: animated)
         }
         
         updateAlignment(animated: false)
@@ -97,7 +97,7 @@ extension BatchPreviewView {
         //TODO: parameter router ex: check and automatically assign for N type of params [PHAssetParamable.Type, ...]
         //TODO: relpace all PHAssetItem<TransformItem> -> more flexable protocol type
         if let selectedAppsParamClass = BatchAppCenter.default.current.paramClass as? PHAssetParamable.Type
-            , let selectedAppsParam = selectedAppsParamClass.init(_asset, indexPath: indexPath) as? PHAssetItem<TransformItem>{
+            , let selectedAppsParam = selectedAppsParamClass.init(_asset, indexPath: indexPath) as? PHAssetItem<BatchAppPHAssetState>{
 
             targetAssetItems.append(selectedAppsParam)
 
@@ -188,7 +188,7 @@ extension BatchPreviewView {
         let reaction = AppTaskReaction().when { response, progress, remained, completed in
             assert(response.info.state != .completed || response.info.state == .completed && response.result != nil, "task state is .completed but result is nil")
 
-            let requestedParam = response.request.param as? PHAssetItem<TransformItem>
+            let requestedParam = response.request.param as? PHAssetItem<BatchAppPHAssetState>
             let totalCount = remained.count+completed.count
 
             switch (response.info.state) {
@@ -297,7 +297,7 @@ extension BatchPreviewView: UICollectionViewDelegateFlowLayout {
         let contentSize = UIEdgeInsetsInsetRect(collectionView.bounds, contentInset).size
         let boundingSize = CGSize(width: contentSize.height, height: contentSize.height)
         let photoSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight).aspectFit(in: boundingSize)
-        let cellSize = photoSize.applying(targetAssetItems[indexPath.item].editItem.transform).magnitude
+        let cellSize = photoSize.applying(targetAssetItems[indexPath.item].editState.transform).magnitude
         return CGSize(width: cellSize.width, height: contentSize.height)
     }
     
