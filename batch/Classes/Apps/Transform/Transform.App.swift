@@ -12,7 +12,7 @@ import Crashlytics
 
 class _TransformAppAsset: PHAssetItem<BatchAppPHAssetState> {}
 
-public class TransformApp: AppPrototype, Appable, FinalizableAppable {
+public class TransformApp: AppPrototype, Appable, PHAssetEditableFinalizableAppable {
     public static let taskType:Taskable.Type = _TransfromAppTask.self
 
     public static let paramType:TaskParamable.Type = _TransformAppAsset.self
@@ -26,10 +26,6 @@ public class TransformApp: AppPrototype, Appable, FinalizableAppable {
             , iconImage: "Transform.App.Icon"
             , lifeCycleUnit: .systemMemory
     )
-
-    public func finalize(result: [AppTaskRespondable], _ asyncSignal: TaskAsyncSignalable) -> [AppTaskRespondable] {
-        return result
-    }
 }
 
 //TODO: retrictful conforms param type

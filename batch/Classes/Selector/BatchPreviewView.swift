@@ -209,32 +209,15 @@ extension BatchPreviewView {
 
         }).will(finish: { resultsByApps, respondables in
 
+            self.delegate?.batchPreviewViewWillBeginExport(self)
+
 
         }).did(finish: { resultsByApps, respondables in
             assert(!self.isProcessing)
 
-            let results = respondables.flatMap {
-                $0.result as? PHAssetResultable
+            DispatchQueue.main.async { [unowned self] in
+                self.delegate?.batchPreviewViewDidEndEdit(self)
             }
-
-            self.delegate?.batchPreviewViewWillBeginExport(self)
-
-            let editedResults = results.filter { resultable in resultable.contentEditingOutput != nil }
-
-            PHPhotoLibrary.shared().performChanges({
-                for result in results {
-                    PHAssetChangeRequest(for: result.asset).contentEditingOutput = result.contentEditingOutput
-                }
-            }, completionHandler: { (success, info) in
-                DispatchQueue.main.async { [unowned self] in
-                    if success {
-                        self.delegate?.batchPreviewViewDidEndEdit(self)
-                    }
-                    else {
-                        self.delegate?.batchPreviewViewDidCancelEdit(self)
-                    }
-                }
-            })
 
             //log
             for (app, results) in resultsByApps{
