@@ -105,14 +105,17 @@ class PhotoPickerViewController: AppDockViewController {
     func debug_attachMultiAppSelector(){
         let f = CGRect(origin: .zero, size: CGSize(width:30,height:30) )
 
+        let containerView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: view.bounds.width, height: 44)))
+        
         for (i, app) in BatchAppCenter.default.apps.enumerated(){
             let iv = UIImageView(frame: f)
             iv.image = app.info.iconImage?.asUIImage
             iv.isUserInteractionEnabled = true
 
-            self.view.addSubview(iv)
+            containerView.addSubview(iv)
+            
             iv.x = CGFloat(i) * (f.size.width+5)
-            iv.bottom = self.view.bottom
+//            iv.bottom = self.view.bottom
             iv.addTapGestureRecognizer {
                 BatchAppCenter.default.current = app
                 print("Selected App: \(app)")
@@ -129,6 +132,8 @@ class PhotoPickerViewController: AppDockViewController {
 
             }
         }
+        
+        appDockView.addAccessoryViewToTop(containerView)
 
         BatchAppCenter.default.current = TransformApp.self
     }
@@ -228,13 +233,13 @@ extension PhotoPickerViewController {
             navigationItem.setLeftBarButton(nil, animated: true)
             navigationItem.setRightBarButton(nil, animated: true)
             
-            appDockView.setAccessoryViewToTop(nil)
+            appDockView.removeAccessoryViewsOnTop(batchPreviewView)
         }
         else {
             navigationItem.setLeftBarButton(cancelButton, animated: true)
             navigationItem.setRightBarButton(doneButton, animated: true)
             
-            appDockView.setAccessoryViewToTop(batchPreviewView)
+            appDockView.addAccessoryViewToTop(batchPreviewView)
             
             if numberOfPhotos > 0 && numberOfVideos == 0 {
                 let pluralizedString = "Photo" + (numberOfPhotos == 1 ? "" : "s")
@@ -694,17 +699,6 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: 60)
-    }
-}
-
-extension PhotoPickerViewController: BatchEditViewControllerDelegate {
-    func batchEditViewControllerDidCancelEditing(_ editor: BatchEditViewController) {
-        editor.dismiss(animated: true, completion: nil)
-    }
-    
-    func batchEditViewControllerDidFinishEditing(_ editor: BatchEditViewController) {
-        cancelAllSelection()
-        editor.dismiss(animated: true, completion: nil)
     }
 }
 

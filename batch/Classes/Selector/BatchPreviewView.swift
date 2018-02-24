@@ -43,6 +43,10 @@ class BatchPreviewView: CustomView {
         collectionView.register(PreviewCollectionViewCell.self, forCellWithReuseIdentifier: "PreviewCollectionViewCell")
         updateAlignment(animated: false)
     }
+    
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: super.intrinsicContentSize.width, height: 44)
+    }
 }
 
 extension BatchPreviewView {

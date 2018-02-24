@@ -60,24 +60,56 @@ class AppDockView: CustomView {
     
     func setAccessoryViewToTop(_ view: UIView?, animated: Bool = true) {
         guard !hasAccessoryView(view) else { return }
-        _ = topAccessoryView.arrangedSubviews.map({ topAccessoryView.removeArrangedSubview($0) })
+        removeAllAccessoryViewsOnTop(animated: animated)
         addAccessoryViewToTop(view, animated: animated)
     }
     
     func addAccessoryViewToTop(_ view: UIView?, animated: Bool = true) {
+        guard !hasAccessoryView(view) else { return }
         if let view = view {
-            topAccessoryView.addArrangedSubview(view)
+            topAccessoryView.insertArrangedSubview(view, at: 0)
         }
-        topAccessoryViewHeightLayout.constant = 44 * CGFloat(topAccessoryView.arrangedSubviews.count)
         
-        layoutIfNeeded()
-        invalidateIntrinsicContentSize()
+        layoutTopAccessoryView()
         
         if animated {
             UIView.animate(withDuration: 0.2, animations: {
                 self.superview?.layoutIfNeeded()
             })
         }
+    }
+    
+    func removeAccessoryViewsOnTop(_ view: UIView, animated: Bool = true) {
+        guard hasAccessoryView(view) else { return }
+        
+        topAccessoryView.removeArrangedSubview(view)
+        
+        layoutTopAccessoryView()
+        
+        if animated {
+            UIView.animate(withDuration: 0.2, animations: {
+                self.superview?.layoutIfNeeded()
+            })
+        }
+    }
+    
+    func removeAllAccessoryViewsOnTop(animated: Bool = true) {
+        topAccessoryView.arrangedSubviews.forEach({ topAccessoryView.removeArrangedSubview($0) })
+        
+        layoutTopAccessoryView()
+        
+        if animated {
+            UIView.animate(withDuration: 0.2, animations: {
+                self.superview?.layoutIfNeeded()
+            })
+        }
+    }
+    
+    fileprivate func layoutTopAccessoryView() {
+        topAccessoryViewHeightLayout.constant = topAccessoryView.arrangedSubviews.map({ max($0.bounds.height, 44) }).reduce(0, +)
+        
+        layoutIfNeeded()
+        invalidateIntrinsicContentSize()
     }
     
     fileprivate func hasAccessoryView(_ view: UIView?) -> Bool {

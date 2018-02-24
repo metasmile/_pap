@@ -7,16 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A66CD4E1F9592A600A97726 /* FloatingToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A66CD4D1F9592A600A97726 /* FloatingToolbar.xib */; };
-		0A66CD501F95935500A97726 /* FloatingToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A66CD4F1F95935500A97726 /* FloatingToolbar.swift */; };
 		0A771E901FB1429800BBFCD7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A771E8F1FB1429700BBFCD7 /* GoogleService-Info.plist */; };
 		0A88FF751FA04AD6001C0DC6 /* FloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A88FF741FA04AD6001C0DC6 /* FloatingView.swift */; };
 		0A8C4ADE1F3C15BF00B7246A /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8C4ADD1F3C15BF00B7246A /* RoundedButton.swift */; };
 		0A8D18E11F15DEEF00AABEF7 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D18E01F15DEEF00AABEF7 /* CustomView.swift */; };
 		0A8FDA051FA76EF8002380AA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A8FDA041FA76EF8002380AA /* Launch Screen.storyboard */; };
 		0A9CC9291F8774EC00AC91A6 /* PhotoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CC9281F8774EC00AC91A6 /* PhotoEditViewController.swift */; };
-		0A9E4AFA1F8F300200E3E805 /* BatchProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A9E4AF91F8F300200E3E805 /* BatchProgressView.xib */; };
-		0A9E4AFC1F8F303200E3E805 /* BatchProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E4AFB1F8F303200E3E805 /* BatchProgressView.swift */; };
 		0A9EBAE31FD6F37200E83778 /* BatchPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9EBAE21FD6F37200E83778 /* BatchPreviewView.swift */; };
 		0A9EBAE51FD6F3AF00E83778 /* BatchPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A9EBAE41FD6F3AF00E83778 /* BatchPreviewView.xib */; };
 		0A9EC7741F30735B00F1EF3A /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A9EC7731F30735B00F1EF3A /* PhotoCollectionViewCell.xib */; };
@@ -24,7 +20,6 @@
 		0AA166941FD7A7F10004205C /* PreviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA166931FD7A7F10004205C /* PreviewCollectionViewCell.xib */; };
 		0AA166961FD7A8710004205C /* PreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA166951FD7A8710004205C /* PreviewCollectionViewCell.swift */; };
 		0AA37B281FD53163002803B8 /* AppDockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA37B271FD53163002803B8 /* AppDockViewController.swift */; };
-		0AA382621F4ECA420031BAB5 /* BatchEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA382611F4ECA420031BAB5 /* BatchEditViewController.swift */; };
 		0AA86ED51FD1199A00E6E1B0 /* AppDock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA86ED41FD1199A00E6E1B0 /* AppDock.swift */; };
 		0AA86ED71FD11EEF00E6E1B0 /* AppDockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA86ED61FD11EEF00E6E1B0 /* AppDockView.xib */; };
 		0AA86ED91FD12BF600E6E1B0 /* AppDockViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA86ED81FD12BF600E6E1B0 /* AppDockViewCell.xib */; };
@@ -116,16 +111,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A66CD4D1F9592A600A97726 /* FloatingToolbar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FloatingToolbar.xib; sourceTree = "<group>"; };
-		0A66CD4F1F95935500A97726 /* FloatingToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingToolbar.swift; sourceTree = "<group>"; };
 		0A771E8F1FB1429700BBFCD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0A88FF741FA04AD6001C0DC6 /* FloatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingView.swift; sourceTree = "<group>"; };
 		0A8C4ADD1F3C15BF00B7246A /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		0A8D18E01F15DEEF00AABEF7 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		0A8FDA041FA76EF8002380AA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0A9CC9281F8774EC00AC91A6 /* PhotoEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditViewController.swift; sourceTree = "<group>"; };
-		0A9E4AF91F8F300200E3E805 /* BatchProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BatchProgressView.xib; sourceTree = "<group>"; };
-		0A9E4AFB1F8F303200E3E805 /* BatchProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchProgressView.swift; sourceTree = "<group>"; };
 		0A9EBAE21FD6F37200E83778 /* BatchPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchPreviewView.swift; sourceTree = "<group>"; };
 		0A9EBAE41FD6F3AF00E83778 /* BatchPreviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BatchPreviewView.xib; sourceTree = "<group>"; };
 		0A9EC7731F30735B00F1EF3A /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -133,7 +124,6 @@
 		0AA166931FD7A7F10004205C /* PreviewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewCollectionViewCell.xib; sourceTree = "<group>"; };
 		0AA166951FD7A8710004205C /* PreviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		0AA37B271FD53163002803B8 /* AppDockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDockViewController.swift; sourceTree = "<group>"; };
-		0AA382611F4ECA420031BAB5 /* BatchEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchEditViewController.swift; sourceTree = "<group>"; };
 		0AA86ED41FD1199A00E6E1B0 /* AppDock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDock.swift; sourceTree = "<group>"; };
 		0AA86ED61FD11EEF00E6E1B0 /* AppDockView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppDockView.xib; sourceTree = "<group>"; };
 		0AA86ED81FD12BF600E6E1B0 /* AppDockViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppDockViewCell.xib; sourceTree = "<group>"; };
@@ -252,10 +242,8 @@
 		0A8C4ADC1F3C159300B7246A /* Custom Controls */ = {
 			isa = PBXGroup;
 			children = (
-				0A9E4AFB1F8F303200E3E805 /* BatchProgressView.swift */,
 				4F71D2465BD7BAD13DA17B6D /* CheckMarkView.swift */,
 				0A8D18E01F15DEEF00AABEF7 /* CustomView.swift */,
-				0A66CD4F1F95935500A97726 /* FloatingToolbar.swift */,
 				0A88FF741FA04AD6001C0DC6 /* FloatingView.swift */,
 				4F71DED41994345222015B8E /* GradientView.swift */,
 				0A8C4ADD1F3C15BF00B7246A /* RoundedButton.swift */,
@@ -278,8 +266,6 @@
 		0AA347DF1F15B29A004EE8E6 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
-				0A9E4AF91F8F300200E3E805 /* BatchProgressView.xib */,
-				0A66CD4D1F9592A600A97726 /* FloatingToolbar.xib */,
 				0A9EC7731F30735B00F1EF3A /* PhotoCollectionViewCell.xib */,
 			);
 			path = Interfaces;
@@ -364,7 +350,6 @@
 				0A8C4ADC1F3C159300B7246A /* Custom Controls */,
 				0A9EBAE11FD6F34300E83778 /* Selector */,
 				0AA37B271FD53163002803B8 /* AppDockViewController.swift */,
-				0AA382611F4ECA420031BAB5 /* BatchEditViewController.swift */,
 				0A9CC9281F8774EC00AC91A6 /* PhotoEditViewController.swift */,
 				4F71D67696ED68B67F19CD2D /* PhotoPickerDetailViewController.swift */,
 				0ABFCF981F14B8A70078A583 /* PhotoPickerViewController.swift */,
@@ -936,8 +921,6 @@
 				0ABFCF931F14B7CB0078A583 /* Assets.xcassets in Resources */,
 				0AA86ED91FD12BF600E6E1B0 /* AppDockViewCell.xib in Resources */,
 				0A9EC7741F30735B00F1EF3A /* PhotoCollectionViewCell.xib in Resources */,
-				0A66CD4E1F9592A600A97726 /* FloatingToolbar.xib in Resources */,
-				0A9E4AFA1F8F300200E3E805 /* BatchProgressView.xib in Resources */,
 				0ABFCF911F14B7190078A583 /* AppStoryboard.storyboard in Resources */,
 				0A771E901FB1429800BBFCD7 /* GoogleService-Info.plist in Resources */,
 				0A9EBAE51FD6F3AF00E83778 /* BatchPreviewView.xib in Resources */,
@@ -1072,18 +1055,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AA166961FD7A8710004205C /* PreviewCollectionViewCell.swift in Sources */,
-				0AA382621F4ECA420031BAB5 /* BatchEditViewController.swift in Sources */,
 				0A9CC9291F8774EC00AC91A6 /* PhotoEditViewController.swift in Sources */,
 				0AA86ED51FD1199A00E6E1B0 /* AppDock.swift in Sources */,
 				0A8D18E11F15DEEF00AABEF7 /* CustomView.swift in Sources */,
-				0A9E4AFC1F8F303200E3E805 /* BatchProgressView.swift in Sources */,
 				0ABFCF7C1F14B65C0078A583 /* AppDelegate.swift in Sources */,
 				0AA37B281FD53163002803B8 /* AppDockViewController.swift in Sources */,
 				0A9F86D01FDA756800D25EB6 /* PhotoCollectionViewCell.swift in Sources */,
 				0ABFCF991F14B8A70078A583 /* PhotoPickerViewController.swift in Sources */,
 				0A8C4ADE1F3C15BF00B7246A /* RoundedButton.swift in Sources */,
 				0A9EBAE31FD6F37200E83778 /* BatchPreviewView.swift in Sources */,
-				0A66CD501F95935500A97726 /* FloatingToolbar.swift in Sources */,
 				0A88FF751FA04AD6001C0DC6 /* FloatingView.swift in Sources */,
 				4F71DB5DAD9BF2C4EF5C4FA0 /* CheckMarkView.swift in Sources */,
 				4F71DC974B06CAE26F7EBFBC /* GradientView.swift in Sources */,

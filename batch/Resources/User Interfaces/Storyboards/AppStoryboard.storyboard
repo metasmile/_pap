@@ -80,80 +80,7 @@
             </objects>
             <point key="canvasLocation" x="157.59999999999999" y="188.45577211394306"/>
         </scene>
-        <!--Batch Edit Views Controller-->
-        <scene sceneID="io0-Q2-bwn">
-            <objects>
-                <viewController storyboardIdentifier="BatchEditViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ShF-us-R7M" customClass="BatchEditViewController" customModule="batch" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="XJv-1Y-U1h"/>
-                        <viewControllerLayoutGuide type="bottom" id="21a-ao-jSA"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="t2k-Gu-mig">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9wI-kx-zQk">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="6Pk-Ea-7s6">
-                                    <size key="itemSize" width="200" height="297"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                                <connections>
-                                    <outlet property="dataSource" destination="ShF-us-R7M" id="RCG-3A-TtI"/>
-                                    <outlet property="delegate" destination="ShF-us-R7M" id="y0G-7h-ShG"/>
-                                    <outlet property="prefetchDataSource" destination="ShF-us-R7M" id="TNo-qi-Ks8"/>
-                                </connections>
-                            </collectionView>
-                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="60" translatesAutoresizingMaskIntoConstraints="NO" id="FPS-FO-haH" customClass="AppDockView" customModule="batch" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
-                            </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zhz-Qr-6IX">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dHU-se-tmh" customClass="BatchProgressView" customModule="batch" customModuleProvider="target">
-                                <rect key="frame" x="10" y="577" width="355" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="8it-zS-dle"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="dHU-se-tmh" secondAttribute="trailing" constant="10" id="1Yh-ou-ska"/>
-                            <constraint firstItem="zhz-Qr-6IX" firstAttribute="leading" secondItem="t2k-Gu-mig" secondAttribute="leading" id="3pZ-JG-yDM"/>
-                            <constraint firstItem="FPS-FO-haH" firstAttribute="leading" secondItem="t2k-Gu-mig" secondAttribute="leading" id="6hk-Ec-yPc"/>
-                            <constraint firstItem="zhz-Qr-6IX" firstAttribute="top" secondItem="t2k-Gu-mig" secondAttribute="top" id="CZk-O4-sww"/>
-                            <constraint firstItem="9wI-kx-zQk" firstAttribute="top" secondItem="t2k-Gu-mig" secondAttribute="top" id="JTb-2g-Tnd"/>
-                            <constraint firstAttribute="trailing" secondItem="FPS-FO-haH" secondAttribute="trailing" id="K94-jk-IGs"/>
-                            <constraint firstItem="21a-ao-jSA" firstAttribute="top" secondItem="dHU-se-tmh" secondAttribute="bottom" constant="10" id="Lti-6m-a0t"/>
-                            <constraint firstItem="9wI-kx-zQk" firstAttribute="leading" secondItem="t2k-Gu-mig" secondAttribute="leading" id="PL7-Xe-D72"/>
-                            <constraint firstAttribute="trailing" secondItem="9wI-kx-zQk" secondAttribute="trailing" id="Ru0-dh-gyo"/>
-                            <constraint firstAttribute="bottom" secondItem="FPS-FO-haH" secondAttribute="bottom" id="aQi-fe-5RX"/>
-                            <constraint firstAttribute="trailing" secondItem="zhz-Qr-6IX" secondAttribute="trailing" id="dCA-yg-k01"/>
-                            <constraint firstAttribute="bottom" secondItem="9wI-kx-zQk" secondAttribute="bottom" id="e5A-uQ-zUG"/>
-                            <constraint firstAttribute="bottom" secondItem="zhz-Qr-6IX" secondAttribute="bottom" id="xdN-th-qfR"/>
-                            <constraint firstItem="dHU-se-tmh" firstAttribute="leading" secondItem="t2k-Gu-mig" secondAttribute="leading" constant="10" id="xs6-wL-i3r"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="appDockView" destination="FPS-FO-haH" id="Kmy-iv-UG9"/>
-                        <outlet property="appDockViewBottomLayout" destination="aQi-fe-5RX" id="6Hx-P3-gub"/>
-                        <outlet property="batchProgressView" destination="dHU-se-tmh" id="KYY-9U-0lq"/>
-                        <outlet property="batchProgressViewBottomLayout" destination="Lti-6m-a0t" id="Zze-IO-JpZ"/>
-                        <outlet property="dimmedView" destination="zhz-Qr-6IX" id="DYp-SS-5XU"/>
-                        <outlet property="previewCollectionView" destination="9wI-kx-zQk" id="14S-Iz-VnU"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vIS-uH-0qE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="992.79999999999995" y="187.55622188905548"/>
-        </scene>
-        <!--Photo Edit Views Controller-->
+        <!--Photo Edit View Controller-->
         <scene sceneID="TqP-bS-mpI">
             <objects>
                 <viewController storyboardIdentifier="PhotoEditViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oyw-5W-GwR" customClass="PhotoEditViewController" customModule="batch" customModuleProvider="target" sceneMemberID="viewController">
@@ -193,7 +120,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qr6-ew-v7M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1826" y="188"/>
+            <point key="canvasLocation" x="956" y="188"/>
         </scene>
     </scenes>
 </document>
