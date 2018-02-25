@@ -83,22 +83,18 @@ class PhotoPickerViewController: AppDockViewController {
         dragSelectionGesture.delegate = self
         photoCollectionView.addGestureRecognizer(dragSelectionGesture)
 
-        NotificationCenter.default.addObserver(forName: BatchAppCenterNotification.Name.didChangeCurrent, object: BatchAppCenter.default, queue: nil) { notification in
-            //TODO: when app changed, selection should be maintained.
-            //TODO for test add Revert app with generalized param type
-
-            self.cancelAllSelection()
-
-            let previousTitle = self.title
-            self.title = "Selected App: \(BatchAppCenter.default.current.info.displayName)"
-            Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { timer in
-                self.title = previousTitle
-            }
-        }
-
-        #if DEBUG
-            self.debug_attachMultiAppSelector()
-        #endif
+//        NotificationCenter.default.addObserver(forName: BatchAppCenterNotification.Name.didChangeCurrent, object: BatchAppCenter.default, queue: nil) { notification in
+//            //TODO: when app changed, selection should be maintained.
+//            //TODO for test add Revert app with generalized param type
+//
+//            self.cancelAllSelection()
+//
+//            let previousTitle = self.title
+//            self.title = "Selected App: \(BatchAppCenter.default.current.info.displayName)"
+//            Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { timer in
+//                self.title = previousTitle
+//            }
+//        }
     }
 
 //TODO:TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
@@ -206,15 +202,15 @@ class PhotoPickerViewController: AppDockViewController {
     override func horizontalFlipButtonDidTap() {
         batchPreviewView.addTransformItem(HorizontalFlipTransformItem())
     }
-    
+
     override func verticalFlipButtonDidTap() {
         batchPreviewView.addTransformItem(VerticalFlipTransformItem())
     }
-    
+
     override func rotationLeftButtonDidTap() {
         batchPreviewView.addTransformItem(RotationTransformItem(degrees: -90))
     }
-    
+
     override func rotationRightButtonDidTap() {
         batchPreviewView.addTransformItem(RotationTransformItem(degrees: 90))
     }
