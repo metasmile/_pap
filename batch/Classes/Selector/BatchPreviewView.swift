@@ -24,11 +24,11 @@ protocol BatchPreviewViewDelegate {
 
 class BatchPreviewView: CustomView {
     @IBOutlet weak var collectionView: UICollectionView!
-    fileprivate (set) var targetAssetItems = [PHAssetItem<BatchAppPHAssetState>]()
+    fileprivate (set) var assetItems = [PHAssetItem<BatchAppPHAssetState>]()
     var delegate: BatchPreviewViewDelegate?
 
     var hasChanges: Bool {
-        return targetAssetItems.map({ $0.editState.hasChanges }).contains(true)
+        return assetItems.map({ $0.editState.hasChanges }).contains(true)
     }
     
     var isProcessing: Bool {
@@ -41,7 +41,7 @@ class BatchPreviewView: CustomView {
         print("[i] BatchAppCenter.default.task.maxConcurrentCount: ",BatchAppCenter.default.task.maxConcurrentCount)
         
         collectionView.register(PreviewCollectionViewCell.self, forCellWithReuseIdentifier: "PreviewCollectionViewCell")
-        updateAlignment(animated: false)
+        updateCollectionViewAlignment(animated: false)
     }
     
     override var intrinsicContentSize: CGSize {
@@ -53,7 +53,7 @@ extension BatchPreviewView {
     func addTransformItem(_ transformItem: BatchAppPHAssetState) {
         guard !isProcessing else { return }
         
-        for item in targetAssetItems {
+        for item in assetItems {
             item.editState.append(transformItem)
         }
         
@@ -63,7 +63,7 @@ extension BatchPreviewView {
     func resetTransformItems() {
         guard !isProcessing else { return }
         
-        for item in targetAssetItems {
+        for item in assetItems {
             item.editState.reset()
         }
         
@@ -86,81 +86,49 @@ extension BatchPreviewView {
         let visibleIndexPaths = collectionView.indexPathsForVisibleItems
         for indexPath in visibleIndexPaths {
             guard let cell = self.collectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else { continue }
-            cell.setImageEditItem(self.targetAssetItems[indexPath.item].editState, animated: animated)
+            cell.setImageEditItem(self.assetItems[indexPath.item].editState, animated: animated)
         }
         
-        updateAlignment(animated: false)
+        updateCollectionViewAlignment(animated: false)
     }
 }
 
-extension BatchPreviewView {
-
-    func putEditItem(for asset: PHAsset) -> IndexPath? {
-        guard let item = createItem(for:asset) else{
-            assert(false, "Unable to create PHAssetItem<BatchAppPHAssetState> as PHAssetParamable.Type")
+extension BatchPreviewView{
+    func appendCollectionViewItem(with asset: PHAsset) -> IndexPath? {
+        guard let insertedIndexPath = putAssetItem(for:asset) else {
             return nil
         }
 
-        var insertedIndex = -1
-
-        if let _indexOfAsset = targetAssetItems.index(where: { $0.asset == asset }){
-            targetAssetItems[_indexOfAsset] = item
-            insertedIndex = _indexOfAsset
-
-        }else{
-            targetAssetItems.append(item)
-            insertedIndex = targetAssetItems.count-1
-        }
-
-        let currentSection = 0 //TODO: collectionView.currentSection
-        let insertedIndexPath = IndexPath(item: insertedIndex, section: currentSection)
-
-        item.indexPath = insertedIndexPath
-
-        collectionView.insertItems(at: [insertedIndexPath])
-
-        updateAlignment()
-
-        collectionView.scrollToItem(at: insertedIndexPath, at: .centeredHorizontally, animated: true)
+        self.collectionView.insertItems(at: [insertedIndexPath])
+        self.updateCollectionViewAlignment()
+        self.collectionView.scrollToItem(at: insertedIndexPath, at: .centeredHorizontally, animated: true)
 
         return insertedIndexPath
     }
 
-    func createItem(for asset: PHAsset) -> PHAssetItem<BatchAppPHAssetState>? {
-        if let itemType = BatchAppCenter.default.current.paramType as? PHAssetParamable.Type
-        , let item = itemType.init(asset) as? PHAssetItem<BatchAppPHAssetState>{
-            return item
-
-        } else{
-            print("[!] Does not implement yet for param type of \(BatchAppCenter.default.current.info.appType)")
-            return nil
+    func removeCollectionViewItem(with asset: PHAsset?) {
+        guard let _asset = asset, let indexPath = removeAssetItem(for:_asset) else {
+            return
         }
-    }
-    
-    func removeEditItem(with asset: PHAsset?) {
-        guard let item = targetAssetItems.index(where: { $0.asset == asset }) else { return }
-        
-        let indexPath = IndexPath(item: item, section: 0)
-        
-        targetAssetItems.remove(at: item)
+
         collectionView.deleteItems(at: [indexPath])
-        updateAlignment()
-        
-        if targetAssetItems.count > 0 {
-            let nearestItem = max(min(item - 1, targetAssetItems.count - 2), 0)
+        updateCollectionViewAlignment()
+
+        if assetItems.count > 0 {
+            let nearestItem = max(min(indexPath.item - 1, assetItems.count - 2), 0)
             collectionView.scrollToItem(at: IndexPath(item: nearestItem, section: 0), at: .centeredHorizontally, animated: true)
         }
     }
-    
-    func removeAllEditItems() {
-        let indexPaths = (0..<targetAssetItems.count).map({ IndexPath(item: $0, section: 0) })
-        
-        targetAssetItems.removeAll()
+
+    func removeAllCollectionViewItems() {
+        let indexPaths = (0..<assetItems.count).map({ IndexPath(item: $0, section: 0) })
+
+        assetItems.removeAll()
         collectionView.deleteItems(at: indexPaths)
-        updateAlignment()
+        updateCollectionViewAlignment()
     }
-    
-    func updateAlignment(animated: Bool = true) {
+
+    func updateCollectionViewAlignment(animated: Bool = true) {
         collectionView.collectionViewLayout.prepare()
         let contentWidth = collectionView.collectionViewLayout.collectionViewContentSize.width
         var contentInset = collectionView.contentInset
@@ -173,7 +141,7 @@ extension BatchPreviewView {
             contentInset.left = inset
             contentInset.right = inset
         }
-        
+
         if animated {
             UIView.animate(withDuration: 0.2) {
                 self.collectionView.contentInset = contentInset
@@ -183,9 +151,65 @@ extension BatchPreviewView {
             collectionView.contentInset = contentInset
         }
     }
-    
-    func reloadEditItems() {
+
+    func reloadCollectionViewItems() {
         updatePreviews()
+    }
+}
+
+extension BatchPreviewView {
+
+    @discardableResult
+    func putAssetItem(for asset: PHAsset) -> IndexPath? {
+        guard let item = createAssetItem(for:asset) else{
+            assert(false, "Unable to create PHAssetItem<BatchAppPHAssetState> as PHAssetParamable.Type")
+            return nil
+        }
+
+        var insertedIndex = -1
+
+        if let _indexOfAsset = assetItems.index(where: { $0.asset == asset }){
+            assetItems[_indexOfAsset] = item
+            insertedIndex = _indexOfAsset
+
+        }else{
+            insertedIndex = assetItems.count
+            assetItems.append(item)
+        }
+
+        let currentSection = 0 //TODO: collectionView.currentSection
+        let insertedIndexPath = IndexPath(item: insertedIndex, section: currentSection)
+
+        item.indexPath = insertedIndexPath
+
+        return insertedIndexPath
+    }
+
+    func createAssetItem(for asset: PHAsset) -> PHAssetItem<BatchAppPHAssetState>? {
+        if let itemType = BatchAppCenter.default.current.paramType as? PHAssetParamable.Type
+        , let item = itemType.init(asset) as? PHAssetItem<BatchAppPHAssetState>{
+            return item
+
+        } else{
+            print("[!] Does not implement yet for param type of \(BatchAppCenter.default.current.info.appType)")
+            return nil
+        }
+    }
+
+    func removeAssetItem(for asset: PHAsset) -> IndexPath? {
+        guard let item = assetItems.index(where: { $0.asset == asset }) else {
+            return nil
+        }
+
+        assetItems.remove(at: item)
+
+        return IndexPath(item: item, section: 0)
+    }
+
+    func reloadAllAssetItems() {
+        for item in self.assetItems {
+            putAssetItem(for: item.asset)
+        }
     }
 }
 
@@ -206,7 +230,7 @@ extension BatchPreviewView {
         collectionView.scrollToItem(at: IndexPath(item: 0, section: targetSection), at: .centeredHorizontally, animated: true)
 
         //TODO: BatchAppCenter.default.task.append immediatly from UI action instead of using "EditItems"
-        targetAssetItems.forEach { item in
+        assetItems.forEach { item in
             BatchAppCenter.default.task.append(request: AppTaskRequest(BatchAppCenter.default.current, item))
         }
 
@@ -277,12 +301,12 @@ extension BatchPreviewView {
 
 extension BatchPreviewView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return targetAssetItems.count
+        return assetItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PreviewCollectionViewCell", for: indexPath) as! PreviewCollectionViewCell
-        cell.setEditItemForPreview(targetAssetItems[indexPath.item], at: indexPath)
+        cell.setEditItemForPreview(assetItems[indexPath.item], at: indexPath)
         return cell
     }
 }
@@ -299,7 +323,7 @@ extension BatchPreviewView: UICollectionViewDelegate {
 
 extension BatchPreviewView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let asset = targetAssetItems[indexPath.item].asset
+        let asset = assetItems[indexPath.item].asset
 
         let contentInset: UIEdgeInsets
         if #available(iOS 11.0, *) {
@@ -312,7 +336,7 @@ extension BatchPreviewView: UICollectionViewDelegateFlowLayout {
         let contentSize = UIEdgeInsetsInsetRect(collectionView.bounds, contentInset).size
         let boundingSize = CGSize(width: contentSize.height, height: contentSize.height)
         let photoSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight).aspectFit(in: boundingSize)
-        let cellSize = photoSize.applying(targetAssetItems[indexPath.item].editState.transform).magnitude
+        let cellSize = photoSize.applying(assetItems[indexPath.item].editState.transform).magnitude
         return CGSize(width: cellSize.width, height: contentSize.height)
     }
     

@@ -84,16 +84,8 @@ class PhotoPickerViewController: AppDockViewController {
         photoCollectionView.addGestureRecognizer(dragSelectionGesture)
 
         NotificationCenter.default.addObserver(forName: BatchAppCenterNotification.Name.didChangeCurrent, object: BatchAppCenter.default, queue: nil) { notification in
-            //TODO: when app changed, selection should be maintained.
-            //TODO for test add Revert app with generalized param type
-
-            self.cancelAllSelection()
-
-            let previousTitle = self.title
-            self.title = "Selected App: \(BatchAppCenter.default.current.info.displayName)"
-            Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { timer in
-                self.title = previousTitle
-            }
+            self.batchPreviewView.reloadAllAssetItems()
+            self.showCurrentSelectedAppDisplayName()
         }
 
         #if DEBUG
@@ -138,7 +130,7 @@ class PhotoPickerViewController: AppDockViewController {
         BatchAppCenter.default.current = TransformApp.self
     }
 //TODO:TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
-    
+
     deinit {
         PHPhotoLibrary.shared().unregisterChangeObserver(self)
     }
@@ -185,8 +177,6 @@ class PhotoPickerViewController: AppDockViewController {
             case .develop:
                 print("[!] Unable to run. Selected app's state is \(app.info.state)")
 
-                self.cancelAllSelection()
-
                 let previousTitle = self.title
                 self.title = "Selected app is not ready."
                 Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { timer in
@@ -221,8 +211,23 @@ class PhotoPickerViewController: AppDockViewController {
 }
 
 extension PhotoPickerViewController {
+    func showCurrentSelectedAppDisplayName(){
+
+        let prefixTitle = "Selected App: "
+        let previousTitle = true == self.title?.hasPrefix(prefixTitle) ? "Batch" : self.title
+        self.title = "\(prefixTitle)\(BatchAppCenter.default.current.info.displayName)"
+
+        Timer.scheduledTimer(identifier: "batch_selectedAppTitle", withTimeInterval: 2, repeats: false) { timer in
+            if let _ = self.selectedAssets{
+                self.updateTitleForSelectedItems()
+            }else{
+                self.title = previousTitle
+            }
+        }
+    }
+
     func updateTitleForSelectedItems() {
-        let selectedAssets = photoCollectionView.indexPathsForSelectedItems?.flatMap({ self.asset(at: $0) })
+        let selectedAssets = self.selectedAssets
         let numberOfVideos = selectedAssets?.filter({ $0.mediaType == .video }).count ?? 0
         let numberOfPhotos = selectedAssets?.filter({ $0.mediaType == .image }).count ?? 0
         let numberOfItems = numberOfPhotos + numberOfVideos
@@ -266,7 +271,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
             
             let vc = PhotoPickerDetailViewController()
             vc.asset = selectedAsset
-            vc.assetEditItem = batchPreviewView.targetAssetItems.first(where: { $0.asset == selectedAsset })
+            vc.assetEditItem = batchPreviewView.assetItems.first(where: { $0.asset == selectedAsset })
             setActions(with: selectedAsset, at: indexPath, to: vc)
 
             previewingContext.sourceRect = cell.frame
@@ -276,7 +281,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
             guard let indexPath = batchPreviewView.collectionView.indexPathForItem(at: batchPreviewView.convert(location, to: batchPreviewView.collectionView)) else { return nil }
             guard let cell = batchPreviewView.collectionView.cellForItem(at: indexPath) else { return nil }
             
-            let selectedAssetItem = batchPreviewView.targetAssetItems[indexPath.item]
+            let selectedAssetItem = batchPreviewView.assetItems[indexPath.item]
             let selectedAsset = selectedAssetItem.asset
 
             guard let selectedIndexPath = self.indexPath(of: selectedAsset) else { return nil }
@@ -344,7 +349,7 @@ extension PhotoPickerViewController: TransformEditViewControllerDelegate {
         photoEditViewController.asset = _editItem.asset
         photoEditViewController.preferredTransform = _editItem.editState.transform
         photoEditViewController.delegate = self
-        if let item = batchPreviewView.targetAssetItems.index(of: _editItem) {
+        if let item = batchPreviewView.assetItems.index(of: _editItem) {
             photoEditViewController.indexPathInBatch = IndexPath(item: item, section: 0)
         }
         
@@ -357,7 +362,7 @@ extension PhotoPickerViewController: TransformEditViewControllerDelegate {
     
     fileprivate func showPhotoEditorAndSelectIfNeeded(with asset: PHAsset?) {
         selectItemInPhotoPicker(with: asset)
-        showPhotoEditor(with: batchPreviewView.targetAssetItems.first(where: { $0.asset == asset }))
+        showPhotoEditor(with: batchPreviewView.assetItems.first(where: { $0.asset == asset }))
     }
     
     fileprivate func selectItemInPhotoPicker(with asset: PHAsset?) {
@@ -371,21 +376,25 @@ extension PhotoPickerViewController: TransformEditViewControllerDelegate {
             collectionView(photoCollectionView, didSelectItemAt: indexPath)
         }
     }
+
+    var selectedAssets:[PHAsset]?{
+        return photoCollectionView.indexPathsForSelectedItems?.flatMap({ self.asset(at: $0) })
+    }
     
     func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: StateValueSet<BatchAppPHAssetState>?, at indexPath: IndexPath?) {
         if let editItem = editItem, let indexPath = indexPath {
-            batchPreviewView.targetAssetItems[indexPath.item].editState.merge(with:editItem)
+            batchPreviewView.assetItems[indexPath.item].editState.merge(with:editItem)
         }
         
         photoEditor.dismiss(animated: true, completion: {
-            self.batchPreviewView.reloadEditItems()
+            self.batchPreviewView.reloadCollectionViewItems()
         })
     }
 }
 
 extension PhotoPickerViewController: BatchPreviewViewDelegate {
     func batchPreviewView(_ view: BatchPreviewView, didSelectItemAt indexPath: IndexPath) {
-        let selectedAsset = view.targetAssetItems[indexPath.item].asset
+        let selectedAsset = view.assetItems[indexPath.item].asset
         guard let indexPathInPhotoPicker = self.indexPath(of: selectedAsset) else { return }
         photoCollectionView.scrollToItem(at: indexPathInPhotoPicker, at: .centeredVertically, animated: true)
         
@@ -560,7 +569,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
             photoCollectionView.deselectItem(at: indexPath, animated: true)
         }
         
-        batchPreviewView.removeAllEditItems()
+        batchPreviewView.removeAllCollectionViewItems()
         updateTitleForSelectedItems()
     }
     
@@ -670,12 +679,12 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         updateTitleForSelectedItems()
 
         if let asset = self.asset(at: indexPath){
-            batchPreviewView.putEditItem(for:asset)
+            batchPreviewView.appendCollectionViewItem(with:asset)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        batchPreviewView.removeEditItem(with: self.asset(at: indexPath))
+        batchPreviewView.removeCollectionViewItem(with: self.asset(at: indexPath))
         
         updateTitleForSelectedItems()
     }
