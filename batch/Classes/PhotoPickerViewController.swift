@@ -668,8 +668,10 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         updateTitleForSelectedItems()
-        
-        batchPreviewView.addEditItem(with: self.asset(at: indexPath))
+
+        if let asset = self.asset(at: indexPath){
+            batchPreviewView.putEditItem(for:asset)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {

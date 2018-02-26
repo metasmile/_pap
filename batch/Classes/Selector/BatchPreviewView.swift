@@ -94,25 +94,46 @@ extension BatchPreviewView {
 }
 
 extension BatchPreviewView {
-    func addEditItem(with asset: PHAsset?) {
-        guard let _asset = asset, !targetAssetItems.contains(where: { $0.asset == asset }) else { return }
-        let indexPath = IndexPath(item: targetAssetItems.count, section: 0)
 
-        //TODO: parameter router ex: check and automatically assign for N type of params [PHAssetParamable.Type, ...]
-        //TODO: relpace all PHAssetItem<TransformItem> -> more flexable protocol type
-        if let selectedAppsParamType = BatchAppCenter.default.current.paramType as? PHAssetParamable.Type
-            , let selectedAppsParam = selectedAppsParamType.init(_asset, indexPath: indexPath) as? PHAssetItem<BatchAppPHAssetState>{
+    func putEditItem(for asset: PHAsset) -> IndexPath? {
+        guard let item = createItem(for:asset) else{
+            assert(false, "Unable to create PHAssetItem<BatchAppPHAssetState> as PHAssetParamable.Type")
+            return nil
+        }
 
-            targetAssetItems.append(selectedAppsParam)
+        var insertedIndex = -1
 
-            collectionView.insertItems(at: [indexPath])
+        if let _indexOfAsset = targetAssetItems.index(where: { $0.asset == asset }){
+            targetAssetItems[_indexOfAsset] = item
+            insertedIndex = _indexOfAsset
 
-            updateAlignment()
-            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        }else{
+            targetAssetItems.append(item)
+            insertedIndex = targetAssetItems.count-1
+        }
 
+        let currentSection = 0 //TODO: collectionView.currentSection
+        let insertedIndexPath = IndexPath(item: insertedIndex, section: currentSection)
+
+        item.indexPath = insertedIndexPath
+
+        collectionView.insertItems(at: [insertedIndexPath])
+
+        updateAlignment()
+
+        collectionView.scrollToItem(at: insertedIndexPath, at: .centeredHorizontally, animated: true)
+
+        return insertedIndexPath
+    }
+
+    func createItem(for asset: PHAsset) -> PHAssetItem<BatchAppPHAssetState>? {
+        if let itemType = BatchAppCenter.default.current.paramType as? PHAssetParamable.Type
+        , let item = itemType.init(asset) as? PHAssetItem<BatchAppPHAssetState>{
+            return item
 
         } else{
             print("[!] Does not implement yet for param type of \(BatchAppCenter.default.current.info.appType)")
+            return nil
         }
     }
     

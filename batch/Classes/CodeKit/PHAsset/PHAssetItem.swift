@@ -8,7 +8,7 @@ import Photos
 
 public protocol PHAssetParamable: TaskParamable{
     var asset: PHAsset { get }
-    var indexPath:IndexPath? { get }
+    var indexPath:IndexPath? { set get }
     var requestIDs:[PHAssetRequestID] { get }
 
     init(_ asset: PHAsset)
