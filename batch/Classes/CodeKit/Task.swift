@@ -62,6 +62,7 @@ public final class TaskRequest<AppType, ParameterType, ResponseType>: ItemObject
     public typealias ResponseHandler = (ResponseType, _ cancel:inout Bool) -> Void
 
     private(set) public var appType: AppType
+    private(set) public var policy: AppPolicy?
     private(set) var responseHandler:ResponseHandler?
     private(set) public var param:ParameterType
     private(set) public var token:String
@@ -78,6 +79,15 @@ public final class TaskRequest<AppType, ParameterType, ResponseType>: ItemObject
 
         self.init(appType,param)
         self.responseHandler = responseHandler
+    }
+
+    convenience public init(_ appType: AppType,
+                            _ policy:AppPolicy,
+                            _ param:ParameterType,
+                            _ responseHandler:@escaping ResponseHandler) {
+
+        self.init(appType,param,responseHandler)
+        self.policy = policy
     }
 }
 

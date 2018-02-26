@@ -91,7 +91,12 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         }
 
         let taskType = appInfo.appType.taskType
-        let task = taskType.init(TaskInfo(request.token, taskType.self, request.appType))
+        let taskInfo = TaskInfo(request.token, taskType.self, request.appType)
+        if let userAppPolicy = request.policy{
+            taskInfo.policy = userAppPolicy.task
+        }
+
+        let task = taskType.init(taskInfo)
         return Optional(task)
     }
 
