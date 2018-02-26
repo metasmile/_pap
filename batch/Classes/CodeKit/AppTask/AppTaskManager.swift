@@ -9,8 +9,6 @@ import Dispatch
 public typealias AppTaskRequest = TaskRequest<Appable.Type, TaskParamable, AppTaskRespondable>
 
 public protocol AppTaskManagerDelegate: class {
-    func delegatingQueue() -> DispatchQueue?
-    
     func didRespond(forCurrent: AppTaskRespondable, progress:Float, remained:[AppTaskRespondable], finished:[AppTaskRespondable])
 
     func willFinish(forEachApps:[AppInfo:[AppTaskRespondable]], forAll:[AppTaskRespondable])
@@ -256,9 +254,6 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         let appType = workItem.request.appType
         let appInfo = appType.info
 
-        let DelegationQueue = self.delegate?.delegatingQueue() ?? DispatchQueue.main
-        let ReactionQueue = self._reactionItem?.targetQueue ?? DispatchQueue.main
-
         if !_staticResponsesForEachApps.keys.contains(appInfo){
             _staticResponsesForEachApps[appInfo] = [AppTaskRespondable]()
         }
@@ -277,19 +272,17 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         let remainedResponses = Array(self._staticRequestedWorkItems.values)
         let finishedResponses = self._staticFinishedWorkItems
 
-        DelegationQueue.async { [unowned self] in
+        DispatchQueue.main.async { [unowned self] in
             self.delegate?.didRespond(forCurrent: workItem
                     , progress: progress
                     , remained: remainedResponses
                     , finished: finishedResponses)
-        }
 
-        ReactionQueue.async { [unowned self] in
             self._reactionItem?.progressHandler?(
-                workItem
-                ,progress
-                ,remainedResponses
-                , finishedResponses
+                    workItem
+                    ,progress
+                    ,remainedResponses
+                    , finishedResponses
             )
         }
         
@@ -300,23 +293,22 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
             let staticFinishedWorkItems = self._staticFinishedWorkItems
             let staticResponsesForEachApps = self._staticResponsesForEachApps
 
-            //will finish
-            DelegationQueue.async { [unowned self] in
+            //enter finalize scope after already running main queue
+            DispatchQueue.main.async { [unowned self] in
+
+                //will finish
                 self.delegate?.willFinish(forEachApps: staticResponsesForEachApps, forAll: staticFinishedWorkItems)
-            }
-            ReactionQueue.async { [unowned self] in
                 self._reactionItem?.willFinishHandler?(staticResponsesForEachApps, staticFinishedWorkItems)
-            }
 
-            //finalize
-            let finalized_staticResponsesForEachApps = self._finializeAllAppTasks(staticResponsesForEachApps)
+                self.syncQueue.async{
+                    let finalized_staticResponsesForEachApps = self._finializeAllAppTasks(staticResponsesForEachApps)
 
-            //did finish
-            DelegationQueue.async { [unowned self] in
-                self.delegate?.didFinish(forEachApps: finalized_staticResponsesForEachApps, forAll: staticFinishedWorkItems)
-            }
-            ReactionQueue.async { [unowned self] in
-                self._reactionItem?.didFinishHandler?(finalized_staticResponsesForEachApps, staticFinishedWorkItems)
+                    //did finish
+                    DispatchQueue.main.async { [unowned self] in
+                        self.delegate?.didFinish(forEachApps: finalized_staticResponsesForEachApps, forAll: staticFinishedWorkItems)
+                        self._reactionItem?.didFinishHandler?(finalized_staticResponsesForEachApps, staticFinishedWorkItems)
+                    }
+                }
             }
 
             //clean buffered results

@@ -77,8 +77,6 @@ public typealias AppTaskReactableWillFinishHandler = (
 ) -> Void
 
 public protocol AppTaskReactable {
-    var targetQueue:DispatchQueue? { get }
-
     var progressHandler: AppTaskReactableProgressHanlder? { get }
     func when(progress:@escaping AppTaskReactableProgressHanlder) -> Self
 
@@ -87,14 +85,6 @@ public protocol AppTaskReactable {
 
     var didFinishHandler: AppTaskReactableFinishHandler?  { get }
     func did(finish:@escaping AppTaskReactableFinishHandler) -> Self
-}
-
-extension AppTaskReactable{
-    public var targetQueue:DispatchQueue{
-        get {
-            return self.targetQueue ?? DispatchQueue.main
-        }
-    }
 }
 
 //TODO: custom queue when calling back
@@ -130,14 +120,6 @@ public class AppTaskReaction: ItemObject, AppTaskReactable {
 
     public init(finish: AppTaskReactableFinishHandler?=nil){
         super.init()
-        if let _finish = finish{
-            self.did(finish:_finish)
-        }
-    }
-
-    public init(queue:DispatchQueue?=DispatchQueue.main, finish: AppTaskReactableFinishHandler?=nil){
-        super.init()
-        self.targetQueue = queue
         if let _finish = finish{
             self.did(finish:_finish)
         }
