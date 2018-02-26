@@ -65,8 +65,8 @@ public final class AppLifecycleManager {
 
     @discardableResult
     public func discard(_ info: AppInfo) -> Bool{
-        assert(info.lifeCycleUnit != .permanent, "Discarding app's life cycle mode is permanent.")
-        if info.lifeCycleUnit == .permanent{
+        assert(info.policy.lifeCycleUnit != .permanent, "Discarding app's life cycle mode is permanent.")
+        if info.policy.lifeCycleUnit == .permanent{
             return false
         }
 

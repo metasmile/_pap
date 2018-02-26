@@ -24,7 +24,7 @@ public class TransformApp: AppPrototype, Appable, PHAssetEditableFinalizableAppa
             , appType: TransformApp.self
             , displayName: "Transform"
             , iconImage: "Transform.App.Icon"
-            , lifeCycleUnit: .systemMemory
+            , policy: AppPolicy(lifeCycleUnit: .systemMemory, task: TaskPolicy(cancellation: .inherit))
     )
 }
 

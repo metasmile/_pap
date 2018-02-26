@@ -39,7 +39,7 @@ public class HelloBatchApp: AppPrototype, Appable, FinalizableAppable {
             , appType: HelloBatchApp.self
             , displayName: "Hello Batch"
             , iconImage: nil
-            , lifeCycleUnit: .systemMemory
+            , policy: AppPolicy.default
     )
 
     //HELLO: In the near future, multiple Task will be supported.

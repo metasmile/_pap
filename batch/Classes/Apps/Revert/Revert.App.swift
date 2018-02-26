@@ -20,7 +20,7 @@ public class RevertApp: AppPrototype, Appable, FinalizableAppable {
             , appType: RevertApp.self
             , displayName: "Revert"
             , iconImage: "Revert.App.Icon"
-            , lifeCycleUnit: .systemMemory
+            , policy: AppPolicy(lifeCycleUnit: .systemMemory, task: TaskPolicy(cancellation: .inherit))
     )
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: TaskAsyncSignalable) -> [AppTaskRespondable] {

@@ -38,7 +38,7 @@ public struct AppInfo: Hashable {
     let appType: Appable.Type
     let displayName:String
     let iconImage:ImageSourceable?
-    let lifeCycleUnit: AppLifecycleUnit
+    let policy:AppPolicy
 
     public var hashValue: Int {
         return self.identifier.hashValue
@@ -49,3 +49,9 @@ public struct AppInfo: Hashable {
     }
 }
 
+public struct AppPolicy {
+    static let `default` = AppPolicy(lifeCycleUnit: .systemMemory, task: TaskPolicy(cancellation: .none))
+
+    let lifeCycleUnit: AppLifecycleUnit
+    let task:TaskPolicy
+}
