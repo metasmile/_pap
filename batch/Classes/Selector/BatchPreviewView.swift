@@ -219,9 +219,7 @@ extension BatchPreviewView {
         }).did(finish: { resultsByApps, respondables in
             assert(!self.isProcessing)
 
-            DispatchQueue.main.async { [unowned self] in
-                self.delegate?.batchPreviewViewDidEndEdit(self)
-            }
+            self.delegate?.batchPreviewViewDidEndEdit(self)
 
             //log
             for (app, results) in resultsByApps{
