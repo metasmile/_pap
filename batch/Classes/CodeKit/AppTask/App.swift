@@ -22,6 +22,21 @@ public protocol FinalizableAppable {
     func finalize(result: [AppTaskRespondable], _ asyncSignal: TaskAsyncSignalable) -> [AppTaskRespondable]
 }
 
+extension Array where Element == AppTaskRespondable{
+    func isAnyTask(inState:TaskState) -> Bool{
+        for e in self{
+            if e.info.state == inState{
+                return true
+            }
+        }
+        return false
+    }
+
+    var defaultTaskPolicy: TaskPolicy{
+        return self.first?.appInfo.policy.task ?? TaskPolicy.default
+    }
+}
+
 public class AppPrototype: ItemObject {
     private(set) public var config: TaskConfigable?
 
@@ -50,8 +65,8 @@ public struct AppInfo: Hashable {
 }
 
 public struct AppPolicy {
-    static let `default` = AppPolicy(lifeCycleUnit: .systemMemory, task: TaskPolicy(cancellation: .none))
+    static let `default` = AppPolicy(lifeCycleUnit: .systemMemory, task: TaskPolicy.default)
 
-    let lifeCycleUnit: AppLifecycleUnit
-    let task:TaskPolicy
+    public let lifeCycleUnit: AppLifecycleUnit
+    public let task: TaskPolicy
 }

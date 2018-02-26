@@ -92,12 +92,15 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
 
         let taskType = appInfo.appType.taskType
         let taskInfo = TaskInfo(request.token, taskType.self, request.appType)
-        if let userAppPolicy = request.policy{
-            taskInfo.policy = userAppPolicy.task
+
+        if let taskPolicy = request.taskPolicy{
+            taskInfo.policy = taskPolicy
+        }else{
+            //inheritance from app config
+            taskInfo.policy = appInfo.policy.task
         }
 
-        let task = taskType.init(taskInfo)
-        return Optional(task)
+        return taskType.init(taskInfo)
     }
 
     private func getCurrentWorkItems() -> [AppTaskWorkItem] {

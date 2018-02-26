@@ -30,13 +30,17 @@ public enum TaskError: Error {
     case unknown
 }
 
-public struct TaskPolicy {
-    public enum Cancellation {
-        case none
-        case inherit
-    }
 
-    public var cancellation: Cancellation = .none
+public struct TaskPolicy{
+    public enum Cancellation {
+        case verbose
+        case shallow
+    }
+    public let cancellation: Cancellation
+
+    static let `default` = TaskPolicy(
+            cancellation: .shallow
+    )
 }
 
 public protocol Taskable {
@@ -62,7 +66,7 @@ public final class TaskRequest<AppType, ParameterType, ResponseType>: ItemObject
     public typealias ResponseHandler = (ResponseType, _ cancel:inout Bool) -> Void
 
     private(set) public var appType: AppType
-    private(set) public var policy: AppPolicy?
+    private(set) public var taskPolicy: TaskPolicy?
     private(set) var responseHandler:ResponseHandler?
     private(set) public var param:ParameterType
     private(set) public var token:String
@@ -82,12 +86,12 @@ public final class TaskRequest<AppType, ParameterType, ResponseType>: ItemObject
     }
 
     convenience public init(_ appType: AppType,
-                            _ policy:AppPolicy,
+                            _ taskPolicy:TaskPolicy,
                             _ param:ParameterType,
                             _ responseHandler:@escaping ResponseHandler) {
 
         self.init(appType,param,responseHandler)
-        self.policy = policy
+        self.taskPolicy = taskPolicy
     }
 }
 
@@ -117,7 +121,7 @@ public class TaskInfo: Item<String> {
     private(set) public var appType: Appable.Type
 
     internal(set) public var state: TaskState = .unqueued
-    internal(set) public var policy:TaskPolicy = TaskPolicy(cancellation: .none)
+    internal(set) public var policy:TaskPolicy = TaskPolicy.default
     internal(set) public var queueLabel:String?
     internal(set) var error:TaskError?
 

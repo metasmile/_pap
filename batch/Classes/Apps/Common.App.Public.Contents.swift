@@ -16,15 +16,21 @@ public protocol PHAssetEditableFinalizableAppable: FinalizableAppable {}
 extension PHAssetEditableFinalizableAppable {
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: TaskAsyncSignalable) -> [AppTaskRespondable] {
 
-        let resultAssets = result.flatMap { $0.result as? PHAssetResultable }
+        if result.isAnyTask(inState: .cancelled) && result.defaultTaskPolicy.cancellation == TaskPolicy.Cancellation.shallow {
+            return result
+        }
 
-        let editedResultAssets = resultAssets.filter { resultable in resultable.contentEditingOutput != nil }
+        let editedResultAssets = result.flatMap {
+            $0.result as? PHAssetResultable
+        }.filter {
+            resultable in resultable.contentEditingOutput != nil
+        }
 
         if editedResultAssets.count > 0{
             asyncSignal.begin()
 
             PHPhotoLibrary.shared().performChanges({
-                for result in resultAssets {
+                for result in editedResultAssets {
                     PHAssetChangeRequest(for: result.asset).contentEditingOutput = result.contentEditingOutput
                 }
             }, completionHandler: { (success, info) in

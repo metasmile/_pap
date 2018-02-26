@@ -20,10 +20,13 @@ public class RevertApp: AppPrototype, Appable, FinalizableAppable {
             , appType: RevertApp.self
             , displayName: "Revert"
             , iconImage: "Revert.App.Icon"
-            , policy: AppPolicy(lifeCycleUnit: .systemMemory, task: TaskPolicy(cancellation: .inherit))
+            , policy: AppPolicy.default
     )
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: TaskAsyncSignalable) -> [AppTaskRespondable] {
+        if result.isAnyTask(inState: .cancelled) && result.defaultTaskPolicy.cancellation == TaskPolicy.Cancellation.shallow {
+            return result
+        }
 
         let resultAssets = result.flatMap { ($0.result as? PHAssetResultable)?.asset }
 
