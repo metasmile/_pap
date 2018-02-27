@@ -1,1 +1,1 @@
-• Internal improvements and fixes for presenting amazingly, entirely new Batch Photos to you soon.
+• Cancellation and progress indicator related fixes.
