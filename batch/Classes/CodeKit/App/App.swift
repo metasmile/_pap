@@ -4,8 +4,9 @@
 //
 
 import Foundation
+import UIKit
 
-public protocol Appable {
+public protocol App {
     static var info: AppInfo { get }
 
     var config: TaskConfigable? { get }
@@ -18,8 +19,12 @@ public protocol Appable {
     init(_ config: TaskConfigable?)
 }
 
-public protocol FinalizableAppable {
+public protocol FinalizableApp {
     func finalize(result: [AppTaskRespondable], _ asyncSignal: TaskAsyncSignalable) -> [AppTaskRespondable]
+}
+
+public protocol PreferencableApp {
+    var preferenceView:UIView? { get }
 }
 
 extension Array where Element == AppTaskRespondable{
@@ -50,7 +55,7 @@ public struct AppInfo: Hashable {
     let identifier:String
     let version:String
     let state:AppState
-    let appType: Appable.Type
+    let appType: App.Type
     let displayName:String
     let icon:ImageSourceable?
     let policy:AppPolicy

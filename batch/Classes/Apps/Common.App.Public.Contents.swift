@@ -11,7 +11,7 @@ extension PHAssetItem where EditStateValueType: BatchAppPHAssetState {}
 
 public class BatchAppPHAssetState: ItemObject {}
 
-public protocol PHAssetEditableFinalizableAppable: FinalizableAppable {}
+public protocol PHAssetEditableFinalizableAppable: FinalizableApp {}
 
 extension PHAssetEditableFinalizableAppable {
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: TaskAsyncSignalable) -> [AppTaskRespondable] {

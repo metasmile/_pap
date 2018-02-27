@@ -27,7 +27,7 @@ public final class AppLifecycleManager {
     public static let shared = AppLifecycleManager()
 
     private var _instanceCreationQueue:DispatchQueue
-    private var _instances:[String: Appable]
+    private var _instances:[String: App]
 
     private init() {
         _instances = [:]
@@ -43,13 +43,13 @@ public final class AppLifecycleManager {
         }
     }
 
-    public func acquire(_ info: AppInfo) -> Appable?{
+    public func acquire(_ info: AppInfo) -> App?{
         return _instanceCreationQueue.sync(flags: .barrier) {
             _acquire(info)
         }
     }
 
-    private func _acquire(_ info: AppInfo) -> Appable?{
+    private func _acquire(_ info: AppInfo) -> App?{
         let appIdentifier = info.identifier
         let appType = info.appType
 

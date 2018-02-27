@@ -24,25 +24,25 @@ public struct BatchAppCenterQuery {
 public final class BatchAppCenter{
     public static let `default` = BatchAppCenter(defaultApp:TransformApp.self)
 
-    init(defaultApp app:Appable.Type){
+    init(defaultApp app: App.Type){
         self.current = app
     }
 
     // Collection
-    private(set) public var previous:Appable.Type?
-    public var current:Appable.Type {
+    private(set) public var previous: App.Type?
+    public var current: App.Type {
         didSet {
             self.previous = oldValue
             NotificationCenter.default.post(name: BatchAppCenterNotification.Name.didChangeCurrent, object: self)
         }
     }
 
-    public let apps:[Appable.Type] = [
+    public let apps:[App.Type] = [
         TransformApp.self,
         RevertApp.self
     ]
 
-    public func apps(by query: BatchAppCenterQuery) -> [Appable.Type]?{
+    public func apps(by query: BatchAppCenterQuery) -> [App.Type]?{
         return self.apps.filter { app in
             return app.info.state == query.state
         }

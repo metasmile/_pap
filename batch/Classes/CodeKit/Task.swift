@@ -118,14 +118,14 @@ public class TaskInfo: Item<String> {
     private(set) public var token:String
     private(set) public var requestToken:String
     private(set) public var taskType: Taskable.Type
-    private(set) public var appType: Appable.Type
+    private(set) public var appType: App.Type
 
     internal(set) public var state: TaskState = .unqueued
     internal(set) public var policy:TaskPolicy = TaskPolicy.default
     internal(set) public var queueLabel:String?
     internal(set) var error:TaskError?
 
-    required public init(_ requestToken: String, _ taskType: Taskable.Type, _ appType: Appable.Type){
+    required public init(_ requestToken: String, _ taskType: Taskable.Type, _ appType: App.Type){
         self.requestToken = requestToken
         self.taskType = taskType
         self.token = UUID().uuidString
@@ -133,7 +133,7 @@ public class TaskInfo: Item<String> {
         super.init()
     }
 
-    public convenience init(_ requestToken: String, _ taskType: Taskable.Type, _ appType: Appable.Type, _ policy:TaskPolicy){
+    public convenience init(_ requestToken: String, _ taskType: Taskable.Type, _ appType: App.Type, _ policy:TaskPolicy){
         self.init(requestToken, taskType, appType)
         self.policy = policy
     }

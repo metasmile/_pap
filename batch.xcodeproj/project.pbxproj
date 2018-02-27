@@ -358,7 +358,7 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		4F71D040A83C02DEE803C86D /* AppTask */ = {
+		4F71D040A83C02DEE803C86D /* App */ = {
 			isa = PBXGroup;
 			children = (
 				4F71D3040845E37A18D32812 /* App.swift */,
@@ -368,7 +368,7 @@
 				4F71D8BA896BACAC477A1E38 /* AppTaskManager.swift */,
 				4F71DAD13EC98589E1C308AB /* AppTaskOperationQueue.swift */,
 			);
-			path = AppTask;
+			path = App;
 			sourceTree = "<group>";
 		};
 		4F71D12422C40BDC9F8A8E53 /* ms.lproj */ = {
@@ -468,7 +468,7 @@
 		4F71D2EACB3C0ECE4939A9E0 /* CodeKit */ = {
 			isa = PBXGroup;
 			children = (
-				4F71D040A83C02DEE803C86D /* AppTask */,
+				4F71D040A83C02DEE803C86D /* App */,
 				4F71DBD8B1EA7E512BFA8988 /* Sourceable */,
 				4F71DE6203E83AFA6FB4EEAE /* CodeKit.UIImage.Transform.swift */,
 				4F71D5F397502710E3224CC9 /* Object.swift */,

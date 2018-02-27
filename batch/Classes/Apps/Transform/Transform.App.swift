@@ -12,7 +12,7 @@ import Crashlytics
 
 class _TransformAppAsset: PHAssetItem<BatchAppPHAssetState> {}
 
-public class TransformApp: AppPrototype, Appable, PHAssetEditableFinalizableAppable {
+public class TransformApp: AppPrototype, App, PHAssetEditableFinalizableAppable {
     public static let taskType:Taskable.Type = _TransfromAppTask.self
 
     public static let paramType:TaskParamable.Type = _TransformAppAsset.self

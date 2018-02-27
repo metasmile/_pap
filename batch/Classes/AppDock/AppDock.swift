@@ -16,7 +16,7 @@ struct AppDockItem {
 //    var title = ""
 //    var appIcon:BundleImageSourceable?
 //    var run = {}
-    var app: Appable.Type
+    var app: App.Type
 }
 
 // MARK: -

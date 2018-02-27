@@ -6,7 +6,7 @@
 import Foundation
 import Dispatch
 
-public typealias AppTaskRequest = TaskRequest<Appable.Type, TaskParamable, AppTaskRespondable>
+public typealias AppTaskRequest = TaskRequest<App.Type, TaskParamable, AppTaskRespondable>
 
 public protocol AppTaskManagerDelegate: class {
     func didRespond(forCurrent: AppTaskRespondable, progress:Float, remained:[AppTaskRespondable], finished:[AppTaskRespondable])
@@ -328,7 +328,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
                 continue
             }
 
-            if let appInstanceAsFinalizable = appInstance as? FinalizableAppable {
+            if let appInstanceAsFinalizable = appInstance as? FinalizableApp {
                 finalizedResults[appInfo] = appInstanceAsFinalizable.finalize(result: reses, asyncSignal)
             }else{
                 finalizedResults[appInfo] = reses

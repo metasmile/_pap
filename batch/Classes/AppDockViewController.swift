@@ -122,7 +122,7 @@ extension AppDockViewController: AppDockViewDelegate {
 }
 
 extension AppDockViewController {
-    fileprivate func generateAppConfigView(with app: Appable.Type) -> UIView? {
+    fileprivate func generateAppConfigView(with app: App.Type) -> UIView? {
         if app is TransformApp.Type {
             return transformAppConfigView
         }

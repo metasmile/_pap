@@ -8,7 +8,7 @@ import Photos
 
 private typealias RevertAppParam = PHAssetItem<BatchAppPHAssetState>
 
-public class RevertApp: AppPrototype, Appable, FinalizableAppable {
+public class RevertApp: AppPrototype, App, FinalizableApp {
     public static let taskType:Taskable.Type = _RevertAppTask.self
 
     public static let paramType:TaskParamable.Type = RevertAppParam.self

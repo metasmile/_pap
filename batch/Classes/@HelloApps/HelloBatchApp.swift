@@ -30,7 +30,7 @@ public class HelloTypedBatchApp: HelloBatchApp{
 
 
 //HELLO: This app "HelloBatchApp" is supporting "FinalizableApp" for example PHAsset handling.
-public class HelloBatchApp: AppPrototype, Appable, FinalizableAppable {
+public class HelloBatchApp: AppPrototype, App, FinalizableApp {
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.hello"
