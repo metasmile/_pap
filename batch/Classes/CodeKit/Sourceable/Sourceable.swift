@@ -16,8 +16,8 @@ public protocol ImageSourceable:Sourceable {
 }
 
 public protocol BundleImageSourceable:Sourceable {
-    var asNamedUIImage:UIImage? { get }
-    var asContentOfFileUIImage:UIImage? { get }
+    var asUIImageNamed:UIImage? { get }
+    var asUIImageContentOfFile:UIImage? { get }
 }
 
 public protocol VideoSourceable:Sourceable {
@@ -99,11 +99,11 @@ extension URL: ImageSourceable, DataSourceable, RemoteSourceable {
 
 extension String: ImageSourceable, BundleImageSourceable, DataSourceable, RemoteSourceable {
     public var asUIImage:UIImage? {
-        if let image = asNamedUIImage {
+        if let image = asUIImageNamed {
             return image
         }
 
-        if let image = asContentOfFileUIImage {
+        if let image = asUIImageContentOfFile {
             return image
         }
 
@@ -111,11 +111,11 @@ extension String: ImageSourceable, BundleImageSourceable, DataSourceable, Remote
         return nil
     }
 
-    public var asNamedUIImage:UIImage? {
+    public var asUIImageNamed:UIImage? {
         return UIImage(named: self)
     }
 
-    public var asContentOfFileUIImage:UIImage? {
+    public var asUIImageContentOfFile:UIImage? {
         return UIImage(contentsOfFile: self.asBundlePath)
     }
 
