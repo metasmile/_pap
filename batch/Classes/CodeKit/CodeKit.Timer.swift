@@ -6,7 +6,7 @@
 import Foundation
 
 
-struct Timers {
+private struct Timers {
     fileprivate static var timers = [String:Timer]()
 }
 
