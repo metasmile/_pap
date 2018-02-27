@@ -13,9 +13,16 @@
 import UIKit
 
 struct AppDockItem {
-    var title = ""
-    var appIcon:BundleImageSourceable?
-    var run = {}
+//    var title = ""
+//    var appIcon:BundleImageSourceable?
+//    var run = {}
+    var app: Appable.Type
+}
+
+// MARK: -
+
+protocol AppDockViewDelegate {
+    func appDockView(_ view: AppDockView, didSelectItemWith item: AppDockItem)
 }
 
 // MARK: -
@@ -24,9 +31,13 @@ class AppDockView: CustomView {
     @IBOutlet weak var backgroundView: UIToolbar!
     @IBOutlet weak var topAccessoryView: UIStackView!
     @IBOutlet weak var topAccessoryViewHeightLayout: NSLayoutConstraint!
+    @IBOutlet weak var appConfigView: UIStackView!
+    @IBOutlet weak var appConfigViewHeightLayout: NSLayoutConstraint!
     @IBOutlet weak var dockView: UIView!
     @IBOutlet weak var appCollectionView: UICollectionView!
     @IBOutlet weak var bottomAccessoryView: UIView!
+    
+    var delegate: AppDockViewDelegate?
     
     var items = [AppDockItem]() {
         didSet {
@@ -55,7 +66,7 @@ class AppDockView: CustomView {
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIViewNoIntrinsicMetric, height: topAccessoryView.bounds.height + dockView.bounds.height + bottomAccessoryView.bounds.height)
+        return CGSize(width: UIViewNoIntrinsicMetric, height: topAccessoryView.bounds.height + appConfigView.bounds.height + dockView.bounds.height + bottomAccessoryView.bounds.height)
     }
     
     func setAccessoryViewToTop(_ view: UIView?, animated: Bool = true) {
@@ -116,6 +127,51 @@ class AppDockView: CustomView {
         guard let view = view else { return false }
         return topAccessoryView.arrangedSubviews.contains(view)
     }
+    
+    func setAppConfigView(_ view: UIView?, animated: Bool = true) {
+        guard !hasAppConfigView(view) else { return }
+        appConfigView.arrangedSubviews.forEach({ appConfigView.removeArrangedSubview($0) })
+        addAppConfigView(view, animated: animated)
+    }
+    
+    func removeAllAppConfigViews(animated: Bool = true) {
+        appConfigView.arrangedSubviews.forEach({ appConfigView.removeArrangedSubview($0) })
+        
+        layoutAppConfigView()
+        
+        if animated {
+            UIView.animate(withDuration: 0.2, animations: {
+                self.superview?.layoutIfNeeded()
+            })
+        }
+    }
+    
+    func addAppConfigView(_ view: UIView?, animated: Bool = true) {
+        guard !hasAppConfigView(view) else { return }
+        if let view = view {
+            appConfigView.insertArrangedSubview(view, at: 0)
+        }
+        
+        layoutAppConfigView()
+        
+        if animated {
+            UIView.animate(withDuration: 0.2, animations: {
+                self.superview?.layoutIfNeeded()
+            })
+        }
+    }
+    
+    fileprivate func hasAppConfigView(_ view: UIView?) -> Bool {
+        guard let view = view else { return false }
+        return appConfigView.arrangedSubviews.contains(view)
+    }
+    
+    fileprivate func layoutAppConfigView() {
+        appConfigViewHeightLayout.constant = appConfigView.arrangedSubviews.map({ max($0.bounds.height, 44) }).reduce(0, +)
+        
+        layoutIfNeeded()
+        invalidateIntrinsicContentSize()
+    }
 }
 
 // MARK: -
@@ -127,7 +183,7 @@ extension AppDockView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "STAppDockViewCell", for: indexPath) as! AppDockViewCell
-        let iconImage = items[indexPath.item].appIcon?.asNamedUIImage
+        let iconImage = items[indexPath.item].app.info.iconImage?.asUIImage
 
         cell.appIconImageView.image = iconImage?.withRenderingMode(.alwaysTemplate)
         switch barStyle {
@@ -142,7 +198,7 @@ extension AppDockView: UICollectionViewDataSource {
 
 extension AppDockView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        items[indexPath.item].run()
+        delegate?.appDockView(self, didSelectItemWith: items[indexPath.item])
     }
 }
 
