@@ -7,13 +7,15 @@ import Foundation
 import UIKit
 import Photos
 
+extension StateValueSet: TaskConfigable {}
+
 extension PHAssetItem where EditStateValueType: BatchAppPHAssetState {}
 
 public class BatchAppPHAssetState: ItemObject {}
 
-public protocol PHAssetEditableFinalizableAppable: FinalizableApp {}
+public protocol PHAssetEditableFinalizableApp: FinalizableApp {}
 
-extension PHAssetEditableFinalizableAppable {
+extension PHAssetEditableFinalizableApp {
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: TaskAsyncSignalable) -> [AppTaskRespondable] {
 
         if result.isAnyTask(inState: .cancelled) && result.defaultTaskPolicy.cancellation == TaskPolicy.Cancellation.shallow {

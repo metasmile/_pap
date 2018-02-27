@@ -4,7 +4,6 @@
 //
 
 import Foundation
-import UIKit
 
 public protocol App {
     static var info: AppInfo { get }
@@ -21,10 +20,6 @@ public protocol App {
 
 public protocol FinalizableApp {
     func finalize(result: [AppTaskRespondable], _ asyncSignal: TaskAsyncSignalable) -> [AppTaskRespondable]
-}
-
-public protocol PreferencableApp {
-    var preferenceView:UIView? { get }
 }
 
 extension Array where Element == AppTaskRespondable{

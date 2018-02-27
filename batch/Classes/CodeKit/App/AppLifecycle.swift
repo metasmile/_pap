@@ -23,7 +23,7 @@ protocol AppLifecycleDelegatable {
     func willUninstantiate() -> Bool
 }
 
-public final class AppLifecycleManager {
+final class AppLifecycleManager {
     public static let shared = AppLifecycleManager()
 
     private var _instanceCreationQueue:DispatchQueue

@@ -83,9 +83,17 @@ class PhotoPickerViewController: AppDockViewController {
         dragSelectionGesture.delegate = self
         photoCollectionView.addGestureRecognizer(dragSelectionGesture)
 
+        //TODO: change to more fucking simple, type-safe way
         NotificationCenter.default.addObserver(forName: BatchAppCenterNotification.Name.didChangeCurrent, object: BatchAppCenter.default, queue: nil) { notification in
             self.batchPreviewView.reloadAllAssetItems()
             self.showCurrentSelectedAppDisplayName()
+
+            BatchAppCenter.default.currentInstanceAs(TransformApp.self)?.configNotificator.addObserver(forName: ConfigurableAppNotification.didChange, object: nil, queue: nil) { notification in
+
+                if let configuredValue = notification.userInfo?[ConfigurableAppNotification.UserInfo.Key.configValue] as? BatchAppPHAssetState {
+                    self.batchPreviewView.addTransformItem(configuredValue)
+                }
+            }
         }
     }
 
@@ -149,22 +157,6 @@ class PhotoPickerViewController: AppDockViewController {
         //TODO: TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
 
         batchPreviewView.runBatchProcessing()
-    }
-    
-    override func horizontalFlipButtonDidTap() {
-        batchPreviewView.addTransformItem(HorizontalFlipTransformItem())
-    }
-    
-    override func verticalFlipButtonDidTap() {
-        batchPreviewView.addTransformItem(VerticalFlipTransformItem())
-    }
-    
-    override func rotationLeftButtonDidTap() {
-        batchPreviewView.addTransformItem(RotationTransformItem(degrees: -90))
-    }
-    
-    override func rotationRightButtonDidTap() {
-        batchPreviewView.addTransformItem(RotationTransformItem(degrees: 90))
     }
 }
 

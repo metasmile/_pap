@@ -11,7 +11,7 @@ public protocol StateValueSetable {
     func reset() -> Bool
 }
 
-public class StateValueSet<T>: MutableItemList<T>, StateValueSetable, TaskConfigable {
+public class StateValueSet<T>: MutableItemList<T>, StateValueSetable {
     public var hasChanges: Bool {
         return !self.isEmpty
     }

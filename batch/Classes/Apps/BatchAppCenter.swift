@@ -33,8 +33,17 @@ public final class BatchAppCenter{
     public var current: App.Type {
         didSet {
             self.previous = oldValue
+
+            if oldValue.info.policy.lifeCycleUnit != AppLifecycleUnit.permanent{
+                AppLifecycleManager.shared.discard(oldValue.info)
+            }
+
             NotificationCenter.default.post(name: BatchAppCenterNotification.Name.didChangeCurrent, object: self)
         }
+    }
+
+    public func currentInstanceAs<T>(_ protocol:T.Type) -> T?{
+        return AppLifecycleManager.shared.acquire(self.current.info) as? T
     }
 
     public let apps:[App.Type] = [
