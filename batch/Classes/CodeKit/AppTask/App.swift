@@ -52,7 +52,7 @@ public struct AppInfo: Hashable {
     let state:AppState
     let appType: Appable.Type
     let displayName:String
-    let iconImage:ImageSourceable?
+    let icon:ImageSourceable?
     let policy:AppPolicy
 
     public var hashValue: Int {

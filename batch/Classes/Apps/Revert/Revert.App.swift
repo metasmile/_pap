@@ -19,7 +19,7 @@ public class RevertApp: AppPrototype, Appable, FinalizableAppable {
             , state: .beta
             , appType: RevertApp.self
             , displayName: "Revert"
-            , iconImage: "Revert.App.Icon"
+            , icon: "Revert.App.Icon"
             , policy: AppPolicy.default
     )
 

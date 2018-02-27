@@ -38,7 +38,7 @@ public class HelloBatchApp: AppPrototype, Appable, FinalizableAppable {
             , state: .develop
             , appType: HelloBatchApp.self
             , displayName: "Hello Batch"
-            , iconImage: nil
+            , icon: nil
             , policy: AppPolicy.default
     )
 

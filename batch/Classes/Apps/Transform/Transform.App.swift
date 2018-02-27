@@ -23,7 +23,7 @@ public class TransformApp: AppPrototype, Appable, PHAssetEditableFinalizableAppa
             , state: .release
             , appType: TransformApp.self
             , displayName: "Transform"
-            , iconImage: "Transform.App.Icon"
+            , icon: "Transform.App.Icon"
             , policy: AppPolicy.default
     )
 }

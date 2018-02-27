@@ -183,7 +183,7 @@ extension AppDockView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "STAppDockViewCell", for: indexPath) as! AppDockViewCell
-        let iconImage = items[indexPath.item].app.info.iconImage?.asUIImage
+        let iconImage = items[indexPath.item].app.info.icon?.asUIImage
 
         cell.appIconImageView.image = iconImage?.withRenderingMode(.alwaysTemplate)
         switch barStyle {
