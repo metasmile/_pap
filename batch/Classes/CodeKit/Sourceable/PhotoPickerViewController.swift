@@ -87,49 +87,7 @@ class PhotoPickerViewController: AppDockViewController {
             self.batchPreviewView.reloadAllAssetItems()
             self.showCurrentSelectedAppDisplayName()
         }
-
-        #if DEBUG
-            self.debug_attachMultiAppSelector()
-        #endif
     }
-
-//TODO:TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
-    func debug_attachMultiAppSelector(){
-        let f = CGRect(origin: .zero, size: CGSize(width:30,height:30) )
-
-        let containerView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: view.bounds.width, height: 44)))
-        
-        for (i, app) in BatchAppCenter.default.apps.enumerated(){
-            let iv = UIImageView(frame: f)
-            iv.image = app.info.iconImage?.asUIImage
-            iv.isUserInteractionEnabled = true
-
-            containerView.addSubview(iv)
-            
-            iv.x = CGFloat(i) * (f.size.width+5)
-//            iv.bottom = self.view.bottom
-            iv.addTapGestureRecognizer {
-                BatchAppCenter.default.current = app
-                print("Selected App: \(app)")
-
-                UIView.animate(withDuration: 0.15,
-                        animations: {
-                            iv.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
-                        },
-                        completion: { _ in
-                            UIView.animate(withDuration: 0.1) {
-                                iv.transform = CGAffineTransform.identity
-                            }
-                        })
-
-            }
-        }
-        
-        appDockView.addAccessoryViewToTop(containerView)
-
-        BatchAppCenter.default.current = TransformApp.self
-    }
-//TODO:TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
 
     deinit {
         PHPhotoLibrary.shared().unregisterChangeObserver(self)
