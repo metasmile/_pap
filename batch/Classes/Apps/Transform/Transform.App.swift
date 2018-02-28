@@ -12,10 +12,12 @@ import Crashlytics
 
 class _TransformAppAsset: PHAssetItem<BatchAppPHAssetState> {}
 
-public class TransformApp: AppPrototype, App, PHAssetEditableFinalizableApp, ConfigurableApp {
+public class TransformApp: NSObject, App, PHAssetEditableFinalizableApp, ConfigurableApp {
     public static let taskType:Taskable.Type = _TransfromAppTask.self
 
     public static let paramType:TaskParamable.Type = _TransformAppAsset.self
+
+    public var config: ConfigurableAppValuable?
 
     public private(set) lazy var configView: UIView? = createPreferenceView()
 
@@ -30,6 +32,15 @@ public class TransformApp: AppPrototype, App, PHAssetEditableFinalizableApp, Con
             , icon: "Transform.App.Icon"
             , policy: AppPolicy.default
     )
+
+    required public override init(){
+        super.init()
+    }
+
+    required convenience public init(config: ConfigurableAppValuable?) {
+        self.init()
+        self.config = config
+    }
 }
 
 private extension TransformApp{

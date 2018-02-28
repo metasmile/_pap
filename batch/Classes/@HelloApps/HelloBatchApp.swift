@@ -10,7 +10,6 @@ import UIKit
 //TODO: more strictful parameter type for public
 public struct HelloTaskParameter: TaskParamable {
     public var sources:[Sourceable]?
-    public var configs:[TaskConfigable]?
 }
 
 public struct HelloTaskResult: TaskResultable{
@@ -30,7 +29,7 @@ public class HelloTypedBatchApp: HelloBatchApp{
 
 
 //HELLO: This app "HelloBatchApp" is supporting "FinalizableApp" for example PHAsset handling.
-public class HelloBatchApp: AppPrototype, App, FinalizableApp {
+public class HelloBatchApp: App, FinalizableApp {
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.hello"
@@ -60,6 +59,8 @@ public class HelloBatchApp: AppPrototype, App, FinalizableApp {
 
         return result
     }
+
+    required public init(){}
 }
 
 //HELLO: Restricted apps own parameter type

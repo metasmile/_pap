@@ -1,12 +1,20 @@
 //
-// Created by BLACKGENE on 24/01/2018.
+// Created by BLACKGENE on 28/02/2018.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-public protocol ConfigurableApp {
+public protocol ConfigurableAppValuable {
+
+}
+
+public protocol ConfigurableApp: NSObjectProtocol {
+
+    var config: ConfigurableAppValuable? { get }
+
+    init(config: ConfigurableAppValuable?)
 
     //TODO: how to handle views - when app lifecycle finished
     //TODO: how to input configView's parameter/config
