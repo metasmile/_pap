@@ -10,14 +10,20 @@ import UIKit
 import MobileCoreServices
 import Crashlytics
 
+
+public class TransformAppConfig: NSObject, AppConfigViewAttrributes {
+    @objc public dynamic private(set) var tintColor: UIColor?
+    @objc public dynamic var transform: BatchAppPHAssetState?
+}
+
 class _TransformAppAsset: PHAssetItem<BatchAppPHAssetState> {}
 
-public class TransformApp: NSObject, App, PHAssetEditableFinalizableApp, ConfigurableApp {
+public class TransformApp: NSObject, ConfigurableApp, _ConfigurableApp, PHAssetEditableFinalizableApp {
     public static let taskType:Taskable.Type = _TransfromAppTask.self
 
     public static let paramType:TaskParamable.Type = _TransformAppAsset.self
 
-    public var config: ConfigurableAppValuable?
+    public var config: TransformAppConfig?
 
     public private(set) lazy var configView: UIView? = createPreferenceView()
 
@@ -37,7 +43,7 @@ public class TransformApp: NSObject, App, PHAssetEditableFinalizableApp, Configu
         super.init()
     }
 
-    required convenience public init(config: ConfigurableAppValuable?) {
+    required convenience public init(config: TransformAppConfig?=nil) {
         self.init()
         self.config = config
     }
@@ -47,21 +53,29 @@ private extension TransformApp{
 
 //TODO: more simple way!
     @objc func horizontalFlipButtonDidTap() {
+        self.config?.transform = HorizontalFlipTransformItem()
+
         self.configNotificator.post(name: ConfigurableAppNotification.didChange, object: nil,
                 userInfo: [ConfigurableAppNotification.UserInfo.Key.configValue: HorizontalFlipTransformItem()])
     }
 
     @objc func verticalFlipButtonDidTap() {
+        self.config?.transform = VerticalFlipTransformItem()
+
         self.configNotificator.post(name: ConfigurableAppNotification.didChange, object: nil,
                 userInfo: [ConfigurableAppNotification.UserInfo.Key.configValue: VerticalFlipTransformItem()])
     }
 
     @objc func rotationLeftButtonDidTap() {
+        self.config?.transform = RotationTransformItem(degrees: -90)
+
         self.configNotificator.post(name: ConfigurableAppNotification.didChange, object: nil,
                 userInfo: [ConfigurableAppNotification.UserInfo.Key.configValue: RotationTransformItem(degrees: -90)])
     }
 
     @objc func rotationRightButtonDidTap() {
+        self.config?.transform = RotationTransformItem(degrees: 90)
+
         self.configNotificator.post(name: ConfigurableAppNotification.didChange, object: nil,
                 userInfo: [ConfigurableAppNotification.UserInfo.Key.configValue: RotationTransformItem(degrees: 90)])
     }
@@ -89,22 +103,24 @@ private extension TransformApp{
         config4.addTarget(self, action: #selector(self.rotationRightButtonDidTap), for: .touchUpInside)
 
 //        switch appDockView.barStyle {
-//            case .black:
-//                config1.tintColor = .white
-//                config2.tintColor = .white
-//                config3.tintColor = .white
-//                config4.tintColor = .white
-//            default:
-//                config1.tintColor = .black
-//                config2.tintColor = .black
-//                config3.tintColor = .black
-//                config4.tintColor = .black
+//        case .black:
+//            config1.tintColor = .white
+//            config2.tintColor = .white
+//            config3.tintColor = .white
+//            config4.tintColor = .white
+//        default:
+//            config1.tintColor = .black
+//            config2.tintColor = .black
+//            config3.tintColor = .black
+//            config4.tintColor = .black
 //        }
 
-        config1.tintColor = .black
-        config2.tintColor = .black
-        config3.tintColor = .black
-        config4.tintColor = .black
+        if let tintColor = self.config?.tintColor{
+            config1.tintColor = tintColor
+            config2.tintColor = tintColor
+            config3.tintColor = tintColor
+            config4.tintColor = tintColor
+        }
 
         view.addArrangedSubview(config1)
         view.addArrangedSubview(config2)

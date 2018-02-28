@@ -7,7 +7,7 @@ import Foundation
 
 
 // FinalizableApp
-public protocol FinalizableApp {
+public protocol FinalizableApp:App {
     func finalize(result: [AppTaskRespondable], _ asyncSignal: TaskAsyncSignalable) -> [AppTaskRespondable]
 }
 
