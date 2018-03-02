@@ -26,14 +26,6 @@ class AppDockViewController: UIViewController {
         
         appDockView.delegate = self
         appDockView.items = appDockItems
-
-
-        //TODO: decide initial app policy - TEMP TEMP TEMP TEMP TEMP TEMP
-        DispatchQueue.global().async{
-            DispatchQueue.main.async {
-                self.updateAppDockViewForCurrentApp()
-            }
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +41,14 @@ class AppDockViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //TODO: decide initial app policy - TEMP TEMP TEMP TEMP TEMP TEMP
+        
+        selectCurrentAppIfExist()
+    }
+    
     var appDockItems: [AppDockItem] {
         return BatchAppCenter.default.apps.map({ AppDockItem(app: $0) })
     }
@@ -59,6 +59,13 @@ class AppDockViewController: UIViewController {
 
     @objc func doneButtonDidTap(sender: Any) {
 
+    }
+}
+
+extension AppDockViewController {
+    fileprivate func selectCurrentAppIfExist() {
+        guard let indexOfCurrentApp = BatchAppCenter.default.apps.index(where: { BatchAppCenter.default.current == $0 }) else { return }
+        appDockView.selectItem(at: IndexPath(item: indexOfCurrentApp, section: 0))
     }
 }
 

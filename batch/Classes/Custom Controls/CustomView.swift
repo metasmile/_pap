@@ -53,7 +53,7 @@ class RoundedView: DesignableView {
         layoutIfNeeded()
     }
     
-    override func layoutIfNeeded() {
+    override func layoutSubviews() {
         super.layoutSubviews()
         
         let maskLayer = CAShapeLayer()

@@ -174,6 +174,13 @@ class AppDockView: CustomView {
     }
 }
 
+extension AppDockView {
+    func selectItem(at indexPath: IndexPath, animated: Bool = false) {
+        appCollectionView.selectItem(at: indexPath, animated: animated, scrollPosition: .centeredHorizontally)
+        collectionView(appCollectionView, didSelectItemAt: indexPath)
+    }
+}
+
 // MARK: -
 
 extension AppDockView: UICollectionViewDataSource {
@@ -231,6 +238,20 @@ extension AppDockView: UICollectionViewDelegateFlowLayout {
 // MARK: -
 
 class AppDockViewCell: CustomCollectionViewCell {
+    @IBOutlet weak var selectedStateView: RoundedView!
+    
     @IBOutlet weak var appContentView: UIView!
     @IBOutlet weak var appIconImageView: UIImageView!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        isSelected = false
+    }
+    
+    override var isSelected: Bool {
+        didSet {
+            selectedStateView.isHidden = !isSelected
+        }
+    }
 }

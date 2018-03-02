@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="appContentView" destination="UCP-jh-aet" id="9bu-0v-nz4"/>
                 <outlet property="appIconImageView" destination="Nvb-sf-iia" id="yiu-xF-Qh2"/>
+                <outlet property="selectedStateView" destination="eVK-cO-V0c" id="Hwr-ZI-j8e"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -20,6 +21,15 @@
             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVK-cO-V0c" customClass="RoundedView" customModule="batch" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                    <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UCP-jh-aet">
                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                     <subviews>
@@ -37,8 +47,12 @@
             </subviews>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="UCP-jh-aet" secondAttribute="bottom" id="Ajx-9u-akA"/>
+                <constraint firstItem="eVK-cO-V0c" firstAttribute="top" secondItem="UCP-jh-aet" secondAttribute="top" id="C7j-5T-nX7"/>
+                <constraint firstItem="eVK-cO-V0c" firstAttribute="leading" secondItem="UCP-jh-aet" secondAttribute="leading" id="EW5-JJ-ncf"/>
                 <constraint firstItem="UCP-jh-aet" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="MRO-Rq-uXq"/>
                 <constraint firstItem="UCP-jh-aet" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cFG-U7-jcT"/>
+                <constraint firstItem="eVK-cO-V0c" firstAttribute="bottom" secondItem="UCP-jh-aet" secondAttribute="bottom" id="lrK-8t-lxu"/>
+                <constraint firstItem="eVK-cO-V0c" firstAttribute="trailing" secondItem="UCP-jh-aet" secondAttribute="trailing" id="q24-fQ-jQt"/>
                 <constraint firstAttribute="trailing" secondItem="UCP-jh-aet" secondAttribute="trailing" id="xl2-wi-meo"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
