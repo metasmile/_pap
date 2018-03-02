@@ -8,7 +8,7 @@ import Photos
 
 private typealias RevertAppParam = PHAssetItem<BatchAppPHAssetState>
 
-public class RevertApp: AppPrototype, App, FinalizableApp {
+public class RevertApp: NSObject, App, FinalizableApp {
     public static let taskType:Taskable.Type = _RevertAppTask.self
 
     public static let paramType:TaskParamable.Type = RevertAppParam.self
@@ -22,6 +22,10 @@ public class RevertApp: AppPrototype, App, FinalizableApp {
             , icon: "Revert.App.Icon"
             , policy: AppPolicy.default
     )
+
+    required public override init(){
+        super.init()
+    }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: TaskAsyncSignalable) -> [AppTaskRespondable] {
         if result.isAnyTask(inState: .cancelled) && result.defaultTaskPolicy.cancellation == TaskPolicy.Cancellation.shallow {

@@ -54,7 +54,7 @@ final class AppLifecycleManager {
         let appType = info.appType
 
         guard let appInstance = _instances[appIdentifier] else{
-            let _appInstance = appType.init(nil)
+            let _appInstance = appType.init()
 
             _instances[appIdentifier] = _appInstance
 

@@ -93,6 +93,9 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         }
 
         NotificationCenter.default.addObserver(forName: BatchAppCenterNotification.Name.didChangeCurrent, object: BatchAppCenter.default, queue: nil) { notification in
+
+            BatchAppCenter.default.currentInstanceAs(TransformApp.self)?.config?.tintColor
+
             BatchAppCenter.default.currentInstanceAs(TransformApp.self)?.configNotificator.addObserver(forName: ConfigurableAppNotification.didChange, object: nil, queue: nil) { notification in
 
                 if let configuredValue = notification.userInfo?[ConfigurableAppNotification.UserInfo.Key.configValue] as? BatchAppPHAssetState {

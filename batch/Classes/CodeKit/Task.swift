@@ -99,10 +99,6 @@ public final class TaskRequest<AppType, ParameterType, ResponseType>: ItemObject
  app task parameter
  */
 
-public protocol TaskConfigable {
-
-}
-
 public protocol TaskParamable{}
 
 

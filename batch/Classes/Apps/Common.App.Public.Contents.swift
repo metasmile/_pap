@@ -7,8 +7,6 @@ import Foundation
 import UIKit
 import Photos
 
-extension StateValueSet: TaskConfigable {}
-
 extension PHAssetItem where EditStateValueType: BatchAppPHAssetState {}
 
 public class BatchAppPHAssetState: ItemObject {}
