@@ -137,9 +137,8 @@ class PhotoPickerViewController: AppDockViewController {
     override func doneButtonDidTap(sender: Any) {
 
         //TODO: TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
-        let app = BatchAppCenter.default.current
-
-        switch (app.info.state){
+        if let app = BatchAppCenter.default.current {
+            switch (app.info.state){
             case .develop:
                 print("[!] Unable to run. Selected app's state is \(app.info.state)")
 
@@ -153,6 +152,7 @@ class PhotoPickerViewController: AppDockViewController {
 
             default:
                 break
+            }
         }
         //TODO: TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
 
@@ -165,7 +165,7 @@ extension PhotoPickerViewController {
 
         let prefixTitle = "Selected App: "
         let previousTitle = true == self.title?.hasPrefix(prefixTitle) ? "Batch" : self.title
-        self.title = "\(prefixTitle)\(BatchAppCenter.default.current.info.displayName)"
+        self.title = "\(prefixTitle)\(BatchAppCenter.default.current?.info.displayName)"
 
         Timer.scheduledTimer(identifier: "batch_selectedAppTitle", withTimeInterval: 2, repeats: false) { timer in
             if let _ = self.selectedAssets{

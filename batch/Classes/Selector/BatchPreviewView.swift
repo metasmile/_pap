@@ -161,8 +161,8 @@ extension BatchPreviewView {
 
     @discardableResult
     func putAssetItem(for asset: PHAsset) -> IndexPath? {
+
         guard let item = createAssetItem(for:asset) else{
-            assert(false, "Unable to create PHAssetItem<BatchAppPHAssetState> as PHAssetParamable.Type")
             return nil
         }
 
@@ -186,12 +186,14 @@ extension BatchPreviewView {
     }
 
     func createAssetItem(for asset: PHAsset) -> PHAssetItem<BatchAppPHAssetState>? {
-        if let itemType = BatchAppCenter.default.current.paramType as? PHAssetParamable.Type
+        guard let app = BatchAppCenter.default.current else { return nil }
+
+        if let itemType = app.paramType as? PHAssetParamable.Type
         , let item = itemType.init(asset) as? PHAssetItem<BatchAppPHAssetState>{
             return item
 
         } else{
-            print("[!] Does not implement yet for param type of \(BatchAppCenter.default.current.info.appType)")
+            assert(false, "[!] Unable to create, or does not implement yet for param type of \(app.info.appType)")
             return nil
         }
     }
@@ -219,8 +221,8 @@ extension BatchPreviewView {
     func runBatchProcessing() -> Bool {
         let targetSection = 0 //TODO: previously support multiple sections
 
-        guard collectionView.numberOfItems(inSection: targetSection) > 0 else {
-            assert(false, "selected items does not exist.")
+        guard let app = BatchAppCenter.default.current, collectionView.numberOfItems(inSection: targetSection) > 0 else {
+            assert(false, "selected app does not exist.")
             return false
         }
 
@@ -228,10 +230,10 @@ extension BatchPreviewView {
         delegate?.batchPreviewViewWillBeginEdit(self)
 
         collectionView.scrollToItem(at: IndexPath(item: 0, section: targetSection), at: .centeredHorizontally, animated: true)
-
+true
         //TODO: BatchAppCenter.default.task.append immediatly from UI action instead of using "EditItems"
         assetItems.forEach { item in
-            BatchAppCenter.default.task.append(request: AppTaskRequest(BatchAppCenter.default.current, item))
+            BatchAppCenter.default.task.append(request: AppTaskRequest(app, item))
         }
 
         let reaction = AppTaskReaction()

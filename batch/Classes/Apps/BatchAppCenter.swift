@@ -21,29 +21,49 @@ public struct BatchAppCenterQuery {
     let state:AppState
 }
 
-public final class BatchAppCenter{
-    public static let `default` = BatchAppCenter(defaultApp:TransformApp.self)
+public final class BatchAppCenter: _SelectableCollection{
+    typealias Element = App.Type
 
-    init(defaultApp app: App.Type){
-        self.current = app
+    public static let `default` = BatchAppCenter()
+
+    private(set) public var previous: App.Type?
+    public var previousIndex: Int? {
+        return apps.index { previous == $0 }
     }
 
-    // Collection
-    private(set) public var previous: App.Type?
-    public var current: App.Type {
+    public var current: App.Type? {
         didSet {
             self.previous = oldValue
 
-            if oldValue.info.policy.lifeCycleUnit != AppLifecycleUnit.permanent{
-                AppLifecycleManager.shared.discard(oldValue.info)
+            if let previous = self.previous, previous.info.policy.lifeCycleUnit != AppLifecycleUnit.permanent{
+                AppLifecycleManager.shared.discard(previous.info)
             }
 
             NotificationCenter.default.post(name: BatchAppCenterNotification.Name.didChangeCurrent, object: self)
         }
     }
 
+    public var currentIndex: Int? {
+        get {
+            return apps.index { current == $0 }
+        }
+        set {
+            if let index = newValue, apps.indices.contains(index) {
+                current = apps[index]
+            }else{
+                current = nil
+            }
+        }
+    }
+
     public func currentInstanceAs<T>(_ protocol:T.Type) -> T?{
-        return AppLifecycleManager.shared.acquire(self.current.info) as? T
+        guard let current = current else { return nil }
+        return AppLifecycleManager.shared.acquire(current.info) as? T
+    }
+
+    func reset() {
+        self.current = nil
+        self.previous = nil
     }
 
     public let apps:[App.Type] = [
