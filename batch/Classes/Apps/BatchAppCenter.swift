@@ -17,13 +17,13 @@ public struct BatchAppCenterNotification {
     }
 }
 
-public struct BatchAppCenterQuery {
+public struct BatchAppQuery {
     let state:AppState
 }
 
-public final class BatchAppCenter: _SelectableCollection{
-    typealias Element = App.Type
 
+public final class BatchAppCenter: NSObject, KeyPathWatchable, _SelectableCollection{
+    typealias Element = App.Type
     public static let `default` = BatchAppCenter()
 
     private(set) public var previous: App.Type?
@@ -34,6 +34,8 @@ public final class BatchAppCenter: _SelectableCollection{
     public var current: App.Type? {
         didSet {
             self.previous = oldValue
+            self.currentName = current?.info.displayName
+            print(self.currentName)
 
             if let previous = self.previous, previous.info.policy.lifeCycleUnit != AppLifecycleUnit.permanent{
                 AppLifecycleManager.shared.discard(previous.info)
@@ -42,6 +44,9 @@ public final class BatchAppCenter: _SelectableCollection{
             NotificationCenter.default.post(name: BatchAppCenterNotification.Name.didChangeCurrent, object: self)
         }
     }
+
+    @objc dynamic
+    public var currentName: String?
 
     public var currentIndex: Int? {
         get {
@@ -71,7 +76,7 @@ public final class BatchAppCenter: _SelectableCollection{
         RevertApp.self
     ]
 
-    public func apps(by query: BatchAppCenterQuery) -> [App.Type]?{
+    public func apps(by query: BatchAppQuery) -> [App.Type]?{
         return self.apps.filter { app in
             return app.info.state == query.state
         }

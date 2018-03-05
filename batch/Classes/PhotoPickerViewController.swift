@@ -22,7 +22,7 @@ class PhotoPickerViewController: AppDockViewController {
     var fetchResults: [PHFetchResult<PHAsset>]?
     
     var dragSelectionGesture: STDragSelectionGestureRecognizer!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -83,15 +83,24 @@ class PhotoPickerViewController: AppDockViewController {
         dragSelectionGesture.delegate = self
         photoCollectionView.addGestureRecognizer(dragSelectionGesture)
 
-        //TODO: change to more fucking simple, type-safe way
-        NotificationCenter.default.addObserver(forName: BatchAppCenterNotification.Name.didChangeCurrent, object: BatchAppCenter.default, queue: nil) { notification in
+        //TODO: internally maintain instances
+        struct sdsd{
+            static var aa:NSKeyValueObservation?
+            static var bb:NSKeyValueObservation?
+        }
+
+        sdsd.aa = BatchAppCenter.default.watch(\.currentName) { (target, dict) in
+            
             self.batchPreviewView.reloadAllAssetItems()
             self.showCurrentSelectedAppDisplayName()
 
-            BatchAppCenter.default.currentInstanceAs(TransformApp.self)?.configNotificator.addObserver(forName: ConfigurableAppNotification.didChange, object: nil, queue: nil) { notification in
+            print("BatchAppCenter.default.currentInstanceAs(TransformApp.self)?.config",target.currentInstanceAs(TransformApp.self)?.config)
 
-                if let configuredValue = notification.userInfo?[ConfigurableAppNotification.UserInfo.Key.configValue] as? BatchAppPHAssetState {
-                    self.batchPreviewView.addTransformItem(configuredValue)
+            sdsd.bb = target.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform) { (config, changed) in
+
+                print("config.transform", config.transform)
+                if let value = config.transform{
+                    self.batchPreviewView.addTransformItem(value)
                 }
             }
         }

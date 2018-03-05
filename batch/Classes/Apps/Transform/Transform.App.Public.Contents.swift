@@ -6,16 +6,6 @@
 import Foundation
 import UIKit
 
-extension BatchAppPHAssetState {
-    var transform: CGAffineTransform {
-        return .identity
-    }
-
-    var transform3d: CATransform3D {
-        return CATransform3DIdentity
-    }
-}
-
 public extension StateValueSet where T: BatchAppPHAssetState {
     var transform: CGAffineTransform {
         var t = CGAffineTransform.identity

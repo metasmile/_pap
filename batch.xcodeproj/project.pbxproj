@@ -89,6 +89,7 @@
 		4F71DB1B53A67EDD9E0826C1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D3F4E4B720B2D3E79010 /* Localizable.strings */; };
 		4F71DB2198FD73D17C4ACD22 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DDF945C8D64CBC607353 /* Localizable.strings */; };
 		4F71DB3966101B081E32A445 /* Transform.App.Icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DB74003E5818EEDA2393 /* Transform.App.Icon@3x.png */; };
+		4F71DB4E273FECEB203CD7D5 /* CodeKit.NSKeyPathObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D39A3F044CE12928E44A /* CodeKit.NSKeyPathObservation.swift */; };
 		4F71DB50C50E69B8E6F886F4 /* AssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DBD7919C9DC7B8A540B4 /* AssetView.swift */; };
 		4F71DB5D55189CD4784D3E62 /* UIKitItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D168183E9E8C354E385A /* UIKitItem.swift */; };
 		4F71DB5DAD9BF2C4EF5C4FA0 /* CheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2465BD7BAD13DA17B6D /* CheckMarkView.swift */; };
@@ -153,6 +154,7 @@
 		4F71D3040845E37A18D32812 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		4F71D3240381293CED953B54 /* AppLifecycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLifecycle.swift; sourceTree = "<group>"; };
 		4F71D350A1024D6DE9DDF2CF /* zh_CN */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = zh_CN; path = Localizable.strings; sourceTree = "<group>"; };
+		4F71D39A3F044CE12928E44A /* CodeKit.NSKeyPathObservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.NSKeyPathObservation.swift; sourceTree = "<group>"; };
 		4F71D474151CDAE78A72AF50 /* hi */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = hi; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D48A50EAA2890E560F77 /* zh_HK */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = zh_HK; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D49286EE4D795ACB1A90 /* PHAssetSourceable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAssetSourceable.swift; sourceTree = "<group>"; };
@@ -489,6 +491,7 @@
 				4F71DA767BA21A5D0572DC1D /* CodeKit.UIView.GestureRecognizer.swift */,
 				4F71DE5A20C077D1C1843A6F /* CodeKit.Timer.swift */,
 				4F71D77980E66EFC623D06E4 /* Selection */,
+				4F71D39A3F044CE12928E44A /* CodeKit.NSKeyPathObservation.swift */,
 			);
 			path = CodeKit;
 			sourceTree = "<group>";
@@ -1131,6 +1134,7 @@
 				4F71D67378EC516CF2F2F2DB /* App.Finalizable.swift in Sources */,
 				4F71D47CC44675B02D5F225A /* PhotoPickerViewController.swift in Sources */,
 				4F71D8ECDF2DE59EB1FFEB3E /* Selectable.swift in Sources */,
+				4F71DB4E273FECEB203CD7D5 /* CodeKit.NSKeyPathObservation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1586,7 +1590,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "fe7bc759-0bdf-4bf3-94c1-d5cb49f2d909";
 				PROVISIONING_PROFILE_SPECIFIER = "com.stells.batch Development";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -1606,7 +1610,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "2fbfc242-74e2-4e16-9c09-33142bd02ec2";
 				PROVISIONING_PROFILE_SPECIFIER = "com.stells.batch AppStore";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

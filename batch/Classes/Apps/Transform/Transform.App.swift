@@ -11,14 +11,18 @@ import MobileCoreServices
 import Crashlytics
 
 
-public class TransformAppConfig: NSObject, AppConfigViewAttrributes {
-    @objc public dynamic private(set) var tintColor: UIColor?
-    @objc public dynamic var transform: BatchAppPHAssetState?
+public class TransformAppConfig: NSObject, KeyPathWatchable, AppConfigViewAttrributes {
+    @objc dynamic
+    public private(set) var tintColor: UIColor?
+
+    @objc dynamic
+    public var transform: BatchAppPHAssetState?
 }
+
 
 class _TransformAppAsset: PHAssetItem<BatchAppPHAssetState> {}
 
-public class TransformApp: NSObject, ConfigurableApp, _ConfigurableApp, PHAssetEditableFinalizableApp {
+public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _ConfigurableApp, PHAssetEditableFinalizableApp {
     public static let taskType:Taskable.Type = _TransfromAppTask.self
 
     public static let paramType:TaskParamable.Type = _TransformAppAsset.self
@@ -39,19 +43,19 @@ public class TransformApp: NSObject, ConfigurableApp, _ConfigurableApp, PHAssetE
             , policy: AppPolicy.default
     )
 
-    required public override init(){
-        super.init()
+
+    required convenience public override init(){
+        self.init(config:TransformAppConfig())
     }
 
-    required convenience public init(config: TransformAppConfig?=nil) {
-        self.init()
+    required public init(config: TransformAppConfig?=nil) {
         self.config = config
+        super.init()
     }
 }
 
 private extension TransformApp{
 
-//TODO: more simple way!
     @objc func horizontalFlipButtonDidTap() {
         self.config?.transform = HorizontalFlipTransformItem()
 
@@ -76,6 +80,7 @@ private extension TransformApp{
     @objc func rotationRightButtonDidTap() {
         self.config?.transform = RotationTransformItem(degrees: 90)
 
+        print(self.config?.transform)
         self.configNotificator.post(name: ConfigurableAppNotification.didChange, object: nil,
                 userInfo: [ConfigurableAppNotification.UserInfo.Key.configValue: RotationTransformItem(degrees: 90)])
     }

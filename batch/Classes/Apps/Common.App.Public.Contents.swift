@@ -9,7 +9,15 @@ import Photos
 
 extension PHAssetItem where EditStateValueType: BatchAppPHAssetState {}
 
-public class BatchAppPHAssetState: ItemObject {}
+public class BatchAppPHAssetState: ItemObject {
+    var transform: CGAffineTransform {
+        return .identity
+    }
+
+    var transform3d: CATransform3D {
+        return CATransform3DIdentity
+    }
+}
 
 public protocol PHAssetEditableFinalizableApp: FinalizableApp {}
 

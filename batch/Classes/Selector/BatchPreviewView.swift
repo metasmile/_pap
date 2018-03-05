@@ -38,7 +38,7 @@ class BatchPreviewView: CustomView {
     override func initialize() {
         super.initialize()
 
-        print("[i] BatchAppCenter.default.task.maxConcurrentCount: ",BatchAppCenter.default.task.maxConcurrentCount)
+        print("[i] BatchAppCenter.default.task.maxConcurrentCount: ", BatchAppCenter.default.task.maxConcurrentCount)
         
         collectionView.register(PreviewCollectionViewCell.self, forCellWithReuseIdentifier: "PreviewCollectionViewCell")
         updateCollectionViewAlignment(animated: false)
