@@ -54,8 +54,8 @@ extension KeyPathWatchable where _Observee == Self{
         var _watcher = objc_getAssociatedObject(self, &KeyPathWatchableAssociatedKeys.watcher)
         if _watcher == nil {
             _watcher = KeyPathWatcher<_Observee>()
+            objc_setAssociatedObject(self, &KeyPathWatchableAssociatedKeys.watcher, _watcher, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
-        objc_setAssociatedObject(self, &KeyPathWatchableAssociatedKeys.watcher, _watcher, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         return _watcher as! KeyPathWatcher<_Observee>
     }
 
