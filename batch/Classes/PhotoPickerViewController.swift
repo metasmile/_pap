@@ -83,22 +83,12 @@ class PhotoPickerViewController: AppDockViewController {
         dragSelectionGesture.delegate = self
         photoCollectionView.addGestureRecognizer(dragSelectionGesture)
 
-        //TODO: internally maintain instances
-        struct sdsd{
-            static var aa:NSKeyValueObservation?
-            static var bb:NSKeyValueObservation?
-        }
-
-        sdsd.aa = BatchAppCenter.default.watch(\.currentName) { (target, dict) in
+        BatchAppCenter.default.watch(\.currentName) { (appCenter, dict) in
             
             self.batchPreviewView.reloadAllAssetItems()
             self.showCurrentSelectedAppDisplayName()
 
-            print("BatchAppCenter.default.currentInstanceAs(TransformApp.self)?.config",target.currentInstanceAs(TransformApp.self)?.config)
-
-            sdsd.bb = target.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform) { (config, changed) in
-
-                print("config.transform", config.transform)
+            appCenter.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform) { (config, changed) in
                 if let value = config.transform{
                     self.batchPreviewView.addTransformItem(value)
                 }

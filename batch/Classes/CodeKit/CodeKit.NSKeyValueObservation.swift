@@ -17,7 +17,7 @@ public protocol _KeyPathWatchable:class {
 
 }
 
-public class KeyPathWatcher<KeyPathRoot:NSObject>: NSObject, _KeyPathWatchable {
+public class KeyPathWatcher<KeyPathRoot:NSObject>: Object, _KeyPathWatchable {
     fileprivate lazy var _observations = [NSKeyValueObservation:AnyKeyPath]()
 
     @discardableResult
@@ -32,7 +32,6 @@ public class KeyPathWatcher<KeyPathRoot:NSObject>: NSObject, _KeyPathWatchable {
         if let _options = options{
             observer = target.observe(keyPath, options:_options, changeHandler: changeHandler)
         }else{
-            print(keyPath)
             observer = target.observe(keyPath, changeHandler: changeHandler)
         }
 
@@ -43,12 +42,21 @@ public class KeyPathWatcher<KeyPathRoot:NSObject>: NSObject, _KeyPathWatchable {
 
 public protocol KeyPathWatchable {
     associatedtype _Observee:NSObject
-    var watcher: KeyPathWatcher<_Observee> { get }
+    var watcher: KeyPathWatcher<_Observee> {get}
+}
+
+private struct KeyPathWatchableAssociatedKeys {
+    static var watcher:Int?
 }
 
 extension KeyPathWatchable where _Observee == Self{
     public var watcher: KeyPathWatcher<_Observee> {
-        return KeyPathWatcher<_Observee>()
+        var _watcher = objc_getAssociatedObject(self, &KeyPathWatchableAssociatedKeys.watcher)
+        if _watcher == nil {
+            _watcher = KeyPathWatcher<_Observee>()
+        }
+        objc_setAssociatedObject(self, &KeyPathWatchableAssociatedKeys.watcher, _watcher, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        return _watcher as! KeyPathWatcher<_Observee>
     }
 
     @discardableResult

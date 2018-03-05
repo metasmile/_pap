@@ -58,31 +58,18 @@ private extension TransformApp{
 
     @objc func horizontalFlipButtonDidTap() {
         self.config?.transform = HorizontalFlipTransformItem()
-
-        self.configNotificator.post(name: ConfigurableAppNotification.didChange, object: nil,
-                userInfo: [ConfigurableAppNotification.UserInfo.Key.configValue: HorizontalFlipTransformItem()])
     }
 
     @objc func verticalFlipButtonDidTap() {
         self.config?.transform = VerticalFlipTransformItem()
-
-        self.configNotificator.post(name: ConfigurableAppNotification.didChange, object: nil,
-                userInfo: [ConfigurableAppNotification.UserInfo.Key.configValue: VerticalFlipTransformItem()])
     }
 
     @objc func rotationLeftButtonDidTap() {
         self.config?.transform = RotationTransformItem(degrees: -90)
-
-        self.configNotificator.post(name: ConfigurableAppNotification.didChange, object: nil,
-                userInfo: [ConfigurableAppNotification.UserInfo.Key.configValue: RotationTransformItem(degrees: -90)])
     }
 
     @objc func rotationRightButtonDidTap() {
         self.config?.transform = RotationTransformItem(degrees: 90)
-
-        print(self.config?.transform)
-        self.configNotificator.post(name: ConfigurableAppNotification.didChange, object: nil,
-                userInfo: [ConfigurableAppNotification.UserInfo.Key.configValue: RotationTransformItem(degrees: 90)])
     }
 
     private func createPreferenceView() -> UIView {
