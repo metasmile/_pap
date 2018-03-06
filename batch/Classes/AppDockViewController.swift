@@ -40,17 +40,29 @@ class AppDockViewController: UIViewController {
             doneButton?.tintColor = .black
         }
     }
-    
+
+
+    //TODO: remove this when N -app completed
+#if DEBUG
+    let _DefaultQuerySet:BatchAppQuery = [.beta, .release, .develop]
+#else
+    let _DefaultQuerySet:BatchAppQuery = [.release]
+#endif
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        BatchAppCenter.default.current = BatchAppCenter.default.apps.first
+//TODO: remove this line when N -app completed
+        BatchAppCenter.default.current = BatchAppCenter.default.apps(by: _DefaultQuerySet).first
 
         selectCurrentAppIfExist()
     }
     
     var appDockItems: [AppDockItem] {
-        return BatchAppCenter.default.apps.map({ AppDockItem(app: $0) })
+        let apps = BatchAppCenter.default.apps(by: _DefaultQuerySet)
+                ?? BatchAppCenter.default.apps()
+
+        return apps.map { AppDockItem(app: $0) }
     }
 
     @objc func cancelButtonDidTap(sender: Any) {

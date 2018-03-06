@@ -36,7 +36,7 @@ public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _Configu
     public static let info = AppInfo(
             identifier: "com.stells.batch.transform"
             , version: "1.0"
-            , state: .release
+            , phase: .release
             , appType: TransformApp.self
             , displayName: "Transform"
             , icon: "Transform.App.Icon"

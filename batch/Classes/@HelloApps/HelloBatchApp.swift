@@ -34,7 +34,7 @@ public class HelloBatchApp: App, FinalizableApp {
     public static let info = AppInfo(
             identifier: "com.stells.batch.hello"
             , version: "0.1"
-            , state: .develop
+            , phase: .develop
             , appType: HelloBatchApp.self
             , displayName: "Hello Batch"
             , icon: nil

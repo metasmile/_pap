@@ -5,8 +5,31 @@
 
 import Foundation
 
-public struct BatchAppQuery {
-    let state: AppProductPhase
+public struct BatchAppQuery:OptionSet, Hashable {
+    public let rawValue: Int
+    public init(rawValue: Int) {
+        self.rawValue = rawValue
+    }
+
+    public var hashValue: Int{
+        return rawValue.hashValue
+    }
+
+    public static let develop = BatchAppQuery(rawValue: 1 << 0)
+    public static let beta = BatchAppQuery(rawValue: 1 << 1)
+    public static let release = BatchAppQuery(rawValue: 1 << 2)
+
+    public static func ==(lhs: BatchAppQuery, rhs: BatchAppQuery) -> Bool{
+        return lhs.rawValue==rhs.rawValue
+    }
+}
+
+extension BatchAppQuery{
+    fileprivate static let phases:[BatchAppQuery:AppProductPhase] = [
+        .develop:.develop,
+        .beta:.beta,
+        .release:.release,
+    ]
 }
 
 public final class BatchAppCenter: NSObject, KeyPathWatchable, _SelectableCollection{
@@ -15,7 +38,7 @@ public final class BatchAppCenter: NSObject, KeyPathWatchable, _SelectableCollec
 
     private(set) public var previous: App.Type?
     public var previousIndex: Int? {
-        return apps.index { previous == $0 }
+        return _apps.index { previous == $0 }
     }
 
     public var current: App.Type? {
@@ -34,11 +57,11 @@ public final class BatchAppCenter: NSObject, KeyPathWatchable, _SelectableCollec
 
     public var currentIndex: Int? {
         get {
-            return apps.index { current == $0 }
+            return _apps.index { current == $0 }
         }
         set {
-            if let index = newValue, apps.indices.contains(index) {
-                current = apps[index]
+            if let index = newValue, _apps.indices.contains(index) {
+                current = _apps[index]
             }else{
                 current = nil
             }
@@ -55,17 +78,26 @@ public final class BatchAppCenter: NSObject, KeyPathWatchable, _SelectableCollec
         self.previous = nil
     }
 
-    public let apps:[App.Type] = [
+    private let _apps:[App.Type] = [
         TransformApp.self,
         RevertApp.self
     ]
 
-    public func apps(by query: BatchAppQuery) -> [App.Type]?{
-        return self.apps.filter { app in
-            return app.info.state == query.state
-        }
-    }
+    /*
+        apps(), apps(nil)   -> all
+        apps(by: query)     -> queried
+    */
+    public func apps(by query: BatchAppQuery?=nil) -> [App.Type]{
+        return query == nil ? self._apps : (self._apps.filter { app in
 
+            //productPhase
+            if let _ = (BatchAppQuery.phases.filter { query!.contains($0.key) }.first { app.info.phase == $0.value }) {
+                return true
+            }
+            return false
+
+        } ?? [App.Type]())
+    }
 
     // Task
     //TODO: make AppTaskLoad, AppTaskLoadBalancer, ordering to dynamically adjust via current system condition.

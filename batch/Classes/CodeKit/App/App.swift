@@ -20,7 +20,7 @@ public protocol App {
 public struct AppInfo: Hashable {
     let identifier:String
     let version:String
-    let state: AppProductPhase
+    let phase: AppProductPhase
     let appType: App.Type
     let displayName:String
     let icon:ImageSourceable?

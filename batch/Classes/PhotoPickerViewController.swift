@@ -140,9 +140,9 @@ class PhotoPickerViewController: AppDockViewController {
 
         //TODO: TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
         if let app = BatchAppCenter.default.current {
-            switch (app.info.state){
+            switch (app.info.phase){
             case .develop:
-                print("[!] Unable to run. Selected app's state is \(app.info.state)")
+                print("[!] Unable to run. Selected app's state is \(app.info.phase)")
 
                 let previousTitle = self.title
                 self.title = "Selected app is not ready."
