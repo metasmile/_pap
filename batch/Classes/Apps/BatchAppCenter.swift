@@ -20,7 +20,7 @@ public struct BatchAppQuery:OptionSet, Hashable {
     public static let release = BatchAppQuery(rawValue: 1 << 2)
 
     public static func ==(lhs: BatchAppQuery, rhs: BatchAppQuery) -> Bool{
-        return lhs.rawValue==rhs.rawValue
+        return lhs.hashValue==rhs.hashValue
     }
 }
 

@@ -68,7 +68,7 @@ public class MutableItemList<Element>: ItemList<Element>, _MutableItemList{
     }
 
     public func removeAll(){
-        self.removeAll()
+        items.removeAll()
     }
 }
 
