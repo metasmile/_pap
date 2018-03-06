@@ -12,7 +12,7 @@ public enum AppLifecycleUnit:UInt {
     case permanent
 }
 
-public enum AppState: UInt {
+public enum AppProductPhase: UInt {
     case develop
     case beta
     case release

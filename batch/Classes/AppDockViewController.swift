@@ -23,7 +23,7 @@ class AppDockViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = doneButton
-        
+
         appDockView.delegate = self
         appDockView.items = appDockItems
     }
@@ -43,9 +43,9 @@ class AppDockViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        //TODO: decide initial app policy - TEMP TEMP TEMP TEMP TEMP TEMP
-        
+
+        BatchAppCenter.default.current = BatchAppCenter.default.apps.first
+
         selectCurrentAppIfExist()
     }
     

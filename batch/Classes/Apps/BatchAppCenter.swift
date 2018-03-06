@@ -5,22 +5,9 @@
 
 import Foundation
 
-public struct BatchAppCenterNotification {
-    enum Name {
-        static let didChangeCurrent = Notification.Name("BatchAppCenterNotification.didChangeCurrent")
-    }
-
-    struct UserInfo {
-        enum Key {
-            static let previous = "previous"
-        }
-    }
-}
-
 public struct BatchAppQuery {
-    let state:AppState
+    let state: AppProductPhase
 }
-
 
 public final class BatchAppCenter: NSObject, KeyPathWatchable, _SelectableCollection{
     typealias Element = App.Type
@@ -35,13 +22,10 @@ public final class BatchAppCenter: NSObject, KeyPathWatchable, _SelectableCollec
         didSet {
             self.previous = oldValue
             self.currentName = current?.info.displayName
-            print(self.currentName)
 
             if let previous = self.previous, previous.info.policy.lifeCycleUnit != AppLifecycleUnit.permanent{
                 AppLifecycleManager.shared.discard(previous.info)
             }
-
-            NotificationCenter.default.post(name: BatchAppCenterNotification.Name.didChangeCurrent, object: self)
         }
     }
 

@@ -13,9 +13,6 @@
 import UIKit
 
 struct AppDockItem {
-//    var title = ""
-//    var appIcon:BundleImageSourceable?
-//    var run = {}
     var app: App.Type
 }
 

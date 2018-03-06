@@ -82,13 +82,16 @@ class PhotoPickerViewController: AppDockViewController {
         dragSelectionGesture = STDragSelectionGestureRecognizer(target: self, action: #selector(self.dragSelectionGestureDidRecognize))
         dragSelectionGesture.delegate = self
         photoCollectionView.addGestureRecognizer(dragSelectionGesture)
+    }
 
-        BatchAppCenter.default.watch(\.currentName) { (appCenter, dict) in
-            
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        BatchAppCenter.default.watch(\.currentName, options:[.new,.initial]) { (appCenter, dict) in
             self.batchPreviewView.reloadAllAssetItems()
             self.showCurrentSelectedAppDisplayName()
 
-            appCenter.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform) { (config, changed) in
+            BatchAppCenter.default.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform) { (config, changed) in
                 if let value = config.transform{
                     self.batchPreviewView.addTransformItem(value)
                 }
