@@ -164,6 +164,8 @@ class PhotoPickerViewController: AppDockViewController {
 
 extension PhotoPickerViewController {
     func showCurrentSelectedAppDisplayName(){
+        return
+        //TODO: remove this line
 
         let prefixTitle = "Selected App: "
         let previousTitle = true == self.title?.hasPrefix(prefixTitle) ? "Batch" : self.title
@@ -334,13 +336,19 @@ extension PhotoPickerViewController: TransformEditViewControllerDelegate {
     }
     
     func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: StateValueSet<BatchAppPHAssetState>?, at indexPath: IndexPath?) {
-        if let editItem = editItem, let indexPath = indexPath {
-            batchPreviewView.assetItems[indexPath.item].editState.merge(with:editItem)
+
+        if let _editItem = editItem, let _indexPath = indexPath {
+            batchPreviewView.assetItems[_indexPath.item].editState.merge(with:_editItem)
         }
-        
+
         photoEditor.dismiss(animated: true, completion: {
-            self.batchPreviewView.reloadCollectionViewItems()
+            //FIXME: why 0 after exe this block? batchPreviewView.assetItems[_indexPath.item].editState.count == 0
         })
+
+        //FIXME: temp
+        DispatchQueue.main.async {
+            self.batchPreviewView.reloadCollectionViewItems()
+        }
     }
 }
 
