@@ -83,11 +83,10 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
     private func createTask(_ request:AppTaskRequest) -> Taskable?{
         let appInfo = request.appType.info
 
-        guard let _ = AppLifecycleManager.shared.acquire(appInfo) else {
+        guard let appInstance = AppLifecycleManager.shared.acquire(appInfo) else {
             assert(false, "Task Creation was failed for an App \(request.appType)")
             return nil
         }
-
         let taskType = appInfo.appType.taskType
         let taskInfo = TaskInfo(request.token, taskType.self, request.appType)
 

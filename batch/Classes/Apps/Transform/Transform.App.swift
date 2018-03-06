@@ -13,7 +13,7 @@ import Crashlytics
 
 public class TransformAppConfig: NSObject, KeyPathWatchable, AppConfigViewAttrributes {
     @objc dynamic
-    public private(set) var tintColor: UIColor?
+    public var tintColor: UIColor?
 
     @objc dynamic
     public var transform: BatchAppPHAssetState?
@@ -27,7 +27,10 @@ public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _Configu
 
     public static let paramType:TaskParamable.Type = _TransformAppAsset.self
 
-    public var config: TransformAppConfig?
+    @objc dynamic
+    public static var configure:(() -> TransformAppConfig)?
+
+    public lazy var config: TransformAppConfig? = TransformApp.configure?() ?? TransformAppConfig()
 
     public private(set) lazy var configView: UIView? = createPreferenceView()
 
@@ -43,13 +46,7 @@ public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _Configu
             , policy: AppPolicy.default
     )
 
-
-    required convenience public override init(){
-        self.init(config:TransformAppConfig())
-    }
-
-    required public init(config: TransformAppConfig?=nil) {
-        self.config = config
+    required public override init(){
         super.init()
     }
 }
@@ -107,7 +104,7 @@ private extension TransformApp{
 //            config4.tintColor = .black
 //        }
 
-        if let tintColor = self.config?.tintColor{
+        if let tintColor = self.config?.tintColor {
             config1.tintColor = tintColor
             config2.tintColor = tintColor
             config3.tintColor = tintColor

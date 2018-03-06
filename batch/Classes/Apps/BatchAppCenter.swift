@@ -34,7 +34,17 @@ extension BatchAppQuery{
 
 public final class BatchAppCenter: NSObject, KeyPathWatchable, _SelectableCollection{
     typealias Element = App.Type
+
     public static let `default` = BatchAppCenter()
+    override init(){
+        super.init()
+
+        TransformApp.configure = {
+            var config = TransformAppConfig()
+            config.tintColor = .black
+            return config
+        }
+    }
 
     private(set) public var previous: App.Type?
     public var previousIndex: Int? {
