@@ -53,16 +53,24 @@ class AppDockViewController: UIViewController {
         super.viewDidAppear(animated)
 
 //TODO: remove this line when N -app completed
-        BatchAppCenter.default.current = BatchAppCenter.default.apps(by: _DefaultQuerySet).first
+
+        let initialApps = BatchAppCenter.default.apps(by: _DefaultQuerySet)
+        BatchAppCenter.default.current = initialApps.first
+
+        switch (initialApps.count){
+            case 0:
+                self.hideAppDock(false)
+            case 1:
+                self.showAppDockConfigOnly(false)
+            default:
+                self.showAppDock(false)
+        }
 
         selectCurrentAppIfExist()
     }
     
     var appDockItems: [AppDockItem] {
-        let apps = BatchAppCenter.default.apps(by: _DefaultQuerySet)
-                ?? BatchAppCenter.default.apps()
-
-        return apps.map { AppDockItem(app: $0) }
+        return BatchAppCenter.default.apps(by: _DefaultQuerySet).map { AppDockItem(app: $0) }
     }
 
     @objc func cancelButtonDidTap(sender: Any) {
@@ -106,6 +114,15 @@ extension AppDockViewController {
     open func hideAppDock(_ animated: Bool = true) {
         appDockViewBottomLayout.constant = -(appDockView.bounds.height + safeAreaInsets.bottom)
         
+        if animated {
+            appDockView.animateUsingSpringIfLayoutConstraintsChanged()
+        }
+    }
+
+    open func showAppDockConfigOnly(_ animated: Bool = true) {
+        let verticalConstant = appDockView.intrinsicContentSize.height - appDockView.appConfigView.bounds.height
+        appDockViewBottomLayout.constant = -(verticalConstant + safeAreaInsets.bottom)
+
         if animated {
             appDockView.animateUsingSpringIfLayoutConstraintsChanged()
         }

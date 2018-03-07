@@ -98,15 +98,14 @@ public final class BatchAppCenter: NSObject, KeyPathWatchable, _SelectableCollec
         apps(by: query)     -> queried
     */
     public func apps(by query: BatchAppQuery?=nil) -> [App.Type]{
-        return query == nil ? self._apps : (self._apps.filter { app in
+        return query == nil ? self._apps : self._apps.filter { app in
 
             //productPhase
             if let _ = (BatchAppQuery.phases.filter { query!.contains($0.key) }.first { app.info.phase == $0.value }) {
                 return true
             }
             return false
-
-        } ?? [App.Type]())
+        }
     }
 
     // Task
