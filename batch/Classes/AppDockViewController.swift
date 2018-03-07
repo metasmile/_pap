@@ -105,7 +105,8 @@ extension AppDockViewController: AppDockViewDelegate {
 extension AppDockViewController {
     open func showAppDock(_ animated: Bool = true) {
         appDockViewBottomLayout?.constant = 0
-        
+        appDockView.dockView.isHidden = false
+
         if animated {
             appDockView.animateUsingSpringIfLayoutConstraintsChanged()
         }
@@ -121,7 +122,8 @@ extension AppDockViewController {
 
     open func showAppDockConfigOnly(_ animated: Bool = true) {
         let verticalConstant = appDockView.intrinsicContentSize.height - appDockView.appConfigView.bounds.height
-        appDockViewBottomLayout?.constant = -(verticalConstant + safeAreaInsets.bottom)
+        appDockViewBottomLayout?.constant = -(verticalConstant - safeAreaInsets.bottom)
+        appDockView.dockView.isHidden = true
 
         if animated {
             appDockView.animateUsingSpringIfLayoutConstraintsChanged()
