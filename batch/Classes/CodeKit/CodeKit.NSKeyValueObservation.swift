@@ -74,15 +74,36 @@ extension KeyPathWatchable where _Observee == Self{
         return self.watcher.watch(self, keyPath, options:options, changeHandler: changeHandler)
     }
 
-    public func unwatch<Value>(_ keyPath:KeyPath<_Observee,Value>) -> Bool{
-        var unwatched = false
-        for (observer, keypath) in self.watcher._observations{
-            if keyPath==keypath{
-                self.watcher._observations.removeValue(forKey: observer)
-                unwatched = true
-            }
+    @discardableResult
+    public func watch<Value>(_ keyPath:KeyPath<_Observee,Value>
+            , options: NSKeyValueObservingOptions?=nil
+            , changeHandler: @escaping () -> Void) -> NSKeyValueObservation{
+
+        return self.watch(keyPath, options:options, changeHandler: { _,_ in changeHandler() })
+    }
+
+    @discardableResult
+    public func watch<Value>(_ keyPath:KeyPath<_Observee,Value>
+            , changeHandler: @escaping () -> Void) -> NSKeyValueObservation{
+
+        return self.watch( keyPath, changeHandler: { _,_ in changeHandler() })
+    }
+
+    public func watching<Value>(_ forKeyPath:KeyPath<_Observee,Value>) -> [NSKeyValueObservation]{
+        return self.watcher._observations.flatMap { observer, keyPath -> NSKeyValueObservation? in
+            return forKeyPath==keyPath ? observer : nil
         }
-        return unwatched
+    }
+
+    public func unwatch<Value>(_ keyPath:KeyPath<_Observee,Value>, forObservers:[NSKeyValueObservation]?=nil) -> Bool{
+        var observers = self.watching(keyPath)
+        if let forObservers = forObservers{
+            observers = Array(Set(observers).intersection(Set(forObservers)))
+        }
+        for observer in observers{
+            self.watcher._observations.removeValue(forKey: observer)
+        }
+        return true
     }
 
     public func unwatchAll() {

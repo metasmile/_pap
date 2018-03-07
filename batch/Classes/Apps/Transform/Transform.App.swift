@@ -49,7 +49,7 @@ public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _Configu
     required public override init(){
         super.init()
 
-        self.watch(\.config, options: [.initial, .new]) { (s,v) in
+        self.watch(\.config, options: [.initial, .new]) {
             self.updateConfigView()
         }
     }
