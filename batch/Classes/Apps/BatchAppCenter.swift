@@ -40,7 +40,7 @@ public final class BatchAppCenter: NSObject, KeyPathWatchable, _SelectableCollec
         super.init()
 
         TransformApp.configure = {
-            var config = TransformAppConfig()
+            let config = TransformAppConfig()
             config.tintColor = .black
             return config
         }
@@ -99,11 +99,13 @@ public final class BatchAppCenter: NSObject, KeyPathWatchable, _SelectableCollec
     */
     public func apps(by query: BatchAppQuery?=nil) -> [App.Type]{
         return query == nil ? self._apps : self._apps.filter { app in
+            guard let query = query else{ return false }
 
             //productPhase
-            if let _ = (BatchAppQuery.phases.filter { query!.contains($0.key) }.first { app.info.phase == $0.value }) {
+            if let _ = BatchAppQuery.phases.filter({ query.contains($0.key) }).first(where: { app.info.phase == $0.value }) {
                 return true
             }
+
             return false
         }
     }

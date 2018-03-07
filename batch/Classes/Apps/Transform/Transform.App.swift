@@ -27,9 +27,9 @@ public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _Configu
 
     public static let paramType:TaskParamable.Type = _TransformAppAsset.self
 
-    @objc dynamic
     public static var configure:(() -> TransformAppConfig)?
 
+    @objc dynamic
     public lazy var config: TransformAppConfig? = TransformApp.configure?() ?? TransformAppConfig()
 
     public private(set) lazy var configView: UIView? = createPreferenceView()
@@ -48,6 +48,10 @@ public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _Configu
 
     required public override init(){
         super.init()
+
+        self.watch(\.config, options: [.initial, .new]) { (s,v) in
+            self.updateConfigView()
+        }
     }
 }
 
@@ -91,32 +95,20 @@ private extension TransformApp{
         config4.setImage(UIImage(named: "Rotate Right")?.withRenderingMode(.alwaysTemplate), for: .normal)
         config4.addTarget(self, action: #selector(self.rotationRightButtonDidTap), for: .touchUpInside)
 
-//        switch appDockView.barStyle {
-//        case .black:
-//            config1.tintColor = .white
-//            config2.tintColor = .white
-//            config3.tintColor = .white
-//            config4.tintColor = .white
-//        default:
-//            config1.tintColor = .black
-//            config2.tintColor = .black
-//            config3.tintColor = .black
-//            config4.tintColor = .black
-//        }
-
-        if let tintColor = self.config?.tintColor {
-            config1.tintColor = tintColor
-            config2.tintColor = tintColor
-            config3.tintColor = tintColor
-            config4.tintColor = tintColor
-        }
-
         view.addArrangedSubview(config1)
         view.addArrangedSubview(config2)
         view.addArrangedSubview(config3)
         view.addArrangedSubview(config4)
 
         return view
+    }
+
+    private func updateConfigView(){
+        if let config = self.config, let buttons = (self.configView as? UIStackView)?.arrangedSubviews as? [UIButton]{
+            for button in buttons {
+                button.tintColor = config.tintColor
+            }
+        }
     }
 }
 
