@@ -10,7 +10,7 @@ import UIKit
 
 class AppDockViewController: UIViewController {
     @IBOutlet weak var appDockView: AppDockView!
-    @IBOutlet weak var appDockViewBottomLayout: NSLayoutConstraint!
+    @IBOutlet weak var appDockViewBottomLayout: NSLayoutConstraint?
     
     var cancelButton: UIBarButtonItem?
     var doneButton: UIBarButtonItem?
@@ -104,7 +104,7 @@ extension AppDockViewController: AppDockViewDelegate {
 
 extension AppDockViewController {
     open func showAppDock(_ animated: Bool = true) {
-        appDockViewBottomLayout.constant = 0
+        appDockViewBottomLayout?.constant = 0
         
         if animated {
             appDockView.animateUsingSpringIfLayoutConstraintsChanged()
@@ -112,7 +112,7 @@ extension AppDockViewController {
     }
     
     open func hideAppDock(_ animated: Bool = true) {
-        appDockViewBottomLayout.constant = -(appDockView.bounds.height + safeAreaInsets.bottom)
+        appDockViewBottomLayout?.constant = -(appDockView.bounds.height + safeAreaInsets.bottom)
         
         if animated {
             appDockView.animateUsingSpringIfLayoutConstraintsChanged()
@@ -121,7 +121,7 @@ extension AppDockViewController {
 
     open func showAppDockConfigOnly(_ animated: Bool = true) {
         let verticalConstant = appDockView.intrinsicContentSize.height - appDockView.appConfigView.bounds.height
-        appDockViewBottomLayout.constant = -(verticalConstant + safeAreaInsets.bottom)
+        appDockViewBottomLayout?.constant = -(verticalConstant + safeAreaInsets.bottom)
 
         if animated {
             appDockView.animateUsingSpringIfLayoutConstraintsChanged()

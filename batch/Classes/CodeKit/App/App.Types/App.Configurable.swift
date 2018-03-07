@@ -6,22 +6,38 @@
 import Foundation
 import UIKit
 
-public protocol ConfigurableAppValuable: NSObjectProtocol {}
+public protocol AppConfigValuable {}
 
-public protocol AppConfigViewAttrributes: ConfigurableAppValuable{
+public protocol AppConfigAdoptableValuable: AppConfigValuable {
+    func adoptValues(fromOther:AppConfigValuable)
+}
+
+public protocol AppConfigUIAttrributeValuable: AppConfigValuable {
     var tintColor:UIColor? { set get }
 }
 
-protocol _ConfigurableApp{
-    associatedtype T:ConfigurableAppValuable
+public struct AppConfigUIAttrribute: AppConfigUIAttrributeValuable{
+    public var tintColor: UIColor?
+}
+
+public protocol _ConfigurableApp{
+    associatedtype T: AppConfigValuable
 
     static var configure:(() -> T)? {set get}
 
-    var config: T? { set get }
+    var config: T? { get }
 }
 
 public protocol ConfigurableApp: App {
     //TODO: how to handle views - when app lifecycle finished
-    //TODO: how to input configView's parameter/config
     var configView:UIView? { get }
+
+    func setConfigValues<T: AppConfigValuable>(_ config:T)
+}
+
+extension ConfigurableApp where Self:_ConfigurableApp, Self.T: AppConfigAdoptableValuable {
+
+    public func setConfigValues<T: AppConfigValuable>(_ config:T){
+        self.config?.adoptValues(fromOther: config)
+    }
 }

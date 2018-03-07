@@ -311,7 +311,29 @@ extension PhotoPickerViewController: TransformEditViewControllerDelegate {
         navigationController.isHeroEnabled = true
         navigationController.heroModalAnimationType = .fade
         navigationController.heroNavigationAnimationType = .fade
-        present(navigationController, animated: true, completion: nil)
+        present(navigationController,animated: true) {
+
+            BatchAppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues( AppConfigUIAttrribute(tintColor: .white))
+        }
+    }
+
+    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: StateValueSet<BatchAppPHAssetState>?, at indexPath: IndexPath?) {
+
+        if let _editItem = editItem, let _indexPath = indexPath {
+            batchPreviewView.assetItems[_indexPath.item].editState.merge(with:_editItem)
+        }
+
+        photoEditor.dismiss(animated: true, completion: {
+            //FIXME: why 0 after exe this block? batchPreviewView.assetItems[_indexPath.item].editState.count == 0
+        })
+
+        //FIXME: temp
+        DispatchQueue.main.async {
+            self.batchPreviewView.reloadCollectionViewItems()
+        }
+
+        BatchAppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues( AppConfigUIAttrribute(tintColor: .black))
+
     }
     
     fileprivate func showPhotoEditorAndSelectIfNeeded(with asset: PHAsset?) {
@@ -335,21 +357,7 @@ extension PhotoPickerViewController: TransformEditViewControllerDelegate {
         return photoCollectionView.indexPathsForSelectedItems?.flatMap({ self.asset(at: $0) })
     }
     
-    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: StateValueSet<BatchAppPHAssetState>?, at indexPath: IndexPath?) {
 
-        if let _editItem = editItem, let _indexPath = indexPath {
-            batchPreviewView.assetItems[_indexPath.item].editState.merge(with:_editItem)
-        }
-
-        photoEditor.dismiss(animated: true, completion: {
-            //FIXME: why 0 after exe this block? batchPreviewView.assetItems[_indexPath.item].editState.count == 0
-        })
-
-        //FIXME: temp
-        DispatchQueue.main.async {
-            self.batchPreviewView.reloadCollectionViewItems()
-        }
-    }
 }
 
 extension PhotoPickerViewController: BatchPreviewViewDelegate {

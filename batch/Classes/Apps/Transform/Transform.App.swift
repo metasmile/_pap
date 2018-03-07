@@ -11,14 +11,23 @@ import MobileCoreServices
 import Crashlytics
 
 
-public class TransformAppConfig: NSObject, KeyPathWatchable, AppConfigViewAttrributes {
+public class TransformAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrributeValuable, AppConfigAdoptableValuable {
     @objc dynamic
     public var tintColor: UIColor?
 
     @objc dynamic
     public var transform: BatchAppPHAssetState?
-}
 
+    public func adoptValues(fromOther: AppConfigValuable) {
+        if let other = fromOther as? AppConfigUIAttrributeValuable {
+            self.tintColor = other.tintColor
+        }
+
+        if let other = fromOther as? TransformAppConfig{
+            self.transform = other.transform
+        }
+    }
+}
 
 class _TransformAppAsset: PHAssetItem<BatchAppPHAssetState> {}
 
@@ -30,7 +39,7 @@ public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _Configu
     public static var configure:(() -> TransformAppConfig)?
 
     @objc dynamic
-    public lazy var config: TransformAppConfig? = TransformApp.configure?() ?? TransformAppConfig()
+    public var config: TransformAppConfig?
 
     public private(set) lazy var configView: UIView? = createPreferenceView()
 
@@ -49,7 +58,8 @@ public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _Configu
     required public override init(){
         super.init()
 
-        self.watch(\.config, options: [.initial, .new]) {
+        config = TransformApp.configure?()
+        config?.watch(\.tintColor, options: [.initial, .new]) {
             self.updateConfigView()
         }
     }
