@@ -53,7 +53,10 @@ public final class BatchAppCenter: NSObject, KeyPathWatchable, _SelectableCollec
 
     public var current: App.Type? {
         didSet {
+            guard oldValue != current else{ return }
+
             self.previous = oldValue
+
             self.currentName = current?.info.displayName
 
             if let previous = self.previous, previous.info.policy.lifeCycleUnit != AppLifecycleUnit.permanent{

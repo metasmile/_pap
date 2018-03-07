@@ -11,13 +11,14 @@ public protocol StateValueSetable {
     func reset() -> Bool
 }
 
-public class StateValueSet<T>: MutableItemList<T>, StateValueSetable {
+public class StateValueSet<T:Hashable>: MutableItemList<T>, StateValueSetable {
     public var hasChanges: Bool {
         return !self.isEmpty
     }
 
     public func merge(with concatable: StateValueSet<T>) {
-        self.append(contentsOf: concatable)
+        let differentSet = StateValueSet(items: Array(Set<T>(iterator()).symmetricDifference(Set<T>(concatable.iterator()))))
+        self.append(contentsOf: differentSet)
     }
 
     @discardableResult

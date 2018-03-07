@@ -86,7 +86,11 @@ extension BatchPreviewView {
         let visibleIndexPaths = collectionView.indexPathsForVisibleItems
         for indexPath in visibleIndexPaths {
             guard let cell = self.collectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else { continue }
-            cell.setImageEditItem(self.assetItems[indexPath.item].editState, animated: animated)
+
+            print(indexPath.item,self.assetItems[indexPath.item].editState.hasChanges)
+            if self.assetItems[indexPath.item].editState.hasChanges{
+                cell.setImageEditItem(self.assetItems[indexPath.item].editState, animated: animated)
+            }
         }
         
         updateCollectionViewAlignment(animated: false)

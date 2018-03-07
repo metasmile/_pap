@@ -11,6 +11,11 @@ public class AnyItem: Item<Any>{}
 public class ItemList<Element>: ItemObject{
     fileprivate var items = [Element]()
 
+    public convenience init(items:[Element]){
+        self.init()
+        self.items = items
+    }
+
     public var count: Int {
         return items.count
     }

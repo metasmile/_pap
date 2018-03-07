@@ -23,8 +23,8 @@ public class TransformAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrribu
             self.tintColor = other.tintColor
         }
 
-        if let other = fromOther as? TransformAppConfig{
-            self.transform = other.transform
+        if let other = fromOther as? TransformAppConfig, let transform = other.transform{
+            self.transform = transform
         }
     }
 }
@@ -59,7 +59,7 @@ public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _Configu
         super.init()
 
         config = TransformApp.configure?()
-        config?.watch(\.tintColor, options: [.initial, .new]) {
+        config?.watch(\.tintColor, id:"\(type(of: self)).config.tintColor", options: [.initial, .new]) {
             self.updateConfigView()
         }
     }

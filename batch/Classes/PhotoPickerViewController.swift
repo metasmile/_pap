@@ -87,16 +87,26 @@ class PhotoPickerViewController: AppDockViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        BatchAppCenter.default.watch(\.currentName, options:[.new,.initial]) { (appCenter, dict) in
-            self.batchPreviewView.reloadAllAssetItems()
+        BatchAppCenter.default.watch(\.currentName, id:"picker", options:[.new,.old,.initial]) { (appCenter, dict) in
+            if let old = dict.oldValue, old != dict.newValue! {
+                self.batchPreviewView.reloadAllAssetItems()
+            }
+
             self.showCurrentSelectedAppDisplayName()
 
-            BatchAppCenter.default.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform) { (config, changed) in
+            BatchAppCenter.default.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform, id:"picker\(TransformApp.info.identifier)") { (config, changed) in
                 if let value = config.transform{
                     self.batchPreviewView.addTransformItem(value)
                 }
             }
         }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        BatchAppCenter.default.currentInstanceAs(TransformApp.self)?.config?.unwatch(\.transform, forIds:["picker\(TransformApp.info.identifier)"])
+        BatchAppCenter.default.unwatch(\.currentName, forIds:["picker"])
     }
 
     deinit {
@@ -319,21 +329,15 @@ extension PhotoPickerViewController: TransformEditViewControllerDelegate {
 
     func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: StateValueSet<BatchAppPHAssetState>?, at indexPath: IndexPath?) {
 
-        if let _editItem = editItem, let _indexPath = indexPath {
+        if let _editItem = editItem, let _indexPath = indexPath, _editItem.hasChanges {
             batchPreviewView.assetItems[_indexPath.item].editState.merge(with:_editItem)
-        }
-
-        photoEditor.dismiss(animated: true, completion: {
-            //FIXME: why 0 after exe this block? batchPreviewView.assetItems[_indexPath.item].editState.count == 0
-        })
-
-        //FIXME: temp
-        DispatchQueue.main.async {
-            self.batchPreviewView.reloadCollectionViewItems()
         }
 
         BatchAppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues( AppConfigUIAttrribute(tintColor: .black))
 
+        photoEditor.dismiss(animated: true, completion: {
+            self.batchPreviewView.reloadCollectionViewItems()
+        })
     }
     
     fileprivate func showPhotoEditorAndSelectIfNeeded(with asset: PHAsset?) {

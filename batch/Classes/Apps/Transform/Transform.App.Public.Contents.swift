@@ -9,6 +9,7 @@ import UIKit
 public extension StateValueSet where T: BatchAppPHAssetState {
     var transform: CGAffineTransform {
         var t = CGAffineTransform.identity
+
         for value in self.iterator() {
             t = t.concatenating(value.transform)
         }

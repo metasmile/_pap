@@ -98,8 +98,9 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        BatchAppCenter.default.watch(\.currentName, options:[.new,.initial]) { appCenter, dict in
-            appCenter.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform) { (config, changed) in
+        BatchAppCenter.default.watch(\.currentName, id:"editor", options:[.new,.initial]) { appCenter, dict in
+
+            appCenter.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform, id:"editor\(appCenter.currentName)") { (config, changed) in
                 if let value = config.transform{
                     self.addTransformItem(value)
                 }

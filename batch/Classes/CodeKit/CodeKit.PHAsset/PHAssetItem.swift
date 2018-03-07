@@ -25,7 +25,7 @@ public struct PHAssetResultItem: PHAssetResultable {
     public var contentEditingOutput: PHContentEditingOutput?
 }
 
-public class PHAssetItem<EditStateValueType>: ItemObject, PHAssetParamable {
+public class PHAssetItem<EditStateValueType:Hashable>: ItemObject, PHAssetParamable {
     public var asset: PHAsset
     public var indexPath:IndexPath?
     public var requestIDs = [PHAssetRequestID]()
