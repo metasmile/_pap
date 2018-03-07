@@ -14,7 +14,14 @@ class AppDockViewController: UIViewController {
     
     var cancelButton: UIBarButtonItem?
     var doneButton: UIBarButtonItem?
-    
+
+    //TODO: remove this when N -app completed
+#if DEBUG
+    let _DefaultQuerySet:BatchAppQuery = [.beta, .release, .develop]
+#else
+    let _DefaultQuerySet:BatchAppQuery = [.release]
+#endif
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,6 +33,16 @@ class AppDockViewController: UIViewController {
 
         appDockView.delegate = self
         appDockView.items = appDockItems
+
+        switch (BatchAppCenter.default.apps(by: _DefaultQuerySet).count){
+            case 0:
+                self.hideAppDock(false)
+            case 1:
+                self.showAppDockConfigOnly(false)
+            default:
+                self.showAppDock(false)
+        }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,29 +59,11 @@ class AppDockViewController: UIViewController {
     }
 
 
-    //TODO: remove this when N -app completed
-#if DEBUG
-    let _DefaultQuerySet:BatchAppQuery = [.beta, .release, .develop]
-#else
-    let _DefaultQuerySet:BatchAppQuery = [.release]
-#endif
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
 //TODO: remove this line when N -app completed
-
-        let initialApps = BatchAppCenter.default.apps(by: _DefaultQuerySet)
-        BatchAppCenter.default.current = initialApps.first
-
-        switch (initialApps.count){
-            case 0:
-                self.hideAppDock(false)
-            case 1:
-                self.showAppDockConfigOnly(false)
-            default:
-                self.showAppDock(false)
-        }
+        BatchAppCenter.default.current = BatchAppCenter.default.apps(by: _DefaultQuerySet).first
 
         selectCurrentAppIfExist()
     }
@@ -121,8 +120,7 @@ extension AppDockViewController {
     }
 
     open func showAppDockConfigOnly(_ animated: Bool = true) {
-        let verticalConstant = appDockView.intrinsicContentSize.height - appDockView.appConfigView.bounds.height
-        appDockViewBottomLayout?.constant = -(verticalConstant - safeAreaInsets.bottom)
+        appDockViewBottomLayout?.constant = -(appDockView.appCollectionView.collectionViewLayout.collectionViewContentSize.height - safeAreaInsets.bottom)
         appDockView.dockView.isHidden = true
 
         if animated {

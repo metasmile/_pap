@@ -1,1 +1,1 @@
-• Cancellation and progress indicator related fixes.
+•  Fixes for several crashing and layout issues.

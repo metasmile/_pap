@@ -115,6 +115,7 @@
                     </view>
                     <connections>
                         <outlet property="appDockView" destination="6HC-cV-Fmb" id="aQ0-zt-WH4"/>
+                        <outlet property="appDockViewBottomLayout" destination="FKA-o5-Dqu" id="4S9-GO-D2K"/>
                         <outlet property="photoZoomingView" destination="Yge-jY-8N3" id="vSu-Sg-Hex"/>
                     </connections>
                 </viewController>
