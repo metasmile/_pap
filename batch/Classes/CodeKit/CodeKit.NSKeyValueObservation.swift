@@ -147,10 +147,11 @@ extension KeyPathWatchable where _Observee == Self{
         }
 
         for id in ids {
+            self.watcher._observations[id]?.observer.invalidate()
             self.watcher._observations.removeValue(forKey: id)
         }
 
-        assert(forIds == nil || Set(watcher._observations.flatMap({ key, value -> String? in key })).intersection(Set(forIds!)).count==0, "\(forIds) is still remaning.")
+        assert(forIds == nil || Set(watcher._observations.flatMap({ key, value -> String? in key })).intersection(Set(forIds!)).count==0, "\(String(describing: forIds)) is still remaning.")
         return true
     }
 
