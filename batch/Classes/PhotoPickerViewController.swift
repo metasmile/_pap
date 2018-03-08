@@ -87,7 +87,7 @@ class PhotoPickerViewController: AppDockViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        BatchAppCenter.default.watch(\.currentName, id:"picker", options:[.new,.old,.initial]) { (appCenter, dict) in
+        BatchAppCenter.default.watch(\.currentIdentifier, id:"picker", options:[.new,.old,.initial]) { (appCenter, dict) in
             if let old = dict.oldValue, old != dict.newValue! {
                 self.batchPreviewView.reloadAllAssetItems()
             }
@@ -106,7 +106,7 @@ class PhotoPickerViewController: AppDockViewController {
         super.viewWillDisappear(animated)
 
         BatchAppCenter.default.currentInstanceAs(TransformApp.self)?.config?.unwatch(\.transform, forIds:["picker\(TransformApp.info.identifier)"])
-        BatchAppCenter.default.unwatch(\.currentName, forIds:["picker"])
+        BatchAppCenter.default.unwatch(\.currentIdentifier, forIds:["picker"])
     }
 
     deinit {

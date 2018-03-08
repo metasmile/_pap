@@ -16,11 +16,6 @@ class AppDockViewController: UIViewController {
     var doneButton: UIBarButtonItem?
 
     //TODO: remove this when N -app completed
-#if DEBUG
-    let _DefaultQuerySet:BatchAppQuery = [.beta, .release, .develop]
-#else
-    let _DefaultQuerySet:BatchAppQuery = [.release]
-#endif
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +29,7 @@ class AppDockViewController: UIViewController {
         appDockView.delegate = self
         appDockView.items = appDockItems
 
-        switch (BatchAppCenter.default.apps(by: _DefaultQuerySet).count){
+        switch (BatchAppCenter.default.apps(by: .default).count){
             case 0:
                 self.hideAppDock(false)
             case 1:
@@ -63,13 +58,13 @@ class AppDockViewController: UIViewController {
         super.viewDidAppear(animated)
 
 //TODO: remove this line when N -app completed
-        BatchAppCenter.default.current = BatchAppCenter.default.apps(by: _DefaultQuerySet).first
+        BatchAppCenter.default.current = BatchAppCenter.default.apps(by: .default).first
 
         selectCurrentAppIfExist()
     }
     
     var appDockItems: [AppDockItem] {
-        return BatchAppCenter.default.apps(by: _DefaultQuerySet).map { AppDockItem(app: $0) }
+        return BatchAppCenter.default.apps(by: .default).map { AppDockItem(app: $0) }
     }
 
     @objc func cancelButtonDidTap(sender: Any) {

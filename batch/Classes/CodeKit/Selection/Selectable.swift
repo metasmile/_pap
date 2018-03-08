@@ -6,7 +6,7 @@
 import Foundation
 
 //TODO: transfer from CodeKit_objc
-protocol _SelectableCollection{
+public protocol SelectableCollection {
     associatedtype Element
 
     var previous: Element? {get}

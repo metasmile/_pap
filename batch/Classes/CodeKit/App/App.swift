@@ -42,3 +42,36 @@ public struct AppPolicy {
     public let task: TaskPolicy
 }
 
+
+public struct AppQuery: OptionSet, Hashable {
+
+#if DEBUG
+    public static let `default`: AppQuery = [.beta, .release, .develop]
+#else
+    public static let `default`: AppQuery = [.release]
+#endif
+
+    public static let develop = AppQuery(rawValue: 1 << 0)
+    public static let beta = AppQuery(rawValue: 1 << 1)
+    public static let release = AppQuery(rawValue: 1 << 2)
+
+
+    public let rawValue: Int
+    public init(rawValue: Int) {
+        self.rawValue = rawValue
+    }
+    public var hashValue: Int{
+        return rawValue.hashValue
+    }
+    public static func ==(lhs: AppQuery, rhs: AppQuery) -> Bool{
+        return lhs.hashValue==rhs.hashValue
+    }
+}
+
+extension AppQuery {
+    static let phases:[AppQuery:AppProductPhase] = [
+        .develop:.develop,
+        .beta   :.beta,
+        .release:.release,
+    ]
+}
