@@ -5,8 +5,13 @@
 
 import Foundation
 
-protocol AppManagerConfigurable {
-    func configure() -> [App.Type]
+public struct AppManagerConfig{
+    var appCollection:[App.Type]?
+    var taskManager:AppTaskManager?
+}
+
+protocol AppManagerConfigurable where Self:AppManager {
+    func configure() -> AppManagerConfig?
 }
 
 open class AppManager: NSObject, SelectableCollection {
@@ -14,8 +19,15 @@ open class AppManager: NSObject, SelectableCollection {
     override init(){
         super.init()
 
-        if let asConfigurable = self as? AppManagerConfigurable {
-            _apps.append(contentsOf: asConfigurable.configure())
+        if let conf = (self as? AppManagerConfigurable)?.configure() {
+
+            if let appCollection = conf.appCollection{
+                _apps.append(contentsOf: appCollection)
+            }
+
+            if let taskManager = conf.taskManager{
+                _task = taskManager
+            }
         }
     }
 
@@ -84,8 +96,12 @@ open class AppManager: NSObject, SelectableCollection {
     }
 
     // Task
+    public var task:AppTaskManager{
+        return _task
+    }
+
     //TODO: make AppTaskLoad, AppTaskLoadBalancer, ordering to dynamically adjust via current system condition.
-    public let task = AppTaskManager.shared({ () -> UInt in
+    public var _task = AppTaskManager.shared({ () -> UInt in
         //https://en.wikipedia.org/wiki/List_of_iOS_devices
         let remainingMem = ProcessInfo.processInfo.physicalRemainingMemory/(1024*1024)
 

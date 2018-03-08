@@ -43,7 +43,7 @@ public struct TaskPolicy{
     )
 }
 
-public protocol Taskable {
+public protocol Taskable{
     var info: TaskInfo {  get }
 
     init(_ info: TaskInfo)

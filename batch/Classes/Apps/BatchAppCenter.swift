@@ -8,7 +8,7 @@ import Foundation
 public final class BatchAppCenter: AppManager, AppManagerConfigurable, KeyPathWatchable {
     public static let `default` = BatchAppCenter()
 
-    func configure() -> [App.Type] {
+    func configure() -> AppManagerConfig? {
 
         TransformApp.configure = {
             let config = TransformAppConfig()
@@ -16,9 +16,13 @@ public final class BatchAppCenter: AppManager, AppManagerConfigurable, KeyPathWa
             return config
         }
 
-        return [
+        var config = AppManagerConfig()
+        config.appCollection = [
             TransformApp.self
             , RevertApp.self
         ]
+
+        return config
+
     }
 }
