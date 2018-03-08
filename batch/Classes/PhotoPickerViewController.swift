@@ -59,7 +59,7 @@ class PhotoPickerViewController: AppDockViewController {
         }
 
         //navigation controller accessories
-        title = "Batch".localizedString
+        title = Bundle.main.displayName
 
         navigationItem.setLeftBarButton(nil, animated: true)
         navigationItem.setRightBarButton(nil, animated: true)
@@ -90,9 +90,8 @@ class PhotoPickerViewController: AppDockViewController {
         BatchAppCenter.default.watch(\.currentIdentifier, id:"picker", options:[.new,.old,.initial]) { (appCenter, dict) in
             if let old = dict.oldValue, old != dict.newValue! {
                 self.batchPreviewView.reloadAllAssetItems()
+                self.showCurrentSelectedAppDisplayName()
             }
-
-            self.showCurrentSelectedAppDisplayName()
 
             BatchAppCenter.default.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform, id:"picker\(TransformApp.info.identifier)") { (config, changed) in
                 if let value = config.transform{
@@ -174,12 +173,10 @@ class PhotoPickerViewController: AppDockViewController {
 
 extension PhotoPickerViewController {
     func showCurrentSelectedAppDisplayName(){
-        return
-        //TODO: remove this line
 
         let prefixTitle = "Selected App: "
-        let previousTitle = true == self.title?.hasPrefix(prefixTitle) ? "Batch" : self.title
-        self.title = "\(prefixTitle)\(BatchAppCenter.default.current?.info.displayName)"
+        let previousTitle = true == self.title?.hasPrefix(prefixTitle) ? Bundle.main.displayName : self.title
+        self.title = "\(prefixTitle)\(BatchAppCenter.default.current?.info.displayName ?? "")"
 
         Timer.scheduledTimer(identifier: "batch_selectedAppTitle", withTimeInterval: 2, repeats: false) { timer in
             if let _ = self.selectedAssets{
@@ -197,7 +194,7 @@ extension PhotoPickerViewController {
         let numberOfItems = numberOfPhotos + numberOfVideos
         
         if numberOfItems == 0 {
-            title = "Batch".localizedString
+            title = Bundle.main.displayName
             
             navigationItem.setLeftBarButton(nil, animated: true)
             navigationItem.setRightBarButton(nil, animated: true)

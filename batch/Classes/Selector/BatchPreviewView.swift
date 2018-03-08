@@ -98,6 +98,7 @@ extension BatchPreviewView {
 }
 
 extension BatchPreviewView{
+    @discardableResult
     func appendCollectionViewItem(with asset: PHAsset) -> IndexPath? {
         guard let insertedIndexPath = putAssetItem(for:asset) else {
             return nil
@@ -234,7 +235,7 @@ extension BatchPreviewView {
         delegate?.batchPreviewViewWillBeginEdit(self)
 
         collectionView.scrollToItem(at: IndexPath(item: 0, section: targetSection), at: .centeredHorizontally, animated: true)
-true
+
         //TODO: BatchAppCenter.default.task.append immediatly from UI action instead of using "EditItems"
         assetItems.forEach { item in
             BatchAppCenter.default.task.append(request: AppTaskRequest(app, item))
@@ -293,7 +294,6 @@ true
     }
     
     @objc func fetchProgressChanged(sender: NSNotification) {
-        print(sender.userInfo?[RemoteSourceFetchNotification.UserInfo.Key.progress])
     }
     
     func cancelBatchProcessing() {
