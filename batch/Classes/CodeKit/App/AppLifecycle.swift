@@ -66,11 +66,6 @@ final class AppLifecycleManager {
 
     @discardableResult
     public func discard(_ info: AppInfo) -> Bool{
-        assert(info.policy.lifeCycleUnit != .permanent, "Discarding app's life cycle mode is permanent.")
-        if info.policy.lifeCycleUnit == .permanent{
-            return false
-        }
-
         return _instanceCreationQueue.sync(flags: .barrier) {
             _discard(info)
         }
@@ -88,16 +83,17 @@ final class AppLifecycleManager {
 
     private func _discard(_ info: AppInfo) -> Bool{
         let identifier = info.identifier
+        guard let appInstance = _instances[identifier] else { return false }
 
-        if let appInstance = _instances[identifier]{
-            if let delegation = appInstance as? AppLifecycleDelegate, delegation.willDiscard() == false{
-                return false
-            }
-
-            _instances.removeValue(forKey: identifier)
-            return true
+        if info.policy.lifeCycleUnit == .permanent{
+            return false
         }
 
-        return false
+        if let delegation = appInstance as? AppLifecycleDelegate, delegation.willDiscard() == false{
+            return false
+        }
+
+        _instances.removeValue(forKey: identifier)
+        return true
     }
 }
