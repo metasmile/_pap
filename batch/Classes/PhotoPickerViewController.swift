@@ -154,9 +154,9 @@ class PhotoPickerViewController: AppDockViewController {
                 print("[!] Unable to run. Selected app's state is \(app.info.phase)")
 
                 let previousTitle = self.title
-                self.title = "Selected app is not ready."
+                self.titleFade = "Selected app is not ready."
                 Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { timer in
-                    self.title = previousTitle
+                    self.titleFade = previousTitle
                 }
 
                 return
@@ -173,16 +173,15 @@ class PhotoPickerViewController: AppDockViewController {
 
 extension PhotoPickerViewController {
     func showCurrentSelectedAppDisplayName(){
+        let previousTitle = self.title == Bundle.main.displayName ? self.title : Bundle.main.displayName
 
-        let prefixTitle = "Selected App: "
-        let previousTitle = true == self.title?.hasPrefix(prefixTitle) ? Bundle.main.displayName : self.title
-        self.title = "\(prefixTitle)\(BatchAppCenter.default.current?.info.displayName ?? "")"
+        self.titleFade = BatchAppCenter.default.current?.info.displayName
 
         Timer.scheduledTimer(identifier: "batch_selectedAppTitle", withTimeInterval: 2, repeats: false) { timer in
             if let _ = self.selectedAssets{
                 self.updateTitleForSelectedItems()
             }else{
-                self.title = previousTitle
+                self.titleFade = previousTitle
             }
         }
     }
@@ -390,7 +389,7 @@ extension PhotoPickerViewController: BatchPreviewViewDelegate {
     }
     
     func batchPreviewViewWillBeginEdit(_ view: BatchPreviewView) {
-        title = "Start Batch Editing...".localizedString
+        titleFade = "Start Batch Editing...".localizedString
 
         let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         loadingIndicator.startAnimating()
@@ -404,13 +403,13 @@ extension PhotoPickerViewController: BatchPreviewViewDelegate {
     }
     
     func batchPreviewView(_ view: BatchPreviewView, didUpdateProgress progress: Float) {
-        title = "Processing...".localizedString + " \(Int(progress * 100))%"
+        titleFade = "Processing...".localizedString + " \(Int(progress * 100))%"
 
         progressBar.setProgress(progress, animated: true)
     }
 
     func batchPreviewViewDidCancelProgress(_ view: BatchPreviewView) {
-        title = "Cancelling...".localizedString
+        titleFade = "Cancelling...".localizedString
 
         UIView.animate(withDuration: 0.6) {
             self.progressBar.alpha = 0
@@ -418,7 +417,7 @@ extension PhotoPickerViewController: BatchPreviewViewDelegate {
     }
 
     func batchPreviewViewWillBeginExport(_ view: BatchPreviewView) {
-        title = "Saving Photos...".localizedString
+        titleFade = "Saving Photos...".localizedString
 
         UIView.animate(withDuration: 0.6) {
             self.progressBar.alpha = 0
