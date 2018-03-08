@@ -18,9 +18,9 @@ public enum AppProductPhase: UInt {
     case release
 }
 
-protocol AppLifecycleDelegatable {
-    func didInstantiate() -> Bool
-    func willUninstantiate() -> Bool
+protocol AppLifecycleDelegate where Self:App {
+    func willAcquire() -> Bool
+    func willDiscard() -> Bool
 }
 
 final class AppLifecycleManager {
@@ -36,10 +36,8 @@ final class AppLifecycleManager {
     }
 
     public var acquired:[String]{
-        get{
-            return _instanceCreationQueue.sync(flags: .barrier) {
-                _instances.map { e -> String in e.0 }
-            }
+        return _instanceCreationQueue.sync(flags: .barrier) {
+            _instances.map { e -> String in e.0 }
         }
     }
 
@@ -55,8 +53,12 @@ final class AppLifecycleManager {
 
         guard let appInstance = _instances[appIdentifier] else{
             let _appInstance = appType.init()
-            _instances[appIdentifier] = _appInstance
 
+            if let delegation = _appInstance as? AppLifecycleDelegate, delegation.willAcquire() == false{
+                return nil
+            }
+
+            _instances[appIdentifier] = _appInstance
             return _appInstance
         }
         return appInstance
@@ -85,10 +87,17 @@ final class AppLifecycleManager {
     }
 
     private func _discard(_ info: AppInfo) -> Bool{
-        if _instances.keys.contains(info.identifier){
-            _instances.removeValue(forKey: info.identifier)
+        let identifier = info.identifier
+
+        if let appInstance = _instances[identifier]{
+            if let delegation = appInstance as? AppLifecycleDelegate, delegation.willDiscard() == false{
+                return false
+            }
+
+            _instances.removeValue(forKey: identifier)
             return true
         }
+
         return false
     }
 }
