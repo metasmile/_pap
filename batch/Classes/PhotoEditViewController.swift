@@ -57,7 +57,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         
         assetView = AssetView(frame: zoomingContentView.bounds)
         assetView.contentMode = .scaleAspectFit
-        assetView.heroID = transitionID
+        assetView.hero.id = transitionID
         zoomingContentView.addSubview(assetView)
         
         photoZoomingView.minimumZoomScale = 1

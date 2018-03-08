@@ -318,9 +318,9 @@ extension PhotoPickerViewController: TransformEditViewControllerDelegate {
         }
         
         let navigationController = UINavigationController(rootViewController: photoEditViewController)
-        navigationController.isHeroEnabled = true
-        navigationController.heroModalAnimationType = .fade
-        navigationController.heroNavigationAnimationType = .fade
+        navigationController.hero.isEnabled = true
+        navigationController.hero.modalAnimationType = .fade
+        navigationController.hero.navigationAnimationType = .fade
         present(navigationController,animated: true) {
 
             BatchAppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues( AppConfigUIAttrribute(tintColor: .white))
