@@ -305,21 +305,22 @@ extension PhotoPickerViewController: TransformEditViewControllerDelegate {
     fileprivate func showPhotoEditor(with editItem: PHAssetItem<BatchAppPHAssetState>?) {
         guard let _editItem = editItem else { return }
 
-        let photoEditViewController = storyboard?.instantiateViewController(withIdentifier: "PhotoEditViewController") as! PhotoEditViewController
-        photoEditViewController.asset = _editItem.asset
-        photoEditViewController.preferredTransform = _editItem.editState.transform
-        photoEditViewController.delegate = self
-        if let item = batchPreviewView.assetItems.index(of: _editItem) {
-            photoEditViewController.indexPathInBatch = IndexPath(item: item, section: 0)
-        }
-        
-        let navigationController = UINavigationController(rootViewController: photoEditViewController)
-        navigationController.hero.isEnabled = true
-        navigationController.hero.modalAnimationType = .fade
-        navigationController.hero.navigationAnimationType = .fade
-        present(navigationController,animated: true) {
+        if let photoEditViewController = R.storyboard.appStoryboard.photoEditViewController(){
+            photoEditViewController.asset = _editItem.asset
+            photoEditViewController.preferredTransform = _editItem.editState.transform
+            photoEditViewController.delegate = self
+            if let item = batchPreviewView.assetItems.index(of: _editItem) {
+                photoEditViewController.indexPathInBatch = IndexPath(item: item, section: 0)
+            }
 
-            BatchAppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues( AppConfigUIAttrribute(tintColor: .white))
+            let navigationController = UINavigationController(rootViewController: photoEditViewController)
+            navigationController.hero.isEnabled = true
+            navigationController.hero.modalAnimationType = .fade
+            navigationController.hero.navigationAnimationType = .fade
+            present(navigationController,animated: true) {
+
+                BatchAppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues( AppConfigUIAttrribute(tintColor: .white))
+            }
         }
     }
 

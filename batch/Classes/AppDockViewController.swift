@@ -20,8 +20,8 @@ class AppDockViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cancelButton = UIBarButtonItem(image: UIImage(named: "Cancel"), style: .plain, target: self, action: #selector(self.cancelButtonDidTap))
-        doneButton = UIBarButtonItem(image: UIImage(named: "Batch Done Bar Button"), style: .done, target: self, action: #selector(self.doneButtonDidTap))
+        cancelButton = UIBarButtonItem(image: R.image.cancel(), style: .plain, target: self, action: #selector(self.cancelButtonDidTap))
+        doneButton = UIBarButtonItem(image: R.image.batchDoneBarButton(), style: .done, target: self, action: #selector(self.doneButtonDidTap))
         
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = doneButton

@@ -6,6 +6,8 @@
 "Open Settings" = "เปิดการตั้งค่า";
 /*Translated from: Cancel*/
 "Cancel" = "ยกเลิก";
+/*Translated from: Detail*/
+"Detail" = "รายละเอียด";
 /*Translated from: Edit %d photo(s)*/
 "Edit %d photo(s)" = "แก้ไข %d รูปภาพ";
 /*Translated from: Edit %d video(s)*/

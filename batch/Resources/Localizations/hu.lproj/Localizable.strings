@@ -6,6 +6,8 @@
 "Open Settings" = "Nyisd meg a beállításokat";
 /*Translated from: Cancel*/
 "Cancel" = "Megszünteti";
+/*Translated from: Detail*/
+"Detail" = "Részlet";
 /*Translated from: Edit %d photo(s)*/
 "Edit %d photo(s)" = "%d Kép szerkesztése";
 /*Translated from: Edit %d video(s)*/

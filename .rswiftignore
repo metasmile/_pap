@@ -1,0 +1,4 @@
+# original xcode string system is better and flexible
+**/*.strings
+**/*.stringsdict
+

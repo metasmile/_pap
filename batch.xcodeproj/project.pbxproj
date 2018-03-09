@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A771E901FB1429800BBFCD7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A771E8F1FB1429700BBFCD7 /* GoogleService-Info.plist */; };
 		0A88FF751FA04AD6001C0DC6 /* FloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A88FF741FA04AD6001C0DC6 /* FloatingView.swift */; };
 		0A8C4ADE1F3C15BF00B7246A /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8C4ADD1F3C15BF00B7246A /* RoundedButton.swift */; };
 		0A8D18E11F15DEEF00AABEF7 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D18E01F15DEEF00AABEF7 /* CustomView.swift */; };
@@ -88,7 +87,6 @@
 		4F71DAFAA60AFFA6D22694FF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D865266BB0B201F7DE0A /* Localizable.strings */; };
 		4F71DB1B53A67EDD9E0826C1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D3F4E4B720B2D3E79010 /* Localizable.strings */; };
 		4F71DB2198FD73D17C4ACD22 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DDF945C8D64CBC607353 /* Localizable.strings */; };
-		4F71DB3966101B081E32A445 /* Transform.App.Icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DB74003E5818EEDA2393 /* Transform.App.Icon@3x.png */; };
 		4F71DB4E273FECEB203CD7D5 /* CodeKit.NSKeyValueObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D39A3F044CE12928E44A /* CodeKit.NSKeyValueObservation.swift */; };
 		4F71DB50C50E69B8E6F886F4 /* AssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DBD7919C9DC7B8A540B4 /* AssetView.swift */; };
 		4F71DB5D55189CD4784D3E62 /* UIKitItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D168183E9E8C354E385A /* UIKitItem.swift */; };
@@ -113,11 +111,11 @@
 		4F71DF9943D375C8E71568EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D8227095557197E91EB6 /* Localizable.strings */; };
 		4F71DF9B8B2B87E168C55840 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D079FCA01A952DBCFD3F /* Localizable.strings */; };
 		4F71DFEC865AA80D613A636F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D301F74DE286EEECCC9F /* Localizable.strings */; };
-		A0CFD8C62051EE360007041B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0CFD8C52051EE360007041B /* GoogleService-Info.plist */; };
+		A0CFD8CB2052D03D0007041B /* Transform.App.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0CFD8CA2052D03D0007041B /* Transform.App.Assets.xcassets */; };
+		A0CFD8E92052D9F10007041B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CFD8E82052D9F10007041B /* R.generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A771E8F1FB1429700BBFCD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0A88FF741FA04AD6001C0DC6 /* FloatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingView.swift; sourceTree = "<group>"; };
 		0A8C4ADD1F3C15BF00B7246A /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		0A8D18E01F15DEEF00AABEF7 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
@@ -199,7 +197,6 @@
 		4F71DA767BA21A5D0572DC1D /* CodeKit.UIView.GestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIView.GestureRecognizer.swift; sourceTree = "<group>"; };
 		4F71DAD13EC98589E1C308AB /* AppTaskOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTaskOperationQueue.swift; sourceTree = "<group>"; };
 		4F71DB3F65BB0609398D99C6 /* Sourceable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sourceable.swift; sourceTree = "<group>"; };
-		4F71DB74003E5818EEDA2393 /* Transform.App.Icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Transform.App.Icon@3x.png"; sourceTree = "<group>"; };
 		4F71DBD7919C9DC7B8A540B4 /* AssetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetView.swift; sourceTree = "<group>"; };
 		4F71DC250BC1539E5CF380C0 /* it */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = it; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71DC4565938334F77840D7 /* ar */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ar; path = Localizable.strings; sourceTree = "<group>"; };
@@ -226,7 +223,8 @@
 		4F71DFCA8020E56BB968A0A8 /* hu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = hu; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71DFDD565703A287D81E0B /* App.Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Configurable.swift; sourceTree = "<group>"; };
 		614D248BD87AEAE91795DFC4 /* Pods-batch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch.release.xcconfig"; path = "Pods/Target Support Files/Pods-batch/Pods-batch.release.xcconfig"; sourceTree = "<group>"; };
-		A0CFD8C52051EE360007041B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A0CFD8CA2052D03D0007041B /* Transform.App.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Transform.App.Assets.xcassets; sourceTree = "<group>"; };
+		A0CFD8E82052D9F10007041B /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		E6C115FBD773BA835480B08C /* Pods-batch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-batch/Pods-batch.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -314,11 +312,10 @@
 		0ABFCF7A1F14B65C0078A583 /* batch */ = {
 			isa = PBXGroup;
 			children = (
+				A0CFD8E82052D9F10007041B /* R.generated.swift */,
 				0ABFCF961F14B8830078A583 /* Classes */,
 				0ABFCF8D1F14B6EF0078A583 /* Resources */,
 				0ABFCF7B1F14B65C0078A583 /* AppDelegate.swift */,
-				A0CFD8C52051EE360007041B /* GoogleService-Info.plist */,
-				0A771E8F1FB1429700BBFCD7 /* GoogleService-Info.plist */,
 				0ABFCF871F14B65C0078A583 /* Info.plist */,
 			);
 			path = batch;
@@ -754,7 +751,7 @@
 		4F71DCB3AB34868596946588 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4F71DB74003E5818EEDA2393 /* Transform.App.Icon@3x.png */,
+				A0CFD8CA2052D03D0007041B /* Transform.App.Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -887,6 +884,7 @@
 			buildConfigurationList = 0ABFCF8A1F14B65C0078A583 /* Build configuration list for PBXNativeTarget "batch" */;
 			buildPhases = (
 				9FF1A055D87F28B3A17235D3 /* [CP] Check Pods Manifest.lock */,
+				A0CFD8C72052C6990007041B /* ShellScript */,
 				0ABFCF741F14B65C0078A583 /* Sources */,
 				0ABFCF751F14B65C0078A583 /* Frameworks */,
 				0ABFCF761F14B65C0078A583 /* Resources */,
@@ -948,7 +946,6 @@
 				0AA86ED91FD12BF600E6E1B0 /* AppDockViewCell.xib in Resources */,
 				0A9EC7741F30735B00F1EF3A /* PhotoCollectionViewCell.xib in Resources */,
 				0ABFCF911F14B7190078A583 /* AppStoryboard.storyboard in Resources */,
-				0A771E901FB1429800BBFCD7 /* GoogleService-Info.plist in Resources */,
 				0A9EBAE51FD6F3AF00E83778 /* BatchPreviewView.xib in Resources */,
 				0AA86ED71FD11EEF00E6E1B0 /* AppDockView.xib in Resources */,
 				0AA166941FD7A7F10004205C /* PreviewCollectionViewCell.xib in Resources */,
@@ -957,7 +954,6 @@
 				4F71D5AB1A25143BFC4C589B /* Localizable.strings in Resources */,
 				4F71D16CF3B12DD062C9D66C /* Localizable.strings in Resources */,
 				4F71DF9943D375C8E71568EC /* Localizable.strings in Resources */,
-				A0CFD8C62051EE360007041B /* GoogleService-Info.plist in Resources */,
 				4F71DBBBA93D4A97C6AE1FD5 /* Localizable.strings in Resources */,
 				4F71D99856A7C365D427551C /* Localizable.strings in Resources */,
 				4F71D843895CA6C04861BB23 /* Localizable.strings in Resources */,
@@ -971,6 +967,7 @@
 				4F71DF288EE084877C33282B /* Localizable.strings in Resources */,
 				4F71D98AD5ED03D40E16A7E5 /* Localizable.strings in Resources */,
 				4F71D7939174CF0CB3730E5C /* Localizable.strings in Resources */,
+				A0CFD8CB2052D03D0007041B /* Transform.App.Assets.xcassets in Resources */,
 				4F71DECCBC9546DB3C4F7C94 /* Localizable.strings in Resources */,
 				4F71D87B789944E2A62057C7 /* Localizable.strings in Resources */,
 				4F71D91244FDCFE9DC644E76 /* Localizable.strings in Resources */,
@@ -994,7 +991,6 @@
 				4F71DFEC865AA80D613A636F /* Localizable.strings in Resources */,
 				4F71D0C0E58E2E5FEE8DB9F5 /* Localizable.strings in Resources */,
 				4F71D1642A0077DDE5CC700F /* Localizable.strings in Resources */,
-				4F71DB3966101B081E32A445 /* Transform.App.Icon@3x.png in Resources */,
 				4F71D42041AA9FB60FC718B0 /* Revert.App.Icon@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1033,6 +1029,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 4de4dac2f8e69777783b1df21877e32171c4d237 d0dda26417dac7e85551b4a5e1c153dd51ca24de84ead30fc9cb38f344295de5";
 		};
+		A0CFD8C72052C6990007041B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/$TARGET_NAME\"\n";
+		};
 		C20D0C51CA26F75201584114 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1057,12 +1066,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-batch/Pods-batch-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1119,6 +1130,7 @@
 				4F71D93445F8C95769402C54 /* CodeKit.UIView.Geometry.swift in Sources */,
 				4F71D6C988FC52C61B1BD17B /* CodeKit.URL.swift in Sources */,
 				4F71D0332FEF1A75631DCA55 /* CodeKit.UIView.GestureRecognizer.swift in Sources */,
+				A0CFD8E92052D9F10007041B /* R.generated.swift in Sources */,
 				4F71D90CC963090F9D1B6E3D /* StateValue.swift in Sources */,
 				4F71DCD9A6400FB1FAC14C03 /* Revert.App.Public.Contents.swift in Sources */,
 				4F71DF47FAF11C01E1966216 /* CodeKit.Timer.swift in Sources */,
@@ -1578,6 +1590,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = DAGHHLSPPQ;
 				INFOPLIST_FILE = batch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1598,6 +1611,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = DAGHHLSPPQ;
 				INFOPLIST_FILE = batch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

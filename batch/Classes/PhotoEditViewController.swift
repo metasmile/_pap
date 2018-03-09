@@ -43,7 +43,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         title = "Edit".localizedString
 
         view.backgroundColor = iOSStandardEditorBackgroundColor
@@ -69,8 +69,8 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
 //        editToolbar.toolbar.barTintColor = iOSStandardEditorBackgroundColor
         
         appDockView.barStyle = .black
-        
-        doneButton?.image = UIImage(named: "Edit Done Bar Button")
+
+        doneButton?.image = R.image.editDoneBarButton()
         
         assetView.preferredTransform = preferredTransform
         assetView.image = placeholderImage
