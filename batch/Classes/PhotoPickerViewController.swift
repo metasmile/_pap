@@ -115,7 +115,7 @@ class PhotoPickerViewController: AppDockViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        photoCollectionView.contentInset.bottom = appDockView.bounds.height - safeAreaInsets.bottom
+        photoCollectionView.contentInset.bottom = appDockInsets.bottom
         photoCollectionView.scrollIndicatorInsets.bottom = photoCollectionView.contentInset.bottom
     }
     
@@ -887,7 +887,7 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
     
     private func panWithDragging(at location: CGPoint) {
         let pointInScreen = photoCollectionView.convert(location, to: view)
-        let boundingInsets = UIEdgeInsetsMake(safeAreaInsets.top, 0, photoCollectionView.contentInset.bottom, 0)
+        let boundingInsets = appDockInsets
         let boundingArea = UIEdgeInsetsInsetRect(photoCollectionView.frame, boundingInsets)
         guard !boundingArea.contains(pointInScreen) else {
             dragSelectionGesture.stopAutoPanning()

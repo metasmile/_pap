@@ -37,7 +37,6 @@ class AppDockViewController: UIViewController {
             default:
                 self.showAppDock(false)
         }
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,7 +51,6 @@ class AppDockViewController: UIViewController {
             doneButton?.tintColor = .black
         }
     }
-
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -73,6 +71,12 @@ class AppDockViewController: UIViewController {
 
     @objc func doneButtonDidTap(sender: Any) {
 
+    }
+    
+    var appDockInsets: UIEdgeInsets {
+        var insets = safeAreaInsets
+        insets.bottom = appDockView.bounds.height - safeAreaInsets.bottom
+        return insets
     }
 }
 
@@ -115,7 +119,7 @@ extension AppDockViewController {
     }
 
     open func showAppDockConfigOnly(_ animated: Bool = true) {
-        appDockViewBottomLayout?.constant = -(appDockView.appCollectionView.collectionViewLayout.collectionViewContentSize.height - safeAreaInsets.bottom)
+        appDockViewBottomLayout?.constant = -(appDockView.appCollectionView.collectionViewLayout.collectionViewContentSize.height + safeAreaInsets.bottom)
         appDockView.dockView.isHidden = true
 
         if animated {

@@ -114,7 +114,12 @@ class AppDockView: CustomView {
     }
     
     fileprivate func layoutTopAccessoryView() {
-        topAccessoryViewHeightLayout.constant = topAccessoryView.arrangedSubviews.map({ max($0.bounds.height, 44) }).reduce(0, +)
+        if topAccessoryView.arrangedSubviews.count == 0 {
+            topAccessoryViewHeightLayout.constant = 0
+        }
+        else {
+            topAccessoryViewHeightLayout.constant = topAccessoryView.arrangedSubviews.map({ max($0.bounds.height, 44) }).reduce(0, +)
+        }
         
         layoutIfNeeded()
         invalidateIntrinsicContentSize()
@@ -164,7 +169,12 @@ class AppDockView: CustomView {
     }
     
     fileprivate func layoutAppConfigView() {
-        appConfigViewHeightLayout.constant = appConfigView.arrangedSubviews.map({ max($0.bounds.height, 44) }).reduce(0, +)
+        if appConfigView.arrangedSubviews.count == 0 {
+            appConfigViewHeightLayout.constant = 0
+        }
+        else {
+            appConfigViewHeightLayout.constant = appConfigView.arrangedSubviews.map({ max($0.bounds.height, 44) }).reduce(0, +)
+        }
         
         layoutIfNeeded()
         invalidateIntrinsicContentSize()
