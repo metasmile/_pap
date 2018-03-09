@@ -6,6 +6,8 @@
 "Open Settings" = "Avaa asetukset";
 /*Translated from: Cancel*/
 "Cancel" = "Peruuttaa";
+/*Translated from: Detail*/
+"Detail" = "Yksityiskohta";
 /*Translated from: Edit %d photo(s)*/
 "Edit %d photo(s)" = "Muokkaa %d valokuvaa";
 /*Translated from: Edit %d video(s)*/

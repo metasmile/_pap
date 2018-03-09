@@ -90,19 +90,20 @@ private extension TransformApp{
         view.axis = .horizontal
 
         let config1 = UIButton(type: .system)
-        config1.setImage(UIImage(named: "Flip Vertical")?.withRenderingMode(.alwaysTemplate), for: .normal)
+
+        config1.setImage(R.image.flipVertical()?.withRenderingMode(.alwaysTemplate), for: .normal)
         config1.addTarget(self, action: #selector(self.verticalFlipButtonDidTap), for: .touchUpInside)
 
         let config2 = UIButton(type: .system)
-        config2.setImage(UIImage(named: "Flip Horizontal")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        config2.setImage(R.image.flipHorizontal()?.withRenderingMode(.alwaysTemplate), for: .normal)
         config2.addTarget(self, action: #selector(self.horizontalFlipButtonDidTap), for: .touchUpInside)
 
         let config3 = UIButton(type: .system)
-        config3.setImage(UIImage(named: "Rotate Left")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        config3.setImage( R.image.rotateLeft()?.withRenderingMode(.alwaysTemplate), for: .normal)
         config3.addTarget(self, action: #selector(self.rotationLeftButtonDidTap), for: .touchUpInside)
 
         let config4 = UIButton(type: .system)
-        config4.setImage(UIImage(named: "Rotate Right")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        config4.setImage( R.image.rotateRight()?.withRenderingMode(.alwaysTemplate), for: .normal)
         config4.addTarget(self, action: #selector(self.rotationRightButtonDidTap), for: .touchUpInside)
 
         view.addArrangedSubview(config1)

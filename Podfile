@@ -8,4 +8,5 @@ target 'batch' do
   pod 'Firebase/Core'
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'R.swift'
 end

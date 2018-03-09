@@ -118,3 +118,4 @@ Preview.html
 *.pyc
 *.log.zip
 *.dSYM
+*.generated.swift
