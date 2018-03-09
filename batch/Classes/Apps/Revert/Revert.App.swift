@@ -19,7 +19,7 @@ public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp {
             , phase: .beta
             , appType: RevertApp.self
             , displayName: "Revert"
-            , icon: "Revert.App.Icon"
+            , icon: R.image.revertAppIcon.name
             , policy: AppPolicy.default
     )
 

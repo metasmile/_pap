@@ -51,7 +51,7 @@ public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _Configu
             , phase: .release
             , appType: TransformApp.self
             , displayName: "Transform"
-            , icon: "Transform.App.Icon"
+            , icon: R.image.transformAppIcon.name
             , policy: AppPolicy.default
     )
 
