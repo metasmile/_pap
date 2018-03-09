@@ -29,7 +29,6 @@ public protocol _ConfigurableApp{
 }
 
 public protocol ConfigurableApp: App {
-    //TODO: how to handle views - when app lifecycle finished
     var configView:UIView? { get }
 
     func setConfigValues<T: AppConfigValuable>(_ config:T)

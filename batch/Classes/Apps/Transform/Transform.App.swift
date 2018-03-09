@@ -43,8 +43,6 @@ public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _Configu
 
     public private(set) lazy var configView: UIView? = createPreferenceView()
 
-    public private(set) lazy var configNotificator = NotificationCenter()
-
     public static let info = AppInfo(
             identifier: "com.stells.batch.transform"
             , version: "1.0"
@@ -62,6 +60,27 @@ public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _Configu
         config?.watch(\.tintColor, id:"\(type(of: self)).config.tintColor", options: [.initial, .new]) {
             self.updateConfigView()
         }
+    }
+}
+
+extension TransformApp: AppManagerDelegatableApp{
+    func willSetCurrent(oldCurrent: App.Type?) {
+        print("willSetCurrent", self,"oldCurrent", oldCurrent)
+    }
+
+    func didSetCurrent(previous: App.Type?) {
+        print("didSetCurrent", self,"previous", previous)
+
+    }
+
+    func willSetPrevious(newCurrent: App.Type?) {
+        print("willSetPrevious", self,"newCurrent", newCurrent)
+
+    }
+
+    func didSetPrevious(current: App.Type?) {
+        print("didSetPrevious", self,"current", current)
+
     }
 }
 

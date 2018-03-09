@@ -14,6 +14,14 @@ protocol AppManagerConfigurable where Self:AppManager {
     func configure() -> AppManagerConfig?
 }
 
+protocol AppManagerDelegatableApp where Self:App {
+    func willSetCurrent(oldCurrent:App.Type?)
+    func didSetCurrent(previous:App.Type?)
+
+    func willSetPrevious(newCurrent:App.Type?)
+    func didSetPrevious(current:App.Type?)
+}
+
 open class AppManager: NSObject, SelectableCollection {
 
     override init(){
@@ -42,12 +50,20 @@ open class AppManager: NSObject, SelectableCollection {
     public var currentIdentifier: String?
 
     public var current: App.Type? {
+        willSet {
+            guard newValue != previous else{ return }
+
+            getInstance(current, as:AppManagerDelegatableApp.self)?.willSetPrevious(newCurrent:newValue)
+            getInstance(newValue, as:AppManagerDelegatableApp.self)?.willSetCurrent(oldCurrent:current)
+        }
         didSet {
             guard oldValue != current else{ return }
 
             self.previous = oldValue
-
             self.currentIdentifier = current?.info.identifier
+
+            getInstance(current, as:AppManagerDelegatableApp.self)?.didSetCurrent(previous:previous)
+            getInstance(previous, as:AppManagerDelegatableApp.self)?.didSetPrevious(current:current)
 
             if let previous = self.previous, previous.info.policy.lifeCycleUnit != AppLifecycleUnit.permanent{
                 AppLifecycleManager.shared.discard(previous.info)
@@ -68,9 +84,13 @@ open class AppManager: NSObject, SelectableCollection {
         }
     }
 
-    public func currentInstanceAs<T>(_ protocol:T.Type) -> T?{
-        guard let current = current else { return nil }
-        return AppLifecycleManager.shared.acquire(current.info) as? T
+    public func currentInstanceAs<T>(_ type:T.Type) -> T?{
+        return getInstance(current, as: type)
+    }
+
+    private func getInstance<T>(_ appType:App.Type?, as protocol:T.Type) -> T?{
+        guard let appType = appType else { return nil }
+        return AppLifecycleManager.shared.acquire(appType.info) as? T
     }
 
     public func reset() {

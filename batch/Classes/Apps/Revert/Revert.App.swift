@@ -57,6 +57,28 @@ public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp {
     }
 }
 
+
+extension RevertApp: AppManagerDelegatableApp{
+    func willSetCurrent(oldCurrent: App.Type?) {
+        print("willSetCurrent", self,"oldCurrent", oldCurrent)
+    }
+
+    func didSetCurrent(previous: App.Type?) {
+        print("didSetCurrent", self,"previous", previous)
+
+    }
+
+    func willSetPrevious(newCurrent: App.Type?) {
+        print("willSetPrevious", self,"newCurrent", newCurrent)
+
+    }
+
+    func didSetPrevious(current: App.Type?) {
+        print("didSetPrevious", self,"current", current)
+
+    }
+}
+
 private class _RevertAppTask: TaskPrototype, Taskable {
     public func cancel(_ param:TaskParamable, _ async: TaskAsyncSignalable?){}
 
