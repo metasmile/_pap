@@ -52,3 +52,53 @@ extension UIView {
     }
 
 }
+
+class DragSelectionGestureRecognizer: UIPanGestureRecognizer {
+    static var kSTDragSelectionGestureRecognizerAutoPanningIncrement: CGFloat = 10
+
+    enum DragSelectionMode {
+        case none
+        case select
+        case deselect
+    }
+
+    enum AutoPanningDirection {
+        case none
+        case up
+        case down
+    }
+
+    var beginIndexPath: IndexPath?
+    var ignoredIndexPaths: [IndexPath]?
+    var beginLocation: CGPoint?
+    var selectionMode = DragSelectionGestureRecognizer.DragSelectionMode.none
+    var autoPanningTimer: CADisplayLink?
+
+    @objc func reset() {
+        beginIndexPath = nil
+        beginLocation = nil
+        ignoredIndexPaths = nil
+        selectionMode = .none
+        stopAutoPanning()
+    }
+
+    private var panHandler: (() -> Void)?
+    func panAutomatically(_ panBlock: (() -> Void)?) {
+        if autoPanningTimer == nil {
+            autoPanningTimer = CADisplayLink(target: self, selector: #selector(self.autoPanningTimerDidChange))
+            autoPanningTimer?.add(to: .main, forMode: .commonModes)
+        }
+        panHandler = panBlock
+    }
+
+    func stopAutoPanning() {
+        autoPanningTimer?.remove(from: .main, forMode: .commonModes)
+        autoPanningTimer = nil
+        panHandler = nil
+    }
+
+    @objc func autoPanningTimerDidChange(sender: CADisplayLink) {
+        self.panHandler?()
+    }
+}
+

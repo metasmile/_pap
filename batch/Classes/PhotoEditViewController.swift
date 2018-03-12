@@ -126,7 +126,6 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
             placeholderView?.removeFromSuperview()
         }
     }
-    
     // MARK: - Layout
     
     func layoutAssetView() {
@@ -195,9 +194,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
             scrollView.zoomScale = 1
         }, completion: nil)
     }
-}
 
-extension PhotoEditViewController {
     override var previewActionItems: [UIPreviewActionItem] {
         guard let actionItems = actionItems, actionItems.count > 0 else { return super.previewActionItems }
         return actionItems

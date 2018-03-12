@@ -63,27 +63,6 @@ public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _Configu
     }
 }
 
-extension TransformApp: AppManagerDelegatableApp{
-    func willSetCurrent(oldCurrent: App.Type?) {
-        print("willSetCurrent", self,"oldCurrent", oldCurrent)
-    }
-
-    func didSetCurrent(previous: App.Type?) {
-        print("didSetCurrent", self,"previous", previous)
-
-    }
-
-    func willSetPrevious(newCurrent: App.Type?) {
-        print("willSetPrevious", self,"newCurrent", newCurrent)
-
-    }
-
-    func didSetPrevious(current: App.Type?) {
-        print("didSetPrevious", self,"current", current)
-
-    }
-}
-
 private extension TransformApp{
 
     @objc func horizontalFlipButtonDidTap() {

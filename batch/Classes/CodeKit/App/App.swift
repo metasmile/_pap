@@ -55,7 +55,6 @@ public struct AppQuery: OptionSet, Hashable {
     public static let beta = AppQuery(rawValue: 1 << 1)
     public static let release = AppQuery(rawValue: 1 << 2)
 
-
     public let rawValue: Int
     public init(rawValue: Int) {
         self.rawValue = rawValue
