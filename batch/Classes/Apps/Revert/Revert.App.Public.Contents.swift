@@ -4,15 +4,3 @@
 //
 
 import Foundation
-
-public extension BatchAppPHAssetState {
-    public var hasChangesToRevert: Bool {
-        return false
-    }
-}
-
-public extension StateValueSet where T: BatchAppPHAssetState {
-    public var hasChangesToRevert: Bool {
-        return false
-    }
-}

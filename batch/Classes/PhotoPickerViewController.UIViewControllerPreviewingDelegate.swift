@@ -16,7 +16,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
 
             let vc = PhotoPickerDetailViewController()
             vc.asset = selectedAsset
-            vc.assetEditItem = batchPreviewView.assetItems.first(where: { $0.asset == selectedAsset })
+            vc.assetItem = BatchAppAssets.shared.by(selectedAsset)
             setActions(with: selectedAsset, at: indexPath, to: vc)
 
             previewingContext.sourceRect = cell.frame
@@ -26,14 +26,13 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
             guard let indexPath = batchPreviewView.collectionView.indexPathForItem(at: batchPreviewView.convert(location, to: batchPreviewView.collectionView)) else { return nil }
             guard let cell = batchPreviewView.collectionView.cellForItem(at: indexPath) else { return nil }
 
-            let selectedAssetItem = batchPreviewView.assetItems[indexPath.item]
+            let selectedAssetItem = BatchAppAssets.shared.at(indexPath.item)
             let selectedAsset = selectedAssetItem.asset
-
             guard let selectedIndexPath = self.indexPath(of: selectedAsset) else { return nil }
 
             let vc = PhotoPickerDetailViewController()
             vc.asset = selectedAsset
-            vc.assetEditItem = selectedAssetItem
+            vc.assetItem = selectedAssetItem
             setActions(with: selectedAsset, at: selectedIndexPath, to: vc)
 
             previewingContext.sourceRect = batchPreviewView.collectionView.convert(cell.frame, to: batchPreviewView)
@@ -46,7 +45,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
 
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         if let vc = viewControllerToCommit as? PhotoPickerDetailViewController {
-            if let editItem = vc.assetEditItem {
+            if let editItem = vc.assetItem {
                 showPhotoEditor(with: editItem)
             }
             else {

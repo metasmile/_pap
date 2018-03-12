@@ -146,7 +146,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        if batchPreviewView.isProcessing {
+        if BatchAppCenter.default.isAppRunning {
             let generator = UIImpactFeedbackGenerator(style: .medium)
             generator.impactOccurred()
             return false
@@ -155,7 +155,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
-        if batchPreviewView.isProcessing {
+        if BatchAppCenter.default.isAppRunning {
             let generator = UIImpactFeedbackGenerator(style: .medium)
             generator.impactOccurred()
             return false

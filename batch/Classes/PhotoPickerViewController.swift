@@ -87,13 +87,17 @@ class PhotoPickerViewController: AppDockViewController {
 
         BatchAppCenter.default.watch(\.currentIdentifier, id:"picker", options:[.new,.old,.initial]) { (appCenter, dict) in
             if let old = dict.oldValue, old != dict.newValue! {
-                self.batchPreviewView.reloadAllAssetItems()
+
+                BatchAppAssets.shared.reloadAll()
                 self.showCurrentSelectedAppDisplayName()
             }
 
             BatchAppCenter.default.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform, id:"picker\(TransformApp.info.identifier)") { (config, changed) in
-                if let value = config.transform{
-                    self.batchPreviewView.addTransformItem(value)
+                print(config,config.transform)
+                if let value = config.transform, !BatchAppCenter.default.isAppRunning{
+                    BatchAppAssets.shared.appendValue(value)
+
+                    self.batchPreviewView.updatePreviews()
                 }
             }
         }
@@ -120,16 +124,12 @@ class PhotoPickerViewController: AppDockViewController {
     override func cancelButtonDidTap(sender: Any) {
         let generator = UIImpactFeedbackGenerator(style: .medium)
         generator.impactOccurred()
-        
-        //FIXME: BatchPreviewState
-        //FIXME: .ready?
-        //FIXME: .selecting?
-        //FIXME: .processing?
-        if batchPreviewView.isProcessing {
+
+        if BatchAppCenter.default.isAppRunning {
             batchPreviewView.cancelBatchProcessing()
         }
         else {
-            if batchPreviewView.hasChanges {
+            if BatchAppAssets.shared.hasChanges {
                 let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
                 alert.addAction(UIAlertAction(title: "Discard Changes".localizedString, style: .destructive, handler: { (action) in
                     self.cancelAllSelection()
@@ -144,27 +144,6 @@ class PhotoPickerViewController: AppDockViewController {
     }
     
     override func doneButtonDidTap(sender: Any) {
-
-        //TODO: TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
-        if let app = BatchAppCenter.default.current {
-            switch (app.info.phase){
-            case .develop:
-                print("[!] Unable to run. Selected app's state is \(app.info.phase)")
-
-                let previousTitle = self.title
-                self.titleFade = "Selected app is not ready."
-                Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { timer in
-                    self.titleFade = previousTitle
-                }
-
-                return
-
-            default:
-                break
-            }
-        }
-        //TODO: TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
-
         batchPreviewView.runBatchProcessing()
     }
 
@@ -219,14 +198,15 @@ class PhotoPickerViewController: AppDockViewController {
 }
 
 extension PhotoPickerViewController: TransformEditViewControllerDelegate {
-    func showPhotoEditor(with editItem: PHAssetItem<BatchAppPHAssetState>?) {
+    func showPhotoEditor(with editItem: PHAssetItem<BatchAppTransformValue>?) {
         guard let _editItem = editItem else { return }
 
         if let photoEditViewController = R.storyboard.appStoryboard.photoEditViewController(){
             photoEditViewController.asset = _editItem.asset
             photoEditViewController.preferredTransform = _editItem.editState.transform
             photoEditViewController.delegate = self
-            if let item = batchPreviewView.assetItems.index(of: _editItem) {
+
+            if let item = BatchAppAssets.shared.index(of:_editItem) {
                 photoEditViewController.indexPathInBatch = IndexPath(item: item, section: 0)
             }
 
@@ -241,10 +221,10 @@ extension PhotoPickerViewController: TransformEditViewControllerDelegate {
         }
     }
 
-    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: StateValueSet<BatchAppPHAssetState>?, at indexPath: IndexPath?) {
+    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: StateValueSet<BatchAppTransformValue>?, at indexPath: IndexPath?) {
 
         if let _editItem = editItem, let _indexPath = indexPath, _editItem.hasChanges {
-            batchPreviewView.assetItems[_indexPath.item].editState.merge(with:_editItem)
+            BatchAppAssets.shared.at(_indexPath.item).editState.merge(with: _editItem)
         }
 
         BatchAppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues( AppConfigUIAttrribute(tintColor: .black))
@@ -256,7 +236,8 @@ extension PhotoPickerViewController: TransformEditViewControllerDelegate {
 
     func showPhotoEditorAndSelectIfNeeded(with asset: PHAsset?) {
         selectItemInPhotoPicker(with: asset)
-        showPhotoEditor(with: batchPreviewView.assetItems.first(where: { $0.asset == asset }))
+
+        showPhotoEditor(with: BatchAppAssets.shared.by(asset))
     }
     
     private func selectItemInPhotoPicker(with asset: PHAsset?) {
@@ -274,13 +255,11 @@ extension PhotoPickerViewController: TransformEditViewControllerDelegate {
     var selectedAssets:[PHAsset]?{
         return photoCollectionView.indexPathsForSelectedItems?.flatMap({ self.asset(at: $0) })
     }
-    
-
 }
 
 extension PhotoPickerViewController: BatchPreviewViewDelegate {
     func batchPreviewView(_ view: BatchPreviewView, didSelectItemAt indexPath: IndexPath) {
-        let selectedAsset = view.assetItems[indexPath.item].asset
+        let selectedAsset = BatchAppAssets.shared.at(indexPath.item).asset
         guard let indexPathInPhotoPicker = self.indexPath(of: selectedAsset) else { return }
         photoCollectionView.scrollToItem(at: indexPathInPhotoPicker, at: .centeredVertically, animated: true)
         

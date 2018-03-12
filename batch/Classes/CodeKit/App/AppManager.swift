@@ -116,6 +116,10 @@ open class AppManager: NSObject, SelectableCollection {
     }
 
     // Task
+    public var isAppRunning:Bool{
+        return task.count > 0
+    }
+
     public var task:AppTaskManager{
         return _task
     }

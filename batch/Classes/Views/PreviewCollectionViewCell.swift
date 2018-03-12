@@ -37,7 +37,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         imageRequestId = nil
     }
     
-    func setEditItem(_ item: PHAssetItem<BatchAppPHAssetState>, at indexPath: IndexPath) {
+    func setEditItem(_ item: PHAssetItem<BatchAppTransformValue>, at indexPath: IndexPath) {
         let asset = item.asset
 
         self.asset = asset
@@ -60,7 +60,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         })
     }
     
-    func setEditItemForPreview(_ item: PHAssetItem<BatchAppPHAssetState>, at indexPath: IndexPath) {
+    func setEditItemForPreview(_ item: PHAssetItem<BatchAppTransformValue>, at indexPath: IndexPath) {
         let asset = item.asset
         
         self.asset = asset
@@ -83,7 +83,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         })
     }
     
-    func setImageEditItem<T>(_ editItem: StateValueSet<T>, animated: Bool = false) where T: BatchAppPHAssetState {
+    func setImageEditItem<T>(_ editItem: StateValueSet<T>, animated: Bool = false) where T: BatchAppTransformValue {
         if animated {
             UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: .beginFromCurrentState, animations: { [weak self] in
                 self?.assetView.layer.transform = editItem.transform3d
@@ -97,7 +97,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         imageInfoViewTop.constant = (bounds.height + CGSize(width: assetViewWidth.constant, height: assetViewHeight.constant).applying(editItem.transform).magnitude.height) / 2 + 10
     }
     
-    private func setAssetInfo<T>(_ asset: PHAsset, editItem: StateValueSet<T>) where T: BatchAppPHAssetState {
+    private func setAssetInfo<T>(_ asset: PHAsset, editItem: StateValueSet<T>) where T: BatchAppTransformValue {
         let resources = PHAssetResource.assetResources(for: asset)
         if let firstResource = resources.first {
             fileLabel.text = firstResource.originalFilename

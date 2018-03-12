@@ -9,7 +9,7 @@ import Photos
 class PhotoPickerDetailViewController: UIViewController {
 
     var asset: PHAsset?
-    var assetEditItem: PHAssetItem<BatchAppPHAssetState>?
+    var assetItem: PHAssetItem<BatchAppTransformValue>?
     var actionItems:[UIPreviewActionItem]?
     
     private lazy var assetView: AssetView = {
@@ -27,7 +27,7 @@ class PhotoPickerDetailViewController: UIViewController {
         if let asset = asset {
             view.addSubview(assetView)
 
-            let preferredTransform = assetEditItem?.editState.transform ?? .identity
+            let preferredTransform = assetItem?.editState.transform ?? .identity
             let preferredSize = asset.pixelSize
             
             let boundingSize = preferredSize.width > preferredSize.height ? view.bounds.size.applying(preferredTransform).magnitude : view.bounds.size
