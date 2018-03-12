@@ -198,7 +198,7 @@ class PhotoPickerViewController: AppDockViewController {
 }
 
 extension PhotoPickerViewController: TransformEditViewControllerDelegate {
-    func showPhotoEditor(with editItem: PHAssetItem<BatchAppTransformValue>?) {
+    func showPhotoEditor(with editItem: PHAssetItem<BatchAppValue>?) {
         guard let _editItem = editItem else { return }
 
         if let photoEditViewController = R.storyboard.appStoryboard.photoEditViewController(){
@@ -221,7 +221,7 @@ extension PhotoPickerViewController: TransformEditViewControllerDelegate {
         }
     }
 
-    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: StateValueSet<BatchAppTransformValue>?, at indexPath: IndexPath?) {
+    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: StateValueSet<BatchAppValue>?, at indexPath: IndexPath?) {
 
         if let _editItem = editItem, let _indexPath = indexPath, _editItem.hasChanges {
             BatchAppAssets.shared.at(_indexPath.item).editState.merge(with: _editItem)

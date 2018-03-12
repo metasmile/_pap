@@ -55,7 +55,7 @@ extension _TransformAppAsset: PHAssetLivePhotoEditable {
 
             let editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: item.input)
             editingContext?.frameProcessor = { frame, error in
-                let editItemConvertedCoordinates = StateValueSet<BatchAppTransformValue>()
+                let editItemConvertedCoordinates = StateValueSet<BatchAppValue>()
                 for transformItem in self.editState.iterator(){
                     if let rotationItem = transformItem as? RotationTransformItem {
                         editItemConvertedCoordinates.append(RotationTransformItem(radians: -rotationItem.angle))

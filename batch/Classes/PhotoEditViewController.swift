@@ -12,7 +12,7 @@ import AVFoundation
 import Photos
 
 protocol TransformEditViewControllerDelegate {
-    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: StateValueSet<BatchAppTransformValue>?, at indexPath: IndexPath?)
+    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: StateValueSet<BatchAppValue>?, at indexPath: IndexPath?)
 }
 
 class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
@@ -29,7 +29,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
             layoutAssetView()
         }
     }
-    var editItem = StateValueSet<BatchAppTransformValue>()
+    var editItem = StateValueSet<BatchAppValue>()
     var placeholderView: UIView?
     var indexPathInBatch: IndexPath?
     
@@ -149,7 +149,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     
     // MARK: - Navigation Bar Actions
     
-    private func addTransformItem(_ transformItem: BatchAppTransformValue) {
+    private func addTransformItem(_ transformItem: BatchAppValue) {
         editItem.append(transformItem)
         
         updatePreview()

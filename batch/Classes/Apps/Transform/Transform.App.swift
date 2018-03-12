@@ -16,7 +16,7 @@ public class TransformAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrribu
     public var tintColor: UIColor?
 
     @objc dynamic
-    public var transform: BatchAppTransformValue?
+    public var transform: BatchAppValue?
 
     public func adoptValues(fromOther: AppConfigValuable) {
         if let other = fromOther as? AppConfigUIAttrributeValuable {
@@ -29,7 +29,7 @@ public class TransformAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrribu
     }
 }
 
-class _TransformAppAsset: PHAssetItem<BatchAppTransformValue> {}
+class _TransformAppAsset: PHAssetItem<BatchAppValue> {}
 
 public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _ConfigurableApp, PHAssetEditableFinalizableApp {
     public static let taskType:Taskable.Type = _TransfromAppTask.self

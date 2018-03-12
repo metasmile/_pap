@@ -8,7 +8,7 @@ import Photos
 
 
 public final class BatchAppAssets: NSObject {
-    typealias AssetType = PHAssetItem<BatchAppTransformValue>
+    typealias AssetType = PHAssetItem<BatchAppValue>
     public static let shared = BatchAppAssets()
 
     private var  _items = [AssetType]()
@@ -97,7 +97,7 @@ public final class BatchAppAssets: NSObject {
         }
     }
 
-    func appendValue(_ item: BatchAppTransformValue, `for`:[AssetType]?=nil) {
+    func appendValue(_ item: BatchAppValue, `for`:[AssetType]?=nil) {
         for e in `for` ??  _items {
             e.editState.append(item)
         }

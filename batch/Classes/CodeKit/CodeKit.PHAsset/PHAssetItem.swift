@@ -25,6 +25,7 @@ public struct PHAssetResultItem: PHAssetResultable {
     public var contentEditingOutput: PHContentEditingOutput?
 }
 
+//TODO: Minifiy 2-depth generic type/protocolize
 public class PHAssetItem<EditStateValueType:Hashable>: ItemObject, PHAssetParamable {
     public var asset: PHAsset
     public var indexPath:IndexPath?

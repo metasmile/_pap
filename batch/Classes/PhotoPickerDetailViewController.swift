@@ -9,7 +9,7 @@ import Photos
 class PhotoPickerDetailViewController: UIViewController {
 
     var asset: PHAsset?
-    var assetItem: PHAssetItem<BatchAppTransformValue>?
+    var assetItem: PHAssetItem<BatchAppValue>?
     var actionItems:[UIPreviewActionItem]?
     
     private lazy var assetView: AssetView = {

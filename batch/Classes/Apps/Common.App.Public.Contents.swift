@@ -7,11 +7,9 @@ import Foundation
 import UIKit
 import Photos
 
-extension PHAssetItem where EditStateValueType: BatchAppTransformValue {}
+extension PHAssetItem where EditStateValueType: BatchAppValue {}
 
-protocol BatchAppValue{}
-
-public class BatchAppTransformValue: Object, BatchAppValue {
+public class BatchAppValue: Object {
     var transform: CGAffineTransform {
         return .identity
     }

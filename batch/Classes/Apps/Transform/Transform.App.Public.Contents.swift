@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-public extension StateValueSet where T: BatchAppTransformValue {
+public extension StateValueSet where T: BatchAppValue {
     var transform: CGAffineTransform {
         var t = CGAffineTransform.identity
 
@@ -28,7 +28,7 @@ public extension StateValueSet where T: BatchAppTransformValue {
 }
 
 
-public class RotationTransformItem: BatchAppTransformValue {
+public class RotationTransformItem: BatchAppValue {
     var angle: CGFloat = 0
 
     override var transform: CGAffineTransform {
@@ -52,7 +52,7 @@ public class RotationTransformItem: BatchAppTransformValue {
     }
 }
 
-public class VerticalFlipTransformItem: BatchAppTransformValue {
+public class VerticalFlipTransformItem: BatchAppValue {
     override var transform: CGAffineTransform {
         return CGAffineTransform(scaleX: 1, y: -1)
     }
@@ -62,7 +62,7 @@ public class VerticalFlipTransformItem: BatchAppTransformValue {
     }
 }
 
-public class HorizontalFlipTransformItem: BatchAppTransformValue {
+public class HorizontalFlipTransformItem: BatchAppValue {
     override var transform: CGAffineTransform {
         return CGAffineTransform(scaleX: -1, y: 1)
     }
