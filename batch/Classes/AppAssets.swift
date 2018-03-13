@@ -18,6 +18,10 @@ public final class AppAssets: NSObject {
         return  _items.count
     }
 
+    var indices:CountableRange<Int>{
+        return _items.indices
+    }
+
     var hasChanges: Bool {
         return  _items.first(where: { $0.editState.hasChanges }) != nil
     }
@@ -33,6 +37,13 @@ public final class AppAssets: NSObject {
 
     func at(_ index:Int) -> AppAsset {
         return  _items[index]
+    }
+
+    func at(unsafeIndex:Int) -> AppAsset? {
+        if self.indices.contains(unsafeIndex){
+            return _items[unsafeIndex]
+        }
+        return nil
     }
 
     func index(of assetItem: AppAsset) -> Int?{

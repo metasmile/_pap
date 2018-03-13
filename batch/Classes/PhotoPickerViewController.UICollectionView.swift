@@ -7,6 +7,44 @@ import Foundation
 import UIKit
 import Photos
 
+extension PhotoPickerViewController{
+
+    @discardableResult
+    func selectCollectionViewItem(by asset: PHAsset) -> Bool {
+        guard let indexPath = self.indexPath(of: asset) else { return false }
+        return selectCollectionViewItem(at: indexPath)
+    }
+
+    @discardableResult
+    func selectCollectionViewItem(at indexPath: IndexPath, animated:Bool=false) -> Bool {
+        if photoCollectionView.delegate?.collectionView!(photoCollectionView, shouldSelectItemAt: indexPath) == false {
+            return false
+        }
+
+        if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == false {
+            photoCollectionView.selectItem(at: indexPath, animated: animated, scrollPosition: [])
+            collectionView(photoCollectionView, didSelectItemAt: indexPath)
+        }
+
+        return true
+    }
+
+
+    @discardableResult
+    func deselectCollectionViewItem(at indexPath: IndexPath, animated:Bool=false) -> Bool {
+        if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == true {
+            photoCollectionView.deselectItem(at: indexPath, animated: animated)
+            collectionView(photoCollectionView, didDeselectItemAt: indexPath)
+        }
+
+        return true
+    }
+
+    var selectedAssetsInCollectionView:[PHAsset]?{
+        return photoCollectionView.indexPathsForSelectedItems?.flatMap({ self.asset(at: $0) })
+    }
+}
+
 extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionViewDataSourcePrefetching, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func reloadPhotos(with collectionType: PHAssetCollectionType = .smartAlbum, subtype collectionSubType: PHAssetCollectionSubtype = .smartAlbumUserLibrary) {
@@ -149,8 +187,17 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         if AppCenter.default.isAppRunning {
             let generator = UIImpactFeedbackGenerator(style: .medium)
             generator.impactOccurred()
+
             return false
         }
+
+        if let collectableApp = AppCenter.default.currentInstanceAs(PHAssetItemCollectableApp.self)
+            , let asset = self.asset(at: indexPath)
+            , let item = AppAssets.selected.at(unsafeIndex:indexPath.item) ?? AppAssets.selected.create(for:asset) {
+
+            return collectableApp.areItemsEnables(for:item)
+        }
+
         return true
     }
 

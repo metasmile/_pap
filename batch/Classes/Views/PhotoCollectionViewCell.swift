@@ -96,6 +96,14 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
             selectionView.isHidden = !isSelected
         }
     }
+
+    public var isEnabled:Bool = false {
+        didSet{
+            isUserInteractionEnabled = isEnabled
+            selectionCheckView.visible = isEnabled
+            selectionView.visible = !isEnabled
+        }
+    }
     
     // MARK: - Prepare rendering
     

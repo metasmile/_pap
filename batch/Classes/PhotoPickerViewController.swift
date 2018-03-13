@@ -231,22 +231,6 @@ extension PhotoPickerViewController: TransformEditViewControllerDelegate {
             self.batchPreviewView.reloadCollectionViewItems()
         })
     }
-
-    func selectCollectionViewItem(by asset: PHAsset) {
-        guard let indexPath = self.indexPath(of: asset) else { return }
-        selectCollectionViewItem(at: indexPath)
-    }
-    
-    func selectCollectionViewItem(at indexPath: IndexPath) {
-        if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == false {
-            photoCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
-            collectionView(photoCollectionView, didSelectItemAt: indexPath)
-        }
-    }
-
-    var selectedAssetsInCollectionView:[PHAsset]?{
-        return photoCollectionView.indexPathsForSelectedItems?.flatMap({ self.asset(at: $0) })
-    }
 }
 
 extension PhotoPickerViewController: PreviewViewDelegate {

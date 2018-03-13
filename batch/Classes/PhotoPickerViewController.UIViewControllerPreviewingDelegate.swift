@@ -13,9 +13,10 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
 
             guard let indexPath = photoCollectionView.indexPathForItem(at: location) else { return nil }
             guard let selectedAsset = self.asset(at: indexPath) else { return nil }
-                          guard let cell = photoCollectionView.cellForItem(at: indexPath) else { return nil }
-1
-            self.selectCollectionViewItem(by: selectedAsset)
+            guard let cell = photoCollectionView.cellForItem(at: indexPath) else { return nil }
+
+            if !self.selectCollectionViewItem(by: selectedAsset) { return nil }
+
             assert(selectedAssetsInCollectionView?.contains(selectedAsset) == true, "selectedAsset does not contain in selectedAssetsInCollectionView")
 
             guard let item = AppAssets.selected.by(selectedAsset) else {
@@ -61,8 +62,9 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
             return
         }
 
-        selectCollectionViewItem(by:item.asset)
-        showPhotoEditor(with: item)
+        if selectCollectionViewItem(by:item.asset){
+            showPhotoEditor(with: item)
+        }
     }
 
     private func setActions(with item: PHAssetItem<AppValue>, at indexPath: IndexPath, to vc: PhotoPickerDetailViewController) {
@@ -72,15 +74,15 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
         }
 
         let editAction = UIPreviewAction(title: "Edit this \(typeWord)".localized, style: .default) { (action, controller) in
-            self.selectCollectionViewItem(by: item.asset)
-            self.showPhotoEditor(with: item)
+            if self.selectCollectionViewItem(by: item.asset){
+                self.showPhotoEditor(with: item)
+            }
         }
 
         if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == true {
             vc.actionItems = [
                 UIPreviewAction(title: "Deselect this \(typeWord)".localized, style: .default) { action, controller in
-                    self.photoCollectionView.deselectItem(at: indexPath, animated: false)
-                    self.collectionView(self.photoCollectionView, didDeselectItemAt: indexPath)
+                    self.deselectCollectionViewItem(at:indexPath)
                 },
                 editAction
             ]
@@ -88,8 +90,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
         else {
             vc.actionItems = [
                 UIPreviewAction(title: "Select this \(typeWord)".localized, style: .default) { action, controller in
-                    self.photoCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
-                    self.collectionView(self.photoCollectionView, didSelectItemAt: indexPath)
+                    self.selectCollectionViewItem(at: indexPath)
                 },
                 editAction
             ]

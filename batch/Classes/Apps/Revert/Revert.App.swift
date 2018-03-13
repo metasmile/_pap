@@ -8,7 +8,7 @@ import Photos
 
 private typealias RevertAppParam = PHAssetItem<AppValue>
 
-public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp {
+public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, PHAssetItemCollectableApp {
     public static let taskType:Taskable.Type = _RevertAppTask.self
 
     public static let paramType:TaskParamable.Type = RevertAppParam.self
@@ -54,6 +54,10 @@ public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp {
 
         asyncSignal.stopUntilEnd()
         return result
+    }
+
+    public func areItemsEnables(for: PHAssetItem<AppValue>) -> Bool {
+        return false
     }
 }
 

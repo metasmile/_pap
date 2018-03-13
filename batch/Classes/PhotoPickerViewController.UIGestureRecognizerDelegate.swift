@@ -150,10 +150,7 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
     }
 
     private func dragSelection(at indexPath: IndexPath) {
-        if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == false {
-            photoCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
-            collectionView(photoCollectionView, didSelectItemAt: indexPath)
-        }
+        self.selectCollectionViewItem(at: indexPath)
     }
 
     private func dragDeselection(at indexPath: IndexPath) {

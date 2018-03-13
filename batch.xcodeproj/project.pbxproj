@@ -28,7 +28,7 @@
 		4F71D052D62EB675DB2F0B5A /* PHAssetSourceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D49286EE4D795ACB1A90 /* PHAssetSourceable.swift */; };
 		4F71D06BDFC37974BFD660FB /* AppStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D17D046074C1554FE347 /* AppStoryboard.storyboard */; };
 		4F71D0B9A1B1530DD3DE2056 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB5E7BCAC2382FA65140 /* RoundedButton.swift */; };
-		4F71D0BB9B18BD59987C2185 /* Common.App.Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8242392C908CCDF3022 /* Common.App.Contents.swift */; };
+		4F71D0BB9B18BD59987C2185 /* batch.App.Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8242392C908CCDF3022 /* batch.App.Contents.swift */; };
 		4F71D0BF59D88AFFCEBFF515 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D4F50289CE48315DC932 /* PhotoCollectionViewCell.xib */; };
 		4F71D0C0E58E2E5FEE8DB9F5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DFD3C15F39A20B9A7CF1 /* Localizable.strings */; };
 		4F71D0CBE9B3A87DD2D83014 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DAE83D8396175CE8C7F9 /* Localizable.strings */; };
@@ -69,6 +69,7 @@
 		4F71D87B789944E2A62057C7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D3E7CBB71E5919EAEEB6 /* Localizable.strings */; };
 		4F71D87ED58BABF66657B5E5 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF758392671272B0EC41 /* PhotoManager.swift */; };
 		4F71D896A7F10961FAC286B0 /* Sourceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB3F65BB0609398D99C6 /* Sourceable.swift */; };
+		4F71D8C53E1BB081D7F22B3F /* batch.App.Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE1703A5AF70D8B4DFD0 /* batch.App.Types.swift */; };
 		4F71D8CB2584EB6FA21077E8 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF6A3F2621A2EFC5A30F /* System.swift */; };
 		4F71D8E0E6900B80C10D691D /* Transform.App.Public.Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5E2C1C200FAC227A8A0 /* Transform.App.Public.Contents.swift */; };
 		4F71D8ECDF2DE59EB1FFEB3E /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1328856A68B46F8C023 /* Selectable.swift */; };
@@ -109,7 +110,7 @@
 		4F71DD78005DEFE832BE79AB /* PhotoPickerViewController.UIGestureRecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD07F87A201EB8901835 /* PhotoPickerViewController.UIGestureRecognizerDelegate.swift */; };
 		4F71DD92BFAF13C4AD114FF6 /* AppTaskOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DAD13EC98589E1C308AB /* AppTaskOperationQueue.swift */; };
 		4F71DDFAA9E96CA76DE04B3C /* Revert.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4D9E9481FC930955689 /* Revert.App.swift */; };
-		4F71DE9272F77A03F66C1471 /* Common.App.Public.Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D51E262A9146CEFBAC5D /* Common.App.Public.Contents.swift */; };
+		4F71DE9272F77A03F66C1471 /* batch.App.Public.Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D51E262A9146CEFBAC5D /* batch.App.Public.Contents.swift */; };
 		4F71DECCBC9546DB3C4F7C94 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DFB7C3D45A73E39BB0EB /* Localizable.strings */; };
 		4F71DEE2AFE7CFD3E265760F /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D313B305ABDB1C6CBFCF /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift */; };
 		4F71DEE5D2CB69CC8D7B571E /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DF8EC2FC3388F237EEF5 /* Localizable.stringsdict */; };
@@ -173,7 +174,7 @@
 		4F71D4E12F052AC7678ABBB0 /* CodeKit.Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Bundle.swift; sourceTree = "<group>"; };
 		4F71D4F50289CE48315DC932 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		4F71D5109CDFE3F2E36BF5A8 /* AppTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTask.swift; sourceTree = "<group>"; };
-		4F71D51E262A9146CEFBAC5D /* Common.App.Public.Contents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.App.Public.Contents.swift; sourceTree = "<group>"; };
+		4F71D51E262A9146CEFBAC5D /* batch.App.Public.Contents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = batch.App.Public.Contents.swift; sourceTree = "<group>"; };
 		4F71D53BE93FAA8CF33C27C5 /* Transform.App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.App.swift; sourceTree = "<group>"; };
 		4F71D54364A04B5A36539C3F /* nl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = nl; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D545A2757C8FD12523FE /* es */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
@@ -199,7 +200,7 @@
 		4F71D7A66CE97DD5A352D489 /* Base */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Base; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D7C1E4B21C4D1DEC9334 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; name = "GoogleService-Info.plist"; path = "batch/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4F71D824173DDC0C14C6EAB1 /* ro */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ro; path = Localizable.strings; sourceTree = "<group>"; };
-		4F71D8242392C908CCDF3022 /* Common.App.Contents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.App.Contents.swift; sourceTree = "<group>"; };
+		4F71D8242392C908CCDF3022 /* batch.App.Contents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = batch.App.Contents.swift; sourceTree = "<group>"; };
 		4F71D8588D09A8F77A3F89CF /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		4F71D887649BD6D9198DD7B5 /* Base */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.stringsdict; name = Base; path = Localizable.stringsdict; sourceTree = "<group>"; };
 		4F71D8A611809D713E2DA746 /* es_MX */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = es_MX; path = Localizable.strings; sourceTree = "<group>"; };
@@ -226,6 +227,7 @@
 		4F71DDC421A295CD0E3A4D18 /* en-GB */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = "en-GB"; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71DDCD4F23E46BAD494E43 /* ko */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ko; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71DDCE5F6C328475695277 /* pt_PT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = pt_PT; path = Localizable.strings; sourceTree = "<group>"; };
+		4F71DE1703A5AF70D8B4DFD0 /* batch.App.Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = batch.App.Types.swift; sourceTree = "<group>"; };
 		4F71DE303E0F297B9DDC1F0A /* PHAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAsset.swift; sourceTree = "<group>"; };
 		4F71DE5A20C077D1C1843A6F /* CodeKit.Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Timer.swift; sourceTree = "<group>"; };
 		4F71DE6203E83AFA6FB4EEAE /* CodeKit.UIImage.Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIImage.Transform.swift; sourceTree = "<group>"; };
@@ -737,9 +739,10 @@
 			isa = PBXGroup;
 			children = (
 				4F71D8FA3D2655407D04999F /* Transform */,
-				4F71D51E262A9146CEFBAC5D /* Common.App.Public.Contents.swift */,
-				4F71D8242392C908CCDF3022 /* Common.App.Contents.swift */,
+				4F71D51E262A9146CEFBAC5D /* batch.App.Public.Contents.swift */,
+				4F71D8242392C908CCDF3022 /* batch.App.Contents.swift */,
 				4F71DD932A6BF05C8C65758D /* Revert */,
+				4F71DE1703A5AF70D8B4DFD0 /* batch.App.Types.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -1087,14 +1090,14 @@
 				4F71DC62EA8BB2D890884D1D /* PHAsset.swift in Sources */,
 				4F71D052D62EB675DB2F0B5A /* PHAssetSourceable.swift in Sources */,
 				4F71D3EADECEDBF2EBB81323 /* PHAssetItem.swift in Sources */,
-				4F71DE9272F77A03F66C1471 /* Common.App.Public.Contents.swift in Sources */,
+				4F71DE9272F77A03F66C1471 /* batch.App.Public.Contents.swift in Sources */,
 				4F71D6416834A773E3ABFC50 /* Transform.App.swift in Sources */,
 				4F71D6A4AA1B06125E1ED67D /* Item.swift in Sources */,
 				4F71DB5D55189CD4784D3E62 /* UIKitItem.swift in Sources */,
 				4F71DB50C50E69B8E6F886F4 /* AssetView.swift in Sources */,
 				4F71D218BEB4B1219BED8EBC /* PHAssetEditable.swift in Sources */,
 				4F71D8E0E6900B80C10D691D /* Transform.App.Public.Contents.swift in Sources */,
-				4F71D0BB9B18BD59987C2185 /* Common.App.Contents.swift in Sources */,
+				4F71D0BB9B18BD59987C2185 /* batch.App.Contents.swift in Sources */,
 				4F71DDFAA9E96CA76DE04B3C /* Revert.App.swift in Sources */,
 				4F71D40DCCDE1D8167E0F614 /* CodeKit.String.swift in Sources */,
 				4F71D6ACC37D5AE756440485 /* CodeKit.CoreGraphics.swift in Sources */,
@@ -1127,6 +1130,7 @@
 				4F71DA865AFE679114523338 /* PhotoPickerViewController.UICollectionView.swift in Sources */,
 				4F71D952EF5D8E5867A5042B /* AppCenter.swift in Sources */,
 				4F71DC89BE1CF689F8DBF63C /* AppAssets.swift in Sources */,
+				4F71D8C53E1BB081D7F22B3F /* batch.App.Types.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
