@@ -6,7 +6,7 @@
 import Foundation
 import Photos
 
-private typealias RevertAppParam = PHAssetItem<BatchAppValue>
+private typealias RevertAppParam = PHAssetItem<AppValue>
 
 public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp {
     public static let taskType:Taskable.Type = _RevertAppTask.self

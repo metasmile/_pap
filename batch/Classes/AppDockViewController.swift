@@ -29,7 +29,7 @@ class AppDockViewController: UIViewController {
         appDockView.delegate = self
         appDockView.items = appDockItems
 
-        switch (BatchAppCenter.default.apps(by: .default).count){
+        switch (AppCenter.default.apps(by: .default).count){
             case 0:
                 self.hideAppDock(false)
             case 1:
@@ -56,13 +56,13 @@ class AppDockViewController: UIViewController {
         super.viewDidAppear(animated)
 
 //TODO: remove this line when N -app completed
-        BatchAppCenter.default.current = BatchAppCenter.default.apps(by: .default).first
+        AppCenter.default.current = AppCenter.default.apps(by: .default).first
 
         selectCurrentAppIfExist()
     }
     
     var appDockItems: [AppDockItem] {
-        return BatchAppCenter.default.apps(by: .default).map { AppDockItem(app: $0) }
+        return AppCenter.default.apps(by: .default).map { AppDockItem(app: $0) }
     }
 
     @objc func cancelButtonDidTap(sender: Any) {
@@ -82,20 +82,20 @@ class AppDockViewController: UIViewController {
 
 extension AppDockViewController {
     fileprivate func selectCurrentAppIfExist() {
-        guard let indexOfCurrentApp = BatchAppCenter.default.currentIndex else { return }
+        guard let indexOfCurrentApp = AppCenter.default.currentIndex else { return }
         appDockView.selectItem(at: IndexPath(item: indexOfCurrentApp, section: 0))
     }
 }
 
 extension AppDockViewController: AppDockViewDelegate {
     func appDockView(_ view: AppDockView, didSelectItemWith item: AppDockItem) {
-        BatchAppCenter.default.current = item.app
+        AppCenter.default.current = item.app
 
         updateAppDockViewForCurrentApp()
     }
 
     func updateAppDockViewForCurrentApp() {
-        let configView = BatchAppCenter.default.currentInstanceAs(ConfigurableApp.self)?.configView
+        let configView = AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.configView
         appDockView.setAppConfigView(configView)
     }
 }

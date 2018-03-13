@@ -12,7 +12,7 @@ public protocol PHAssetParamable: TaskParamable{
     var requestIDs:[PHAssetRequestID] { get }
 
     init(_ asset: PHAsset)
-    init(_ asset: PHAsset, indexPath:IndexPath)
+    init(_ asset: PHAsset, indexPath:IndexPath?)
 }
 
 public protocol PHAssetResultable: TaskResultable{
@@ -36,7 +36,7 @@ public class PHAssetItem<EditStateValueType:Hashable>: ItemObject, PHAssetParama
         self.asset = asset
     }
 
-    convenience required public init(_ asset: PHAsset, indexPath:IndexPath) {
+    convenience required public init(_ asset: PHAsset, indexPath:IndexPath?=nil) {
         self.init(asset)
         self.indexPath = indexPath
     }

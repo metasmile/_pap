@@ -47,11 +47,11 @@ extension PhotoManager{
     }
 
     private func showPhotoLibrarySettingsAlert() {
-        let alert = UIAlertController(title: "Photos Access Disabled".localizedString, message: "Please open settings and allow access to your photos".localizedString, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Open Settings".localizedString, style: .default, handler: { (action) in
+        let alert = UIAlertController(title: "Photos Access Disabled".localized, message: "Please open settings and allow access to your photos".localized, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Open Settings".localized, style: .default, handler: { (action) in
             UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
         }))
-        alert.addAction(UIAlertAction(title: "Cancel".localizedString, style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
 
         UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
     }

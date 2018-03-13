@@ -101,10 +101,10 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         var footerText = ""
         if numberOfImages > 0 {
             if numberOfImages == 1 {
-                footerText += "%d Photo".localizedFormattedString(numberOfImages.decimalStyleString)
+                footerText += "%d Photo".localizedFormatted(numberOfImages.decimalStyleString)
             }
             else {
-                footerText += "%d Photos".localizedFormattedString(numberOfImages.decimalStyleString)
+                footerText += "%d Photos".localizedFormatted(numberOfImages.decimalStyleString)
             }
         }
 
@@ -114,10 +114,10 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
             }
 
             if numberOfVideos == 1 {
-                footerText += "%d Video".localizedFormattedString(numberOfVideos.decimalStyleString)
+                footerText += "%d Video".localizedFormatted(numberOfVideos.decimalStyleString)
             }
             else {
-                footerText += "%d Videos".localizedFormattedString(numberOfVideos.decimalStyleString)
+                footerText += "%d Videos".localizedFormatted(numberOfVideos.decimalStyleString)
             }
         }
 
@@ -146,7 +146,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        if BatchAppCenter.default.isAppRunning {
+        if AppCenter.default.isAppRunning {
             let generator = UIImpactFeedbackGenerator(style: .medium)
             generator.impactOccurred()
             return false
@@ -155,7 +155,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
-        if BatchAppCenter.default.isAppRunning {
+        if AppCenter.default.isAppRunning {
             let generator = UIImpactFeedbackGenerator(style: .medium)
             generator.impactOccurred()
             return false

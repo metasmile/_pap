@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-634" y="188"/>
         </scene>
-        <!--Batch-->
+        <!--Batch Photos-->
         <scene sceneID="f5k-qW-NGj">
             <objects>
                 <viewController storyboardIdentifier="PhotoPickerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lkB-fw-5jX" customClass="PhotoPickerViewController" customModule="batch" customModuleProvider="target" sceneMemberID="viewController">

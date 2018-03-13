@@ -1,5 +1,5 @@
 //
-//  BatchPreviewView.swift
+//  PreviewView.swift
 //  batch
 //
 //  Created by Hyojin Mo on 2017. 12. 6..
@@ -10,29 +10,29 @@ import UIKit
 import Photos
 import Crashlytics
 
-protocol BatchPreviewViewDelegate {
-    func batchPreviewView(_ view: BatchPreviewView, didSelectItemAt indexPath: IndexPath)
-    func batchPreviewViewWillBeginExport(_ view: BatchPreviewView)
+protocol PreviewViewDelegate {
+    func batchPreviewView(_ view: PreviewView, didSelectItemAt indexPath: IndexPath)
+    func batchPreviewViewWillBeginExport(_ view: PreviewView)
 
-    func batchPreviewView(_ view: BatchPreviewView, didUpdateProgress progress: Float)
-    func batchPreviewViewDidCancelProgress(_ view: BatchPreviewView)
+    func batchPreviewView(_ view: PreviewView, didUpdateProgress progress: Float)
+    func batchPreviewViewDidCancelProgress(_ view: PreviewView)
 
-    func batchPreviewViewWillBeginEdit(_ view: BatchPreviewView)
-    func batchPreviewViewDidEndEdit(_ view: BatchPreviewView)
-    func batchPreviewViewDidCancelEdit(_ view: BatchPreviewView)
+    func batchPreviewViewWillBeginEdit(_ view: PreviewView)
+    func batchPreviewViewDidEndEdit(_ view: PreviewView)
+    func batchPreviewViewDidCancelEdit(_ view: PreviewView)
 }
 
-class BatchPreviewView: CustomView {
+class PreviewView: CustomView {
     @IBOutlet weak var collectionView: UICollectionView!
 
-    var delegate: BatchPreviewViewDelegate?
+    var delegate: PreviewViewDelegate?
 
-    let appAssets = BatchAppAssets.shared
+    let appAssetsSelected = AppAssets.selected
 
     override func initialize() {
         super.initialize()
 
-        print("[i] BatchAppCenter.default.task.maxConcurrentCount: ", BatchAppCenter.default.task.maxConcurrentCount)
+        print("[i] BatchAppCenter.default.task.maxConcurrentCount: ", AppCenter.default.task.maxConcurrentCount)
         
         collectionView.register(PreviewCollectionViewCell.self, forCellWithReuseIdentifier: "PreviewCollectionViewCell")
         updateCollectionViewAlignment(animated: false)
@@ -50,7 +50,7 @@ class BatchPreviewView: CustomView {
         for indexPath in visibleIndexPaths {
             guard let cell = self.collectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else { continue }
 
-            let appAsset = appAssets.at(indexPath.item)
+            let appAsset = appAssetsSelected.at(indexPath.item)
             if appAsset.editState.hasChanges{
                 cell.setImageEditItem(appAsset.editState, animated: animated)
             }
@@ -60,10 +60,10 @@ class BatchPreviewView: CustomView {
     }
 }
 
-extension BatchPreviewView{
+extension PreviewView {
     @discardableResult
     func appendCollectionViewItem(with asset: PHAsset) -> IndexPath? {
-        guard let insertedIndexPath = appAssets.put(for:asset) else {
+        guard let insertedIndexPath = appAssetsSelected.put(with:asset) else {
             return nil
         }
 
@@ -75,23 +75,23 @@ extension BatchPreviewView{
     }
 
     func removeCollectionViewItem(with asset: PHAsset?) {
-        guard let _asset = asset, let indexPath = appAssets.remove(for:_asset) else {
+        guard let _asset = asset, let indexPath = appAssetsSelected.remove(for:_asset) else {
             return
         }
 
         collectionView.deleteItems(at: [indexPath])
         updateCollectionViewAlignment()
 
-        if appAssets.count > 0 {
-            let nearestItem = max(min(indexPath.item - 1, appAssets.count - 2), 0)
+        if appAssetsSelected.count > 0 {
+            let nearestItem = max(min(indexPath.item - 1, appAssetsSelected.count - 2), 0)
             collectionView.scrollToItem(at: IndexPath(item: nearestItem, section: 0), at: .centeredHorizontally, animated: true)
         }
     }
 
     func removeAllCollectionViewItems() {
-        let indexPaths = (0..<appAssets.count).map({ IndexPath(item: $0, section: 0) })
+        let indexPaths = (0..<appAssetsSelected.count).map({ IndexPath(item: $0, section: 0) })
 
-        appAssets.removeAll()
+        appAssetsSelected.removeAll()
         collectionView.deleteItems(at: indexPaths)
         updateCollectionViewAlignment()
     }
@@ -125,13 +125,13 @@ extension BatchPreviewView{
     }
 }
 
-extension BatchPreviewView {
+extension PreviewView {
 
     @discardableResult
     func runBatchProcessing() -> Bool {
         let targetSection = 0 //TODO: previously support multiple sections
 
-        guard let app = BatchAppCenter.default.current, collectionView.numberOfItems(inSection: targetSection) > 0 else {
+        guard let app = AppCenter.default.current, collectionView.numberOfItems(inSection: targetSection) > 0 else {
             assert(false, "selected app does not exist.")
             return false
         }
@@ -143,8 +143,8 @@ extension BatchPreviewView {
 
         //TODO: BatchAppCenter.default.task.append immediatly from UI action instead of using "EditItems"
 
-        for i in 0..<appAssets.count{
-            BatchAppCenter.default.task.append(request: AppTaskRequest(app, appAssets.at(i)))
+        for i in 0..<appAssetsSelected.count{
+            AppCenter.default.task.append(request: AppTaskRequest(app, appAssetsSelected.at(i)))
         }
 
         let reaction = AppTaskReaction()
@@ -152,7 +152,7 @@ extension BatchPreviewView {
         reaction.when(progress:{ response, progress, remained, completed in
             assert(response.info.state != .completed || response.info.state == .completed && response.result != nil, "task state is .completed but result is nil")
 
-            let requestedParam = response.request.param as? PHAssetItem<BatchAppValue>
+            let requestedParam = response.request.param as? PHAssetItem<AppValue>
             let totalCount = remained.count+completed.count
 
             switch (response.info.state) {
@@ -175,7 +175,7 @@ extension BatchPreviewView {
 
 
         }).did(finish: { resultsByApps, respondables in
-            assert(!BatchAppCenter.default.isAppRunning)
+            assert(!AppCenter.default.isAppRunning)
 
             self.delegate?.batchPreviewViewDidEndEdit(self)
 
@@ -192,7 +192,7 @@ extension BatchPreviewView {
             }
         })
 
-        BatchAppCenter.default.task.perform(reaction)
+        AppCenter.default.task.perform(reaction)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.fetchProgressChanged), name: RemoteSourceFetchNotification.Name.progressChanged, object: nil)
 
@@ -203,29 +203,29 @@ extension BatchPreviewView {
     }
     
     func cancelBatchProcessing() {
-        assert(BatchAppCenter.default.isAppRunning)
+        assert(AppCenter.default.isAppRunning)
 
-        BatchAppCenter.default.task.cancel()
+        AppCenter.default.task.cancel()
 
         delegate?.batchPreviewViewDidCancelEdit(self)
     }
 }
 
-extension BatchPreviewView: UICollectionViewDataSource {
+extension PreviewView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return appAssets.count
+        return appAssetsSelected.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PreviewCollectionViewCell", for: indexPath) as! PreviewCollectionViewCell
-        cell.setEditItemForPreview(appAssets.at(indexPath.item), at: indexPath)
+        cell.setEditItemForPreview(appAssetsSelected.at(indexPath.item), at: indexPath)
         return cell
     }
 }
 
-extension BatchPreviewView: UICollectionViewDelegate {
+extension PreviewView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return !BatchAppCenter.default.isAppRunning
+        return !AppCenter.default.isAppRunning
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -233,9 +233,9 @@ extension BatchPreviewView: UICollectionViewDelegate {
     }
 }
 
-extension BatchPreviewView: UICollectionViewDelegateFlowLayout {
+extension PreviewView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let asset = appAssets.at(indexPath.item).asset
+        let asset = appAssetsSelected.at(indexPath.item).asset
 
         let contentInset: UIEdgeInsets
         if #available(iOS 11.0, *) {
@@ -248,7 +248,7 @@ extension BatchPreviewView: UICollectionViewDelegateFlowLayout {
         let contentSize = UIEdgeInsetsInsetRect(collectionView.bounds, contentInset).size
         let boundingSize = CGSize(width: contentSize.height, height: contentSize.height)
         let photoSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight).aspectFit(in: boundingSize)
-        let cellSize = photoSize.applying(appAssets.at(indexPath.item).editState.transform).magnitude
+        let cellSize = photoSize.applying(appAssetsSelected.at(indexPath.item).editState.transform).magnitude
         return CGSize(width: cellSize.width, height: contentSize.height)
     }
     

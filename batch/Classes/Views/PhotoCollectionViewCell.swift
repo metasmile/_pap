@@ -14,10 +14,12 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     //TODO: wrap a view as a decorationrenderview later
     @IBOutlet weak var selectionView: UIView!
+
     @IBOutlet weak var selectionViewWidth: NSLayoutConstraint!
     @IBOutlet weak var selectionViewHeight: NSLayoutConstraint!
     
-    @IBOutlet weak var decorationContainerView: UIView!
+    @IBOutlet weak var decorationView: UIView!
+
     @IBOutlet weak var durationLabelForVideo: UILabel!
     @IBOutlet weak var iconForLivePhotos: UIImageView!
     
@@ -68,11 +70,7 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         }
         imageRequestId = nil
     }
-    
-    override func tintColorDidChange() {
-        super.tintColorDidChange()
-    }
-    
+
     func setAsset(_ asset: PHAsset, at indexPath: IndexPath) {
         self.indexPath = indexPath
         prepareForDisplay(with: asset)
@@ -120,7 +118,7 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         //live photo icon
         iconForLivePhotos.isHidden = !asset.mediaSubtypes.contains(.photoLive)
         
-        decorationContainerView.isHidden = durationLabelForVideo.isHidden && iconForLivePhotos.isHidden
+        decorationView.isHidden = durationLabelForVideo.isHidden && iconForLivePhotos.isHidden
     }
     
     private func updateImageViewContentMode() {

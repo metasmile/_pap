@@ -12,7 +12,7 @@ import AVFoundation
 import Photos
 
 protocol TransformEditViewControllerDelegate {
-    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: StateValueSet<BatchAppValue>?, at indexPath: IndexPath?)
+    func editViewController(_ photoEditor: PhotoEditViewController, didFinishWith editItem: StateValueSet<AppValue>?, at indexPath: IndexPath?)
 }
 
 class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
@@ -29,7 +29,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
             layoutAssetView()
         }
     }
-    var editItem = StateValueSet<BatchAppValue>()
+    var editItem = StateValueSet<AppValue>()
     var placeholderView: UIView?
     var indexPathInBatch: IndexPath?
     
@@ -44,7 +44,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Edit".localizedString
+        title = "Edit".localized
 
         view.backgroundColor = iOSStandardEditorBackgroundColor
 
@@ -96,7 +96,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        BatchAppCenter.default.watch(\.currentIdentifier, id:"editor", options:[.new,.initial]) { appCenter, dict in
+        AppCenter.default.watch(\.currentIdentifier, id:"editor", options:[.new, .initial]) { appCenter, dict in
 
             appCenter.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform, id:"editor\(TransformApp.info.identifier)") { (config, changed) in
                 if let value = config.transform{
@@ -109,8 +109,8 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        BatchAppCenter.default.currentInstanceAs(TransformApp.self)?.config?.unwatch(\.transform, forIds:["editor\(TransformApp.info.identifier)"])
-        BatchAppCenter.default.unwatch(\.currentIdentifier, forIds:["editor"])
+        AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.unwatch(\.transform, forIds:["editor\(TransformApp.info.identifier)"])
+        AppCenter.default.unwatch(\.currentIdentifier, forIds:["editor"])
     }
     
     override func viewDidLayoutSubviews() {
@@ -149,7 +149,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     
     // MARK: - Navigation Bar Actions
     
-    private func addTransformItem(_ transformItem: BatchAppValue) {
+    private func addTransformItem(_ transformItem: AppValue) {
         editItem.append(transformItem)
         
         updatePreview()
@@ -171,16 +171,16 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         editItem.reset()
         
         updatePreview { [unowned self] in
-            self.delegate?.photoEditViewController(self, didFinishEditing: nil, at: self.indexPathInBatch)
+            self.delegate?.editViewController(self, didFinishWith: nil, at: self.indexPathInBatch)
         }
     }
     
     override func doneButtonDidTap(sender: Any) {
         assetView.layer.transform = CATransform3DIdentity
         assetView.transform = editItem.transform
-        
         placeholderView?.transform = editItem.transform
-        delegate?.photoEditViewController(self, didFinishEditing: self.editItem, at: self.indexPathInBatch)
+
+        delegate?.editViewController(self, didFinishWith: self.editItem, at: self.indexPathInBatch)
     }
     
     // MARK: - UIScrollViewDelegate

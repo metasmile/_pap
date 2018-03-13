@@ -13,13 +13,13 @@ extension String {
         return Bundle.main.bundleURL.appendingPathComponent(self).path
     }
 
-    var localizedString: String {
+    var localized: String {
         return NSLocalizedString(self, comment: "")
     }
     
-    func localizedFormattedString(_ arguments: CVarArg...) -> String {
+    func localizedFormatted(_ arguments: CVarArg...) -> String {
         return withVaList(arguments) {
-            return NSString(format: self.localizedString, arguments: $0) as String
+            return NSString(format: self.localized, arguments: $0) as String
         }
     }
 }

@@ -6,12 +6,13 @@
 import Foundation
 import Photos
 
+public typealias AppAsset = PHAssetItem<AppValue>
 
-public final class BatchAppAssets: NSObject {
-    typealias AssetType = PHAssetItem<BatchAppValue>
-    public static let shared = BatchAppAssets()
+public final class AppAssets: NSObject {
+    public static let fetched = AppAssets()
+    public static let selected = AppAssets()
 
-    private var  _items = [AssetType]()
+    private var  _items = [AppAsset]()
 
     var count:Int{
         return  _items.count
@@ -21,25 +22,25 @@ public final class BatchAppAssets: NSObject {
         return  _items.first(where: { $0.editState.hasChanges }) != nil
     }
 
-    func stateChanged(for assets:[AssetType]?=nil) -> [AssetType]? {
+    func stateChanged(for assets:[AppAsset]?=nil) -> [AppAsset]? {
        let targets = assets == nil ? _items : Array(Set(_items).intersection(assets!))
         return targets.filter { $0.editState.hasChanges }
     }
 
-    func by(_ asset:PHAsset?) -> AssetType?{
+    func by(_ asset:PHAsset) -> AppAsset?{
         return  _items.first(where: { $0.asset == asset })
     }
 
-    func at(_ index:Int) -> AssetType{
+    func at(_ index:Int) -> AppAsset {
         return  _items[index]
     }
 
-    func index(of assetItem:AssetType) -> Int?{
+    func index(of assetItem: AppAsset) -> Int?{
         return  _items.index(of: assetItem)
     }
 
     @discardableResult
-    func put(for asset: PHAsset) -> IndexPath? {
+    func put(with asset: PHAsset) -> IndexPath? {
 
         guard let item = create(for:asset) else{
             return nil
@@ -64,11 +65,11 @@ public final class BatchAppAssets: NSObject {
         return insertedIndexPath
     }
 
-    func create(for asset: PHAsset) -> AssetType? {
-        guard let app = BatchAppCenter.default.current else { return nil }
+    func create(for asset: PHAsset) -> AppAsset? {
+        guard let app = AppCenter.default.current else { return nil }
 
         if let itemType = app.paramType as? PHAssetParamable.Type
-        , let item = itemType.init(asset) as? AssetType{
+        , let item = itemType.init(asset) as? AppAsset {
             return item
 
         } else{
@@ -93,17 +94,17 @@ public final class BatchAppAssets: NSObject {
 
     func reloadAll() {
         for item in _items {
-            put(for: item.asset)
+            put(with: item.asset)
         }
     }
 
-    func appendValue(_ item: BatchAppValue, `for`:[AssetType]?=nil) {
+    func appendValue(_ item: AppValue, `for`:[AppAsset]?=nil) {
         for e in `for` ??  _items {
             e.editState.append(item)
         }
     }
 
-    func resetValues(forItems:[AssetType]?=nil) {
+    func resetValues(forItems:[AppAsset]?=nil) {
         for e in forItems ??  _items {
             e.editState.reset()
         }

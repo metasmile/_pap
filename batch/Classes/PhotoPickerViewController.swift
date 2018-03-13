@@ -19,7 +19,7 @@ class PhotoPickerViewController: AppDockViewController {
     @IBOutlet weak var photoCollectionView: UICollectionView!
     var initialPhotoCollectionIndexPath: IndexPath?
     
-    var batchPreviewView: BatchPreviewView!
+    var batchPreviewView: PreviewView!
     var progressBar: UIProgressView!
 
     var collections: PHFetchResult<PHAssetCollection>?
@@ -31,7 +31,7 @@ class PhotoPickerViewController: AppDockViewController {
         super.viewDidLoad()
         
         //preview
-        batchPreviewView = BatchPreviewView(frame: .zero)
+        batchPreviewView = PreviewView(frame: .zero)
         batchPreviewView.delegate = self
 
         //photos collection
@@ -85,17 +85,16 @@ class PhotoPickerViewController: AppDockViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        BatchAppCenter.default.watch(\.currentIdentifier, id:"picker", options:[.new,.old,.initial]) { (appCenter, dict) in
+        AppCenter.default.watch(\.currentIdentifier, id:"picker", options:[.new, .old, .initial]) { (appCenter, dict) in
             if let old = dict.oldValue, old != dict.newValue! {
 
-                BatchAppAssets.shared.reloadAll()
+                AppAssets.selected.reloadAll()
                 self.showCurrentSelectedAppDisplayName()
             }
 
-            BatchAppCenter.default.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform, id:"picker\(TransformApp.info.identifier)") { (config, changed) in
-                print(config,config.transform)
-                if let value = config.transform, !BatchAppCenter.default.isAppRunning{
-                    BatchAppAssets.shared.appendValue(value)
+            AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform, id:"picker\(TransformApp.info.identifier)") { (config, changed) in
+                if let value = config.transform, !AppCenter.default.isAppRunning{
+                    AppAssets.selected.appendValue(value)
 
                     self.batchPreviewView.updatePreviews()
                 }
@@ -106,8 +105,8 @@ class PhotoPickerViewController: AppDockViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        BatchAppCenter.default.currentInstanceAs(TransformApp.self)?.config?.unwatch(\.transform, forIds:["picker\(TransformApp.info.identifier)"])
-        BatchAppCenter.default.unwatch(\.currentIdentifier, forIds:["picker"])
+        AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.unwatch(\.transform, forIds:["picker\(TransformApp.info.identifier)"])
+        AppCenter.default.unwatch(\.currentIdentifier, forIds:["picker"])
     }
 
     deinit {
@@ -125,16 +124,16 @@ class PhotoPickerViewController: AppDockViewController {
         let generator = UIImpactFeedbackGenerator(style: .medium)
         generator.impactOccurred()
 
-        if BatchAppCenter.default.isAppRunning {
+        if AppCenter.default.isAppRunning {
             batchPreviewView.cancelBatchProcessing()
         }
         else {
-            if BatchAppAssets.shared.hasChanges {
+            if AppAssets.selected.hasChanges {
                 let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-                alert.addAction(UIAlertAction(title: "Discard Changes".localizedString, style: .destructive, handler: { (action) in
+                alert.addAction(UIAlertAction(title: "Discard Changes".localized, style: .destructive, handler: { (action) in
                     self.cancelAllSelection()
                 }))
-                alert.addAction(UIAlertAction(title: "Cancel".localizedString, style: .cancel, handler: nil))
+                alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
                 present(alert, animated: true, completion: nil)
             }
             else {
@@ -150,10 +149,10 @@ class PhotoPickerViewController: AppDockViewController {
     func showCurrentSelectedAppDisplayName(){
         let previousTitle = self.title == Bundle.main.displayName ? self.title : Bundle.main.displayName
 
-        self.titleFade = BatchAppCenter.default.current?.info.displayName
+        self.titleFade = AppCenter.default.current?.info.displayName
 
         Timer.scheduledTimer(identifier: "batch_selectedAppTitle", withTimeInterval: 2, repeats: false) { timer in
-            if let _ = self.selectedAssets{
+            if let _ = self.selectedAssetsInCollectionView {
                 self.updateTitleForSelectedItems()
             }else{
                 self.titleFade = previousTitle
@@ -162,7 +161,7 @@ class PhotoPickerViewController: AppDockViewController {
     }
 
     func updateTitleForSelectedItems() {
-        let selectedAssets = self.selectedAssets
+        let selectedAssets = self.selectedAssetsInCollectionView
         let numberOfVideos = selectedAssets?.filter({ $0.mediaType == .video }).count ?? 0
         let numberOfPhotos = selectedAssets?.filter({ $0.mediaType == .image }).count ?? 0
         let numberOfItems = numberOfPhotos + numberOfVideos
@@ -183,22 +182,22 @@ class PhotoPickerViewController: AppDockViewController {
 
             if numberOfPhotos > 0 && numberOfVideos == 0 {
                 let pluralizedString = "Photo" + (numberOfPhotos == 1 ? "" : "s")
-                title = "Edit %d \(pluralizedString)".localizedFormattedString(numberOfPhotos.decimalStyleString)
+                title = "Edit %d \(pluralizedString)".localizedFormatted(numberOfPhotos.decimalStyleString)
             }
             else if numberOfVideos > 0 && numberOfPhotos == 0 {
                 let pluralizedString = "Video" + (numberOfVideos == 1 ? "" : "s")
-                title = "Edit %d \(pluralizedString)".localizedFormattedString(numberOfVideos.decimalStyleString)
+                title = "Edit %d \(pluralizedString)".localizedFormatted(numberOfVideos.decimalStyleString)
             }
             else {
                 let pluralizedString = "Item" + (numberOfItems == 1 ? "" : "s")
-                title = "Edit %d \(pluralizedString)".localizedFormattedString(numberOfItems.decimalStyleString)
+                title = "Edit %d \(pluralizedString)".localizedFormatted(numberOfItems.decimalStyleString)
             }
         }
     }
 }
 
 extension PhotoPickerViewController: TransformEditViewControllerDelegate {
-    func showPhotoEditor(with editItem: PHAssetItem<BatchAppValue>?) {
+    func showPhotoEditor(with editItem: PHAssetItem<AppValue>?) {
         guard let _editItem = editItem else { return }
 
         if let photoEditViewController = R.storyboard.appStoryboard.photoEditViewController(){
@@ -206,7 +205,7 @@ extension PhotoPickerViewController: TransformEditViewControllerDelegate {
             photoEditViewController.preferredTransform = _editItem.editState.transform
             photoEditViewController.delegate = self
 
-            if let item = BatchAppAssets.shared.index(of:_editItem) {
+            if let item = AppAssets.selected.index(of:_editItem) {
                 photoEditViewController.indexPathInBatch = IndexPath(item: item, section: 0)
             }
 
@@ -216,50 +215,43 @@ extension PhotoPickerViewController: TransformEditViewControllerDelegate {
             navigationController.hero.navigationAnimationType = .fade
             present(navigationController,animated: true) {
 
-                BatchAppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues( AppConfigUIAttrribute(tintColor: .white))
+                AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues( AppConfigUIAttrribute(tintColor: .white))
             }
         }
     }
 
-    func photoEditViewController(_ photoEditor: PhotoEditViewController, didFinishEditing editItem: StateValueSet<BatchAppValue>?, at indexPath: IndexPath?) {
-
+    func editViewController(_ photoEditor: PhotoEditViewController, didFinishWith editItem: StateValueSet<AppValue>?, at indexPath: IndexPath?) {
         if let _editItem = editItem, let _indexPath = indexPath, _editItem.hasChanges {
-            BatchAppAssets.shared.at(_indexPath.item).editState.merge(with: _editItem)
+            AppAssets.selected.at(_indexPath.item).editState.merge(with: _editItem)
         }
 
-        BatchAppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues( AppConfigUIAttrribute(tintColor: .black))
+        AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues( AppConfigUIAttrribute(tintColor: .black))
 
         photoEditor.dismiss(animated: true, completion: {
             self.batchPreviewView.reloadCollectionViewItems()
         })
     }
 
-    func showPhotoEditorAndSelectIfNeeded(with asset: PHAsset?) {
-        selectItemInPhotoPicker(with: asset)
-
-        showPhotoEditor(with: BatchAppAssets.shared.by(asset))
-    }
-    
-    private func selectItemInPhotoPicker(with asset: PHAsset?) {
+    func selectCollectionViewItem(by asset: PHAsset) {
         guard let indexPath = self.indexPath(of: asset) else { return }
-        selectItemIfNotSelected(at: indexPath)
+        selectCollectionViewItem(at: indexPath)
     }
     
-    private func selectItemIfNotSelected(at indexPath: IndexPath) {
+    func selectCollectionViewItem(at indexPath: IndexPath) {
         if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == false {
             photoCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
             collectionView(photoCollectionView, didSelectItemAt: indexPath)
         }
     }
 
-    var selectedAssets:[PHAsset]?{
+    var selectedAssetsInCollectionView:[PHAsset]?{
         return photoCollectionView.indexPathsForSelectedItems?.flatMap({ self.asset(at: $0) })
     }
 }
 
-extension PhotoPickerViewController: BatchPreviewViewDelegate {
-    func batchPreviewView(_ view: BatchPreviewView, didSelectItemAt indexPath: IndexPath) {
-        let selectedAsset = BatchAppAssets.shared.at(indexPath.item).asset
+extension PhotoPickerViewController: PreviewViewDelegate {
+    func batchPreviewView(_ view: PreviewView, didSelectItemAt indexPath: IndexPath) {
+        let selectedAsset = AppAssets.selected.at(indexPath.item).asset
         guard let indexPathInPhotoPicker = self.indexPath(of: selectedAsset) else { return }
         photoCollectionView.scrollToItem(at: indexPathInPhotoPicker, at: .centeredVertically, animated: true)
         
@@ -285,8 +277,8 @@ extension PhotoPickerViewController: BatchPreviewViewDelegate {
 //        present(navigationController, animated: true, completion: nil)
     }
     
-    func batchPreviewViewWillBeginEdit(_ view: BatchPreviewView) {
-        titleFade = "Start Batch Editing...".localizedString
+    func batchPreviewViewWillBeginEdit(_ view: PreviewView) {
+        titleFade = "Start Batch Editing...".localized
 
         let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         loadingIndicator.startAnimating()
@@ -299,35 +291,35 @@ extension PhotoPickerViewController: BatchPreviewViewDelegate {
         }
     }
     
-    func batchPreviewView(_ view: BatchPreviewView, didUpdateProgress progress: Float) {
-        titleFade = "Processing...".localizedString + " \(Int(progress * 100))%"
+    func batchPreviewView(_ view: PreviewView, didUpdateProgress progress: Float) {
+        titleFade = "Processing...".localized + " \(Int(progress * 100))%"
 
         progressBar.setProgress(progress, animated: true)
     }
 
-    func batchPreviewViewDidCancelProgress(_ view: BatchPreviewView) {
-        titleFade = "Cancelling...".localizedString
+    func batchPreviewViewDidCancelProgress(_ view: PreviewView) {
+        titleFade = "Cancelling...".localized
 
         UIView.animate(withDuration: 0.6) {
             self.progressBar.alpha = 0
         }
     }
 
-    func batchPreviewViewWillBeginExport(_ view: BatchPreviewView) {
-        titleFade = "Saving Photos...".localizedString
+    func batchPreviewViewWillBeginExport(_ view: PreviewView) {
+        titleFade = "Saving Photos...".localized
 
         UIView.animate(withDuration: 0.6) {
             self.progressBar.alpha = 0
         }
     }
     
-    func batchPreviewViewDidEndEdit(_ view: BatchPreviewView) {
+    func batchPreviewViewDidEndEdit(_ view: PreviewView) {
         cancelAllSelection()
 
         progressBar.isHidden = true
     }
     
-    func batchPreviewViewDidCancelEdit(_ view: BatchPreviewView) {
+    func batchPreviewViewDidCancelEdit(_ view: PreviewView) {
         // waiting for remaining processing
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
             self.updateTitleForSelectedItems()

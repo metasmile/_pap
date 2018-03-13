@@ -5,8 +5,8 @@
 
 import Foundation
 
-public final class BatchAppCenter: AppManager, AppManagerConfigurable, KeyPathWatchable {
-    public static let `default` = BatchAppCenter()
+public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchable {
+    public static let `default` = AppCenter()
 
     func configure() -> AppManagerConfig? {
 

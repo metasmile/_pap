@@ -7,9 +7,7 @@ import UIKit
 import Photos
 
 class PhotoPickerDetailViewController: UIViewController {
-
-    var asset: PHAsset?
-    var assetItem: PHAssetItem<BatchAppValue>?
+    var assetItem: PHAssetItem<AppValue>?
     var actionItems:[UIPreviewActionItem]?
     
     private lazy var assetView: AssetView = {
@@ -22,9 +20,9 @@ class PhotoPickerDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Detail".localizedString
+        title = "Detail".localized
 
-        if let asset = asset {
+        if let asset = assetItem?.asset {
             view.addSubview(assetView)
 
             let preferredTransform = assetItem?.editState.transform ?? .identity

@@ -12,6 +12,12 @@ import UIKit
 public extension UIView {
     // MARK: - Basic Properties
 
+    @objc
+    var visible:Bool {
+        set { self.isHidden = !newValue }
+        get { return !self.isHidden }
+    }
+
     /// X Axis value of UIView.
     @objc
     var x: CGFloat {
