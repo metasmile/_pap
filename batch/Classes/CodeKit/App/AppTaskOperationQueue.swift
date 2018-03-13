@@ -33,7 +33,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
             , target: nil
     )
 
-    private let asyncSignal = TaskDefaultSignal()
+    private let asyncSignal = AsyncSignal()
 
     internal var label:String{
         return self.queue.label
@@ -106,7 +106,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
         }
     }
 
-    private func tryItem(_ item: AppTaskWorkItem, _ async: TaskAsyncSignalable & TaskSignalControllable, cancel:Bool=false){
+    private func tryItem(_ item: AppTaskWorkItem, _ async: AsyncManualSignalable & AsyncControllableSignable, cancel:Bool=false){
         let param = item.request.param
 
         guard !cancel && item.response(.performing) else{

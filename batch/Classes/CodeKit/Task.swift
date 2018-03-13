@@ -48,9 +48,9 @@ public protocol Taskable{
 
     init(_ info: TaskInfo)
 
-    func perform(_ param: TaskParamable, _ async: TaskAsyncSignalable?) throws -> TaskResultable?
+    func perform(_ param: TaskParamable, _ async: AsyncManualSignalable?) throws -> TaskResultable?
 
-    func cancel(_ param:TaskParamable, _ async: TaskAsyncSignalable?)
+    func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?)
 }
 
 public class TaskPrototype: Item<TaskInfo> {
@@ -134,83 +134,3 @@ public class TaskInfo: Item<String> {
         self.policy = policy
     }
 }
-
-//task - async
-public protocol TaskSignalable {}
-public protocol TaskAsyncSignalable: TaskSignalable {
-    var began:Bool { get }
-    func begin()
-    
-    func stopUntilEnd()
-    
-    @discardableResult 
-    func end() -> Self
-}
-
-public protocol TaskSignalControllable {
-    func done()
-    
-    @discardableResult
-    func finally(_ queue:DispatchQueue?,_ completion: DispatchWorkItem) -> Self
-}
-
-public final class TaskDefaultSignal {
-    internal let dispatchGroup:DispatchGroup = DispatchGroup()
-    private let _offsetSyncQueue:DispatchQueue = DispatchQueue(label:"com.stells.internal__sync_queue_\(UUID().uuidString)")
-    private var offset:Int = 0
-}
-
-extension TaskDefaultSignal: TaskAsyncSignalable, TaskSignalControllable {
-    public var began:Bool {
-        return offset>0
-    }
-
-    private func setOffset(_ increment:Bool) -> Bool{
-        return _offsetSyncQueue.sync(flags: .barrier) {
-            assert(offset>=0,"All state of offset must be >= 0")
-            let decre = !increment && offset>0
-            let incre = increment && offset>=0
-            let executed = incre || decre
-            if executed{
-                offset += increment ? 1 : -1
-            }
-            return executed
-        }
-    }
-
-    public func begin(){
-        if setOffset(true) {
-            dispatchGroup.enter()
-        }
-    }
-
-    public func end() -> Self{
-        if setOffset(false) {
-            dispatchGroup.leave()
-        }
-        return self
-    }
-    
-    public func stopUntilEnd() {
-        if self.began{
-            dispatchGroup.wait()
-        }else{
-            print("[!] self.began==false, \(#function) was called before begin(), or, after end() in same queue.")
-        }
-    }
-
-    public func done() {
-        while end().began { }
-    }
-
-    public func finally(_ queue:DispatchQueue?,_ completion: DispatchWorkItem) -> Self{
-        let targetQueue = queue ?? DispatchQueue.main
-        if self.began {
-            dispatchGroup.notify(queue: targetQueue, work: completion)
-        }else{
-            targetQueue.async(execute: completion)
-        }
-        return self
-    }
-}
-

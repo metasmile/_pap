@@ -5,6 +5,8 @@
 
 import Foundation
 
-public protocol PHAssetItemCollectableApp: App {
+public protocol ItemCollectableApp: App {
+//    var asyncSignal:Dictionary<String, AsyncControllableSignable & AsyncSignalable>? {get}
+
     func areItemsEnables(for:PHAssetItem<AppValue>) -> Bool
 }

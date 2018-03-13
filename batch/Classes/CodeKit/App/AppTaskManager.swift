@@ -318,7 +318,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
     }
 
     private func _finializeAllAppTasks(_ resForEachApps:[AppInfo: [AppTaskRespondable]]) -> [AppInfo: [AppTaskRespondable]] {
-        let asyncSignal = TaskDefaultSignal()
+        let asyncSignal = AsyncSignal()
         var finalizedResults = [AppInfo: [AppTaskRespondable]]()
 
         for (appInfo, reses) in resForEachApps{

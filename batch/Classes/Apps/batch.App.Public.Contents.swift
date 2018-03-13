@@ -21,7 +21,7 @@ public class AppValue: Object {
 public protocol PHAssetEditableFinalizableApp: FinalizableApp {}
 
 extension PHAssetEditableFinalizableApp {
-    public func finalize(result: [AppTaskRespondable], _ asyncSignal: TaskAsyncSignalable) -> [AppTaskRespondable] {
+    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
 
         if result.isAnyTask(inState: .cancelled) && result.defaultTaskPolicy.cancellation == TaskPolicy.Cancellation.shallow {
             return result

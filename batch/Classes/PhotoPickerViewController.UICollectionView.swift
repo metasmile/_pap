@@ -191,11 +191,11 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
             return false
         }
 
-        if let collectableApp = AppCenter.default.currentInstanceAs(PHAssetItemCollectableApp.self)
+        if let collectableApp = AppCenter.default.currentInstanceAs(ItemCollectableApp.self)
             , let asset = self.asset(at: indexPath)
             , let item = AppAssets.selected.at(unsafeIndex:indexPath.item) ?? AppAssets.selected.create(for:asset) {
 
-            return collectableApp.areItemsEnables(for:item)
+            return collectableApp.areItemsEnables(for: item)
         }
 
         return true

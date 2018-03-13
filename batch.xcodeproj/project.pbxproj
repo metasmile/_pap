@@ -71,6 +71,7 @@
 		4F71D896A7F10961FAC286B0 /* Sourceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB3F65BB0609398D99C6 /* Sourceable.swift */; };
 		4F71D8C53E1BB081D7F22B3F /* batch.App.Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE1703A5AF70D8B4DFD0 /* batch.App.Types.swift */; };
 		4F71D8CB2584EB6FA21077E8 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF6A3F2621A2EFC5A30F /* System.swift */; };
+		4F71D8CB499135440CD26851 /* CodeKit.DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6DE0A3A7908F226BBD9 /* CodeKit.DispatchQueue.swift */; };
 		4F71D8E0E6900B80C10D691D /* Transform.App.Public.Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5E2C1C200FAC227A8A0 /* Transform.App.Public.Contents.swift */; };
 		4F71D8ECDF2DE59EB1FFEB3E /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1328856A68B46F8C023 /* Selectable.swift */; };
 		4F71D90CC963090F9D1B6E3D /* StateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D9D73288B0CE69276F02 /* StateValue.swift */; };
@@ -190,6 +191,7 @@
 		4F71D67696ED68B67F19CD2D /* PhotoPickerDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerDetailViewController.swift; sourceTree = "<group>"; };
 		4F71D68D16088A3894599426 /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
 		4F71D6DCF679BD4028F66661 /* el */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = el; path = Localizable.strings; sourceTree = "<group>"; };
+		4F71D6DE0A3A7908F226BBD9 /* CodeKit.DispatchQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.DispatchQueue.swift; sourceTree = "<group>"; };
 		4F71D6F61D723670291982AD /* fr_CA */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fr_CA; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D701CF9B6FB619CFBCE5 /* CodeKit.CoreGraphics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.CoreGraphics.swift; sourceTree = "<group>"; };
 		4F71D76ECFB8300EB36712B8 /* CodeKit.UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIViewController.swift; sourceTree = "<group>"; };
@@ -491,6 +493,7 @@
 				4F71D4E12F052AC7678ABBB0 /* CodeKit.Bundle.swift */,
 				4F71D76ECFB8300EB36712B8 /* CodeKit.UIViewController.swift */,
 				4F71D7701FC0F8CC1AC18508 /* CodeKit.Int.swift */,
+				4F71D6DE0A3A7908F226BBD9 /* CodeKit.DispatchQueue.swift */,
 			);
 			path = CodeKit;
 			sourceTree = "<group>";
@@ -1131,6 +1134,7 @@
 				4F71D952EF5D8E5867A5042B /* AppCenter.swift in Sources */,
 				4F71DC89BE1CF689F8DBF63C /* AppAssets.swift in Sources */,
 				4F71D8C53E1BB081D7F22B3F /* batch.App.Types.swift in Sources */,
+				4F71D8CB499135440CD26851 /* CodeKit.DispatchQueue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,7 @@ import Photos
 
 private typealias RevertAppParam = PHAssetItem<AppValue>
 
-public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, PHAssetItemCollectableApp {
+public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, ItemCollectableApp {
     public static let taskType:Taskable.Type = _RevertAppTask.self
 
     public static let paramType:TaskParamable.Type = RevertAppParam.self
@@ -27,7 +27,7 @@ public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, PHAsset
         super.init()
     }
 
-    public func finalize(result: [AppTaskRespondable], _ asyncSignal: TaskAsyncSignalable) -> [AppTaskRespondable] {
+    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
         if result.isAnyTask(inState: .cancelled) && result.defaultTaskPolicy.cancellation == TaskPolicy.Cancellation.shallow {
             return result
         }
@@ -56,16 +56,33 @@ public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, PHAsset
         return result
     }
 
-    public func areItemsEnables(for: PHAssetItem<AppValue>) -> Bool {
-        return false
+    //TODO: in case of async??
+    private var _areItemsEnables = [String:Bool]()
+
+    public func areItemsEnables(for item: PHAssetItem<AppValue>, asyncSignal:inout AsyncSignalable?) -> Bool {
+        let signal = AsyncSignal()
+        asyncSignal = signal
+
+        signal.begin()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+            self._areItemsEnables[item.uuid] = true
+            signal.end()
+        })
+
+        return _areItemsEnables[item.uuid] ?? false
+    }
+
+    public func areItemsEnables(for item: PHAssetItem<AppValue>) -> Bool {
+        return true
     }
 }
 
  
 private class _RevertAppTask: TaskPrototype, Taskable {
-    public func cancel(_ param:TaskParamable, _ async: TaskAsyncSignalable?){}
+    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?){}
 
-    public func perform(_ param: TaskParamable, _ async: TaskAsyncSignalable?) throws -> TaskResultable? {
+    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable?) throws -> TaskResultable? {
         assert(param is RevertAppParam, "TaskParamable type of this app is \(RevertAppParam.self)")
 
         guard let _param = param as? RevertAppParam else{

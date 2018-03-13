@@ -127,12 +127,12 @@ private class _TransfromAppTask: TaskPrototype, Taskable {
     public typealias ParamType = _TransformAppAsset
     public typealias ResultType = PHAssetResultItem
 
-    public func cancel(_ param:TaskParamable, _ async: TaskAsyncSignalable?){
+    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?){
 
         (param as? _TransformAppAsset)?.cancelEditing()
     }
 
-    public func perform(_ param: TaskParamable, _ async: TaskAsyncSignalable?) throws -> TaskResultable? {
+    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable?) throws -> TaskResultable? {
         assert(param is _TransformAppAsset, "TaskParamable type of this app is \(_TransformAppAsset.self)")
         guard let _param = param as? _TransformAppAsset else{
             throw TaskError.invalidParam
@@ -140,7 +140,7 @@ private class _TransfromAppTask: TaskPrototype, Taskable {
         return try self._perform(_param, async)
     }
 
-    private func _perform(_ assetItem: _TransformAppAsset, _ async: TaskAsyncSignalable?) throws -> PHAssetResultItem?  {
+    private func _perform(_ assetItem: _TransformAppAsset, _ async: AsyncManualSignalable?) throws -> PHAssetResultItem?  {
         var result: PHAssetResultItem?
 
         async?.begin()

@@ -8,7 +8,7 @@ import Foundation
 
 // FinalizableApp
 public protocol FinalizableApp:App {
-    func finalize(result: [AppTaskRespondable], _ asyncSignal: TaskAsyncSignalable) -> [AppTaskRespondable]
+    func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable]
 }
 
 extension Array where Element == AppTaskRespondable{
