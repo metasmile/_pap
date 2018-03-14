@@ -44,7 +44,7 @@ class PhotoPickerViewController: AppDockViewController {
         }
 
         //watch assets changed
-        PHAssets.fetched.watch(\.results, id:"picker", options: [.new]) {
+        PHAssets.fetched.watch(\.results) {
             DispatchQueue.main.async{
                 if let numberOfSection = PHAssets.fetched.results?.count, numberOfSection > 0, let numberOfItemsInSection = PHAssets.fetched.results?[numberOfSection - 1].count, numberOfItemsInSection > 0 {
                     self.initialPhotoCollectionIndexPath = IndexPath(item: numberOfItemsInSection - 1, section: numberOfSection - 1)

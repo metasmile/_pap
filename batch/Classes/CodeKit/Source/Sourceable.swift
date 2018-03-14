@@ -120,5 +120,8 @@ extension String: ImageSourceable, BundleImageSourceable, DataSourceable, Remote
     }
 
     public var asData:Data? { get { return nil } }
-    public var asURL:URL? { get { return nil } }
+
+    public var asURL:URL? {
+        return URL(string: self)
+    }
 }

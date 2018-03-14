@@ -18,10 +18,6 @@ public protocol _KeyPathWatchable:class {
 
     func watch<Value>(_ target:KeyPathRoot, _ keyPath:KeyPath<KeyPathRoot,Value>
             , id:String
-            , changeHandler: @escaping (KeyPathRoot, NSKeyValueObservedChange<Value>) -> Void) -> KeyPathWatcherInfo
-
-    func watch<Value>(_ target:KeyPathRoot, _ keyPath:KeyPath<KeyPathRoot,Value>
-            , id:String
             , options: NSKeyValueObservingOptions?
             , changeHandler: @escaping (KeyPathRoot, NSKeyValueObservedChange<Value>) -> Void) -> KeyPathWatcherInfo
 
@@ -29,15 +25,7 @@ public protocol _KeyPathWatchable:class {
 
 public class KeyPathWatcher<KeyPathRoot:NSObject>: Object, _KeyPathWatchable {
     fileprivate lazy var _observations = [String:KeyPathWatcherInfo]()
-
-    @discardableResult
-    public func watch<Value>(_ target:KeyPathRoot
-            , _ keyPath:KeyPath<KeyPathRoot,Value>
-            , id:String
-            , changeHandler: @escaping (KeyPathRoot, NSKeyValueObservedChange<Value>) -> Void) -> KeyPathWatcherInfo {
-
-        return self.watch(target, keyPath, id:id, options:nil, changeHandler:changeHandler)
-    }
+    fileprivate lazy var _autoObservationIdsInFile = [String:[String]]() // [file : observationId]
 
     @discardableResult
     public func watch<Value>(_ target: KeyPathRoot
@@ -63,6 +51,22 @@ public class KeyPathWatcher<KeyPathRoot:NSObject>: Object, _KeyPathWatchable {
 
         return info
     }
+
+    fileprivate func issueAutoIdentifier(file:String, function:String, line:Int) -> String{
+        let className = file.asURL?.deletingPathExtension().lastPathComponent ?? String(describing: type(of:self))
+        let autoObservationId = "\(className)_\(function)_\(String(line))"
+
+        var idsInFile:[String]
+        if let _idsInFile = _autoObservationIdsInFile[file] {
+            idsInFile = _idsInFile
+        }else{
+            idsInFile = [String]()
+            _autoObservationIdsInFile[file] = idsInFile
+        }
+
+        idsInFile.append(autoObservationId)
+        return autoObservationId
+    }
 }
 
 public protocol KeyPathWatchable {
@@ -86,50 +90,27 @@ extension KeyPathWatchable where _Observee == Self{
 
     @discardableResult
     public func watch<Value>(_ keyPath:KeyPath<_Observee,Value>
+            , _file:String=#file
+            , _function:String=#function
+            , _line:Int=#line
             , id:String?=nil
             , options: NSKeyValueObservingOptions?=nil
-            , changeHandler: @escaping (_Observee, NSKeyValueObservedChange<Value>) -> Void) -> KeyPathWatcherInfo{
+            , changeHandler: @escaping (_Observee, NSKeyValueObservedChange<Value>) -> Void
+            ) -> KeyPathWatcherInfo{
 
-        return self.watcher.watch(self, keyPath, id:id ?? KeyPathWatcherInfo.StaticId, options:options, changeHandler: changeHandler)
+        return self.watcher.watch(self, keyPath, id:id ?? self.watcher.issueAutoIdentifier(file: _file, function: _function, line: _line), options:options, changeHandler: changeHandler)
     }
 
     @discardableResult
     public func watch<Value>(_ keyPath:KeyPath<_Observee,Value>
+            , _file:String=#file
+            , _function:String=#function
+            , _line:Int=#line
             , id:String?=nil
             , options: NSKeyValueObservingOptions?=nil
             , changeHandler: @escaping () -> Void) -> KeyPathWatcherInfo{
 
-        return self.watch(keyPath, id:id, options:options, changeHandler: { _,_ in changeHandler() })
-    }
-
-    @discardableResult
-    public func watch<Value>(_ keyPath:KeyPath<_Observee,Value>
-            , id:String?=nil
-            , changeHandler: @escaping (_Observee, NSKeyValueObservedChange<Value>) -> Void) -> KeyPathWatcherInfo{
-
-        return self.watcher.watch(self, keyPath, id:id ?? KeyPathWatcherInfo.StaticId, changeHandler: changeHandler)
-    }
-
-    @discardableResult
-    public func watch<Value>(_ keyPath:KeyPath<_Observee,Value>
-            , id:String?=nil
-            , changeHandler: @escaping () -> Void) -> KeyPathWatcherInfo{
-
-        return self.watch( keyPath, id:id, changeHandler: { _,_ in changeHandler() })
-    }
-
-    @discardableResult
-    public func watch<Value>(_ keyPath:KeyPath<_Observee,Value>
-            , changeHandler: @escaping (_Observee, NSKeyValueObservedChange<Value>) -> Void) -> KeyPathWatcherInfo{
-
-        return self.watch(keyPath, id:nil, changeHandler: changeHandler)
-    }
-
-    @discardableResult
-    public func watch<Value>(_ keyPath:KeyPath<_Observee,Value>
-            , changeHandler: @escaping () -> Void) -> KeyPathWatcherInfo{
-
-        return self.watch(keyPath, id:nil, changeHandler: changeHandler)
+        return self.watch(keyPath, id:id ?? self.watcher.issueAutoIdentifier(file: _file, function: _function, line: _line), options:options, changeHandler: { _, _ in changeHandler() })
     }
 
     public func watching<Value>(by keyPath:KeyPath<_Observee,Value>, id:String?=nil) -> [KeyPathWatcherInfo]{
@@ -137,21 +118,34 @@ extension KeyPathWatchable where _Observee == Self{
             return (id == nil ? true : id==e.key) && keyPath == e.value.keyPath ? e.value : nil
         }
     }
+    @discardableResult
+    public func unwatchInCurrentFile(_file:String=#file) -> Bool{
+        let dict = self.watcher._autoObservationIdsInFile
+        if let keysInFile = dict[_file]{
+            self.unwatch(forIds: keysInFile)
+            return true
+        }
+        return false
+    }
 
     @discardableResult
     public func unwatch<Value>(_ keyPath:KeyPath<_Observee,Value>, forIds:[String]?=nil) -> Bool{
+        assert(forIds == nil || Set(watcher._observations.flatMap({ key, value -> String? in key })).intersection(Set(forIds!)).count==0, "\(String(describing: forIds)) is still remaning.")
+
         var ids = self.watching(by:keyPath).map { e -> String in e.id }
 
         if let forIds = forIds{
             ids = Array(Set(ids).intersection(Set(forIds)))
         }
+        return self.unwatch(forIds: ids)
+    }
 
-        for id in ids {
+    @discardableResult
+    public func unwatch(forIds:[String]) -> Bool{
+        for id in forIds {
             self.watcher._observations[id]?.observer.invalidate()
             self.watcher._observations.removeValue(forKey: id)
         }
-
-        assert(forIds == nil || Set(watcher._observations.flatMap({ key, value -> String? in key })).intersection(Set(forIds!)).count==0, "\(String(describing: forIds)) is still remaning.")
         return true
     }
 
