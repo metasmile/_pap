@@ -11,7 +11,7 @@ extension PhotoPickerViewController{
 
     @discardableResult
     func selectCollectionViewItem(by asset: PHAsset) -> Bool {
-        guard let indexPath = self.indexPath(of: asset) else { return false }
+        guard let indexPath = PHAssets.fetched.indexPath(of: asset) else { return false }
         return selectCollectionViewItem(at: indexPath)
     }
 
@@ -41,53 +41,13 @@ extension PhotoPickerViewController{
     }
 
     var selectedAssetsInCollectionView:[PHAsset]?{
-        return photoCollectionView.indexPathsForSelectedItems?.flatMap({ self.asset(at: $0) })
+        return photoCollectionView.indexPathsForSelectedItems?.flatMap({ PHAssets.fetched.asset(at: $0) })
     }
 }
 
 extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionViewDataSourcePrefetching, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
-    func reloadPhotos(with collectionType: PHAssetCollectionType = .smartAlbum, subtype collectionSubType: PHAssetCollectionSubtype = .smartAlbumUserLibrary) {
-        self.collections = nil
-        self.fetchResults = nil
-
-        photoCollectionView.reloadData()
-
-        let options = PHFetchOptions()
-
-        DispatchQueue.global().async {
-            self.collections = PHAssetCollection.fetchAssetCollections(with: collectionType, subtype: collectionSubType, options: nil)
-
-            self.fetchResults = [PHFetchResult<PHAsset>]()
-            self.collections?.enumerateObjects({ (collection, idx, stop) in
-                let fetchResult = PHAsset.fetchAssets(in: collection, options: options)
-                self.fetchResults?.append(fetchResult)
-            })
-
-            if let numberOfSection = self.fetchResults?.count, numberOfSection > 0, let numberOfItemsInSection = self.fetchResults?[numberOfSection - 1].count, numberOfItemsInSection > 0 {
-                self.initialPhotoCollectionIndexPath = IndexPath(item: numberOfItemsInSection - 1, section: numberOfSection - 1)
-            }
-
-            DispatchQueue.main.async {
-                self.photoCollectionView.reloadData()
-            }
-        }
-    }
-
     // MARK: - Data
-
-    func asset(at indexPath: IndexPath) -> PHAsset? {
-        return fetchResults?[indexPath.section][indexPath.item]
-    }
-
-    func indexPath(of asset: PHAsset?) -> IndexPath? {
-        guard let asset = asset else { return nil }
-        return fetchResults?.enumerated().flatMap({
-            let item = $0.element.index(of: asset)
-            guard item != NSNotFound else { return nil }
-            return IndexPath(item: item, section: $0.offset)
-        }).first
-    }
 
     @objc func cancelAllSelection() {
         guard let indexPaths = photoCollectionView.indexPathsForSelectedItems else { return }
@@ -102,16 +62,16 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     // MARK: - UICollectionViewDataSource
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return fetchResults?.count ?? 0
+        return PHAssets.fetched.results?.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return fetchResults?[section].count ?? 0
+        return PHAssets.fetched.results?[section].count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as! PhotoCollectionViewCell
-        if let asset = asset(at: indexPath) {
+        if let asset = PHAssets.fetched.asset(at: indexPath) {
             cell.imageContentMode = .aspectFill
             cell.setAsset(asset, at: indexPath)
         }
@@ -128,7 +88,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         var numberOfImages = 0
         var numberOfVideos = 0
 
-        fetchResults?.forEach { fetchResult in
+        PHAssets.fetched.results?.forEach { fetchResult in
             numberOfImages += fetchResult.countOfAssets(with: PHAssetMediaType.image)
             numberOfVideos += fetchResult.countOfAssets(with: PHAssetMediaType.video)
         }
@@ -166,12 +126,12 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
 
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         let cellSize = self.collectionView(collectionView, layout: collectionView.collectionViewLayout, sizeForItemAt: IndexPath(item: 0, section: 0))
-        PhotoManager.cachingImageManager.startCachingImages(for: indexPaths.flatMap({ self.asset(at: $0) }), targetSize: cellSize, contentMode: .aspectFit, options: nil)
+        PHPhotoLibraryManager.cachingImageManager.startCachingImages(for: indexPaths.flatMap({ PHAssets.fetched.asset(at: $0) }), targetSize: cellSize, contentMode: .aspectFit, options: nil)
     }
 
     func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
         let cellSize = self.collectionView(collectionView, layout: collectionView.collectionViewLayout, sizeForItemAt: IndexPath(item: 0, section: 0))
-        PhotoManager.cachingImageManager.stopCachingImages(for: indexPaths.flatMap({ self.asset(at: $0) }), targetSize: cellSize, contentMode: .aspectFit, options: nil)
+        PHPhotoLibraryManager.cachingImageManager.stopCachingImages(for: indexPaths.flatMap({ PHAssets.fetched.asset(at: $0) }), targetSize: cellSize, contentMode: .aspectFit, options: nil)
     }
 
     // MARK: - UICollectionViewDelegate
@@ -192,7 +152,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         }
 
         if let collectableApp = AppCenter.default.currentInstanceAs(ItemCollectableApp.self)
-            , let asset = self.asset(at: indexPath)
+            , let asset = PHAssets.fetched.asset(at: indexPath)
             , let item = AppAssets.selected.at(unsafeIndex:indexPath.item) ?? AppAssets.selected.create(for:asset) {
 
             return collectableApp.areItemsEnables(for: item)
@@ -213,13 +173,13 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         updateTitleForSelectedItems()
 
-        if let asset = self.asset(at: indexPath){
+        if let asset = PHAssets.fetched.asset(at: indexPath){
             batchPreviewView.appendCollectionViewItem(with:asset)
         }
     }
 
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        batchPreviewView.removeCollectionViewItem(with: self.asset(at: indexPath))
+        batchPreviewView.removeCollectionViewItem(with: PHAssets.fetched.asset(at: indexPath))
 
         updateTitleForSelectedItems()
     }
@@ -249,13 +209,14 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
 // https://developer.apple.com/documentation/photos/phphotolibrarychangeobserver
 extension PhotoPickerViewController: PHPhotoLibraryChangeObserver {
     func photoLibraryDidChange(_ changeInstance: PHChange) {
-        guard let fetchResults = self.fetchResults else { return }
+        guard let fetchResults = PHAssets.fetched.results else { return }
 
         DispatchQueue.main.async {
             for (section, fetchResult) in fetchResults.enumerated() {
                 if let changes = changeInstance.changeDetails(for: fetchResult) {
                     // Keep the new fetch result for future use.
-                    self.fetchResults?[section] = changes.fetchResultAfterChanges
+                    PHAssets.fetched.update(result: changes.fetchResultAfterChanges, at: section)
+
                     if changes.hasIncrementalChanges {
                         // If there are incremental diffs, animate them in the collection view.
                         self.photoCollectionView.performBatchUpdates({

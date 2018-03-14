@@ -14,6 +14,8 @@ public final class AppAssets: NSObject {
 
     private var  _items = [AppAsset]()
 
+    private override init(){}
+
     var count:Int{
         return  _items.count
     }

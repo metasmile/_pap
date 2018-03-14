@@ -12,7 +12,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
         if previewingContext.sourceView == photoCollectionView {
 
             guard let indexPath = photoCollectionView.indexPathForItem(at: location) else { return nil }
-            guard let selectedAsset = self.asset(at: indexPath) else { return nil }
+            guard let selectedAsset = PHAssets.fetched.asset(at: indexPath) else { return nil }
             guard let cell = photoCollectionView.cellForItem(at: indexPath) else { return nil }
 
             if !self.selectCollectionViewItem(by: selectedAsset) { return nil }
@@ -37,7 +37,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
 
             let selectedAssetItem = AppAssets.selected.at(indexPath.item)
             let selectedAsset = selectedAssetItem.asset
-            guard let selectedIndexPath = self.indexPath(of: selectedAsset) else { return nil }
+            guard let selectedIndexPath = PHAssets.fetched.indexPath(of: selectedAsset) else { return nil }
 
             guard let item = AppAssets.selected.by(selectedAsset) else {
                 assert(false,"[!] AppAssets and batchPreviewView.collectionView.cellForItem is not matched.")

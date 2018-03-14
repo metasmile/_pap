@@ -32,7 +32,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         indexPath = nil
         
         if let imageRequestId = imageRequestId {
-            PhotoManager.cachingImageManager.cancelImageRequest(imageRequestId)
+            PHPhotoLibraryManager.cachingImageManager.cancelImageRequest(imageRequestId)
         }
         imageRequestId = nil
     }

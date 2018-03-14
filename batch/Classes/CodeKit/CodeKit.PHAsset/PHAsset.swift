@@ -31,4 +31,16 @@ extension PHAsset {
             completionHandler(contentEditingInput?.adjustmentData)
         })
     }
+
+    /*
+    asset.requestContentEditingInput(with: PHContentEditingInputRequestOptions()) { (eidtingInput, info) in
+                    if let input = eidtingInput, let imgURL = input.fullSizeImageURL {
+                        // imgURL
+                        print(imgURL)
+
+                        //file:///var/mobile/Media/PhotoData/Mutations/DCIM/109APPLE/IMG_9931/Adjustments/FullSizeRender.jpg
+                    }
+                    signal.end()
+           }
+               */
 }

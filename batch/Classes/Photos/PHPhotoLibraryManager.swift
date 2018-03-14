@@ -7,12 +7,12 @@ import Foundation
 import UIKit
 import Photos
 
-final class PhotoManager: NSObject {
-    static let `default` = PhotoManager()
+final class PHPhotoLibraryManager: NSObject {
+    static let `default` = PHPhotoLibraryManager()
     static let cachingImageManager = PHCachingImageManager()
 }
 
-extension PhotoManager{
+extension PHPhotoLibraryManager {
     public func requestPhotoLibraryAuthorizationIfNeeded(_ completion: @escaping ((Bool) -> ())) {
         let status = PHPhotoLibrary.authorizationStatus()
 

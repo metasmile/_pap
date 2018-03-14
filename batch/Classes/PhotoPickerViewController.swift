@@ -15,6 +15,7 @@ extension PhotoPickerViewController {
     var kPhotoPickerNumberOfItemsInRow: CGFloat { return 4 }
 }
 
+
 class PhotoPickerViewController: AppDockViewController {
     @IBOutlet weak var photoCollectionView: UICollectionView!
     var initialPhotoCollectionIndexPath: IndexPath?
@@ -22,9 +23,6 @@ class PhotoPickerViewController: AppDockViewController {
     var batchPreviewView: PreviewView!
     var progressBar: UIProgressView!
 
-    var collections: PHFetchResult<PHAssetCollection>?
-    var fetchResults: [PHFetchResult<PHAsset>]?
-    
     var dragSelectionGesture: DragSelectionGestureRecognizer!
 
     override func viewDidLoad() {
@@ -45,15 +43,24 @@ class PhotoPickerViewController: AppDockViewController {
             registerForPreviewing(with: self, sourceView: batchPreviewView)
         }
 
+        //watch assets changed
+        PHAssets.fetched.watch(\.results, id:"picker", options: [.new]) {
+            DispatchQueue.main.async{
+                if let numberOfSection = PHAssets.fetched.results?.count, numberOfSection > 0, let numberOfItemsInSection = PHAssets.fetched.results?[numberOfSection - 1].count, numberOfItemsInSection > 0 {
+                    self.initialPhotoCollectionIndexPath = IndexPath(item: numberOfItemsInSection - 1, section: numberOfSection - 1)
+                }
+                self.photoCollectionView.reloadData()
+            }
+        }
+
         //photos access authorization
-        PhotoManager.default.requestPhotoLibraryAuthorizationIfNeeded { [unowned self] (authorized) in
+        PHPhotoLibraryManager.default.requestPhotoLibraryAuthorizationIfNeeded { [unowned self] (authorized) in
             guard authorized else { return }
             
             PHPhotoLibrary.shared().register(self)
-            
-            DispatchQueue.main.async { [unowned self] in
-                self.reloadPhotos(with: .smartAlbum, subtype: .smartAlbumUserLibrary)
-            }
+
+            PHAssets.fetched.unload()
+            PHAssets.fetched.load(with: .smartAlbum, subtype: .smartAlbumUserLibrary)
         }
 
         //navigation controller accessories
@@ -236,7 +243,7 @@ extension PhotoPickerViewController: TransformEditViewControllerDelegate {
 extension PhotoPickerViewController: PreviewViewDelegate {
     func batchPreviewView(_ view: PreviewView, didSelectItemAt indexPath: IndexPath) {
         let selectedAsset = AppAssets.selected.at(indexPath.item).asset
-        guard let indexPathInPhotoPicker = self.indexPath(of: selectedAsset) else { return }
+        guard let indexPathInPhotoPicker = PHAssets.fetched.indexPath(of: selectedAsset) else { return }
         photoCollectionView.scrollToItem(at: indexPathInPhotoPicker, at: .centeredVertically, animated: true)
         
         
