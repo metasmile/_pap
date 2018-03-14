@@ -74,7 +74,7 @@ public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, ItemCol
     }
 
     public func areItemsEnables(for item: PHAssetItem<AppValue>) -> Bool {
-        return true
+        return arc4random_uniform(2) == 0
     }
 }
 

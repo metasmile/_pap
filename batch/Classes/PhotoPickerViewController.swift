@@ -100,6 +100,18 @@ class PhotoPickerViewController: AppDockViewController {
 
                 AppAssets.selected.reloadAll()
                 self.showCurrentSelectedAppDisplayName()
+
+                for indexPath in self.photoCollectionView.indexPathsForVisibleItems{
+                    let shouldSelect = self.collectionView(self.photoCollectionView, shouldSelectItemAt: indexPath)
+
+                    if let cell = self.photoCollectionView.cellForItem(at: indexPath){
+                        self.collectionView(self.photoCollectionView, willDisplay: cell, forItemAt: indexPath)
+                    }
+
+                    if !shouldSelect{
+                        self.deselectCollectionViewItem(at: indexPath, animated: false)
+                    }
+                }
             }
 
             AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform, id:"picker\(TransformApp.info.identifier)") { (config, changed) in

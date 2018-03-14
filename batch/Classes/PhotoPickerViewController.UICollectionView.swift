@@ -103,6 +103,10 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
             collectionView.scrollToItem(at: indexPath, at: .bottom, animated: false)
             initialPhotoCollectionIndexPath = nil
         }
+
+        if let cell = cell as? PhotoCollectionViewCell{
+            cell.isEnabled = self.collectionView(collectionView, shouldSelectItemAt: indexPath)
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
