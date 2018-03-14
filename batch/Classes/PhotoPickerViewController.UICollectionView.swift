@@ -80,46 +80,8 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "PhotoPickerFooterView", for: indexPath) as! PhotoPickerFooterView
-        view.text = generatePhotoPickerText()
+        view.text = generateSelectionText()
         return view
-    }
-
-    fileprivate func generatePhotoPickerText() -> String {
-        var numberOfImages = 0
-        var numberOfVideos = 0
-
-        PHAssets.fetched.results?.forEach { fetchResult in
-            numberOfImages += fetchResult.countOfAssets(with: PHAssetMediaType.image)
-            numberOfVideos += fetchResult.countOfAssets(with: PHAssetMediaType.video)
-        }
-
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-
-        var footerText = ""
-        if numberOfImages > 0 {
-            if numberOfImages == 1 {
-                footerText += "%d Photo".localizedFormatted(numberOfImages.decimalStyleString)
-            }
-            else {
-                footerText += "%d Photos".localizedFormatted(numberOfImages.decimalStyleString)
-            }
-        }
-
-        if numberOfVideos > 0 {
-            if numberOfImages > 0 {
-                footerText += ", "
-            }
-
-            if numberOfVideos == 1 {
-                footerText += "%d Video".localizedFormatted(numberOfVideos.decimalStyleString)
-            }
-            else {
-                footerText += "%d Videos".localizedFormatted(numberOfVideos.decimalStyleString)
-            }
-        }
-
-        return footerText
     }
 
     // MARK: - UICollectionViewDataSourcePrefetching
@@ -205,54 +167,4 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         return CGSize(width: collectionView.bounds.width, height: 60)
     }
 }
-
-// https://developer.apple.com/documentation/photos/phphotolibrarychangeobserver
-extension PhotoPickerViewController: PHPhotoLibraryChangeObserver {
-    func photoLibraryDidChange(_ changeInstance: PHChange) {
-        guard let fetchResults = PHAssets.fetched.results else { return }
-
-        DispatchQueue.main.async {
-            for (section, fetchResult) in fetchResults.enumerated() {
-                if let changes = changeInstance.changeDetails(for: fetchResult) {
-                    // Keep the new fetch result for future use.
-                    PHAssets.fetched.update(result: changes.fetchResultAfterChanges, at: section)
-
-                    if changes.hasIncrementalChanges {
-                        // If there are incremental diffs, animate them in the collection view.
-                        self.photoCollectionView.performBatchUpdates({
-                            // For indexes to make sense, updates must be in this order:
-                            // delete, insert, reload, move
-                            if let removed = changes.removedIndexes, removed.count > 0 {
-                                self.photoCollectionView.deleteItems(at: removed.map { IndexPath(item: $0, section:section) })
-                            }
-                            if let inserted = changes.insertedIndexes, inserted.count > 0 {
-                                self.photoCollectionView.insertItems(at: inserted.map { IndexPath(item: $0, section:section) })
-                            }
-                            if let changed = changes.changedIndexes, changed.count > 0 {
-                                self.photoCollectionView.reloadItems(at: changed.map { IndexPath(item: $0, section:section) })
-                            }
-                            changes.enumerateMoves { fromIndex, toIndex in
-                                self.photoCollectionView.moveItem(at: IndexPath(item: fromIndex, section: section), to: IndexPath(item: toIndex, section: section))
-                            }
-                        }, completion: { _ in
-                            self.updateTitleForSelectedItems()
-                            if let footer = self.photoCollectionView.visibleSupplementaryViews(ofKind: UICollectionElementKindSectionFooter).last as? PhotoPickerFooterView {
-                                footer.text = self.generatePhotoPickerText()
-                            }
-                        })
-                    } else {
-                        // Reload the collection view if incremental diffs are not available.
-                        self.photoCollectionView.reloadData()
-                        self.updateTitleForSelectedItems()
-                        if let footer = self.photoCollectionView.visibleSupplementaryViews(ofKind: UICollectionElementKindSectionFooter).last as? PhotoPickerFooterView {
-                            footer.text = self.generatePhotoPickerText()
-                        }
-                        break
-                    }
-                }
-            }
-        }
-    }
-}
-
 

@@ -7,32 +7,45 @@ import Foundation
 import UIKit
 import Photos
 
-final class PHPhotoLibraryManager: NSObject {
+final class PHPhotoLibraryManager: NSObject, KeyPathWatchable, PHPhotoLibraryChangeObserver {
     static let `default` = PHPhotoLibraryManager()
     static let cachingImageManager = PHCachingImageManager()
-}
 
-extension PHPhotoLibraryManager {
-    public func requestPhotoLibraryAuthorizationIfNeeded(_ completion: @escaping ((Bool) -> ())) {
+    @objc dynamic
+    public private(set) var changes:PHChange?
+
+    public func authorizeIfNeeded(_ completion:((Bool) -> ())?=nil) {
+        //photos access authorization
+        PHPhotoLibraryManager.default.requestPhotoLibraryAuthorizationIfNeeded { [unowned self] (authorized) in
+            if authorized{
+                PHPhotoLibrary.shared().register(self)
+            }
+            completion?(authorized)
+        }
+    }
+
+    func photoLibraryDidChange(_ changeInstance: PHChange) {
+        self.changes = changeInstance
+    }
+
+    private func requestPhotoLibraryAuthorizationIfNeeded(_ completion: @escaping ((Bool) -> ())) {
         let status = PHPhotoLibrary.authorizationStatus()
 
-        switch status {
-        case .authorized:
-            DispatchQueue.main.async { completion(true) }
-            break
-        case .notDetermined:
-            DispatchQueue.main.async {
+        DispatchQueue.main.async {
+            switch status {
+            case .authorized:
+                completion(true)
+                break
+            case .notDetermined:
                 self.requestPhotoLibraryAuthorization(completion)
-            }
-        case .denied, .restricted:
-            DispatchQueue.main.async {
+            case .denied, .restricted:
                 self.showPhotoLibrarySettingsAlert()
                 completion(false)
             }
         }
     }
 
-    public func requestPhotoLibraryAuthorization(_ completion: @escaping ((Bool) -> ())) {
+    private func requestPhotoLibraryAuthorization(_ completion: @escaping ((Bool) -> ())) {
         PHPhotoLibrary.requestAuthorization { (status) in
             switch status {
             case .authorized:
