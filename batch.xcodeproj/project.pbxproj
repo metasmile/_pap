@@ -27,6 +27,7 @@
 		4F71D048600D780D8F62948D /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2D3A67093DEDDD190CF /* AppManager.swift */; };
 		4F71D052D62EB675DB2F0B5A /* PHAssetSourceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D49286EE4D795ACB1A90 /* PHAssetSourceable.swift */; };
 		4F71D06BDFC37974BFD660FB /* AppStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D17D046074C1554FE347 /* AppStoryboard.storyboard */; };
+		4F71D089747783BFFBB42340 /* CodeKit.UUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEFC3D3A6A90497D4B6A /* CodeKit.UUID.swift */; };
 		4F71D0B9A1B1530DD3DE2056 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB5E7BCAC2382FA65140 /* RoundedButton.swift */; };
 		4F71D0BB9B18BD59987C2185 /* batch.App.Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8242392C908CCDF3022 /* batch.App.Contents.swift */; };
 		4F71D0BF59D88AFFCEBFF515 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D4F50289CE48315DC932 /* PhotoCollectionViewCell.xib */; };
@@ -238,6 +239,7 @@
 		4F71DE6203E83AFA6FB4EEAE /* CodeKit.UIImage.Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIImage.Transform.swift; sourceTree = "<group>"; };
 		4F71DE7BA5E4FF9FA6844457 /* hr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = hr; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71DEA2EF5EC4DDDE296E8F /* PHAssetItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAssetItem.swift; sourceTree = "<group>"; };
+		4F71DEFC3D3A6A90497D4B6A /* CodeKit.UUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UUID.swift; sourceTree = "<group>"; };
 		4F71DF1ACB1AF25316653CA9 /* pt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = pt; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71DF6A3F2621A2EFC5A30F /* System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 		4F71DF8C80BDBCFC85F39CBC /* ru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ru; path = Localizable.strings; sourceTree = "<group>"; };
@@ -496,6 +498,7 @@
 				4F71D76ECFB8300EB36712B8 /* CodeKit.UIViewController.swift */,
 				4F71D7701FC0F8CC1AC18508 /* CodeKit.Int.swift */,
 				4F71D6DE0A3A7908F226BBD9 /* CodeKit.DispatchQueue.swift */,
+				4F71DEFC3D3A6A90497D4B6A /* CodeKit.UUID.swift */,
 			);
 			path = CodeKit;
 			sourceTree = "<group>";
@@ -1058,6 +1061,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-batch/Pods-batch-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DefaultsKit/DefaultsKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
@@ -1065,6 +1069,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DefaultsKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
@@ -1147,6 +1152,7 @@
 				4F71D8CB499135440CD26851 /* CodeKit.DispatchQueue.swift in Sources */,
 				4F71DF88A7B9AEC4A4F70A1D /* PHPhotoLibraryManager.swift in Sources */,
 				4F71DC65BF6959ACE2C1F7A7 /* PHAssets.swift in Sources */,
+				4F71D089747783BFFBB42340 /* CodeKit.UUID.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

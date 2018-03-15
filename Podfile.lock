@@ -1,6 +1,7 @@
 PODS:
   - Crashlytics (3.10.1):
     - Fabric (~> 1.7.5)
+  - DefaultsKit (0.0.8)
   - Fabric (1.7.5)
   - Firebase/Core (4.10.1):
     - FirebaseAnalytics (= 4.1.0)
@@ -29,6 +30,7 @@ PODS:
 
 DEPENDENCIES:
   - Crashlytics
+  - DefaultsKit
   - Fabric
   - Firebase/Core
   - Hero
@@ -36,6 +38,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
+  DefaultsKit: d4e4271525388e33a17ee6842f2ded78f6892bc7
   Fabric: ae7146a5f505ea370a1e44820b4b1dc8890e2890
   Firebase: 92c6ba593e32db0defde464a9adc981d5cb49f97
   FirebaseAnalytics: 3dfae28d4a5e06f86c4fae830efc2ad3fadb19bc
@@ -47,6 +50,6 @@ SPEC CHECKSUMS:
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
 
-PODFILE CHECKSUM: bb1f24787cd971d896c26b1174b1a803f4ad95b4
+PODFILE CHECKSUM: 5d1d16b3ba7c02afad9a213c790fbd3585d4eb6b
 
 COCOAPODS: 1.4.0

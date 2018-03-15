@@ -22,9 +22,4 @@ extension String {
             return NSString(format: self.localized, arguments: $0) as String
         }
     }
-
-    static func identifierFromMacro(file:String=#file, function:String=#function, line:Int=#line) -> String{
-        let className = file.asURL?.deletingPathExtension().lastPathComponent ?? "CodeKit.String"
-        return "\(className)_\(function)_\(String(line))"
-    }
 }
