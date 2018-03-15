@@ -95,7 +95,7 @@ class PhotoPickerViewController: AppDockViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        AppCenter.default.watch(\.currentIdentifier, id:"picker", options:[.new, .old, .initial]) { (appCenter, dict) in
+        AppCenter.default.watch(\.currentIdentifier, options:[.new, .old, .initial]) { (appCenter, dict) in
             if let old = dict.oldValue, old != dict.newValue! {
 
                 AppAssets.selected.reloadAll()
@@ -128,7 +128,7 @@ class PhotoPickerViewController: AppDockViewController {
         super.viewWillDisappear(animated)
 
         AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.unwatch(\.transform, forIds:["picker\(TransformApp.info.identifier)"])
-        AppCenter.default.unwatch(\.currentIdentifier, forIds:["picker"])
+        AppCenter.default.unwatchFilePrivate(\.currentIdentifier)
     }
 
     override func viewDidLayoutSubviews() {

@@ -6,7 +6,7 @@
 import Foundation
 
 public struct KeyPathWatcherInfo{
-    public static let StaticId="\(KeyPathWatcherInfo.self)_staticWatchId"
+    public static let StaticId="\(KeyPathWatcherInfo.self)_static"
 
     var id:String
     var observer:NSKeyValueObservation
@@ -24,7 +24,7 @@ public protocol _KeyPathWatchable:class {
 }
 
 public class KeyPathWatcher<KeyPathRoot:NSObject>: Object, _KeyPathWatchable {
-    fileprivate lazy var _observations = [String:KeyPathWatcherInfo]()
+    fileprivate lazy var _observations = [String:KeyPathWatcherInfo]() // [observationId : KeyPathWatcherInfo]
     fileprivate lazy var _autoObservationIdsInFile = [String:[String]]() // [file : observationId]
 
     @discardableResult
@@ -52,20 +52,18 @@ public class KeyPathWatcher<KeyPathRoot:NSObject>: Object, _KeyPathWatchable {
         return info
     }
 
-    fileprivate func issueAutoIdentifier(file:String, function:String, line:Int) -> String{
-        let className = file.asURL?.deletingPathExtension().lastPathComponent ?? String(describing: type(of:self))
-        let autoObservationId = "\(className)_\(function)_\(String(line))"
-
-        var idsInFile:[String]
-        if let _idsInFile = _autoObservationIdsInFile[file] {
-            idsInFile = _idsInFile
-        }else{
-            idsInFile = [String]()
-            _autoObservationIdsInFile[file] = idsInFile
+    fileprivate func appendAutoIdentifier(file:String, function:String, line:Int, id:String?=nil) -> String{
+        if _autoObservationIdsInFile[file] == nil{
+            _autoObservationIdsInFile[file] = [String]()
         }
-
-        idsInFile.append(autoObservationId)
+        let autoObservationId = autoIdentifier(file:file,function:function,line:line, id:id)
+        _autoObservationIdsInFile[file]?.append(autoObservationId)
         return autoObservationId
+    }
+
+    fileprivate func autoIdentifier(file:String, function:String, line:Int, id:String?=nil) -> String{
+        let className = file.asURL?.deletingPathExtension().lastPathComponent ?? String(describing: type(of:self))
+        return "\(id ?? "")\(className)_\(function)_\(String(line))"
     }
 }
 
@@ -93,12 +91,13 @@ extension KeyPathWatchable where _Observee == Self{
             , _file:String=#file
             , _function:String=#function
             , _line:Int=#line
-            , id:String?=nil
+            , id:String?=KeyPathWatcherInfo.StaticId
             , options: NSKeyValueObservingOptions?=nil
             , changeHandler: @escaping (_Observee, NSKeyValueObservedChange<Value>) -> Void
             ) -> KeyPathWatcherInfo{
 
-        return self.watcher.watch(self, keyPath, id:id ?? self.watcher.issueAutoIdentifier(file: _file, function: _function, line: _line), options:options, changeHandler: changeHandler)
+        let autoId = self.watcher.appendAutoIdentifier(file: _file, function: _function, line: _line, id:id)
+        return self.watcher.watch(self, keyPath, id:autoId, options:options, changeHandler: changeHandler)
     }
 
     @discardableResult
@@ -106,11 +105,12 @@ extension KeyPathWatchable where _Observee == Self{
             , _file:String=#file
             , _function:String=#function
             , _line:Int=#line
-            , id:String?=nil
+            , id:String?=KeyPathWatcherInfo.StaticId
             , options: NSKeyValueObservingOptions?=nil
             , changeHandler: @escaping () -> Void) -> KeyPathWatcherInfo{
 
-        return self.watch(keyPath, id:id ?? self.watcher.issueAutoIdentifier(file: _file, function: _function, line: _line), options:options, changeHandler: { _, _ in changeHandler() })
+        let autoId = self.watcher.appendAutoIdentifier(file: _file, function: _function, line: _line, id:id)
+        return self.watcher.watch(self, keyPath, id:autoId, options:options, changeHandler: { _, _ in changeHandler() })
     }
 
     public func watching<Value>(by keyPath:KeyPath<_Observee,Value>, id:String?=nil) -> [KeyPathWatcherInfo]{
@@ -118,26 +118,40 @@ extension KeyPathWatchable where _Observee == Self{
             return (id == nil ? true : id==e.key) && keyPath == e.value.keyPath ? e.value : nil
         }
     }
+
     @discardableResult
-    public func unwatchInCurrentFile(_file:String=#file) -> Bool{
-        let dict = self.watcher._autoObservationIdsInFile
-        if let keysInFile = dict[_file]{
-            self.unwatch(forIds: keysInFile)
-            return true
+    public func unwatchFilePrivate<Value>(_file:String=#file, _ keyPath:KeyPath<_Observee,Value>?=nil) -> Bool{
+        guard let idsInFile = watcher._autoObservationIdsInFile[_file] else {
+            return false
         }
+
+        let ids = keyPath==nil ? idsInFile : idsInFile.filter { id in watcher._observations[id]?.keyPath == keyPath }
+        assert(ids.count>0,"Already unwatched In Current File.\(keyPath)")
+
+        if self.unwatch(forIds: ids){
+            let indexesOfIds = ids.flatMap({ id -> Int? in idsInFile.index(of: id) })
+            for index in indexesOfIds {
+                watcher._autoObservationIdsInFile[_file]?.remove(at: index)
+            }
+            if indexesOfIds.count>0 {
+                return true
+            }
+        }
+        assert(false, "unwatch for ids \(ids) was failed." )
         return false
     }
 
     @discardableResult
     public func unwatch<Value>(_ keyPath:KeyPath<_Observee,Value>, forIds:[String]?=nil) -> Bool{
-        assert(forIds == nil || Set(watcher._observations.flatMap({ key, value -> String? in key })).intersection(Set(forIds!)).count==0, "\(String(describing: forIds)) is still remaning.")
-
         var ids = self.watching(by:keyPath).map { e -> String in e.id }
 
         if let forIds = forIds{
             ids = Array(Set(ids).intersection(Set(forIds)))
         }
-        return self.unwatch(forIds: ids)
+
+        let unwatched = self.unwatch(forIds: ids)
+        assert(forIds == nil || Set(watcher._observations.flatMap({ key, value -> String? in key })).intersection(Set(forIds!)).count==0, "\(String(describing: forIds)) is still remaning.")
+        return unwatched
     }
 
     @discardableResult
