@@ -110,6 +110,7 @@
 		4F71DC8C855B99EF65E075E2 /* App.Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DFDD565703A287D81E0B /* App.Configurable.swift */; };
 		4F71DCAF2422C8A80850472C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DA9D2055CE6801CC2308 /* Localizable.strings */; };
 		4F71DCD9A6400FB1FAC14C03 /* Revert.App.Public.Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7828A3B9BF7970386A8 /* Revert.App.Public.Contents.swift */; };
+		4F71DD0F768FFED4B86D7B4E /* DefaultsKit.Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D213EFE15C0587110710 /* DefaultsKit.Defaults.swift */; };
 		4F71DD78005DEFE832BE79AB /* PhotoPickerViewController.UIGestureRecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD07F87A201EB8901835 /* PhotoPickerViewController.UIGestureRecognizerDelegate.swift */; };
 		4F71DD92BFAF13C4AD114FF6 /* AppTaskOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DAD13EC98589E1C308AB /* AppTaskOperationQueue.swift */; };
 		4F71DDFAA9E96CA76DE04B3C /* Revert.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4D9E9481FC930955689 /* Revert.App.swift */; };
@@ -159,6 +160,7 @@
 		4F71D1D31D77D738AD4EB02A /* PHAssetEditable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAssetEditable.swift; sourceTree = "<group>"; };
 		4F71D1FBD4091EC63C85905B /* ms */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ms; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D2004D7DCDF7A87CF872 /* en-AU */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = "en-AU"; path = Localizable.strings; sourceTree = "<group>"; };
+		4F71D213EFE15C0587110710 /* DefaultsKit.Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsKit.Defaults.swift; sourceTree = "<group>"; };
 		4F71D2387C36356F8A810D61 /* th */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = th; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D2D3A67093DEDDD190CF /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		4F71D2D58B2BABE8F1BC0389 /* CodeKit.URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.URL.swift; sourceTree = "<group>"; };
@@ -502,6 +504,7 @@
 				4F71D7701FC0F8CC1AC18508 /* CodeKit.Int.swift */,
 				4F71D6DE0A3A7908F226BBD9 /* CodeKit.DispatchQueue.swift */,
 				4F71DEFC3D3A6A90497D4B6A /* CodeKit.UUID.swift */,
+				4F71D213EFE15C0587110710 /* DefaultsKit.Defaults.swift */,
 			);
 			path = CodeKit;
 			sourceTree = "<group>";
@@ -1157,6 +1160,7 @@
 				4F71DC65BF6959ACE2C1F7A7 /* PHAssets.swift in Sources */,
 				4F71D089747783BFFBB42340 /* CodeKit.UUID.swift in Sources */,
 				4F71DAF548B690D27A4CAA3D /* batch.Defaults.swift in Sources */,
+				4F71DD0F768FFED4B86D7B4E /* DefaultsKit.Defaults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

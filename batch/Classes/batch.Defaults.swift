@@ -6,9 +6,9 @@
 import Foundation
 import DefaultsKit
 
-
-extension Defaults{
-    public var appBundleIdentifier: String? { set(newValue){ set(newValue ?? "", for: Key<String>(#function)) } get{ return get(for: Key<String>(#function)) } }
+extension Defaults: DefaultsDynamicValue {
+    public var appBundleIdentifier: String? {
+        set(newValue){ set_String(newValue) } get{ return get_String() }
+    }
 }
-
 

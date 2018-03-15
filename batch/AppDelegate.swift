@@ -10,12 +10,12 @@ import UIKit
 import Firebase
 import Crashlytics
 import Fabric
+import DefaultsKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -23,6 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Crashlytics.self])
         FirebaseApp.configure()
         #endif
+
+        if Defaults.shared.appBundleIdentifier==nil{
+            Defaults.shared.appBundleIdentifier = "test"
+        }
+        print(Defaults.shared.appBundleIdentifier)
         return true
     }
 
