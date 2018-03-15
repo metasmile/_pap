@@ -92,6 +92,7 @@
 		4F71DA9A2AEF74D95F711683 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DF60F3145AA65F6E07F8 /* Localizable.strings */; };
 		4F71DA9BD8AAA0E9E15F6374 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D9F4B12041A01656AEAC /* Localizable.strings */; };
 		4F71DAE55B247A7E9524B7D0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DC34F5554A7C034DBC6B /* Localizable.strings */; };
+		4F71DAF548B690D27A4CAA3D /* batch.Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF238ADA8011BEC02059 /* batch.Defaults.swift */; };
 		4F71DAFAA60AFFA6D22694FF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D865266BB0B201F7DE0A /* Localizable.strings */; };
 		4F71DB1B53A67EDD9E0826C1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D3F4E4B720B2D3E79010 /* Localizable.strings */; };
 		4F71DB2198FD73D17C4ACD22 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DDF945C8D64CBC607353 /* Localizable.strings */; };
@@ -241,6 +242,7 @@
 		4F71DEA2EF5EC4DDDE296E8F /* PHAssetItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAssetItem.swift; sourceTree = "<group>"; };
 		4F71DEFC3D3A6A90497D4B6A /* CodeKit.UUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UUID.swift; sourceTree = "<group>"; };
 		4F71DF1ACB1AF25316653CA9 /* pt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = pt; path = Localizable.strings; sourceTree = "<group>"; };
+		4F71DF238ADA8011BEC02059 /* batch.Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = batch.Defaults.swift; sourceTree = "<group>"; };
 		4F71DF6A3F2621A2EFC5A30F /* System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 		4F71DF8C80BDBCFC85F39CBC /* ru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ru; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71DF8FD2E3706781E2B4A4 /* pl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = pl; path = Localizable.strings; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 				4F71D4D77F4D848543D79AB0 /* AppCenter.swift */,
 				4F71D06124161DF79D688CFB /* AppAssets.swift */,
 				4F71D86CF781238DD699503D /* Photos */,
+				4F71DF238ADA8011BEC02059 /* batch.Defaults.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1153,6 +1156,7 @@
 				4F71DF88A7B9AEC4A4F70A1D /* PHPhotoLibraryManager.swift in Sources */,
 				4F71DC65BF6959ACE2C1F7A7 /* PHAssets.swift in Sources */,
 				4F71D089747783BFFBB42340 /* CodeKit.UUID.swift in Sources */,
+				4F71DAF548B690D27A4CAA3D /* batch.Defaults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
