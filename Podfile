@@ -1,4 +1,4 @@
-platform :ios, '10.0'
+platform :ios, '10.3'
 
 target 'batch' do
   use_frameworks!
