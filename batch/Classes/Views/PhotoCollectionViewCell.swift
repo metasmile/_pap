@@ -59,7 +59,7 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        
+
         isSelected = false
         
         imageView.image = nil
@@ -92,15 +92,27 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
     
     override var isSelected: Bool {
         didSet {
-            selectionCheckView.checked = isSelected
-            selectionView.visible = isSelected
+            updateSelectionState()
         }
     }
 
     public var isEnabled:Bool = false {
         didSet{
-            selectionCheckView.visible = isEnabled
-            selectionView.visible = !isEnabled
+            updateSelectionState()
+        }
+    }
+
+    private func updateSelectionState(){
+        selectionCheckView.checked = isSelected
+        selectionCheckView.visible = isEnabled
+
+        if isEnabled{
+            selectionView.visible = isSelected
+        } else{
+            selectionView.visible = true
+        }
+
+        if selectionView.visible{
             selectionView.backgroundColor = UIColor(white: 1, alpha: isEnabled ? 0.25: 0.5)
         }
     }

@@ -155,14 +155,13 @@ class PhotoPickerViewController: AppDockViewController {
     }
 
     func redisplayVisibleCellsWhenChangeApp(){
-        for indexPath in self.photoCollectionView.indexPathsForVisibleItems{
-
-            let shouldSelect = self.collectionView(self.photoCollectionView, shouldSelectItemAt: indexPath)
-
-            if !shouldSelect{
-                self.deselectCollectionViewItem(at: indexPath, animated: true)
+        for indexPath in self.photoCollectionView.indexPathsForSelectedItems ?? [IndexPath](){
+            if !self.collectionView(self.photoCollectionView, shouldSelectItemAt: indexPath) {
+                self.deselectCollectionViewItem(at: indexPath, animated: false)
             }
+        }
 
+        for indexPath in self.photoCollectionView.indexPathsForVisibleItems{
             if let cell = self.photoCollectionView.cellForItem(at: indexPath){
                 self.collectionView(self.photoCollectionView, willDisplay: cell, forItemAt: indexPath)
             }
