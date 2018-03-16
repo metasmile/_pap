@@ -29,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        Defaults.shared.testDate = nil
         print(Defaults.shared.testDate)
 
+        print(Defaults.shared.testCustom1)
+
 //        Defaults.shared.testInt = 3
         print(Defaults.shared.testInt)
 

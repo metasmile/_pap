@@ -27,6 +27,10 @@ extension Defaults: DefaultsDynamicValue {
         set(newValue){ set(newValue, or:CustomStruct()) } get{ return get() }
     }
 
+    public var testCustom1: CustomStruct? {
+        set(newValue){ set(newValue, or:CustomStruct()) } get{ return get(or:CustomStruct()) }
+    }
+
     public var testCustom2: CustomStruct? {
         set(newValue){ set(newValue, or:CustomStruct(customProperty:"default")) } get{ return get(or:CustomStruct()) }
     }

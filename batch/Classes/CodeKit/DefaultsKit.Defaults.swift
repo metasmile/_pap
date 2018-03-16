@@ -8,12 +8,22 @@ import DefaultsKit
 
 protocol DefaultsDynamicValue {}
 extension DefaultsDynamicValue where Self:Defaults{
-    // Swift Codable
+
     func set<T:Codable>(_ newValue:T?=nil, or:T, _function:String=#function){
         set(newValue ?? or, for: Key<T>(_function))
     }
     func get<T:Codable>(or:T?=nil, _function:String=#function) -> T?{
-        return get(for: Key<T>(_function)) ?? or
+        // value is available
+        if let gotValue = get(for: Key<T>(_function)){
+            return gotValue
+        }
+        // persists default value and return
+        if let gotOr = or{
+            set(nil, or:gotOr,_function:_function) // set to guarantee
+            return gotOr
+        }
+        // no value + no pre-defined default value
+        return nil
     }
 
     func set(_ newValue:String?=nil, _function:String=#function){
