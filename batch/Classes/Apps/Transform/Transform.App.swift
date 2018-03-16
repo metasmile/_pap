@@ -39,7 +39,7 @@ public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _Configu
     public static var configure:(() -> TransformAppConfig)?
 
     @objc dynamic
-    public var config: TransformAppConfig?
+    public private(set) lazy var config: TransformAppConfig? = TransformApp.configure?()
 
     public private(set) lazy var configView: UIView? = createPreferenceView()
 
@@ -56,10 +56,14 @@ public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _Configu
     required public override init(){
         super.init()
 
-        config = TransformApp.configure?()
-        config?.watch(\.tintColor, id:"\(type(of: self)).config.tintColor", options: [.initial, .new]) {
+        config?.watch(\.tintColor, options: [.initial, .new]) {
             self.updateConfigView()
         }
+    }
+
+    public func setConfigValues<T: AppConfigValuable>(_ config:T){
+        self.config?.adoptValues(fromOther: config)
+        self.updateConfigView()
     }
 }
 

@@ -103,6 +103,9 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
                     self.addTransformItem(value)
                 }
             }
+
+            //common ui attributes if current app is ConfigurableApp
+            appCenter.currentInstanceAs(ConfigurableApp.self)?.setConfigValues( AppConfigUIAttrribute(tintColor: .white))
         }
     }
 
