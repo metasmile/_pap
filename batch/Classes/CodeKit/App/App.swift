@@ -17,14 +17,42 @@ public protocol App {
     static var paramType: TaskParamable.Type { get }
 }
 
-public struct AppInfo: Hashable {
-    let identifier:String
-    let version:String
-    let phase: AppProductPhase
-    let appType: App.Type
-    let displayName:String
-    let icon:ImageSourceable?
-    let policy:AppPolicy
+public protocol AppInfoSchemeKey {
+    var identifier:String {get}
+}
+
+public protocol AppInfoSchemeValues {
+    var appType: App.Type {get}
+    var version:String {get}
+    var phase: AppProductPhase {get}
+    var displayName:String {get}
+    var icon:ImageSourceable? {get}
+    var policy:AppPolicy {get}
+}
+
+public struct AppInfoKey: AppInfoSchemeKey{
+    public private(set) var identifier: String
+}
+
+public struct AppInfoValues: AppInfoSchemeValues {
+    public private(set) var appType: App.Type
+    public private(set) var version: String = ""
+    public private(set) var phase: AppProductPhase
+    public private(set) var displayName: String = ""
+    public private(set) var icon: ImageSourceable? = nil
+    public private(set) var policy: AppPolicy
+}
+
+public typealias AppInfoScheme = AppInfoSchemeKey & AppInfoSchemeValues
+
+public struct AppInfo: Hashable, AppInfoScheme {
+    public let identifier:String
+    public let version:String
+    public let phase: AppProductPhase
+    public let appType: App.Type
+    public let displayName:String
+    public let icon:ImageSourceable?
+    public let policy:AppPolicy
 
     public var hashValue: Int {
         return self.identifier.hashValue
@@ -46,19 +74,23 @@ public struct AppPolicy {
 public struct AppQuery: OptionSet, Hashable {
 
 #if DEBUG
-    public static let `default`: AppQuery = [.beta, .release, .develop]
+    static let `default`: AppQuery = [.beta, .release, .develop]
 #else
-    public static let `default`: AppQuery = [.release]
+    static let `default`: AppQuery = [.release]
 #endif
 
-    public static let develop = AppQuery(rawValue: 1 << 0)
-    public static let beta = AppQuery(rawValue: 1 << 1)
-    public static let release = AppQuery(rawValue: 1 << 2)
+    static let develop = AppQuery(rawValue: 1 << 0)
+    static let beta = AppQuery(rawValue: 1 << 1)
+    static let release = AppQuery(rawValue: 1 << 2)
+
+    var key: AppInfoSchemeKey?
+    var value: AppInfoSchemeValues?
 
     public let rawValue: Int
     public init(rawValue: Int) {
         self.rawValue = rawValue
     }
+
     public var hashValue: Int{
         return rawValue.hashValue
     }

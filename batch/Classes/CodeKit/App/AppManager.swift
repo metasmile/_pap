@@ -27,15 +27,19 @@ open class AppManager: NSObject, SelectableCollection {
     override init(){
         super.init()
 
-        if let conf = (self as? AppManagerConfigurable)?.configure() {
+        let configurableAppManager = self as? AppManagerConfigurable
 
-            if let appCollection = conf.appCollection{
+        if let configuration = configurableAppManager?.configure(){
+
+            if let appCollection = configuration.appCollection{
                 _apps.append(contentsOf: appCollection)
             }
 
-            if let taskManager = conf.taskManager{
+            if let taskManager = configuration.taskManager{
                 _task = taskManager
             }
+        }else{
+            assert(!(self is AppManagerConfigurable), "This AppManager conforms \(AppManagerConfigurable.self) but config is nil.")
         }
     }
 
@@ -47,10 +51,11 @@ open class AppManager: NSObject, SelectableCollection {
     }
 
     @objc dynamic
-    public var currentIdentifier: String?
+    public private(set) var currentIdentifier: String?
 
     public var current: App.Type? {
         willSet {
+            assert(_apps.contains { appType in appType == newValue },"Given current app \(String(describing:newValue)) is not contained in app collection")
             guard newValue != previous else{ return }
 
             getInstance(current, as:AppManagerDelegatableApp.self)?.willSetPrevious(newCurrent:newValue)
@@ -112,6 +117,12 @@ open class AppManager: NSObject, SelectableCollection {
             }
 
             return false
+        }
+    }
+
+    public func app(by key: AppInfoSchemeKey) -> App.Type?{
+        return self._apps.first { appType in
+            return appType.info.identifier == key.identifier
         }
     }
 

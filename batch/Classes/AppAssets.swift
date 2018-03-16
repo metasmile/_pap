@@ -9,7 +9,6 @@ import Photos
 public typealias AppAsset = PHAssetItem<AppValue>
 
 public final class AppAssets: NSObject {
-    public static let fetched = AppAssets()
     public static let selected = AppAssets()
 
     private var  _items = [AppAsset]()

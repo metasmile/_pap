@@ -4,9 +4,22 @@
 //
 
 import Foundation
+import DefaultsKit
 
 public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchable {
-    public static let `default` = AppCenter()
+    public static let `default` = { () -> AppCenter in
+        let appCenter = AppCenter()
+
+        if let configuredAppIdentifier = Defaults.shared.appIdentifier{
+            appCenter.current = appCenter.app(by: AppInfoKey(identifier: configuredAppIdentifier))
+        }
+
+        appCenter.watch(\.currentIdentifier) { (target, value) in
+            Defaults.shared.appIdentifier = target.currentIdentifier
+        }
+        
+        return appCenter
+    }()
 
     func configure() -> AppManagerConfig? {
 
@@ -23,6 +36,5 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
         ]
 
         return config
-
     }
 }

@@ -91,13 +91,13 @@ extension KeyPathWatchable where _Observee == Self{
             , _file:String=#file
             , _function:String=#function
             , _line:Int=#line
-            , id:String?=KeyPathWatcherInfo.StaticId
+            , id:String?=nil
             , options: NSKeyValueObservingOptions?=nil
             , changeHandler: @escaping (_Observee, NSKeyValueObservedChange<Value>) -> Void
             ) -> KeyPathWatcherInfo{
 
-        let autoId = self.watcher.appendAutoIdentifier(file: _file, function: _function, line: _line, id:id)
-        return self.watcher.watch(self, keyPath, id:autoId, options:options, changeHandler: changeHandler)
+        let _id = id ?? self.watcher.appendAutoIdentifier(file: _file, function: _function, line: _line, id:id)
+        return self.watcher.watch(self, keyPath, id:_id, options:options, changeHandler: changeHandler)
     }
 
     @discardableResult
@@ -105,12 +105,12 @@ extension KeyPathWatchable where _Observee == Self{
             , _file:String=#file
             , _function:String=#function
             , _line:Int=#line
-            , id:String?=KeyPathWatcherInfo.StaticId
+            , id:String?=nil
             , options: NSKeyValueObservingOptions?=nil
             , changeHandler: @escaping () -> Void) -> KeyPathWatcherInfo{
 
-        let autoId = self.watcher.appendAutoIdentifier(file: _file, function: _function, line: _line, id:id)
-        return self.watcher.watch(self, keyPath, id:autoId, options:options, changeHandler: { _, _ in changeHandler() })
+        let _id = id ?? self.watcher.appendAutoIdentifier(file: _file, function: _function, line: _line, id:id)
+        return self.watcher.watch(self, keyPath, id:_id, options:options, changeHandler: { _, _ in changeHandler() })
     }
 
     public func watching<Value>(by keyPath:KeyPath<_Observee,Value>, id:String?=nil) -> [KeyPathWatcherInfo]{
@@ -126,7 +126,7 @@ extension KeyPathWatchable where _Observee == Self{
         }
 
         let ids = keyPath==nil ? idsInFile : idsInFile.filter { id in watcher._observations[id]?.keyPath == keyPath }
-        assert(ids.count>0,"Already unwatched In Current File.\(keyPath)")
+        assert(ids.count>0,"Already unwatched In Current File.\(String(describing: keyPath))")
 
         if self.unwatch(forIds: ids){
             let indexesOfIds = ids.flatMap({ id -> Int? in idsInFile.index(of: id) })

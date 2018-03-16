@@ -15,8 +15,6 @@ class AppDockViewController: UIViewController {
     var cancelButton: UIBarButtonItem?
     var doneButton: UIBarButtonItem?
 
-    //TODO: remove this when N -app completed
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,9 +52,6 @@ class AppDockViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-//TODO: remove this line when N -app completed
-        AppCenter.default.current = AppCenter.default.apps(by: .default).first
 
         selectCurrentAppIfExist()
     }

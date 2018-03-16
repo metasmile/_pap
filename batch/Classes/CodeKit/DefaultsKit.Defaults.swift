@@ -8,10 +8,18 @@ import DefaultsKit
 
 protocol DefaultsDynamicValue {}
 extension DefaultsDynamicValue where Self:Defaults{
-
+    
     func set<T:Codable>(_ newValue:T?=nil, or:T, _function:String=#function){
-        set(newValue ?? or, for: Key<T>(_function))
+        set(newValue ?? or, _function:_function)
     }
+    func set<T:Codable>(_ newValue:T?=nil, _function:String=#function){
+        if let newValue = newValue{
+            set(newValue, for: Key<T>(_function))
+        }else{
+            clear(Key<T>(_function))
+        }
+    }
+
     func get<T:Codable>(or:T?=nil, _function:String=#function) -> T?{
         // value is available
         if let gotValue = get(for: Key<T>(_function)){
@@ -25,24 +33,8 @@ extension DefaultsDynamicValue where Self:Defaults{
         // no value + no pre-defined default value
         return nil
     }
-
-    func set(_ newValue:String?=nil, _function:String=#function){
-        set(newValue, or:String())
-    }
-    func set(_ newValue:Int?=nil, _function:String=#function){
-        set(newValue, or:Int())
-    }
-    func set(_ newValue:Bool?=nil, _function:String=#function){
-        set(newValue, or:Bool())
-    }
-    func set(_ newValue:Float?=nil, _function:String=#function){
-        set(newValue, or:Float())
-    }
-    func set(_ newValue:Double?=nil, _function:String=#function){
-        set(newValue, or:Double())
-    }
-    func set(_ newValue:Date?=nil, _function:String=#function){
-        set(newValue, or:Date())
+    func get<T:Codable>(or:T, _function:String=#function) -> T{
+        return self.get(or:nil, _function:_function) ?? or
     }
 }
 

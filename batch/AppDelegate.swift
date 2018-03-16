@@ -17,23 +17,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        return false
+    }
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         #if !DEBUG
         Fabric.with([Crashlytics.self])
         FirebaseApp.configure()
         #endif
-
-        print(Defaults.shared.appIdentifier)
-
-//        Defaults.shared.testDate = nil
-        print(Defaults.shared.testDate)
-
-        print(Defaults.shared.testCustom1)
-
-//        Defaults.shared.testInt = 3
-        print(Defaults.shared.testInt)
-
         return true
     }
 

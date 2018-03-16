@@ -12,7 +12,7 @@ public struct CustomStruct: Codable{
 
 extension Defaults: DefaultsDynamicValue {
     public var appIdentifier: String? {
-        set(newValue){ set(newValue, or:TransformApp.info.identifier) } get{ return get(or:TransformApp.info.identifier) }
+        set(newValue){ set(newValue) } get{ return get(or:TransformApp.info.identifier) }
     }
 
     public var testInt: Int? {
