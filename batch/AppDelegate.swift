@@ -24,10 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         #endif
 
-        if Defaults.shared.appBundleIdentifier==nil{
-            Defaults.shared.appBundleIdentifier = "test"
-        }
         print(Defaults.shared.appBundleIdentifier)
+
+//        Defaults.shared.testDate = nil
+        print(Defaults.shared.testDate)
+
+//        Defaults.shared.testInt = 3
+        print(Defaults.shared.testInt)
+
         return true
     }
 

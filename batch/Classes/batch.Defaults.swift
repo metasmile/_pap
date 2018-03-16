@@ -6,9 +6,25 @@
 import Foundation
 import DefaultsKit
 
+public struct CustomStruct: Codable{
+    var customProperty:String = "dd"
+}
+
 extension Defaults: DefaultsDynamicValue {
     public var appBundleIdentifier: String? {
-        set(newValue){ set_String(newValue) } get{ return get_String() }
+        set(newValue){ set(newValue) } get{ return get() }
+    }
+
+    public var testInt: Int? {
+        set(newValue){ set(newValue) } get{ return get() }
+    }
+
+    public var testDate: Date? {
+        set(newValue){ set(newValue) } get{ return get() }
+    }
+
+    public var testCustom: CustomStruct? {
+        set(newValue){ set(newValue, defaultValue:CustomStruct()) } get{ return get() }
     }
 }
 
