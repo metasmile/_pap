@@ -74,7 +74,7 @@ public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, ItemCol
     }
 
     public func areItemsEnables(for item: PHAssetItem<AppValue>) -> Bool {
-        return arc4random_uniform(2) == 0
+        return item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive)
     }
 }
 

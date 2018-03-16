@@ -93,15 +93,15 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
     override var isSelected: Bool {
         didSet {
             selectionCheckView.checked = isSelected
-            selectionView.isHidden = !isSelected
+            selectionView.visible = isSelected
         }
     }
 
     public var isEnabled:Bool = false {
         didSet{
-            isUserInteractionEnabled = isEnabled
             selectionCheckView.visible = isEnabled
             selectionView.visible = !isEnabled
+            selectionView.backgroundColor = UIColor(white: 1, alpha: isEnabled ? 0.25: 0.5)
         }
     }
     

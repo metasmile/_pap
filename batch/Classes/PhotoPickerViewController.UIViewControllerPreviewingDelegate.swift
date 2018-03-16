@@ -15,7 +15,9 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
             guard let selectedAsset = PHAssets.fetched.asset(at: indexPath) else { return nil }
             guard let cell = photoCollectionView.cellForItem(at: indexPath) else { return nil }
 
-            if !self.selectCollectionViewItem(by: selectedAsset) { return nil }
+            if !self.selectCollectionViewItem(by: selectedAsset) {
+                return nil
+            }
 
             assert(selectedAssetsInCollectionView?.contains(selectedAsset) == true, "selectedAsset does not contain in selectedAssetsInCollectionView")
 

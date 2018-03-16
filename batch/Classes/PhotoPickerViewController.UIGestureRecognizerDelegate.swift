@@ -13,6 +13,12 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
             let velocity = dragSelectionGesture.velocity(in: dragSelectionGesture.view)
             return velocity.x.magnitude > velocity.y.magnitude
         }
+
+        let touchLocation = gestureRecognizer.location(in: gestureRecognizer.view)
+        if let indexPath = photoCollectionView.indexPathForItem(at: touchLocation){
+            return self.collectionView(self.photoCollectionView, shouldSelectItemAt: indexPath)
+        }
+
         return true
     }
 
