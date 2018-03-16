@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         #endif
 
-        print(Defaults.shared.appBundleIdentifier)
+        print(Defaults.shared.appIdentifier)
 
 //        Defaults.shared.testDate = nil
         print(Defaults.shared.testDate)

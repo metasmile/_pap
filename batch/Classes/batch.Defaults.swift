@@ -11,8 +11,8 @@ public struct CustomStruct: Codable{
 }
 
 extension Defaults: DefaultsDynamicValue {
-    public var appBundleIdentifier: String? {
-        set(newValue){ set(newValue) } get{ return get() }
+    public var appIdentifier: String? {
+        set(newValue){ set(newValue, or:TransformApp.info.identifier) } get{ return get(or:TransformApp.info.identifier) }
     }
 
     public var testInt: Int? {
@@ -24,7 +24,11 @@ extension Defaults: DefaultsDynamicValue {
     }
 
     public var testCustom: CustomStruct? {
-        set(newValue){ set(newValue, defaultValue:CustomStruct()) } get{ return get() }
+        set(newValue){ set(newValue, or:CustomStruct()) } get{ return get() }
+    }
+
+    public var testCustom2: CustomStruct? {
+        set(newValue){ set(newValue, or:CustomStruct(customProperty:"default")) } get{ return get(or:CustomStruct()) }
     }
 }
 
