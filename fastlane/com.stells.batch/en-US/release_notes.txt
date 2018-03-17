@@ -1,1 +1,1 @@
-•  Fixes for several crashing and layout issues.
+• Several bug fixes and internal improvements.
