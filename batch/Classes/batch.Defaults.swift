@@ -10,7 +10,7 @@ public struct CustomStruct: Codable{
     var customProperty:String = "dd"
 }
 
-extension Defaults: DefaultsDynamicValue {
+extension Defaults: DefaultsAutoProperty {
     public var appIdentifier: String? {
         set(newValue){ set(newValue) } get{ return get(or:TransformApp.info.identifier) }
     }
@@ -31,8 +31,8 @@ extension Defaults: DefaultsDynamicValue {
         set(newValue){ set(newValue, or:CustomStruct()) } get{ return get(or:CustomStruct()) }
     }
 
-    public var testCustom2: CustomStruct? {
-        set(newValue){ set(newValue, or:CustomStruct(customProperty:"default")) } get{ return get(or:CustomStruct()) }
+    public var testCustom2: CustomStruct {
+        set(newValue){ set(newValue) } get{ return get(or:CustomStruct()) }
     }
 }
 

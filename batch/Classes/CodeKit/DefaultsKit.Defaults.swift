@@ -6,35 +6,86 @@
 import Foundation
 import DefaultsKit
 
-protocol DefaultsDynamicValue {}
-extension DefaultsDynamicValue where Self:Defaults{
-    
-    func set<T:Codable>(_ newValue:T?=nil, or:T, _function:String=#function){
-        set(newValue ?? or, _function:_function)
+/*
+    DefaultsAutoProperty protocol extension, Added by Taeho Lee (github.com/metasmile)
+
+    An example to use:
+
+    public struct CustomValueType: Codable{
+        var key:String = "value"
     }
-    func set<T:Codable>(_ newValue:T?=nil, _function:String=#function){
-        if let newValue = newValue{
-            set(newValue, for: Key<T>(_function))
-        }else{
-            clear(Key<T>(_function))
+
+    extension Defaults: DefaultsAutoProperty {
+        public var autoStringProperty: String? {
+            set(newValue){ set(newValue) } get{ return get() }
+        }
+
+        public var autoDateProperty: Date? {
+            set(newValue){ set(newValue) } get{ return get() }
+        }
+
+        public var autoStringPropertyWithDefaultValue: String? {
+            set(newValue){ set(newValue) } get{ return get(or:"default string value") }
+        }
+
+        public var autoCustomNonOptionalProperty: CustomValueType {
+            set(newValue){ set(newValue) } get{ return get(or: CustomValueType()) }
+        }
+
+        public var autoCustomOptionalProperty: CustomValueType? {
+            set(newValue){ set(newValue, or: CustomValueType()) } get{ return get() }
         }
     }
 
-    func get<T:Codable>(or:T?=nil, _function:String=#function) -> T?{
+    Result:
+
+    Defaults.shared.autoStringProperty = "new value will persist"
+
+*/
+
+protocol DefaultsAutoProperty {}
+extension DefaultsAutoProperty where Self:Defaults{
+
+    /// Sets a newValue automatically associated with the current function(key) name.
+    /// If newValue is nil, the key in UserDefaults will be deleted.
+    ///
+    /// - Parameters:
+    ///   - newValue: The value to set.
+    ///   - or: default value. Non-Optional.
+    ///   - key: private key name. it will set automatically via #function macro.
+    func set<T:Codable>(_ newValue:T?=nil, or:T, key:String=#function){
+        set(newValue ?? or, key: key)
+    }
+    // Alias set function:
+    func set<T:Codable>(_ newValue:T?=nil, key:String=#function){
+        if let newValue = newValue{
+            set(newValue, for: Key<T>(key))
+        }else{
+            clear(Key<T>(key))
+        }
+    }
+
+    /// Returns the value or default value associated with the specified key.
+    ///
+    /// - Parameter 
+    ///   - or: default value.
+    ///   - key: private key name. it will set automatically via #function macro.
+    /// - Returns: A `ValueType` or nil if the key was not found.
+    func get<T:Codable>(or:T?=nil, key:String=#function) -> T?{
         // value is available
-        if let gotValue = get(for: Key<T>(_function)){
+        if let gotValue = get(for: Key<T>(key)){
             return gotValue
         }
-        // persists default value and return
+        // persists default value
         if let gotOr = or{
-            set(nil, or:gotOr,_function:_function) // set to guarantee
+            set(nil, or:gotOr,key: key) // set to guarantee
             return gotOr
         }
         // no value + no pre-defined default value
         return nil
     }
-    func get<T:Codable>(or:T, _function:String=#function) -> T{
-        return self.get(or:nil, _function:_function) ?? or
+    func get<T:Codable>(or:T, key:String=#function) -> T{
+        return self.get(or:nil, key: key) ?? or
     }
 }
 
