@@ -30,15 +30,24 @@ PODS:
 
 DEPENDENCIES:
   - Crashlytics
-  - DefaultsKit
+  - DefaultsKit (from `https://github.com/metasmile/DefaultsKit`)
   - Fabric
   - Firebase/Core
   - Hero
   - R.swift
 
+EXTERNAL SOURCES:
+  DefaultsKit:
+    :git: https://github.com/metasmile/DefaultsKit
+
+CHECKOUT OPTIONS:
+  DefaultsKit:
+    :commit: 3bc99796376e2c76d85da8e690b782466dd14770
+    :git: https://github.com/metasmile/DefaultsKit
+
 SPEC CHECKSUMS:
   Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
-  DefaultsKit: d4e4271525388e33a17ee6842f2ded78f6892bc7
+  DefaultsKit: 626a70a6cbcef36b503b9961c77798094b6bfa5c
   Fabric: ae7146a5f505ea370a1e44820b4b1dc8890e2890
   Firebase: 92c6ba593e32db0defde464a9adc981d5cb49f97
   FirebaseAnalytics: 3dfae28d4a5e06f86c4fae830efc2ad3fadb19bc
@@ -50,6 +59,6 @@ SPEC CHECKSUMS:
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
 
-PODFILE CHECKSUM: e097f4f911203779f7f77c682dad6b566e38ef6e
+PODFILE CHECKSUM: 0b6f147eff5316644395bbaf82e6c65906c0dd2f
 
 COCOAPODS: 1.4.0

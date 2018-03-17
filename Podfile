@@ -9,5 +9,5 @@ target 'batch' do
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'R.swift'
-  pod 'DefaultsKit'
+  pod 'DefaultsKit', :git => "https://github.com/metasmile/DefaultsKit"
 end
