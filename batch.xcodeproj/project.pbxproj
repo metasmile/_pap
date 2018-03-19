@@ -128,6 +128,16 @@
 		A0CFD8E92052D9F10007041B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CFD8E82052D9F10007041B /* R.generated.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A0AEACD3206006500086E3E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0ABFCF701F14B65C0078A583 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0ABFCF771F14B65C0078A583;
+			remoteInfo = batch;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0A8FDA041FA76EF8002380AA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0A9CC9281F8774EC00AC91A6 /* PhotoEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditViewController.swift; sourceTree = "<group>"; };
@@ -250,6 +260,7 @@
 		4F71DFCA8020E56BB968A0A8 /* hu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = hu; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71DFDD565703A287D81E0B /* App.Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Configurable.swift; sourceTree = "<group>"; };
 		614D248BD87AEAE91795DFC4 /* Pods-batch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch.release.xcconfig"; path = "Pods/Target Support Files/Pods-batch/Pods-batch.release.xcconfig"; sourceTree = "<group>"; };
+		A0AEACCE206006500086E3E0 /* batchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = batchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0CFD8E82052D9F10007041B /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		E6C115FBD773BA835480B08C /* Pods-batch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-batch/Pods-batch.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -260,6 +271,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				28B58A4258EFA57A287EE746 /* Pods_batch.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0AEACCB206006500086E3E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				0ABFCF781F14B65C0078A583 /* batch.app */,
+				A0AEACCE206006500086E3E0 /* batchTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -322,7 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				A0CFD8E82052D9F10007041B /* R.generated.swift */,
-				0ABFCF961F14B8830078A583 /* Classes */,
+				0ABFCF961F14B8830078A583 /* Sources */,
 				0ABFCF8D1F14B6EF0078A583 /* Resources */,
 				0ABFCF7B1F14B65C0078A583 /* AppDelegate.swift */,
 				0ABFCF871F14B65C0078A583 /* Info.plist */,
@@ -341,7 +360,7 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		0ABFCF961F14B8830078A583 /* Classes */ = {
+		0ABFCF961F14B8830078A583 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				0AA86ED31FD1196C00E6E1B0 /* AppDock */,
@@ -360,7 +379,7 @@
 				4F71D86CF781238DD699503D /* Photos */,
 				4F71DF238ADA8011BEC02059 /* batch.Defaults.swift */,
 			);
-			path = Classes;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		4F71D040A83C02DEE803C86D /* App */ = {
@@ -900,13 +919,31 @@
 			productReference = 0ABFCF781F14B65C0078A583 /* batch.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A0AEACCD206006500086E3E0 /* batchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0AEACD5206006500086E3E0 /* Build configuration list for PBXNativeTarget "batchTests" */;
+			buildPhases = (
+				A0AEACCA206006500086E3E0 /* Sources */,
+				A0AEACCB206006500086E3E0 /* Frameworks */,
+				A0AEACCC206006500086E3E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A0AEACD4206006500086E3E0 /* PBXTargetDependency */,
+			);
+			name = batchTests;
+			productName = batchTests;
+			productReference = A0AEACCE206006500086E3E0 /* batchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		0ABFCF701F14B65C0078A583 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = Stells;
 				TargetAttributes = {
@@ -915,6 +952,12 @@
 						DevelopmentTeam = DAGHHLSPPQ;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
+					};
+					A0AEACCD206006500086E3E0 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = DAGHHLSPPQ;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 0ABFCF771F14B65C0078A583;
 					};
 				};
 			};
@@ -932,6 +975,7 @@
 			projectRoot = "";
 			targets = (
 				0ABFCF771F14B65C0078A583 /* batch */,
+				A0AEACCD206006500086E3E0 /* batchTests */,
 			);
 		};
 /* End PBXProject section */
@@ -992,6 +1036,13 @@
 				4F71D9391BBFB00BA695C8BD /* GoogleService-Info.plist in Resources */,
 				4F71D0BF59D88AFFCEBFF515 /* PhotoCollectionViewCell.xib in Resources */,
 				4F71D06BDFC37974BFD660FB /* AppStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0AEACCC206006500086E3E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1160,7 +1211,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A0AEACCA206006500086E3E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A0AEACD4206006500086E3E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0ABFCF771F14B65C0078A583 /* batch */;
+			targetProxy = A0AEACD3206006500086E3E0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4F71D03FAAD1A697C1FC06ED /* Localizable.strings */ = {
@@ -1639,6 +1705,48 @@
 			};
 			name = Release;
 		};
+		A0AEACD6206006500086E3E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DAGHHLSPPQ;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = batchTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.stells.batch.batchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/batch.app/batch";
+			};
+			name = Debug;
+		};
+		A0AEACD7206006500086E3E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DAGHHLSPPQ;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = batchTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.stells.batch.batchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/batch.app/batch";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1656,6 +1764,15 @@
 			buildConfigurations = (
 				0ABFCF8B1F14B65C0078A583 /* Debug */,
 				0ABFCF8C1F14B65C0078A583 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0AEACD5206006500086E3E0 /* Build configuration list for PBXNativeTarget "batchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0AEACD6206006500086E3E0 /* Debug */,
+				A0AEACD7206006500086E3E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

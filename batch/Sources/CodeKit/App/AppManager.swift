@@ -159,8 +159,6 @@ open class AppManager: NSObject, SelectableCollection {
         case 4:
             // a case for iPhone 7 Plus
             return 2
-        case 4:
-            return 3
 
         case ..<4 where remainingMem>1000:
             return 3
