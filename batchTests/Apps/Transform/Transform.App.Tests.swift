@@ -18,4 +18,7 @@ class TransformAppTests: XCTestCase {
         super.tearDown()
     }
 
+    func test(){
+        XCTAssertTrue(true)
+    }
 }

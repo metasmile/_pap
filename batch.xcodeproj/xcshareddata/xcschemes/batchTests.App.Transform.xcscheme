@@ -37,6 +37,11 @@
                BlueprintName = "batchTests"
                ReferencedContainer = "container:batch.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "AppTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

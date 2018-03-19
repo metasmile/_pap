@@ -25,6 +25,7 @@
 		4F71D010D95D69F8964FF0CA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D1794336220F99D94A32 /* Localizable.strings */; };
 		4F71D0332FEF1A75631DCA55 /* CodeKit.UIView.GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA767BA21A5D0572DC1D /* CodeKit.UIView.GestureRecognizer.swift */; };
 		4F71D042921A4C8173C8EA64 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D945BAAFABA6C67E5231 /* Localizable.strings */; };
+		4F71D04747F35E9D2C95CE2A /* batchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D03E5F9682AC33B82E77 /* batchTests.swift */; };
 		4F71D048600D780D8F62948D /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2D3A67093DEDDD190CF /* AppManager.swift */; };
 		4F71D052D62EB675DB2F0B5A /* PHAssetSourceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D49286EE4D795ACB1A90 /* PHAssetSourceable.swift */; };
 		4F71D06BDFC37974BFD660FB /* AppStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D17D046074C1554FE347 /* AppStoryboard.storyboard */; };
@@ -163,6 +164,7 @@
 		41C112E2E043B7748545CD88 /* Pods-batch-batchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch-batchTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-batch-batchTests/Pods-batch-batchTests.debug.xcconfig"; sourceTree = "<group>"; };
 		44650A1820DF0DD9DA679980 /* Pods-batchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batchTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-batchTests/Pods-batchTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4A3324BBC70AFB2083574786 /* libPods-batchTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-batchTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F71D03E5F9682AC33B82E77 /* batchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = batchTests.swift; path = batchTests/batchTests.swift; sourceTree = "<group>"; };
 		4F71D06124161DF79D688CFB /* AppAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAssets.swift; sourceTree = "<group>"; };
 		4F71D07823F5C942948C394C /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D0870FD2EB4014BC4E60 /* vi */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = vi; path = Localizable.strings; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				0ABFCF7A1F14B65C0078A583 /* batch */,
 				4F71D7C1E4B21C4D1DEC9334 /* GoogleService-Info.plist */,
 				4F71D491858C30A3DFD0172F /* Apps */,
+				4F71D03E5F9682AC33B82E77 /* batchTests.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1318,6 +1321,7 @@
 			files = (
 				4F71D4F22A1714DDC387C75D /* Transform.App.Tests.swift in Sources */,
 				4F71D194F612B294370A6545 /* batchTests.App.Tests.swift in Sources */,
+				4F71D04747F35E9D2C95CE2A /* batchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
