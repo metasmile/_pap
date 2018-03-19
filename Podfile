@@ -10,4 +10,9 @@ target 'batch' do
   pod 'Crashlytics'
   pod 'R.swift'
   pod 'DefaultsKit', :git => "https://github.com/metasmile/DefaultsKit"
+
+  target 'batchTests' do
+    inherit! :complete
+  end
 end
+
