@@ -197,14 +197,14 @@ extension AppDockView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "STAppDockViewCell", for: indexPath) as! AppDockViewCell
-        let iconImage = items[indexPath.item].app.info.icon?.asUIImage
+        let iconImage = items[indexPath.item].app.info.icon?.asUIImage ?? R.image.blankAppIcon()
 
-        cell.appIconImageView.image = iconImage?.withRenderingMode(.alwaysTemplate)
+        cell.appIconImageView.image = iconImage//iconImage.withRenderingMode(.alwaysTemplate)
         switch barStyle {
-        case .black:
-            cell.appIconImageView.tintColor = .white
-        default:
-            cell.appIconImageView.tintColor = .black
+            case .black:
+                cell.appIconImageView.tintColor = .white
+            default:
+                cell.appIconImageView.tintColor = .black
         }
         return cell
     }

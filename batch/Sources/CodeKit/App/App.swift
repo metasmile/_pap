@@ -51,7 +51,7 @@ public struct AppInfo: Hashable, AppInfoScheme {
     public let phase: AppProductPhase
     public let appType: App.Type
     public let displayName:String
-    public let icon:ImageSourceable?
+    public var icon:ImageSourceable?
     public let policy:AppPolicy
 
     public var hashValue: Int {

@@ -33,6 +33,8 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
         config.appCollection = [
             TransformApp.self
             , RevertApp.self
+            , ExifGhost.self
+            , Dieter.self
         ]
 
         return config
