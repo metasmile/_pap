@@ -65,12 +65,23 @@ extension AsyncSignal: AsyncManualSignalable, AsyncControllableSignable {
         return self
     }
 
-    public func stopUntilEnd() {
-        if self.began{
-            dispatchGroup.wait()
-        }else{
-            print("[!] self.began==false, \(#function) was called before begin(), or, after end() in same queue.")
+    @discardableResult
+    public func stopUntilEnd(timeout:DispatchTime?=nil, function:String=#function) -> DispatchTimeoutResult?{
+        guard self.began else {
+            print("[!] self.began==false, \(function) was called before begin(), or, after end() in same queue.")
+            return nil
         }
+
+        guard let timeout = timeout else {
+            dispatchGroup.wait()
+            return nil
+        }
+
+        return dispatchGroup.wait(timeout: timeout)
+    }
+
+    public func stopUntilEnd() {
+        self.stopUntilEnd(timeout:nil)
     }
 
     public func done() {
