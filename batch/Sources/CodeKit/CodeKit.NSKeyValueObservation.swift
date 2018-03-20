@@ -128,7 +128,7 @@ extension KeyPathWatchable where _Observee == Self{
         let ids = keyPath==nil ? idsInFile : idsInFile.filter { id in watcher._observations[id]?.keyPath == keyPath }
         assert(ids.count>0,"Already unwatched In Current File.\(String(describing: keyPath))")
 
-        if self.unwatch(forIds: ids){
+        if self.unwatch(forIds: ids).count > 0{
             let indexesOfIds = ids.flatMap({ id -> Int? in idsInFile.index(of: id) })
             for index in indexesOfIds {
                 watcher._autoObservationIdsInFile[_file]?.remove(at: index)
@@ -142,7 +142,7 @@ extension KeyPathWatchable where _Observee == Self{
     }
 
     @discardableResult
-    public func unwatch<Value>(_ keyPath:KeyPath<_Observee,Value>, forIds:[String]?=nil) -> Bool{
+    public func unwatch<Value>(_ keyPath:KeyPath<_Observee,Value>, forIds:[String]?=nil) -> [String:Bool]{
         var ids = self.watching(by:keyPath).map { e -> String in e.id }
 
         if let forIds = forIds{
@@ -155,12 +155,14 @@ extension KeyPathWatchable where _Observee == Self{
     }
 
     @discardableResult
-    public func unwatch(forIds:[String]) -> Bool{
+    public func unwatch(forIds:[String]) -> [String:Bool]{
+        var success = [String:Bool]()
         for id in forIds {
+            success[id] = self.watcher._observations[id] != nil
             self.watcher._observations[id]?.observer.invalidate()
             self.watcher._observations.removeValue(forKey: id)
         }
-        return true
+        return success
     }
 
     public func unwatchAll() {

@@ -19,7 +19,6 @@ extension PhotoPickerViewController {
 class PhotoPickerViewController: AppDockViewController {
     @IBOutlet weak var photoCollectionView: UICollectionView!
     var initialPhotoCollectionIndexPath: IndexPath?
-    fileprivate var needsToReloadPhotos: Bool = true
     
     var batchPreviewView: PreviewView!
     var progressBar: UIProgressView!
@@ -45,8 +44,7 @@ class PhotoPickerViewController: AppDockViewController {
         }
 
         //watch assets changed
-        PHAssets.fetched.watch(\.results) {
-            guard self.needsToReloadPhotos else { return }
+        let resultWatchInfo = PHAssets.fetched.watch(\.results) {
             DispatchQueue.main.async{
                 if let numberOfSection = PHAssets.fetched.results?.count, numberOfSection > 0, let numberOfItemsInSection = PHAssets.fetched.results?[numberOfSection - 1].count, numberOfItemsInSection > 0 {
                     self.initialPhotoCollectionIndexPath = IndexPath(item: numberOfItemsInSection - 1, section: numberOfSection - 1)
@@ -58,7 +56,8 @@ class PhotoPickerViewController: AppDockViewController {
         //photos access authorization
         PHPhotoLibraryManager.default.watch(\.changes) {
             guard let changeInstance = PHPhotoLibraryManager.default.changes else { return }
-            self.needsToReloadPhotos = false
+            PHAssets.fetched.unwatch(\.results, forIds:[resultWatchInfo.id])
+
             self.photoLibraryDidChange(changeInstance)
         }
 
