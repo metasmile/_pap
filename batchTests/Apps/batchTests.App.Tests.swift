@@ -8,7 +8,7 @@ import Foundation
 
 @testable import batch
 
-class AppTests: XCTestCase {
+class AppTests: PHAssetsXCTestCase {
 
     override func setUp() {
         super.setUp()

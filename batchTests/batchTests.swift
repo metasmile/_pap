@@ -32,10 +32,13 @@ class PHAssetsXCTestCase: XCTestCase {
         let signal = AsyncSignal()
         signal.begin()
 
-        PHAssets.fetched.watch(\.results) {
+        var assetInfo:KeyPathWatcherInfo?
+        assetInfo = PHAssets.fetched.watch(\.results) {
+            XCTAssertTrue(assetInfo != nil)
             XCTAssertTrue(PHAssets.fetched.results != nil)
             signal.end()
         }
+
         PHAssets.fetched.load(with: .smartAlbum, subtype: .smartAlbumUserLibrary)
 
         signal.stopUntilEnd(timeout: DispatchTime.now() + 5.0)

@@ -7,7 +7,7 @@ import XCTest
 
 @testable import batch
 
-class TransformAppTests: XCTestCase {
+class TransformAppTests: PHAssetsXCTestCase {
 
     override func setUp() {
 
@@ -16,9 +16,5 @@ class TransformAppTests: XCTestCase {
 
     override func tearDown() {
         super.tearDown()
-    }
-
-    func test(){
-        XCTAssertTrue(true)
     }
 }
