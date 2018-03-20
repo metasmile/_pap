@@ -19,6 +19,7 @@ extension PhotoPickerViewController {
 class PhotoPickerViewController: AppDockViewController {
     @IBOutlet weak var photoCollectionView: UICollectionView!
     var initialPhotoCollectionIndexPath: IndexPath?
+    fileprivate var needsToReloadPhotos: Bool = true
     
     var batchPreviewView: PreviewView!
     var progressBar: UIProgressView!
@@ -45,6 +46,7 @@ class PhotoPickerViewController: AppDockViewController {
 
         //watch assets changed
         PHAssets.fetched.watch(\.results) {
+            guard self.needsToReloadPhotos else { return }
             DispatchQueue.main.async{
                 if let numberOfSection = PHAssets.fetched.results?.count, numberOfSection > 0, let numberOfItemsInSection = PHAssets.fetched.results?[numberOfSection - 1].count, numberOfItemsInSection > 0 {
                     self.initialPhotoCollectionIndexPath = IndexPath(item: numberOfItemsInSection - 1, section: numberOfSection - 1)
@@ -56,6 +58,7 @@ class PhotoPickerViewController: AppDockViewController {
         //photos access authorization
         PHPhotoLibraryManager.default.watch(\.changes) {
             guard let changeInstance = PHPhotoLibraryManager.default.changes else { return }
+            self.needsToReloadPhotos = false
             self.photoLibraryDidChange(changeInstance)
         }
 
@@ -175,14 +178,14 @@ class PhotoPickerViewController: AppDockViewController {
 
         Timer.scheduledTimer(identifier: "batch_selectedAppTitle", withTimeInterval: 2, repeats: false) { timer in
             if let _ = self.selectedAssetsInCollectionView {
-                self.updateTitleForSelectedItems()
+                self.updateSelectedItemsTitle()
             }else{
                 self.titleFade = previousTitle
             }
         }
     }
 
-    func updateTitleForSelectedItems() {
+    func updateSelectedItemsTitle() {
         let selectedAssets = self.selectedAssetsInCollectionView
         let numberOfVideos = selectedAssets?.filter({ $0.mediaType == .video }).count ?? 0
         let numberOfPhotos = selectedAssets?.filter({ $0.mediaType == .image }).count ?? 0
@@ -217,7 +220,7 @@ class PhotoPickerViewController: AppDockViewController {
         }
     }
 
-    func generateSelectionText() -> String {
+    var formattedStringForAllPhotos: String {
         var numberOfImages = 0
         var numberOfVideos = 0
 
@@ -254,6 +257,17 @@ class PhotoPickerViewController: AppDockViewController {
 
         return footerText
     }
+    
+    private func updateAllPhotosTitle() {
+        if let footer = self.photoCollectionView.visibleSupplementaryViews(ofKind: UICollectionElementKindSectionFooter).last as? PhotoPickerFooterView {
+            footer.text = self.formattedStringForAllPhotos
+        }
+    }
+    
+    func updatePhotoPickerTitles() {
+        updateSelectedItemsTitle()
+        updateAllPhotosTitle()
+    }
 
     private func photoLibraryDidChange(_ changeInstance: PHChange) {
         guard let fetchResults = PHAssets.fetched.results else { return }
@@ -263,11 +277,10 @@ class PhotoPickerViewController: AppDockViewController {
                 if let changes = changeInstance.changeDetails(for: fetchResult) {
                     // Keep the new fetch result for future use.
                     PHAssets.fetched.update(result: changes.fetchResultAfterChanges, at: section)
-
-
-                    if changes.hasIncrementalChanges {
-                        // If there are incremental diffs, animate them in the collection view.
-                        self.photoCollectionView.performBatchUpdates({
+                    
+                    self.photoCollectionView.performBatchUpdates({
+                        if changes.hasIncrementalChanges {
+                            // If there are incremental diffs, animate them in the collection view.
                             // For indexes to make sense, updates must be in this order:
                             // delete, insert, reload, move
                             if let removed = changes.removedIndexes, removed.count > 0 {
@@ -282,21 +295,13 @@ class PhotoPickerViewController: AppDockViewController {
                             changes.enumerateMoves { fromIndex, toIndex in
                                 self.photoCollectionView.moveItem(at: IndexPath(item: fromIndex, section: section), to: IndexPath(item: toIndex, section: section))
                             }
-                        }, completion: { _ in
-                            self.updateTitleForSelectedItems()
-                            if let footer = self.photoCollectionView.visibleSupplementaryViews(ofKind: UICollectionElementKindSectionFooter).last as? PhotoPickerFooterView {
-                                footer.text = self.generateSelectionText()
-                            }
-                        })
-                    } else {
-                        // Reload the collection view if incremental diffs are not available.
-                        self.photoCollectionView.reloadData()
-                        self.updateTitleForSelectedItems()
-                        if let footer = self.photoCollectionView.visibleSupplementaryViews(ofKind: UICollectionElementKindSectionFooter).last as? PhotoPickerFooterView {
-                            footer.text = self.generateSelectionText()
+                        } else {
+                            // Reload the collection view if incremental diffs are not available.
+                            self.photoCollectionView.reloadData()
                         }
-                        break
-                    }
+                    }, completion: { _ in
+                        self.updatePhotoPickerTitles()
+                    })
                 }
             }
         }
@@ -406,14 +411,14 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     
     func batchPreviewViewDidEndEdit(_ view: PreviewView) {
         cancelAllSelection()
-
+        
         progressBar.isHidden = true
     }
     
     func batchPreviewViewDidCancelEdit(_ view: PreviewView) {
         // waiting for remaining processing
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
-            self.updateTitleForSelectedItems()
+            self.updateAllPhotosTitle()
         }
 
         progressBar.isHidden = true

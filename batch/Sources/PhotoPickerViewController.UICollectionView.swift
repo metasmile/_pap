@@ -56,7 +56,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         }
 
         batchPreviewView.removeAllCollectionViewItems()
-        updateTitleForSelectedItems()
+        updateSelectedItemsTitle()
     }
 
     // MARK: - UICollectionViewDataSource
@@ -80,7 +80,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "PhotoPickerFooterView", for: indexPath) as! PhotoPickerFooterView
-        view.text = generateSelectionText()
+        view.text = formattedStringForAllPhotos
         return view
     }
 
@@ -137,7 +137,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        updateTitleForSelectedItems()
+        updateSelectedItemsTitle()
 
         if let asset = PHAssets.fetched.asset(at: indexPath){
             batchPreviewView.appendCollectionViewItem(with:asset)
@@ -147,7 +147,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         batchPreviewView.removeCollectionViewItem(with: PHAssets.fetched.asset(at: indexPath))
 
-        updateTitleForSelectedItems()
+        updateSelectedItemsTitle()
     }
 
     // MARK: - UICollectionViewDelegateFlowLayout
