@@ -64,8 +64,9 @@
                     <constraints>
                         <constraint firstItem="3j3-5w-cI5" firstAttribute="leading" secondItem="Ccg-Ud-fcA" secondAttribute="leading" id="2QQ-Em-ggH"/>
                         <constraint firstAttribute="height" constant="60" id="ACb-fT-cyq"/>
-                        <constraint firstAttribute="bottom" secondItem="3j3-5w-cI5" secondAttribute="bottom" constant="4" id="fVt-tu-qzS"/>
-                        <constraint firstItem="3j3-5w-cI5" firstAttribute="top" secondItem="Ccg-Ud-fcA" secondAttribute="top" constant="4" id="h0d-3M-TGP"/>
+                        <constraint firstItem="3j3-5w-cI5" firstAttribute="centerY" secondItem="Ccg-Ud-fcA" secondAttribute="centerY" id="Igd-fv-mF0"/>
+                        <constraint firstAttribute="bottom" secondItem="3j3-5w-cI5" secondAttribute="bottom" priority="750" constant="4" id="fVt-tu-qzS"/>
+                        <constraint firstItem="3j3-5w-cI5" firstAttribute="top" secondItem="Ccg-Ud-fcA" secondAttribute="top" priority="750" constant="4" id="h0d-3M-TGP"/>
                         <constraint firstAttribute="trailing" secondItem="3j3-5w-cI5" secondAttribute="trailing" id="kaJ-xo-Do5"/>
                     </constraints>
                 </view>

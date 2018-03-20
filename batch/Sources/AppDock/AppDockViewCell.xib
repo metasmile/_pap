@@ -38,10 +38,12 @@
                         </imageView>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="Nvb-sf-iia" firstAttribute="leading" secondItem="UCP-jh-aet" secondAttribute="leading" constant="10" id="5XZ-Ui-pVq"/>
-                        <constraint firstItem="Nvb-sf-iia" firstAttribute="top" secondItem="UCP-jh-aet" secondAttribute="top" constant="10" id="5e1-fS-x3F"/>
-                        <constraint firstAttribute="trailing" secondItem="Nvb-sf-iia" secondAttribute="trailing" constant="10" id="F0o-yS-g3N"/>
-                        <constraint firstAttribute="bottom" secondItem="Nvb-sf-iia" secondAttribute="bottom" constant="10" id="xZp-jj-bWE"/>
+                        <constraint firstItem="Nvb-sf-iia" firstAttribute="leading" secondItem="UCP-jh-aet" secondAttribute="leading" priority="750" constant="10" id="5XZ-Ui-pVq"/>
+                        <constraint firstItem="Nvb-sf-iia" firstAttribute="top" secondItem="UCP-jh-aet" secondAttribute="top" priority="750" constant="10" id="5e1-fS-x3F"/>
+                        <constraint firstAttribute="trailing" secondItem="Nvb-sf-iia" secondAttribute="trailing" priority="750" constant="10" id="F0o-yS-g3N"/>
+                        <constraint firstItem="Nvb-sf-iia" firstAttribute="centerX" secondItem="UCP-jh-aet" secondAttribute="centerX" id="a2h-of-l5J"/>
+                        <constraint firstItem="Nvb-sf-iia" firstAttribute="centerY" secondItem="UCP-jh-aet" secondAttribute="centerY" id="ffk-os-r1b"/>
+                        <constraint firstAttribute="bottom" secondItem="Nvb-sf-iia" secondAttribute="bottom" priority="750" constant="10" id="xZp-jj-bWE"/>
                     </constraints>
                 </view>
             </subviews>
