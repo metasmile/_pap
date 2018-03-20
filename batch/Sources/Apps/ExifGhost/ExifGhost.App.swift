@@ -6,6 +6,11 @@
 import Foundation
 import Photos
 
+// Location
+// Date
+// ... Option to remove
+// All
+
 public class ExifGhost: App {
     public static let taskType:Taskable.Type = _ExifGhostTask.self
 

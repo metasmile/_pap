@@ -10,8 +10,6 @@ import XCTest
 @testable import batch
 
 class batchTests: XCTestCase {
-
-
     override func setUp() {
 
         super.setUp()
@@ -22,4 +20,24 @@ class batchTests: XCTestCase {
     }
 
     func test(){}
+}
+
+
+//TODO: >> CodeTestKit
+class PHAssetsXCTestCase: XCTestCase {
+    
+    override func setUp() {
+        super.setUp()
+
+        let signal = AsyncSignal()
+        signal.begin()
+
+        PHAssets.fetched.watch(\.results) {
+            XCTAssertTrue(PHAssets.fetched.results != nil)
+            signal.end()
+        }
+        PHAssets.fetched.load(with: .smartAlbum, subtype: .smartAlbumUserLibrary)
+
+        signal.stopUntilEnd(timeout: DispatchTime.now() + 5.0)
+    }
 }
