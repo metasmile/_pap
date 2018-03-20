@@ -25,12 +25,18 @@ protocol AppDockViewDelegate {
 // MARK: -
 
 class AppDockView: CustomView {
+    private struct AppDockViewConstants {
+        static let defaultDockHeight: CGFloat = 60
+    }
+    
     @IBOutlet weak var backgroundView: UIToolbar!
     @IBOutlet weak var topAccessoryView: UIStackView!
     @IBOutlet weak var topAccessoryViewHeightLayout: NSLayoutConstraint!
     @IBOutlet weak var appConfigView: UIStackView!
     @IBOutlet weak var appConfigViewHeightLayout: NSLayoutConstraint!
     @IBOutlet weak var dockView: UIView!
+    @IBOutlet weak var dockViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var dockViewHeightLayout: NSLayoutConstraint!
     @IBOutlet weak var appCollectionView: UICollectionView!
     @IBOutlet weak var bottomAccessoryView: UIView!
     
@@ -38,6 +44,8 @@ class AppDockView: CustomView {
     
     var items = [AppDockItem]() {
         didSet {
+            layoutDockView()
+            
             reloadAppDock()
         }
     }
@@ -179,10 +187,18 @@ class AppDockView: CustomView {
         layoutIfNeeded()
         invalidateIntrinsicContentSize()
     }
+    
+    fileprivate func layoutDockView() {
+        dockViewHeightLayout.constant = items.count > 1 ? AppDockViewConstants.defaultDockHeight : 0
+        
+        layoutIfNeeded()
+        invalidateIntrinsicContentSize()
+    }
 }
 
 extension AppDockView {
     func selectItem(at indexPath: IndexPath, animated: Bool = false) {
+        guard indexPath.item < items.count else { return }
         appCollectionView.selectItem(at: indexPath, animated: animated, scrollPosition: .centeredHorizontally)
         collectionView(appCollectionView, didSelectItemAt: indexPath)
     }

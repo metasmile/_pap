@@ -92,6 +92,11 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
             }
         }
     }
+    
+    override var appDockItems: [AppDockItem] {
+        guard let app = AppCenter.default.current else { return [] }
+        return [AppDockItem(app: app)]
+    }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -135,7 +140,12 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         guard let asset = asset else { return }
         let preferredSize = asset.pixelSize.applying(preferredTransform).magnitude
         
-        let boundingBox = UIEdgeInsetsInsetRect(photoZoomingView.bounds, appDockInsets)
+        var boundingInsets = appDockInsets
+        if #available(iOS 11.0, *) {
+            boundingInsets.bottom += safeAreaInsets.bottom
+        }
+        
+        let boundingBox = UIEdgeInsetsInsetRect(photoZoomingView.bounds, boundingInsets)
 
         let actualContentSize = preferredSize.applying(editItem.transform).magnitude.aspectFit(in: boundingBox.size)
         let contentSize = actualContentSize.applying(editItem.transform.inverted()).magnitude

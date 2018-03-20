@@ -18,6 +18,7 @@
                 <outlet property="backgroundView" destination="80u-cl-a9L" id="R0g-OO-LWh"/>
                 <outlet property="bottomAccessoryView" destination="8u0-vY-4kx" id="HQE-Yx-Vg6"/>
                 <outlet property="dockView" destination="Ccg-Ud-fcA" id="6fC-r6-sQp"/>
+                <outlet property="dockViewHeightLayout" destination="ACb-fT-cyq" id="El0-Z7-dUI"/>
                 <outlet property="topAccessoryView" destination="g8f-8B-KA8" id="w0H-6f-WjS"/>
                 <outlet property="topAccessoryViewHeightLayout" destination="quC-3l-Vgg" id="X2a-gY-rL7"/>
             </connections>

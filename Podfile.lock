@@ -42,7 +42,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   DefaultsKit:
-    :commit: 3bc99796376e2c76d85da8e690b782466dd14770
+    :commit: ffb3ab879a9a4a9ef7abc65a20b037d31e992dc0
     :git: https://github.com/metasmile/DefaultsKit
 
 SPEC CHECKSUMS:

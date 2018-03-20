@@ -98,7 +98,7 @@
                                     <outlet property="delegate" destination="oyw-5W-GwR" id="iri-LD-ftn"/>
                                 </connections>
                             </scrollView>
-                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="60" translatesAutoresizingMaskIntoConstraints="NO" id="6HC-cV-Fmb" customClass="AppDockView" customModule="batch" customModuleProvider="target">
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="60" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6HC-cV-Fmb" customClass="AppDockView" customModule="batch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                             </view>
                         </subviews>

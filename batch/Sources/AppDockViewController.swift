@@ -26,15 +26,6 @@ class AppDockViewController: UIViewController {
 
         appDockView.delegate = self
         appDockView.items = appDockItems
-
-        switch (AppCenter.default.apps(by: .default).count){
-            case 0:
-                self.hideAppDock(false)
-            case 1:
-                self.showAppDockConfigOnly(false)
-            default:
-                self.showAppDock(false)
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -108,15 +99,6 @@ extension AppDockViewController {
     open func hideAppDock(_ animated: Bool = true) {
         appDockViewBottomLayout?.constant = -(appDockView.bounds.height + safeAreaInsets.bottom)
         
-        if animated {
-            appDockView.animateUsingSpringIfLayoutConstraintsChanged()
-        }
-    }
-
-    open func showAppDockConfigOnly(_ animated: Bool = true) {
-        appDockViewBottomLayout?.constant = -(appDockView.appCollectionView.collectionViewLayout.collectionViewContentSize.height + safeAreaInsets.bottom)
-        appDockView.dockView.isHidden = true
-
         if animated {
             appDockView.animateUsingSpringIfLayoutConstraintsChanged()
         }
