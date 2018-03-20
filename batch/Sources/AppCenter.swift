@@ -7,19 +7,19 @@ import Foundation
 import DefaultsKit
 
 public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchable {
-    public static let `default` = { () -> AppCenter in
-        let appCenter = AppCenter()
+    public static let `default` = AppCenter()
+
+    override init() {
+        super.init()
 
         if let configuredAppIdentifier = Defaults.shared.appIdentifier{
-            appCenter.current = appCenter.app(by: AppInfoKey(identifier: configuredAppIdentifier))
+            self.current = self.apps(by: AppQuery.default).first { appType in appType.info.identifier == configuredAppIdentifier }
         }
 
-        appCenter.watch(\.currentIdentifier) { (target, value) in
+        self.watch(\.currentIdentifier) { (target, value) in
             Defaults.shared.appIdentifier = target.currentIdentifier
         }
-        
-        return appCenter
-    }()
+    }
 
     func configure() -> AppManagerConfig? {
 

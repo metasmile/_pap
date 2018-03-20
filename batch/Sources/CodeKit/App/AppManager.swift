@@ -120,12 +120,6 @@ open class AppManager: NSObject, SelectableCollection {
         }
     }
 
-    public func app(by key: AppInfoSchemeKey) -> App.Type?{
-        return self._apps.first { appType in
-            return appType.info.identifier == key.identifier
-        }
-    }
-
     // Task
     public var isAppRunning:Bool{
         return task.count > 0
