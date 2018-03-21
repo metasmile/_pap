@@ -22,7 +22,6 @@ public protocol PHAssetEditableFinalizableApp: FinalizableApp {}
 
 extension PHAssetEditableFinalizableApp {
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
-
         if result.isAnyTask(inState: .cancelled) && result.defaultTaskPolicy.cancellation == TaskPolicy.Cancellation.shallow {
             return result
         }
@@ -38,10 +37,17 @@ extension PHAssetEditableFinalizableApp {
 
             PHPhotoLibrary.shared().performChanges({
                 for result in editedResultAssets {
+//                    if let output = result.contentEditingOutput{
+//                        PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL: output.renderedContentURL)
+//                    }
                     PHAssetChangeRequest(for: result.asset).contentEditingOutput = result.contentEditingOutput
                 }
             }, completionHandler: { (success, info) in
-
+                #if DEBUG
+                if !success{
+                    print("PHAssetEditableFinalizableApp Error:", info)
+                }
+                #endif
                 asyncSignal.end()
             })
         }

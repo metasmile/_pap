@@ -92,6 +92,7 @@ private class _RevertAppTask: TaskPrototype, Taskable {
         var adjusted = false
 
         async?.begin()
+        //TODO: fix as more light/fast way
         _param.asset.fetchAdjustmentData { data in
             adjusted = data != nil
             async?.end()

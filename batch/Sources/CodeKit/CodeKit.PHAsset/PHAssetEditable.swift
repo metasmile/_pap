@@ -42,6 +42,8 @@ struct PHAssetContentEditingItem {
 }
 
 extension PHAssetItem {
+
+    @discardableResult
     func requestContentEditing(_ block: @escaping PHAssetContentEditingHandler) -> PHContentEditingInputRequestID {
         var requestID:PHContentEditingInputRequestID?
 

@@ -43,18 +43,8 @@ extension PHAsset {
                 completion(false)
                 return
             }
-
-            let modifiedImage = image.settingProperties(metadata)
-
-            do {
-                //TODO: investigate/apply relationship between input?.uniformTypeIdentifier and CIImage.properties
-                //TODO: https://developer.apple.com/documentation/mobilecoreservices/uttype/uti_image_content_types
-                try CIContext().writeJPEGRepresentation(of: modifiedImage, to:url, colorSpace: image.colorSpace ?? CGColorSpaceCreateDeviceRGB(), options: [:])
-                completion(true)
-
-            } catch {
-                completion(false)
-            }
+            
+            completion(image.settingProperties(metadata).writeJPEGRepresentation(to: url))
         }
     }
 

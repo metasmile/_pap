@@ -10,11 +10,13 @@ import UIKit
 import Photos
 import MobileCoreServices
 
+//TODO: Uncommonize all, remove DispatchQueue.global().async
 extension _TransformAppAsset: PHAssetImageEditable {
 
     func edit<T: ImageProcessable>(processor: T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
         let asset = self.asset
 
+        //TODO: apply iOS new api - CIImage.transform and CIContext().writeJPEGRepre....
         guard let image = asset.asUIImage?.applyTransform(self.editState.transform) else {
             completionHandler(nil, nil)
             return nil
@@ -29,6 +31,7 @@ extension _TransformAppAsset: PHAssetImageEditable {
             DispatchQueue.global().async {
                 // renderedContentURL supports only JPEG and MOV ...
                 // so... always export JPEG
+                //TODO: investigate PHAssetChangeRequest.creationRequestForAssetFromImage(url)
                 let outputData = UIImageJPEGRepresentation(image, 1)
 
                 guard (try? outputData?.write(to: item.output.renderedContentURL, options: .atomic)) != nil else {

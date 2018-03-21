@@ -47,19 +47,6 @@ class PhotoPickerViewController: AppDockViewController {
             DispatchQueue.main.async{
                 if let numberOfSection = PHAssets.fetched.results?.count, numberOfSection > 0, let numberOfItemsInSection = PHAssets.fetched.results?[numberOfSection - 1].count, numberOfItemsInSection > 0 {
                     self.initialPhotoCollectionIndexPath = IndexPath(item: numberOfItemsInSection - 1, section: numberOfSection - 1)
-
-                    let url = "temp.jpg".asURLOfFileNameInTemporaryDirectory!
-                    PHAssets.fetched.asset(at: self.initialPhotoCollectionIndexPath!)?.writeJPEGRepresentation(to: url, transformMetadata: { dictionary in
-                        var metadata = dictionary
-                        print(metadata)
-                        metadata.removeValue(forKey: kCGImagePropertyGPSDictionary as String)
-                        return metadata
-
-                    }, completion: { succeed in
-                        print("succeed ------------- ", succeed)
-                        print(url.asMetadataFromCIImage)
-                    })
-
                 }
                 self.photoCollectionView.reloadData()
             }

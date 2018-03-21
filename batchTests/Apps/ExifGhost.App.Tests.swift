@@ -37,28 +37,31 @@ class ExifGhostAppTests: PHAssetsXCTestCase {
 
     let imageManager = PHImageManager.default()
 
-    func test_exifHasExists() {
+    func test_exifWrite() {
         XCTAssertTrue(true)
 
         let async = AsyncSignal()
         async.begin()
 
+        //TODO: PHAsset async procedures does not work in XCTest
         if let numberOfSection = PHAssets.fetched.results?.count, numberOfSection > 0, let numberOfItemsInSection = PHAssets.fetched.results?[numberOfSection - 1].count, numberOfItemsInSection > 0 {
             let latestIndexPath = IndexPath(item: numberOfItemsInSection - 1, section: numberOfSection - 1)
 
             if let latestAsset = PHAssets.fetched.asset(at: latestIndexPath){
 
-                let options = PHImageRequestOptions()
-                options.isNetworkAccessAllowed = true
-                options.isSynchronous = false
-                print(imageManager)
+                let url = "temp.jpg".asURLOfFileNameInTemporaryDirectory!
+                latestAsset.writeJPEGRepresentation(to: url, transformMetadata: { dictionary in
+                    var metadata = dictionary
+                    print(metadata)
+                    metadata.removeValue(forKey: kCGImagePropertyGPSDictionary as String)
+                    return metadata
 
-                imageManager.requestImageData(for: latestAsset, options: options, resultHandler: { (imageData, dataUTI, orientation, info) in
-                    if let data = imageData, let metadata = MetaDataLoader.fetchPhotoMetadata(data: data) {
-                        print(metadata)
-                    }
+                }, completion: { succeed in
+                    print("succeed ------------- ", succeed)
+                    print(url.asMetadataFromCIImage)
                     async.end()
                 })
+
             }
         }
         async.stopUntilEnd(timeout: DispatchTime.now()+10.0)
