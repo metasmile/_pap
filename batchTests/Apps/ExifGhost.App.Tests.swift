@@ -8,20 +8,37 @@ import XCTest
 import Photos
 @testable import batch
 
+private class MetaDataLoader {
+
+
+    static func fetchPhotoMetadata(data: Data) -> [String: Any]? {
+        guard let selectedImageSourceRef = CGImageSourceCreateWithData(data as CFData, nil),
+              let imagePropertiesDictionary = CGImageSourceCopyPropertiesAtIndex(selectedImageSourceRef, 0, nil) as? [String: Any] else {
+            return nil
+        }
+        return imagePropertiesDictionary
+    }
+}
+
+
 class ExifGhostAppTests: PHAssetsXCTestCase {
 
     override func setUp() {
-
         super.setUp()
     }
 
     override func tearDown() {
         super.tearDown()
     }
-    
-    // https://stackoverflow.com/questions/44517834/modifing-metadata-from-existing-phasset-seems-not-working
 
-    func test_exifHasExists(){
+    // https://stackoverflow.com/questions/25715280/how-to-preserve-original-photo-metadata-when-editing-phassets
+    // https://stackoverflow.com/questions/44517834/modifing-metadata-from-existing-phasset-seems-not-working
+    // https://github.com/LQi2009/LQHEICToJPG/blob/b12abed6a7574a3fd7b93bb082af08d676284364/LQHEICToJPG/LQHEICToJPG/LQModifyImageType.swift
+
+    let imageManager = PHImageManager.default()
+
+    func test_exifHasExists() {
+        XCTAssertTrue(true)
 
         let async = AsyncSignal()
         async.begin()
@@ -29,22 +46,21 @@ class ExifGhostAppTests: PHAssetsXCTestCase {
         if let numberOfSection = PHAssets.fetched.results?.count, numberOfSection > 0, let numberOfItemsInSection = PHAssets.fetched.results?[numberOfSection - 1].count, numberOfItemsInSection > 0 {
             let latestIndexPath = IndexPath(item: numberOfItemsInSection - 1, section: numberOfSection - 1)
 
-            let latestAsset = PHAssets.fetched.asset(at: latestIndexPath)
-            print(latestAsset)
+            if let latestAsset = PHAssets.fetched.asset(at: latestIndexPath){
 
-            let options: PHContentEditingInputRequestOptions = PHContentEditingInputRequestOptions()
-            options.isNetworkAccessAllowed = true
-            latestAsset?.requestContentEditingInput(with: options, completionHandler: { (input , info) in
-                if let url = input?.fullSizeImageURL{
-                    let imageSource = CGImageSourceCreateWithURL(url as CFURL, nil)
-                    let metadata = CGImageSourceCopyPropertiesAtIndex(imageSource!, 0, nil) as Dictionary?
-                    print(metadata)
-                }
-                async.end()
-            })
+                let options = PHImageRequestOptions()
+                options.isNetworkAccessAllowed = true
+                options.isSynchronous = false
+                print(imageManager)
+
+                imageManager.requestImageData(for: latestAsset, options: options, resultHandler: { (imageData, dataUTI, orientation, info) in
+                    if let data = imageData, let metadata = MetaDataLoader.fetchPhotoMetadata(data: data) {
+                        print(metadata)
+                    }
+                    async.end()
+                })
+            }
         }
-        async.stopUntilEnd()
-
+        async.stopUntilEnd(timeout: DispatchTime.now()+10.0)
     }
-    
 }

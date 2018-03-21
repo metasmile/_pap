@@ -20,7 +20,7 @@ public struct RemoteSourceFetchNotification {
     }
 }
 
-extension PHAsset: ImageSourceable, DataSourceable, RemoteSourceable, PHAssetSourceable, VideoSourceable, LivePhotoSourceable {
+extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSourceable, VideoSourceable, LivePhotoSourceable {
     public var asUIImage:UIImage? {
         get {
             let signal = AsyncSignal()
@@ -44,9 +44,19 @@ extension PHAsset: ImageSourceable, DataSourceable, RemoteSourceable, PHAssetSou
         }
     }
 
-    public var asData:Data? { get { return nil } }
-    public var asURL:URL? { get { return nil } }
-    public var asPHAsset:PHAsset? { get { return self } }
+    public var asData:Data? {
+        assert(false, "Not implemented yet.")
+        return nil
+    }
+    public var asURL:URL? {
+        assert(false, "Not implemented yet.")
+        return nil
+    }
+    public var asPHAsset:PHAsset? { return self }
+    public var asCIImage: CIImage? {
+        assert(false, "Not implemented yet.")
+        return nil
+    }
 
     private var fullResolutionImageRequestOptions: PHImageRequestOptions {
         let options = PHImageRequestOptions()

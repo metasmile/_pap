@@ -13,6 +13,7 @@ public protocol Sourceable {
 
 public protocol ImageSourceable:Sourceable {
     var asUIImage:UIImage? { get }
+    var asCIImage:CIImage? { get }
 }
 
 public protocol BundleImageSourceable:Sourceable {
@@ -32,8 +33,15 @@ public protocol DataSourceable:Sourceable {
     var asData:Data? { get }
 }
 
-public protocol RemoteSourceable:Sourceable {
+public protocol URLSourceable:Sourceable {
     var asURL:URL? { get }
+    var asURLOfFileNameInTemporaryDirectory:URL? { get }
+}
+
+extension URLSourceable{
+    public var asURLOfFileNameInTemporaryDirectory:URL? {
+        return asURL?.lastPathComponent.asURLOfFileNameInTemporaryDirectory
+    }
 }
 
 public protocol PHAssetSourceable:Sourceable {
@@ -44,7 +52,7 @@ public protocol StringSourceable:Sourceable {
     var asString:String? { get }
 }
 
-extension UIImage: ImageSourceable, DataSourceable, RemoteSourceable, PHAssetSourceable, StringSourceable {
+extension UIImage: ImageSourceable, DataSourceable, URLSourceable, PHAssetSourceable, StringSourceable {
     public var asUIImage:UIImage? { get { return self } }
     public var asData:Data? {
         get {
@@ -52,6 +60,8 @@ extension UIImage: ImageSourceable, DataSourceable, RemoteSourceable, PHAssetSou
         }
     }
     public var asURL:URL? { get { return nil } }
+    public var asURLOfFileNameInTemporaryDirectory:URL? { return nil }
+
     public var asString:String? {
         get {
             if let data = self.asData {
@@ -61,14 +71,24 @@ extension UIImage: ImageSourceable, DataSourceable, RemoteSourceable, PHAssetSou
         }
     }
     public var asPHAsset:PHAsset? { get { return nil } }
+
+    public var asCIImage: CIImage? {
+        if let cgImage = self.cgImage{
+            return CIImage(cgImage: cgImage)
+        }
+        return nil
+    }
 }
 
 extension CALayer: ImageSourceable {
     public var asUIImage:UIImage? { get { return nil } }
     public var asData:UIImage? { get { return nil } }
+    public var asCIImage: CIImage? {
+        return asData?.asCIImage
+    }
 }
 
-extension Data: ImageSourceable, DataSourceable, RemoteSourceable, StringSourceable {
+extension Data: ImageSourceable, DataSourceable, URLSourceable, StringSourceable {
     public var asUIImage:UIImage? { get { return nil } }
     public var asData:Data? { get { return self } }
     public var asURL:URL? { get { return nil } }
@@ -77,9 +97,11 @@ extension Data: ImageSourceable, DataSourceable, RemoteSourceable, StringSourcea
             return self.base64EncodedString()
         }
     }
+    public var asCIImage: CIImage?{
+        return CIImage(data:self)
+    }
 }
-
-extension URL: ImageSourceable, DataSourceable, RemoteSourceable {
+extension URL: ImageSourceable, DataSourceable, URLSourceable {
     public var asUIImage:UIImage? {
         return UIImage(contentsOfFile: self.absoluteString)
     }
@@ -95,9 +117,13 @@ extension URL: ImageSourceable, DataSourceable, RemoteSourceable {
     public var asURL:URL? {
         return self
     }
+
+    public var asCIImage: CIImage?{
+        return CIImage(contentsOf: self)
+    }
 }
 
-extension String: ImageSourceable, BundleImageSourceable, DataSourceable, RemoteSourceable {
+extension String: ImageSourceable, BundleImageSourceable, DataSourceable, URLSourceable {
     public var asUIImage:UIImage? {
         if let image = asUIImageNamed {
             return image
@@ -123,5 +149,16 @@ extension String: ImageSourceable, BundleImageSourceable, DataSourceable, Remote
 
     public var asURL:URL? {
         return URL(string: self)
+    }
+
+    public var asURLOfFileNameInTemporaryDirectory:URL? {
+        return URL(fileURLWithPath:NSTemporaryDirectory()).appendingPathComponent(self)
+    }
+
+    public var asCIImage: CIImage?{
+        if let url = asURL {
+            return CIImage(contentsOf: url)
+        }
+        return nil
     }
 }

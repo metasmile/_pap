@@ -4,9 +4,14 @@
 //
 
 import Foundation
+import Photos
 
 extension URL{
-    var asBundleURL: URL{
+    public var asBundleURL: URL{
         return Bundle.main.bundleURL.appendingPathComponent(self.path)
+    }
+
+    public var asMetadataFromCIImage: [String: Any]?{
+        return asCIImage?.properties
     }
 }
