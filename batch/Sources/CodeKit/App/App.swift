@@ -73,7 +73,7 @@ public struct AppPolicy {
 
 public struct AppQuery: OptionSet, Hashable {
 
-#if DEBUG
+#if !DEBUG
     static let `default`: AppQuery = [.beta, .release, .develop]
 #else
     static let `default`: AppQuery = [.release]

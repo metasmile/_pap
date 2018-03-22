@@ -12,10 +12,17 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
     override init() {
         super.init()
 
+        let apps = self.apps(by: AppQuery.default)
+
         if let configuredAppIdentifier = Defaults.shared.appIdentifier{
-            self.current = self.apps(by: AppQuery.default).first { appType in appType.info.identifier == configuredAppIdentifier }
+            self.current = apps.first { appType in appType.info.identifier == configuredAppIdentifier }
         }
 
+        if self.current == nil && apps.count==1 {
+            self.current = apps.first
+        }
+
+        Defaults.shared.appIdentifier = self.currentIdentifier
         self.watch(\.currentIdentifier) { (target, value) in
             Defaults.shared.appIdentifier = target.currentIdentifier
         }
