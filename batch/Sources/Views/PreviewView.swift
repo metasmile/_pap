@@ -63,11 +63,15 @@ class PreviewView: CustomView {
 extension PreviewView {
     @discardableResult
     func appendCollectionViewItem(with asset: PHAsset) -> IndexPath? {
+        //TODO: confirm - https://console.firebase.google.com/project/batch-photos/crashlytics/app/ios:com.stells.batch/issues/5ab2d93d8cb3c2fa639cf259?time=1521504000000:1521590399000&sessionId=413547b2ad9e4e588aa98f902c601423_DNE_0_v2
+        let prevCount = appAssetsSelected.count
         guard let insertedIndexPath = appAssetsSelected.put(with:asset) else {
             return nil
         }
 
-        self.collectionView.insertItems(at: [insertedIndexPath])
+        if appAssetsSelected.count>prevCount{
+            self.collectionView.insertItems(at: [insertedIndexPath])
+        }
         self.updateCollectionViewAlignment()
         self.collectionView.scrollToItem(at: insertedIndexPath, at: .centeredHorizontally, animated: true)
 

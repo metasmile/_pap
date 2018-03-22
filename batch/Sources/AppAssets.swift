@@ -11,7 +11,10 @@ public typealias AppAsset = PHAssetItem<AppValue>
 public final class AppAssets: NSObject {
     public static let selected = AppAssets()
 
-    private var  _items = [AppAsset]()
+    private var _items = [AppAsset]()
+    private var _itemsAssets = [PHAsset]()
+
+    private let currentSection:Int = 0
 
     private override init(){}
 
@@ -33,7 +36,10 @@ public final class AppAssets: NSObject {
     }
 
     func by(_ asset:PHAsset) -> AppAsset?{
-        return  _items.first(where: { $0.asset == asset })
+        if let index = _itemsAssets.index(of: asset){
+            return _items[index]
+        }
+        return nil
     }
 
     func at(_ index:Int) -> AppAsset {
@@ -58,19 +64,19 @@ public final class AppAssets: NSObject {
             return nil
         }
 
-        var insertedIndex = -1
+        var nextIndex = 0
 
-        if let _indexOfAsset =  _items.index(where: { $0.asset == asset }){
+        if let _indexOfAsset = _itemsAssets.index(of:asset){
             _items[_indexOfAsset] = item
-            insertedIndex = _indexOfAsset
+            nextIndex = _indexOfAsset
 
         }else{
-            insertedIndex =  _items.count
+            nextIndex =  _items.count
             _items.append(item)
+            _itemsAssets.append(item.asset)
         }
 
-        let currentSection = 0 //TODO: collectionView.currentSection
-        let insertedIndexPath = IndexPath(item: insertedIndex, section: currentSection)
+        let insertedIndexPath = IndexPath(item: nextIndex, section: currentSection)
 
         item.indexPath = insertedIndexPath
 
@@ -91,17 +97,19 @@ public final class AppAssets: NSObject {
     }
 
     func remove(for asset: PHAsset) -> IndexPath? {
-        guard let item = _items.index(where: { $0.asset == asset }) else {
+        guard let index = _itemsAssets.index(of:asset) else {
             return nil
         }
 
-        _items.remove(at: item)
+        _items.remove(at: index)
+        _itemsAssets.remove(at: index)
 
-        return IndexPath(item: item, section: 0)
+        return IndexPath(item: index, section: currentSection)
     }
 
     func removeAll(){
         _items.removeAll()
+        _itemsAssets.removeAll()
     }
 
     func reloadAll() {
