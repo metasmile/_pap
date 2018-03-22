@@ -7,15 +7,9 @@ import Foundation
 import Photos
 import ImageIO
 
-// Location
-// Date
-// ... Option to remove
-// All
-
 private typealias ParamType = PHAssetItem<AppValue>
 
-//TODO: PHAssetEditableFinalizableApp.finalize -> fix Error Domain=NSCocoaErrorDomain Code=-1 "(null)"
-public class ExifGhost: App, PHAssetFinalizableApp {
+public class ExifGhost: App, PHAssetFinalizableApp, ItemCollectableApp {
     public static let taskType:Taskable.Type = _ExifGhostTask.self
 
     public static let paramType:TaskParamable.Type = ParamType.self
@@ -33,7 +27,14 @@ public class ExifGhost: App, PHAssetFinalizableApp {
     public required init() {}
 
     public var finalizingOptions: PHAssetFinalizingOptions{
-        return [.modify]
+        return [.delete, .create]
+        //return [.modify]
+        //TODO: PHAssetEditableFinalizableApp.finalize -> fix Error Domain=NSCocoaErrorDomain Code=-1 "(null)"
+    }
+
+    public func areItemsEnables(for: PHAssetItem<AppValue>) -> Bool {
+        //TODO: lookup CIImage.properties
+        return true
     }
 }
 
@@ -57,22 +58,24 @@ private class _ExifGhostTask: TaskPrototype, Taskable {
             , let image = item.input.fullSizeImageURL?.asCIImage{
                 var metadata = image.properties
 
-                //TODO: configure from configValue
-                metadata.removeValue(forKey: kCGImagePropertyGPSDictionary as String)
+                if metadata[kCGImagePropertyGPSDictionary as String] != nil {
 
-//                let outputData = UIImageJPEGRepresentation(UIImage(ciImage: image.settingProperties(metadata)), 1)
-//
-//                guard (try? outputData?.write(to: item.output.renderedContentURL, options: .atomic)) != nil else {
-//                    return
-//                }
-//                result = PHAssetResultItem(asset:param.asset, contentEditingOutput:item.output)
+                    //TODO: remove key from configuration
+                    metadata.removeValue(forKey: kCGImagePropertyGPSDictionary as String)
 
-                if image.settingProperties(metadata).writeJPEGRepresentation(to: item.output.renderedContentURL){
-                    result = PHAssetResultItem(asset:param.asset, contentEditingOutput:item.output)
-                }
+                    // set and write image file with new metadata from conf
+                    if image.settingProperties(metadata).writeJPEGRepresentation(to: item.output.renderedContentURL){
+                        result = PHAssetResultItem(asset:param.asset, contentEditingOutput:item.output)
+                    }
 
-                if let testResult = item.output.renderedContentURL.asCIImage?.properties{
-                    print("Diff:", Set(image.properties.keys).subtracting(Set(testResult.keys)))
+                    #if DEBUG
+                    if let testResult = item.output.renderedContentURL.asCIImage?.properties{
+                        let diff = Set(image.properties.keys).subtracting(Set(testResult.keys))
+
+                        assert(diff.count==1)
+                        assert(diff.first == kCGImagePropertyGPSDictionary as String)
+                    }
+                    #endif
                 }
             }
 
