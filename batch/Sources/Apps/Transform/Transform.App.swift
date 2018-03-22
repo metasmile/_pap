@@ -31,7 +31,7 @@ public class TransformAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrribu
 
 class _TransformAppAsset: PHAssetItem<AppValue> {}
 
-public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _ConfigurableApp, PHAssetFinalizableApp {
+public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _ConfigurableApp, UIControllableApp, PHAssetFinalizableApp {
     public static let taskType:Taskable.Type = _TransfromAppTask.self
 
     public static let paramType:TaskParamable.Type = _TransformAppAsset.self
@@ -41,7 +41,7 @@ public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _Configu
     @objc dynamic
     public private(set) lazy var config: TransformAppConfig? = TransformApp.configure?()
 
-    public private(set) lazy var configView: UIView? = createPreferenceView()
+    public private(set) lazy var controlView: UIView? = createPreferenceView()
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.transform"
@@ -121,7 +121,7 @@ private extension TransformApp{
     }
 
     private func updateConfigView(){
-        if let config = self.config, let buttons = (self.configView as? UIStackView)?.arrangedSubviews as? [UIButton]{
+        if let config = self.config, let buttons = (self.controlView as? UIStackView)?.arrangedSubviews as? [UIButton]{
             for button in buttons {
                 button.tintColor = config.tintColor
             }

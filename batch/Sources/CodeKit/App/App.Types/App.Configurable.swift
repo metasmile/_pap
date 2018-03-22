@@ -29,14 +29,15 @@ public protocol _ConfigurableApp{
 }
 
 public protocol ConfigurableApp: App {
-    var configView:UIView? { get }
-
     func setConfigValues<T: AppConfigValuable>(_ config:T)
 }
 
 extension ConfigurableApp where Self:_ConfigurableApp, Self.T: AppConfigAdoptableValuable {
-
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
         self.config?.adoptValues(fromOther: config)
     }
+}
+
+public protocol UIControllableApp: App {
+    var controlView:UIView? { get }
 }

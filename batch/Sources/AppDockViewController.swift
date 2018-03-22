@@ -81,7 +81,7 @@ extension AppDockViewController: AppDockViewDelegate {
     }
 
     func updateAppDockViewForCurrentApp() {
-        let configView = AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.configView
+        let configView = AppCenter.default.currentInstanceAs(UIControllableApp.self)?.controlView
         appDockView.setAppConfigView(configView)
     }
 }
