@@ -41,3 +41,20 @@ extension ConfigurableApp where Self:_ConfigurableApp, Self.T: AppConfigAdoptabl
 public protocol UIControllableApp: App {
     var controlView:UIView? { get }
 }
+
+extension UIControllableApp{
+    public var controlView: UIView? {
+        let view = UIStackView(frame: .zero)
+        view.alignment = .fill
+        view.distribution = .equalCentering
+        view.axis = .horizontal
+
+        let label = UILabel()
+        label.text = type(of: self).info.displayName + " Control View Area"
+        label.textAlignment = .center
+        label.sizeToFit()
+        view.addArrangedSubview(label)
+
+        return view
+    }
+}
