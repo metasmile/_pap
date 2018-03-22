@@ -20,12 +20,25 @@ class batchTests: XCTestCase {
     }
 
     func test(){}
+    
+    func test_SequenceOptionSet(){
+        measure {
+            XCTAssertTrue([PHAssetFinalizingOptions.delete].underestimatedCount==1)
+        }
+        XCTAssertTrue([PHAssetFinalizingOptions.delete, PHAssetFinalizingOptions.create].underestimatedCount==2)
+
+        let iterableOptions:PHAssetFinalizingOptions = [.delete, .create]
+        for option in iterableOptions{
+            print("option == .create / "+String(describing: option == .create ))
+            XCTAssertTrue(option == .create || option == .delete)
+        }
+    }
 }
 
 
 //TODO: >> CodeTestKit
 class PHAssetsXCTestCase: XCTestCase {
-    
+
     override func setUp() {
         super.setUp()
 

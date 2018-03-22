@@ -15,7 +15,7 @@ import ImageIO
 private typealias ParamType = PHAssetItem<AppValue>
 
 //TODO: PHAssetEditableFinalizableApp.finalize -> fix Error Domain=NSCocoaErrorDomain Code=-1 "(null)"
-public class ExifGhost: App, PHAssetEditableFinalizableApp {
+public class ExifGhost: App, PHAssetFinalizableApp {
     public static let taskType:Taskable.Type = _ExifGhostTask.self
 
     public static let paramType:TaskParamable.Type = ParamType.self
@@ -31,6 +31,10 @@ public class ExifGhost: App, PHAssetEditableFinalizableApp {
     )
 
     public required init() {}
+
+    public var finalizingOptions: PHAssetFinalizingOptions{
+        return [.modify]
+    }
 }
 
 private class _ExifGhostTask: TaskPrototype, Taskable {
@@ -53,22 +57,23 @@ private class _ExifGhostTask: TaskPrototype, Taskable {
             , let image = item.input.fullSizeImageURL?.asCIImage{
                 var metadata = image.properties
 
-                print(metadata)
                 //TODO: configure from configValue
                 metadata.removeValue(forKey: kCGImagePropertyGPSDictionary as String)
 
-                let outputData = UIImageJPEGRepresentation(UIImage(ciImage: image.settingProperties(metadata)), 1)
-
-                guard (try? outputData?.write(to: item.output.renderedContentURL, options: .atomic)) != nil else {
-                    return
-                }
-//                if image.settingProperties(metadata).writeJPEGRepresentation(to: item.output.renderedContentURL){
-//                    result = PHAssetResultItem(asset:param.asset, contentEditingOutput:item.output)
+//                let outputData = UIImageJPEGRepresentation(UIImage(ciImage: image.settingProperties(metadata)), 1)
+//
+//                guard (try? outputData?.write(to: item.output.renderedContentURL, options: .atomic)) != nil else {
+//                    return
 //                }
+//                result = PHAssetResultItem(asset:param.asset, contentEditingOutput:item.output)
 
-                result = PHAssetResultItem(asset:param.asset, contentEditingOutput:item.output)
+                if image.settingProperties(metadata).writeJPEGRepresentation(to: item.output.renderedContentURL){
+                    result = PHAssetResultItem(asset:param.asset, contentEditingOutput:item.output)
+                }
 
-                print(item.output.renderedContentURL,item.output.renderedContentURL.asCIImage?.properties)
+                if let testResult = item.output.renderedContentURL.asCIImage?.properties{
+                    print("Diff:", Set(image.properties.keys).subtracting(Set(testResult.keys)))
+                }
             }
 
             async?.end()

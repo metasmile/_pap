@@ -31,7 +31,7 @@ public class TransformAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrribu
 
 class _TransformAppAsset: PHAssetItem<AppValue> {}
 
-public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _ConfigurableApp, PHAssetEditableFinalizableApp {
+public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _ConfigurableApp, PHAssetFinalizableApp {
     public static let taskType:Taskable.Type = _TransfromAppTask.self
 
     public static let paramType:TaskParamable.Type = _TransformAppAsset.self
@@ -64,6 +64,10 @@ public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _Configu
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
         self.config?.adoptValues(fromOther: config)
         self.updateConfigView()
+    }
+
+    public var finalizingOptions: PHAssetFinalizingOptions{
+        return [.modify]
     }
 }
 
