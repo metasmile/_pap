@@ -5,10 +5,11 @@
 
 import Foundation
 import Photos
+import DefaultsKit
 
 private typealias RevertAppParam = PHAssetItem<AppValue>
 
-public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, ItemCollectableApp {
+public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, ItemCollectableApp, PersistableApp {
     public static let taskType:Taskable.Type = _RevertAppTask.self
 
     public static let paramType:TaskParamable.Type = RevertAppParam.self
