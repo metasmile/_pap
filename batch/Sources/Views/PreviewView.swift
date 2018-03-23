@@ -34,6 +34,8 @@ class PreviewView: CustomView {
 
         print("[i] BatchAppCenter.default.task.maxConcurrentCount: ", AppCenter.default.task.maxConcurrentCount)
         
+        collectionView.contentInset.top = 1
+        collectionView.contentInset.bottom = 1
         collectionView.register(PreviewCollectionViewCell.self, forCellWithReuseIdentifier: "PreviewCollectionViewCell")
         updateCollectionViewAlignment(animated: false)
     }

@@ -10,7 +10,6 @@ import UIKit
 
 class AppDockViewController: UIViewController {
     @IBOutlet weak var appDockView: AppDockView!
-    @IBOutlet weak var appDockViewBottomLayout: NSLayoutConstraint?
     
     var cancelButton: UIBarButtonItem?
     var doneButton: UIBarButtonItem?
@@ -83,25 +82,6 @@ extension AppDockViewController: AppDockViewDelegate {
     func updateAppDockViewForCurrentApp() {
         let configView = AppCenter.default.currentInstanceAs(UIControllableApp.self)?.controlView
         appDockView.setAppConfigView(configView)
-    }
-}
-
-extension AppDockViewController {
-    open func showAppDock(_ animated: Bool = true) {
-        appDockViewBottomLayout?.constant = 0
-        appDockView.dockView.isHidden = false
-
-        if animated {
-            appDockView.animateUsingSpringIfLayoutConstraintsChanged()
-        }
-    }
-    
-    open func hideAppDock(_ animated: Bool = true) {
-        appDockViewBottomLayout?.constant = -(appDockView.bounds.height + safeAreaInsets.bottom)
-        
-        if animated {
-            appDockView.animateUsingSpringIfLayoutConstraintsChanged()
-        }
     }
 }
 

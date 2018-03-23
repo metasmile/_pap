@@ -22,12 +22,6 @@ class DesignableView: UIView {
         initialize()
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        initialize()
-    }
-    
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         
@@ -76,18 +70,6 @@ class CustomView: DesignableView {
         let nib = UINib(nibName: nibName, bundle: bundle)
         guard let view = nib.instantiate(withOwner: self, options: nil).first as? UIView else { return nil }
         return view
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-        initialize()
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        initialize()
     }
     
     override func initialize() {

@@ -24,25 +24,39 @@ protocol AppDockViewDelegate {
 
 // MARK: -
 
+internal class DockView: UIView {
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        
+        let ctx = UIGraphicsGetCurrentContext()
+        ctx?.setLineWidth(0.5)
+        ctx?.setStrokeColor(UIColor(red: 204 / 255.0, green: 203 / 255.0, blue: 203 / 255.0, alpha: 1).cgColor)
+        ctx?.move(to: .zero)
+        ctx?.addLine(to: CGPoint(x: rect.width, y: 0))
+        ctx?.move(to: CGPoint(x: 0, y: rect.height))
+        ctx?.addLine(to: CGPoint(x: rect.width, y: rect.height))
+        ctx?.strokePath()
+    }
+}
+
 class AppDockView: CustomView {
     private struct AppDockViewConstants {
-        static let defaultDockHeight: CGFloat = 60
+        static let defaultDockHeight: CGFloat = 44
     }
     
-    @IBOutlet weak var backgroundView: UIToolbar!
+    @IBOutlet weak var backgroundView: UIVisualEffectView!
     @IBOutlet weak var topAccessoryView: UIStackView!
     @IBOutlet weak var topAccessoryViewHeightLayout: NSLayoutConstraint!
     @IBOutlet weak var appConfigView: UIStackView!
     @IBOutlet weak var appConfigViewHeightLayout: NSLayoutConstraint!
-    @IBOutlet weak var dockView: UIView!
-    @IBOutlet weak var dockViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var dockView: DockView!
     @IBOutlet weak var dockViewHeightLayout: NSLayoutConstraint!
     @IBOutlet weak var appCollectionView: UICollectionView!
     @IBOutlet weak var bottomAccessoryView: UIView!
     
     var delegate: AppDockViewDelegate?
     
-    var items = [AppDockItem]() {
+    var items: [AppDockItem] = [AppDockItem]() {
         didSet {
             layoutDockView()
             
@@ -66,12 +80,19 @@ class AppDockView: CustomView {
     
     var barStyle: UIBarStyle = UIBarStyle.default {
         didSet {
-            backgroundView.barStyle = barStyle
+            switch barStyle {
+            case .black:
+                backgroundView.effect = UIBlurEffect(style: .dark)
+                bottomAccessoryView.backgroundColor = .clear
+            default:
+                backgroundView.effect = UIBlurEffect(style: .light)
+                bottomAccessoryView.backgroundColor = .white
+            }
         }
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIViewNoIntrinsicMetric, height: topAccessoryView.bounds.height + appConfigView.bounds.height + dockView.bounds.height + bottomAccessoryView.bounds.height)
+        return CGSize(width: UIViewNoIntrinsicMetric, height: topAccessoryViewHeightLayout.constant + appConfigViewHeightLayout.constant + dockViewHeightLayout.constant + bottomAccessoryView.bounds.height)
     }
     
     func setAccessoryViewToTop(_ view: UIView?, animated: Bool = true) {
@@ -121,18 +142,6 @@ class AppDockView: CustomView {
         }
     }
     
-    fileprivate func layoutTopAccessoryView() {
-        if topAccessoryView.arrangedSubviews.count == 0 {
-            topAccessoryViewHeightLayout.constant = 0
-        }
-        else {
-            topAccessoryViewHeightLayout.constant = topAccessoryView.arrangedSubviews.map({ max($0.bounds.height, 44) }).reduce(0, +)
-        }
-        
-        layoutIfNeeded()
-        invalidateIntrinsicContentSize()
-    }
-    
     fileprivate func hasAccessoryView(_ view: UIView?) -> Bool {
         guard let view = view else { return false }
         return topAccessoryView.arrangedSubviews.contains(view)
@@ -175,6 +184,27 @@ class AppDockView: CustomView {
         guard let view = view else { return false }
         return appConfigView.arrangedSubviews.contains(view)
     }
+}
+
+extension AppDockView {
+    fileprivate func layoutDockView() {
+        dockViewHeightLayout.constant = items.count > 1 ? AppDockViewConstants.defaultDockHeight : 0
+        
+        dockView.layoutIfNeeded()
+        invalidateIntrinsicContentSize()
+    }
+    
+    fileprivate func layoutTopAccessoryView() {
+        if topAccessoryView.arrangedSubviews.count == 0 {
+            topAccessoryViewHeightLayout.constant = 0
+        }
+        else {
+            topAccessoryViewHeightLayout.constant = topAccessoryView.arrangedSubviews.map({ max($0.bounds.height, 44) }).reduce(0, +)
+        }
+        
+        topAccessoryView.layoutIfNeeded()
+        invalidateIntrinsicContentSize()
+    }
     
     fileprivate func layoutAppConfigView() {
         if appConfigView.arrangedSubviews.count == 0 {
@@ -184,14 +214,7 @@ class AppDockView: CustomView {
             appConfigViewHeightLayout.constant = appConfigView.arrangedSubviews.map({ max($0.bounds.height, 44) }).reduce(0, +)
         }
         
-        layoutIfNeeded()
-        invalidateIntrinsicContentSize()
-    }
-    
-    fileprivate func layoutDockView() {
-        dockViewHeightLayout.constant = items.count > 1 ? AppDockViewConstants.defaultDockHeight : 0
-        
-        layoutIfNeeded()
+        appConfigView.layoutIfNeeded()
         invalidateIntrinsicContentSize()
     }
 }
