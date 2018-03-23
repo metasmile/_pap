@@ -27,12 +27,13 @@ private struct _AppDefaultsCollection {
 
 extension PersistableApp where Self:App{
     public var defaults:AppDefaults? {
-        let appId = type(of: self).info.displayName
-        var _defaults:AppDefaults? = _AppDefaultsCollection.defaults.collection[appId]
+        let defaultsId = "\(String(describing: PersistableApp.self))_\(type(of: self).info.identifier)"
+        var _defaults:AppDefaults? = _AppDefaultsCollection.defaults.collection[defaultsId]
         if _defaults == nil{
-            if let userDefaults = UserDefaults(suiteName: appId){
+            if let userDefaults = UserDefaults(suiteName: defaultsId){
                 _defaults = Defaults(userDefaults: userDefaults)
-                _AppDefaultsCollection.defaults.collection[appId] = _defaults
+                assert(_defaults != nil,"userDefaults id:\(defaultsId) didn't create at \(String(describing: PersistableApp.self))")
+                _AppDefaultsCollection.defaults.collection[defaultsId] = _defaults
             }
         }
         return _defaults
