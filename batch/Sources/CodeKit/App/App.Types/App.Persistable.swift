@@ -7,17 +7,26 @@ import Foundation
 import DefaultsKit
 
 public protocol AppDefaults: DefaultsAutoProperty{
-    var version:String? {set get}
+    var touchedVersion:String? {set get}
 }
 
 public extension AppDefaults where Self:Defaults{
-    public var version: String? {
+    public var touchedVersion: String? {
         set(newValue){ set(newValue) } get{ return get() }
     }
 }
 
+public enum AppPersistedStatus {
+    case unsupported
+
+    case released
+    case updated
+    case used
+}
+
 public protocol PersistableApp{
-    var defaults:AppDefaults? {get}
+    static var defaults:AppDefaults? {get}
+    static var status: AppPersistedStatus {get}
 }
 
 private struct _AppDefaultsCollection {
@@ -26,8 +35,26 @@ private struct _AppDefaultsCollection {
 }
 
 extension PersistableApp where Self:App{
-    public var defaults:AppDefaults? {
-        let defaultsId = "\(String(describing: PersistableApp.self))_\(type(of: self).info.identifier)"
+    public static var status: AppPersistedStatus {
+        let touchedVersion = self.defaults?.touchedVersion
+        if self.info.phase == .release{
+            if touchedVersion == nil{
+                return .released
+            }else if touchedVersion != self.info.version{
+                return .updated
+            }else if touchedVersion == self.info.version{
+                return .used
+            }else{
+                assert(false, "Unusual status for touchedVersion \(touchedVersion)")
+                return .unsupported
+            }
+        }else{
+            return .unsupported
+        }
+    }
+
+    public static var defaults:AppDefaults? {
+        let defaultsId = "\(String(describing: PersistableApp.self))_\(self.info.identifier)"
         var _defaults:AppDefaults? = _AppDefaultsCollection.defaults.collection[defaultsId]
         if _defaults == nil{
             if let userDefaults = UserDefaults(suiteName: defaultsId){

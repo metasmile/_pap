@@ -238,7 +238,14 @@ extension AppDockView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "STAppDockViewCell", for: indexPath) as! AppDockViewCell
-        let iconImage = items[indexPath.item].app.info.icon?.asUIImage ?? R.image.blankAppIcon()
+        let app = items[indexPath.item].app
+        let iconImage = app.info.icon?.asUIImage ?? R.image.blankAppIcon()
+
+        let status = AppCenter.default.persistedStatus(for: app)
+//        .unsupported --> app is not supported PersistableApp, or app.phase == develop/beta mode
+//        .released
+//        .updated
+//        .used
 
         cell.appIconImageView.image = iconImage//iconImage.withRenderingMode(.alwaysTemplate)
         switch barStyle {
