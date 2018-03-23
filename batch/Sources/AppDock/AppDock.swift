@@ -70,6 +70,8 @@ class AppDockView: CustomView {
         setContentHuggingPriority(.defaultLow, for: .vertical)
         setContentCompressionResistancePriority(.required, for: .vertical)
         
+        appCollectionView.contentInset.top = 3
+        appCollectionView.contentInset.bottom = 3
         appCollectionView.register(AppDockViewCell.self, forCellWithReuseIdentifier: "STAppDockViewCell")
     }
     
@@ -257,8 +259,9 @@ extension AppDockView: UICollectionViewDelegate {
 
 extension AppDockView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let squareSize = collectionView.bounds.height
-        return CGSize(width: squareSize, height: squareSize)
+        // 40 x 30 iMessage App Icon Size
+        let contentSize = UIEdgeInsetsInsetRect(collectionView.bounds, collectionView.contentInset).size
+        return CGSize(width: contentSize.height * 1.333, height: contentSize.height)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -273,7 +276,7 @@ extension AppDockView: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 4
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -287,6 +290,7 @@ class AppDockViewCell: CustomCollectionViewCell {
     @IBOutlet weak var selectedStateView: RoundedView!
     
     @IBOutlet weak var appContentView: UIView!
+    @IBOutlet weak var appIconView: RoundedButton!
     @IBOutlet weak var appIconImageView: UIImageView!
     
     override func prepareForReuse() {
@@ -299,5 +303,11 @@ class AppDockViewCell: CustomCollectionViewCell {
         didSet {
             selectedStateView.isHidden = !isSelected
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        appIconView.cornerRadius = appIconView.bounds.height * 0.5
     }
 }

@@ -51,7 +51,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                     <subviews>
                         <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="3j3-5w-cI5">
-                            <rect key="frame" x="0.0" y="4" width="375" height="52"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="i1i-Zp-jUv">
                                 <size key="itemSize" width="50" height="50"/>
@@ -70,8 +70,8 @@
                         <constraint firstItem="3j3-5w-cI5" firstAttribute="leading" secondItem="Ccg-Ud-fcA" secondAttribute="leading" id="2QQ-Em-ggH"/>
                         <constraint firstAttribute="height" constant="60" id="ACb-fT-cyq"/>
                         <constraint firstItem="3j3-5w-cI5" firstAttribute="centerY" secondItem="Ccg-Ud-fcA" secondAttribute="centerY" id="Igd-fv-mF0"/>
-                        <constraint firstAttribute="bottom" secondItem="3j3-5w-cI5" secondAttribute="bottom" priority="750" constant="4" id="fVt-tu-qzS"/>
-                        <constraint firstItem="3j3-5w-cI5" firstAttribute="top" secondItem="Ccg-Ud-fcA" secondAttribute="top" priority="750" constant="4" id="h0d-3M-TGP"/>
+                        <constraint firstAttribute="bottom" secondItem="3j3-5w-cI5" secondAttribute="bottom" priority="750" id="fVt-tu-qzS"/>
+                        <constraint firstItem="3j3-5w-cI5" firstAttribute="top" secondItem="Ccg-Ud-fcA" secondAttribute="top" priority="750" id="h0d-3M-TGP"/>
                         <constraint firstAttribute="trailing" secondItem="3j3-5w-cI5" secondAttribute="trailing" id="kaJ-xo-Do5"/>
                     </constraints>
                 </view>

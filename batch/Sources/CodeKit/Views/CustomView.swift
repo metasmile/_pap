@@ -37,6 +37,7 @@ class RoundedView: DesignableView {
     @IBInspectable
     var cornerRadius: CGFloat = 6 {
         didSet {
+            setNeedsLayout()
             layoutIfNeeded()
         }
     }
