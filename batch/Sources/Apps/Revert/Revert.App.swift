@@ -56,24 +56,8 @@ public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, ItemCol
         return result
     }
 
-    //TODO: in case of async??
-    private var _areItemsEnables = [String:Bool]()
-
-    public func areItemsEnables(for item: PHAssetItem<AppValue>, asyncSignal:inout AsyncSignalable?) -> Bool {
-        let signal = AsyncSignal()
-        asyncSignal = signal
-
-        signal.begin()
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            self._areItemsEnables[item.uuid] = true
-            signal.end()
-        })
-
-        return _areItemsEnables[item.uuid] ?? false
-    }
-
-    public func areItemsEnables(for item: PHAssetItem<AppValue>) -> Bool {
+    public func isItemEnables(for item: PHAssetItem<AppValue>) -> Bool {
+        //for test
         return item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive)
     }
 }

@@ -121,7 +121,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
             , let asset = PHAssets.fetched.asset(at: indexPath)
             , let item = AppAssets.selected.at(unsafeIndex:indexPath.item) ?? AppAssets.selected.create(for:asset) {
 
-            return collectableApp.areItemsEnables(for: item)
+            return collectableApp.isItemEnables(for: item)
         }
 
         return true
@@ -144,7 +144,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         }
     }
 
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectu8uionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         batchPreviewView.removeCollectionViewItem(with: PHAssets.fetched.asset(at: indexPath))
 
         updateSelectedItemsTitle()

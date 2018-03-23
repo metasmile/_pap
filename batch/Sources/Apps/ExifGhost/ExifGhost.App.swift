@@ -32,7 +32,7 @@ public class ExifGhost: App, PHAssetFinalizableApp, ItemCollectableApp, UIContro
         //TODO: PHAssetEditableFinalizableApp.finalize -> fix Error Domain=NSCocoaErrorDomain Code=-1 "(null)"
     }
 
-    public func areItemsEnables(for: PHAssetItem<AppValue>) -> Bool {
+    public func isItemEnables(for: PHAssetItem<AppValue>) -> Bool {
         //TODO: lookup CIImage.properties
         return true
     }
