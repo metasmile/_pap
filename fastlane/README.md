@@ -33,6 +33,11 @@ This will also make sure the profile is up to date
 fastlane ios release
 ```
 Deploy a new version to the App Store
+### ios dn_dsym
+```
+fastlane ios dn_dsym
+```
+
 ### ios refresh_dsyms
 ```
 fastlane ios refresh_dsyms
