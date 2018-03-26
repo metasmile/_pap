@@ -8,6 +8,16 @@
 
 import UIKit
 
+extension UIView {
+    func fitConstraints(to view: UIView) {
+        translatesAutoresizingMaskIntoConstraints = false
+        topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    }
+}
+
 @IBDesignable
 class DesignableView: UIView {
     override init(frame: CGRect) {
@@ -79,11 +89,7 @@ class CustomView: DesignableView {
         guard let view = loadViewFromNib() else { return }
         containerView.addSubview(view)
         
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
-        view.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
-        view.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
-        view.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
+        view.fitConstraints(to: containerView)
         
         contentView = view
     }

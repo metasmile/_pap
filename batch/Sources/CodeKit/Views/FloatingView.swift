@@ -37,11 +37,7 @@ class FloatingView: DesignableView {
         roundedContainerView.cornerRadius = cornerRadius
         addSubview(roundedContainerView)
         
-        roundedContainerView.translatesAutoresizingMaskIntoConstraints = false
-        roundedContainerView.topAnchor.constraint(equalTo: topAnchor, constant: cornerRadius).isActive = true
-        roundedContainerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -cornerRadius).isActive = true
-        roundedContainerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: cornerRadius).isActive = true
-        roundedContainerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -cornerRadius).isActive = true
+        roundedContainerView.fitConstraints(to: self)
         
         borderLayer = CAShapeLayer()
         borderLayer.lineWidth = 1

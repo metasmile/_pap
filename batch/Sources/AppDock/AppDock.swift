@@ -45,9 +45,9 @@ class AppDockView: CustomView {
     }
     
     @IBOutlet weak var backgroundView: UIVisualEffectView!
-    @IBOutlet weak var topAccessoryView: UIStackView!
+    @IBOutlet weak var topAccessoryView: UIView!
     @IBOutlet weak var topAccessoryViewHeightLayout: NSLayoutConstraint!
-    @IBOutlet weak var appConfigView: UIStackView!
+    @IBOutlet weak var appConfigView: UIView!
     @IBOutlet weak var appConfigViewHeightLayout: NSLayoutConstraint!
     @IBOutlet weak var dockView: DockView!
     @IBOutlet weak var dockViewHeightLayout: NSLayoutConstraint!
@@ -86,9 +86,13 @@ class AppDockView: CustomView {
             case .black:
                 backgroundView.effect = UIBlurEffect(style: .dark)
                 bottomAccessoryView.backgroundColor = .clear
+                topAccessoryView.backgroundColor = .clear
+                appConfigView.backgroundColor = .clear
             default:
                 backgroundView.effect = UIBlurEffect(style: .light)
                 bottomAccessoryView.backgroundColor = .white
+                topAccessoryView.backgroundColor = .white
+                appConfigView.backgroundColor = .white
             }
         }
     }
@@ -97,17 +101,14 @@ class AppDockView: CustomView {
         return CGSize(width: UIViewNoIntrinsicMetric, height: topAccessoryViewHeightLayout.constant + appConfigViewHeightLayout.constant + dockViewHeightLayout.constant + bottomAccessoryView.bounds.height)
     }
     
-    func setAccessoryViewToTop(_ view: UIView?, animated: Bool = true) {
-        guard !hasAccessoryView(view) else { return }
-        removeAllAccessoryViewsOnTop(animated: animated)
-        addAccessoryViewToTop(view, animated: animated)
-    }
-    
-    func addAccessoryViewToTop(_ view: UIView?, animated: Bool = true) {
-        guard !hasAccessoryView(view) else { return }
-        if let view = view {
-            topAccessoryView.insertArrangedSubview(view, at: 0)
-        }
+    func setTopAccessoryView(_ view: UIView?, animated: Bool = true) {
+        guard !hasTopAccessoryView(view) else { return }
+        removeAllTopAccessoryViews()
+        
+        guard let view = view else { return }
+        
+        topAccessoryView.addSubview(view)
+        view.fitConstraints(to: topAccessoryView)
         
         layoutTopAccessoryView()
         
@@ -118,22 +119,10 @@ class AppDockView: CustomView {
         }
     }
     
-    func removeAccessoryViewsOnTop(_ view: UIView, animated: Bool = true) {
-        guard hasAccessoryView(view) else { return }
+    func removeTopAccessoryView(_ view: UIView, animated: Bool = true) {
+        guard hasTopAccessoryView(view) else { return }
         
-        topAccessoryView.removeArrangedSubview(view)
-        
-        layoutTopAccessoryView()
-        
-        if animated {
-            UIView.animate(withDuration: 0.2, animations: {
-                self.superview?.layoutIfNeeded()
-            })
-        }
-    }
-    
-    func removeAllAccessoryViewsOnTop(animated: Bool = true) {
-        topAccessoryView.arrangedSubviews.forEach({ topAccessoryView.removeArrangedSubview($0) })
+        view.removeFromSuperview()
         
         layoutTopAccessoryView()
         
@@ -144,19 +133,26 @@ class AppDockView: CustomView {
         }
     }
     
-    fileprivate func hasAccessoryView(_ view: UIView?) -> Bool {
+    private func removeAllTopAccessoryViews() {
+        topAccessoryView.subviews.forEach({ $0.removeFromSuperview() })
+        
+        layoutTopAccessoryView()
+    }
+    
+    fileprivate func hasTopAccessoryView(_ view: UIView?) -> Bool {
         guard let view = view else { return false }
-        return topAccessoryView.arrangedSubviews.contains(view)
+        return topAccessoryView.subviews.contains(view)
     }
     
     func setAppConfigView(_ view: UIView?, animated: Bool = true) {
         guard !hasAppConfigView(view) else { return }
-        appConfigView.arrangedSubviews.forEach({ appConfigView.removeArrangedSubview($0) })
-        addAppConfigView(view, animated: animated)
-    }
-    
-    func removeAllAppConfigViews(animated: Bool = true) {
-        appConfigView.arrangedSubviews.forEach({ appConfigView.removeArrangedSubview($0) })
+        appConfigView.subviews.forEach({ $0.removeFromSuperview() })
+        if let view = view {
+            view.frame = CGRect(origin: .zero, size: CGSize(width: bounds.width, height: 44))
+            appConfigView.addSubview(view)
+            
+            view.fitConstraints(to: appConfigView)
+        }
         
         layoutAppConfigView()
         
@@ -167,11 +163,8 @@ class AppDockView: CustomView {
         }
     }
     
-    func addAppConfigView(_ view: UIView?, animated: Bool = true) {
-        guard !hasAppConfigView(view) else { return }
-        if let view = view {
-            appConfigView.insertArrangedSubview(view, at: 0)
-        }
+    func removeAllAppConfigViews(animated: Bool = true) {
+        appConfigView.subviews.forEach({ $0.removeFromSuperview() })
         
         layoutAppConfigView()
         
@@ -184,7 +177,7 @@ class AppDockView: CustomView {
     
     fileprivate func hasAppConfigView(_ view: UIView?) -> Bool {
         guard let view = view else { return false }
-        return appConfigView.arrangedSubviews.contains(view)
+        return appConfigView.subviews.contains(view)
     }
 }
 
@@ -197,11 +190,11 @@ extension AppDockView {
     }
     
     fileprivate func layoutTopAccessoryView() {
-        if topAccessoryView.arrangedSubviews.count == 0 {
+        if topAccessoryView.subviews.count == 0 {
             topAccessoryViewHeightLayout.constant = 0
         }
         else {
-            topAccessoryViewHeightLayout.constant = topAccessoryView.arrangedSubviews.map({ max($0.bounds.height, 44) }).reduce(0, +)
+            topAccessoryViewHeightLayout.constant = topAccessoryView.subviews.map({ max($0.bounds.height, 44) }).reduce(0, +)
         }
         
         topAccessoryView.layoutIfNeeded()
@@ -209,11 +202,11 @@ extension AppDockView {
     }
     
     fileprivate func layoutAppConfigView() {
-        if appConfigView.arrangedSubviews.count == 0 {
+        if appConfigView.subviews.count == 0 {
             appConfigViewHeightLayout.constant = 0
         }
         else {
-            appConfigViewHeightLayout.constant = appConfigView.arrangedSubviews.map({ max($0.bounds.height, 44) }).reduce(0, +)
+            appConfigViewHeightLayout.constant = appConfigView.subviews.map({ max($0.bounds.height, 44) }).reduce(0, +)
         }
         
         appConfigView.layoutIfNeeded()

@@ -26,12 +26,8 @@ class PhotoPickerFooterView: UICollectionReusableView {
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textAlignment = .center
         addSubview(label)
-
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        label.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        label.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        label.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        
+        label.fitConstraints(to: self)
     }
 
     var text: String? {
