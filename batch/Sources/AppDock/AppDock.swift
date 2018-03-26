@@ -51,8 +51,11 @@ class AppDockView: CustomView {
     }
     
     var hasDrawer: Bool {
-        return (appConfigView.subviews.count > 0 && items.count > 1)
+        return (appConfigView.subviews.count > 0 && items.count > 1) || (topAccessoryView.subviews.count > 0)
     }
+    
+    fileprivate var beginDrawerOffset: CGFloat = 0
+    fileprivate var beginAppConfigViewOffset: CGFloat = 0
     
     override func initialize() {
         super.initialize()
@@ -65,6 +68,10 @@ class AppDockView: CustomView {
         appCollectionView.register(AppDockViewCell.self, forCellWithReuseIdentifier: "STAppDockViewCell")
         
         drawerView.topMargin = AppDockViewConstants.drawerTopMargin
+        
+        let panGestuer = UIPanGestureRecognizer(target: self, action: #selector(self.panGestureDidRecognize))
+        panGestuer.delegate = self
+        addGestureRecognizer(panGestuer)
     }
     
     func reloadAppDock() {
@@ -107,9 +114,7 @@ class AppDockView: CustomView {
         layoutTopAccessoryView()
         
         if animated {
-            UIView.animate(withDuration: 0.2, animations: {
-                self.superview?.layoutIfNeeded()
-            })
+            animateUsingSpringIfLayoutConstraintsChanged()
         }
     }
     
@@ -121,9 +126,7 @@ class AppDockView: CustomView {
         layoutTopAccessoryView()
         
         if animated {
-            UIView.animate(withDuration: 0.2, animations: {
-                self.superview?.layoutIfNeeded()
-            })
+            animateUsingSpringIfLayoutConstraintsChanged()
         }
     }
     
@@ -151,9 +154,7 @@ class AppDockView: CustomView {
         layoutAppConfigView()
         
         if animated {
-            UIView.animate(withDuration: 0.2, animations: {
-                self.superview?.layoutIfNeeded()
-            })
+            animateUsingSpringIfLayoutConstraintsChanged()
         }
     }
     
@@ -163,9 +164,7 @@ class AppDockView: CustomView {
         layoutAppConfigView()
         
         if animated {
-            UIView.animate(withDuration: 0.2, animations: {
-                self.superview?.layoutIfNeeded()
-            })
+            animateUsingSpringIfLayoutConstraintsChanged()
         }
     }
     
@@ -209,12 +208,7 @@ extension AppDockView {
     }
     
     fileprivate func layoutAppConfigView() {
-        if appConfigView.subviews.count == 0 {
-            appConfigViewHeightLayout.constant = 0
-        }
-        else {
-            appConfigViewHeightLayout.constant = appConfigView.subviews.map({ max($0.bounds.height, 44) }).reduce(0, +)
-        }
+        appConfigViewHeightLayout.constant = appConfigView.subviews.count == 0 ? 0 : appConfigView.subviews.map({ max($0.bounds.height, 44) }).reduce(0, +)
         
         appConfigView.layoutIfNeeded()
         layoutDrawerView()
@@ -293,6 +287,73 @@ extension AppDockView: UICollectionViewDelegateFlowLayout {
     }
 }
 
+extension AppDockView: UIGestureRecognizerDelegate {
+    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return hasDrawer
+    }
+    
+    @objc func panGestureDidRecognize(sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: self)
+        switch sender.state {
+        case .began:
+            beginDrawerOffset = drawerViewHeightLayout.constant
+            beginAppConfigViewOffset = appConfigViewHeightLayout.constant
+            break
+        case .changed:
+            drawerViewHeightLayout.constant = min(44, max(20, beginDrawerOffset - translation.y))
+            
+            let appConfigViewHeight: CGFloat = appConfigView.subviews.count == 0 ? 0 : 44
+            appConfigViewHeightLayout.constant = max(appConfigViewHeight, beginAppConfigViewOffset - translation.y)
+            
+            drawerView.layoutIfNeeded()
+            drawerView.setNeedsDisplay()
+            invalidateIntrinsicContentSize()
+            
+            if drawerView.isOpened && beginDrawerOffset - translation.y < 0 {
+                closeDrawer()
+                sender.isEnabled = false
+                sender.isEnabled = true
+            }
+            else if !drawerView.isOpened && beginDrawerOffset - translation.y > 44 * 2 {
+                openDrawer()
+                sender.isEnabled = false
+                sender.isEnabled = true
+            }
+        default:
+            if sender.velocity(in: self).y < 0 {
+                openDrawer()
+            }
+            else {
+                closeDrawer()
+            }
+            drawerView.layoutIfNeeded()
+            drawerView.setNeedsDisplay()
+            invalidateIntrinsicContentSize()
+            
+            animateUsingSpringIfLayoutConstraintsChanged()
+        }
+    }
+    
+    func openDrawer() {
+        drawerView.isOpened = true
+        
+        drawerViewHeightLayout.constant = 44
+        
+        appConfigViewHeightLayout.constant = UIScreen.main.bounds.height / 2
+        
+        animateUsingSpringIfLayoutConstraintsChanged()
+    }
+    
+    func closeDrawer() {
+        drawerView.isOpened = false
+        
+        drawerViewHeightLayout.constant = 20
+        
+        appConfigViewHeightLayout.constant = appConfigView.subviews.count == 0 ? 0 : 44
+        animateUsingSpringIfLayoutConstraintsChanged()
+    }
+}
+
 // MARK: -
 
 class AppDockViewCell: CustomCollectionViewCell {
@@ -354,8 +415,8 @@ internal class DrawerView: DesignableView {
         let drawerShapeLayerSize = CGSize(width: 36, height: 4)
         
         drawerClosedShapePath = UIBezierPath()
-        drawerClosedShapePath.move(to: .zero)
-        drawerClosedShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width, y: 0))
+        drawerClosedShapePath.move(to: CGPoint(x: 0, y: topMargin - 1))
+        drawerClosedShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width, y: topMargin - 1))
         
         drawerShapeLayer = CAShapeLayer()
         drawerShapeLayer.frame.size = drawerShapeLayerSize
@@ -378,7 +439,7 @@ internal class DrawerView: DesignableView {
         
         ctx?.setBlendMode(.normal)
         ctx?.setFillColor(UIColor.white.cgColor)
-        ctx?.setShadow(offset: CGSize(width: 0, height: -topMargin / 4), blur: topMargin, color: UIColor.black.withAlphaComponent(0.2).cgColor)
+        ctx?.setShadow(offset: .zero, blur: topMargin, color: UIColor.black.withAlphaComponent(0.2).cgColor)
         
         ctx?.addPath(roundedRectPath.cgPath)
         ctx?.fillPath()
@@ -387,6 +448,8 @@ internal class DrawerView: DesignableView {
         
         ctx?.setLineWidth(0.5)
         ctx?.setStrokeColor(UIColor(red: 213 / 255.0, green: 212 / 255.0, blue: 213 / 255.0, alpha: 1).cgColor)
+        ctx?.move(to: CGPoint(x: cornerRadius, y: topMargin))
+        ctx?.addLine(to: CGPoint(x: rect.width - cornerRadius, y: topMargin))
         ctx?.move(to: CGPoint(x: 0, y: rect.height))
         ctx?.addLine(to: CGPoint(x: rect.width, y: rect.height))
         ctx?.strokePath()
@@ -395,6 +458,10 @@ internal class DrawerView: DesignableView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        drawerShapeLayer.position = CGPoint(x: center.x, y: center.y + topMargin - 0.5)
+        CATransaction.setDisableActions(true)
+        drawerShapeLayer.position = center
+        CATransaction.setDisableActions(false)
     }
+    
+    var isOpened = false
 }
