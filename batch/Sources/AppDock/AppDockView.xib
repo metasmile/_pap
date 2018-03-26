@@ -37,7 +37,7 @@
                     </view>
                     <blurEffect style="light"/>
                 </visualEffectView>
-                <view opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eoy-3D-8zG" customClass="DrawerView" customModule="batch" customModuleProvider="target">
+                <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eoy-3D-8zG" customClass="DrawerView" customModule="batch" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
                     <constraints>
                         <constraint firstAttribute="height" id="oFG-xd-IUR"/>

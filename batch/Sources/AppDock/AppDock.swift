@@ -25,6 +25,7 @@ protocol AppDockViewDelegate {
 class AppDockView: CustomView {
     private struct AppDockViewConstants {
         static let defaultDockHeight: CGFloat = 44
+        static let drawerTopMargin: CGFloat = 5
     }
     
     @IBOutlet weak var backgroundView: UIVisualEffectView!
@@ -49,6 +50,10 @@ class AppDockView: CustomView {
         }
     }
     
+    var hasDrawer: Bool {
+        return (appConfigView.subviews.count > 0 && items.count > 1)
+    }
+    
     override func initialize() {
         super.initialize()
         
@@ -58,6 +63,8 @@ class AppDockView: CustomView {
         appCollectionView.contentInset.top = 3
         appCollectionView.contentInset.bottom = 3
         appCollectionView.register(AppDockViewCell.self, forCellWithReuseIdentifier: "STAppDockViewCell")
+        
+        drawerView.topMargin = AppDockViewConstants.drawerTopMargin
     }
     
     func reloadAppDock() {
@@ -170,7 +177,7 @@ class AppDockView: CustomView {
 
 extension AppDockView {
     fileprivate func layoutDrawerView() {
-        drawerViewHeightLayout.constant = (appConfigView.subviews.count > 0 && items.count > 1) ? 20 : 0
+        drawerViewHeightLayout.constant = hasDrawer ? 20 : 0
         
         drawerView.layoutIfNeeded()
         invalidateIntrinsicContentSize()
@@ -333,12 +340,36 @@ internal class DockView: UIView {
 
 // MARK: - Drawer View
 
-internal class DrawerView: UIView {
+internal class DrawerView: DesignableView {
+    var topMargin: CGFloat = 5
+    
+    // 108 x 14
+    private var drawerShapeLayer: CAShapeLayer!
+    private var drawerClosedShapePath: UIBezierPath!
+    private var drawerOpenedShapePath: UIBezierPath!
+    
+    override func initialize() {
+        super.initialize()
+        
+        let drawerShapeLayerSize = CGSize(width: 36, height: 4)
+        
+        drawerClosedShapePath = UIBezierPath()
+        drawerClosedShapePath.move(to: .zero)
+        drawerClosedShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width, y: 0))
+        
+        drawerShapeLayer = CAShapeLayer()
+        drawerShapeLayer.frame.size = drawerShapeLayerSize
+        drawerShapeLayer.path = drawerClosedShapePath.cgPath
+        drawerShapeLayer.strokeColor = UIColor(red: 199 / 255.0, green: 199 / 255.0, blue: 203 / 255.0, alpha: 1).cgColor
+        drawerShapeLayer.lineWidth = drawerShapeLayerSize.height
+        drawerShapeLayer.lineCap = kCALineCapRound
+        layer.addSublayer(drawerShapeLayer)
+    }
+    
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         
-        let topMargin: CGFloat = 5
-        let cornerRadius: CGFloat = 5
+        let cornerRadius: CGFloat = topMargin
         
         let roundedRectPath = UIBezierPath(roundedRect: CGRect(x: 0, y: topMargin, width: rect.width, height: rect.height - topMargin), byRoundingCorners: [UIRectCorner.topLeft, UIRectCorner.topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
         
@@ -359,5 +390,11 @@ internal class DrawerView: UIView {
         ctx?.move(to: CGPoint(x: 0, y: rect.height))
         ctx?.addLine(to: CGPoint(x: rect.width, y: rect.height))
         ctx?.strokePath()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        drawerShapeLayer.position = CGPoint(x: center.x, y: center.y + topMargin - 0.5)
     }
 }
