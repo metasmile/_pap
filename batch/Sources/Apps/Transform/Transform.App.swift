@@ -9,7 +9,7 @@ import Photos
 import UIKit
 import MobileCoreServices
 import Crashlytics
-
+import DefaultsKit
 
 public class TransformAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrributeValuable, AppConfigAdoptableValuable {
     @objc dynamic
@@ -31,7 +31,7 @@ public class TransformAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrribu
 
 class _TransformAppAsset: PHAssetItem<AppValue> {}
 
-public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _ConfigurableApp, UIControllableApp, PHAssetFinalizableApp {
+public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _ConfigurableApp, UIControllableApp, PHAssetFinalizableApp, PersistableApp {
     public static let taskType:Taskable.Type = _TransfromAppTask.self
 
     public static let paramType:TaskParamable.Type = _TransformAppAsset.self

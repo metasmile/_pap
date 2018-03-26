@@ -33,6 +33,32 @@ class batchTests: XCTestCase {
             XCTAssertTrue(option == .create || option == .delete)
         }
     }
+
+    func test_appDomainedDefaults(){
+
+        let testVersion = "test version"
+        AppCenter.default.current = TransformApp.self
+
+        var appDefaults = (AppCenter.default.current as? PersistableApp.Type)?.defaults
+
+        //instance
+        XCTAssertNotNil(appDefaults)
+        XCTAssertNotNil(appDefaults as? TransformAppDefaults)
+
+        //setter test
+        appDefaults?.touchedVersion = testVersion
+        XCTAssertTrue((appDefaults as? TransformAppDefaults)?.touchedVersion == testVersion)
+        if let tapp = appDefaults as? TransformAppDefaults{
+            var _tapp = tapp
+            _tapp.transform = 1
+        }
+        XCTAssertTrue((appDefaults as? TransformAppDefaults)?.transform == 1)
+
+        //sandboxing
+        AppCenter.default.current = RevertApp.self
+        var appDefaults2 = (AppCenter.default.current as? PersistableApp.Type)?.defaults
+        XCTAssertNotNil(appDefaults2)
+    }
 }
 
 

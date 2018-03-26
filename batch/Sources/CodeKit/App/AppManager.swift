@@ -70,6 +70,9 @@ open class AppManager: NSObject, SelectableCollection {
             getInstance(current, as:AppManagerDelegatableApp.self)?.didSetCurrent(previous:previous)
             getInstance(previous, as:AppManagerDelegatableApp.self)?.didSetPrevious(current:current)
 
+            var defaultsOfCurrent = (current as? PersistableApp.Type)?.defaults
+            defaultsOfCurrent?.touchedVersion = current?.info.version
+
             if let previous = self.previous, previous.info.policy.lifeCycleUnit != AppLifecycleUnit.permanent{
                 AppLifecycleManager.shared.discard(previous.info)
             }
@@ -118,6 +121,10 @@ open class AppManager: NSObject, SelectableCollection {
 
             return false
         }
+    }
+
+    public func persistedStatus(for app:App.Type) -> AppPersistedStatus {
+        return (app as? PersistableApp.Type)?.status ?? .unsupported
     }
 
     // Task

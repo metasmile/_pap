@@ -8,5 +8,5 @@ import Foundation
 public protocol ItemCollectableApp: App {
 //    var asyncSignal:Dictionary<String, AsyncControllableSignable & AsyncSignalable>? {get}
 
-    func areItemsEnables(for:PHAssetItem<AppValue>) -> Bool
+    func isItemEnables(for:PHAssetItem<AppValue>) -> Bool
 }
