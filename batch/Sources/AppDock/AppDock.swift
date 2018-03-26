@@ -22,29 +22,14 @@ protocol AppDockViewDelegate {
     func appDockView(_ view: AppDockView, didSelectItemWith item: AppDockItem)
 }
 
-// MARK: -
-
-internal class DockView: UIView {
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        
-        let ctx = UIGraphicsGetCurrentContext()
-        ctx?.setLineWidth(0.5)
-        ctx?.setStrokeColor(UIColor(red: 204 / 255.0, green: 203 / 255.0, blue: 203 / 255.0, alpha: 1).cgColor)
-        ctx?.move(to: .zero)
-        ctx?.addLine(to: CGPoint(x: rect.width, y: 0))
-        ctx?.move(to: CGPoint(x: 0, y: rect.height))
-        ctx?.addLine(to: CGPoint(x: rect.width, y: rect.height))
-        ctx?.strokePath()
-    }
-}
-
 class AppDockView: CustomView {
     private struct AppDockViewConstants {
         static let defaultDockHeight: CGFloat = 44
     }
     
     @IBOutlet weak var backgroundView: UIVisualEffectView!
+    @IBOutlet weak var drawerView: DrawerView!
+    @IBOutlet weak var drawerViewHeightLayout: NSLayoutConstraint!
     @IBOutlet weak var topAccessoryView: UIView!
     @IBOutlet weak var topAccessoryViewHeightLayout: NSLayoutConstraint!
     @IBOutlet weak var appConfigView: UIView!
@@ -85,11 +70,13 @@ class AppDockView: CustomView {
             switch barStyle {
             case .black:
                 backgroundView.effect = UIBlurEffect(style: .dark)
+                backgroundView.isHidden = false
                 bottomAccessoryView.backgroundColor = .clear
                 topAccessoryView.backgroundColor = .clear
                 appConfigView.backgroundColor = .clear
             default:
                 backgroundView.effect = UIBlurEffect(style: .light)
+                backgroundView.isHidden = true
                 bottomAccessoryView.backgroundColor = .white
                 topAccessoryView.backgroundColor = .white
                 appConfigView.backgroundColor = .white
@@ -98,7 +85,7 @@ class AppDockView: CustomView {
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIViewNoIntrinsicMetric, height: topAccessoryViewHeightLayout.constant + appConfigViewHeightLayout.constant + dockViewHeightLayout.constant + bottomAccessoryView.bounds.height)
+        return CGSize(width: UIViewNoIntrinsicMetric, height: drawerViewHeightLayout.constant + topAccessoryViewHeightLayout.constant + appConfigViewHeightLayout.constant + dockViewHeightLayout.constant + bottomAccessoryView.bounds.height)
     }
     
     func setTopAccessoryView(_ view: UIView?, animated: Bool = true) {
@@ -182,6 +169,17 @@ class AppDockView: CustomView {
 }
 
 extension AppDockView {
+    fileprivate func layoutDrawerView() {
+        drawerViewHeightLayout.constant = (appConfigView.subviews.count > 0 && items.count > 1) ? 20 : 0
+        
+        drawerView.layoutIfNeeded()
+        invalidateIntrinsicContentSize()
+        
+        drawerView.setNeedsDisplay()
+    }
+}
+
+extension AppDockView {
     fileprivate func layoutDockView() {
         dockViewHeightLayout.constant = items.count > 1 ? AppDockViewConstants.defaultDockHeight : 0
         
@@ -198,6 +196,8 @@ extension AppDockView {
         }
         
         topAccessoryView.layoutIfNeeded()
+        layoutDrawerView()
+        
         invalidateIntrinsicContentSize()
     }
     
@@ -210,6 +210,8 @@ extension AppDockView {
         }
         
         appConfigView.layoutIfNeeded()
+        layoutDrawerView()
+        
         invalidateIntrinsicContentSize()
     }
 }
@@ -309,5 +311,53 @@ class AppDockViewCell: CustomCollectionViewCell {
         super.layoutSubviews()
         
         appIconView.cornerRadius = appIconView.bounds.height * 0.5
+    }
+}
+
+// MARK: -
+
+internal class DockView: UIView {
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        
+        let ctx = UIGraphicsGetCurrentContext()
+        ctx?.setLineWidth(0.5)
+        ctx?.setStrokeColor(UIColor(red: 204 / 255.0, green: 203 / 255.0, blue: 203 / 255.0, alpha: 1).cgColor)
+        ctx?.move(to: .zero)
+        ctx?.addLine(to: CGPoint(x: rect.width, y: 0))
+        ctx?.move(to: CGPoint(x: 0, y: rect.height))
+        ctx?.addLine(to: CGPoint(x: rect.width, y: rect.height))
+        ctx?.strokePath()
+    }
+}
+
+// MARK: - Drawer View
+
+internal class DrawerView: UIView {
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        
+        let topMargin: CGFloat = 5
+        let cornerRadius: CGFloat = 5
+        
+        let roundedRectPath = UIBezierPath(roundedRect: CGRect(x: 0, y: topMargin, width: rect.width, height: rect.height - topMargin), byRoundingCorners: [UIRectCorner.topLeft, UIRectCorner.topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+        
+        let ctx = UIGraphicsGetCurrentContext()
+        ctx?.saveGState()
+        
+        ctx?.setBlendMode(.normal)
+        ctx?.setFillColor(UIColor.white.cgColor)
+        ctx?.setShadow(offset: CGSize(width: 0, height: -topMargin / 4), blur: topMargin, color: UIColor.black.withAlphaComponent(0.2).cgColor)
+        
+        ctx?.addPath(roundedRectPath.cgPath)
+        ctx?.fillPath()
+        
+        ctx?.restoreGState()
+        
+        ctx?.setLineWidth(0.5)
+        ctx?.setStrokeColor(UIColor(red: 213 / 255.0, green: 212 / 255.0, blue: 213 / 255.0, alpha: 1).cgColor)
+        ctx?.move(to: CGPoint(x: 0, y: rect.height))
+        ctx?.addLine(to: CGPoint(x: rect.width, y: rect.height))
+        ctx?.strokePath()
     }
 }

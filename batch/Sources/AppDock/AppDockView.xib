@@ -19,6 +19,8 @@
                 <outlet property="bottomAccessoryView" destination="8u0-vY-4kx" id="HQE-Yx-Vg6"/>
                 <outlet property="dockView" destination="Ccg-Ud-fcA" id="6fC-r6-sQp"/>
                 <outlet property="dockViewHeightLayout" destination="ACb-fT-cyq" id="El0-Z7-dUI"/>
+                <outlet property="drawerView" destination="Eoy-3D-8zG" id="6xI-RR-Gyg"/>
+                <outlet property="drawerViewHeightLayout" destination="oFG-xd-IUR" id="SHe-lp-M9S"/>
                 <outlet property="topAccessoryView" destination="jmY-6N-1EF" id="TRw-4Y-ngP"/>
                 <outlet property="topAccessoryViewHeightLayout" destination="ran-Qe-CRr" id="ujT-nq-t2Y"/>
             </connections>
@@ -27,7 +29,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R8A-zg-5jJ">
+                <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R8A-zg-5jJ">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="PZE-cx-cpM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -35,14 +37,20 @@
                     </view>
                     <blurEffect style="light"/>
                 </visualEffectView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jmY-6N-1EF">
+                <view opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eoy-3D-8zG" customClass="DrawerView" customModule="batch" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                    <constraints>
+                        <constraint firstAttribute="height" id="oFG-xd-IUR"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmY-6N-1EF">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" id="ran-Qe-CRr"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nsh-j1-0eF">
+                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nsh-j1-0eF">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -89,8 +97,9 @@
                 <constraint firstAttribute="trailing" secondItem="Ccg-Ud-fcA" secondAttribute="trailing" id="BhW-Bt-vAZ"/>
                 <constraint firstItem="Ccg-Ud-fcA" firstAttribute="bottom" secondItem="6bG-Xh-UqJ" secondAttribute="bottom" id="FOT-7M-nDF"/>
                 <constraint firstItem="Nsh-j1-0eF" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="Hy3-Fs-T7o"/>
-                <constraint firstItem="jmY-6N-1EF" firstAttribute="top" secondItem="NdN-JT-aJa" secondAttribute="top" priority="750" id="L0c-lH-3f0"/>
+                <constraint firstItem="jmY-6N-1EF" firstAttribute="top" secondItem="Eoy-3D-8zG" secondAttribute="bottom" priority="750" id="L0c-lH-3f0"/>
                 <constraint firstAttribute="trailing" secondItem="8u0-vY-4kx" secondAttribute="trailing" id="Nf5-Op-bg2"/>
+                <constraint firstAttribute="trailing" secondItem="Eoy-3D-8zG" secondAttribute="trailing" id="NoP-V5-fUv"/>
                 <constraint firstAttribute="bottom" secondItem="R8A-zg-5jJ" secondAttribute="bottom" id="TMG-lu-fUW"/>
                 <constraint firstItem="R8A-zg-5jJ" firstAttribute="top" secondItem="NdN-JT-aJa" secondAttribute="top" id="Tbe-lH-Jnz"/>
                 <constraint firstItem="8u0-vY-4kx" firstAttribute="top" secondItem="Ccg-Ud-fcA" secondAttribute="bottom" id="TpO-nP-D6I"/>
@@ -100,6 +109,8 @@
                 <constraint firstItem="R8A-zg-5jJ" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="eJk-c0-AJ1"/>
                 <constraint firstItem="jmY-6N-1EF" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="jOx-Fi-0iV"/>
                 <constraint firstAttribute="trailing" secondItem="Nsh-j1-0eF" secondAttribute="trailing" id="lql-rQ-8LD"/>
+                <constraint firstItem="Eoy-3D-8zG" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="q22-5M-2x1"/>
+                <constraint firstItem="Eoy-3D-8zG" firstAttribute="top" secondItem="NdN-JT-aJa" secondAttribute="top" id="q7O-Rb-eMw"/>
                 <constraint firstItem="8u0-vY-4kx" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="qUL-xU-QJP"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
