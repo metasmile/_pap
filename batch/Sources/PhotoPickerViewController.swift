@@ -277,13 +277,15 @@ class PhotoPickerViewController: AppDockViewController {
         self.photoCollectionView.performBatchUpdates({
             for (section, fetchResult) in fetchEnumeratedResults {
                 if let changes = changeInstance.changeDetails(for: fetchResult) {
-                    // Keep the new fetch result for future use.
+
+                    // Update data collection before items updated
                     if false == PHAssets.fetched.update(result: changes.fetchResultAfterChanges, at: section){
+                        assert(false, "section is changed but didn't collected.")
                         continue
                     }
 
+                    // Reload the collection view if incremental diffs are not available.
                     if false == (changes.hasIncrementalChanges || changes.hasMoves) {
-                        // Reload the collection view if incremental diffs are not available.
                         self.photoCollectionView.reloadData()
                         continue
                     }
@@ -292,6 +294,10 @@ class PhotoPickerViewController: AppDockViewController {
                     // For indexes to make sense, updates must be in this order:
                     // delete, insert, reload, move
                     if let removed = changes.removedIndexes, removed.count > 0 {
+                        //delete preview items before items are deleted
+                        for removedAsset in changes.removedObjects{
+                            self.batchPreviewView.removeCollectionViewItem(with: removedAsset)
+                        }
                         self.photoCollectionView.deleteItems(at: removed.map { IndexPath(item: $0, section:section) })
                     }
                     if let inserted = changes.insertedIndexes, inserted.count > 0 {
