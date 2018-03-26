@@ -135,22 +135,7 @@ class PhotoPickerViewController: AppDockViewController {
         let generator = UIImpactFeedbackGenerator(style: .medium)
         generator.impactOccurred()
 
-        if AppCenter.default.isAppRunning {
-            batchPreviewView.cancelBatchProcessing()
-        }
-        else {
-            if AppAssets.selected.hasChanges {
-                let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-                alert.addAction(UIAlertAction(title: "Discard Changes".localized, style: .destructive, handler: { (action) in
-                    self.cancelAllSelection()
-                }))
-                alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
-                present(alert, animated: true, completion: nil)
-            }
-            else {
-                cancelAllSelection()
-            }
-        }
+        cancelAllInCurrentContext()
     }
     
     override func doneButtonDidTap(sender: Any) {
@@ -272,47 +257,81 @@ class PhotoPickerViewController: AppDockViewController {
     private func photoLibraryDidChange(_ changeInstance: PHChange) {
         //TODO - confirm: https://fabric.io/jessi/ios/apps/com.stells.batch/issues/5ab6b90e8cb3c2fa63db6d25?time=last-seven-days
         guard let fetchResults = PHAssets.fetched.results else { return }
-        let fetchEnumeratedResults = fetchResults.enumerated()
 
+        let fetchResultChanges = fetchResults.enumerated().flatMap { results -> (Int, PHFetchResultChangeDetails<PHAsset>)? in
+            let (section, result) = results
+            if let details = changeInstance.changeDetails(for: result){
+                return (section, details)
+            }
+            return nil
+        }
+
+        /*
+            Handle Tasks while batch performing
+        */
+        let removedAssets = fetchResultChanges.flatMap { (_, changes) in changes.removedObjects}.reduce([],+)
+        let tasksAreSuspended = AppCenter.default.isAppRunning && removedAssets.count > 0
+        if tasksAreSuspended {
+            AppCenter.default.task.suspend()
+
+            for removedAsset in removedAssets{
+                //delete task item
+                if let appTaskItem = AppCenter.default.task.currentTaskItems.first(where:{ item in
+                    (item.request.param as? AppAsset)?.asset.localIdentifier==removedAsset.localIdentifier
+                }){
+                    if appTaskItem.info.state == .idling{
+                        AppCenter.default.task.remove(request: appTaskItem.request)
+                    }
+                }
+
+                self.batchPreviewView.removeCollectionViewItem(with: removedAsset)
+            }
+        }
+
+        /*
+            remove preview items
+        */
+        for removedAsset in removedAssets{
+            self.batchPreviewView.removeCollectionViewItem(with: removedAsset)
+        }
+
+        //perform batch update
         self.photoCollectionView.performBatchUpdates({
-            for (section, fetchResult) in fetchEnumeratedResults {
-                if let changes = changeInstance.changeDetails(for: fetchResult) {
+            for (section, changes) in fetchResultChanges {
+                // Update data collection before items updated
+                if false == PHAssets.fetched.update(result: changes.fetchResultAfterChanges, at: section){
+                    assert(false, "section is changed but didn't collected.")
+                    continue
+                }
 
-                    // Update data collection before items updated
-                    if false == PHAssets.fetched.update(result: changes.fetchResultAfterChanges, at: section){
-                        assert(false, "section is changed but didn't collected.")
-                        continue
-                    }
+                // Reload the collection view if incremental diffs are not available.
+                if false == (changes.hasIncrementalChanges || changes.hasMoves) {
+                    self.photoCollectionView.reloadData()
+                    continue
+                }
 
-                    // Reload the collection view if incremental diffs are not available.
-                    if false == (changes.hasIncrementalChanges || changes.hasMoves) {
-                        self.photoCollectionView.reloadData()
-                        continue
-                    }
-
-                    // If there are incremental diffs, animate them in the collection view.
-                    // For indexes to make sense, updates must be in this order:
-                    // delete, insert, reload, move
-                    if let removed = changes.removedIndexes, removed.count > 0 {
-                        //delete preview items before items are deleted
-                        for removedAsset in changes.removedObjects{
-                            self.batchPreviewView.removeCollectionViewItem(with: removedAsset)
-                        }
-                        self.photoCollectionView.deleteItems(at: removed.map { IndexPath(item: $0, section:section) })
-                    }
-                    if let inserted = changes.insertedIndexes, inserted.count > 0 {
-                        self.photoCollectionView.insertItems(at: inserted.map { IndexPath(item: $0, section:section) })
-                    }
-                    if let changed = changes.changedIndexes, changed.count > 0 {
-                        self.photoCollectionView.reloadItems(at: changed.map { IndexPath(item: $0, section:section) })
-                    }
-                    changes.enumerateMoves { fromIndex, toIndex in
-                        self.photoCollectionView.moveItem(at: IndexPath(item: fromIndex, section: section), to: IndexPath(item: toIndex, section: section))
-                    }
+                // If there are incremental diffs, animate them in the collection view.
+                // For indexes to make sense, updates must be in this order:
+                // delete, insert, reload, move
+                if let removed = changes.removedIndexes, removed.count > 0 {
+                    self.photoCollectionView.deleteItems(at: removed.map { IndexPath(item: $0, section:section) })
+                }
+                if let inserted = changes.insertedIndexes, inserted.count > 0 {
+                    self.photoCollectionView.insertItems(at: inserted.map { IndexPath(item: $0, section:section) })
+                }
+                if let changed = changes.changedIndexes, changed.count > 0 {
+                    self.photoCollectionView.reloadItems(at: changed.map { IndexPath(item: $0, section:section) })
+                }
+                changes.enumerateMoves { fromIndex, toIndex in
+                    self.photoCollectionView.moveItem(at: IndexPath(item: fromIndex, section: section), to: IndexPath(item: toIndex, section: section))
                 }
             }
         }, completion: { _ in
             self.updatePhotoPickerTitles()
+
+            if tasksAreSuspended {
+                AppCenter.default.task.perform()
+            }
         })
     }
 }

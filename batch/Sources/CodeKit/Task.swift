@@ -43,14 +43,16 @@ public struct TaskPolicy{
     )
 }
 
-public protocol Taskable{
-    var info: TaskInfo {  get }
-
+public protocol _Taskable{
     init(_ info: TaskInfo)
 
     func perform(_ param: TaskParamable, _ async: AsyncManualSignalable?) throws -> TaskResultable?
 
     func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?)
+}
+
+public protocol Taskable: _Taskable{
+    var info: TaskInfo {  get }
 }
 
 public class TaskPrototype: Item<TaskInfo> {

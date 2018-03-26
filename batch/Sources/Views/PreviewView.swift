@@ -166,7 +166,14 @@ extension PreviewView {
                     self.delegate?.batchPreviewView(self, didUpdateProgress: progress)
 
                     if let param = requestedParam, let index = param.indexPath {
-                        self.collectionView.scrollToItem(at: IndexPath(item: Int(Float(totalCount-1)*progress), section: index.section), at: .centeredHorizontally, animated: true)
+                        var destItem = Int(Float(totalCount-1)*progress)
+                        let numberOfItems = self.collectionView.numberOfItems(inSection: index.section)
+                        if destItem >= numberOfItems{
+                            destItem = numberOfItems-1
+                        }else if destItem < 0{
+                            destItem = 0
+                        }
+                        self.collectionView.scrollToItem(at: IndexPath(item: destItem, section: index.section), at: .centeredHorizontally, animated: true)
                     }
 
                 case .cancelled:

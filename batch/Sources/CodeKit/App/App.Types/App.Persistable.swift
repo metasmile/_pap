@@ -45,7 +45,7 @@ extension PersistableApp where Self:App{
             }else if touchedVersion == self.info.version{
                 return .used
             }else{
-                assert(false, "Unusual status for touchedVersion \(touchedVersion)")
+                assert(false, "Unusual status for touchedVersion \(String(describing: touchedVersion))")
                 return .unsupported
             }
         }else{

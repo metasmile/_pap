@@ -56,7 +56,7 @@ class batchTests: XCTestCase {
 
         //sandboxing
         AppCenter.default.current = RevertApp.self
-        var appDefaults2 = (AppCenter.default.current as? PersistableApp.Type)?.defaults
+        let appDefaults2 = (AppCenter.default.current as? PersistableApp.Type)?.defaults
         XCTAssertNotNil(appDefaults2)
     }
 }
