@@ -18,7 +18,7 @@ extension AppTaskRespondable {
     }
 }
 
-class AppTaskWorkItem: AppTaskRespondable {
+class AppTaskItem: AppTaskRespondable {
     let request:AppTaskRequest
     let info: TaskInfo
     let task: Taskable
@@ -32,7 +32,7 @@ class AppTaskWorkItem: AppTaskRespondable {
     }
 }
 
-extension AppTaskWorkItem {
+extension AppTaskItem {
 
     // if canceled by requester, return false, passed, return true
     @discardableResult
@@ -45,7 +45,7 @@ extension AppTaskWorkItem {
         return !canceled
     }
 
-    static func ==(lhs: AppTaskWorkItem, rhs: AppTaskWorkItem) -> Bool {
+    static func ==(lhs: AppTaskItem, rhs: AppTaskItem) -> Bool {
         let lhsInfo = lhs.info, rhsInfo = rhs.info
         return lhsInfo.token == rhsInfo.token
                 && lhsInfo.requestToken == rhsInfo.requestToken
