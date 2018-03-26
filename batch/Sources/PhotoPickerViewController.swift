@@ -57,7 +57,9 @@ class PhotoPickerViewController: AppDockViewController {
             guard let changeInstance = PHPhotoLibraryManager.default.changes else { return }
             PHAssets.fetched.unwatch(\.results, forIds:[resultWatchInfo.id])
 
-            self.photoLibraryDidChange(changeInstance)
+            DispatchQueue.main.async {
+                self.photoLibraryDidChange(changeInstance)
+            }
         }
 
         PHPhotoLibraryManager.default.authorizeIfNeeded { authorized in
@@ -268,41 +270,44 @@ class PhotoPickerViewController: AppDockViewController {
     }
 
     private func photoLibraryDidChange(_ changeInstance: PHChange) {
+        //TODO - confirm: https://fabric.io/jessi/ios/apps/com.stells.batch/issues/5ab6b90e8cb3c2fa63db6d25?time=last-seven-days
         guard let fetchResults = PHAssets.fetched.results else { return }
+        let fetchEnumeratedResults = fetchResults.enumerated()
 
-        DispatchQueue.main.async {
-            for (section, fetchResult) in fetchResults.enumerated() {
+        self.photoCollectionView.performBatchUpdates({
+            for (section, fetchResult) in fetchEnumeratedResults {
                 if let changes = changeInstance.changeDetails(for: fetchResult) {
                     // Keep the new fetch result for future use.
-                    PHAssets.fetched.update(result: changes.fetchResultAfterChanges, at: section)
-                    
-                    self.photoCollectionView.performBatchUpdates({
-                        if changes.hasIncrementalChanges {
-                            // If there are incremental diffs, animate them in the collection view.
-                            // For indexes to make sense, updates must be in this order:
-                            // delete, insert, reload, move
-                            if let removed = changes.removedIndexes, removed.count > 0 {
-                                self.photoCollectionView.deleteItems(at: removed.map { IndexPath(item: $0, section:section) })
-                            }
-                            if let inserted = changes.insertedIndexes, inserted.count > 0 {
-                                self.photoCollectionView.insertItems(at: inserted.map { IndexPath(item: $0, section:section) })
-                            }
-                            if let changed = changes.changedIndexes, changed.count > 0 {
-                                self.photoCollectionView.reloadItems(at: changed.map { IndexPath(item: $0, section:section) })
-                            }
-                            changes.enumerateMoves { fromIndex, toIndex in
-                                self.photoCollectionView.moveItem(at: IndexPath(item: fromIndex, section: section), to: IndexPath(item: toIndex, section: section))
-                            }
-                        } else {
-                            // Reload the collection view if incremental diffs are not available.
-                            self.photoCollectionView.reloadData()
-                        }
-                    }, completion: { _ in
-                        self.updatePhotoPickerTitles()
-                    })
+                    if false == PHAssets.fetched.update(result: changes.fetchResultAfterChanges, at: section){
+                        continue
+                    }
+
+                    if false == (changes.hasIncrementalChanges || changes.hasMoves) {
+                        // Reload the collection view if incremental diffs are not available.
+                        self.photoCollectionView.reloadData()
+                        continue
+                    }
+
+                    // If there are incremental diffs, animate them in the collection view.
+                    // For indexes to make sense, updates must be in this order:
+                    // delete, insert, reload, move
+                    if let removed = changes.removedIndexes, removed.count > 0 {
+                        self.photoCollectionView.deleteItems(at: removed.map { IndexPath(item: $0, section:section) })
+                    }
+                    if let inserted = changes.insertedIndexes, inserted.count > 0 {
+                        self.photoCollectionView.insertItems(at: inserted.map { IndexPath(item: $0, section:section) })
+                    }
+                    if let changed = changes.changedIndexes, changed.count > 0 {
+                        self.photoCollectionView.reloadItems(at: changed.map { IndexPath(item: $0, section:section) })
+                    }
+                    changes.enumerateMoves { fromIndex, toIndex in
+                        self.photoCollectionView.moveItem(at: IndexPath(item: fromIndex, section: section), to: IndexPath(item: toIndex, section: section))
+                    }
                 }
             }
-        }
+        }, completion: { _ in
+            self.updatePhotoPickerTitles()
+        })
     }
 }
 
