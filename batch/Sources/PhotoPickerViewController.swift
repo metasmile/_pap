@@ -270,8 +270,8 @@ class PhotoPickerViewController: AppDockViewController {
             Handle Tasks while batch performing
         */
         let removedAssets = fetchResultChanges.flatMap { (_, changes) in changes.removedObjects}.reduce([],+)
-        let tasksAreSuspended = AppCenter.default.isAppRunning && removedAssets.count > 0
-        if tasksAreSuspended {
+        let tasksWereRanAndRemoved = AppCenter.default.isAppRunning && removedAssets.count > 0
+        if tasksWereRanAndRemoved {
             AppCenter.default.task.suspend()
 
             for removedAsset in removedAssets{
@@ -284,9 +284,7 @@ class PhotoPickerViewController: AppDockViewController {
             }
         }
 
-        /*
-            remove preview items
-        */
+        //remove preview items
         for removedAsset in removedAssets{
             self.batchPreviewView.removeCollectionViewItem(with: removedAsset)
         }
@@ -323,10 +321,10 @@ class PhotoPickerViewController: AppDockViewController {
                 }
             }
         }, completion: { _ in
-            self.updatePhotoPickerTitles()
-
-            if tasksAreSuspended {
-                AppCenter.default.task.perform()
+            if tasksWereRanAndRemoved {
+                AppCenter.default.task.perform(self.batchPreviewView.createTaskReaction())
+            }else{
+                self.updatePhotoPickerTitles()
             }
         })
     }
