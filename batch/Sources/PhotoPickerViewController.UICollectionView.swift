@@ -61,9 +61,6 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
 
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         if AppCenter.default.isAppRunning {
-            let generator = UIImpactFeedbackGenerator(style: .medium)
-            generator.impactOccurred()
-
             return false
         }
 
@@ -73,14 +70,11 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
 
             return collectableApp.isItemEnables(for: item)
         }
-
         return true
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
         if AppCenter.default.isAppRunning {
-            let generator = UIImpactFeedbackGenerator(style: .medium)
-            generator.impactOccurred()
             return false
         }
         return true
