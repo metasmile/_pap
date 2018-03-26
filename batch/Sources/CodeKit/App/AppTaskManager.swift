@@ -115,7 +115,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
     @discardableResult
     public func request(_ request:AppTaskRequest) -> TaskInfo?{
         let info = append(request:request)
-        perform(true)
+        perform(ignoreIfSuspended:true)
         return info
     }
 
@@ -127,7 +127,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
             , let queue = self._queuePool[queueLabel]
 
                     else {
-                assert(false, "a queue by the request is unqueued")
+                print("[!] a queue by the request is unqueued")
                 return
             }
 
@@ -176,13 +176,13 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
     }
     
     @discardableResult
-    private func perform(_ preventIfSuspended:Bool=false) -> Bool {
+    private func perform(ignoreIfSuspended:Bool=false) -> Bool {
         if _queuePool.count==0 {
             return false
         }
 
         for queue in _queuePool.values {
-            if preventIfSuspended && queue.suspended{
+            if ignoreIfSuspended && queue.suspended{
                 return false
             }
             queue.perform()
@@ -198,7 +198,12 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
                 self._reactionItem = reaction
             }
         }
-        return perform(false)
+        return perform(ignoreIfSuspended:false)
+    }
+
+    @discardableResult
+    public func perform(finished: @escaping AppTaskReactableFinishHandler) -> Bool {
+        return perform(AppTaskReaction(finish: finished))
     }
 
     public func cancel(){

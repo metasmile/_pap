@@ -279,12 +279,8 @@ class PhotoPickerViewController: AppDockViewController {
                 if let appTaskItem = AppCenter.default.task.currentTaskItems.first(where:{ item in
                     (item.request.param as? AppAsset)?.asset.localIdentifier==removedAsset.localIdentifier
                 }){
-                    if appTaskItem.info.state == .idling{
-                        AppCenter.default.task.remove(request: appTaskItem.request)
-                    }
+                    AppCenter.default.task.remove(request: appTaskItem.request)
                 }
-
-                self.batchPreviewView.removeCollectionViewItem(with: removedAsset)
             }
         }
 
