@@ -48,9 +48,9 @@ extension PHAssetFinalizableApp {
         // map target assets
         let targetResultAssets = result.flatMap {
             $0.result as? PHAssetResultable
-        }.filter {
+        }/*.filter {
             resultable in resultable.contentEditingOutput != nil
-        }
+        }*/
 
         if targetResultAssets.count == 0{
             return result

@@ -68,6 +68,7 @@
 		4F71D6A4AA1B06125E1ED67D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5BCC978B34644C6768F /* Item.swift */; };
 		4F71D6ACC37D5AE756440485 /* CodeKit.CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D701CF9B6FB619CFBCE5 /* CodeKit.CoreGraphics.swift */; };
 		4F71D6C988FC52C61B1BD17B /* CodeKit.URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2D58B2BABE8F1BC0389 /* CodeKit.URL.swift */; };
+		4F71D6EA70539E102CB437C1 /* Clean.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0D7EFC062CEE97CC5BB /* Clean.App.swift */; };
 		4F71D7209A0E47B9C451CCA3 /* ExifGhost.App.Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D09ACF49BF1FDAE797B4 /* ExifGhost.App.Tests.swift */; };
 		4F71D72282DC1881D077F35C /* Transform.App.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D66E0D5C9C89183E71A9 /* Transform.App.Assets.xcassets */; };
 		4F71D760C8DCECB3DDC59844 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5F397502710E3224CC9 /* Object.swift */; };
@@ -78,7 +79,6 @@
 		4F71D84BD5F180E4F7E110A2 /* CodeKit.Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D97ABE55B0BAF2872ADD /* CodeKit.Math.swift */; };
 		4F71D87B789944E2A62057C7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D3E7CBB71E5919EAEEB6 /* Localizable.strings */; };
 		4F71D896A7F10961FAC286B0 /* Sourceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB3F65BB0609398D99C6 /* Sourceable.swift */; };
-		4F71D897494B8D92E8F4162E /* Dieter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D86B841F62F9FBE30E68 /* Dieter.swift */; };
 		4F71D8C53E1BB081D7F22B3F /* batch.App.Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE1703A5AF70D8B4DFD0 /* batch.App.Types.swift */; };
 		4F71D8CB2584EB6FA21077E8 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF6A3F2621A2EFC5A30F /* System.swift */; };
 		4F71D8CB499135440CD26851 /* CodeKit.DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6DE0A3A7908F226BBD9 /* CodeKit.DispatchQueue.swift */; };
@@ -180,6 +180,7 @@
 		4F71D09A5FFE3F9CC9A7B2D8 /* iOSCheckMarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSCheckMarkView.swift; sourceTree = "<group>"; };
 		4F71D09ACF49BF1FDAE797B4 /* ExifGhost.App.Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExifGhost.App.Tests.swift; sourceTree = "<group>"; };
 		4F71D0A2A86218E66A591366 /* CodeKit.String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.String.swift; sourceTree = "<group>"; };
+		4F71D0D7EFC062CEE97CC5BB /* Clean.App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clean.App.swift; sourceTree = "<group>"; };
 		4F71D130E43615882B01B0BE /* ja */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ja; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D1328856A68B46F8C023 /* Selectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selectable.swift; sourceTree = "<group>"; };
 		4F71D14D12D3AE15F1EDD2E0 /* sk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = sk; path = Localizable.strings; sourceTree = "<group>"; };
@@ -243,7 +244,6 @@
 		4F71D824173DDC0C14C6EAB1 /* ro */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ro; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D8242392C908CCDF3022 /* batch.App.Contents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = batch.App.Contents.swift; sourceTree = "<group>"; };
 		4F71D8588D09A8F77A3F89CF /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		4F71D86B841F62F9FBE30E68 /* Dieter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dieter.swift; sourceTree = "<group>"; };
 		4F71D887649BD6D9198DD7B5 /* Base */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.stringsdict; name = Base; path = Localizable.stringsdict; sourceTree = "<group>"; };
 		4F71D8A611809D713E2DA746 /* es_MX */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = es_MX; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D8BA896BACAC477A1E38 /* AppTaskManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTaskManager.swift; sourceTree = "<group>"; };
@@ -713,14 +713,6 @@
 			path = th.lproj;
 			sourceTree = "<group>";
 		};
-		4F71D6EF5E4817EB6D5F4048 /* Dieter */ = {
-			isa = PBXGroup;
-			children = (
-				4F71D86B841F62F9FBE30E68 /* Dieter.swift */,
-			);
-			path = Dieter;
-			sourceTree = "<group>";
-		};
 		4F71D73B0A2706CF0C9C5C92 /* sv.lproj */ = {
 			isa = PBXGroup;
 			children = (
@@ -869,7 +861,7 @@
 				4F71DD932A6BF05C8C65758D /* Revert */,
 				4F71DE1703A5AF70D8B4DFD0 /* batch.App.Types.swift */,
 				4F71D63CB3640CFB29416290 /* ExifGhost */,
-				4F71D6EF5E4817EB6D5F4048 /* Dieter */,
+				4F71DD533B425CF0EA69ED48 /* Clean */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -880,6 +872,14 @@
 				4F71D629F370C22B160C7DB8 /* Localizable.strings */,
 			);
 			path = "en-GB.lproj";
+			sourceTree = "<group>";
+		};
+		4F71DD533B425CF0EA69ED48 /* Clean */ = {
+			isa = PBXGroup;
+			children = (
+				4F71D0D7EFC062CEE97CC5BB /* Clean.App.swift */,
+			);
+			path = Clean;
 			sourceTree = "<group>";
 		};
 		4F71DD932A6BF05C8C65758D /* Revert */ = {
@@ -1361,13 +1361,13 @@
 				4F71D089747783BFFBB42340 /* CodeKit.UUID.swift in Sources */,
 				4F71DAF548B690D27A4CAA3D /* batch.Defaults.swift in Sources */,
 				4F71D3A61F937BF946983E8F /* ExifGhost.App.swift in Sources */,
-				4F71D897494B8D92E8F4162E /* Dieter.swift in Sources */,
 				4F71D2961D01CA3B100FECBE /* CodeKit.CIImage.swift in Sources */,
 				4F71D4E71C41219DD4617280 /* CodeKit.OptionSet.swift in Sources */,
 				4F71DAB3C7F59201E91D2101 /* App.Persistable.swift in Sources */,
 				4F71D9AB2B9958A2C8630A74 /* Transform.App.Defaults.swift in Sources */,
 				4F71D3683F2618E4E2353B93 /* App.UIControllable.swift in Sources */,
 				4F71DF199815997F888A4F86 /* PhotoPickerViewController.OperationControl.swift in Sources */,
+				4F71D6EA70539E102CB437C1 /* Clean.App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

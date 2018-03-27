@@ -41,7 +41,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             TransformApp.self
             , RevertApp.self
             , ExifGhost.self
-            , Dieter.self
+            , Clean.self
         ]
 
         return config
