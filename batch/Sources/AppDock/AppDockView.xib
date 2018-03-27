@@ -15,7 +15,6 @@
                 <outlet property="appCollectionView" destination="3j3-5w-cI5" id="oRA-Lr-NQ2"/>
                 <outlet property="appConfigView" destination="Nsh-j1-0eF" id="UJx-dl-LYV"/>
                 <outlet property="appConfigViewHeightLayout" destination="mMQ-ZO-2JX" id="grA-UJ-DBI"/>
-                <outlet property="backgroundView" destination="R8A-zg-5jJ" id="d8T-0t-1aP"/>
                 <outlet property="bottomAccessoryView" destination="8u0-vY-4kx" id="HQE-Yx-Vg6"/>
                 <outlet property="dockView" destination="Ccg-Ud-fcA" id="6fC-r6-sQp"/>
                 <outlet property="dockViewHeightLayout" destination="ACb-fT-cyq" id="El0-Z7-dUI"/>
@@ -29,14 +28,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R8A-zg-5jJ">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="PZE-cx-cpM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </view>
-                    <blurEffect style="light"/>
-                </visualEffectView>
                 <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eoy-3D-8zG" customClass="DrawerView" customModule="batch" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
                     <constraints>
@@ -100,13 +91,9 @@
                 <constraint firstItem="jmY-6N-1EF" firstAttribute="top" secondItem="Eoy-3D-8zG" secondAttribute="bottom" priority="750" id="L0c-lH-3f0"/>
                 <constraint firstAttribute="trailing" secondItem="8u0-vY-4kx" secondAttribute="trailing" id="Nf5-Op-bg2"/>
                 <constraint firstAttribute="trailing" secondItem="Eoy-3D-8zG" secondAttribute="trailing" id="NoP-V5-fUv"/>
-                <constraint firstAttribute="bottom" secondItem="R8A-zg-5jJ" secondAttribute="bottom" id="TMG-lu-fUW"/>
-                <constraint firstItem="R8A-zg-5jJ" firstAttribute="top" secondItem="NdN-JT-aJa" secondAttribute="top" id="Tbe-lH-Jnz"/>
                 <constraint firstItem="8u0-vY-4kx" firstAttribute="top" secondItem="Ccg-Ud-fcA" secondAttribute="bottom" id="TpO-nP-D6I"/>
                 <constraint firstAttribute="trailing" secondItem="jmY-6N-1EF" secondAttribute="trailing" id="Xoo-ox-xNs"/>
-                <constraint firstAttribute="trailing" secondItem="R8A-zg-5jJ" secondAttribute="trailing" id="Zel-Rm-2XI"/>
                 <constraint firstItem="Nsh-j1-0eF" firstAttribute="top" secondItem="jmY-6N-1EF" secondAttribute="bottom" priority="750" id="aB3-mD-Wbl"/>
-                <constraint firstItem="R8A-zg-5jJ" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="eJk-c0-AJ1"/>
                 <constraint firstItem="jmY-6N-1EF" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="jOx-Fi-0iV"/>
                 <constraint firstAttribute="trailing" secondItem="Nsh-j1-0eF" secondAttribute="trailing" id="lql-rQ-8LD"/>
                 <constraint firstItem="Eoy-3D-8zG" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="q22-5M-2x1"/>

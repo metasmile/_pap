@@ -20,8 +20,14 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
 
     var delegate: TransformEditViewControllerDelegate?
     
-    var zoomingContentView: UIView!
-    var assetView: AssetView!
+    lazy var zoomingContentView: UIView = {
+        return UIView(frame: view.bounds)
+    }()
+    
+    lazy var assetView: AssetView = {
+        return AssetView(frame: zoomingContentView.bounds)
+    }()
+    
     var placeholderImage: UIImage? {
         didSet {
             guard isViewLoaded else { return }
@@ -52,10 +58,8 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.barTintColor = iOSStandardEditorBackgroundColor
         
-        zoomingContentView = UIView(frame: view.bounds)
         photoZoomingView.addSubview(zoomingContentView)
         
-        assetView = AssetView(frame: zoomingContentView.bounds)
         assetView.contentMode = .scaleAspectFit
         assetView.hero.id = transitionID
         zoomingContentView.addSubview(assetView)

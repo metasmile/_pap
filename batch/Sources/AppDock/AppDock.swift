@@ -23,12 +23,24 @@ protocol AppDockViewDelegate {
 }
 
 class AppDockView: CustomView {
-    private struct AppDockViewConstants {
-        static let defaultDockHeight: CGFloat = 44
-        static let drawerTopMargin: CGFloat = 5
+    private struct AppDockPreferences {
+        static let compactHeight: CGFloat = 44
     }
     
-    @IBOutlet weak var backgroundView: UIVisualEffectView!
+    private struct PreviewPreferences {
+        static let compactHeight: CGFloat = 44
+    }
+    
+    private struct AppConfigPreferences {
+        static let compactHeight: CGFloat = 44
+    }
+    
+    private struct DrawerPreferences {
+        static let topMargin: CGFloat = 5
+        static let compactHeight: CGFloat = 20
+        static let prominentHeight: CGFloat = 44
+    }
+    
     @IBOutlet weak var drawerView: DrawerView!
     @IBOutlet weak var drawerViewHeightLayout: NSLayoutConstraint!
     @IBOutlet weak var topAccessoryView: UIView!
@@ -51,7 +63,7 @@ class AppDockView: CustomView {
     }
     
     var hasDrawer: Bool {
-        return (appConfigView.subviews.count > 0 && items.count > 1) || (topAccessoryView.subviews.count > 0)
+        return (appConfigView.subviews.count > 0 && items.count > 1)
     }
     
     fileprivate var beginDrawerOffset: CGFloat = 0
@@ -67,7 +79,7 @@ class AppDockView: CustomView {
         appCollectionView.contentInset.bottom = 3
         appCollectionView.register(AppDockViewCell.self, forCellWithReuseIdentifier: "STAppDockViewCell")
         
-        drawerView.topMargin = AppDockViewConstants.drawerTopMargin
+        drawerView.topMargin = DrawerPreferences.topMargin
         
         let panGestuer = UIPanGestureRecognizer(target: self, action: #selector(self.panGestureDidRecognize))
         panGestuer.delegate = self
@@ -83,14 +95,10 @@ class AppDockView: CustomView {
         didSet {
             switch barStyle {
             case .black:
-                backgroundView.effect = UIBlurEffect(style: .dark)
-                backgroundView.isHidden = false
-                bottomAccessoryView.backgroundColor = .clear
-                topAccessoryView.backgroundColor = .clear
-                appConfigView.backgroundColor = .clear
+                bottomAccessoryView.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1)
+                topAccessoryView.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1)
+                appConfigView.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1)
             default:
-                backgroundView.effect = UIBlurEffect(style: .light)
-                backgroundView.isHidden = true
                 bottomAccessoryView.backgroundColor = .white
                 topAccessoryView.backgroundColor = .white
                 appConfigView.backgroundColor = .white
@@ -145,7 +153,6 @@ class AppDockView: CustomView {
         guard !hasAppConfigView(view) else { return }
         appConfigView.subviews.forEach({ $0.removeFromSuperview() })
         if let view = view {
-            view.frame = CGRect(origin: .zero, size: CGSize(width: bounds.width, height: 44))
             appConfigView.addSubview(view)
             
             view.fitConstraints(to: appConfigView)
@@ -176,30 +183,23 @@ class AppDockView: CustomView {
 
 extension AppDockView {
     fileprivate func layoutDrawerView() {
-        drawerViewHeightLayout.constant = hasDrawer ? 20 : 0
+        drawerViewHeightLayout.constant = hasDrawer ? DrawerPreferences.compactHeight : 0
         
         drawerView.layoutIfNeeded()
         invalidateIntrinsicContentSize()
         
         drawerView.setNeedsDisplay()
     }
-}
-
-extension AppDockView {
+    
     fileprivate func layoutDockView() {
-        dockViewHeightLayout.constant = items.count > 1 ? AppDockViewConstants.defaultDockHeight : 0
+        dockViewHeightLayout.constant = items.count > 1 ? AppDockPreferences.compactHeight : 0
         
         dockView.layoutIfNeeded()
         invalidateIntrinsicContentSize()
     }
     
     fileprivate func layoutTopAccessoryView() {
-        if topAccessoryView.subviews.count == 0 {
-            topAccessoryViewHeightLayout.constant = 0
-        }
-        else {
-            topAccessoryViewHeightLayout.constant = topAccessoryView.subviews.map({ max($0.bounds.height, 44) }).reduce(0, +)
-        }
+        topAccessoryViewHeightLayout.constant = topAccessoryView.subviews.count == 0 ? 0 : topAccessoryView.subviews.map({ max($0.bounds.height, PreviewPreferences.compactHeight) }).reduce(0, +)
         
         topAccessoryView.layoutIfNeeded()
         layoutDrawerView()
@@ -208,7 +208,7 @@ extension AppDockView {
     }
     
     fileprivate func layoutAppConfigView() {
-        appConfigViewHeightLayout.constant = appConfigView.subviews.count == 0 ? 0 : appConfigView.subviews.map({ max($0.bounds.height, 44) }).reduce(0, +)
+        appConfigViewHeightLayout.constant = appConfigView.subviews.count == 0 ? 0 : appConfigView.subviews.map({ max($0.bounds.height, AppConfigPreferences.compactHeight) }).reduce(0, +)
         
         appConfigView.layoutIfNeeded()
         layoutDrawerView()
@@ -222,6 +222,7 @@ extension AppDockView {
         guard indexPath.item < items.count else { return }
         appCollectionView.selectItem(at: indexPath, animated: animated, scrollPosition: .centeredHorizontally)
         collectionView(appCollectionView, didSelectItemAt: indexPath)
+        closeDrawer()
     }
 }
 
@@ -300,9 +301,9 @@ extension AppDockView: UIGestureRecognizerDelegate {
             beginAppConfigViewOffset = appConfigViewHeightLayout.constant
             break
         case .changed:
-            drawerViewHeightLayout.constant = min(44, max(20, beginDrawerOffset - translation.y))
+            drawerViewHeightLayout.constant = min(DrawerPreferences.prominentHeight, max(DrawerPreferences.compactHeight, beginDrawerOffset - translation.y))
             
-            let appConfigViewHeight: CGFloat = appConfigView.subviews.count == 0 ? 0 : 44
+            let appConfigViewHeight: CGFloat = appConfigView.subviews.count == 0 ? 0 : DrawerPreferences.prominentHeight
             appConfigViewHeightLayout.constant = max(appConfigViewHeight, beginAppConfigViewOffset - translation.y)
             
             drawerView.layoutIfNeeded()
@@ -314,7 +315,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
                 sender.isEnabled = false
                 sender.isEnabled = true
             }
-            else if !drawerView.isOpened && beginDrawerOffset - translation.y > 44 * 2 {
+            else if !drawerView.isOpened && beginDrawerOffset - translation.y > DrawerPreferences.prominentHeight * 2 {
                 openDrawer()
                 sender.isEnabled = false
                 sender.isEnabled = true
@@ -337,9 +338,9 @@ extension AppDockView: UIGestureRecognizerDelegate {
     func openDrawer() {
         drawerView.isOpened = true
         
-        drawerViewHeightLayout.constant = 44
+        drawerViewHeightLayout.constant = DrawerPreferences.prominentHeight
         
-        appConfigViewHeightLayout.constant = UIScreen.main.bounds.height / 2
+        appConfigViewHeightLayout.constant = (superview?.bounds ?? UIScreen.main.bounds).height / 2
         
         animateUsingSpringIfLayoutConstraintsChanged()
     }
@@ -347,16 +348,16 @@ extension AppDockView: UIGestureRecognizerDelegate {
     func closeDrawer() {
         drawerView.isOpened = false
         
-        drawerViewHeightLayout.constant = 20
+        drawerViewHeightLayout.constant = DrawerPreferences.compactHeight
+        appConfigViewHeightLayout.constant = appConfigView.subviews.count == 0 ? 0 : AppConfigPreferences.compactHeight
         
-        appConfigViewHeightLayout.constant = appConfigView.subviews.count == 0 ? 0 : 44
         animateUsingSpringIfLayoutConstraintsChanged()
     }
 }
 
 // MARK: -
 
-class AppDockViewCell: CustomCollectionViewCell {
+internal class AppDockViewCell: CustomCollectionViewCell {
     @IBOutlet weak var selectedStateView: RoundedView!
     
     @IBOutlet weak var appContentView: UIView!
