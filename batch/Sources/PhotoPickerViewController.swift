@@ -173,8 +173,13 @@ class PhotoPickerViewController: AppDockViewController {
             }
         }
     }
+    
+    func updateSelectedItemUIs() {
+        updateSelectedItemsTitle()
+        updateSelectedItemControls()
+    }
 
-    func updateSelectedItemsTitle() {
+    private func updateSelectedItemsTitle() {
         let selectedAssets = self.selectedAssetsInCollectionView
         let numberOfVideos = selectedAssets?.filter({ $0.mediaType == .video }).count ?? 0
         let numberOfPhotos = selectedAssets?.filter({ $0.mediaType == .image }).count ?? 0
@@ -182,18 +187,8 @@ class PhotoPickerViewController: AppDockViewController {
 
         if numberOfItems == 0 {
             title = Bundle.main.displayName
-
-            navigationItem.setLeftBarButton(nil, animated: true)
-            navigationItem.setRightBarButton(nil, animated: true)
-
-            appDockView.previewView = nil
         }
         else {
-            navigationItem.setLeftBarButton(cancelButton, animated: true)
-            navigationItem.setRightBarButton(doneButton, animated: true)
-
-            appDockView.previewView = batchPreviewView
-
             if numberOfPhotos > 0 && numberOfVideos == 0 {
                 let pluralizedString = "Photo" + (numberOfPhotos == 1 ? "" : "s")
                 title = "Edit %d \(pluralizedString)".localizedFormatted(numberOfPhotos.decimalStyleString)
@@ -206,6 +201,26 @@ class PhotoPickerViewController: AppDockViewController {
                 let pluralizedString = "Item" + (numberOfItems == 1 ? "" : "s")
                 title = "Edit %d \(pluralizedString)".localizedFormatted(numberOfItems.decimalStyleString)
             }
+        }
+    }
+    
+    private func updateSelectedItemControls() {
+        let selectedAssets = self.selectedAssetsInCollectionView
+        let numberOfVideos = selectedAssets?.filter({ $0.mediaType == .video }).count ?? 0
+        let numberOfPhotos = selectedAssets?.filter({ $0.mediaType == .image }).count ?? 0
+        let numberOfItems = numberOfPhotos + numberOfVideos
+        
+        if numberOfItems == 0 {
+            navigationItem.setLeftBarButton(nil, animated: true)
+            navigationItem.setRightBarButton(nil, animated: true)
+            
+            appDockView.previewView = nil
+        }
+        else {
+            navigationItem.setLeftBarButton(cancelButton, animated: true)
+            navigationItem.setRightBarButton(doneButton, animated: true)
+            
+            appDockView.previewView = batchPreviewView
         }
     }
 
@@ -254,7 +269,7 @@ class PhotoPickerViewController: AppDockViewController {
     }
     
     func updatePhotoPickerTitles() {
-        updateSelectedItemsTitle()
+        updateSelectedItemUIs()
         updateAllPhotosTitle()
     }
 

@@ -70,6 +70,6 @@ extension PhotoPickerViewController{
         }
 
         batchPreviewView.removeAllCollectionViewItems()
-        updateSelectedItemsTitle()
+        updateSelectedItemUIs()
     }
 }

@@ -81,7 +81,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        updateSelectedItemsTitle()
+        updateSelectedItemUIs()
 
         if let asset = PHAssets.fetched.asset(at: indexPath){
             batchPreviewView.appendCollectionViewItem(with:asset)
@@ -91,7 +91,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectu8uionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         batchPreviewView.removeCollectionViewItem(with: PHAssets.fetched.asset(at: indexPath))
 
-        updateSelectedItemsTitle()
+        updateSelectedItemUIs()
     }
 
     // MARK: - UICollectionViewDelegateFlowLayout

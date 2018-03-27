@@ -249,7 +249,6 @@ extension AppDockView {
         guard indexPath.item < items.count else { return }
         appCollectionView.selectItem(at: indexPath, animated: animated, scrollPosition: .centeredHorizontally)
         collectionView(appCollectionView, didSelectItemAt: indexPath)
-        closeDrawer()
     }
 }
 
