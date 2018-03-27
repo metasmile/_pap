@@ -67,7 +67,7 @@ class AppDockViewController: UIViewController {
 
 extension AppDockViewController {
     fileprivate func selectCurrentAppIfExist() {
-        guard let indexOfCurrentApp = AppCenter.default.currentIndex else { return }
+        guard let currentApp = AppCenter.default.current, let indexOfCurrentApp = appDockItems.index(where: { $0.app == currentApp }), indexOfCurrentApp != NSNotFound else { return }
         appDockView.selectItem(at: IndexPath(item: indexOfCurrentApp, section: 0))
     }
 }

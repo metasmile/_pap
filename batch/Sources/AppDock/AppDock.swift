@@ -339,8 +339,9 @@ extension AppDockView: UIGestureRecognizerDelegate {
         drawerView.isOpened = true
         
         drawerViewHeightLayout.constant = DrawerPreferences.prominentHeight
-        
         appConfigViewHeightLayout.constant = (superview?.bounds ?? UIScreen.main.bounds).height / 2
+        
+        invalidateIntrinsicContentSize()
         
         animateUsingSpringIfLayoutConstraintsChanged()
     }
@@ -348,8 +349,10 @@ extension AppDockView: UIGestureRecognizerDelegate {
     func closeDrawer() {
         drawerView.isOpened = false
         
-        drawerViewHeightLayout.constant = DrawerPreferences.compactHeight
+        drawerViewHeightLayout.constant = hasDrawer ? DrawerPreferences.compactHeight : 0
         appConfigViewHeightLayout.constant = appConfigView.subviews.count == 0 ? 0 : AppConfigPreferences.compactHeight
+        
+        invalidateIntrinsicContentSize()
         
         animateUsingSpringIfLayoutConstraintsChanged()
     }
