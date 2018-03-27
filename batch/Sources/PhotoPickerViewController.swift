@@ -132,6 +132,8 @@ class PhotoPickerViewController: AppDockViewController {
     }
     
     override func cancelButtonDidTap(sender: Any) {
+        super.cancelButtonDidTap(sender: sender)
+        
         let generator = UIImpactFeedbackGenerator(style: .medium)
         generator.impactOccurred()
 
@@ -139,9 +141,9 @@ class PhotoPickerViewController: AppDockViewController {
     }
     
     override func doneButtonDidTap(sender: Any) {
-        batchPreviewView.runBatchProcessing()
+        super.doneButtonDidTap(sender: sender)
         
-        appDockView.closeDrawer()
+        batchPreviewView.runBatchProcessing()
     }
 
     func redisplayVisibleCellsWhenChangeApp(){

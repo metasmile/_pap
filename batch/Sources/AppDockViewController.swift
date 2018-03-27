@@ -52,11 +52,11 @@ class AppDockViewController: UIViewController {
     }
 
     @objc func cancelButtonDidTap(sender: Any) {
-
+        appDockView.closeDrawer()
     }
 
     @objc func doneButtonDidTap(sender: Any) {
-
+        appDockView.closeDrawer()
     }
     
     var appDockInsets: UIEdgeInsets {

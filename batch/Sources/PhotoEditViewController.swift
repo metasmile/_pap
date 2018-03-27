@@ -185,6 +185,8 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     // MARK: - Tool Bar Actions
     
     override func cancelButtonDidTap(sender: Any) {
+        super.cancelButtonDidTap(sender: sender)
+        
         editItem.reset()
         
         updatePreview { [unowned self] in
@@ -193,6 +195,8 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     }
     
     override func doneButtonDidTap(sender: Any) {
+        super.doneButtonDidTap(sender: sender)
+        
         assetView.layer.transform = CATransform3DIdentity
         assetView.transform = editItem.transform
         placeholderView?.transform = editItem.transform
