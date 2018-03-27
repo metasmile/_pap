@@ -137,7 +137,7 @@ private class _TransfromAppTask: TaskPrototype, Taskable {
 
     public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?){
 
-        (param as? _TransformAppAsset)?.cancelEditing()
+        (param as? _TransformAppAsset)?.cancelAllRequestIDs()
     }
 
     public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable?) throws -> TaskResultable? {

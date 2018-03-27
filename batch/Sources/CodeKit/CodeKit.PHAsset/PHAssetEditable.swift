@@ -96,7 +96,7 @@ extension PHAssetItem {
         }
     }
 
-    func cancelEditing() {
+    func cancelAllRequestIDs() {
 
         for req in requestIDs{
             if req.forImage != PHAssetRequestID.DefaultValue.forImage{

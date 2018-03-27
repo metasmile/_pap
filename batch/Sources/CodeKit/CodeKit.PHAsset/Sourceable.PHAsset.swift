@@ -27,7 +27,7 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
             signal.begin()
             
             var result: UIImage? = nil
-            let imageRequestID = PHImageManager.default().requestImage(for: self, targetSize: PHImageManagerMaximumSize, contentMode: .default, options: fullResolutionImageRequestOptions) { (image, info) in
+            let imageRequestID = PHImageManager.default().requestImage(for: self, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: fullResolutionImageRequestOptions) { (image, info) in
                 result = image
                 
                 _ = signal.end()

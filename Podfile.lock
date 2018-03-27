@@ -24,6 +24,7 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - PDFGenerator (2.1)
   - R.swift (4.0.0):
     - R.swift.Library (~> 4.0.0)
   - R.swift.Library (4.0.0)
@@ -34,6 +35,7 @@ DEPENDENCIES:
   - Fabric
   - Firebase/Core
   - Hero
+  - PDFGenerator (~> 2.1)
   - R.swift
 
 EXTERNAL SOURCES:
@@ -56,9 +58,10 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   Hero: ce59e81c79390613d97b43da7179e2c5e1017e04
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  PDFGenerator: 4fd5db4972465679f4846a9a36d53e8826536a6d
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
 
-PODFILE CHECKSUM: d7e93d26a2b939de51e1289e3913d524f4c744c0
+PODFILE CHECKSUM: aee705b028fe7a0223528e232291ba6a35570312
 
 COCOAPODS: 1.4.0

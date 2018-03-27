@@ -40,7 +40,7 @@ public class ExifGhost: App, PHAssetFinalizableApp, ItemCollectableApp, UIContro
 
 private class _ExifGhostTask: TaskPrototype, Taskable {
     public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?){
-        (param as? ParamType)?.cancelEditing()
+        (param as? ParamType)?.cancelAllRequestIDs()
     }
 
     public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable?) throws -> TaskResultable? {

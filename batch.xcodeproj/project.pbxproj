@@ -26,7 +26,7 @@
 		4F71D0332FEF1A75631DCA55 /* CodeKit.UIView.GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA767BA21A5D0572DC1D /* CodeKit.UIView.GestureRecognizer.swift */; };
 		4F71D042921A4C8173C8EA64 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D945BAAFABA6C67E5231 /* Localizable.strings */; };
 		4F71D048600D780D8F62948D /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2D3A67093DEDDD190CF /* AppManager.swift */; };
-		4F71D052D62EB675DB2F0B5A /* PHAssetSourceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D49286EE4D795ACB1A90 /* PHAssetSourceable.swift */; };
+		4F71D052D62EB675DB2F0B5A /* Sourceable.PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D49286EE4D795ACB1A90 /* Sourceable.PHAsset.swift */; };
 		4F71D06BDFC37974BFD660FB /* AppStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D17D046074C1554FE347 /* AppStoryboard.storyboard */; };
 		4F71D089747783BFFBB42340 /* CodeKit.UUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEFC3D3A6A90497D4B6A /* CodeKit.UUID.swift */; };
 		4F71D0B9A1B1530DD3DE2056 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB5E7BCAC2382FA65140 /* RoundedButton.swift */; };
@@ -107,6 +107,7 @@
 		4F71DAE55B247A7E9524B7D0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DC34F5554A7C034DBC6B /* Localizable.strings */; };
 		4F71DAF548B690D27A4CAA3D /* batch.Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF238ADA8011BEC02059 /* batch.Defaults.swift */; };
 		4F71DAFAA60AFFA6D22694FF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D865266BB0B201F7DE0A /* Localizable.strings */; };
+		4F71DB0B7801162FAD72E56B /* PDFactory.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3E78AA8F4AA96759F8A /* PDFactory.App.swift */; };
 		4F71DB1B53A67EDD9E0826C1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D3F4E4B720B2D3E79010 /* Localizable.strings */; };
 		4F71DB2198FD73D17C4ACD22 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DDF945C8D64CBC607353 /* Localizable.strings */; };
 		4F71DB4E273FECEB203CD7D5 /* CodeKit.NSKeyValueObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D39A3F044CE12928E44A /* CodeKit.NSKeyValueObservation.swift */; };
@@ -204,12 +205,13 @@
 		4F71D35B33781302AF6B84AB /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		4F71D39A3F044CE12928E44A /* CodeKit.NSKeyValueObservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.NSKeyValueObservation.swift; sourceTree = "<group>"; };
 		4F71D39FFC2CD0E769148C3D /* App.Finalizable.PHAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Finalizable.PHAsset.swift; sourceTree = "<group>"; };
+		4F71D3E78AA8F4AA96759F8A /* PDFactory.App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFactory.App.swift; sourceTree = "<group>"; };
 		4F71D3F5FD797A4C97D17192 /* PhotoPickerViewController.UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.UICollectionView.swift; sourceTree = "<group>"; };
 		4F71D4694B64994D73152FB9 /* CodeKit.OptionSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.OptionSet.swift; sourceTree = "<group>"; };
 		4F71D4733A58250E9D6237A4 /* PHAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAssets.swift; sourceTree = "<group>"; };
 		4F71D474151CDAE78A72AF50 /* hi */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = hi; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D48A50EAA2890E560F77 /* zh_HK */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = zh_HK; path = Localizable.strings; sourceTree = "<group>"; };
-		4F71D49286EE4D795ACB1A90 /* PHAssetSourceable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAssetSourceable.swift; sourceTree = "<group>"; };
+		4F71D49286EE4D795ACB1A90 /* Sourceable.PHAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sourceable.PHAsset.swift; sourceTree = "<group>"; };
 		4F71D4B340C95987CDD4AA97 /* he */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = he; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D4D77F4D848543D79AB0 /* AppCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCenter.swift; sourceTree = "<group>"; };
 		4F71D4D9E9481FC930955689 /* Revert.App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Revert.App.swift; sourceTree = "<group>"; };
@@ -780,7 +782,7 @@
 			isa = PBXGroup;
 			children = (
 				4F71DE303E0F297B9DDC1F0A /* PHAsset.swift */,
-				4F71D49286EE4D795ACB1A90 /* PHAssetSourceable.swift */,
+				4F71D49286EE4D795ACB1A90 /* Sourceable.PHAsset.swift */,
 				4F71DEA2EF5EC4DDDE296E8F /* PHAssetItem.swift */,
 				4F71D1D31D77D738AD4EB02A /* PHAssetEditable.swift */,
 			);
@@ -805,6 +807,14 @@
 				4F71D8227095557197E91EB6 /* Localizable.strings */,
 			);
 			path = da.lproj;
+			sourceTree = "<group>";
+		};
+		4F71D9D5840A385014F852D7 /* PDFactory */ = {
+			isa = PBXGroup;
+			children = (
+				4F71D3E78AA8F4AA96759F8A /* PDFactory.App.swift */,
+			);
+			path = PDFactory;
 			sourceTree = "<group>";
 		};
 		4F71DAA95502029356EDD91B /* zh_TW.lproj */ = {
@@ -865,6 +875,7 @@
 				4F71DE1703A5AF70D8B4DFD0 /* batch.App.Types.swift */,
 				4F71D63CB3640CFB29416290 /* ExifGhost */,
 				4F71DD533B425CF0EA69ED48 /* Clean */,
+				4F71D9D5840A385014F852D7 /* PDFactory */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -1217,6 +1228,7 @@
 				"${BUILT_PRODUCTS_DIR}/DefaultsKit/DefaultsKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+				"${BUILT_PRODUCTS_DIR}/PDFGenerator/PDFGenerator.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -1225,6 +1237,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DefaultsKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PDFGenerator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -1273,6 +1286,7 @@
 				"${BUILT_PRODUCTS_DIR}/DefaultsKit/DefaultsKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+				"${BUILT_PRODUCTS_DIR}/PDFGenerator/PDFGenerator.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -1281,6 +1295,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DefaultsKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PDFGenerator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -1316,7 +1331,7 @@
 				4F71D0EE87C6D3822EA3AFCC /* CodeKit.UIImage.Transform.swift in Sources */,
 				4F71D8CB2584EB6FA21077E8 /* System.swift in Sources */,
 				4F71DC62EA8BB2D890884D1D /* PHAsset.swift in Sources */,
-				4F71D052D62EB675DB2F0B5A /* PHAssetSourceable.swift in Sources */,
+				4F71D052D62EB675DB2F0B5A /* Sourceable.PHAsset.swift in Sources */,
 				4F71D3EADECEDBF2EBB81323 /* PHAssetItem.swift in Sources */,
 				4F71DE9272F77A03F66C1471 /* batch.App.Public.Contents.swift in Sources */,
 				4F71D6416834A773E3ABFC50 /* Transform.App.swift in Sources */,
@@ -1372,6 +1387,7 @@
 				4F71DF199815997F888A4F86 /* PhotoPickerViewController.OperationControl.swift in Sources */,
 				4F71D6EA70539E102CB437C1 /* Clean.App.swift in Sources */,
 				4F71D313CFA0406DA8519EA9 /* App.Finalizable.PHAsset.swift in Sources */,
+				4F71DB0B7801162FAD72E56B /* PDFactory.App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

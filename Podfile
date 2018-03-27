@@ -14,5 +14,8 @@ target 'batch' do
   target 'batchTests' do
     inherit! :complete
   end
+
+  # com.stells.batch.pdfactory
+  pod 'PDFGenerator', '~> 2.1'
 end
 
