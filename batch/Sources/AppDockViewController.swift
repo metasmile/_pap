@@ -10,6 +10,7 @@ import UIKit
 
 class AppDockViewController: UIViewController {
     @IBOutlet weak var appDockView: AppDockView!
+    @IBOutlet weak var dimmedView: UIView!
     
     var cancelButton: UIBarButtonItem?
     var doneButton: UIBarButtonItem?
@@ -78,6 +79,12 @@ extension AppDockViewController: AppDockViewDelegate {
         
         let configView = AppCenter.default.currentInstanceAs(UIControllableApp.self)?.controlView
         appDockView.setAppConfigView(configView)
+    }
+    
+    func appDockView(_ view: AppDockView, didOpenDrawer isOpened: Bool) {
+        UIView.transition(with: dimmedView, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            self.dimmedView.isHidden = !isOpened
+        }, completion: nil)
     }
 }
 

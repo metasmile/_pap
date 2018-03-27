@@ -55,6 +55,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
             self?.setImageEditItem(item.editState)
         }
         
+        layoutIfNeeded()
         assetView.setAsset(asset, cancelDrawingIfNeeded: { [weak self] in
             return self?.indexPath != indexPath
         })
@@ -78,6 +79,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
             self?.setImageEditItem(item.editState)
         }
         
+        layoutIfNeeded()
         assetView.setThumbnailAsset(asset, cancelDrawingIfNeeded: { [weak self] in
             return self?.indexPath != indexPath
         })

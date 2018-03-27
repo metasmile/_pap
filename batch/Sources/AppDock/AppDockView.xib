@@ -35,7 +35,7 @@
                         <constraint firstAttribute="height" id="oFG-xd-IUR"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzS-9k-7Sx">
+                <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzS-9k-7Sx">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
                     <subviews>
                         <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmY-6N-1EF">

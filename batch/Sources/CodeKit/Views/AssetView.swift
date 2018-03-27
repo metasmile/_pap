@@ -221,7 +221,7 @@ extension AssetView {
             
             loadLivePhoto(for: asset) { [weak self] livePhoto in
                 guard !cancellation() else {
-                    self?.cancelCurrentImageRequest()
+                    self?.clearDrawing()
                     return
                 }
                 
@@ -238,7 +238,7 @@ extension AssetView {
         else {
             loadImage(for: asset) { [weak self] image in
                 guard !cancellation() else {
-                    self?.cancelCurrentImageRequest()
+                    self?.clearDrawing()
                     return
                 }
                 
@@ -257,7 +257,7 @@ extension AssetView {
     func setVideoAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: ((AVPlayerItem?) -> Void)? = nil) {
         loadVideo(for: asset) { [weak self] playerItem in
             guard !cancellation() else {
-                self?.cancelCurrentImageRequest()
+                self?.clearDrawing()
                 return
             }
             
@@ -276,13 +276,11 @@ extension AssetView {
 extension AssetView {
     func setThumbnailAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: ((UIImage?) -> Void)? = nil) {
         loadImage(for: asset) { [weak self] image in
-            guard !cancellation() else {
-                self?.cancelCurrentImageRequest()
-                return
-            }
-            
             DispatchQueue.main.async { [weak self] in
-                guard !cancellation() else { return }
+                guard !cancellation() else {
+                    self?.clearDrawing()
+                    return
+                }
                 
                 if let completion = completion {
                     completion(image)
@@ -301,7 +299,6 @@ extension AssetView {
     fileprivate func loadImage(for asset: PHAsset, completion: @escaping (UIImage?) -> Void) {
         let targetSize = CGSize(width: bounds.width * UIScreen.main.nativeScale, height: bounds.height * UIScreen.main.nativeScale)
         imageRequestID = AssetView.imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: imageRequestOptions) { (image, info) in
-
             completion(image)
         }
     }

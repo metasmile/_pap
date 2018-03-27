@@ -25,7 +25,6 @@ protocol PreviewViewDelegate {
 class PreviewView: CustomView {
     struct Preferences {
         static let compactHeight: CGFloat = 44
-        static let prominentHeight: CGFloat = UIScreen.main.bounds.height / 3
     }
     
     @IBOutlet weak var collectionView: UICollectionView!

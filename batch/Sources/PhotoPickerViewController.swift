@@ -140,6 +140,8 @@ class PhotoPickerViewController: AppDockViewController {
     
     override func doneButtonDidTap(sender: Any) {
         batchPreviewView.runBatchProcessing()
+        
+        appDockView.closeDrawer()
     }
 
     func redisplayVisibleCellsWhenChangeApp(){
