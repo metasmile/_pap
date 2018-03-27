@@ -15,13 +15,14 @@
                 <outlet property="appCollectionView" destination="3j3-5w-cI5" id="oRA-Lr-NQ2"/>
                 <outlet property="appConfigView" destination="Nsh-j1-0eF" id="UJx-dl-LYV"/>
                 <outlet property="appConfigViewHeightLayout" destination="mMQ-ZO-2JX" id="grA-UJ-DBI"/>
+                <outlet property="appContentView" destination="rzS-9k-7Sx" id="omg-6O-cLK"/>
+                <outlet property="appContentViewHeightLayout" destination="9KR-4K-J6j" id="9Bo-5S-ImK"/>
                 <outlet property="bottomAccessoryView" destination="8u0-vY-4kx" id="HQE-Yx-Vg6"/>
                 <outlet property="dockView" destination="Ccg-Ud-fcA" id="6fC-r6-sQp"/>
                 <outlet property="dockViewHeightLayout" destination="ACb-fT-cyq" id="El0-Z7-dUI"/>
                 <outlet property="drawerView" destination="Eoy-3D-8zG" id="6xI-RR-Gyg"/>
                 <outlet property="drawerViewHeightLayout" destination="oFG-xd-IUR" id="SHe-lp-M9S"/>
                 <outlet property="topAccessoryView" destination="jmY-6N-1EF" id="TRw-4Y-ngP"/>
-                <outlet property="topAccessoryViewHeightLayout" destination="ran-Qe-CRr" id="ujT-nq-t2Y"/>
             </connections>
         </placeholder>
         <view contentMode="scaleToFill" verticalHuggingPriority="100" id="NdN-JT-aJa">
@@ -34,18 +35,31 @@
                         <constraint firstAttribute="height" id="oFG-xd-IUR"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmY-6N-1EF">
+                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzS-9k-7Sx">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmY-6N-1EF">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nsh-j1-0eF">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" id="mMQ-ZO-2JX"/>
+                            </constraints>
+                        </view>
+                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" id="ran-Qe-CRr"/>
-                    </constraints>
-                </view>
-                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nsh-j1-0eF">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" id="mMQ-ZO-2JX"/>
+                        <constraint firstItem="Nsh-j1-0eF" firstAttribute="leading" secondItem="rzS-9k-7Sx" secondAttribute="leading" id="2ke-7x-72k"/>
+                        <constraint firstAttribute="height" id="9KR-4K-J6j"/>
+                        <constraint firstItem="jmY-6N-1EF" firstAttribute="top" secondItem="rzS-9k-7Sx" secondAttribute="top" id="PKi-oJ-f7E"/>
+                        <constraint firstAttribute="trailing" secondItem="jmY-6N-1EF" secondAttribute="trailing" id="T7e-x9-A4h"/>
+                        <constraint firstAttribute="trailing" secondItem="Nsh-j1-0eF" secondAttribute="trailing" id="Tfa-il-ROq"/>
+                        <constraint firstItem="Nsh-j1-0eF" firstAttribute="top" secondItem="jmY-6N-1EF" secondAttribute="bottom" id="iDU-nu-msx"/>
+                        <constraint firstAttribute="bottom" secondItem="Nsh-j1-0eF" secondAttribute="bottom" id="mBv-hX-9EL"/>
+                        <constraint firstItem="jmY-6N-1EF" firstAttribute="leading" secondItem="rzS-9k-7Sx" secondAttribute="leading" id="v4k-wA-13O"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ccg-Ud-fcA" customClass="DockView" customModule="batch" customModuleProvider="target">
@@ -83,19 +97,16 @@
             </subviews>
             <constraints>
                 <constraint firstItem="Ccg-Ud-fcA" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="3er-ib-ek6"/>
-                <constraint firstItem="Ccg-Ud-fcA" firstAttribute="top" secondItem="Nsh-j1-0eF" secondAttribute="bottom" id="6pI-sZ-n2q"/>
                 <constraint firstAttribute="bottom" secondItem="8u0-vY-4kx" secondAttribute="bottom" id="9O7-N7-g7f"/>
                 <constraint firstAttribute="trailing" secondItem="Ccg-Ud-fcA" secondAttribute="trailing" id="BhW-Bt-vAZ"/>
                 <constraint firstItem="Ccg-Ud-fcA" firstAttribute="bottom" secondItem="6bG-Xh-UqJ" secondAttribute="bottom" id="FOT-7M-nDF"/>
-                <constraint firstItem="Nsh-j1-0eF" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="Hy3-Fs-T7o"/>
-                <constraint firstItem="jmY-6N-1EF" firstAttribute="top" secondItem="Eoy-3D-8zG" secondAttribute="bottom" priority="750" id="L0c-lH-3f0"/>
                 <constraint firstAttribute="trailing" secondItem="8u0-vY-4kx" secondAttribute="trailing" id="Nf5-Op-bg2"/>
                 <constraint firstAttribute="trailing" secondItem="Eoy-3D-8zG" secondAttribute="trailing" id="NoP-V5-fUv"/>
                 <constraint firstItem="8u0-vY-4kx" firstAttribute="top" secondItem="Ccg-Ud-fcA" secondAttribute="bottom" id="TpO-nP-D6I"/>
-                <constraint firstAttribute="trailing" secondItem="jmY-6N-1EF" secondAttribute="trailing" id="Xoo-ox-xNs"/>
-                <constraint firstItem="Nsh-j1-0eF" firstAttribute="top" secondItem="jmY-6N-1EF" secondAttribute="bottom" priority="750" id="aB3-mD-Wbl"/>
-                <constraint firstItem="jmY-6N-1EF" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="jOx-Fi-0iV"/>
-                <constraint firstAttribute="trailing" secondItem="Nsh-j1-0eF" secondAttribute="trailing" id="lql-rQ-8LD"/>
+                <constraint firstItem="Ccg-Ud-fcA" firstAttribute="top" secondItem="rzS-9k-7Sx" secondAttribute="bottom" id="cWa-pq-4Nr"/>
+                <constraint firstAttribute="trailing" secondItem="rzS-9k-7Sx" secondAttribute="trailing" id="ecX-8A-dQf"/>
+                <constraint firstItem="rzS-9k-7Sx" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="lP2-4D-mNt"/>
+                <constraint firstItem="rzS-9k-7Sx" firstAttribute="top" secondItem="Eoy-3D-8zG" secondAttribute="bottom" priority="750" id="pLr-NB-GFJ"/>
                 <constraint firstItem="Eoy-3D-8zG" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="q22-5M-2x1"/>
                 <constraint firstItem="Eoy-3D-8zG" firstAttribute="top" secondItem="NdN-JT-aJa" secondAttribute="top" id="q7O-Rb-eMw"/>
                 <constraint firstItem="8u0-vY-4kx" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="qUL-xU-QJP"/>
