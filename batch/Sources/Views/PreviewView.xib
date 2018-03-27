@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BatchPreviewView" customModule="batch" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="IYK-lo-z6t" id="k7J-Wy-xEx"/>
+                <outlet property="collectionViewHeightLayout" destination="KWy-d7-Ndi" id="74Q-Ph-PmT"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -23,6 +24,9 @@
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="IYK-lo-z6t">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="KWy-d7-Ndi"/>
+                    </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="U6Z-y1-cd2">
                         <size key="itemSize" width="44" height="44"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -36,10 +40,9 @@
                 </collectionView>
             </subviews>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="IYK-lo-z6t" secondAttribute="bottom" id="7ra-ai-fxV"/>
                 <constraint firstItem="IYK-lo-z6t" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QIO-7j-bvz"/>
+                <constraint firstItem="IYK-lo-z6t" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="gpu-vt-nUh"/>
                 <constraint firstAttribute="trailing" secondItem="IYK-lo-z6t" secondAttribute="trailing" id="tFj-Rd-Bk0"/>
-                <constraint firstItem="IYK-lo-z6t" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="v73-ES-Y5C"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

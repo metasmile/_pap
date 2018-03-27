@@ -33,7 +33,7 @@ class AppDockView: CustomView {
     }
     
     private struct PreviewPreferences {
-        static let compactHeight: CGFloat = 44
+        static let compactHeight: CGFloat = PreviewView.Preferences.compactHeight
     }
     
     private struct AppConfigPreferences {
@@ -50,6 +50,16 @@ class AppDockView: CustomView {
     @IBOutlet weak var drawerViewHeightLayout: NSLayoutConstraint!
     @IBOutlet weak var appContentView: UIView!
     @IBOutlet weak var appContentViewHeightLayout: NSLayoutConstraint!
+    weak var previewView: PreviewView? {
+        didSet {
+            if let view = previewView {
+                setPreviewView(view, animated: true)
+            }
+            else {
+                removeAllTopAccessoryViews()
+            }
+        }
+    }
     @IBOutlet weak var topAccessoryView: UIView!
     @IBOutlet weak var appConfigView: UIView!
     @IBOutlet weak var appConfigViewHeightLayout: NSLayoutConstraint!
@@ -117,11 +127,9 @@ class AppDockView: CustomView {
         return CGSize(width: UIViewNoIntrinsicMetric, height: drawerViewHeightLayout.constant + appContentViewHeightLayout.constant + dockViewHeightLayout.constant + bottomAccessoryView.bounds.height)
     }
     
-    func setTopAccessoryView(_ view: UIView?, animated: Bool = true) {
+    fileprivate func setPreviewView(_ view: UIView, animated: Bool = true) {
         guard !hasTopAccessoryView(view) else { return }
-        removeAllTopAccessoryViews()
-        
-        guard let view = view else { return }
+        removeAllTopAccessoryViews(animated: false)
         
         topAccessoryView.addSubview(view)
         view.fitConstraints(to: topAccessoryView)
@@ -133,22 +141,14 @@ class AppDockView: CustomView {
         }
     }
     
-    func removeTopAccessoryView(_ view: UIView, animated: Bool = true) {
-        guard hasTopAccessoryView(view) else { return }
-        
-        view.removeFromSuperview()
+    private func removeAllTopAccessoryViews(animated: Bool = true) {
+        topAccessoryView.subviews.forEach({ $0.removeFromSuperview() })
         
         layoutAppContentView()
         
         if animated {
             animateUsingSpringIfLayoutConstraintsChanged()
         }
-    }
-    
-    private func removeAllTopAccessoryViews() {
-        topAccessoryView.subviews.forEach({ $0.removeFromSuperview() })
-        
-        layoutAppContentView()
     }
     
     fileprivate func hasTopAccessoryView(_ view: UIView?) -> Bool {
@@ -365,6 +365,9 @@ extension AppDockView: UIGestureRecognizerDelegate {
         invalidateIntrinsicContentSize()
         
         animateUsingSpringIfLayoutConstraintsChanged()
+        
+        appContentView.layoutIfNeeded()
+        previewView?.reloadPreview(with: PreviewView.Preferences.prominentHeight)
     }
     
     func closeDrawer() {
@@ -376,6 +379,9 @@ extension AppDockView: UIGestureRecognizerDelegate {
         invalidateIntrinsicContentSize()
         
         animateUsingSpringIfLayoutConstraintsChanged()
+        
+        appContentView.layoutIfNeeded()
+        previewView?.reloadPreview()
     }
 }
 

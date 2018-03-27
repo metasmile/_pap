@@ -23,8 +23,14 @@ protocol PreviewViewDelegate {
 }
 
 class PreviewView: CustomView {
+    struct Preferences {
+        static let compactHeight: CGFloat = 44
+        static let prominentHeight: CGFloat = UIScreen.main.bounds.height / 3
+    }
+    
     @IBOutlet weak var collectionView: UICollectionView!
-
+    @IBOutlet weak var collectionViewHeightLayout: NSLayoutConstraint!
+    
     var delegate: PreviewViewDelegate?
 
     let appAssetsSelected = AppAssets.selected
@@ -34,14 +40,12 @@ class PreviewView: CustomView {
 
         print("[i] BatchAppCenter.default.task.maxConcurrentCount: ", AppCenter.default.task.maxConcurrentCount)
         
+        collectionViewHeightLayout.constant = Preferences.compactHeight
+        
         collectionView.contentInset.top = 1
         collectionView.contentInset.bottom = 1
         collectionView.register(PreviewCollectionViewCell.self, forCellWithReuseIdentifier: "PreviewCollectionViewCell")
         updateCollectionViewAlignment(animated: false)
-    }
-    
-    override var intrinsicContentSize: CGSize {
-        return CGSize(width: super.intrinsicContentSize.width, height: 44)
     }
 
     public func updatePreviews(animated: Bool = true, completion: (() -> Void)? = nil) {
@@ -59,6 +63,16 @@ class PreviewView: CustomView {
         }
 
         updateCollectionViewAlignment(animated: false)
+    }
+    
+    public func reloadPreview(with height: CGFloat = Preferences.compactHeight) {
+        collectionViewHeightLayout.constant = height
+        collectionView.layoutIfNeeded()
+        
+        collectionView.reloadData()
+        collectionView.performBatchUpdates(nil) { _ in
+            self.updateCollectionViewAlignment(animated: false)
+        }
     }
 }
 
@@ -254,19 +268,14 @@ extension PreviewView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let asset = appAssetsSelected.at(indexPath.item).asset
 
-        let contentInset: UIEdgeInsets
-        if #available(iOS 11.0, *) {
-            contentInset = collectionView.adjustedContentInset
-        }
-        else {
-            contentInset = collectionView.contentInset
-        }
+        let contentInset = collectionView.contentInset
         
-        let contentSize = UIEdgeInsetsInsetRect(collectionView.bounds, contentInset).size
+        let contentSize = UIEdgeInsetsInsetRect(CGRect(origin: .zero, size: CGSize(width: collectionViewHeightLayout.constant, height: collectionViewHeightLayout.constant)), contentInset).size
         let boundingSize = CGSize(width: contentSize.height, height: contentSize.height)
         let photoSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight).aspectFit(in: boundingSize)
         let cellSize = photoSize.applying(appAssetsSelected.at(indexPath.item).editState.transform).magnitude
-        return CGSize(width: cellSize.width, height: contentSize.height)
+        
+        return CGSize(width: cellSize.width, height: floor(contentSize.height))
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

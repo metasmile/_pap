@@ -182,13 +182,13 @@ class PhotoPickerViewController: AppDockViewController {
             navigationItem.setLeftBarButton(nil, animated: true)
             navigationItem.setRightBarButton(nil, animated: true)
 
-            appDockView.removeTopAccessoryView(batchPreviewView)
+            appDockView.previewView = nil
         }
         else {
             navigationItem.setLeftBarButton(cancelButton, animated: true)
             navigationItem.setRightBarButton(doneButton, animated: true)
 
-            appDockView.setTopAccessoryView(batchPreviewView)
+            appDockView.previewView = batchPreviewView
 
             if numberOfPhotos > 0 && numberOfVideos == 0 {
                 let pluralizedString = "Photo" + (numberOfPhotos == 1 ? "" : "s")

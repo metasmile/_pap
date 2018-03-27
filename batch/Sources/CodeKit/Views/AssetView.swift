@@ -282,6 +282,8 @@ extension AssetView {
             }
             
             DispatchQueue.main.async { [weak self] in
+                guard !cancellation() else { return }
+                
                 if let completion = completion {
                     completion(image)
                 }
