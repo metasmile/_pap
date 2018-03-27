@@ -28,6 +28,10 @@
 "Cancelling..." = "취소 중 ...";
 /*Translated from: Saving Photos...*/
 "Saving Photos..." = "사진 저장 중 ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "사진 삭제 중 ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "사진 되돌리기 ...";
 /*Translated from: Select this photo*/
 "Select this photo" = "이 사진 선택";
 /*Translated from: Select this video*/

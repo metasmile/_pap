@@ -28,6 +28,10 @@
 "Cancelling..." = "Peruuttaminen ...";
 /*Translated from: Saving Photos...*/
 "Saving Photos..." = "Valokuvien tallentaminen ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Valokuvien poistaminen ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Valokuvien palauttaminen ...";
 /*Translated from: Select this photo*/
 "Select this photo" = "Valitse tämä valokuva";
 /*Translated from: Select this video*/

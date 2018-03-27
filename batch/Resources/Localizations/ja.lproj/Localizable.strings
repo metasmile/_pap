@@ -28,6 +28,10 @@
 "Cancelling..." = "キャンセル中...";
 /*Translated from: Saving Photos...*/
 "Saving Photos..." = "写真を保存中...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "写真を削除しています...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "写真を元に戻す...";
 /*Translated from: Select this photo*/
 "Select this photo" = "この写真を選択";
 /*Translated from: Select this video*/

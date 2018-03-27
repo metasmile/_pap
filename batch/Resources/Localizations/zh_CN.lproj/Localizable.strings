@@ -28,6 +28,10 @@
 "Cancelling..." = "取消...";
 /*Translated from: Saving Photos...*/
 "Saving Photos..." = "储存照片...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "删除照片...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "还原照片...";
 /*Translated from: Select this photo*/
 "Select this photo" = "选择这张照片";
 /*Translated from: Select this video*/

@@ -28,6 +28,10 @@
 "Cancelling..." = "Cancelling...";
 /*Translated from: Saving Photos...*/
 "Saving Photos..." = "Fotos speichern ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Fotos löschen ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Fotos wiederherstellen ...";
 /*Translated from: Select this photo*/
 "Select this photo" = "Wähle dieses Foto aus";
 /*Translated from: Select this video*/

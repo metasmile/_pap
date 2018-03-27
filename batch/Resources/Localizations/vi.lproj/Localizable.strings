@@ -28,6 +28,10 @@
 "Cancelling..." = "Hủy ...";
 /*Translated from: Saving Photos...*/
 "Saving Photos..." = "Đang lưu ảnh ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Xóa ảnh ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Hoàn nguyên ảnh ...";
 /*Translated from: Select this photo*/
 "Select this photo" = "Chọn ảnh này";
 /*Translated from: Select this video*/

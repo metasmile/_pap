@@ -28,6 +28,10 @@
 "Cancelling..." = "Cancelling...";
 /*Translated from: Saving Photos...*/
 "Saving Photos..." = "Spremanje fotografija ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Brisanje fotografija ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Vraćanje fotografija ...";
 /*Translated from: Select this photo*/
 "Select this photo" = "Odaberite ovu fotografiju";
 /*Translated from: Select this video*/

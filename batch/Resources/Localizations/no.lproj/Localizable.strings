@@ -28,6 +28,10 @@
 "Cancelling..." = "Avbryter ...";
 /*Translated from: Saving Photos...*/
 "Saving Photos..." = "Lagring av bilder ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Slette bilder ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Gjenoppretter bilder ...";
 /*Translated from: Select this photo*/
 "Select this photo" = "Velg dette bildet";
 /*Translated from: Select this video*/

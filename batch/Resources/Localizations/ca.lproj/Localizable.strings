@@ -28,6 +28,10 @@
 "Cancelling..." = "S'està cancel·lant ...";
 /*Translated from: Saving Photos...*/
 "Saving Photos..." = "S'estan desant les fotografies ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "S'estan suprimint fotos ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "S'estan tornant les fotos ...";
 /*Translated from: Select this photo*/
 "Select this photo" = "Selecciona aquesta foto";
 /*Translated from: Select this video*/

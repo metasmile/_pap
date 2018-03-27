@@ -28,6 +28,10 @@
 "Cancelling..." = "Скасування ...";
 /*Translated from: Saving Photos...*/
 "Saving Photos..." = "Збереження фотографій ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Видалення фотографій ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Повернення фотографій ...";
 /*Translated from: Select this photo*/
 "Select this photo" = "Виберіть це фото";
 /*Translated from: Select this video*/

@@ -28,6 +28,10 @@
 "Cancelling..." = "Ακύρωση ...";
 /*Translated from: Saving Photos...*/
 "Saving Photos..." = "Αποθήκευση φωτογραφιών ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Διαγραφή φωτογραφιών ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Επαναφορά φωτογραφιών ...";
 /*Translated from: Select this photo*/
 "Select this photo" = "Επιλέξτε αυτήν τη φωτογραφία";
 /*Translated from: Select this video*/

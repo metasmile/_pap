@@ -12,10 +12,10 @@ import Crashlytics
 
 protocol PreviewViewDelegate {
     func batchPreviewView(_ view: PreviewView, didSelectItemAt indexPath: IndexPath)
-    func batchPreviewViewWillBeginExport(_ view: PreviewView)
+    func batchPreviewViewWillFinalize(_ view: PreviewView)
 
     func batchPreviewView(_ view: PreviewView, didUpdateProgress progress: Float)
-    func batchPreviewViewDidCancelProgress(_ view: PreviewView)
+    func batchPreviewViewWillCancelProgress(_ view: PreviewView)
 
     func batchPreviewViewWillBeginEdit(_ view: PreviewView)
     func batchPreviewViewDidEndEdit(_ view: PreviewView)
@@ -198,14 +198,14 @@ extension PreviewView {
                 }
 
             case .cancelled:
-                self.delegate?.batchPreviewViewDidCancelProgress(self)
+                self.delegate?.batchPreviewViewWillCancelProgress(self)
 
             default: break
             }
 
         }).will(finish: { resultsByApps, respondables in
 
-            self.delegate?.batchPreviewViewWillBeginExport(self)
+            self.delegate?.batchPreviewViewWillFinalize(self)
 
 
         }).did(finish: { resultsByApps, respondables in

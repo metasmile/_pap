@@ -28,6 +28,10 @@
 "Cancelling..." = "Visszavonás ...";
 /*Translated from: Saving Photos...*/
 "Saving Photos..." = "Fotók mentése ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Fotók törlése ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Fotók visszavétele ...";
 /*Translated from: Select this photo*/
 "Select this photo" = "Válassza ezt a fotót";
 /*Translated from: Select this video*/

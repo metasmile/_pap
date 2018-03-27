@@ -6,7 +6,7 @@
 import Foundation
 import Photos
 
-public class Clean: App, PersistableApp, PHAssetFinalizableApp, UIControllableApp {
+public class Clean: App, PersistableApp, PHAssetFinalizableApp, UIControllableApp, PhotoPickerViewControllerDisplayableApp {
     public static let taskType:Taskable.Type = _CleanTask.self
 
     public static let paramType:TaskParamable.Type = PHAssetItem<AppValue>.self
@@ -25,6 +25,10 @@ public class Clean: App, PersistableApp, PHAssetFinalizableApp, UIControllableAp
 
     public var finalizingOptions: PHAssetFinalizingOptions{
         return [.delete]
+    }
+
+    public func titleWillFinalize() -> String? {
+        return "Deleting Photos...".localized
     }
 }
 

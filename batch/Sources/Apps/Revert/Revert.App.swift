@@ -9,7 +9,7 @@ import DefaultsKit
 
 private typealias RevertAppParam = PHAssetItem<AppValue>
 
-public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, ItemCollectableApp, PersistableApp {
+public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, ItemCollectableApp, PersistableApp, PhotoPickerViewControllerDisplayableApp {
     public static let taskType:Taskable.Type = _RevertAppTask.self
 
     public static let paramType:TaskParamable.Type = RevertAppParam.self
@@ -61,9 +61,12 @@ public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, ItemCol
         //for test
         return item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive)
     }
+
+    public func titleWillFinalize() -> String? {
+        return "Reverting Photos...".localized
+    }
 }
 
- 
 private class _RevertAppTask: TaskPrototype, Taskable {
     public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?){}
 

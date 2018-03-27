@@ -28,6 +28,10 @@
 "Cancelling..." = "Annullamento in corso ...";
 /*Translated from: Saving Photos...*/
 "Saving Photos..." = "Salvataggio di foto ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Eliminazione di foto ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Ripristino delle foto ...";
 /*Translated from: Select this photo*/
 "Select this photo" = "Seleziona questa foto";
 /*Translated from: Select this video*/

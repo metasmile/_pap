@@ -28,6 +28,10 @@
 "Cancelling..." = "Membatalkan ...";
 /*Translated from: Saving Photos...*/
 "Saving Photos..." = "Menyimpan Foto ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Memadamkan Foto ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Mengembalikan Foto ...";
 /*Translated from: Select this photo*/
 "Select this photo" = "Pilih foto ini";
 /*Translated from: Select this video*/

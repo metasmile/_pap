@@ -6,7 +6,30 @@
 import Foundation
 
 public protocol ItemCollectableApp: App {
-//    var asyncSignal:Dictionary<String, AsyncControllableSignable & AsyncSignalable>? {get}
-
     func isItemEnables(for:PHAssetItem<AppValue>) -> Bool
+}
+
+public protocol PhotoPickerViewControllerDisplayableApp: App {
+    func titleWillBegin() -> String?
+    func titleDidUpdate(progress: Float) -> String?
+    func titleWillCancel() -> String?
+    func titleWillFinalize() -> String?
+}
+
+extension PhotoPickerViewControllerDisplayableApp {
+    public func titleWillBegin() -> String? {
+        return nil
+    }
+
+    public func titleDidUpdate(progress: Float) -> String? {
+        return nil
+    }
+
+    public func titleWillCancel() -> String? {
+        return nil
+    }
+
+    public func titleWillFinalize() -> String? {
+        return nil
+    }
 }

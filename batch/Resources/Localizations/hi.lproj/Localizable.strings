@@ -28,6 +28,10 @@
 "Cancelling..." = "रोक रहा है ...";
 /*Translated from: Saving Photos...*/
 "Saving Photos..." = "फ़ोटो सहेज रहे हैं ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "फ़ोटो हटाना ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "फ़ोटो वापस ला रहा है ...";
 /*Translated from: Select this photo*/
 "Select this photo" = "इस फ़ोटो का चयन करें";
 /*Translated from: Select this video*/

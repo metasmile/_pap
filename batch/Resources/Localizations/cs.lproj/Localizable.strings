@@ -28,6 +28,10 @@
 "Cancelling..." = "Zrušení ...";
 /*Translated from: Saving Photos...*/
 "Saving Photos..." = "Ukládání fotografií ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Mazání fotografií ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Vrácení fotografií ...";
 /*Translated from: Select this photo*/
 "Select this photo" = "Vyberte tuto fotku";
 /*Translated from: Select this video*/

@@ -28,6 +28,10 @@
 "Cancelling..." = "إلغاء ...";
 /*Translated from: Saving Photos...*/
 "Saving Photos..." = "جار حفظ الصور ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "جارٍ حذف الصور ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "جارٍ إرجاع الصور ...";
 /*Translated from: Select this photo*/
 "Select this photo" = "حدد هذه الصورة";
 /*Translated from: Select this video*/

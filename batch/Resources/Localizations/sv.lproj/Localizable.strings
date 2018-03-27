@@ -28,6 +28,10 @@
 "Cancelling..." = "Inställande...";
 /*Translated from: Saving Photos...*/
 "Saving Photos..." = "Spara foton ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Raderar foton ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Återgår bilder ...";
 /*Translated from: Select this photo*/
 "Select this photo" = "Välj det här fotot";
 /*Translated from: Select this video*/

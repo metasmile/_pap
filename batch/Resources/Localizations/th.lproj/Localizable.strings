@@ -28,6 +28,10 @@
 "Cancelling..." = "ยกเลิก ...";
 /*Translated from: Saving Photos...*/
 "Saving Photos..." = "กำลังบันทึกรูปภาพ ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "กำลังลบรูปภาพ ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "กำลังเปลี่ยนรูปภาพ ...";
 /*Translated from: Select this photo*/
 "Select this photo" = "เลือกรูปภาพนี้";
 /*Translated from: Select this video*/

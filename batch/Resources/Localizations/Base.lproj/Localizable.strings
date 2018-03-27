@@ -16,6 +16,8 @@
 "Processing..." = "Processing...";
 "Cancelling..." = "Cancelling...";
 "Saving Photos..." = "Saving Photos...";
+"Deleting Photos..." = "Deleting Photos...";
+"Reverting Photos..." = "Reverting Photos...";
 
 "Select this photo" = "Select this photo";
 "Select this video" = "Select this video";

@@ -28,6 +28,10 @@
 "Cancelling..." = "מבטל ...";
 /*Translated from: Saving Photos...*/
 "Saving Photos..." = "שומר תמונות ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "מוחק תמונות ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "משחזר תמונות ...";
 /*Translated from: Select this photo*/
 "Select this photo" = "בחר תמונה זו";
 /*Translated from: Select this video*/
