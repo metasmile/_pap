@@ -16,7 +16,15 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
 
         let touchLocation = gestureRecognizer.location(in: gestureRecognizer.view)
         if let indexPath = photoCollectionView.indexPathForItem(at: touchLocation){
-            return self.collectionView(self.photoCollectionView, shouldSelectItemAt: indexPath)
+            let touchEnabled = self.collectionView(self.photoCollectionView, shouldSelectItemAt: indexPath)
+
+            //TODO: static
+            if touchEnabled == false{
+                let generator = UIImpactFeedbackGenerator(style: .medium)
+                generator.impactOccurred()
+            }
+
+            return touchEnabled
         }
 
         return true

@@ -55,7 +55,7 @@ open class AppManager: NSObject, SelectableCollection {
 
     public var current: App.Type? {
         willSet {
-            assert(_apps.contains { appType in appType == newValue },"Given current app \(String(describing:newValue)) is not contained in app collection")
+            assert(newValue == nil || _apps.contains { appType in appType == newValue },"Given current app \(String(describing:newValue)) is not contained in app collection")
             guard newValue != previous else{ return }
 
             getInstance(current, as:AppManagerDelegatableApp.self)?.willSetPrevious(newCurrent:newValue)

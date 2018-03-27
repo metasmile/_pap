@@ -23,6 +23,10 @@ public final class PHAssets: NSObject, KeyPathWatchable {
         return results?[indexPath.section][indexPath.item]
     }
 
+    public func isContained(section:Int) -> Bool{
+        return results?.indices.contains(section) ?? false
+    }
+
     public func indexPath(of asset: PHAsset?) -> IndexPath? {
         guard let asset = asset else { return nil }
         return results?.enumerated().flatMap({
@@ -34,10 +38,11 @@ public final class PHAssets: NSObject, KeyPathWatchable {
 
     @discardableResult
     public func update(result:PHFetchResult<PHAsset>, at section:Int) -> Bool{
-        guard let _ = results?.indices.contains(section) else{ return false }
-
-        results?[section] = result
-        return true
+        if isContained(section: section){
+            results?[section] = result
+            return true
+        }
+        return false
     }
     
     public func load(with collectionType: PHAssetCollectionType = .smartAlbum, subtype collectionSubType: PHAssetCollectionSubtype = .smartAlbumUserLibrary, completion:(() -> Void)?=nil) {

@@ -133,6 +133,7 @@ extension PreviewView {
 
 extension PreviewView {
 
+    //TODO: remove dependencies and export from previewview
     @discardableResult
     func runBatchProcessing() -> Bool {
         let targetSection = 0 //TODO: previously support multiple sections
@@ -152,7 +153,14 @@ extension PreviewView {
         for i in 0..<appAssetsSelected.count{
             AppCenter.default.task.append(request: AppTaskRequest(app, appAssetsSelected.at(i)))
         }
+        AppCenter.default.task.perform(createTaskReaction())
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.fetchProgressChanged), name: RemoteSourceFetchNotification.Name.progressChanged, object: nil)
 
+        return true
+    }
+
+    public func createTaskReaction() -> AppTaskReaction{
         let reaction = AppTaskReaction()
 
         reaction.when(progress:{ response, progress, remained, completed in
@@ -162,17 +170,24 @@ extension PreviewView {
             let totalCount = remained.count+completed.count
 
             switch (response.info.state) {
-                case .completed:
-                    self.delegate?.batchPreviewView(self, didUpdateProgress: progress)
+            case .completed:
+                self.delegate?.batchPreviewView(self, didUpdateProgress: progress)
 
-                    if let param = requestedParam, let index = param.indexPath {
-                        self.collectionView.scrollToItem(at: IndexPath(item: Int(Float(totalCount-1)*progress), section: index.section), at: .centeredHorizontally, animated: true)
+                if let param = requestedParam, let index = param.indexPath {
+                    var destItem = Int(Float(totalCount-1)*progress)
+                    let numberOfItems = self.collectionView.numberOfItems(inSection: index.section)
+                    if destItem >= numberOfItems{
+                        destItem = numberOfItems-1
+                    }else if destItem < 0{
+                        destItem = 0
                     }
+                    self.collectionView.scrollToItem(at: IndexPath(item: destItem, section: index.section), at: .centeredHorizontally, animated: true)
+                }
 
-                case .cancelled:
-                    self.delegate?.batchPreviewViewDidCancelProgress(self)
+            case .cancelled:
+                self.delegate?.batchPreviewViewDidCancelProgress(self)
 
-                default: break
+            default: break
             }
 
         }).will(finish: { resultsByApps, respondables in
@@ -198,11 +213,7 @@ extension PreviewView {
             }
         })
 
-        AppCenter.default.task.perform(reaction)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(self.fetchProgressChanged), name: RemoteSourceFetchNotification.Name.progressChanged, object: nil)
-
-        return true
+        return reaction
     }
     
     @objc func fetchProgressChanged(sender: NSNotification) {

@@ -8,11 +8,12 @@ import Dispatch
 
 public typealias AppTaskRequest = TaskRequest<App.Type, TaskParamable, AppTaskRespondable>
 
+/*
+    Protocols
+*/
 public protocol AppTaskManagerDelegate: class {
     func didRespond(forCurrent: AppTaskRespondable, progress:Float, remained:[AppTaskRespondable], finished:[AppTaskRespondable])
-
     func willFinish(forEachApps:[AppInfo:[AppTaskRespondable]], forAll:[AppTaskRespondable])
-    
     func didFinish(forEachApps:[AppInfo:[AppTaskRespondable]], forAll:[AppTaskRespondable])
 }
 
@@ -50,8 +51,8 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
 
     //result collection
     private var _staticResponsesForEachApps = [AppInfo: [AppTaskRespondable]]()
-    private var _staticRequestedWorkItems = [String: AppTaskWorkItem]()
-    private var _staticFinishedWorkItems = [AppTaskWorkItem]()
+    private var _staticRequestedWorkItems = [String: AppTaskItem]()
+    private var _staticFinishedWorkItems = [AppTaskItem]()
 
     //TODO: improve queue assign performance
     private var _currentQueue: AppTaskOperationQueue {
@@ -100,10 +101,8 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         return taskType.init(taskInfo)
     }
 
-    private func getCurrentWorkItems() -> [AppTaskWorkItem] {
-        return _queuePool.values.flatMap { q -> [AppTaskWorkItem] in
-            Array(q.iterator())
-        }
+    var currentTaskItems:[AppTaskItem] {
+        return _queuePool.values.flatMap { q -> [AppTaskItem] in Array(q.iterator()) }
     }
 
     //TODO: query by all of each request's properties.
@@ -116,7 +115,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
     @discardableResult
     public func request(_ request:AppTaskRequest) -> TaskInfo?{
         let info = append(request:request)
-        perform(true)
+        perform(ignoreIfSuspended:true)
         return info
     }
 
@@ -128,7 +127,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
             , let queue = self._queuePool[queueLabel]
 
                     else {
-                assert(false, "a queue by the request is unqueued")
+                print("[!] a queue by the request is unqueued")
                 return
             }
 
@@ -163,7 +162,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
                 return nil
             }
 
-            let item = AppTaskWorkItem(
+            let item = AppTaskItem(
                     request: request
                     , info: task.info
                     , task: task
@@ -177,13 +176,13 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
     }
     
     @discardableResult
-    private func perform(_ preventIfSuspended:Bool=false) -> Bool {
+    private func perform(ignoreIfSuspended:Bool=false) -> Bool {
         if _queuePool.count==0 {
             return false
         }
 
         for queue in _queuePool.values {
-            if preventIfSuspended && queue.suspended{
+            if ignoreIfSuspended && queue.suspended{
                 return false
             }
             queue.perform()
@@ -199,7 +198,12 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
                 self._reactionItem = reaction
             }
         }
-        return perform(false)
+        return perform(ignoreIfSuspended:false)
+    }
+
+    @discardableResult
+    public func perform(finished: @escaping AppTaskReactableFinishHandler) -> Bool {
+        return perform(AppTaskReaction(finish: finished))
     }
 
     public func cancel(){
@@ -214,11 +218,11 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         return DispatchQueue.main
     }
 
-    func willPerformTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem) {
+    func willPerformTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskItem) {
         (self.delegate as? AppTaskManagerTaskDelegate)?.willPerformTask(info: workItem)
     }
 
-    func didFailTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem) {
+    func didFailTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskItem) {
         (self.delegate as? AppTaskManagerTaskDelegate)?.didFailTask(info: workItem)
 
         syncQueue.sync(flags:.barrier){
@@ -226,7 +230,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         }
     }
 
-    func didCompleteTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem) {
+    func didCompleteTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskItem) {
         (self.delegate as? AppTaskManagerTaskDelegate)?.didCompleteTask(info: workItem)
 
         syncQueue.sync(flags:.barrier){
@@ -234,7 +238,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         }
     }
 
-    func didCancelTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem) {
+    func didCancelTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskItem) {
         (self.delegate as? AppTaskManagerTaskDelegate)?.didCancelTask(info: workItem)
 
         syncQueue.sync(flags:.barrier){
@@ -242,14 +246,14 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         }
     }
 
-    func didFinishAllTasksInQueue(_ queue: AppTaskOperationQueue, _ result: [AppTaskWorkItem]?) {
+    func didFinishAllTasksInQueue(_ queue: AppTaskOperationQueue, _ result: [AppTaskItem]?) {
         
     }
 
     //counter
     //TODO: multi-apps for each requestToken
 
-    private func _countFinishedTaskByEachQueues(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem) {
+    private func _countFinishedTaskByEachQueues(_ queue: AppTaskOperationQueue, _ workItem: AppTaskItem) {
         let appType = workItem.request.appType
         let appInfo = appType.info
 

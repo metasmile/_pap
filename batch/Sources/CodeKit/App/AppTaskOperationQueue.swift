@@ -8,17 +8,17 @@ import Foundation
 protocol AppTaskOperationQueueDelegate: class {
     func delegatingQueue(from:AppTaskOperationQueue) -> DispatchQueue
 
-    func willPerformTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem)
-    func didCompleteTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem)
-    func didCancelTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem)
-    func didFailTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskWorkItem)
+    func willPerformTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskItem)
+    func didCompleteTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskItem)
+    func didCancelTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskItem)
+    func didFailTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskItem)
 
-    func didFinishAllTasksInQueue(_ queue: AppTaskOperationQueue, _ result: [AppTaskWorkItem]?)
+    func didFinishAllTasksInQueue(_ queue: AppTaskOperationQueue, _ result: [AppTaskItem]?)
 }
 
-class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
+class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
 
-    private var finshedQueue = ItemQueue<AppTaskWorkItem>()
+    private var finshedQueue = ItemQueue<AppTaskItem>()
     private weak var delegate: AppTaskOperationQueueDelegate?
 
     private(set) public var currentTask: TaskInfo?
@@ -44,13 +44,13 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
     }
 
     //overriden
-    final func isEnqueued(_ item: AppTaskWorkItem) -> Bool{
+    final func isEnqueued(_ item: AppTaskItem) -> Bool{
         return self.iterator().contains { e -> Bool in
             e.info.requestToken == item.info.requestToken
         }
     }
 
-    override func enqueue(_ item: AppTaskWorkItem, reverse: Bool=false) {
+    override func enqueue(_ item: AppTaskItem, reverse: Bool=false) {
         if isEnqueued(item) { return }
 
         item.info.queueLabel = self.label
@@ -63,7 +63,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
         return self.delegate?.delegatingQueue(from: self) ?? DispatchQueue.main
     }
 
-    private func dispatchFinishedForEach(item: AppTaskWorkItem) {
+    private func dispatchFinishedForEach(item: AppTaskItem) {
         let d = self.delegate
         var exe:(() -> Void)?
 
@@ -106,7 +106,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskWorkItem> {
         }
     }
 
-    private func tryItem(_ item: AppTaskWorkItem, _ async: AsyncManualSignalable & AsyncControllableSignable, cancel:Bool=false){
+    private func tryItem(_ item: AppTaskItem, _ async: AsyncManualSignalable & AsyncControllableSignable, cancel:Bool=false){
         let param = item.request.param
 
         guard !cancel && item.response(.performing) else{
