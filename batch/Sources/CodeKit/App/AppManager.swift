@@ -27,19 +27,30 @@ open class AppManager: NSObject, SelectableCollection {
     override init(){
         super.init()
 
-        let configurableAppManager = self as? AppManagerConfigurable
+        var initializingApps = [App.Type]()
 
-        if let configuration = configurableAppManager?.configure(){
-
-            if let appCollection = configuration.appCollection{
-                _apps.append(contentsOf: appCollection)
+        //AppManagerConfigurable
+        if let configurable = (self as? AppManagerConfigurable)?.configure(){
+            if let appCollection = configurable.appCollection{
+                initializingApps += appCollection
             }
 
-            if let taskManager = configuration.taskManager{
+            if let taskManager = configurable.taskManager{
                 _task = taskManager
             }
         }else{
             assert(!(self is AppManagerConfigurable), "This AppManager conforms \(AppManagerConfigurable.self) but config is nil.")
+        }
+
+        //check and finally adds
+        _apps += initializingApps.filter { app in
+            if let minVersion = app.info.minOSVersion{
+                print(ProcessInfo().operatingSystemVersion)
+                print(minVersion)
+                print(ProcessInfo().operatingSystemVersion >= minVersion)
+                return ProcessInfo().operatingSystemVersion >= minVersion
+            }
+            return true
         }
     }
 

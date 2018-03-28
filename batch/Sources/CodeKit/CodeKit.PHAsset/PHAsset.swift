@@ -8,6 +8,10 @@ import Photos
 import MobileCoreServices
 
 extension PHAsset {
+    public var resources:[PHAssetResource]{
+        return PHAssetResource.assetResources(for: self)
+    }
+
     //https://developer.apple.com/library/content/samplecode/UsingPhotosFramework/Listings/Shared_AssetViewController_swift.html
     func revertToOriginal() {
         PHPhotoLibrary.shared().performChanges({
@@ -43,7 +47,7 @@ extension PHAsset {
                 completion(false)
                 return
             }
-            
+
             completion(image.settingProperties(metadata).writeJPEGRepresentation(to: url))
         }
     }

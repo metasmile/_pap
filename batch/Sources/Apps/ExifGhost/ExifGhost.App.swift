@@ -22,6 +22,7 @@ public class ExifGhost: App, PHAssetFinalizableApp, ItemCollectableApp, UIContro
             , displayName: "EXIF Ghost"
             , icon: nil
             , policy: AppPolicy.default
+            , minOSVersion: nil
     )
 
     public required init() {}

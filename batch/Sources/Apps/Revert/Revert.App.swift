@@ -22,6 +22,7 @@ public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, ItemCol
             , displayName: "Revert"
             , icon: R.image.revertAppIcon.name
             , policy: AppPolicy.default
+            , minOSVersion: nil
     )
 
     required public override init(){

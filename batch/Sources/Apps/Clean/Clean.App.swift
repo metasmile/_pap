@@ -19,6 +19,7 @@ public class Clean: App, PersistableApp, PHAssetFinalizableApp, UIControllableAp
             , displayName: "Clean"
             , icon: nil
             , policy: AppPolicy.default
+            , minOSVersion: nil
     )
 
     public required init() {}

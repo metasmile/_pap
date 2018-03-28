@@ -26,6 +26,7 @@ public class PDFactory: App, PersistableApp, FinalizableApp, UIControllableApp, 
             , displayName: "PDFactory"
             , icon: nil
             , policy: AppPolicy.default
+            , minOSVersion: nil
     )
 
     public required init() {}

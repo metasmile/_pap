@@ -41,6 +41,7 @@ public struct AppInfoValues: AppInfoSchemeValues {
     public private(set) var displayName: String = ""
     public private(set) var icon: ImageSourceable? = nil
     public private(set) var policy: AppPolicy
+    public private(set) var minOSVersion: OperatingSystemVersion?
 }
 
 public typealias AppInfoScheme = AppInfoSchemeKey & AppInfoSchemeValues
@@ -53,6 +54,7 @@ public struct AppInfo: Hashable, AppInfoScheme {
     public let displayName:String
     public var icon:ImageSourceable?
     public let policy:AppPolicy
+    public let minOSVersion:OperatingSystemVersion?
 
     public var hashValue: Int {
         return self.identifier.hashValue
