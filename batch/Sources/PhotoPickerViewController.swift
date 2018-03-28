@@ -479,6 +479,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     
     func batchPreviewViewDidEndEdit(_ view: PreviewView) {
 //        cancelAllSelection()
+        updateSelectedItemUIs()
         
         progressBar.isHidden = true
         
