@@ -8,11 +8,12 @@ import UIKit
 import ImageIO
 import MobileCoreServices
 
-func UIImageGIFRepresentation(_ image: UIImage) -> Data? {
+//https://gist.github.com/powhu/00acd9d34fa8d61d2ddf5652f19cafcf
+public func UIImageGIFRepresentation(_ image: UIImage) -> Data? {
     return UIImageGIFRepresentation(image, duration: 0.0, repeatCount: 0)
 }
 
-func UIImageGIFRepresentation(_ image: UIImage, duration: TimeInterval, repeatCount: Int) -> Data? {
+public func UIImageGIFRepresentation(_ image: UIImage, duration: TimeInterval, repeatCount: Int) -> Data? {
     guard let images = image.images else {
         return nil
     }

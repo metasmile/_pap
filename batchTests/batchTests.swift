@@ -62,10 +62,13 @@ class batchTests: XCTestCase {
 
     func test_GIFDataRepresentation(){
 
-        let data = "bath01.gif".asBundlePath.asURL!.asData!
+        if let data = Bundle(for: type(of: self)).bundleURL.appendingPathComponent("bath01.gif").asData{
+            XCTAssertNotNil(UIImage.animatedImageWithGIFData(data))
+            XCTAssertNotNil(UIImageGIFRepresentation(UIImage.animatedImageWithGIFData(data)!, duration: 0, repeatCount: 0))
+        }else{
+            XCTFail()
+        }
 
-        XCTAssertNotNil(UIImage.animatedImageWithGIFData(data))
-        XCTAssertNotNil(UIImageGIFRepresentation(UIImage.animatedImageWithGIFData(data)!, duration: 0, repeatCount: 0))
     }
 }
 
