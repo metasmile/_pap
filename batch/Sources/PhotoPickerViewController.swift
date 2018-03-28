@@ -279,6 +279,8 @@ class PhotoPickerViewController: AppDockViewController {
     }
 
     private func photoLibraryDidChange(_ changeInstance: PHChange) {
+        let selectedAssetIdentifiers = photoCollectionView.indexPathsForSelectedItems?.flatMap({ PHAssets.fetched.asset(at: $0)?.localIdentifier })
+        
         //TODO - confirm: https://fabric.io/jessi/ios/apps/com.stells.batch/issues/5ab6b90e8cb3c2fa63db6d25?time=last-seven-days
         guard let fetchResults = PHAssets.fetched.results else { return }
 
@@ -350,7 +352,16 @@ class PhotoPickerViewController: AppDockViewController {
             }else{
                 self.updatePhotoPickerTitles()
             }
+            
+            self.restoreSelectionByUser(selectedAssetIdentifiers)
         })
+    }
+    
+    private func restoreSelectionByUser(_ assetLocalIdentifiers: [String]?) {
+        guard let localIdentifiers = assetLocalIdentifiers else { return }
+        PHAsset.fetchAssets(withLocalIdentifiers: localIdentifiers, options: nil).enumerateObjects { (asset, idx, stop) in
+            self.selectCollectionViewItem(by: asset)
+        }
     }
 }
 
@@ -467,7 +478,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
     
     func batchPreviewViewDidEndEdit(_ view: PreviewView) {
-        cancelAllSelection()
+//        cancelAllSelection()
         
         progressBar.isHidden = true
         
