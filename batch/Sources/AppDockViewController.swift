@@ -80,7 +80,7 @@ extension AppDockViewController: AppDockViewDelegate {
         let configView = AppCenter.default.currentInstanceAs(UIControllableApp.self)?.controlView
         appDockView.setAppConfigView(configView)
         
-        appDockView.closeDrawer()
+        appDockView.closeDrawer(reloadsPreview: true)
     }
     
     func appDockView(_ view: AppDockView, didOpenDrawer isOpened: Bool) {

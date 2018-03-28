@@ -371,7 +371,9 @@ extension AppDockView: UIGestureRecognizerDelegate {
         return (self.superview?.bounds ?? UIScreen.main.bounds).height * 0.6
     }
     
-    func openDrawer() {
+    func openDrawer(reloadsPreview: Bool? = nil) {
+        let needsToReloadPreview = reloadsPreview ?? !drawerView.isOpened
+        
         drawerView.isOpened = true
         
         drawerViewHeightLayout.constant = DrawerPreferences.prominentHeight
@@ -382,12 +384,17 @@ extension AppDockView: UIGestureRecognizerDelegate {
         animateUsingSpringIfLayoutConstraintsChanged()
         
         appContentView.layoutIfNeeded()
-        previewView?.reloadPreview(with: appContentViewHeightLayout.constant - preferredAppConfigViewHeight - DrawerPreferences.compactHeight * 2)
+        
+        if needsToReloadPreview {
+            previewView?.reloadPreview(with: appContentViewHeightLayout.constant - preferredAppConfigViewHeight - DrawerPreferences.compactHeight * 2)
+        }
         
         delegate?.appDockView(self, didOpenDrawer: true)
     }
     
-    func closeDrawer() {
+    func closeDrawer(reloadsPreview: Bool? = nil) {
+        let needsToReloadPreview = reloadsPreview ?? drawerView.isOpened
+        
         drawerView.isOpened = false
         
         drawerViewHeightLayout.constant = preferredDrawerViewHeight
@@ -398,7 +405,10 @@ extension AppDockView: UIGestureRecognizerDelegate {
         animateUsingSpringIfLayoutConstraintsChanged()
         
         appContentView.layoutIfNeeded()
-        previewView?.reloadPreview()
+        
+        if needsToReloadPreview {
+            previewView?.reloadPreview()
+        }
         
         delegate?.appDockView(self, didOpenDrawer: false)
     }
