@@ -29,10 +29,6 @@ public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, ItemCol
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
-        if result.isAnyTask(inState: .cancelled) && result.defaultTaskPolicy.cancellation == TaskPolicy.Cancellation.shallow {
-            return result
-        }
-
         let resultAssets = result.flatMap { ($0.result as? PHAssetResultable)?.asset }
 
         guard resultAssets.count > 0 else {

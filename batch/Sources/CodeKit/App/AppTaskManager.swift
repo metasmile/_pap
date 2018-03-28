@@ -331,7 +331,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
                 continue
             }
 
-            if let appInstanceAsFinalizable = appInstance as? FinalizableApp {
+            if let appInstanceAsFinalizable = appInstance as? FinalizableApp, appInstanceAsFinalizable.shouldFinalize(result: reses, asyncSignal) {
                 finalizedResults[appInfo] = appInstanceAsFinalizable.finalize(result: reses, asyncSignal)
             }else{
                 finalizedResults[appInfo] = reses

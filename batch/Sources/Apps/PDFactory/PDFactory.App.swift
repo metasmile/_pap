@@ -103,7 +103,7 @@ public class PDFactory: App, PersistableApp, FinalizableApp, UIControllableApp, 
 private class _PDFactoryTask: TaskPrototype, Taskable {
     private var _pdfImageRequestOptions: PHImageRequestOptions {
         let options = PHImageRequestOptions()
-        options.isSynchronous = true
+        options.isSynchronous = false
         options.isNetworkAccessAllowed = true
         options.deliveryMode = .highQualityFormat
         options.resizeMode = .exact
@@ -121,11 +121,15 @@ private class _PDFactoryTask: TaskPrototype, Taskable {
             //TODO: URL? to use low mem
             var renderImage:UIImage?
 
+            async?.begin()
+
             let imageRequestID = PHImageManager.default().requestImage(for: asset, targetSize: PDFPageSize.A4, contentMode: .default, options: _pdfImageRequestOptions) { (image, info) in
                 renderImage = image
+                async?.end()
             }
-
             appAsset.requestIDs += [PHAssetRequestID(forImage:imageRequestID)]
+
+            async?.stopUntilEnd()
 
             if let image = renderImage{
                 return PDFactoryPHAssetResult(asset: asset, imageToRender: image)
