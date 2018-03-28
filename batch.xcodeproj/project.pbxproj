@@ -141,6 +141,8 @@
 		4F71DF9943D375C8E71568EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D8227095557197E91EB6 /* Localizable.strings */; };
 		4F71DF9B8B2B87E168C55840 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D079FCA01A952DBCFD3F /* Localizable.strings */; };
 		4F71DFEC865AA80D613A636F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D301F74DE286EEECCC9F /* Localizable.strings */; };
+		5145BB1D206B304E00DDA371 /* PhotosFilter.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5145BB1C206B304E00DDA371 /* PhotosFilter.App.swift */; };
+		5145BB1F206B35C300DDA371 /* PhotosFilter.App.Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5145BB1E206B35C300DDA371 /* PhotosFilter.App.Contents.swift */; };
 		A05CE347206174EB004CDBAA /* Revert.App.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A05CE346206174EB004CDBAA /* Revert.App.Assets.xcassets */; };
 		A0CFD8E92052D9F10007041B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CFD8E82052D9F10007041B /* R.generated.swift */; };
 /* End PBXBuildFile section */
@@ -296,6 +298,8 @@
 		4F71DFAC187007D3333B11FC /* PhotoPickerFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerFooterView.swift; sourceTree = "<group>"; };
 		4F71DFCA8020E56BB968A0A8 /* hu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = hu; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71DFDD565703A287D81E0B /* App.Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Configurable.swift; sourceTree = "<group>"; };
+		5145BB1C206B304E00DDA371 /* PhotosFilter.App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosFilter.App.swift; sourceTree = "<group>"; };
+		5145BB1E206B35C300DDA371 /* PhotosFilter.App.Contents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosFilter.App.Contents.swift; sourceTree = "<group>"; };
 		614D248BD87AEAE91795DFC4 /* Pods-batch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch.release.xcconfig"; path = "Pods/Target Support Files/Pods-batch/Pods-batch.release.xcconfig"; sourceTree = "<group>"; };
 		7A5AA560EA015DA4EF60D3A9 /* Pods_batch_batchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_batch_batchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A05CE346206174EB004CDBAA /* Revert.App.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Revert.App.Assets.xcassets; sourceTree = "<group>"; };
@@ -868,6 +872,7 @@
 		4F71DCB7FD70D9D27E5C6324 /* Apps */ = {
 			isa = PBXGroup;
 			children = (
+				5145BB1B206B302D00DDA371 /* PhotosFilter */,
 				4F71D8FA3D2655407D04999F /* Transform */,
 				4F71D51E262A9146CEFBAC5D /* batch.App.Public.Contents.swift */,
 				4F71D8242392C908CCDF3022 /* batch.App.Contents.swift */,
@@ -986,6 +991,15 @@
 				4F71DF831B8923947BD8EF19 /* Localizable.strings */,
 			);
 			path = es_MX.lproj;
+			sourceTree = "<group>";
+		};
+		5145BB1B206B302D00DDA371 /* PhotosFilter */ = {
+			isa = PBXGroup;
+			children = (
+				5145BB1C206B304E00DDA371 /* PhotosFilter.App.swift */,
+				5145BB1E206B35C300DDA371 /* PhotosFilter.App.Contents.swift */,
+			);
+			path = PhotosFilter;
 			sourceTree = "<group>";
 		};
 		DEBB1972B2E19B0514B3BEDD /* Frameworks */ = {
@@ -1319,6 +1333,7 @@
 				0A9F86D01FDA756800D25EB6 /* PhotoCollectionViewCell.swift in Sources */,
 				0A9EBAE31FD6F37200E83778 /* PreviewView.swift in Sources */,
 				4F71D94449F2D394F3FD67D9 /* PhotoPickerDetailViewController.swift in Sources */,
+				5145BB1F206B35C300DDA371 /* PhotosFilter.App.Contents.swift in Sources */,
 				4F71D760C8DCECB3DDC59844 /* Object.swift in Sources */,
 				4F71DC55BD7BDFF401B7AB59 /* Task.swift in Sources */,
 				4F71D370787DC77E5C687706 /* App.swift in Sources */,
@@ -1383,6 +1398,7 @@
 				4F71D4E71C41219DD4617280 /* CodeKit.OptionSet.swift in Sources */,
 				4F71DAB3C7F59201E91D2101 /* App.Persistable.swift in Sources */,
 				4F71D9AB2B9958A2C8630A74 /* Transform.App.Defaults.swift in Sources */,
+				5145BB1D206B304E00DDA371 /* PhotosFilter.App.swift in Sources */,
 				4F71D3683F2618E4E2353B93 /* App.UIControllable.swift in Sources */,
 				4F71DF199815997F888A4F86 /* PhotoPickerViewController.OperationControl.swift in Sources */,
 				4F71D6EA70539E102CB437C1 /* Clean.App.swift in Sources */,

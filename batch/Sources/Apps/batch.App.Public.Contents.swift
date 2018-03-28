@@ -16,6 +16,9 @@ public class AppValue: Object {
     var transform3d: CATransform3D {
         return CATransform3DIdentity
     }
+    var ciFilter: CIFilter? {
+        return nil
+    }
 }
 
 

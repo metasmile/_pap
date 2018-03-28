@@ -43,6 +43,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             , ExifGhost.self
             , Clean.self
             , PDFactory.self
+            , PhotosFilterApp.self
         ]
 
         return config
