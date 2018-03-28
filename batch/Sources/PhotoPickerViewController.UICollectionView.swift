@@ -53,16 +53,12 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
             collectionView.scrollToItem(at: indexPath, at: .bottom, animated: false)
             initialPhotoCollectionIndexPath = nil
         }
-
-        if let cell = cell as? PhotoCollectionViewCell{
-            cell.isEnabled = self.collectionView(collectionView, shouldSelectItemAt: indexPath)
-        }
+        
+        (cell as? PhotoCollectionViewCell)?.isEnabled = self.collectionView(collectionView, shouldSelectItemAt: indexPath)
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        if AppCenter.default.isAppRunning {
-            return false
-        }
+        guard !AppCenter.default.isAppRunning else { return false }
 
         if let collectableApp = AppCenter.default.currentInstanceAs(ItemCollectableApp.self)
             , let asset = PHAssets.fetched.asset(at: indexPath)
@@ -74,9 +70,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
-        if AppCenter.default.isAppRunning {
-            return false
-        }
+        guard !AppCenter.default.isAppRunning else { return false }
         return true
     }
 

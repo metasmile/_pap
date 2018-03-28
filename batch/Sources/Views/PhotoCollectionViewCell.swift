@@ -92,13 +92,14 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
     
     override var isSelected: Bool {
         didSet {
-            updateSelectionState()
+            selectionCheckView.checked = isSelected
+            selectionView.visible = isSelected
         }
     }
 
     public var isEnabled:Bool = false {
         didSet{
-            updateSelectionState()
+            contentView.alpha = isEnabled ? 1 : 0.5
         }
     }
 

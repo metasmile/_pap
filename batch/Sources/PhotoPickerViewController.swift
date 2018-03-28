@@ -144,6 +144,8 @@ class PhotoPickerViewController: AppDockViewController {
         super.doneButtonDidTap(sender: sender)
         
         batchPreviewView.runBatchProcessing()
+        
+        updateVisiblePhotoCollectionCellsEnabled()
     }
 
     func redisplayVisibleCellsWhenChangeApp(){
@@ -153,11 +155,7 @@ class PhotoPickerViewController: AppDockViewController {
             }
         }
 
-        for indexPath in self.photoCollectionView.indexPathsForVisibleItems{
-            if let cell = self.photoCollectionView.cellForItem(at: indexPath){
-                self.collectionView(self.photoCollectionView, willDisplay: cell, forItemAt: indexPath)
-            }
-        }
+        updateVisiblePhotoCollectionCellsEnabled()
     }
 
     func showCurrentSelectedAppDisplayName(){
@@ -271,6 +269,13 @@ class PhotoPickerViewController: AppDockViewController {
     func updatePhotoPickerTitles() {
         updateSelectedItemUIs()
         updateAllPhotosTitle()
+    }
+    
+    func updateVisiblePhotoCollectionCellsEnabled() {
+        photoCollectionView.indexPathsForVisibleItems.forEach { (indexPath) in
+            let cell = self.photoCollectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell
+            cell?.isEnabled = self.collectionView(self.photoCollectionView, shouldSelectItemAt: indexPath)
+        }
     }
 
     private func photoLibraryDidChange(_ changeInstance: PHChange) {
@@ -465,6 +470,8 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         cancelAllSelection()
         
         progressBar.isHidden = true
+        
+        updateVisiblePhotoCollectionCellsEnabled()
     }
     
     func batchPreviewViewDidCancelEdit(_ view: PreviewView) {

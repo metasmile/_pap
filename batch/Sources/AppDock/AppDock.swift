@@ -352,8 +352,12 @@ extension AppDockView: UIGestureRecognizerDelegate {
             if sender.velocity(in: self).y < 0 {
                 openDrawer()
             }
-            else {
+            else if sender.velocity(in: self).y > 0 {
                 closeDrawer()
+            }
+            else {
+                drawerViewHeightLayout.constant = drawerView.isOpened ? DrawerPreferences.prominentHeight : DrawerPreferences.compactHeight
+                appContentViewHeightLayout.constant = drawerView.isOpened ? drawerHeightOpened : preferredAppContentViewHeight
             }
             drawerView.layoutIfNeeded()
             drawerView.setNeedsDisplay()
@@ -363,11 +367,15 @@ extension AppDockView: UIGestureRecognizerDelegate {
         }
     }
     
+    fileprivate var drawerHeightOpened: CGFloat {
+        return (self.superview?.bounds ?? UIScreen.main.bounds).height * 0.6
+    }
+    
     func openDrawer() {
         drawerView.isOpened = true
         
         drawerViewHeightLayout.constant = DrawerPreferences.prominentHeight
-        appContentViewHeightLayout.constant = (superview?.bounds ?? UIScreen.main.bounds).height * 0.6
+        appContentViewHeightLayout.constant = drawerHeightOpened
         
         invalidateIntrinsicContentSize()
         
