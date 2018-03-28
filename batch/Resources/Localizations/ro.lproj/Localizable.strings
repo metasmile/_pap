@@ -4,10 +4,16 @@
 "Please open settings and allow access to your photos" = "Vă rugăm să deschideți setările și să permiteți accesul la fotografiile dvs.";
 /*Translated from: Open Settings*/
 "Open Settings" = "Deschide setările";
+/*Translated from: OK*/
+"OK" = "O.K";
+/*Translated from: Confirm*/
+"Confirm" = "A confirma";
 /*Translated from: Cancel*/
 "Cancel" = "Anulare";
 /*Translated from: Detail*/
 "Detail" = "Detaliu";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Scuze, ceva a mers greșit.";
 /*Translated from: Edit %d photo(s)*/
 "Edit %d photo(s)" = "Editați fotografiile %d";
 /*Translated from: Edit %d video(s)*/

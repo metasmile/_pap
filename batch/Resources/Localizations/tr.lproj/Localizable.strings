@@ -4,10 +4,16 @@
 "Please open settings and allow access to your photos" = "Lütfen ayarları açın ve fotoğraflarınıza erişime izin verin";
 /*Translated from: Open Settings*/
 "Open Settings" = "Ayarları aç";
+/*Translated from: OK*/
+"OK" = "tamam";
+/*Translated from: Confirm*/
+"Confirm" = "Onaylamak";
 /*Translated from: Cancel*/
 "Cancel" = "İptal etmek";
 /*Translated from: Detail*/
 "Detail" = "detay";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Üzgünüm, bir şeyler ters gitti.";
 /*Translated from: Edit %d photo(s)*/
 "Edit %d photo(s)" = "%d Fotoğraflarını düzenle";
 /*Translated from: Edit %d video(s)*/

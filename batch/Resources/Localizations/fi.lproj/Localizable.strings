@@ -4,10 +4,16 @@
 "Please open settings and allow access to your photos" = "Avaa asetuksia ja anna heidän käyttää valokuvasi";
 /*Translated from: Open Settings*/
 "Open Settings" = "Avaa asetukset";
+/*Translated from: OK*/
+"OK" = "kunnossa";
+/*Translated from: Confirm*/
+"Confirm" = "Vahvistaa";
 /*Translated from: Cancel*/
 "Cancel" = "Peruuttaa";
 /*Translated from: Detail*/
 "Detail" = "Yksityiskohta";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Pahoittelut, jotain meni pieleen.";
 /*Translated from: Edit %d photo(s)*/
 "Edit %d photo(s)" = "Muokkaa %d valokuvaa";
 /*Translated from: Edit %d video(s)*/

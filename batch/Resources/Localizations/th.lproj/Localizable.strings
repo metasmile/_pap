@@ -4,10 +4,16 @@
 "Please open settings and allow access to your photos" = "โปรดเปิดการตั้งค่าและอนุญาตให้เข้าถึงรูปภาพของคุณ";
 /*Translated from: Open Settings*/
 "Open Settings" = "เปิดการตั้งค่า";
+/*Translated from: OK*/
+"OK" = "ตกลง";
+/*Translated from: Confirm*/
+"Confirm" = "ยืนยัน";
 /*Translated from: Cancel*/
 "Cancel" = "ยกเลิก";
 /*Translated from: Detail*/
 "Detail" = "รายละเอียด";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "ขอโทษมีบางอย่างผิดพลาด.";
 /*Translated from: Edit %d photo(s)*/
 "Edit %d photo(s)" = "แก้ไข %d รูปภาพ";
 /*Translated from: Edit %d video(s)*/

@@ -4,10 +4,16 @@
 "Please open settings and allow access to your photos" = "설정을 열고 사진에 대한 액세스를 허용하십시오.";
 /*Translated from: Open Settings*/
 "Open Settings" = "설정 열기";
+/*Translated from: OK*/
+"OK" = "승인";
+/*Translated from: Confirm*/
+"Confirm" = "확인";
 /*Translated from: Cancel*/
 "Cancel" = "취소";
 /*Translated from: Detail*/
 "Detail" = "세부 묘사";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "죄송합니다. 무엇인가 잘못되었습니다.";
 /*Translated from: Edit %d photo(s)*/
 "Edit %d photo(s)" = "%d 사진 수정";
 /*Translated from: Edit %d video(s)*/

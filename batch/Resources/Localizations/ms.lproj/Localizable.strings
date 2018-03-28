@@ -4,10 +4,16 @@
 "Please open settings and allow access to your photos" = "Sila buka tetapan dan benarkan akses ke foto anda";
 /*Translated from: Open Settings*/
 "Open Settings" = "Buka Tetapan";
+/*Translated from: OK*/
+"OK" = "okey";
+/*Translated from: Confirm*/
+"Confirm" = "Sahkan";
 /*Translated from: Cancel*/
 "Cancel" = "Batalkan";
 /*Translated from: Detail*/
 "Detail" = "Terperinci";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Maaf, sesuatu telah berlaku.";
 /*Translated from: Edit %d photo(s)*/
 "Edit %d photo(s)" = "Edit %d foto (s)";
 /*Translated from: Edit %d video(s)*/
