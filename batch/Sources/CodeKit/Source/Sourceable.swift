@@ -145,7 +145,7 @@ extension String: ImageSourceable, BundleImageSourceable, DataSourceable, URLSou
         return UIImage(contentsOfFile: self.asBundlePath)
     }
 
-    public var asData:Data? { get { return nil } }
+    public var asData:Data? { return nil }
 
     public var asURL:URL? {
         return URL(string: self)

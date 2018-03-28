@@ -26,6 +26,7 @@ public class TestApp: App {
             , displayName: "TestApp"
             , icon: nil
             , policy: AppPolicy.default
+            , minOSVersion: nil
     )
     public required init() {}
 }
