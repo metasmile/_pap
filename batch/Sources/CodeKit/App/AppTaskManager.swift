@@ -337,7 +337,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
                 finalizedResults[appInfo] = reses
             }
 
-            if appInfo.policy.lifeCycleUnit == .performCycle {
+            if appInfo.policy.lifeCycleUnit == .allTasks {
                 AppLifecycleManager.shared.discard(appInfo)
                 assert(!AppLifecycleManager.shared.acquired.contains(appInfo.identifier))
             }

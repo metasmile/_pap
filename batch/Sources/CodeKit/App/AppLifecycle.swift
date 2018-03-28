@@ -6,9 +6,10 @@
 import Foundation
 
 public enum AppLifecycleUnit:UInt {
+    case singleTask
+    case allTasks
+    case availability
     case systemMemory //TODO: implement with system memory state
-    case task
-    case performCycle
     case permanent
 }
 

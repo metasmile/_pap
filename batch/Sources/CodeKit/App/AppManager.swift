@@ -73,7 +73,7 @@ open class AppManager: NSObject, SelectableCollection {
             var defaultsOfCurrent = (current as? PersistableApp.Type)?.defaults
             defaultsOfCurrent?.touchedVersion = current?.info.version
 
-            if let previous = self.previous, previous.info.policy.lifeCycleUnit != AppLifecycleUnit.permanent{
+            if let previous = self.previous, previous.info.policy.lifeCycleUnit == .availability {
                 AppLifecycleManager.shared.discard(previous.info)
             }
         }
