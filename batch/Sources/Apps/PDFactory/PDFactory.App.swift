@@ -53,34 +53,47 @@ public class PDFactory: App, PersistableApp, FinalizableApp, UIControllableApp, 
                 .filter { respondable in respondable.info.state == .completed }
                 .flatMap { $0.result as? PDFactoryPHAssetResult }
 
+        let rootViewController = UIApplication.shared.keyWindow?.rootViewController
+
         do {
 
             let page = resultItems.map { result -> PDFPage in
                 return PDFPage.image(result.imageToRender)
             }
 
-            let path = NSTemporaryDirectory().appending("sample1.pdf")
+            let exportedDateFormat = DateFormatter()
+            exportedDateFormat.dateFormat = "yyyyMMdd_HHmmss"
+
+            let path = NSTemporaryDirectory().appending("exported_\(String(describing: type(of: self)))")
             try PDFGenerator.generate(page, to: path)
 
-            asyncSignal.begin()
-
-            DispatchQueue.main.async {
-                let alert = UIAlertController.init(title: type(of: self).info.displayName, message: "Success \(path)", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default) { (alertAction) -> Void in
-                    asyncSignal.end()
-                })
-
-                UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true) {
-
-                }
+            if FileManager.default.fileExists(atPath: path) == false {
+                throw "\(#function)_\(#file)"
             }
 
-            print(FileManager.default.fileExists(atPath: path))
-
+            asyncSignal.begin()
+            DispatchQueue.main.async {
+                let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [NSData(contentsOfFile: path)], applicationActivities: nil)
+                activityViewController.completionWithItemsHandler = { (activityType:UIActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
+                    asyncSignal.end()
+                }
+                activityViewController.popoverPresentationController?.sourceView=rootViewController?.view
+                rootViewController?.present(activityViewController, animated: true, completion: nil)
+            }
             asyncSignal.stopUntilEnd()
 
         } catch let error {
             print(error)
+
+            asyncSignal.begin()
+            DispatchQueue.main.async {
+                let alert = UIAlertController.init(title: type(of: self).info.displayName, message: "Sorry, something went wrong!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Confirm".localized, style: .default) { (alertAction) -> Void in
+                    asyncSignal.end()
+                })
+                rootViewController?.present(alert, animated: true) {}
+            }
+            asyncSignal.stopUntilEnd()
         }
 
         return result

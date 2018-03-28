@@ -8,6 +8,8 @@
 
 import UIKit
 
+extension String: Error {}
+
 extension String {
     var asBundlePath: String{
         return Bundle.main.bundleURL.appendingPathComponent(self).path

@@ -121,7 +121,7 @@ class PhotoPickerViewController: AppDockViewController {
         super.viewWillDisappear(animated)
 
         AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.unwatch(\.transform, forIds:["picker\(TransformApp.info.identifier)"])
-        AppCenter.default.unwatchFilePrivate(\.currentIdentifier)
+        AppCenter.default.unwatchAllFilePrivate(\.currentIdentifier)
     }
 
     override func viewDidLayoutSubviews() {

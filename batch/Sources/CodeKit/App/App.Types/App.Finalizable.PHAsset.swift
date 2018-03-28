@@ -6,6 +6,7 @@
 import Foundation
 import Photos
 
+
 public struct PHAssetFinalizingOptions: SequenceOptionSet {
     static let modify = PHAssetFinalizingOptions(rawValue: 1 << 0)
     static let create = PHAssetFinalizingOptions(rawValue: 1 << 1)
