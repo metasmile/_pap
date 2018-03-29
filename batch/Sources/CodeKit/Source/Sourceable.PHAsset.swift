@@ -44,13 +44,57 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
         }
     }
 
+    //TODO: standardize all
     public var asData:Data? {
-        assert(false, "Not implemented yet.")
+        if let url = self.asURL {
+            return try? Data(contentsOf: url)
+        }
         return nil
     }
+
     public var asURL:URL? {
-        assert(false, "Not implemented yet.")
-        return nil
+        var returningURL:URL?
+
+        let signal = AsyncSignal()
+        let m = self.mediaType
+
+        // Video
+        if .video == m{
+
+            signal.begin()
+            let options: PHVideoRequestOptions = PHVideoRequestOptions()
+            options.version = .original
+
+            PHImageManager.default().requestAVAsset(forVideo: self, options: options, resultHandler: {(asset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
+                if let urlAsset = asset as? AVURLAsset {
+                    returningURL = urlAsset.url as URL
+                }
+                signal.end()
+            })
+        }
+        // Live Photo
+        else if .image == m && self.mediaSubtypes.contains(.photoLive){
+            //TODO: import from https://github.com/metasmile/AnimatedAssetIO
+        }
+        // Image
+        else if .image == m {
+
+            signal.begin()
+            let options: PHContentEditingInputRequestOptions = PHContentEditingInputRequestOptions()
+            options.canHandleAdjustmentData = {(adjustmeta: PHAdjustmentData) -> Bool in
+                return true
+            }
+
+            self.requestContentEditingInput(with: options, completionHandler: {(contentEditingInput: PHContentEditingInput?, info: [AnyHashable : Any]) -> Void in
+                returningURL = contentEditingInput!.fullSizeImageURL as URL?
+                signal.end()
+            })
+
+        }else{
+            assert(false, "Not implemented yet.\(self.mediaType), \(self.mediaSubtypes)")
+        }
+
+        return returningURL
     }
     public var asPHAsset:PHAsset? { return self }
     public var asCIImage: CIImage? {

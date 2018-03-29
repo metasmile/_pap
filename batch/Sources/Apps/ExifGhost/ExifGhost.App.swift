@@ -28,7 +28,7 @@ public class ExifGhost: App, PHAssetFinalizableApp, PhotoPickerCollectionViewDis
     public required init() {}
 
     public var finalizingOptions: PHAssetFinalizingOptions{
-        return [.delete, .create]
+        return [.delete, .create, .share] //for test
         //return [.modify]
         //TODO: PHAssetEditableFinalizableApp.finalize -> fix Error Domain=NSCocoaErrorDomain Code=-1 "(null)"
     }

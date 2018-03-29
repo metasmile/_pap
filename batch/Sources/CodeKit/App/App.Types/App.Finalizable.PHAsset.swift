@@ -24,6 +24,7 @@ public protocol PHAssetFinalizableApp: FinalizableApp {
 }
 
 extension PHAssetFinalizableApp {
+
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
         if result.isAnyTask(inState: .cancelled) && result.defaultTaskPolicy.cancellation == TaskPolicy.Cancellation.shallow {
             return result
@@ -35,53 +36,100 @@ extension PHAssetFinalizableApp {
         // map target assets
         let targetResultAssets = result.flatMap {
             $0.result as? PHAssetResultable
-        }/*.filter {
-            resultable in resultable.contentEditingOutput != nil
-        }*/
+        }
 
         if targetResultAssets.count == 0{
             return result
         }
 
+        let exclusiveOption = self.finalizingOptions.underestimatedCount==1
+        for option in self.finalizingOptions{
+            if option == .delete{
+                self.deletingAndWait(targetResultAssets: targetResultAssets, asyncSignal)
+
+                if exclusiveOption{ return result }
+            }
+
+            if option == .modify{
+                self.modifyingAndWait(targetResultAssets: targetResultAssets, asyncSignal)
+
+                if exclusiveOption{ return result }
+            }
+
+            if option == .create{
+                self.creatingAndWait(targetResultAssets: targetResultAssets, asyncSignal)
+
+                if exclusiveOption{ return result }
+            }
+
+            if option == .share{
+                self.sharingAndWait(targetResultAssets: targetResultAssets, asyncSignal)
+
+                if exclusiveOption{ return result }
+            }
+        }
+        assert(asyncSignal.began == false)
+        return result
+    }
+
+    private func modifyingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncManualSignalable){
+        asyncSignal.begin()
+        PHPhotoLibrary.shared().performChanges({
+            for result in targetResultAssets{
+                PHAssetChangeRequest(for: result.asset).contentEditingOutput = result.contentEditingOutput
+            }
+
+        }, completionHandler: { (success, info) in
+            asyncSignal.end()
+        })
+        asyncSignal.stopUntilEnd()
+    }
+
+    private func deletingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncManualSignalable){
         asyncSignal.begin()
 
         PHPhotoLibrary.shared().performChanges({
-            //exclusive delete
-            if self.finalizingOptions.underestimatedCount==1 && self.finalizingOptions.contains(.delete){
-                PHAssetChangeRequest.deleteAssets(targetResultAssets.map { $0.asset } as NSArray)
-                return
+            PHAssetChangeRequest.deleteAssets(targetResultAssets.map { $0.asset } as NSArray)
+        }, completionHandler: { (success, info) in
+            asyncSignal.end()
+        })
+        asyncSignal.stopUntilEnd()
+    }
+
+    private func sharingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncManualSignalable){
+        if let rootVC = UIApplication.shared.keyWindow?.rootViewController {
+            asyncSignal.begin()
+            DispatchQueue.global().async {
+                //TODO: fix problems
+                let datas = targetResultAssets.flatMap { (resultable: PHAssetResultable) -> Data? in
+                    return resultable.asset.asData
+                }
+
+                DispatchQueue.main.async {
+                    let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: datas, applicationActivities: nil)
+                    activityViewController.completionWithItemsHandler = { (activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, activityError: Error?) in
+                        asyncSignal.end()
+                    }
+                    activityViewController.popoverPresentationController?.sourceView = rootVC.view
+                    rootVC.present(activityViewController, animated: true, completion: nil)
+                }
             }
+            asyncSignal.stopUntilEnd()
+        }
+    }
 
-            //TODO: .share
-            for result in targetResultAssets {
-                for option in self.finalizingOptions{
-                    if option == .create, let output = result.contentEditingOutput{
-                        PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL:output.renderedContentURL)
-                    }
-
-                    if option == .modify{
-                        PHAssetChangeRequest(for: result.asset).contentEditingOutput = result.contentEditingOutput
-                    }
-
-                    if option == .delete{
-                        PHAssetChangeRequest.deleteAssets([result.asset] as NSArray)
-                    }
+    private func creatingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncManualSignalable){
+        asyncSignal.begin()
+        PHPhotoLibrary.shared().performChanges({
+            for result in targetResultAssets{
+                if let output = result.contentEditingOutput{
+                    PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL:output.renderedContentURL)
                 }
             }
 
         }, completionHandler: { (success, info) in
-#if DEBUG
-            if !success{
-                print("PHAssetEditableFinalizableApp Error:", info!)
-            }
-#endif
             asyncSignal.end()
         })
-
-        if asyncSignal.began{
-            asyncSignal.stopUntilEnd()
-        }
-
-        return result
+        asyncSignal.stopUntilEnd()
     }
 }

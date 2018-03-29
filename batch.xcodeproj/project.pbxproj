@@ -26,7 +26,6 @@
 		4F71D0332FEF1A75631DCA55 /* CodeKit.UIView.GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA767BA21A5D0572DC1D /* CodeKit.UIView.GestureRecognizer.swift */; };
 		4F71D042921A4C8173C8EA64 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D945BAAFABA6C67E5231 /* Localizable.strings */; };
 		4F71D048600D780D8F62948D /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2D3A67093DEDDD190CF /* AppManager.swift */; };
-		4F71D052D62EB675DB2F0B5A /* Sourceable.PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D49286EE4D795ACB1A90 /* Sourceable.PHAsset.swift */; };
 		4F71D06BDFC37974BFD660FB /* AppStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D17D046074C1554FE347 /* AppStoryboard.storyboard */; };
 		4F71D089747783BFFBB42340 /* CodeKit.UUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEFC3D3A6A90497D4B6A /* CodeKit.UUID.swift */; };
 		4F71D0B9A1B1530DD3DE2056 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB5E7BCAC2382FA65140 /* RoundedButton.swift */; };
@@ -124,6 +123,7 @@
 		4F71DC62EA8BB2D890884D1D /* PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE303E0F297B9DDC1F0A /* PHAsset.swift */; };
 		4F71DC62FB048B6CD55A1FB8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DF57BCEE05C54BC0C8B9 /* Localizable.strings */; };
 		4F71DC65BF6959ACE2C1F7A7 /* PHAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4733A58250E9D6237A4 /* PHAssets.swift */; };
+		4F71DC6D305F099C1B68EFD1 /* Sourceable.PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1F0EE73639295AA1503 /* Sourceable.PHAsset.swift */; };
 		4F71DC89BE1CF689F8DBF63C /* AppAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D06124161DF79D688CFB /* AppAssets.swift */; };
 		4F71DC8C855B99EF65E075E2 /* App.Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DFDD565703A287D81E0B /* App.Configurable.swift */; };
 		4F71DCAF2422C8A80850472C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DA9D2055CE6801CC2308 /* Localizable.strings */; };
@@ -196,6 +196,7 @@
 		4F71D18A51D5BF839E838B38 /* App.UIControllable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.UIControllable.swift; sourceTree = "<group>"; };
 		4F71D1D0361C1367B06F41F6 /* sv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = sv; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D1D31D77D738AD4EB02A /* PHAssetEditable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAssetEditable.swift; sourceTree = "<group>"; };
+		4F71D1F0EE73639295AA1503 /* Sourceable.PHAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sourceable.PHAsset.swift; sourceTree = "<group>"; };
 		4F71D1FBD4091EC63C85905B /* ms */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ms; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D2004D7DCDF7A87CF872 /* en-AU */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = "en-AU"; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D2387C36356F8A810D61 /* th */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = th; path = Localizable.strings; sourceTree = "<group>"; };
@@ -218,7 +219,6 @@
 		4F71D474151CDAE78A72AF50 /* hi */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = hi; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D489CB86B80D005FDC3C /* bath01.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = bath01.gif; path = batchTests/bath01.gif; sourceTree = "<group>"; };
 		4F71D48A50EAA2890E560F77 /* zh_HK */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = zh_HK; path = Localizable.strings; sourceTree = "<group>"; };
-		4F71D49286EE4D795ACB1A90 /* Sourceable.PHAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sourceable.PHAsset.swift; sourceTree = "<group>"; };
 		4F71D4B340C95987CDD4AA97 /* he */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = he; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D4D77F4D848543D79AB0 /* AppCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCenter.swift; sourceTree = "<group>"; };
 		4F71D4D9E9481FC930955689 /* Revert.App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Revert.App.swift; sourceTree = "<group>"; };
@@ -794,7 +794,6 @@
 			isa = PBXGroup;
 			children = (
 				4F71DE303E0F297B9DDC1F0A /* PHAsset.swift */,
-				4F71D49286EE4D795ACB1A90 /* Sourceable.PHAsset.swift */,
 				4F71DEA2EF5EC4DDDE296E8F /* PHAssetItem.swift */,
 				4F71D1D31D77D738AD4EB02A /* PHAssetEditable.swift */,
 			);
@@ -857,6 +856,7 @@
 			isa = PBXGroup;
 			children = (
 				4F71DB3F65BB0609398D99C6 /* Sourceable.swift */,
+				4F71D1F0EE73639295AA1503 /* Sourceable.PHAsset.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -1344,7 +1344,6 @@
 				4F71D0EE87C6D3822EA3AFCC /* CodeKit.UIImage.Transform.swift in Sources */,
 				4F71D8CB2584EB6FA21077E8 /* System.swift in Sources */,
 				4F71DC62EA8BB2D890884D1D /* PHAsset.swift in Sources */,
-				4F71D052D62EB675DB2F0B5A /* Sourceable.PHAsset.swift in Sources */,
 				4F71D3EADECEDBF2EBB81323 /* PHAssetItem.swift in Sources */,
 				4F71DE9272F77A03F66C1471 /* batch.App.Public.Contents.swift in Sources */,
 				4F71D6416834A773E3ABFC50 /* Transform.App.swift in Sources */,
@@ -1404,6 +1403,7 @@
 				4F71DB6DB1A76537280C426D /* ImageIO.GIF.swift in Sources */,
 				4F71D5A6048825D3E8520251 /* CodeKit.UIAlertController.swift in Sources */,
 				4F71D5227CF411DC9B885BDC /* CodeKit.Thread.swift in Sources */,
+				4F71DC6D305F099C1B68EFD1 /* Sourceable.PHAsset.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
