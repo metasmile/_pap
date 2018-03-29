@@ -304,7 +304,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
                 self._reactionItem?.willFinishHandler?(staticResponsesForEachApps, staticFinishedWorkItems)
 
                 self.syncQueue.async{
-                    let finalized_staticResponsesForEachApps = self._finializeAllAppTasks(staticResponsesForEachApps)
+                    let finalized_staticResponsesForEachApps = self._finializeAllTasks(staticResponsesForEachApps)
 
                     //did finish
                     DispatchQueue.main.async { [unowned self] in
@@ -321,7 +321,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         }
     }
 
-    private func _finializeAllAppTasks(_ resForEachApps:[AppInfo: [AppTaskRespondable]]) -> [AppInfo: [AppTaskRespondable]] {
+    private func _finializeAllTasks(_ resForEachApps:[AppInfo: [AppTaskRespondable]]) -> [AppInfo: [AppTaskRespondable]] {
         let asyncSignal = AsyncSignal()
         var finalizedResults = [AppInfo: [AppTaskRespondable]]()
 

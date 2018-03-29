@@ -12,6 +12,15 @@ extension PHAsset {
         return PHAssetResource.assetResources(for: self)
     }
 
+    public var isAdjusted:Bool{
+        for r in self.resources{
+            if r.type == .adjustmentData || r.type == .adjustmentBasePairedVideo || r.type == .adjustmentBasePhoto{
+                return true
+            }
+        }
+        return false
+    }
+
     //https://developer.apple.com/library/content/samplecode/UsingPhotosFramework/Listings/Shared_AssetViewController_swift.html
     func revertToOriginal() {
         PHPhotoLibrary.shared().performChanges({

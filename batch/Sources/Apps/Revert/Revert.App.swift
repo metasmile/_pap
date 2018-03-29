@@ -9,14 +9,14 @@ import DefaultsKit
 
 private typealias RevertAppParam = PHAssetItem<AppValue>
 
-public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, PhotoPickerCollectionViewDisplayableApp, PersistableApp, PhotoPickerViewControllerDisplayableApp {
+public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, PersistableApp, PhotoPickerViewControllerDisplayableApp, PhotoPickerCollectionViewDisplayableApp {
     public static let taskType:Taskable.Type = _RevertAppTask.self
 
     public static let paramType:TaskParamable.Type = RevertAppParam.self
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.revert"
-            , version: "0.1"
+            , version: "1.0"
             , phase: .beta
             , appType: RevertApp.self
             , displayName: "Revert"
@@ -27,6 +27,10 @@ public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, PhotoPi
 
     required public override init(){
         super.init()
+    }
+
+    public func isItemEnables(for item: PHAssetItem<AppValue>) -> Bool {
+        return item.asset.isAdjusted
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
@@ -54,9 +58,8 @@ public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, PhotoPi
         return result
     }
 
-    public func isItemEnables(for item: PHAssetItem<AppValue>) -> Bool {
-        //for test
-        return item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive)
+    public func titleWillBegin() -> String? {
+        return "Starting to revert...".localized
     }
 
     public func titleWillFinalize() -> String? {
@@ -74,22 +77,11 @@ private class _RevertAppTask: TaskPrototype, Taskable {
             throw TaskError.invalidParam
         }
 
-        var adjusted = false
-
-        async?.begin()
-        //TODO: fix as more light/fast way
-        _param.asset.fetchAdjustmentData { data in
-            adjusted = data != nil
-            async?.end()
+        guard _param.asset.isAdjusted else{
+            throw TaskError.rejectedParam
         }
 
-        async?.stopUntilEnd()
-
-        if adjusted{
-            return PHAssetResultItem(asset:_param.asset, contentEditingOutput: nil)
-        }
-
-        throw TaskError.rejectedParam
+        return PHAssetResultItem(asset:_param.asset, contentEditingOutput: nil)
     }
 }
 

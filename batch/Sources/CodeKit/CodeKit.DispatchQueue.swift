@@ -74,7 +74,7 @@ extension AsyncSignal: AsyncManualSignalable, AsyncControllableSignable {
 
         #if DEBUG
         if Thread.current.name==Thread.main.name{
-            print("[!] \(#function) should NOT be called in the main queue - at \(String(describing: type(of: self)))")
+            print("[!] Warning: \(#function) called in the main queue - at \(String(describing: type(of: self)))")
         }
         #endif
 

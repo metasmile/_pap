@@ -70,7 +70,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
                 return false
             }
 
-            if let allowedNumberOfItems = collectableApp.maximumNumberOfItemsShouldSelect, selectedAssets.count>=allowedNumberOfItems {
+            if let allowedNumberOfItems = collectableApp.numberOfItemsShouldSelect, selectedAssets.count>=allowedNumberOfItems {
                 return false
             }
         }
