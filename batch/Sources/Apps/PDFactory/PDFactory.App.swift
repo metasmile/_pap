@@ -21,7 +21,7 @@ private struct PDFactoryPHAssetResult: TaskResultable{
     public var imageToRender: UIImage
 }
 
-public class PDFactory: App, PersistableApp, FinalizableApp, PhotoPickerViewControllerDisplayableApp, ItemCollectableApp {
+public class PDFactory: App, PersistableApp, FinalizableApp, PhotoPickerViewControllerDisplayableApp, PhotoPickerCollectionViewDisplayableApp {
     public static let taskType:Taskable.Type = _PDFactoryTask.self
 
     public static let paramType:TaskParamable.Type = AppAsset.self
@@ -50,6 +50,8 @@ public class PDFactory: App, PersistableApp, FinalizableApp, PhotoPickerViewCont
     public func titleWillFinalize() -> String? {
         return "Generating PDF Pages...".localized
     }
+
+    public lazy var maximumNumberOfItemsShouldSelect: Int? = 2 //for test
 
     public func isItemEnables(for item: AppAsset) -> Bool {
         //for test

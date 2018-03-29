@@ -9,7 +9,7 @@ import ImageIO
 
 private typealias ParamType = PHAssetItem<AppValue>
 
-public class ExifGhost: App, PHAssetFinalizableApp, ItemCollectableApp, UIControllableApp {
+public class ExifGhost: App, PHAssetFinalizableApp, PhotoPickerCollectionViewDisplayableApp, UIControllableApp {
     public static let taskType:Taskable.Type = _ExifGhostTask.self
 
     public static let paramType:TaskParamable.Type = ParamType.self

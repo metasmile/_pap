@@ -9,7 +9,7 @@ import DefaultsKit
 
 private typealias RevertAppParam = PHAssetItem<AppValue>
 
-public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, ItemCollectableApp, PersistableApp, PhotoPickerViewControllerDisplayableApp {
+public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, PhotoPickerCollectionViewDisplayableApp, PersistableApp, PhotoPickerViewControllerDisplayableApp {
     public static let taskType:Taskable.Type = _RevertAppTask.self
 
     public static let paramType:TaskParamable.Type = RevertAppParam.self
