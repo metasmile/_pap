@@ -29,18 +29,16 @@ public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, Persist
         super.init()
     }
 
-    private lazy var adjustedCache = [String:Bool]()
+    fileprivate var adjustedCache = [String:Bool]()
 
-    public func willSetCurrent(oldCurrent: App.Type?) {
-        print("willSetCurrent")
+    func willSetPrevious(newCurrent: App.Type?) {
         adjustedCache.removeAll()
-        print(adjustedCache.count)
     }
 
     public func isItemEnables(for item: PHAssetItem<AppValue>) -> Bool {
         let cacheId = item.asset.localIdentifier
         if adjustedCache[cacheId] == nil{
-            adjustedCache[cacheId] = item.asset.isAdjusted
+            adjustedCache[cacheId] = item.asset.isAdjusted //TODO: find more fast way
         }
         return adjustedCache[cacheId] ?? true
     }
@@ -59,10 +57,13 @@ public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, Persist
                 PHAssetChangeRequest(for: asset).revertAssetContentToOriginal()
             }
         }, completionHandler: { success, error in
-            if !success {
+            if success {
+                for asset in resultAssets{
+                    self.adjustedCache[asset.localIdentifier] = false
+                }
+            }else{
                 print("[!] Can't revert asset: \(String(describing: error))")
             }
-
             asyncSignal.end()
         })
 
@@ -89,7 +90,11 @@ private class _RevertAppTask: TaskPrototype, Taskable {
             throw TaskError.invalidParam
         }
 
-        guard _param.asset.isAdjusted else{
+        let cachedAdjusted = (AppLifecycleManager.shared.acquire(RevertApp.info) as? RevertApp)?.adjustedCache
+
+        let adjusted = cachedAdjusted == nil ? _param.asset.isAdjusted : cachedAdjusted?[_param.asset.localIdentifier] == true
+
+        guard adjusted else{
             throw TaskError.rejectedParam
         }
 
