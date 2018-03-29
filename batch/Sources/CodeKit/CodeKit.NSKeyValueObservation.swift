@@ -67,7 +67,7 @@ public class KeyPathWatcher<KeyPathRoot:NSObject>: Object, _KeyPathWatchable {
     }
 }
 
-public protocol KeyPathWatchable {
+public protocol KeyPathWatchable where Self:NSObject {
     associatedtype _Observee:NSObject
     var watcher: KeyPathWatcher<_Observee> {get}
 }

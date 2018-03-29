@@ -11,15 +11,15 @@ import UIKit
 extension String: Error {}
 
 extension String {
-    var asBundlePath: String{
+    public var asBundlePath: String{
         return Bundle.main.bundleURL.appendingPathComponent(self).path
     }
 
-    var localized: String {
+    public var localized: String {
         return NSLocalizedString(self, comment: "")
     }
-    
-    func localizedFormatted(_ arguments: CVarArg...) -> String {
+
+    public func localizedFormatted(_ arguments: CVarArg...) -> String {
         return withVaList(arguments) {
             return NSString(format: self.localized, arguments: $0) as String
         }

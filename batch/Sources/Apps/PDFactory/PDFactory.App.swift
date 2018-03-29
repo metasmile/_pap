@@ -8,20 +8,28 @@ import Photos
 import PDFGenerator
 import UIKit
 
+/*
+TODO: UIActivity as a file
+TODO: change 'imageToRender' as URL to prevent memory peaking
+TODO: password input
+TODO: Quality
+FinalizableApp Common Share ActivityViewController
+*/
+
 private struct PDFactoryPHAssetResult: TaskResultable{
     public var asset: PHAsset
     public var imageToRender: UIImage
 }
 
-public class PDFactory: App, PersistableApp, FinalizableApp, UIControllableApp, PhotoPickerViewControllerDisplayableApp, ItemCollectableApp {
+public class PDFactory: App, PersistableApp, FinalizableApp, PhotoPickerViewControllerDisplayableApp, ItemCollectableApp {
     public static let taskType:Taskable.Type = _PDFactoryTask.self
 
     public static let paramType:TaskParamable.Type = AppAsset.self
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.pdfactory"
-            , version: "0.1"
-            , phase: .develop
+            , version: "1.0"
+            , phase: .beta
             , appType: PDFactory.self
             , displayName: "PDFactory"
             , icon: nil
@@ -54,16 +62,15 @@ public class PDFactory: App, PersistableApp, FinalizableApp, UIControllableApp, 
                 .filter { respondable in respondable.info.state == .completed }
                 .flatMap { $0.result as? PDFactoryPHAssetResult }
 
-        let rootViewController = UIApplication.shared.keyWindow?.rootViewController
+        guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController else{
+            return result
+        }
 
         do {
 
             let page = resultItems.map { result -> PDFPage in
                 return PDFPage.image(result.imageToRender)
             }
-
-            let exportedDateFormat = DateFormatter()
-            exportedDateFormat.dateFormat = "yyyyMMdd_HHmmss"
 
             let path = NSTemporaryDirectory().appending("exported_\(String(describing: type(of: self)))")
             try PDFGenerator.generate(page, to: path)
@@ -72,27 +79,30 @@ public class PDFactory: App, PersistableApp, FinalizableApp, UIControllableApp, 
                 throw "\(#function)_\(#file)"
             }
 
+            guard let data = NSData(contentsOfFile: path) else {
+                throw "\(#function)_\(#file)"
+            }
+
             asyncSignal.begin()
             DispatchQueue.main.async {
-                let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [NSData(contentsOfFile: path)], applicationActivities: nil)
+
+                let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
                 activityViewController.completionWithItemsHandler = { (activityType:UIActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
                     asyncSignal.end()
                 }
-                activityViewController.popoverPresentationController?.sourceView=rootViewController?.view
-                rootViewController?.present(activityViewController, animated: true, completion: nil)
+                activityViewController.popoverPresentationController?.sourceView=rootViewController.view
+                rootViewController.present(activityViewController, animated: true, completion: nil)
             }
+
             asyncSignal.stopUntilEnd()
 
-        } catch let error {
-            print(error)
+        } catch _ {
 
             asyncSignal.begin()
             DispatchQueue.main.async {
-                let alert = UIAlertController.init(title: type(of: self).info.displayName, message: "Sorry, something went wrong!", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Confirm".localized, style: .default) { (alertAction) -> Void in
-                    asyncSignal.end()
-                })
-                rootViewController?.present(alert, animated: true) {}
+                UIAlertController.alert("Sorry, something went wrong.".localized, title:type(of: self).info.displayName) { alertAction in
+                    DispatchQueue.global().async{ asyncSignal.end() }
+                }
             }
             asyncSignal.stopUntilEnd()
         }
