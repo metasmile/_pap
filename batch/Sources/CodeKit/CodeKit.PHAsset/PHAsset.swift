@@ -13,9 +13,12 @@ extension PHAsset {
     }
 
     public var isAdjusted:Bool{
-        for r in self.resources{
-            if r.type == .adjustmentData || r.type == .adjustmentBasePairedVideo || r.type == .adjustmentBasePhoto{
-                return true
+        let resources = self.resources
+        if resources.count > 1{
+            for r in resources{
+                if r.type == .adjustmentData || r.type == .adjustmentBasePairedVideo || r.type == .adjustmentBasePhoto{
+                    return true
+                }
             }
         }
         return false

@@ -9,7 +9,7 @@ import DefaultsKit
 
 private typealias RevertAppParam = PHAssetItem<AppValue>
 
-public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, PersistableApp, PhotoPickerViewControllerDisplayableApp, PhotoPickerCollectionViewDisplayableApp {
+public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, PersistableApp, AppManagerDelegatableApp, PhotoPickerViewControllerDisplayableApp, PhotoPickerCollectionViewDisplayableApp {
     public static let taskType:Taskable.Type = _RevertAppTask.self
 
     public static let paramType:TaskParamable.Type = RevertAppParam.self
@@ -29,8 +29,20 @@ public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, Persist
         super.init()
     }
 
+    private lazy var adjustedCache = [String:Bool]()
+
+    public func willSetCurrent(oldCurrent: App.Type?) {
+        print("willSetCurrent")
+        adjustedCache.removeAll()
+        print(adjustedCache.count)
+    }
+
     public func isItemEnables(for item: PHAssetItem<AppValue>) -> Bool {
-        return item.asset.isAdjusted
+        let cacheId = item.asset.localIdentifier
+        if adjustedCache[cacheId] == nil{
+            adjustedCache[cacheId] = item.asset.isAdjusted
+        }
+        return adjustedCache[cacheId] ?? true
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {

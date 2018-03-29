@@ -22,6 +22,14 @@ protocol AppManagerDelegatableApp where Self:App {
     func didSetPrevious(current:App.Type?)
 }
 
+extension AppManagerDelegatableApp{
+    public func willSetCurrent(oldCurrent:App.Type?){}
+    public func didSetCurrent(previous:App.Type?){}
+
+    public func willSetPrevious(newCurrent:App.Type?){}
+    public func didSetPrevious(current:App.Type?){}
+}
+
 open class AppManager: NSObject, SelectableCollection {
 
     override init(){
