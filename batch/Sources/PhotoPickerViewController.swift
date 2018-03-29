@@ -286,9 +286,9 @@ class PhotoPickerViewController: AppDockViewController {
     }
     
     func updateVisiblePhotoCollectionCellsEnabled() {
-        photoCollectionView.indexPathsForVisibleItems.forEach { (indexPath) in
-            let cell = self.photoCollectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell
-            cell?.isEnabled = self.collectionView(self.photoCollectionView, shouldSelectItemAt: indexPath)
+        for indexPath in photoCollectionView.indexPathsForVisibleItems{
+            let cell = photoCollectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell
+            cell?.isEnabled = collectionView(photoCollectionView, shouldSelectItemAt: indexPath)
         }
     }
 

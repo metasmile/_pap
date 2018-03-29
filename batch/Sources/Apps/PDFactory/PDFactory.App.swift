@@ -51,7 +51,7 @@ public class PDFactory: App, PersistableApp, FinalizableApp, PhotoPickerViewCont
         return "Generating PDF Pages...".localized
     }
 
-    public lazy var numberOfItemsShouldSelect: Int? = nil //for test
+    public lazy var numberOfItemsShouldSelect: Int? = 3 //for test
 
     public func isItemEnables(for item: AppAsset) -> Bool {
         //for test
