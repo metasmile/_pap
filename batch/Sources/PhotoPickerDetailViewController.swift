@@ -39,7 +39,9 @@ class PhotoPickerDetailViewController: UIViewController {
             assetView.center = CGPoint(x: actualContentSize.width / 2, y: actualContentSize.height / 2)
             
             assetView.preferredTransform = preferredTransform
-            assetView.asset = asset
+            assetView.setAsset(asset, completion: { result in
+                self.assetView.applyFilter(ciFilter: self.assetItem?.editState.ciFilter)
+            })
             assetView.playAny()
             
             self.preferredContentSize = actualContentSize

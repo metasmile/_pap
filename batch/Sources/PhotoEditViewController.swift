@@ -81,7 +81,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         layoutAssetView()
         
         if let asset = asset {
-            assetView.setAsset(asset, cancelDrawingIfNeeded: { return false }, completion: { (result) in
+            assetView.setAsset(asset, completion: { (result) in
                 if result is AVPlayerItem {
                     self.assetView.playVideoWithLooping()
                 }
@@ -104,6 +104,12 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
                     self.addTransformItem(value)
                 }
             }
+            
+            appCenter.currentInstanceAs(PhotosFilterApp.self)?.config?.watch(\.filter, id:"editor\(PhotosFilterApp.info.identifier)") { (config, changed) in
+                if let value = config.filter {
+                    self.setFilter(value)
+                }
+            }
 
             //common ui attributes if current app is ConfigurableApp
             appCenter.currentInstanceAs(ConfigurableApp.self)?.setConfigValues( AppConfigUIAttrribute(tintColor: .white))
@@ -114,6 +120,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         super.viewWillDisappear(animated)
 
         AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.unwatch(\.transform, forIds:["editor\(TransformApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(PhotosFilterApp.self)?.config?.unwatch(\.filter, forIds:["editor\(PhotosFilterApp.info.identifier)"])
         AppCenter.default.unwatch(\.currentIdentifier, forIds:["editor"])
     }
     
@@ -164,8 +171,16 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         updatePreview()
     }
     
+    private func setFilter(_ filterItem: AppValue) {
+        editItem.append(filterItem)
+        
+        updatePreview()
+    }
+    
     private func updatePreview(_ completion: (() -> Void)? = nil) {
         layoutAssetView()
+        
+        self.assetView.applyFilter(ciFilter: self.editItem.ciFilter)
         
         UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: .beginFromCurrentState, animations: {
             self.assetView.layer.transform = self.editItem.transform3d
