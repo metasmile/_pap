@@ -8,6 +8,32 @@
 
 import Foundation
 
+extension OperatingSystemVersion: Equatable, Comparable{
+    private var sumValue:Int{
+        return majorVersion*100+minorVersion*10+patchVersion
+    }
+
+    public static func == (lhs: OperatingSystemVersion, rhs: OperatingSystemVersion) -> Bool {
+        return lhs.sumValue == rhs.sumValue
+    }
+
+    public static func <(lhs: OperatingSystemVersion, rhs: OperatingSystemVersion) -> Bool{
+        return lhs.sumValue < rhs.sumValue
+    }
+
+    public static func <=(lhs: OperatingSystemVersion, rhs: OperatingSystemVersion) -> Bool{
+        return lhs.sumValue <= rhs.sumValue
+    }
+
+    public static func >=(lhs: OperatingSystemVersion, rhs: OperatingSystemVersion) -> Bool{
+        return lhs.sumValue >= rhs.sumValue
+    }
+
+    public static func >(lhs: OperatingSystemVersion, rhs: OperatingSystemVersion) -> Bool{
+        return lhs.sumValue > rhs.sumValue
+    }
+}
+
 public extension ProcessInfo{
 
     private func mach_task_self() -> task_t {

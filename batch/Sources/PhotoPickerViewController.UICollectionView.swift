@@ -9,6 +9,13 @@ import Photos
 
 extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionViewDataSourcePrefetching, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
+    private var collectionViewDisplayableApp:PhotoPickerCollectionViewDisplayableApp?{
+        guard AppCenter.default.current is PhotoPickerCollectionViewDisplayableApp.Type else{
+            return nil
+        }
+        return AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDisplayableApp.self)
+    }
+
     // MARK: - UICollectionViewDataSource
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -60,11 +67,25 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         guard !AppCenter.default.isAppRunning else { return false }
 
-        if let collectableApp = AppCenter.default.currentInstanceAs(ItemCollectableApp.self)
-            , let asset = PHAssets.fetched.asset(at: indexPath)
-            , let item = AppAssets.selected.at(unsafeIndex:indexPath.item) ?? AppAssets.selected.create(for:asset) {
+        let selectedAssets = AppAssets.selected
 
-            return collectableApp.isItemEnables(for: item)
+        if let collectableApp = collectionViewDisplayableApp
+            , let asset = PHAssets.fetched.asset(at: indexPath)
+            , let item = selectedAssets.at(unsafeIndex:indexPath.item) ?? selectedAssets.create(for:asset) {
+
+            if collectableApp.isItemEnables(for: item) == false{
+                return false
+            }
+
+            if let allowedNumberOfItems = collectableApp.numberOfItemsShouldSelect
+                , let selectedItems = collectionView.indexPathsForSelectedItems{
+
+                if selectedItems.count > allowedNumberOfItems{
+                    return selectedItems[0..<allowedNumberOfItems].contains(indexPath)
+                } else if selectedItems.count == allowedNumberOfItems{
+                    return selectedItems.contains(indexPath)
+                }
+            }
         }
         return true
     }
@@ -80,12 +101,20 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         if let asset = PHAssets.fetched.asset(at: indexPath){
             batchPreviewView.appendCollectionViewItem(with:asset)
         }
+
+        if let _ = collectionViewDisplayableApp?.numberOfItemsShouldSelect{
+            updateVisiblePhotoCollectionCellsEnabled()
+        }
     }
 
     func collectionView(_ collectu8uionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         batchPreviewView.removeCollectionViewItem(with: PHAssets.fetched.asset(at: indexPath))
 
         updateSelectedItemUIs()
+
+        if let _ = collectionViewDisplayableApp?.numberOfItemsShouldSelect{
+            updateVisiblePhotoCollectionCellsEnabled()
+        }
     }
 
     // MARK: - UICollectionViewDelegateFlowLayout

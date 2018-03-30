@@ -35,6 +35,12 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             config.tintColor = .black
             return config
         }
+        
+        PhotosFilterApp.configure = {
+            let config = PhotosFilterAppConfig()
+            config.tintColor = .black
+            return config
+        }
 
         var config = AppManagerConfig()
         config.appCollection = [

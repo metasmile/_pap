@@ -304,7 +304,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
                 self._reactionItem?.willFinishHandler?(staticResponsesForEachApps, staticFinishedWorkItems)
 
                 self.syncQueue.async{
-                    let finalized_staticResponsesForEachApps = self._finializeAllAppTasks(staticResponsesForEachApps)
+                    let finalized_staticResponsesForEachApps = self._finializeAllTasks(staticResponsesForEachApps)
 
                     //did finish
                     DispatchQueue.main.async { [unowned self] in
@@ -321,7 +321,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         }
     }
 
-    private func _finializeAllAppTasks(_ resForEachApps:[AppInfo: [AppTaskRespondable]]) -> [AppInfo: [AppTaskRespondable]] {
+    private func _finializeAllTasks(_ resForEachApps:[AppInfo: [AppTaskRespondable]]) -> [AppInfo: [AppTaskRespondable]] {
         let asyncSignal = AsyncSignal()
         var finalizedResults = [AppInfo: [AppTaskRespondable]]()
 
@@ -331,13 +331,13 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
                 continue
             }
 
-            if let appInstanceAsFinalizable = appInstance as? FinalizableApp {
+            if let appInstanceAsFinalizable = appInstance as? FinalizableApp, appInstanceAsFinalizable.shouldFinalize(result: reses, asyncSignal) {
                 finalizedResults[appInfo] = appInstanceAsFinalizable.finalize(result: reses, asyncSignal)
             }else{
                 finalizedResults[appInfo] = reses
             }
 
-            if appInfo.policy.lifeCycleUnit == .performCycle {
+            if appInfo.policy.lifeCycleUnit == .allTasks {
                 AppLifecycleManager.shared.discard(appInfo)
                 assert(!AppLifecycleManager.shared.acquired.contains(appInfo.identifier))
             }

@@ -4,10 +4,16 @@
 "Please open settings and allow access to your photos" = "Nyissa meg a beállításokat, és engedélyezze a fényképekhez való hozzáférést";
 /*Translated from: Open Settings*/
 "Open Settings" = "Nyisd meg a beállításokat";
+/*Translated from: OK*/
+"OK" = "OK";
+/*Translated from: Confirm*/
+"Confirm" = "megerősít";
 /*Translated from: Cancel*/
 "Cancel" = "Megszünteti";
 /*Translated from: Detail*/
 "Detail" = "Részlet";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Elnézést, valami nem ment jól.";
 /*Translated from: Edit %d photo(s)*/
 "Edit %d photo(s)" = "%d Kép szerkesztése";
 /*Translated from: Edit %d video(s)*/

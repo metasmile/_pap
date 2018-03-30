@@ -16,11 +16,13 @@ extension _PhotosFilterAppAsset: PHAssetImageEditable {
         
         guard
             let uiImage = asset.asUIImage,
-            let image = self.editState.ciFilter?.filter(uiImage: uiImage)
+            let filter = self.editState.ciFilter
         else {
             completionHandler(nil, nil)
             return nil
         }
+        
+        let image = uiImage.applyFilter(ciFilter: filter)
         
         let r = self.requestContentEditing { _item in
             guard let item = _item else{

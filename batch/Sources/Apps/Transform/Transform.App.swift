@@ -51,6 +51,7 @@ public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _Configu
             , displayName: "Transform"
             , icon: R.image.transformAppIcon.name
             , policy: AppPolicy.default
+            , minOSVersion: nil
     )
 
     required public override init(){

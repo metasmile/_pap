@@ -5,10 +5,22 @@
 
 import Foundation
 
+public protocol FinalizableApp: App {
+    /*
+     FinalizableApps basically should affect by shallow cancellation mode. if it is true, can manually control
+     */
+    func shouldFinalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> Bool
 
-// FinalizableApp
-public protocol FinalizableApp:App {
     func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable]
+}
+
+extension FinalizableApp{
+    public func shouldFinalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> Bool {
+        let shouldPreventFinalize = type(of: self).info.policy.task.cancellation == TaskPolicy.Cancellation.shallow
+            && result.isAnyTask(inState: .cancelled)
+        
+        return shouldPreventFinalize == false
+    }
 }
 
 extension Array where Element == AppTaskRespondable{

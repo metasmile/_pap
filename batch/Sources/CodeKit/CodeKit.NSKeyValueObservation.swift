@@ -67,7 +67,7 @@ public class KeyPathWatcher<KeyPathRoot:NSObject>: Object, _KeyPathWatchable {
     }
 }
 
-public protocol KeyPathWatchable {
+public protocol KeyPathWatchable where Self:NSObject {
     associatedtype _Observee:NSObject
     var watcher: KeyPathWatcher<_Observee> {get}
 }
@@ -120,7 +120,7 @@ extension KeyPathWatchable where _Observee == Self{
     }
 
     @discardableResult
-    public func unwatchFilePrivate<Value>(_file:String=#file, _ keyPath:KeyPath<_Observee,Value>?=nil) -> Bool{
+    public func unwatchAllFilePrivate<Value>(_file:String=#file, _ keyPath:KeyPath<_Observee,Value>?=nil) -> Bool{
         guard let idsInFile = watcher._autoObservationIdsInFile[_file] else {
             return false
         }

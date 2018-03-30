@@ -72,6 +72,12 @@ extension AsyncSignal: AsyncManualSignalable, AsyncControllableSignable {
             return nil
         }
 
+        #if DEBUG
+        if Thread.current.name==Thread.main.name{
+            print("[!] Warning: \(#function) called in the main queue - at \(String(describing: type(of: self)))")
+        }
+        #endif
+
         guard let timeout = timeout else {
             dispatchGroup.wait()
             return nil

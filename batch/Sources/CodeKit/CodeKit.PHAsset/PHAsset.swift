@@ -8,6 +8,22 @@ import Photos
 import MobileCoreServices
 
 extension PHAsset {
+    public var resources:[PHAssetResource]{
+        return PHAssetResource.assetResources(for: self)
+    }
+
+    public var isAdjusted:Bool{
+        let resources = self.resources
+        if resources.count > 1{
+            for r in resources{
+                if r.type == .adjustmentData || r.type == .adjustmentBasePairedVideo || r.type == .adjustmentBasePhoto{
+                    return true
+                }
+            }
+        }
+        return false
+    }
+
     //https://developer.apple.com/library/content/samplecode/UsingPhotosFramework/Listings/Shared_AssetViewController_swift.html
     func revertToOriginal() {
         PHPhotoLibrary.shared().performChanges({
@@ -43,7 +59,7 @@ extension PHAsset {
                 completion(false)
                 return
             }
-            
+
             completion(image.settingProperties(metadata).writeJPEGRepresentation(to: url))
         }
     }

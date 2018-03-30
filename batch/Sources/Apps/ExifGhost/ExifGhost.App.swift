@@ -9,7 +9,7 @@ import ImageIO
 
 private typealias ParamType = PHAssetItem<AppValue>
 
-public class ExifGhost: App, PHAssetFinalizableApp, ItemCollectableApp, UIControllableApp {
+public class ExifGhost: App, PHAssetFinalizableApp, PhotoPickerCollectionViewDisplayableApp, UIControllableApp {
     public static let taskType:Taskable.Type = _ExifGhostTask.self
 
     public static let paramType:TaskParamable.Type = ParamType.self
@@ -22,12 +22,13 @@ public class ExifGhost: App, PHAssetFinalizableApp, ItemCollectableApp, UIContro
             , displayName: "EXIF Ghost"
             , icon: nil
             , policy: AppPolicy.default
+            , minOSVersion: nil
     )
 
     public required init() {}
 
     public var finalizingOptions: PHAssetFinalizingOptions{
-        return [.delete, .create]
+        return [.delete, .create, .share] //for test
         //return [.modify]
         //TODO: PHAssetEditableFinalizableApp.finalize -> fix Error Domain=NSCocoaErrorDomain Code=-1 "(null)"
     }

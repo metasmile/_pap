@@ -17,7 +17,7 @@ public class PhotosFilterItem: AppValue {
     
     private var _filter: CIFilter?
     
-    init(filter: CIFilter?) {
+    init(_ filter: CIFilter? = nil) {
         super.init()
         
         _filter = filter
@@ -27,15 +27,6 @@ public class PhotosFilterItem: AppValue {
 public extension StateValueSet where T: AppValue {
     var ciFilter: CIFilter? {
         return self.iterator().reversed().first?.ciFilter
-    }
-}
-
-public extension CIFilter {
-    func filter(uiImage: UIImage) -> UIImage? {
-        let ciImage = CIImage(image: uiImage)
-        self.setValue(ciImage, forKey: kCIInputImageKey)
-        guard let outputImage = self.outputImage, let cgImage = PhotosFilterApp.sharedContext.createCGImage(outputImage, from: outputImage.extent) else { return nil }
-        return UIImage(cgImage: cgImage)
     }
 }
 
@@ -59,7 +50,7 @@ public class PhotosFilterAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrr
 
 class _PhotosFilterAppAsset: PHAssetItem<AppValue> {}
 
-public class PhotosFilterApp: NSObject, KeyPathWatchable, ConfigurableApp, _ConfigurableApp, UIControllableApp, PHAssetFinalizableApp, PersistableApp {
+public class PhotosFilterApp: NSObject, KeyPathWatchable, ConfigurableApp, _ConfigurableApp, UIControllableApp, PHAssetFinalizableApp, PersistableApp, PhotoPickerCollectionViewDisplayableApp {
     public static let taskType:Taskable.Type = _PhotosFilterAppTask.self
     public static let paramType:TaskParamable.Type = _PhotosFilterAppAsset.self
     
@@ -77,6 +68,7 @@ public class PhotosFilterApp: NSObject, KeyPathWatchable, ConfigurableApp, _Conf
         , displayName: "Photos Filter"
         , icon: R.image.revertAppIcon.name
         , policy: AppPolicy.default
+        , minOSVersion: nil
     )
     
     required public override init() {
@@ -95,8 +87,6 @@ public class PhotosFilterApp: NSObject, KeyPathWatchable, ConfigurableApp, _Conf
         return [.modify]
     }
     
-    public static let sharedContext = CIContext()
-    
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
         self.config?.adoptValues(fromOther: config)
         self.updateConfigView()
@@ -112,32 +102,45 @@ private extension PhotosFilterApp {
         static let CIPhotoEffectProcess = "CIPhotoEffectProcess"
         static let CIPhotoEffectTonal = "CIPhotoEffectTonal"
         static let CIPhotoEffectTransfer = "CIPhotoEffectTransfer"
+        
+        static func aliasName(_ filterName: String?) -> String? {
+            switch filterName {
+            case CIPhotoEffectChrome?: return "Chrome"
+            case CIPhotoEffectFade?: return "Fade"
+            case CIPhotoEffectInstant?: return "Instant"
+            case CIPhotoEffectNoir?: return "Noir"
+            case CIPhotoEffectProcess?: return "Process"
+            case CIPhotoEffectTonal?: return "Tonal"
+            case CIPhotoEffectTransfer?: return "Transfer"
+            default: return "Original"
+            }
+        }
     }
     
-    struct PhotosFilters {
-        static let CIPhotoEffectChrome = CIFilter(name: PhotosFilterNames.CIPhotoEffectChrome) ?? CIFilter()
-        static let CIPhotoEffectFade = CIFilter(name: PhotosFilterNames.CIPhotoEffectFade) ?? CIFilter()
-        static let CIPhotoEffectInstant = CIFilter(name: PhotosFilterNames.CIPhotoEffectInstant) ?? CIFilter()
-        static let CIPhotoEffectNoir = CIFilter(name: PhotosFilterNames.CIPhotoEffectNoir) ?? CIFilter()
-        static let CIPhotoEffectProcess = CIFilter(name: PhotosFilterNames.CIPhotoEffectProcess) ?? CIFilter()
-        static let CIPhotoEffectTonal = CIFilter(name: PhotosFilterNames.CIPhotoEffectTonal) ?? CIFilter()
-        static let CIPhotoEffectTransfer = CIFilter(name: PhotosFilterNames.CIPhotoEffectTransfer) ?? CIFilter()
+    struct CIFilters {
+        static let CIPhotoEffectChrome = CIFilter(name: PhotosFilterNames.CIPhotoEffectChrome)
+        static let CIPhotoEffectFade = CIFilter(name: PhotosFilterNames.CIPhotoEffectFade)
+        static let CIPhotoEffectInstant = CIFilter(name: PhotosFilterNames.CIPhotoEffectInstant)
+        static let CIPhotoEffectNoir = CIFilter(name: PhotosFilterNames.CIPhotoEffectNoir)
+        static let CIPhotoEffectProcess = CIFilter(name: PhotosFilterNames.CIPhotoEffectProcess)
+        static let CIPhotoEffectTonal = CIFilter(name: PhotosFilterNames.CIPhotoEffectTonal)
+        static let CIPhotoEffectTransfer = CIFilter(name: PhotosFilterNames.CIPhotoEffectTransfer)
         
         static var filters: [CIFilter] {
             return [
                 CIPhotoEffectChrome,
                 CIPhotoEffectFade,
                 CIPhotoEffectInstant,
-                CIPhotoEffectNoir,
                 CIPhotoEffectProcess,
+                CIPhotoEffectTransfer,
                 CIPhotoEffectTonal,
-                CIPhotoEffectTransfer
-            ]
+                CIPhotoEffectNoir
+            ].flatMap({ $0 })
         }
     }
     
     @objc func filterDidSelect(sender: _PhotoFilterButton) {
-        self.config?.filter = PhotosFilterItem(filter: sender.filter)
+        self.config?.filter = PhotosFilterItem(sender.filter)
     }
     
     private func createPreferenceView() -> UIView {
@@ -146,18 +149,23 @@ private extension PhotosFilterApp {
         view.distribution = .fillEqually
         view.axis = .horizontal
         
-        for (i, filter) in PhotosFilters.filters.enumerated() {
-            let button = _PhotoFilterButton(type: .system)
-            button.setTitle("\(i)", for: .normal)
-            button.titleLabel?.adjustsFontSizeToFitWidth = true
-            button.titleLabel?.minimumScaleFactor = 0.2
-            button.filter = filter
-            button.addTarget(self, action: #selector(self.filterDidSelect), for: .touchUpInside)
-            
-            view.addArrangedSubview(button)
+        view.addArrangedSubview(generateFilterButton())
+        for filter in CIFilters.filters {
+            view.addArrangedSubview(generateFilterButton(with: filter))
         }
         
         return view
+    }
+    
+    private func generateFilterButton(with filter: CIFilter? = nil) -> UIView {
+        let button = _PhotoFilterButton(type: .system)
+        button.setTitle(PhotosFilterNames.aliasName(filter?.name), for: .normal)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleLabel?.minimumScaleFactor = 0.2
+        button.filter = filter
+        button.addTarget(self, action: #selector(self.filterDidSelect), for: .touchUpInside)
+        
+        return button
     }
     
     private func updateConfigView(){

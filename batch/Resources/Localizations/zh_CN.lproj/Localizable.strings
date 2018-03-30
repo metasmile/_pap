@@ -4,10 +4,16 @@
 "Please open settings and allow access to your photos" = "请打开设置并允许访问您的照片";
 /*Translated from: Open Settings*/
 "Open Settings" = "打开设置";
+/*Translated from: OK*/
+"OK" = "好";
+/*Translated from: Confirm*/
+"Confirm" = "确认";
 /*Translated from: Cancel*/
 "Cancel" = "取消";
 /*Translated from: Detail*/
 "Detail" = "详情";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "抱歉，出了一些问题。";
 /*Translated from: Edit %d photo(s)*/
 "Edit %d photo(s)" = "编辑%d照片";
 /*Translated from: Edit %d video(s)*/

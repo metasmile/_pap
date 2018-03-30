@@ -50,14 +50,14 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         
         DispatchQueue.main.async { [weak self] in
             guard self?.indexPath == indexPath else { return }
-            
             self?.setAssetInfo(asset, editItem: item.editState)
-            self?.setImageEditItem(item.editState)
         }
         
         layoutIfNeeded()
         assetView.setAsset(asset, cancelDrawingIfNeeded: { [weak self] in
             return self?.indexPath != indexPath
+        }, completion: { [weak self] result in
+            self?.setImageEditItem(item.editState)
         })
     }
     
@@ -73,15 +73,11 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         assetViewWidth.constant = photoSize.width
         assetViewHeight.constant = photoSize.height
         
-        DispatchQueue.main.async { [weak self] in
-            guard self?.indexPath == indexPath else { return }
-            
-            self?.setImageEditItem(item.editState)
-        }
-        
         layoutIfNeeded()
         assetView.setThumbnailAsset(asset, cancelDrawingIfNeeded: { [weak self] in
             return self?.indexPath != indexPath
+        }, completion: { [weak self] image in
+            self?.setImageEditItem(item.editState)
         })
     }
     
@@ -95,6 +91,8 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         else {
             assetView.layer.transform = editItem.transform3d
         }
+        
+        assetView.applyFilter(ciFilter: editItem.ciFilter)
         
         imageInfoViewTop.constant = (bounds.height + CGSize(width: assetViewWidth.constant, height: assetViewHeight.constant).applying(editItem.transform).magnitude.height) / 2 + 10
     }

@@ -4,10 +4,16 @@
 "Please open settings and allow access to your photos" = "الرجاء فتح الإعدادات والسماح بالوصول إلى صورك";
 /*Translated from: Open Settings*/
 "Open Settings" = "أفتح الإعدادات";
+/*Translated from: OK*/
+"OK" = "حسنا";
+/*Translated from: Confirm*/
+"Confirm" = "تؤكد";
 /*Translated from: Cancel*/
 "Cancel" = "إلغاء";
 /*Translated from: Detail*/
 "Detail" = "التفاصيل";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "عذرا، هناك خطأ ما.";
 /*Translated from: Edit %d photo(s)*/
 "Edit %d photo(s)" = "تعديل %d صورة (صور)";
 /*Translated from: Edit %d video(s)*/

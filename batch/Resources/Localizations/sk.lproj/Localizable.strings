@@ -4,10 +4,16 @@
 "Please open settings and allow access to your photos" = "Otvorte nastavenia a povoľte prístup k fotografiám";
 /*Translated from: Open Settings*/
 "Open Settings" = "Otvorte nastavenia";
+/*Translated from: OK*/
+"OK" = "OK";
+/*Translated from: Confirm*/
+"Confirm" = "potvrdiť";
 /*Translated from: Cancel*/
 "Cancel" = "Zrušiť";
 /*Translated from: Detail*/
 "Detail" = "detail";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Prepáčte, niečo sa pokazilo.";
 /*Translated from: Edit %d photo(s)*/
 "Edit %d photo(s)" = "Upraviť %d fotky";
 /*Translated from: Edit %d video(s)*/

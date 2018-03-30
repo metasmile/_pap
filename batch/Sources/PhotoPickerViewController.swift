@@ -48,6 +48,20 @@ class PhotoPickerViewController: AppDockViewController {
                 if let numberOfSection = PHAssets.fetched.results?.count, numberOfSection > 0, let numberOfItemsInSection = PHAssets.fetched.results?[numberOfSection - 1].count, numberOfItemsInSection > 0 {
                     self.initialPhotoCollectionIndexPath = IndexPath(item: numberOfItemsInSection - 1, section: numberOfSection - 1)
                 }
+
+                //for test
+//                PHAssets.fetched.results?.first?.enumerateObjects { asset, i, pointer in
+//                    let ads = asset.resources.filter({ r -> Bool in
+//                        r.type == .adjustmentData
+//                    })
+//                    if ads.count > 0{
+//                        print("---------------",asset)
+//                        for r in asset.resources{
+//                            print(r.originalFilename, r.uniformTypeIdentifier)
+//                        }
+//                    }
+//                 }
+
                 self.photoCollectionView.reloadData()
             }
         }
@@ -130,7 +144,7 @@ class PhotoPickerViewController: AppDockViewController {
 
         AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.unwatch(\.transform, forIds:["picker\(TransformApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(PhotosFilterApp.self)?.config?.unwatch(\.filter, forIds:["picker\(PhotosFilterApp.info.identifier)"])
-        AppCenter.default.unwatchFilePrivate(\.currentIdentifier)
+        AppCenter.default.unwatchAllFilePrivate(\.currentIdentifier)
     }
 
     override func viewDidLayoutSubviews() {
@@ -281,9 +295,9 @@ class PhotoPickerViewController: AppDockViewController {
     }
     
     func updateVisiblePhotoCollectionCellsEnabled() {
-        photoCollectionView.indexPathsForVisibleItems.forEach { (indexPath) in
-            let cell = self.photoCollectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell
-            cell?.isEnabled = self.collectionView(self.photoCollectionView, shouldSelectItemAt: indexPath)
+        for indexPath in photoCollectionView.indexPathsForVisibleItems{
+            let cell = photoCollectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell
+            cell?.isEnabled = collectionView(photoCollectionView, shouldSelectItemAt: indexPath)
         }
     }
 
@@ -488,11 +502,9 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
     
     func batchPreviewViewDidEndEdit(_ view: PreviewView) {
-//        cancelAllSelection()
-        updateSelectedItemUIs()
-        
         progressBar.isHidden = true
-        
+
+        updateSelectedItemUIs()
         updateVisiblePhotoCollectionCellsEnabled()
     }
     

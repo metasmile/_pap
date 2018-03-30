@@ -4,10 +4,16 @@
 "Please open settings and allow access to your photos" = "Ανοίξτε τις ρυθμίσεις και επιτρέψτε την πρόσβαση στις φωτογραφίες σας";
 /*Translated from: Open Settings*/
 "Open Settings" = "Ανοίξτε τις ρυθμίσεις";
+/*Translated from: OK*/
+"OK" = "Εντάξει";
+/*Translated from: Confirm*/
+"Confirm" = "Επιβεβαιώνω";
 /*Translated from: Cancel*/
 "Cancel" = "Ματαίωση";
 /*Translated from: Detail*/
 "Detail" = "Λεπτομέρεια";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Συγνώμη, κάτι πήγε στραβά.";
 /*Translated from: Edit %d photo(s)*/
 "Edit %d photo(s)" = "Επεξεργασία %d φωτογραφίας";
 /*Translated from: Edit %d video(s)*/

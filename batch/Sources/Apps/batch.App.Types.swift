@@ -5,8 +5,16 @@
 
 import Foundation
 
-public protocol ItemCollectableApp: App {
-    func isItemEnables(for:PHAssetItem<AppValue>) -> Bool
+public protocol PhotoPickerCollectionViewDisplayableApp: App {
+    func isItemEnables(for item:PHAssetItem<AppValue>) -> Bool
+
+    var numberOfItemsShouldSelect: Int? {get}
+}
+
+extension PhotoPickerCollectionViewDisplayableApp{
+    public var numberOfItemsShouldSelect: Int? {
+        return nil
+    }
 }
 
 public protocol PhotoPickerViewControllerDisplayableApp: App {

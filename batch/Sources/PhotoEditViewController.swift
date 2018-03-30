@@ -81,19 +81,11 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         layoutAssetView()
         
         if let asset = asset {
-            if asset.mediaType == .image {
-                assetView.setImageAsset(asset, completion: { [unowned self] (image) in
-                    self.assetView.image = image
-                }, completionWithLivePhoto: { [unowned self] (livePhoto) in
-                    self.assetView.livePhoto = livePhoto
-                })
-            }
-            else if asset.mediaType == .video {
-                assetView.setVideoAsset(asset, completion: { [unowned self] (playerItem) in
-                    self.assetView.playerItem = playerItem
+            assetView.setAsset(asset, cancelDrawingIfNeeded: { return false }, completion: { (result) in
+                if result is AVPlayerItem {
                     self.assetView.playVideoWithLooping()
-                })
-            }
+                }
+            })
         }
     }
     

@@ -4,10 +4,16 @@
 "Please open settings and allow access to your photos" = "Otwórz ustawienia i zezwól na dostęp do swoich zdjęć";
 /*Translated from: Open Settings*/
 "Open Settings" = "Otwórz ustawienia";
+/*Translated from: OK*/
+"OK" = "OK";
+/*Translated from: Confirm*/
+"Confirm" = "Potwierdzać";
 /*Translated from: Cancel*/
 "Cancel" = "Anuluj";
 /*Translated from: Detail*/
 "Detail" = "Szczegół";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Przepraszam, coś poszło nie tak.";
 /*Translated from: Edit %d photo(s)*/
 "Edit %d photo(s)" = "Edytuj %d zdjęcie (a)";
 /*Translated from: Edit %d video(s)*/

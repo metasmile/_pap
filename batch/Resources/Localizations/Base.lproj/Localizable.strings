@@ -2,8 +2,12 @@
 "Please open settings and allow access to your photos" = "Please open settings and allow access to your photos";
 "Open Settings" = "Open Settings";
 
+"OK" = "OK";
+"Confirm" = "Confirm";
 "Cancel" = "Cancel";
 "Detail" = "Detail";
+
+"Sorry, something went wrong." = "Sorry, something went wrong.";
 
 "Edit %d photo(s)" = "Edit %d photo(s)";
 "Edit %d video(s)" = "Edit %d video(s)";

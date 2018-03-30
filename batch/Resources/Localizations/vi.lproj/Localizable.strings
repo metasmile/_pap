@@ -4,10 +4,16 @@
 "Please open settings and allow access to your photos" = "Vui lòng mở cài đặt và cho phép truy cập vào ảnh của bạn";
 /*Translated from: Open Settings*/
 "Open Settings" = "Mở cài đặt";
+/*Translated from: OK*/
+"OK" = "được";
+/*Translated from: Confirm*/
+"Confirm" = "Xác nhận";
 /*Translated from: Cancel*/
 "Cancel" = "Hủy";
 /*Translated from: Detail*/
 "Detail" = "Chi tiết";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Xin lỗi, có lỗi xảy ra.";
 /*Translated from: Edit %d photo(s)*/
 "Edit %d photo(s)" = "Chỉnh sửa %d ảnh";
 /*Translated from: Edit %d video(s)*/

@@ -9,30 +9,41 @@ import DefaultsKit
 
 private typealias RevertAppParam = PHAssetItem<AppValue>
 
-public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, ItemCollectableApp, PersistableApp, PhotoPickerViewControllerDisplayableApp {
+public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, PersistableApp, AppManagerDelegatableApp, PhotoPickerViewControllerDisplayableApp, PhotoPickerCollectionViewDisplayableApp {
     public static let taskType:Taskable.Type = _RevertAppTask.self
 
     public static let paramType:TaskParamable.Type = RevertAppParam.self
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.revert"
-            , version: "0.1"
+            , version: "1.0"
             , phase: .beta
             , appType: RevertApp.self
             , displayName: "Revert"
             , icon: R.image.revertAppIcon.name
             , policy: AppPolicy.default
+            , minOSVersion: nil
     )
 
     required public override init(){
         super.init()
     }
 
-    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
-        if result.isAnyTask(inState: .cancelled) && result.defaultTaskPolicy.cancellation == TaskPolicy.Cancellation.shallow {
-            return result
-        }
+    fileprivate var adjustedCache = [String:Bool]()
 
+    func willSetPrevious(newCurrent: App.Type?) {
+        adjustedCache.removeAll()
+    }
+
+    public func isItemEnables(for item: PHAssetItem<AppValue>) -> Bool {
+        let cacheId = item.asset.localIdentifier
+        if adjustedCache[cacheId] == nil{
+            adjustedCache[cacheId] = item.asset.isAdjusted //TODO: find more fast way
+        }
+        return adjustedCache[cacheId] ?? true
+    }
+
+    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
         let resultAssets = result.flatMap { ($0.result as? PHAssetResultable)?.asset }
 
         guard resultAssets.count > 0 else {
@@ -46,10 +57,13 @@ public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, ItemCol
                 PHAssetChangeRequest(for: asset).revertAssetContentToOriginal()
             }
         }, completionHandler: { success, error in
-            if !success {
+            if success {
+                for asset in resultAssets{
+                    self.adjustedCache[asset.localIdentifier] = false
+                }
+            }else{
                 print("[!] Can't revert asset: \(String(describing: error))")
             }
-
             asyncSignal.end()
         })
 
@@ -57,9 +71,8 @@ public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, ItemCol
         return result
     }
 
-    public func isItemEnables(for item: PHAssetItem<AppValue>) -> Bool {
-        //for test
-        return item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive)
+    public func titleWillBegin() -> String? {
+        return "Starting to revert...".localized
     }
 
     public func titleWillFinalize() -> String? {
@@ -77,22 +90,15 @@ private class _RevertAppTask: TaskPrototype, Taskable {
             throw TaskError.invalidParam
         }
 
-        var adjusted = false
+        let cachedAdjusted = (AppLifecycleManager.shared.acquire(RevertApp.info) as? RevertApp)?.adjustedCache
 
-        async?.begin()
-        //TODO: fix as more light/fast way
-        _param.asset.fetchAdjustmentData { data in
-            adjusted = data != nil
-            async?.end()
+        let adjusted = cachedAdjusted == nil ? _param.asset.isAdjusted : cachedAdjusted?[_param.asset.localIdentifier] == true
+
+        guard adjusted else{
+            throw TaskError.rejectedParam
         }
 
-        async?.stopUntilEnd()
-
-        if adjusted{
-            return PHAssetResultItem(asset:_param.asset, contentEditingOutput: nil)
-        }
-
-        throw TaskError.rejectedParam
+        return PHAssetResultItem(asset:_param.asset, contentEditingOutput: nil)
     }
 }
 

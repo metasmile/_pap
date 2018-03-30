@@ -59,6 +59,17 @@ class batchTests: XCTestCase {
         let appDefaults2 = (AppCenter.default.current as? PersistableApp.Type)?.defaults
         XCTAssertNotNil(appDefaults2)
     }
+
+    func test_GIFDataRepresentation(){
+
+        if let data = Bundle(for: type(of: self)).bundleURL.appendingPathComponent("bath01.gif").asData{
+            XCTAssertNotNil(UIImage.animatedImageWithGIFData(data))
+            XCTAssertNotNil(UIImageGIFRepresentation(UIImage.animatedImageWithGIFData(data)!, duration: 0, repeatCount: 0))
+        }else{
+            XCTFail()
+        }
+
+    }
 }
 
 

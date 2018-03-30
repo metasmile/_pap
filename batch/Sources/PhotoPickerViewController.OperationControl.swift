@@ -71,5 +71,6 @@ extension PhotoPickerViewController{
 
         batchPreviewView.removeAllCollectionViewItems()
         updateSelectedItemUIs()
+        updateVisiblePhotoCollectionCellsEnabled()
     }
 }

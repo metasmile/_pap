@@ -103,10 +103,6 @@ class AssetView: UIView {
     var asset: PHAsset? {
         didSet {
             clearDrawing()
-            
-            if let asset = asset {
-                setAsset(asset)
-            }
         }
     }
     
@@ -170,7 +166,7 @@ class AssetView: UIView {
     
     var image: UIImage? {
         didSet {
-            imageLayer.contents = image?.cgImage
+            updateImageContents(image)
         }
     }
     
@@ -207,6 +203,7 @@ class AssetView: UIView {
 
 extension AssetView {
     func setAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: ((Any?) -> Void)? = nil) {
+        self.asset = asset
         if asset.mediaType == .image {
             setImageAsset(asset, cancelDrawingIfNeeded: cancellation, completion: completion)
         }
@@ -215,7 +212,7 @@ extension AssetView {
         }
     }
 
-    func setImageAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: ((UIImage?) -> Void)? = nil, completionWithLivePhoto: ((PHLivePhoto?) -> Void)? = nil) {
+    private func setImageAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: ((UIImage?) -> Void)? = nil, completionWithLivePhoto: ((PHLivePhoto?) -> Void)? = nil) {
         if asset.mediaSubtypes.contains(.photoLive) {
             livePhotoView.isHidden = false
             
@@ -226,12 +223,8 @@ extension AssetView {
                 }
                 
                 DispatchQueue.main.async { [weak self] in
-                    if let completion = completionWithLivePhoto {
-                        completion(livePhoto)
-                    }
-                    else {
-                        self?.livePhoto = livePhoto
-                    }
+                    self?.livePhoto = livePhoto
+                    completionWithLivePhoto?(livePhoto)
                 }
             }
         }
@@ -243,18 +236,15 @@ extension AssetView {
                 }
                 
                 DispatchQueue.main.async { [weak self] in
-                    if let completion = completion {
-                        completion(image)
-                    }
-                    else {
-                        self?.image = image
-                    }
+                    self?.image = image
+                    completion?(image)
                 }
             }
         }
     }
     
-    func setVideoAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: ((AVPlayerItem?) -> Void)? = nil) {
+    private func setVideoAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: ((AVPlayerItem?) -> Void)? = nil) {
+        self.asset = asset
         loadVideo(for: asset) { [weak self] playerItem in
             guard !cancellation() else {
                 self?.clearDrawing()
@@ -262,12 +252,8 @@ extension AssetView {
             }
             
             DispatchQueue.main.async { [weak self] in
-                if let completion = completion {
-                    completion(playerItem)
-                }
-                else {
-                    self?.playerItem = playerItem
-                }
+                self?.playerItem = playerItem
+                completion?(playerItem)
             }
         }
     }
@@ -275,6 +261,7 @@ extension AssetView {
 
 extension AssetView {
     func setThumbnailAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: ((UIImage?) -> Void)? = nil) {
+        self.asset = asset
         loadImage(for: asset) { [weak self] image in
             DispatchQueue.main.async { [weak self] in
                 guard !cancellation() else {
@@ -282,13 +269,35 @@ extension AssetView {
                     return
                 }
                 
-                if let completion = completion {
-                    completion(image)
-                }
-                else {
-                    self?.image = image
-                }
+                self?.image = image
+                completion?(image)
             }
+        }
+    }
+}
+
+extension AssetView {
+    fileprivate func updateImageContents(_ image: UIImage?) {
+        imageLayer.contents = image?.cgImage
+    }
+}
+
+extension AssetView {
+    func applyFilter(ciFilter: CIFilter?) {
+        if asset?.mediaType == .image {
+            applyImageFilter(ciFilter: ciFilter)
+        }
+        else if asset?.mediaType == .video {
+            
+        }
+    }
+    
+    private func applyImageFilter(ciFilter: CIFilter?) {
+        if asset?.mediaSubtypes.contains(.photoLive) == true {
+            
+        }
+        else {
+            updateImageContents(image?.applyFilter(ciFilter: ciFilter))
         }
     }
 }
