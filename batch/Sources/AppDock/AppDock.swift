@@ -43,10 +43,10 @@ class AppDockView: CustomView {
     
     private struct DrawerPreferences {
         static let topMargin: CGFloat = 5
-        static let compactHeight: CGFloat = 20
-        static let prominentHeight: CGFloat = 44
+        static let compactHeight: CGFloat = 22
+        static let prominentHeight: CGFloat = 49
     }
-    
+
     @IBOutlet weak var drawerView: DrawerView!
     @IBOutlet weak var drawerViewHeightLayout: NSLayoutConstraint!
     @IBOutlet weak var appContentView: UIView!
@@ -219,7 +219,7 @@ extension AppDockView {
         drawerView.layoutIfNeeded()
         invalidateIntrinsicContentSize()
         
-        drawerView.setNeedsDisplay()
+        
     }
     
     fileprivate func layoutDockView() {
@@ -325,17 +325,26 @@ extension AppDockView: UIGestureRecognizerDelegate {
     
     @objc func gestureDidRecognize(sender: AppDockGestureRecognizer) {
         let translation = sender.translation(in: self)
+        let velocity = sender.velocity(in: self)
+
         switch sender.state {
         case .began:
             sender.beginDrawerOffset = drawerViewHeightLayout.constant
             sender.beginAppContentViewOffset = appContentViewHeightLayout.constant
             break
         case .changed:
-            drawerViewHeightLayout.constant = min(DrawerPreferences.prominentHeight, max(DrawerPreferences.compactHeight, sender.beginDrawerOffset - translation.y))
+            let delta = sender.beginDrawerOffset - translation.y
+            let maxHeight = max(DrawerPreferences.compactHeight, DrawerPreferences.prominentHeight)
+            let minHeight = min(DrawerPreferences.compactHeight, DrawerPreferences.prominentHeight)
+
+            drawerViewHeightLayout.constant = min(DrawerPreferences.prominentHeight, max(DrawerPreferences.compactHeight, delta))
             appContentViewHeightLayout.constant = max(preferredAppContentViewHeight, sender.beginAppContentViewOffset - translation.y)
-            
+
+            if drawerView.isOpened{
+                drawerView.isOpened = normalize(delta, minHeight, maxHeight) > 0.6
+            }
             drawerView.layoutIfNeeded()
-            drawerView.setNeedsDisplay()
+            
             invalidateIntrinsicContentSize()
             
             if drawerView.isOpened && sender.beginDrawerOffset - translation.y < 0 {
@@ -349,10 +358,10 @@ extension AppDockView: UIGestureRecognizerDelegate {
                 sender.isEnabled = true
             }
         default:
-            if sender.velocity(in: self).y < 0 {
+            if velocity.y < 0 {
                 openDrawer()
             }
-            else if sender.velocity(in: self).y > 0 {
+            else if velocity.y > 0 {
                 closeDrawer()
             }
             else {
@@ -360,7 +369,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
                 appContentViewHeightLayout.constant = drawerView.isOpened ? drawerHeightOpened : preferredAppContentViewHeight
             }
             drawerView.layoutIfNeeded()
-            drawerView.setNeedsDisplay()
+            
             invalidateIntrinsicContentSize()
             
             animateUsingSpringIfLayoutConstraintsChanged()
@@ -396,7 +405,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
         let needsToReloadPreview = reloadsPreview ?? drawerView.isOpened
         
         drawerView.isOpened = false
-        
+
         drawerViewHeightLayout.constant = preferredDrawerViewHeight
         appContentViewHeightLayout.constant = preferredAppConfigViewHeight + preferredPreviewViewHeight
         
@@ -462,31 +471,39 @@ internal class DockView: UIView {
 // MARK: - Drawer View
 
 internal class DrawerView: DesignableView {
-    var topMargin: CGFloat = 5
+    var topMargin: CGFloat = 6
     
     // 108 x 14
     lazy private var drawerShapeLayer: CAShapeLayer = { return CAShapeLayer() }()
     lazy private var drawerClosedShapePath: UIBezierPath = { return UIBezierPath() }()
     lazy private var drawerOpenedShapePath: UIBezierPath = { return UIBezierPath() }()
-    
+
+    var isOpened = false {
+        didSet{
+            layoutSubviews()
+        }
+    }
+
     override func initialize() {
         super.initialize()
-        
-        let drawerShapeLayerSize = CGSize(width: 36, height: 4)
-        
+
+        self.contentMode = .redraw
+
+        let drawerShapeLayerSize = CGSize(width: 31, height: 5.8)
+
         drawerClosedShapePath.move(to: CGPoint(x: 0, y: topMargin - 1))
-        drawerClosedShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width, y: topMargin - 1))
+        drawerClosedShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width+2, y: topMargin - 1))
         
         drawerOpenedShapePath = UIBezierPath()
         drawerOpenedShapePath.move(to: CGPoint(x: 0, y: topMargin - 1))
         drawerOpenedShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width / 2, y: topMargin - 1 + drawerShapeLayerSize.height))
         drawerOpenedShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width, y: topMargin - 1))
-        
+
         drawerShapeLayer.frame.size = drawerShapeLayerSize
         drawerShapeLayer.path = drawerClosedShapePath.cgPath
         drawerShapeLayer.strokeColor = UIColor(red: 199 / 255.0, green: 199 / 255.0, blue: 203 / 255.0, alpha: 1).cgColor
         drawerShapeLayer.fillColor = UIColor.clear.cgColor
-        drawerShapeLayer.lineWidth = drawerShapeLayerSize.height
+        drawerShapeLayer.lineWidth = 5
         drawerShapeLayer.lineCap = kCALineCapRound
         layer.addSublayer(drawerShapeLayer)
     }
@@ -494,16 +511,17 @@ internal class DrawerView: DesignableView {
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         
-        let cornerRadius: CGFloat = topMargin
-        
-        let roundedRectPath = UIBezierPath(roundedRect: CGRect(x: 0, y: topMargin, width: rect.width, height: rect.height - topMargin), byRoundingCorners: [UIRectCorner.topLeft, UIRectCorner.topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+        let cornerRadius: CGFloat = 8
+
+        let roundedRectPath = UIBezierPath(roundedRect: CGRect(x: 0, y: topMargin, width: rect.width, height: rect.height), byRoundingCorners: [UIRectCorner.topLeft, UIRectCorner.topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
         
         let ctx = UIGraphicsGetCurrentContext()
         ctx?.saveGState()
         
         ctx?.setBlendMode(.normal)
         ctx?.setFillColor(UIColor.white.cgColor)
-        ctx?.setShadow(offset: .zero, blur: topMargin, color: UIColor.black.withAlphaComponent(0.2).cgColor)
+
+        ctx?.setShadow(offset: .zero, blur: topMargin, color: UIColor.black.withAlphaComponent(0.3).cgColor)
         
         ctx?.addPath(roundedRectPath.cgPath)
         ctx?.fillPath()
@@ -511,7 +529,7 @@ internal class DrawerView: DesignableView {
         ctx?.restoreGState()
         
         ctx?.setLineWidth(0.5)
-        ctx?.setStrokeColor(UIColor(red: 213 / 255.0, green: 212 / 255.0, blue: 213 / 255.0, alpha: 1).cgColor)
+        ctx?.setStrokeColor(UIColor(red: 212 / 255.0, green: 211 / 255.0, blue: 212 / 255.0, alpha: 1).cgColor)
         ctx?.move(to: CGPoint(x: cornerRadius, y: topMargin))
         ctx?.addLine(to: CGPoint(x: rect.width - cornerRadius, y: topMargin))
         ctx?.move(to: CGPoint(x: 0, y: rect.height))
@@ -525,16 +543,9 @@ internal class DrawerView: DesignableView {
         CATransaction.setDisableActions(true)
         drawerShapeLayer.position = center
         CATransaction.setDisableActions(false)
+
+        drawerShapeLayer.path = (isOpened ? drawerOpenedShapePath : drawerClosedShapePath).cgPath
+
     }
-    
-    var isOpened = false {
-        didSet {
-            if isOpened {
-                drawerShapeLayer.path = drawerOpenedShapePath.cgPath
-            }
-            else {
-                drawerShapeLayer.path = drawerClosedShapePath.cgPath
-            }
-        }
-    }
+
 }
