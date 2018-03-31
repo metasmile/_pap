@@ -27,7 +27,7 @@ class AppDockViewController: UIViewController {
         appDockView.delegate = self
         appDockView.items = appDockItems
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -64,6 +64,20 @@ class AppDockViewController: UIViewController {
         insets.bottom = appDockView.bounds.height - safeAreaInsets.bottom
         return insets
     }
+
+    public var prefersStatusBarVisible:Bool = true{
+        didSet{
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+
+    override var prefersStatusBarHidden: Bool {
+        return !prefersStatusBarVisible
+    }
+
+    override var preferredStatusBarUpdateAnimation:UIStatusBarAnimation{
+        return .none
+    }
 }
 
 extension AppDockViewController {
@@ -74,6 +88,7 @@ extension AppDockViewController {
 }
 
 extension AppDockViewController: AppDockViewDelegate {
+
     func appDockView(_ view: AppDockView, didSelectItemWith item: AppDockItem) {
         AppCenter.default.current = item.app
         
@@ -82,21 +97,14 @@ extension AppDockViewController: AppDockViewDelegate {
         
         appDockView.closeDrawer(reloadsPreview: true)
     }
-    
+
     func appDockView(_ view: AppDockView, didOpenDrawer isOpened: Bool) {
         UIView.transition(with: dimmedView, duration: 0.3, options: .transitionCrossDissolve, animations: {
             self.dimmedView.isHidden = !isOpened
         }, completion: nil)
-    }
-}
 
-extension UIViewController {
-    var safeAreaInsets: UIEdgeInsets {
-        if #available(iOS 11.0, *) {
-            return view.safeAreaInsets
-        }
-        else {
-            return UIEdgeInsets(top: topLayoutGuide.length, left: 0, bottom: bottomLayoutGuide.length, right: 0)
-        }
+        self.navigationController?.setNavigationBarHidden(isOpened, animated: !isOpened)
+
+        self.prefersStatusBarVisible = !isOpened
     }
 }

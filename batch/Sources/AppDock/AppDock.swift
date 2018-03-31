@@ -337,11 +337,12 @@ extension AppDockView: UIGestureRecognizerDelegate {
             let maxHeight = max(DrawerPreferences.compactHeight, DrawerPreferences.prominentHeight)
             let minHeight = min(DrawerPreferences.compactHeight, DrawerPreferences.prominentHeight)
 
-            drawerViewHeightLayout.constant = min(DrawerPreferences.prominentHeight, max(DrawerPreferences.compactHeight, delta))
             appContentViewHeightLayout.constant = max(preferredAppContentViewHeight, sender.beginAppContentViewOffset - translation.y)
 
             if drawerView.isOpened{
-                drawerView.isOpened = normalize(delta, minHeight, maxHeight) > 0.6
+                drawerView.progressToRenderOpening = remapNormalizeClamp(delta, minHeight, maxHeight)
+            }else{
+                drawerViewHeightLayout.constant = min(DrawerPreferences.prominentHeight, max(DrawerPreferences.compactHeight, delta))
             }
             drawerView.layoutIfNeeded()
             
@@ -366,7 +367,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
             }
             else {
                 drawerViewHeightLayout.constant = drawerView.isOpened ? DrawerPreferences.prominentHeight : DrawerPreferences.compactHeight
-                appContentViewHeightLayout.constant = drawerView.isOpened ? drawerHeightOpened : preferredAppContentViewHeight
+                appContentViewHeightLayout.constant = drawerView.isOpened ? drawerMaximumHeight : preferredAppContentViewHeight
             }
             drawerView.layoutIfNeeded()
             
@@ -375,9 +376,20 @@ extension AppDockView: UIGestureRecognizerDelegate {
             animateUsingSpringIfLayoutConstraintsChanged()
         }
     }
-    
-    fileprivate var drawerHeightOpened: CGFloat {
-        return (self.superview?.bounds ?? UIScreen.main.bounds).height * 0.6
+
+    fileprivate var drawerMaximumHeight: CGFloat {
+        let TopMarginConstRatio:CGFloat = 0.825
+
+        if let rvc = UIApplication.shared.keyWindow?.rootViewController{
+            return (rvc.view.bounds.height - rvc.safeAreaInsets.top) * TopMarginConstRatio
+        }
+
+        if let h = self.superview?.bounds.height{
+            return h * TopMarginConstRatio
+        }
+
+        assert(false, "not found superview and rootViewController")
+        return UIScreen.main.bounds.height * TopMarginConstRatio
     }
     
     func openDrawer(reloadsPreview: Bool? = nil) {
@@ -386,7 +398,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
         drawerView.isOpened = true
         
         drawerViewHeightLayout.constant = DrawerPreferences.prominentHeight
-        appContentViewHeightLayout.constant = drawerHeightOpened
+        appContentViewHeightLayout.constant = drawerMaximumHeight
         
         invalidateIntrinsicContentSize()
         
@@ -420,6 +432,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
         }
         
         delegate?.appDockView(self, didOpenDrawer: false)
+
     }
 }
 
@@ -475,12 +488,28 @@ internal class DrawerView: DesignableView {
     
     // 108 x 14
     lazy private var drawerShapeLayer: CAShapeLayer = { return CAShapeLayer() }()
-    lazy private var drawerClosedShapePath: UIBezierPath = { return UIBezierPath() }()
-    lazy private var drawerOpenedShapePath: UIBezierPath = { return UIBezierPath() }()
+    lazy private var drawerShapePath: UIBezierPath = { return UIBezierPath() }()
+    private let drawerShapeLayerSize = CGSize(width: 31, height: 5.8)
 
     var isOpened = false {
         didSet{
-            layoutSubviews()
+            layoutIfNeeded()
+            progressToRenderOpening = isOpened ? 1 : 0
+        }
+    }
+
+    var progressToRenderOpening:CGFloat = 0 {
+        didSet {
+            drawerShapePath.removeAllPoints()
+            drawerShapePath.move(to: CGPoint(x: 0, y: topMargin - 1))
+
+            if progressToRenderOpening == 0{
+                drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width+2, y: topMargin - 1))
+            }else{
+                drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width / 2, y: topMargin - 1 + (drawerShapeLayerSize.height * progressToRenderOpening)))
+                drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width, y: topMargin - 1))
+            }
+            drawerShapeLayer.path = drawerShapePath.cgPath
         }
     }
 
@@ -489,18 +518,7 @@ internal class DrawerView: DesignableView {
 
         self.contentMode = .redraw
 
-        let drawerShapeLayerSize = CGSize(width: 31, height: 5.8)
-
-        drawerClosedShapePath.move(to: CGPoint(x: 0, y: topMargin - 1))
-        drawerClosedShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width+2, y: topMargin - 1))
-        
-        drawerOpenedShapePath = UIBezierPath()
-        drawerOpenedShapePath.move(to: CGPoint(x: 0, y: topMargin - 1))
-        drawerOpenedShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width / 2, y: topMargin - 1 + drawerShapeLayerSize.height))
-        drawerOpenedShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width, y: topMargin - 1))
-
         drawerShapeLayer.frame.size = drawerShapeLayerSize
-        drawerShapeLayer.path = drawerClosedShapePath.cgPath
         drawerShapeLayer.strokeColor = UIColor(red: 199 / 255.0, green: 199 / 255.0, blue: 203 / 255.0, alpha: 1).cgColor
         drawerShapeLayer.fillColor = UIColor.clear.cgColor
         drawerShapeLayer.lineWidth = 5
@@ -543,9 +561,6 @@ internal class DrawerView: DesignableView {
         CATransaction.setDisableActions(true)
         drawerShapeLayer.position = center
         CATransaction.setDisableActions(false)
-
-        drawerShapeLayer.path = (isOpened ? drawerOpenedShapePath : drawerClosedShapePath).cgPath
-
     }
 
 }
