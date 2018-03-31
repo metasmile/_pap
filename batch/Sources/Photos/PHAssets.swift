@@ -29,7 +29,7 @@ public final class PHAssets: NSObject, KeyPathWatchable {
 
     public func indexPath(of asset: PHAsset?) -> IndexPath? {
         guard let asset = asset else { return nil }
-        return results?.enumerated().flatMap({
+        return results?.enumerated().compactMap({
             let item = $0.element.index(of: asset)
             guard item != NSNotFound else { return nil }
             return IndexPath(item: item, section: $0.offset)

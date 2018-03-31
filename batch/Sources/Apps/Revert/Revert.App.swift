@@ -44,7 +44,7 @@ public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, Persist
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
-        let resultAssets = result.flatMap { ($0.result as? PHAssetResultable)?.asset }
+        let resultAssets = result.compactMap { ($0.result as? PHAssetResultable)?.asset }
 
         guard resultAssets.count > 0 else {
             return result

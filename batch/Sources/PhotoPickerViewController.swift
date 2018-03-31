@@ -293,12 +293,12 @@ class PhotoPickerViewController: AppDockViewController {
     }
 
     private func photoLibraryDidChange(_ changeInstance: PHChange) {
-        let selectedAssetIdentifiers = photoCollectionView.indexPathsForSelectedItems?.flatMap({ PHAssets.fetched.asset(at: $0)?.localIdentifier })
+        let selectedAssetIdentifiers = photoCollectionView.indexPathsForSelectedItems?.compactMap({ PHAssets.fetched.asset(at: $0)?.localIdentifier })
         
         //TODO - confirm: https://fabric.io/jessi/ios/apps/com.stells.batch/issues/5ab6b90e8cb3c2fa63db6d25?time=last-seven-days
         guard let fetchResults = PHAssets.fetched.results else { return }
 
-        let fetchResultChanges = fetchResults.enumerated().flatMap { results -> (Int, PHFetchResultChangeDetails<PHAsset>)? in
+        let fetchResultChanges = fetchResults.enumerated().compactMap { results -> (Int, PHFetchResultChangeDetails<PHAsset>)? in
             let (section, result) = results
             if let details = changeInstance.changeDetails(for: result){
                 return (section, details)
@@ -309,7 +309,7 @@ class PhotoPickerViewController: AppDockViewController {
         /*
             Handle Tasks while batch performing
         */
-        let removedAssets = fetchResultChanges.flatMap { (_, changes) in changes.removedObjects}.reduce([],+)
+        let removedAssets = fetchResultChanges.compactMap { (_, changes) in changes.removedObjects}.reduce([],+)
         let tasksWereRanAndRemoved = AppCenter.default.isAppRunning && removedAssets.count > 0
         if tasksWereRanAndRemoved {
             AppCenter.default.task.suspend()
