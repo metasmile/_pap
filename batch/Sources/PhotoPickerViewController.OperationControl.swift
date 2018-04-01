@@ -41,7 +41,7 @@ extension PhotoPickerViewController{
     }
 
     var selectedAssetsInCollectionView:[PHAsset]?{
-        return photoCollectionView.indexPathsForSelectedItems?.flatMap({ PHAssets.fetched.asset(at: $0) })
+        return photoCollectionView.indexPathsForSelectedItems?.compactMap({ PHAssets.fetched.asset(at: $0) })
     }
 
     func cancelAllInCurrentContext(){

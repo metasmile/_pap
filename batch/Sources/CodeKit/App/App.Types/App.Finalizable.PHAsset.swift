@@ -34,7 +34,7 @@ extension PHAssetFinalizableApp {
         let result = result.filter { respondable in respondable.info.state == .completed }
 
         // map target assets
-        let targetResultAssets = result.flatMap {
+        let targetResultAssets = result.compactMap {
             $0.result as? PHAssetResultable
         }
 
@@ -101,7 +101,7 @@ extension PHAssetFinalizableApp {
             asyncSignal.begin()
             DispatchQueue.global().async {
                 //TODO: fix problems
-                let datas = targetResultAssets.flatMap { (resultable: PHAssetResultable) -> Data? in
+                let datas = targetResultAssets.compactMap { (resultable: PHAssetResultable) -> Data? in
                     return resultable.asset.asData
                 }
 

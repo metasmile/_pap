@@ -107,7 +107,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
 
     //TODO: query by all of each request's properties.
     public func query(by requestTokens:[String]) -> [TaskInfo] {
-        return requestTokens.flatMap { token -> TaskInfo? in
+        return requestTokens.compactMap { token -> TaskInfo? in
             _staticRequestedWorkItems[token]?.info
         }
     }

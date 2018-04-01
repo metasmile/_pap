@@ -114,7 +114,7 @@ extension KeyPathWatchable where _Observee == Self{
     }
 
     public func watching<Value>(by keyPath:KeyPath<_Observee,Value>, id:String?=nil) -> [KeyPathWatcherInfo]{
-        return self.watcher._observations.flatMap { e -> KeyPathWatcherInfo? in
+        return self.watcher._observations.compactMap { e -> KeyPathWatcherInfo? in
             return (id == nil ? true : id==e.key) && keyPath == e.value.keyPath ? e.value : nil
         }
     }
@@ -129,7 +129,7 @@ extension KeyPathWatchable where _Observee == Self{
         assert(ids.count>0,"Already unwatched In Current File.\(String(describing: keyPath))")
 
         if self.unwatch(forIds: ids).count > 0{
-            let indexesOfIds = ids.flatMap({ id -> Int? in idsInFile.index(of: id) })
+            let indexesOfIds = ids.compactMap({ id -> Int? in idsInFile.index(of: id) })
             for index in indexesOfIds {
                 watcher._autoObservationIdsInFile[_file]?.remove(at: index)
             }
@@ -150,7 +150,7 @@ extension KeyPathWatchable where _Observee == Self{
         }
 
         let unwatched = self.unwatch(forIds: ids)
-        assert(forIds == nil || Set(watcher._observations.flatMap({ key, value -> String? in key })).intersection(Set(forIds!)).count==0, "\(String(describing: forIds)) is still remaning.")
+        assert(forIds == nil || Set(watcher._observations.compactMap({ key, value -> String? in key })).intersection(Set(forIds!)).count==0, "\(String(describing: forIds)) is still remaning.")
         return unwatched
     }
 
