@@ -99,11 +99,11 @@ extension AppDockViewController: AppDockViewDelegate {
     }
 
     func appDockView(_ view: AppDockView, didOpenDrawer isOpened: Bool) {
-        UIView.transition(with: dimmedView, duration: 0.3, options: .transitionCrossDissolve, animations: {
+        UIView.transition(with: dimmedView, duration: 0.4, options: .transitionCrossDissolve, animations: {
             self.dimmedView.isHidden = !isOpened
         }, completion: nil)
 
-        self.navigationController?.setNavigationBarHidden(isOpened, animated: !isOpened)
+        self.navigationController?.setNavigationBarHidden(isOpened, animated: true)
 
         self.prefersStatusBarVisible = !isOpened
     }

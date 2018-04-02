@@ -87,7 +87,7 @@ extension UIView {
     }
     
     func animateUsingSpringIfLayoutConstraintsChanged() {
-        UIView.animateUsingSpring(duration: 0.3, delay: 0.0, animations: { [unowned self] in
+        UIView.animateUsingSpring(duration: 0.45, delay: 0.0, animations: { [unowned self] in
             self.superview?.layoutIfNeeded()
             }, completion: nil)
     }

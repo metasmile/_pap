@@ -501,13 +501,13 @@ internal class DrawerView: DesignableView {
     var progressToRenderOpening:CGFloat = 0 {
         didSet {
             drawerShapePath.removeAllPoints()
-            drawerShapePath.move(to: CGPoint(x: 0, y: topMargin - 1))
+            drawerShapePath.move(to: CGPoint(x: 0, y: topMargin))
 
             if progressToRenderOpening == 0{
-                drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width+2, y: topMargin - 1))
+                drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width, y: topMargin))
             }else{
-                drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width / 2, y: topMargin - 1 + (drawerShapeLayerSize.height * progressToRenderOpening)))
-                drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width, y: topMargin - 1))
+                drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width / 2, y: topMargin + (drawerShapeLayerSize.height * progressToRenderOpening)))
+                drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width, y: topMargin))
             }
             drawerShapeLayer.path = drawerShapePath.cgPath
         }
