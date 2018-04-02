@@ -75,6 +75,16 @@ class PreviewView: CustomView {
     }
 }
 
+extension PreviewView: AppDockViewAccesoryView {
+    func reloadContent() {
+        reloadPreview()
+    }
+
+    func reloadContentThatFits(size:CGSize) {
+        reloadPreview(with:size.height)
+    }
+}
+
 extension PreviewView {
     @discardableResult
     func appendCollectionViewItem(with asset: PHAsset) -> IndexPath? {
