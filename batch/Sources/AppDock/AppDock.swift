@@ -23,7 +23,13 @@ protocol AppDockViewDelegate {
     func appDockView(_ view: AppDockView, didOpenDrawer isOpened: Bool)
 }
 
-public protocol AppDockViewAccesoryView where Self:UIView{
+public protocol AppDockAccesoryPreferences {
+    var compactHeight: CGFloat {get}
+}
+
+public protocol AppDockAccesoryView where Self:UIView{
+    var preferences: AppDockAccesoryPreferences {get}
+
     func reloadContent()
     func reloadContentThatFits(size:CGSize)
 }
@@ -37,11 +43,7 @@ class AppDockView: CustomView {
     private struct AppDockPreferences {
         static let compactHeight: CGFloat = 44
     }
-    
-    private struct PreviewPreferences {
-        static let compactHeight: CGFloat = PreviewView.Preferences.compactHeight
-    }
-    
+
     private struct AppConfigPreferences {
         static let compactHeight: CGFloat = 44
     }
@@ -65,7 +67,7 @@ class AppDockView: CustomView {
     @IBOutlet weak var appCollectionView: UICollectionView!
     @IBOutlet weak var bottomAccessoryView: UIView!
 
-    public weak var dockAccessoryView: (UIView & AppDockViewAccesoryView)? {
+    public weak var dockAccessoryView: (UIView & AppDockAccesoryView)? {
         didSet {
             if let view = dockAccessoryView {
                 setTopAccessoryView(view, animated: true)
@@ -208,8 +210,8 @@ extension AppDockView {
         return items.count > 1 ? AppDockPreferences.compactHeight : 0
     }
     
-    fileprivate var preferredPreviewViewHeight: CGFloat {
-        return topAccessoryView.subviews.count == 0 ? 0 : PreviewPreferences.compactHeight
+    fileprivate var preferredTopAccessoryViewHeight: CGFloat {
+        return self.dockAccessoryView?.preferences.compactHeight ?? 0
     }
     
     fileprivate var preferredAppConfigViewHeight: CGFloat {
@@ -217,7 +219,7 @@ extension AppDockView {
     }
     
     fileprivate var preferredAppContentViewHeight: CGFloat {
-        return preferredPreviewViewHeight + preferredAppConfigViewHeight
+        return preferredTopAccessoryViewHeight + preferredAppConfigViewHeight
     }
     
     fileprivate func layoutDrawerView() {
@@ -424,7 +426,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
         drawerView.isOpened = false
 
         drawerViewHeightLayout.constant = preferredDrawerViewHeight
-        appContentViewHeightLayout.constant = preferredAppConfigViewHeight + preferredPreviewViewHeight
+        appContentViewHeightLayout.constant = preferredAppConfigViewHeight + preferredTopAccessoryViewHeight
         
         invalidateIntrinsicContentSize()
         
