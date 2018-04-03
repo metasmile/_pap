@@ -23,6 +23,17 @@ protocol AppDockViewDelegate {
     func appDockView(_ view: AppDockView, didOpenDrawer isOpened: Bool)
 }
 
+public protocol AppDockAccesoryPreferences {
+    var compactHeight: CGFloat {get}
+}
+
+public protocol AppDockAccesoryView where Self:UIView{
+    var preferences: AppDockAccesoryPreferences {get}
+
+    func reloadContent()
+    func reloadContentThatFits(size:CGSize)
+}
+
 internal class AppDockGestureRecognizer: UIPanGestureRecognizer {
     var beginDrawerOffset: CGFloat = 0
     var beginAppContentViewOffset: CGFloat = 0
@@ -32,11 +43,7 @@ class AppDockView: CustomView {
     private struct AppDockPreferences {
         static let compactHeight: CGFloat = 44
     }
-    
-    private struct PreviewPreferences {
-        static let compactHeight: CGFloat = PreviewView.Preferences.compactHeight
-    }
-    
+
     private struct AppConfigPreferences {
         static let compactHeight: CGFloat = 44
     }
@@ -51,16 +58,7 @@ class AppDockView: CustomView {
     @IBOutlet weak var drawerViewHeightLayout: NSLayoutConstraint!
     @IBOutlet weak var appContentView: UIView!
     @IBOutlet weak var appContentViewHeightLayout: NSLayoutConstraint!
-    weak var previewView: PreviewView? {
-        didSet {
-            if let view = previewView {
-                setPreviewView(view, animated: true)
-            }
-            else {
-                removeAllTopAccessoryViews()
-            }
-        }
-    }
+
     @IBOutlet weak var topAccessoryView: UIView!
     @IBOutlet weak var appConfigView: UIView!
     @IBOutlet weak var appConfigViewHeightLayout: NSLayoutConstraint!
@@ -68,7 +66,18 @@ class AppDockView: CustomView {
     @IBOutlet weak var dockViewHeightLayout: NSLayoutConstraint!
     @IBOutlet weak var appCollectionView: UICollectionView!
     @IBOutlet weak var bottomAccessoryView: UIView!
-    
+
+    public weak var dockAccessoryView: (UIView & AppDockAccesoryView)? {
+        didSet {
+            if let view = dockAccessoryView {
+                setTopAccessoryView(view, animated: true)
+            }
+            else {
+                removeAllTopAccessoryViews()
+            }
+        }
+    }
+
     var delegate: AppDockViewDelegate?
     
     var items: [AppDockItem] = [AppDockItem]() {
@@ -131,7 +140,7 @@ class AppDockView: CustomView {
         return CGSize(width: UIViewNoIntrinsicMetric, height: drawerViewHeightLayout.constant + appContentViewHeightLayout.constant + dockViewHeightLayout.constant + bottomAccessoryView.bounds.height)
     }
     
-    fileprivate func setPreviewView(_ view: UIView, animated: Bool = true) {
+    private func setTopAccessoryView(_ view: UIView, animated: Bool = true) {
         guard !hasTopAccessoryView(view) else { return }
         removeAllTopAccessoryViews(animated: false)
         
@@ -155,7 +164,7 @@ class AppDockView: CustomView {
         }
     }
     
-    fileprivate func hasTopAccessoryView(_ view: UIView?) -> Bool {
+    private func hasTopAccessoryView(_ view: UIView?) -> Bool {
         guard let view = view else { return false }
         return topAccessoryView.subviews.contains(view)
     }
@@ -186,7 +195,7 @@ class AppDockView: CustomView {
         }
     }
     
-    fileprivate func hasAppConfigView(_ view: UIView?) -> Bool {
+    private func hasAppConfigView(_ view: UIView?) -> Bool {
         guard let view = view else { return false }
         return appConfigView.subviews.contains(view)
     }
@@ -201,8 +210,8 @@ extension AppDockView {
         return items.count > 1 ? AppDockPreferences.compactHeight : 0
     }
     
-    fileprivate var preferredPreviewViewHeight: CGFloat {
-        return topAccessoryView.subviews.count == 0 ? 0 : PreviewPreferences.compactHeight
+    fileprivate var preferredTopAccessoryViewHeight: CGFloat {
+        return self.dockAccessoryView?.preferences.compactHeight ?? 0
     }
     
     fileprivate var preferredAppConfigViewHeight: CGFloat {
@@ -210,7 +219,7 @@ extension AppDockView {
     }
     
     fileprivate var preferredAppContentViewHeight: CGFloat {
-        return preferredPreviewViewHeight + preferredAppConfigViewHeight
+        return preferredTopAccessoryViewHeight + preferredAppConfigViewHeight
     }
     
     fileprivate func layoutDrawerView() {
@@ -218,8 +227,6 @@ extension AppDockView {
         
         drawerView.layoutIfNeeded()
         invalidateIntrinsicContentSize()
-        
-        
     }
     
     fileprivate func layoutDockView() {
@@ -392,43 +399,43 @@ extension AppDockView: UIGestureRecognizerDelegate {
         return UIScreen.main.bounds.height * TopMarginConstRatio
     }
     
-    func openDrawer(reloadsPreview: Bool? = nil) {
-        let needsToReloadPreview = reloadsPreview ?? !drawerView.isOpened
-        
+    func openDrawer(reloadDockAccessoryView: Bool? = nil) {
+        let reloadDockAccessoryViewContent = reloadDockAccessoryView ?? !drawerView.isOpened
+
         drawerView.isOpened = true
         
         drawerViewHeightLayout.constant = DrawerPreferences.prominentHeight
         appContentViewHeightLayout.constant = drawerMaximumHeight
-        
+
         invalidateIntrinsicContentSize()
         
         animateUsingSpringIfLayoutConstraintsChanged()
         
         appContentView.layoutIfNeeded()
         
-        if needsToReloadPreview {
-            previewView?.reloadPreview(with: appContentViewHeightLayout.constant - preferredAppConfigViewHeight - DrawerPreferences.compactHeight * 2)
+        if reloadDockAccessoryViewContent {
+            dockAccessoryView?.reloadContentThatFits(size:CGSize(width: CGFloat.nan, height: appContentViewHeightLayout.constant - preferredAppConfigViewHeight - DrawerPreferences.compactHeight * 2))
         }
         
         delegate?.appDockView(self, didOpenDrawer: true)
     }
     
-    func closeDrawer(reloadsPreview: Bool? = nil) {
-        let needsToReloadPreview = reloadsPreview ?? drawerView.isOpened
-        
+    func closeDrawer(reloadDockAccessoryView: Bool? = nil) {
+        let reloadDockAccessoryViewContent = reloadDockAccessoryView ?? drawerView.isOpened
+
         drawerView.isOpened = false
 
         drawerViewHeightLayout.constant = preferredDrawerViewHeight
-        appContentViewHeightLayout.constant = preferredAppConfigViewHeight + preferredPreviewViewHeight
+        appContentViewHeightLayout.constant = preferredAppConfigViewHeight + preferredTopAccessoryViewHeight
         
         invalidateIntrinsicContentSize()
         
         animateUsingSpringIfLayoutConstraintsChanged()
         
         appContentView.layoutIfNeeded()
-        
-        if needsToReloadPreview {
-            previewView?.reloadPreview()
+
+        if reloadDockAccessoryViewContent {
+            dockAccessoryView?.reloadContent()
         }
         
         delegate?.appDockView(self, didOpenDrawer: false)
@@ -501,13 +508,13 @@ internal class DrawerView: DesignableView {
     var progressToRenderOpening:CGFloat = 0 {
         didSet {
             drawerShapePath.removeAllPoints()
-            drawerShapePath.move(to: CGPoint(x: 0, y: topMargin - 1))
+            drawerShapePath.move(to: CGPoint(x: 0, y: topMargin))
 
             if progressToRenderOpening == 0{
-                drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width+2, y: topMargin - 1))
+                drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width, y: topMargin))
             }else{
-                drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width / 2, y: topMargin - 1 + (drawerShapeLayerSize.height * progressToRenderOpening)))
-                drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width, y: topMargin - 1))
+                drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width / 2, y: topMargin + (drawerShapeLayerSize.height * progressToRenderOpening)))
+                drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width, y: topMargin))
             }
             drawerShapeLayer.path = drawerShapePath.cgPath
         }

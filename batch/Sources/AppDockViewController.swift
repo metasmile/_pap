@@ -95,15 +95,15 @@ extension AppDockViewController: AppDockViewDelegate {
         let configView = AppCenter.default.currentInstanceAs(UIControllableApp.self)?.controlView
         appDockView.setAppConfigView(configView)
         
-        appDockView.closeDrawer(reloadsPreview: true)
+        appDockView.closeDrawer(reloadDockAccessoryView: true)
     }
 
     func appDockView(_ view: AppDockView, didOpenDrawer isOpened: Bool) {
-        UIView.transition(with: dimmedView, duration: 0.3, options: .transitionCrossDissolve, animations: {
+        UIView.transition(with: dimmedView, duration: 0.4, options: .transitionCrossDissolve, animations: {
             self.dimmedView.isHidden = !isOpened
         }, completion: nil)
 
-        self.navigationController?.setNavigationBarHidden(isOpened, animated: !isOpened)
+        self.navigationController?.setNavigationBarHidden(isOpened, animated: true)
 
         self.prefersStatusBarVisible = !isOpened
     }
