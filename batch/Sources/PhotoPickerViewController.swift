@@ -235,13 +235,13 @@ class PhotoPickerViewController: AppDockViewController {
             navigationItem.setLeftBarButton(nil, animated: true)
             navigationItem.setRightBarButton(nil, animated: true)
             
-            appDockView.dockAccessoryView = nil
+            appDockView.accessoryView = nil
         }
         else {
             navigationItem.setLeftBarButton(cancelButton, animated: true)
             navigationItem.setRightBarButton(doneButton, animated: true)
             
-            appDockView.dockAccessoryView = batchPreviewView
+            appDockView.accessoryView = batchPreviewView
         }
     }
 
@@ -427,9 +427,9 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
 }
 
 extension PhotoPickerViewController: PreviewViewDelegate {
-    var currentDisplayableApp:PhotoPickerViewControllerDisplayableApp?{
-        if AppCenter.default.current is PhotoPickerViewControllerDisplayableApp.Type{
-            return AppCenter.default.currentInstanceAs(PhotoPickerViewControllerDisplayableApp.self)
+    var currentDisplayableApp: PhotoPickerViewControllerDelegatableApp?{
+        if AppCenter.default.current is PhotoPickerViewControllerDelegatableApp.Type{
+            return AppCenter.default.currentInstanceAs(PhotoPickerViewControllerDelegatableApp.self)
         }
         return nil
     }

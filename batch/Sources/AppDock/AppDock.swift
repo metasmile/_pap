@@ -23,18 +23,18 @@ protocol AppDockViewDelegate {
     func appDockView(_ view: AppDockView, didOpenDrawer isOpened: Bool)
 }
 
-public protocol AppDockAccesoryPreferences {
+protocol AppDockAccesoryPreferences {
     var compactHeight: CGFloat {get}
 }
 
-public protocol AppDockAccesoryView where Self:UIView{
+protocol AppDockAccesoryView where Self:UIView{
     var preferences: AppDockAccesoryPreferences {get}
 
     func reloadContent()
     func reloadContentThatFits(size:CGSize)
 }
 
-internal class AppDockGestureRecognizer: UIPanGestureRecognizer {
+class AppDockGestureRecognizer: UIPanGestureRecognizer {
     var beginDrawerOffset: CGFloat = 0
     var beginAppContentViewOffset: CGFloat = 0
 }
@@ -54,22 +54,22 @@ class AppDockView: CustomView {
         static let prominentHeight: CGFloat = 49
     }
 
-    @IBOutlet weak var drawerView: DrawerView!
-    @IBOutlet weak var drawerViewHeightLayout: NSLayoutConstraint!
-    @IBOutlet weak var appContentView: UIView!
-    @IBOutlet weak var appContentViewHeightLayout: NSLayoutConstraint!
+    @IBOutlet weak private var drawerView: DrawerView!
+    @IBOutlet weak private var drawerViewHeightLayout: NSLayoutConstraint!
+    @IBOutlet weak private var appContentView: UIView!
+    @IBOutlet weak private var appContentViewHeightLayout: NSLayoutConstraint!
 
-    @IBOutlet weak var topAccessoryView: UIView!
-    @IBOutlet weak var appConfigView: UIView!
-    @IBOutlet weak var appConfigViewHeightLayout: NSLayoutConstraint!
-    @IBOutlet weak var dockView: DockView!
-    @IBOutlet weak var dockViewHeightLayout: NSLayoutConstraint!
-    @IBOutlet weak var appCollectionView: UICollectionView!
-    @IBOutlet weak var bottomAccessoryView: UIView!
+    @IBOutlet weak private var topAccessoryView: UIView!
+    @IBOutlet weak private var appConfigView: UIView!
+    @IBOutlet weak private var appConfigViewHeightLayout: NSLayoutConstraint!
+    @IBOutlet weak private var dockView: DockView!
+    @IBOutlet weak private var dockViewHeightLayout: NSLayoutConstraint!
+    @IBOutlet weak private var appCollectionView: UICollectionView!
+    @IBOutlet weak private var bottomAccessoryView: UIView!
 
-    public weak var dockAccessoryView: (UIView & AppDockAccesoryView)? {
+    weak var accessoryView: (UIView & AppDockAccesoryView)? {
         didSet {
-            if let view = dockAccessoryView {
+            if let view = accessoryView {
                 setTopAccessoryView(view, animated: true)
             }
             else {
@@ -87,12 +87,55 @@ class AppDockView: CustomView {
             reloadAppDock()
         }
     }
-    
-    var hasDrawer: Bool {
+
+    var barStyle: UIBarStyle = UIBarStyle.default {
+        didSet {
+            switch barStyle {
+            case .black:
+                bottomAccessoryView.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1)
+                topAccessoryView.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1)
+                appConfigView.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1)
+            default:
+                bottomAccessoryView.backgroundColor = .white
+                topAccessoryView.backgroundColor = .white
+                appConfigView.backgroundColor = .white
+            }
+        }
+    }
+
+    //TODO: integrate with something option type
+    func setAppConfigView(_ view: UIView?, animated: Bool = true) {
+        guard !hasAppConfigView(view) else { return }
+        appConfigView.subviews.forEach({ $0.removeFromSuperview() })
+        if let view = view {
+            appConfigView.addSubview(view)
+
+            view.fitConstraints(to: appConfigView)
+        }
+
+        layoutAppContentView()
+
+        if animated {
+            animateUsingSpringIfLayoutConstraintsChanged()
+        }
+    }
+
+    func removeAllAppConfigViews(animated: Bool = true) {
+        appConfigView.subviews.forEach({ $0.removeFromSuperview() })
+
+        layoutAppContentView()
+
+        if animated {
+            animateUsingSpringIfLayoutConstraintsChanged()
+        }
+    }
+
+    //TODO: add abstract flag e.g. AppDock ContentMode/ContentOption
+    private var hasDrawer: Bool {
         return (appConfigView.subviews.count > 0 && items.count > 1)
     }
-    
-    var hasAppDockContent: Bool {
+
+    private var hasContent: Bool {
         return (preferredDrawerViewHeight + preferredAppContentViewHeight + preferredDockViewHeight) > 0
     }
     
@@ -116,24 +159,9 @@ class AppDockView: CustomView {
         drawerView.addGestureRecognizer(tapDrawerGesture)
     }
     
-    func reloadAppDock() {
+    private func reloadAppDock() {
         appCollectionView.collectionViewLayout.prepare()
         appCollectionView.reloadData()
-    }
-    
-    var barStyle: UIBarStyle = UIBarStyle.default {
-        didSet {
-            switch barStyle {
-            case .black:
-                bottomAccessoryView.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1)
-                topAccessoryView.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1)
-                appConfigView.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1)
-            default:
-                bottomAccessoryView.backgroundColor = .white
-                topAccessoryView.backgroundColor = .white
-                appConfigView.backgroundColor = .white
-            }
-        }
     }
     
     override var intrinsicContentSize: CGSize {
@@ -169,32 +197,6 @@ class AppDockView: CustomView {
         return topAccessoryView.subviews.contains(view)
     }
     
-    func setAppConfigView(_ view: UIView?, animated: Bool = true) {
-        guard !hasAppConfigView(view) else { return }
-        appConfigView.subviews.forEach({ $0.removeFromSuperview() })
-        if let view = view {
-            appConfigView.addSubview(view)
-            
-            view.fitConstraints(to: appConfigView)
-        }
-        
-        layoutAppContentView()
-        
-        if animated {
-            animateUsingSpringIfLayoutConstraintsChanged()
-        }
-    }
-    
-    func removeAllAppConfigViews(animated: Bool = true) {
-        appConfigView.subviews.forEach({ $0.removeFromSuperview() })
-        
-        layoutAppContentView()
-        
-        if animated {
-            animateUsingSpringIfLayoutConstraintsChanged()
-        }
-    }
-    
     private func hasAppConfigView(_ view: UIView?) -> Bool {
         guard let view = view else { return false }
         return appConfigView.subviews.contains(view)
@@ -211,7 +213,7 @@ extension AppDockView {
     }
     
     fileprivate var preferredTopAccessoryViewHeight: CGFloat {
-        return self.dockAccessoryView?.preferences.compactHeight ?? 0
+        return self.accessoryView?.preferences.compactHeight ?? 0
     }
     
     fileprivate var preferredAppConfigViewHeight: CGFloat {
@@ -245,7 +247,7 @@ extension AppDockView {
         
         layoutDrawerView()
         
-        bottomAccessoryView.isHidden = !hasAppDockContent
+        bottomAccessoryView.isHidden = !hasContent
         
         invalidateIntrinsicContentSize()
     }
@@ -277,12 +279,12 @@ extension AppDockView: UICollectionViewDataSource {
 //        .updated
 //        .used
 
-        cell.appIconImageView.image = iconImage//iconImage.withRenderingMode(.alwaysTemplate)
+        cell.iconImage = iconImage
         switch barStyle {
             case .black:
-                cell.appIconImageView.tintColor = .white
+                cell.iconViewTintColor = .white
             default:
-                cell.appIconImageView.tintColor = .black
+                cell.iconViewTintColor = .black
         }
         return cell
     }
@@ -414,7 +416,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
         appContentView.layoutIfNeeded()
         
         if reloadDockAccessoryViewContent {
-            dockAccessoryView?.reloadContentThatFits(size:CGSize(width: CGFloat.nan, height: appContentViewHeightLayout.constant - preferredAppConfigViewHeight - DrawerPreferences.compactHeight * 2))
+            accessoryView?.reloadContentThatFits(size:CGSize(width: CGFloat.nan, height: appContentViewHeightLayout.constant - preferredAppConfigViewHeight - DrawerPreferences.compactHeight * 2))
         }
         
         delegate?.appDockView(self, didOpenDrawer: true)
@@ -435,7 +437,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
         appContentView.layoutIfNeeded()
 
         if reloadDockAccessoryViewContent {
-            dockAccessoryView?.reloadContent()
+            accessoryView?.reloadContent()
         }
         
         delegate?.appDockView(self, didOpenDrawer: false)
@@ -446,12 +448,30 @@ extension AppDockView: UIGestureRecognizerDelegate {
 // MARK: -
 
 internal class AppDockViewCell: CustomCollectionViewCell {
-    @IBOutlet weak var selectedStateView: RoundedView!
+    @IBOutlet weak private var selectedStateView: RoundedView!
     
-    @IBOutlet weak var appContentView: UIView!
-    @IBOutlet weak var appIconView: RoundedButton!
-    @IBOutlet weak var appIconImageView: UIImageView!
-    
+    @IBOutlet weak private var appContentView: UIView!
+    @IBOutlet weak private var appIconView: RoundedButton!
+    @IBOutlet weak private var appIconImageView: UIImageView!
+
+    public var iconImage: UIImage? {
+        get {
+            return appIconImageView.image
+        }
+        set {
+            appIconImageView.image = newValue
+        }
+    }
+
+    public var iconViewTintColor: UIColor {
+        get {
+            return appIconImageView.tintColor
+        }
+        set {
+            appIconImageView.tintColor = newValue
+        }
+    }
+
     override func prepareForReuse() {
         super.prepareForReuse()
         
