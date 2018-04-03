@@ -201,42 +201,6 @@ extension _TransformAppAsset: PHAssetVideoEditable {
 
 
 let kEditItemPreviewWidth: CGFloat = UIScreen.main.bounds.width * 0.9
-private extension AVAsset {
-    func applyTransform(_ transform: CGAffineTransform) -> AVAsset {
-        guard
-                let videoTrack = tracks(withMediaType: .video).first
-                else {
-            return self
-        }
-
-        let audioTrack = tracks(withMediaType: .audio).first
-
-        let transform = videoTrack.preferredTransform.concatenating(transform)
-        let timeRange = CMTimeRangeMake(kCMTimeZero, duration)
-
-        let composition = AVMutableComposition()
-        guard let compositionVideoTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid) else {
-            return self
-        }
-        let compositionAudioTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
-
-        try? compositionVideoTrack.insertTimeRange(timeRange, of: videoTrack, at: kCMTimeZero)
-
-        if let audioTrack = audioTrack {
-            do {
-                try compositionAudioTrack?.insertTimeRange(timeRange, of: audioTrack, at: kCMTimeZero)
-            } catch {
-                if let track = compositionAudioTrack {
-                    composition.removeTrack(track)
-                }
-            }
-        }
-
-        compositionVideoTrack.preferredTransform = transform
-
-        return composition
-    }
-}
 
 //https://gist.github.com/schickling/b5d86cb070130f80bb40
 private extension UIImage {

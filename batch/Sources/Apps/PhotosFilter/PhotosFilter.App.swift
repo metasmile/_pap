@@ -80,7 +80,7 @@ public class PhotosFilterApp: NSObject, KeyPathWatchable, ConfigurableApp, _Conf
     }
     
     public func isItemEnables(for item: PHAssetItem<AppValue>) -> Bool {
-        return item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive)
+        return (item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive)) || item.asset.mediaType == .video
     }
     
     public var finalizingOptions: PHAssetFinalizingOptions{

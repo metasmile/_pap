@@ -21,6 +21,8 @@ class AssetView: UIView {
     fileprivate var videoLayer: AVPlayerLayer
     fileprivate var livePhotoView: PHLivePhotoView
     
+    fileprivate var previewMode: Bool = false
+    
     var preferredTransform: CGAffineTransform = .identity {
         didSet {
             imageLayer.transform = CATransform3DMakeAffineTransform(preferredTransform)
@@ -203,6 +205,7 @@ class AssetView: UIView {
 
 extension AssetView {
     func setAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: ((Any?) -> Void)? = nil) {
+        previewMode = false
         self.asset = asset
         if asset.mediaType == .image {
             setImageAsset(asset, cancelDrawingIfNeeded: cancellation, completion: completion)
@@ -261,6 +264,7 @@ extension AssetView {
 
 extension AssetView {
     func setThumbnailAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: ((UIImage?) -> Void)? = nil) {
+        previewMode = true
         self.asset = asset
         loadImage(for: asset) { [weak self] image in
             DispatchQueue.main.async { [weak self] in
@@ -284,11 +288,11 @@ extension AssetView {
 
 extension AssetView {
     func applyFilter(ciFilter: CIFilter?) {
-        if asset?.mediaType == .image {
+        if asset?.mediaType == .image || previewMode {
             applyImageFilter(ciFilter: ciFilter)
         }
         else if asset?.mediaType == .video {
-            
+            applyVideoFilter(ciFilter: ciFilter)
         }
     }
     
@@ -299,6 +303,10 @@ extension AssetView {
         else {
             updateImageContents(image?.applyFilter(ciFilter: ciFilter))
         }
+    }
+    
+    private func applyVideoFilter(ciFilter: CIFilter?) {
+        playerItem?.videoComposition = playerItem?.asset.applyFilter(ciFilter)
     }
 }
 
