@@ -17,14 +17,14 @@ extension PhotoPickerCollectionViewDisplayableApp{
     }
 }
 
-public protocol PhotoPickerViewControllerDisplayableApp: App {
+public protocol PhotoPickerViewControllerDelegatableApp: App {
     func titleWillBegin() -> String?
     func titleDidUpdate(progress: Float) -> String?
     func titleWillCancel() -> String?
     func titleWillFinalize() -> String?
 }
 
-extension PhotoPickerViewControllerDisplayableApp {
+extension PhotoPickerViewControllerDelegatableApp {
     public func titleWillBegin() -> String? {
         return nil
     }
