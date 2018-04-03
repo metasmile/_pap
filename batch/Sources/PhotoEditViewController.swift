@@ -11,14 +11,14 @@ import Hero
 import AVFoundation
 import Photos
 
-protocol TransformEditViewControllerDelegate {
+protocol EditViewControllerDelegate {
     func editViewController(_ photoEditor: PhotoEditViewController, didFinishWith editItem: StateValueSet<AppValue>?, at indexPath: IndexPath?)
 }
 
 class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     @IBOutlet weak var photoZoomingView: UIScrollView!
 
-    var delegate: TransformEditViewControllerDelegate?
+    var delegate: EditViewControllerDelegate?
     
     lazy var zoomingContentView: UIView = {
         return UIView(frame: view.bounds)
@@ -35,7 +35,11 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
             layoutAssetView()
         }
     }
-    var editItem = StateValueSet<AppValue>()
+    var editItem = StateValueSet<AppValue>() {
+        didSet {
+            preferredTransform = editItem.transform
+        }
+    }
     var placeholderView: UIView?
     var indexPathInBatch: IndexPath?
     
@@ -76,12 +80,14 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
 
         doneButton?.image = R.image.editDoneBarButton()
         
-        assetView.preferredTransform = preferredTransform
         assetView.image = placeholderImage
+        assetView.preferredTransform = preferredTransform
+        assetView.applyFilter(ciFilter: editItem.ciFilter)
         layoutAssetView()
         
         if let asset = asset {
             assetView.setAsset(asset, completion: { (result) in
+                self.assetView.applyFilter(ciFilter: self.editItem.ciFilter)
                 if result is AVPlayerItem {
                     self.assetView.playVideoWithLooping()
                 }

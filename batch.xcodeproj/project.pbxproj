@@ -150,6 +150,7 @@
 		4F71DFEC865AA80D613A636F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D301F74DE286EEECCC9F /* Localizable.strings */; };
 		5145BB1D206B304E00DDA371 /* PhotosFilter.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5145BB1C206B304E00DDA371 /* PhotosFilter.App.swift */; };
 		5145BB1F206B35C300DDA371 /* PhotosFilter.App.Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5145BB1E206B35C300DDA371 /* PhotosFilter.App.Contents.swift */; };
+		5151EB45207348F100C46CD3 /* CodeKit.UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5151EB44207348F100C46CD3 /* CodeKit.UIImage.swift */; };
 		A05CE347206174EB004CDBAA /* Revert.App.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A05CE346206174EB004CDBAA /* Revert.App.Assets.xcassets */; };
 		A0CFD8E92052D9F10007041B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CFD8E82052D9F10007041B /* R.generated.swift */; };
 /* End PBXBuildFile section */
@@ -314,6 +315,7 @@
 		4F71DFDD565703A287D81E0B /* App.Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Configurable.swift; sourceTree = "<group>"; };
 		5145BB1C206B304E00DDA371 /* PhotosFilter.App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosFilter.App.swift; sourceTree = "<group>"; };
 		5145BB1E206B35C300DDA371 /* PhotosFilter.App.Contents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosFilter.App.Contents.swift; sourceTree = "<group>"; };
+		5151EB44207348F100C46CD3 /* CodeKit.UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.UIImage.swift; sourceTree = "<group>"; };
 		614D248BD87AEAE91795DFC4 /* Pods-batch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch.release.xcconfig"; path = "Pods/Target Support Files/Pods-batch/Pods-batch.release.xcconfig"; sourceTree = "<group>"; };
 		7A5AA560EA015DA4EF60D3A9 /* Pods_batch_batchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_batch_batchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A05CE346206174EB004CDBAA /* Revert.App.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Revert.App.Assets.xcassets; sourceTree = "<group>"; };
@@ -595,6 +597,7 @@
 				4F71D37246D822C9ADF6370D /* CodeKit.Thread.swift */,
 				4F71D66B686333DC9F682A7B /* Numeric.swift */,
 				4F71D668A3FB4E8A4ACA0C32 /* CodeKit.Sequence.swift */,
+				5151EB44207348F100C46CD3 /* CodeKit.UIImage.swift */,
 			);
 			path = CodeKit;
 			sourceTree = "<group>";
@@ -1399,6 +1402,7 @@
 				4F71D9D52B49F1F1582EB016 /* CustomView.swift in Sources */,
 				4F71D92A6C4A62B503ED8520 /* FloatingView.swift in Sources */,
 				4F71DEEF4F4ED1C16759CE9C /* iOSCheckMarkView.swift in Sources */,
+				5151EB45207348F100C46CD3 /* CodeKit.UIImage.swift in Sources */,
 				4F71D0B9A1B1530DD3DE2056 /* RoundedButton.swift in Sources */,
 				4F71D3EFC1DB48459C265AFF /* GradientView.swift in Sources */,
 				4F71D91C9E25F708F13A6E3D /* PhotoPickerFooterView.swift in Sources */,

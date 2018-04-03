@@ -377,7 +377,7 @@ class PhotoPickerViewController: AppDockViewController {
             }
             
             self.restoreSelectionByUser(selectedAssetIdentifiers)
-            self.batchPreviewView.reloadPreview()
+            self.batchPreviewView.reloadContent()
         })
     }
     
@@ -389,13 +389,13 @@ class PhotoPickerViewController: AppDockViewController {
     }
 }
 
-extension PhotoPickerViewController: TransformEditViewControllerDelegate {
+extension PhotoPickerViewController: EditViewControllerDelegate {
     func showPhotoEditor(with editItem: PHAssetItem<AppValue>?) {
         guard let _editItem = editItem else { return }
 
         if let photoEditViewController = R.storyboard.appStoryboard.photoEditViewController(){
             photoEditViewController.asset = _editItem.asset
-            photoEditViewController.preferredTransform = _editItem.editState.transform
+            photoEditViewController.editItem = _editItem.editState
             photoEditViewController.delegate = self
 
             if let item = AppAssets.selected.index(of:_editItem) {

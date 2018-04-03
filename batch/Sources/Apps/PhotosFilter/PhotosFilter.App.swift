@@ -135,7 +135,7 @@ private extension PhotosFilterApp {
                 CIPhotoEffectTransfer,
                 CIPhotoEffectTonal,
                 CIPhotoEffectNoir
-            ].flatMap({ $0 })
+            ].compactMap({ $0 })
         }
     }
     
