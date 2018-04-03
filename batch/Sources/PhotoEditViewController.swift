@@ -76,7 +76,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
 //        editToolbar.toolbar.tintColor = UIColor.white
 //        editToolbar.toolbar.barTintColor = iOSStandardEditorBackgroundColor
         
-        appDockView.barStyle = .black
+        appDockView?.barStyle = .black
 
         doneButton?.image = R.image.editDoneBarButton()
         

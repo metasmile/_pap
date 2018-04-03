@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--App Dock Navigation Controller-->
         <scene sceneID="d9k-Ib-I8G">
             <objects>
-                <navigationController id="sgp-gD-2V8" sceneMemberID="viewController">
+                <navigationController id="sgp-gD-2V8" customClass="AppDockNavigationController" customModule="batch" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TtV-Pb-HrT">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -53,34 +53,18 @@
                                     <outlet property="prefetchDataSource" destination="lkB-fw-5jX" id="HOL-gV-bJ4"/>
                                 </connections>
                             </collectionView>
-                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x9k-Xp-9hv">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="60" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSB-9d-oZd" customClass="AppDockView" customModule="batch" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="x9k-Xp-9hv" secondAttribute="trailing" id="Exx-gH-CGg"/>
-                            <constraint firstAttribute="bottom" secondItem="WSB-9d-oZd" secondAttribute="bottom" id="KXa-CC-qgz"/>
-                            <constraint firstItem="x9k-Xp-9hv" firstAttribute="top" secondItem="Fnk-hf-u1J" secondAttribute="top" id="QiJ-nl-g2s"/>
                             <constraint firstAttribute="trailing" secondItem="Fza-uH-EMZ" secondAttribute="trailing" id="Yan-jI-G96"/>
-                            <constraint firstItem="WSB-9d-oZd" firstAttribute="leading" secondItem="Fnk-hf-u1J" secondAttribute="leading" id="bG8-GH-vwt"/>
-                            <constraint firstAttribute="bottom" secondItem="x9k-Xp-9hv" secondAttribute="bottom" id="dRh-Vn-3Sx"/>
-                            <constraint firstAttribute="trailing" secondItem="WSB-9d-oZd" secondAttribute="trailing" id="k3r-SZ-pvU"/>
                             <constraint firstItem="Fza-uH-EMZ" firstAttribute="top" secondItem="Fnk-hf-u1J" secondAttribute="top" id="tjE-XA-Vyq"/>
                             <constraint firstItem="Fza-uH-EMZ" firstAttribute="leading" secondItem="Fnk-hf-u1J" secondAttribute="leading" id="wUD-zf-uNj"/>
-                            <constraint firstItem="x9k-Xp-9hv" firstAttribute="leading" secondItem="Fnk-hf-u1J" secondAttribute="leading" id="wqN-AY-Ael"/>
                             <constraint firstAttribute="bottom" secondItem="Fza-uH-EMZ" secondAttribute="bottom" id="x9z-6g-tag"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Batch Photos" id="nKx-xc-xBf"/>
                     <connections>
-                        <outlet property="appDockView" destination="WSB-9d-oZd" id="QFO-Yg-W2b"/>
-                        <outlet property="dimmedView" destination="x9k-Xp-9hv" id="49c-9y-wNs"/>
                         <outlet property="photoCollectionView" destination="Fza-uH-EMZ" id="25a-Kq-na0"/>
                     </connections>
                 </viewController>
@@ -106,32 +90,16 @@
                                     <outlet property="delegate" destination="oyw-5W-GwR" id="iri-LD-ftn"/>
                                 </connections>
                             </scrollView>
-                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kgx-H1-T87">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="60" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6HC-cV-Fmb" customClass="AppDockView" customModule="batch" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="6HC-cV-Fmb" secondAttribute="trailing" id="3To-PZ-j9l"/>
                             <constraint firstItem="Yge-jY-8N3" firstAttribute="leading" secondItem="57g-e2-YJi" secondAttribute="leading" id="57f-ag-z46"/>
-                            <constraint firstItem="kgx-H1-T87" firstAttribute="leading" secondItem="57g-e2-YJi" secondAttribute="leading" id="C2O-SF-5Bc"/>
-                            <constraint firstAttribute="bottom" secondItem="6HC-cV-Fmb" secondAttribute="bottom" id="FKA-o5-Dqu"/>
                             <constraint firstItem="Yge-jY-8N3" firstAttribute="top" secondItem="57g-e2-YJi" secondAttribute="top" id="OPV-13-dBM"/>
-                            <constraint firstAttribute="trailing" secondItem="kgx-H1-T87" secondAttribute="trailing" id="XaZ-5K-gPu"/>
-                            <constraint firstItem="6HC-cV-Fmb" firstAttribute="leading" secondItem="57g-e2-YJi" secondAttribute="leading" id="gvU-l8-xiX"/>
-                            <constraint firstAttribute="bottom" secondItem="kgx-H1-T87" secondAttribute="bottom" id="lRm-bo-nXB"/>
-                            <constraint firstItem="kgx-H1-T87" firstAttribute="top" secondItem="57g-e2-YJi" secondAttribute="top" id="ll4-jq-iXm"/>
                             <constraint firstAttribute="trailing" secondItem="Yge-jY-8N3" secondAttribute="trailing" id="mUx-ZJ-JZL"/>
                             <constraint firstAttribute="bottom" secondItem="Yge-jY-8N3" secondAttribute="bottom" id="y1h-2o-Dne"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="appDockView" destination="6HC-cV-Fmb" id="aQ0-zt-WH4"/>
-                        <outlet property="dimmedView" destination="kgx-H1-T87" id="F7W-G6-dYe"/>
                         <outlet property="photoZoomingView" destination="Yge-jY-8N3" id="vSu-Sg-Hex"/>
                     </connections>
                 </viewController>

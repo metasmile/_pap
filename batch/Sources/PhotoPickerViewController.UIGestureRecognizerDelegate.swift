@@ -204,7 +204,7 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
             dragSelectionGesture.panAutomatically { [weak self] in
                 guard let collectionView = self?.photoCollectionView else { return }
                 let autoPanningOffsetY = collectionView.contentOffset.y + DragSelectionGestureRecognizer.kSTDragSelectionGestureRecognizerAutoPanningIncrement * panVelocity
-                let endOfContentOffsetY = collectionView.contentSize.height - (self?.appDockView.frame.minY ?? 0)
+                let endOfContentOffsetY = collectionView.contentSize.height - (self?.appDockView?.frame.minY ?? 0)
                 if autoPanningOffsetY < endOfContentOffsetY {
                     collectionView.contentOffset.y = autoPanningOffsetY
                 }

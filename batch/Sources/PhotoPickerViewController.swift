@@ -235,13 +235,13 @@ class PhotoPickerViewController: AppDockViewController {
             navigationItem.setLeftBarButton(nil, animated: true)
             navigationItem.setRightBarButton(nil, animated: true)
             
-            appDockView.dockAccessoryView = nil
+            appDockView?.dockAccessoryView = nil
         }
         else {
             navigationItem.setLeftBarButton(cancelButton, animated: true)
             navigationItem.setRightBarButton(doneButton, animated: true)
             
-            appDockView.dockAccessoryView = batchPreviewView
+            appDockView?.dockAccessoryView = batchPreviewView
         }
     }
 
@@ -402,7 +402,7 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
                 photoEditViewController.indexPathInBatch = IndexPath(item: item, section: 0)
             }
 
-            let navigationController = UINavigationController(rootViewController: photoEditViewController)
+            let navigationController = AppDockNavigationController(rootViewController: photoEditViewController)
             navigationController.hero.isEnabled = true
             navigationController.hero.modalAnimationType = .fade
             navigationController.hero.navigationAnimationType = .fade
