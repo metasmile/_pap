@@ -35,16 +35,12 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
             layoutAssetView()
         }
     }
-    var editItem = StateValueSet<AppValue>() {
-        didSet {
-            preferredTransform = editItem.transform
-        }
-    }
+    var editItem = StateValueSet<AppValue>()
     var placeholderView: UIView?
     var indexPathInBatch: IndexPath?
     
     var asset: PHAsset?
-    var preferredTransform: CGAffineTransform = .identity
+    var preferredEditState = StateValueSet<AppValue>()
     
     var transitionID: String?
 
@@ -81,13 +77,13 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         doneButton?.image = R.image.editDoneBarButton()
         
         assetView.image = placeholderImage
-        assetView.preferredTransform = preferredTransform
-        assetView.applyFilter(ciFilter: editItem.ciFilter)
+        assetView.preferredTransform = preferredEditState.transform
+        assetView.applyFilter(ciFilter: preferredEditState.ciFilter)
         layoutAssetView()
         
         if let asset = asset {
             assetView.setAsset(asset, completion: { (result) in
-                self.assetView.applyFilter(ciFilter: self.editItem.ciFilter)
+                self.assetView.applyFilter(ciFilter: self.preferredEditState.ciFilter)
                 if result is AVPlayerItem {
                     self.assetView.playVideoWithLooping()
                 }
@@ -147,7 +143,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     
     func layoutAssetView() {
         guard let asset = asset else { return }
-        let preferredSize = asset.pixelSize.applying(preferredTransform).magnitude
+        let preferredSize = asset.pixelSize.applying(preferredEditState.transform).magnitude
         
         var boundingInsets = appDockInsets
         if #available(iOS 11.0, *) {

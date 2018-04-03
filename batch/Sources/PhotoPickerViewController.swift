@@ -395,7 +395,7 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
 
         if let photoEditViewController = R.storyboard.appStoryboard.photoEditViewController(){
             photoEditViewController.asset = _editItem.asset
-            photoEditViewController.editItem = _editItem.editState
+            photoEditViewController.preferredEditState = _editItem.editState
             photoEditViewController.delegate = self
 
             if let item = AppAssets.selected.index(of:_editItem) {
