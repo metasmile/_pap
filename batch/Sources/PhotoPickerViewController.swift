@@ -415,7 +415,7 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
 
     func editViewController(_ photoEditor: PhotoEditViewController, didFinishWith editItem: StateValueSet<AppValue>?, at indexPath: IndexPath?) {
         if let _editItem = editItem, let _indexPath = indexPath, _editItem.hasChanges {
-            AppAssets.selected.at(_indexPath.item).editState.merge(with: _editItem)
+            AppAssets.selected.at(_indexPath.item).editState.concat(with: _editItem)
         }
 
         AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues( AppConfigUIAttrribute(tintColor: .black))
