@@ -112,7 +112,11 @@ class AppDockView: CustomView {
     }
 
     private var hasDrawer: Bool {
-        return (controllerView.subviews.count > 0 && items.count > 1)
+        let hasMultipleApps = items.count > 1
+        if hasControllerPinned{
+            return hasMultipleApps && accessory?.view.subviews.count ?? 0 > 0
+        }
+        return hasMultipleApps && controller?.view.subviews.count ?? 0 > 0
     }
 
     private var hasContent: Bool {
@@ -139,7 +143,7 @@ class AppDockView: CustomView {
         }
     }
 
-    var controllerHasPinned:Bool{
+    var hasControllerPinned:Bool{
         return controller?.preferences?.pinned ?? false
     }
 
@@ -241,6 +245,21 @@ extension AppDockView {
     
     fileprivate var preferredAppContentViewHeight: CGFloat {
         return preferredAccessoryViewHeight + preferredControllerViewHeight
+    }
+
+    fileprivate var constAppContentViewMaximumHeight: CGFloat {
+        let TopMarginConstRatio:CGFloat = 0.84
+
+        if let rvc = UIApplication.shared.keyWindow?.rootViewController{
+            return (rvc.view.bounds.height - rvc.safeAreaInsets.top) * TopMarginConstRatio
+        }
+
+        if let h = self.superview?.bounds.height{
+            return h * TopMarginConstRatio
+        }
+
+        assert(false, "not found superview and rootViewController")
+        return UIScreen.main.bounds.height * TopMarginConstRatio
     }
     
     fileprivate func layoutDrawerView() {
@@ -395,7 +414,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
             }
             else {
                 drawerViewHeightLayout.constant = drawerView.isOpened ? DefaultPreferences.DrawerView.prominentHeight : DefaultPreferences.DrawerView.compactHeight
-                appContentViewHeightLayout.constant = drawerView.isOpened ? drawerMaximumHeight : preferredAppContentViewHeight
+                appContentViewHeightLayout.constant = drawerView.isOpened ? constAppContentViewMaximumHeight : preferredAppContentViewHeight
             }
             drawerView.layoutIfNeeded()
             
@@ -405,28 +424,13 @@ extension AppDockView: UIGestureRecognizerDelegate {
         }
     }
 
-    fileprivate var drawerMaximumHeight: CGFloat {
-        let TopMarginConstRatio:CGFloat = 0.825
-
-        if let rvc = UIApplication.shared.keyWindow?.rootViewController{
-            return (rvc.view.bounds.height - rvc.safeAreaInsets.top) * TopMarginConstRatio
-        }
-
-        if let h = self.superview?.bounds.height{
-            return h * TopMarginConstRatio
-        }
-
-        assert(false, "not found superview and rootViewController")
-        return UIScreen.main.bounds.height * TopMarginConstRatio
-    }
-    
     func openDrawer(reloadDockContentViews: Bool? = nil) {
         let reloadDockContentViews = reloadDockContentViews ?? !drawerView.isOpened
 
         drawerView.isOpened = true
         
         drawerViewHeightLayout.constant = DefaultPreferences.DrawerView.prominentHeight
-        appContentViewHeightLayout.constant = drawerMaximumHeight
+        appContentViewHeightLayout.constant = constAppContentViewMaximumHeight
 
         invalidateIntrinsicContentSize()
         
