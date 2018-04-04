@@ -35,7 +35,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
             layoutAssetView()
         }
     }
-    var editItem = StateValueSet<AppValue>()
+    fileprivate var editItem = StateValueSet<AppValue>()
     var placeholderView: UIView?
     var indexPathInBatch: IndexPath?
     

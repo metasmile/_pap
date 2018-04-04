@@ -50,7 +50,7 @@ class PreviewView: CustomView, AppDockAccesoryView {
 
     public func updatePreviews(animated: Bool = true, completion: (() -> Void)? = nil) {
         collectionView.collectionViewLayout.invalidateLayout()
-        collectionView.performBatchUpdates(completion)
+        collectionView.performBatchUpdates(nil) { _ in completion?() }
 
         let visibleIndexPaths = collectionView.indexPathsForVisibleItems
         for indexPath in visibleIndexPaths {

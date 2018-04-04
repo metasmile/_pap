@@ -17,6 +17,11 @@ public class StateValueSet<T:Hashable>: MutableItemList<T>, StateValueSetable {
     }
 
     public func merge(with concatable: StateValueSet<T>) {
+        //TODO: - something wrong with following steps:
+        // STEP1: rotate right in Photo Picker
+        // STEP2: enter photo editor on the selected item
+        // STEP3: rotate left in Photo Editor and go back to Photo Picker
+        // STEP4: nothing changed in batch preview
         let differentSet = StateValueSet(items: Array(Set<T>(iterator()).symmetricDifference(Set<T>(concatable.iterator()))))
         self.append(contentsOf: differentSet)
     }

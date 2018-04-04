@@ -438,27 +438,6 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         let selectedAsset = AppAssets.selected.at(indexPath.item).asset
         guard let indexPathInPhotoPicker = PHAssets.fetched.indexPath(of: selectedAsset) else { return }
         photoCollectionView.scrollToItem(at: indexPathInPhotoPicker, at: .centeredVertically, animated: true)
-        
-        
-//        guard photoCollectionView.indexPathsForSelectedItems?.isEmpty == false, let selectedIndexPaths = orderedSelectedIndexPaths.array as? [IndexPath] else { return }
-//
-//        let batchEditViewController = storyboard?.instantiateViewController(withIdentifier: "BatchEditViewController") as! BatchEditViewController
-//        batchEditViewController.EditItems = batchPreviewView.EditItems
-//        batchEditViewController.delegate = self
-//        batchEditViewController.initialIndexPath = indexPath
-//
-//        for indexPath in selectedIndexPaths {
-//            guard let photo = asset(at: indexPath), let cell = photoCollectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell else { continue }
-//            batchEditViewController.placeholderImages[photo] = cell.imageView.image
-//        }
-//
-//        let navigationController = UINavigationController(rootViewController: batchEditViewController)
-//        navigationController.isHeroEnabled = true
-//        navigationController.heroModalAnimationType = .selectBy(presenting:.zoom, dismissing:.zoomOut)
-//        navigationController.heroNavigationAnimationType = .none
-//        navigationController.modalPresentationStyle = .overCurrentContext
-//
-//        present(navigationController, animated: true, completion: nil)
     }
     
     func batchPreviewViewWillBeginEdit(_ view: PreviewView) {
