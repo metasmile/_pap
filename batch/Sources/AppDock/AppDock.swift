@@ -40,8 +40,8 @@ class AppDockView: CustomView {
             static let prominentHeight: CGFloat = 49
         }
 
-        static let Accessory = AppDockContentPreferences(viewCompactHeight: 44)
-        static let Control = AppDockContentPreferences(viewCompactHeight: 44)
+        static let Accessory = AppDockContentPreferences(height: 44)
+        static let Control = AppDockContentPreferences(height: 44)
     }
 
     @IBOutlet weak private var drawerView: DrawerView!
@@ -123,6 +123,10 @@ class AppDockView: CustomView {
         return drawerView.isOpened
     }
 
+    /*
+        layout priority : controller > accessory
+    */
+
     // AppDock Control
     var controller: AppDockContentDescribable?{
         didSet {
@@ -133,6 +137,10 @@ class AppDockView: CustomView {
                 removeAllControllerViews()
             }
         }
+    }
+
+    var controllerHasPinned:Bool{
+        return controller?.preferences?.pinned ?? false
     }
 
     private func hasControlView(_ view: UIView?) -> Bool {
@@ -149,7 +157,7 @@ class AppDockView: CustomView {
             view.fitConstraints(to: controllerView)
         }
 
-        layoutAppContentView()
+        layoutAppContentViews()
 
         if animated {
             animateUsingSpringIfLayoutConstraintsChanged()
@@ -159,7 +167,7 @@ class AppDockView: CustomView {
     private func removeAllControllerViews(animated: Bool = true) {
         controllerView.subviews.forEach({ $0.removeFromSuperview() })
 
-        layoutAppContentView()
+        layoutAppContentViews()
 
         if animated {
             animateUsingSpringIfLayoutConstraintsChanged()
@@ -190,7 +198,7 @@ class AppDockView: CustomView {
         topAccessoryView.addSubview(view)
         view.fitConstraints(to: topAccessoryView)
         
-        layoutAppContentView()
+        layoutAppContentViews()
         
         if animated {
             animateUsingSpringIfLayoutConstraintsChanged()
@@ -200,7 +208,7 @@ class AppDockView: CustomView {
     private func removeAllTopAccessoryViews(animated: Bool = true) {
         topAccessoryView.subviews.forEach({ $0.removeFromSuperview() })
         
-        layoutAppContentView()
+        layoutAppContentViews()
         
         if animated {
             animateUsingSpringIfLayoutConstraintsChanged()
@@ -219,20 +227,20 @@ extension AppDockView {
     
     fileprivate var preferredAccessoryViewHeight: CGFloat {
         if let accessory = self.accessory{
-            return accessory.preferences?.viewCompactHeight ?? DefaultPreferences.Accessory.viewCompactHeight
+            return accessory.preferences?.height ?? DefaultPreferences.Accessory.height
         }
         return 0
     }
     
-    fileprivate var preferredControlViewHeight: CGFloat {
+    fileprivate var preferredControllerViewHeight: CGFloat {
         if let control = self.controller {
-            return control.preferences?.viewCompactHeight ?? DefaultPreferences.Control.viewCompactHeight
+            return control.preferences?.height ?? DefaultPreferences.Control.height
         }
         return 0
     }
     
     fileprivate var preferredAppContentViewHeight: CGFloat {
-        return preferredAccessoryViewHeight + preferredControlViewHeight
+        return preferredAccessoryViewHeight + preferredControllerViewHeight
     }
     
     fileprivate func layoutDrawerView() {
@@ -249,8 +257,8 @@ extension AppDockView {
         invalidateIntrinsicContentSize()
     }
     
-    fileprivate func layoutAppContentView() {
-        controllerViewHeightLayout.constant = preferredControlViewHeight
+    fileprivate func layoutAppContentViews() {
+        controllerViewHeightLayout.constant = preferredControllerViewHeight
         appContentViewHeightLayout.constant = preferredAppContentViewHeight
         
         topAccessoryView.layoutIfNeeded()
@@ -427,8 +435,15 @@ extension AppDockView: UIGestureRecognizerDelegate {
         appContentView.layoutIfNeeded()
         
         if reloadDockContentViews {
-            let size = CGSize(width: UIViewNoIntrinsicMetric, height: appContentViewHeightLayout.constant - preferredControlViewHeight - DefaultPreferences.DrawerView.compactHeight * 2)
-            (accessory?.view as? AppDockContentView)?.reloadContentThatFits(size:size)
+            let contentLayoutConstant = appContentViewHeightLayout.constant - DefaultPreferences.DrawerView.compactHeight * 2
+            let controllerPinned = controller?.preferences?.pinned ?? false
+            let controllerLayoutConstant = controllerPinned ? preferredControllerViewHeight : contentLayoutConstant - preferredAccessoryViewHeight
+            let accessoryLayoutConstant = controllerPinned ? contentLayoutConstant - preferredControllerViewHeight : preferredAccessoryViewHeight
+
+            (accessory?.view as? AppDockContentView)?.reloadContentThatFits(size:CGSize(width: UIViewNoIntrinsicMetric, height: accessoryLayoutConstant))
+
+            (controller?.view as? AppDockContentView)?.reloadContentThatFits(size:CGSize(width: UIViewNoIntrinsicMetric, height: controllerLayoutConstant))
+            controllerViewHeightLayout.constant = controllerLayoutConstant
         }
         
         delegate?.appDockView(self, didOpenDrawer: true)
@@ -440,7 +455,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
         drawerView.isOpened = false
 
         drawerViewHeightLayout.constant = preferredDrawerViewHeight
-        appContentViewHeightLayout.constant = preferredControlViewHeight + preferredAccessoryViewHeight
+        appContentViewHeightLayout.constant = preferredControllerViewHeight + preferredAccessoryViewHeight
         
         invalidateIntrinsicContentSize()
         
@@ -450,6 +465,9 @@ extension AppDockView: UIGestureRecognizerDelegate {
 
         if reloadDockContentViews {
             (accessory?.view as? AppDockContentView)?.reloadContent()
+
+            (controller?.view as? AppDockContentView)?.reloadContent()
+            controllerViewHeightLayout.constant = preferredControllerViewHeight
         }
         
         delegate?.appDockView(self, didOpenDrawer: false)

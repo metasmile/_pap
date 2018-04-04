@@ -154,7 +154,9 @@ private extension PhotosFilterApp {
             view.addArrangedSubview(generateFilterButton(with: filter))
         }
 
-        return AppDockContent(view: view, preferences: nil)
+        var p = AppDockContentPreferences()
+        p.pinned = true
+        return AppDockContent(view: view, preferences: p)
     }
     
     private func generateFilterButton(with filter: CIFilter? = nil) -> UIView {

@@ -8,11 +8,21 @@ import UIKit
 
 // AppDockContentPreferable
 public protocol AppDockContentPreferable {
-    var viewCompactHeight: CGFloat {get}
+    var height: CGFloat {get}
+    var pinned:Bool {get}
 }
 
 public struct AppDockContentPreferences: AppDockContentPreferable {
-     public var viewCompactHeight: CGFloat
+    public var height: CGFloat
+    public var pinned: Bool = false
+
+    init(){
+        self.height = 44
+    }
+
+    init(height:CGFloat){
+        self.height = height
+    }
 }
 
 // AppDockContent
