@@ -82,7 +82,7 @@ extension PHAssetFinalizableApp {
         }, completionHandler: { (success, info) in
             asyncSignal.end()
         })
-        asyncSignal.stopUntilEnd()
+        asyncSignal.waitUntilEnd()
     }
 
     private func deletingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncManualSignalable){
@@ -93,7 +93,7 @@ extension PHAssetFinalizableApp {
         }, completionHandler: { (success, info) in
             asyncSignal.end()
         })
-        asyncSignal.stopUntilEnd()
+        asyncSignal.waitUntilEnd()
     }
 
     private func sharingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncManualSignalable){
@@ -114,7 +114,7 @@ extension PHAssetFinalizableApp {
                     rootVC.present(activityViewController, animated: true, completion: nil)
                 }
             }
-            asyncSignal.stopUntilEnd()
+            asyncSignal.waitUntilEnd()
         }
     }
 
@@ -130,6 +130,6 @@ extension PHAssetFinalizableApp {
         }, completionHandler: { (success, info) in
             asyncSignal.end()
         })
-        asyncSignal.stopUntilEnd()
+        asyncSignal.waitUntilEnd()
     }
 }

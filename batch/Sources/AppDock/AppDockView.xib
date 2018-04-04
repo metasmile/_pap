@@ -13,8 +13,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppDockView" customModule="batch" customModuleProvider="target">
             <connections>
                 <outlet property="appCollectionView" destination="3j3-5w-cI5" id="oRA-Lr-NQ2"/>
-                <outlet property="appConfigView" destination="Nsh-j1-0eF" id="UJx-dl-LYV"/>
-                <outlet property="appConfigViewHeightLayout" destination="mMQ-ZO-2JX" id="grA-UJ-DBI"/>
+                <outlet property="controllerView" destination="Nsh-j1-0eF" id="UJx-dl-LYV"/>
+                <outlet property="controllerViewHeightLayout" destination="mMQ-ZO-2JX" id="grA-UJ-DBI"/>
                 <outlet property="appContentView" destination="rzS-9k-7Sx" id="omg-6O-cLK"/>
                 <outlet property="appContentViewHeightLayout" destination="9KR-4K-J6j" id="9Bo-5S-ImK"/>
                 <outlet property="bottomAccessoryView" destination="8u0-vY-4kx" id="HQE-Yx-Vg6"/>

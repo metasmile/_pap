@@ -22,25 +22,21 @@ protocol PreviewViewDelegate {
     func batchPreviewViewDidCancelEdit(_ view: PreviewView)
 }
 
-class PreviewView: CustomView, AppDockAccesoryView {
+class PreviewView: CustomView {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewHeightLayout: NSLayoutConstraint!
     
     var delegate: PreviewViewDelegate?
 
     let appAssetsSelected = AppAssets.selected
-
-    private struct Preferences: AppDockAccesoryPreferences {
-        let compactHeight: CGFloat = 44
-    }
-    lazy var preferences: AppDockAccesoryPreferences = Preferences()
+    let _preferences = AppDockContentPreferences(viewCompactHeight:44)
 
     override func initialize() {
         super.initialize()
 
         print("[i] BatchAppCenter.default.task.maxConcurrentCount: ", AppCenter.default.task.maxConcurrentCount)
 
-        collectionViewHeightLayout.constant = self.preferences.compactHeight
+        collectionViewHeightLayout.constant = _preferences.viewCompactHeight
         
         collectionView.contentInset.top = 1
         collectionView.contentInset.bottom = 1
@@ -74,16 +70,25 @@ class PreviewView: CustomView, AppDockAccesoryView {
             self.updateCollectionViewAlignment(animated: false)
         }
     }
+}
+
+extension PreviewView: AppDockContentView, AppDockContentDescribable{
+    //AppDockContentDescribable
+    var view: UIView {
+        return self
+    }
+    var preferences: AppDockContentPreferable? {
+        return _preferences
+    }
 
     func reloadContent() {
-        reloadPreview(with:self.preferences.compactHeight)
+        reloadPreview(with:_preferences.viewCompactHeight)
     }
 
     func reloadContentThatFits(size:CGSize) {
         reloadPreview(with:size.height)
     }
 }
-
 
 extension PreviewView {
     @discardableResult

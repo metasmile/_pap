@@ -16,7 +16,7 @@ public protocol AsyncSignalable: Signalable {
 }
 
 public protocol AsyncManualSignalable: AsyncSignalable {
-    func stopUntilEnd()
+    func waitUntilEnd()
 }
 
 public protocol AsyncControllableSignable {
@@ -66,7 +66,7 @@ extension AsyncSignal: AsyncManualSignalable, AsyncControllableSignable {
     }
 
     @discardableResult
-    public func stopUntilEnd(timeout:DispatchTime?=nil, function:String=#function) -> DispatchTimeoutResult?{
+    public func waitUntilEnd(timeout:DispatchTime?=nil, function:String=#function) -> DispatchTimeoutResult?{
         guard self.began else {
             print("[!] self.began==false, \(function) was called before begin(), or, after end() in same queue.")
             return nil
@@ -86,8 +86,8 @@ extension AsyncSignal: AsyncManualSignalable, AsyncControllableSignable {
         return dispatchGroup.wait(timeout: timeout)
     }
 
-    public func stopUntilEnd() {
-        self.stopUntilEnd(timeout:nil)
+    public func waitUntilEnd() {
+        self.waitUntilEnd(timeout:nil)
     }
 
     public func done() {

@@ -31,7 +31,7 @@ public class TransformAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrribu
 
 class _TransformAppAsset: PHAssetItem<AppValue> {}
 
-public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _ConfigurableApp, UIControllableApp, PHAssetFinalizableApp, PersistableApp {
+public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _ConfigurableApp, AppDockControllableApp, PHAssetFinalizableApp, PersistableApp {
     public static let taskType:Taskable.Type = _TransfromAppTask.self
 
     public static let paramType:TaskParamable.Type = _TransformAppAsset.self
@@ -41,7 +41,7 @@ public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _Configu
     @objc dynamic
     public private(set) lazy var config: TransformAppConfig? = TransformApp.configure?()
 
-    public private(set) lazy var controlView: UIView? = createPreferenceView()
+    public private(set) lazy var controller: AppDockContentDescribable? = createController()
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.transform"
@@ -90,7 +90,7 @@ private extension TransformApp{
         self.config?.transform = RotationTransformItem(degrees: 90)
     }
 
-    private func createPreferenceView() -> UIView {
+    private func createController() -> AppDockContentDescribable {
         let view = UIStackView(frame: .zero)
         view.alignment = .fill
         view.distribution = .fillEqually
@@ -118,11 +118,12 @@ private extension TransformApp{
         view.addArrangedSubview(config3)
         view.addArrangedSubview(config4)
 
-        return view
+        return AppDockContent(view: view, preferences: nil)
     }
 
     private func updateConfigView(){
-        if let config = self.config, let buttons = (self.controlView as? UIStackView)?.arrangedSubviews as? [UIButton]{
+        if let config = self.config
+        , let buttons = (self.controller?.view as? UIStackView)?.arrangedSubviews as? [UIButton]{
             for button in buttons {
                 button.tintColor = config.tintColor
             }
@@ -163,7 +164,7 @@ private class _TransfromAppTask: TaskPrototype, Taskable {
             async?.end()
         }
 
-        async?.stopUntilEnd()
+        async?.waitUntilEnd()
         return result
 
 

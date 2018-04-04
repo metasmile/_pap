@@ -8,7 +8,7 @@ import DefaultsKit
 
 extension Defaults: DefaultsAutoProperty {
     public var appIdentifier: String? {
-        set(newValue){ set(newValue) } get{ return get() }
+        set{ set(newValue) } get{ return get() }
     }
 }
 

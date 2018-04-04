@@ -40,7 +40,7 @@ private class _TestAppTask: TaskPrototype, Taskable {
             sleep(UInt32(arc4random_uniform(2)))
             async?.end()
         }
-        async?.stopUntilEnd()
+        async?.waitUntilEnd()
         return TestTaskResult(id:(param as! TestTaskParam).id)
     }
 }

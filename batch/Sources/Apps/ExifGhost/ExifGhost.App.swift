@@ -9,7 +9,7 @@ import ImageIO
 
 private typealias ParamType = PHAssetItem<AppValue>
 
-public class ExifGhost: App, PHAssetFinalizableApp, PhotoPickerCollectionViewDisplayableApp, UIControllableApp {
+public class ExifGhost: App, PHAssetFinalizableApp, PhotoPickerCollectionViewDisplayableApp, AppDockControllableApp {
     public static let taskType:Taskable.Type = _ExifGhostTask.self
 
     public static let paramType:TaskParamable.Type = ParamType.self
@@ -85,7 +85,7 @@ private class _ExifGhostTask: TaskPrototype, Taskable {
 
         param.requestIDs += [PHAssetRequestID(forEditingInput: id)]
 
-        async?.stopUntilEnd()
+        async?.waitUntilEnd()
         return result
     }
 }

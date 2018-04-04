@@ -96,7 +96,7 @@ public class PDFactory: App, PersistableApp, FinalizableApp, PhotoPickerViewCont
                 rootViewController.present(activityViewController, animated: true, completion: nil)
             }
 
-            asyncSignal.stopUntilEnd()
+            asyncSignal.waitUntilEnd()
 
         } catch _ {
 
@@ -106,7 +106,7 @@ public class PDFactory: App, PersistableApp, FinalizableApp, PhotoPickerViewCont
                     DispatchQueue.global().async{ asyncSignal.end() }
                 }
             }
-            asyncSignal.stopUntilEnd()
+            asyncSignal.waitUntilEnd()
         }
 
         return result
@@ -142,7 +142,7 @@ private class _PDFactoryTask: TaskPrototype, Taskable {
             }
             appAsset.requestIDs += [PHAssetRequestID(forImage:imageRequestID)]
 
-            async?.stopUntilEnd()
+            async?.waitUntilEnd()
 
             if let image = renderImage{
                 return PDFactoryPHAssetResult(asset: asset, imageToRender: image)

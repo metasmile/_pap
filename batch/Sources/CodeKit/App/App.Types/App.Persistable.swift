@@ -12,7 +12,7 @@ public protocol AppDefaults: DefaultsAutoProperty{
 
 public extension AppDefaults where Self:Defaults{
     public var touchedVersion: String? {
-        set(newValue){ set(newValue) } get{ return get() }
+        set{ set(newValue) } get{ return get() }
     }
 }
 

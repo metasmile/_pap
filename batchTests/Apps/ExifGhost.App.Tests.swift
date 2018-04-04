@@ -64,6 +64,6 @@ class ExifGhostAppTests: PHAssetsXCTestCase {
 
             }
         }
-        async.stopUntilEnd(timeout: DispatchTime.now()+10.0)
+        async.waitUntilEnd(timeout: DispatchTime.now()+10.0)
     }
 }

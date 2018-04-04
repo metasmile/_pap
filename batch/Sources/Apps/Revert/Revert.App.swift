@@ -67,7 +67,7 @@ public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, Persist
             asyncSignal.end()
         })
 
-        asyncSignal.stopUntilEnd()
+        asyncSignal.waitUntilEnd()
         return result
     }
 

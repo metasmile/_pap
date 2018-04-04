@@ -51,11 +51,9 @@ class AppDockNavigationController: UINavigationController {
 extension AppDockNavigationController: AppDockViewDelegate {
     func appDockView(_ view: AppDockView, didSelectItemWith item: AppDockItem) {
         AppCenter.default.current = item.app
-        
-        let configView = AppCenter.default.currentInstanceAs(UIControllableApp.self)?.controlView
-        appDockView.setAppConfigView(configView)
-        
-        appDockView.closeDrawer(reloadDockAccessoryView: true)
+
+        appDockView.controller = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.controller
+        appDockView.closeDrawer(reloadDockContentViews: true)
     }
     
     func appDockView(_ view: AppDockView, didOpenDrawer isOpened: Bool) {

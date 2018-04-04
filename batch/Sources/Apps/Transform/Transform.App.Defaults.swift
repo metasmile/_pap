@@ -12,6 +12,6 @@ public protocol TransformAppDefaults: AppDefaults{
 
 extension Defaults: TransformAppDefaults {
     public var transform: Int? {
-        set(newValue){ set(newValue) } get{ return get() }
+        set{ set(newValue) } get{ return get() }
     }
 }

@@ -235,13 +235,13 @@ class PhotoPickerViewController: AppDockViewController {
             navigationItem.setLeftBarButton(nil, animated: true)
             navigationItem.setRightBarButton(nil, animated: true)
             
-            appDockView?.accessoryView = nil
+            appDockView?.accessory = nil
         }
         else {
             navigationItem.setLeftBarButton(cancelButton, animated: true)
             navigationItem.setRightBarButton(doneButton, animated: true)
-            
-            appDockView?.accessoryView = batchPreviewView
+
+            appDockView?.accessory = batchPreviewView
         }
     }
 

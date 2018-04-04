@@ -6,12 +6,12 @@
 import Foundation
 import UIKit
 
-public protocol UIControllableApp: App {
-    var controlView:UIView? { get }
+public protocol AppDockControllableApp: App {
+    var controller:AppDockContentDescribable? {get}
 }
 
-extension UIControllableApp{
-    public var controlView: UIView? {
+extension AppDockControllableApp {
+    public var controller: AppDockContentDescribable? {
         let view = UIStackView(frame: .zero)
         view.alignment = .fill
         view.distribution = .equalCentering
@@ -23,6 +23,6 @@ extension UIControllableApp{
         label.sizeToFit()
         view.addArrangedSubview(label)
 
-        return view
+        return AppDockContent(view: view, preferences: nil)
     }
 }

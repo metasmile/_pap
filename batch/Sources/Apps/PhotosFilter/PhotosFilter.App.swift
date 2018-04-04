@@ -50,7 +50,7 @@ public class PhotosFilterAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrr
 
 class _PhotosFilterAppAsset: PHAssetItem<AppValue> {}
 
-public class PhotosFilterApp: NSObject, KeyPathWatchable, ConfigurableApp, _ConfigurableApp, UIControllableApp, PHAssetFinalizableApp, PersistableApp, PhotoPickerCollectionViewDisplayableApp {
+public class PhotosFilterApp: NSObject, KeyPathWatchable, ConfigurableApp, _ConfigurableApp, AppDockControllableApp, PHAssetFinalizableApp, PersistableApp, PhotoPickerCollectionViewDisplayableApp {
     public static let taskType:Taskable.Type = _PhotosFilterAppTask.self
     public static let paramType:TaskParamable.Type = _PhotosFilterAppAsset.self
     
@@ -58,8 +58,8 @@ public class PhotosFilterApp: NSObject, KeyPathWatchable, ConfigurableApp, _Conf
     
     @objc dynamic
     public private(set) lazy var config: PhotosFilterAppConfig? = PhotosFilterApp.configure?()
-    public private(set) lazy var controlView: UIView? = createPreferenceView()
-    
+    public private(set) lazy var controller: AppDockContentDescribable? = createController()
+
     public static let info = AppInfo(
         identifier: "com.stells.batch.photosfilter"
         , version: "0.1"
@@ -143,7 +143,7 @@ private extension PhotosFilterApp {
         self.config?.filter = PhotosFilterItem(sender.filter)
     }
     
-    private func createPreferenceView() -> UIView {
+    private func createController() -> AppDockContentDescribable {
         let view = UIStackView(frame: .zero)
         view.alignment = .fill
         view.distribution = .fillEqually
@@ -153,8 +153,8 @@ private extension PhotosFilterApp {
         for filter in CIFilters.filters {
             view.addArrangedSubview(generateFilterButton(with: filter))
         }
-        
-        return view
+
+        return AppDockContent(view: view, preferences: nil)
     }
     
     private func generateFilterButton(with filter: CIFilter? = nil) -> UIView {
@@ -169,7 +169,8 @@ private extension PhotosFilterApp {
     }
     
     private func updateConfigView(){
-        if let config = self.config, let buttons = (self.controlView as? UIStackView)?.arrangedSubviews as? [UIButton]{
+        if let config = self.config
+        , let buttons = (self.controller?.view as? UIStackView)?.arrangedSubviews as? [UIButton]{
             for button in buttons {
                 button.tintColor = config.tintColor
             }
@@ -212,7 +213,7 @@ private class _PhotosFilterAppTask: TaskPrototype, Taskable {
             async?.end()
         }
         
-        async?.stopUntilEnd()
+        async?.waitUntilEnd()
         return result
     }
 }

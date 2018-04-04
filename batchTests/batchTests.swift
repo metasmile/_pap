@@ -91,6 +91,6 @@ class PHAssetsXCTestCase: XCTestCase {
 
         PHAssets.fetched.load(with: .smartAlbum, subtype: .smartAlbumUserLibrary)
 
-        signal.stopUntilEnd(timeout: DispatchTime.now() + 5.0)
+        signal.waitUntilEnd(timeout: DispatchTime.now() + 5.0)
     }
 }

@@ -38,7 +38,7 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
             ]
             NotificationCenter.default.post(name: RemoteSourceFetchNotification.Name.fetchBagan, object: self, userInfo: userInfo)
             
-            signal.stopUntilEnd()
+            signal.waitUntilEnd()
             
             return result
         }
@@ -146,7 +146,7 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
         ]
         NotificationCenter.default.post(name: RemoteSourceFetchNotification.Name.fetchBagan, object: self, userInfo: userInfo)
         
-        signal.stopUntilEnd()
+        signal.waitUntilEnd()
         return result
     }
     
@@ -179,7 +179,7 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
         ]
         NotificationCenter.default.post(name: RemoteSourceFetchNotification.Name.fetchBagan, object: self, userInfo: userInfo)
         
-        signal.stopUntilEnd()
+        signal.waitUntilEnd()
         return result
     }
 }
