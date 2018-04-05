@@ -250,12 +250,15 @@ class PhotoPickerViewController: AppDockViewController {
     }
 
     private func updateDoneButtonState() {
-        if let app = AppCenter.default.current{
-            doneButton?.isEnabled = true
-            doneButton?.title = app.info.displayName
-        }else{
+
+        if AppCenter.default.current == nil{
             doneButton?.isEnabled = false
             doneButton?.title = nil
+        }else{
+            doneButton?.isEnabled = true
+
+            let definedTitle = AppCenter.default.currentInstanceAs(PhotoPickerViewControllerDelegatableApp.self)?.doneButtonTitle
+            doneButton?.title = definedTitle ?? "Start".localized
         }
     }
 
@@ -455,7 +458,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
     
     func batchPreviewViewWillBeginEdit(_ view: PreviewView) {
-        titleFade = currentDisplayableApp?.titleWillBegin()
+        titleFade = currentDisplayableApp?.titleWillBegin
                 ?? "Start Batch Editing...".localized
 
         let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
@@ -477,7 +480,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
 
     func batchPreviewViewWillCancelProgress(_ view: PreviewView) {
-        titleFade = currentDisplayableApp?.titleWillCancel()
+        titleFade = currentDisplayableApp?.titleWillCancel
                 ?? "Cancelling...".localized
 
         UIView.animate(withDuration: 0.6) {
@@ -486,7 +489,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
 
     func batchPreviewViewWillFinalize(_ view: PreviewView) {
-        titleFade = currentDisplayableApp?.titleWillFinalize()
+        titleFade = currentDisplayableApp?.titleWillFinalize
                 ?? "Saving Photos...".localized
 
         UIView.animate(withDuration: 0.6) {

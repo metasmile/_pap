@@ -14,6 +14,8 @@
 "Cancel" = "取消";
 /*Translated from: Detail*/
 "Detail" = "详情";
+/*Translated from: Delete*/
+"Delete" = "删除";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "抱歉，出了一些问题。";
 /*Translated from: Edit %d photo(s)*/
@@ -74,3 +76,17 @@
 "Edit %d Videos" = "编辑%@个视频";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "编辑%@项目";
+/*com.stells.batch.photosfilter*/
+"Apply" = "应用";
+/*com.stells.batch.revert*/
+"Revert" = "还原";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "开始回复...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "还原照片...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "创建%@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "开始创建PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "创建PDF页面...";

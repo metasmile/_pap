@@ -14,6 +14,8 @@
 "Cancel" = "Скасувати";
 /*Translated from: Detail*/
 "Detail" = "Подробиці";
+/*Translated from: Delete*/
+"Delete" = "Видалити";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "Вибач, щось пішло не так.";
 /*Translated from: Edit %d photo(s)*/
@@ -74,3 +76,17 @@
 "Edit %d Videos" = "Редагувати %@ відео";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "Змінити %@ елементи";
+/*com.stells.batch.photosfilter*/
+"Apply" = "Застосувати";
+/*com.stells.batch.revert*/
+"Revert" = "Повернути";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Початок повернення ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Повернення фотографій ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "Створити %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Починаючи створення PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Створення PDF-сторінок ...";

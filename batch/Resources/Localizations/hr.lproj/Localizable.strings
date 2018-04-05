@@ -14,6 +14,8 @@
 "Cancel" = "Otkazati";
 /*Translated from: Detail*/
 "Detail" = "Detalj";
+/*Translated from: Delete*/
+"Delete" = "Izbrisati";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "Oprostite, nešto je pošlo naopako.";
 /*Translated from: Edit %d photo(s)*/
@@ -74,3 +76,17 @@
 "Edit %d Videos" = "Uredi %@ Videozapise";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "Uredi %@ stavke";
+/*com.stells.batch.photosfilter*/
+"Apply" = "primijeniti";
+/*com.stells.batch.revert*/
+"Revert" = "vratiti se";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Početak vraćanja ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Vraćanje fotografija ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "Stvorite %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Započinjanje stvaranja PDF-a ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Izrada PDF stranica ...";

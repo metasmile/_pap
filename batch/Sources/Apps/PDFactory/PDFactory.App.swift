@@ -43,12 +43,16 @@ public class PDFactory: App, PersistableApp, FinalizableApp, PhotoPickerViewCont
         return [.delete]
     }
 
-    public func titleWillBegin() -> String? {
-        return "Starting to generate PDF...".localized
+    public var doneButtonTitle: String?{
+        return "Create %@".localizedFormatted("PDF")
     }
 
-    public func titleWillFinalize() -> String? {
-        return "Generating PDF Pages...".localized
+    public var titleWillBegin:String{
+        return "Starting to create PDF...".localized
+    }
+
+    public var titleWillFinalize:String{
+        return "Creating PDF Pages...".localized
     }
 
     public lazy var numberOfItemsShouldSelect: Int? = 3 //for test

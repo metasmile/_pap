@@ -14,6 +14,8 @@
 "Cancel" = "Megszünteti";
 /*Translated from: Detail*/
 "Detail" = "Részlet";
+/*Translated from: Delete*/
+"Delete" = "Töröl";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "Elnézést, valami nem ment jól.";
 /*Translated from: Edit %d photo(s)*/
@@ -74,3 +76,17 @@
 "Edit %d Videos" = "%@ Videók szerkesztése";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "%@ Elemek szerkesztése";
+/*com.stells.batch.photosfilter*/
+"Apply" = "Alkalmaz";
+/*com.stells.batch.revert*/
+"Revert" = "Visszaszáll";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "A visszaállítás ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Fotók visszavétele ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "Hozz létre %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "PDF létrehozása ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "PDF-oldalak létrehozása ...";

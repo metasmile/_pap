@@ -14,6 +14,8 @@
 "Cancel" = "Ματαίωση";
 /*Translated from: Detail*/
 "Detail" = "Λεπτομέρεια";
+/*Translated from: Delete*/
+"Delete" = "Διαγράφω";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "Συγνώμη, κάτι πήγε στραβά.";
 /*Translated from: Edit %d photo(s)*/
@@ -74,3 +76,17 @@
 "Edit %d Videos" = "Επεξεργασία %@ Βίντεο";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "Επεξεργαστείτε τα %@ Στοιχεία";
+/*com.stells.batch.photosfilter*/
+"Apply" = "Ισχύουν";
+/*com.stells.batch.revert*/
+"Revert" = "Επαναστρέφω";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Ξεκινώντας να επαναφέρετε ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Επαναφορά φωτογραφιών ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "Δημιουργία %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Ξεκινώντας τη δημιουργία PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Δημιουργία σελίδων PDF ...";

@@ -14,6 +14,8 @@
 "Cancel" = "إلغاء";
 /*Translated from: Detail*/
 "Detail" = "التفاصيل";
+/*Translated from: Delete*/
+"Delete" = "حذف";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "عذرا، هناك خطأ ما.";
 /*Translated from: Edit %d photo(s)*/
@@ -74,3 +76,17 @@
 "Edit %d Videos" = "تحرير %@ مقاطع الفيديو";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "تحرير %@ عناصر";
+/*com.stells.batch.photosfilter*/
+"Apply" = "تطبيق";
+/*com.stells.batch.revert*/
+"Revert" = "Revert";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "البدء في العودة ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "جارٍ إرجاع الصور ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "إنشاء %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "البدء في إنشاء PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "إنشاء صفحات PDF ...";

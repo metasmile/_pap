@@ -14,6 +14,8 @@
 "Cancel" = "Annulla";
 /*Translated from: Detail*/
 "Detail" = "Dettaglio";
+/*Translated from: Delete*/
+"Delete" = "Elimina";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "Scusa, qualcosa è andato storto.";
 /*Translated from: Edit %d photo(s)*/
@@ -74,3 +76,17 @@
 "Edit %d Videos" = "Modifica %@ Video";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "Modifica %@ Elementi";
+/*com.stells.batch.photosfilter*/
+"Apply" = "Applicare";
+/*com.stells.batch.revert*/
+"Revert" = "ritornare";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Iniziare a ripristinare ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Ripristino delle foto ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "Crea %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Iniziare a creare PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Creazione di pagine PDF ...";

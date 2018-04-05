@@ -14,6 +14,8 @@
 "Cancel" = "Avbryt";
 /*Translated from: Detail*/
 "Detail" = "Detalj";
+/*Translated from: Delete*/
+"Delete" = "Slett";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "Beklager, noe gikk galt.";
 /*Translated from: Edit %d photo(s)*/
@@ -74,3 +76,17 @@
 "Edit %d Videos" = "Rediger %@ videoer";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "Rediger %@ elementer";
+/*com.stells.batch.photosfilter*/
+"Apply" = "Søke om";
+/*com.stells.batch.revert*/
+"Revert" = "Tilbakestill";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Begynner å returnere ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Gjenoppretter bilder ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "Opprett %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Begynner å lage PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Opprette PDF-sider ...";

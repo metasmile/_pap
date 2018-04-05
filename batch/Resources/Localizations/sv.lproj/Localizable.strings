@@ -14,6 +14,8 @@
 "Cancel" = "Annullera";
 /*Translated from: Detail*/
 "Detail" = "Detalj";
+/*Translated from: Delete*/
+"Delete" = "Radera";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "Förlåt, något gick fel.";
 /*Translated from: Edit %d photo(s)*/
@@ -74,3 +76,17 @@
 "Edit %d Videos" = "Redigera %@ Videor";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "Redigera %@ objekt";
+/*com.stells.batch.photosfilter*/
+"Apply" = "Tillämpa";
+/*com.stells.batch.revert*/
+"Revert" = "Återgå";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Börjar återställa ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Återgår bilder ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "Skapa %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Börjar att skapa PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Skapa PDF-sidor ...";

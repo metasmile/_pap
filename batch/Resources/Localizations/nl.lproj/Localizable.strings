@@ -14,6 +14,8 @@
 "Cancel" = "Annuleer";
 /*Translated from: Detail*/
 "Detail" = "Detail";
+/*Translated from: Delete*/
+"Delete" = "Verwijder";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "Sorry, er ging iets mis.";
 /*Translated from: Edit %d photo(s)*/
@@ -74,3 +76,17 @@
 "Edit %d Videos" = "Bewerk %@ video's";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "Bewerk %@ Items";
+/*com.stells.batch.photosfilter*/
+"Apply" = "Van toepassing zijn";
+/*com.stells.batch.revert*/
+"Revert" = "terugkeren";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Beginnen met terugzetten ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Foto's terugzetten ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "Maak %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Beginnen met het maken van PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "PDF-pagina's maken ...";

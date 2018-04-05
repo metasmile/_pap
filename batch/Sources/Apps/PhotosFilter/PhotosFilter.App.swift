@@ -50,7 +50,7 @@ public class PhotosFilterAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrr
 
 class _PhotosFilterAppAsset: PHAssetItem<AppValue> {}
 
-public class PhotosFilterApp: NSObject, KeyPathWatchable, ConfigurableApp, _ConfigurableApp, AppDockControllableApp, PHAssetFinalizableApp, PersistableApp, PhotoPickerCollectionViewDisplayableApp {
+public class PhotosFilterApp: NSObject, KeyPathWatchable, ConfigurableApp, _ConfigurableApp, AppDockControllableApp, PHAssetFinalizableApp, PersistableApp, PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp {
     public static let taskType:Taskable.Type = _PhotosFilterAppTask.self
     public static let paramType:TaskParamable.Type = _PhotosFilterAppAsset.self
     
@@ -78,7 +78,11 @@ public class PhotosFilterApp: NSObject, KeyPathWatchable, ConfigurableApp, _Conf
             self.updateControllerView()
         }
     }
-    
+
+    public var doneButtonTitle: String? {
+        return "Apply".localized
+    }
+
     public func isItemEnables(for item: PHAssetItem<AppValue>) -> Bool {
         return (item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive)) || item.asset.mediaType == .video
     }

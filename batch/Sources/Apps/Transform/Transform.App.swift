@@ -31,7 +31,10 @@ public class TransformAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrribu
 
 class _TransformAppAsset: PHAssetItem<AppValue> {}
 
-public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _ConfigurableApp, AppDockControllableApp, PHAssetFinalizableApp, PersistableApp {
+public class TransformApp: NSObject, KeyPathWatchable
+        , ConfigurableApp, _ConfigurableApp, AppDockControllableApp, PHAssetFinalizableApp
+        , PersistableApp, PhotoPickerViewControllerDelegatableApp {
+
     public static let taskType:Taskable.Type = _TransfromAppTask.self
 
     public static let paramType:TaskParamable.Type = _TransformAppAsset.self

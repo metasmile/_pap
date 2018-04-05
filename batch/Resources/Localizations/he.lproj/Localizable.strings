@@ -14,6 +14,8 @@
 "Cancel" = "לְבַטֵל";
 /*Translated from: Detail*/
 "Detail" = "פרט";
+/*Translated from: Delete*/
+"Delete" = "לִמְחוֹק";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "מצטערים, משהו השתבש.";
 /*Translated from: Edit %d photo(s)*/
@@ -74,3 +76,17 @@
 "Edit %d Videos" = "ערוך %@ סרטונים";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "ערוך %@ פריטים";
+/*com.stells.batch.photosfilter*/
+"Apply" = "להגיש מועמדות";
+/*com.stells.batch.revert*/
+"Revert" = "Revert";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "מתחיל לבטל ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "משחזר תמונות ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "צור %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "מתחיל ליצור PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "יוצר דפי PDF ...";

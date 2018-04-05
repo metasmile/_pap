@@ -71,11 +71,11 @@ public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, Persist
         return result
     }
 
-    public func titleWillBegin() -> String? {
+    public var titleWillBegin: String? {
         return "Starting to revert...".localized
     }
 
-    public func titleWillFinalize() -> String? {
+    public var titleWillFinalize: String? {
         return "Reverting Photos...".localized
     }
 }

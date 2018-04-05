@@ -28,8 +28,11 @@ public class Clean: App, PersistableApp, PHAssetFinalizableApp, AppDockControlla
         return [.delete]
     }
 
-    public func titleWillFinalize() -> String? {
+    public var titleWillFinalize: String? {
         return "Deleting Photos...".localized
+    }
+    public var doneButtonTitle: String? {
+        return "Delete".localized
     }
 }
 

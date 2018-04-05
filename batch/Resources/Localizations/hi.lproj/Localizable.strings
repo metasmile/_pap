@@ -14,6 +14,8 @@
 "Cancel" = "रद्द करना";
 /*Translated from: Detail*/
 "Detail" = "विस्तार";
+/*Translated from: Delete*/
+"Delete" = "हटाना";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "क्षमा करें, कुछ गलत हो गया।";
 /*Translated from: Edit %d photo(s)*/
@@ -74,3 +76,17 @@
 "Edit %d Videos" = "%@ वीडियो संपादित करें";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "%@ आइटम संपादित करें";
+/*com.stells.batch.photosfilter*/
+"Apply" = "लागू करें";
+/*com.stells.batch.revert*/
+"Revert" = "लौट आना";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "वापस लाने के लिए शुरू ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "फ़ोटो वापस ला रहा है ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "%@ बनाएं";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "पीडीएफ बनाने के लिए शुरू ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "पीडीएफ पेज बनाना ...";

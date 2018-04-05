@@ -14,6 +14,8 @@
 "Cancel" = "취소";
 /*Translated from: Detail*/
 "Detail" = "세부 묘사";
+/*Translated from: Delete*/
+"Delete" = "지우다";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "죄송합니다. 무엇인가 잘못되었습니다.";
 /*Translated from: Edit %d photo(s)*/
@@ -74,3 +76,17 @@
 "Edit %d Videos" = "%@ 동영상 수정";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "%@ 항목 편집";
+/*com.stells.batch.photosfilter*/
+"Apply" = "적용";
+/*com.stells.batch.revert*/
+"Revert" = "복원";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "되 돌리는 중 ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "사진 되돌리기 ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "%@ 만들기";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "PDF 작성을 시작합니다 ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "PDF 페이지 만들기 ...";

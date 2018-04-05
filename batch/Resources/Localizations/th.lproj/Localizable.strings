@@ -14,6 +14,8 @@
 "Cancel" = "ยกเลิก";
 /*Translated from: Detail*/
 "Detail" = "รายละเอียด";
+/*Translated from: Delete*/
+"Delete" = "ลบ";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "ขอโทษมีบางอย่างผิดพลาด.";
 /*Translated from: Edit %d photo(s)*/
@@ -74,3 +76,17 @@
 "Edit %d Videos" = "แก้ไข %@ วิดีโอ";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "แก้ไข %@ รายการ";
+/*com.stells.batch.photosfilter*/
+"Apply" = "Apply";
+/*com.stells.batch.revert*/
+"Revert" = "คืนกลับ";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "กำลังเริ่มทำย้อนกลับ ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "กำลังเปลี่ยนรูปภาพ ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "สร้าง %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "กำลังเริ่มสร้าง PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "กำลังสร้างหน้า PDF ...";

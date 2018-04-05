@@ -14,6 +14,8 @@
 "Cancel" = "Zrušiť";
 /*Translated from: Detail*/
 "Detail" = "detail";
+/*Translated from: Delete*/
+"Delete" = "vymazať";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "Prepáčte, niečo sa pokazilo.";
 /*Translated from: Edit %d photo(s)*/
@@ -74,3 +76,17 @@
 "Edit %d Videos" = "Upravte %@ Videá";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "Upravte položku %@ Položky";
+/*com.stells.batch.photosfilter*/
+"Apply" = "platiť";
+/*com.stells.batch.revert*/
+"Revert" = "Revert";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Začal sa vrátiť ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Vrátenie fotografií ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "Vytvorte %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Začína sa vytvárať PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Vytváranie stránok PDF ...";

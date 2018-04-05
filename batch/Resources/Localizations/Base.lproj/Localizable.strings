@@ -7,6 +7,7 @@
 "Confirm" = "Confirm";
 "Cancel" = "Cancel";
 "Detail" = "Detail";
+"Delete" = "Delete";
 
 "Sorry, something went wrong." = "Sorry, something went wrong.";
 
@@ -47,3 +48,16 @@
 "Edit %d Photos" = "Edit %@ Photos";
 "Edit %d Videos" = "Edit %@ Videos";
 "Edit %d Items" = "Edit %@ Items";
+
+/*com.stells.batch.photosfilter*/
+"Apply" = "Apply";
+
+/*com.stells.batch.revert*/
+"Revert" = "Revert";
+"Starting to revert..." = "Starting to revert...";
+"Reverting Photos..." = "Reverting Photos...";
+
+/*com.stells.batch.pdfactory*/
+"Create %@" = "Create %@";
+"Starting to create PDF..." = "Starting to create PDF...";
+"Creating PDF Pages..." = "Creating PDF Pages...";

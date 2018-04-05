@@ -14,6 +14,8 @@
 "Cancel" = "キャンセル";
 /*Translated from: Detail*/
 "Detail" = "詳細";
+/*Translated from: Delete*/
+"Delete" = "削除";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "申し訳ありませんが、何かが間違っていた";
 /*Translated from: Edit %d photo(s)*/
@@ -74,3 +76,17 @@
 "Edit %d Videos" = "%@動画を編集";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "%@アイテムを編集する";
+/*com.stells.batch.photosfilter*/
+"Apply" = "適用";
+/*com.stells.batch.revert*/
+"Revert" = "元に戻す";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "元に戻す...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "写真を元に戻す...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "%@を作成する";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "PDFの作成を開始します...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "PDFページの作成...";

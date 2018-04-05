@@ -6,14 +6,19 @@
 import Foundation
 
 public protocol PhotoPickerViewControllerDelegatableApp: App {
-    func titleWillBegin() -> String?
+    var doneButtonTitle:String? {get}
+    var titleWillBegin:String? {get}
     func titleDidUpdate(progress: Float) -> String?
-    func titleWillCancel() -> String?
-    func titleWillFinalize() -> String?
+    var titleWillCancel:String? {get}
+    var titleWillFinalize:String? {get}
 }
 
 extension PhotoPickerViewControllerDelegatableApp {
-    public func titleWillBegin() -> String? {
+    public var doneButtonTitle: String? {
+        return type(of: self).info.displayName
+    }
+
+    public var titleWillBegin:String? {
         return nil
     }
 
@@ -21,11 +26,11 @@ extension PhotoPickerViewControllerDelegatableApp {
         return nil
     }
 
-    public func titleWillCancel() -> String? {
+    public var titleWillCancel:String? {
         return nil
     }
 
-    public func titleWillFinalize() -> String? {
+    public var titleWillFinalize:String? {
         return nil
     }
 }

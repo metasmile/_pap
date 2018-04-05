@@ -14,6 +14,8 @@
 "Cancel" = "Anulare";
 /*Translated from: Detail*/
 "Detail" = "Detaliu";
+/*Translated from: Delete*/
+"Delete" = "Șterge";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "Scuze, ceva a mers greșit.";
 /*Translated from: Edit %d photo(s)*/
@@ -74,3 +76,17 @@
 "Edit %d Videos" = "Editați %@ Videoclipuri";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "Editați %@ Elemente";
+/*com.stells.batch.photosfilter*/
+"Apply" = "aplica";
+/*com.stells.batch.revert*/
+"Revert" = "Reveni";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Începând să revină ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Revenirea fotografiilor ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "Creați %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Începând să creeze PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Crearea paginilor PDF ...";

@@ -14,6 +14,8 @@
 "Cancel" = "İptal etmek";
 /*Translated from: Detail*/
 "Detail" = "detay";
+/*Translated from: Delete*/
+"Delete" = "silmek";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "Üzgünüm, bir şeyler ters gitti.";
 /*Translated from: Edit %d photo(s)*/
@@ -74,3 +76,17 @@
 "Edit %d Videos" = "%@ Videoları düzenle";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "%@ Öğeleri Düzenle";
+/*com.stells.batch.photosfilter*/
+"Apply" = "Uygulamak";
+/*com.stells.batch.revert*/
+"Revert" = "dönmek";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Geri almaya başlıyor ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Fotoğraflar Geri Döndü ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "%@ Oluştur";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "PDF oluşturulmaya başlanıyor ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "PDF Sayfaları Oluşturuluyor ...";

@@ -14,6 +14,8 @@
 "Cancel" = "Hủy";
 /*Translated from: Detail*/
 "Detail" = "Chi tiết";
+/*Translated from: Delete*/
+"Delete" = "Xóa bỏ";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "Xin lỗi, có lỗi xảy ra.";
 /*Translated from: Edit %d photo(s)*/
@@ -74,3 +76,17 @@
 "Edit %d Videos" = "Chỉnh sửa %@ Video";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "Chỉnh sửa %@ Mục";
+/*com.stells.batch.photosfilter*/
+"Apply" = "Ứng dụng";
+/*com.stells.batch.revert*/
+"Revert" = "Hoàn nguyên";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Bắt đầu phục hồi ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Hoàn nguyên ảnh ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "Tạo %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Bắt đầu tạo PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Tạo trang PDF ...";
