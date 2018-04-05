@@ -6,6 +6,8 @@
 "Open Settings" = "Ayarları aç";
 /*Translated from: OK*/
 "OK" = "tamam";
+/*Translated from: Done*/
+"Done" = "tamam";
 /*Translated from: Confirm*/
 "Confirm" = "Onaylamak";
 /*Translated from: Cancel*/
@@ -54,10 +56,14 @@
 "%d Photo" = "%@ Fotoğraf";
 /*Translated from: %@ Video*/
 "%d Video" = "%@ Video";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Öğe";
 /*Translated from: %@ Photos*/
 "%d Photos" = "%@ Fotoğraflar";
 /*Translated from: %@ Videos*/
 "%d Videos" = "%@ Videolar";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Öğeler";
 /*Translated from: Edit %@ Photo*/
 "Edit %d Photo" = "%@ Fotoğraf düzenle";
 /*Translated from: Edit %@ Video*/

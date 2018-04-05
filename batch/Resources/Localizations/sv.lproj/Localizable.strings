@@ -6,6 +6,8 @@
 "Open Settings" = "Öppna Inställningar";
 /*Translated from: OK*/
 "OK" = "ok";
+/*Translated from: Done*/
+"Done" = "Gjort";
 /*Translated from: Confirm*/
 "Confirm" = "Bekräfta";
 /*Translated from: Cancel*/
@@ -54,10 +56,14 @@
 "%d Photo" = "%@ Foto";
 /*Translated from: %@ Video*/
 "%d Video" = "%@ Video";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Artikel";
 /*Translated from: %@ Photos*/
 "%d Photos" = "%@ Foton";
 /*Translated from: %@ Videos*/
 "%d Videos" = "%@ Videor";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Objekt";
 /*Translated from: Edit %@ Photo*/
 "Edit %d Photo" = "Redigera %@ Foto";
 /*Translated from: Edit %@ Video*/

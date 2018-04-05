@@ -72,7 +72,7 @@ class PreviewView: CustomView {
     }
 }
 
-extension PreviewView: AppDockContentView, AppDockContentDescribable{
+extension PreviewView: AppDockContentView, AppDockContent {
     //AppDockContentDescribable
     var view: UIView {
         return self

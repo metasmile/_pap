@@ -41,7 +41,7 @@ public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _Configu
     @objc dynamic
     public private(set) lazy var config: TransformAppConfig? = TransformApp.configure?()
 
-    public private(set) lazy var controller: AppDockContentDescribable? = createController()
+    public private(set) lazy var controller: AppDockContent? = createController()
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.transform"
@@ -58,13 +58,13 @@ public class TransformApp: NSObject, KeyPathWatchable, ConfigurableApp, _Configu
         super.init()
 
         config?.watch(\.tintColor, options: [.initial, .new]) {
-            self.updateConfigView()
+            self.updateControllerView()
         }
     }
 
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
         self.config?.adoptValues(fromOther: config)
-        self.updateConfigView()
+        self.updateControllerView()
     }
 
     public var finalizingOptions: PHAssetFinalizingOptions{
@@ -90,7 +90,7 @@ private extension TransformApp{
         self.config?.transform = RotationTransformItem(degrees: 90)
     }
 
-    private func createController() -> AppDockContentDescribable {
+    private func createController() -> AppDockContent {
         let view = UIStackView(frame: .zero)
         view.alignment = .fill
         view.distribution = .fillEqually
@@ -118,10 +118,10 @@ private extension TransformApp{
         view.addArrangedSubview(config3)
         view.addArrangedSubview(config4)
 
-        return AppDockContent(view: view, preferences: nil)
+        return AppDockContentItem(view: view, preferences: nil)
     }
 
-    private func updateConfigView(){
+    private func updateControllerView(){
         if let config = self.config
         , let buttons = (self.controller?.view as? UIStackView)?.arrangedSubviews as? [UIButton]{
             for button in buttons {

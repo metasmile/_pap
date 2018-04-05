@@ -6,6 +6,8 @@
 "Open Settings" = "Avaa asetukset";
 /*Translated from: OK*/
 "OK" = "kunnossa";
+/*Translated from: Done*/
+"Done" = "Tehty";
 /*Translated from: Confirm*/
 "Confirm" = "Vahvistaa";
 /*Translated from: Cancel*/
@@ -54,10 +56,14 @@
 "%d Photo" = "%@ Kuva";
 /*Translated from: %@ Video*/
 "%d Video" = "%@ Video";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Item";
 /*Translated from: %@ Photos*/
 "%d Photos" = "%@ Valokuvat";
 /*Translated from: %@ Videos*/
 "%d Videos" = "%@ Videot";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Kohteet";
 /*Translated from: Edit %@ Photo*/
 "Edit %d Photo" = "Muokkaa %@ valokuvaa";
 /*Translated from: Edit %@ Video*/

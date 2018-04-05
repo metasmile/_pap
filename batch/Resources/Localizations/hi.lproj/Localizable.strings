@@ -6,6 +6,8 @@
 "Open Settings" = "सेटिंग्स खोलें";
 /*Translated from: OK*/
 "OK" = "ठीक";
+/*Translated from: Done*/
+"Done" = "किया हुआ";
 /*Translated from: Confirm*/
 "Confirm" = "की पुष्टि करें";
 /*Translated from: Cancel*/
@@ -54,10 +56,14 @@
 "%d Photo" = "%@ Photo";
 /*Translated from: %@ Video*/
 "%d Video" = "%@ वीडियो";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ आइटम";
 /*Translated from: %@ Photos*/
 "%d Photos" = "%@ तस्वीरें";
 /*Translated from: %@ Videos*/
 "%d Videos" = "%@ वीडियो";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ आइटम";
 /*Translated from: Edit %@ Photo*/
 "Edit %d Photo" = "Edit %@ Photo";
 /*Translated from: Edit %@ Video*/

@@ -132,7 +132,7 @@ class AppDockView: CustomView {
     */
 
     // AppDock Control
-    var controller: AppDockContentDescribable?{
+    var controller: AppDockContent?{
         didSet {
             if let view = controller?.view {
                 setControllerView(view, animated: true)
@@ -179,7 +179,7 @@ class AppDockView: CustomView {
     }
 
     // AppDock accessory
-    var accessory: AppDockContentDescribable?{
+    var accessory: AppDockContent?{
         didSet {
             if let view = accessory?.view {
                 setTopAccessoryView(view, animated: true)

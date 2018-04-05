@@ -3,6 +3,7 @@
 "Open Settings" = "Open Settings";
 
 "OK" = "OK";
+"Done" = "Done";
 "Confirm" = "Confirm";
 "Cancel" = "Cancel";
 "Detail" = "Detail";
@@ -34,9 +35,11 @@
 
 "%d Photo" = "%@ Photo";
 "%d Video" = "%@ Video";
+"%d Item" = "%@ Item";
 
 "%d Photos" = "%@ Photos";
 "%d Videos" = "%@ Videos";
+"%d Items" = "%@ Items";
 
 "Edit %d Photo" = "Edit %@ Photo";
 "Edit %d Video" = "Edit %@ Video";

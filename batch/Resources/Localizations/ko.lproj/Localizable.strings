@@ -6,6 +6,8 @@
 "Open Settings" = "설정 열기";
 /*Translated from: OK*/
 "OK" = "승인";
+/*Translated from: Done*/
+"Done" = "끝난";
 /*Translated from: Confirm*/
 "Confirm" = "확인";
 /*Translated from: Cancel*/
@@ -54,10 +56,14 @@
 "%d Photo" = "%@ 사진";
 /*Translated from: %@ Video*/
 "%d Video" = "%@ 동영상";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ 상품";
 /*Translated from: %@ Photos*/
 "%d Photos" = "%@ 사진";
 /*Translated from: %@ Videos*/
 "%d Videos" = "%@ 동영상";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ 항목";
 /*Translated from: Edit %@ Photo*/
 "Edit %d Photo" = "%@ 사진 수정";
 /*Translated from: Edit %@ Video*/

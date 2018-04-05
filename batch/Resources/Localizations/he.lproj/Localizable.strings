@@ -6,6 +6,8 @@
 "Open Settings" = "פתח את 'הגדרות'";
 /*Translated from: OK*/
 "OK" = "בסדר";
+/*Translated from: Done*/
+"Done" = "בוצע";
 /*Translated from: Confirm*/
 "Confirm" = "לְאַשֵׁר";
 /*Translated from: Cancel*/
@@ -54,10 +56,14 @@
 "%d Photo" = "%@ תמונה";
 /*Translated from: %@ Video*/
 "%d Video" = "%@ סרטון";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ פריט";
 /*Translated from: %@ Photos*/
 "%d Photos" = "%@ תמונות";
 /*Translated from: %@ Videos*/
 "%d Videos" = "%@ סרטונים";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ פריטים";
 /*Translated from: Edit %@ Photo*/
 "Edit %d Photo" = "ערוך את %@ תמונה";
 /*Translated from: Edit %@ Video*/

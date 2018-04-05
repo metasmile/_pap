@@ -16,7 +16,6 @@ extension UIViewController{
             fadeTextAnimation.duration = 0.08
             fadeTextAnimation.type = kCATransitionFade
             self.navigationController?.navigationBar.layer.add(fadeTextAnimation, forKey: "fadeText")
-
             self.title = title
         }
     }

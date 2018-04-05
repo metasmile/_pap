@@ -6,6 +6,8 @@
 "Open Settings" = "أفتح الإعدادات";
 /*Translated from: OK*/
 "OK" = "حسنا";
+/*Translated from: Done*/
+"Done" = "فعله";
 /*Translated from: Confirm*/
 "Confirm" = "تؤكد";
 /*Translated from: Cancel*/
@@ -54,10 +56,14 @@
 "%d Photo" = "%@ صورة";
 /*Translated from: %@ Video*/
 "%d Video" = "%@ الفيديو";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ العنصر";
 /*Translated from: %@ Photos*/
 "%d Photos" = "%@ صور";
 /*Translated from: %@ Videos*/
 "%d Videos" = "%@ مقاطع الفيديو";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ العناصر";
 /*Translated from: Edit %@ Photo*/
 "Edit %d Photo" = "تحرير %@ صورة";
 /*Translated from: Edit %@ Video*/

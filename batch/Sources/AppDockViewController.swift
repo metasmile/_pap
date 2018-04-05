@@ -68,15 +68,12 @@ class AppDockViewController: UIViewController {
         return (navigationController as? AppDockNavigationController)?.appDockView
     }
     
-    var cancelButton: UIBarButtonItem?
-    var doneButton: UIBarButtonItem?
+    lazy var cancelButton: UIBarButtonItem? = UIBarButtonItem(title: "Cancel".localized, style: .plain, target: self, action: #selector(self.cancelButtonDidTap))
+    lazy var doneButton: UIBarButtonItem? = UIBarButtonItem(title: "Done".localized, style: .done, target: self, action: #selector(self.doneButtonDidTap))
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        cancelButton = UIBarButtonItem(image: R.image.cancel(), style: .plain, target: self, action: #selector(self.cancelButtonDidTap))
-        doneButton = UIBarButtonItem(image: R.image.batchDoneBarButton(), style: .done, target: self, action: #selector(self.doneButtonDidTap))
-        
+
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = doneButton
         
@@ -91,8 +88,8 @@ class AppDockViewController: UIViewController {
             doneButton?.tintColor = .white
         }
         else {
-            cancelButton?.tintColor = .black
-            doneButton?.tintColor = .black
+            cancelButton?.tintColor = view.tintColor
+            doneButton?.tintColor = view.tintColor
         }
     }
 

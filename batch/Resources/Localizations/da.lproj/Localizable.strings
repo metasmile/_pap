@@ -6,6 +6,8 @@
 "Open Settings" = "Åbn indstillinger";
 /*Translated from: OK*/
 "OK" = "Okay";
+/*Translated from: Done*/
+"Done" = "Færdig";
 /*Translated from: Confirm*/
 "Confirm" = "Bekræfte";
 /*Translated from: Cancel*/
@@ -54,10 +56,14 @@
 "%d Photo" = "%@ Foto";
 /*Translated from: %@ Video*/
 "%d Video" = "%@ Video";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Item";
 /*Translated from: %@ Photos*/
 "%d Photos" = "%@ Billeder";
 /*Translated from: %@ Videos*/
 "%d Videos" = "%@ Videoer";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Elementer";
 /*Translated from: Edit %@ Photo*/
 "Edit %d Photo" = "Rediger %@ Foto";
 /*Translated from: Edit %@ Video*/

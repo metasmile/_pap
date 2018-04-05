@@ -6,6 +6,8 @@
 "Open Settings" = "Відкрийте Налаштування";
 /*Translated from: OK*/
 "OK" = "добре";
+/*Translated from: Done*/
+"Done" = "Готово";
 /*Translated from: Confirm*/
 "Confirm" = "Підтвердьте";
 /*Translated from: Cancel*/
@@ -54,10 +56,14 @@
 "%d Photo" = "%@ Фотографія";
 /*Translated from: %@ Video*/
 "%d Video" = "%@ Відео";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Елемент";
 /*Translated from: %@ Photos*/
 "%d Photos" = "%@ Фотографії";
 /*Translated from: %@ Videos*/
 "%d Videos" = "%@ Відео";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Елементи";
 /*Translated from: Edit %@ Photo*/
 "Edit %d Photo" = "Редагувати %@ Фото";
 /*Translated from: Edit %@ Video*/

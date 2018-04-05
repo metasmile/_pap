@@ -74,7 +74,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         
         appDockView?.barStyle = .black
 
-        doneButton?.image = R.image.editDoneBarButton()
+        doneButton?.title = "Done".localized
         
         assetView.image = placeholderImage
         assetView.preferredTransform = preferredEditState.transform

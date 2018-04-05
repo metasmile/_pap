@@ -6,6 +6,8 @@
 "Open Settings" = "Otevřete Nastavení";
 /*Translated from: OK*/
 "OK" = "OK";
+/*Translated from: Done*/
+"Done" = "Hotovo";
 /*Translated from: Confirm*/
 "Confirm" = "Potvrdit";
 /*Translated from: Cancel*/
@@ -54,10 +56,14 @@
 "%d Photo" = "%@ Fotografie";
 /*Translated from: %@ Video*/
 "%d Video" = "%@ Video";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Položka";
 /*Translated from: %@ Photos*/
 "%d Photos" = "%@ Fotky";
 /*Translated from: %@ Videos*/
 "%d Videos" = "%@ Videa";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Položky";
 /*Translated from: Edit %@ Photo*/
 "Edit %d Photo" = "Upravte %@ Foto";
 /*Translated from: Edit %@ Video*/

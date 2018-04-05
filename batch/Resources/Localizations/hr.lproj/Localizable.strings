@@ -6,6 +6,8 @@
 "Open Settings" = "Otvorite Postavke";
 /*Translated from: OK*/
 "OK" = "u redu";
+/*Translated from: Done*/
+"Done" = "Gotovo";
 /*Translated from: Confirm*/
 "Confirm" = "potvrditi";
 /*Translated from: Cancel*/
@@ -54,10 +56,14 @@
 "%d Photo" = "%@ Fotografija";
 /*Translated from: %@ Video*/
 "%d Video" = "%@ Videozapis";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Stavka";
 /*Translated from: %@ Photos*/
 "%d Photos" = "%@ Fotografije";
 /*Translated from: %@ Videos*/
 "%d Videos" = "%@ Videozapisi";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Stavke";
 /*Translated from: Edit %@ Photo*/
 "Edit %d Photo" = "Uredi %@ Fotografija";
 /*Translated from: Edit %@ Video*/

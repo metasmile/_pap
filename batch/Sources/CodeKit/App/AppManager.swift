@@ -53,12 +53,15 @@ open class AppManager: NSObject, SelectableCollection {
         //check and finally adds
         _apps += initializingApps.filter { app in
             if let minVersion = app.info.minOSVersion{
-                print(ProcessInfo().operatingSystemVersion)
-                print(minVersion)
-                print(ProcessInfo().operatingSystemVersion >= minVersion)
                 return ProcessInfo().operatingSystemVersion >= minVersion
             }
             return true
+        }
+
+        //finally select default app if possible
+        assert(_apps.count > 0, "[!] Undefined any apps")
+        if current == nil && _apps.count > 0 {
+            current = _apps.first
         }
     }
 

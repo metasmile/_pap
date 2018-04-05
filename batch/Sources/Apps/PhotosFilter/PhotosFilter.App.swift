@@ -58,7 +58,7 @@ public class PhotosFilterApp: NSObject, KeyPathWatchable, ConfigurableApp, _Conf
     
     @objc dynamic
     public private(set) lazy var config: PhotosFilterAppConfig? = PhotosFilterApp.configure?()
-    public private(set) lazy var controller: AppDockContentDescribable? = createController()
+    public private(set) lazy var controller: AppDockContent? = createController()
 
     public static let info = AppInfo(
         identifier: "com.stells.batch.photosfilter"
@@ -75,7 +75,7 @@ public class PhotosFilterApp: NSObject, KeyPathWatchable, ConfigurableApp, _Conf
         super.init()
         
         config?.watch(\.tintColor, options: [.initial, .new]) {
-            self.updateConfigView()
+            self.updateControllerView()
         }
     }
     
@@ -89,7 +89,7 @@ public class PhotosFilterApp: NSObject, KeyPathWatchable, ConfigurableApp, _Conf
     
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
         self.config?.adoptValues(fromOther: config)
-        self.updateConfigView()
+        self.updateControllerView()
     }
 }
 
@@ -143,7 +143,7 @@ private extension PhotosFilterApp {
         self.config?.filter = PhotosFilterItem(sender.filter)
     }
     
-    private func createController() -> AppDockContentDescribable {
+    private func createController() -> AppDockContent {
         let view = UIStackView(frame: .zero)
         view.alignment = .fill
         view.distribution = .fillEqually
@@ -157,7 +157,7 @@ private extension PhotosFilterApp {
         var p = AppDockContentPreferences()
         p.pinned = true
         p.height = 200 // for test. remove this line after fixed app design
-        return AppDockContent(view: view, preferences: p)
+        return AppDockContentItem(view: view, preferences: p)
     }
     
     private func generateFilterButton(with filter: CIFilter? = nil) -> UIView {
@@ -171,7 +171,7 @@ private extension PhotosFilterApp {
         return button
     }
     
-    private func updateConfigView(){
+    private func updateControllerView(){
         if let config = self.config
         , let buttons = (self.controller?.view as? UIStackView)?.arrangedSubviews as? [UIButton]{
             for button in buttons {

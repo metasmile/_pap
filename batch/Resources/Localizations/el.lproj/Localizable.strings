@@ -6,6 +6,8 @@
 "Open Settings" = "Ανοίξτε τις ρυθμίσεις";
 /*Translated from: OK*/
 "OK" = "Εντάξει";
+/*Translated from: Done*/
+"Done" = "Εγινε";
 /*Translated from: Confirm*/
 "Confirm" = "Επιβεβαιώνω";
 /*Translated from: Cancel*/
@@ -54,10 +56,14 @@
 "%d Photo" = "%@ Φωτογραφία";
 /*Translated from: %@ Video*/
 "%d Video" = "%@ Βίντεο";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Στοιχείο";
 /*Translated from: %@ Photos*/
 "%d Photos" = "%@ Φωτογραφίες";
 /*Translated from: %@ Videos*/
 "%d Videos" = "%@ Βίντεο";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Στοιχεία";
 /*Translated from: Edit %@ Photo*/
 "Edit %d Photo" = "Επεξεργασία %@ Φωτογραφία";
 /*Translated from: Edit %@ Video*/

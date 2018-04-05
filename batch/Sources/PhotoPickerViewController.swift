@@ -113,13 +113,16 @@ class PhotoPickerViewController: AppDockViewController {
         super.viewDidAppear(animated)
 
         AppCenter.default.watch(\.currentIdentifier, options:[.new, .old, .initial]) { (appCenter, dict) in
-            if let old = dict.oldValue, old != dict.newValue! {
+            let old = dict.oldValue
+            let new = dict.newValue
 
+            if old != nil && new != nil && old != new {
                 AppAssets.selected.reloadAll()
-                self.showCurrentSelectedAppDisplayName()
-
                 self.redisplayVisibleCellsWhenChangeApp()
+                self.showAndRevertTitleByCurrentAppIfNeeded()
             }
+
+            self.updateDoneButtonState()
 
             AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform, id:"picker\(TransformApp.info.identifier)") { (config, changed) in
                 if let value = config.transform, !AppCenter.default.isAppRunning{
@@ -171,6 +174,19 @@ class PhotoPickerViewController: AppDockViewController {
         updateVisiblePhotoCollectionCellsEnabled()
     }
 
+    private func showAndRevertTitleByCurrentAppIfNeeded(){
+        let timerId = "picker_title_change_timer"
+        if self.selectedAssetsInCollectionView?.count ?? 0 == 0 {
+            let revertingTitle = self.title == Bundle.main.displayName ? self.title : Bundle.main.displayName
+            self.titleFade = AppCenter.default.current?.info.displayName
+            Timer.scheduledTimer(identifier: timerId, withTimeInterval: 2, repeats: false) { timer in
+                self.titleFade = revertingTitle
+            }
+        }else{
+            Timer.getScheduledTimer(identifier: timerId)?.invalidate()
+        }
+    }
+
     func redisplayVisibleCellsWhenChangeApp(){
         for indexPath in self.photoCollectionView.indexPathsForSelectedItems ?? [IndexPath](){
             if !self.collectionView(self.photoCollectionView, shouldSelectItemAt: indexPath) {
@@ -181,23 +197,10 @@ class PhotoPickerViewController: AppDockViewController {
         updateVisiblePhotoCollectionCellsEnabled()
     }
 
-    func showCurrentSelectedAppDisplayName(){
-        let previousTitle = self.title == Bundle.main.displayName ? self.title : Bundle.main.displayName
-
-        self.titleFade = AppCenter.default.current?.info.displayName
-
-        Timer.scheduledTimer(identifier: "batch_selectedAppTitle", withTimeInterval: 2, repeats: false) { timer in
-            if let _ = self.selectedAssetsInCollectionView {
-                self.updateSelectedItemsTitle()
-            }else{
-                self.titleFade = previousTitle
-            }
-        }
-    }
-    
     func updateSelectedItemUIs() {
         updateSelectedItemsTitle()
-        updateSelectedItemControls()
+        updateSelectedItemsControl()
+        updateDoneButtonState()
     }
 
     private func updateSelectedItemsTitle() {
@@ -212,20 +215,20 @@ class PhotoPickerViewController: AppDockViewController {
         else {
             if numberOfPhotos > 0 && numberOfVideos == 0 {
                 let pluralizedString = "Photo" + (numberOfPhotos == 1 ? "" : "s")
-                title = "Edit %d \(pluralizedString)".localizedFormatted(numberOfPhotos.decimalStyleString)
+                title = "%d \(pluralizedString)".localizedFormatted(numberOfPhotos.decimalStyleString)
             }
             else if numberOfVideos > 0 && numberOfPhotos == 0 {
                 let pluralizedString = "Video" + (numberOfVideos == 1 ? "" : "s")
-                title = "Edit %d \(pluralizedString)".localizedFormatted(numberOfVideos.decimalStyleString)
+                title = "%d \(pluralizedString)".localizedFormatted(numberOfVideos.decimalStyleString)
             }
             else {
                 let pluralizedString = "Item" + (numberOfItems == 1 ? "" : "s")
-                title = "Edit %d \(pluralizedString)".localizedFormatted(numberOfItems.decimalStyleString)
+                title = "%d \(pluralizedString)".localizedFormatted(numberOfItems.decimalStyleString)
             }
         }
     }
     
-    private func updateSelectedItemControls() {
+    private func updateSelectedItemsControl() {
         let selectedAssets = self.selectedAssetsInCollectionView
         let numberOfVideos = selectedAssets?.filter({ $0.mediaType == .video }).count ?? 0
         let numberOfPhotos = selectedAssets?.filter({ $0.mediaType == .image }).count ?? 0
@@ -238,10 +241,21 @@ class PhotoPickerViewController: AppDockViewController {
             appDockView?.accessory = nil
         }
         else {
+
             navigationItem.setLeftBarButton(cancelButton, animated: true)
             navigationItem.setRightBarButton(doneButton, animated: true)
 
             appDockView?.accessory = batchPreviewView
+        }
+    }
+
+    private func updateDoneButtonState() {
+        if let app = AppCenter.default.current{
+            doneButton?.isEnabled = true
+            doneButton?.title = app.info.displayName
+        }else{
+            doneButton?.isEnabled = false
+            doneButton?.title = nil
         }
     }
 

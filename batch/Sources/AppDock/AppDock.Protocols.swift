@@ -13,12 +13,10 @@ public protocol AppDockContentPreferable {
 }
 
 public struct AppDockContentPreferences: AppDockContentPreferable {
-    public var height: CGFloat
+    public var height: CGFloat = 0
     public var pinned: Bool = false
 
-    init(){
-        self.height = 44
-    }
+    init(){}
 
     init(height:CGFloat){
         self.height = height
@@ -26,11 +24,11 @@ public struct AppDockContentPreferences: AppDockContentPreferable {
 }
 
 // AppDockContent
-public protocol AppDockContentDescribable {
+public protocol AppDockContent {
     var view: UIView {get}
     var preferences: AppDockContentPreferable? {get}
 }
-public struct AppDockContent: AppDockContentDescribable {
+public struct AppDockContentItem: AppDockContent {
     public var view: UIView
     public var preferences: AppDockContentPreferable? = nil
 }

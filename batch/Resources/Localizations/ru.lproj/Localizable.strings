@@ -6,6 +6,8 @@
 "Open Settings" = "Открыть настройки";
 /*Translated from: OK*/
 "OK" = "ОК";
+/*Translated from: Done*/
+"Done" = "Готово";
 /*Translated from: Confirm*/
 "Confirm" = "подтвердить";
 /*Translated from: Cancel*/
@@ -54,10 +56,14 @@
 "%d Photo" = "%@ Фото";
 /*Translated from: %@ Video*/
 "%d Video" = "%@ Видео";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Пункт";
 /*Translated from: %@ Photos*/
 "%d Photos" = "%@ Фотографии";
 /*Translated from: %@ Videos*/
 "%d Videos" = "%@ Видео";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Элементы";
 /*Translated from: Edit %@ Photo*/
 "Edit %d Photo" = "Изменить %@ Фото";
 /*Translated from: Edit %@ Video*/

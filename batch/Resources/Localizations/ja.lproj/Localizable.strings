@@ -6,6 +6,8 @@
 "Open Settings" = "設定を開く";
 /*Translated from: OK*/
 "OK" = "OK";
+/*Translated from: Done*/
+"Done" = "完了";
 /*Translated from: Confirm*/
 "Confirm" = "確認";
 /*Translated from: Cancel*/
@@ -54,10 +56,14 @@
 "%d Photo" = "%@写真";
 /*Translated from: %@ Video*/
 "%d Video" = "%@動画";
+/*Translated from: %@ Item*/
+"%d Item" = "%@アイテム";
 /*Translated from: %@ Photos*/
 "%d Photos" = "%@写真";
 /*Translated from: %@ Videos*/
 "%d Videos" = "%@動画";
+/*Translated from: %@ Items*/
+"%d Items" = "%@アイテム";
 /*Translated from: Edit %@ Photo*/
 "Edit %d Photo" = "%@写真を編集";
 /*Translated from: Edit %@ Video*/

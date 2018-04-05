@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,11 +13,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppDockView" customModule="batch" customModuleProvider="target">
             <connections>
                 <outlet property="appCollectionView" destination="3j3-5w-cI5" id="oRA-Lr-NQ2"/>
-                <outlet property="controllerView" destination="Nsh-j1-0eF" id="UJx-dl-LYV"/>
-                <outlet property="controllerViewHeightLayout" destination="mMQ-ZO-2JX" id="grA-UJ-DBI"/>
                 <outlet property="appContentView" destination="rzS-9k-7Sx" id="omg-6O-cLK"/>
                 <outlet property="appContentViewHeightLayout" destination="9KR-4K-J6j" id="9Bo-5S-ImK"/>
                 <outlet property="bottomAccessoryView" destination="8u0-vY-4kx" id="HQE-Yx-Vg6"/>
+                <outlet property="controllerView" destination="Nsh-j1-0eF" id="UJx-dl-LYV"/>
+                <outlet property="controllerViewHeightLayout" destination="mMQ-ZO-2JX" id="grA-UJ-DBI"/>
                 <outlet property="dockView" destination="Ccg-Ud-fcA" id="6fC-r6-sQp"/>
                 <outlet property="dockViewHeightLayout" destination="ACb-fT-cyq" id="El0-Z7-dUI"/>
                 <outlet property="drawerView" destination="Eoy-3D-8zG" id="6xI-RR-Gyg"/>

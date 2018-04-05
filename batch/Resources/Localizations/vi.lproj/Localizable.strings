@@ -6,6 +6,8 @@
 "Open Settings" = "Mở cài đặt";
 /*Translated from: OK*/
 "OK" = "được";
+/*Translated from: Done*/
+"Done" = "Làm xong";
 /*Translated from: Confirm*/
 "Confirm" = "Xác nhận";
 /*Translated from: Cancel*/
@@ -54,10 +56,14 @@
 "%d Photo" = "%@ Ảnh";
 /*Translated from: %@ Video*/
 "%d Video" = "%@ Video";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Mục";
 /*Translated from: %@ Photos*/
 "%d Photos" = "%@ Hình ảnh";
 /*Translated from: %@ Videos*/
 "%d Videos" = "%@ Video";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Mục";
 /*Translated from: Edit %@ Photo*/
 "Edit %d Photo" = "Chỉnh sửa %@ Ảnh";
 /*Translated from: Edit %@ Video*/

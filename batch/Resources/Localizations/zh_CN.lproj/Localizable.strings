@@ -6,6 +6,8 @@
 "Open Settings" = "打开设置";
 /*Translated from: OK*/
 "OK" = "好";
+/*Translated from: Done*/
+"Done" = "完成";
 /*Translated from: Confirm*/
 "Confirm" = "确认";
 /*Translated from: Cancel*/
@@ -54,10 +56,14 @@
 "%d Photo" = "%@照片";
 /*Translated from: %@ Video*/
 "%d Video" = "%@ Video";
+/*Translated from: %@ Item*/
+"%d Item" = "%@物品";
 /*Translated from: %@ Photos*/
 "%d Photos" = "%@照片";
 /*Translated from: %@ Videos*/
 "%d Videos" = "%@影片";
+/*Translated from: %@ Items*/
+"%d Items" = "%@项目";
 /*Translated from: Edit %@ Photo*/
 "Edit %d Photo" = "编辑%@照片";
 /*Translated from: Edit %@ Video*/

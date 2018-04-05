@@ -6,6 +6,8 @@
 "Open Settings" = "Deschide setările";
 /*Translated from: OK*/
 "OK" = "O.K";
+/*Translated from: Done*/
+"Done" = "Terminat";
 /*Translated from: Confirm*/
 "Confirm" = "A confirma";
 /*Translated from: Cancel*/
@@ -54,10 +56,14 @@
 "%d Photo" = "%@ Fotografie";
 /*Translated from: %@ Video*/
 "%d Video" = "%@ Video";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Articol";
 /*Translated from: %@ Photos*/
 "%d Photos" = "%@ Fotografii";
 /*Translated from: %@ Videos*/
 "%d Videos" = "%@ Videoclipuri";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Elemente";
 /*Translated from: Edit %@ Photo*/
 "Edit %d Photo" = "Editați %@ Foto";
 /*Translated from: Edit %@ Video*/

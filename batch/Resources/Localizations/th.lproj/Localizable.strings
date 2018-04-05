@@ -6,6 +6,8 @@
 "Open Settings" = "เปิดการตั้งค่า";
 /*Translated from: OK*/
 "OK" = "ตกลง";
+/*Translated from: Done*/
+"Done" = "เสร็จสิ้น";
 /*Translated from: Confirm*/
 "Confirm" = "ยืนยัน";
 /*Translated from: Cancel*/
@@ -54,10 +56,14 @@
 "%d Photo" = "%@ รูปภาพ";
 /*Translated from: %@ Video*/
 "%d Video" = "%@ วิดีโอ";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ รายการ";
 /*Translated from: %@ Photos*/
 "%d Photos" = "%@ รูปภาพ";
 /*Translated from: %@ Videos*/
 "%d Videos" = "%@ วิดีโอ";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ รายการ";
 /*Translated from: Edit %@ Photo*/
 "Edit %d Photo" = "แก้ไข %@ รูปภาพ";
 /*Translated from: Edit %@ Video*/

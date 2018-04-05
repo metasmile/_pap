@@ -6,6 +6,8 @@
 "Open Settings" = "Nyisd meg a beállításokat";
 /*Translated from: OK*/
 "OK" = "OK";
+/*Translated from: Done*/
+"Done" = "Kész";
 /*Translated from: Confirm*/
 "Confirm" = "megerősít";
 /*Translated from: Cancel*/
@@ -54,10 +56,14 @@
 "%d Photo" = "%@ Fotó";
 /*Translated from: %@ Video*/
 "%d Video" = "%@ Videó";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Tétel";
 /*Translated from: %@ Photos*/
 "%d Photos" = "%@ Fotók";
 /*Translated from: %@ Videos*/
 "%d Videos" = "%@ Videók";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Elemek";
 /*Translated from: Edit %@ Photo*/
 "Edit %d Photo" = "Szerkesztés: %@ Fotó";
 /*Translated from: Edit %@ Video*/

@@ -6,6 +6,8 @@
 "Open Settings" = "Configuración abierta";
 /*Translated from: OK*/
 "OK" = "DE ACUERDO";
+/*Translated from: Done*/
+"Done" = "Hecho";
 /*Translated from: Confirm*/
 "Confirm" = "Confirmar";
 /*Translated from: Cancel*/
@@ -54,10 +56,14 @@
 "%d Photo" = "%@ Foto";
 /*Translated from: %@ Video*/
 "%d Video" = "%@ Video";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Artículo";
 /*Translated from: %@ Photos*/
 "%d Photos" = "%@ Fotos";
 /*Translated from: %@ Videos*/
 "%d Videos" = "%@ Videos";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Artículos";
 /*Translated from: Edit %@ Photo*/
 "Edit %d Photo" = "Editar %@ foto";
 /*Translated from: Edit %@ Video*/

@@ -16,10 +16,16 @@ extension Timer{
     @discardableResult
     open class func scheduledTimer(identifier:String, withTimeInterval interval: TimeInterval, repeats: Bool, block: @escaping (Timer) -> Swift.Void) -> Timer{
         let t = Timer.scheduledTimer(withTimeInterval: interval, repeats: repeats, block: block)
-        if let timer = Timers.timers[identifier]{
-            timer.invalidate()
-        }
+
+        getScheduledTimer(identifier:identifier)?.invalidate()
+
         Timers.timers[identifier] = t
         return t
+    }
+
+    @available(iOS 10.0, *)
+    @discardableResult
+    open class func getScheduledTimer(identifier:String) -> Timer?{
+        return Timers.timers[identifier]
     }
 }
