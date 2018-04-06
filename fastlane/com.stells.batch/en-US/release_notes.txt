@@ -1,1 +1,2 @@
-• Several crashes and layout bug fixes.
+• Several improvements and layout modifications.
+• Almost ready to unveil the real Batch Photos. Please expect to see a totally new app.
