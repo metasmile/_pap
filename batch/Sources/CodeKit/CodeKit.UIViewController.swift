@@ -13,7 +13,7 @@ extension UIViewController{
         }
         set(title){
             if let title = title{
-                self.navigationController?.navigationBar.fade(0.08, forKey:title)
+                self.navigationController?.navigationBar.animateAsFade(0.08, forKey:title)
             }
             self.title = title
         }

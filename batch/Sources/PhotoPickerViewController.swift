@@ -203,6 +203,7 @@ class PhotoPickerViewController: AppDockViewController {
         updateDoneButtonState()
     }
 
+    //TODO: mod for all media types - numberOfPhotos + numberOfVideos
     private func updateSelectedItemsTitle() {
         let selectedAssets = self.selectedAssetsInCollectionView
         let numberOfVideos = selectedAssets?.filter({ $0.mediaType == .video }).count ?? 0
@@ -240,20 +241,15 @@ class PhotoPickerViewController: AppDockViewController {
             
             appDockView?.accessory = nil
         }
-        else {
+        else if numberOfItems == 1 {
 
-            let hasEmptyNavigationItems = navigationItem.leftBarButtonItem == nil && navigationItem.rightBarButtonItem == nil
-            UIView.performWithAnimationBarrier({
-                self.navigationItem.setLeftBarButton(self.cancelButton, animated: false)
-                self.navigationItem.setRightBarButton(self.doneButton, animated: false)
-            }, finished: { _ in
-                if hasEmptyNavigationItems{
-                    self.navigationController?.navigationBar.fade(0.1)
-                }
-            })
+            self.navigationItem.setLeftBarButton(self.cancelButton, animated: true)
+            self.navigationItem.setRightBarButton(self.doneButton, animated: true)
 
-            appDockView?.accessory = batchPreviewView
-        }
+            UIView.performWithoutAnimation {
+                appDockView?.accessory = batchPreviewView
+            }
+         }
     }
 
     private func updateDoneButtonState() {
@@ -427,10 +423,10 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
             }
 
             let navigationController = AppDockNavigationController(rootViewController: photoEditViewController)
-            navigationController.hero.isEnabled = true
-            navigationController.hero.modalAnimationType = .fade
-            navigationController.hero.navigationAnimationType = .fade
-            present(navigationController,animated: true) {
+//            navigationController.hero.isEnabled = true
+//            navigationController.hero.modalAnimationType = .fade
+//            navigationController.hero.navigationAnimationType = .fade
+            present(navigationController,animated: false) {
 
                 AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues( AppConfigUIAttrribute(tintColor: .white))
             }

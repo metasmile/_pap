@@ -20,10 +20,20 @@ extension UIView{
         }
     }
 
-    public func fade(_ duration:CFTimeInterval, forKey:String="\(#file)\(#function)\(#line)"){
+    public func animateAsFade(_ duration:CFTimeInterval, forKey:String="\(#file)\(#function)\(#line)"){
         let fadeTextAnimation = CATransition()
         fadeTextAnimation.duration = duration
         fadeTextAnimation.type = kCATransitionFade
         self.layer.add(fadeTextAnimation, forKey: forKey)
+    }
+
+    public static func animateAsSpring(_ duration: TimeInterval, delay: TimeInterval, animations: @escaping () -> Void, completion: ((Bool) -> Void)?) {
+        UIView.animate(withDuration: duration, delay: delay, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: .beginFromCurrentState, animations: animations, completion: completion)
+    }
+
+    public func animateAsSpringSuperviewLayoutIfNeeded() {
+        UIView.animateAsSpring(0.45, delay: 0.0, animations: { [unowned self] in
+            self.superview?.layoutIfNeeded()
+        }, completion: nil)
     }
 }

@@ -80,15 +80,3 @@ class FloatingContentView: CustomView {
         super.initialize()
     }
 }
-
-extension UIView {
-    static func animateUsingSpring(duration: TimeInterval, delay: TimeInterval, animations: @escaping () -> Void, completion: ((Bool) -> Void)?) {
-        UIView.animate(withDuration: duration, delay: delay, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: .beginFromCurrentState, animations: animations, completion: completion)
-    }
-    
-    func animateUsingSpringIfLayoutConstraintsChanged() {
-        UIView.animateUsingSpring(duration: 0.45, delay: 0.0, animations: { [unowned self] in
-            self.superview?.layoutIfNeeded()
-            }, completion: nil)
-    }
-}

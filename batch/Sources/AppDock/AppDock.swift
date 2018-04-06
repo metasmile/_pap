@@ -164,7 +164,7 @@ class AppDockView: CustomView {
         layoutAppContentViews()
 
         if animated {
-            animateUsingSpringIfLayoutConstraintsChanged()
+            animateAsSpringSuperviewLayoutIfNeeded()
         }
     }
 
@@ -174,7 +174,7 @@ class AppDockView: CustomView {
         layoutAppContentViews()
 
         if animated {
-            animateUsingSpringIfLayoutConstraintsChanged()
+            animateAsSpringSuperviewLayoutIfNeeded()
         }
     }
 
@@ -205,7 +205,7 @@ class AppDockView: CustomView {
         layoutAppContentViews()
         
         if animated {
-            animateUsingSpringIfLayoutConstraintsChanged()
+            animateAsSpringSuperviewLayoutIfNeeded()
         }
     }
     
@@ -215,7 +215,7 @@ class AppDockView: CustomView {
         layoutAppContentViews()
         
         if animated {
-            animateUsingSpringIfLayoutConstraintsChanged()
+            animateAsSpringSuperviewLayoutIfNeeded()
         }
     }
 }
@@ -420,7 +420,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
             
             invalidateIntrinsicContentSize()
             
-            animateUsingSpringIfLayoutConstraintsChanged()
+            animateAsSpringSuperviewLayoutIfNeeded()
         }
     }
 
@@ -434,7 +434,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
 
         invalidateIntrinsicContentSize()
         
-        animateUsingSpringIfLayoutConstraintsChanged()
+        animateAsSpringSuperviewLayoutIfNeeded()
         
         appContentView.layoutIfNeeded()
         
@@ -462,8 +462,9 @@ extension AppDockView: UIGestureRecognizerDelegate {
         appContentViewHeightLayout.constant = preferredControllerViewHeight + preferredAccessoryViewHeight
         
         invalidateIntrinsicContentSize()
-        
-        animateUsingSpringIfLayoutConstraintsChanged()
+
+        print(self.hasContent)
+        animateAsSpringSuperviewLayoutIfNeeded()
         
         appContentView.layoutIfNeeded()
 

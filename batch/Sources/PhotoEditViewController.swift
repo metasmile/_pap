@@ -220,7 +220,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     }
     
     func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
-        UIView.animateUsingSpring(duration: 0.5, delay: 0, animations: {
+        UIView.animateAsSpring(0.5, delay: 0, animations: {
             scrollView.zoomScale = 1
         }, completion: nil)
     }
