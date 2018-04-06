@@ -76,8 +76,10 @@
 "Edit %d Videos" = "%@ वीडियो संपादित करें";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "%@ आइटम संपादित करें";
+/*com.stells.batch.transform*/
+"Transform" = "Transform";
 /*com.stells.batch.photosfilter*/
-"Apply" = "लागू करें";
+"Apply" = "Apply";
 /*com.stells.batch.revert*/
 "Revert" = "लौट आना";
 /*Translated from: Starting to revert...*/

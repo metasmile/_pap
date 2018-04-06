@@ -76,6 +76,8 @@
 "Edit %d Videos" = "แก้ไข %@ วิดีโอ";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "แก้ไข %@ รายการ";
+/*com.stells.batch.transform*/
+"Transform" = "Transform";
 /*com.stells.batch.photosfilter*/
 "Apply" = "Apply";
 /*com.stells.batch.revert*/

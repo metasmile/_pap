@@ -76,6 +76,8 @@
 "Edit %d Videos" = "Rediger %@ videoer";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "Rediger %@ elementer";
+/*com.stells.batch.transform*/
+"Transform" = "Forvandle";
 /*com.stells.batch.photosfilter*/
 "Apply" = "Søke om";
 /*com.stells.batch.revert*/

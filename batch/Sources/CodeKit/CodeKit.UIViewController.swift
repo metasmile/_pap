@@ -12,10 +12,9 @@ extension UIViewController{
             return title
         }
         set(title){
-            let fadeTextAnimation = CATransition()
-            fadeTextAnimation.duration = 0.08
-            fadeTextAnimation.type = kCATransitionFade
-            self.navigationController?.navigationBar.layer.add(fadeTextAnimation, forKey: "fadeText")
+            if let title = title{
+                self.navigationController?.navigationBar.fade(0.08, forKey:title)
+            }
             self.title = title
         }
     }

@@ -76,8 +76,10 @@
 "Edit %d Videos" = "ערוך %@ סרטונים";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "ערוך %@ פריטים";
+/*com.stells.batch.transform*/
+"Transform" = "Transform";
 /*com.stells.batch.photosfilter*/
-"Apply" = "להגיש מועמדות";
+"Apply" = "Apply";
 /*com.stells.batch.revert*/
 "Revert" = "Revert";
 /*Translated from: Starting to revert...*/

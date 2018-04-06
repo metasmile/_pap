@@ -76,6 +76,8 @@
 "Edit %d Videos" = "Edit %@ Video";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "Edit %@ Item";
+/*com.stells.batch.transform*/
+"Transform" = "Transform";
 /*com.stells.batch.photosfilter*/
 "Apply" = "Menerapkan";
 /*com.stells.batch.revert*/

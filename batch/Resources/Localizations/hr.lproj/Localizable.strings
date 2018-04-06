@@ -76,8 +76,10 @@
 "Edit %d Videos" = "Uredi %@ Videozapise";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "Uredi %@ stavke";
+/*com.stells.batch.transform*/
+"Transform" = "Transformirati";
 /*com.stells.batch.photosfilter*/
-"Apply" = "primijeniti";
+"Apply" = "Apply";
 /*com.stells.batch.revert*/
 "Revert" = "vratiti se";
 /*Translated from: Starting to revert...*/

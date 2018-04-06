@@ -51,7 +51,7 @@ public class TransformApp: NSObject, KeyPathWatchable
             , version: "1.0"
             , phase: .release
             , appType: TransformApp.self
-            , displayName: "Transform"
+            , displayName: "Transform".localized
             , icon: R.image.transformAppIcon.name
             , policy: AppPolicy.default
             , minOSVersion: nil

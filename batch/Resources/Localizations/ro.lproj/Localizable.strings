@@ -76,8 +76,10 @@
 "Edit %d Videos" = "Editați %@ Videoclipuri";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "Editați %@ Elemente";
+/*com.stells.batch.transform*/
+"Transform" = "Transforma";
 /*com.stells.batch.photosfilter*/
-"Apply" = "aplica";
+"Apply" = "Apply";
 /*com.stells.batch.revert*/
 "Revert" = "Reveni";
 /*Translated from: Starting to revert...*/

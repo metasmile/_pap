@@ -76,6 +76,8 @@
 "Edit %d Videos" = "Muokkaa %@ Videot";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "Muokkaa %@ kohteita";
+/*com.stells.batch.transform*/
+"Transform" = "Transform";
 /*com.stells.batch.photosfilter*/
 "Apply" = "Apply";
 /*com.stells.batch.revert*/

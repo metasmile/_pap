@@ -76,8 +76,10 @@
 "Edit %d Videos" = "%@ 동영상 수정";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "%@ 항목 편집";
+/*com.stells.batch.transform*/
+"Transform" = "Transform";
 /*com.stells.batch.photosfilter*/
-"Apply" = "적용";
+"Apply" = "Apply";
 /*com.stells.batch.revert*/
 "Revert" = "복원";
 /*Translated from: Starting to revert...*/

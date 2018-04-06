@@ -76,8 +76,10 @@
 "Edit %d Videos" = "Chỉnh sửa %@ Video";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "Chỉnh sửa %@ Mục";
+/*com.stells.batch.transform*/
+"Transform" = "Transform";
 /*com.stells.batch.photosfilter*/
-"Apply" = "Ứng dụng";
+"Apply" = "Apply";
 /*com.stells.batch.revert*/
 "Revert" = "Hoàn nguyên";
 /*Translated from: Starting to revert...*/

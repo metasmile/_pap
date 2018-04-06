@@ -233,7 +233,7 @@ class PhotoPickerViewController: AppDockViewController {
         let numberOfVideos = selectedAssets?.filter({ $0.mediaType == .video }).count ?? 0
         let numberOfPhotos = selectedAssets?.filter({ $0.mediaType == .image }).count ?? 0
         let numberOfItems = numberOfPhotos + numberOfVideos
-        
+
         if numberOfItems == 0 {
             navigationItem.setLeftBarButton(nil, animated: true)
             navigationItem.setRightBarButton(nil, animated: true)
@@ -242,8 +242,15 @@ class PhotoPickerViewController: AppDockViewController {
         }
         else {
 
-            navigationItem.setLeftBarButton(cancelButton, animated: true)
-            navigationItem.setRightBarButton(doneButton, animated: true)
+            let hasEmptyNavigationItems = navigationItem.leftBarButtonItem == nil && navigationItem.rightBarButtonItem == nil
+            UIView.performWithAnimationBarrier({
+                self.navigationItem.setLeftBarButton(self.cancelButton, animated: false)
+                self.navigationItem.setRightBarButton(self.doneButton, animated: false)
+            }, finished: { _ in
+                if hasEmptyNavigationItems{
+                    self.navigationController?.navigationBar.fade(0.1)
+                }
+            })
 
             appDockView?.accessory = batchPreviewView
         }

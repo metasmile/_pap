@@ -76,8 +76,10 @@
 "Edit %d Videos" = "%@ Videók szerkesztése";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "%@ Elemek szerkesztése";
+/*com.stells.batch.transform*/
+"Transform" = "Transform";
 /*com.stells.batch.photosfilter*/
-"Apply" = "Alkalmaz";
+"Apply" = "Apply";
 /*com.stells.batch.revert*/
 "Revert" = "Visszaszáll";
 /*Translated from: Starting to revert...*/

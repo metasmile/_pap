@@ -76,8 +76,10 @@
 "Edit %d Videos" = "%@動画を編集";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "%@アイテムを編集する";
+/*com.stells.batch.transform*/
+"Transform" = "Transform";
 /*com.stells.batch.photosfilter*/
-"Apply" = "適用";
+"Apply" = "Apply";
 /*com.stells.batch.revert*/
 "Revert" = "元に戻す";
 /*Translated from: Starting to revert...*/
