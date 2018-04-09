@@ -274,8 +274,7 @@ extension AppDockView {
         dockViewHeightLayout.constant = preferredDockViewHeight
 
         let isDockViewAppearing = preferredDockViewHeight != 0
-        dockView.clipsToBounds = !isDockViewAppearing
-        dockView.shouldEventLocationDependsOnLastSubview = isDockViewAppearing
+        dockView.isHidden = !isDockViewAppearing
         
         dockView.layoutIfNeeded()
         invalidateIntrinsicContentSize()
@@ -595,7 +594,7 @@ internal class AppDockViewCell: CustomCollectionViewCell {
     @IBOutlet weak private var selectedStateView: RoundedView!
     
     @IBOutlet weak private var appContentView: UIView!
-    @IBOutlet weak private var appIconView: RoundedButton!
+    @IBOutlet weak private var appIconView: RoundedView!
     @IBOutlet weak private var appIconImageView: UIImageView!
     
     @IBOutlet weak var appInfoView: UIView!
@@ -692,20 +691,14 @@ class AppStatusIconView: DesignableView {
 // MARK: -
 
 internal class DockView: UIView {
-    var shouldEventLocationDependsOnLastSubview:Bool = false
-
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        if shouldEventLocationDependsOnLastSubview{
-            return subviews.last?.hitTest(convert(point, to: subviews.last), with: event)
+        let convertedPoint = subviews.last?.convert(point, from: self) ?? point
+        if self.point(inside: convertedPoint, with: event) {
+            return subviews.last?.hitTest(convertedPoint, with:event)
         }
-        return super.hitTest(point, with: event)
-    }
-    
-    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-        if shouldEventLocationDependsOnLastSubview{
-            return subviews.last?.frame.contains(convert(point, to: subviews.last)) ?? false
+        else {
+            return super.hitTest(point, with: event)
         }
-        return super.point(inside:point, with: event)
     }
 }
 

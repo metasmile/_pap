@@ -47,30 +47,19 @@ class RoundedView: DesignableView {
     @IBInspectable
     var cornerRadius: CGFloat = 6 {
         didSet {
-            setNeedsLayout()
-            layoutIfNeeded()
+            layer.masksToBounds = true
+            layer.cornerRadius = cornerRadius
         }
     }
     
     override func initialize() {
         super.initialize()
-        
-        layoutIfNeeded()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        let maskLayer = CAShapeLayer()
-        maskLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).cgPath
-        maskLayer.fillColor = UIColor.black.cgColor
-        layer.mask = maskLayer
     }
 }
 
 class CustomView: DesignableView {
-    var containerView: UIView?
-    var contentView: UIView?
+    weak var containerView: UIView?
+    weak var contentView: UIView?
     
     var nibName: String {
         return "\(type(of: self))"
@@ -97,7 +86,7 @@ class CustomView: DesignableView {
 
 @IBDesignable
 class CustomCollectionViewCell: UICollectionViewCell {
-    var containerView: UIView?
+    weak var containerView: UIView?
     
     var nibName: String {
         return "\(type(of: self))"
@@ -148,7 +137,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
 
 @IBDesignable
 class CustomCollectionReusableView: UICollectionReusableView {
-    var containerView: UIView?
+    weak var containerView: UIView?
     
     var nibName: String {
         return "\(type(of: self))"
