@@ -59,8 +59,7 @@ public final class AppAssets: NSObject {
 
     @discardableResult
     func put(with asset: PHAsset) -> IndexPath? {
-
-        guard let item = create(for:asset) else{
+        guard let item = AppAsset.create(for:asset) else{
             return nil
         }
 
@@ -81,19 +80,6 @@ public final class AppAssets: NSObject {
         item.indexPath = insertedIndexPath
 
         return insertedIndexPath
-    }
-
-    func create(for asset: PHAsset) -> AppAsset? {
-        guard let app = AppCenter.default.current else { return nil }
-
-        if let itemType = app.paramType as? PHAssetParamable.Type
-        , let item = itemType.init(asset) as? AppAsset {
-            return item
-
-        } else{
-            assert(false, "[!] Unable to create, or does not implement yet for param type of \(app.info.appType)")
-            return nil
-        }
     }
 
     func remove(for asset: PHAsset) -> IndexPath? {

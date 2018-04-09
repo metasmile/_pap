@@ -40,6 +40,19 @@ public class PHAssetItem<EditStateValueType:Hashable>: ItemObject, PHAssetParama
         self.init(asset)
         self.indexPath = indexPath
     }
+
+    public class func create(for asset: PHAsset, manager:AppManager=AppCenter.default) -> PHAssetItem<EditStateValueType>? {
+        guard let app = manager.current else { return nil }
+
+        if let itemType = app.paramType as? PHAssetParamable.Type
+        , let item = itemType.init(asset) as? PHAssetItem<EditStateValueType> {
+            return item
+
+        } else{
+            assert(false, "[!] Unable to create, or does not implement yet for param type of \(app.info.appType)")
+            return nil
+        }
+    }
 }
 
 public class PHAssetRequestID {

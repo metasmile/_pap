@@ -67,11 +67,9 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         guard !AppCenter.default.isAppRunning else { return false }
 
-        let selectedAssets = AppAssets.selected
-
         if let collectableApp = collectionViewDisplayableApp
             , let asset = PHAssets.fetched.asset(at: indexPath)
-            , let item = selectedAssets.at(unsafeIndex:indexPath.item) ?? selectedAssets.create(for:asset) {
+            , let item = AppAssets.selected.at(unsafeIndex:indexPath.item) ?? AppAsset.create(for:asset) {
 
             if collectableApp.isItemEnables(for: item) == false{
                 return false

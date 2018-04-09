@@ -15,14 +15,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
             guard let selectedAsset = PHAssets.fetched.asset(at: indexPath) else { return nil }
             guard let cell = photoCollectionView.cellForItem(at: indexPath) else { return nil }
 
-            if !self.selectCollectionViewItem(by: selectedAsset) {
-                return nil
-            }
-
-            assert(selectedAssetsInCollectionView?.contains(selectedAsset) == true, "selectedAsset does not contain in selectedAssetsInCollectionView")
-
-            guard let item = AppAssets.selected.by(selectedAsset) else {
-                assert(false, "selectedAsset does not contain in AppAssets.selected")
+            guard let item = AppAsset.create(for:selectedAsset) else {
                 return nil
             }
 
@@ -32,6 +25,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
 
             previewingContext.sourceRect = cell.frame
             return vc
+
         }
         else if previewingContext.sourceView == batchPreviewView {
             guard let indexPath = batchPreviewView.collectionView.indexPathForItem(at: batchPreviewView.convert(location, to: batchPreviewView.collectionView)) else { return nil }
@@ -53,9 +47,8 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
             previewingContext.sourceRect = batchPreviewView.collectionView.convert(cell.frame, to: batchPreviewView)
             return vc
         }
-        else {
-            return nil
-        }
+
+        return nil
     }
 
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
@@ -65,6 +58,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
         }
 
         if selectCollectionViewItem(by:item.asset){
+            assert(AppAssets.selected.by(item.asset) != nil, "selectedAsset does not contain in AppAssets.selected")
             showPhotoEditor(with: item)
         }
     }
@@ -77,6 +71,10 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
 
         let editAction = UIPreviewAction(title: "Edit this \(typeWord)".localized, style: .default) { (action, controller) in
             if self.selectCollectionViewItem(by: item.asset){
+
+                assert(self.selectedAssetsInCollectionView?.contains(item.asset) == true, "selectedAsset does not contain in selectedAssetsInCollectionView")
+                assert(AppAssets.selected.by(item.asset) != nil, "selectedAsset does not contain in AppAssets.selected")
+
                 self.showPhotoEditor(with: item)
             }
         }
