@@ -396,16 +396,15 @@ class PhotoPickerViewController: AppDockViewController {
 
 extension PhotoPickerViewController: EditViewControllerDelegate {
     func showPhotoEditor(with editItem: PHAssetItem<AppValue>?) {
-        guard let _editItem = editItem else { return }
+        guard let editItem = editItem else { return }
 
         if let photoEditViewController = R.storyboard.appStoryboard.photoEditViewController(){
-            photoEditViewController.asset = _editItem.asset
-            photoEditViewController.preferredEditState = _editItem.editState
+            photoEditViewController.preferredEditState = editItem.editState
+            //TODO: photoEditViewController.editItem transform is not applied + integrate
+            photoEditViewController.asset = editItem.asset
             photoEditViewController.delegate = self
-
-            if let item = AppAssets.selected.index(of:_editItem) {
-                photoEditViewController.indexPathInBatch = IndexPath(item: item, section: 0)
-            }
+            photoEditViewController.indexPathInPicker = PHAssets.fetched.indexPath(of:editItem.asset)
+            photoEditViewController.selectedInPicker = AppAssets.selected.by(editItem.asset) != nil
 
             let navigationController = AppDockNavigationController(rootViewController: photoEditViewController)
 //            navigationController.hero.isEnabled = true
@@ -419,8 +418,17 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
     }
 
     func editViewController(_ photoEditor: PhotoEditViewController, didFinishWith editItem: StateValueSet<AppValue>?, at indexPath: IndexPath?) {
-        if let _editItem = editItem, let _indexPath = indexPath, _editItem.hasChanges {
-            AppAssets.selected.at(_indexPath.item).editState.concat(with: _editItem)
+        assert(photoEditor.asset != nil, "photoEditor.asset!=nil")
+
+        if let indexPath = indexPath, let asset = photoEditor.asset {
+
+            if let editItem = editItem, editItem.hasChanges {
+                if AppAssets.selected.by(asset) == nil{
+                    self.selectCollectionViewItem(at: indexPath, animated: false)
+                }
+                assert(AppAssets.selected.by(photoEditor.asset!) != nil, "AppAssets.selected.by(photoEditor.asset!) != nil")
+                AppAssets.selected.by(asset)?.editState.concat(with: editItem)
+            }
         }
 
         AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues( AppConfigUIAttrribute(tintColor: .black))

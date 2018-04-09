@@ -8,13 +8,14 @@ import Photos
 
 public typealias AppAsset = PHAssetItem<AppValue>
 
+//TODO: internal / locally collect
 public final class AppAssets: NSObject {
     public static let selected = AppAssets()
 
     private var _items = [AppAsset]()
     private var _itemsAssets = [PHAsset]()
 
-    private let currentSection:Int = 0
+    public let currentSection:Int = 0
 
     private override init(){}
 

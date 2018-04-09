@@ -37,8 +37,9 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     }
     fileprivate var editItem = StateValueSet<AppValue>()
     var placeholderView: UIView?
-    var indexPathInBatch: IndexPath?
-    
+
+    var indexPathInPicker: IndexPath?
+    var selectedInPicker: Bool = false
     var asset: PHAsset?
     var preferredEditState = StateValueSet<AppValue>()
     
@@ -199,7 +200,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         editItem.reset()
         
         updatePreview { [unowned self] in
-            self.delegate?.editViewController(self, didFinishWith: nil, at: self.indexPathInBatch)
+            self.delegate?.editViewController(self, didFinishWith: nil, at: self.indexPathInPicker)
         }
     }
     
@@ -210,7 +211,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         assetView.transform = editItem.transform
         placeholderView?.transform = editItem.transform
 
-        delegate?.editViewController(self, didFinishWith: self.editItem, at: self.indexPathInBatch)
+        delegate?.editViewController(self, didFinishWith: self.editItem, at: self.indexPathInPicker)
     }
     
     // MARK: - UIScrollViewDelegate

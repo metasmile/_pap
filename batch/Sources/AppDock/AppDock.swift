@@ -274,8 +274,8 @@ extension AppDockView {
         dockViewHeightLayout.constant = preferredDockViewHeight
 
         let isDockViewAppearing = preferredDockViewHeight != 0
-        dockView.clipsToBounds = !isDockViewApearing
-        dockView.shouldEventLocationDependsOnLastSubview = isDockViewApearing
+        dockView.clipsToBounds = !isDockViewAppearing
+        dockView.shouldEventLocationDependsOnLastSubview = isDockViewAppearing
         
         dockView.layoutIfNeeded()
         invalidateIntrinsicContentSize()
