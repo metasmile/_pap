@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppDockView" customModule="batch" customModuleProvider="target">
             <connections>
                 <outlet property="appCollectionView" destination="3j3-5w-cI5" id="oRA-Lr-NQ2"/>
+                <outlet property="appCollectionViewHeightLayout" destination="4oi-mU-Bw3" id="v1o-YW-dZu"/>
                 <outlet property="appContentView" destination="rzS-9k-7Sx" id="omg-6O-cLK"/>
                 <outlet property="appContentViewHeightLayout" destination="9KR-4K-J6j" id="9Bo-5S-ImK"/>
                 <outlet property="bottomAccessoryView" destination="8u0-vY-4kx" id="HQE-Yx-Vg6"/>
@@ -36,7 +37,7 @@
                     </constraints>
                 </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzS-9k-7Sx">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                    <rect key="frame" x="0.0" y="16" width="375" height="0.0"/>
                     <subviews>
                         <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmY-6N-1EF">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
@@ -63,17 +64,15 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ccg-Ud-fcA" customClass="DockView" customModule="batch" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                    <rect key="frame" x="0.0" y="16" width="375" height="44"/>
                     <subviews>
-                        <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="3j3-5w-cI5">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="i1i-Zp-jUv">
-                                <size key="itemSize" width="50" height="50"/>
-                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </collectionViewFlowLayout>
+                        <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="3j3-5w-cI5" customClass="DockCollectionView" customModule="batch" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <color key="backgroundColor" red="0.96470588235294119" green="0.96078431372549022" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="4oi-mU-Bw3"/>
+                            </constraints>
+                            <collectionViewLayout key="collectionViewLayout" id="xex-FQ-Nk7" customClass="AppCollectionViewLayout" customModule="batch" customModuleProvider="target"/>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="n38-MD-6pi"/>
                                 <outlet property="delegate" destination="-1" id="3a8-Tt-886"/>
@@ -83,10 +82,8 @@
                     <color key="backgroundColor" red="0.96470588239999999" green="0.96078431369999995" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="3j3-5w-cI5" firstAttribute="leading" secondItem="Ccg-Ud-fcA" secondAttribute="leading" id="2QQ-Em-ggH"/>
-                        <constraint firstAttribute="height" constant="60" id="ACb-fT-cyq"/>
-                        <constraint firstItem="3j3-5w-cI5" firstAttribute="centerY" secondItem="Ccg-Ud-fcA" secondAttribute="centerY" id="Igd-fv-mF0"/>
-                        <constraint firstAttribute="bottom" secondItem="3j3-5w-cI5" secondAttribute="bottom" priority="750" id="fVt-tu-qzS"/>
-                        <constraint firstItem="3j3-5w-cI5" firstAttribute="top" secondItem="Ccg-Ud-fcA" secondAttribute="top" priority="750" id="h0d-3M-TGP"/>
+                        <constraint firstAttribute="height" constant="44" id="ACb-fT-cyq"/>
+                        <constraint firstAttribute="bottom" secondItem="3j3-5w-cI5" secondAttribute="bottom" id="fVt-tu-qzS"/>
                         <constraint firstAttribute="trailing" secondItem="3j3-5w-cI5" secondAttribute="trailing" id="kaJ-xo-Do5"/>
                     </constraints>
                 </view>

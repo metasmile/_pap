@@ -113,8 +113,8 @@ class PhotoPickerViewController: AppDockViewController {
         super.viewDidAppear(animated)
 
         AppCenter.default.watch(\.currentIdentifier, options:[.new, .old, .initial]) { (appCenter, dict) in
-            let old = dict.oldValue
-            let new = dict.newValue
+            let old = dict.oldValue ?? nil
+            let new = dict.newValue ?? nil
 
             if old != nil && new != nil && old != new {
                 AppAssets.selected.reloadAll()

@@ -54,7 +54,8 @@ class AppDockView: CustomView {
     @IBOutlet weak private var controllerViewHeightLayout: NSLayoutConstraint!
     @IBOutlet weak private var dockView: DockView!
     @IBOutlet weak private var dockViewHeightLayout: NSLayoutConstraint!
-    @IBOutlet weak private var appCollectionView: UICollectionView!
+    @IBOutlet weak private var appCollectionView: DockCollectionView!
+    @IBOutlet weak private var appCollectionViewHeightLayout: NSLayoutConstraint!
     @IBOutlet weak private var bottomAccessoryView: UIView!
     
     var delegate: AppDockViewDelegate?
@@ -88,9 +89,9 @@ class AppDockView: CustomView {
         setContentHuggingPriority(.defaultLow, for: .vertical)
         setContentCompressionResistancePriority(.required, for: .vertical)
 
-        appCollectionView.contentInset.top = 3
-        appCollectionView.contentInset.bottom = 3
-        appCollectionView.register(AppDockViewCell.self, forCellWithReuseIdentifier: "STAppDockViewCell")
+        appCollectionView.contentInset.top = 0
+        appCollectionView.contentInset.bottom = 0
+        appCollectionView.register(AppDockViewCell.self, forCellWithReuseIdentifier: "AppDockViewCell")
 
         drawerView.topMargin = DefaultPreferences.DrawerView.topMargin
 
@@ -307,23 +308,17 @@ extension AppDockView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "STAppDockViewCell", for: indexPath) as! AppDockViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AppDockViewCell", for: indexPath) as! AppDockViewCell
         let app = items[indexPath.item].app
-        let iconImage = app.info.icon?.asUIImage ?? R.image.blankAppIcon()
-
-        let status = AppCenter.default.persistedStatus(for: app)
-//        .unsupported --> app is not supported PersistableApp, or app.phase == develop/beta mode
-//        .released
-//        .updated
-//        .used
-
-        cell.iconImage = iconImage
+        cell.setApp(app, at: indexPath)
+        
         switch barStyle {
-            case .black:
-                cell.iconViewTintColor = .white
-            default:
-                cell.iconViewTintColor = .black
+        case .black:
+            cell.iconViewTintColor = .white
+        default:
+            cell.iconViewTintColor = .black
         }
+        
         return cell
     }
 }
@@ -331,33 +326,6 @@ extension AppDockView: UICollectionViewDataSource {
 extension AppDockView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.appDockView(self, didSelectItemWith: items[indexPath.item])
-    }
-}
-
-extension AppDockView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        // 40 x 30 iMessage App Icon Size
-        let contentSize = UIEdgeInsetsInsetRect(collectionView.bounds, collectionView.contentInset).size
-        return CGSize(width: contentSize.height * 1.333, height: contentSize.height)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let itemSize = self.collectionView(collectionView, layout: collectionViewLayout, sizeForItemAt: IndexPath(item: 0, section: section))
-        let numberOfItems = CGFloat(collectionView.numberOfItems(inSection: section))
-
-        let minimumInteritemSpacing = self.collectionView(collectionView, layout: collectionViewLayout, minimumInteritemSpacingForSectionAt:section)
-        let combinedItemWidth = (numberOfItems * itemSize.width) + ((numberOfItems - 1)  * minimumInteritemSpacing)
-
-        let padding = (collectionView.frame.width - combinedItemWidth) / 2
-        return UIEdgeInsets(top: 0, left: padding, bottom: 0, right: padding)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 4
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return self.collectionView(collectionView, layout: collectionViewLayout, minimumLineSpacingForSectionAt:section)
     }
 }
 
@@ -476,7 +444,138 @@ extension AppDockView: UIGestureRecognizerDelegate {
         }
         
         delegate?.appDockView(self, didOpenDrawer: false)
+    }
+}
 
+// MARK: -
+
+extension AppDockView: UIScrollViewDelegate {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        guard (appCollectionView.collectionViewLayout as? AppCollectionViewLayout)?.layoutMetrics == .compact else { return }
+        
+        let promptLayout = AppCollectionViewLayout()
+        promptLayout.layoutMetrics = .prominent
+        
+        appCollectionViewHeightLayout.constant = AppCollectionViewLayout.LayoutConstants.prominentHeight
+        UIView.animateAsSpring(0.5, delay: 0, animations: {
+            scrollView.superview?.layoutIfNeeded()
+        }, completion: nil)
+        
+        appCollectionView.setCollectionViewLayout(promptLayout, animated: true)
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            scrollViewDidEndDecelerating(scrollView)
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        guard (appCollectionView.collectionViewLayout as? AppCollectionViewLayout)?.layoutMetrics == .prominent else { return }
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+            guard !scrollView.isDragging, !scrollView.isDecelerating else { return }
+            
+            let promptLayout = AppCollectionViewLayout()
+            promptLayout.layoutMetrics = .compact
+            
+            self.appCollectionViewHeightLayout.constant = AppCollectionViewLayout.LayoutConstants.compactHeight
+            UIView.animateAsSpring(0.5, delay: 0, animations: {
+                scrollView.superview?.layoutIfNeeded()
+            }, completion: nil)
+            
+            self.appCollectionView.setCollectionViewLayout(promptLayout, animated: true)
+        }
+    }
+}
+
+// MARK: -
+
+class AppCollectionViewLayout: UICollectionViewLayout {
+    enum LayoutMetrics {
+        case compact
+        case prominent
+    }
+    
+    var layoutMetrics: LayoutMetrics = .compact {
+        didSet {
+            invalidateLayout()
+        }
+    }
+    
+    struct LayoutConstants {
+        static let compactHeight: CGFloat = 44
+        static let prominentHeight: CGFloat = 75
+    }
+    
+    private enum LayoutItem: String {
+        case item = "Item"
+        case header = "UICollectionElementKindSectionHeader"
+        case footer = "UICollectionElementKindSectionFooter"
+    }
+    private var cache = [LayoutItem: [IndexPath: UICollectionViewLayoutAttributes]]()
+    private func prepareCache() {
+        cache.removeAll()
+        
+        cache[.item] = [IndexPath: UICollectionViewLayoutAttributes]()
+        cache[.header] = [IndexPath: UICollectionViewLayoutAttributes]()
+        cache[.footer] = [IndexPath: UICollectionViewLayoutAttributes]()
+    }
+    
+    private var numberOfItems: Int {
+        return collectionView?.numberOfItems(inSection: 0) ?? 0
+    }
+    
+    private var collectionViewSize: CGSize {
+        return collectionView?.frame.size ?? .zero
+    }
+    
+    private func itemSize(with layoutMetrics: LayoutMetrics) -> CGSize {
+        let size: CGSize
+        switch layoutMetrics {
+        case .compact:
+            size = CGSize(width: LayoutConstants.compactHeight * 1.333, height: LayoutConstants.compactHeight)
+        case .prominent:
+            size = CGSize(width: LayoutConstants.prominentHeight * 1.333, height: LayoutConstants.prominentHeight)
+        }
+        return size
+    }
+    
+    private var minimumSpacing: CGFloat = 4
+    
+    override func prepare() {
+        super.prepare()
+        
+        prepareCache()
+        
+        let padding = min(0, (collectionViewContentSize.width - collectionViewSize.width) / 2)
+        
+        var itemPosition: CGPoint = CGPoint(x: padding, y: 0)
+        
+        for indexPath in (0 ..< numberOfItems).map({ IndexPath(item: $0, section: 0) }) {
+            let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+            attributes.frame = CGRect(origin: itemPosition, size: itemSize(with: layoutMetrics))
+            itemPosition.x += itemSize(with: layoutMetrics).width + minimumSpacing
+            
+            cache[.item]?[indexPath] = attributes
+        }
+    }
+    
+    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        return cache[.item]?[indexPath]
+    }
+    
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        return cache[.item]?.compactMap({ rect.intersects($0.value.frame) ? $0.value : nil })
+    }
+    
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+        return false
+    }
+    
+    override var collectionViewContentSize: CGSize {
+        let contentsWidth = (CGFloat(numberOfItems) * itemSize(with: layoutMetrics).width) + (CGFloat(numberOfItems - 1)  * minimumSpacing)
+        return CGSize(width: contentsWidth, height: itemSize(with: layoutMetrics).height)
     }
 }
 
@@ -488,6 +587,27 @@ internal class AppDockViewCell: CustomCollectionViewCell {
     @IBOutlet weak private var appContentView: UIView!
     @IBOutlet weak private var appIconView: RoundedButton!
     @IBOutlet weak private var appIconImageView: UIImageView!
+    
+    @IBOutlet weak var appInfoView: UIView!
+    @IBOutlet weak var appInfoViewHeightLayout: NSLayoutConstraint!
+    @IBOutlet weak var appStatusIconView: AppStatusIconView!
+    @IBOutlet weak var appTitleLabel: UILabel!
+    
+    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
+        super.apply(layoutAttributes)
+        
+        if AppCollectionViewLayout.LayoutConstants.compactHeight == layoutAttributes.frame.height {
+            appInfoViewHeightLayout.constant = 0
+        }
+        else {
+            appInfoViewHeightLayout.constant = 20
+        }
+        
+        let margin: CGFloat = 4
+        let contentBounds = UIEdgeInsetsInsetRect(layoutAttributes.frame, UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin))
+        
+        appIconView.cornerRadius = ((contentBounds.height - margin * 2) - appInfoViewHeightLayout.constant) * 0.5
+    }
 
     public var iconImage: UIImage? {
         get {
@@ -519,16 +639,59 @@ internal class AppDockViewCell: CustomCollectionViewCell {
         }
     }
     
+    func setApp(_ app: App.Type, at indexPath: IndexPath) {
+        iconImage = app.info.icon?.asUIImage ?? R.image.blankAppIcon()
+        appTitleLabel.text = app.info.displayName.localized
+        
+        let status = AppCenter.default.persistedStatus(for: app)
+        appStatusIconView.backgroundColor = status.statusColor
+//        .unsupported --> app is not supported PersistableApp, or app.phase == develop/beta mode
+//        .released
+//        .updated
+//        .used
+    }
+}
+
+extension AppPersistedStatus {
+    var statusColor: UIColor {
+        switch self {
+        case .unsupported: return UIColor(red: 237/255.0, green: 160/255.0, blue: 83/255.0, alpha: 1.0)
+        case .released, .updated: return UIColor(red: 35/255.0, green: 104/255.0, blue: 246/255.0, alpha: 1.0)
+        default: return .clear
+        }
+    }
+}
+
+class AppStatusIconView: DesignableView {
+    override func initialize() {
+        super.initialize()
+        
+        layoutIfNeeded()
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        appIconView.cornerRadius = appIconView.bounds.height * 0.5
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = UIBezierPath(ovalIn: bounds).cgPath
+        maskLayer.fillColor = UIColor.black.cgColor
+        layer.mask = maskLayer
     }
 }
 
 // MARK: -
 
 internal class DockView: UIView {
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        return subviews.last?.hitTest(convert(point, to: subviews.last), with: event)
+    }
+    
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        return subviews.last?.frame.contains(convert(point, to: subviews.last)) ?? false
+    }
+}
+
+internal class DockCollectionView: UICollectionView {
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         
