@@ -42,34 +42,9 @@ class PhotoPickerViewController: AppDockViewController {
             registerForPreviewing(with: self, sourceView: batchPreviewView)
         }
 
-        //watch assets changed
-        let resultWatchInfo = PHAssets.fetched.watch(\.results) {
-            DispatchQueue.main.async{
-                if let numberOfSection = PHAssets.fetched.results?.count, numberOfSection > 0, let numberOfItemsInSection = PHAssets.fetched.results?[numberOfSection - 1].count, numberOfItemsInSection > 0 {
-                    self.initialPhotoCollectionIndexPath = IndexPath(item: numberOfItemsInSection - 1, section: numberOfSection - 1)
-                }
-
-                //for test
-//                PHAssets.fetched.results?.first?.enumerateObjects { asset, i, pointer in
-//                    let ads = asset.resources.filter({ r -> Bool in
-//                        r.type == .adjustmentData
-//                    })
-//                    if ads.count > 0{
-//                        print("---------------",asset)
-//                        for r in asset.resources{
-//                            print(r.originalFilename, r.uniformTypeIdentifier)
-//                        }
-//                    }
-//                 }
-
-                self.photoCollectionView.reloadData()
-            }
-        }
-
         //photos access authorization
         PHPhotoLibraryManager.default.watch(\.changes) {
             guard let changeInstance = PHPhotoLibraryManager.default.changes else { return }
-            PHAssets.fetched.unwatch(\.results, forIds:[resultWatchInfo.id])
 
             DispatchQueue.main.async {
                 self.photoLibraryDidChange(changeInstance)
@@ -80,7 +55,19 @@ class PhotoPickerViewController: AppDockViewController {
             guard authorized else { return }
 
             PHAssets.fetched.unload()
-            PHAssets.fetched.load(with: .smartAlbum, subtype: .smartAlbumUserLibrary)
+
+            //QA: attach initial progress activity view + non-mainqueue.async
+            PHAssets.fetched.load(with: .smartAlbum, subtype: .smartAlbumUserLibrary) // iphone x: .028702974319458s
+
+            if let numberOfSection = PHAssets.fetched.results?.count, numberOfSection > 0
+                , let numberOfItemsInSection = PHAssets.fetched.results?[numberOfSection - 1].count
+                , numberOfItemsInSection > 0 {
+
+                self.initialPhotoCollectionIndexPath = IndexPath(item: numberOfItemsInSection - 1, section: numberOfSection - 1)
+                self.photoCollectionView.reloadData()
+            }
+
+            //PHAssets.fetched.results?.first?.enumerateObjects { asset, i, pointer in }
          }
 
         //navigation controller accessories
@@ -321,7 +308,6 @@ class PhotoPickerViewController: AppDockViewController {
     private func photoLibraryDidChange(_ changeInstance: PHChange) {
         let selectedAssetIdentifiers = photoCollectionView.indexPathsForSelectedItems?.compactMap({ PHAssets.fetched.asset(at: $0)?.localIdentifier })
         
-        //TODO - confirm: https://fabric.io/jessi/ios/apps/com.stells.batch/issues/5ab6b90e8cb3c2fa63db6d25?time=last-seven-days
         guard let fetchResults = PHAssets.fetched.results else { return }
 
         let fetchResultChanges = fetchResults.enumerated().compactMap { results -> (Int, PHFetchResultChangeDetails<PHAsset>)? in
@@ -356,6 +342,7 @@ class PhotoPickerViewController: AppDockViewController {
         }
 
         //perform batch update
+        //confirm and remove: https://console.firebase.google.com/project/batch-photos/crashlytics/app/ios:com.stells.batch/issues/5ac8295036c7b23527c249dd?time=1523145600000:1523231999000&sessionId=18f49e20db084ed8b9c8b26e72871bad_DNE_0_v2
         self.photoCollectionView.performBatchUpdates({
             for (section, changes) in fetchResultChanges {
                 // Update data collection before items updated

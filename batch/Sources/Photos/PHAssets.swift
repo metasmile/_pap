@@ -15,8 +15,6 @@ public final class PHAssets: NSObject, KeyPathWatchable {
     @objc dynamic
     public private(set) var results: [PHFetchResult<PHAsset>]?
 
-    private let queue:DispatchQueue = DispatchQueue(label: "com.stells_internal_\(UUID().uuidString)" , qos: .utility)
-
     private override init() {}
 
     public func asset(at indexPath: IndexPath) -> PHAsset? {
@@ -46,19 +44,16 @@ public final class PHAssets: NSObject, KeyPathWatchable {
     }
     
     public func load(with collectionType: PHAssetCollectionType = .smartAlbum, subtype collectionSubType: PHAssetCollectionSubtype = .smartAlbumUserLibrary, completion:(() -> Void)?=nil) {
-        //FIXME: no result after first installed
-//        queue.async {
-            let options = PHFetchOptions()
+        let options = PHFetchOptions()
 
-            self.collections = PHAssetCollection.fetchAssetCollections(with: collectionType, subtype: collectionSubType, options: nil)
-            var results = [PHFetchResult<PHAsset>]()
+        self.collections = PHAssetCollection.fetchAssetCollections(with: collectionType, subtype: collectionSubType, options: nil)
+        var results = [PHFetchResult<PHAsset>]()
 
-            self.collections?.enumerateObjects({ (collection, idx, stop) in
-                results.append(PHAsset.fetchAssets(in: collection, options: options))
-            })
+        self.collections?.enumerateObjects({ (collection, idx, stop) in
+            results.append(PHAsset.fetchAssets(in: collection, options: options))
+        })
 
-            self.results = results
-//        }
+        self.results = results
     }
 
     public func unload(){
