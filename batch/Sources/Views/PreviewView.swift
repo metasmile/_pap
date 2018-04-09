@@ -196,26 +196,40 @@ extension PreviewView {
             let requestedParam = response.request.param as? PHAssetItem<AppValue>
             let totalCount = remained.count+completed.count
 
-            switch (response.info.state) {
-            case .completed:
-                self.delegate?.batchPreviewView(self, didUpdateProgress: progress)
-
-                if let param = requestedParam, let index = param.indexPath {
-                    var destItem = Int(Float(totalCount-1)*progress)
-                    let numberOfItems = self.collectionView.numberOfItems(inSection: index.section)
-                    if destItem >= numberOfItems{
-                        destItem = numberOfItems-1
-                    }else if destItem < 0{
-                        destItem = 0
-                    }
-                    self.collectionView.scrollToItem(at: IndexPath(item: destItem, section: index.section), at: .centeredHorizontally, animated: true)
-                }
-
-            case .cancelled:
-                self.delegate?.batchPreviewViewWillCancelProgress(self)
-
-            default: break
+            assert(totalCount>0, "totalCount == 0 but progress has started")
+            if totalCount == 0{
+                return
             }
+
+            if response.info.state == .cancelled {
+                self.delegate?.batchPreviewViewWillCancelProgress(self)
+                return
+            }
+
+            if response.info.state != .completed {
+                // all - (cancelled + completed)
+                return
+            }
+
+            //completed
+            self.delegate?.batchPreviewView(self, didUpdateProgress: progress)
+
+            guard let param = requestedParam
+                , let index = param.indexPath else {
+                return
+            }
+
+            let numberOfItems = self.collectionView.numberOfItems(inSection: index.section)
+            if numberOfItems == 0{
+                return
+            }
+
+            // it is possible totalCount != numberOfItems (e.g. if an item was runtime-removed while progress as batch tasks)
+            let destItem = Int(Float(totalCount-1)*progress).clamped(to: 0...numberOfItems-1)
+
+            //TODO: confirm - https://fabric.io/jessi/ios/apps/com.stells.batch/issues/5aca0f2936c7b23527e26e8a?time=last-thirty-days
+            self.collectionView.scrollToItem(at: IndexPath(item: destItem, section: index.section), at: .centeredHorizontally, animated: true)
+
 
         }).will(finish: { resultsByApps, respondables in
 
