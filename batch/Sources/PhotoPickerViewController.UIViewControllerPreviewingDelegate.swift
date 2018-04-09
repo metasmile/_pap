@@ -15,7 +15,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
             guard let selectedAsset = PHAssets.fetched.asset(at: indexPath) else { return nil }
             guard let cell = photoCollectionView.cellForItem(at: indexPath) else { return nil }
 
-            guard let item = AppAsset.create(for:selectedAsset) else {
+            guard let item = AppAssets.selected.by(selectedAsset) ?? AppAsset.create(for:selectedAsset) else {
                 return nil
             }
 
