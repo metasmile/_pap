@@ -272,7 +272,10 @@ extension AppDockView {
     
     fileprivate func layoutDockView() {
         dockViewHeightLayout.constant = preferredDockViewHeight
-        dockView.clipsToBounds = preferredDockViewHeight == 0
+
+        let isDockViewAppearing = preferredDockViewHeight != 0
+        dockView.clipsToBounds = !isDockViewApearing
+        dockView.shouldEventLocationDependsOnLastSubview = isDockViewApearing
         
         dockView.layoutIfNeeded()
         invalidateIntrinsicContentSize()
@@ -689,12 +692,20 @@ class AppStatusIconView: DesignableView {
 // MARK: -
 
 internal class DockView: UIView {
+    var shouldEventLocationDependsOnLastSubview:Bool = false
+
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        return subviews.last?.hitTest(convert(point, to: subviews.last), with: event)
+        if shouldEventLocationDependsOnLastSubview{
+            return subviews.last?.hitTest(convert(point, to: subviews.last), with: event)
+        }
+        return super.hitTest(point, with: event)
     }
     
     override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-        return subviews.last?.frame.contains(convert(point, to: subviews.last)) ?? false
+        if shouldEventLocationDependsOnLastSubview{
+            return subviews.last?.frame.contains(convert(point, to: subviews.last)) ?? false
+        }
+        return super.point(inside:point, with: event)
     }
 }
 
