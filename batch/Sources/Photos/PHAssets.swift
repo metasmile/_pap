@@ -46,7 +46,8 @@ public final class PHAssets: NSObject, KeyPathWatchable {
     }
     
     public func load(with collectionType: PHAssetCollectionType = .smartAlbum, subtype collectionSubType: PHAssetCollectionSubtype = .smartAlbumUserLibrary, completion:(() -> Void)?=nil) {
-        queue.async {
+        //FIXME: no result after first installed
+//        queue.async {
             let options = PHFetchOptions()
 
             self.collections = PHAssetCollection.fetchAssetCollections(with: collectionType, subtype: collectionSubType, options: nil)
@@ -57,7 +58,7 @@ public final class PHAssets: NSObject, KeyPathWatchable {
             })
 
             self.results = results
-        }
+//        }
     }
 
     public func unload(){
