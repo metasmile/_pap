@@ -66,3 +66,26 @@ public extension ProcessInfo{
         return physicalMemory - physicalUsingMemory
     }
 }
+
+public func measure(_ title: String="measured \(UUID().uuidString)", _ block: () -> ()) {
+#if DEBUG
+    measure(title) { completion in
+        block()
+        completion()
+    }
+#else
+    block()
+#endif
+}
+
+public func measure(_ title: String, _ block: (() -> ()) -> ()) {
+#if DEBUG
+    let startTime = CFAbsoluteTimeGetCurrent()
+    block {
+        let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
+        print("\(title) :: \(timeElapsed)s")
+    }
+#else
+    block {}
+#endif
+}

@@ -433,7 +433,6 @@ extension AppDockView: UIGestureRecognizerDelegate {
         
         invalidateIntrinsicContentSize()
 
-        print(self.hasContent)
         animateAsSpringSuperviewLayoutIfNeeded()
         
         appContentView.layoutIfNeeded()

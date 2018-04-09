@@ -228,7 +228,7 @@ class PhotoPickerViewController: AppDockViewController {
             }
         }
     }
-    
+
     private func updateSelectedItemsControl() {
         let selectedAssets = self.selectedAssetsInCollectionView
         let numberOfVideos = selectedAssets?.filter({ $0.mediaType == .video }).count ?? 0
@@ -241,15 +241,17 @@ class PhotoPickerViewController: AppDockViewController {
             
             appDockView?.accessory = nil
         }
-        else if numberOfItems == 1 {
+        else {
 
             self.navigationItem.setLeftBarButton(self.cancelButton, animated: true)
             self.navigationItem.setRightBarButton(self.doneButton, animated: true)
 
-            UIView.performWithoutAnimation {
-                appDockView?.accessory = batchPreviewView
+            if appDockView?.accessory == nil{
+                UIView.performWithoutAnimation {
+                    appDockView?.accessory = batchPreviewView
+                }
             }
-         }
+        }
     }
 
     private func updateDoneButtonState() {
@@ -308,12 +310,7 @@ class PhotoPickerViewController: AppDockViewController {
             footer.text = self.formattedStringForAllPhotos
         }
     }
-    
-    func updatePhotoPickerTitles() {
-        updateSelectedItemUIs()
-        updateAllPhotosTitle()
-    }
-    
+
     func updateVisiblePhotoCollectionCellsEnabled() {
         for indexPath in photoCollectionView.indexPathsForVisibleItems{
             let cell = photoCollectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell
@@ -393,7 +390,8 @@ class PhotoPickerViewController: AppDockViewController {
             if tasksWereRanAndRemoved {
                 AppCenter.default.task.perform(self.batchPreviewView.createTaskReaction())
             }else{
-                self.updatePhotoPickerTitles()
+                self.updateAllPhotosTitle()
+                self.updateSelectedItemUIs()
             }
             
             self.restoreSelectionByUser(selectedAssetIdentifiers)
