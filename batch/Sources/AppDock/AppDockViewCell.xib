@@ -43,15 +43,15 @@
                             <rect key="frame" x="0.0" y="149" width="157" height="0.0"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRa-PA-hEW" customClass="AppStatusIconView" customModule="batch" customModuleProvider="target">
-                                    <rect key="frame" x="66" y="-4" width="8" height="8"/>
+                                    <rect key="frame" x="69" y="-4" width="8" height="8"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="8" id="PgV-ZN-Qud"/>
                                         <constraint firstAttribute="width" secondItem="kRa-PA-hEW" secondAttribute="height" multiplier="1:1" id="WwA-h2-nix"/>
                                     </constraints>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIe-oe-nYa">
-                                    <rect key="frame" x="76" y="0.0" width="6" height="0.0"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIe-oe-nYa">
+                                    <rect key="frame" x="79" y="0.0" width="0.0" height="0.0"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -64,6 +64,7 @@
                                 <constraint firstItem="WIe-oe-nYa" firstAttribute="leading" secondItem="kRa-PA-hEW" secondAttribute="trailing" constant="2" id="Gqo-vM-LWH"/>
                                 <constraint firstItem="WIe-oe-nYa" firstAttribute="top" secondItem="Ves-sw-8ql" secondAttribute="top" id="XYy-rk-aDq"/>
                                 <constraint firstItem="WIe-oe-nYa" firstAttribute="centerY" secondItem="Ves-sw-8ql" secondAttribute="centerY" id="oSD-eF-9U4"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WIe-oe-nYa" secondAttribute="trailing" id="ygl-6z-AO0"/>
                             </constraints>
                         </view>
                         <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rqf-yk-rc2" customClass="RoundedButton" customModule="batch" customModuleProvider="target">

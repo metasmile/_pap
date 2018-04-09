@@ -325,6 +325,7 @@ extension AppDockView: UICollectionViewDataSource {
 
 extension AppDockView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        zoomOutAppCollectionView()
         delegate?.appDockView(self, didSelectItemWith: items[indexPath.item])
     }
 }
@@ -450,7 +451,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
 // MARK: -
 
 extension AppDockView: UIScrollViewDelegate {
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    func zoomInAppCollectionView() {
         guard (appCollectionView.collectionViewLayout as? AppCollectionViewLayout)?.layoutMetrics == .compact else { return }
         
         let promptLayout = AppCollectionViewLayout()
@@ -458,10 +459,30 @@ extension AppDockView: UIScrollViewDelegate {
         
         appCollectionViewHeightLayout.constant = AppCollectionViewLayout.LayoutConstants.prominentHeight
         UIView.animateAsSpring(0.5, delay: 0, animations: {
-            scrollView.superview?.layoutIfNeeded()
+            self.appCollectionView.superview?.layoutIfNeeded()
+            self.appCollectionView.setCollectionViewLayout(promptLayout, animated: false)
         }, completion: nil)
+    }
+    
+    func zoomOutAppCollectionView() {
+        guard (appCollectionView.collectionViewLayout as? AppCollectionViewLayout)?.layoutMetrics == .prominent else { return }
         
-        appCollectionView.setCollectionViewLayout(promptLayout, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) { [unowned self] in
+            guard !self.appCollectionView.isDragging else { return }
+            
+            let promptLayout = AppCollectionViewLayout()
+            promptLayout.layoutMetrics = .compact
+            
+            self.appCollectionViewHeightLayout.constant = AppCollectionViewLayout.LayoutConstants.compactHeight
+            UIView.animateAsSpring(0.5, delay: 0, animations: {
+                self.appCollectionView.superview?.layoutIfNeeded()
+                self.appCollectionView.setCollectionViewLayout(promptLayout, animated: false)
+            }, completion: nil)
+        }
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        zoomInAppCollectionView()
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
@@ -471,21 +492,7 @@ extension AppDockView: UIScrollViewDelegate {
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        guard (appCollectionView.collectionViewLayout as? AppCollectionViewLayout)?.layoutMetrics == .prominent else { return }
-        
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
-            guard !scrollView.isDragging, !scrollView.isDecelerating else { return }
-            
-            let promptLayout = AppCollectionViewLayout()
-            promptLayout.layoutMetrics = .compact
-            
-            self.appCollectionViewHeightLayout.constant = AppCollectionViewLayout.LayoutConstants.compactHeight
-            UIView.animateAsSpring(0.5, delay: 0, animations: {
-                scrollView.superview?.layoutIfNeeded()
-            }, completion: nil)
-            
-            self.appCollectionView.setCollectionViewLayout(promptLayout, animated: true)
-        }
+        zoomOutAppCollectionView()
     }
 }
 
@@ -534,21 +541,21 @@ class AppCollectionViewLayout: UICollectionViewLayout {
         let size: CGSize
         switch layoutMetrics {
         case .compact:
-            size = CGSize(width: LayoutConstants.compactHeight * 1.333, height: LayoutConstants.compactHeight)
+            size = CGSize(width: LayoutConstants.compactHeight * 1.3, height: LayoutConstants.compactHeight)
         case .prominent:
-            size = CGSize(width: LayoutConstants.prominentHeight * 1.333, height: LayoutConstants.prominentHeight)
+            size = CGSize(width: LayoutConstants.prominentHeight * 1.2, height: LayoutConstants.prominentHeight)
         }
         return size
     }
     
-    private var minimumSpacing: CGFloat = 4
+    private var minimumSpacing: CGFloat = 1
     
     override func prepare() {
         super.prepare()
         
         prepareCache()
         
-        let padding = min(0, (collectionViewContentSize.width - collectionViewSize.width) / 2)
+        let padding = max(0, (collectionViewSize.width - collectionViewContentSize.width) / 2)
         
         var itemPosition: CGPoint = CGPoint(x: padding, y: 0)
         

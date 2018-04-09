@@ -28,7 +28,7 @@ extension UIView{
     }
 
     public static func animateAsSpring(_ duration: TimeInterval, delay: TimeInterval, animations: @escaping () -> Void, completion: ((Bool) -> Void)?) {
-        UIView.animate(withDuration: duration, delay: delay, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: .beginFromCurrentState, animations: animations, completion: completion)
+        UIView.animate(withDuration: duration, delay: delay, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: [.beginFromCurrentState, .allowUserInteraction], animations: animations, completion: completion)
     }
 
     public func animateAsSpringSuperviewLayoutIfNeeded() {
