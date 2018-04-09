@@ -693,7 +693,7 @@ class AppStatusIconView: DesignableView {
 internal class DockView: UIView {
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         let convertedPoint = subviews.last?.convert(point, from: self) ?? point
-        if self.point(inside: convertedPoint, with: event) {
+        if subviews.last?.point(inside: convertedPoint, with: event) == true {
             return subviews.last?.hitTest(convertedPoint, with:event)
         }
         else {
