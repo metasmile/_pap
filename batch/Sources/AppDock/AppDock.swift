@@ -272,6 +272,7 @@ extension AppDockView {
     
     fileprivate func layoutDockView() {
         dockViewHeightLayout.constant = preferredDockViewHeight
+        dockView.clipsToBounds = preferredDockViewHeight == 0
         
         dockView.layoutIfNeeded()
         invalidateIntrinsicContentSize()
