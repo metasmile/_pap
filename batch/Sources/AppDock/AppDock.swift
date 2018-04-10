@@ -543,7 +543,7 @@ class AppCollectionViewLayout: UICollectionViewLayout {
         let size: CGSize
         switch layoutMetrics {
         case .compact:
-            size = CGSize(width: LayoutConstants.compactHeight * 1.3, height: LayoutConstants.compactHeight)
+            size = CGSize(width: LayoutConstants.compactHeight * 1.333, height: LayoutConstants.compactHeight)
         case .prominent:
             size = CGSize(width: LayoutConstants.prominentHeight * 1.2, height: LayoutConstants.prominentHeight)
         }
@@ -556,8 +556,6 @@ class AppCollectionViewLayout: UICollectionViewLayout {
         super.prepare()
         
         prepareCache()
-        
-        let padding = max(0, (collectionViewSize.width - collectionViewContentSize.width) / 2)
         
         var itemPosition: CGPoint = CGPoint(x: padding, y: 0)
         
@@ -582,9 +580,18 @@ class AppCollectionViewLayout: UICollectionViewLayout {
         return false
     }
     
-    override var collectionViewContentSize: CGSize {
-        let contentsWidth = (CGFloat(numberOfItems) * itemSize(with: layoutMetrics).width) + (CGFloat(numberOfItems - 1)  * minimumSpacing)
+    private var contentSize: CGSize {
+        let contentsWidth = (CGFloat(numberOfItems) * itemSize(with: layoutMetrics).width) + (CGFloat(numberOfItems - 1) * minimumSpacing)
         return CGSize(width: contentsWidth, height: itemSize(with: layoutMetrics).height)
+    }
+    
+    private var padding: CGFloat {
+        return max(0, (collectionViewSize.width - contentSize.width) / 2)
+    }
+    
+    override var collectionViewContentSize: CGSize {
+        let contentSize = self.contentSize
+        return CGSize(width: contentSize.width + padding * 2, height: contentSize.height)
     }
 }
 
