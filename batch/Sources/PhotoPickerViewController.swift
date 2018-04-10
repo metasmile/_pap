@@ -406,10 +406,10 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
             photoEditViewController.selectedInPicker = AppAssets.selected.by(editItem.asset) != nil
 
             let navigationController = AppDockNavigationController(rootViewController: photoEditViewController)
-//            navigationController.hero.isEnabled = true
-//            navigationController.hero.modalAnimationType = .fade
-//            navigationController.hero.navigationAnimationType = .fade
-            present(navigationController,animated: false) {
+            navigationController.hero.isEnabled = true
+            navigationController.hero.modalAnimationType = .fade
+            navigationController.hero.navigationAnimationType = .fade
+            present(navigationController,animated: true) {
 
                 AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues( AppConfigUIAttrribute(tintColor: .white))
             }
