@@ -692,9 +692,18 @@ class AppStatusIconView: DesignableView {
 
 internal class DockView: UIView {
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        let convertedPoint = subviews.last?.convert(point, from: self) ?? point
-        if subviews.last?.point(inside: convertedPoint, with: event) == true {
-            return subviews.last?.hitTest(convertedPoint, with:event)
+        guard
+            let contentView = subviews.last,
+            !isHidden,
+            alpha > 0,
+            isUserInteractionEnabled
+        else {
+            return nil
+        }
+        
+        let convertedPoint = contentView.convert(point, from: self)
+        if contentView.point(inside: convertedPoint, with: event) {
+            return contentView.hitTest(convertedPoint, with:event)
         }
         else {
             return super.hitTest(point, with: event)
