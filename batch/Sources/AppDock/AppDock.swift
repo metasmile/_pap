@@ -328,7 +328,7 @@ extension AppDockView: UICollectionViewDataSource {
 
 extension AppDockView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        zoomOutAppCollectionView()
+        zoomOutAppCollectionView(delay: 0)
         delegate?.appDockView(self, didSelectItemWith: items[indexPath.item])
     }
 }
@@ -466,10 +466,10 @@ extension AppDockView: UIScrollViewDelegate {
         }, completion: nil)
     }
     
-    func zoomOutAppCollectionView() {
+    func zoomOutAppCollectionView(delay: Double = 0.5) {
         guard (appCollectionView.collectionViewLayout as? AppCollectionViewLayout)?.layoutMetrics == .prominent else { return }
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) { [unowned self] in
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) { [unowned self] in
             guard !self.appCollectionView.isDragging else { return }
             
             let promptLayout = AppCollectionViewLayout()
