@@ -51,7 +51,6 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="Nsh-j1-0eF" firstAttribute="leading" secondItem="rzS-9k-7Sx" secondAttribute="leading" id="2ke-7x-72k"/>
                         <constraint firstAttribute="height" id="9KR-4K-J6j"/>

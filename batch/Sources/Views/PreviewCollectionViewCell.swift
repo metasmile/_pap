@@ -27,7 +27,6 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        assetView.hero.id = nil
         assetView.asset = nil
         indexPath = nil
         

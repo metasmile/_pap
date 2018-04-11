@@ -10,7 +10,7 @@ import UIKit
 
 class AppDockNavigationController: UINavigationController {
     lazy var appDockView: AppDockView = {
-        let view = AppDockView(frame: CGRect(origin: .zero, size: CGSize(width: self.view.bounds.width, height: 60)))
+        let view = AppDockView(frame: CGRect(origin: CGPoint(x: 0, y: self.view.bounds.height - 64), size: CGSize(width: self.view.bounds.width, height: 64)))
         view.delegate = self
         return view
     }()
@@ -91,12 +91,8 @@ class AppDockViewController: UIViewController {
             cancelButton?.tintColor = view.tintColor
             doneButton?.tintColor = view.tintColor
         }
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        selectCurrentAppIfExist()
+        
+        selectCurrentAppIfExist(animated: false)
     }
     
     var appDockItems: [AppDockItem] {
@@ -121,8 +117,8 @@ class AppDockViewController: UIViewController {
 }
 
 extension AppDockViewController {
-    fileprivate func selectCurrentAppIfExist() {
+    fileprivate func selectCurrentAppIfExist(animated: Bool = true) {
         guard let currentApp = AppCenter.default.current, let indexOfCurrentApp = appDockItems.index(where: { $0.app == currentApp }), indexOfCurrentApp != NSNotFound else { return }
-        appDockView?.selectItem(at: IndexPath(item: indexOfCurrentApp, section: 0))
+        appDockView?.selectItem(at: IndexPath(item: indexOfCurrentApp, section: 0), animated: animated)
     }
 }

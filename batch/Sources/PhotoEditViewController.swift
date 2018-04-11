@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Hero
 import AVFoundation
 import Photos
 
@@ -62,16 +61,10 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         photoZoomingView.addSubview(zoomingContentView)
         
         assetView.contentMode = .scaleAspectFit
-        assetView.hero.id = transitionID
         zoomingContentView.addSubview(assetView)
         
         photoZoomingView.minimumZoomScale = 1
         photoZoomingView.maximumZoomScale = 4
-        
-//        editToolbar.borderColor = iOSStandardEditorBackgroundColor
-//        editToolbar.toolbar.barStyle = .black
-//        editToolbar.toolbar.tintColor = UIColor.white
-//        editToolbar.toolbar.barTintColor = iOSStandardEditorBackgroundColor
         
         appDockView?.barStyle = .black
 
@@ -80,6 +73,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         assetView.image = placeholderImage
         assetView.preferredTransform = preferredEditState.transform
         assetView.applyFilter(ciFilter: preferredEditState.ciFilter)
+        
         layoutAssetView()
         
         if let asset = asset {
@@ -90,18 +84,9 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
                 }
             })
         }
-    }
-    
-    override var appDockItems: [AppDockItem] {
-        guard let app = AppCenter.default.current else { return [] }
-        return [AppDockItem(app: app)]
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
+        
         AppCenter.default.watch(\.currentIdentifier, id:"editor", options:[.new, .initial]) { appCenter, dict in
-
+            
             appCenter.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform, id:"editor\(TransformApp.info.identifier)") { (config, changed) in
                 if let value = config.transform{
                     self.addTransformItem(value)
@@ -113,18 +98,15 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
                     self.setFilter(value)
                 }
             }
-
+            
             //common ui attributes if current app is ConfigurableApp
             appCenter.currentInstanceAs(ConfigurableApp.self)?.setConfigValues( AppConfigUIAttrribute(tintColor: .white))
         }
     }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.unwatch(\.transform, forIds:["editor\(TransformApp.info.identifier)"])
-        AppCenter.default.currentInstanceAs(PhotosFilterApp.self)?.config?.unwatch(\.filter, forIds:["editor\(PhotosFilterApp.info.identifier)"])
-        AppCenter.default.unwatch(\.currentIdentifier, forIds:["editor"])
+    
+    override var appDockItems: [AppDockItem] {
+        guard let app = AppCenter.default.current else { return [] }
+        return [AppDockItem(app: app)]
     }
     
     override func viewDidLayoutSubviews() {
@@ -139,6 +121,10 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         if isMovingFromParentViewController {
             placeholderView?.removeFromSuperview()
         }
+        
+        AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.unwatch(\.transform, forIds:["editor\(TransformApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(PhotosFilterApp.self)?.config?.unwatch(\.filter, forIds:["editor\(PhotosFilterApp.info.identifier)"])
+        AppCenter.default.unwatch(\.currentIdentifier, forIds:["editor"])
     }
     // MARK: - Layout
     
