@@ -28,12 +28,13 @@ public class ExifGhost: App, PHAssetFinalizableApp, PhotoPickerCollectionViewDis
     public required init() {}
 
     public var finalizingOptions: PHAssetFinalizingOptions{
-        return [.delete, .create, .share] //for test
-        //return [.modify]
+        return [.modify]
         //TODO: PHAssetEditableFinalizableApp.finalize -> fix Error Domain=NSCocoaErrorDomain Code=-1 "(null)"
     }
 
-    public func isItemEnables(for: PHAssetItem<AppValue>) -> Bool {
+    public func isItemEnables(for item: PHAssetItem<AppValue>) -> Bool {
+
+
         //TODO: lookup CIImage.properties
         return true
     }
@@ -55,33 +56,64 @@ private class _ExifGhostTask: TaskPrototype, Taskable {
 
         let id = param.requestContentEditing { item in
 
-            if let item = item
-            , let image = item.input.fullSizeImageURL?.asCIImage{
-                var metadata = image.properties
+            assert(item?.input.fullSizeImageURL != nil, "item.input.fullSizeImageURL is nil")
+            if let item = item, let url = item.input.fullSizeImageURL{
 
-                if metadata[kCGImagePropertyGPSDictionary as String] != nil {
+//                do{
 
-                    //TODO: remove key from configuration
-                    metadata.removeValue(forKey: kCGImagePropertyGPSDictionary as String)
+                    let data = try! Data(contentsOf: url)
 
-                    // set and write image file with new metadata from conf
-                    if image.settingProperties(metadata).writeJPEGRepresentation(to: item.output.renderedContentURL){
+                    if let metadata = data.getMetadata(){
+
+                        let newMetadata = metadata.removeGeoTag()
+                        let processedData = data.setMetadata(with: newMetadata)
+//                        let processedData = data.changeMetadata(metadata: metadata.removeGeoTag(), imageSize: nil, comment: nil, software: nil, exifOrientation: nil)
+
+                        try! processedData.write(to: item.output.renderedContentURL, options: .atomic)
+
                         result = PHAssetResultItem(asset:param.asset, contentEditingOutput:item.output)
+
+                        print("resultresultresultresultresultresultresultresultresultresult")
+
                     }
 
-                    #if DEBUG
-                    if let testResult = item.output.renderedContentURL.asCIImage?.properties{
-                        let diff = Set(image.properties.keys).subtracting(Set(testResult.keys))
 
-                        assert(diff.count==1)
-                        assert(diff.first == kCGImagePropertyGPSDictionary as String)
-                    }
-                    #endif
-                }
+//                }catch let e {
+//                    print("------------",e)
+//                }
             }
-
             async?.end()
         }
+
+//        let id = param.requestContentEditing { item in
+//
+//            if let item = item
+//            , let image = item.input.fullSizeImageURL?.asCIImage{
+//                var metadata = image.properties
+//
+//                if metadata[kCGImagePropertyGPSDictionary as String] != nil {
+//
+//                    //TODO: remove key from configuration
+//                    metadata.removeValue(forKey: kCGImagePropertyGPSDictionary as String)
+//
+//                    // set and write image file with new metadata from conf
+//                    if image.settingProperties(metadata).writeJPEGRepresentation(to: item.output.renderedContentURL){
+//                        result = PHAssetResultItem(asset:param.asset, contentEditingOutput:item.output)
+//                    }
+//
+//                    #if DEBUG
+//                    if let testResult = item.output.renderedContentURL.asCIImage?.properties{
+//                        let diff = Set(image.properties.keys).subtracting(Set(testResult.keys))
+//
+//                        assert(diff.count==1)
+//                        assert(diff.first == kCGImagePropertyGPSDictionary as String)
+//                    }
+//                    #endif
+//                }
+//            }
+//
+//            async?.end()
+//        }
 
         param.requestIDs += [PHAssetRequestID(forEditingInput: id)]
 

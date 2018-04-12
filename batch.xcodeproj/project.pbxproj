@@ -114,6 +114,7 @@
 		4F71DA9A2AEF74D95F711683 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DF60F3145AA65F6E07F8 /* Localizable.strings */; };
 		4F71DA9BD8AAA0E9E15F6374 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D9F4B12041A01656AEAC /* Localizable.strings */; };
 		4F71DAA403DF9DC3D8857021 /* CodeKit.CIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8F0F79BCC06A092ED59 /* CodeKit.CIImage.swift */; };
+		4F71DADF537AAF427BC5BC0A /* ImageIO.Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA78EAAC0042C805FA0B /* ImageIO.Metadata.swift */; };
 		4F71DAE55B247A7E9524B7D0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DC34F5554A7C034DBC6B /* Localizable.strings */; };
 		4F71DAEE1C20D9C8B9C38E95 /* bath01.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D489CB86B80D005FDC3C /* bath01.gif */; };
 		4F71DAFAA60AFFA6D22694FF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D865266BB0B201F7DE0A /* Localizable.strings */; };
@@ -320,6 +321,7 @@
 		4F71D98A51387658CDC4FE16 /* CodeKit.Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Int.swift; sourceTree = "<group>"; };
 		4F71DA4A3AE9770C172D2A4D /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		4F71DA6EC209B1E8195931DA /* CodeKit.Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Sequence.swift; sourceTree = "<group>"; };
+		4F71DA78EAAC0042C805FA0B /* ImageIO.Metadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.Metadata.swift; sourceTree = "<group>"; };
 		4F71DAA72CC6EF2D834BE71B /* CodeKit.UUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UUID.swift; sourceTree = "<group>"; };
 		4F71DAB9D854FE634384A5F1 /* iOSCheckMarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSCheckMarkView.swift; sourceTree = "<group>"; };
 		4F71DAC062F47D127DBFC995 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
@@ -839,6 +841,7 @@
 				4F71DCD43042B2C85F71B1AE /* CodeKit.NSKeyValueObservation.swift */,
 				4F71DD50BA40D5B1F2284B9C /* CodeKit.UIView.GestureRecognizer.swift */,
 				4F71D1CE4AE77977EB0697BA /* ImageIO.HEIF.swift */,
+				4F71DA78EAAC0042C805FA0B /* ImageIO.Metadata.swift */,
 			);
 			path = CodeKit;
 			sourceTree = "<group>";
@@ -1624,6 +1627,7 @@
 				4F71D1DA25B79E7E9312D4FC /* PhotoPickerViewController.UIGestureRecognizerDelegate.swift in Sources */,
 				4F71D8C5F1069E43DAC175FB /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift in Sources */,
 				4F71D73798EA7EC12FA5A241 /* ImageIO.HEIF.swift in Sources */,
+				4F71DADF537AAF427BC5BC0A /* ImageIO.Metadata.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

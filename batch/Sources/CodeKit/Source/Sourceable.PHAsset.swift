@@ -72,12 +72,14 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
                 signal.end()
             })
         }
-        // Live Photo
-        else if .image == m && self.mediaSubtypes.contains(.photoLive){
-            //TODO: import from https://github.com/metasmile/AnimatedAssetIO
-        }
         // Image
         else if .image == m {
+
+            // Live Photo
+            if self.mediaSubtypes.contains(.photoLive){
+                //TODO: import from https://github.com/metasmile/AnimatedAssetIO
+                assert(false, "Not implemented yet.\(self.mediaType), \(self.mediaSubtypes)")
+            }
 
             signal.begin()
             let options: PHContentEditingInputRequestOptions = PHContentEditingInputRequestOptions()
