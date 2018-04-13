@@ -101,7 +101,6 @@ class AppDockView: CustomView {
     }
 
     private func reloadAppDock() {
-        appCollectionView.collectionViewLayout.prepare()
         appCollectionView.reloadData()
     }
 

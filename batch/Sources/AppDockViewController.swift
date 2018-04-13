@@ -92,6 +92,9 @@ class AppDockViewController: UIViewController {
             doneButton?.tintColor = view.tintColor
         }
         
+        // prevent unnecessary animation
+        self.appDockView?.layoutIfNeeded()
+        
         selectCurrentAppIfExist(animated: false)
     }
     
