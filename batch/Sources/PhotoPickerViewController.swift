@@ -232,9 +232,6 @@ class PhotoPickerViewController: AppDockViewController {
             navigationItem.setRightBarButton(self.doneButton, animated: true)
 
             if appDockView?.accessory == nil {
-                // FIXME: prevent navigation bar button animation
-                navigationController?.view.layoutIfNeeded()
-                
                 appDockView?.accessory = batchPreviewView
             }
         }
