@@ -66,7 +66,7 @@ public class PhotosFilterApp: NSObject, KeyPathWatchable, ConfigurableApp, _Conf
         , phase: .beta
         , appType: PhotosFilterApp.self
         , displayName: "Photos Filter"
-        , icon: R.image.revertAppIcon.name
+        , icon: R.image.photosFilterAppIcon.name
         , policy: AppPolicy.default
         , minOSVersion: nil
     )

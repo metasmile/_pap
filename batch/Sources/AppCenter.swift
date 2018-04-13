@@ -41,11 +41,11 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
         var config = AppManagerConfig()
         config.appCollection = [
             TransformApp.self
+            , PhotosFilterApp.self
             , RevertApp.self
+            , PDFactory.self
             , ExifGhost.self
             , Clean.self
-            , PDFactory.self
-            , PhotosFilterApp.self
         ]
 
         return config
