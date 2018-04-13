@@ -224,9 +224,6 @@ class BatchUICollectionView: UIView, UICollectionViewDataSource, UICollectionVie
         self.items = items
         
         collectionView.reloadData()
-        collectionView.performBatchUpdates(nil) { (finished) in
-            self.updateCollectionViewInsets()
-        }
     }
     
     override var tintColor: UIColor! {
@@ -236,10 +233,7 @@ class BatchUICollectionView: UIView, UICollectionViewDataSource, UICollectionVie
     }
     
     private lazy var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        
-        let view = UICollectionView(frame: bounds, collectionViewLayout: layout)
+        let view = UICollectionView(frame: bounds, collectionViewLayout: BatchUICollectionViewLayout())
         view.dataSource = self
         view.delegate = self
         view.allowsMultipleSelection = false
@@ -256,23 +250,6 @@ class BatchUICollectionView: UIView, UICollectionViewDataSource, UICollectionVie
     private func initialize() {
         addSubview(collectionView)
         collectionView.fitConstraints(to: self)
-    }
-    
-    private func updateCollectionViewInsets() {
-        collectionView.collectionViewLayout.prepare()
-        let contentWidth = collectionView.collectionViewLayout.collectionViewContentSize.width
-        var contentInset = collectionView.contentInset
-        if contentWidth > collectionView.bounds.width {
-            contentInset.left = 0
-            contentInset.right = 0
-        }
-        else {
-            let inset = (collectionView.bounds.width - contentWidth) / 2
-            contentInset.left = inset
-            contentInset.right = inset
-        }
-        
-        collectionView.contentInset = contentInset
     }
     
     // MARK: - UICollectionViewDataSource
@@ -293,19 +270,74 @@ class BatchUICollectionView: UIView, UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         items[indexPath.item].action?()
     }
-    
-    // MARK: - UICollectionViewDelegateFlowLayout
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.height, height: collectionView.bounds.height)
+}
+
+class BatchUICollectionViewLayout: UICollectionViewLayout {
+    private enum LayoutItem: String {
+        case item = "Item"
+        case header = "UICollectionElementKindSectionHeader"
+        case footer = "UICollectionElementKindSectionFooter"
+    }
+    private var cache = [LayoutItem: [IndexPath: UICollectionViewLayoutAttributes]]()
+    private func prepareCache() {
+        cache.removeAll()
+        
+        cache[.item] = [IndexPath: UICollectionViewLayoutAttributes]()
+        cache[.header] = [IndexPath: UICollectionViewLayoutAttributes]()
+        cache[.footer] = [IndexPath: UICollectionViewLayoutAttributes]()
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 4
+    private var numberOfItems: Int {
+        return collectionView?.numberOfItems(inSection: 0) ?? 0
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 4
+    private var collectionViewSize: CGSize {
+        return collectionView?.frame.size ?? .zero
+    }
+    
+    lazy var itemSize: CGSize = CGSize(width: self.collectionView?.bounds.height ?? 0, height: self.collectionView?.bounds.height ?? 0)
+    var minimumSpacing: CGFloat = 4
+    
+    override func prepare() {
+        super.prepare()
+        
+        prepareCache()
+        
+        var itemPosition: CGPoint = CGPoint(x: padding, y: 0)
+        
+        for indexPath in (0 ..< numberOfItems).map({ IndexPath(item: $0, section: 0) }) {
+            let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+            attributes.frame = CGRect(origin: itemPosition, size: itemSize)
+            itemPosition.x += itemSize.width + minimumSpacing
+            
+            cache[.item]?[indexPath] = attributes
+        }
+    }
+    
+    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        return cache[.item]?[indexPath]
+    }
+    
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        return cache[.item]?.compactMap({ rect.intersects($0.value.frame) ? $0.value : nil })
+    }
+    
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+        return false
+    }
+    
+    private var contentSize: CGSize {
+        let contentsWidth = (CGFloat(numberOfItems) * itemSize.width) + (CGFloat(numberOfItems - 1) * minimumSpacing)
+        return CGSize(width: contentsWidth, height: itemSize.height)
+    }
+    
+    private var padding: CGFloat {
+        return max(0, (collectionViewSize.width - contentSize.width) / 2)
+    }
+    
+    override var collectionViewContentSize: CGSize {
+        let contentSize = self.contentSize
+        return CGSize(width: contentSize.width + padding * 2, height: contentSize.height)
     }
 }
 
