@@ -72,8 +72,8 @@ class PhotoPickerViewController: AppDockViewController {
         //navigation controller accessories
         title = Bundle.main.displayName
 
-        navigationItem.setLeftBarButton(nil, animated: true)
-        navigationItem.setRightBarButton(nil, animated: true)
+        navigationItem.setLeftBarButton(nil, animated: false)
+        navigationItem.setRightBarButton(nil, animated: false)
 
         //navigation bar progress
         if let navigationVC = self.navigationController {
@@ -220,7 +220,7 @@ class PhotoPickerViewController: AppDockViewController {
         let numberOfVideos = selectedAssets?.filter({ $0.mediaType == .video }).count ?? 0
         let numberOfPhotos = selectedAssets?.filter({ $0.mediaType == .image }).count ?? 0
         let numberOfItems = numberOfPhotos + numberOfVideos
-
+        
         if numberOfItems == 0 {
             navigationItem.setLeftBarButton(nil, animated: true)
             navigationItem.setRightBarButton(nil, animated: true)
@@ -228,11 +228,13 @@ class PhotoPickerViewController: AppDockViewController {
             appDockView?.accessory = nil
         }
         else {
-
-            self.navigationItem.setLeftBarButton(self.cancelButton, animated: true)
-            self.navigationItem.setRightBarButton(self.doneButton, animated: true)
+            navigationItem.setLeftBarButton(self.cancelButton, animated: true)
+            navigationItem.setRightBarButton(self.doneButton, animated: true)
 
             if appDockView?.accessory == nil {
+                // FIXME: prevent navigation bar button animation
+                navigationController?.view.layoutIfNeeded()
+                
                 appDockView?.accessory = batchPreviewView
             }
         }
