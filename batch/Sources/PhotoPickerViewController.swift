@@ -166,7 +166,9 @@ class PhotoPickerViewController: AppDockViewController {
             let revertingTitle = self.title == Bundle.main.displayName ? self.title : Bundle.main.displayName
             self.titleFade = AppCenter.default.current?.info.displayName
             Timer.scheduledTimer(identifier: timerId, withTimeInterval: 2, repeats: false) { timer in
-                self.titleFade = revertingTitle
+                if self.selectedAssetsInCollectionView?.count ?? 0 == 0{
+                    self.titleFade = revertingTitle
+                }
             }
         }else{
             Timer.getScheduledTimer(identifier: timerId)?.invalidate()
