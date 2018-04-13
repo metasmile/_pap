@@ -76,61 +76,31 @@ public class TransformApp: NSObject, KeyPathWatchable
 }
 
 private extension TransformApp{
-
-    @objc func horizontalFlipButtonDidTap() {
-        self.config?.transform = HorizontalFlipTransformItem()
-    }
-
-    @objc func verticalFlipButtonDidTap() {
-        self.config?.transform = VerticalFlipTransformItem()
-    }
-
-    @objc func rotationLeftButtonDidTap() {
-        self.config?.transform = RotationTransformItem(degrees: -90)
-    }
-
-    @objc func rotationRightButtonDidTap() {
-        self.config?.transform = RotationTransformItem(degrees: 90)
-    }
-
     private func createController() -> AppDockContent {
-        let view = UIStackView(frame: .zero)
-        view.alignment = .fill
-        view.distribution = .fillEqually
-        view.axis = .horizontal
-
-        let config1 = UIButton(type: .system)
-
-        config1.setImage(R.image.flipVertical()?.withRenderingMode(.alwaysTemplate), for: .normal)
-        config1.addTarget(self, action: #selector(self.verticalFlipButtonDidTap), for: .touchUpInside)
-
-        let config2 = UIButton(type: .system)
-        config2.setImage(R.image.flipHorizontal()?.withRenderingMode(.alwaysTemplate), for: .normal)
-        config2.addTarget(self, action: #selector(self.horizontalFlipButtonDidTap), for: .touchUpInside)
-
-        let config3 = UIButton(type: .system)
-        config3.setImage( R.image.rotateLeft()?.withRenderingMode(.alwaysTemplate), for: .normal)
-        config3.addTarget(self, action: #selector(self.rotationLeftButtonDidTap), for: .touchUpInside)
-
-        let config4 = UIButton(type: .system)
-        config4.setImage( R.image.rotateRight()?.withRenderingMode(.alwaysTemplate), for: .normal)
-        config4.addTarget(self, action: #selector(self.rotationRightButtonDidTap), for: .touchUpInside)
-
-        view.addArrangedSubview(config1)
-        view.addArrangedSubview(config2)
-        view.addArrangedSubview(config3)
-        view.addArrangedSubview(config4)
-
-        return AppDockContentItem(view: view, preferences: nil)
+        let items = [
+            BatchUICollectionView.CollectionItem(title: nil, image: R.image.flipVertical()?.withRenderingMode(.alwaysTemplate), action: {
+                self.config?.transform = VerticalFlipTransformItem()
+            }),
+            BatchUICollectionView.CollectionItem(title: nil, image: R.image.flipHorizontal()?.withRenderingMode(.alwaysTemplate), action: {
+                self.config?.transform = HorizontalFlipTransformItem()
+            }),
+            BatchUICollectionView.CollectionItem(title: nil, image: R.image.rotateLeft()?.withRenderingMode(.alwaysTemplate), action: {
+                self.config?.transform = RotationTransformItem(degrees: -90)
+            }),
+            BatchUICollectionView.CollectionItem(title: nil, image: R.image.rotateRight()?.withRenderingMode(.alwaysTemplate), action: {
+                self.config?.transform = RotationTransformItem(degrees: 90)
+            })
+        ]
+        
+        let view = BatchUICollectionView(items: items)
+        var preferences = AppDockContentPreferences()
+        preferences.pinned = true
+        preferences.height = 44
+        return AppDockContentItem(view: view, preferences: preferences)
     }
 
     private func updateControllerView(){
-        if let config = self.config
-        , let buttons = (self.controller?.view as? UIStackView)?.arrangedSubviews as? [UIButton]{
-            for button in buttons {
-                button.tintColor = config.tintColor
-            }
-        }
+        self.controller?.view.tintColor = config?.tintColor
     }
 }
 

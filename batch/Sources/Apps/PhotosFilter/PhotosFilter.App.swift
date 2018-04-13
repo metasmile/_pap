@@ -174,45 +174,193 @@ private extension PhotosFilterApp {
         }
     }
     
-    @objc func filterDidSelect(sender: _PhotoFilterButton) {
-        self.config?.filter = PhotosFilterItem(sender.filter)
-    }
-    
     private func createController() -> AppDockContent {
-        let view = UIStackView(frame: .zero)
-        view.alignment = .fill
-        view.distribution = .fillEqually
-        view.axis = .horizontal
+        var items = CIFilters.filters.map({ (filter) -> BatchUICollectionView.CollectionItem in
+            return BatchUICollectionView.CollectionItem(title: PhotosFilterNames.aliasName(filter.name), image: nil, action: {
+                self.config?.filter = PhotosFilterItem(filter)
+            })
+        })
+        items.insert(BatchUICollectionView.CollectionItem(title: PhotosFilterNames.aliasName(nil), image: nil, action: { self.config?.filter = PhotosFilterItem() }), at: 0)
         
-        view.addArrangedSubview(generateFilterButton())
-        for filter in CIFilters.filters {
-            view.addArrangedSubview(generateFilterButton(with: filter))
-        }
-
+        let view = BatchUICollectionView(items: items)
+        
         var p = AppDockContentPreferences()
         p.pinned = true
-        p.height = 200 // for test. remove this line after fixed app design
+        p.height = 100 // for test. remove this line after fixed app design
         return AppDockContentItem(view: view, preferences: p)
     }
     
-    private func generateFilterButton(with filter: CIFilter? = nil) -> UIView {
-        let button = _PhotoFilterButton(type: .system)
-        button.setTitle(PhotosFilterNames.aliasName(filter?.name), for: .normal)
-        button.titleLabel?.adjustsFontSizeToFitWidth = true
-        button.titleLabel?.minimumScaleFactor = 0.2
-        button.filter = filter
-        button.addTarget(self, action: #selector(self.filterDidSelect), for: .touchUpInside)
-        
-        return button
+    private func updateControllerView(){
+        self.controller?.view.tintColor = config?.tintColor
+    }
+}
+
+class BatchUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    struct CollectionItem {
+        var title: String?
+        var image: UIImage?
+        var action: (() -> Void)?
     }
     
-    private func updateControllerView(){
-        if let config = self.config
-        , let buttons = (self.controller?.view as? UIStackView)?.arrangedSubviews as? [UIButton]{
-            for button in buttons {
-                button.tintColor = config.tintColor
-            }
+    private var items = [CollectionItem]()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        initialize()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        initialize()
+    }
+    
+    init(items: [CollectionItem]) {
+        self.init()
+        
+        initialize()
+        
+        self.items = items
+        
+        collectionView.reloadData()
+        collectionView.performBatchUpdates(nil) { (finished) in
+            self.updateCollectionViewInsets()
         }
+    }
+    
+    override var tintColor: UIColor! {
+        didSet {
+            collectionView.tintColor = tintColor
+        }
+    }
+    
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        
+        let view = UICollectionView(frame: bounds, collectionViewLayout: layout)
+        view.dataSource = self
+        view.delegate = self
+        view.allowsMultipleSelection = false
+        view.alwaysBounceVertical = false
+        view.alwaysBounceHorizontal = true
+        view.showsVerticalScrollIndicator = false
+        view.showsHorizontalScrollIndicator = false
+        view.scrollsToTop = false
+        view.backgroundColor = UIColor.clear
+        view.register(BatchUICollectionViewCell.self, forCellWithReuseIdentifier: "BatchUICollectionViewCell")
+        return view
+    }()
+    
+    private func initialize() {
+        addSubview(collectionView)
+        collectionView.fitConstraints(to: self)
+    }
+    
+    private func updateCollectionViewInsets() {
+        collectionView.collectionViewLayout.prepare()
+        let contentWidth = collectionView.collectionViewLayout.collectionViewContentSize.width
+        var contentInset = collectionView.contentInset
+        if contentWidth > collectionView.bounds.width {
+            contentInset.left = 0
+            contentInset.right = 0
+        }
+        else {
+            let inset = (collectionView.bounds.width - contentWidth) / 2
+            contentInset.left = inset
+            contentInset.right = inset
+        }
+        
+        collectionView.contentInset = contentInset
+    }
+    
+    // MARK: - UICollectionViewDataSource
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return items.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BatchUICollectionViewCell", for: indexPath) as! BatchUICollectionViewCell
+        cell.title = items[indexPath.item].title
+        cell.image = items[indexPath.item].image
+        return cell
+    }
+    
+    // MARK: - UICollectionViewDelegate
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        items[indexPath.item].action?()
+    }
+    
+    // MARK: - UICollectionViewDelegateFlowLayout
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.height, height: collectionView.bounds.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 4
+    }
+}
+
+class BatchUICollectionViewCell: UICollectionViewCell {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        initialize()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        initialize()
+    }
+    
+    var title: String? {
+        didSet {
+            titleLabel.text = title
+        }
+    }
+    
+    var image: UIImage? {
+        didSet {
+            imageView.image = image
+        }
+    }
+    
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel(frame: bounds)
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private lazy var imageView: UIImageView = {
+        let view = UIImageView(frame: bounds)
+        view.contentMode = .center
+        return view
+    }()
+    
+    private func initialize() {
+        contentView.addSubview(imageView)
+        imageView.fitConstraints(to: contentView)
+        
+        contentView.addSubview(titleLabel)
+        titleLabel.fitConstraints(to: contentView)
+    }
+    
+    override func tintColorDidChange() {
+        super.tintColorDidChange()
+        
+        imageView.tintColor = tintColor
+        titleLabel.textColor = tintColor
     }
 }
 
