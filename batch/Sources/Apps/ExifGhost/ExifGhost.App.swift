@@ -53,8 +53,13 @@ private class _ExifGhostTask: TaskPrototype, Taskable {
         var result: PHAssetResultItem?
 
         async?.begin()
+        let option = PHContentEditingInputRequestOptions()
+        option.isNetworkAccessAllowed = true
+        option.canHandleAdjustmentData = { _ -> Bool in
+            return true
+        }
 
-        let id = param.requestContentEditing { item in
+        let id = param.requestContentEditing(options:option) { item in
 
             assert(item?.input.fullSizeImageURL != nil, "item.input.fullSizeImageURL is nil")
             if let item = item, let url = item.input.fullSizeImageURL{
@@ -72,9 +77,6 @@ private class _ExifGhostTask: TaskPrototype, Taskable {
                         try! processedData.write(to: item.output.renderedContentURL, options: .atomic)
 
                         result = PHAssetResultItem(asset:param.asset, contentEditingOutput:item.output)
-
-                        print("resultresultresultresultresultresultresultresultresultresult")
-
                     }
 
 

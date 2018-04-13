@@ -141,7 +141,10 @@ extension Dictionary {
 
             print(newGPSData)
             for (k,v) in newGPSData{
-                newGPSData.updateValue(NSNumber(integerLiteral: 0), forKey: k)
+                if k == "Longitude"{
+                    newGPSData.updateValue(0.0, forKey: k)
+                }
+                //newGPSData.updateValue(NSNumber(integerLiteral: 0), forKey: k)
             }
             print(newGPSData)
             newMetadata.updateValue(newGPSData, forKey: kCGImagePropertyGPSDictionary as String)

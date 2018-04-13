@@ -81,6 +81,7 @@ extension PHAssetFinalizableApp {
 
         }, completionHandler: { (success, info) in
             asyncSignal.end()
+            print("modifyingAndWait", success)
         })
         asyncSignal.waitUntilEnd()
     }
@@ -92,6 +93,7 @@ extension PHAssetFinalizableApp {
             PHAssetChangeRequest.deleteAssets(targetResultAssets.map { $0.asset } as NSArray)
         }, completionHandler: { (success, info) in
             asyncSignal.end()
+            print("deletingAndWait", success)
         })
         asyncSignal.waitUntilEnd()
     }
@@ -129,6 +131,7 @@ extension PHAssetFinalizableApp {
 
         }, completionHandler: { (success, info) in
             asyncSignal.end()
+            print("creatingAndWait", success)
         })
         asyncSignal.waitUntilEnd()
     }

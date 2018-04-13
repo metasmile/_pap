@@ -44,10 +44,10 @@ struct PHAssetContentEditingItem {
 extension PHAssetItem {
 
     @discardableResult
-    func requestContentEditing(_ block: @escaping PHAssetContentEditingHandler) -> PHContentEditingInputRequestID {
+    func requestContentEditing(options:PHContentEditingInputRequestOptions?=nil, _ block: @escaping PHAssetContentEditingHandler) -> PHContentEditingInputRequestID {
         var requestID:PHContentEditingInputRequestID?
 
-        requestID = asset.requestContentEditingInput(with: nil) { (input, info) in
+        requestID = asset.requestContentEditingInput(with: options) { (input, info) in
             guard let _requestID = requestID else {
                 block(nil)
                 return
