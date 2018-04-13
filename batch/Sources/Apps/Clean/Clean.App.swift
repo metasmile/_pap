@@ -24,7 +24,7 @@ public class Clean: App, PersistableApp, PHAssetFinalizableApp, AppDockControlla
 
     public required init() {}
 
-    public var finalizingOptions: PHAssetFinalizingOptions{
+    public var finalizingOptions: [PHAssetFinalizingOption]{
         return [.delete]
     }
 

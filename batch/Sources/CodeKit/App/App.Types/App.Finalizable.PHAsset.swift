@@ -7,20 +7,15 @@ import Foundation
 import Photos
 
 
-public struct PHAssetFinalizingOptions: SequenceOptionSet {
-    static let modify = PHAssetFinalizingOptions(rawValue: 1 << 0)
-    static let create = PHAssetFinalizingOptions(rawValue: 1 << 1)
-    static let delete = PHAssetFinalizingOptions(rawValue: 1 << 2)
-    static let share = PHAssetFinalizingOptions(rawValue: 1 << 3)
-
-    public let rawValue: Int
-    public init(rawValue: Int) {
-        self.rawValue = rawValue
-    }
+public enum PHAssetFinalizingOption: Int{
+    case modify
+    case create
+    case delete
+    case share
 }
 
 public protocol PHAssetFinalizableApp: FinalizableApp {
-    var finalizingOptions: PHAssetFinalizingOptions {get}
+    var finalizingOptions: [PHAssetFinalizingOption] {get}
 }
 
 extension PHAssetFinalizableApp {
@@ -42,7 +37,7 @@ extension PHAssetFinalizableApp {
             return result
         }
 
-        let exclusiveOption = self.finalizingOptions.underestimatedCount==1
+        let exclusiveOption = self.finalizingOptions.count==1
         for option in self.finalizingOptions{
             if option == .delete{
                 self.deletingAndWait(targetResultAssets: targetResultAssets, asyncSignal)
@@ -94,6 +89,11 @@ extension PHAssetFinalizableApp {
         }, completionHandler: { (success, info) in
             asyncSignal.end()
             print("deletingAndWait", success)
+
+            if !success{
+
+
+            }
         })
         asyncSignal.waitUntilEnd()
     }
@@ -102,13 +102,13 @@ extension PHAssetFinalizableApp {
         if let rootVC = UIApplication.shared.keyWindow?.rootViewController {
             asyncSignal.begin()
             DispatchQueue.global().async {
-                //TODO: fix problems
-                let datas = targetResultAssets.compactMap { (resultable: PHAssetResultable) -> Data? in
-                    return resultable.asset.asData
+
+                let activityItems = targetResultAssets.compactMap { (resultable: PHAssetResultable) -> Any? in
+                    return self.routeUIActivityItems(by:resultable.asset)
                 }
 
                 DispatchQueue.main.async {
-                    let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: datas, applicationActivities: nil)
+                    let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
                     activityViewController.completionWithItemsHandler = { (activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, activityError: Error?) in
                         asyncSignal.end()
                     }
@@ -117,6 +117,63 @@ extension PHAssetFinalizableApp {
                 }
             }
             asyncSignal.waitUntilEnd()
+        }
+    }
+
+    private func routeUIActivityItems(by asset:PHAsset) -> Any?{
+        /*
+        case photo
+        case video
+        case audio
+        case alternatePhoto
+        case fullSizePhoto
+        case fullSizeVideo
+        case adjustmentData
+        case adjustmentBasePhoto
+        case pairedVideo
+        case fullSizePairedVideo
+        case adjustmentBasePairedVideo
+        */
+
+        /*
+        UTItype
+
+        https://developer.apple.com/documentation/mobilecoreservices/uttype
+        https://developer.apple.com/documentation/mobilecoreservices/uttype/uti_image_content_types
+
+        kUTTypeImage
+        kUTTypeJPEG
+        kUTTypeJPEG2000
+        kUTTypeTIFF
+        kUTTypePICT
+        kUTTypeGIF
+        kUTTypePNG
+        kUTTypeQuickTimeImage
+        kUTTypeAppleICNS
+        kUTTypeBMP
+        kUTTypeICO
+        */
+        switch (asset.mediaType){
+            case .image:
+                return asset.asUIImage
+
+//                let resources = PHAssetResource.assetResources(for: asset)
+//                if resources.count > 1{
+//                    for r in resources{
+//                        switch(r.type){
+//                            case .photo, .alternatePhoto, .fullSizePhoto, .adjustmentBasePhoto:
+//                                return asset.asUIImage
+//
+//                            default:
+//                                return nil
+//                        }
+//                    }
+//
+//                }else{
+//                    return asset.asUIImage
+//                }
+            default:
+                return nil
         }
     }
 

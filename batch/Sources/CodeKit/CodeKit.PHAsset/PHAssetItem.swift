@@ -23,6 +23,11 @@ public protocol PHAssetResultable: TaskResultable{
 public struct PHAssetResultItem: PHAssetResultable {
     public var asset: PHAsset
     public var contentEditingOutput: PHContentEditingOutput?
+
+    init(asset:PHAsset, contentEditingOutput:PHContentEditingOutput?=nil){
+        self.asset = asset
+        self.contentEditingOutput = contentEditingOutput
+    }
 }
 
 //TODO: Minifiy 2-depth generic type/protocolize
