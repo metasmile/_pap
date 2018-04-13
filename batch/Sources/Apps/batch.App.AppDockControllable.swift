@@ -12,17 +12,11 @@ public protocol AppDockControllableApp: App {
 
 extension AppDockControllableApp {
     public var controller: AppDockContent? {
-        let view = UIStackView(frame: .zero)
-        view.alignment = .fill
-        view.distribution = .equalCentering
-        view.axis = .horizontal
-
         let label = UILabel()
         label.text = type(of: self).info.displayName + " Control View Area"
         label.textAlignment = .center
         label.sizeToFit()
-        view.addArrangedSubview(label)
 
-        return AppDockContentItem(view: view, preferences: nil)
+        return AppDockContentItem(view: label, preferences: nil)
     }
 }
