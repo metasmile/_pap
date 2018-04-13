@@ -44,6 +44,7 @@ class AppDockView: CustomView {
         static let Control = AppDockContentPreferences(height: 44)
     }
 
+    @IBOutlet weak private var backgroundView: UIView!
     @IBOutlet weak private var drawerView: DrawerView!
     @IBOutlet weak private var drawerViewHeightLayout: NSLayoutConstraint!
     @IBOutlet weak private var appContentView: UIView!
@@ -72,13 +73,9 @@ class AppDockView: CustomView {
         didSet {
             switch barStyle {
             case .black:
-                bottomAccessoryView.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1)
-                topAccessoryView.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1)
-                controllerView.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1)
+                backgroundView.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1)
             default:
-                bottomAccessoryView.backgroundColor = .white
-                topAccessoryView.backgroundColor = .white
-                controllerView.backgroundColor = .white
+                backgroundView.backgroundColor = .white
             }
         }
     }
@@ -289,7 +286,7 @@ extension AppDockView {
         
         layoutDrawerView()
         
-        bottomAccessoryView.isHidden = !hasContent
+        backgroundView.isHidden = !hasContent
         
         invalidateIntrinsicContentSize()
     }
