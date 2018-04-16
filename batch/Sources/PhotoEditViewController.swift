@@ -171,7 +171,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         
         self.assetView.applyEditState(self.editItem)
         
-        UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: .beginFromCurrentState, animations: {
+        UIView.animateAsSpring(0.3, delay: 0.0, animations: {
             self.assetView.layer.transform = self.editItem.transform3d
         }) { (finished) in
             completion?()
