@@ -72,13 +72,13 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         
         assetView.image = placeholderImage
         assetView.preferredTransform = preferredEditState.transform
-        assetView.applyFilter(ciFilter: preferredEditState.ciFilter)
+        assetView.applyEditState(preferredEditState)
         
         layoutAssetView()
         
         if let asset = asset {
             assetView.setAsset(asset, completion: { (result) in
-                self.assetView.applyFilter(ciFilter: self.preferredEditState.ciFilter)
+                self.assetView.applyEditState(self.preferredEditState)
                 if result is AVPlayerItem {
                     self.assetView.playVideoWithLooping()
                 }
@@ -169,9 +169,9 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     private func updatePreview(_ completion: (() -> Void)? = nil) {
         layoutAssetView()
         
-        self.assetView.applyFilter(ciFilter: self.editItem.ciFilter)
+        self.assetView.applyEditState(self.editItem)
         
-        UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: .beginFromCurrentState, animations: {
+        UIView.animateAsSpring(0.3, delay: 0.0, animations: {
             self.assetView.layer.transform = self.editItem.transform3d
         }) { (finished) in
             completion?()

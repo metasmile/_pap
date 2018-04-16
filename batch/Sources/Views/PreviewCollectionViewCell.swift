@@ -91,7 +91,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
             assetView.layer.transform = editItem.transform3d
         }
         
-        assetView.applyFilter(ciFilter: editItem.ciFilter)
+        assetView.applyEditState(editItem)
         
         imageInfoViewTop.constant = (bounds.height + CGSize(width: assetViewWidth.constant, height: assetViewHeight.constant).applying(editItem.transform).magnitude.height) / 2 + 10
     }

@@ -18,18 +18,18 @@
 import UIKit
 import Vision
 
-class ImageAlignment {
+public class ImageAlignment {
     static let sharedCIContext = CIContext()
-}
-
-@available(iOS 11.0, *)
-public extension UIImage {
+    
     public enum StabilizationMode {
         case homographic
         case translation
     }
+}
 
-    public func stabilize(with image: UIImage, mode: StabilizationMode = .homographic) -> UIImage {
+@available(iOS 11.0, *)
+public extension UIImage {
+    public func stabilize(with image: UIImage, mode: ImageAlignment.StabilizationMode = .homographic) -> UIImage {
         switch mode {
         case .homographic:
             return stabilizeHomographic(with: image)
@@ -54,11 +54,41 @@ public extension UIImage {
 }
 
 @available(iOS 11.0, *)
+public extension CIImage {
+    public func stabilize(with image: CIImage, mode: ImageAlignment.StabilizationMode = .homographic) -> CIImage {
+        switch mode {
+        case .homographic:
+            return stabilizeHomographic(with: image)
+        case .translation:
+            return stabilizeTranslation(with: image)
+        }
+    }
+    
+    @objc
+    public func stabilizeHomographic(with image: CIImage) -> CIImage {
+        guard let matrix = ImageAlignment.homographicTransform(image, onto: self) else { return self }
+        guard let warppedImage = self.applyWarp(matrix: matrix) else { return self }
+        return warppedImage
+    }
+    
+    @objc
+    public func stabilizeTranslation(with image: CIImage) -> CIImage {
+        guard let transform = ImageAlignment.translationTransform(image, onto: self) else { return self }
+        guard let transformedImage = self.applyTranslation(CGPoint(x: transform.tx, y: transform.ty)) else { return self }
+        return transformedImage
+    }
+}
+
+@available(iOS 11.0, *)
 extension ImageAlignment {
     static func homographicTransform(_ floating: UIImage, onto reference: UIImage) -> matrix_float3x3? {
         guard let floatingImage = CIImage(image: floating), let referenceImage = CIImage(image: reference) else { return nil }
-        let request = VNHomographicImageRegistrationRequest(targetedCIImage: floatingImage)
-        let requestHandler = VNImageRequestHandler(ciImage: referenceImage)
+        return homographicTransform(floatingImage, onto: referenceImage)
+    }
+    
+    static func homographicTransform(_ floating: CIImage, onto reference: CIImage) -> matrix_float3x3? {
+        let request = VNHomographicImageRegistrationRequest(targetedCIImage: floating)
+        let requestHandler = VNImageRequestHandler(ciImage: reference)
         
         try? requestHandler.perform([request])
         
@@ -81,8 +111,12 @@ extension ImageAlignment {
 extension ImageAlignment {
     static func translationTransform(_ floating: UIImage, onto reference: UIImage) -> CGAffineTransform? {
         guard let floatingImage = CIImage(image: floating), let referenceImage = CIImage(image: reference) else { return nil }
-        let request = VNTranslationalImageRegistrationRequest(targetedCIImage: floatingImage)
-        let requestHandler = VNImageRequestHandler(ciImage: referenceImage)
+        return translationTransform(floatingImage, onto: referenceImage)
+    }
+    
+    static func translationTransform(_ floating: CIImage, onto reference: CIImage) -> CGAffineTransform? {
+        let request = VNTranslationalImageRegistrationRequest(targetedCIImage: floating)
+        let requestHandler = VNImageRequestHandler(ciImage: reference)
         
         try? requestHandler.perform([request])
         

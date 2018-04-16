@@ -39,7 +39,7 @@ public class PDFactory: App, PersistableApp, FinalizableApp, PhotoPickerViewCont
 
     public required init() {}
 
-    public var finalizingOptions: PHAssetFinalizingOptions{
+    public var finalizingOptions: [PHAssetFinalizingOption]{
         return [.delete]
     }
 

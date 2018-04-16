@@ -286,8 +286,22 @@ extension AssetView {
     }
 }
 
+//MARK: - Apply Edit State
+
 extension AssetView {
-    func applyFilter(ciFilter: CIFilter?) {
+    func applyEditState<T>(_ editState: StateValueSet<T>?) where T: AppValue {
+        applyFilter(ciFilter: editState?.ciFilter)
+        
+        if let mode = editState?.stabilizationMode {
+            if asset?.mediaType == .video {
+                playerItem?.videoComposition = playerItem?.asset.stabilize(with: mode)
+            }
+        }
+    }
+}
+
+extension AssetView {
+    fileprivate func applyFilter(ciFilter: CIFilter?) {
         if asset?.mediaType == .image || previewMode {
             applyImageFilter(ciFilter: ciFilter)
         }
@@ -296,7 +310,7 @@ extension AssetView {
         }
     }
     
-    private func applyImageFilter(ciFilter: CIFilter?) {
+    fileprivate func applyImageFilter(ciFilter: CIFilter?) {
         if asset?.mediaSubtypes.contains(.photoLive) == true {
             
         }
@@ -305,7 +319,7 @@ extension AssetView {
         }
     }
     
-    private func applyVideoFilter(ciFilter: CIFilter?) {
+    fileprivate func applyVideoFilter(ciFilter: CIFilter?) {
         playerItem?.videoComposition = playerItem?.asset.applyFilter(ciFilter)
     }
 }

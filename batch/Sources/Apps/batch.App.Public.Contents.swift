@@ -19,6 +19,7 @@ public class AppValue: Object {
     var ciFilter: CIFilter? {
         return nil
     }
+    var stabilizationMode: ImageAlignment.StabilizationMode? { return nil }
 }
 
 

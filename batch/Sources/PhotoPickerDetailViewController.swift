@@ -40,7 +40,7 @@ class PhotoPickerDetailViewController: UIViewController {
             
             assetView.preferredTransform = preferredTransform
             assetView.setAsset(asset, completion: { result in
-                self.assetView.applyFilter(ciFilter: self.assetItem?.editState.ciFilter)
+                self.assetView.applyEditState(self.assetItem?.editState)
             })
             assetView.playAny()
             

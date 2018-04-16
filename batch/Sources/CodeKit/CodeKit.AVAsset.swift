@@ -47,10 +47,53 @@ extension AVAsset {
 }
 
 extension AVAsset {
-    func applyFilter(_ filter: CIFilter?) -> AVVideoComposition {
+    func applyFilter(_ filter: CIFilter?, cancellation: (() -> Bool)? = nil, updateProgress: ((Double) -> Void)? = nil) -> AVVideoComposition {
         return AVVideoComposition(asset: self) { (request) in
+            if let update = updateProgress {
+                let progress = CMTimeMultiplyByFloat64(request.compositionTime, 1 / self.duration.seconds)
+                update(progress.seconds)
+            }
+            
             let image = request.sourceImage.applyFilter(ciFilter: filter)
-            request.finish(with: image, context: nil)
+            if cancellation?() == true {
+                request.finish(with: NSError(domain: "AVAsset", code: -500, userInfo: nil)) // User Interrupt
+            }
+            else {
+                request.finish(with: image, context: nil)
+            }
+        }
+    }
+}
+
+extension AVAsset {
+    func stabilize(with mode: ImageAlignment.StabilizationMode = .translation, cancellation: (() -> Bool)? = nil, updateProgress: ((Double) -> Void)? = nil) -> AVVideoComposition {
+        var referenceImage: CIImage?
+        
+        return AVVideoComposition(asset: self) { (request) in
+            if let update = updateProgress {
+                let progress = CMTimeMultiplyByFloat64(request.compositionTime, 1 / self.duration.seconds)
+                update(progress.seconds)
+            }
+            
+            let result: CIImage
+            if let image = referenceImage {
+                if #available(iOS 11.0, *) {
+                    result = request.sourceImage.stabilize(with: image, mode: mode)
+                } else {
+                    result = request.sourceImage
+                }
+            }
+            else {
+                result = request.sourceImage
+            }
+            referenceImage = request.sourceImage
+            
+            if cancellation?() == true {
+                request.finish(with: NSError(domain: "AVAsset", code: -500, userInfo: nil)) // User Interrupt
+            }
+            else {
+                request.finish(with: result, context: nil)
+            }
         }
     }
 }

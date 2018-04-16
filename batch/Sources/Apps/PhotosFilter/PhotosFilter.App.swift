@@ -87,7 +87,7 @@ public class PhotosFilterApp: NSObject, KeyPathWatchable, ConfigurableApp, _Conf
         return (item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive)) || item.asset.mediaType == .video
     }
     
-    public var finalizingOptions: PHAssetFinalizingOptions{
+    public var finalizingOptions: [PHAssetFinalizingOption]{
         return [.modify]
     }
     
