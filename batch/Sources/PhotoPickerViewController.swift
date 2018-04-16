@@ -102,7 +102,7 @@ class PhotoPickerViewController: AppDockViewController {
             let old = dict.oldValue ?? nil
             let new = dict.newValue ?? nil
 
-            if old != nil && new != nil && old != new {
+            if old != nil || (new != nil && old != new) {
                 AppAssets.selected.reloadAll()
                 self.redisplayVisibleCellsWhenChangeApp()
                 self.showAndRevertTitleByCurrentAppIfNeeded()
