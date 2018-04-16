@@ -39,8 +39,8 @@ public class Stabilizer: App, PersistableApp, PHAssetFinalizableApp, AppDockCont
     )
 
     public required init() {}
-
-    public var finalizingOptions: PHAssetFinalizingOptions{
+    
+    public var finalizingOptions: [PHAssetFinalizingOption]{
         return [.modify]
     }
 

@@ -621,6 +621,7 @@ internal class AppDockViewCell: CustomCollectionViewCell {
         appIconView.cornerRadius = ((contentBounds.height - margin * 2) - appInfoViewHeightLayout.constant) * 0.5
     }
 
+    //32 x 24 (1x)
     public var iconImage: UIImage? {
         get {
             return appIconImageView.image

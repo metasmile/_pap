@@ -66,7 +66,7 @@ public class PhotosFilterApp: NSObject, KeyPathWatchable, ConfigurableApp, _Conf
         , phase: .beta
         , appType: PhotosFilterApp.self
         , displayName: "Photos Filter"
-        , icon: R.image.revertAppIcon.name
+        , icon: R.image.photosFilterAppIcon.name
         , policy: AppPolicy.default
         , minOSVersion: nil
     )
@@ -87,7 +87,7 @@ public class PhotosFilterApp: NSObject, KeyPathWatchable, ConfigurableApp, _Conf
         return (item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive)) || item.asset.mediaType == .video
     }
     
-    public var finalizingOptions: PHAssetFinalizingOptions{
+    public var finalizingOptions: [PHAssetFinalizingOption]{
         return [.modify]
     }
     

@@ -70,7 +70,7 @@ public class TransformApp: NSObject, KeyPathWatchable
         self.updateControllerView()
     }
 
-    public var finalizingOptions: PHAssetFinalizingOptions{
+    public var finalizingOptions: [PHAssetFinalizingOption]{
         return [.modify]
     }
 }

@@ -32,14 +32,14 @@ public class PDFactory: App, PersistableApp, FinalizableApp, PhotoPickerViewCont
             , phase: .beta
             , appType: PDFactory.self
             , displayName: "PDFactory"
-            , icon: nil
+            , icon: R.image.pdFactoryAppIcon.name
             , policy: AppPolicy.default
             , minOSVersion: nil
     )
 
     public required init() {}
 
-    public var finalizingOptions: PHAssetFinalizingOptions{
+    public var finalizingOptions: [PHAssetFinalizingOption]{
         return [.delete]
     }
 

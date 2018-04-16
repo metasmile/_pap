@@ -23,11 +23,11 @@ class batchTests: XCTestCase {
     
     func test_SequenceOptionSet(){
         measure {
-            XCTAssertTrue([PHAssetFinalizingOptions.delete].underestimatedCount==1)
+            XCTAssertTrue([PHAssetFinalizingOption.delete].count==1)
         }
-        XCTAssertTrue([PHAssetFinalizingOptions.delete, PHAssetFinalizingOptions.create].underestimatedCount==2)
+        XCTAssertTrue([PHAssetFinalizingOption.delete, PHAssetFinalizingOption.create].count==2)
 
-        let iterableOptions:PHAssetFinalizingOptions = [.delete, .create]
+        let iterableOptions:PHAssetFinalizingOption = [.delete, .create]
         for option in iterableOptions{
             print("option == .create / "+String(describing: option == .create ))
             XCTAssertTrue(option == .create || option == .delete)

@@ -7,6 +7,19 @@ import Foundation
 import Photos
 import ImageIO
 
+
+//FIXME: some normal photo fires "NSCocoaErrorDomain 18446744073709551615"
+
+//TODO:
+/*
+try
+-> share vc
+-> save or share
+-> remove original? Image itself will be equal. Its quality has not affected.
+-> yes -> remove
+-> no -> modify
+*/
+
 private typealias ParamType = PHAssetItem<AppValue>
 
 public class ExifGhost: App, PHAssetFinalizableApp, PhotoPickerCollectionViewDisplayableApp, AppDockControllableApp {
@@ -27,16 +40,12 @@ public class ExifGhost: App, PHAssetFinalizableApp, PhotoPickerCollectionViewDis
 
     public required init() {}
 
-    public var finalizingOptions: PHAssetFinalizingOptions{
-        return [.modify]
-        //TODO: PHAssetEditableFinalizableApp.finalize -> fix Error Domain=NSCocoaErrorDomain Code=-1 "(null)"
+    public var finalizingOptions: [PHAssetFinalizingOption]{
+        return [.share, .delete]
     }
 
     public func isItemEnables(for item: PHAssetItem<AppValue>) -> Bool {
-
-
-        //TODO: lookup CIImage.properties
-        return true
+        return item.asset.mediaType == .image
     }
 }
 
@@ -53,8 +62,13 @@ private class _ExifGhostTask: TaskPrototype, Taskable {
         var result: PHAssetResultItem?
 
         async?.begin()
+        let option = PHContentEditingInputRequestOptions()
+        option.isNetworkAccessAllowed = true
+        option.canHandleAdjustmentData = { _ -> Bool in
+            return true
+        }
 
-        let id = param.requestContentEditing { item in
+        let id = param.requestContentEditing(options:option) { item in
 
             assert(item?.input.fullSizeImageURL != nil, "item.input.fullSizeImageURL is nil")
             if let item = item, let url = item.input.fullSizeImageURL{
@@ -72,9 +86,6 @@ private class _ExifGhostTask: TaskPrototype, Taskable {
                         try! processedData.write(to: item.output.renderedContentURL, options: .atomic)
 
                         result = PHAssetResultItem(asset:param.asset, contentEditingOutput:item.output)
-
-                        print("resultresultresultresultresultresultresultresultresultresult")
-
                     }
 
 
