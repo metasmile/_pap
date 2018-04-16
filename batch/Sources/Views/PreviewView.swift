@@ -36,7 +36,7 @@ class PreviewView: CustomView {
 
         print("[i] BatchAppCenter.default.task.maxConcurrentCount: ", AppCenter.default.task.maxConcurrentCount)
 
-        collectionViewHeightLayout.constant = _preferences.height
+        collectionViewHeightLayout.constant = _preferences.minimumHeight
         
         collectionView.contentInset.top = 1
         collectionView.contentInset.bottom = 1
@@ -82,7 +82,7 @@ extension PreviewView: AppDockContentView, AppDockContent {
     }
 
     func reloadContent() {
-        reloadPreview(with:_preferences.height)
+        reloadPreview(with:_preferences.minimumHeight)
     }
 
     func reloadContentThatFits(size:CGSize) {

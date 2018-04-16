@@ -50,6 +50,7 @@
 		4F71D459B80FE399B9C164F0 /* ImageAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DED9EBFD9A6A82797634 /* ImageAlignment.swift */; };
 		4F71D47B8799716650124A9F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D6900CB7937103516269 /* Localizable.strings */; };
 		4F71D4A24E3E3FB936BB1D2F /* PHAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D080E201B80067BF2F59 /* PHAssets.swift */; };
+		4F71D4A4E38AE6B19764BA72 /* ExifGhost.AppDockContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DBD105607B911C0919B6 /* ExifGhost.AppDockContent.swift */; };
 		4F71D4A9C313C6702FA30261 /* batch.App.PhotoPickerCollectionViewDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D39AF0B7FD798207B14B /* batch.App.PhotoPickerCollectionViewDisplayable.swift */; };
 		4F71D5159D503A1C85067FDB /* CodeKit.Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D98A51387658CDC4FE16 /* CodeKit.Int.swift */; };
 		4F71D56A4CCB29F812125841 /* ImageIO.GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D38C0B49D219A0D196F0 /* ImageIO.GIF.swift */; };
@@ -301,6 +302,7 @@
 		4F71DB895A3FB604A9F08CBD /* ExifGhost.App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExifGhost.App.swift; sourceTree = "<group>"; };
 		4F71DB9D84840AFF3698CC49 /* PreviewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewCollectionViewCell.xib; sourceTree = "<group>"; };
 		4F71DBB79D25BD1396AACF6B /* batch.Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = batch.Defaults.swift; sourceTree = "<group>"; };
+		4F71DBD105607B911C0919B6 /* ExifGhost.AppDockContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExifGhost.AppDockContent.swift; sourceTree = "<group>"; };
 		4F71DC0D33A6C59D6893EB36 /* AppAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAssets.swift; sourceTree = "<group>"; };
 		4F71DC250BC1539E5CF380C0 /* it */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = it; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71DC4565938334F77840D7 /* ar */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ar; path = Localizable.strings; sourceTree = "<group>"; };
@@ -884,6 +886,7 @@
 			isa = PBXGroup;
 			children = (
 				4F71DB895A3FB604A9F08CBD /* ExifGhost.App.swift */,
+				4F71DBD105607B911C0919B6 /* ExifGhost.AppDockContent.swift */,
 			);
 			path = ExifGhost;
 			sourceTree = "<group>";
@@ -1115,7 +1118,6 @@
 				0ABFCF751F14B65C0078A583 /* Frameworks */,
 				0ABFCF761F14B65C0078A583 /* Resources */,
 				E3607A0050E70D649848C2DD /* [CP] Embed Pods Frameworks */,
-				C20D0C51CA26F75201584114 /* [CP] Copy Pods Resources */,
 				A02DED091FBF651C003796B6 /* ShellScript */,
 			);
 			buildRules = (
@@ -1137,7 +1139,6 @@
 				A0AEACCB206006500086E3E0 /* Frameworks */,
 				A0AEACCC206006500086E3E0 /* Resources */,
 				A709EC51C433F5FA7D883918 /* [CP] Embed Pods Frameworks */,
-				AC3BC69909594EC93A1586AB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1352,36 +1353,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-batch-batchTests/Pods-batch-batchTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AC3BC69909594EC93A1586AB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-batch-batchTests/Pods-batch-batchTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C20D0C51CA26F75201584114 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-batch/Pods-batch-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E3607A0050E70D649848C2DD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1508,6 +1479,7 @@
 				4F71DDBE94B46E14A924ABBD /* batch.App.AppDockControllable.swift in Sources */,
 				4F71D4A9C313C6702FA30261 /* batch.App.PhotoPickerCollectionViewDisplayable.swift in Sources */,
 				4F71DDCAF375C1156DC65161 /* batch.App.PhotoPickerViewControllerDelegatable.swift in Sources */,
+				4F71D4A4E38AE6B19764BA72 /* ExifGhost.AppDockContent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

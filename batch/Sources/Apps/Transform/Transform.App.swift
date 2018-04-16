@@ -95,7 +95,7 @@ private extension TransformApp{
         let view = BatchUICollectionView(items: items)
         var preferences = AppDockContentPreferences()
         preferences.pinned = true
-        preferences.height = 44
+        preferences.minimumHeight = 44
         return AppDockContentItem(view: view, preferences: preferences)
     }
 

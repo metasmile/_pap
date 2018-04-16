@@ -22,7 +22,10 @@ try
 
 private typealias ParamType = PHAssetItem<AppValue>
 
-public class ExifGhost: App, PHAssetFinalizableApp, PhotoPickerCollectionViewDisplayableApp, AppDockControllableApp {
+public class ExifGhost: App, PHAssetFinalizableApp,
+        PhotoPickerCollectionViewDisplayableApp, AppDockControllableApp,
+        PersistableApp {
+
     public static let taskType:Taskable.Type = _ExifGhostTask.self
 
     public static let paramType:TaskParamable.Type = ParamType.self
@@ -38,6 +41,8 @@ public class ExifGhost: App, PHAssetFinalizableApp, PhotoPickerCollectionViewDis
             , minOSVersion: nil
     )
 
+    public private(set) lazy var controller: AppDockContent? = ExifGhostAppDockContent()
+
     public required init() {}
 
     public var finalizingOptions: [PHAssetFinalizingOption]{
@@ -48,6 +53,7 @@ public class ExifGhost: App, PHAssetFinalizableApp, PhotoPickerCollectionViewDis
         return item.asset.mediaType == .image
     }
 }
+
 
 private class _ExifGhostTask: TaskPrototype, Taskable {
     public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?){

@@ -111,9 +111,9 @@ class AppDockView: CustomView {
     private var hasDrawer: Bool {
         let hasMultipleApps = items.count > 1
         if hasControllerPinned{
-            return hasMultipleApps && accessory?.view.subviews.count ?? 0 > 0
+            return hasMultipleApps && topAccessoryView.subviews.count > 0
         }
-        return hasMultipleApps && controller?.view.subviews.count ?? 0 > 0
+        return hasMultipleApps && controllerView.subviews.count > 0
     }
 
     private var hasContent: Bool {
@@ -133,15 +133,20 @@ class AppDockView: CustomView {
         didSet {
             if let view = controller?.view {
                 setControllerView(view, animated: true)
+
+                DispatchQueue.main.async{
+                    self.controller?.didSetContentView()
+                }
             }
             else {
+                controller?.willRemoveContentView()
                 removeAllControllerViews()
             }
         }
     }
 
     var hasControllerPinned:Bool{
-        return controller?.preferences?.pinned ?? false
+        return controller?.preferences?.pinned == true
     }
 
     private func hasControlView(_ view: UIView?) -> Bool {
@@ -180,8 +185,13 @@ class AppDockView: CustomView {
         didSet {
             if let view = accessory?.view {
                 setTopAccessoryView(view, animated: true)
+
+                DispatchQueue.main.async{
+                    self.accessory?.didSetContentView()
+                }
             }
             else {
+                accessory?.willRemoveContentView()
                 removeAllTopAccessoryViews()
             }
         }
@@ -228,14 +238,14 @@ extension AppDockView {
     
     fileprivate var preferredAccessoryViewHeight: CGFloat {
         if let accessory = self.accessory{
-            return accessory.preferences?.height ?? DefaultPreferences.Accessory.height
+            return accessory.preferences?.minimumHeight ?? DefaultPreferences.Accessory.minimumHeight
         }
         return 0
     }
     
     fileprivate var preferredControllerViewHeight: CGFloat {
         if let control = self.controller {
-            return control.preferences?.height ?? DefaultPreferences.Control.height
+            return control.preferences?.minimumHeight ?? DefaultPreferences.Control.minimumHeight
         }
         return 0
     }

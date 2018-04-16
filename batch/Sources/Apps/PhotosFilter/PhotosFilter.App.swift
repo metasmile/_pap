@@ -186,7 +186,7 @@ private extension PhotosFilterApp {
         
         var p = AppDockContentPreferences()
         p.pinned = true
-        p.height = 100 // for test. remove this line after fixed app design
+        p.minimumHeight = 100 // for test. remove this line after fixed app design
         return AppDockContentItem(view: view, preferences: p)
     }
     

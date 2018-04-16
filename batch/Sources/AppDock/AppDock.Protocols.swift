@@ -8,18 +8,19 @@ import UIKit
 
 // AppDockContentPreferable
 public protocol AppDockContentPreferable {
-    var height: CGFloat {get}
+    var minimumHeight: CGFloat {get}
     var pinned:Bool {get}
+    //TODO: allow/disallow drawer open, or add something more detailed rules for accessory view.
 }
 
 public struct AppDockContentPreferences: AppDockContentPreferable {
-    public var height: CGFloat = 0
+    public var minimumHeight: CGFloat = 0
     public var pinned: Bool = false
 
     init(){}
 
     init(height:CGFloat){
-        self.height = height
+        self.minimumHeight = height
     }
 }
 
@@ -27,7 +28,16 @@ public struct AppDockContentPreferences: AppDockContentPreferable {
 public protocol AppDockContent {
     var view: UIView {get}
     var preferences: AppDockContentPreferable? {get}
+
+    func didSetContentView()
+    func willRemoveContentView()
 }
+
+extension AppDockContent{
+    public func didSetContentView() {}
+    public func willRemoveContentView() {}
+}
+
 public struct AppDockContentItem: AppDockContent {
     public var view: UIView
     public var preferences: AppDockContentPreferable? = nil
@@ -41,10 +51,11 @@ protocol AppDockContentView: class{
 
 // AppDockReloadableContentView default behavior
 extension AppDockContentView where Self:UIView{
-    func reloadContent() {
-        layoutIfNeeded()
-    }
     func reloadContentThatFits(size: CGSize) {
+        reloadContent()
+    }
+
+    func reloadContent() {
         layoutIfNeeded()
     }
 }
