@@ -20,10 +20,6 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
     @IBOutlet weak var assetViewWidth: NSLayoutConstraint!
     @IBOutlet weak var assetViewHeight: NSLayoutConstraint!
     
-    @IBOutlet weak var imageInfoViewTop: NSLayoutConstraint!
-    @IBOutlet weak var fileLabel: UILabel!
-    @IBOutlet weak var resolutionLabel: UILabel!
-    
     override func prepareForReuse() {
         super.prepareForReuse()
         
@@ -92,18 +88,16 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         }
         
         assetView.applyEditState(editItem)
-        
-        imageInfoViewTop.constant = (bounds.height + CGSize(width: assetViewWidth.constant, height: assetViewHeight.constant).applying(editItem.transform).magnitude.height) / 2 + 10
     }
     
     private func setAssetInfo<T>(_ asset: PHAsset, editItem: StateValueSet<T>) where T: AppValue {
-        let resources = PHAssetResource.assetResources(for: asset)
-        if let firstResource = resources.first {
-            fileLabel.text = firstResource.originalFilename
-        }
-        
-        let assetSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight)
-        let transformedAssetSize = assetSize.applying(editItem.transform).magnitude
-        resolutionLabel.text = "\(Int(transformedAssetSize.width)) x \(Int(transformedAssetSize.height))"
+//        let resources = PHAssetResource.assetResources(for: asset)
+//        if let firstResource = resources.first {
+//            fileLabel.text = firstResource.originalFilename
+//        }
+//        
+//        let assetSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight)
+//        let transformedAssetSize = assetSize.applying(editItem.transform).magnitude
+//        resolutionLabel.text = "\(Int(transformedAssetSize.width)) x \(Int(transformedAssetSize.height))"
     }
 }

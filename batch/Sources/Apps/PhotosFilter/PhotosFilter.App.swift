@@ -97,7 +97,7 @@ public class PhotosFilterApp: NSObject, KeyPathWatchable, ConfigurableApp, _Conf
     }
 }
 
-class CIAutoEnhancementFilter: CIFilter {
+class CIAutoAdjustmentFilter: CIFilter {
     init(name: String) {
         super.init()
         
@@ -113,7 +113,15 @@ class CIAutoEnhancementFilter: CIFilter {
     override var outputImage: CIImage? {
         guard var image = value(forKey: kCIInputImageKey) as? CIImage else { return nil }
         
-        for filter in image.autoAdjustmentFilters() {
+        let options = [
+            kCIImageAutoAdjustEnhance: true,
+            kCIImageAutoAdjustRedEye: true,
+//            kCIImageAutoAdjustFeatures: true,
+            kCIImageAutoAdjustCrop: true,
+            kCIImageAutoAdjustLevel: true
+        ]
+        
+        for filter in image.autoAdjustmentFilters(options: options) {
             filter.setValue(image, forKey: kCIInputImageKey)
             if let result = filter.outputImage {
                 image = result
@@ -133,7 +141,7 @@ private extension PhotosFilterApp {
         static let CIPhotoEffectProcess = "CIPhotoEffectProcess"
         static let CIPhotoEffectTonal = "CIPhotoEffectTonal"
         static let CIPhotoEffectTransfer = "CIPhotoEffectTransfer"
-        static let CIAutoEnhancement = "AutoEnhancement"
+        static let CIAutoAdjustment = "CIAutoAdjustment"
         
         static func aliasName(_ filterName: String?) -> String? {
             switch filterName {
@@ -144,7 +152,7 @@ private extension PhotosFilterApp {
             case CIPhotoEffectProcess?: return "Process"
             case CIPhotoEffectTonal?: return "Tonal"
             case CIPhotoEffectTransfer?: return "Transfer"
-            case CIAutoEnhancement?: return "Auto"
+            case CIAutoAdjustment?: return "Auto"
             default: return "Original"
             }
         }
@@ -158,11 +166,10 @@ private extension PhotosFilterApp {
         static let CIPhotoEffectProcess = CIFilter(name: PhotosFilterNames.CIPhotoEffectProcess)
         static let CIPhotoEffectTonal = CIFilter(name: PhotosFilterNames.CIPhotoEffectTonal)
         static let CIPhotoEffectTransfer = CIFilter(name: PhotosFilterNames.CIPhotoEffectTransfer)
-        static let CIAutoEnhancement = CIAutoEnhancementFilter(name:PhotosFilterNames.CIAutoEnhancement)
-        
+        static let CIAutoAdjustment = CIAutoAdjustmentFilter(name:PhotosFilterNames.CIAutoAdjustment)
         static var filters: [CIFilter] {
             return [
-                CIAutoEnhancement,
+                CIAutoAdjustment,
                 CIPhotoEffectChrome,
                 CIPhotoEffectFade,
                 CIPhotoEffectInstant,
