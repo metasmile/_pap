@@ -102,7 +102,7 @@ extension _StabilizerAppAsset: PHAssetVideoEditable {
                 return nil
         }
         
-        let videoComposition = video.stabilize(with: stabilizationMode, cancellation: { return false })
+        let videoComposition = video.stabilize(with: stabilizationMode)
         
         var reqIDs = [PHAssetRequestID]()
         
