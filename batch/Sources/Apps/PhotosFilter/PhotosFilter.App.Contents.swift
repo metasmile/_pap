@@ -17,7 +17,7 @@ extension _PhotosFilterAppAsset: PHAssetImageEditable {
         
         guard
             let uiImage = asset.asUIImage,
-            let filter = self.editState.ciFilter
+            let filter = editState.ciFilter
         else {
             completionHandler(nil, nil)
             return nil

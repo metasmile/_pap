@@ -46,6 +46,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             , Clean.self
             , PDFactory.self
             , PhotosFilterApp.self
+            , Stabilizer.self
         ]
 
         return config

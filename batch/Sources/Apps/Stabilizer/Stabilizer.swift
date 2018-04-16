@@ -13,10 +13,19 @@ import Foundation
 import Foundation
 import Photos
 
-public class Stabilizer: App, PersistableApp, PHAssetFinalizableApp, AppDockControllableApp, PhotoPickerViewControllerDelegatableApp {
+class _StabilizerAppAsset: PHAssetItem<AppValue> {}
+
+public extension StateValueSet where T: AppValue {
+    var stabilizationMode: ImageAlignment.StabilizationMode? {
+        return ImageAlignment.StabilizationMode.translation
+//        return self.iterator().reversed().first?.stabilizationMode
+    }
+}
+
+public class Stabilizer: App, PersistableApp, PHAssetFinalizableApp, AppDockControllableApp, PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp {
     public static let taskType:Taskable.Type = StabilizerTask.self
 
-    public static let paramType:TaskParamable.Type = PHAssetItem<AppValue>.self
+    public static let paramType:TaskParamable.Type = _StabilizerAppAsset.self
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.stabilizer"
@@ -32,7 +41,7 @@ public class Stabilizer: App, PersistableApp, PHAssetFinalizableApp, AppDockCont
     public required init() {}
 
     public var finalizingOptions: PHAssetFinalizingOptions{
-        return [.delete]
+        return [.modify]
     }
 
     public var titleWillFinalize: String? {
@@ -41,16 +50,87 @@ public class Stabilizer: App, PersistableApp, PHAssetFinalizableApp, AppDockCont
     public var doneButtonTitle: String? {
         return "Stabilize".localized
     }
-}
-
-private class StabilizerTask: TaskPrototype, Taskable {
-    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?){}
-
-    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable?) throws -> TaskResultable? {
-        if let asset = (param as? PHAssetItem<AppValue>)?.asset{
-            return PHAssetResultItem(asset: asset, contentEditingOutput: nil)
-        }
-        return nil
+    
+    public func isItemEnables(for item: PHAssetItem<AppValue>) -> Bool {
+        return item.asset.mediaType == .video// || (item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive))
     }
 }
 
+private class StabilizerTask: TaskPrototype, Taskable {
+    private var isCancelled: Bool = false
+    
+    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?) {
+        (param as? _StabilizerAppAsset)?.cancelAllRequestIDs()
+    }
+
+    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable?) throws -> TaskResultable? {
+        assert(param is _StabilizerAppAsset, "TaskParamable type of this app is \(_StabilizerAppAsset.self)")
+        guard let _param = param as? _StabilizerAppAsset else{
+            throw TaskError.invalidParam
+        }
+        return try self._perform(_param, async)
+    }
+    
+    private func _perform(_ assetItem: _StabilizerAppAsset, _ async: AsyncManualSignalable?) throws -> PHAssetResultItem?  {
+        var result: PHAssetResultItem?
+        
+        async?.begin()
+        
+        assetItem.runEditing(nil) { (asset, contentEditingOutput) in
+            if let asset = asset, let contentEditingOutput = contentEditingOutput {
+                result = PHAssetResultItem(
+                    asset: asset,
+                    contentEditingOutput: contentEditingOutput)
+            }
+            async?.end()
+        }
+        
+        async?.waitUntilEnd()
+        return result
+    }
+}
+
+extension _StabilizerAppAsset: PHAssetVideoEditable {
+    func edit<T>(processor: T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? where T : VideoProcessable {
+        let asset = self.asset
+        
+        guard
+            let video = asset.asAVAsset,
+            let stabilizationMode = editState.stabilizationMode
+            else {
+                completionHandler(nil, nil)
+                return nil
+        }
+        
+        let videoComposition = video.stabilize(with: stabilizationMode, cancellation: { return false })
+        
+        var reqIDs = [PHAssetRequestID]()
+        
+        let r = self.requestContentEditing { _item in
+            guard let item = _item else{
+                completionHandler(nil,nil)
+                return
+            }
+
+            let exportSession = AVAssetExportSession(asset: video, presetName: AVAssetExportPresetHighestQuality)
+            exportSession?.outputFileType = AVFileType.mov
+            exportSession?.outputURL = item.output.renderedContentURL
+            exportSession?.videoComposition = videoComposition
+            exportSession?.shouldOptimizeForNetworkUse = false
+            exportSession?.exportAsynchronously {
+                guard let status = exportSession?.status else { return }
+                switch status {
+                case .completed:
+                    completionHandler(asset, item.output)
+                case .failed, .cancelled:
+                    completionHandler(nil, nil)
+                default:
+                    break
+                }
+            }
+        }
+
+        reqIDs.append(PHAssetRequestID(forEditingInput: r))
+        return reqIDs
+    }
+}
