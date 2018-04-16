@@ -81,7 +81,6 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "myIdentifier")
 
-
         cell.textLabel?.text = metadataItems[indexPath.section].items[indexPath.item].label
         cell.detailTextLabel?.text = "ok. my first UITableView"
 
@@ -89,6 +88,8 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
             cell.multipleSelectionBackgroundView = createSelectedBackgroundView()
         }
         cell.accessoryType = tableView.indexPathsForSelectedRows?.contains(indexPath) == true ? .checkmark : .none
+        // cell.accessoryView <- Ghost Icon
+
 
         return cell
     }
