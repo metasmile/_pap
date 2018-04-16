@@ -85,6 +85,22 @@ private class _ExifGhostTask: TaskPrototype, Taskable {
 
                     if let metadata = data.getMetadata(){
 
+                        for k in metadata[kCGImagePropertyExifDictionary as String] as! [String:Any]{
+                            if ImageMetadataProperties.Raw.EXIF.contains(k.key){
+                                print(ImageMetadataProperties.Raw.EXIF.index(of: k.key)!, k.key)
+                            }
+                        }
+
+                        print("-------------------------")
+
+                        for k in metadata[kCGImagePropertyGPSDictionary as String] as! [String:Any]{
+                            if ImageMetadataProperties.Raw.GPS.contains(k.key){
+                                print(ImageMetadataProperties.Raw.GPS.index(of: k.key)!, k.key)
+                            }
+                        }
+
+                        print("-------------------------")
+
                         let newMetadata = metadata.removeGeoTag()
                         let processedData = data.setMetadata(with: newMetadata)
 //                        let processedData = data.changeMetadata(metadata: metadata.removeGeoTag(), imageSize: nil, comment: nil, software: nil, exifOrientation: nil)

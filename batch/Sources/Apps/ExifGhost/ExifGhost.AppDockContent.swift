@@ -4,17 +4,42 @@
 //
 
 import Foundation
-import SwipeCellKit
 import UIKit
 
+private struct MetadataItem{
+    fileprivate var property:String
+    fileprivate var label:String
+}
+
+private struct MetadataDictionary{
+    fileprivate var property:String
+    fileprivate var label:String
+    fileprivate var items:[MetadataItem]
+}
+
+
 class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource{
+    private let metadataItems:[MetadataDictionary] = [
+        MetadataDictionary(property:kCGImagePropertyExifDictionary as String, label: "EXIF",
+                items: ImageMetadataProperties.Described.EXIF.map { key, value -> MetadataItem in
+                    return MetadataItem(property:key, label: key/*value*/)
+                }),
+
+        MetadataDictionary(property:kCGImagePropertyGPSDictionary as String, label: "GPS",
+                items: ImageMetadataProperties.Described.GPS.map { key, value -> MetadataItem in
+                    return MetadataItem(property:key, label: key/*value*/)
+                }),
+        MetadataDictionary(property:kCGImagePropertyTIFFDictionary as String, label: "TIFF",items: [
+
+        ])
+    ]
+
     var view: UIView{
 
         let view = UITableView()
         view.dataSource = self
         view.delegate = self
-        view.allowsSelection = true
-        view.allowsMultipleSelectionDuringEditing = true
+        view.allowsMultipleSelection = true
         view.rowHeight = UITableViewAutomaticDimension
 
         return view
@@ -29,26 +54,48 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
     func didSetContentView() {
         (self.view as! UITableView).reloadData()
-        (self.view as! UITableView).setEditing(true, animated: false)
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return metadataItems.count
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return metadataItems[section].label
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return metadataItems[section].items.count
+    }
+
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.accessoryType = .none
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.accessoryType = .checkmark
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let myCell = UITableViewCell(style: .subtitle, reuseIdentifier: "myIdentifier")
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "myIdentifier")
 
-//        cell.selectedBackgroundView = createSelectedBackgroundView()
-        myCell.textLabel?.text = "\(indexPath.row)"
-        myCell.detailTextLabel?.text = "ok. my first UITableView"
 
-        return myCell
+        cell.textLabel?.text = metadataItems[indexPath.section].items[indexPath.item].label
+        cell.detailTextLabel?.text = "ok. my first UITableView"
+
+        if cell.multipleSelectionBackgroundView == nil{
+            cell.multipleSelectionBackgroundView = createSelectedBackgroundView()
+        }
+        cell.accessoryType = tableView.indexPathsForSelectedRows?.contains(indexPath) == true ? .checkmark : .none
+
+        return cell
     }
 
     func createSelectedBackgroundView() -> UIView {
         let view = UIView()
-        view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
+        view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
         return view
     }
 }
