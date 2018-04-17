@@ -12,12 +12,20 @@ import ImageIO
 
 //TODO:
 /*
+use flow
+
 try
 -> share vc
 -> save or share
 -> remove original? Image itself will be equal. Its quality has not affected.
 -> yes -> remove
 -> no -> modify
+
+
+data
+
+- OR operation for all metadata keys in selected photos
+- AND operation for handling with EXIFGhost
 */
 
 private typealias ParamType = PHAssetItem<AppValue>
@@ -85,17 +93,19 @@ private class _ExifGhostTask: TaskPrototype, Taskable {
 
                     if let metadata = data.getMetadata(){
 
+                        print(metadata)
+
                         for k in metadata[kCGImagePropertyExifDictionary as String] as! [String:Any]{
-                            if ImageMetadataProperties.Keys.EXIF.contains(k.key){
-                                print(ImageMetadataProperties.Keys.EXIF.index(of: k.key)!, k.key)
+                            if ImageMetadata.Keys.EXIF.contains(k.key){
+                                print(ImageMetadata.Keys.EXIF.index(of: k.key)!, k.key)
                             }
                         }
 
                         print("-------------------------")
 
                         for k in metadata[kCGImagePropertyGPSDictionary as String] as! [String:Any]{
-                            if ImageMetadataProperties.Keys.GPS.contains(k.key){
-                                print(ImageMetadataProperties.Keys.GPS.index(of: k.key)!, k.key)
+                            if ImageMetadata.Keys.GPS.contains(k.key){
+                                print(ImageMetadata.Keys.GPS.index(of: k.key)!, k.key)
                             }
                         }
 
@@ -104,8 +114,8 @@ private class _ExifGhostTask: TaskPrototype, Taskable {
                         print(metadata[kCGImagePropertyTIFFDictionary as String])
 
                         for k in metadata[kCGImagePropertyTIFFDictionary as String] as! [String:Any]{
-                            if ImageMetadataProperties.Keys.TIFF.contains(k.key){
-                                print(ImageMetadataProperties.Keys.TIFF.index(of: k.key)!, k.key)
+                            if ImageMetadata.Keys.TIFF.contains(k.key){
+                                print(ImageMetadata.Keys.TIFF.index(of: k.key)!, k.key)
                             }
                         }
 

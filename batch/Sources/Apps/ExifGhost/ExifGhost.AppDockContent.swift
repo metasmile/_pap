@@ -5,6 +5,56 @@
 
 import Foundation
 import UIKit
+import DefaultsKit
+
+public protocol ExifGhostAppDefaults: AppDefaults{
+    var selectedMetadataProperties:[String:[String]] {get set}
+}
+
+extension Defaults: ExifGhostAppDefaults {
+    public var selectedMetadataProperties: [String:[String]] {
+        set{
+            set(newValue)
+        }
+        get{ return get(or:[
+            ImageMetadata.Dictionary.GPS: [
+                ImageMetadata.Keys.GPSDateStamp
+                , ImageMetadata.Keys.GPSDateStamp
+                , ImageMetadata.Keys.GPSAltitude
+                , ImageMetadata.Keys.GPSAltitudeRef
+                , ImageMetadata.Keys.GPSLatitude
+                , ImageMetadata.Keys.GPSLatitudeRef
+                , ImageMetadata.Keys.GPSLongitude
+                , ImageMetadata.Keys.GPSLongitudeRef
+                , ImageMetadata.Keys.GPSImgDirection
+                , ImageMetadata.Keys.GPSImgDirectionRef
+
+            ],
+            ImageMetadata.Dictionary.EXIF: [
+                ImageMetadata.Keys.ExifDateTimeDigitized
+                , ImageMetadata.Keys.ExifDateTimeOriginal
+                , ImageMetadata.Keys.ExifLensMake
+                , ImageMetadata.Keys.ExifLensModel
+                , ImageMetadata.Keys.ExifLensSerialNumber
+                , ImageMetadata.Keys.ExifLensSerialNumber
+                , ImageMetadata.Keys.ExifSubsecTime
+                , ImageMetadata.Keys.ExifSubsecTimeOriginal
+                , ImageMetadata.Keys.ExifSubsecTimeDigitized
+            ],
+            ImageMetadata.Dictionary.TIFF: [
+                ImageMetadata.Keys.TIFFDateTime
+                , ImageMetadata.Keys.TIFFArtist
+                , ImageMetadata.Keys.TIFFCopyright
+                , ImageMetadata.Keys.TIFFDocumentName
+                , ImageMetadata.Keys.TIFFSoftware
+                , ImageMetadata.Keys.TIFFMake
+                , ImageMetadata.Keys.TIFFModel
+                , ImageMetadata.Keys.TIFFImageDescription
+                , ImageMetadata.Keys.TIFFHostComputer
+            ],
+        ]) }
+    }
+}
 
 private struct MetadataItem{
     fileprivate var property:String
@@ -17,22 +67,21 @@ private struct MetadataDictionary{
     fileprivate var items:[MetadataItem]
 }
 
-
 class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource{
     private let metadataItems:[MetadataDictionary] = [
         MetadataDictionary(property:kCGImagePropertyExifDictionary as String, label: "EXIF",
-                items: ImageMetadataProperties.Keys.EXIF.map { key -> MetadataItem in
-                    return MetadataItem(property:key, label: ImageMetadataProperties.LabelsForKeys.EXIF[key] ?? key)
+                items: ImageMetadata.Keys.EXIF.map { key -> MetadataItem in
+                    return MetadataItem(property:key, label: ImageMetadata.LabelsForKeys.EXIF[key] ?? key)
                 }),
 
         MetadataDictionary(property:kCGImagePropertyGPSDictionary as String, label: "GPS",
-                items: ImageMetadataProperties.Keys.GPS.map { key -> MetadataItem in
-                    return MetadataItem(property:key, label: ImageMetadataProperties.LabelsForKeys.GPS[key] ?? key)
+                items: ImageMetadata.Keys.GPS.map { key -> MetadataItem in
+                    return MetadataItem(property:key, label: ImageMetadata.LabelsForKeys.GPS[key] ?? key)
                 }),
 
         MetadataDictionary(property:kCGImagePropertyTIFFDictionary as String, label: "TIFF",
-                items: ImageMetadataProperties.Keys.TIFF.map { key -> MetadataItem in
-                    return MetadataItem(property:key, label: ImageMetadataProperties.LabelsForKeys.TIFF[key] ?? key)
+                items: ImageMetadata.Keys.TIFF.map { key -> MetadataItem in
+                    return MetadataItem(property:key, label: ImageMetadata.LabelsForKeys.TIFF[key] ?? key)
                 })
     ]
 
