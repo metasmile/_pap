@@ -8,7 +8,7 @@
 
 import UIKit
 
-class _AutoAdjustmentAppAsset: PHAssetItem<AppValue> {}
+class _AutoAdjustmentAppAsset: _PhotosFilterAppAsset {}
 
 public class AutoAdjustmentApp: NSObject, KeyPathWatchable, ConfigurableApp, _ConfigurableApp, AppDockControllableApp, PHAssetFinalizableApp, PersistableApp, PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp {
     public static let taskType:Taskable.Type = _AutoAdjustmentAppTask.self
