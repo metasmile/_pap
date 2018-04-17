@@ -49,7 +49,7 @@ public class ExifGhost: App, PHAssetFinalizableApp,
         return [.share, .delete]
     }
 
-    public func isItemEnables(for item: PHAssetItem<AppValue>) -> Bool {
+    public func shouldSelect(item: PHAssetItem<AppValue>) -> Bool {
         return item.asset.mediaType == .image
     }
 }

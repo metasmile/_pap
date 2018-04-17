@@ -51,7 +51,7 @@ public class Stabilizer: App, PersistableApp, PHAssetFinalizableApp, AppDockCont
         return "Stabilize".localized
     }
     
-    public func isItemEnables(for item: PHAssetItem<AppValue>) -> Bool {
+    public func shouldSelect(item: PHAssetItem<AppValue>) -> Bool {
         return item.asset.mediaType == .video// || (item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive))
     }
 }

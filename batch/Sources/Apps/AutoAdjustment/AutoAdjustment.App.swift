@@ -48,7 +48,7 @@ public class AutoAdjustmentApp: NSObject, KeyPathWatchable, ConfigurableApp, _Co
         return "Apply".localized
     }
     
-    public func isItemEnables(for item: PHAssetItem<AppValue>) -> Bool {
+    public func shouldSelect(item: PHAssetItem<AppValue>) -> Bool {
         return (item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive)) || item.asset.mediaType == .video
     }
     

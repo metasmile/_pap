@@ -57,7 +57,7 @@ public class PDFactory: App, PersistableApp, FinalizableApp, PhotoPickerViewCont
 
     public lazy var numberOfItemsShouldSelect: Int? = 3 //for test
 
-    public func isItemEnables(for item: AppAsset) -> Bool {
+    public func shouldSelect(item: AppAsset) -> Bool {
         //for test
         return item.asset.mediaType == .image
     }

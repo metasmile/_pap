@@ -35,7 +35,7 @@ public class RevertApp: NSObject, KeyPathWatchable, App, FinalizableApp, Persist
         adjustedCache.removeAll()
     }
 
-    public func isItemEnables(for item: PHAssetItem<AppValue>) -> Bool {
+    public func shouldSelect(item: PHAssetItem<AppValue>) -> Bool {
         let cacheId = item.asset.localIdentifier
         if adjustedCache[cacheId] == nil{
             adjustedCache[cacheId] = item.asset.isAdjusted //TODO: find more fast way
