@@ -10,7 +10,7 @@ import UIKit
 import Photos
 import DefaultsKit
 
-public class PhotosFilterItem: AppValue {
+public class CIFilterItem: AppValue {
     override var ciFilter: CIFilter? {
         return _filter
     }
@@ -97,33 +97,6 @@ public class PhotosFilterApp: NSObject, KeyPathWatchable, ConfigurableApp, _Conf
     }
 }
 
-class CIAutoAdjustmentFilter: CIFilter {
-    init(name: String) {
-        super.init()
-        
-        self.name = name
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    @objc dynamic var inputImage : CIImage?
-    
-    override var outputImage: CIImage? {
-        guard var image = value(forKey: kCIInputImageKey) as? CIImage else { return nil }
-        
-        for filter in image.autoAdjustmentFilters() {
-            filter.setValue(image, forKey: kCIInputImageKey)
-            if let result = filter.outputImage {
-                image = result
-            }
-        }
-        
-        return image
-    }
-}
-
 private extension PhotosFilterApp {
     private struct PhotosFilterNames {
         static let CIPhotoEffectChrome = "CIPhotoEffectChrome"
@@ -133,7 +106,6 @@ private extension PhotosFilterApp {
         static let CIPhotoEffectProcess = "CIPhotoEffectProcess"
         static let CIPhotoEffectTonal = "CIPhotoEffectTonal"
         static let CIPhotoEffectTransfer = "CIPhotoEffectTransfer"
-        static let CIAutoAdjustment = "CIAutoAdjustment"
         
         static func aliasName(_ filterName: String?) -> String? {
             switch filterName {
@@ -144,7 +116,6 @@ private extension PhotosFilterApp {
             case CIPhotoEffectProcess?: return "Process"
             case CIPhotoEffectTonal?: return "Tonal"
             case CIPhotoEffectTransfer?: return "Transfer"
-            case CIAutoAdjustment?: return "Auto"
             default: return "Original"
             }
         }
@@ -158,10 +129,8 @@ private extension PhotosFilterApp {
         static let CIPhotoEffectProcess = CIFilter(name: PhotosFilterNames.CIPhotoEffectProcess)
         static let CIPhotoEffectTonal = CIFilter(name: PhotosFilterNames.CIPhotoEffectTonal)
         static let CIPhotoEffectTransfer = CIFilter(name: PhotosFilterNames.CIPhotoEffectTransfer)
-        static let CIAutoAdjustment = CIAutoAdjustmentFilter(name:PhotosFilterNames.CIAutoAdjustment)
         static var filters: [CIFilter] {
             return [
-                CIAutoAdjustment,
                 CIPhotoEffectChrome,
                 CIPhotoEffectFade,
                 CIPhotoEffectInstant,
@@ -174,14 +143,14 @@ private extension PhotosFilterApp {
     }
     
     private func createController() -> AppDockContent {
-        var items = CIFilters.filters.map({ (filter) -> BatchUICollectionView.CollectionItem in
-            return BatchUICollectionView.CollectionItem(title: PhotosFilterNames.aliasName(filter.name), image: nil, action: {
-                self.config?.filter = PhotosFilterItem(filter)
+        var items = CIFilters.filters.map({ (filter) -> BAppUICollectionView.CollectionItem in
+            return BAppUICollectionView.CollectionItem(title: PhotosFilterNames.aliasName(filter.name), image: nil, action: {
+                self.config?.filter = CIFilterItem(filter)
             })
         })
-        items.insert(BatchUICollectionView.CollectionItem(title: PhotosFilterNames.aliasName(nil), image: nil, action: { self.config?.filter = PhotosFilterItem() }), at: 0)
+        items.insert(BAppUICollectionView.CollectionItem(title: PhotosFilterNames.aliasName(nil), image: nil, action: { self.config?.filter = CIFilterItem() }), at: 0)
         
-        let view = BatchUICollectionView(items: items)
+        let view = BAppUICollectionView(items: items)
         
         var p = AppDockContentPreferences()
         p.pinned = true
@@ -192,211 +161,6 @@ private extension PhotosFilterApp {
     private func updateControllerView(){
         self.controller?.view.tintColor = config?.tintColor
     }
-}
-
-class BatchUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    struct CollectionItem {
-        var title: String?
-        var image: UIImage?
-        var action: (() -> Void)?
-    }
-    
-    private var items = [CollectionItem]()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        initialize()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-        initialize()
-    }
-    
-    init(items: [CollectionItem]) {
-        self.init()
-        
-        initialize()
-        
-        self.items = items
-        
-        collectionView.reloadData()
-    }
-    
-    override var tintColor: UIColor! {
-        didSet {
-            collectionView.tintColor = tintColor
-        }
-    }
-    
-    private lazy var collectionView: UICollectionView = {
-        let view = UICollectionView(frame: bounds, collectionViewLayout: BatchUICollectionViewLayout())
-        view.dataSource = self
-        view.delegate = self
-        view.allowsMultipleSelection = false
-        view.alwaysBounceVertical = false
-        view.alwaysBounceHorizontal = true
-        view.showsVerticalScrollIndicator = false
-        view.showsHorizontalScrollIndicator = false
-        view.scrollsToTop = false
-        view.backgroundColor = UIColor.clear
-        view.register(BatchUICollectionViewCell.self, forCellWithReuseIdentifier: "BatchUICollectionViewCell")
-        return view
-    }()
-    
-    private func initialize() {
-        addSubview(collectionView)
-        collectionView.fitConstraints(to: self)
-    }
-    
-    // MARK: - UICollectionViewDataSource
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BatchUICollectionViewCell", for: indexPath) as! BatchUICollectionViewCell
-        cell.title = items[indexPath.item].title
-        cell.image = items[indexPath.item].image
-        return cell
-    }
-    
-    // MARK: - UICollectionViewDelegate
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        items[indexPath.item].action?()
-    }
-}
-
-class BatchUICollectionViewLayout: UICollectionViewLayout {
-    private enum LayoutItem: String {
-        case item = "Item"
-        case header = "UICollectionElementKindSectionHeader"
-        case footer = "UICollectionElementKindSectionFooter"
-    }
-    private var cache = [LayoutItem: [IndexPath: UICollectionViewLayoutAttributes]]()
-    private func prepareCache() {
-        cache.removeAll()
-        
-        cache[.item] = [IndexPath: UICollectionViewLayoutAttributes]()
-        cache[.header] = [IndexPath: UICollectionViewLayoutAttributes]()
-        cache[.footer] = [IndexPath: UICollectionViewLayoutAttributes]()
-    }
-    
-    private var numberOfItems: Int {
-        return collectionView?.numberOfItems(inSection: 0) ?? 0
-    }
-    
-    private var collectionViewSize: CGSize {
-        return collectionView?.frame.size ?? .zero
-    }
-    
-    lazy var itemSize: CGSize = CGSize(width: self.collectionView?.bounds.height ?? 0, height: self.collectionView?.bounds.height ?? 0)
-    var minimumSpacing: CGFloat = 4
-    
-    override func prepare() {
-        super.prepare()
-        
-        prepareCache()
-        
-        var itemPosition: CGPoint = CGPoint(x: padding, y: 0)
-        
-        for indexPath in (0 ..< numberOfItems).map({ IndexPath(item: $0, section: 0) }) {
-            let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
-            attributes.frame = CGRect(origin: itemPosition, size: itemSize)
-            itemPosition.x += itemSize.width + minimumSpacing
-            
-            cache[.item]?[indexPath] = attributes
-        }
-    }
-    
-    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        return cache[.item]?[indexPath]
-    }
-    
-    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        return cache[.item]?.compactMap({ rect.intersects($0.value.frame) ? $0.value : nil })
-    }
-    
-    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
-        return false
-    }
-    
-    private var contentSize: CGSize {
-        let contentsWidth = (CGFloat(numberOfItems) * itemSize.width) + (CGFloat(numberOfItems - 1) * minimumSpacing)
-        return CGSize(width: contentsWidth, height: itemSize.height)
-    }
-    
-    private var padding: CGFloat {
-        return max(0, (collectionViewSize.width - contentSize.width) / 2)
-    }
-    
-    override var collectionViewContentSize: CGSize {
-        let contentSize = self.contentSize
-        return CGSize(width: contentSize.width + padding * 2, height: contentSize.height)
-    }
-}
-
-class BatchUICollectionViewCell: UICollectionViewCell {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        initialize()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-        initialize()
-    }
-    
-    var title: String? {
-        didSet {
-            titleLabel.text = title
-        }
-    }
-    
-    var image: UIImage? {
-        didSet {
-            imageView.image = image
-        }
-    }
-    
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel(frame: bounds)
-        label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.5
-        label.textAlignment = .center
-        return label
-    }()
-    
-    private lazy var imageView: UIImageView = {
-        let view = UIImageView(frame: bounds)
-        view.contentMode = .center
-        return view
-    }()
-    
-    private func initialize() {
-        contentView.addSubview(imageView)
-        imageView.fitConstraints(to: contentView)
-        
-        contentView.addSubview(titleLabel)
-        titleLabel.fitConstraints(to: contentView)
-    }
-    
-    override func tintColorDidChange() {
-        super.tintColorDidChange()
-        
-        imageView.tintColor = tintColor
-        titleLabel.textColor = tintColor
-    }
-}
-
-private class _PhotoFilterButton: UIButton {
-    var filter: CIFilter?
 }
 
 private class _PhotosFilterAppTask: TaskPrototype, Taskable {

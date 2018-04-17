@@ -99,6 +99,12 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
                 }
             }
             
+            appCenter.currentInstanceAs(AutoAdjustmentApp.self)?.config?.watch(\.filter, id:"editor\(AutoAdjustmentApp.info.identifier)") { (config, changed) in
+                if let value = config.filter {
+                    self.setFilter(value)
+                }
+            }
+            
             //common ui attributes if current app is ConfigurableApp
             appCenter.currentInstanceAs(ConfigurableApp.self)?.setConfigValues( AppConfigUIAttrribute(tintColor: .white))
         }
@@ -124,6 +130,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         
         AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.unwatch(\.transform, forIds:["editor\(TransformApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(PhotosFilterApp.self)?.config?.unwatch(\.filter, forIds:["editor\(PhotosFilterApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(AutoAdjustmentApp.self)?.config?.unwatch(\.filter, forIds:["editor\(AutoAdjustmentApp.info.identifier)"])
         AppCenter.default.unwatch(\.currentIdentifier, forIds:["editor"])
     }
     // MARK: - Layout

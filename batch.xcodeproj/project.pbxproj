@@ -160,6 +160,8 @@
 		4F71DFE43FF864C907579514 /* CodeKit.Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD8D0F498343A0F9E956 /* CodeKit.Thread.swift */; };
 		4F71DFEC865AA80D613A636F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D301F74DE286EEECCC9F /* Localizable.strings */; };
 		4F71DFF8D55824E32A18110E /* CodeKit.UIView.Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDBE65F819676D3B5DEC /* CodeKit.UIView.Property.swift */; };
+		514944FE2085913B0053896A /* AutoAdjustment.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514944FD2085913B0053896A /* AutoAdjustment.App.swift */; };
+		51494501208591F60053896A /* BAppUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51494500208591F60053896A /* BAppUICollectionView.swift */; };
 		A099B0452080FDAE003AC819 /* PhotosFilter.App.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A099B0442080FDAE003AC819 /* PhotosFilter.App.Assets.xcassets */; };
 		A099B0492080FE8E003AC819 /* Revert.App.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A099B0482080FE8E003AC819 /* Revert.App.Assets.xcassets */; };
 		A0CFD8E92052D9F10007041B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CFD8E82052D9F10007041B /* R.generated.swift */; };
@@ -349,6 +351,8 @@
 		4F71DF8FD2E3706781E2B4A4 /* pl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = pl; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71DFA92443925F2D9553B2 /* Clean.App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clean.App.swift; sourceTree = "<group>"; };
 		4F71DFCA8020E56BB968A0A8 /* hu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = hu; path = Localizable.strings; sourceTree = "<group>"; };
+		514944FD2085913B0053896A /* AutoAdjustment.App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoAdjustment.App.swift; sourceTree = "<group>"; };
+		51494500208591F60053896A /* BAppUICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAppUICollectionView.swift; sourceTree = "<group>"; };
 		614D248BD87AEAE91795DFC4 /* Pods-batch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch.release.xcconfig"; path = "Pods/Target Support Files/Pods-batch/Pods-batch.release.xcconfig"; sourceTree = "<group>"; };
 		7A5AA560EA015DA4EF60D3A9 /* Pods_batch_batchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_batch_batchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A099B0442080FDAE003AC819 /* PhotosFilter.App.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PhotosFilter.App.Assets.xcassets; sourceTree = "<group>"; };
@@ -666,6 +670,7 @@
 		4F71D52D5B046AC8CA2D3CA6 /* AppDock */ = {
 			isa = PBXGroup;
 			children = (
+				514944FF208591A10053896A /* BAppUIKit */,
 				4F71DCDC5DA79B9601BA8871 /* AppDock.swift */,
 				4F71D8DB3EB3FF2FF4AC1EFA /* AppDockView.xib */,
 				4F71D27E626109B669C73807 /* AppDockViewCell.xib */,
@@ -1083,6 +1088,7 @@
 		4F71DFDFC21955E57EED45EB /* Apps */ = {
 			isa = PBXGroup;
 			children = (
+				514944FC208591110053896A /* AutoAdjustment */,
 				4F71DE577096F5EC57AA3E7C /* Clean */,
 				4F71D6CD9D0A7D36FC1A58DA /* Revert */,
 				4F71DB1B1E842F6C9FC43D71 /* ExifGhost */,
@@ -1096,6 +1102,22 @@
 				4F71D10C8DB1EB2439AE51DE /* batch.App.PhotoPickerViewControllerDelegatable.swift */,
 			);
 			path = Apps;
+			sourceTree = "<group>";
+		};
+		514944FC208591110053896A /* AutoAdjustment */ = {
+			isa = PBXGroup;
+			children = (
+				514944FD2085913B0053896A /* AutoAdjustment.App.swift */,
+			);
+			path = AutoAdjustment;
+			sourceTree = "<group>";
+		};
+		514944FF208591A10053896A /* BAppUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				51494500208591F60053896A /* BAppUICollectionView.swift */,
+			);
+			path = BAppUIKit;
 			sourceTree = "<group>";
 		};
 		DEBB1972B2E19B0514B3BEDD /* Frameworks */ = {
@@ -1478,6 +1500,7 @@
 				4F71D8A79A81BFAE8F3B1DA0 /* CodeKit.DispatchQueue.swift in Sources */,
 				4F71DFF8D55824E32A18110E /* CodeKit.UIView.Property.swift in Sources */,
 				4F71DA793F6A330BAB4802A1 /* CodeKit.UIView.Animation.swift in Sources */,
+				51494501208591F60053896A /* BAppUICollectionView.swift in Sources */,
 				4F71D2D4102D779A6AF088E4 /* CodeKit.UIViewController.swift in Sources */,
 				4F71D6A000CC39D9BC4D0143 /* CodeKit.UIAlertController.swift in Sources */,
 				4F71DB6F0C602F5E51BC3C19 /* CodeKit.UIImage.Transform.swift in Sources */,
@@ -1492,6 +1515,7 @@
 				4F71DEA89A2371293DC9158E /* PhotoEditViewController.swift in Sources */,
 				4F71DEE10B73BB485322647A /* PhotoPickerViewController.swift in Sources */,
 				4F71D2BE67AD26CDA3A353BE /* PhotoPickerDetailViewController.swift in Sources */,
+				514944FE2085913B0053896A /* AutoAdjustment.App.swift in Sources */,
 				4F71D38AAD9CB923665A9A5C /* PhotoPickerViewController.OperationControl.swift in Sources */,
 				4F71DBA29E6FEEBFD8B18841 /* PhotoPickerViewController.UICollectionView.swift in Sources */,
 				4F71D1DA25B79E7E9312D4FC /* PhotoPickerViewController.UIGestureRecognizerDelegate.swift in Sources */,

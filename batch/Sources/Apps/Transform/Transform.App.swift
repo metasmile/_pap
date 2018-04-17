@@ -78,21 +78,21 @@ public class TransformApp: NSObject, KeyPathWatchable
 private extension TransformApp{
     private func createController() -> AppDockContent {
         let items = [
-            BatchUICollectionView.CollectionItem(title: nil, image: R.image.flipVertical()?.withRenderingMode(.alwaysTemplate), action: {
+            BAppUICollectionView.CollectionItem(title: nil, image: R.image.flipVertical()?.withRenderingMode(.alwaysTemplate), action: {
                 self.config?.transform = VerticalFlipTransformItem()
             }),
-            BatchUICollectionView.CollectionItem(title: nil, image: R.image.flipHorizontal()?.withRenderingMode(.alwaysTemplate), action: {
+            BAppUICollectionView.CollectionItem(title: nil, image: R.image.flipHorizontal()?.withRenderingMode(.alwaysTemplate), action: {
                 self.config?.transform = HorizontalFlipTransformItem()
             }),
-            BatchUICollectionView.CollectionItem(title: nil, image: R.image.rotateLeft()?.withRenderingMode(.alwaysTemplate), action: {
+            BAppUICollectionView.CollectionItem(title: nil, image: R.image.rotateLeft()?.withRenderingMode(.alwaysTemplate), action: {
                 self.config?.transform = RotationTransformItem(degrees: -90)
             }),
-            BatchUICollectionView.CollectionItem(title: nil, image: R.image.rotateRight()?.withRenderingMode(.alwaysTemplate), action: {
+            BAppUICollectionView.CollectionItem(title: nil, image: R.image.rotateRight()?.withRenderingMode(.alwaysTemplate), action: {
                 self.config?.transform = RotationTransformItem(degrees: 90)
             })
         ]
         
-        let view = BatchUICollectionView(items: items)
+        let view = BAppUICollectionView(items: items)
         var preferences = AppDockContentPreferences()
         preferences.pinned = true
         preferences.minimumHeight = 44

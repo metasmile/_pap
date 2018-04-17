@@ -125,6 +125,14 @@ class PhotoPickerViewController: AppDockViewController {
                     self.batchPreviewView.updatePreviews()
                 }
             }
+            
+            AppCenter.default.currentInstanceAs(AutoAdjustmentApp.self)?.config?.watch(\.filter, id:"picker\(AutoAdjustmentApp.info.identifier)") { (config, changed) in
+                if let value = config.filter, !AppCenter.default.isAppRunning{
+                    AppAssets.selected.appendValue(value)
+                    
+                    self.batchPreviewView.updatePreviews()
+                }
+            }
         }
     }
 
@@ -133,6 +141,7 @@ class PhotoPickerViewController: AppDockViewController {
 
         AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.unwatch(\.transform, forIds:["picker\(TransformApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(PhotosFilterApp.self)?.config?.unwatch(\.filter, forIds:["picker\(PhotosFilterApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(AutoAdjustmentApp.self)?.config?.unwatch(\.filter, forIds:["picker\(AutoAdjustmentApp.info.identifier)"])
         AppCenter.default.unwatchAllFilePrivate(\.currentIdentifier)
     }
 
