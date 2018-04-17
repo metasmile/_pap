@@ -373,7 +373,12 @@ extension AppDockView: UIGestureRecognizerDelegate {
                 drawerViewHeightLayout.constant = min(DefaultPreferences.DrawerView.prominentHeight, max(DefaultPreferences.DrawerView.compactHeight, delta))
             }
             
-            appContentView.layoutIfNeeded()
+            if hasControllerPinned {
+                topAccessoryView.layoutIfNeeded()
+            }
+            else {
+                appContentView.layoutIfNeeded()
+            }
             
             invalidateIntrinsicContentSize()
             
@@ -414,7 +419,12 @@ extension AppDockView: UIGestureRecognizerDelegate {
         let accessoryLayoutConstant = controllerPinned ? contentLayoutConstant - preferredControllerViewHeight : preferredAccessoryViewHeight
         controllerViewHeightLayout.constant = controllerLayoutConstant
         
-        appContentView.layoutIfNeeded()
+        if hasControllerPinned {
+            topAccessoryView.layoutIfNeeded()
+        }
+        else {
+            appContentView.layoutIfNeeded()
+        }
         
         invalidateIntrinsicContentSize()
         
@@ -438,7 +448,12 @@ extension AppDockView: UIGestureRecognizerDelegate {
         appContentViewHeightLayout.constant = preferredControllerViewHeight + preferredAccessoryViewHeight
         controllerViewHeightLayout.constant = preferredControllerViewHeight
         
-        appContentView.layoutIfNeeded()
+        if hasControllerPinned {
+            topAccessoryView.layoutIfNeeded()
+        }
+        else {
+            appContentView.layoutIfNeeded()
+        }
         
         invalidateIntrinsicContentSize()
 
