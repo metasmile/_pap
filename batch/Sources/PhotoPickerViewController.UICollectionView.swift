@@ -98,6 +98,10 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
 
         if let asset = PHAssets.fetched.asset(at: indexPath){
             batchPreviewView.appendCollectionViewItem(with:asset)
+            
+            if let app = AppCenter.default.currentInstanceAs(AutoAdjustmentApp.self), let value = app.config?.filter {
+                AppAssets.selected.appendValue(value)
+            }
         }
 
         if let _ = collectionViewDisplayableApp?.numberOfItemsShouldSelect{
