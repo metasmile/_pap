@@ -362,11 +362,13 @@ extension AppDockView: UIGestureRecognizerDelegate {
             let maxHeight = max(DefaultPreferences.DrawerView.compactHeight, DefaultPreferences.DrawerView.prominentHeight)
             let minHeight = min(DefaultPreferences.DrawerView.compactHeight, DefaultPreferences.DrawerView.prominentHeight)
 
-            appContentViewHeightLayout.constant = max(preferredAppContentViewHeight, sender.beginAppContentViewOffset - translation.y)
-            controllerViewHeightLayout.constant = appContentViewHeightLayout.constant - preferredAccessoryViewHeight
+            appContentViewHeightLayout.constant = sender.beginAppContentViewOffset - translation.y
+            controllerViewHeightLayout.constant = controller?.preferences?.pinned == true ? preferredControllerViewHeight : appContentViewHeightLayout.constant - preferredAccessoryViewHeight
 
             if drawerView.isOpened{
                 drawerView.progressToRenderOpening = remapNormalizeClamp(delta, minHeight, maxHeight)
+                topAccessoryView.layoutIfNeeded()
+                controllerView.layoutIfNeeded()
             }else{
                 drawerViewHeightLayout.constant = min(DefaultPreferences.DrawerView.prominentHeight, max(DefaultPreferences.DrawerView.compactHeight, delta))
             }

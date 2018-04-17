@@ -44,10 +44,10 @@
                 <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzS-9k-7Sx">
                     <rect key="frame" x="0.0" y="16" width="375" height="0.0"/>
                     <subviews>
-                        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmY-6N-1EF">
+                        <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmY-6N-1EF">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
                         </view>
-                        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nsh-j1-0eF">
+                        <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nsh-j1-0eF">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
                             <constraints>
                                 <constraint firstAttribute="height" id="mMQ-ZO-2JX"/>
