@@ -7,61 +7,101 @@ import Foundation
 import ImageIO
 
 public struct ImageMetadataProperties{
-    public struct Described{
+    public struct LabelsForKeys {
+/*
+Altitude: 44.83 m (147.07 ft)
+Altitude Reference: above sea level
+Date Stamp: 7 Apr 2018
+Destination Bearing: 56.491
+Destination Bearing Reference: True direction
+Horizontal Positioning Error: 8
+Image Direction: 56.491
+Image Direction Reference: True north
+Latitude: 52° 24’ 14.292” N
+Longitude: 0° 0’ 0” E
+Speed: 0.071
+Speed Reference: Kilometers per hour
+Time Stamp: 13:37:15 UTC
+*/
         static let GPS:[String:String] = [
-            kCGImagePropertyGPSLatitudeRef as String : "",
-            kCGImagePropertyGPSLatitude as String : "",
-
-            kCGImagePropertyGPSLongitudeRef as String : "",
-            kCGImagePropertyGPSLongitude as String : "",
-
-            kCGImagePropertyGPSAltitudeRef as String : "",
-            kCGImagePropertyGPSAltitude as String : "",
-
-            kCGImagePropertyGPSTimeStamp as String : "",
-
-            kCGImagePropertyGPSSpeedRef as String : "",
-            kCGImagePropertyGPSSpeed as String : "",
-
-            kCGImagePropertyGPSImgDirectionRef as String: "",
-            kCGImagePropertyGPSImgDirection as String: "",
-
-            kCGImagePropertyGPSDestBearingRef as String : "",
-            kCGImagePropertyGPSDestBearing as String : "",
-
-            kCGImagePropertyGPSDateStamp as String : "",
-            kCGImagePropertyGPSDifferental as String : "",
-            kCGImagePropertyGPSHPositioningError as String : ""
+            kCGImagePropertyGPSDateStamp as String : "Date Stamp",
+            kCGImagePropertyGPSAltitudeRef as String : "Altitude",
+            kCGImagePropertyGPSAltitude as String : "Altitude Reference",
+            kCGImagePropertyGPSDestBearing as String : "Destination Bearing",
+            kCGImagePropertyGPSDestBearingRef as String : "Destination Bearing Reference",
+            kCGImagePropertyGPSHPositioningError as String : "Horizontal Positioning Error",
+            kCGImagePropertyGPSImgDirection as String: "Image Direction",
+            kCGImagePropertyGPSImgDirectionRef as String: "Image Direction Reference",
+            kCGImagePropertyGPSLatitude as String : "Latitude",
+            kCGImagePropertyGPSLatitudeRef as String : "Latitude Reference",
+            kCGImagePropertyGPSLongitude as String : "Longitude",
+            kCGImagePropertyGPSLongitudeRef as String : "Longitude Reference",
+            kCGImagePropertyGPSSpeed as String : "Speed",
+            kCGImagePropertyGPSSpeedRef as String : "Speed Reference",
+            kCGImagePropertyGPSTimeStamp as String : "Time Stamp",
+            kCGImagePropertyGPSDifferental as String : "Differental",
         ]
 
+/*
+Aperture Value: 1.696
+Brightness Value: 10.713
+Color Space: Uncalibrated
+Components Configuration: 1, 2, 3, 0
+Custom Rendered: 6
+Date Time Digitized: 7 Apr 2018 at 3:37:16 PM
+Date Time Original: 7 Apr 2018 at 3:37:16 PM
+Exif Version: 2.2.1
+Exposure Bias Value: 0
+Exposure Time: 1/2703
+Flash: No Flash
+FlashPix Version: 1.0
+FNumber: 1.8
+Focal Length: 4
+Focal Length In 35mm Film: 28
+ISO Speed Ratings: 20
+Lens Make: Apple
+Lens Model: iPhone X back camera 4mm f/1.8
+Lens Specification: 4, 4, 1.8, 1.8
+Metering Mode: Pattern
+Pixel X Dimension: 6,022
+Pixel Y Dimension: 3,896
+Scene Capture Type: Standard
+Scene Type: A directly photographed image
+Sensing Method: One-chip color area sensor
+Shutter Speed Value: 1/2702
+Sub-second Time Digitized: 772
+Sub-second Time Original: 772
+White Balance: Auto white balance
+*/
         static let EXIF:[String:String] = [
-            kCGImagePropertyGPSLatitudeRef as String : "",
-            kCGImagePropertyGPSLatitude as String : "",
+            "":""
+        ]
 
-            kCGImagePropertyGPSLongitudeRef as String : "",
-            kCGImagePropertyGPSLongitude as String : "",
-
-            kCGImagePropertyGPSAltitudeRef as String : "",
-            kCGImagePropertyGPSAltitude as String : "",
-
-            kCGImagePropertyGPSTimeStamp as String : "",
-
-            kCGImagePropertyGPSSpeedRef as String : "",
-            kCGImagePropertyGPSSpeed as String : "",
-
-            kCGImagePropertyGPSImgDirectionRef as String: "",
-            kCGImagePropertyGPSImgDirection as String: "",
-
-            kCGImagePropertyGPSDestBearingRef as String : "",
-            kCGImagePropertyGPSDestBearing as String : "",
-
-            kCGImagePropertyGPSDateStamp as String : "",
-            kCGImagePropertyGPSDifferental as String : "",
-            kCGImagePropertyGPSHPositioningError as String : ""
+/*
+Date Time: 7 Apr 2018 at 3:37:16 PM
+Make: Apple
+Model: iPhone X
+Orientation: 1 (Normal)
+Resolution Unit: inches
+Software: 11.3
+X Resolution: 72
+Y Resolution: 72
+*/
+        static let TIFF:[String:String] = [
+            kCGImagePropertyTIFFDateTime as String : "Date Time",
+            kCGImagePropertyTIFFMake as String : "Make",
+            kCGImagePropertyTIFFModel as String : "Model",
+            kCGImagePropertyTIFFOrientation as String : "Orientation",
+            kCGImagePropertyTIFFResolutionUnit as String : "Resolution Unit",
+            kCGImagePropertyTIFFSoftware as String : "Software",
+            kCGImagePropertyTIFFTileLength as String : "Tile Length",
+            kCGImagePropertyTIFFTileWidth as String : "Tile Width",
+            kCGImagePropertyTIFFXResolution as String : "X Resolution",
+            kCGImagePropertyTIFFYResolution as String : "Y Resolution"
         ]
     }
 
-    public struct Raw{
+    public struct Keys {
 
 /*
 iPhone X
@@ -221,6 +261,45 @@ iPhone X
                                     kCGImagePropertyExifLensModel as String,
                                     kCGImagePropertyExifLensSerialNumber as String,
                                     kCGImagePropertyExifGamma as String]
+
+/*
+iPhone X
+
+DateTime = "2018:04:15 15:46:13";
+    Make = Apple;
+    Model = "iPhone X";
+    Orientation = 3;
+    ResolutionUnit = 2;
+    Software = "11.3";
+    TileLength = 512;
+    TileWidth = 512;
+    XResolution = 72;
+    YResolution = 72;
+*/
+        static let TIFF:[String] = [
+            kCGImagePropertyTIFFCompression as String
+            ,kCGImagePropertyTIFFPhotometricInterpretation as String
+            ,kCGImagePropertyTIFFDocumentName as String
+            ,kCGImagePropertyTIFFImageDescription as String
+            ,kCGImagePropertyTIFFMake as String
+            ,kCGImagePropertyTIFFModel as String
+            ,kCGImagePropertyTIFFOrientation as String
+            ,kCGImagePropertyTIFFXResolution as String
+            ,kCGImagePropertyTIFFYResolution as String
+            ,kCGImagePropertyTIFFResolutionUnit as String
+            ,kCGImagePropertyTIFFSoftware as String
+            ,kCGImagePropertyTIFFTransferFunction as String
+            ,kCGImagePropertyTIFFDateTime as String
+            ,kCGImagePropertyTIFFArtist as String
+            ,kCGImagePropertyTIFFHostComputer as String
+            ,kCGImagePropertyTIFFCopyright as String
+            ,kCGImagePropertyTIFFWhitePoint as String
+            ,kCGImagePropertyTIFFPrimaryChromaticities as String
+            ,kCGImagePropertyTIFFTileWidth as String
+            ,kCGImagePropertyTIFFTileLength as String
+        ]
+
+
     }
 
 

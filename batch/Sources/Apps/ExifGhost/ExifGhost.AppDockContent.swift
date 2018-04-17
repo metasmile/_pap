@@ -21,17 +21,19 @@ private struct MetadataDictionary{
 class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource{
     private let metadataItems:[MetadataDictionary] = [
         MetadataDictionary(property:kCGImagePropertyExifDictionary as String, label: "EXIF",
-                items: ImageMetadataProperties.Described.EXIF.map { key, value -> MetadataItem in
-                    return MetadataItem(property:key, label: key/*value*/)
+                items: ImageMetadataProperties.Keys.EXIF.map { key -> MetadataItem in
+                    return MetadataItem(property:key, label: ImageMetadataProperties.LabelsForKeys.EXIF[key] ?? key)
                 }),
 
         MetadataDictionary(property:kCGImagePropertyGPSDictionary as String, label: "GPS",
-                items: ImageMetadataProperties.Described.GPS.map { key, value -> MetadataItem in
-                    return MetadataItem(property:key, label: key/*value*/)
+                items: ImageMetadataProperties.Keys.GPS.map { key -> MetadataItem in
+                    return MetadataItem(property:key, label: ImageMetadataProperties.LabelsForKeys.GPS[key] ?? key)
                 }),
-        MetadataDictionary(property:kCGImagePropertyTIFFDictionary as String, label: "TIFF",items: [
 
-        ])
+        MetadataDictionary(property:kCGImagePropertyTIFFDictionary as String, label: "TIFF",
+                items: ImageMetadataProperties.Keys.TIFF.map { key -> MetadataItem in
+                    return MetadataItem(property:key, label: ImageMetadataProperties.LabelsForKeys.TIFF[key] ?? key)
+                })
     ]
 
     var view: UIView{

@@ -86,16 +86,26 @@ private class _ExifGhostTask: TaskPrototype, Taskable {
                     if let metadata = data.getMetadata(){
 
                         for k in metadata[kCGImagePropertyExifDictionary as String] as! [String:Any]{
-                            if ImageMetadataProperties.Raw.EXIF.contains(k.key){
-                                print(ImageMetadataProperties.Raw.EXIF.index(of: k.key)!, k.key)
+                            if ImageMetadataProperties.Keys.EXIF.contains(k.key){
+                                print(ImageMetadataProperties.Keys.EXIF.index(of: k.key)!, k.key)
                             }
                         }
 
                         print("-------------------------")
 
                         for k in metadata[kCGImagePropertyGPSDictionary as String] as! [String:Any]{
-                            if ImageMetadataProperties.Raw.GPS.contains(k.key){
-                                print(ImageMetadataProperties.Raw.GPS.index(of: k.key)!, k.key)
+                            if ImageMetadataProperties.Keys.GPS.contains(k.key){
+                                print(ImageMetadataProperties.Keys.GPS.index(of: k.key)!, k.key)
+                            }
+                        }
+
+                        print("-------------------------")
+
+                        print(metadata[kCGImagePropertyTIFFDictionary as String])
+
+                        for k in metadata[kCGImagePropertyTIFFDictionary as String] as! [String:Any]{
+                            if ImageMetadataProperties.Keys.TIFF.contains(k.key){
+                                print(ImageMetadataProperties.Keys.TIFF.index(of: k.key)!, k.key)
                             }
                         }
 
