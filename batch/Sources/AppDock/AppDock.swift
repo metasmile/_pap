@@ -135,7 +135,7 @@ class AppDockView: CustomView {
                 setControllerView(view, animated: true)
 
                 DispatchQueue.main.async{
-                    self.controller?.didSetContentView()
+                    self.controller?.didSetContentView(view)
                 }
             }
             else {
@@ -187,7 +187,7 @@ class AppDockView: CustomView {
                 setTopAccessoryView(view, animated: true)
 
                 DispatchQueue.main.async{
-                    self.accessory?.didSetContentView()
+                    self.accessory?.didSetContentView(view)
                 }
             }
             else {

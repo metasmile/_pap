@@ -177,7 +177,7 @@ class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, 
         return preferences
     }
     
-    func didSetContentView() {
+    func didSetContentView(_ view:UIView) {
         self.options = [
             AutoAdjustmentApp.AutoAdjustments.Enhance: true,
             AutoAdjustmentApp.AutoAdjustments.RedEye: true,
@@ -185,7 +185,7 @@ class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, 
             AutoAdjustmentApp.AutoAdjustments.Level: true
         ]
         
-        (self.view as! UITableView).reloadData()
+        (view as! UITableView).reloadData()
     }
     
     @objc dynamic

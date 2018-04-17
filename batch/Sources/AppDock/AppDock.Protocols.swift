@@ -29,12 +29,12 @@ public protocol AppDockContent {
     var view: UIView {get}
     var preferences: AppDockContentPreferable? {get}
 
-    func didSetContentView()
+    func didSetContentView(_ view:UIView)
     func willRemoveContentView()
 }
 
 extension AppDockContent{
-    public func didSetContentView() {}
+    public func didSetContentView(_ view:UIView) {}
     public func willRemoveContentView() {}
 }
 

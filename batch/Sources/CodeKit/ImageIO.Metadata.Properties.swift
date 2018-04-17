@@ -101,6 +101,8 @@ Y Resolution: 72
         ]
     }
 
+    static let supportedDictionaries:[String] = [Dictionary.TIFF, Dictionary.EXIF, Dictionary.GPS]
+
     public struct Dictionary {
         static let GPS:String = kCGImagePropertyGPSDictionary as String
         static let EXIF:String = kCGImagePropertyExifDictionary as String

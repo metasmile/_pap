@@ -7,15 +7,44 @@ import Foundation
 import UIKit
 import DefaultsKit
 
-public protocol ExifGhostAppDefaults: AppDefaults{
-    var selectedMetadataProperties:[String:[String]] {get set}
+private protocol ExifGhostAppDefaults: AppDefaults{
+    var handledProperties:[String:[String]] {get set}
+}
+
+extension ExifGhostAppDefaults{
+    fileprivate func addHandledProperty(_ dictionary:String, _ property:String){
+        guard ImageMetadata.supportedDictionaries.contains(dictionary) else{
+            assert(false, "\(dictionary) is not supported dictionary")
+            return
+        }
+
+        var immutableSelf = self
+
+        if immutableSelf.handledProperties[dictionary] == nil{
+            immutableSelf.handledProperties[dictionary] = [property]
+        }else{
+            if handledProperties[dictionary]?.contains(property) == true{
+                immutableSelf.handledProperties[dictionary]?.append(property)
+            }
+        }
+    }
+
+    fileprivate func removeHandledProperty(_ dictionary:String, _ property:String){
+        guard ImageMetadata.supportedDictionaries.contains(dictionary) else{
+            assert(false, "\(dictionary) is not supported dictionary")
+        }
+
+        if let index = handledProperties[dictionary]?.index(of: property){
+            var immutableSelf = self
+            immutableSelf.handledProperties[dictionary]?.remove(at: index)
+        }
+    }
 }
 
 extension Defaults: ExifGhostAppDefaults {
-    public var selectedMetadataProperties: [String:[String]] {
-        set{
-            set(newValue)
-        }
+    fileprivate var handledProperties: [String:[String]] {
+        set{ set(newValue) }
+
         get{ return get(or:[
             ImageMetadata.Dictionary.GPS: [
                 ImageMetadata.Keys.GPSDateStamp
@@ -28,7 +57,6 @@ extension Defaults: ExifGhostAppDefaults {
                 , ImageMetadata.Keys.GPSLongitudeRef
                 , ImageMetadata.Keys.GPSImgDirection
                 , ImageMetadata.Keys.GPSImgDirectionRef
-
             ],
             ImageMetadata.Dictionary.EXIF: [
                 ImageMetadata.Keys.ExifDateTimeDigitized
@@ -57,42 +85,42 @@ extension Defaults: ExifGhostAppDefaults {
 }
 
 private struct MetadataItem{
-    fileprivate var property:String
+    fileprivate var key:String
     fileprivate var label:String
 }
 
 private struct MetadataDictionary{
-    fileprivate var property:String
+    fileprivate var key:String
     fileprivate var label:String
     fileprivate var items:[MetadataItem]
 }
 
 class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource{
-    private let metadataItems:[MetadataDictionary] = [
-        MetadataDictionary(property:kCGImagePropertyExifDictionary as String, label: "EXIF",
+    private let items:[MetadataDictionary] = [
+        MetadataDictionary(key:ImageMetadata.Dictionary.EXIF, label: "EXIF",
                 items: ImageMetadata.Keys.EXIF.map { key -> MetadataItem in
-                    return MetadataItem(property:key, label: ImageMetadata.LabelsForKeys.EXIF[key] ?? key)
+                    return MetadataItem(key:key, label: ImageMetadata.LabelsForKeys.EXIF[key] ?? key)
                 }),
 
-        MetadataDictionary(property:kCGImagePropertyGPSDictionary as String, label: "GPS",
+        MetadataDictionary(key:ImageMetadata.Dictionary.GPS, label: "GPS",
                 items: ImageMetadata.Keys.GPS.map { key -> MetadataItem in
-                    return MetadataItem(property:key, label: ImageMetadata.LabelsForKeys.GPS[key] ?? key)
+                    return MetadataItem(key:key, label: ImageMetadata.LabelsForKeys.GPS[key] ?? key)
                 }),
 
-        MetadataDictionary(property:kCGImagePropertyTIFFDictionary as String, label: "TIFF",
+        MetadataDictionary(key:ImageMetadata.Dictionary.TIFF, label: "TIFF",
                 items: ImageMetadata.Keys.TIFF.map { key -> MetadataItem in
-                    return MetadataItem(property:key, label: ImageMetadata.LabelsForKeys.TIFF[key] ?? key)
+                    return MetadataItem(key:key, label: ImageMetadata.LabelsForKeys.TIFF[key] ?? key)
                 })
     ]
 
-    var view: UIView{
+    private var initialSelectedIndexPaths:[IndexPath]? = [IndexPath]()
 
+    var view: UIView{
         let view = UITableView()
         view.dataSource = self
         view.delegate = self
         view.allowsMultipleSelection = true
         view.rowHeight = UITableViewAutomaticDimension
-
         return view
     }
 
@@ -103,44 +131,96 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         return preferences
     }
 
-    func didSetContentView() {
-        (self.view as! UITableView).reloadData()
+    fileprivate var appDefaults:ExifGhostAppDefaults?{
+        return (AppCenter.default.current as? PersistableApp.Type)?.defaults as? ExifGhostAppDefaults
+    }
+
+    func didSetContentView(_ view:UIView) {
+
+        if let defaultsProperties = self.appDefaults?.handledProperties{
+            let sections = self.items.enumerated().compactMap { (section, dictionary) -> [IndexPath]? in
+                if let handledItems = defaultsProperties[dictionary.key]{
+                    print(handledItems)
+                    print(dictionary.items)
+
+                    return handledItems.compactMap { key -> IndexPath? in
+                        guard let item = dictionary.items.index(where: { item -> Bool in
+                            return key == item.key
+                        }) else{
+                            return nil
+                        }
+                        return IndexPath(item: item, section: section)
+                    }
+                }
+                return nil
+            }
+
+            for indexPaths in sections{
+                initialSelectedIndexPaths?.append(contentsOf: indexPaths)
+            }
+        }
+
+        (view as! UITableView).reloadData()
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return metadataItems.count
+        return items.count
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return metadataItems[section].label
+        return items[section].label
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return metadataItems[section].items.count
+        return items[section].items.count
     }
+
+//    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+//
+//    }
+//
+//    func tableView(_ tableView: UITableView, willDeselectRowAt indexPath: IndexPath) -> IndexPath? {
+//
+//    }
 
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         cell?.accessoryType = .none
+
+        initialSelectedIndexPaths = nil
+
+        let dict = items[indexPath.section].key
+        let prop = items[indexPath.section].items[indexPath.item].key
+        appDefaults?.addHandledProperty(dict, prop)
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         let cell = tableView.cellForRow(at: indexPath)
         cell?.accessoryType = .checkmark
+
+        initialSelectedIndexPaths = nil
+
+        let dict = items[indexPath.section].key
+        let prop = items[indexPath.section].items[indexPath.item].key
+        appDefaults?.removeHandledProperty(dict, prop)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "myIdentifier")
 
-        cell.textLabel?.text = metadataItems[indexPath.section].items[indexPath.item].label
-        cell.detailTextLabel?.text = "ok. my first UITableView"
+        cell.textLabel?.text = items[indexPath.section].items[indexPath.item].label
+//        cell.detailTextLabel?.text = "ok. my first UITableView"
 
         if cell.multipleSelectionBackgroundView == nil{
             cell.multipleSelectionBackgroundView = createSelectedBackgroundView()
         }
-        cell.accessoryType = tableView.indexPathsForSelectedRows?.contains(indexPath) == true ? .checkmark : .none
-        // cell.accessoryView <- Ghost Icon
 
+        let targetSelectedIndexPaths = initialSelectedIndexPaths ?? tableView.indexPathsForSelectedRows
+        let selected = targetSelectedIndexPaths?.contains(indexPath) == true
+
+        cell.accessoryType = selected ? .checkmark : .none
+        cell.isSelected = selected
+        // cell.accessoryView <- Ghost Icon
 
         return cell
     }
@@ -151,4 +231,3 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         return view
     }
 }
-
