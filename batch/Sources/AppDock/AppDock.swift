@@ -363,13 +363,15 @@ extension AppDockView: UIGestureRecognizerDelegate {
             let minHeight = min(DefaultPreferences.DrawerView.compactHeight, DefaultPreferences.DrawerView.prominentHeight)
 
             appContentViewHeightLayout.constant = max(preferredAppContentViewHeight, sender.beginAppContentViewOffset - translation.y)
+            controllerViewHeightLayout.constant = appContentViewHeightLayout.constant - preferredAccessoryViewHeight
 
             if drawerView.isOpened{
                 drawerView.progressToRenderOpening = remapNormalizeClamp(delta, minHeight, maxHeight)
             }else{
                 drawerViewHeightLayout.constant = min(DefaultPreferences.DrawerView.prominentHeight, max(DefaultPreferences.DrawerView.compactHeight, delta))
             }
-            drawerView.layoutIfNeeded()
+            
+            appContentView.layoutIfNeeded()
             
             invalidateIntrinsicContentSize()
             
@@ -391,14 +393,8 @@ extension AppDockView: UIGestureRecognizerDelegate {
                 closeDrawer()
             }
             else {
-                drawerViewHeightLayout.constant = drawerView.isOpened ? DefaultPreferences.DrawerView.prominentHeight : DefaultPreferences.DrawerView.compactHeight
-                appContentViewHeightLayout.constant = drawerView.isOpened ? constAppContentViewMaximumHeight : preferredAppContentViewHeight
+                drawerView.isOpened ? openDrawer() : closeDrawer()
             }
-            drawerView.layoutIfNeeded()
-            
-            invalidateIntrinsicContentSize()
-            
-            animateAsSpringSuperviewLayoutIfNeeded()
         }
     }
 
@@ -409,23 +405,23 @@ extension AppDockView: UIGestureRecognizerDelegate {
         
         drawerViewHeightLayout.constant = DefaultPreferences.DrawerView.prominentHeight
         appContentViewHeightLayout.constant = constAppContentViewMaximumHeight
-
+        
+        let contentLayoutConstant = appContentViewHeightLayout.constant
+        let controllerPinned = controller?.preferences?.pinned ?? false
+        let controllerLayoutConstant = controllerPinned ? preferredControllerViewHeight : contentLayoutConstant - preferredAccessoryViewHeight
+        let accessoryLayoutConstant = controllerPinned ? contentLayoutConstant - preferredControllerViewHeight : preferredAccessoryViewHeight
+        controllerViewHeightLayout.constant = controllerLayoutConstant
+        
+        appContentView.layoutIfNeeded()
+        
         invalidateIntrinsicContentSize()
         
         animateAsSpringSuperviewLayoutIfNeeded()
         
-        appContentView.layoutIfNeeded()
-        
         if reloadDockContentViews {
-            let contentLayoutConstant = appContentViewHeightLayout.constant - DefaultPreferences.DrawerView.compactHeight * 2
-            let controllerPinned = controller?.preferences?.pinned ?? false
-            let controllerLayoutConstant = controllerPinned ? preferredControllerViewHeight : contentLayoutConstant - preferredAccessoryViewHeight
-            let accessoryLayoutConstant = controllerPinned ? contentLayoutConstant - preferredControllerViewHeight : preferredAccessoryViewHeight
-
             (accessory?.view as? AppDockContentView)?.reloadContentThatFits(size:CGSize(width: UIViewNoIntrinsicMetric, height: accessoryLayoutConstant))
 
             (controller?.view as? AppDockContentView)?.reloadContentThatFits(size:CGSize(width: UIViewNoIntrinsicMetric, height: controllerLayoutConstant))
-            controllerViewHeightLayout.constant = controllerLayoutConstant
         }
         
         delegate?.appDockView(self, didOpenDrawer: true)
@@ -438,18 +434,18 @@ extension AppDockView: UIGestureRecognizerDelegate {
 
         drawerViewHeightLayout.constant = preferredDrawerViewHeight
         appContentViewHeightLayout.constant = preferredControllerViewHeight + preferredAccessoryViewHeight
+        controllerViewHeightLayout.constant = preferredControllerViewHeight
+        
+        appContentView.layoutIfNeeded()
         
         invalidateIntrinsicContentSize()
 
         animateAsSpringSuperviewLayoutIfNeeded()
-        
-        appContentView.layoutIfNeeded()
 
         if reloadDockContentViews {
             (accessory?.view as? AppDockContentView)?.reloadContent()
 
             (controller?.view as? AppDockContentView)?.reloadContent()
-            controllerViewHeightLayout.constant = preferredControllerViewHeight
         }
         
         delegate?.appDockView(self, didOpenDrawer: false)

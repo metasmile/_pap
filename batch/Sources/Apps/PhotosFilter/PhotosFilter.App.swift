@@ -113,15 +113,7 @@ class CIAutoAdjustmentFilter: CIFilter {
     override var outputImage: CIImage? {
         guard var image = value(forKey: kCIInputImageKey) as? CIImage else { return nil }
         
-        let options = [
-            kCIImageAutoAdjustEnhance: true,
-            kCIImageAutoAdjustRedEye: true,
-//            kCIImageAutoAdjustFeatures: true,
-            kCIImageAutoAdjustCrop: true,
-            kCIImageAutoAdjustLevel: true
-        ]
-        
-        for filter in image.autoAdjustmentFilters(options: options) {
+        for filter in image.autoAdjustmentFilters() {
             filter.setValue(image, forKey: kCIInputImageKey)
             if let result = filter.outputImage {
                 image = result
