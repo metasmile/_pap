@@ -102,15 +102,15 @@ private struct MetadataDictionary{
 }
 
 class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource{
-    private let items:[MetadataDictionary] = [
-        MetadataDictionary(key:ImageMetadata.Dictionary.EXIF, label: "EXIF",
-                items: ImageMetadata.Keys.EXIF.map { key -> MetadataItem in
-                    return MetadataItem(key:key, label: ImageMetadata.LabelsForKeys.EXIF[key] ?? key)
-                }),
-
+    private var dictionaries:[MetadataDictionary] = [
         MetadataDictionary(key:ImageMetadata.Dictionary.GPS, label: "GPS",
                 items: ImageMetadata.Keys.GPS.map { key -> MetadataItem in
                     return MetadataItem(key:key, label: ImageMetadata.LabelsForKeys.GPS[key] ?? key)
+                }),
+
+        MetadataDictionary(key:ImageMetadata.Dictionary.EXIF, label: "EXIF",
+                items: ImageMetadata.Keys.EXIF.map { key -> MetadataItem in
+                    return MetadataItem(key:key, label: ImageMetadata.LabelsForKeys.EXIF[key] ?? key)
                 }),
 
         MetadataDictionary(key:ImageMetadata.Dictionary.TIFF, label: "TIFF",
@@ -146,10 +146,27 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     func didSetContentView(_ view:UIView) {
 
         if let defaultsProperties = self.appDefaults?.handledProperties{
-            let sections = self.items.enumerated().compactMap { (section, dictionary) -> [IndexPath]? in
+            //sort ascending for handling exif properties
+            self.dictionaries = self.dictionaries.map { dictionary -> MetadataDictionary in
                 if let handledItems = defaultsProperties[dictionary.key]{
-                    print(handledItems)
-                    print(dictionary.items)
+                    var dict = dictionary
+                    dict.items = dict.items.sorted { item0, item1 in
+                        if let i0 = handledItems.index(of:item0.key){
+                            if let i1 = handledItems.index(of:item1.key){
+                                return i0 > i1
+                            }
+                            return true
+                        }
+                        return false
+                    }
+                    return dict
+                }
+                return dictionary
+            }
+
+            //get indexes
+            let sections = self.dictionaries.enumerated().compactMap { (section, dictionary) -> [IndexPath]? in
+                if let handledItems = defaultsProperties[dictionary.key]{
 
                     return handledItems.compactMap { key -> IndexPath? in
                         guard let item = dictionary.items.index(where: { item -> Bool in
@@ -163,6 +180,8 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
                 return nil
             }
 
+
+            //init initialSelectedIndexPaths
             for indexPaths in sections{
                 initialSelectedIndexPaths?.append(contentsOf: indexPaths)
             }
@@ -172,15 +191,15 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return items.count
+        return dictionaries.count
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return items[section].label
+        return dictionaries[section].label
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items[section].items.count
+        return dictionaries[section].items.count
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -188,7 +207,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let dict = self.items[indexPath.section]
+        let dict = self.dictionaries[indexPath.section]
 
         var selected = false
         if let _ = initialSelectedIndexPaths?.index(of: indexPath) {
@@ -203,7 +222,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         cell.textLabel?.text = dict.items[indexPath.item].label
         cell.optionSwitch.setOn(selected, animated: false)
         cell.switchDidChange = { on in
-            let dict = self.items[indexPath.section]
+            let dict = self.dictionaries[indexPath.section]
             if on{
                 self.appDefaults?.addHandledProperty(dict.key, dict.items[indexPath.item].key)
             }else{
