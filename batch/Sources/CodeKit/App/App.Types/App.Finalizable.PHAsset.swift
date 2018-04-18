@@ -12,6 +12,7 @@ public enum PHAssetFinalizingOption: Int{
     case create
     case delete
     case share
+    case custom
 }
 
 public protocol PHAssetFinalizableApp: FinalizableApp {

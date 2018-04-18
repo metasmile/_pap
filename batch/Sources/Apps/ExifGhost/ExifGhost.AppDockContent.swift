@@ -19,12 +19,16 @@ extension ExifGhostAppDefaults{
         }
 
         var immutableSelf = self
-
         if immutableSelf.handledProperties[dictionary] == nil{
-            immutableSelf.handledProperties[dictionary] = [property]
+            immutableSelf.handledProperties = [String:[String]]()
+            var p = immutableSelf.handledProperties
+            p[dictionary] = [property]
+            immutableSelf.handledProperties = p
         }else{
-            if handledProperties[dictionary]?.contains(property) == true{
-                immutableSelf.handledProperties[dictionary]?.append(property)
+            if handledProperties[dictionary]?.contains(property) == false{
+                var p = immutableSelf.handledProperties
+                p[dictionary]?.append(property)
+                immutableSelf.handledProperties = p
             }
         }
     }
@@ -36,7 +40,9 @@ extension ExifGhostAppDefaults{
 
         if let index = handledProperties[dictionary]?.index(of: property){
             var immutableSelf = self
-            immutableSelf.handledProperties[dictionary]?.remove(at: index)
+            var p = immutableSelf.handledProperties
+            p[dictionary]?.remove(at: index)
+            immutableSelf.handledProperties = p
         }
     }
 }
@@ -189,9 +195,8 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
         initialSelectedIndexPaths = nil
 
-        let dict = items[indexPath.section].key
-        let prop = items[indexPath.section].items[indexPath.item].key
-        appDefaults?.addHandledProperty(dict, prop)
+        let dict = items[indexPath.section]
+        appDefaults?.removeHandledProperty(dict.key, dict.items[indexPath.item].key)
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
@@ -200,9 +205,8 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
         initialSelectedIndexPaths = nil
 
-        let dict = items[indexPath.section].key
-        let prop = items[indexPath.section].items[indexPath.item].key
-        appDefaults?.removeHandledProperty(dict, prop)
+        let dict = items[indexPath.section]
+        appDefaults?.addHandledProperty(dict.key, dict.items[indexPath.item].key)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
