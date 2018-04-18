@@ -125,14 +125,16 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         let view = UITableView()
         view.dataSource = self
         view.delegate = self
-        view.allowsMultipleSelection = true
-        view.rowHeight = UITableViewAutomaticDimension
+        view.rowHeight = 44
+        view.allowsSelection = false
+        view.allowsMultipleSelection = false
+        view.register(Cell.self, forCellReuseIdentifier: ExifGhost.info.identifier)
         return view
     }
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
-        preferences.minimumHeight = 200
+        preferences.minimumHeight = (self.view as! UITableView).rowHeight * 5
         preferences.pinned = false
         return preferences
     }
@@ -181,51 +183,37 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         return items[section].items.count
     }
 
-//    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-//
-//    }
-//
-//    func tableView(_ tableView: UITableView, willDeselectRowAt indexPath: IndexPath) -> IndexPath? {
-//
-//    }
-
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)
-        cell?.accessoryType = .none
-
-        initialSelectedIndexPaths = nil
-
-        let dict = items[indexPath.section]
-        appDefaults?.removeHandledProperty(dict.key, dict.items[indexPath.item].key)
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        let cell = tableView.cellForRow(at: indexPath)
-        cell?.accessoryType = .checkmark
-
-        initialSelectedIndexPaths = nil
-
-        let dict = items[indexPath.section]
-        appDefaults?.addHandledProperty(dict.key, dict.items[indexPath.item].key)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "myIdentifier")
+        let dict = self.items[indexPath.section]
 
-        cell.textLabel?.text = items[indexPath.section].items[indexPath.item].label
-//        cell.detailTextLabel?.text = "ok. my first UITableView"
-
-        if cell.multipleSelectionBackgroundView == nil{
-            cell.multipleSelectionBackgroundView = createSelectedBackgroundView()
+        var selected = false
+        if let _ = initialSelectedIndexPaths?.index(of: indexPath) {
+            selected = true
+        }
+        if let appDefaults = appDefaults
+        , let _ = appDefaults.handledProperties[dict.key]?.index(of: dict.items[indexPath.item].key){
+            selected = true
         }
 
-        let targetSelectedIndexPaths = initialSelectedIndexPaths ?? tableView.indexPathsForSelectedRows
-        let selected = targetSelectedIndexPaths?.contains(indexPath) == true
+        let cell = tableView.dequeueReusableCell(withIdentifier: ExifGhost.info.identifier) as! Cell
+        cell.textLabel?.text = dict.items[indexPath.item].label
+        cell.optionSwitch.setOn(selected, animated: false)
+        cell.switchDidChange = { on in
+            let dict = self.items[indexPath.section]
+            if on{
+                self.appDefaults?.addHandledProperty(dict.key, dict.items[indexPath.item].key)
+            }else{
+                self.appDefaults?.removeHandledProperty(dict.key, dict.items[indexPath.item].key)
+            }
 
-        cell.accessoryType = selected ? .checkmark : .none
-        cell.isSelected = selected
-        // cell.accessoryView <- Ghost Icon
-
+            if self.initialSelectedIndexPaths != nil{
+                self.initialSelectedIndexPaths = nil
+            }
+        }
         return cell
     }
 
@@ -233,5 +221,35 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         let view = UIView()
         view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
         return view
+    }
+}
+
+private class Cell: UITableViewCell {
+    lazy var optionSwitch: UISwitch = {
+        let view = UISwitch()
+        view.addTarget(self, action: #selector(self.cellSwitchDidChange), for: .valueChanged)
+        return view
+    }()
+
+    var switchDidChange: ((Bool) -> Void)?
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        switchDidChange = nil
+    }
+
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        accessoryView = optionSwitch
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    @objc func cellSwitchDidChange(sender: UISwitch) {
+        switchDidChange?(sender.isOn)
     }
 }
