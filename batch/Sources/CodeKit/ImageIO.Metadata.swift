@@ -124,6 +124,14 @@ extension Dictionary {
         return newMetadata
     }
 
+    func removeMetadata(dictionary:String, key:String){
+        var newMetadata = self as! [String:Any]
+
+        if let dict = newMetadata[dictionary]{
+
+        }
+    }
+
     func removeGeoTag() -> [String:Any] {
         var newMetadata = self as! [String:Any]
 //        newMetadata.removeValue(forKey: String(kCGImagePropertyGPSDictionary))

@@ -13,7 +13,7 @@ private protocol ExifGhostAppDefaults: AppDefaults{
 
 extension ExifGhostAppDefaults{
     fileprivate func addHandledProperty(_ dictionary:String, _ property:String){
-        guard ImageMetadata.supportedDictionaries.contains(dictionary) else{
+        guard ImageMetadata.PropertyApple.supportedDictionaries.contains(dictionary) else{
             assert(false, "\(dictionary) is not supported dictionary")
             return
         }
@@ -34,7 +34,7 @@ extension ExifGhostAppDefaults{
     }
 
     fileprivate func removeHandledProperty(_ dictionary:String, _ property:String){
-        guard ImageMetadata.supportedDictionaries.contains(dictionary) else{
+        guard ImageMetadata.PropertyApple.supportedDictionaries.contains(dictionary) else{
             assert(false, "\(dictionary) is not supported dictionary")
         }
 
@@ -53,38 +53,38 @@ extension Defaults: ExifGhostAppDefaults {
 
         get{ return get(or:[
             ImageMetadata.Dictionary.GPS: [
-                ImageMetadata.Keys.GPSDateStamp
-                , ImageMetadata.Keys.GPSDateStamp
-                , ImageMetadata.Keys.GPSAltitude
-                , ImageMetadata.Keys.GPSAltitudeRef
-                , ImageMetadata.Keys.GPSLatitude
-                , ImageMetadata.Keys.GPSLatitudeRef
-                , ImageMetadata.Keys.GPSLongitude
-                , ImageMetadata.Keys.GPSLongitudeRef
-                , ImageMetadata.Keys.GPSImgDirection
-                , ImageMetadata.Keys.GPSImgDirectionRef
+                ImageMetadata.Property.GPSDateStamp
+                , ImageMetadata.Property.GPSDateStamp
+                , ImageMetadata.Property.GPSAltitude
+                , ImageMetadata.Property.GPSAltitudeRef
+                , ImageMetadata.Property.GPSLatitude
+                , ImageMetadata.Property.GPSLatitudeRef
+                , ImageMetadata.Property.GPSLongitude
+                , ImageMetadata.Property.GPSLongitudeRef
+                , ImageMetadata.Property.GPSImgDirection
+                , ImageMetadata.Property.GPSImgDirectionRef
             ],
-            ImageMetadata.Dictionary.EXIF: [
-                ImageMetadata.Keys.ExifDateTimeDigitized
-                , ImageMetadata.Keys.ExifDateTimeOriginal
-                , ImageMetadata.Keys.ExifLensMake
-                , ImageMetadata.Keys.ExifLensModel
-                , ImageMetadata.Keys.ExifLensSerialNumber
-                , ImageMetadata.Keys.ExifLensSerialNumber
-                , ImageMetadata.Keys.ExifSubsecTime
-                , ImageMetadata.Keys.ExifSubsecTimeOriginal
-                , ImageMetadata.Keys.ExifSubsecTimeDigitized
+            ImageMetadata.Dictionary.Exif: [
+                ImageMetadata.Property.ExifDateTimeDigitized
+                , ImageMetadata.Property.ExifDateTimeOriginal
+                , ImageMetadata.Property.ExifLensMake
+                , ImageMetadata.Property.ExifLensModel
+                , ImageMetadata.Property.ExifLensSerialNumber
+                , ImageMetadata.Property.ExifLensSerialNumber
+                , ImageMetadata.Property.ExifSubsecTime
+                , ImageMetadata.Property.ExifSubsecTimeOriginal
+                , ImageMetadata.Property.ExifSubsecTimeDigitized
             ],
             ImageMetadata.Dictionary.TIFF: [
-                ImageMetadata.Keys.TIFFDateTime
-                , ImageMetadata.Keys.TIFFArtist
-                , ImageMetadata.Keys.TIFFCopyright
-                , ImageMetadata.Keys.TIFFDocumentName
-                , ImageMetadata.Keys.TIFFSoftware
-                , ImageMetadata.Keys.TIFFMake
-                , ImageMetadata.Keys.TIFFModel
-                , ImageMetadata.Keys.TIFFImageDescription
-                , ImageMetadata.Keys.TIFFHostComputer
+                ImageMetadata.Property.TIFFDateTime
+                , ImageMetadata.Property.TIFFArtist
+                , ImageMetadata.Property.TIFFCopyright
+                , ImageMetadata.Property.TIFFDocumentName
+                , ImageMetadata.Property.TIFFSoftware
+                , ImageMetadata.Property.TIFFMake
+                , ImageMetadata.Property.TIFFModel
+                , ImageMetadata.Property.TIFFImageDescription
+                , ImageMetadata.Property.TIFFHostComputer
             ],
         ]) }
     }
@@ -104,18 +104,18 @@ private struct MetadataDictionary{
 class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource{
     private var dictionaries:[MetadataDictionary] = [
         MetadataDictionary(key:ImageMetadata.Dictionary.GPS, label: "GPS",
-                items: ImageMetadata.Keys.GPS.map { key -> MetadataItem in
-                    return MetadataItem(key:key, label: ImageMetadata.LabelsForKeys.GPS[key] ?? key)
+                items: ImageMetadata.PropertyApple.GPS.map { key -> MetadataItem in
+                    return MetadataItem(key:key, label: ImageMetadata.Labels.GPS[key] ?? key)
                 }),
 
-        MetadataDictionary(key:ImageMetadata.Dictionary.EXIF, label: "EXIF",
-                items: ImageMetadata.Keys.EXIF.map { key -> MetadataItem in
-                    return MetadataItem(key:key, label: ImageMetadata.LabelsForKeys.EXIF[key] ?? key)
+        MetadataDictionary(key:ImageMetadata.Dictionary.Exif, label: "EXIF",
+                items: ImageMetadata.PropertyApple.EXIF.map { key -> MetadataItem in
+                    return MetadataItem(key:key, label: ImageMetadata.Labels.Exif[key] ?? key)
                 }),
 
         MetadataDictionary(key:ImageMetadata.Dictionary.TIFF, label: "TIFF",
-                items: ImageMetadata.Keys.TIFF.map { key -> MetadataItem in
-                    return MetadataItem(key:key, label: ImageMetadata.LabelsForKeys.TIFF[key] ?? key)
+                items: ImageMetadata.PropertyApple.TIFF.map { key -> MetadataItem in
+                    return MetadataItem(key:key, label: ImageMetadata.Labels.TIFF[key] ?? key)
                 })
     ]
 
@@ -137,6 +137,10 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         preferences.minimumHeight = (self.view as! UITableView).rowHeight * 5
         preferences.pinned = false
         return preferences
+    }
+
+    var selectedProperties:[String:[String]]?{
+        return appDefaults?.handledProperties
     }
 
     fileprivate var appDefaults:ExifGhostAppDefaults?{
