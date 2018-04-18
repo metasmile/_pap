@@ -90,17 +90,17 @@ private class _ExifGhostTask: TaskPrototype, Taskable {
 
                 if let metadata = data.getMetadata(){
 
-                    if let appContentAsExifGhost = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.controller as? ExifGhostAppDockContent{
-                        appContentAsExifGhost.ghostedProperties
+                    var ghostedData:Data
 
+                    if let appContentAsExifGhost = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.controller as? ExifGhostAppDockContent
+                       , let ghostedImageMetadataCollection = appContentAsExifGhost.ghostedImageMetadataCollection {
+
+                        ghostedData = data.purgeMetadata(with: metadata, for: ghostedImageMetadataCollection, voidValues: ImageMetadata.Collection.DefaultSensitivityVoidValues)
                     }else{
-                        ImageMetadata.DefaultSensitiveProperties
+                        ghostedData = data.purgeMetadata(with: metadata, for: ImageMetadata.Collection.DefaultSensitivity, voidValues: ImageMetadata.Collection.DefaultSensitivityVoidValues)
                     }
 
-
-                    let processedData = data.updateMetadata(with: metadata, dictionary: ImageMetadata.Dictionary.GPS, property: ImageMetadata.Property.GPSLongitude, value: nil)
-
-                    try! processedData.write(to: item.output.renderedContentURL, options: .atomic)
+                    try! ghostedData.write(to: item.output.renderedContentURL, options: .atomic)
 
                     result = PHAssetResultItem(asset:param.asset, contentEditingOutput:item.output)
                 }

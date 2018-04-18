@@ -49,8 +49,13 @@ extension Data {
         return setMetadata(with: metadata.updateMetadata(dictionary: dictionary, property: property, value: value))
     }
 
-    func purgeMetadata(with metadata:[String:Any], for collection:ImageMetadataCollection){
-
+    func purgeMetadata(with metadata:[String:Any], for collection: ImageMetadataPropertyCollection, voidValues:ImageMetadataValueCollection?=nil) -> Data {
+#if DEBUG
+        if voidValues == nil{
+            print("[!] WARNING: voidValues is nil, means that remove property itself, but it cannot be guaranteed to remove while actually handling on OS.")
+        }
+#endif
+        return setMetadata(with: metadata.purgeMetadata(for: collection, voidValues:voidValues))
     }
 
     func setMetadata(with metadata:[String:Any], comment: String?, software: String?) -> Data {
@@ -103,10 +108,10 @@ extension Data {
 }
 
 extension Dictionary{
-    func updateMetadata(dictionary:String, property:String, value:Any?) -> [String:Any] {
+    func updateMetadata(dictionary:String?=nil, property:String, value:Any?) -> [String:Any] {
         var newMetadata = self as! [String:Any]
 
-        if let data = newMetadata[dictionary] as? [String:Any]{
+        if let dictionary = dictionary, let data = newMetadata[dictionary] as? [String:Any]{
             var data = data
             if value == nil{
                 data.removeValue(forKey: property)
@@ -114,8 +119,40 @@ extension Dictionary{
                 data[property] = value
             }
             newMetadata[dictionary] = data
+        }else{
+            if value == nil{
+                newMetadata.removeValue(forKey: property)
+            }else{
+                newMetadata[property] = value
+            }
         }
+
         return newMetadata
+    }
+
+    func purgeMetadata(for collection: ImageMetadataPropertyCollection?, voidValues:ImageMetadataValueCollection?=nil) -> [String:Any] {
+        let gotMetadata = self as! [String:Any]
+
+        var purgedMetadata = gotMetadata
+        for (dict, _) in gotMetadata {
+            if let collection = collection, let properties = collection[dict]{
+                for p in properties{
+                    let voidValue = voidValues?[dict]?[p] ?? ""
+                    purgedMetadata = purgedMetadata.updateMetadata(dictionary: dict, property: p, value: voidValue)
+                }
+            }else{
+                if let properties = gotMetadata[dict] as? [String:Any]{
+                    for (p, _) in properties{
+                        let voidValue = voidValues?[dict]?[p] ?? ""
+                        purgedMetadata = purgedMetadata.updateMetadata(dictionary: dict, property: p, value: voidValue)
+                    }
+                }else{
+                    print("[!] WARNING: not implemented root properties yet.")
+                    purgedMetadata = purgedMetadata.updateMetadata(dictionary: nil, property: dict, value: "")
+                }
+            }
+        }
+        return purgedMetadata
     }
 
     func changeMetadata(with imageSize: CGSize?, comment: String?, software: String?, exifOrientation: CGImagePropertyOrientation?) -> [String: Any] {
