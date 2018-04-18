@@ -361,8 +361,16 @@ extension AppDockView: UIGestureRecognizerDelegate {
             let delta = sender.beginDrawerOffset - translation.y
             let maxHeight = max(DefaultPreferences.DrawerView.compactHeight, DefaultPreferences.DrawerView.prominentHeight)
             let minHeight = min(DefaultPreferences.DrawerView.compactHeight, DefaultPreferences.DrawerView.prominentHeight)
+            
+            let appContentViewHeight: CGFloat = {
+                func logConstraintValueForYPoisition(_ yPosition: CGFloat, limitation: CGFloat) -> CGFloat {
+                    return limitation * (1 + log10(yPosition/limitation))
+                }
+                let offset = sender.beginAppContentViewOffset - translation.y
+                return isDrawerOpened ? logConstraintValueForYPoisition(offset, limitation: sender.beginAppContentViewOffset) : offset
+            }()
 
-            appContentViewHeightLayout.constant = max(preferredAppContentViewHeight, sender.beginAppContentViewOffset - translation.y)
+            appContentViewHeightLayout.constant = max(preferredAppContentViewHeight, appContentViewHeight)
             controllerViewHeightLayout.constant = hasControllerPinned ? preferredControllerViewHeight : appContentViewHeightLayout.constant - preferredAccessoryViewHeight
             
             if drawerView.isOpened{
@@ -376,8 +384,8 @@ extension AppDockView: UIGestureRecognizerDelegate {
             if hasControllerPinned {
                 topAccessoryView.layoutIfNeeded()
                 
-                let draggingRatio = translation.y / sender.beginAppContentViewOffset
-                let scale = 1 - draggingRatio
+                let draggingRatio = (translation.y / sender.beginAppContentViewOffset) * 0.5
+                let scale = max(1 - draggingRatio, 1)
                 topAccessoryView.transform = CGAffineTransform(scaleX: scale, y: scale)
             }
             else {
