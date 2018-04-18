@@ -421,7 +421,7 @@ extension AssetView {
     }
     
     func seekVideo(to: CMTime, toleranceBefore: CMTime = kCMTimeZero, toleranceAfter: CMTime = kCMTimeZero) {
-        playerItem?.seek(to: to, toleranceBefore: toleranceBefore, toleranceAfter: toleranceAfter)
+        playerItem?.seek(to: to, toleranceBefore: toleranceBefore, toleranceAfter: toleranceAfter, completionHandler: nil)
     }
     
     private func addVideoLooping() {
