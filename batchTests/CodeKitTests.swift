@@ -42,9 +42,14 @@ class CodeKitTests: XCTestCase {
                 XCTAssertNotNil(data.getMetadataValue(dictionary: ImageMetadata.Dictionary.GPS, property: ImageMetadata.Property.GPSLongitude))
 
                 let modValue:Float = 0.0
-                let processedData = data.updateMetadata(with: metadata, dictionary: ImageMetadata.Dictionary.GPS, property: ImageMetadata.Property.GPSLongitude, value: modValue)
+                let updatedData = data.updateMetadata(with: metadata, dictionary: ImageMetadata.Dictionary.GPS, property: ImageMetadata.Property.GPSLongitude, value: modValue)
 
-                XCTAssertTrue(processedData.getMetadataValue(dictionary: ImageMetadata.Dictionary.GPS, property: ImageMetadata.Property.GPSLongitude) as! Float == modValue)
+                XCTAssertTrue(updatedData.getMetadataValue(dictionary: ImageMetadata.Dictionary.GPS, property: ImageMetadata.Property.GPSLongitude) as! Float == modValue)
+
+                //FIXME: test failed.
+                let purgedData = data.purgeMetadata(with: metadata, for: ImageMetadata.Collection.DefaultSensitivity, voidValues: ImageMetadata.Collection.DefaultSensitivityVoidValues)
+
+                XCTAssertTrue(updatedData.getMetadataValue(dictionary: ImageMetadata.Dictionary.GPS, property: ImageMetadata.Property.GPSLongitude) as! Float == modValue)
             }
 
         }else{
