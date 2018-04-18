@@ -107,17 +107,8 @@ private extension PhotosFilterApp {
         static let CIPhotoEffectTonal = "CIPhotoEffectTonal"
         static let CIPhotoEffectTransfer = "CIPhotoEffectTransfer"
         
-        static func aliasName(_ filterName: String?) -> String? {
-            switch filterName {
-            case CIPhotoEffectChrome?: return "Chrome"
-            case CIPhotoEffectFade?: return "Fade"
-            case CIPhotoEffectInstant?: return "Instant"
-            case CIPhotoEffectNoir?: return "Noir"
-            case CIPhotoEffectProcess?: return "Process"
-            case CIPhotoEffectTonal?: return "Tonal"
-            case CIPhotoEffectTransfer?: return "Transfer"
-            default: return "Original"
-            }
+        static func aliasName(_ filterName: String) -> String? {
+            return CIFilter.localizedName(forFilterName: filterName)
         }
     }
     
@@ -143,12 +134,13 @@ private extension PhotosFilterApp {
     }
     
     private func createController() -> AppDockContent {
+        let image = PhotosFilterApp.info.icon?.asUIImage
         var items = CIFilters.filters.map({ (filter) -> BAppUICollectionView.CollectionItem in
-            return BAppUICollectionView.CollectionItem(title: PhotosFilterNames.aliasName(filter.name), image: nil, action: {
+            return BAppUICollectionView.CollectionItem(title: PhotosFilterNames.aliasName(filter.name), image: image?.applyFilter(ciFilter: filter), action: {
                 self.config?.filter = CIFilterItem(filter)
             })
         })
-        items.insert(BAppUICollectionView.CollectionItem(title: PhotosFilterNames.aliasName(nil), image: nil, action: { self.config?.filter = CIFilterItem() }), at: 0)
+        items.insert(BAppUICollectionView.CollectionItem(title: "Original".localized, image: image, action: { self.config?.filter = CIFilterItem() }), at: 0)
         
         let view = BAppUICollectionView(items: items)
         

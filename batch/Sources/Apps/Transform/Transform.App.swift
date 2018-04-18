@@ -92,7 +92,7 @@ private extension TransformApp{
             })
         ]
         
-        let view = BAppUICollectionView(items: items)
+        let view = BAppUICollectionStackView(items: items)
         var preferences = AppDockContentPreferences()
         preferences.pinned = true
         preferences.minimumHeight = 44

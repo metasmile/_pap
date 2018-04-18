@@ -49,7 +49,7 @@ public class AutoAdjustmentApp: NSObject, KeyPathWatchable, ConfigurableApp, _Co
     }
     
     public func shouldSelect(item: PHAssetItem<AppValue>) -> Bool {
-        return (item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive)) || item.asset.mediaType == .video
+        return (item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive))
     }
     
     public var finalizingOptions: [PHAssetFinalizingOption]{
@@ -93,17 +93,17 @@ class CIAutoAdjustmentFilter: CIFilter {
 
 private extension AutoAdjustmentApp {
     struct AutoAdjustments {
-        static let Enhance = "kCIImageAutoAdjustEnhance"
-        static let RedEye = "kCIImageAutoAdjustRedEye"
-        static let Crop = "kCIImageAutoAdjustCrop"
-        static let Level = "kCIImageAutoAdjustLevel"
+        static let Enhance = kCIImageAutoAdjustEnhance
+        static let RedEye = kCIImageAutoAdjustRedEye
+        static let Crop = kCIImageAutoAdjustCrop
+        static let Level = kCIImageAutoAdjustLevel
         
         static func aliasName(_ filterName: String?) -> String? {
             switch filterName {
             case Enhance?: return "Auto Enhance"
-            case RedEye?: return "Auto RedEye"
+            case RedEye?: return "Auto Red-Eye Removal"
             case Crop?: return "Auto Crop"
-            case Level?: return "Auto Level"
+            case Level?: return "Auto Straighten"
             default: return nil
             }
         }
@@ -209,6 +209,7 @@ class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AutoAdjustmentApp.info.identifier) as! Cell
+        cell.imageView?.image = R.image.photosFilterAppIcon()
         cell.textLabel?.text = AutoAdjustmentApp.AutoAdjustments.aliasName(autoAdjustmentOptions[indexPath.row])
         cell.optionSwitch.setOn((self.options?[self.autoAdjustmentOptions[indexPath.row]] as? Bool) == true, animated: false)
         cell.switchDidChange = { on in

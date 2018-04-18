@@ -296,8 +296,9 @@ extension PreviewView: UICollectionViewDelegateFlowLayout {
         let asset = appAssetsSelected.at(indexPath.item).asset
 
         let contentInset = collectionView.contentInset
+        let maximumHeight = min(collectionViewHeightLayout.constant, bounds.width)
         
-        let contentSize = UIEdgeInsetsInsetRect(CGRect(origin: .zero, size: CGSize(width: collectionViewHeightLayout.constant, height: collectionViewHeightLayout.constant)), contentInset).size
+        let contentSize = UIEdgeInsetsInsetRect(CGRect(origin: .zero, size: CGSize(width: maximumHeight, height: maximumHeight)), contentInset).size
         let boundingSize = CGSize(width: contentSize.height, height: contentSize.height)
         let photoSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight).aspectFit(in: boundingSize)
         let cellSize = photoSize.applying(appAssetsSelected.at(indexPath.item).editState.transform).magnitude

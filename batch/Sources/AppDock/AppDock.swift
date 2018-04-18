@@ -363,8 +363,8 @@ extension AppDockView: UIGestureRecognizerDelegate {
             let minHeight = min(DefaultPreferences.DrawerView.compactHeight, DefaultPreferences.DrawerView.prominentHeight)
 
             appContentViewHeightLayout.constant = max(preferredAppContentViewHeight, sender.beginAppContentViewOffset - translation.y)
-            controllerViewHeightLayout.constant = controller?.preferences?.pinned == true ? preferredControllerViewHeight : appContentViewHeightLayout.constant - preferredAccessoryViewHeight
-
+            controllerViewHeightLayout.constant = hasControllerPinned ? preferredControllerViewHeight : appContentViewHeightLayout.constant - preferredAccessoryViewHeight
+            
             if drawerView.isOpened{
                 drawerView.progressToRenderOpening = remapNormalizeClamp(delta, minHeight, maxHeight)
                 topAccessoryView.layoutIfNeeded()
@@ -373,7 +373,16 @@ extension AppDockView: UIGestureRecognizerDelegate {
                 drawerViewHeightLayout.constant = min(DefaultPreferences.DrawerView.prominentHeight, max(DefaultPreferences.DrawerView.compactHeight, delta))
             }
             
-            appContentView.layoutIfNeeded()
+            if hasControllerPinned {
+                topAccessoryView.layoutIfNeeded()
+                
+                let draggingRatio = translation.y / sender.beginAppContentViewOffset
+                let scale = 1 - draggingRatio
+                topAccessoryView.transform = CGAffineTransform(scaleX: scale, y: scale)
+            }
+            else {
+                appContentView.layoutIfNeeded()
+            }
             
             invalidateIntrinsicContentSize()
             
@@ -403,6 +412,10 @@ extension AppDockView: UIGestureRecognizerDelegate {
     func openDrawer(reloadDockContentViews: Bool? = nil) {
         let reloadDockContentViews = reloadDockContentViews ?? !drawerView.isOpened
 
+        UIView.animateAsSpring(animations: {
+            self.topAccessoryView.transform = .identity
+        })
+        
         drawerView.isOpened = true
         
         drawerViewHeightLayout.constant = DefaultPreferences.DrawerView.prominentHeight
@@ -414,7 +427,12 @@ extension AppDockView: UIGestureRecognizerDelegate {
         let accessoryLayoutConstant = controllerPinned ? contentLayoutConstant - preferredControllerViewHeight : preferredAccessoryViewHeight
         controllerViewHeightLayout.constant = controllerLayoutConstant
         
-        appContentView.layoutIfNeeded()
+        if hasControllerPinned {
+            topAccessoryView.layoutIfNeeded()
+        }
+        else {
+            appContentView.layoutIfNeeded()
+        }
         
         invalidateIntrinsicContentSize()
         
@@ -432,13 +450,22 @@ extension AppDockView: UIGestureRecognizerDelegate {
     func closeDrawer(reloadDockContentViews: Bool? = nil) {
         let reloadDockContentViews = reloadDockContentViews ?? drawerView.isOpened
 
+        UIView.animateAsSpring(animations: {
+            self.topAccessoryView.transform = .identity
+        })
+        
         drawerView.isOpened = false
 
         drawerViewHeightLayout.constant = preferredDrawerViewHeight
         appContentViewHeightLayout.constant = preferredControllerViewHeight + preferredAccessoryViewHeight
         controllerViewHeightLayout.constant = preferredControllerViewHeight
         
-        appContentView.layoutIfNeeded()
+        if hasControllerPinned {
+            topAccessoryView.layoutIfNeeded()
+        }
+        else {
+            appContentView.layoutIfNeeded()
+        }
         
         invalidateIntrinsicContentSize()
 

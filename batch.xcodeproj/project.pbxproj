@@ -162,6 +162,7 @@
 		4F71DFF8D55824E32A18110E /* CodeKit.UIView.Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDBE65F819676D3B5DEC /* CodeKit.UIView.Property.swift */; };
 		514944FE2085913B0053896A /* AutoAdjustment.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514944FD2085913B0053896A /* AutoAdjustment.App.swift */; };
 		51494501208591F60053896A /* BAppUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51494500208591F60053896A /* BAppUICollectionView.swift */; };
+		51594868208708D0001AF9ED /* BAppUICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51594867208708D0001AF9ED /* BAppUICollectionViewCell.xib */; };
 		A099B0452080FDAE003AC819 /* PhotosFilter.App.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A099B0442080FDAE003AC819 /* PhotosFilter.App.Assets.xcassets */; };
 		A099B0492080FE8E003AC819 /* Revert.App.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A099B0482080FE8E003AC819 /* Revert.App.Assets.xcassets */; };
 		A0CFD8E92052D9F10007041B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CFD8E82052D9F10007041B /* R.generated.swift */; };
@@ -353,6 +354,7 @@
 		4F71DFCA8020E56BB968A0A8 /* hu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = hu; path = Localizable.strings; sourceTree = "<group>"; };
 		514944FD2085913B0053896A /* AutoAdjustment.App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoAdjustment.App.swift; sourceTree = "<group>"; };
 		51494500208591F60053896A /* BAppUICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAppUICollectionView.swift; sourceTree = "<group>"; };
+		51594867208708D0001AF9ED /* BAppUICollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BAppUICollectionViewCell.xib; sourceTree = "<group>"; };
 		614D248BD87AEAE91795DFC4 /* Pods-batch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch.release.xcconfig"; path = "Pods/Target Support Files/Pods-batch/Pods-batch.release.xcconfig"; sourceTree = "<group>"; };
 		7A5AA560EA015DA4EF60D3A9 /* Pods_batch_batchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_batch_batchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A099B0442080FDAE003AC819 /* PhotosFilter.App.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PhotosFilter.App.Assets.xcassets; sourceTree = "<group>"; };
@@ -1116,6 +1118,7 @@
 			isa = PBXGroup;
 			children = (
 				51494500208591F60053896A /* BAppUICollectionView.swift */,
+				51594867208708D0001AF9ED /* BAppUICollectionViewCell.xib */,
 			);
 			path = BAppUIKit;
 			sourceTree = "<group>";
@@ -1144,6 +1147,7 @@
 				0ABFCF761F14B65C0078A583 /* Resources */,
 				E3607A0050E70D649848C2DD /* [CP] Embed Pods Frameworks */,
 				A02DED091FBF651C003796B6 /* ShellScript */,
+				1DCFD508CB576DF28DDEA90D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 				A0EC08AF207E78A80084DA9B /* PBXBuildRule */,
@@ -1164,6 +1168,7 @@
 				A0AEACCB206006500086E3E0 /* Frameworks */,
 				A0AEACCC206006500086E3E0 /* Resources */,
 				A709EC51C433F5FA7D883918 /* [CP] Embed Pods Frameworks */,
+				C965DD49410C25C3B23D7C8C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1246,6 +1251,7 @@
 				4F71DECCBC9546DB3C4F7C94 /* Localizable.strings in Resources */,
 				4F71D87B789944E2A62057C7 /* Localizable.strings in Resources */,
 				4F71D91244FDCFE9DC644E76 /* Localizable.strings in Resources */,
+				51594868208708D0001AF9ED /* BAppUICollectionViewCell.xib in Resources */,
 				4F71DAE55B247A7E9524B7D0 /* Localizable.strings in Resources */,
 				4F71D42BEECC9C99ECFDBB5B /* Localizable.strings in Resources */,
 				4F71D2FFA4C75B8D33A6357C /* Localizable.strings in Resources */,
@@ -1306,6 +1312,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1DCFD508CB576DF28DDEA90D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-batch/Pods-batch-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9FF1A055D87F28B3A17235D3 /* [CP] Check Pods Manifest.lock */ = {
@@ -1376,6 +1397,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-batch-batchTests/Pods-batch-batchTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C965DD49410C25C3B23D7C8C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-batch-batchTests/Pods-batch-batchTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E3607A0050E70D649848C2DD /* [CP] Embed Pods Frameworks */ = {
