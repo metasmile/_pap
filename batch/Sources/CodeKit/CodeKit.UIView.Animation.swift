@@ -27,7 +27,7 @@ extension UIView{
         self.layer.add(fadeTextAnimation, forKey: forKey)
     }
 
-    public static func animateAsSpring(_ duration: TimeInterval, delay: TimeInterval, animations: @escaping () -> Void, completion: ((Bool) -> Void)?) {
+    public static func animateAsSpring(_ duration: TimeInterval = 0.45, delay: TimeInterval = 0.0, animations: @escaping () -> Void, completion: ((Bool) -> Void)? = nil) {
         UIView.animate(withDuration: duration, delay: delay, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: [.beginFromCurrentState, .allowUserInteraction], animations: animations, completion: completion)
     }
 
@@ -39,7 +39,7 @@ extension UIView{
             navigationBar.layoutIfNeeded()
         }
         
-        UIView.animateAsSpring(0.45, delay: 0.0, animations: { [unowned self] in
+        UIView.animateAsSpring(animations: { [unowned self] in
             self.superview?.layoutIfNeeded()
         }, completion: nil)
     }
