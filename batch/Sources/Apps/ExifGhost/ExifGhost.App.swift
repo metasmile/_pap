@@ -62,7 +62,6 @@ public class ExifGhost: App, PHAssetFinalizableApp,
     }
 }
 
-
 private class _ExifGhostTask: TaskPrototype, Taskable {
     public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?){
         (param as? ParamType)?.cancelAllRequestIDs()
@@ -87,86 +86,18 @@ private class _ExifGhostTask: TaskPrototype, Taskable {
             assert(item?.input.fullSizeImageURL != nil, "item.input.fullSizeImageURL is nil")
             if let item = item, let url = item.input.fullSizeImageURL{
 
-//                do{
+                let data = try! Data(contentsOf: url)
 
-                    let data = try! Data(contentsOf: url)
+                if let metadata = data.getMetadata(){
+                    let processedData = data.updateMetadata(with: metadata, dictionary: ImageMetadata.Dictionary.GPS, key: ImageMetadata.Property.GPSLongitude, value: nil)
+                    try! processedData.write(to: item.output.renderedContentURL, options: .atomic)
 
-                    if let metadata = data.getMetadata(){
+                    result = PHAssetResultItem(asset:param.asset, contentEditingOutput:item.output)
+                }
 
-                        print(metadata)
-
-                        for k in metadata[kCGImagePropertyExifDictionary as String] as! [String:Any]{
-                            if ImageMetadata.PropertyApple.EXIF.contains(k.key){
-                                print(ImageMetadata.PropertyApple.EXIF.index(of: k.key)!, k.key)
-                            }
-                        }
-
-                        print("-------------------------")
-
-                        for k in metadata[kCGImagePropertyGPSDictionary as String] as! [String:Any]{
-                            if ImageMetadata.PropertyApple.GPS.contains(k.key){
-                                print(ImageMetadata.PropertyApple.GPS.index(of: k.key)!, k.key)
-                            }
-                        }
-
-                        print("-------------------------")
-
-                        print(metadata[kCGImagePropertyTIFFDictionary as String])
-
-                        for k in metadata[kCGImagePropertyTIFFDictionary as String] as! [String:Any]{
-                            if ImageMetadata.PropertyApple.TIFF.contains(k.key){
-                                print(ImageMetadata.PropertyApple.TIFF.index(of: k.key)!, k.key)
-                            }
-                        }
-
-                        print("-------------------------")
-
-                        let newMetadata = metadata.removeGeoTag()
-                        let processedData = data.setMetadata(with: newMetadata)
-//                        let processedData = data.changeMetadata(metadata: metadata.removeGeoTag(), imageSize: nil, comment: nil, software: nil, exifOrientation: nil)
-
-                        try! processedData.write(to: item.output.renderedContentURL, options: .atomic)
-
-                        result = PHAssetResultItem(asset:param.asset, contentEditingOutput:item.output)
-                    }
-
-
-//                }catch let e {
-//                    print("------------",e)
-//                }
             }
             async?.end()
         }
-
-//        let id = param.requestContentEditing { item in
-//
-//            if let item = item
-//            , let image = item.input.fullSizeImageURL?.asCIImage{
-//                var metadata = image.properties
-//
-//                if metadata[kCGImagePropertyGPSDictionary as String] != nil {
-//
-//                    //TODO: remove key from configuration
-//                    metadata.removeValue(forKey: kCGImagePropertyGPSDictionary as String)
-//
-//                    // set and write image file with new metadata from conf
-//                    if image.settingProperties(metadata).writeJPEGRepresentation(to: item.output.renderedContentURL){
-//                        result = PHAssetResultItem(asset:param.asset, contentEditingOutput:item.output)
-//                    }
-//
-//                    #if DEBUG
-//                    if let testResult = item.output.renderedContentURL.asCIImage?.properties{
-//                        let diff = Set(image.properties.keys).subtracting(Set(testResult.keys))
-//
-//                        assert(diff.count==1)
-//                        assert(diff.first == kCGImagePropertyGPSDictionary as String)
-//                    }
-//                    #endif
-//                }
-//            }
-//
-//            async?.end()
-//        }
 
         param.requestIDs += [PHAssetRequestID(forEditingInput: id)]
 

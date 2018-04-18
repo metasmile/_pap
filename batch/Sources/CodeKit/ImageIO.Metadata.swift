@@ -8,10 +8,6 @@ import UIKit
 import ImageIO
 import MobileCoreServices
 
-enum ExifOrientation : Int {
-    case unknown, up, upMirrored, upsideDown, upsideDownMirrored, leftMirrored, left, rightMirrored, right
-}
-
 extension Data {
     func getMetadata() -> [String: Any]? {
         let imageSource = CGImageSourceCreateWithData(self as CFData, nil)
@@ -36,22 +32,26 @@ extension Data {
         return imageData as Data
     }
 
+    @discardableResult
+    func updateMetadata(with metadata:[String:Any], dictionary:String, key:String, value:Any?) -> Data {
+        return setMetadata(with: metadata.updateMetadata(dictionary: dictionary, key: key, value: value))
+    }
+
     func setMetadata(with metadata:[String:Any], comment: String?, software: String?) -> Data {
         let newMetadata = metadata.changeMetadata(with: nil, comment: comment, software: software, exifOrientation: nil)
 
         return setMetadata(with: newMetadata)
     }
 
-    func setMetadata(with metadata:[String:Any], comment: String?, software: String?, exifOrientation: ExifOrientation?) -> Data {
+    func setMetadata(with metadata:[String:Any], comment: String?, software: String?, exifOrientation: CGImagePropertyOrientation?) -> Data {
         let newMetadata = metadata.changeMetadata(with: nil, comment: comment, software: software, exifOrientation: exifOrientation)
-
         return setMetadata(with: newMetadata)
     }
 
-    func changeMetadata(metadata: [String: Any], imageSize: CGSize?, comment: String?, software: String?, exifOrientation: ExifOrientation?) -> [String: Any] {
+    func changeMetadata(metadata: [String: Any], imageSize: CGSize?, comment: String?, software: String?, exifOrientation: CGImagePropertyOrientation?) -> [String: Any] {
         var newMetadata = metadata
-        var exifdata: [String:Any]? = metadata[kCGImagePropertyExifDictionary as String] as? [String:Any]
-        var tiffdata: [String:Any]? = metadata[kCGImagePropertyTIFFDictionary as String] as? [String:Any]
+        var exifdata = metadata[ImageMetadata.Dictionary.Exif] as? [String: Any]
+        var tiffdata = metadata[ImageMetadata.Dictionary.TIFF] as? [String: Any]
         if exifdata == nil {
             exifdata = [String:Any]()
         }
@@ -60,37 +60,38 @@ extension Data {
         }
 
         if let imageSize = imageSize {
-            newMetadata.updateValue(imageSize.width, forKey: kCGImagePropertyPixelWidth as String)
-            newMetadata.updateValue(imageSize.height, forKey: kCGImagePropertyPixelHeight as String)
-            exifdata!.updateValue(imageSize.width, forKey: kCGImagePropertyExifPixelXDimension as String)
-            exifdata!.updateValue(imageSize.height, forKey: kCGImagePropertyExifPixelYDimension as String)
+            newMetadata.updateValue(imageSize.width, forKey: ImageMetadata.PixelWidth )
+            newMetadata.updateValue(imageSize.height, forKey: ImageMetadata.PixelHeight )
+            exifdata!.updateValue(imageSize.width, forKey: ImageMetadata.Property.ExifPixelXDimension )
+            exifdata!.updateValue(imageSize.height, forKey: ImageMetadata.Property.ExifPixelYDimension )
         }
 
         if let comment = comment {
-            exifdata!.updateValue(comment, forKey: kCGImagePropertyExifUserComment as String)
+            exifdata!.updateValue(comment, forKey: ImageMetadata.Property.ExifUserComment )
         }
 
         if let software = software {
-            tiffdata!.updateValue(software, forKey: kCGImagePropertyTIFFSoftware as String)
+            tiffdata!.updateValue(software, forKey: ImageMetadata.Property.TIFFSoftware )
         }
 
         if let exifOrientation = exifOrientation {
-            newMetadata.updateValue(exifOrientation.rawValue, forKey: kCGImagePropertyOrientation as String)
-            tiffdata!.updateValue(exifOrientation.rawValue, forKey: kCGImagePropertyTIFFOrientation as String)
+            newMetadata.updateValue(exifOrientation.rawValue, forKey: ImageMetadata.Orientation)
+            tiffdata!.updateValue(exifOrientation.rawValue, forKey: ImageMetadata.Property.TIFFOrientation )
         }
 
-        newMetadata.updateValue(exifdata!, forKey: kCGImagePropertyExifDictionary as String)
-        newMetadata.updateValue(tiffdata!, forKey: kCGImagePropertyTIFFDictionary as String)
+        newMetadata.updateValue(exifdata!, forKey: ImageMetadata.Dictionary.Exif )
+        newMetadata.updateValue(tiffdata!, forKey: ImageMetadata.Dictionary.TIFF )
 
         return newMetadata
     }
 }
 
-extension Dictionary {
-    func changeMetadata(with imageSize: CGSize?, comment: String?, software: String?, exifOrientation: ExifOrientation?) -> [String: Any] {
+extension Dictionary{
+
+    func changeMetadata(with imageSize: CGSize?, comment: String?, software: String?, exifOrientation: CGImagePropertyOrientation?) -> [String: Any] {
         var newMetadata = self as! [String:Any]
-        var exifdata: [String:Any]? = newMetadata[kCGImagePropertyExifDictionary as String] as? [String:Any]
-        var tiffdata: [String:Any]? = newMetadata[kCGImagePropertyTIFFDictionary as String] as? [String:Any]
+        var exifdata = newMetadata[ImageMetadata.Dictionary.Exif] as? [String:Any]
+        var tiffdata = newMetadata[ImageMetadata.Dictionary.TIFF] as? [String:Any]
         if exifdata == nil {
             exifdata = [String:Any]()
         }
@@ -99,66 +100,43 @@ extension Dictionary {
         }
 
         if let imageSize = imageSize {
-            newMetadata.updateValue(imageSize.width, forKey: kCGImagePropertyPixelWidth as String)
-            newMetadata.updateValue(imageSize.height, forKey: kCGImagePropertyPixelHeight as String)
-            exifdata!.updateValue(imageSize.width, forKey: kCGImagePropertyExifPixelXDimension as String)
-            exifdata!.updateValue(imageSize.height, forKey: kCGImagePropertyExifPixelYDimension as String)
+            newMetadata.updateValue(imageSize.width, forKey: ImageMetadata.PixelWidth )
+            newMetadata.updateValue(imageSize.height, forKey: ImageMetadata.PixelHeight )
+            exifdata!.updateValue(imageSize.width, forKey: ImageMetadata.Property.ExifPixelXDimension )
+            exifdata!.updateValue(imageSize.height, forKey: ImageMetadata.Property.ExifPixelYDimension )
         }
 
         if let comment = comment {
-            exifdata!.updateValue(comment, forKey: kCGImagePropertyExifUserComment as String)
+            exifdata!.updateValue(comment, forKey: ImageMetadata.Property.ExifUserComment )
         }
 
         if let software = software {
-            tiffdata!.updateValue(software, forKey: kCGImagePropertyTIFFSoftware as String)
+            tiffdata!.updateValue(software, forKey: ImageMetadata.Property.TIFFSoftware )
         }
 
         if let exifOrientation = exifOrientation {
-            newMetadata.updateValue(exifOrientation.rawValue, forKey: kCGImagePropertyOrientation as String)
-            tiffdata!.updateValue(exifOrientation.rawValue, forKey: kCGImagePropertyTIFFOrientation as String)
+            newMetadata.updateValue(exifOrientation.rawValue, forKey: ImageMetadata.Orientation)
+            tiffdata!.updateValue(exifOrientation.rawValue, forKey: ImageMetadata.Property.TIFFOrientation )
         }
 
-        newMetadata.updateValue(exifdata!, forKey: kCGImagePropertyExifDictionary as String)
-        newMetadata.updateValue(tiffdata!, forKey: kCGImagePropertyTIFFDictionary as String)
+        newMetadata.updateValue(exifdata!, forKey: ImageMetadata.Dictionary.Exif )
+        newMetadata.updateValue(tiffdata!, forKey: ImageMetadata.Dictionary.TIFF )
 
         return newMetadata
     }
 
-    func removeMetadata(dictionary:String, key:String){
+    func updateMetadata(dictionary:String, key:String, value:Any?) -> [String:Any] {
         var newMetadata = self as! [String:Any]
 
-        if let dict = newMetadata[dictionary]{
-
-        }
-    }
-
-    func removeGeoTag() -> [String:Any] {
-        var newMetadata = self as! [String:Any]
-//        newMetadata.removeValue(forKey: String(kCGImagePropertyGPSDictionary))
-
-//        newMetadata[kCGImagePropertyGPSDictionary as String] = kCFNull
-
-    /*
-        a developer at Apple, returned with my incident report and fixed the issue:
-        The previous code above is writing string values for the GPS values 
-        - this won't work, they must be NS/CFNumbers (we extract a float value for EXIF).
-    */
-        
-        if let gpsMetadata = newMetadata[kCGImagePropertyGPSDictionary as String] as? [String:Any]{
-            var newGPSData = gpsMetadata
-
-            print(newGPSData)
-            for (k,v) in newGPSData{
-                if k == "Longitude"{
-                    newGPSData.updateValue(0.0, forKey: k)
-                }
-                //newGPSData.updateValue(NSNumber(integerLiteral: 0), forKey: k)
+        if let data = newMetadata[dictionary] as? [String:Any]{
+            var data = data
+            if value == nil{
+                data.removeValue(forKey: key)
+            }else{
+                data[key] = value
             }
-            print(newGPSData)
-            newMetadata.updateValue(newGPSData, forKey: kCGImagePropertyGPSDictionary as String)
+            newMetadata[dictionary] = data
         }
-
-
         return newMetadata
     }
 }
