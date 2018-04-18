@@ -164,7 +164,7 @@ class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, 
         view.dataSource = self
         view.delegate = self
         view.rowHeight = 44
-        
+        view.allowsSelection = false
         view.register(Cell.self, forCellReuseIdentifier: AutoAdjustmentApp.info.identifier)
         
         return view

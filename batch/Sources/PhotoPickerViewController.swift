@@ -94,10 +94,8 @@ class PhotoPickerViewController: AppDockViewController {
         dragSelectionGesture.delegate = self
         photoCollectionView.addGestureRecognizer(dragSelectionGesture)
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
+    
+    override func registerWatchingAppConfig() {
         AppCenter.default.watch(\.currentIdentifier, options:[.new, .old, .initial]) { (appCenter, dict) in
             let old = dict.oldValue ?? nil
             let new = dict.newValue ?? nil
@@ -135,10 +133,8 @@ class PhotoPickerViewController: AppDockViewController {
             }
         }
     }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
+    
+    override func unregisterWatchingAppConfig() {
         AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.unwatch(\.transform, forIds:["picker\(TransformApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(PhotosFilterApp.self)?.config?.unwatch(\.filter, forIds:["picker\(PhotosFilterApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(AutoAdjustmentApp.self)?.config?.unwatch(\.filter, forIds:["picker\(AutoAdjustmentApp.info.identifier)"])

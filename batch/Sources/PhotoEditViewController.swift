@@ -35,7 +35,6 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         }
     }
     fileprivate var editItem = StateValueSet<AppValue>()
-    var placeholderView: UIView?
 
     var indexPathInPicker: IndexPath?
     var selectedInPicker: Bool = false
@@ -84,7 +83,20 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
                 }
             })
         }
+    }
+    
+    override var appDockItems: [AppDockItem] {
+        guard let app = AppCenter.default.current else { return [] }
+        return [AppDockItem(app: app)]
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
+        updatePreview()
+    }
+    
+    override func registerWatchingAppConfig() {
         AppCenter.default.watch(\.currentIdentifier, id:"editor", options:[.new, .initial]) { appCenter, dict in
             
             appCenter.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform, id:"editor\(TransformApp.info.identifier)") { (config, changed) in
@@ -110,24 +122,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         }
     }
     
-    override var appDockItems: [AppDockItem] {
-        guard let app = AppCenter.default.current else { return [] }
-        return [AppDockItem(app: app)]
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        updatePreview()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        if isMovingFromParentViewController {
-            placeholderView?.removeFromSuperview()
-        }
-        
+    override func unregisterWatchingAppConfig() {
         AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.unwatch(\.transform, forIds:["editor\(TransformApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(PhotosFilterApp.self)?.config?.unwatch(\.filter, forIds:["editor\(PhotosFilterApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(AutoAdjustmentApp.self)?.config?.unwatch(\.filter, forIds:["editor\(AutoAdjustmentApp.info.identifier)"])
@@ -202,7 +197,6 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         
         assetView.layer.transform = CATransform3DIdentity
         assetView.transform = editItem.transform
-        placeholderView?.transform = editItem.transform
 
         delegate?.editViewController(self, didFinishWith: self.editItem, at: self.indexPathInPicker)
     }

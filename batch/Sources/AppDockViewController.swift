@@ -50,10 +50,16 @@ class AppDockNavigationController: UINavigationController {
 
 extension AppDockNavigationController: AppDockViewDelegate {
     func appDockView(_ view: AppDockView, didSelectItemWith item: AppDockItem) {
-        AppCenter.default.current = item.app
-
-        appDockView.controller = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.controller
-        appDockView.closeDrawer(reloadDockContentViews: true)
+        if AppCenter.default.current != item.app {
+            AppCenter.default.current = item.app
+            
+            appDockView.controller = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.controller
+            appDockView.closeDrawer(reloadDockContentViews: true)
+        }
+        else {
+            appDockView.controller = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.controller
+            appDockView.isDrawerOpened ? appDockView.openDrawer(reloadDockContentViews: true) : appDockView.closeDrawer(reloadDockContentViews: true)
+        }
     }
     
     func appDockView(_ view: AppDockView, didOpenDrawer isOpened: Bool) {
@@ -96,6 +102,26 @@ class AppDockViewController: UIViewController {
         self.appDockView?.layoutIfNeeded()
         
         selectCurrentAppIfExist(animated: false)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        registerWatchingAppConfig()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        unregisterWatchingAppConfig()
+    }
+    
+    func registerWatchingAppConfig() {
+        
+    }
+    
+    func unregisterWatchingAppConfig() {
+        
     }
     
     var appDockItems: [AppDockItem] {
