@@ -82,6 +82,8 @@ class BAppUICollectionView: UIView, UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         items[indexPath.item].action?()
+        
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
 }
 
@@ -154,22 +156,18 @@ class BAppUICollectionViewLayout: UICollectionViewLayout {
     }
 }
 
-class BAppUICollectionViewCell: UICollectionViewCell {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        initialize()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-        initialize()
-    }
+class BAppUICollectionViewCell: CustomCollectionViewCell {
+    @IBOutlet private weak var selectionView: RoundedView!
+    @IBOutlet private  weak var imageView: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var titleLabelHeightLayout: NSLayoutConstraint!
     
     var title: String? {
         didSet {
             titleLabel.text = title
+            titleLabel.sizeToFit()
+            titleLabelHeightLayout.constant = titleLabel.bounds.height > 0 ? 24 : 0
+            titleLabel.layoutIfNeeded()
         }
     }
     
@@ -179,26 +177,23 @@ class BAppUICollectionViewCell: UICollectionViewCell {
         }
     }
     
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel(frame: bounds)
-        label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.5
-        label.textAlignment = .center
-        return label
-    }()
+    override var isHighlighted: Bool {
+        didSet {
+            contentView.alpha = isHighlighted ? 0.5 : 1
+        }
+    }
     
-    private lazy var imageView: UIImageView = {
-        let view = UIImageView(frame: bounds)
-        view.contentMode = .center
-        return view
-    }()
+    override var isSelected: Bool {
+        didSet {
+            selectionView.isHidden = !isSelected
+        }
+    }
     
-    private func initialize() {
-        contentView.addSubview(imageView)
-        imageView.fitConstraints(to: contentView)
+    override func prepareForReuse() {
+        super.prepareForReuse()
         
-        contentView.addSubview(titleLabel)
-        titleLabel.fitConstraints(to: contentView)
+        title = nil
+        image = nil
     }
     
     override func tintColorDidChange() {
@@ -206,5 +201,12 @@ class BAppUICollectionViewCell: UICollectionViewCell {
         
         imageView.tintColor = tintColor
         titleLabel.textColor = tintColor
+    }
+}
+
+class BAppUICollectionStackView: BAppUICollectionView {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        super.collectionView(collectionView, didSelectItemAt: indexPath)
+        collectionView.deselectItem(at: indexPath, animated: true)
     }
 }

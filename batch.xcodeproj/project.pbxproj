@@ -162,6 +162,7 @@
 		4F71DFF8D55824E32A18110E /* CodeKit.UIView.Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDBE65F819676D3B5DEC /* CodeKit.UIView.Property.swift */; };
 		514944FE2085913B0053896A /* AutoAdjustment.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514944FD2085913B0053896A /* AutoAdjustment.App.swift */; };
 		51494501208591F60053896A /* BAppUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51494500208591F60053896A /* BAppUICollectionView.swift */; };
+		51594868208708D0001AF9ED /* BAppUICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51594867208708D0001AF9ED /* BAppUICollectionViewCell.xib */; };
 		A099B0452080FDAE003AC819 /* PhotosFilter.App.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A099B0442080FDAE003AC819 /* PhotosFilter.App.Assets.xcassets */; };
 		A099B0492080FE8E003AC819 /* Revert.App.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A099B0482080FE8E003AC819 /* Revert.App.Assets.xcassets */; };
 		A0CFD8E92052D9F10007041B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CFD8E82052D9F10007041B /* R.generated.swift */; };
@@ -353,6 +354,7 @@
 		4F71DFCA8020E56BB968A0A8 /* hu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = hu; path = Localizable.strings; sourceTree = "<group>"; };
 		514944FD2085913B0053896A /* AutoAdjustment.App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoAdjustment.App.swift; sourceTree = "<group>"; };
 		51494500208591F60053896A /* BAppUICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAppUICollectionView.swift; sourceTree = "<group>"; };
+		51594867208708D0001AF9ED /* BAppUICollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BAppUICollectionViewCell.xib; sourceTree = "<group>"; };
 		614D248BD87AEAE91795DFC4 /* Pods-batch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch.release.xcconfig"; path = "Pods/Target Support Files/Pods-batch/Pods-batch.release.xcconfig"; sourceTree = "<group>"; };
 		7A5AA560EA015DA4EF60D3A9 /* Pods_batch_batchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_batch_batchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A099B0442080FDAE003AC819 /* PhotosFilter.App.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PhotosFilter.App.Assets.xcassets; sourceTree = "<group>"; };
@@ -1116,6 +1118,7 @@
 			isa = PBXGroup;
 			children = (
 				51494500208591F60053896A /* BAppUICollectionView.swift */,
+				51594867208708D0001AF9ED /* BAppUICollectionViewCell.xib */,
 			);
 			path = BAppUIKit;
 			sourceTree = "<group>";
@@ -1248,6 +1251,7 @@
 				4F71DECCBC9546DB3C4F7C94 /* Localizable.strings in Resources */,
 				4F71D87B789944E2A62057C7 /* Localizable.strings in Resources */,
 				4F71D91244FDCFE9DC644E76 /* Localizable.strings in Resources */,
+				51594868208708D0001AF9ED /* BAppUICollectionViewCell.xib in Resources */,
 				4F71DAE55B247A7E9524B7D0 /* Localizable.strings in Resources */,
 				4F71D42BEECC9C99ECFDBB5B /* Localizable.strings in Resources */,
 				4F71D2FFA4C75B8D33A6357C /* Localizable.strings in Resources */,
