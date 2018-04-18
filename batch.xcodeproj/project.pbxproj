@@ -75,7 +75,7 @@
 		4F71D7F7AD2952911F3F1969 /* Transform.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6DAAEC114678D5B56B6 /* Transform.App.swift */; };
 		4F71D8193F067F6C3684DDF7 /* CodeKit.Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1AD7447A760AC4BFDEB /* CodeKit.Timer.swift */; };
 		4F71D843895CA6C04861BB23 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DE76B9AD7227C9F78AE5 /* Localizable.strings */; };
-		4F71D84F3BE4D54AA746A8BE /* batchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB341620B5007A7F6B60 /* batchTests.swift */; };
+		4F71D84F3BE4D54AA746A8BE /* ApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB341620B5007A7F6B60 /* ApplicationTests.swift */; };
 		4F71D856B1DC5B4890DC1AE0 /* CodeKit.UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7BA9D96FFFB58C99B24 /* CodeKit.UIImage.swift */; };
 		4F71D87B789944E2A62057C7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D3E7CBB71E5919EAEEB6 /* Localizable.strings */; };
 		4F71D89299225586DD04A5C4 /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D752E3C71085FF9EB2D6 /* Numeric.swift */; };
@@ -106,6 +106,7 @@
 		4F71DA9A2AEF74D95F711683 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DF60F3145AA65F6E07F8 /* Localizable.strings */; };
 		4F71DA9BD8AAA0E9E15F6374 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D9F4B12041A01656AEAC /* Localizable.strings */; };
 		4F71DAA403DF9DC3D8857021 /* CodeKit.CIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8F0F79BCC06A092ED59 /* CodeKit.CIImage.swift */; };
+		4F71DAC1A6A117CBDCD73880 /* IMG_0679.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DD4724459BA191CAECC3 /* IMG_0679.JPG */; };
 		4F71DADF537AAF427BC5BC0A /* ImageIO.Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA78EAAC0042C805FA0B /* ImageIO.Metadata.swift */; };
 		4F71DAE55B247A7E9524B7D0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DC34F5554A7C034DBC6B /* Localizable.strings */; };
 		4F71DAEE1C20D9C8B9C38E95 /* bath01.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D489CB86B80D005FDC3C /* bath01.gif */; };
@@ -303,7 +304,7 @@
 		4F71DB0352705DF588F364CD /* PhotoPickerViewController.OperationControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.OperationControl.swift; sourceTree = "<group>"; };
 		4F71DB1426CB14FCF6BC2389 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		4F71DB33EA609835DF70CC67 /* AppTaskManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTaskManager.swift; sourceTree = "<group>"; };
-		4F71DB341620B5007A7F6B60 /* batchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = batchTests.swift; sourceTree = "<group>"; };
+		4F71DB341620B5007A7F6B60 /* ApplicationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationTests.swift; sourceTree = "<group>"; };
 		4F71DB895A3FB604A9F08CBD /* ExifGhost.App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExifGhost.App.swift; sourceTree = "<group>"; };
 		4F71DB9D84840AFF3698CC49 /* PreviewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewCollectionViewCell.xib; sourceTree = "<group>"; };
 		4F71DBB79D25BD1396AACF6B /* batch.Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = batch.Defaults.swift; sourceTree = "<group>"; };
@@ -322,6 +323,7 @@
 		4F71DCE88FEDD7C0EAEEC4C5 /* PhotoPickerViewController.UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.UICollectionView.swift; sourceTree = "<group>"; };
 		4F71DD34564541E70092760E /* PreviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewView.xib; sourceTree = "<group>"; };
 		4F71DD39604C6D5D883F8CFD /* PHAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAsset.swift; sourceTree = "<group>"; };
+		4F71DD4724459BA191CAECC3 /* IMG_0679.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0679.JPG; sourceTree = "<group>"; };
 		4F71DD50BA40D5B1F2284B9C /* CodeKit.UIView.GestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIView.GestureRecognizer.swift; sourceTree = "<group>"; };
 		4F71DD5661069BB5E3B95480 /* zh_TW */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = zh_TW; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71DD5C99E7BCE453D20BD0 /* id */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = id; path = Localizable.strings; sourceTree = "<group>"; };
@@ -579,7 +581,8 @@
 				4F71DC86D21CEF245CBF82A0 /* Info.plist */,
 				4F71D2EF0D764F7706A76694 /* AppKitTests.swift */,
 				4F71D8698EAC3EA68C658ECE /* CodeKitTests.swift */,
-				4F71DB341620B5007A7F6B60 /* batchTests.swift */,
+				4F71DB341620B5007A7F6B60 /* ApplicationTests.swift */,
+				4F71DD4724459BA191CAECC3 /* IMG_0679.JPG */,
 			);
 			path = batchTests;
 			sourceTree = "<group>";
@@ -1288,6 +1291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F71DAEE1C20D9C8B9C38E95 /* bath01.gif in Resources */,
+				4F71DAC1A6A117CBDCD73880 /* IMG_0679.JPG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1524,7 +1528,7 @@
 				4F71D7209A0E47B9C451CCA3 /* ExifGhost.App.Tests.swift in Sources */,
 				4F71DD1E2CB103E275DA495B /* AppKitTests.swift in Sources */,
 				4F71D1F658842E2FFF373BD8 /* Test.App.swift in Sources */,
-				4F71D84F3BE4D54AA746A8BE /* batchTests.swift in Sources */,
+				4F71D84F3BE4D54AA746A8BE /* ApplicationTests.swift in Sources */,
 				4F71D580C4E4953367D47FDC /* CodeKitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

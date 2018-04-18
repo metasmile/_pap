@@ -32,4 +32,34 @@ class CodeKitTests: XCTestCase {
         XCTAssertTrue(3.0.clamped(to: 0.0...10.0) == 3.0)
         XCTAssertTrue("a".clamped(to: "g"..."y") == "g")
     }
+
+    func test_ImageIO_Metadata(){
+
+        if let data = Bundle(for: type(of: self)).bundleURL.appendingPathComponent("IMG_0679.JPG").asData{
+
+            if let metadata = data.getMetadata(){
+                XCTAssertNotNil(data.getMetadata())
+                XCTAssertNotNil(data.getMetadataValue(dictionary: ImageMetadata.Dictionary.GPS, property: ImageMetadata.Property.GPSLongitude))
+
+                let modValue:Float = 0.0
+                let processedData = data.updateMetadata(with: metadata, dictionary: ImageMetadata.Dictionary.GPS, property: ImageMetadata.Property.GPSLongitude, value: modValue)
+
+                XCTAssertTrue(processedData.getMetadataValue(dictionary: ImageMetadata.Dictionary.GPS, property: ImageMetadata.Property.GPSLongitude) as! Float == modValue)
+            }
+
+        }else{
+            XCTFail()
+        }
+    }
+
+    func test_GIFDataRepresentation(){
+
+        if let data = Bundle(for: type(of: self)).bundleURL.appendingPathComponent("bath01.gif").asData{
+            XCTAssertNotNil(UIImage.animatedImageWithGIFData(data))
+            XCTAssertNotNil(UIImageGIFRepresentation(UIImage.animatedImageWithGIFData(data)!, duration: 0, repeatCount: 0))
+        }else{
+            XCTFail()
+        }
+
+    }
 }

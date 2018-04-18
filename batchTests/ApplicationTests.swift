@@ -1,5 +1,5 @@
 //
-//  batchTests.swift
+//  ApplicationTests.swift
 //  batchTests
 //
 //  Created by BLACKGENE on 19/03/2018.
@@ -20,14 +20,26 @@ class batchTests: XCTestCase {
     }
 
     func test(){}
+
+    private struct TestingSequenceOptionSet: SequenceOptionSet {
+        static let modify = TestingSequenceOptionSet(rawValue: 1 << 0)
+        static let create = TestingSequenceOptionSet(rawValue: 1 << 1)
+        static let delete = TestingSequenceOptionSet(rawValue: 1 << 2)
+        static let share = TestingSequenceOptionSet(rawValue: 1 << 3)
+
+        public let rawValue: Int
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+    }
     
     func test_SequenceOptionSet(){
         measure {
-            XCTAssertTrue([PHAssetFinalizingOption.delete].count==1)
+            XCTAssertTrue([TestingSequenceOptionSet.delete].count==1)
         }
-        XCTAssertTrue([PHAssetFinalizingOption.delete, PHAssetFinalizingOption.create].count==2)
+        XCTAssertTrue([TestingSequenceOptionSet.delete, TestingSequenceOptionSet.create].count==2)
 
-        let iterableOptions:PHAssetFinalizingOption = [.delete, .create]
+        let iterableOptions:TestingSequenceOptionSet = [.delete, .create]
         for option in iterableOptions{
             print("option == .create / "+String(describing: option == .create ))
             XCTAssertTrue(option == .create || option == .delete)
@@ -58,17 +70,6 @@ class batchTests: XCTestCase {
         AppCenter.default.current = RevertApp.self
         let appDefaults2 = (AppCenter.default.current as? PersistableApp.Type)?.defaults
         XCTAssertNotNil(appDefaults2)
-    }
-
-    func test_GIFDataRepresentation(){
-
-        if let data = Bundle(for: type(of: self)).bundleURL.appendingPathComponent("bath01.gif").asData{
-            XCTAssertNotNil(UIImage.animatedImageWithGIFData(data))
-            XCTAssertNotNil(UIImageGIFRepresentation(UIImage.animatedImageWithGIFData(data)!, duration: 0, repeatCount: 0))
-        }else{
-            XCTFail()
-        }
-
     }
 }
 

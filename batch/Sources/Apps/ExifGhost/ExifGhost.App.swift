@@ -89,7 +89,9 @@ private class _ExifGhostTask: TaskPrototype, Taskable {
                 let data = try! Data(contentsOf: url)
 
                 if let metadata = data.getMetadata(){
-                    let processedData = data.updateMetadata(with: metadata, dictionary: ImageMetadata.Dictionary.GPS, key: ImageMetadata.Property.GPSLongitude, value: nil)
+                    print(data.getMetadataValue(dictionary: ImageMetadata.Dictionary.GPS, property: ImageMetadata.Property.GPSLongitude))
+                    let processedData = data.updateMetadata(with: metadata, dictionary: ImageMetadata.Dictionary.GPS, property: ImageMetadata.Property.GPSLongitude, value: nil)
+
                     try! processedData.write(to: item.output.renderedContentURL, options: .atomic)
 
                     result = PHAssetResultItem(asset:param.asset, contentEditingOutput:item.output)

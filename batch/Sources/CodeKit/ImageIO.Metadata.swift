@@ -22,6 +22,13 @@ extension Data {
         }
     }
 
+    func getMetadataValue(dictionary:String?=nil, property:String) -> Any? {
+        if let d = dictionary, let dictionaryItemDict = getMetadata()?[d] as? [String: Any]{
+            return dictionaryItemDict[property]
+        }
+        return nil
+    }
+
     func setMetadata(with metadata:[String:Any]) -> Data{
         let source = CGImageSourceCreateWithData(self as CFData, nil)!
         let imageData = CFDataCreateMutable(nil, 0)!
@@ -33,8 +40,13 @@ extension Data {
     }
 
     @discardableResult
-    func updateMetadata(with metadata:[String:Any], dictionary:String, key:String, value:Any?) -> Data {
-        return setMetadata(with: metadata.updateMetadata(dictionary: dictionary, key: key, value: value))
+    func updateMetadata(with metadata:[String:Any], dictionary:String, property:String, value:Any?) -> Data {
+        #if DEBUG
+        if value == nil{
+            print("[!] WARNING: Value is nil, means that remove property itself, but it cannot be guaranteed to remove while actually handling on OS.")
+        }
+        #endif
+        return setMetadata(with: metadata.updateMetadata(dictionary: dictionary, property: property, value: value))
     }
 
     func setMetadata(with metadata:[String:Any], comment: String?, software: String?) -> Data {
@@ -87,6 +99,20 @@ extension Data {
 }
 
 extension Dictionary{
+    func updateMetadata(dictionary:String, property:String, value:Any?) -> [String:Any] {
+        var newMetadata = self as! [String:Any]
+
+        if let data = newMetadata[dictionary] as? [String:Any]{
+            var data = data
+            if value == nil{
+                data.removeValue(forKey: property)
+            }else{
+                data[property] = value
+            }
+            newMetadata[dictionary] = data
+        }
+        return newMetadata
+    }
 
     func changeMetadata(with imageSize: CGSize?, comment: String?, software: String?, exifOrientation: CGImagePropertyOrientation?) -> [String: Any] {
         var newMetadata = self as! [String:Any]
@@ -122,21 +148,6 @@ extension Dictionary{
         newMetadata.updateValue(exifdata!, forKey: ImageMetadata.Dictionary.Exif )
         newMetadata.updateValue(tiffdata!, forKey: ImageMetadata.Dictionary.TIFF )
 
-        return newMetadata
-    }
-
-    func updateMetadata(dictionary:String, key:String, value:Any?) -> [String:Any] {
-        var newMetadata = self as! [String:Any]
-
-        if let data = newMetadata[dictionary] as? [String:Any]{
-            var data = data
-            if value == nil{
-                data.removeValue(forKey: key)
-            }else{
-                data[key] = value
-            }
-            newMetadata[dictionary] = data
-        }
         return newMetadata
     }
 }
