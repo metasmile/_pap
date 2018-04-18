@@ -89,7 +89,15 @@ private class _ExifGhostTask: TaskPrototype, Taskable {
                 let data = try! Data(contentsOf: url)
 
                 if let metadata = data.getMetadata(){
-                    print(data.getMetadataValue(dictionary: ImageMetadata.Dictionary.GPS, property: ImageMetadata.Property.GPSLongitude))
+
+                    if let appContentAsExifGhost = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.controller as? ExifGhostAppDockContent{
+                        appContentAsExifGhost.ghostedProperties
+
+                    }else{
+                        ImageMetadata.DefaultSensitiveProperties
+                    }
+
+
                     let processedData = data.updateMetadata(with: metadata, dictionary: ImageMetadata.Dictionary.GPS, property: ImageMetadata.Property.GPSLongitude, value: nil)
 
                     try! processedData.write(to: item.output.renderedContentURL, options: .atomic)
@@ -106,5 +114,6 @@ private class _ExifGhostTask: TaskPrototype, Taskable {
         async?.waitUntilEnd()
         return result
     }
+
 }
 

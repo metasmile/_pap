@@ -49,6 +49,10 @@ extension Data {
         return setMetadata(with: metadata.updateMetadata(dictionary: dictionary, property: property, value: value))
     }
 
+    func purgeMetadata(with metadata:[String:Any], for collection:ImageMetadataCollection){
+
+    }
+
     func setMetadata(with metadata:[String:Any], comment: String?, software: String?) -> Data {
         let newMetadata = metadata.changeMetadata(with: nil, comment: comment, software: software, exifOrientation: nil)
 

@@ -8,7 +8,7 @@ import UIKit
 import DefaultsKit
 
 private protocol ExifGhostAppDefaults: AppDefaults{
-    var handledProperties:[String:[String]] {get set}
+    var ghostedProperties: ImageMetadataCollection {get set}
 }
 
 extension ExifGhostAppDefaults{
@@ -19,16 +19,16 @@ extension ExifGhostAppDefaults{
         }
 
         var immutableSelf = self
-        if immutableSelf.handledProperties[dictionary] == nil{
-            immutableSelf.handledProperties = [String:[String]]()
-            var p = immutableSelf.handledProperties
+        if immutableSelf.ghostedProperties[dictionary] == nil{
+            immutableSelf.ghostedProperties = ImageMetadataCollection()
+            var p = immutableSelf.ghostedProperties
             p[dictionary] = [property]
-            immutableSelf.handledProperties = p
+            immutableSelf.ghostedProperties = p
         }else{
-            if handledProperties[dictionary]?.contains(property) == false{
-                var p = immutableSelf.handledProperties
+            if ghostedProperties[dictionary]?.contains(property) == false{
+                var p = immutableSelf.ghostedProperties
                 p[dictionary]?.append(property)
-                immutableSelf.handledProperties = p
+                immutableSelf.ghostedProperties = p
             }
         }
     }
@@ -38,55 +38,19 @@ extension ExifGhostAppDefaults{
             assert(false, "\(dictionary) is not supported dictionary")
         }
 
-        if let index = handledProperties[dictionary]?.index(of: property){
+        if let index = ghostedProperties[dictionary]?.index(of: property){
             var immutableSelf = self
-            var p = immutableSelf.handledProperties
+            var p = immutableSelf.ghostedProperties
             p[dictionary]?.remove(at: index)
-            immutableSelf.handledProperties = p
+            immutableSelf.ghostedProperties = p
         }
     }
 }
 
 extension Defaults: ExifGhostAppDefaults {
-    fileprivate var handledProperties: [String:[String]] {
+    fileprivate var ghostedProperties: ImageMetadataCollection {
         set{ set(newValue) }
-
-        get{ return get(or:[
-            ImageMetadata.Dictionary.GPS: [
-                ImageMetadata.Property.GPSDateStamp
-                , ImageMetadata.Property.GPSDateStamp
-                , ImageMetadata.Property.GPSAltitude
-                , ImageMetadata.Property.GPSAltitudeRef
-                , ImageMetadata.Property.GPSLatitude
-                , ImageMetadata.Property.GPSLatitudeRef
-                , ImageMetadata.Property.GPSLongitude
-                , ImageMetadata.Property.GPSLongitudeRef
-                , ImageMetadata.Property.GPSImgDirection
-                , ImageMetadata.Property.GPSImgDirectionRef
-            ],
-            ImageMetadata.Dictionary.Exif: [
-                ImageMetadata.Property.ExifDateTimeDigitized
-                , ImageMetadata.Property.ExifDateTimeOriginal
-                , ImageMetadata.Property.ExifLensMake
-                , ImageMetadata.Property.ExifLensModel
-                , ImageMetadata.Property.ExifLensSerialNumber
-                , ImageMetadata.Property.ExifLensSerialNumber
-                , ImageMetadata.Property.ExifSubsecTime
-                , ImageMetadata.Property.ExifSubsecTimeOriginal
-                , ImageMetadata.Property.ExifSubsecTimeDigitized
-            ],
-            ImageMetadata.Dictionary.TIFF: [
-                ImageMetadata.Property.TIFFDateTime
-                , ImageMetadata.Property.TIFFArtist
-                , ImageMetadata.Property.TIFFCopyright
-                , ImageMetadata.Property.TIFFDocumentName
-                , ImageMetadata.Property.TIFFSoftware
-                , ImageMetadata.Property.TIFFMake
-                , ImageMetadata.Property.TIFFModel
-                , ImageMetadata.Property.TIFFImageDescription
-                , ImageMetadata.Property.TIFFHostComputer
-            ],
-        ]) }
+        get{ return get(or: ImageMetadata.DefaultSensitiveProperties) }
     }
 }
 
@@ -139,8 +103,8 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         return preferences
     }
 
-    var selectedProperties:[String:[String]]?{
-        return appDefaults?.handledProperties
+    var ghostedProperties: ImageMetadataCollection?{
+        return appDefaults?.ghostedProperties
     }
 
     fileprivate var appDefaults:ExifGhostAppDefaults?{
@@ -149,7 +113,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
     func didSetContentView(_ view:UIView) {
 
-        if let defaultsProperties = self.appDefaults?.handledProperties{
+        if let defaultsProperties = self.appDefaults?.ghostedProperties {
             //sort ascending for handling exif properties
             self.dictionaries = self.dictionaries.map { dictionary -> MetadataDictionary in
                 if let handledItems = defaultsProperties[dictionary.key]{
@@ -213,13 +177,13 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let dict = self.dictionaries[indexPath.section]
 
-        var selected = false
+        var selected = true
         if let _ = initialSelectedIndexPaths?.index(of: indexPath) {
-            selected = true
+            selected = false
         }
         if let appDefaults = appDefaults
-        , let _ = appDefaults.handledProperties[dict.key]?.index(of: dict.items[indexPath.item].key){
-            selected = true
+        , let _ = appDefaults.ghostedProperties[dict.key]?.index(of: dict.items[indexPath.item].key){
+            selected = false
         }
 
         let cell = tableView.dequeueReusableCell(withIdentifier: ExifGhost.info.identifier) as! Cell
@@ -228,9 +192,9 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         cell.switchDidChange = { on in
             let dict = self.dictionaries[indexPath.section]
             if on{
-                self.appDefaults?.addHandledProperty(dict.key, dict.items[indexPath.item].key)
-            }else{
                 self.appDefaults?.removeHandledProperty(dict.key, dict.items[indexPath.item].key)
+            }else{
+                self.appDefaults?.addHandledProperty(dict.key, dict.items[indexPath.item].key)
             }
 
             if self.initialSelectedIndexPaths != nil{

@@ -11,6 +11,8 @@
 import Foundation
 import ImageIO
 
+public typealias ImageMetadataCollection = [String:[String]]
+
 public struct ImageMetadata {
     static let FileSize = kCGImagePropertyFileSize as String
 
