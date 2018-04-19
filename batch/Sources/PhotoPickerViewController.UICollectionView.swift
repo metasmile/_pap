@@ -19,22 +19,19 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     func deselectCollectionViewItems(_ items: [IndexPath], animated:Bool=false) {
         let deselectedIndexPaths = items.filter({ !collectionView(self.photoCollectionView, shouldSelectItemAt: $0) })
         
-        let selectedAssets = deselectedIndexPaths.compactMap { PHAssets.fetched.asset(at: $0) }
-        
-        for asset in selectedAssets {
+        for asset in selectedAssetsInCollectionView ?? [PHAsset]() {
             AppAssets.selected.remove(for: asset)
         }
-        
-        batchPreviewView.reloadContent()
-        
-        self.updateSelectedItemUIs()
         
         for indexPath in deselectedIndexPaths {
             photoCollectionView.deselectItem(at: indexPath, animated: animated)
         }
         
-        if let _ = self.collectionViewDisplayableApp?.numberOfItemsShouldSelect{
-            self.updateVisiblePhotoCollectionCellsEnabled()
+        batchPreviewView.reloadContent()
+        updateSelectedItemUIs()
+        
+        if let _ = collectionViewDisplayableApp?.numberOfItemsShouldSelect{
+            updateVisiblePhotoCollectionCellsEnabled()
         }
     }
 

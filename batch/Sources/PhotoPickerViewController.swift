@@ -242,7 +242,6 @@ class PhotoPickerViewController: AppDockViewController {
             navigationItem.setRightBarButton(self.doneButton, animated: true)
 
             if appDockView?.accessory == nil {
-                batchPreviewView.reloadContent()
                 appDockView?.accessory = batchPreviewView
             }
         }
