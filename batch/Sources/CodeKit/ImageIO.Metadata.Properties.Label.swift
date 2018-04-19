@@ -10,38 +10,40 @@ extension ImageMetadata{
     public struct Labels {
 
 /*
-Altitude: 44.83 m (147.07 ft)
-Altitude Reference: above sea level
-Date Stamp: 7 Apr 2018
-Destination Bearing: 56.491
-Destination Bearing Reference: True direction
-Horizontal Positioning Error: 8
-Image Direction: 56.491
-Image Direction Reference: True north
-Latitude: 52° 24’ 14.292” N
-Longitude: 0° 0’ 0” E
-Speed: 0.071
-Speed Reference: Kilometers per hour
-Time Stamp: 13:37:15 UTC
+    Altitude = "30.6360153256705";
+    AltitudeRef = 0;
+    DateStamp = "2018:04:07";
+    DestBearing = "44.0509337860781";
+    DestBearingRef = T;
+    HPositioningError = "29.69374313940725";
+    ImgDirection = "44.0509337860781";
+    ImgDirectionRef = T;
+    Latitude = "52.40276333333333";
+    LatitudeRef = N;
+    Longitude = "13.05823333333333";
+    LongitudeRef = E;
+    Speed = "0.02591712852995513";
+    SpeedRef = K;
+    TimeStamp = "16:13:16";
 */
         static var GPS:[String:String] {
             return [
-                Property.GPSDateStamp as String : "Date Stamp",
-                Property.GPSAltitudeRef as String : "Altitude",
-                Property.GPSAltitude as String : "Altitude Reference",
-                Property.GPSDestBearing as String : "Destination Bearing",
-                Property.GPSDestBearingRef as String : "Destination Bearing Reference",
-                Property.GPSHPositioningError as String : "Horizontal Positioning Error",
-                Property.GPSImgDirection as String: "Image Direction",
-                Property.GPSImgDirectionRef as String: "Image Direction Reference",
-                Property.GPSLatitude as String : "Latitude",
-                Property.GPSLatitudeRef as String : "Latitude Reference",
-                Property.GPSLongitude as String : "Longitude",
-                Property.GPSLongitudeRef as String : "Longitude Reference",
-                Property.GPSSpeed as String : "Speed",
-                Property.GPSSpeedRef as String : "Speed Reference",
-                Property.GPSTimeStamp as String : "Time Stamp",
-                Property.GPSDifferental as String : "Differental",
+                Property.GPSDateStamp: "Date Stamp",
+                Property.GPSAltitudeRef: "Altitude",
+                Property.GPSAltitude: "Altitude Reference",
+                Property.GPSDestBearing: "Destination Bearing",
+                Property.GPSDestBearingRef: "Destination Bearing Reference",
+                Property.GPSHPositioningError: "Horizontal Positioning Error",
+                Property.GPSImgDirection: "Image Direction",
+                Property.GPSImgDirectionRef: "Image Direction Reference",
+                Property.GPSLatitude: "Latitude",
+                Property.GPSLatitudeRef: "Latitude Reference",
+                Property.GPSLongitude: "Longitude",
+                Property.GPSLongitudeRef: "Longitude Reference",
+                Property.GPSSpeed: "Speed",
+                Property.GPSSpeedRef: "Speed Reference",
+                Property.GPSTimeStamp: "Time Stamp",
+                Property.GPSDifferental: "Differental",
             ]
         }
 
@@ -94,16 +96,16 @@ Y Resolution: 72
 */
         static var TIFF:[String:String] {
             return [
-                Property.TIFFDateTime as String : "Date Time",
-                Property.TIFFMake as String : "Make",
-                Property.TIFFModel as String : "Model",
-                Property.TIFFOrientation as String : "Orientation",
-                Property.TIFFResolutionUnit as String : "Resolution Unit",
-                Property.TIFFSoftware as String : "Software",
-                Property.TIFFTileLength as String : "Tile Length",
-                Property.TIFFTileWidth as String : "Tile Width",
-                Property.TIFFXResolution as String : "X Resolution",
-                Property.TIFFYResolution as String : "Y Resolution"
+                Property.TIFFDateTime: "Date Time",
+                Property.TIFFMake: "Make",
+                Property.TIFFModel: "Model",
+                Property.TIFFOrientation: "Orientation",
+                Property.TIFFResolutionUnit: "Resolution Unit",
+                Property.TIFFSoftware: "Software",
+                Property.TIFFTileLength: "Tile Length",
+                Property.TIFFTileWidth: "Tile Width",
+                Property.TIFFXResolution: "X Resolution",
+                Property.TIFFYResolution: "Y Resolution"
             ]
         }
     }

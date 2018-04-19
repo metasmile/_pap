@@ -227,9 +227,6 @@ public struct ImageMetadata {
         static var ExifLensSerialNumber:String { return kCGImagePropertyExifLensSerialNumber as String }
         static var ExifGamma:String { return kCGImagePropertyExifGamma as String }
 
-/* deprecated */
-        static var ExifSubsecTimeOrginal:String { return kCGImagePropertyExifSubsecTimeOrginal as String }
-
 /* Possible keys for kCGImagePropertyExifAuxDictionary */
         static var ExifAuxLensInfo:String { return kCGImagePropertyExifAuxLensInfo as String }
         static var ExifAuxLensModel:String { return kCGImagePropertyExifAuxLensModel as String }
@@ -917,56 +914,39 @@ public struct ImageMetadata {
 /*
 iPhone X
 
-1 LatitudeRef
-2 Latitude
-3 LongitudeRef
-4 Longitude
-5 AltitudeRef
-6 Altitude
-7 TimeStamp
-12 SpeedRef
-13 Speed
-16 ImgDirectionRef
-17 ImgDirection
-23 DestBearingRef
-24 DestBearing
-29 DateStamp
-31 HPositioningError
+    Altitude = "30.6360153256705";
+    AltitudeRef = 0;
+    DateStamp = "2018:04:07";
+    DestBearing = "44.0509337860781";
+    DestBearingRef = T;
+    HPositioningError = "29.69374313940725";
+    ImgDirection = "44.0509337860781";
+    ImgDirectionRef = T;
+    Latitude = "52.40276333333333";
+    LatitudeRef = N;
+    Longitude = "13.05823333333333";
+    LongitudeRef = E;
+    Speed = "0.02591712852995513";
+    SpeedRef = K;
+    TimeStamp = "16:13:16";
 */
         static var GPS: [String] {
             return [
-                Property.GPSVersion,
-                Property.GPSLatitudeRef,
-                Property.GPSLatitude,
-                Property.GPSLongitudeRef,
-                Property.GPSLongitude,
                 Property.GPSAltitudeRef,
                 Property.GPSAltitude,
-                Property.GPSTimeStamp,
-                Property.GPSSatellites,
-                Property.GPSStatus,
-                Property.GPSMeasureMode,
-                Property.GPSDOP,
-                Property.GPSSpeedRef,
-                Property.GPSSpeed,
-                Property.GPSTrackRef,
-                Property.GPSTrack,
-                Property.GPSImgDirectionRef,
-                Property.GPSImgDirection,
-                Property.GPSMapDatum,
-                Property.GPSDestLatitudeRef,
-                Property.GPSDestLatitude,
-                Property.GPSDestLongitudeRef,
-                Property.GPSDestLongitude,
-                Property.GPSDestBearingRef,
-                Property.GPSDestBearing,
-                Property.GPSDestDistanceRef,
-                Property.GPSDestDistance,
-                Property.GPSProcessingMethod,
-                Property.GPSAreaInformation,
                 Property.GPSDateStamp,
-                Property.GPSDifferental,
-                Property.GPSHPositioningError
+                Property.GPSDestBearing,
+                Property.GPSDestBearingRef,
+                Property.GPSHPositioningError,
+                Property.GPSImgDirection,
+                Property.GPSImgDirectionRef,
+                Property.GPSLatitude,
+                Property.GPSLatitudeRef,
+                Property.GPSLongitude,
+                Property.GPSLongitudeRef,
+                Property.GPSSpeed,
+                Property.GPSSpeedRef,
+                Property.GPSTimeStamp
             ]
         }
 
@@ -974,148 +954,122 @@ iPhone X
 /*
 iPhone X
 
-0, 'ExposureTime'
-1, 'FNumber'
-2, 'ExposureProgram'
-4, 'ISOSpeedRatings'
-12, 'ExifVersion'
-13, 'DateTimeOriginal'
-14, 'DateTimeDigitized'
-15, 'ComponentsConfiguration'
-17, 'ShutterSpeedValue'
-18, 'ApertureValue'
-19, 'BrightnessValue'
-20, 'ExposureBiasValue'
-23, 'MeteringMode'
-25, 'Flash'
-26, 'FocalLength'
-27, 'SubjectArea'
-31, 'SubsecTimeOriginal'
-32, 'SubsecTimeDigitized'
-33, 'FlashPixVersion'
-34, 'ColorSpace'
-35, 'PixelXDimension'
-36, 'PixelYDimension'
-45, 'SensingMethod'
-47, 'SceneType'
-50, 'ExposureMode'
-51, 'WhiteBalance'
-53, 'FocalLenIn35mmFilm'
-54, 'SceneCaptureType'
-64, 'LensSpecification'
-65, 'LensMake'
-66, 'LensModel'
+    ApertureValue = "1.695993715632365";
+    BrightnessValue = "8.555909090909092";
+    ColorSpace = 65535;
+    ComponentsConfiguration =     (
+        1,
+        2,
+        3,
+        0
+    );
+    CustomRendered = 2;
+    DateTimeDigitized = "2018:04:07 18:13:18";
+    DateTimeOriginal = "2018:04:07 18:13:18";
+    ExifVersion =     (
+        2,
+        2,
+        1
+    );
+    ExposureBiasValue = 0;
+    ExposureMode = 0;
+    ExposureProgram = 2;
+    ExposureTime = "0.001647446457990115";
+    FNumber = "1.8";
+    Flash = 24;
+    FlashPixVersion =     (
+        1,
+        0
+    );
+    FocalLenIn35mmFilm = 28;
+    FocalLength = 4;
+    ISOSpeedRatings =     (
+        20
+    );
+    LensMake = Apple;
+    LensModel = "iPhone X back dual camera 4mm f/1.8";
+    LensSpecification =     (
+        4,
+        6,
+        "1.8",
+        "2.4"
+    );
+    MeteringMode = 5;
+    PixelXDimension = 4032;
+    PixelYDimension = 3024;
+    SceneCaptureType = 0;
+    SceneType = 1;
+    SensingMethod = 2;
+    ShutterSpeedValue = "9.24594363791631";
+    SubjectArea =     (
+        2015,
+        1511,
+        2217,
+        1330
+    );
+    SubsecTimeDigitized = 543;
+    SubsecTimeOriginal = 543;
+    WhiteBalance = 0;
 */
         static var EXIF: [String] {
             return [
-                Property.ExifExposureTime,
-                Property.ExifFNumber,
-                Property.ExifExposureProgram,
-                Property.ExifSpectralSensitivity,
-                Property.ExifISOSpeedRatings,
-                Property.ExifOECF,
-                Property.ExifSensitivityType,
-                Property.ExifStandardOutputSensitivity,
-                Property.ExifRecommendedExposureIndex,
-                Property.ExifISOSpeed,
-                Property.ExifISOSpeedLatitudeyyy,
-                Property.ExifISOSpeedLatitudezzz,
-                Property.ExifVersion,
-                Property.ExifDateTimeOriginal,
-                Property.ExifDateTimeDigitized,
-                Property.ExifComponentsConfiguration,
-                Property.ExifCompressedBitsPerPixel,
-                Property.ExifShutterSpeedValue,
-                Property.ExifApertureValue,
-                Property.ExifBrightnessValue,
-                Property.ExifExposureBiasValue,
-                Property.ExifMaxApertureValue,
-                Property.ExifSubjectDistance,
-                Property.ExifMeteringMode,
-                Property.ExifLightSource,
-                Property.ExifFlash,
-                Property.ExifFocalLength,
-                Property.ExifSubjectArea,
-                Property.ExifMakerNote,
-                Property.ExifUserComment,
-                Property.ExifSubsecTime,
-                Property.ExifSubsecTimeOriginal,
-                Property.ExifSubsecTimeDigitized,
-                Property.ExifFlashPixVersion,
-                Property.ExifColorSpace,
-                Property.ExifPixelXDimension,
-                Property.ExifPixelYDimension,
-                Property.ExifRelatedSoundFile,
-                Property.ExifFlashEnergy,
-                Property.ExifSpatialFrequencyResponse,
-                Property.ExifFocalPlaneXResolution,
-                Property.ExifFocalPlaneYResolution,
-                Property.ExifFocalPlaneResolutionUnit,
-                Property.ExifSubjectLocation,
-                Property.ExifExposureIndex,
-                Property.ExifSensingMethod,
-                Property.ExifFileSource,
-                Property.ExifSceneType,
-                Property.ExifCFAPattern,
-                Property.ExifCustomRendered,
-                Property.ExifExposureMode,
-                Property.ExifWhiteBalance,
-                Property.ExifDigitalZoomRatio,
-                Property.ExifFocalLenIn35mmFilm,
-                Property.ExifSceneCaptureType,
-                Property.ExifGainControl,
-                Property.ExifContrast,
-                Property.ExifSaturation,
-                Property.ExifSharpness,
-                Property.ExifDeviceSettingDescription,
-                Property.ExifSubjectDistRange,
-                Property.ExifImageUniqueID,
-                Property.ExifCameraOwnerName,
-                Property.ExifBodySerialNumber,
-                Property.ExifLensSpecification,
-                Property.ExifLensMake,
-                Property.ExifLensModel,
-                Property.ExifLensSerialNumber,
-                Property.ExifGamma
+                Property.ExifApertureValue
+                , Property.ExifBrightnessValue
+                , Property.ExifColorSpace
+                , Property.ExifComponentsConfiguration
+                , Property.ExifCustomRendered
+                , Property.ExifDateTimeDigitized
+                , Property.ExifDateTimeOriginal
+                , Property.ExifVersion
+                , Property.ExifExposureBiasValue
+                , Property.ExifExposureMode
+                , Property.ExifExposureProgram
+                , Property.ExifExposureTime
+                , Property.ExifFNumber
+                , Property.ExifFlash
+                , Property.ExifFlashPixVersion
+                , Property.ExifFocalLenIn35mmFilm
+                , Property.ExifFocalLength
+                , Property.ExifISOSpeedRatings
+                , Property.ExifLensMake
+                , Property.ExifLensModel
+                , Property.ExifLensSpecification
+                , Property.ExifMeteringMode
+                , Property.ExifPixelXDimension
+                , Property.ExifPixelYDimension
+                , Property.ExifSceneCaptureType
+                , Property.ExifSceneType
+                , Property.ExifSensingMethod
+                , Property.ExifShutterSpeedValue
+                , Property.ExifSubjectArea
+                , Property.ExifSubsecTimeDigitized
+                , Property.ExifSubsecTimeOriginal
+                , Property.ExifWhiteBalance
             ]
         }
 
 /*
 iPhone X
 
-DateTime = "2018:04:15 15:46:13";
+DateTime = "2018:04:07 18:13:18";
     Make = Apple;
     Model = "iPhone X";
     Orientation = 3;
     ResolutionUnit = 2;
     Software = "11.3";
-    TileLength = 512;
-    TileWidth = 512;
     XResolution = 72;
     YResolution = 72;
 */
         static var TIFF: [String] {
             return [
-                Property.TIFFCompression
-                , Property.TIFFPhotometricInterpretation
-                , Property.TIFFDocumentName
-                , Property.TIFFImageDescription
-                , Property.TIFFMake
-                , Property.TIFFModel
-                , Property.TIFFOrientation
-                , Property.TIFFXResolution
-                , Property.TIFFYResolution
-                , Property.TIFFResolutionUnit
-                , Property.TIFFSoftware
-                , Property.TIFFTransferFunction
-                , Property.TIFFDateTime
-                , Property.TIFFArtist
-                , Property.TIFFHostComputer
-                , Property.TIFFCopyright
-                , Property.TIFFWhitePoint
-                , Property.TIFFPrimaryChromaticities
-                , Property.TIFFTileWidth
-                , Property.TIFFTileLength
+                Property.TIFFDateTime,
+                Property.TIFFMake,
+                Property.TIFFModel,
+                Property.TIFFOrientation,
+                Property.TIFFResolutionUnit,
+                Property.TIFFSoftware,
+                Property.TIFFXResolution,
+                Property.TIFFYResolution
             ]
         }
     }

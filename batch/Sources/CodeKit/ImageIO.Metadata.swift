@@ -9,6 +9,16 @@ import ImageIO
 import MobileCoreServices
 
 extension ImageMetadata{
+    private static let VoidDateFormatter = DateFormatter()
+    private static let VoidDateTimeFormats = [
+        "yyyy:MM:dd hh:mm:ss",
+        "yyyy:MM:dd",
+        "hh:mm:ss"
+    ]
+    private static let VoidDirectionValues = [
+        "W":"E", "E":"W", "N":"S", "S":"N"
+    ]
+
     static func getVoidValue(_ value:Any) -> Any?{
         if value is Double{
             return Double()
@@ -20,7 +30,27 @@ extension ImageMetadata{
             return Int()
         }
         if value is String{
-            return String()
+            let val = value as! String
+
+            // date
+            for format in VoidDateTimeFormats {
+                VoidDateFormatter.dateFormat = format
+                if let _ = VoidDateFormatter.date(from: val){
+                    print(val, "->" ,VoidDateFormatter.string(from: Date(timeIntervalSinceReferenceDate: 0)))
+                    return VoidDateFormatter.string(from: Date(timeIntervalSinceReferenceDate: 0))
+                }
+            }
+
+            // check uppercase and single
+            if val.count==1 && val != val.lowercased(){
+                if VoidDirectionValues[val] == nil{
+                    return "X"
+                }else{
+                    return VoidDirectionValues[val]
+                }
+            }
+
+            return "No data"
         }
         if value is NSArray{
             return NSArray()
@@ -43,6 +73,7 @@ extension ImageMetadata{
             else if isEqualAny(type: NSArray.self, value1: voidValue, value2: value){}
             else if isEqualAny(type: NSDictionary.self, value1: voidValue, value2: value){}
             else{
+                print(value)
                 return false
             }
             return true

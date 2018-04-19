@@ -40,6 +40,10 @@ class CodeKitTests: XCTestCase {
             if let metadata = data.getMetadata(){
                 XCTAssertNotNil(data.getMetadata())
 
+                print(metadata[ImageMetadata.Dictionary.GPS])
+                print(metadata[ImageMetadata.Dictionary.Exif])
+                print(metadata[ImageMetadata.Dictionary.TIFF])
+
                 for property in ImageMetadata.PropertyApple.GPS{
 
                     if let sampleValue = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.GPS, property: property){
@@ -52,15 +56,24 @@ class CodeKitTests: XCTestCase {
                         let purgedData = data.purgeMetadata(with: metadata, dictionary:ImageMetadata.Dictionary.GPS, property:property)
 
                         if let purgedValue = purgedData.getMetadataValue(dictionary: ImageMetadata.Dictionary.GPS, property: property){
-                            print("purged", property, ImageMetadata.isValueVoid(purgedValue))
+                            print("purged --- ", property, purgedValue, ImageMetadata.isValueVoid(purgedValue))
+
+                            if !ImageMetadata.isValueVoid(purgedValue){
+                                print("why?----")
+                                print(purgedValue is String)
+                                print(purgedValue is Int)
+                                print(purgedValue is Double)
+                                print(purgedValue is Float)
+                                print(purgedValue is Date)
+                                print(purgedValue is NSArray)
+                            }
 
                         }else{
-                            XCTFail("purgedValue of \(property) is nil")
+                            XCTFail("nil - purgedValue of \(property)")
                         }
 
-                        print(purgedData.getMetadataValue(dictionary: ImageMetadata.Dictionary.GPS, property: property))
                     }else{
-//                        XCTFail("sampleValue of \(property) is nil")
+                        print("sampleValue of \(property) is nil")
                     }
                 }
 
