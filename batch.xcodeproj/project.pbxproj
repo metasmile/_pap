@@ -173,18 +173,6 @@
 		A0F19AA42080FFA40073916D /* PDFactory.App.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0F19AA32080FFA40073916D /* PDFactory.App.Assets.xcassets */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXBuildRule section */
-		A0EC08AF207E78A80084DA9B /* PBXBuildRule */ = {
-			isa = PBXBuildRule;
-			compilerSpec = com.apple.compilers.proxy.script;
-			fileType = sourcecode.metal;
-			isEditable = 1;
-			outputFiles = (
-			);
-			script = "# metal\n";
-		};
-/* End PBXBuildRule section */
-
 /* Begin PBXContainerItemProxy section */
 		A0AEACD3206006500086E3E0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1159,7 +1147,6 @@
 				E669F6ED1FB8B41A3B2457DF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
-				A0EC08AF207E78A80084DA9B /* PBXBuildRule */,
 			);
 			dependencies = (
 			);

@@ -101,19 +101,25 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
             
             appCenter.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform, id:"editor\(TransformApp.info.identifier)") { (config, changed) in
                 if let value = config.transform{
-                    self.addTransformItem(value)
+                    self.setAppValue(value)
                 }
             }
             
             appCenter.currentInstanceAs(PhotosFilterApp.self)?.config?.watch(\.filter, id:"editor\(PhotosFilterApp.info.identifier)") { (config, changed) in
                 if let value = config.filter {
-                    self.setFilter(value)
+                    self.setAppValue(value)
                 }
             }
             
             appCenter.currentInstanceAs(AutoAdjustmentApp.self)?.config?.watch(\.filter, id:"editor\(AutoAdjustmentApp.info.identifier)") { (config, changed) in
                 if let value = config.filter {
-                    self.setFilter(value)
+                    self.setAppValue(value)
+                }
+            }
+            
+            appCenter.currentInstanceAs(Stabilizer.self)?.config?.watch(\.stabilizationMode, id:"editor\(Stabilizer.info.identifier)") { (config, changed) in
+                if let value = config.stabilizationMode {
+                    self.setAppValue(value)
                 }
             }
             
@@ -126,6 +132,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.unwatch(\.transform, forIds:["editor\(TransformApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(PhotosFilterApp.self)?.config?.unwatch(\.filter, forIds:["editor\(PhotosFilterApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(AutoAdjustmentApp.self)?.config?.unwatch(\.filter, forIds:["editor\(AutoAdjustmentApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(Stabilizer.self)?.config?.unwatch(\.stabilizationMode, forIds:["editor\(Stabilizer.info.identifier)"])
         AppCenter.default.unwatch(\.currentIdentifier, forIds:["editor"])
     }
     // MARK: - Layout
@@ -156,14 +163,8 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     
     // MARK: - Navigation Bar Actions
     
-    private func addTransformItem(_ transformItem: AppValue) {
-        editItem.append(transformItem)
-        
-        updatePreview()
-    }
-    
-    private func setFilter(_ filterItem: AppValue) {
-        editItem.append(filterItem)
+    private func setAppValue(_ value: AppValue) {
+        editItem.append(value)
         
         updatePreview()
     }

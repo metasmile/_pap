@@ -29,7 +29,7 @@ public class ImageAlignment {
 
 @available(iOS 11.0, *)
 public extension UIImage {
-    public func stabilize(with image: UIImage, mode: ImageAlignment.StabilizationMode = .homographic) -> UIImage {
+    public func stabilize(with image: UIImage, mode: ImageAlignment.StabilizationMode = .translation) -> UIImage {
         switch mode {
         case .homographic:
             return stabilizeHomographic(with: image)
@@ -55,7 +55,7 @@ public extension UIImage {
 
 @available(iOS 11.0, *)
 public extension CIImage {
-    public func stabilize(with image: CIImage, mode: ImageAlignment.StabilizationMode = .homographic) -> CIImage {
+    public func stabilize(with image: CIImage, mode: ImageAlignment.StabilizationMode = .translation) -> CIImage {
         switch mode {
         case .homographic:
             return stabilizeHomographic(with: image)
@@ -76,6 +76,7 @@ public extension CIImage {
         guard let transform = ImageAlignment.translationTransform(image, onto: self) else { return self }
         guard let transformedImage = self.applyTranslation(CGPoint(x: transform.tx, y: transform.ty)) else { return self }
         return transformedImage
+//        return self.transformed(by: transform)
     }
 }
 

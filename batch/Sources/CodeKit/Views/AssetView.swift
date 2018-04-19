@@ -17,9 +17,15 @@ import AVFoundation
 import PhotosUI
 
 class AssetView: UIView {
-    fileprivate var imageLayer: CALayer
-    fileprivate var videoLayer: AVPlayerLayer
-    fileprivate var livePhotoView: PHLivePhotoView
+    lazy fileprivate var imageLayer: CALayer = {
+        return CALayer()
+    }()
+    lazy fileprivate var videoLayer: AVPlayerLayer = {
+        return AVPlayerLayer()
+    }()
+    lazy fileprivate var livePhotoView: PHLivePhotoView = {
+        return PHLivePhotoView(frame: CGRect(origin: .zero, size: frame.size))
+    }()
     
     fileprivate var previewMode: Bool = false
     
@@ -32,10 +38,6 @@ class AssetView: UIView {
     }
     
     override init(frame: CGRect) {
-        imageLayer = CALayer()
-        videoLayer = AVPlayerLayer()
-        livePhotoView = PHLivePhotoView(frame: CGRect(origin: .zero, size: frame.size))
-        
         super.init(frame: frame)
         
         layer.addSublayer(imageLayer)
@@ -46,10 +48,6 @@ class AssetView: UIView {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        imageLayer = CALayer()
-        videoLayer = AVPlayerLayer()
-        livePhotoView = PHLivePhotoView(frame: .zero)
-        
         super.init(coder: aDecoder)
         
         layer.addSublayer(imageLayer)
@@ -290,23 +288,22 @@ extension AssetView {
 
 extension AssetView {
     func applyEditState<T>(_ editState: StateValueSet<T>?) where T: AppValue {
-        applyFilter(ciFilter: editState?.ciFilter)
-        
-        if let mode = editState?.stabilizationMode {
-            if asset?.mediaType == .video {
-                playerItem?.videoComposition = playerItem?.asset.stabilize(with: mode)
-            }
-        }
+        applyFilter(editState)
     }
 }
 
 extension AssetView {
-    fileprivate func applyFilter(ciFilter: CIFilter?) {
+    fileprivate func applyFilter<T>(_ editState: StateValueSet<T>?) where T: AppValue {
         if asset?.mediaType == .image || previewMode {
-            applyImageFilter(ciFilter: ciFilter)
+            applyImageFilter(ciFilter: editState?.ciFilter)
         }
         else if asset?.mediaType == .video {
-            applyVideoFilter(ciFilter: ciFilter)
+            if let mode = editState?.stabilizationMode {
+                playerItem?.videoComposition = playerItem?.asset.stabilize(with: mode)
+            }
+            else {
+                playerItem?.videoComposition = playerItem?.asset.applyFilter(editState?.ciFilter)
+            }
         }
     }
     
@@ -317,10 +314,6 @@ extension AssetView {
         else {
             updateImageContents(image?.applyFilter(ciFilter: ciFilter))
         }
-    }
-    
-    fileprivate func applyVideoFilter(ciFilter: CIFilter?) {
-        playerItem?.videoComposition = playerItem?.asset.applyFilter(ciFilter)
     }
 }
 
@@ -420,8 +413,8 @@ extension AssetView {
         seekVideo(to: kCMTimeZero)
     }
     
-    func seekVideo(to: CMTime, toleranceBefore: CMTime = kCMTimeZero, toleranceAfter: CMTime = kCMTimeZero) {
-        playerItem?.seek(to: to, toleranceBefore: toleranceBefore, toleranceAfter: toleranceAfter, completionHandler: nil)
+    func seekVideo(to: CMTime, toleranceBefore: CMTime = kCMTimeZero, toleranceAfter: CMTime = kCMTimeZero, completionHandler: ((Bool) -> Void)? = nil) {
+        playerItem?.seek(to: to, toleranceBefore: toleranceBefore, toleranceAfter: toleranceAfter, completionHandler: completionHandler)
     }
     
     private func addVideoLooping() {

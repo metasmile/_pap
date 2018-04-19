@@ -165,16 +165,20 @@ class BAppUICollectionViewCell: CustomCollectionViewCell {
     var title: String? {
         didSet {
             titleLabel.text = title
-            titleLabel.sizeToFit()
-            titleLabelHeightLayout.constant = titleLabel.bounds.height > 0 ? 24 : 0
-            titleLabel.layoutIfNeeded()
+            layoutContents()
         }
     }
     
     var image: UIImage? {
         didSet {
             imageView.image = image
+            layoutContents()
         }
+    }
+    
+    private func layoutContents() {
+        titleLabelHeightLayout.constant = imageView.image == nil ? contentView.bounds.height : (titleLabel.text?.count == 0 ? 0 : 24)
+        titleLabel.layoutIfNeeded()
     }
     
     override var isHighlighted: Bool {

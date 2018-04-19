@@ -37,6 +37,12 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             config.tintColor = .black
             return config
         }
+        
+        Stabilizer.configure = {
+            let config = StabilizerAppConfig()
+            config.tintColor = .black
+            return config
+        }
 
         var config = AppManagerConfig()
         config.appCollection = [

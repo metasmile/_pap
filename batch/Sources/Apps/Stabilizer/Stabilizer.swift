@@ -15,17 +15,54 @@ import Photos
 
 class _StabilizerAppAsset: PHAssetItem<AppValue> {}
 
-public extension StateValueSet where T: AppValue {
-    var stabilizationMode: ImageAlignment.StabilizationMode? {
-        return ImageAlignment.StabilizationMode.translation
-//        return self.iterator().reversed().first?.stabilizationMode
+public class StabilizerAppValue: AppValue {
+    override var stabilizationMode: ImageAlignment.StabilizationMode? {
+        return _stabilizationMode
+    }
+    
+    private var _stabilizationMode: ImageAlignment.StabilizationMode?
+    
+    init(_ stabilizationMode: ImageAlignment.StabilizationMode? = nil) {
+        super.init()
+        
+        _stabilizationMode = stabilizationMode
     }
 }
 
-public class Stabilizer: App, PersistableApp, PHAssetFinalizableApp, AppDockControllableApp, PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp {
+public extension StateValueSet where T: AppValue {
+    var stabilizationMode: ImageAlignment.StabilizationMode? {
+        return self.iterator().reversed().first?.stabilizationMode
+    }
+}
+
+public class StabilizerAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrributeValuable, AppConfigAdoptableValuable {
+    @objc dynamic
+    public var tintColor: UIColor?
+    
+    @objc dynamic
+    public var stabilizationMode: AppValue?
+    
+    public func adoptValues(fromOther: AppConfigValuable) {
+        if let other = fromOther as? AppConfigUIAttrributeValuable {
+            self.tintColor = other.tintColor
+        }
+        
+        if let other = fromOther as? StabilizerAppConfig, let stabilizationMode = other.stabilizationMode{
+            self.stabilizationMode = stabilizationMode
+        }
+    }
+}
+
+public class Stabilizer: App, PersistableApp, PHAssetFinalizableApp, AppDockControllableApp, PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp, ConfigurableApp, _ConfigurableApp {
     public static let taskType:Taskable.Type = StabilizerTask.self
 
     public static let paramType:TaskParamable.Type = _StabilizerAppAsset.self
+    
+    public static var configure:(() -> StabilizerAppConfig)?
+    
+    @objc dynamic
+    public private(set) lazy var config: StabilizerAppConfig? = Stabilizer.configure?()
+    public private(set) lazy var controller: AppDockContent? = createController()
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.stabilizer"
@@ -53,6 +90,24 @@ public class Stabilizer: App, PersistableApp, PHAssetFinalizableApp, AppDockCont
     
     public func shouldSelect(item: PHAssetItem<AppValue>) -> Bool {
         return item.asset.mediaType == .video// || (item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive))
+    }
+    
+    private func createController() -> AppDockContent {
+        let items = [
+            BAppUICollectionView.CollectionItem(title: "Translation".localized, image: nil, action: { self.config?.stabilizationMode = StabilizerAppValue(.translation) }),
+            BAppUICollectionView.CollectionItem(title: "Homographic".localized, image: nil, action: { self.config?.stabilizationMode = StabilizerAppValue(.homographic) })
+        ]
+        
+        let view = BAppUICollectionView(items: items)
+        
+        var p = AppDockContentPreferences()
+        p.pinned = true
+        p.minimumHeight = 64 // for test. remove this line after fixed app design
+        return AppDockContentItem(view: view, preferences: p)
+    }
+    
+    public func setConfigValues<T: AppConfigValuable>(_ config:T){
+        self.config?.adoptValues(fromOther: config)
     }
 }
 

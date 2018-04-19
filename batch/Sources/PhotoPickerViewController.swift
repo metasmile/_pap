@@ -97,8 +97,8 @@ class PhotoPickerViewController: AppDockViewController {
     
     override func registerWatchingAppConfig() {
         AppCenter.default.watch(\.currentIdentifier, options:[.new, .old, .initial]) { (appCenter, dict) in
-            let old = dict.oldValue ?? nil
-            let new = dict.newValue ?? nil
+            let old = dict.oldValue
+            let new = dict.newValue
             
             if old != nil && new != nil && old != new {
                 AppAssets.selected.reloadAll()
@@ -111,34 +111,41 @@ class PhotoPickerViewController: AppDockViewController {
 
             AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform, id:"picker\(TransformApp.info.identifier)") { (config, changed) in
                 if let value = config.transform, !AppCenter.default.isAppRunning{
-                    AppAssets.selected.appendValue(value)
-
-                    self.batchPreviewView.updatePreviews()
+                    self.setAppValue(value)
                 }
             }
             
             AppCenter.default.currentInstanceAs(PhotosFilterApp.self)?.config?.watch(\.filter, id:"picker\(PhotosFilterApp.info.identifier)") { (config, changed) in
                 if let value = config.filter, !AppCenter.default.isAppRunning{
-                    AppAssets.selected.appendValue(value)
-                    
-                    self.batchPreviewView.updatePreviews()
+                    self.setAppValue(value)
                 }
             }
             
             AppCenter.default.currentInstanceAs(AutoAdjustmentApp.self)?.config?.watch(\.filter, id:"picker\(AutoAdjustmentApp.info.identifier)") { (config, changed) in
                 if let value = config.filter, !AppCenter.default.isAppRunning{
-                    AppAssets.selected.appendValue(value)
-                    
-                    self.batchPreviewView.updatePreviews()
+                    self.setAppValue(value)
+                }
+            }
+            
+            AppCenter.default.currentInstanceAs(Stabilizer.self)?.config?.watch(\.stabilizationMode, id:"picker\(Stabilizer.info.identifier)") { (config, changed) in
+                if let value = config.stabilizationMode, !AppCenter.default.isAppRunning{
+                    self.setAppValue(value)
                 }
             }
         }
+    }
+    
+    private func setAppValue(_ value: AppValue) {
+        AppAssets.selected.appendValue(value)
+        
+        batchPreviewView.updatePreviews()
     }
     
     override func unregisterWatchingAppConfig() {
         AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.unwatch(\.transform, forIds:["picker\(TransformApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(PhotosFilterApp.self)?.config?.unwatch(\.filter, forIds:["picker\(PhotosFilterApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(AutoAdjustmentApp.self)?.config?.unwatch(\.filter, forIds:["picker\(AutoAdjustmentApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(Stabilizer.self)?.config?.unwatch(\.stabilizationMode, forIds:["picker\(Stabilizer.info.identifier)"])
         AppCenter.default.unwatchAllFilePrivate(\.currentIdentifier)
     }
 

@@ -363,6 +363,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
             let minHeight = min(DefaultPreferences.DrawerView.compactHeight, DefaultPreferences.DrawerView.prominentHeight)
             
             let appContentViewHeight: CGFloat = {
+                //https://medium.com/thoughts-on-thoughts/recreating-apple-s-rubber-band-effect-in-swift-dbf981b40f35
                 func logConstraintValueForYPoisition(_ yPosition: CGFloat, limitation: CGFloat) -> CGFloat {
                     return limitation * (1 + log10(yPosition/limitation))
                 }
