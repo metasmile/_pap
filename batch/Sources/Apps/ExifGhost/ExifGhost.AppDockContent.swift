@@ -73,7 +73,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
                 }),
 
         MetadataDictionary(key:ImageMetadata.Dictionary.Exif, label: "EXIF",
-                items: ImageMetadata.PropertyApple.EXIF.map { key -> MetadataItem in
+                items: ImageMetadata.PropertyApple.Exif.map { key -> MetadataItem in
                     return MetadataItem(key:key, label: ImageMetadata.Labels.Exif[key] ?? key)
                 }),
 

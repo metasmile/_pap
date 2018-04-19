@@ -18,6 +18,9 @@ extension ImageMetadata{
     private static let VoidDirectionValues = [
         "W":"E", "E":"W", "N":"S", "S":"N"
     ]
+    private static let VoidTimeStamp = "00:00:00"
+    private static let VoidSingleUpperCaseString = "X"
+    private static let VoidAnyString = "-"
 
     static func getVoidValue(_ value:Any) -> Any?{
         if value is Double{
@@ -27,16 +30,20 @@ extension ImageMetadata{
             return Float()
         }
         if value is Int{
-            return Int()
+            return 0
         }
         if value is String{
             let val = value as! String
+
+            // null timestamp
+            if val == VoidTimeStamp{
+                return val
+            }
 
             // date
             for format in VoidDateTimeFormats {
                 VoidDateFormatter.dateFormat = format
                 if let _ = VoidDateFormatter.date(from: val){
-                    print(val, "->" ,VoidDateFormatter.string(from: Date(timeIntervalSinceReferenceDate: 0)))
                     return VoidDateFormatter.string(from: Date(timeIntervalSinceReferenceDate: 0))
                 }
             }
@@ -44,19 +51,35 @@ extension ImageMetadata{
             // check uppercase and single
             if val.count==1 && val != val.lowercased(){
                 if VoidDirectionValues[val] == nil{
-                    return "X"
+                    return VoidSingleUpperCaseString
                 }else{
                     return VoidDirectionValues[val]
                 }
             }
 
-            return "No data"
+            return VoidAnyString
         }
         if value is NSArray{
+            let val = value as! NSArray
+
+            // fill void value
+            if val.count>0{
+                return val.compactMap { element -> Any? in
+                    return getVoidValue(element)
+                }
+            }
+
             return NSArray()
         }
         if value is NSDictionary{
-            return NSDictionary()
+            let val = value as! NSDictionary
+
+            if let keys = val.allKeys as? [NSCopying]{
+                return NSDictionary(objects: val.allValues.compactMap { value -> Any? in
+                    return getVoidValue(value)
+                }, forKeys: keys)
+            }
+            return [VoidAnyString:VoidAnyString]
         }
 
         print("[i] Void value is not defined yet: ")
@@ -73,7 +96,6 @@ extension ImageMetadata{
             else if isEqualAny(type: NSArray.self, value1: voidValue, value2: value){}
             else if isEqualAny(type: NSDictionary.self, value1: voidValue, value2: value){}
             else{
-                print(value)
                 return false
             }
             return true

@@ -1011,7 +1011,7 @@ iPhone X
     SubsecTimeOriginal = 543;
     WhiteBalance = 0;
 */
-        static var EXIF: [String] {
+        static var Exif: [String] {
             return [
                 Property.ExifApertureValue
                 , Property.ExifBrightnessValue

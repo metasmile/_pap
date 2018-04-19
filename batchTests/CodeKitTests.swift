@@ -33,53 +33,85 @@ class CodeKitTests: XCTestCase {
         XCTAssertTrue("a".clamped(to: "g"..."y") == "g")
     }
 
-    func test_ImageIO_Metadata(){
+    func test_ImageIO_Metadata_update(){
 
         if let data = Bundle(for: type(of: self)).bundleURL.appendingPathComponent("IMG_0679.JPG").asData{
 
             if let metadata = data.getMetadata(){
                 XCTAssertNotNil(data.getMetadata())
 
-                print(metadata[ImageMetadata.Dictionary.GPS])
-                print(metadata[ImageMetadata.Dictionary.Exif])
-                print(metadata[ImageMetadata.Dictionary.TIFF])
+                let dictionary = ImageMetadata.Dictionary.Exif
 
-                for property in ImageMetadata.PropertyApple.GPS{
+                for property in ImageMetadata.PropertyApple.Exif{
 
-                    if let sampleValue = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.GPS, property: property){
+                    if let sampleValue = data.getMetadataValue(dictionary: dictionary, property: property){
                         let sampleVoidValue = ImageMetadata.getVoidValue(sampleValue) ?? sampleValue
 
-                        let updatedData = data.updateMetadata(with: metadata, dictionary: ImageMetadata.Dictionary.GPS, property: property, value: sampleVoidValue)
-                        XCTAssertNotNil(updatedData.getMetadataValue(dictionary: ImageMetadata.Dictionary.GPS, property: property))
-                        print(updatedData.getMetadataValue(dictionary: ImageMetadata.Dictionary.GPS, property: property))
-
-                        let purgedData = data.purgeMetadata(with: metadata, dictionary:ImageMetadata.Dictionary.GPS, property:property)
-
-                        if let purgedValue = purgedData.getMetadataValue(dictionary: ImageMetadata.Dictionary.GPS, property: property){
-                            print("purged --- ", property, purgedValue, ImageMetadata.isValueVoid(purgedValue))
-
-                            if !ImageMetadata.isValueVoid(purgedValue){
-                                print("why?----")
-                                print(purgedValue is String)
-                                print(purgedValue is Int)
-                                print(purgedValue is Double)
-                                print(purgedValue is Float)
-                                print(purgedValue is Date)
-                                print(purgedValue is NSArray)
-                            }
-
-                        }else{
-                            XCTFail("nil - purgedValue of \(property)")
-                        }
+                        let updatedData = data.updateMetadata(with: metadata, dictionary: dictionary, property: property, value: sampleVoidValue)
+                        XCTAssertNotNil(updatedData.getMetadataValue(dictionary: dictionary, property: property))
 
                     }else{
                         print("sampleValue of \(property) is nil")
                     }
                 }
 
-                //undefined sheme -> purge all
-                let purgedData2 = data.purgeMetadata(with: metadata, for: nil)
-                XCTAssertNotNil(purgedData2.getMetadataValue(dictionary: ImageMetadata.Dictionary.GPS, property: ImageMetadata.Property.GPSLongitude))
+
+            }
+
+        }else{
+            XCTFail()
+        }
+    }
+
+    func test_ImageIO_Metadata_purge(){
+
+        if let data = Bundle(for: type(of: self)).bundleURL.appendingPathComponent("IMG_0679.JPG").asData{
+
+            if let metadata = data.getMetadata(){
+                XCTAssertNotNil(data.getMetadata())
+
+                let dictionary = ImageMetadata.Dictionary.Exif
+
+//                print(metadata[ImageMetadata.Dictionary.GPS])
+//                print(metadata[ImageMetadata.Dictionary.Exif])
+//                print(metadata[ImageMetadata.Dictionary.TIFF])
+
+                for property in ImageMetadata.PropertyApple.Exif{
+
+                    if let sampleValue = data.getMetadataValue(dictionary: dictionary, property: property){
+                        let sampleVoidValue = ImageMetadata.getVoidValue(sampleValue) ?? sampleValue
+
+                        let purgedData = data.purgeMetadata(with: metadata, dictionary:dictionary, property:property)
+
+                        if let purgedValue = purgedData.getMetadataValue(dictionary: dictionary, property: property){
+                            let purged = ImageMetadata.isValueVoid(purgedValue)
+
+                            if purged{
+                                print(property)
+                            }
+
+//                            print("purged ", purged, property, sampleValue, "->", purgedValue)
+//
+//                            if !purged{
+//                                print("purged failed ----")
+//                                print(purgedValue is String)
+//                                print(purgedValue is Int)
+//                                print(purgedValue is Double)
+//                                print(purgedValue is Float)
+//                                print(purgedValue is Date)
+//                                print(purgedValue is NSArray)
+//                            }
+
+                        }else{
+//                            XCTFail("nil - purgedValue of \(property)")
+                        }
+
+                    }else{
+//                        print("sampleValue of \(property) is nil")
+                    }
+                }
+
+
             }
 
         }else{
