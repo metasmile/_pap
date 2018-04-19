@@ -8,6 +8,49 @@ import UIKit
 import ImageIO
 import MobileCoreServices
 
+extension ImageMetadata{
+    static func getVoidValue(_ value:Any) -> Any?{
+        if value is Double{
+            return Double()
+        }
+        if value is Float{
+            return Float()
+        }
+        if value is Int{
+            return Int()
+        }
+        if value is String{
+            return String()
+        }
+        if value is NSArray{
+            return NSArray()
+        }
+        if value is NSDictionary{
+            return NSDictionary()
+        }
+
+        print("[i] Void value is not defined yet: ")
+        return nil
+    }
+
+    static func isValueVoid(_ value:Any) -> Bool{
+        if let voidValue = getVoidValue(value){
+            if isEqualAny(type: Double.self, value1: voidValue, value2: value){}
+            else if isEqualAny(type: Float.self, value1: voidValue, value2: value){}
+            else if isEqualAny(type: Int.self, value1: voidValue, value2: value){}
+            else if isEqualAny(type: String.self, value1: voidValue, value2: value){}
+            else if isEqualAny(type: Date.self, value1: voidValue, value2: value){}
+            else if isEqualAny(type: NSArray.self, value1: voidValue, value2: value){}
+            else if isEqualAny(type: NSDictionary.self, value1: voidValue, value2: value){}
+            else{
+                return false
+            }
+            return true
+        }
+        return false
+    }
+}
+
 extension Data {
     func getMetadata() -> [String: Any]? {
         let imageSource = CGImageSourceCreateWithData(self as CFData, nil)
@@ -49,13 +92,12 @@ extension Data {
         return setMetadata(with: metadata.updateMetadata(dictionary: dictionary, property: property, value: value))
     }
 
-    func purgeMetadata(with metadata:[String:Any], for collection: ImageMetadataPropertyCollection, voidValues:ImageMetadataValueCollection?=nil) -> Data {
-#if DEBUG
-        if voidValues == nil{
-            print("[!] WARNING: voidValues is nil, means that remove property itself, but it cannot be guaranteed to remove while actually handling on OS.")
-        }
-#endif
-        return setMetadata(with: metadata.purgeMetadata(for: collection, voidValues:voidValues))
+    func purgeMetadata(with metadata:[String:Any], dictionary:String, property:String) -> Data {
+        return setMetadata(with: metadata.purgeMetadata(dictionary: dictionary, property: property))
+    }
+
+    func purgeMetadata(with metadata:[String:Any], for collection: ImageMetadataPropertyCollection?) -> Data {
+        return setMetadata(with: metadata.purgeMetadata(for: collection))
     }
 
     func setMetadata(with metadata:[String:Any], comment: String?, software: String?) -> Data {
@@ -108,6 +150,8 @@ extension Data {
 }
 
 extension Dictionary{
+
+    @discardableResult
     func updateMetadata(dictionary:String?=nil, property:String, value:Any?) -> [String:Any] {
         var newMetadata = self as! [String:Any]
 
@@ -130,25 +174,42 @@ extension Dictionary{
         return newMetadata
     }
 
-    func purgeMetadata(for collection: ImageMetadataPropertyCollection?, voidValues:ImageMetadataValueCollection?=nil) -> [String:Any] {
+    func purgeMetadata(dictionary:String?=nil, property:String) -> [String:Any] {
+        let metadata = self as! [String:Any]
+        if let dictionary = dictionary, let dictionarydata = metadata[dictionary] as? [String:Any]{
+            if let value = dictionarydata[property]{
+                return updateMetadata(dictionary: dictionary, property: property, value: ImageMetadata.getVoidValue(value) ?? value)
+            }
+        }
+        if let rootValue = metadata[property]{
+            return updateMetadata(dictionary: dictionary, property: property, value: ImageMetadata.getVoidValue(rootValue) ?? rootValue)
+        }
+        return metadata
+    }
+
+    func purgeMetadata(for properties: ImageMetadataPropertyCollection?) -> [String:Any] {
         let gotMetadata = self as! [String:Any]
 
         var purgedMetadata = gotMetadata
-        for (dict, _) in gotMetadata {
-            if let collection = collection, let properties = collection[dict]{
-                for p in properties{
-                    let voidValue = voidValues?[dict]?[p] ?? ""
-                    purgedMetadata = purgedMetadata.updateMetadata(dictionary: dict, property: p, value: voidValue)
+
+        for (rootProperty, _) in gotMetadata {
+            // purge for keys in specific collection
+            if let original_kv = gotMetadata[rootProperty] as? [String:Any]
+            , let collection = properties
+            , let target_k = collection[rootProperty]{
+                for p in target_k{
+                    if let v = original_kv[p]{
+                        purgedMetadata = purgedMetadata.updateMetadata(dictionary: rootProperty, property: p, value: ImageMetadata.getVoidValue(v) ?? v)
+                    }
                 }
             }else{
-                if let properties = gotMetadata[dict] as? [String:Any]{
-                    for (p, _) in properties{
-                        let voidValue = voidValues?[dict]?[p] ?? ""
-                        purgedMetadata = purgedMetadata.updateMetadata(dictionary: dict, property: p, value: voidValue)
+                // undefined specific collection -> purge all if possible
+                if let properties = gotMetadata[rootProperty] as? [String:Any]{
+                    for (p, v) in properties{
+                        purgedMetadata = purgedMetadata.updateMetadata(dictionary: rootProperty, property: p, value: ImageMetadata.getVoidValue(v) ?? v)
                     }
-                }else{
-                    print("[!] WARNING: not implemented root properties yet.")
-                    purgedMetadata = purgedMetadata.updateMetadata(dictionary: nil, property: dict, value: "")
+                }else if let rootValue = gotMetadata[rootProperty]{
+                    purgedMetadata = purgedMetadata.updateMetadata(dictionary: nil, property: rootProperty, value: ImageMetadata.getVoidValue(rootValue) ?? rootValue)
                 }
             }
         }

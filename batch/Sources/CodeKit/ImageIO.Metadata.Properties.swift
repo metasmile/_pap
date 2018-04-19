@@ -912,9 +912,7 @@ public struct ImageMetadata {
     }
 
     public struct PropertyApple {
-        static var supportedDictionaries: [String] {
-            return [Dictionary.TIFF, Dictionary.Exif, Dictionary.GPS]
-        }
+        static let supportedDictionaries: [String] = [Dictionary.TIFF, Dictionary.Exif, Dictionary.GPS]
 
 /*
 iPhone X
@@ -938,37 +936,37 @@ iPhone X
         static var GPS: [String] {
             return [
                 Property.GPSVersion,
-                    Property.GPSLatitudeRef,
-                    Property.GPSLatitude,
-                    Property.GPSLongitudeRef,
-                    Property.GPSLongitude,
-                    Property.GPSAltitudeRef,
-                    Property.GPSAltitude,
-                    Property.GPSTimeStamp,
-                    Property.GPSSatellites,
-                    Property.GPSStatus,
-                    Property.GPSMeasureMode,
-                    Property.GPSDOP,
-                    Property.GPSSpeedRef,
-                    Property.GPSSpeed,
-                    Property.GPSTrackRef,
-                    Property.GPSTrack,
-                    Property.GPSImgDirectionRef,
-                    Property.GPSImgDirection,
-                    Property.GPSMapDatum,
-                    Property.GPSDestLatitudeRef,
-                    Property.GPSDestLatitude,
-                    Property.GPSDestLongitudeRef,
-                    Property.GPSDestLongitude,
-                    Property.GPSDestBearingRef,
-                    Property.GPSDestBearing,
-                    Property.GPSDestDistanceRef,
-                    Property.GPSDestDistance,
-                    Property.GPSProcessingMethod,
-                    Property.GPSAreaInformation,
-                    Property.GPSDateStamp,
-                    Property.GPSDifferental,
-                    Property.GPSHPositioningError
+                Property.GPSLatitudeRef,
+                Property.GPSLatitude,
+                Property.GPSLongitudeRef,
+                Property.GPSLongitude,
+                Property.GPSAltitudeRef,
+                Property.GPSAltitude,
+                Property.GPSTimeStamp,
+                Property.GPSSatellites,
+                Property.GPSStatus,
+                Property.GPSMeasureMode,
+                Property.GPSDOP,
+                Property.GPSSpeedRef,
+                Property.GPSSpeed,
+                Property.GPSTrackRef,
+                Property.GPSTrack,
+                Property.GPSImgDirectionRef,
+                Property.GPSImgDirection,
+                Property.GPSMapDatum,
+                Property.GPSDestLatitudeRef,
+                Property.GPSDestLatitude,
+                Property.GPSDestLongitudeRef,
+                Property.GPSDestLongitude,
+                Property.GPSDestBearingRef,
+                Property.GPSDestBearing,
+                Property.GPSDestDistanceRef,
+                Property.GPSDestDistance,
+                Property.GPSProcessingMethod,
+                Property.GPSAreaInformation,
+                Property.GPSDateStamp,
+                Property.GPSDifferental,
+                Property.GPSHPositioningError
             ]
         }
 

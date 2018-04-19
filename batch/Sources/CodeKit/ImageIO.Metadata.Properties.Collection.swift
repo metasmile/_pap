@@ -56,23 +56,12 @@ Sub-second Time Original: 772
 White Balance: Auto white balance
 */
 
-/*
-Date Time: 7 Apr 2018 at 3:37:16 PM
-Make: Apple
-Model: iPhone X
-Orientation: 1 (Normal)
-Resolution Unit: inches
-Software: 11.3
-X Resolution: 72
-Y Resolution: 72
-*/
-
     public struct Collection {
 
-        public static let DefaultSensitivityVoidValues: ImageMetadataValueCollection = [
+        public static var DefaultSensitivityVoidValues: ImageMetadataValueCollection = [
             ImageMetadata.Dictionary.GPS: [
                 ImageMetadata.Property.GPSDateStamp : ""
-                , ImageMetadata.Property.GPSDateStamp : ""
+                , ImageMetadata.Property.GPSTimeStamp : ""
                 , ImageMetadata.Property.GPSAltitude : 0.0
                 , ImageMetadata.Property.GPSAltitudeRef : ""
                 , ImageMetadata.Property.GPSLatitude : 0.0
@@ -88,7 +77,7 @@ Y Resolution: 72
                 , ImageMetadata.Property.ExifDateTimeOriginal : ""
                 , ImageMetadata.Property.ExifLensMake : ""
                 , ImageMetadata.Property.ExifLensModel : ""
-                , ImageMetadata.Property.ExifLensSerialNumber : ""
+                , ImageMetadata.Property.ExifBodySerialNumber : ""
                 , ImageMetadata.Property.ExifLensSerialNumber : ""
                 , ImageMetadata.Property.ExifSubsecTime : ""
                 , ImageMetadata.Property.ExifSubsecTimeOriginal : ""
@@ -111,7 +100,7 @@ Y Resolution: 72
         public static let DefaultSensitivity: ImageMetadataPropertyCollection = [
             ImageMetadata.Dictionary.GPS: [
                 ImageMetadata.Property.GPSDateStamp
-                , ImageMetadata.Property.GPSDateStamp
+                , ImageMetadata.Property.GPSTimeStamp
                 , ImageMetadata.Property.GPSAltitude
                 , ImageMetadata.Property.GPSAltitudeRef
                 , ImageMetadata.Property.GPSLatitude
@@ -128,7 +117,7 @@ Y Resolution: 72
                 , ImageMetadata.Property.ExifLensMake
                 , ImageMetadata.Property.ExifLensModel
                 , ImageMetadata.Property.ExifLensSerialNumber
-                , ImageMetadata.Property.ExifLensSerialNumber
+                , ImageMetadata.Property.ExifBodySerialNumber
                 , ImageMetadata.Property.ExifSubsecTime
                 , ImageMetadata.Property.ExifSubsecTimeOriginal
                 , ImageMetadata.Property.ExifSubsecTimeDigitized

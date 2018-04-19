@@ -30,6 +30,7 @@
 		4F71D1F3DD99792EAD52E52E /* CodeKit.URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D62B7E59F17721FE7CFB /* CodeKit.URL.swift */; };
 		4F71D1F658842E2FFF373BD8 /* Test.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE78E969F349EB0EB06A /* Test.App.swift */; };
 		4F71D23392E6B0F1A8644459 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2623F13128BD48FCD52 /* Task.swift */; };
+		4F71D257289E703F26E140B9 /* CodeKit.Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6ED4431737AAFE39224 /* CodeKit.Misc.swift */; };
 		4F71D25C92FBB20FAE7F303B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D629F370C22B160C7DB8 /* Localizable.strings */; };
 		4F71D28819C1A011AADDDDCE /* ImageIO.Metadata.Properties.Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D633B7D0744B352DD5B4 /* ImageIO.Metadata.Properties.Label.swift */; };
 		4F71D2BA12FF80831C9E1413 /* CodeKit.Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA6EC209B1E8195931DA /* CodeKit.Sequence.swift */; };
@@ -262,6 +263,7 @@
 		4F71D69553C5C4CC704DD4A6 /* AppTaskOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTaskOperationQueue.swift; sourceTree = "<group>"; };
 		4F71D6DAAEC114678D5B56B6 /* Transform.App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.App.swift; sourceTree = "<group>"; };
 		4F71D6DCF679BD4028F66661 /* el */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = el; path = Localizable.strings; sourceTree = "<group>"; };
+		4F71D6ED4431737AAFE39224 /* CodeKit.Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Misc.swift; sourceTree = "<group>"; };
 		4F71D6F61D723670291982AD /* fr_CA */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fr_CA; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D6FC8CD7E9DD57A45B56 /* PhotoPickerFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerFooterView.swift; sourceTree = "<group>"; };
 		4F71D7008A8FEFF04FC5E310 /* CodeKit.OptionSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.OptionSet.swift; sourceTree = "<group>"; };
@@ -773,6 +775,7 @@
 				4F71D3C8B92CF5C9F4AA4D57 /* ImageIO.Metadata.Properties.swift */,
 				4F71D1974FD0EA44E6FEE549 /* ImageIO.Metadata.Properties.Collection.swift */,
 				4F71D633B7D0744B352DD5B4 /* ImageIO.Metadata.Properties.Label.swift */,
+				4F71D6ED4431737AAFE39224 /* CodeKit.Misc.swift */,
 			);
 			path = CodeKit;
 			sourceTree = "<group>";
@@ -1144,7 +1147,6 @@
 				0ABFCF761F14B65C0078A583 /* Resources */,
 				E3607A0050E70D649848C2DD /* [CP] Embed Pods Frameworks */,
 				A02DED091FBF651C003796B6 /* ShellScript */,
-				E669F6ED1FB8B41A3B2457DF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1164,7 +1166,6 @@
 				A0AEACCB206006500086E3E0 /* Frameworks */,
 				A0AEACCC206006500086E3E0 /* Resources */,
 				A709EC51C433F5FA7D883918 /* [CP] Embed Pods Frameworks */,
-				031AEBDE1CFDBD6CE2113881 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1293,21 +1294,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		031AEBDE1CFDBD6CE2113881 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-batch-batchTests/Pods-batch-batchTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		09F81C4A52187DCB4AE83E3E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1422,21 +1408,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-batch/Pods-batch-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E669F6ED1FB8B41A3B2457DF /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-batch/Pods-batch-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1543,6 +1514,7 @@
 				4F71D928F724BD6935C7D469 /* ImageIO.Metadata.Properties.swift in Sources */,
 				4F71D566B966AFA066BD29D6 /* ImageIO.Metadata.Properties.Collection.swift in Sources */,
 				4F71D28819C1A011AADDDDCE /* ImageIO.Metadata.Properties.Label.swift in Sources */,
+				4F71D257289E703F26E140B9 /* CodeKit.Misc.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -95,9 +95,9 @@ private class _ExifGhostTask: TaskPrototype, Taskable {
                     if let appContentAsExifGhost = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.controller as? ExifGhostAppDockContent
                        , let ghostedImageMetadataCollection = appContentAsExifGhost.ghostedImageMetadataCollection {
 
-                        ghostedData = data.purgeMetadata(with: metadata, for: ghostedImageMetadataCollection, voidValues: ImageMetadata.Collection.DefaultSensitivityVoidValues)
+                        ghostedData = data.purgeMetadata(with: metadata, for: ghostedImageMetadataCollection)
                     }else{
-                        ghostedData = data.purgeMetadata(with: metadata, for: ImageMetadata.Collection.DefaultSensitivity, voidValues: ImageMetadata.Collection.DefaultSensitivityVoidValues)
+                        ghostedData = data.purgeMetadata(with: metadata, for: ImageMetadata.Collection.DefaultSensitivity)
                     }
 
                     try! ghostedData.write(to: item.output.renderedContentURL, options: .atomic)
