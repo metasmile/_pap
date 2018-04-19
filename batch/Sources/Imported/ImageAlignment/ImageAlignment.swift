@@ -41,14 +41,14 @@ public extension UIImage {
     @objc
     public func stabilizeHomographic(with image: UIImage) -> UIImage {
         guard let matrix = ImageAlignment.homographicTransform(image, onto: self) else { return self }
-        guard let warppedImage = CIImage(image: self)?.applyHomographic(matrix: matrix), let cgimage = ImageAlignment.sharedCIContext.createCGImage(warppedImage, from: warppedImage.extent) else { return self }
+        guard let warppedImage = CIImage(image: self)?.applyHomographic(matrix), let cgimage = ImageAlignment.sharedCIContext.createCGImage(warppedImage, from: warppedImage.extent) else { return self }
         return UIImage(cgImage: cgimage)
     }
 
     @objc
     public func stabilizeTranslation(with image: UIImage) -> UIImage {
         guard let transform = ImageAlignment.translationTransform(image, onto: self) else { return self }
-        guard let transformedImage = CIImage(image: self)?.applyTranslation(CGPoint(x: transform.tx, y: transform.ty)), let cgimage = ImageAlignment.sharedCIContext.createCGImage(transformedImage, from: transformedImage.extent) else { return self }
+        guard let transformedImage = CIImage(image: self)?.applyTranslation(transform), let cgimage = ImageAlignment.sharedCIContext.createCGImage(transformedImage, from: transformedImage.extent) else { return self }
         return UIImage(cgImage: cgimage)
     }
 }
@@ -67,14 +67,14 @@ public extension CIImage {
     @objc
     public func stabilizeHomographic(with image: CIImage) -> CIImage {
         guard let matrix = ImageAlignment.homographicTransform(image, onto: self) else { return self }
-        guard let warppedImage = self.applyHomographic(matrix: matrix) else { return self }
+        guard let warppedImage = self.applyHomographic(matrix) else { return self }
         return warppedImage
     }
     
     @objc
     public func stabilizeTranslation(with image: CIImage) -> CIImage {
         guard let transform = ImageAlignment.translationTransform(image, onto: self) else { return self }
-        guard let transformedImage = self.applyTranslation(CGPoint(x: transform.tx, y: transform.ty)) else { return self }
+        guard let transformedImage = self.applyTranslation(transform) else { return self }
         return transformedImage
     }
 }
@@ -149,7 +149,7 @@ private struct Kernels {
 
 @available(iOS 11.0, *)
 extension CIImage {
-    func applyHomographic(matrix: matrix_float3x3) -> CIImage? {
+    func applyHomographic(_ matrix: matrix_float3x3) -> CIImage? {
         return Kernels.homographic?.apply(extent: extent, roiCallback: { index, rect in
             return rect
         }, image: self, arguments: [
@@ -157,11 +157,11 @@ extension CIImage {
         ]) ?? self
     }
     
-    func applyTranslation(_ translation: CGPoint) -> CIImage? {
+    func applyTranslation(_ translation: CGAffineTransform) -> CIImage? {
         return Kernels.translation?.apply(extent: extent, roiCallback: { index, rect in
             return rect
         }, image: self, arguments: [
-            CIVector(cgPoint: translation)
+            CIVector(x: translation.tx, y: translation.ty)
         ]) ?? self
     }
 }

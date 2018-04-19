@@ -83,6 +83,7 @@ public final class AppAssets: NSObject {
         return insertedIndexPath
     }
 
+    @discardableResult
     func remove(for asset: PHAsset) -> IndexPath? {
         guard let index = _itemsAssets.index(of:asset) else {
             return nil
