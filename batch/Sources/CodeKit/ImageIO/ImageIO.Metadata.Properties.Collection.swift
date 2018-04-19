@@ -58,45 +58,6 @@ White Balance: Auto white balance
 
     public struct Collection {
 
-        public static var DefaultSensitivityVoidValues: ImageMetadataValueCollection = [
-            ImageMetadata.Dictionary.GPS: [
-                ImageMetadata.Property.GPSDateStamp : ""
-                , ImageMetadata.Property.GPSTimeStamp : ""
-                , ImageMetadata.Property.GPSAltitude : 0.0
-                , ImageMetadata.Property.GPSAltitudeRef : ""
-                , ImageMetadata.Property.GPSLatitude : 0.0
-                , ImageMetadata.Property.GPSLatitudeRef : ""
-                , ImageMetadata.Property.GPSLongitude : 0.0
-                , ImageMetadata.Property.GPSLongitudeRef : ""
-                , ImageMetadata.Property.GPSImgDirection : ""
-                , ImageMetadata.Property.GPSImgDirectionRef : ""
-            ],
-
-            ImageMetadata.Dictionary.Exif: [
-                ImageMetadata.Property.ExifDateTimeDigitized : ""
-                , ImageMetadata.Property.ExifDateTimeOriginal : ""
-                , ImageMetadata.Property.ExifLensMake : ""
-                , ImageMetadata.Property.ExifLensModel : ""
-                , ImageMetadata.Property.ExifBodySerialNumber : ""
-                , ImageMetadata.Property.ExifLensSerialNumber : ""
-                , ImageMetadata.Property.ExifSubsecTime : ""
-                , ImageMetadata.Property.ExifSubsecTimeOriginal : ""
-                , ImageMetadata.Property.ExifSubsecTimeDigitized : ""
-            ],
-
-            ImageMetadata.Dictionary.TIFF: [
-                ImageMetadata.Property.TIFFDateTime : ""
-                , ImageMetadata.Property.TIFFArtist : ""
-                , ImageMetadata.Property.TIFFCopyright : ""
-                , ImageMetadata.Property.TIFFDocumentName : ""
-                , ImageMetadata.Property.TIFFSoftware : ""
-                , ImageMetadata.Property.TIFFMake : ""
-                , ImageMetadata.Property.TIFFModel : ""
-                , ImageMetadata.Property.TIFFImageDescription : ""
-                , ImageMetadata.Property.TIFFHostComputer : ""
-            ],
-        ]
-
         public static let DefaultSensitivity: ImageMetadataPropertyCollection = [
             ImageMetadata.Dictionary.GPS: [
                 ImageMetadata.Property.GPSDateStamp

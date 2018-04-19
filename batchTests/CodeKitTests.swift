@@ -40,10 +40,9 @@ class CodeKitTests: XCTestCase {
             if let metadata = data.getMetadata(){
                 XCTAssertNotNil(data.getMetadata())
 
+                //specific purge
                 let dictionary = ImageMetadata.Dictionary.Exif
-
                 for property in ImageMetadata.PropertyApple.Exif{
-
                     if let sampleValue = data.getMetadataValue(dictionary: dictionary, property: property){
                         let sampleVoidValue = ImageMetadata.getVoidValue(sampleValue) ?? sampleValue
 
@@ -70,12 +69,14 @@ class CodeKitTests: XCTestCase {
             if let metadata = data.getMetadata(){
                 XCTAssertNotNil(data.getMetadata())
 
-                let dictionary = ImageMetadata.Dictionary.Exif
+                let collectingPurgedData = data.purgeMetadata(with: metadata, for: ImageMetadata.Collection.DefaultSensitivity)
+                print("collectingPurgedData")
+                print(collectingPurgedData.getMetadata())
 
+                let dictionary = ImageMetadata.Dictionary.Exif
 //                print(metadata[ImageMetadata.Dictionary.GPS])
 //                print(metadata[ImageMetadata.Dictionary.Exif])
 //                print(metadata[ImageMetadata.Dictionary.TIFF])
-
                 for property in ImageMetadata.PropertyApple.Exif{
 
                     if let sampleValue = data.getMetadataValue(dictionary: dictionary, property: property){
@@ -87,7 +88,9 @@ class CodeKitTests: XCTestCase {
                             let purged = ImageMetadata.isValueVoid(purgedValue)
 
                             if purged{
-                                print(property)
+                                print(property, "purged")
+                            }else{
+                                print(property, sampleValue, "->", purgedValue, "->", ImageMetadata.getVoidValue(sampleValue))
                             }
 
 //                            print("purged ", purged, property, sampleValue, "->", purgedValue)
@@ -103,7 +106,7 @@ class CodeKitTests: XCTestCase {
 //                            }
 
                         }else{
-//                            XCTFail("nil - purgedValue of \(property)")
+                            print(property, "already-nil")
                         }
 
                     }else{
