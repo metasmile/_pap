@@ -11,30 +11,30 @@
 import Foundation
 import ImageIO
 
-public typealias ImageMetadataPropertyCollection = [String:[String]]
-public typealias ImageMetadataValueCollection = [String:[String:Any]]
+public typealias ImageMetadataPropertyCollection = [String: [String]]
+public typealias ImageMetadataValueCollection = [String: [String: Any]]
 
 public struct ImageMetadata {
-    static let FileSize = kCGImagePropertyFileSize as String
+    static var FileSize:String { return kCGImagePropertyFileSize as String }
 
 /* The number of pixels in the x- and y-dimensions. The value of these keys
  * is a CFNumberRef. */
 
 /** Properties which may be returned by "CGImageSourceCopyPropertiesAtIndex".
  ** The values apply to a single image of an image source file. **/
-    static let PixelHeight = kCGImagePropertyPixelHeight as String
-    static let PixelWidth = kCGImagePropertyPixelWidth as String
+    static var PixelHeight:String { return kCGImagePropertyPixelHeight as String }
+    static var PixelWidth:String { return kCGImagePropertyPixelWidth as String }
 
 /* The DPI in the x- and y-dimensions, if known. If present, the value of
  * these keys is a CFNumberRef. */
 
-    static let DPIHeight = kCGImagePropertyDPIHeight as String
-    static let DPIWidth = kCGImagePropertyDPIWidth as String
+    static var DPIHeight:String { return kCGImagePropertyDPIHeight as String }
+    static var DPIWidth:String { return kCGImagePropertyDPIWidth as String }
 
 /* The number of bits in each color sample of each pixel. The value of this
  * key is a CFNumberRef. */
 
-    static let Depth = kCGImagePropertyDepth as String
+    static var Depth:String { return kCGImagePropertyDepth as String }
 
 /* The intended display orientation of the image. If present, the value
  * of this key is a CFNumberRef with the same value as defined by the
@@ -49,814 +49,814 @@ public struct ImageMetadata {
  *   8  =  0th row is on the left, and 0th column is the bottom.
  * If not present, a value of 1 is assumed. */
 
-    static let Orientation = kCGImagePropertyOrientation as String
+    static var Orientation:String { return kCGImagePropertyOrientation as String }
 
 /* The value of this key is kCFBooleanTrue if the image contains floating-
  * point pixel samples */
 
-    static let IsFloat = kCGImagePropertyIsFloat as String
+    static var IsFloat:String { return kCGImagePropertyIsFloat as String }
 
 /* The value of this key is kCFBooleanTrue if the image contains indexed
  * (a.k.a. paletted) pixel samples */
 
-    static let IsIndexed = kCGImagePropertyIsIndexed as String
+    static var IsIndexed:String { return kCGImagePropertyIsIndexed as String }
 
 /* The value of this key is kCFBooleanTrue if the image contains an alpha
  * (a.k.a. coverage) channel */
 
-    static let HasAlpha = kCGImagePropertyHasAlpha as String
+    static var HasAlpha:String { return kCGImagePropertyHasAlpha as String }
 
 /* The color model of the image such as "RGB", "CMYK", "Gray", or "Lab".
  * The value of this key is CFStringRef. */
 
-    static let ColorModel = kCGImagePropertyColorModel as String
+    static var ColorModel:String { return kCGImagePropertyColorModel as String }
 
 /* The name of the optional ICC profile embedded in the image, if known.
  * If present, the value of this key is a CFStringRef. */
 
-    static let ProfileName = kCGImagePropertyProfileName as String
+    static var ProfileName:String { return kCGImagePropertyProfileName as String }
 
 /* Possible values for kCGImagePropertyColorModel property */
 
-    static let ColorModelRGB = kCGImagePropertyColorModelRGB as String
-    static let ColorModelGray = kCGImagePropertyColorModelGray as String
-    static let ColorModelCMYK = kCGImagePropertyColorModelCMYK as String
-    static let ColorModelLab = kCGImagePropertyColorModelLab as String
+    static var ColorModelRGB:String { return kCGImagePropertyColorModelRGB as String }
+    static var ColorModelGray:String { return kCGImagePropertyColorModelGray as String }
+    static var ColorModelCMYK:String { return kCGImagePropertyColorModelCMYK as String }
+    static var ColorModelLab:String { return kCGImagePropertyColorModelLab as String }
 
     public struct Dictionary {
-        static let TIFF = kCGImagePropertyTIFFDictionary as String
-        static let GIF = kCGImagePropertyGIFDictionary as String
-        static let JFIF = kCGImagePropertyJFIFDictionary as String
-        static let Exif = kCGImagePropertyExifDictionary as String
-        static let PNG = kCGImagePropertyPNGDictionary as String
-        static let IPTC = kCGImagePropertyIPTCDictionary as String
-        static let GPS = kCGImagePropertyGPSDictionary as String
-        static let Raw = kCGImagePropertyRawDictionary as String
-        static let CIFF = kCGImagePropertyCIFFDictionary as String
-        static let MakerCanon = kCGImagePropertyMakerCanonDictionary as String
-        static let MakerNikon = kCGImagePropertyMakerNikonDictionary as String
-        static let MakerMinolta = kCGImagePropertyMakerMinoltaDictionary as String
-        static let MakerFuji = kCGImagePropertyMakerFujiDictionary as String
-        static let MakerOlympus = kCGImagePropertyMakerOlympusDictionary as String
-        static let MakerPentax = kCGImagePropertyMakerPentaxDictionary as String
-        static let _8BIM = kCGImageProperty8BIMDictionary as String
-        static let DNG = kCGImagePropertyDNGDictionary as String
-        static let ExifAux = kCGImagePropertyExifAuxDictionary as String
+        static var TIFF:String { return kCGImagePropertyTIFFDictionary as String }
+        static var GIF:String { return kCGImagePropertyGIFDictionary as String }
+        static var JFIF:String { return kCGImagePropertyJFIFDictionary as String }
+        static var Exif:String { return kCGImagePropertyExifDictionary as String }
+        static var PNG:String { return kCGImagePropertyPNGDictionary as String }
+        static var IPTC:String { return kCGImagePropertyIPTCDictionary as String }
+        static var GPS:String { return kCGImagePropertyGPSDictionary as String }
+        static var Raw:String { return kCGImagePropertyRawDictionary as String }
+        static var CIFF:String { return kCGImagePropertyCIFFDictionary as String }
+        static var MakerCanon:String { return kCGImagePropertyMakerCanonDictionary as String }
+        static var MakerNikon:String { return kCGImagePropertyMakerNikonDictionary as String }
+        static var MakerMinolta:String { return kCGImagePropertyMakerMinoltaDictionary as String }
+        static var MakerFuji:String { return kCGImagePropertyMakerFujiDictionary as String }
+        static var MakerOlympus:String { return kCGImagePropertyMakerOlympusDictionary as String }
+        static var MakerPentax:String { return kCGImagePropertyMakerPentaxDictionary as String }
+        static var _8BIM:String { return kCGImageProperty8BIMDictionary as String }
+        static var DNG:String { return kCGImagePropertyDNGDictionary as String }
+        static var ExifAux:String { return kCGImagePropertyExifAuxDictionary as String }
         @available(iOS 11.3, *)
-        static let OpenEXR = kCGImagePropertyOpenEXRDictionary as String
+        static var OpenEXR:String { return kCGImagePropertyOpenEXRDictionary as String }
         @available(iOS 7.0, *)
-        static let MakerApple = kCGImagePropertyMakerAppleDictionary as String
+        static var MakerApple:String { return kCGImagePropertyMakerAppleDictionary as String }
         @available(iOS 11.0, *)
-        static let FileContents = kCGImagePropertyFileContentsDictionary as String
+        static var FileContents:String { return kCGImagePropertyFileContentsDictionary as String }
     }
 
     public struct Property {
-        static let TIFFCompression = kCGImagePropertyTIFFCompression as String
-        static let TIFFPhotometricInterpretation = kCGImagePropertyTIFFPhotometricInterpretation as String
-        static let TIFFDocumentName = kCGImagePropertyTIFFDocumentName as String
-        static let TIFFImageDescription = kCGImagePropertyTIFFImageDescription as String
-        static let TIFFMake = kCGImagePropertyTIFFMake as String
-        static let TIFFModel = kCGImagePropertyTIFFModel as String
-        static let TIFFOrientation = kCGImagePropertyTIFFOrientation as String
-        static let TIFFXResolution = kCGImagePropertyTIFFXResolution as String
-        static let TIFFYResolution = kCGImagePropertyTIFFYResolution as String
-        static let TIFFResolutionUnit = kCGImagePropertyTIFFResolutionUnit as String
-        static let TIFFSoftware = kCGImagePropertyTIFFSoftware as String
-        static let TIFFTransferFunction = kCGImagePropertyTIFFTransferFunction as String
-        static let TIFFDateTime = kCGImagePropertyTIFFDateTime as String
-        static let TIFFArtist = kCGImagePropertyTIFFArtist as String
-        static let TIFFHostComputer = kCGImagePropertyTIFFHostComputer as String
-        static let TIFFCopyright = kCGImagePropertyTIFFCopyright as String
-        static let TIFFWhitePoint = kCGImagePropertyTIFFWhitePoint as String
-        static let TIFFPrimaryChromaticities = kCGImagePropertyTIFFPrimaryChromaticities as String
+        static var TIFFCompression:String { return kCGImagePropertyTIFFCompression as String }
+        static var TIFFPhotometricInterpretation:String { return kCGImagePropertyTIFFPhotometricInterpretation as String }
+        static var TIFFDocumentName:String { return kCGImagePropertyTIFFDocumentName as String }
+        static var TIFFImageDescription:String { return kCGImagePropertyTIFFImageDescription as String }
+        static var TIFFMake:String { return kCGImagePropertyTIFFMake as String }
+        static var TIFFModel:String { return kCGImagePropertyTIFFModel as String }
+        static var TIFFOrientation:String { return kCGImagePropertyTIFFOrientation as String }
+        static var TIFFXResolution:String { return kCGImagePropertyTIFFXResolution as String }
+        static var TIFFYResolution:String { return kCGImagePropertyTIFFYResolution as String }
+        static var TIFFResolutionUnit:String { return kCGImagePropertyTIFFResolutionUnit as String }
+        static var TIFFSoftware:String { return kCGImagePropertyTIFFSoftware as String }
+        static var TIFFTransferFunction:String { return kCGImagePropertyTIFFTransferFunction as String }
+        static var TIFFDateTime:String { return kCGImagePropertyTIFFDateTime as String }
+        static var TIFFArtist:String { return kCGImagePropertyTIFFArtist as String }
+        static var TIFFHostComputer:String { return kCGImagePropertyTIFFHostComputer as String }
+        static var TIFFCopyright:String { return kCGImagePropertyTIFFCopyright as String }
+        static var TIFFWhitePoint:String { return kCGImagePropertyTIFFWhitePoint as String }
+        static var TIFFPrimaryChromaticities:String { return kCGImagePropertyTIFFPrimaryChromaticities as String }
         @available(iOS 9.0, *)
-        static let TIFFTileWidth = kCGImagePropertyTIFFTileWidth as String
+        static var TIFFTileWidth:String { return kCGImagePropertyTIFFTileWidth as String }
         @available(iOS 9.0, *)
-        static let TIFFTileLength = kCGImagePropertyTIFFTileLength as String
+        static var TIFFTileLength:String { return kCGImagePropertyTIFFTileLength as String }
 
 /* Possible keys for kCGImagePropertyJFIFDictionary */
 
-        static let JFIFVersion = kCGImagePropertyJFIFVersion as String
-        static let JFIFXDensity = kCGImagePropertyJFIFXDensity as String
-        static let JFIFYDensity = kCGImagePropertyJFIFYDensity as String
-        static let JFIFDensityUnit = kCGImagePropertyJFIFDensityUnit as String
-        static let JFIFIsProgressive = kCGImagePropertyJFIFIsProgressive as String
+        static var JFIFVersion:String { return kCGImagePropertyJFIFVersion as String }
+        static var JFIFXDensity:String { return kCGImagePropertyJFIFXDensity as String }
+        static var JFIFYDensity:String { return kCGImagePropertyJFIFYDensity as String }
+        static var JFIFDensityUnit:String { return kCGImagePropertyJFIFDensityUnit as String }
+        static var JFIFIsProgressive:String { return kCGImagePropertyJFIFIsProgressive as String }
 
 /* Possible keys for kCGImagePropertyExifDictionary */
 
-        static let ExifExposureTime = kCGImagePropertyExifExposureTime as String
-        static let ExifFNumber = kCGImagePropertyExifFNumber as String
-        static let ExifExposureProgram = kCGImagePropertyExifExposureProgram as String
-        static let ExifSpectralSensitivity = kCGImagePropertyExifSpectralSensitivity as String
-        static let ExifISOSpeedRatings = kCGImagePropertyExifISOSpeedRatings as String
-        static let ExifOECF = kCGImagePropertyExifOECF as String
+        static var ExifExposureTime:String { return kCGImagePropertyExifExposureTime as String }
+        static var ExifFNumber:String { return kCGImagePropertyExifFNumber as String }
+        static var ExifExposureProgram:String { return kCGImagePropertyExifExposureProgram as String }
+        static var ExifSpectralSensitivity:String { return kCGImagePropertyExifSpectralSensitivity as String }
+        static var ExifISOSpeedRatings:String { return kCGImagePropertyExifISOSpeedRatings as String }
+        static var ExifOECF:String { return kCGImagePropertyExifOECF as String }
         @available(iOS 7.0, *)
-        static let ExifSensitivityType = kCGImagePropertyExifSensitivityType as String
+        static var ExifSensitivityType:String { return kCGImagePropertyExifSensitivityType as String }
         @available(iOS 7.0, *)
-        static let ExifStandardOutputSensitivity = kCGImagePropertyExifStandardOutputSensitivity as String
+        static var ExifStandardOutputSensitivity:String { return kCGImagePropertyExifStandardOutputSensitivity as String }
         @available(iOS 7.0, *)
-        static let ExifRecommendedExposureIndex = kCGImagePropertyExifRecommendedExposureIndex as String
+        static var ExifRecommendedExposureIndex:String { return kCGImagePropertyExifRecommendedExposureIndex as String }
         @available(iOS 7.0, *)
-        static let ExifISOSpeed = kCGImagePropertyExifISOSpeed as String
+        static var ExifISOSpeed:String { return kCGImagePropertyExifISOSpeed as String }
         @available(iOS 7.0, *)
-        static let ExifISOSpeedLatitudeyyy = kCGImagePropertyExifISOSpeedLatitudeyyy as String
+        static var ExifISOSpeedLatitudeyyy:String { return kCGImagePropertyExifISOSpeedLatitudeyyy as String }
         @available(iOS 7.0, *)
-        static let ExifISOSpeedLatitudezzz = kCGImagePropertyExifISOSpeedLatitudezzz as String
-        static let ExifVersion = kCGImagePropertyExifVersion as String
-        static let ExifDateTimeOriginal = kCGImagePropertyExifDateTimeOriginal as String
-        static let ExifDateTimeDigitized = kCGImagePropertyExifDateTimeDigitized as String
-        static let ExifComponentsConfiguration = kCGImagePropertyExifComponentsConfiguration as String
-        static let ExifCompressedBitsPerPixel = kCGImagePropertyExifCompressedBitsPerPixel as String
-        static let ExifShutterSpeedValue = kCGImagePropertyExifShutterSpeedValue as String
-        static let ExifApertureValue = kCGImagePropertyExifApertureValue as String
-        static let ExifBrightnessValue = kCGImagePropertyExifBrightnessValue as String
-        static let ExifExposureBiasValue = kCGImagePropertyExifExposureBiasValue as String
-        static let ExifMaxApertureValue = kCGImagePropertyExifMaxApertureValue as String
-        static let ExifSubjectDistance = kCGImagePropertyExifSubjectDistance as String
-        static let ExifMeteringMode = kCGImagePropertyExifMeteringMode as String
-        static let ExifLightSource = kCGImagePropertyExifLightSource as String
-        static let ExifFlash = kCGImagePropertyExifFlash as String
-        static let ExifFocalLength = kCGImagePropertyExifFocalLength as String
-        static let ExifSubjectArea = kCGImagePropertyExifSubjectArea as String
-        static let ExifMakerNote = kCGImagePropertyExifMakerNote as String
-        static let ExifUserComment = kCGImagePropertyExifUserComment as String
-        static let ExifSubsecTime = kCGImagePropertyExifSubsecTime as String
+        static var ExifISOSpeedLatitudezzz:String { return kCGImagePropertyExifISOSpeedLatitudezzz as String }
+        static var ExifVersion:String { return kCGImagePropertyExifVersion as String }
+        static var ExifDateTimeOriginal:String { return kCGImagePropertyExifDateTimeOriginal as String }
+        static var ExifDateTimeDigitized:String { return kCGImagePropertyExifDateTimeDigitized as String }
+        static var ExifComponentsConfiguration:String { return kCGImagePropertyExifComponentsConfiguration as String }
+        static var ExifCompressedBitsPerPixel:String { return kCGImagePropertyExifCompressedBitsPerPixel as String }
+        static var ExifShutterSpeedValue:String { return kCGImagePropertyExifShutterSpeedValue as String }
+        static var ExifApertureValue:String { return kCGImagePropertyExifApertureValue as String }
+        static var ExifBrightnessValue:String { return kCGImagePropertyExifBrightnessValue as String }
+        static var ExifExposureBiasValue:String { return kCGImagePropertyExifExposureBiasValue as String }
+        static var ExifMaxApertureValue:String { return kCGImagePropertyExifMaxApertureValue as String }
+        static var ExifSubjectDistance:String { return kCGImagePropertyExifSubjectDistance as String }
+        static var ExifMeteringMode:String { return kCGImagePropertyExifMeteringMode as String }
+        static var ExifLightSource:String { return kCGImagePropertyExifLightSource as String }
+        static var ExifFlash:String { return kCGImagePropertyExifFlash as String }
+        static var ExifFocalLength:String { return kCGImagePropertyExifFocalLength as String }
+        static var ExifSubjectArea:String { return kCGImagePropertyExifSubjectArea as String }
+        static var ExifMakerNote:String { return kCGImagePropertyExifMakerNote as String }
+        static var ExifUserComment:String { return kCGImagePropertyExifUserComment as String }
+        static var ExifSubsecTime:String { return kCGImagePropertyExifSubsecTime as String }
         @available(iOS 10.0, *)
-        static let ExifSubsecTimeOriginal = kCGImagePropertyExifSubsecTimeOriginal as String
-        static let ExifSubsecTimeDigitized = kCGImagePropertyExifSubsecTimeDigitized as String
-        static let ExifFlashPixVersion = kCGImagePropertyExifFlashPixVersion as String
-        static let ExifColorSpace = kCGImagePropertyExifColorSpace as String
-        static let ExifPixelXDimension = kCGImagePropertyExifPixelXDimension as String
-        static let ExifPixelYDimension = kCGImagePropertyExifPixelYDimension as String
-        static let ExifRelatedSoundFile = kCGImagePropertyExifRelatedSoundFile as String
-        static let ExifFlashEnergy = kCGImagePropertyExifFlashEnergy as String
-        static let ExifSpatialFrequencyResponse = kCGImagePropertyExifSpatialFrequencyResponse as String
-        static let ExifFocalPlaneXResolution = kCGImagePropertyExifFocalPlaneXResolution as String
-        static let ExifFocalPlaneYResolution = kCGImagePropertyExifFocalPlaneYResolution as String
-        static let ExifFocalPlaneResolutionUnit = kCGImagePropertyExifFocalPlaneResolutionUnit as String
-        static let ExifSubjectLocation = kCGImagePropertyExifSubjectLocation as String
-        static let ExifExposureIndex = kCGImagePropertyExifExposureIndex as String
-        static let ExifSensingMethod = kCGImagePropertyExifSensingMethod as String
-        static let ExifFileSource = kCGImagePropertyExifFileSource as String
-        static let ExifSceneType = kCGImagePropertyExifSceneType as String
-        static let ExifCFAPattern = kCGImagePropertyExifCFAPattern as String
-        static let ExifCustomRendered = kCGImagePropertyExifCustomRendered as String
-        static let ExifExposureMode = kCGImagePropertyExifExposureMode as String
-        static let ExifWhiteBalance = kCGImagePropertyExifWhiteBalance as String
-        static let ExifDigitalZoomRatio = kCGImagePropertyExifDigitalZoomRatio as String
-        static let ExifFocalLenIn35mmFilm = kCGImagePropertyExifFocalLenIn35mmFilm as String
-        static let ExifSceneCaptureType = kCGImagePropertyExifSceneCaptureType as String
-        static let ExifGainControl = kCGImagePropertyExifGainControl as String
-        static let ExifContrast = kCGImagePropertyExifContrast as String
-        static let ExifSaturation = kCGImagePropertyExifSaturation as String
-        static let ExifSharpness = kCGImagePropertyExifSharpness as String
-        static let ExifDeviceSettingDescription = kCGImagePropertyExifDeviceSettingDescription as String
-        static let ExifSubjectDistRange = kCGImagePropertyExifSubjectDistRange as String
-        static let ExifImageUniqueID = kCGImagePropertyExifImageUniqueID as String
+        static var ExifSubsecTimeOriginal:String { return kCGImagePropertyExifSubsecTimeOriginal as String }
+        static var ExifSubsecTimeDigitized:String { return kCGImagePropertyExifSubsecTimeDigitized as String }
+        static var ExifFlashPixVersion:String { return kCGImagePropertyExifFlashPixVersion as String }
+        static var ExifColorSpace:String { return kCGImagePropertyExifColorSpace as String }
+        static var ExifPixelXDimension:String { return kCGImagePropertyExifPixelXDimension as String }
+        static var ExifPixelYDimension:String { return kCGImagePropertyExifPixelYDimension as String }
+        static var ExifRelatedSoundFile:String { return kCGImagePropertyExifRelatedSoundFile as String }
+        static var ExifFlashEnergy:String { return kCGImagePropertyExifFlashEnergy as String }
+        static var ExifSpatialFrequencyResponse:String { return kCGImagePropertyExifSpatialFrequencyResponse as String }
+        static var ExifFocalPlaneXResolution:String { return kCGImagePropertyExifFocalPlaneXResolution as String }
+        static var ExifFocalPlaneYResolution:String { return kCGImagePropertyExifFocalPlaneYResolution as String }
+        static var ExifFocalPlaneResolutionUnit:String { return kCGImagePropertyExifFocalPlaneResolutionUnit as String }
+        static var ExifSubjectLocation:String { return kCGImagePropertyExifSubjectLocation as String }
+        static var ExifExposureIndex:String { return kCGImagePropertyExifExposureIndex as String }
+        static var ExifSensingMethod:String { return kCGImagePropertyExifSensingMethod as String }
+        static var ExifFileSource:String { return kCGImagePropertyExifFileSource as String }
+        static var ExifSceneType:String { return kCGImagePropertyExifSceneType as String }
+        static var ExifCFAPattern:String { return kCGImagePropertyExifCFAPattern as String }
+        static var ExifCustomRendered:String { return kCGImagePropertyExifCustomRendered as String }
+        static var ExifExposureMode:String { return kCGImagePropertyExifExposureMode as String }
+        static var ExifWhiteBalance:String { return kCGImagePropertyExifWhiteBalance as String }
+        static var ExifDigitalZoomRatio:String { return kCGImagePropertyExifDigitalZoomRatio as String }
+        static var ExifFocalLenIn35mmFilm:String { return kCGImagePropertyExifFocalLenIn35mmFilm as String }
+        static var ExifSceneCaptureType:String { return kCGImagePropertyExifSceneCaptureType as String }
+        static var ExifGainControl:String { return kCGImagePropertyExifGainControl as String }
+        static var ExifContrast:String { return kCGImagePropertyExifContrast as String }
+        static var ExifSaturation:String { return kCGImagePropertyExifSaturation as String }
+        static var ExifSharpness:String { return kCGImagePropertyExifSharpness as String }
+        static var ExifDeviceSettingDescription:String { return kCGImagePropertyExifDeviceSettingDescription as String }
+        static var ExifSubjectDistRange:String { return kCGImagePropertyExifSubjectDistRange as String }
+        static var ExifImageUniqueID:String { return kCGImagePropertyExifImageUniqueID as String }
         @available(iOS 5.0, *)
-        static let ExifCameraOwnerName = kCGImagePropertyExifCameraOwnerName as String
+        static var ExifCameraOwnerName:String { return kCGImagePropertyExifCameraOwnerName as String }
         @available(iOS 5.0, *)
-        static let ExifBodySerialNumber = kCGImagePropertyExifBodySerialNumber as String
+        static var ExifBodySerialNumber:String { return kCGImagePropertyExifBodySerialNumber as String }
         @available(iOS 5.0, *)
-        static let ExifLensSpecification = kCGImagePropertyExifLensSpecification as String
+        static var ExifLensSpecification:String { return kCGImagePropertyExifLensSpecification as String }
         @available(iOS 5.0, *)
-        static let ExifLensMake = kCGImagePropertyExifLensMake as String
+        static var ExifLensMake:String { return kCGImagePropertyExifLensMake as String }
         @available(iOS 5.0, *)
-        static let ExifLensModel = kCGImagePropertyExifLensModel as String
+        static var ExifLensModel:String { return kCGImagePropertyExifLensModel as String }
         @available(iOS 5.0, *)
-        static let ExifLensSerialNumber = kCGImagePropertyExifLensSerialNumber as String
-        static let ExifGamma = kCGImagePropertyExifGamma as String
+        static var ExifLensSerialNumber:String { return kCGImagePropertyExifLensSerialNumber as String }
+        static var ExifGamma:String { return kCGImagePropertyExifGamma as String }
 
 /* deprecated */
-        static let ExifSubsecTimeOrginal = kCGImagePropertyExifSubsecTimeOrginal as String
+        static var ExifSubsecTimeOrginal:String { return kCGImagePropertyExifSubsecTimeOrginal as String }
 
 /* Possible keys for kCGImagePropertyExifAuxDictionary */
-        static let ExifAuxLensInfo = kCGImagePropertyExifAuxLensInfo as String
-        static let ExifAuxLensModel = kCGImagePropertyExifAuxLensModel as String
-        static let ExifAuxSerialNumber = kCGImagePropertyExifAuxSerialNumber as String
-        static let ExifAuxLensID = kCGImagePropertyExifAuxLensID as String
-        static let ExifAuxLensSerialNumber = kCGImagePropertyExifAuxLensSerialNumber as String
-        static let ExifAuxImageNumber = kCGImagePropertyExifAuxImageNumber as String
-        static let ExifAuxFlashCompensation = kCGImagePropertyExifAuxFlashCompensation as String
-        static let ExifAuxOwnerName = kCGImagePropertyExifAuxOwnerName as String
-        static let ExifAuxFirmware = kCGImagePropertyExifAuxFirmware as String
+        static var ExifAuxLensInfo:String { return kCGImagePropertyExifAuxLensInfo as String }
+        static var ExifAuxLensModel:String { return kCGImagePropertyExifAuxLensModel as String }
+        static var ExifAuxSerialNumber:String { return kCGImagePropertyExifAuxSerialNumber as String }
+        static var ExifAuxLensID:String { return kCGImagePropertyExifAuxLensID as String }
+        static var ExifAuxLensSerialNumber:String { return kCGImagePropertyExifAuxLensSerialNumber as String }
+        static var ExifAuxImageNumber:String { return kCGImagePropertyExifAuxImageNumber as String }
+        static var ExifAuxFlashCompensation:String { return kCGImagePropertyExifAuxFlashCompensation as String }
+        static var ExifAuxOwnerName:String { return kCGImagePropertyExifAuxOwnerName as String }
+        static var ExifAuxFirmware:String { return kCGImagePropertyExifAuxFirmware as String }
 
 /* Possible keys for kCGImagePropertyGIFDictionary */
 
-        static let GIFLoopCount = kCGImagePropertyGIFLoopCount as String
-        static let GIFDelayTime = kCGImagePropertyGIFDelayTime as String
-        static let GIFImageColorMap = kCGImagePropertyGIFImageColorMap as String
-        static let GIFHasGlobalColorMap = kCGImagePropertyGIFHasGlobalColorMap as String
-        static let GIFUnclampedDelayTime = kCGImagePropertyGIFUnclampedDelayTime as String
+        static var GIFLoopCount:String { return kCGImagePropertyGIFLoopCount as String }
+        static var GIFDelayTime:String { return kCGImagePropertyGIFDelayTime as String }
+        static var GIFImageColorMap:String { return kCGImagePropertyGIFImageColorMap as String }
+        static var GIFHasGlobalColorMap:String { return kCGImagePropertyGIFHasGlobalColorMap as String }
+        static var GIFUnclampedDelayTime:String { return kCGImagePropertyGIFUnclampedDelayTime as String }
 
 /* Possible keys for kCGImagePropertyPNGDictionary */
 
-        static let PNGGamma = kCGImagePropertyPNGGamma as String
-        static let PNGInterlaceType = kCGImagePropertyPNGInterlaceType as String
-        static let PNGXPixelsPerMeter = kCGImagePropertyPNGXPixelsPerMeter as String
-        static let PNGYPixelsPerMeter = kCGImagePropertyPNGYPixelsPerMeter as String
-        static let PNGsRGBIntent = kCGImagePropertyPNGsRGBIntent as String
-        static let PNGChromaticities = kCGImagePropertyPNGChromaticities as String
+        static var PNGGamma:String { return kCGImagePropertyPNGGamma as String }
+        static var PNGInterlaceType:String { return kCGImagePropertyPNGInterlaceType as String }
+        static var PNGXPixelsPerMeter:String { return kCGImagePropertyPNGXPixelsPerMeter as String }
+        static var PNGYPixelsPerMeter:String { return kCGImagePropertyPNGYPixelsPerMeter as String }
+        static var PNGsRGBIntent:String { return kCGImagePropertyPNGsRGBIntent as String }
+        static var PNGChromaticities:String { return kCGImagePropertyPNGChromaticities as String }
 
         @available(iOS 5.0, *)
-        static let PNGAuthor = kCGImagePropertyPNGAuthor as String
+        static var PNGAuthor:String { return kCGImagePropertyPNGAuthor as String }
         @available(iOS 5.0, *)
-        static let PNGCopyright = kCGImagePropertyPNGCopyright as String
+        static var PNGCopyright:String { return kCGImagePropertyPNGCopyright as String }
         @available(iOS 5.0, *)
-        static let PNGCreationTime = kCGImagePropertyPNGCreationTime as String
+        static var PNGCreationTime:String { return kCGImagePropertyPNGCreationTime as String }
         @available(iOS 5.0, *)
-        static let PNGDescription = kCGImagePropertyPNGDescription as String
+        static var PNGDescription:String { return kCGImagePropertyPNGDescription as String }
         @available(iOS 5.0, *)
-        static let PNGModificationTime = kCGImagePropertyPNGModificationTime as String
+        static var PNGModificationTime:String { return kCGImagePropertyPNGModificationTime as String }
         @available(iOS 5.0, *)
-        static let PNGSoftware = kCGImagePropertyPNGSoftware as String
+        static var PNGSoftware:String { return kCGImagePropertyPNGSoftware as String }
         @available(iOS 5.0, *)
-        static let PNGTitle = kCGImagePropertyPNGTitle as String
+        static var PNGTitle:String { return kCGImagePropertyPNGTitle as String }
 
         @available(iOS 8.0, *)
-        static let APNGLoopCount = kCGImagePropertyAPNGLoopCount as String
+        static var APNGLoopCount:String { return kCGImagePropertyAPNGLoopCount as String }
         @available(iOS 8.0, *)
-        static let APNGDelayTime = kCGImagePropertyAPNGDelayTime as String
+        static var APNGDelayTime:String { return kCGImagePropertyAPNGDelayTime as String }
         @available(iOS 8.0, *)
-        static let APNGUnclampedDelayTime = kCGImagePropertyAPNGUnclampedDelayTime as String
+        static var APNGUnclampedDelayTime:String { return kCGImagePropertyAPNGUnclampedDelayTime as String }
 
 /* Possible keys for kCGImagePropertyGPSDictionary */
 
-        static let GPSVersion = kCGImagePropertyGPSVersion as String
-        static let GPSLatitudeRef = kCGImagePropertyGPSLatitudeRef as String
-        static let GPSLatitude = kCGImagePropertyGPSLatitude as String
-        static let GPSLongitudeRef = kCGImagePropertyGPSLongitudeRef as String
-        static let GPSLongitude = kCGImagePropertyGPSLongitude as String
-        static let GPSAltitudeRef = kCGImagePropertyGPSAltitudeRef as String
-        static let GPSAltitude = kCGImagePropertyGPSAltitude as String
-        static let GPSTimeStamp = kCGImagePropertyGPSTimeStamp as String
-        static let GPSSatellites = kCGImagePropertyGPSSatellites as String
-        static let GPSStatus = kCGImagePropertyGPSStatus as String
-        static let GPSMeasureMode = kCGImagePropertyGPSMeasureMode as String
-        static let GPSDOP = kCGImagePropertyGPSDOP as String
-        static let GPSSpeedRef = kCGImagePropertyGPSSpeedRef as String
-        static let GPSSpeed = kCGImagePropertyGPSSpeed as String
-        static let GPSTrackRef = kCGImagePropertyGPSTrackRef as String
-        static let GPSTrack = kCGImagePropertyGPSTrack as String
-        static let GPSImgDirectionRef = kCGImagePropertyGPSImgDirectionRef as String
-        static let GPSImgDirection = kCGImagePropertyGPSImgDirection as String
-        static let GPSMapDatum = kCGImagePropertyGPSMapDatum as String
-        static let GPSDestLatitudeRef = kCGImagePropertyGPSDestLatitudeRef as String
-        static let GPSDestLatitude = kCGImagePropertyGPSDestLatitude as String
-        static let GPSDestLongitudeRef = kCGImagePropertyGPSDestLongitudeRef as String
-        static let GPSDestLongitude = kCGImagePropertyGPSDestLongitude as String
-        static let GPSDestBearingRef = kCGImagePropertyGPSDestBearingRef as String
-        static let GPSDestBearing = kCGImagePropertyGPSDestBearing as String
-        static let GPSDestDistanceRef = kCGImagePropertyGPSDestDistanceRef as String
-        static let GPSDestDistance = kCGImagePropertyGPSDestDistance as String
-        static let GPSProcessingMethod = kCGImagePropertyGPSProcessingMethod as String
-        static let GPSAreaInformation = kCGImagePropertyGPSAreaInformation as String
-        static let GPSDateStamp = kCGImagePropertyGPSDateStamp as String
-        static let GPSDifferental = kCGImagePropertyGPSDifferental as String
+        static var GPSVersion:String { return kCGImagePropertyGPSVersion as String }
+        static var GPSLatitudeRef:String { return kCGImagePropertyGPSLatitudeRef as String }
+        static var GPSLatitude:String { return kCGImagePropertyGPSLatitude as String }
+        static var GPSLongitudeRef:String { return kCGImagePropertyGPSLongitudeRef as String }
+        static var GPSLongitude:String { return kCGImagePropertyGPSLongitude as String }
+        static var GPSAltitudeRef:String { return kCGImagePropertyGPSAltitudeRef as String }
+        static var GPSAltitude:String { return kCGImagePropertyGPSAltitude as String }
+        static var GPSTimeStamp:String { return kCGImagePropertyGPSTimeStamp as String }
+        static var GPSSatellites:String { return kCGImagePropertyGPSSatellites as String }
+        static var GPSStatus:String { return kCGImagePropertyGPSStatus as String }
+        static var GPSMeasureMode:String { return kCGImagePropertyGPSMeasureMode as String }
+        static var GPSDOP:String { return kCGImagePropertyGPSDOP as String }
+        static var GPSSpeedRef:String { return kCGImagePropertyGPSSpeedRef as String }
+        static var GPSSpeed:String { return kCGImagePropertyGPSSpeed as String }
+        static var GPSTrackRef:String { return kCGImagePropertyGPSTrackRef as String }
+        static var GPSTrack:String { return kCGImagePropertyGPSTrack as String }
+        static var GPSImgDirectionRef:String { return kCGImagePropertyGPSImgDirectionRef as String }
+        static var GPSImgDirection:String { return kCGImagePropertyGPSImgDirection as String }
+        static var GPSMapDatum:String { return kCGImagePropertyGPSMapDatum as String }
+        static var GPSDestLatitudeRef:String { return kCGImagePropertyGPSDestLatitudeRef as String }
+        static var GPSDestLatitude:String { return kCGImagePropertyGPSDestLatitude as String }
+        static var GPSDestLongitudeRef:String { return kCGImagePropertyGPSDestLongitudeRef as String }
+        static var GPSDestLongitude:String { return kCGImagePropertyGPSDestLongitude as String }
+        static var GPSDestBearingRef:String { return kCGImagePropertyGPSDestBearingRef as String }
+        static var GPSDestBearing:String { return kCGImagePropertyGPSDestBearing as String }
+        static var GPSDestDistanceRef:String { return kCGImagePropertyGPSDestDistanceRef as String }
+        static var GPSDestDistance:String { return kCGImagePropertyGPSDestDistance as String }
+        static var GPSProcessingMethod:String { return kCGImagePropertyGPSProcessingMethod as String }
+        static var GPSAreaInformation:String { return kCGImagePropertyGPSAreaInformation as String }
+        static var GPSDateStamp:String { return kCGImagePropertyGPSDateStamp as String }
+        static var GPSDifferental:String { return kCGImagePropertyGPSDifferental as String }
         @available(iOS 8.0, *)
-        static let GPSHPositioningError = kCGImagePropertyGPSHPositioningError as String
+        static var GPSHPositioningError:String { return kCGImagePropertyGPSHPositioningError as String }
 
 /* Possible keys for kCGImagePropertyIPTCDictionary */
 
-        static let IPTCObjectTypeReference = kCGImagePropertyIPTCObjectTypeReference as String
-        static let IPTCObjectAttributeReference = kCGImagePropertyIPTCObjectAttributeReference as String
-        static let IPTCObjectName = kCGImagePropertyIPTCObjectName as String
-        static let IPTCEditStatus = kCGImagePropertyIPTCEditStatus as String
-        static let IPTCEditorialUpdate = kCGImagePropertyIPTCEditorialUpdate as String
-        static let IPTCUrgency = kCGImagePropertyIPTCUrgency as String
-        static let IPTCSubjectReference = kCGImagePropertyIPTCSubjectReference as String
-        static let IPTCCategory = kCGImagePropertyIPTCCategory as String
-        static let IPTCSupplementalCategory = kCGImagePropertyIPTCSupplementalCategory as String
-        static let IPTCFixtureIdentifier = kCGImagePropertyIPTCFixtureIdentifier as String
-        static let IPTCKeywords = kCGImagePropertyIPTCKeywords as String
-        static let IPTCContentLocationCode = kCGImagePropertyIPTCContentLocationCode as String
-        static let IPTCContentLocationName = kCGImagePropertyIPTCContentLocationName as String
-        static let IPTCReleaseDate = kCGImagePropertyIPTCReleaseDate as String
-        static let IPTCReleaseTime = kCGImagePropertyIPTCReleaseTime as String
-        static let IPTCExpirationDate = kCGImagePropertyIPTCExpirationDate as String
-        static let IPTCExpirationTime = kCGImagePropertyIPTCExpirationTime as String
-        static let IPTCSpecialInstructions = kCGImagePropertyIPTCSpecialInstructions as String
-        static let IPTCActionAdvised = kCGImagePropertyIPTCActionAdvised as String
-        static let IPTCReferenceService = kCGImagePropertyIPTCReferenceService as String
-        static let IPTCReferenceDate = kCGImagePropertyIPTCReferenceDate as String
-        static let IPTCReferenceNumber = kCGImagePropertyIPTCReferenceNumber as String
-        static let IPTCDateCreated = kCGImagePropertyIPTCDateCreated as String
-        static let IPTCTimeCreated = kCGImagePropertyIPTCTimeCreated as String
-        static let IPTCDigitalCreationDate = kCGImagePropertyIPTCDigitalCreationDate as String
-        static let IPTCDigitalCreationTime = kCGImagePropertyIPTCDigitalCreationTime as String
-        static let IPTCOriginatingProgram = kCGImagePropertyIPTCOriginatingProgram as String
-        static let IPTCProgramVersion = kCGImagePropertyIPTCProgramVersion as String
-        static let IPTCObjectCycle = kCGImagePropertyIPTCObjectCycle as String
-        static let IPTCByline = kCGImagePropertyIPTCByline as String
-        static let IPTCBylineTitle = kCGImagePropertyIPTCBylineTitle as String
-        static let IPTCCity = kCGImagePropertyIPTCCity as String
-        static let IPTCSubLocation = kCGImagePropertyIPTCSubLocation as String
-        static let IPTCProvinceState = kCGImagePropertyIPTCProvinceState as String
-        static let IPTCCountryPrimaryLocationCode = kCGImagePropertyIPTCCountryPrimaryLocationCode as String
-        static let IPTCCountryPrimaryLocationName = kCGImagePropertyIPTCCountryPrimaryLocationName as String
-        static let IPTCOriginalTransmissionReference = kCGImagePropertyIPTCOriginalTransmissionReference as String
-        static let IPTCHeadline = kCGImagePropertyIPTCHeadline as String
-        static let IPTCCredit = kCGImagePropertyIPTCCredit as String
-        static let IPTCSource = kCGImagePropertyIPTCSource as String
-        static let IPTCCopyrightNotice = kCGImagePropertyIPTCCopyrightNotice as String
-        static let IPTCContact = kCGImagePropertyIPTCContact as String
-        static let IPTCCaptionAbstract = kCGImagePropertyIPTCCaptionAbstract as String
-        static let IPTCWriterEditor = kCGImagePropertyIPTCWriterEditor as String
-        static let IPTCImageType = kCGImagePropertyIPTCImageType as String
-        static let IPTCImageOrientation = kCGImagePropertyIPTCImageOrientation as String
-        static let IPTCLanguageIdentifier = kCGImagePropertyIPTCLanguageIdentifier as String
-        static let IPTCStarRating = kCGImagePropertyIPTCStarRating as String
-        static let IPTCCreatorContactInfo = kCGImagePropertyIPTCCreatorContactInfo as String // IPTC Core
-        static let IPTCRightsUsageTerms = kCGImagePropertyIPTCRightsUsageTerms as String // IPTC Core
-        static let IPTCScene = kCGImagePropertyIPTCScene as String // IPTC Core
+        static var IPTCObjectTypeReference:String { return kCGImagePropertyIPTCObjectTypeReference as String }
+        static var IPTCObjectAttributeReference:String { return kCGImagePropertyIPTCObjectAttributeReference as String }
+        static var IPTCObjectName:String { return kCGImagePropertyIPTCObjectName as String }
+        static var IPTCEditStatus:String { return kCGImagePropertyIPTCEditStatus as String }
+        static var IPTCEditorialUpdate:String { return kCGImagePropertyIPTCEditorialUpdate as String }
+        static var IPTCUrgency:String { return kCGImagePropertyIPTCUrgency as String }
+        static var IPTCSubjectReference:String { return kCGImagePropertyIPTCSubjectReference as String }
+        static var IPTCCategory:String { return kCGImagePropertyIPTCCategory as String }
+        static var IPTCSupplementalCategory:String { return kCGImagePropertyIPTCSupplementalCategory as String }
+        static var IPTCFixtureIdentifier:String { return kCGImagePropertyIPTCFixtureIdentifier as String }
+        static var IPTCKeywords:String { return kCGImagePropertyIPTCKeywords as String }
+        static var IPTCContentLocationCode:String { return kCGImagePropertyIPTCContentLocationCode as String }
+        static var IPTCContentLocationName:String { return kCGImagePropertyIPTCContentLocationName as String }
+        static var IPTCReleaseDate:String { return kCGImagePropertyIPTCReleaseDate as String }
+        static var IPTCReleaseTime:String { return kCGImagePropertyIPTCReleaseTime as String }
+        static var IPTCExpirationDate:String { return kCGImagePropertyIPTCExpirationDate as String }
+        static var IPTCExpirationTime:String { return kCGImagePropertyIPTCExpirationTime as String }
+        static var IPTCSpecialInstructions:String { return kCGImagePropertyIPTCSpecialInstructions as String }
+        static var IPTCActionAdvised:String { return kCGImagePropertyIPTCActionAdvised as String }
+        static var IPTCReferenceService:String { return kCGImagePropertyIPTCReferenceService as String }
+        static var IPTCReferenceDate:String { return kCGImagePropertyIPTCReferenceDate as String }
+        static var IPTCReferenceNumber:String { return kCGImagePropertyIPTCReferenceNumber as String }
+        static var IPTCDateCreated:String { return kCGImagePropertyIPTCDateCreated as String }
+        static var IPTCTimeCreated:String { return kCGImagePropertyIPTCTimeCreated as String }
+        static var IPTCDigitalCreationDate:String { return kCGImagePropertyIPTCDigitalCreationDate as String }
+        static var IPTCDigitalCreationTime:String { return kCGImagePropertyIPTCDigitalCreationTime as String }
+        static var IPTCOriginatingProgram:String { return kCGImagePropertyIPTCOriginatingProgram as String }
+        static var IPTCProgramVersion:String { return kCGImagePropertyIPTCProgramVersion as String }
+        static var IPTCObjectCycle:String { return kCGImagePropertyIPTCObjectCycle as String }
+        static var IPTCByline:String { return kCGImagePropertyIPTCByline as String }
+        static var IPTCBylineTitle:String { return kCGImagePropertyIPTCBylineTitle as String }
+        static var IPTCCity:String { return kCGImagePropertyIPTCCity as String }
+        static var IPTCSubLocation:String { return kCGImagePropertyIPTCSubLocation as String }
+        static var IPTCProvinceState:String { return kCGImagePropertyIPTCProvinceState as String }
+        static var IPTCCountryPrimaryLocationCode:String { return kCGImagePropertyIPTCCountryPrimaryLocationCode as String }
+        static var IPTCCountryPrimaryLocationName:String { return kCGImagePropertyIPTCCountryPrimaryLocationName as String }
+        static var IPTCOriginalTransmissionReference:String { return kCGImagePropertyIPTCOriginalTransmissionReference as String }
+        static var IPTCHeadline:String { return kCGImagePropertyIPTCHeadline as String }
+        static var IPTCCredit:String { return kCGImagePropertyIPTCCredit as String }
+        static var IPTCSource:String { return kCGImagePropertyIPTCSource as String }
+        static var IPTCCopyrightNotice:String { return kCGImagePropertyIPTCCopyrightNotice as String }
+        static var IPTCContact:String { return kCGImagePropertyIPTCContact as String }
+        static var IPTCCaptionAbstract:String { return kCGImagePropertyIPTCCaptionAbstract as String }
+        static var IPTCWriterEditor:String { return kCGImagePropertyIPTCWriterEditor as String }
+        static var IPTCImageType:String { return kCGImagePropertyIPTCImageType as String }
+        static var IPTCImageOrientation:String { return kCGImagePropertyIPTCImageOrientation as String }
+        static var IPTCLanguageIdentifier:String { return kCGImagePropertyIPTCLanguageIdentifier as String }
+        static var IPTCStarRating:String { return kCGImagePropertyIPTCStarRating as String }
+        static var IPTCCreatorContactInfo:String { return kCGImagePropertyIPTCCreatorContactInfo as String } // IPTC Core
+        static var IPTCRightsUsageTerms:String { return kCGImagePropertyIPTCRightsUsageTerms as String } // IPTC Core
+        static var IPTCScene:String { return kCGImagePropertyIPTCScene as String } // IPTC Core
 
         @available(iOS 11.3, *)
-        static let IPTCExtAboutCvTerm = kCGImagePropertyIPTCExtAboutCvTerm as String
+        static var IPTCExtAboutCvTerm:String { return kCGImagePropertyIPTCExtAboutCvTerm as String }
         @available(iOS 11.3, *)
-        static let IPTCExtAboutCvTermCvId = kCGImagePropertyIPTCExtAboutCvTermCvId as String
+        static var IPTCExtAboutCvTermCvId:String { return kCGImagePropertyIPTCExtAboutCvTermCvId as String }
         @available(iOS 11.3, *)
-        static let IPTCExtAboutCvTermId = kCGImagePropertyIPTCExtAboutCvTermId as String
+        static var IPTCExtAboutCvTermId:String { return kCGImagePropertyIPTCExtAboutCvTermId as String }
         @available(iOS 11.3, *)
-        static let IPTCExtAboutCvTermName = kCGImagePropertyIPTCExtAboutCvTermName as String
+        static var IPTCExtAboutCvTermName:String { return kCGImagePropertyIPTCExtAboutCvTermName as String }
         @available(iOS 11.3, *)
-        static let IPTCExtAboutCvTermRefinedAbout = kCGImagePropertyIPTCExtAboutCvTermRefinedAbout as String
+        static var IPTCExtAboutCvTermRefinedAbout:String { return kCGImagePropertyIPTCExtAboutCvTermRefinedAbout as String }
         @available(iOS 11.3, *)
-        static let IPTCExtAddlModelInfo = kCGImagePropertyIPTCExtAddlModelInfo as String
+        static var IPTCExtAddlModelInfo:String { return kCGImagePropertyIPTCExtAddlModelInfo as String }
         @available(iOS 11.3, *)
-        static let IPTCExtArtworkOrObject = kCGImagePropertyIPTCExtArtworkOrObject as String
+        static var IPTCExtArtworkOrObject:String { return kCGImagePropertyIPTCExtArtworkOrObject as String }
         @available(iOS 11.3, *)
-        static let IPTCExtArtworkCircaDateCreated = kCGImagePropertyIPTCExtArtworkCircaDateCreated as String
+        static var IPTCExtArtworkCircaDateCreated:String { return kCGImagePropertyIPTCExtArtworkCircaDateCreated as String }
         @available(iOS 11.3, *)
-        static let IPTCExtArtworkContentDescription = kCGImagePropertyIPTCExtArtworkContentDescription as String
+        static var IPTCExtArtworkContentDescription:String { return kCGImagePropertyIPTCExtArtworkContentDescription as String }
         @available(iOS 11.3, *)
-        static let IPTCExtArtworkContributionDescription = kCGImagePropertyIPTCExtArtworkContributionDescription as String
+        static var IPTCExtArtworkContributionDescription:String { return kCGImagePropertyIPTCExtArtworkContributionDescription as String }
         @available(iOS 11.3, *)
-        static let IPTCExtArtworkCopyrightNotice = kCGImagePropertyIPTCExtArtworkCopyrightNotice as String
+        static var IPTCExtArtworkCopyrightNotice:String { return kCGImagePropertyIPTCExtArtworkCopyrightNotice as String }
         @available(iOS 11.3, *)
-        static let IPTCExtArtworkCreator = kCGImagePropertyIPTCExtArtworkCreator as String
+        static var IPTCExtArtworkCreator:String { return kCGImagePropertyIPTCExtArtworkCreator as String }
         @available(iOS 11.3, *)
-        static let IPTCExtArtworkCreatorID = kCGImagePropertyIPTCExtArtworkCreatorID as String
+        static var IPTCExtArtworkCreatorID:String { return kCGImagePropertyIPTCExtArtworkCreatorID as String }
         @available(iOS 11.3, *)
-        static let IPTCExtArtworkCopyrightOwnerID = kCGImagePropertyIPTCExtArtworkCopyrightOwnerID as String
+        static var IPTCExtArtworkCopyrightOwnerID:String { return kCGImagePropertyIPTCExtArtworkCopyrightOwnerID as String }
         @available(iOS 11.3, *)
-        static let IPTCExtArtworkCopyrightOwnerName = kCGImagePropertyIPTCExtArtworkCopyrightOwnerName as String
+        static var IPTCExtArtworkCopyrightOwnerName:String { return kCGImagePropertyIPTCExtArtworkCopyrightOwnerName as String }
         @available(iOS 11.3, *)
-        static let IPTCExtArtworkLicensorID = kCGImagePropertyIPTCExtArtworkLicensorID as String
+        static var IPTCExtArtworkLicensorID:String { return kCGImagePropertyIPTCExtArtworkLicensorID as String }
         @available(iOS 11.3, *)
-        static let IPTCExtArtworkLicensorName = kCGImagePropertyIPTCExtArtworkLicensorName as String
+        static var IPTCExtArtworkLicensorName:String { return kCGImagePropertyIPTCExtArtworkLicensorName as String }
         @available(iOS 11.3, *)
-        static let IPTCExtArtworkDateCreated = kCGImagePropertyIPTCExtArtworkDateCreated as String
+        static var IPTCExtArtworkDateCreated:String { return kCGImagePropertyIPTCExtArtworkDateCreated as String }
         @available(iOS 11.3, *)
-        static let IPTCExtArtworkPhysicalDescription = kCGImagePropertyIPTCExtArtworkPhysicalDescription as String
+        static var IPTCExtArtworkPhysicalDescription:String { return kCGImagePropertyIPTCExtArtworkPhysicalDescription as String }
         @available(iOS 11.3, *)
-        static let IPTCExtArtworkSource = kCGImagePropertyIPTCExtArtworkSource as String
+        static var IPTCExtArtworkSource:String { return kCGImagePropertyIPTCExtArtworkSource as String }
         @available(iOS 11.3, *)
-        static let IPTCExtArtworkSourceInventoryNo = kCGImagePropertyIPTCExtArtworkSourceInventoryNo as String
+        static var IPTCExtArtworkSourceInventoryNo:String { return kCGImagePropertyIPTCExtArtworkSourceInventoryNo as String }
         @available(iOS 11.3, *)
-        static let IPTCExtArtworkSourceInvURL = kCGImagePropertyIPTCExtArtworkSourceInvURL as String
+        static var IPTCExtArtworkSourceInvURL:String { return kCGImagePropertyIPTCExtArtworkSourceInvURL as String }
         @available(iOS 11.3, *)
-        static let IPTCExtArtworkStylePeriod = kCGImagePropertyIPTCExtArtworkStylePeriod as String
+        static var IPTCExtArtworkStylePeriod:String { return kCGImagePropertyIPTCExtArtworkStylePeriod as String }
         @available(iOS 11.3, *)
-        static let IPTCExtArtworkTitle = kCGImagePropertyIPTCExtArtworkTitle as String
+        static var IPTCExtArtworkTitle:String { return kCGImagePropertyIPTCExtArtworkTitle as String }
         @available(iOS 11.3, *)
-        static let IPTCExtAudioBitrate = kCGImagePropertyIPTCExtAudioBitrate as String
+        static var IPTCExtAudioBitrate:String { return kCGImagePropertyIPTCExtAudioBitrate as String }
         @available(iOS 11.3, *)
-        static let IPTCExtAudioBitrateMode = kCGImagePropertyIPTCExtAudioBitrateMode as String
+        static var IPTCExtAudioBitrateMode:String { return kCGImagePropertyIPTCExtAudioBitrateMode as String }
         @available(iOS 11.3, *)
-        static let IPTCExtAudioChannelCount = kCGImagePropertyIPTCExtAudioChannelCount as String
+        static var IPTCExtAudioChannelCount:String { return kCGImagePropertyIPTCExtAudioChannelCount as String }
         @available(iOS 11.3, *)
-        static let IPTCExtCircaDateCreated = kCGImagePropertyIPTCExtCircaDateCreated as String
+        static var IPTCExtCircaDateCreated:String { return kCGImagePropertyIPTCExtCircaDateCreated as String }
         @available(iOS 11.3, *)
-        static let IPTCExtContainerFormat = kCGImagePropertyIPTCExtContainerFormat as String
+        static var IPTCExtContainerFormat:String { return kCGImagePropertyIPTCExtContainerFormat as String }
         @available(iOS 11.3, *)
-        static let IPTCExtContainerFormatIdentifier = kCGImagePropertyIPTCExtContainerFormatIdentifier as String
+        static var IPTCExtContainerFormatIdentifier:String { return kCGImagePropertyIPTCExtContainerFormatIdentifier as String }
         @available(iOS 11.3, *)
-        static let IPTCExtContainerFormatName = kCGImagePropertyIPTCExtContainerFormatName as String
+        static var IPTCExtContainerFormatName:String { return kCGImagePropertyIPTCExtContainerFormatName as String }
         @available(iOS 11.3, *)
-        static let IPTCExtContributor = kCGImagePropertyIPTCExtContributor as String
+        static var IPTCExtContributor:String { return kCGImagePropertyIPTCExtContributor as String }
         @available(iOS 11.3, *)
-        static let IPTCExtContributorIdentifier = kCGImagePropertyIPTCExtContributorIdentifier as String
+        static var IPTCExtContributorIdentifier:String { return kCGImagePropertyIPTCExtContributorIdentifier as String }
         @available(iOS 11.3, *)
-        static let IPTCExtContributorName = kCGImagePropertyIPTCExtContributorName as String
+        static var IPTCExtContributorName:String { return kCGImagePropertyIPTCExtContributorName as String }
         @available(iOS 11.3, *)
-        static let IPTCExtContributorRole = kCGImagePropertyIPTCExtContributorRole as String
+        static var IPTCExtContributorRole:String { return kCGImagePropertyIPTCExtContributorRole as String }
         @available(iOS 11.3, *)
-        static let IPTCExtCopyrightYear = kCGImagePropertyIPTCExtCopyrightYear as String
+        static var IPTCExtCopyrightYear:String { return kCGImagePropertyIPTCExtCopyrightYear as String }
         @available(iOS 11.3, *)
-        static let IPTCExtCreator = kCGImagePropertyIPTCExtCreator as String
+        static var IPTCExtCreator:String { return kCGImagePropertyIPTCExtCreator as String }
         @available(iOS 11.3, *)
-        static let IPTCExtCreatorIdentifier = kCGImagePropertyIPTCExtCreatorIdentifier as String
+        static var IPTCExtCreatorIdentifier:String { return kCGImagePropertyIPTCExtCreatorIdentifier as String }
         @available(iOS 11.3, *)
-        static let IPTCExtCreatorName = kCGImagePropertyIPTCExtCreatorName as String
+        static var IPTCExtCreatorName:String { return kCGImagePropertyIPTCExtCreatorName as String }
         @available(iOS 11.3, *)
-        static let IPTCExtCreatorRole = kCGImagePropertyIPTCExtCreatorRole as String
+        static var IPTCExtCreatorRole:String { return kCGImagePropertyIPTCExtCreatorRole as String }
         @available(iOS 11.3, *)
-        static let IPTCExtControlledVocabularyTerm = kCGImagePropertyIPTCExtControlledVocabularyTerm as String
+        static var IPTCExtControlledVocabularyTerm:String { return kCGImagePropertyIPTCExtControlledVocabularyTerm as String }
         @available(iOS 11.3, *)
-        static let IPTCExtDataOnScreen = kCGImagePropertyIPTCExtDataOnScreen as String
+        static var IPTCExtDataOnScreen:String { return kCGImagePropertyIPTCExtDataOnScreen as String }
         @available(iOS 11.3, *)
-        static let IPTCExtDataOnScreenRegion = kCGImagePropertyIPTCExtDataOnScreenRegion as String
+        static var IPTCExtDataOnScreenRegion:String { return kCGImagePropertyIPTCExtDataOnScreenRegion as String }
         @available(iOS 11.3, *)
-        static let IPTCExtDataOnScreenRegionD = kCGImagePropertyIPTCExtDataOnScreenRegionD as String
+        static var IPTCExtDataOnScreenRegionD:String { return kCGImagePropertyIPTCExtDataOnScreenRegionD as String }
         @available(iOS 11.3, *)
-        static let IPTCExtDataOnScreenRegionH = kCGImagePropertyIPTCExtDataOnScreenRegionH as String
+        static var IPTCExtDataOnScreenRegionH:String { return kCGImagePropertyIPTCExtDataOnScreenRegionH as String }
         @available(iOS 11.3, *)
-        static let IPTCExtDataOnScreenRegionText = kCGImagePropertyIPTCExtDataOnScreenRegionText as String
+        static var IPTCExtDataOnScreenRegionText:String { return kCGImagePropertyIPTCExtDataOnScreenRegionText as String }
         @available(iOS 11.3, *)
-        static let IPTCExtDataOnScreenRegionUnit = kCGImagePropertyIPTCExtDataOnScreenRegionUnit as String
+        static var IPTCExtDataOnScreenRegionUnit:String { return kCGImagePropertyIPTCExtDataOnScreenRegionUnit as String }
         @available(iOS 11.3, *)
-        static let IPTCExtDataOnScreenRegionW = kCGImagePropertyIPTCExtDataOnScreenRegionW as String
+        static var IPTCExtDataOnScreenRegionW:String { return kCGImagePropertyIPTCExtDataOnScreenRegionW as String }
         @available(iOS 11.3, *)
-        static let IPTCExtDataOnScreenRegionX = kCGImagePropertyIPTCExtDataOnScreenRegionX as String
+        static var IPTCExtDataOnScreenRegionX:String { return kCGImagePropertyIPTCExtDataOnScreenRegionX as String }
         @available(iOS 11.3, *)
-        static let IPTCExtDataOnScreenRegionY = kCGImagePropertyIPTCExtDataOnScreenRegionY as String
+        static var IPTCExtDataOnScreenRegionY:String { return kCGImagePropertyIPTCExtDataOnScreenRegionY as String }
         @available(iOS 11.3, *)
-        static let IPTCExtDigitalImageGUID = kCGImagePropertyIPTCExtDigitalImageGUID as String
+        static var IPTCExtDigitalImageGUID:String { return kCGImagePropertyIPTCExtDigitalImageGUID as String }
         @available(iOS 11.3, *)
-        static let IPTCExtDigitalSourceFileType = kCGImagePropertyIPTCExtDigitalSourceFileType as String
+        static var IPTCExtDigitalSourceFileType:String { return kCGImagePropertyIPTCExtDigitalSourceFileType as String }
         @available(iOS 11.3, *)
-        static let IPTCExtDigitalSourceType = kCGImagePropertyIPTCExtDigitalSourceType as String
+        static var IPTCExtDigitalSourceType:String { return kCGImagePropertyIPTCExtDigitalSourceType as String }
         @available(iOS 11.3, *)
-        static let IPTCExtDopesheet = kCGImagePropertyIPTCExtDopesheet as String
+        static var IPTCExtDopesheet:String { return kCGImagePropertyIPTCExtDopesheet as String }
         @available(iOS 11.3, *)
-        static let IPTCExtDopesheetLink = kCGImagePropertyIPTCExtDopesheetLink as String
+        static var IPTCExtDopesheetLink:String { return kCGImagePropertyIPTCExtDopesheetLink as String }
         @available(iOS 11.3, *)
-        static let IPTCExtDopesheetLinkLink = kCGImagePropertyIPTCExtDopesheetLinkLink as String
+        static var IPTCExtDopesheetLinkLink:String { return kCGImagePropertyIPTCExtDopesheetLinkLink as String }
         @available(iOS 11.3, *)
-        static let IPTCExtDopesheetLinkLinkQualifier = kCGImagePropertyIPTCExtDopesheetLinkLinkQualifier as String
+        static var IPTCExtDopesheetLinkLinkQualifier:String { return kCGImagePropertyIPTCExtDopesheetLinkLinkQualifier as String }
         @available(iOS 11.3, *)
-        static let IPTCExtEmbdEncRightsExpr = kCGImagePropertyIPTCExtEmbdEncRightsExpr as String
+        static var IPTCExtEmbdEncRightsExpr:String { return kCGImagePropertyIPTCExtEmbdEncRightsExpr as String }
         @available(iOS 11.3, *)
-        static let IPTCExtEmbeddedEncodedRightsExpr = kCGImagePropertyIPTCExtEmbeddedEncodedRightsExpr as String
+        static var IPTCExtEmbeddedEncodedRightsExpr:String { return kCGImagePropertyIPTCExtEmbeddedEncodedRightsExpr as String }
         @available(iOS 11.3, *)
-        static let IPTCExtEmbeddedEncodedRightsExprType = kCGImagePropertyIPTCExtEmbeddedEncodedRightsExprType as String
+        static var IPTCExtEmbeddedEncodedRightsExprType:String { return kCGImagePropertyIPTCExtEmbeddedEncodedRightsExprType as String }
         @available(iOS 11.3, *)
-        static let IPTCExtEmbeddedEncodedRightsExprLangID = kCGImagePropertyIPTCExtEmbeddedEncodedRightsExprLangID as String
+        static var IPTCExtEmbeddedEncodedRightsExprLangID:String { return kCGImagePropertyIPTCExtEmbeddedEncodedRightsExprLangID as String }
         @available(iOS 11.3, *)
-        static let IPTCExtEpisode = kCGImagePropertyIPTCExtEpisode as String
+        static var IPTCExtEpisode:String { return kCGImagePropertyIPTCExtEpisode as String }
         @available(iOS 11.3, *)
-        static let IPTCExtEpisodeIdentifier = kCGImagePropertyIPTCExtEpisodeIdentifier as String
+        static var IPTCExtEpisodeIdentifier:String { return kCGImagePropertyIPTCExtEpisodeIdentifier as String }
         @available(iOS 11.3, *)
-        static let IPTCExtEpisodeName = kCGImagePropertyIPTCExtEpisodeName as String
+        static var IPTCExtEpisodeName:String { return kCGImagePropertyIPTCExtEpisodeName as String }
         @available(iOS 11.3, *)
-        static let IPTCExtEpisodeNumber = kCGImagePropertyIPTCExtEpisodeNumber as String
+        static var IPTCExtEpisodeNumber:String { return kCGImagePropertyIPTCExtEpisodeNumber as String }
         @available(iOS 11.3, *)
-        static let IPTCExtEvent = kCGImagePropertyIPTCExtEvent as String
+        static var IPTCExtEvent:String { return kCGImagePropertyIPTCExtEvent as String }
         @available(iOS 11.3, *)
-        static let IPTCExtShownEvent = kCGImagePropertyIPTCExtShownEvent as String
+        static var IPTCExtShownEvent:String { return kCGImagePropertyIPTCExtShownEvent as String }
         @available(iOS 11.3, *)
-        static let IPTCExtShownEventIdentifier = kCGImagePropertyIPTCExtShownEventIdentifier as String
+        static var IPTCExtShownEventIdentifier:String { return kCGImagePropertyIPTCExtShownEventIdentifier as String }
         @available(iOS 11.3, *)
-        static let IPTCExtShownEventName = kCGImagePropertyIPTCExtShownEventName as String
+        static var IPTCExtShownEventName:String { return kCGImagePropertyIPTCExtShownEventName as String }
         @available(iOS 11.3, *)
-        static let IPTCExtExternalMetadataLink = kCGImagePropertyIPTCExtExternalMetadataLink as String
+        static var IPTCExtExternalMetadataLink:String { return kCGImagePropertyIPTCExtExternalMetadataLink as String }
         @available(iOS 11.3, *)
-        static let IPTCExtFeedIdentifier = kCGImagePropertyIPTCExtFeedIdentifier as String
+        static var IPTCExtFeedIdentifier:String { return kCGImagePropertyIPTCExtFeedIdentifier as String }
         @available(iOS 11.3, *)
-        static let IPTCExtGenre = kCGImagePropertyIPTCExtGenre as String
+        static var IPTCExtGenre:String { return kCGImagePropertyIPTCExtGenre as String }
         @available(iOS 11.3, *)
-        static let IPTCExtGenreCvId = kCGImagePropertyIPTCExtGenreCvId as String
+        static var IPTCExtGenreCvId:String { return kCGImagePropertyIPTCExtGenreCvId as String }
         @available(iOS 11.3, *)
-        static let IPTCExtGenreCvTermId = kCGImagePropertyIPTCExtGenreCvTermId as String
+        static var IPTCExtGenreCvTermId:String { return kCGImagePropertyIPTCExtGenreCvTermId as String }
         @available(iOS 11.3, *)
-        static let IPTCExtGenreCvTermName = kCGImagePropertyIPTCExtGenreCvTermName as String
+        static var IPTCExtGenreCvTermName:String { return kCGImagePropertyIPTCExtGenreCvTermName as String }
         @available(iOS 11.3, *)
-        static let IPTCExtGenreCvTermRefinedAbout = kCGImagePropertyIPTCExtGenreCvTermRefinedAbout as String
+        static var IPTCExtGenreCvTermRefinedAbout:String { return kCGImagePropertyIPTCExtGenreCvTermRefinedAbout as String }
         @available(iOS 11.3, *)
-        static let IPTCExtHeadline = kCGImagePropertyIPTCExtHeadline as String
+        static var IPTCExtHeadline:String { return kCGImagePropertyIPTCExtHeadline as String }
         @available(iOS 11.3, *)
-        static let IPTCExtIPTCLastEdited = kCGImagePropertyIPTCExtIPTCLastEdited as String
+        static var IPTCExtIPTCLastEdited:String { return kCGImagePropertyIPTCExtIPTCLastEdited as String }
         @available(iOS 11.3, *)
-        static let IPTCExtLinkedEncRightsExpr = kCGImagePropertyIPTCExtLinkedEncRightsExpr as String
+        static var IPTCExtLinkedEncRightsExpr:String { return kCGImagePropertyIPTCExtLinkedEncRightsExpr as String }
         @available(iOS 11.3, *)
-        static let IPTCExtLinkedEncodedRightsExpr = kCGImagePropertyIPTCExtLinkedEncodedRightsExpr as String
+        static var IPTCExtLinkedEncodedRightsExpr:String { return kCGImagePropertyIPTCExtLinkedEncodedRightsExpr as String }
         @available(iOS 11.3, *)
-        static let IPTCExtLinkedEncodedRightsExprType = kCGImagePropertyIPTCExtLinkedEncodedRightsExprType as String
+        static var IPTCExtLinkedEncodedRightsExprType:String { return kCGImagePropertyIPTCExtLinkedEncodedRightsExprType as String }
         @available(iOS 11.3, *)
-        static let IPTCExtLinkedEncodedRightsExprLangID = kCGImagePropertyIPTCExtLinkedEncodedRightsExprLangID as String
+        static var IPTCExtLinkedEncodedRightsExprLangID:String { return kCGImagePropertyIPTCExtLinkedEncodedRightsExprLangID as String }
         @available(iOS 11.3, *)
-        static let IPTCExtLocationCreated = kCGImagePropertyIPTCExtLocationCreated as String
+        static var IPTCExtLocationCreated:String { return kCGImagePropertyIPTCExtLocationCreated as String }
         @available(iOS 11.3, *)
-        static let IPTCExtLocationCity = kCGImagePropertyIPTCExtLocationCity as String
+        static var IPTCExtLocationCity:String { return kCGImagePropertyIPTCExtLocationCity as String }
         @available(iOS 11.3, *)
-        static let IPTCExtLocationCountryCode = kCGImagePropertyIPTCExtLocationCountryCode as String
+        static var IPTCExtLocationCountryCode:String { return kCGImagePropertyIPTCExtLocationCountryCode as String }
         @available(iOS 11.3, *)
-        static let IPTCExtLocationCountryName = kCGImagePropertyIPTCExtLocationCountryName as String
+        static var IPTCExtLocationCountryName:String { return kCGImagePropertyIPTCExtLocationCountryName as String }
         @available(iOS 11.3, *)
-        static let IPTCExtLocationGPSAltitude = kCGImagePropertyIPTCExtLocationGPSAltitude as String
+        static var IPTCExtLocationGPSAltitude:String { return kCGImagePropertyIPTCExtLocationGPSAltitude as String }
         @available(iOS 11.3, *)
-        static let IPTCExtLocationGPSLatitude = kCGImagePropertyIPTCExtLocationGPSLatitude as String
+        static var IPTCExtLocationGPSLatitude:String { return kCGImagePropertyIPTCExtLocationGPSLatitude as String }
         @available(iOS 11.3, *)
-        static let IPTCExtLocationGPSLongitude = kCGImagePropertyIPTCExtLocationGPSLongitude as String
+        static var IPTCExtLocationGPSLongitude:String { return kCGImagePropertyIPTCExtLocationGPSLongitude as String }
         @available(iOS 11.3, *)
-        static let IPTCExtLocationIdentifier = kCGImagePropertyIPTCExtLocationIdentifier as String
+        static var IPTCExtLocationIdentifier:String { return kCGImagePropertyIPTCExtLocationIdentifier as String }
         @available(iOS 11.3, *)
-        static let IPTCExtLocationLocationId = kCGImagePropertyIPTCExtLocationLocationId as String
+        static var IPTCExtLocationLocationId:String { return kCGImagePropertyIPTCExtLocationLocationId as String }
         @available(iOS 11.3, *)
-        static let IPTCExtLocationLocationName = kCGImagePropertyIPTCExtLocationLocationName as String
+        static var IPTCExtLocationLocationName:String { return kCGImagePropertyIPTCExtLocationLocationName as String }
         @available(iOS 11.3, *)
-        static let IPTCExtLocationProvinceState = kCGImagePropertyIPTCExtLocationProvinceState as String
+        static var IPTCExtLocationProvinceState:String { return kCGImagePropertyIPTCExtLocationProvinceState as String }
         @available(iOS 11.3, *)
-        static let IPTCExtLocationSublocation = kCGImagePropertyIPTCExtLocationSublocation as String
+        static var IPTCExtLocationSublocation:String { return kCGImagePropertyIPTCExtLocationSublocation as String }
         @available(iOS 11.3, *)
-        static let IPTCExtLocationWorldRegion = kCGImagePropertyIPTCExtLocationWorldRegion as String
+        static var IPTCExtLocationWorldRegion:String { return kCGImagePropertyIPTCExtLocationWorldRegion as String }
         @available(iOS 11.3, *)
-        static let IPTCExtLocationShown = kCGImagePropertyIPTCExtLocationShown as String
+        static var IPTCExtLocationShown:String { return kCGImagePropertyIPTCExtLocationShown as String }
         @available(iOS 11.3, *)
-        static let IPTCExtMaxAvailHeight = kCGImagePropertyIPTCExtMaxAvailHeight as String
+        static var IPTCExtMaxAvailHeight:String { return kCGImagePropertyIPTCExtMaxAvailHeight as String }
         @available(iOS 11.3, *)
-        static let IPTCExtMaxAvailWidth = kCGImagePropertyIPTCExtMaxAvailWidth as String
+        static var IPTCExtMaxAvailWidth:String { return kCGImagePropertyIPTCExtMaxAvailWidth as String }
         @available(iOS 11.3, *)
-        static let IPTCExtModelAge = kCGImagePropertyIPTCExtModelAge as String
+        static var IPTCExtModelAge:String { return kCGImagePropertyIPTCExtModelAge as String }
         @available(iOS 11.3, *)
-        static let IPTCExtOrganisationInImageCode = kCGImagePropertyIPTCExtOrganisationInImageCode as String
+        static var IPTCExtOrganisationInImageCode:String { return kCGImagePropertyIPTCExtOrganisationInImageCode as String }
         @available(iOS 11.3, *)
-        static let IPTCExtOrganisationInImageName = kCGImagePropertyIPTCExtOrganisationInImageName as String
+        static var IPTCExtOrganisationInImageName:String { return kCGImagePropertyIPTCExtOrganisationInImageName as String }
         @available(iOS 11.3, *)
-        static let IPTCExtPersonHeard = kCGImagePropertyIPTCExtPersonHeard as String
+        static var IPTCExtPersonHeard:String { return kCGImagePropertyIPTCExtPersonHeard as String }
         @available(iOS 11.3, *)
-        static let IPTCExtPersonHeardIdentifier = kCGImagePropertyIPTCExtPersonHeardIdentifier as String
+        static var IPTCExtPersonHeardIdentifier:String { return kCGImagePropertyIPTCExtPersonHeardIdentifier as String }
         @available(iOS 11.3, *)
-        static let IPTCExtPersonHeardName = kCGImagePropertyIPTCExtPersonHeardName as String
+        static var IPTCExtPersonHeardName:String { return kCGImagePropertyIPTCExtPersonHeardName as String }
         @available(iOS 11.3, *)
-        static let IPTCExtPersonInImage = kCGImagePropertyIPTCExtPersonInImage as String
+        static var IPTCExtPersonInImage:String { return kCGImagePropertyIPTCExtPersonInImage as String }
         @available(iOS 11.3, *)
-        static let IPTCExtPersonInImageWDetails = kCGImagePropertyIPTCExtPersonInImageWDetails as String
+        static var IPTCExtPersonInImageWDetails:String { return kCGImagePropertyIPTCExtPersonInImageWDetails as String }
         @available(iOS 11.3, *)
-        static let IPTCExtPersonInImageCharacteristic = kCGImagePropertyIPTCExtPersonInImageCharacteristic as String
+        static var IPTCExtPersonInImageCharacteristic:String { return kCGImagePropertyIPTCExtPersonInImageCharacteristic as String }
         @available(iOS 11.3, *)
-        static let IPTCExtPersonInImageCvTermCvId = kCGImagePropertyIPTCExtPersonInImageCvTermCvId as String
+        static var IPTCExtPersonInImageCvTermCvId:String { return kCGImagePropertyIPTCExtPersonInImageCvTermCvId as String }
         @available(iOS 11.3, *)
-        static let IPTCExtPersonInImageCvTermId = kCGImagePropertyIPTCExtPersonInImageCvTermId as String
+        static var IPTCExtPersonInImageCvTermId:String { return kCGImagePropertyIPTCExtPersonInImageCvTermId as String }
         @available(iOS 11.3, *)
-        static let IPTCExtPersonInImageCvTermName = kCGImagePropertyIPTCExtPersonInImageCvTermName as String
+        static var IPTCExtPersonInImageCvTermName:String { return kCGImagePropertyIPTCExtPersonInImageCvTermName as String }
         @available(iOS 11.3, *)
-        static let IPTCExtPersonInImageCvTermRefinedAbout = kCGImagePropertyIPTCExtPersonInImageCvTermRefinedAbout as String
+        static var IPTCExtPersonInImageCvTermRefinedAbout:String { return kCGImagePropertyIPTCExtPersonInImageCvTermRefinedAbout as String }
         @available(iOS 11.3, *)
-        static let IPTCExtPersonInImageDescription = kCGImagePropertyIPTCExtPersonInImageDescription as String
+        static var IPTCExtPersonInImageDescription:String { return kCGImagePropertyIPTCExtPersonInImageDescription as String }
         @available(iOS 11.3, *)
-        static let IPTCExtPersonInImageId = kCGImagePropertyIPTCExtPersonInImageId as String
+        static var IPTCExtPersonInImageId:String { return kCGImagePropertyIPTCExtPersonInImageId as String }
         @available(iOS 11.3, *)
-        static let IPTCExtPersonInImageName = kCGImagePropertyIPTCExtPersonInImageName as String
+        static var IPTCExtPersonInImageName:String { return kCGImagePropertyIPTCExtPersonInImageName as String }
         @available(iOS 11.3, *)
-        static let IPTCExtProductInImage = kCGImagePropertyIPTCExtProductInImage as String
+        static var IPTCExtProductInImage:String { return kCGImagePropertyIPTCExtProductInImage as String }
         @available(iOS 11.3, *)
-        static let IPTCExtProductInImageDescription = kCGImagePropertyIPTCExtProductInImageDescription as String
+        static var IPTCExtProductInImageDescription:String { return kCGImagePropertyIPTCExtProductInImageDescription as String }
         @available(iOS 11.3, *)
-        static let IPTCExtProductInImageGTIN = kCGImagePropertyIPTCExtProductInImageGTIN as String
+        static var IPTCExtProductInImageGTIN:String { return kCGImagePropertyIPTCExtProductInImageGTIN as String }
         @available(iOS 11.3, *)
-        static let IPTCExtProductInImageName = kCGImagePropertyIPTCExtProductInImageName as String
+        static var IPTCExtProductInImageName:String { return kCGImagePropertyIPTCExtProductInImageName as String }
         @available(iOS 11.3, *)
-        static let IPTCExtPublicationEvent = kCGImagePropertyIPTCExtPublicationEvent as String
+        static var IPTCExtPublicationEvent:String { return kCGImagePropertyIPTCExtPublicationEvent as String }
         @available(iOS 11.3, *)
-        static let IPTCExtPublicationEventDate = kCGImagePropertyIPTCExtPublicationEventDate as String
+        static var IPTCExtPublicationEventDate:String { return kCGImagePropertyIPTCExtPublicationEventDate as String }
         @available(iOS 11.3, *)
-        static let IPTCExtPublicationEventIdentifier = kCGImagePropertyIPTCExtPublicationEventIdentifier as String
+        static var IPTCExtPublicationEventIdentifier:String { return kCGImagePropertyIPTCExtPublicationEventIdentifier as String }
         @available(iOS 11.3, *)
-        static let IPTCExtPublicationEventName = kCGImagePropertyIPTCExtPublicationEventName as String
+        static var IPTCExtPublicationEventName:String { return kCGImagePropertyIPTCExtPublicationEventName as String }
         @available(iOS 11.3, *)
-        static let IPTCExtRating = kCGImagePropertyIPTCExtRating as String
+        static var IPTCExtRating:String { return kCGImagePropertyIPTCExtRating as String }
         @available(iOS 11.3, *)
-        static let IPTCExtRatingRatingRegion = kCGImagePropertyIPTCExtRatingRatingRegion as String
+        static var IPTCExtRatingRatingRegion:String { return kCGImagePropertyIPTCExtRatingRatingRegion as String }
         @available(iOS 11.3, *)
-        static let IPTCExtRatingRegionCity = kCGImagePropertyIPTCExtRatingRegionCity as String
+        static var IPTCExtRatingRegionCity:String { return kCGImagePropertyIPTCExtRatingRegionCity as String }
         @available(iOS 11.3, *)
-        static let IPTCExtRatingRegionCountryCode = kCGImagePropertyIPTCExtRatingRegionCountryCode as String
+        static var IPTCExtRatingRegionCountryCode:String { return kCGImagePropertyIPTCExtRatingRegionCountryCode as String }
         @available(iOS 11.3, *)
-        static let IPTCExtRatingRegionCountryName = kCGImagePropertyIPTCExtRatingRegionCountryName as String
+        static var IPTCExtRatingRegionCountryName:String { return kCGImagePropertyIPTCExtRatingRegionCountryName as String }
         @available(iOS 11.3, *)
-        static let IPTCExtRatingRegionGPSAltitude = kCGImagePropertyIPTCExtRatingRegionGPSAltitude as String
+        static var IPTCExtRatingRegionGPSAltitude:String { return kCGImagePropertyIPTCExtRatingRegionGPSAltitude as String }
         @available(iOS 11.3, *)
-        static let IPTCExtRatingRegionGPSLatitude = kCGImagePropertyIPTCExtRatingRegionGPSLatitude as String
+        static var IPTCExtRatingRegionGPSLatitude:String { return kCGImagePropertyIPTCExtRatingRegionGPSLatitude as String }
         @available(iOS 11.3, *)
-        static let IPTCExtRatingRegionGPSLongitude = kCGImagePropertyIPTCExtRatingRegionGPSLongitude as String
+        static var IPTCExtRatingRegionGPSLongitude:String { return kCGImagePropertyIPTCExtRatingRegionGPSLongitude as String }
         @available(iOS 11.3, *)
-        static let IPTCExtRatingRegionIdentifier = kCGImagePropertyIPTCExtRatingRegionIdentifier as String
+        static var IPTCExtRatingRegionIdentifier:String { return kCGImagePropertyIPTCExtRatingRegionIdentifier as String }
         @available(iOS 11.3, *)
-        static let IPTCExtRatingRegionLocationId = kCGImagePropertyIPTCExtRatingRegionLocationId as String
+        static var IPTCExtRatingRegionLocationId:String { return kCGImagePropertyIPTCExtRatingRegionLocationId as String }
         @available(iOS 11.3, *)
-        static let IPTCExtRatingRegionLocationName = kCGImagePropertyIPTCExtRatingRegionLocationName as String
+        static var IPTCExtRatingRegionLocationName:String { return kCGImagePropertyIPTCExtRatingRegionLocationName as String }
         @available(iOS 11.3, *)
-        static let IPTCExtRatingRegionProvinceState = kCGImagePropertyIPTCExtRatingRegionProvinceState as String
+        static var IPTCExtRatingRegionProvinceState:String { return kCGImagePropertyIPTCExtRatingRegionProvinceState as String }
         @available(iOS 11.3, *)
-        static let IPTCExtRatingRegionSublocation = kCGImagePropertyIPTCExtRatingRegionSublocation as String
+        static var IPTCExtRatingRegionSublocation:String { return kCGImagePropertyIPTCExtRatingRegionSublocation as String }
         @available(iOS 11.3, *)
-        static let IPTCExtRatingRegionWorldRegion = kCGImagePropertyIPTCExtRatingRegionWorldRegion as String
+        static var IPTCExtRatingRegionWorldRegion:String { return kCGImagePropertyIPTCExtRatingRegionWorldRegion as String }
         @available(iOS 11.3, *)
-        static let IPTCExtRatingScaleMaxValue = kCGImagePropertyIPTCExtRatingScaleMaxValue as String
+        static var IPTCExtRatingScaleMaxValue:String { return kCGImagePropertyIPTCExtRatingScaleMaxValue as String }
         @available(iOS 11.3, *)
-        static let IPTCExtRatingScaleMinValue = kCGImagePropertyIPTCExtRatingScaleMinValue as String
+        static var IPTCExtRatingScaleMinValue:String { return kCGImagePropertyIPTCExtRatingScaleMinValue as String }
         @available(iOS 11.3, *)
-        static let IPTCExtRatingSourceLink = kCGImagePropertyIPTCExtRatingSourceLink as String
+        static var IPTCExtRatingSourceLink:String { return kCGImagePropertyIPTCExtRatingSourceLink as String }
         @available(iOS 11.3, *)
-        static let IPTCExtRatingValue = kCGImagePropertyIPTCExtRatingValue as String
+        static var IPTCExtRatingValue:String { return kCGImagePropertyIPTCExtRatingValue as String }
         @available(iOS 11.3, *)
-        static let IPTCExtRatingValueLogoLink = kCGImagePropertyIPTCExtRatingValueLogoLink as String
+        static var IPTCExtRatingValueLogoLink:String { return kCGImagePropertyIPTCExtRatingValueLogoLink as String }
         @available(iOS 11.3, *)
-        static let IPTCExtRegistryID = kCGImagePropertyIPTCExtRegistryID as String
+        static var IPTCExtRegistryID:String { return kCGImagePropertyIPTCExtRegistryID as String }
         @available(iOS 11.3, *)
-        static let IPTCExtRegistryEntryRole = kCGImagePropertyIPTCExtRegistryEntryRole as String
+        static var IPTCExtRegistryEntryRole:String { return kCGImagePropertyIPTCExtRegistryEntryRole as String }
         @available(iOS 11.3, *)
-        static let IPTCExtRegistryItemID = kCGImagePropertyIPTCExtRegistryItemID as String
+        static var IPTCExtRegistryItemID:String { return kCGImagePropertyIPTCExtRegistryItemID as String }
         @available(iOS 11.3, *)
-        static let IPTCExtRegistryOrganisationID = kCGImagePropertyIPTCExtRegistryOrganisationID as String
+        static var IPTCExtRegistryOrganisationID:String { return kCGImagePropertyIPTCExtRegistryOrganisationID as String }
         @available(iOS 11.3, *)
-        static let IPTCExtReleaseReady = kCGImagePropertyIPTCExtReleaseReady as String
+        static var IPTCExtReleaseReady:String { return kCGImagePropertyIPTCExtReleaseReady as String }
         @available(iOS 11.3, *)
-        static let IPTCExtSeason = kCGImagePropertyIPTCExtSeason as String
+        static var IPTCExtSeason:String { return kCGImagePropertyIPTCExtSeason as String }
         @available(iOS 11.3, *)
-        static let IPTCExtSeasonIdentifier = kCGImagePropertyIPTCExtSeasonIdentifier as String
+        static var IPTCExtSeasonIdentifier:String { return kCGImagePropertyIPTCExtSeasonIdentifier as String }
         @available(iOS 11.3, *)
-        static let IPTCExtSeasonName = kCGImagePropertyIPTCExtSeasonName as String
+        static var IPTCExtSeasonName:String { return kCGImagePropertyIPTCExtSeasonName as String }
         @available(iOS 11.3, *)
-        static let IPTCExtSeasonNumber = kCGImagePropertyIPTCExtSeasonNumber as String
+        static var IPTCExtSeasonNumber:String { return kCGImagePropertyIPTCExtSeasonNumber as String }
         @available(iOS 11.3, *)
-        static let IPTCExtSeries = kCGImagePropertyIPTCExtSeries as String
+        static var IPTCExtSeries:String { return kCGImagePropertyIPTCExtSeries as String }
         @available(iOS 11.3, *)
-        static let IPTCExtSeriesIdentifier = kCGImagePropertyIPTCExtSeriesIdentifier as String
+        static var IPTCExtSeriesIdentifier:String { return kCGImagePropertyIPTCExtSeriesIdentifier as String }
         @available(iOS 11.3, *)
-        static let IPTCExtSeriesName = kCGImagePropertyIPTCExtSeriesName as String
+        static var IPTCExtSeriesName:String { return kCGImagePropertyIPTCExtSeriesName as String }
         @available(iOS 11.3, *)
-        static let IPTCExtStorylineIdentifier = kCGImagePropertyIPTCExtStorylineIdentifier as String
+        static var IPTCExtStorylineIdentifier:String { return kCGImagePropertyIPTCExtStorylineIdentifier as String }
         @available(iOS 11.3, *)
-        static let IPTCExtStreamReady = kCGImagePropertyIPTCExtStreamReady as String
+        static var IPTCExtStreamReady:String { return kCGImagePropertyIPTCExtStreamReady as String }
         @available(iOS 11.3, *)
-        static let IPTCExtStylePeriod = kCGImagePropertyIPTCExtStylePeriod as String
+        static var IPTCExtStylePeriod:String { return kCGImagePropertyIPTCExtStylePeriod as String }
         @available(iOS 11.3, *)
-        static let IPTCExtSupplyChainSource = kCGImagePropertyIPTCExtSupplyChainSource as String
+        static var IPTCExtSupplyChainSource:String { return kCGImagePropertyIPTCExtSupplyChainSource as String }
         @available(iOS 11.3, *)
-        static let IPTCExtSupplyChainSourceIdentifier = kCGImagePropertyIPTCExtSupplyChainSourceIdentifier as String
+        static var IPTCExtSupplyChainSourceIdentifier:String { return kCGImagePropertyIPTCExtSupplyChainSourceIdentifier as String }
         @available(iOS 11.3, *)
-        static let IPTCExtSupplyChainSourceName = kCGImagePropertyIPTCExtSupplyChainSourceName as String
+        static var IPTCExtSupplyChainSourceName:String { return kCGImagePropertyIPTCExtSupplyChainSourceName as String }
         @available(iOS 11.3, *)
-        static let IPTCExtTemporalCoverage = kCGImagePropertyIPTCExtTemporalCoverage as String
+        static var IPTCExtTemporalCoverage:String { return kCGImagePropertyIPTCExtTemporalCoverage as String }
         @available(iOS 11.3, *)
-        static let IPTCExtTemporalCoverageFrom = kCGImagePropertyIPTCExtTemporalCoverageFrom as String
+        static var IPTCExtTemporalCoverageFrom:String { return kCGImagePropertyIPTCExtTemporalCoverageFrom as String }
         @available(iOS 11.3, *)
-        static let IPTCExtTemporalCoverageTo = kCGImagePropertyIPTCExtTemporalCoverageTo as String
+        static var IPTCExtTemporalCoverageTo:String { return kCGImagePropertyIPTCExtTemporalCoverageTo as String }
         @available(iOS 11.3, *)
-        static let IPTCExtTranscript = kCGImagePropertyIPTCExtTranscript as String
+        static var IPTCExtTranscript:String { return kCGImagePropertyIPTCExtTranscript as String }
         @available(iOS 11.3, *)
-        static let IPTCExtTranscriptLink = kCGImagePropertyIPTCExtTranscriptLink as String
+        static var IPTCExtTranscriptLink:String { return kCGImagePropertyIPTCExtTranscriptLink as String }
         @available(iOS 11.3, *)
-        static let IPTCExtTranscriptLinkLink = kCGImagePropertyIPTCExtTranscriptLinkLink as String
+        static var IPTCExtTranscriptLinkLink:String { return kCGImagePropertyIPTCExtTranscriptLinkLink as String }
         @available(iOS 11.3, *)
-        static let IPTCExtTranscriptLinkLinkQualifier = kCGImagePropertyIPTCExtTranscriptLinkLinkQualifier as String
+        static var IPTCExtTranscriptLinkLinkQualifier:String { return kCGImagePropertyIPTCExtTranscriptLinkLinkQualifier as String }
         @available(iOS 11.3, *)
-        static let IPTCExtVideoBitrate = kCGImagePropertyIPTCExtVideoBitrate as String
+        static var IPTCExtVideoBitrate:String { return kCGImagePropertyIPTCExtVideoBitrate as String }
         @available(iOS 11.3, *)
-        static let IPTCExtVideoBitrateMode = kCGImagePropertyIPTCExtVideoBitrateMode as String
+        static var IPTCExtVideoBitrateMode:String { return kCGImagePropertyIPTCExtVideoBitrateMode as String }
         @available(iOS 11.3, *)
-        static let IPTCExtVideoDisplayAspectRatio = kCGImagePropertyIPTCExtVideoDisplayAspectRatio as String
+        static var IPTCExtVideoDisplayAspectRatio:String { return kCGImagePropertyIPTCExtVideoDisplayAspectRatio as String }
         @available(iOS 11.3, *)
-        static let IPTCExtVideoEncodingProfile = kCGImagePropertyIPTCExtVideoEncodingProfile as String
+        static var IPTCExtVideoEncodingProfile:String { return kCGImagePropertyIPTCExtVideoEncodingProfile as String }
         @available(iOS 11.3, *)
-        static let IPTCExtVideoShotType = kCGImagePropertyIPTCExtVideoShotType as String
+        static var IPTCExtVideoShotType:String { return kCGImagePropertyIPTCExtVideoShotType as String }
         @available(iOS 11.3, *)
-        static let IPTCExtVideoShotTypeIdentifier = kCGImagePropertyIPTCExtVideoShotTypeIdentifier as String
+        static var IPTCExtVideoShotTypeIdentifier:String { return kCGImagePropertyIPTCExtVideoShotTypeIdentifier as String }
         @available(iOS 11.3, *)
-        static let IPTCExtVideoShotTypeName = kCGImagePropertyIPTCExtVideoShotTypeName as String
+        static var IPTCExtVideoShotTypeName:String { return kCGImagePropertyIPTCExtVideoShotTypeName as String }
         @available(iOS 11.3, *)
-        static let IPTCExtVideoStreamsCount = kCGImagePropertyIPTCExtVideoStreamsCount as String
+        static var IPTCExtVideoStreamsCount:String { return kCGImagePropertyIPTCExtVideoStreamsCount as String }
         @available(iOS 11.3, *)
-        static let IPTCExtVisualColor = kCGImagePropertyIPTCExtVisualColor as String
+        static var IPTCExtVisualColor:String { return kCGImagePropertyIPTCExtVisualColor as String }
         @available(iOS 11.3, *)
-        static let IPTCExtWorkflowTag = kCGImagePropertyIPTCExtWorkflowTag as String
+        static var IPTCExtWorkflowTag:String { return kCGImagePropertyIPTCExtWorkflowTag as String }
         @available(iOS 11.3, *)
-        static let IPTCExtWorkflowTagCvId = kCGImagePropertyIPTCExtWorkflowTagCvId as String
+        static var IPTCExtWorkflowTagCvId:String { return kCGImagePropertyIPTCExtWorkflowTagCvId as String }
         @available(iOS 11.3, *)
-        static let IPTCExtWorkflowTagCvTermId = kCGImagePropertyIPTCExtWorkflowTagCvTermId as String
+        static var IPTCExtWorkflowTagCvTermId:String { return kCGImagePropertyIPTCExtWorkflowTagCvTermId as String }
         @available(iOS 11.3, *)
-        static let IPTCExtWorkflowTagCvTermName = kCGImagePropertyIPTCExtWorkflowTagCvTermName as String
+        static var IPTCExtWorkflowTagCvTermName:String { return kCGImagePropertyIPTCExtWorkflowTagCvTermName as String }
         @available(iOS 11.3, *)
-        static let IPTCExtWorkflowTagCvTermRefinedAbout = kCGImagePropertyIPTCExtWorkflowTagCvTermRefinedAbout as String
+        static var IPTCExtWorkflowTagCvTermRefinedAbout:String { return kCGImagePropertyIPTCExtWorkflowTagCvTermRefinedAbout as String }
 
 /* Possible keys for kCGImagePropertyIPTCCreatorContactInfo dictionary (part of IPTC Core - above) */
 
-        static let IPTCContactInfoCity = kCGImagePropertyIPTCContactInfoCity as String
-        static let IPTCContactInfoCountry = kCGImagePropertyIPTCContactInfoCountry as String
-        static let IPTCContactInfoAddress = kCGImagePropertyIPTCContactInfoAddress as String
-        static let IPTCContactInfoPostalCode = kCGImagePropertyIPTCContactInfoPostalCode as String
-        static let IPTCContactInfoStateProvince = kCGImagePropertyIPTCContactInfoStateProvince as String
-        static let IPTCContactInfoEmails = kCGImagePropertyIPTCContactInfoEmails as String
-        static let IPTCContactInfoPhones = kCGImagePropertyIPTCContactInfoPhones as String
-        static let IPTCContactInfoWebURLs = kCGImagePropertyIPTCContactInfoWebURLs as String
+        static var IPTCContactInfoCity:String { return kCGImagePropertyIPTCContactInfoCity as String }
+        static var IPTCContactInfoCountry:String { return kCGImagePropertyIPTCContactInfoCountry as String }
+        static var IPTCContactInfoAddress:String { return kCGImagePropertyIPTCContactInfoAddress as String }
+        static var IPTCContactInfoPostalCode:String { return kCGImagePropertyIPTCContactInfoPostalCode as String }
+        static var IPTCContactInfoStateProvince:String { return kCGImagePropertyIPTCContactInfoStateProvince as String }
+        static var IPTCContactInfoEmails:String { return kCGImagePropertyIPTCContactInfoEmails as String }
+        static var IPTCContactInfoPhones:String { return kCGImagePropertyIPTCContactInfoPhones as String }
+        static var IPTCContactInfoWebURLs:String { return kCGImagePropertyIPTCContactInfoWebURLs as String }
 
 /* Possible keys for kCGImageProperty8BIMDictionary */
 
-        static let _8BIMLayerNames = kCGImageProperty8BIMLayerNames as String
+        static var _8BIMLayerNames:String { return kCGImageProperty8BIMLayerNames as String }
         @available(iOS 8.0, *)
-        static let _8BIMVersion = kCGImageProperty8BIMVersion as String
+        static var _8BIMVersion:String { return kCGImageProperty8BIMVersion as String }
 
 /* Possible keys for kCGImagePropertyDNGDictionary */
 
-        static let DNGVersion = kCGImagePropertyDNGVersion as String
-        static let DNGBackwardVersion = kCGImagePropertyDNGBackwardVersion as String
-        static let DNGUniqueCameraModel = kCGImagePropertyDNGUniqueCameraModel as String
-        static let DNGLocalizedCameraModel = kCGImagePropertyDNGLocalizedCameraModel as String
-        static let DNGCameraSerialNumber = kCGImagePropertyDNGCameraSerialNumber as String
-        static let DNGLensInfo = kCGImagePropertyDNGLensInfo as String
+        static var DNGVersion:String { return kCGImagePropertyDNGVersion as String }
+        static var DNGBackwardVersion:String { return kCGImagePropertyDNGBackwardVersion as String }
+        static var DNGUniqueCameraModel:String { return kCGImagePropertyDNGUniqueCameraModel as String }
+        static var DNGLocalizedCameraModel:String { return kCGImagePropertyDNGLocalizedCameraModel as String }
+        static var DNGCameraSerialNumber:String { return kCGImagePropertyDNGCameraSerialNumber as String }
+        static var DNGLensInfo:String { return kCGImagePropertyDNGLensInfo as String }
         @available(iOS 10.0, *)
-        static let DNGBlackLevel = kCGImagePropertyDNGBlackLevel as String
+        static var DNGBlackLevel:String { return kCGImagePropertyDNGBlackLevel as String }
         @available(iOS 10.0, *)
-        static let DNGWhiteLevel = kCGImagePropertyDNGWhiteLevel as String
+        static var DNGWhiteLevel:String { return kCGImagePropertyDNGWhiteLevel as String }
         @available(iOS 10.0, *)
-        static let DNGCalibrationIlluminant1 = kCGImagePropertyDNGCalibrationIlluminant1 as String
+        static var DNGCalibrationIlluminant1:String { return kCGImagePropertyDNGCalibrationIlluminant1 as String }
         @available(iOS 10.0, *)
-        static let DNGCalibrationIlluminant2 = kCGImagePropertyDNGCalibrationIlluminant2 as String
+        static var DNGCalibrationIlluminant2:String { return kCGImagePropertyDNGCalibrationIlluminant2 as String }
         @available(iOS 10.0, *)
-        static let DNGColorMatrix1 = kCGImagePropertyDNGColorMatrix1 as String
+        static var DNGColorMatrix1:String { return kCGImagePropertyDNGColorMatrix1 as String }
         @available(iOS 10.0, *)
-        static let DNGColorMatrix2 = kCGImagePropertyDNGColorMatrix2 as String
+        static var DNGColorMatrix2:String { return kCGImagePropertyDNGColorMatrix2 as String }
         @available(iOS 10.0, *)
-        static let DNGCameraCalibration1 = kCGImagePropertyDNGCameraCalibration1 as String
+        static var DNGCameraCalibration1:String { return kCGImagePropertyDNGCameraCalibration1 as String }
         @available(iOS 10.0, *)
-        static let DNGCameraCalibration2 = kCGImagePropertyDNGCameraCalibration2 as String
+        static var DNGCameraCalibration2:String { return kCGImagePropertyDNGCameraCalibration2 as String }
         @available(iOS 10.0, *)
-        static let DNGAsShotNeutral = kCGImagePropertyDNGAsShotNeutral as String
+        static var DNGAsShotNeutral:String { return kCGImagePropertyDNGAsShotNeutral as String }
         @available(iOS 10.0, *)
-        static let DNGAsShotWhiteXY = kCGImagePropertyDNGAsShotWhiteXY as String
+        static var DNGAsShotWhiteXY:String { return kCGImagePropertyDNGAsShotWhiteXY as String }
         @available(iOS 10.0, *)
-        static let DNGBaselineExposure = kCGImagePropertyDNGBaselineExposure as String
+        static var DNGBaselineExposure:String { return kCGImagePropertyDNGBaselineExposure as String }
         @available(iOS 10.0, *)
-        static let DNGBaselineNoise = kCGImagePropertyDNGBaselineNoise as String
+        static var DNGBaselineNoise:String { return kCGImagePropertyDNGBaselineNoise as String }
         @available(iOS 10.0, *)
-        static let DNGBaselineSharpness = kCGImagePropertyDNGBaselineSharpness as String
+        static var DNGBaselineSharpness:String { return kCGImagePropertyDNGBaselineSharpness as String }
         @available(iOS 10.0, *)
-        static let DNGPrivateData = kCGImagePropertyDNGPrivateData as String
+        static var DNGPrivateData:String { return kCGImagePropertyDNGPrivateData as String }
         @available(iOS 10.0, *)
-        static let DNGCameraCalibrationSignature = kCGImagePropertyDNGCameraCalibrationSignature as String
+        static var DNGCameraCalibrationSignature:String { return kCGImagePropertyDNGCameraCalibrationSignature as String }
         @available(iOS 10.0, *)
-        static let DNGProfileCalibrationSignature = kCGImagePropertyDNGProfileCalibrationSignature as String
+        static var DNGProfileCalibrationSignature:String { return kCGImagePropertyDNGProfileCalibrationSignature as String }
         @available(iOS 10.0, *)
-        static let DNGNoiseProfile = kCGImagePropertyDNGNoiseProfile as String
+        static var DNGNoiseProfile:String { return kCGImagePropertyDNGNoiseProfile as String }
         @available(iOS 10.0, *)
-        static let DNGWarpRectilinear = kCGImagePropertyDNGWarpRectilinear as String
+        static var DNGWarpRectilinear:String { return kCGImagePropertyDNGWarpRectilinear as String }
         @available(iOS 10.0, *)
-        static let DNGWarpFisheye = kCGImagePropertyDNGWarpFisheye as String
+        static var DNGWarpFisheye:String { return kCGImagePropertyDNGWarpFisheye as String }
         @available(iOS 10.0, *)
-        static let DNGFixVignetteRadial = kCGImagePropertyDNGFixVignetteRadial as String
+        static var DNGFixVignetteRadial:String { return kCGImagePropertyDNGFixVignetteRadial as String }
 
 /* Possible keys for kCGImagePropertyCIFFDictionary */
 
-        static let CIFFDescription = kCGImagePropertyCIFFDescription as String
-        static let CIFFFirmware = kCGImagePropertyCIFFFirmware as String
-        static let CIFFOwnerName = kCGImagePropertyCIFFOwnerName as String
-        static let CIFFImageName = kCGImagePropertyCIFFImageName as String
-        static let CIFFImageFileName = kCGImagePropertyCIFFImageFileName as String
-        static let CIFFReleaseMethod = kCGImagePropertyCIFFReleaseMethod as String
-        static let CIFFReleaseTiming = kCGImagePropertyCIFFReleaseTiming as String
-        static let CIFFRecordID = kCGImagePropertyCIFFRecordID as String
-        static let CIFFSelfTimingTime = kCGImagePropertyCIFFSelfTimingTime as String
-        static let CIFFCameraSerialNumber = kCGImagePropertyCIFFCameraSerialNumber as String
-        static let CIFFImageSerialNumber = kCGImagePropertyCIFFImageSerialNumber as String
-        static let CIFFContinuousDrive = kCGImagePropertyCIFFContinuousDrive as String
-        static let CIFFFocusMode = kCGImagePropertyCIFFFocusMode as String
-        static let CIFFMeteringMode = kCGImagePropertyCIFFMeteringMode as String
-        static let CIFFShootingMode = kCGImagePropertyCIFFShootingMode as String
-        static let CIFFLensModel = kCGImagePropertyCIFFLensModel as String
-        static let CIFFLensMaxMM = kCGImagePropertyCIFFLensMaxMM as String
-        static let CIFFLensMinMM = kCGImagePropertyCIFFLensMinMM as String
-        static let CIFFWhiteBalanceIndex = kCGImagePropertyCIFFWhiteBalanceIndex as String
-        static let CIFFFlashExposureComp = kCGImagePropertyCIFFFlashExposureComp as String
-        static let CIFFMeasuredEV = kCGImagePropertyCIFFMeasuredEV as String
+        static var CIFFDescription:String { return kCGImagePropertyCIFFDescription as String }
+        static var CIFFFirmware:String { return kCGImagePropertyCIFFFirmware as String }
+        static var CIFFOwnerName:String { return kCGImagePropertyCIFFOwnerName as String }
+        static var CIFFImageName:String { return kCGImagePropertyCIFFImageName as String }
+        static var CIFFImageFileName:String { return kCGImagePropertyCIFFImageFileName as String }
+        static var CIFFReleaseMethod:String { return kCGImagePropertyCIFFReleaseMethod as String }
+        static var CIFFReleaseTiming:String { return kCGImagePropertyCIFFReleaseTiming as String }
+        static var CIFFRecordID:String { return kCGImagePropertyCIFFRecordID as String }
+        static var CIFFSelfTimingTime:String { return kCGImagePropertyCIFFSelfTimingTime as String }
+        static var CIFFCameraSerialNumber:String { return kCGImagePropertyCIFFCameraSerialNumber as String }
+        static var CIFFImageSerialNumber:String { return kCGImagePropertyCIFFImageSerialNumber as String }
+        static var CIFFContinuousDrive:String { return kCGImagePropertyCIFFContinuousDrive as String }
+        static var CIFFFocusMode:String { return kCGImagePropertyCIFFFocusMode as String }
+        static var CIFFMeteringMode:String { return kCGImagePropertyCIFFMeteringMode as String }
+        static var CIFFShootingMode:String { return kCGImagePropertyCIFFShootingMode as String }
+        static var CIFFLensModel:String { return kCGImagePropertyCIFFLensModel as String }
+        static var CIFFLensMaxMM:String { return kCGImagePropertyCIFFLensMaxMM as String }
+        static var CIFFLensMinMM:String { return kCGImagePropertyCIFFLensMinMM as String }
+        static var CIFFWhiteBalanceIndex:String { return kCGImagePropertyCIFFWhiteBalanceIndex as String }
+        static var CIFFFlashExposureComp:String { return kCGImagePropertyCIFFFlashExposureComp as String }
+        static var CIFFMeasuredEV:String { return kCGImagePropertyCIFFMeasuredEV as String }
 
 /* Possible keys for kCGImagePropertyMakerNikonDictionary */
 
-        static let MakerNikonISOSetting = kCGImagePropertyMakerNikonISOSetting as String
-        static let MakerNikonColorMode = kCGImagePropertyMakerNikonColorMode as String
-        static let MakerNikonQuality = kCGImagePropertyMakerNikonQuality as String
-        static let MakerNikonWhiteBalanceMode = kCGImagePropertyMakerNikonWhiteBalanceMode as String
-        static let MakerNikonSharpenMode = kCGImagePropertyMakerNikonSharpenMode as String
-        static let MakerNikonFocusMode = kCGImagePropertyMakerNikonFocusMode as String
-        static let MakerNikonFlashSetting = kCGImagePropertyMakerNikonFlashSetting as String
-        static let MakerNikonISOSelection = kCGImagePropertyMakerNikonISOSelection as String
-        static let MakerNikonFlashExposureComp = kCGImagePropertyMakerNikonFlashExposureComp as String
-        static let MakerNikonImageAdjustment = kCGImagePropertyMakerNikonImageAdjustment as String
-        static let MakerNikonLensAdapter = kCGImagePropertyMakerNikonLensAdapter as String
-        static let MakerNikonLensType = kCGImagePropertyMakerNikonLensType as String
-        static let MakerNikonLensInfo = kCGImagePropertyMakerNikonLensInfo as String
-        static let MakerNikonFocusDistance = kCGImagePropertyMakerNikonFocusDistance as String
-        static let MakerNikonDigitalZoom = kCGImagePropertyMakerNikonDigitalZoom as String
-        static let MakerNikonShootingMode = kCGImagePropertyMakerNikonShootingMode as String
-        static let MakerNikonCameraSerialNumber = kCGImagePropertyMakerNikonCameraSerialNumber as String
-        static let MakerNikonShutterCount = kCGImagePropertyMakerNikonShutterCount as String
+        static var MakerNikonISOSetting:String { return kCGImagePropertyMakerNikonISOSetting as String }
+        static var MakerNikonColorMode:String { return kCGImagePropertyMakerNikonColorMode as String }
+        static var MakerNikonQuality:String { return kCGImagePropertyMakerNikonQuality as String }
+        static var MakerNikonWhiteBalanceMode:String { return kCGImagePropertyMakerNikonWhiteBalanceMode as String }
+        static var MakerNikonSharpenMode:String { return kCGImagePropertyMakerNikonSharpenMode as String }
+        static var MakerNikonFocusMode:String { return kCGImagePropertyMakerNikonFocusMode as String }
+        static var MakerNikonFlashSetting:String { return kCGImagePropertyMakerNikonFlashSetting as String }
+        static var MakerNikonISOSelection:String { return kCGImagePropertyMakerNikonISOSelection as String }
+        static var MakerNikonFlashExposureComp:String { return kCGImagePropertyMakerNikonFlashExposureComp as String }
+        static var MakerNikonImageAdjustment:String { return kCGImagePropertyMakerNikonImageAdjustment as String }
+        static var MakerNikonLensAdapter:String { return kCGImagePropertyMakerNikonLensAdapter as String }
+        static var MakerNikonLensType:String { return kCGImagePropertyMakerNikonLensType as String }
+        static var MakerNikonLensInfo:String { return kCGImagePropertyMakerNikonLensInfo as String }
+        static var MakerNikonFocusDistance:String { return kCGImagePropertyMakerNikonFocusDistance as String }
+        static var MakerNikonDigitalZoom:String { return kCGImagePropertyMakerNikonDigitalZoom as String }
+        static var MakerNikonShootingMode:String { return kCGImagePropertyMakerNikonShootingMode as String }
+        static var MakerNikonCameraSerialNumber:String { return kCGImagePropertyMakerNikonCameraSerialNumber as String }
+        static var MakerNikonShutterCount:String { return kCGImagePropertyMakerNikonShutterCount as String }
 
 /* Possible keys for kCGImagePropertyMakerCanonDictionary */
 
-        static let MakerCanonOwnerName = kCGImagePropertyMakerCanonOwnerName as String
-        static let MakerCanonCameraSerialNumber = kCGImagePropertyMakerCanonCameraSerialNumber as String
-        static let MakerCanonImageSerialNumber = kCGImagePropertyMakerCanonImageSerialNumber as String
-        static let MakerCanonFlashExposureComp = kCGImagePropertyMakerCanonFlashExposureComp as String
-        static let MakerCanonContinuousDrive = kCGImagePropertyMakerCanonContinuousDrive as String
-        static let MakerCanonLensModel = kCGImagePropertyMakerCanonLensModel as String
-        static let MakerCanonFirmware = kCGImagePropertyMakerCanonFirmware as String
-        static let MakerCanonAspectRatioInfo = kCGImagePropertyMakerCanonAspectRatioInfo as String
+        static var MakerCanonOwnerName:String { return kCGImagePropertyMakerCanonOwnerName as String }
+        static var MakerCanonCameraSerialNumber:String { return kCGImagePropertyMakerCanonCameraSerialNumber as String }
+        static var MakerCanonImageSerialNumber:String { return kCGImagePropertyMakerCanonImageSerialNumber as String }
+        static var MakerCanonFlashExposureComp:String { return kCGImagePropertyMakerCanonFlashExposureComp as String }
+        static var MakerCanonContinuousDrive:String { return kCGImagePropertyMakerCanonContinuousDrive as String }
+        static var MakerCanonLensModel:String { return kCGImagePropertyMakerCanonLensModel as String }
+        static var MakerCanonFirmware:String { return kCGImagePropertyMakerCanonFirmware as String }
+        static var MakerCanonAspectRatioInfo:String { return kCGImagePropertyMakerCanonAspectRatioInfo as String }
 
 /* Possible keys for kCGImagePropertyOpenEXRDictionary */
 
         @available(iOS 11.3, *)
-        static let OpenEXRAspectRatio = kCGImagePropertyOpenEXRAspectRatio as String
+        static var OpenEXRAspectRatio:String { return kCGImagePropertyOpenEXRAspectRatio as String }
 
 /*
  * Allows client to choose the filters applied before PNG compression
@@ -866,15 +866,15 @@ public struct ImageMetadata {
  * This value has no effect when compressing to any format other than PNG
  */
         @available(iOS 9.0, *)
-        static let PNGCompressionFilter = kCGImagePropertyPNGCompressionFilter as String
+        static var PNGCompressionFilter:String { return kCGImagePropertyPNGCompressionFilter as String }
 
 /* For use with CGImageSourceCopyAuxiliaryDataInfoAtIndex and CGImageDestinationAddAuxiliaryDataInfo:
  * These strings specify the 'auxiliaryImageDataType':
  */
         @available(iOS 11.0, *)
-        static let AuxiliaryDataTypeDepth = kCGImageAuxiliaryDataTypeDepth  as String
+        static var AuxiliaryDataTypeDepth:String { return kCGImageAuxiliaryDataTypeDepth as String }
         @available(iOS 11.0, *)
-        static let AuxiliaryDataTypeDisparity = kCGImageAuxiliaryDataTypeDisparity  as String
+        static var AuxiliaryDataTypeDisparity:String { return kCGImageAuxiliaryDataTypeDisparity as String }
 
 /* Depth/Disparity data support for JPEG, HEIF, and DNG images:
  * CGImageSourceCopyAuxiliaryDataInfoAtIndex and CGImageDestinationAddAuxiliaryDataInfo will use these keys in the dictionary:
@@ -883,36 +883,38 @@ public struct ImageMetadata {
  * kCGImageAuxiliaryDataInfoMetadata - metadata (CGImageMetadataRef)
  */
         @available(iOS 11.0, *)
-        static let AuxiliaryDataInfoData = kCGImageAuxiliaryDataInfoData  as String
+        static var AuxiliaryDataInfoData:String { return kCGImageAuxiliaryDataInfoData as String }
         @available(iOS 11.0, *)
-        static let AuxiliaryDataInfoDataDescription = kCGImageAuxiliaryDataInfoDataDescription  as String
+        static var AuxiliaryDataInfoDataDescription:String { return kCGImageAuxiliaryDataInfoDataDescription as String }
         @available(iOS 11.0, *)
-        static let AuxiliaryDataInfoMetadata = kCGImageAuxiliaryDataInfoMetadata  as String
+        static var AuxiliaryDataInfoMetadata:String { return kCGImageAuxiliaryDataInfoMetadata as String }
 
         @available(iOS 11.0, *)
-        static let ImageCount = kCGImagePropertyImageCount as String
+        static var ImageCount:String { return kCGImagePropertyImageCount as String }
         @available(iOS 11.0, *)
-        static let Width = kCGImagePropertyWidth as String
+        static var Width:String { return kCGImagePropertyWidth as String }
         @available(iOS 11.0, *)
-        static let Height = kCGImagePropertyHeight as String
+        static var Height:String { return kCGImagePropertyHeight as String }
         @available(iOS 11.0, *)
-        static let BytesPerRow = kCGImagePropertyBytesPerRow as String
+        static var BytesPerRow:String { return kCGImagePropertyBytesPerRow as String }
         @available(iOS 11.0, *)
-        static let NamedColorSpace = kCGImagePropertyNamedColorSpace as String
+        static var NamedColorSpace:String { return kCGImagePropertyNamedColorSpace as String }
         @available(iOS 11.0, *)
-        static let PixelFormat = kCGImagePropertyPixelFormat as String
+        static var PixelFormat:String { return kCGImagePropertyPixelFormat as String }
         @available(iOS 11.0, *)
-        static let Images = kCGImagePropertyImages as String
+        static var Images:String { return kCGImagePropertyImages as String }
         @available(iOS 11.0, *)
-        static let ThumbnailImages = kCGImagePropertyThumbnailImages as String
+        static var ThumbnailImages:String { return kCGImagePropertyThumbnailImages as String }
         @available(iOS 11.0, *)
-        static let AuxiliaryData = kCGImagePropertyAuxiliaryData as String
+        static var AuxiliaryData:String { return kCGImagePropertyAuxiliaryData as String }
         @available(iOS 11.0, *)
-        static let AuxiliaryDataType = kCGImagePropertyAuxiliaryDataType as String
+        static var AuxiliaryDataType:String { return kCGImagePropertyAuxiliaryDataType as String }
     }
 
     public struct PropertyApple {
-        static let supportedDictionaries:[String] = [Dictionary.TIFF, Dictionary.Exif, Dictionary.GPS]
+        static var supportedDictionaries: [String] {
+            return [Dictionary.TIFF, Dictionary.Exif, Dictionary.GPS]
+        }
 
 /*
 iPhone X
@@ -933,38 +935,42 @@ iPhone X
 29 DateStamp
 31 HPositioningError
 */
-        static let GPS:[String] = [Property.GPSVersion,
-                                   Property.GPSLatitudeRef,
-                                   Property.GPSLatitude,
-                                   Property.GPSLongitudeRef,
-                                   Property.GPSLongitude,
-                                   Property.GPSAltitudeRef,
-                                   Property.GPSAltitude,
-                                   Property.GPSTimeStamp,
-                                   Property.GPSSatellites,
-                                   Property.GPSStatus,
-                                   Property.GPSMeasureMode,
-                                   Property.GPSDOP,
-                                   Property.GPSSpeedRef,
-                                   Property.GPSSpeed,
-                                   Property.GPSTrackRef,
-                                   Property.GPSTrack,
-                                   Property.GPSImgDirectionRef,
-                                   Property.GPSImgDirection,
-                                   Property.GPSMapDatum,
-                                   Property.GPSDestLatitudeRef,
-                                   Property.GPSDestLatitude,
-                                   Property.GPSDestLongitudeRef,
-                                   Property.GPSDestLongitude,
-                                   Property.GPSDestBearingRef,
-                                   Property.GPSDestBearing,
-                                   Property.GPSDestDistanceRef,
-                                   Property.GPSDestDistance,
-                                   Property.GPSProcessingMethod,
-                                   Property.GPSAreaInformation,
-                                   Property.GPSDateStamp,
-                                   Property.GPSDifferental,
-                                   Property.GPSHPositioningError]
+        static var GPS: [String] {
+            return [
+                Property.GPSVersion,
+                    Property.GPSLatitudeRef,
+                    Property.GPSLatitude,
+                    Property.GPSLongitudeRef,
+                    Property.GPSLongitude,
+                    Property.GPSAltitudeRef,
+                    Property.GPSAltitude,
+                    Property.GPSTimeStamp,
+                    Property.GPSSatellites,
+                    Property.GPSStatus,
+                    Property.GPSMeasureMode,
+                    Property.GPSDOP,
+                    Property.GPSSpeedRef,
+                    Property.GPSSpeed,
+                    Property.GPSTrackRef,
+                    Property.GPSTrack,
+                    Property.GPSImgDirectionRef,
+                    Property.GPSImgDirection,
+                    Property.GPSMapDatum,
+                    Property.GPSDestLatitudeRef,
+                    Property.GPSDestLatitude,
+                    Property.GPSDestLongitudeRef,
+                    Property.GPSDestLongitude,
+                    Property.GPSDestBearingRef,
+                    Property.GPSDestBearing,
+                    Property.GPSDestDistanceRef,
+                    Property.GPSDestDistance,
+                    Property.GPSProcessingMethod,
+                    Property.GPSAreaInformation,
+                    Property.GPSDateStamp,
+                    Property.GPSDifferental,
+                    Property.GPSHPositioningError
+            ]
+        }
 
 
 /*
@@ -1002,75 +1008,79 @@ iPhone X
 65, 'LensMake'
 66, 'LensModel'
 */
-        static let EXIF:[String] = [Property.ExifExposureTime,
-                                    Property.ExifFNumber,
-                                    Property.ExifExposureProgram,
-                                    Property.ExifSpectralSensitivity,
-                                    Property.ExifISOSpeedRatings,
-                                    Property.ExifOECF,
-                                    Property.ExifSensitivityType,
-                                    Property.ExifStandardOutputSensitivity,
-                                    Property.ExifRecommendedExposureIndex,
-                                    Property.ExifISOSpeed,
-                                    Property.ExifISOSpeedLatitudeyyy,
-                                    Property.ExifISOSpeedLatitudezzz,
-                                    Property.ExifVersion,
-                                    Property.ExifDateTimeOriginal,
-                                    Property.ExifDateTimeDigitized,
-                                    Property.ExifComponentsConfiguration,
-                                    Property.ExifCompressedBitsPerPixel,
-                                    Property.ExifShutterSpeedValue,
-                                    Property.ExifApertureValue,
-                                    Property.ExifBrightnessValue,
-                                    Property.ExifExposureBiasValue,
-                                    Property.ExifMaxApertureValue,
-                                    Property.ExifSubjectDistance,
-                                    Property.ExifMeteringMode,
-                                    Property.ExifLightSource,
-                                    Property.ExifFlash,
-                                    Property.ExifFocalLength,
-                                    Property.ExifSubjectArea,
-                                    Property.ExifMakerNote,
-                                    Property.ExifUserComment,
-                                    Property.ExifSubsecTime,
-                                    Property.ExifSubsecTimeOriginal,
-                                    Property.ExifSubsecTimeDigitized,
-                                    Property.ExifFlashPixVersion,
-                                    Property.ExifColorSpace,
-                                    Property.ExifPixelXDimension,
-                                    Property.ExifPixelYDimension,
-                                    Property.ExifRelatedSoundFile,
-                                    Property.ExifFlashEnergy,
-                                    Property.ExifSpatialFrequencyResponse,
-                                    Property.ExifFocalPlaneXResolution,
-                                    Property.ExifFocalPlaneYResolution,
-                                    Property.ExifFocalPlaneResolutionUnit,
-                                    Property.ExifSubjectLocation,
-                                    Property.ExifExposureIndex,
-                                    Property.ExifSensingMethod,
-                                    Property.ExifFileSource,
-                                    Property.ExifSceneType,
-                                    Property.ExifCFAPattern,
-                                    Property.ExifCustomRendered,
-                                    Property.ExifExposureMode,
-                                    Property.ExifWhiteBalance,
-                                    Property.ExifDigitalZoomRatio,
-                                    Property.ExifFocalLenIn35mmFilm,
-                                    Property.ExifSceneCaptureType,
-                                    Property.ExifGainControl,
-                                    Property.ExifContrast,
-                                    Property.ExifSaturation,
-                                    Property.ExifSharpness,
-                                    Property.ExifDeviceSettingDescription,
-                                    Property.ExifSubjectDistRange,
-                                    Property.ExifImageUniqueID,
-                                    Property.ExifCameraOwnerName,
-                                    Property.ExifBodySerialNumber,
-                                    Property.ExifLensSpecification,
-                                    Property.ExifLensMake,
-                                    Property.ExifLensModel,
-                                    Property.ExifLensSerialNumber,
-                                    Property.ExifGamma]
+        static var EXIF: [String] {
+            return [
+                Property.ExifExposureTime,
+                Property.ExifFNumber,
+                Property.ExifExposureProgram,
+                Property.ExifSpectralSensitivity,
+                Property.ExifISOSpeedRatings,
+                Property.ExifOECF,
+                Property.ExifSensitivityType,
+                Property.ExifStandardOutputSensitivity,
+                Property.ExifRecommendedExposureIndex,
+                Property.ExifISOSpeed,
+                Property.ExifISOSpeedLatitudeyyy,
+                Property.ExifISOSpeedLatitudezzz,
+                Property.ExifVersion,
+                Property.ExifDateTimeOriginal,
+                Property.ExifDateTimeDigitized,
+                Property.ExifComponentsConfiguration,
+                Property.ExifCompressedBitsPerPixel,
+                Property.ExifShutterSpeedValue,
+                Property.ExifApertureValue,
+                Property.ExifBrightnessValue,
+                Property.ExifExposureBiasValue,
+                Property.ExifMaxApertureValue,
+                Property.ExifSubjectDistance,
+                Property.ExifMeteringMode,
+                Property.ExifLightSource,
+                Property.ExifFlash,
+                Property.ExifFocalLength,
+                Property.ExifSubjectArea,
+                Property.ExifMakerNote,
+                Property.ExifUserComment,
+                Property.ExifSubsecTime,
+                Property.ExifSubsecTimeOriginal,
+                Property.ExifSubsecTimeDigitized,
+                Property.ExifFlashPixVersion,
+                Property.ExifColorSpace,
+                Property.ExifPixelXDimension,
+                Property.ExifPixelYDimension,
+                Property.ExifRelatedSoundFile,
+                Property.ExifFlashEnergy,
+                Property.ExifSpatialFrequencyResponse,
+                Property.ExifFocalPlaneXResolution,
+                Property.ExifFocalPlaneYResolution,
+                Property.ExifFocalPlaneResolutionUnit,
+                Property.ExifSubjectLocation,
+                Property.ExifExposureIndex,
+                Property.ExifSensingMethod,
+                Property.ExifFileSource,
+                Property.ExifSceneType,
+                Property.ExifCFAPattern,
+                Property.ExifCustomRendered,
+                Property.ExifExposureMode,
+                Property.ExifWhiteBalance,
+                Property.ExifDigitalZoomRatio,
+                Property.ExifFocalLenIn35mmFilm,
+                Property.ExifSceneCaptureType,
+                Property.ExifGainControl,
+                Property.ExifContrast,
+                Property.ExifSaturation,
+                Property.ExifSharpness,
+                Property.ExifDeviceSettingDescription,
+                Property.ExifSubjectDistRange,
+                Property.ExifImageUniqueID,
+                Property.ExifCameraOwnerName,
+                Property.ExifBodySerialNumber,
+                Property.ExifLensSpecification,
+                Property.ExifLensMake,
+                Property.ExifLensModel,
+                Property.ExifLensSerialNumber,
+                Property.ExifGamma
+            ]
+        }
 
 /*
 iPhone X
@@ -1086,27 +1096,30 @@ DateTime = "2018:04:15 15:46:13";
     XResolution = 72;
     YResolution = 72;
 */
-        static let TIFF:[String] = [
-            Property.TIFFCompression
-            , Property.TIFFPhotometricInterpretation
-            , Property.TIFFDocumentName
-            , Property.TIFFImageDescription
-            , Property.TIFFMake
-            , Property.TIFFModel
-            , Property.TIFFOrientation
-            , Property.TIFFXResolution
-            , Property.TIFFYResolution
-            , Property.TIFFResolutionUnit
-            , Property.TIFFSoftware
-            , Property.TIFFTransferFunction
-            , Property.TIFFDateTime
-            , Property.TIFFArtist
-            , Property.TIFFHostComputer
-            , Property.TIFFCopyright
-            , Property.TIFFWhitePoint
-            , Property.TIFFPrimaryChromaticities
-            , Property.TIFFTileWidth
-            , Property.TIFFTileLength]
+        static var TIFF: [String] {
+            return [
+                Property.TIFFCompression
+                , Property.TIFFPhotometricInterpretation
+                , Property.TIFFDocumentName
+                , Property.TIFFImageDescription
+                , Property.TIFFMake
+                , Property.TIFFModel
+                , Property.TIFFOrientation
+                , Property.TIFFXResolution
+                , Property.TIFFYResolution
+                , Property.TIFFResolutionUnit
+                , Property.TIFFSoftware
+                , Property.TIFFTransferFunction
+                , Property.TIFFDateTime
+                , Property.TIFFArtist
+                , Property.TIFFHostComputer
+                , Property.TIFFCopyright
+                , Property.TIFFWhitePoint
+                , Property.TIFFPrimaryChromaticities
+                , Property.TIFFTileWidth
+                , Property.TIFFTileLength
+            ]
+        }
     }
 }
 

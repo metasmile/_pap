@@ -24,24 +24,26 @@ Speed: 0.071
 Speed Reference: Kilometers per hour
 Time Stamp: 13:37:15 UTC
 */
-        static let GPS:[String:String] = [
-            Property.GPSDateStamp as String : "Date Stamp",
-            Property.GPSAltitudeRef as String : "Altitude",
-            Property.GPSAltitude as String : "Altitude Reference",
-            Property.GPSDestBearing as String : "Destination Bearing",
-            Property.GPSDestBearingRef as String : "Destination Bearing Reference",
-            Property.GPSHPositioningError as String : "Horizontal Positioning Error",
-            Property.GPSImgDirection as String: "Image Direction",
-            Property.GPSImgDirectionRef as String: "Image Direction Reference",
-            Property.GPSLatitude as String : "Latitude",
-            Property.GPSLatitudeRef as String : "Latitude Reference",
-            Property.GPSLongitude as String : "Longitude",
-            Property.GPSLongitudeRef as String : "Longitude Reference",
-            Property.GPSSpeed as String : "Speed",
-            Property.GPSSpeedRef as String : "Speed Reference",
-            Property.GPSTimeStamp as String : "Time Stamp",
-            Property.GPSDifferental as String : "Differental",
-        ]
+        static var GPS:[String:String] {
+            return [
+                Property.GPSDateStamp as String : "Date Stamp",
+                Property.GPSAltitudeRef as String : "Altitude",
+                Property.GPSAltitude as String : "Altitude Reference",
+                Property.GPSDestBearing as String : "Destination Bearing",
+                Property.GPSDestBearingRef as String : "Destination Bearing Reference",
+                Property.GPSHPositioningError as String : "Horizontal Positioning Error",
+                Property.GPSImgDirection as String: "Image Direction",
+                Property.GPSImgDirectionRef as String: "Image Direction Reference",
+                Property.GPSLatitude as String : "Latitude",
+                Property.GPSLatitudeRef as String : "Latitude Reference",
+                Property.GPSLongitude as String : "Longitude",
+                Property.GPSLongitudeRef as String : "Longitude Reference",
+                Property.GPSSpeed as String : "Speed",
+                Property.GPSSpeedRef as String : "Speed Reference",
+                Property.GPSTimeStamp as String : "Time Stamp",
+                Property.GPSDifferental as String : "Differental",
+            ]
+        }
 
 /*
 Aperture Value: 1.696
@@ -74,9 +76,11 @@ Sub-second Time Digitized: 772
 Sub-second Time Original: 772
 White Balance: Auto white balance
 */
-        static let Exif:[String:String] = [
-            "":""
-        ]
+        static var Exif:[String:String] {
+            return [
+                "":""
+            ]
+        }
 
 /*
 Date Time: 7 Apr 2018 at 3:37:16 PM
@@ -88,17 +92,19 @@ Software: 11.3
 X Resolution: 72
 Y Resolution: 72
 */
-        static let TIFF:[String:String] = [
-            Property.TIFFDateTime as String : "Date Time",
-            Property.TIFFMake as String : "Make",
-            Property.TIFFModel as String : "Model",
-            Property.TIFFOrientation as String : "Orientation",
-            Property.TIFFResolutionUnit as String : "Resolution Unit",
-            Property.TIFFSoftware as String : "Software",
-            Property.TIFFTileLength as String : "Tile Length",
-            Property.TIFFTileWidth as String : "Tile Width",
-            Property.TIFFXResolution as String : "X Resolution",
-            Property.TIFFYResolution as String : "Y Resolution"
-        ]
+        static var TIFF:[String:String] {
+            return [
+                Property.TIFFDateTime as String : "Date Time",
+                Property.TIFFMake as String : "Make",
+                Property.TIFFModel as String : "Model",
+                Property.TIFFOrientation as String : "Orientation",
+                Property.TIFFResolutionUnit as String : "Resolution Unit",
+                Property.TIFFSoftware as String : "Software",
+                Property.TIFFTileLength as String : "Tile Length",
+                Property.TIFFTileWidth as String : "Tile Width",
+                Property.TIFFXResolution as String : "X Resolution",
+                Property.TIFFYResolution as String : "Y Resolution"
+            ]
+        }
     }
 }
