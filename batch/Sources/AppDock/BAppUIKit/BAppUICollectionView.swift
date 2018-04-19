@@ -177,7 +177,7 @@ class BAppUICollectionViewCell: CustomCollectionViewCell {
     }
     
     private func layoutContents() {
-        titleLabelHeightLayout.constant = imageView.image == nil ? contentView.bounds.height : (titleLabel.text?.count == 0 ? 0 : 24)
+        titleLabelHeightLayout.constant = imageView.image == nil ? contentView.bounds.height : ((titleLabel.text?.count ?? 0) > 0 ? 24 : 0)
         titleLabel.layoutIfNeeded()
     }
     

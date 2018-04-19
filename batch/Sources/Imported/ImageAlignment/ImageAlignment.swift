@@ -41,7 +41,7 @@ public extension UIImage {
     @objc
     public func stabilizeHomographic(with image: UIImage) -> UIImage {
         guard let matrix = ImageAlignment.homographicTransform(image, onto: self) else { return self }
-        guard let warppedImage = CIImage(image: self)?.applyWarp(matrix: matrix), let cgimage = ImageAlignment.sharedCIContext.createCGImage(warppedImage, from: warppedImage.extent) else { return self }
+        guard let warppedImage = CIImage(image: self)?.applyHomographic(matrix: matrix), let cgimage = ImageAlignment.sharedCIContext.createCGImage(warppedImage, from: warppedImage.extent) else { return self }
         return UIImage(cgImage: cgimage)
     }
 
@@ -67,7 +67,7 @@ public extension CIImage {
     @objc
     public func stabilizeHomographic(with image: CIImage) -> CIImage {
         guard let matrix = ImageAlignment.homographicTransform(image, onto: self) else { return self }
-        guard let warppedImage = self.applyWarp(matrix: matrix) else { return self }
+        guard let warppedImage = self.applyHomographic(matrix: matrix) else { return self }
         return warppedImage
     }
     
@@ -76,7 +76,6 @@ public extension CIImage {
         guard let transform = ImageAlignment.translationTransform(image, onto: self) else { return self }
         guard let transformedImage = self.applyTranslation(CGPoint(x: transform.tx, y: transform.ty)) else { return self }
         return transformedImage
-//        return self.transformed(by: transform)
     }
 }
 
@@ -136,28 +135,34 @@ extension ImageAlignment {
     }
 }
 
+private struct Kernels {
+    static let translation: CIWarpKernel? = {
+        guard let url = Bundle.main.url(forResource: "default", withExtension: "metallib"), let data = try? Data(contentsOf: url) else { return nil }
+        return try? CIWarpKernel(functionName: "warpTranslation", fromMetalLibraryData: data)
+    }()
+    
+    static let homographic: CIWarpKernel? = {
+        guard let url = Bundle.main.url(forResource: "default", withExtension: "metallib"), let data = try? Data(contentsOf: url) else { return nil }
+        return try? CIWarpKernel(functionName: "warpHomographic", fromMetalLibraryData: data)
+    }()
+}
+
 @available(iOS 11.0, *)
 extension CIImage {
-    func applyWarp(matrix: matrix_float3x3) -> CIImage? {
-        guard let url = Bundle.main.url(forResource: "default", withExtension: "metallib"), let data = try? Data(contentsOf: url) else { return nil }
-        
-        let kernel = try? CIWarpKernel(functionName: "warpHomography", fromMetalLibraryData: data)
-        return kernel?.apply(extent: extent, roiCallback: { index, rect in
+    func applyHomographic(matrix: matrix_float3x3) -> CIImage? {
+        return Kernels.homographic?.apply(extent: extent, roiCallback: { index, rect in
             return rect
         }, image: self, arguments: [
             CIVector(float3x3: matrix)
-        ])
+        ]) ?? self
     }
     
     func applyTranslation(_ translation: CGPoint) -> CIImage? {
-        guard let url = Bundle.main.url(forResource: "default", withExtension: "metallib"), let data = try? Data(contentsOf: url) else { return nil }
-        
-        let kernel = try? CIWarpKernel(functionName: "translate", fromMetalLibraryData: data)
-        return kernel?.apply(extent: extent, roiCallback: { index, rect in
+        return Kernels.translation?.apply(extent: extent, roiCallback: { index, rect in
             return rect
         }, image: self, arguments: [
             CIVector(cgPoint: translation)
-        ])
+        ]) ?? self
     }
 }
 
