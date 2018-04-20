@@ -9,32 +9,49 @@ PODS:
   - FirebaseAnalytics (4.2.0):
     - FirebaseCore (~> 4.0)
     - FirebaseInstanceID (~> 2.0)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
     - nanopb (~> 0.3)
   - FirebaseCore (4.0.20):
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
   - FirebaseInstanceID (2.0.10):
     - FirebaseCore (~> 4.0)
   - GoogleToolboxForMac/Defines (2.1.3)
-  - GoogleToolboxForMac/NSData+zlib (2.1.3):
+  - "GoogleToolboxForMac/NSData+zlib (2.1.3)":
     - GoogleToolboxForMac/Defines (= 2.1.3)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
-  - PDFGenerator (2.1)
   - R.swift (4.0.0):
     - R.swift.Library (~> 4.0.0)
   - R.swift.Library (4.0.0)
+  - SwiftLint (0.25.1)
+  - TPPDF (1.0.1):
+    - SwiftLint
 
 DEPENDENCIES:
   - Crashlytics
   - DefaultsKit (from `https://github.com/metasmile/DefaultsKit`)
   - Fabric
   - Firebase/Core
-  - PDFGenerator (~> 2.1)
   - R.swift
+  - TPPDF
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Crashlytics
+    - Fabric
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseInstanceID
+    - GoogleToolboxForMac
+    - nanopb
+    - R.swift
+    - R.swift.Library
+    - SwiftLint
+    - TPPDF
 
 EXTERNAL SOURCES:
   DefaultsKit:
@@ -55,10 +72,11 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 8d20d890d65c917f9f7d9950b6e10a760ad34321
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  PDFGenerator: 4fd5db4972465679f4846a9a36d53e8826536a6d
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
+  SwiftLint: ce933681be10c3266e82576dad676fa815a602e9
+  TPPDF: c7cad1d7b64b65ff29a4dce1f2566cfcbff9ffb0
 
-PODFILE CHECKSUM: 34db9fff5bea9d64f1e8d2af3b06ef054176e102
+PODFILE CHECKSUM: bc80b7ab000f0d2377cdc013752df02d26812eb5
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0

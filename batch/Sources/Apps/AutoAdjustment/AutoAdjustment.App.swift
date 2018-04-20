@@ -182,8 +182,6 @@ private class _AutoAdjustmentAppTask: TaskPrototype, Taskable {
 AutoAdjustmentAppDockContent
 */
 import DefaultsKit
-
-
 private protocol AutoAdjustmentAppDefaults: AppDefaults{
     var autoAdjustmentOptions: [String:Bool] {get set}
 }
