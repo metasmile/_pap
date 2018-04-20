@@ -5,7 +5,7 @@
 
 import Foundation
 import Photos
-import PDFGenerator
+import TPPDF // https://github.com/Techprimate/TPPDF 👍
 import UIKit
 
 /*
@@ -18,7 +18,8 @@ FinalizableApp Common Share ActivityViewController
 
 private struct PDFactoryPHAssetResult: TaskResultable{
     public var asset: PHAsset
-    public var imageToRender: UIImage
+    public var renderPixelSize: CGSize
+    public var renderImage: UIImage
 }
 
 public class PDFactory: App, PersistableApp, FinalizableApp, PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp {
@@ -39,10 +40,6 @@ public class PDFactory: App, PersistableApp, FinalizableApp, PhotoPickerViewCont
 
     public required init() {}
 
-    public var finalizingOptions: [PHAssetFinalizingOption]{
-        return [.delete]
-    }
-
     public var doneButtonTitle: String?{
         return "Create %@".localizedFormatted("PDF")
     }
@@ -55,11 +52,15 @@ public class PDFactory: App, PersistableApp, FinalizableApp, PhotoPickerViewCont
         return "Creating PDF Pages...".localized
     }
 
-    public lazy var numberOfItemsShouldSelect: Int? = 3 //for test
+    public lazy var numberOfItemsShouldSelect: Int? = 20 //for test
 
     public func shouldSelect(item: AppAsset) -> Bool {
         //for test
         return item.asset.mediaType == .image
+    }
+
+    public var finalizingOptions: [PHAssetFinalizingOption]{
+        return [.custom]
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
@@ -73,26 +74,52 @@ public class PDFactory: App, PersistableApp, FinalizableApp, PhotoPickerViewCont
         }
 
         do {
+            let layout = PDFPageFormat.a4.layout
+            let document = PDFDocument(layout: layout)
 
-            let page = resultItems.map { result -> PDFPage in
-                return PDFPage.image(result.imageToRender)
+            for (i, item) in resultItems.enumerated(){
+                let pdfImage = PDFImage(image: item.renderImage, caption: nil, size: .zero, sizeFit: PDFImageSizeFit.widthHeight)
+                document.addImage(image: pdfImage)
+
+                if i < resultItems.count-1{
+                    document.createNewPage()
+                }
             }
 
-            let path = NSTemporaryDirectory().appending("exported_\(String(describing: type(of: self)))")
-            try PDFGenerator.generate(page, to: path)
+            /*
+            let images = [
+                PDFImage(image: UIImage(named: "Image-1.jpg")!,
+                         caption: PDFAttributedText(text: NSAttributedString(string: "In this picture you can see a beautiful waterfall!", attributes: captionAttributes))),
+                PDFImage(image: UIImage(named: "Image-2.jpg")!,
+                         caption: PDFAttributedText(text: NSAttributedString(string: "Forrest", attributes: captionAttributes))),
+            ]
 
-            if FileManager.default.fileExists(atPath: path) == false {
+            document.addImagesInRow(images: images, spacing: 10)
+
+            list.addItem(PDFListItem(symbol: .numbered(value: nil))
+            .addItem(PDFListItem(content: "Introduction")
+                .addItem(PDFListItem(symbol: .numbered(value: nil))
+                    .addItem(PDFListItem(content: "Text"))
+                    .addItem(PDFListItem(content: "Attributed Text"))
+                ))
+            .addItem(PDFListItem(content: "Usage")))
+            */
+
+            let pdfURL = try PDFGenerator.generateURL(document: document, filename: "exported_\(String(describing: type(of: self))).pdf")
+
+            if FileManager.default.fileExists(atPath: pdfURL.path) == false {
                 throw "\(#function)_\(#file)"
             }
 
-            guard let data = NSData(contentsOfFile: path) else {
+            guard let data = NSData(contentsOfFile: pdfURL.path) else {
                 throw "\(#function)_\(#file)"
             }
+
+            let pdfData = try Data(contentsOf: pdfURL)
 
             asyncSignal.begin()
             DispatchQueue.main.async {
-
-                let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+                let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [pdfData], applicationActivities: nil)
                 activityViewController.completionWithItemsHandler = { (activityType:UIActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
                     asyncSignal.end()
                 }
@@ -140,7 +167,8 @@ private class _PDFactoryTask: TaskPrototype, Taskable {
 
             async?.begin()
 
-            let imageRequestID = PHImageManager.default().requestImage(for: asset, targetSize: PDFPageSize.A4, contentMode: .default, options: _pdfImageRequestOptions) { (image, info) in
+            let imagePixelSize = PDFPageFormat.a4.ansiSize.applying(CGAffineTransform(scaleX: 2, y: 2))
+            let imageRequestID = PHImageManager.default().requestImage(for: asset, targetSize: imagePixelSize, contentMode: .aspectFit, options: _pdfImageRequestOptions) { (image, info) in
                 renderImage = image
                 async?.end()
             }
@@ -149,7 +177,7 @@ private class _PDFactoryTask: TaskPrototype, Taskable {
             async?.waitUntilEnd()
 
             if let image = renderImage{
-                return PDFactoryPHAssetResult(asset: asset, imageToRender: image)
+                return PDFactoryPHAssetResult(asset: asset, renderPixelSize: imagePixelSize, renderImage:image)
             }
         }
         return nil

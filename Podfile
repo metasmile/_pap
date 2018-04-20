@@ -16,6 +16,6 @@ target 'batch' do
   end
 
   # com.stells.batch.pdfactory
-  pod 'PDFGenerator', '~> 2.1'
+  pod 'TPPDF'
 end
 
