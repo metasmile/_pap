@@ -36,17 +36,35 @@ public class AutoAdjustmentApp: NSObject, BatchApp, KeyPathWatchable, Configurab
     
     required public override init() {
         super.init()
-        
+
         config?.watch(\.tintColor, options: [.initial, .new]) {
             self.updateControllerView()
         }
-        
-        (controller as? AutoAdjustmentAppDockContent)?.watch(\.options, options: [.initial, .new]) {
-            let filter = CIAutoAdjustmentFilter(options: (self.controller as? AutoAdjustmentAppDockContent)?.options)
-            self.config?.filter = CIFilterItem(filter)
+
+        let controllerContent = self.controller as? AutoAdjustmentAppDockContent
+        controllerContent?.watch(\.options, options: [.initial, .new]) {
+
+            var defaults = type(of: self).defaults as? AutoAdjustmentAppDefaults
+
+            if let options = controllerContent?.options {
+                let filter = CIAutoAdjustmentFilter(options: options)
+                self.config?.filter = CIFilterItem(filter)
+
+                var optionsToStore = [String:Bool]()
+                for (k,v) in options{
+                    if let v = v as? Bool{
+                        optionsToStore[k] = v
+                    }
+                }
+
+                defaults?.autoAdjustmentOptions = optionsToStore
+
+            }else{
+                controllerContent?.options = defaults?.autoAdjustmentOptions
+            }
         }
     }
-    
+
     public var doneButtonTitle: String? {
         return "Apply".localized
     }
@@ -179,7 +197,7 @@ extension Defaults: AutoAdjustmentAppDefaults {
 
 class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
     fileprivate var autoAdjustmentOptionKeys = AutoAdjustmentApp.AutoAdjustmentsKeys
-    
+
     var view: UIView{
         let view = UITableView()
         view.dataSource = self
@@ -199,9 +217,9 @@ class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, 
     }
     
     func didSetContentView(_ view:UIView) {
-        self.options = ((AppCenter.default.current as? PersistableApp.Type)?.defaults as? AutoAdjustmentAppDefaults)?.autoAdjustmentOptions
-        
-        (view as! UITableView).reloadData()
+        if options != nil{
+            (view as! UITableView).reloadData()
+        }
     }
     
     @objc dynamic

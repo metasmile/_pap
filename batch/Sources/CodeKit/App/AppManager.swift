@@ -19,7 +19,6 @@ protocol AppManagerDelegatableApp where Self:App {
     func didSetCurrent(previous:App.Type?)
 
     func willSetPrevious(newCurrent:App.Type?)
-    func didSetPrevious(current:App.Type?)
 }
 
 extension AppManagerDelegatableApp{
@@ -27,7 +26,6 @@ extension AppManagerDelegatableApp{
     public func didSetCurrent(previous:App.Type?){}
 
     public func willSetPrevious(newCurrent:App.Type?){}
-    public func didSetPrevious(current:App.Type?){}
 }
 
 open class AppManager: NSObject, SelectableCollection {
@@ -75,7 +73,9 @@ open class AppManager: NSObject, SelectableCollection {
     @objc dynamic
     public private(set) var currentIdentifier: String?
 
-    public var current: App.Type? {
+    //FIXME: FATAL -
+    public var current: App.Type?
+    {
         willSet {
             assert(newValue == nil || _apps.contains { appType in appType == newValue },"Given current app \(String(describing:newValue)) is not contained in app collection")
             guard newValue != previous else{ return }
@@ -89,15 +89,14 @@ open class AppManager: NSObject, SelectableCollection {
             self.previous = oldValue
             self.currentIdentifier = current?.info.identifier
 
-            getInstance(current, as:AppManagerDelegatableApp.self)?.didSetCurrent(previous:previous)
-            getInstance(previous, as:AppManagerDelegatableApp.self)?.didSetPrevious(current:current)
-
-            var defaultsOfCurrent = (current as? PersistableApp.Type)?.defaults
+            var defaultsOfCurrent = self.currentDefaults
             defaultsOfCurrent?.touchedVersion = current?.info.version
 
             if let previous = self.previous, previous.info.policy.lifeCycleUnit == .availability {
                 AppLifecycleManager.shared.discard(previous.info)
             }
+
+            getInstance(current, as:AppManagerDelegatableApp.self)?.didSetCurrent(previous:previous)
         }
     }
 
@@ -116,6 +115,10 @@ open class AppManager: NSObject, SelectableCollection {
 
     public func currentInstanceAs<T>(_ type:T.Type) -> T?{
         return getInstance(current, as: type)
+    }
+
+    public var currentDefaults: AppDefaults? {
+        return (current as? PersistableApp.Type)?.defaults
     }
 
     private func getInstance<T>(_ appType:App.Type?, as protocol:T.Type) -> T?{

@@ -8,7 +8,7 @@ target 'batch' do
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'R.swift'
-  pod 'DefaultsKit', :git => "https://github.com/metasmile/DefaultsKit"
+  pod 'DefaultsKit', :git => "https://github.com/metasmile/DefaultsKit" #TODO: consider get DefaultKit into CodeKit
   # pod 'SwipeCellKit'
 
   target 'batchTests' do

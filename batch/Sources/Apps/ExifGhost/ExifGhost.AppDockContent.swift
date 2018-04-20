@@ -108,7 +108,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     }
 
     fileprivate var appDefaults:ExifGhostAppDefaults?{
-        return (AppCenter.default.current as? PersistableApp.Type)?.defaults as? ExifGhostAppDefaults
+        return ExifGhost.defaults as? ExifGhostAppDefaults
     }
 
     func didSetContentView(_ view:UIView) {
