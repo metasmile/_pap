@@ -22,7 +22,9 @@ private struct PDFactoryPHAssetResult: TaskResultable{
     public var renderImage: UIImage
 }
 
-public class PDFactory: App, PersistableApp, FinalizableApp, PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp {
+public class PDFactory: BatchApp, FinalizableApp, PhotoPickerViewControllerDelegatableApp,
+        PhotoPickerCollectionViewDisplayableApp , AppDockControllableApp{
+
     public static let taskType:Taskable.Type = _PDFactoryTask.self
 
     public static let paramType:TaskParamable.Type = AppAsset.self

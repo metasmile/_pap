@@ -30,9 +30,8 @@ data
 
 private typealias ParamType = PHAssetItem<AppValue>
 
-public class ExifGhost: App, PHAssetFinalizableApp,
-        PhotoPickerCollectionViewDisplayableApp, AppDockControllableApp,
-        PersistableApp {
+public class ExifGhost: BatchApp, PHAssetFinalizableApp,
+        PhotoPickerCollectionViewDisplayableApp, AppDockControllableApp {
 
     public static let taskType:Taskable.Type = _ExifGhostTask.self
 

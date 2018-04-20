@@ -104,6 +104,7 @@
 		4F71D9F77C467378E338224E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DEE56E89B89163A4A355 /* Localizable.strings */; };
 		4F71D9F8EC78EA72173B6F5C /* AppLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5BB5C4FDFCBB7099E3F /* AppLifecycle.swift */; };
 		4F71DA2330C0205BFCF06318 /* AppCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE5F05D90FE96991029C /* AppCenter.swift */; };
+		4F71DA3B94224AB0D8F05585 /* batch.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB5AA3FF5A1491B82EB8 /* batch.App.swift */; };
 		4F71DA610BA1E595B77D01F4 /* batchTests.App.Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF3CAA29CFF0CFE4F837 /* batchTests.App.Tests.swift */; };
 		4F71DA793F6A330BAB4802A1 /* CodeKit.UIView.Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D634962C0CED76D0591E /* CodeKit.UIView.Animation.swift */; };
 		4F71DA9A2AEF74D95F711683 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DF60F3145AA65F6E07F8 /* Localizable.strings */; };
@@ -301,6 +302,7 @@
 		4F71DB1426CB14FCF6BC2389 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		4F71DB33EA609835DF70CC67 /* AppTaskManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTaskManager.swift; sourceTree = "<group>"; };
 		4F71DB341620B5007A7F6B60 /* ApplicationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationTests.swift; sourceTree = "<group>"; };
+		4F71DB5AA3FF5A1491B82EB8 /* batch.App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = batch.App.swift; sourceTree = "<group>"; };
 		4F71DB895A3FB604A9F08CBD /* ExifGhost.App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExifGhost.App.swift; sourceTree = "<group>"; };
 		4F71DB9D84840AFF3698CC49 /* PreviewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewCollectionViewCell.xib; sourceTree = "<group>"; };
 		4F71DBB79D25BD1396AACF6B /* batch.Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = batch.Defaults.swift; sourceTree = "<group>"; };
@@ -1116,6 +1118,7 @@
 				4F71D2D634A347D9CE98A1F8 /* batch.App.AppDockControllable.swift */,
 				4F71D39AF0B7FD798207B14B /* batch.App.PhotoPickerCollectionViewDisplayable.swift */,
 				4F71D10C8DB1EB2439AE51DE /* batch.App.PhotoPickerViewControllerDelegatable.swift */,
+				4F71DB5AA3FF5A1491B82EB8 /* batch.App.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -1563,6 +1566,7 @@
 				4F71D7D1B65F75F1B855C9A8 /* ImageIO.Metadata.Properties.Label.swift in Sources */,
 				4F71D3BEF9E9511756D48C8B /* ImageIO.GIF.swift in Sources */,
 				4F71D536A35F5A80442B85EE /* ImageIO.HEIF.swift in Sources */,
+				4F71DA3B94224AB0D8F05585 /* batch.App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
