@@ -29,52 +29,52 @@ public class ImageAlignment {
 
 @available(iOS 11.0, *)
 public extension UIImage {
-    public func stabilize(with image: UIImage, mode: ImageAlignment.StabilizationMode = .translation) -> UIImage {
+    public func stabilize(with image: UIImage, mode: ImageAlignment.StabilizationMode = .translation, clamp: CGFloat = 0) -> UIImage {
         switch mode {
         case .homographic:
-            return stabilizeHomographic(with: image)
+            return stabilizeHomographic(with: image, clamp: clamp)
         case .translation:
-            return stabilizeTranslation(with: image)
+            return stabilizeTranslation(with: image, clamp: clamp)
         }
     }
 
     @objc
-    public func stabilizeHomographic(with image: UIImage) -> UIImage {
+    public func stabilizeHomographic(with image: UIImage, clamp: CGFloat = 0) -> UIImage {
         guard let matrix = ImageAlignment.homographicTransform(image, onto: self) else { return self }
-        guard let warppedImage = CIImage(image: self)?.applyHomographic(matrix), let cgimage = ImageAlignment.sharedCIContext.createCGImage(warppedImage, from: warppedImage.extent) else { return self }
+        guard let warppedImage = CIImage(image: self)?.applyHomographic(matrix, clamp: clamp), let cgimage = ImageAlignment.sharedCIContext.createCGImage(warppedImage, from: warppedImage.extent) else { return self }
         return UIImage(cgImage: cgimage)
     }
 
     @objc
-    public func stabilizeTranslation(with image: UIImage) -> UIImage {
+    public func stabilizeTranslation(with image: UIImage, clamp: CGFloat = 0) -> UIImage {
         guard let transform = ImageAlignment.translationTransform(image, onto: self) else { return self }
-        guard let transformedImage = CIImage(image: self)?.applyTranslation(transform), let cgimage = ImageAlignment.sharedCIContext.createCGImage(transformedImage, from: transformedImage.extent) else { return self }
+        guard let transformedImage = CIImage(image: self)?.applyTranslation(transform, clamp: clamp), let cgimage = ImageAlignment.sharedCIContext.createCGImage(transformedImage, from: transformedImage.extent) else { return self }
         return UIImage(cgImage: cgimage)
     }
 }
 
 @available(iOS 11.0, *)
 public extension CIImage {
-    public func stabilize(with image: CIImage, mode: ImageAlignment.StabilizationMode = .translation) -> CIImage {
+    public func stabilize(with image: CIImage, mode: ImageAlignment.StabilizationMode = .translation, clamp: CGFloat = 0) -> CIImage {
         switch mode {
         case .homographic:
-            return stabilizeHomographic(with: image)
+            return stabilizeHomographic(with: image, clamp: clamp)
         case .translation:
-            return stabilizeTranslation(with: image)
+            return stabilizeTranslation(with: image, clamp: clamp)
         }
     }
     
     @objc
-    public func stabilizeHomographic(with image: CIImage) -> CIImage {
+    public func stabilizeHomographic(with image: CIImage, clamp: CGFloat = 0) -> CIImage {
         guard let matrix = ImageAlignment.homographicTransform(image, onto: self) else { return self }
-        guard let warppedImage = self.applyHomographic(matrix) else { return self }
+        guard let warppedImage = self.applyHomographic(matrix, clamp: clamp) else { return self }
         return warppedImage
     }
     
     @objc
-    public func stabilizeTranslation(with image: CIImage) -> CIImage {
+    public func stabilizeTranslation(with image: CIImage, clamp: CGFloat = 0) -> CIImage {
         guard let transform = ImageAlignment.translationTransform(image, onto: self) else { return self }
-        guard let transformedImage = self.applyTranslation(transform) else { return self }
+        guard let transformedImage = self.applyTranslation(transform, clamp: clamp) else { return self }
         return transformedImage
     }
 }
@@ -149,20 +149,32 @@ private struct Kernels {
 
 @available(iOS 11.0, *)
 extension CIImage {
-    func applyHomographic(_ matrix: matrix_float3x3) -> CIImage? {
-        return Kernels.homographic?.apply(extent: extent, roiCallback: { index, rect in
+    func applyHomographic(_ matrix: matrix_float3x3, clamp: CGFloat = 0) -> CIImage? {
+        let clamppedScale = (extent.width + clamp * 2) / extent.width
+        var transform = CGAffineTransform(scaleX: clamppedScale, y: clamppedScale)
+        transform = transform.translatedBy(x: -clamp, y: -clamp)
+        
+        return (Kernels.homographic?.apply(extent: extent, roiCallback: { index, rect in
             return rect
         }, image: self, arguments: [
-            CIVector(float3x3: matrix)
-        ]) ?? self
+            CIVector(float3x3: matrix),
+            CIVector(x: -clamp, y: -clamp),
+            CIVector(x: clamp, y: clamp)
+        ]) ?? self).transformed(by: transform)
     }
     
-    func applyTranslation(_ translation: CGAffineTransform) -> CIImage? {
-        return Kernels.translation?.apply(extent: extent, roiCallback: { index, rect in
+    func applyTranslation(_ translation: CGAffineTransform, clamp: CGFloat = 0) -> CIImage? {
+        let clamppedScale = (extent.width + clamp * 2) / extent.width
+        var transform = CGAffineTransform(scaleX: clamppedScale, y: clamppedScale)
+        transform = transform.translatedBy(x: -clamp, y: -clamp)
+        
+        return (Kernels.translation?.apply(extent: extent, roiCallback: { index, rect in
             return rect
         }, image: self, arguments: [
-            CIVector(x: translation.tx, y: translation.ty)
-        ]) ?? self
+            CIVector(x: translation.tx, y: translation.ty),
+            CIVector(x: -clamp, y: -clamp),
+            CIVector(x: clamp, y: clamp)
+        ]) ?? self).transformed(by: transform)
     }
 }
 
@@ -177,7 +189,7 @@ extension CIVector {
             CGFloat(float3x3.columns.1.z),
             CGFloat(float3x3.columns.2.x),
             CGFloat(float3x3.columns.2.y),
-            CGFloat(float3x3.columns.2.z),
+            CGFloat(float3x3.columns.2.z)
         ]
         return CIVector(values: values, count: values.count)
     }

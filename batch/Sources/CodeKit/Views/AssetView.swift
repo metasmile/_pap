@@ -299,7 +299,7 @@ extension AssetView {
         }
         else if asset?.mediaType == .video {
             if let mode = editState?.stabilizationMode {
-                playerItem?.videoComposition = playerItem?.asset.stabilize(with: mode)
+                playerItem?.videoComposition = playerItem?.asset.stabilize(with: mode, clamp: editState?.stabilizationClamp ?? 0)
             }
             else {
                 playerItem?.videoComposition = playerItem?.asset.applyFilter(editState?.ciFilter)

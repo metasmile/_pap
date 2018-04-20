@@ -23,14 +23,14 @@ struct sampler {
 };
 
 extern "C" { namespace coreimage {
-    float2 warpHomographic(float3x3 h, destination dest) {
+    float2 warpHomographic(float3x3 h, float2 cmin, float2 cmax, destination dest) {
         float3 homogeneousDestCoord = float3(dest.coord(), 1.0);
         float3 homogeneousSrcCoord = h * homogeneousDestCoord;
         float2 srcCoord = homogeneousSrcCoord.xy / max(homogeneousSrcCoord.z, 0.000001);
-        return srcCoord;
+        return dest.coord() + clamp(dest.coord() - srcCoord, cmin, cmax);
     }
     
-    float2 warpTranslation(float2 t, destination dest) {
-        return dest.coord() + t;
+    float2 warpTranslation(float2 t, float2 cmin, float2 cmax, destination dest) {
+        return dest.coord() + clamp(t, cmin, cmax);
     }
 }}

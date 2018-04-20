@@ -66,7 +66,7 @@ extension AVAsset {
 }
 
 extension AVAsset {
-    func stabilize(with mode: ImageAlignment.StabilizationMode = .translation, cancellation: (() -> Bool)? = nil, updateProgress: ((Double) -> Void)? = nil) -> AVVideoComposition {
+    func stabilize(with mode: ImageAlignment.StabilizationMode = .translation, clamp: CGFloat = 0, cancellation: (() -> Bool)? = nil, updateProgress: ((Double) -> Void)? = nil) -> AVVideoComposition {
         var referenceImage: CIImage?
         
         return AVVideoComposition(asset: self) { (request) in
@@ -78,7 +78,7 @@ extension AVAsset {
             let result: CIImage
             if let image = referenceImage {
                 if #available(iOS 11.0, *) {
-                    result = request.sourceImage.stabilize(with: image, mode: mode)
+                    result = request.sourceImage.stabilize(with: image, mode: mode, clamp: clamp)
                 } else {
                     result = request.sourceImage
                 }

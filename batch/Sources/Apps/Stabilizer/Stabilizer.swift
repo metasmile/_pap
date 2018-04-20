@@ -33,6 +33,10 @@ public extension StateValueSet where T: AppValue {
     var stabilizationMode: ImageAlignment.StabilizationMode? {
         return self.iterator().reversed().first?.stabilizationMode
     }
+    
+    var stabilizationClamp: CGFloat {
+        return stabilizationMode == .translation ? 30 : 60
+    }
 }
 
 public class StabilizerAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrributeValuable, AppConfigAdoptableValuable {
@@ -94,8 +98,9 @@ public class Stabilizer: App, PersistableApp, PHAssetFinalizableApp, AppDockCont
     
     private func createController() -> AppDockContent {
         let items = [
-            BAppUICollectionView.CollectionItem(title: "Translation".localized, image: nil, action: { self.config?.stabilizationMode = StabilizerAppValue(.translation) }),
-            BAppUICollectionView.CollectionItem(title: "Homographic".localized, image: nil, action: { self.config?.stabilizationMode = StabilizerAppValue(.homographic) })
+            BAppUICollectionView.CollectionItem(title: "Original".localized, image: nil, action: { self.config?.stabilizationMode = StabilizerAppValue() }),
+            BAppUICollectionView.CollectionItem(title: "Normal".localized, image: nil, action: { self.config?.stabilizationMode = StabilizerAppValue(.translation) }),
+            BAppUICollectionView.CollectionItem(title: "Strong".localized, image: nil, action: { self.config?.stabilizationMode = StabilizerAppValue(.homographic) })
         ]
         
         let view = BAppUICollectionView(items: items)
@@ -157,7 +162,7 @@ extension _StabilizerAppAsset: PHAssetVideoEditable {
                 return nil
         }
         
-        let videoComposition = video.stabilize(with: stabilizationMode)
+        let videoComposition = video.stabilize(with: stabilizationMode, clamp: editState.stabilizationClamp)
         
         var reqIDs = [PHAssetRequestID]()
         
