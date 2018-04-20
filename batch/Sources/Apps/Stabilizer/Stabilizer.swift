@@ -13,7 +13,15 @@ import Foundation
 import Foundation
 import Photos
 
-class _StabilizerAppAsset: PHAssetItem<AppValue> {}
+class _StabilizerAppAsset: PHAssetItem<AppValue> {
+    fileprivate var exportSession: AVAssetExportSession?
+    
+    override func cancelAllRequestIDs() {
+        super.cancelAllRequestIDs()
+        
+        exportSession?.cancelExport()
+    }
+}
 
 public class StabilizerAppValue: AppValue {
     override var stabilizationMode: ImageAlignment.StabilizationMode? {
@@ -57,7 +65,7 @@ public class StabilizerAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrrib
     }
 }
 
-public class Stabilizer: App, PersistableApp, PHAssetFinalizableApp, AppDockControllableApp, PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp, ConfigurableApp, _ConfigurableApp {
+public class Stabilizer: NSObject, KeyPathWatchable, ConfigurableApp, _ConfigurableApp, AppDockControllableApp, PHAssetFinalizableApp, PersistableApp, PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp {
     public static let taskType:Taskable.Type = StabilizerTask.self
 
     public static let paramType:TaskParamable.Type = _StabilizerAppAsset.self
@@ -79,7 +87,9 @@ public class Stabilizer: App, PersistableApp, PHAssetFinalizableApp, AppDockCont
             , minOSVersion: nil
     )
 
-    public required init() {}
+    required public override init() {
+        super.init()
+    }
     
     public var finalizingOptions: [PHAssetFinalizingOption]{
         return [.modify]
@@ -120,6 +130,7 @@ private class StabilizerTask: TaskPrototype, Taskable {
     private var isCancelled: Bool = false
     
     public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?) {
+        print("cancel")
         (param as? _StabilizerAppAsset)?.cancelAllRequestIDs()
     }
 
@@ -136,7 +147,9 @@ private class StabilizerTask: TaskPrototype, Taskable {
         
         async?.begin()
         
-        assetItem.runEditing(nil) { (asset, contentEditingOutput) in
+        assetItem.runEditing({ (progress) in
+//            print(progress)
+        }) { (asset, contentEditingOutput) in
             if let asset = asset, let contentEditingOutput = contentEditingOutput {
                 result = PHAssetResultItem(
                     asset: asset,
@@ -151,7 +164,7 @@ private class StabilizerTask: TaskPrototype, Taskable {
 }
 
 extension _StabilizerAppAsset: PHAssetVideoEditable {
-    func edit<T>(processor: T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? where T : VideoProcessable {
+    func edit<T>(processor: T, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? where T : VideoProcessable {
         let asset = self.asset
         
         guard
@@ -162,8 +175,6 @@ extension _StabilizerAppAsset: PHAssetVideoEditable {
                 return nil
         }
         
-        let videoComposition = video.stabilize(with: stabilizationMode, clamp: editState.stabilizationClamp)
-        
         var reqIDs = [PHAssetRequestID]()
         
         let r = self.requestContentEditing { _item in
@@ -171,14 +182,16 @@ extension _StabilizerAppAsset: PHAssetVideoEditable {
                 completionHandler(nil,nil)
                 return
             }
+            
+            let videoComposition = video.stabilize(with: stabilizationMode, clamp: self.editState.stabilizationClamp, updateProgress: progressHandler)
 
-            let exportSession = AVAssetExportSession(asset: video, presetName: AVAssetExportPresetHighestQuality)
-            exportSession?.outputFileType = AVFileType.mov
-            exportSession?.outputURL = item.output.renderedContentURL
-            exportSession?.videoComposition = videoComposition
-            exportSession?.shouldOptimizeForNetworkUse = false
-            exportSession?.exportAsynchronously {
-                guard let status = exportSession?.status else { return }
+            self.exportSession = AVAssetExportSession(asset: video, presetName: AVAssetExportPresetHighestQuality)
+            self.exportSession?.outputFileType = AVFileType.mov
+            self.exportSession?.outputURL = item.output.renderedContentURL
+            self.exportSession?.videoComposition = videoComposition
+            self.exportSession?.shouldOptimizeForNetworkUse = false
+            self.exportSession?.exportAsynchronously {
+                guard let status = self.exportSession?.status else { return }
                 switch status {
                 case .completed:
                     completionHandler(asset, item.output)

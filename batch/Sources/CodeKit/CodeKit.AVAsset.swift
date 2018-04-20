@@ -66,13 +66,13 @@ extension AVAsset {
 }
 
 extension AVAsset {
-    func stabilize(with mode: ImageAlignment.StabilizationMode = .translation, clamp: CGFloat = 0, cancellation: (() -> Bool)? = nil, updateProgress: ((Double) -> Void)? = nil) -> AVVideoComposition {
+    func stabilize(with mode: ImageAlignment.StabilizationMode = .translation, clamp: CGFloat = 0, cancellation: (() -> Bool)? = nil, updateProgress: ((Float) -> Void)? = nil) -> AVVideoComposition {
         var referenceImage: CIImage?
         
         return AVVideoComposition(asset: self) { (request) in
             if let update = updateProgress {
                 let progress = CMTimeMultiplyByFloat64(request.compositionTime, 1 / self.duration.seconds)
-                update(progress.seconds)
+                update(Float(progress.seconds))
             }
             
             let result: CIImage

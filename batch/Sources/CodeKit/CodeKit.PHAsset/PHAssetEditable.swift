@@ -8,6 +8,7 @@ import Photos
 
 
 typealias PHAssetContentEditingHandler = (PHAssetContentEditingItem?) -> Void
+typealias PHAssetEditableProgressHandler = (Float) -> Void
 typealias PHAssetEditableCompletionHandler = (PHAsset?, PHContentEditingOutput?) -> Void
 
 protocol PHAssetProcessable {}
@@ -23,15 +24,15 @@ class LivePhotoProcessor: LivePhotoProcessable {}
 class LivePhotoAdvancedProcessor: LivePhotoProcessor {}
 
 protocol PHAssetImageEditable {
-    func edit<T:ImageProcessable>(processor:T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
+    func edit<T:ImageProcessable>(processor:T, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
 }
 
 protocol PHAssetVideoEditable{
-    func edit<T:VideoProcessable>(processor:T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
+    func edit<T:VideoProcessable>(processor:T, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
 }
 
 protocol PHAssetLivePhotoEditable{
-    func edit<T:LivePhotoProcessable>(processor:T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
+    func edit<T:LivePhotoProcessable>(processor:T, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
 }
 
 struct PHAssetContentEditingItem {
@@ -69,7 +70,7 @@ extension PHAssetItem {
         return requestID!
     }
 
-    func runEditing(_ progressHandler: ((Float) -> Void)? = nil, _ completionHandler: @escaping PHAssetEditableCompletionHandler) {
+    func runEditing(_ progressHandler: PHAssetEditableProgressHandler? = nil, _ completionHandler: @escaping PHAssetEditableCompletionHandler) {
 
         NotificationCenter.default.addObserver(forName: RemoteSourceFetchNotification.Name.fetchBagan, object: asset, queue: nil) { notification in
             if let _requestId = notification.userInfo?[RemoteSourceFetchNotification.UserInfo.Key.imageRequestID] as? PHImageRequestID{
@@ -81,36 +82,18 @@ extension PHAssetItem {
 
             switch (asset.mediaType){
                 case .image where asset.mediaSubtypes.contains(.photoLive):
-                    return (self as? PHAssetLivePhotoEditable)?.edit(processor: LivePhotoProcessor(), completion: completionHandler)
+                    return (self as? PHAssetLivePhotoEditable)?.edit(processor: LivePhotoProcessor(), progress: progressHandler, completion: completionHandler)
         //                return self.edit(processor: LivePhotoAdvancedProcessor(), completion: completionHandler)
                 case .image:
-                    return (self as? PHAssetImageEditable)?.edit(processor: ImageProcessor(), completion: completionHandler)
+                    return (self as? PHAssetImageEditable)?.edit(processor: ImageProcessor(), progress: progressHandler, completion: completionHandler)
                 case .video:
-                    return (self as? PHAssetVideoEditable)?.edit(processor: VideoProcessor(), completion: completionHandler)
+                    return (self as? PHAssetVideoEditable)?.edit(processor: VideoProcessor(), progress: progressHandler, completion: completionHandler)
                 default:
                     return nil
             }
         }() {
 
             self.requestIDs += requestIDs
-        }
-    }
-
-    func cancelAllRequestIDs() {
-
-        for req in requestIDs{
-            if req.forImage != PHAssetRequestID.DefaultValue.forImage{
-                print(req.forImage)
-                PHImageManager.default().cancelImageRequest(req.forImage)
-            }
-
-            if req.forEditingInput != PHAssetRequestID.DefaultValue.forEditingInput{
-                asset.cancelContentEditingInputRequest(req.forEditingInput)
-            }
-
-            if req.forResourceData != PHAssetRequestID.DefaultValue.forResourceData{
-                PHAssetResourceManager.default().cancelDataRequest(req.forResourceData)
-            }
         }
     }
 }

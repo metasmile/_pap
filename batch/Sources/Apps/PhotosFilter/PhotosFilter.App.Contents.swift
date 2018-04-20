@@ -12,7 +12,7 @@ import MobileCoreServices
 import AVFoundation
 
 extension _PhotosFilterAppAsset: PHAssetImageEditable {
-    func edit<T: ImageProcessable>(processor: T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
+    func edit<T: ImageProcessable>(processor: T, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
         let asset = self.asset
         
         guard
@@ -50,19 +50,19 @@ extension _PhotosFilterAppAsset: PHAssetImageEditable {
 }
 
 extension _PhotosFilterAppAsset: PHAssetLivePhotoEditable {
-    func edit<T:LivePhotoProcessable>(processor:T, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
+    func edit<T:LivePhotoProcessable>(processor:T, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
         let r = self.requestContentEditing { _item in
             guard let item = _item else{
                 completionHandler(nil,nil)
                 return
             }
             
-            let editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: item.input)
-            editingContext?.frameProcessor = { frame, error in
+            self.editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: item.input)
+            self.editingContext?.frameProcessor = { frame, error in
                 return frame.image.applyFilter(ciFilter: self.editState.ciFilter)
             }
             
-            editingContext?.saveLivePhoto(to: item.output, options: nil, completionHandler: { (success, error) in
+            self.editingContext?.saveLivePhoto(to: item.output, options: nil, completionHandler: { (success, error) in
                 guard success else {
                     completionHandler(nil, nil)
                     return
@@ -76,7 +76,7 @@ extension _PhotosFilterAppAsset: PHAssetLivePhotoEditable {
 }
 
 extension _PhotosFilterAppAsset: PHAssetVideoEditable {
-    func edit<T>(processor:T, /*audioMix: AVAudioMix? = nil,*/ completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
+    func edit<T>(processor:T, /*audioMix: AVAudioMix? = nil,*/ progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
         where T:VideoProcessable {
             
             let asset = self.asset
@@ -98,14 +98,14 @@ extension _PhotosFilterAppAsset: PHAssetVideoEditable {
                     return
                 }
                 
-                let exportSession = AVAssetExportSession(asset: video, presetName: AVAssetExportPresetHighestQuality)
-                exportSession?.outputFileType = AVFileType.mov
-                exportSession?.outputURL = item.output.renderedContentURL
-                exportSession?.videoComposition = videoComposition
+                self.exportSession = AVAssetExportSession(asset: video, presetName: AVAssetExportPresetHighestQuality)
+                self.exportSession?.outputFileType = AVFileType.mov
+                self.exportSession?.outputURL = item.output.renderedContentURL
+                self.exportSession?.videoComposition = videoComposition
                 //            exportSession?.audioMix = audioMix
-                exportSession?.shouldOptimizeForNetworkUse = false
-                exportSession?.exportAsynchronously {
-                    guard let status = exportSession?.status else { return }
+                self.exportSession?.shouldOptimizeForNetworkUse = false
+                self.exportSession?.exportAsynchronously {
+                    guard let status = self.exportSession?.status else { return }
                     switch status {
                     case .completed:
                         completionHandler(asset, item.output)

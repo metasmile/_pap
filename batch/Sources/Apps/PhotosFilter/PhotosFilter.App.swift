@@ -48,7 +48,17 @@ public class PhotosFilterAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrr
     }
 }
 
-class _PhotosFilterAppAsset: PHAssetItem<AppValue> {}
+class _PhotosFilterAppAsset: PHAssetItem<AppValue> {
+    var editingContext: PHLivePhotoEditingContext?
+    var exportSession: AVAssetExportSession?
+    
+    override func cancelAllRequestIDs() {
+        super.cancelAllRequestIDs()
+        
+        editingContext?.cancel()
+        exportSession?.cancelExport()
+    }
+}
 
 public class PhotosFilterApp: NSObject, KeyPathWatchable, ConfigurableApp, _ConfigurableApp, AppDockControllableApp, PHAssetFinalizableApp, PersistableApp, PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp {
     public static let taskType:Taskable.Type = _PhotosFilterAppTask.self
