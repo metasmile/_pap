@@ -100,7 +100,7 @@ private extension AutoAdjustmentApp {
         static let RedEye = kCIImageAutoAdjustRedEye
         static let Crop = kCIImageAutoAdjustCrop
         static let Level = kCIImageAutoAdjustLevel
-        
+
         static func aliasName(_ filterName: String?) -> String? {
             switch filterName {
             case Enhance?: return "Auto Enhance"
@@ -111,6 +111,13 @@ private extension AutoAdjustmentApp {
             }
         }
     }
+
+    static let AutoAdjustmentsKeys = [
+        AutoAdjustmentApp.AutoAdjustments.Enhance,
+        AutoAdjustmentApp.AutoAdjustments.RedEye,
+        AutoAdjustmentApp.AutoAdjustments.Crop,
+        AutoAdjustmentApp.AutoAdjustments.Level
+    ]
     
     private func updateControllerView(){
         self.controller?.view.tintColor = config?.tintColor
@@ -153,16 +160,27 @@ private class _AutoAdjustmentAppTask: TaskPrototype, Taskable {
     }
 }
 
+/*
+AutoAdjustmentAppDockContent
+*/
+import DefaultsKit
+
+
+private protocol AutoAdjustmentAppDefaults: AppDefaults{
+    var autoAdjustmentOptions: [String:Bool] {get set}
+}
+
+extension Defaults: AutoAdjustmentAppDefaults {
+    fileprivate var autoAdjustmentOptions: [String:Bool] {
+        set{ set(newValue) }
+        get{ return get(or: AutoAdjustmentApp.AutoAdjustmentsKeys.dictionary { ($0, true) } ) }
+    }
+}
+
 class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
-    private var autoAdjustmentOptions = [
-        AutoAdjustmentApp.AutoAdjustments.Enhance,
-        AutoAdjustmentApp.AutoAdjustments.RedEye,
-        AutoAdjustmentApp.AutoAdjustments.Crop,
-        AutoAdjustmentApp.AutoAdjustments.Level
-    ]
+    fileprivate var autoAdjustmentOptionKeys = AutoAdjustmentApp.AutoAdjustmentsKeys
     
     var view: UIView{
-        
         let view = UITableView()
         view.dataSource = self
         view.delegate = self
@@ -175,24 +193,19 @@ class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, 
     
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
-        preferences.minimumHeight = 44 * CGFloat(autoAdjustmentOptions.count) + 20
+        preferences.minimumHeight = 44 * CGFloat(autoAdjustmentOptionKeys.count) + 20
         preferences.pinned = true
         return preferences
     }
     
     func didSetContentView(_ view:UIView) {
-        self.options = [
-            AutoAdjustmentApp.AutoAdjustments.Enhance: true,
-            AutoAdjustmentApp.AutoAdjustments.RedEye: true,
-            AutoAdjustmentApp.AutoAdjustments.Crop: true,
-            AutoAdjustmentApp.AutoAdjustments.Level: true
-        ]
+        self.options = ((AppCenter.default.current as? PersistableApp.Type)?.defaults as? AutoAdjustmentAppDefaults)?.autoAdjustmentOptions
         
         (view as! UITableView).reloadData()
     }
     
     @objc dynamic
-    var options: [String: Any]?
+    var options:[String: Any]? // Bool may be other custom Codable type instead of Any
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -203,7 +216,7 @@ class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return autoAdjustmentOptions.count
+        return autoAdjustmentOptionKeys.count
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -213,10 +226,10 @@ class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AutoAdjustmentApp.info.identifier) as! Cell
         cell.imageView?.image = R.image.photosFilterAppIcon()
-        cell.textLabel?.text = AutoAdjustmentApp.AutoAdjustments.aliasName(autoAdjustmentOptions[indexPath.row])
-        cell.optionSwitch.setOn((self.options?[self.autoAdjustmentOptions[indexPath.row]] as? Bool) == true, animated: false)
+        cell.textLabel?.text = AutoAdjustmentApp.AutoAdjustments.aliasName(autoAdjustmentOptionKeys[indexPath.row])
+        cell.optionSwitch.setOn((self.options?[self.autoAdjustmentOptionKeys[indexPath.row]] as? Bool) == true, animated: false)
         cell.switchDidChange = { on in
-            self.options?[self.autoAdjustmentOptions[indexPath.row]] = on ? true : false
+            self.options?[self.autoAdjustmentOptionKeys[indexPath.row]] = on ? true : false
         }
         
         return cell

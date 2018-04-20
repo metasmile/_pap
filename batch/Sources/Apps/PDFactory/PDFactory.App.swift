@@ -113,11 +113,9 @@ public class PDFactory: BatchApp, FinalizableApp, PhotoPickerViewControllerDeleg
                 throw "\(#function)_\(#file)"
             }
 
-            guard let data = NSData(contentsOfFile: pdfURL.path) else {
+            guard let pdfData = try? Data(contentsOf: pdfURL) else {
                 throw "\(#function)_\(#file)"
             }
-
-            let pdfData = try Data(contentsOf: pdfURL)
 
             asyncSignal.begin()
             DispatchQueue.main.async {

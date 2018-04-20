@@ -158,6 +158,7 @@
 		4F71DF288EE084877C33282B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DEC6E98E9E40DFB63A92 /* Localizable.strings */; };
 		4F71DF3F191DA14BBC7A53E3 /* PhotoPickerFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6FC8CD7E9DD57A45B56 /* PhotoPickerFooterView.swift */; };
 		4F71DF47D9DE5E47D5F039B4 /* CodeKit.AVAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D308ABFB396C0C93C135 /* CodeKit.AVAsset.swift */; };
+		4F71DF4BCD57998FEF4F6E9D /* CodeKit.Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA3D1860CB18A8698B9D /* CodeKit.Collection.swift */; };
 		4F71DF641C7719119667B2F1 /* StateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D71020A63DA2EE33285D /* StateValue.swift */; };
 		4F71DF7D958D1805416021F7 /* CodeKit.CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DCD20CD399AAA9CD0BFE /* CodeKit.CoreGraphics.swift */; };
 		4F71DF9943D375C8E71568EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D8227095557197E91EB6 /* Localizable.strings */; };
@@ -292,6 +293,7 @@
 		4F71D90165EEB512FCBDC6E8 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		4F71D917110E7A484E4E82DF /* ImageIO.Metadata.VoidValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.Metadata.VoidValues.swift; sourceTree = "<group>"; };
 		4F71D98A51387658CDC4FE16 /* CodeKit.Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Int.swift; sourceTree = "<group>"; };
+		4F71DA3D1860CB18A8698B9D /* CodeKit.Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Collection.swift; sourceTree = "<group>"; };
 		4F71DA6EC209B1E8195931DA /* CodeKit.Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Sequence.swift; sourceTree = "<group>"; };
 		4F71DA6F58E11F96B2A7A7C2 /* Transform.App.Contents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.App.Contents.swift; sourceTree = "<group>"; };
 		4F71DAA72CC6EF2D834BE71B /* CodeKit.UUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UUID.swift; sourceTree = "<group>"; };
@@ -777,6 +779,7 @@
 				4F71DD50BA40D5B1F2284B9C /* CodeKit.UIView.GestureRecognizer.swift */,
 				4F71D6ED4431737AAFE39224 /* CodeKit.Misc.swift */,
 				4F71DA7E226B905E49A7E449 /* ImageIO */,
+				4F71DA3D1860CB18A8698B9D /* CodeKit.Collection.swift */,
 			);
 			path = CodeKit;
 			sourceTree = "<group>";
@@ -1567,6 +1570,7 @@
 				4F71D3BEF9E9511756D48C8B /* ImageIO.GIF.swift in Sources */,
 				4F71D536A35F5A80442B85EE /* ImageIO.HEIF.swift in Sources */,
 				4F71DA3B94224AB0D8F05585 /* batch.App.swift in Sources */,
+				4F71DF4BCD57998FEF4F6E9D /* CodeKit.Collection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

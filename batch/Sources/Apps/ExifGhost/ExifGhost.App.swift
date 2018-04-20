@@ -8,8 +8,6 @@ import Photos
 import ImageIO
 
 
-//FIXME: some normal photo fires "NSCocoaErrorDomain 18446744073709551615"
-
 //TODO:
 /*
 use flow
