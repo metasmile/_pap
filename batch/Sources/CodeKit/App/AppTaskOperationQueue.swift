@@ -197,9 +197,10 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
 
         //cancel currently progressing item
         if let currentItem = self.peek() {
-            queue.async(flags:.barrier){ [unowned self] in
+            //FIXME: not work in queue??
+//            queue.async(flags:.barrier){ [unowned self] in
                 self.tryItem(currentItem, self.asyncSignal, cancel: true)
-            }
+//            }
         }
 
         //set cancel flag and then from next item may cancel before it performs.

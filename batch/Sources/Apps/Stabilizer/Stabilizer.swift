@@ -16,9 +16,7 @@ import Photos
 class _StabilizerAppAsset: PHAssetItem<AppValue> {
     fileprivate var exportSession: AVAssetExportSession?
     
-    override func cancelAllRequestIDs() {
-        super.cancelAllRequestIDs()
-        
+    func cancelProcessing() {
         exportSession?.cancelExport()
     }
 }
@@ -130,6 +128,7 @@ private class StabilizerTask: TaskPrototype, Taskable {
     public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?) {
         print("cancel")
         (param as? _StabilizerAppAsset)?.cancelAllRequestIDs()
+        (param as? _StabilizerAppAsset)?.cancelProcessing()
     }
 
     public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable?) throws -> TaskResultable? {

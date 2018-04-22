@@ -10,6 +10,16 @@ import UIKit
 import Photos
 import MobileCoreServices
 
+class _TransformAppAsset: PHAssetItem<AppValue> {
+    fileprivate var editingContext: PHLivePhotoEditingContext?
+    fileprivate var exportSession: AVAssetExportSession?
+    
+    func cancelProcessing() {
+        editingContext?.cancel()
+        exportSession?.cancelExport()
+    }
+}
+
 //TODO: Uncommonize all, remove DispatchQueue.global().async
 extension _TransformAppAsset: PHAssetImageEditable {
 
@@ -56,8 +66,8 @@ extension _TransformAppAsset: PHAssetLivePhotoEditable {
                 return
             }
 
-            let editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: item.input)
-            editingContext?.frameProcessor = { frame, error in
+            self.editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: item.input)
+            self.editingContext?.frameProcessor = { frame, error in
                 let editItemConvertedCoordinates = StateValueSet<AppValue>()
                 for transformItem in self.editState.iterator(){
                     if let rotationItem = transformItem as? RotationTransformItem {
@@ -70,7 +80,7 @@ extension _TransformAppAsset: PHAssetLivePhotoEditable {
                 return frame.image.transformed(by: editItemConvertedCoordinates.transform)
             }
 
-            editingContext?.saveLivePhoto(to: item.output, options: nil, completionHandler: { (success, error) in
+            self.editingContext?.saveLivePhoto(to: item.output, options: nil, completionHandler: { (success, error) in
                 guard success else {
                     completionHandler(nil, nil)
                     return
@@ -175,14 +185,13 @@ extension _TransformAppAsset: PHAssetVideoEditable {
             videoComposition.renderSize = videoTrack.naturalSize.applying(self.editState.transform).magnitude
             videoComposition.frameDuration = CMTimeMake(1, videoTrack.naturalTimeScale)
 
-            let exportSession = AVAssetExportSession(asset: video, presetName: AVAssetExportPresetPassthrough)
-            exportSession?.outputFileType = AVFileType.mov
-            exportSession?.outputURL = item.output.renderedContentURL
-            exportSession?.videoComposition = videoComposition
-//            exportSession?.audioMix = audioMix
-            exportSession?.shouldOptimizeForNetworkUse = false
-            exportSession?.exportAsynchronously {
-                guard let status = exportSession?.status else { return }
+            self.exportSession = AVAssetExportSession(asset: video, presetName: AVAssetExportPresetPassthrough)
+            self.exportSession?.outputFileType = AVFileType.mov
+            self.exportSession?.outputURL = item.output.renderedContentURL
+            self.exportSession?.videoComposition = videoComposition
+            self.exportSession?.shouldOptimizeForNetworkUse = false
+            self.exportSession?.exportAsynchronously {
+                guard let status = self.exportSession?.status else { return }
                 switch status {
                 case .completed:
                     completionHandler(asset, item.output)

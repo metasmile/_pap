@@ -29,8 +29,6 @@ public class TransformAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrribu
     }
 }
 
-class _TransformAppAsset: PHAssetItem<AppValue> {}
-
 public class TransformApp: NSObject, BatchApp, KeyPathWatchable
         , ConfigurableApp, _ConfigurableApp, AppDockControllableApp, PHAssetFinalizableApp
         , PhotoPickerViewControllerDelegatableApp {

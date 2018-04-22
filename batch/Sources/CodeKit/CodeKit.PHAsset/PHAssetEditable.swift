@@ -96,4 +96,22 @@ extension PHAssetItem {
             self.requestIDs += requestIDs
         }
     }
+
+    func cancelAllRequestIDs() {
+        
+        for req in requestIDs{
+            if req.forImage != PHAssetRequestID.DefaultValue.forImage{
+                print(req.forImage)
+                PHImageManager.default().cancelImageRequest(req.forImage)
+            }
+            
+            if req.forEditingInput != PHAssetRequestID.DefaultValue.forEditingInput{
+                asset.cancelContentEditingInputRequest(req.forEditingInput)
+            }
+            
+            if req.forResourceData != PHAssetRequestID.DefaultValue.forResourceData{
+                PHAssetResourceManager.default().cancelDataRequest(req.forResourceData)
+            }
+        }
+    }
 }

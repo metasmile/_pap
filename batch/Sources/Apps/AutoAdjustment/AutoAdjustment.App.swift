@@ -149,6 +149,7 @@ private class _AutoAdjustmentAppTask: TaskPrototype, Taskable {
     public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?){
         
         (param as? _PhotosFilterAppAsset)?.cancelAllRequestIDs()
+        (param as? _PhotosFilterAppAsset)?.cancelProcessing()
     }
     
     public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable?) throws -> TaskResultable? {

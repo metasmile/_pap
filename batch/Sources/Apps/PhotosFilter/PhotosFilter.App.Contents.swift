@@ -11,6 +11,16 @@ import Photos
 import MobileCoreServices
 import AVFoundation
 
+class _PhotosFilterAppAsset: PHAssetItem<AppValue> {
+    fileprivate var editingContext: PHLivePhotoEditingContext?
+    fileprivate var exportSession: AVAssetExportSession?
+    
+    func cancelProcessing() {
+        editingContext?.cancel()
+        exportSession?.cancelExport()
+    }
+}
+
 extension _PhotosFilterAppAsset: PHAssetImageEditable {
     func edit<T: ImageProcessable>(processor: T, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
         let asset = self.asset
@@ -59,6 +69,7 @@ extension _PhotosFilterAppAsset: PHAssetLivePhotoEditable {
             
             self.editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: item.input)
             self.editingContext?.frameProcessor = { frame, error in
+                print(frame.time.seconds)
                 return frame.image.applyFilter(ciFilter: self.editState.ciFilter)
             }
             
@@ -102,10 +113,10 @@ extension _PhotosFilterAppAsset: PHAssetVideoEditable {
                 self.exportSession?.outputFileType = AVFileType.mov
                 self.exportSession?.outputURL = item.output.renderedContentURL
                 self.exportSession?.videoComposition = videoComposition
-                //            exportSession?.audioMix = audioMix
                 self.exportSession?.shouldOptimizeForNetworkUse = false
                 self.exportSession?.exportAsynchronously {
                     guard let status = self.exportSession?.status else { return }
+                    progressHandler?(self.exportSession?.progress ?? 0)
                     switch status {
                     case .completed:
                         completionHandler(asset, item.output)
