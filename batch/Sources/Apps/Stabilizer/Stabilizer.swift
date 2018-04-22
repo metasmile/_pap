@@ -87,9 +87,7 @@ public class Stabilizer: BatchApp, PHAssetFinalizableApp, AppDockControllableApp
             , minOSVersion: nil
     )
 
-    required public override init() {
-        super.init()
-    }
+    required public init() {}
     
     public var finalizingOptions: [PHAssetFinalizingOption]{
         return [.modify]
