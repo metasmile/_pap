@@ -36,6 +36,7 @@ extension ExifGhostAppDefaults{
     fileprivate func removeHandledProperty(_ dictionary:String, _ property:String){
         guard ImageMetadata.PropertyApple.supportedDictionaries.contains(dictionary) else{
             assert(false, "\(dictionary) is not supported dictionary")
+            return
         }
 
         if let index = ghostedImageMetadataCollection[dictionary]?.index(of: property){
@@ -108,7 +109,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     }
 
     fileprivate var appDefaults:ExifGhostAppDefaults?{
-        return (AppCenter.default.current as? PersistableApp.Type)?.defaults as? ExifGhostAppDefaults
+        return ExifGhost.defaults as? ExifGhostAppDefaults
     }
 
     func didSetContentView(_ view:UIView) {

@@ -8,8 +8,6 @@ import Photos
 import ImageIO
 
 
-//FIXME: some normal photo fires "NSCocoaErrorDomain 18446744073709551615"
-
 //TODO:
 /*
 use flow
@@ -30,9 +28,8 @@ data
 
 private typealias ParamType = PHAssetItem<AppValue>
 
-public class ExifGhost: App, PHAssetFinalizableApp,
-        PhotoPickerCollectionViewDisplayableApp, AppDockControllableApp,
-        PersistableApp {
+public class ExifGhost: BatchApp, PHAssetFinalizableApp,
+        PhotoPickerCollectionViewDisplayableApp, AppDockControllableApp {
 
     public static let taskType:Taskable.Type = _ExifGhostTask.self
 

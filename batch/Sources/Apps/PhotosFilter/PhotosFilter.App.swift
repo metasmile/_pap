@@ -60,7 +60,7 @@ class _PhotosFilterAppAsset: PHAssetItem<AppValue> {
     }
 }
 
-public class PhotosFilterApp: NSObject, KeyPathWatchable, ConfigurableApp, _ConfigurableApp, AppDockControllableApp, PHAssetFinalizableApp, PersistableApp, PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp {
+public class PhotosFilterApp: NSObject, BatchApp, KeyPathWatchable, ConfigurableApp, _ConfigurableApp, AppDockControllableApp, PHAssetFinalizableApp, PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp {
     public static let taskType:Taskable.Type = _PhotosFilterAppTask.self
     public static let paramType:TaskParamable.Type = _PhotosFilterAppAsset.self
     
