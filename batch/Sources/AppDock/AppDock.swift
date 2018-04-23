@@ -108,16 +108,15 @@ class AppDockView: CustomView {
         return CGSize(width: UIViewNoIntrinsicMetric, height: drawerViewHeightLayout.constant + appContentViewHeightLayout.constant + dockViewHeightLayout.constant + bottomAccessoryView.bounds.height)
     }
 
-    private var hasDrawer: Bool {
-        let hasMultipleApps = items.count > 1
-        if hasControllerPinned{
-            return hasMultipleApps && topAccessoryView.subviews.count > 0
+    private var shouldDrawerEnable: Bool {
+        if hasAppContentAsLayout {
+            let hasMultipleApps = items.count > 1
+            if hasControllerPinned{
+                return hasMultipleApps && hasAppAccessoryAsLayout
+            }
+            return hasMultipleApps && hasAppControllerAsLayout
         }
-        return hasMultipleApps && controllerView.subviews.count > 0
-    }
-
-    private var hasContent: Bool {
-        return (preferredDrawerViewHeight + preferredAppContentViewHeight + preferredDockViewHeight) > 0
+        return false
     }
 
     var isDrawerOpened: Bool {
@@ -228,8 +227,24 @@ class AppDockView: CustomView {
 }
 
 extension AppDockView {
+    fileprivate var hasContentAsLayout: Bool {
+        return hasAppContentAsLayout && preferredDockViewHeight > 0
+    }
+
+    fileprivate var hasAppContentAsLayout: Bool{
+        return preferredAppContentViewHeight > 0
+    }
+
+    fileprivate var hasAppControllerAsLayout: Bool{
+        return preferredControllerViewHeight > 0
+    }
+
+    fileprivate var hasAppAccessoryAsLayout: Bool{
+        return preferredAccessoryViewHeight > 0
+    }
+
     fileprivate var preferredDrawerViewHeight: CGFloat {
-        return hasDrawer ? DefaultPreferences.DrawerView.compactHeight : 0
+        return hasAppControllerAsLayout ? DefaultPreferences.DrawerView.compactHeight : 0
     }
     
     fileprivate var preferredDockViewHeight: CGFloat {
@@ -271,7 +286,8 @@ extension AppDockView {
     
     fileprivate func layoutDrawerView() {
         drawerViewHeightLayout.constant = preferredDrawerViewHeight
-        
+
+        drawerView.isBarHidden = !shouldDrawerEnable
         drawerView.layoutIfNeeded()
         invalidateIntrinsicContentSize()
     }
@@ -295,7 +311,7 @@ extension AppDockView {
         
         layoutDrawerView()
         
-        backgroundView.isHidden = !hasContent
+        backgroundView.isHidden = !hasContentAsLayout
         
         invalidateIntrinsicContentSize()
     }
@@ -341,10 +357,15 @@ extension AppDockView: UICollectionViewDelegate {
 
 extension AppDockView: UIGestureRecognizerDelegate {
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return hasDrawer
+        return shouldDrawerEnable
     }
     
     @objc func drawerDidTap(sender: UITapGestureRecognizer) {
+        guard self.gestureRecognizerShouldBegin(sender) else{
+            //INFO: gestureRecognizerShouldBegin == false, but drawerDidTap was called.
+            return
+        }
+
         drawerView.isOpened ? closeDrawer() : openDrawer()
     }
     
@@ -435,8 +456,9 @@ extension AppDockView: UIGestureRecognizerDelegate {
         })
         
         drawerView.isOpened = true
-        
+        drawerView.isBarHidden = !shouldDrawerEnable
         drawerViewHeightLayout.constant = DefaultPreferences.DrawerView.prominentHeight
+
         appContentViewHeightLayout.constant = constAppContentViewMaximumHeight
         
         let contentLayoutConstant = appContentViewHeightLayout.constant
@@ -473,8 +495,9 @@ extension AppDockView: UIGestureRecognizerDelegate {
         })
         
         drawerView.isOpened = false
-
+        drawerView.isBarHidden = !shouldDrawerEnable
         drawerViewHeightLayout.constant = preferredDrawerViewHeight
+
         appContentViewHeightLayout.constant = preferredControllerViewHeight + preferredAccessoryViewHeight
         controllerViewHeightLayout.constant = preferredControllerViewHeight
         
@@ -792,6 +815,14 @@ internal class DrawerView: DesignableView {
     lazy private var drawerShapeLayer: CAShapeLayer = { return CAShapeLayer() }()
     lazy private var drawerShapePath: UIBezierPath = { return UIBezierPath() }()
     private let drawerShapeLayerSize = CGSize(width: 31, height: 5.8)
+
+    var isBarHidden = false {
+        didSet{
+            CATransaction.setDisableActions(true)
+            drawerShapeLayer.isHidden = isBarHidden
+            CATransaction.setDisableActions(false)
+        }
+    }
 
     var isOpened = false {
         didSet{
