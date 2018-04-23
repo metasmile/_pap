@@ -417,6 +417,15 @@ extension AppDockView: UIGestureRecognizerDelegate {
             }
         }
     }
+    
+    func reloadKeepingDrawerOpened() {
+        if isDrawerOpened {
+            openDrawer(reloadDockContentViews: true)
+        }
+        else {
+            closeDrawer(reloadDockContentViews: true)
+        }
+    }
 
     func openDrawer(reloadDockContentViews: Bool? = nil) {
         let reloadDockContentViews = reloadDockContentViews ?? !drawerView.isOpened

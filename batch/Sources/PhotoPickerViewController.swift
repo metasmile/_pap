@@ -104,10 +104,9 @@ class PhotoPickerViewController: AppDockViewController {
             
             if old != nil && new != nil && old != new {
                 AppAssets.selected.reloadAll()
+                self.redisplayVisibleCellsWhenChangeApp()
+                self.showAndRevertTitleByCurrentAppIfNeeded()
             }
-            
-            self.redisplayVisibleCellsWhenChangeApp()
-            self.showAndRevertTitleByCurrentAppIfNeeded()
 
             self.updateDoneButtonState()
 
@@ -390,7 +389,13 @@ class PhotoPickerViewController: AppDockViewController {
             }
             
             self.restoreSelectionByUser(selectedAssetIdentifiers)
-            self.batchPreviewView.reloadContent()
+            if AppAssets.selected.count > 0 {
+                self.appDockView?.reloadKeepingDrawerOpened()
+            }
+            else {
+                self.appDockView?.closeDrawer(reloadDockContentViews: true)
+                self.batchPreviewView.reloadContent()
+            }
         })
     }
     
