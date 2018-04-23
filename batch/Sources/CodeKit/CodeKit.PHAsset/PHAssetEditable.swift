@@ -8,7 +8,7 @@ import Photos
 
 
 typealias PHAssetContentEditingHandler = (PHAssetContentEditingItem?) -> Void
-typealias PHAssetEditableProgressHandler = (Float) -> Void
+typealias PHAssetEditableProgressHandler = (Float?) -> Void
 typealias PHAssetEditableCompletionHandler = (PHAsset?, PHContentEditingOutput?) -> Void
 
 protocol PHAssetProcessable {}

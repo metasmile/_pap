@@ -47,13 +47,8 @@ extension AVAsset {
 }
 
 extension AVAsset {
-    func applyFilter(_ filter: CIFilter?, cancellation: (() -> Bool)? = nil, updateProgress: ((Double) -> Void)? = nil) -> AVVideoComposition {
+    func applyFilter(_ filter: CIFilter?, cancellation: (() -> Bool)? = nil) -> AVVideoComposition {
         return AVVideoComposition(asset: self) { (request) in
-            if let update = updateProgress {
-                let progress = CMTimeMultiplyByFloat64(request.compositionTime, 1 / self.duration.seconds)
-                update(progress.seconds)
-            }
-            
             let image = request.sourceImage.applyFilter(ciFilter: filter)
             if cancellation?() == true {
                 request.finish(with: NSError(domain: "AVAsset", code: -500, userInfo: nil)) // User Interrupt
@@ -66,15 +61,10 @@ extension AVAsset {
 }
 
 extension AVAsset {
-    func stabilize(with mode: ImageAlignment.StabilizationMode = .translation, clamp: CGFloat = 0, cancellation: (() -> Bool)? = nil, updateProgress: ((Float) -> Void)? = nil) -> AVVideoComposition {
+    func stabilize(with mode: ImageAlignment.StabilizationMode = .translation, clamp: CGFloat = 0, cancellation: (() -> Bool)? = nil) -> AVVideoComposition {
         var referenceImage: CIImage?
         
         return AVVideoComposition(asset: self) { (request) in
-            if let update = updateProgress {
-                let progress = CMTimeMultiplyByFloat64(request.compositionTime, 1 / self.duration.seconds)
-                update(Float(progress.seconds))
-            }
-            
             let result: CIImage
             if let image = referenceImage {
                 if #available(iOS 11.0, *) {

@@ -16,7 +16,10 @@ class _TransformAppAsset: PHAssetItem<AppValue> {
     
     func cancelProcessing() {
         editingContext?.cancel()
+        editingContext = nil
+        
         exportSession?.cancelExport()
+        exportSession = nil
     }
 }
 
@@ -65,9 +68,13 @@ extension _TransformAppAsset: PHAssetLivePhotoEditable {
                 completionHandler(nil,nil)
                 return
             }
-
+            
             self.editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: item.input)
             self.editingContext?.frameProcessor = { frame, error in
+                progressHandler?({
+                    guard let duration = self.editingContext?.duration.seconds else { return nil }
+                    return Float(frame.time.seconds / duration)
+                }())
                 let editItemConvertedCoordinates = StateValueSet<AppValue>()
                 for transformItem in self.editState.iterator(){
                     if let rotationItem = transformItem as? RotationTransformItem {
@@ -184,23 +191,15 @@ extension _TransformAppAsset: PHAssetVideoEditable {
             let videoComposition = AVMutableVideoComposition(propertiesOf: video)
             videoComposition.renderSize = videoTrack.naturalSize.applying(self.editState.transform).magnitude
             videoComposition.frameDuration = CMTimeMake(1, videoTrack.naturalTimeScale)
-
-            self.exportSession = AVAssetExportSession(asset: video, presetName: AVAssetExportPresetPassthrough)
-            self.exportSession?.outputFileType = AVFileType.mov
-            self.exportSession?.outputURL = item.output.renderedContentURL
-            self.exportSession?.videoComposition = videoComposition
-            self.exportSession?.shouldOptimizeForNetworkUse = false
-            self.exportSession?.exportAsynchronously {
-                guard let status = self.exportSession?.status else { return }
-                switch status {
-                case .completed:
+            
+            self.exportSession = AVAssetExportSession(asset: video, videoComposition: videoComposition, outputURL: item.output.renderedContentURL, progressHandler: progressHandler, completionHandler: { (success) in
+                if success {
                     completionHandler(asset, item.output)
-                case .failed, .cancelled:
-                    completionHandler(nil, nil)
-                default:
-                    break
                 }
-            }
+                else {
+                    completionHandler(nil, nil)
+                }
+            })
         }
 
         reqIDs.append(PHAssetRequestID(forEditingInput: r))

@@ -165,7 +165,9 @@ private class _AutoAdjustmentAppTask: TaskPrototype, Taskable {
         
         async?.begin()
         
-        assetItem.runEditing(nil) { (asset, contentEditingOutput) in
+        assetItem.runEditing({ (progress) in
+            print(progress)
+        }) { (asset, contentEditingOutput) in
             if let asset = asset, let contentEditingOutput = contentEditingOutput {
                 result = PHAssetResultItem(
                     asset: asset,

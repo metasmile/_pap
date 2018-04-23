@@ -17,7 +17,10 @@ class _PhotosFilterAppAsset: PHAssetItem<AppValue> {
     
     func cancelProcessing() {
         editingContext?.cancel()
+        editingContext = nil
+        
         exportSession?.cancelExport()
+        exportSession = nil
     }
 }
 
@@ -69,7 +72,10 @@ extension _PhotosFilterAppAsset: PHAssetLivePhotoEditable {
             
             self.editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: item.input)
             self.editingContext?.frameProcessor = { frame, error in
-                print(frame.time.seconds)
+                progressHandler?({
+                    guard let duration = self.editingContext?.duration.seconds else { return nil }
+                    return Float(frame.time.seconds / duration)
+                }())
                 return frame.image.applyFilter(ciFilter: self.editState.ciFilter)
             }
             
@@ -99,8 +105,6 @@ extension _PhotosFilterAppAsset: PHAssetVideoEditable {
                     return nil
             }
             
-            let videoComposition = video.applyFilter(editState.ciFilter)
-            
             var reqIDs = [PHAssetRequestID]()
             
             let r = self.requestContentEditing { _item in
@@ -109,23 +113,14 @@ extension _PhotosFilterAppAsset: PHAssetVideoEditable {
                     return
                 }
                 
-                self.exportSession = AVAssetExportSession(asset: video, presetName: AVAssetExportPresetHighestQuality)
-                self.exportSession?.outputFileType = AVFileType.mov
-                self.exportSession?.outputURL = item.output.renderedContentURL
-                self.exportSession?.videoComposition = videoComposition
-                self.exportSession?.shouldOptimizeForNetworkUse = false
-                self.exportSession?.exportAsynchronously {
-                    guard let status = self.exportSession?.status else { return }
-                    progressHandler?(self.exportSession?.progress ?? 0)
-                    switch status {
-                    case .completed:
+                self.exportSession = AVAssetExportSession(asset: video, videoComposition: video.applyFilter(self.editState.ciFilter), presetName: AVAssetExportPresetHighestQuality, outputURL: item.output.renderedContentURL, progressHandler: progressHandler, completionHandler: { (success) in
+                    if success {
                         completionHandler(asset, item.output)
-                    case .failed, .cancelled:
-                        completionHandler(nil, nil)
-                    default:
-                        break
                     }
-                }
+                    else {
+                        completionHandler(nil, nil)
+                    }
+                })
             }
             
             reqIDs.append(PHAssetRequestID(forEditingInput: r))

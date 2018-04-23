@@ -18,6 +18,7 @@ class _StabilizerAppAsset: PHAssetItem<AppValue> {
     
     func cancelProcessing() {
         exportSession?.cancelExport()
+        exportSession = nil
     }
 }
 
@@ -126,7 +127,7 @@ private class StabilizerTask: TaskPrototype, Taskable {
     private var isCancelled: Bool = false
     
     public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?) {
-        print("cancel")
+        
         (param as? _StabilizerAppAsset)?.cancelAllRequestIDs()
         (param as? _StabilizerAppAsset)?.cancelProcessing()
     }
@@ -145,7 +146,7 @@ private class StabilizerTask: TaskPrototype, Taskable {
         async?.begin()
         
         assetItem.runEditing({ (progress) in
-//            print(progress)
+            print(progress)
         }) { (asset, contentEditingOutput) in
             if let asset = asset, let contentEditingOutput = contentEditingOutput {
                 result = PHAssetResultItem(
@@ -180,24 +181,14 @@ extension _StabilizerAppAsset: PHAssetVideoEditable {
                 return
             }
             
-            let videoComposition = video.stabilize(with: stabilizationMode, clamp: self.editState.stabilizationClamp, updateProgress: progressHandler)
-
-            self.exportSession = AVAssetExportSession(asset: video, presetName: AVAssetExportPresetHighestQuality)
-            self.exportSession?.outputFileType = AVFileType.mov
-            self.exportSession?.outputURL = item.output.renderedContentURL
-            self.exportSession?.videoComposition = videoComposition
-            self.exportSession?.shouldOptimizeForNetworkUse = false
-            self.exportSession?.exportAsynchronously {
-                guard let status = self.exportSession?.status else { return }
-                switch status {
-                case .completed:
+            self.exportSession = AVAssetExportSession(asset: video, videoComposition: video.stabilize(with: stabilizationMode, clamp: self.editState.stabilizationClamp), presetName: AVAssetExportPresetHighestQuality, outputURL: item.output.renderedContentURL, progressHandler: progressHandler, completionHandler: { (success) in
+                if success {
                     completionHandler(asset, item.output)
-                case .failed, .cancelled:
-                    completionHandler(nil, nil)
-                default:
-                    break
                 }
-            }
+                else {
+                    completionHandler(nil, nil)
+                }
+            })
         }
 
         reqIDs.append(PHAssetRequestID(forEditingInput: r))
