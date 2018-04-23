@@ -19,7 +19,9 @@ class PhotoPickerViewController: AppDockViewController {
     var initialPhotoCollectionIndexPath: IndexPath?
     
     var batchPreviewView: PreviewView!
+    
     var progressBar: UIProgressView!
+    private var taskProgress: Float = 0
 
     var dragSelectionGesture: DragSelectionGestureRecognizer!
 
@@ -458,6 +460,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     func batchPreviewViewWillBeginEdit(_ view: PreviewView) {
         titleFade = currentDisplayableApp?.titleWillBegin
                 ?? "Start Batch Editing...".localized
+        taskProgress = 0
 
         let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         loadingIndicator.startAnimating()
@@ -470,11 +473,33 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         }
     }
     
+    private func updateProgress(_ progress: Float, title: String, animated: Bool = true) {
+        let progressText = currentDisplayableApp?.titleDidUpdate(progress: progress)
+            ?? title + " \(Int(progress * 100))%"
+        
+        if animated {
+            titleFade = progressText
+        }
+        else {
+            self.title = progressText
+        }
+        
+        progressBar.setProgress(progress, animated: animated)
+    }
+    
     func batchPreviewView(_ view: PreviewView, didUpdateProgress progress: Float) {
-        titleFade = currentDisplayableApp?.titleDidUpdate(progress: progress)
-                ?? "Processing...".localized + " \(Int(progress * 100))%"
-
-        progressBar.setProgress(progress, animated: true)
+        if progressBar.progress < progress {
+            taskProgress = progress
+            updateProgress(progress, title: "Processing...".localized)
+        }
+    }
+    
+    func batchPreviewView(_ view: PreviewView, didUpdateFetching progress: Float) {
+        let fetchingProgressPerTask = progress / Float(AppAssets.selected.count) // for split progress into fetching and processing
+        let currentProgress = taskProgress + fetchingProgressPerTask / 2 // for split progress into fetching and processing
+        if progressBar.progress < currentProgress {
+            updateProgress(currentProgress, title: "Downloading...".localized)
+        }
     }
 
     func batchPreviewViewWillCancelProgress(_ view: PreviewView) {

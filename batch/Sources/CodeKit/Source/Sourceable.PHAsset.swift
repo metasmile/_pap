@@ -16,6 +16,7 @@ public struct RemoteSourceFetchNotification {
         enum Key {
             static let progress = "progress"
             static let imageRequestID = "imageRequestID"
+            static let asset = "asset"
         }
     }
 }
@@ -34,7 +35,8 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
             }
             
             let userInfo: [String: Any] = [
-                RemoteSourceFetchNotification.UserInfo.Key.imageRequestID: imageRequestID
+                RemoteSourceFetchNotification.UserInfo.Key.imageRequestID: imageRequestID,
+                RemoteSourceFetchNotification.UserInfo.Key.asset: self
             ]
             NotificationCenter.default.post(name: RemoteSourceFetchNotification.Name.fetchBagan, object: self, userInfo: userInfo)
             
@@ -112,7 +114,8 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
         options.resizeMode = .exact
         options.progressHandler = { progress, error, stop, info in
             let userInfo: [String: Any] = [
-                RemoteSourceFetchNotification.UserInfo.Key.progress: progress
+                RemoteSourceFetchNotification.UserInfo.Key.progress: progress,
+                RemoteSourceFetchNotification.UserInfo.Key.asset: self
             ]
             NotificationCenter.default.post(name: RemoteSourceFetchNotification.Name.progressChanged, object: self, userInfo: userInfo)
         }
@@ -126,7 +129,8 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
         options.version = .current
         options.progressHandler = { progress, error, stop, info in
             let userInfo: [String: Any] = [
-                RemoteSourceFetchNotification.UserInfo.Key.progress: progress
+                RemoteSourceFetchNotification.UserInfo.Key.progress: progress,
+                RemoteSourceFetchNotification.UserInfo.Key.asset: self
             ]
             NotificationCenter.default.post(name: RemoteSourceFetchNotification.Name.progressChanged, object: self, userInfo: userInfo)
         }
@@ -144,7 +148,8 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
         }
         
         let userInfo: [String: Any] = [
-            RemoteSourceFetchNotification.UserInfo.Key.imageRequestID: imageRequestID
+            RemoteSourceFetchNotification.UserInfo.Key.imageRequestID: imageRequestID,
+            RemoteSourceFetchNotification.UserInfo.Key.asset: self
         ]
         NotificationCenter.default.post(name: RemoteSourceFetchNotification.Name.fetchBagan, object: self, userInfo: userInfo)
         
@@ -159,7 +164,8 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
         options.version = .current
         options.progressHandler = { progress, error, stop, info in
             let userInfo: [String: Any] = [
-                RemoteSourceFetchNotification.UserInfo.Key.progress: progress
+                RemoteSourceFetchNotification.UserInfo.Key.progress: progress,
+                RemoteSourceFetchNotification.UserInfo.Key.asset: self
             ]
             NotificationCenter.default.post(name: RemoteSourceFetchNotification.Name.progressChanged, object: self, userInfo: userInfo)
         }
@@ -177,7 +183,8 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
         })
         
         let userInfo: [String: Any] = [
-            RemoteSourceFetchNotification.UserInfo.Key.imageRequestID: imageRequestID
+            RemoteSourceFetchNotification.UserInfo.Key.imageRequestID: imageRequestID,
+            RemoteSourceFetchNotification.UserInfo.Key.asset: self
         ]
         NotificationCenter.default.post(name: RemoteSourceFetchNotification.Name.fetchBagan, object: self, userInfo: userInfo)
         
