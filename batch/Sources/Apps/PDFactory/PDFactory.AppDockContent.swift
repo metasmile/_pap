@@ -26,6 +26,11 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
                 , value:false
                 , cell: SwitcherCell.cellId
         )
+        , PDFSettingItem(
+                label: "Copies Per Page"
+                , value:1
+                , cell: StepperCell.cellId
+        )
     ]
 
     var view: UIView{
@@ -36,6 +41,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         view.allowsSelection = false
         view.allowsMultipleSelection = false
         view.register(SwitcherCell.self, forCellReuseIdentifier: SwitcherCell.cellId)
+        view.register(StepperCell.self, forCellReuseIdentifier: StepperCell.cellId)
         view.register(AUPickerCell.self, forCellReuseIdentifier: AUPickerCell.cellId)
         return view
     }
@@ -96,13 +102,25 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
             cell.leftLabel.text = item.label
             return cell
 
-        }else if item.cell == SwitcherCell.cellId, let value = item.value as? Bool {
+        }
+        else if item.cell == SwitcherCell.cellId, let value = item.value as? Bool {
             let cell = tableView.dequeueReusableCell(withIdentifier: SwitcherCell.cellId) as! SwitcherCell
             cell.textLabel?.text = item.label
             cell.optionSwitch.setOn(value, animated: false)
             cell.switchDidChange = { on in
                 let item = self.settings[indexPath.section]
 
+            }
+            return cell
+        }
+
+        else if item.cell == StepperCell.cellId, let value = item.value as? Int {
+            let cell = tableView.dequeueReusableCell(withIdentifier: StepperCell.cellId) as! StepperCell
+            cell.textLabel?.text = item.label
+            cell.detailTextLabel?.text = String(value)
+            cell.stepper.value = Double(value)
+            cell.didChangeValue = { value in
+                cell.detailTextLabel?.text = String(Int(value))
             }
             return cell
         }
@@ -129,13 +147,13 @@ extension AUPickerCell{
         return "AUPickerCell"
     }
 }
-extension SwitcherCell {
+
+//TODO: cell by type
+private class SwitcherCell: UITableViewCell {
     static var cellId:String {
         return "SwitcherCell"
     }
-}
 
-private class SwitcherCell: UITableViewCell {
     lazy var optionSwitch: UISwitch = {
         let view = UISwitch()
         view.addTarget(self, action: #selector(self.cellSwitchDidChange), for: .valueChanged)
@@ -162,5 +180,49 @@ private class SwitcherCell: UITableViewCell {
 
     @objc func cellSwitchDidChange(sender: UISwitch) {
         switchDidChange?(sender.isOn)
+    }
+}
+
+
+private class StepperCell: UITableViewCell {
+    static var cellId:String {
+        return "StepperCell"
+    }
+
+    lazy var stepper: UIStepper = UIStepper()
+
+    var didChangeValue: ((Double) -> Void)?
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        stepper.stepValue = 1
+        didChangeValue = nil
+    }
+
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+
+        stepper.stepValue = 1
+        stepper.minimumValue = 1
+        stepper.maximumValue = 60
+
+        stepper.addTarget(self, action: #selector(self.valueDidChange), for: .valueChanged)
+
+        accessoryView = stepper
+
+        self.detailTextLabel?.textColor = UIColor.gray
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    @objc func valueDidChange(sender: UIStepper) {
+        didChangeValue?(sender.value)
     }
 }
