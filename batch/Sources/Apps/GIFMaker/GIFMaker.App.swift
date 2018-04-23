@@ -67,12 +67,12 @@ PhotoPickerViewControllerDelegatableApp {
     }
     
     public var numberOfItemsShouldSelect: Int? {
-        guard let firstItem = AppAssets.selected.at(unsafeIndex: 0) else { return nil }
+        guard let firstItem = AppAssets.selected.at(unsafeIndex: 0) else { return Int.max }
         if firstItem.asset.mediaType == .video || (firstItem.asset.mediaType == .image && firstItem.asset.mediaSubtypes.contains(.photoLive)) {
             return 1
         }
         else {
-            return 100
+            return Int.max
         }
     }
     
@@ -86,7 +86,8 @@ PhotoPickerViewControllerDelegatableApp {
     
     private func createController() -> AppDockContent {
         let items = [
-            BAppUICollectionView.CollectionItem(title: nil, image: R.image.flipVertical()?.withRenderingMode(.alwaysTemplate), action: nil)
+            BAppUICollectionView.CollectionItem(title: "FPS", image: nil, action: nil),
+            BAppUICollectionView.CollectionItem(title: "Direction", image: nil, action: nil)
         ]
         
         let view = BAppUICollectionStackView(items: items)
