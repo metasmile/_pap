@@ -60,7 +60,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
         showPhotoEditor(with: item)
     }
 
-    private func setActions(with item: PHAssetItem<AppValue>, at indexPath: IndexPath, to vc: PhotoPickerDetailViewController) {
+    private func setActions(with item: PHAssetItem<ImageEditStateValue>, at indexPath: IndexPath, to vc: PhotoPickerDetailViewController) {
         var typeWord = "photo"
         if item.asset.mediaType == .video {
             typeWord = "video"

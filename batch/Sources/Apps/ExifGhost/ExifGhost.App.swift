@@ -26,7 +26,7 @@ data
 - AND operation for handling with EXIFGhost
 */
 
-private typealias ParamType = PHAssetItem<AppValue>
+private typealias ParamType = PHAssetItem<ImageEditStateValue>
 
 public class ExifGhost: BatchApp, PHAssetFinalizableApp,
         PhotoPickerCollectionViewDisplayableApp, AppDockControllableApp {
@@ -54,7 +54,7 @@ public class ExifGhost: BatchApp, PHAssetFinalizableApp,
         return [.share, .delete]
     }
 
-    public func shouldSelect(item: PHAssetItem<AppValue>) -> Bool {
+    public func shouldSelect(item: PHAssetItem<ImageEditStateValue>) -> Bool {
         return item.asset.mediaType == .image
     }
 }

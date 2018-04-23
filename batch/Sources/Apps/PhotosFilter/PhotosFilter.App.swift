@@ -10,7 +10,7 @@ import UIKit
 import Photos
 import DefaultsKit
 
-public class CIFilterItem: AppValue {
+public class CIFilterItem: ImageEditStateValue {
     override var ciFilter: CIFilter? {
         return _filter
     }
@@ -24,7 +24,7 @@ public class CIFilterItem: AppValue {
     }
 }
 
-public extension StateValueSet where T: AppValue {
+public extension StateValueSet where T: ImageEditStateValue {
     var ciFilter: CIFilter? {
         return self.iterator().reversed().first?.ciFilter
     }
@@ -35,7 +35,7 @@ public class PhotosFilterAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrr
     public var tintColor: UIColor?
     
     @objc dynamic
-    public var filter: AppValue?
+    public var filter: ImageEditStateValue?
     
     public func adoptValues(fromOther: AppConfigValuable) {
         if let other = fromOther as? AppConfigUIAttrributeValuable {
@@ -81,7 +81,7 @@ public class PhotosFilterApp: NSObject, BatchApp, KeyPathWatchable, Configurable
         return "Apply".localized
     }
 
-    public func shouldSelect(item: PHAssetItem<AppValue>) -> Bool {
+    public func shouldSelect(item: PHAssetItem<ImageEditStateValue>) -> Bool {
         return (item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive)) || item.asset.mediaType == .video
     }
     

@@ -136,7 +136,7 @@ class PhotoPickerViewController: AppDockViewController {
         }
     }
     
-    private func setAppValue(_ value: AppValue) {
+    private func setAppValue(_ value: ImageEditStateValue) {
         AppAssets.selected.appendValue(value)
         
         batchPreviewView.updatePreviews()
@@ -409,7 +409,7 @@ class PhotoPickerViewController: AppDockViewController {
 }
 
 extension PhotoPickerViewController: EditViewControllerDelegate {
-    func showPhotoEditor(with editItem: PHAssetItem<AppValue>?) {
+    func showPhotoEditor(with editItem: PHAssetItem<ImageEditStateValue>?) {
         guard let editItem = editItem else { return }
 
         if let photoEditViewController = R.storyboard.appStoryboard.photoEditViewController(){
@@ -427,7 +427,7 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
         }
     }
 
-    func editViewController(_ photoEditor: PhotoEditViewController, didFinishWith editItem: StateValueSet<AppValue>?, at indexPath: IndexPath?) {
+    func editViewController(_ photoEditor: PhotoEditViewController, didFinishWith editItem: StateValueSet<ImageEditStateValue>?, at indexPath: IndexPath?) {
         assert(photoEditor.asset != nil, "photoEditor.asset!=nil")
 
         if let indexPath = indexPath, let asset = photoEditor.asset {

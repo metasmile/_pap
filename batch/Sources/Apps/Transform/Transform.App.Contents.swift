@@ -10,7 +10,7 @@ import UIKit
 import Photos
 import MobileCoreServices
 
-class _TransformAppAsset: PHAssetItem<AppValue> {
+class _TransformAppAsset: PHAssetItem<ImageEditStateValue> {
     fileprivate var editingContext: PHLivePhotoEditingContext?
     fileprivate var exportSession: AVAssetExportSession?
     
@@ -76,7 +76,7 @@ extension _TransformAppAsset: PHAssetLivePhotoEditable {
                     guard let duration = duration else { return nil }
                     return Float(frame.time.seconds / duration)
                 }())
-                let editItemConvertedCoordinates = StateValueSet<AppValue>()
+                let editItemConvertedCoordinates = StateValueSet<ImageEditStateValue>()
                 for transformItem in self.editState.iterator(){
                     if let rotationItem = transformItem as? RotationTransformItem {
                         editItemConvertedCoordinates.append(RotationTransformItem(radians: -rotationItem.angle))

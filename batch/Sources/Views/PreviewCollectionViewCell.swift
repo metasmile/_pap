@@ -32,7 +32,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         imageRequestId = nil
     }
     
-    func setEditItem(_ item: PHAssetItem<AppValue>, at indexPath: IndexPath) {
+    func setEditItem(_ item: PHAssetItem<ImageEditStateValue>, at indexPath: IndexPath) {
         let asset = item.asset
 
         self.asset = asset
@@ -56,7 +56,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         })
     }
     
-    func setEditItemForPreview(_ item: PHAssetItem<AppValue>, at indexPath: IndexPath) {
+    func setEditItemForPreview(_ item: PHAssetItem<ImageEditStateValue>, at indexPath: IndexPath) {
         let asset = item.asset
         
         self.asset = asset
@@ -76,7 +76,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         })
     }
     
-    func setImageEditItem<T>(_ editItem: StateValueSet<T>, animated: Bool = false) where T: AppValue {
+    func setImageEditItem<T>(_ editItem: StateValueSet<T>, animated: Bool = false) where T: ImageEditStateValue {
         if animated {
             UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: .beginFromCurrentState, animations: { [weak self] in
                 self?.assetView.layer.transform = editItem.transform3d
@@ -90,7 +90,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         assetView.applyEditState(editItem)
     }
     
-    private func setAssetInfo<T>(_ asset: PHAsset, editItem: StateValueSet<T>) where T: AppValue {
+    private func setAssetInfo<T>(_ asset: PHAsset, editItem: StateValueSet<T>) where T: ImageEditStateValue {
 //        let resources = PHAssetResource.assetResources(for: asset)
 //        if let firstResource = resources.first {
 //            fileLabel.text = firstResource.originalFilename

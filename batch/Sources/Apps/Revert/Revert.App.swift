@@ -7,7 +7,7 @@ import Foundation
 import Photos
 import DefaultsKit
 
-private typealias RevertAppParam = PHAssetItem<AppValue>
+private typealias RevertAppParam = PHAssetItem<ImageEditStateValue>
 
 public class RevertApp: NSObject, KeyPathWatchable, BatchApp, FinalizableApp, AppManagerDelegatableApp, PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp {
     public static let taskType:Taskable.Type = _RevertAppTask.self
@@ -35,7 +35,7 @@ public class RevertApp: NSObject, KeyPathWatchable, BatchApp, FinalizableApp, Ap
         adjustedCache.removeAll()
     }
 
-    public func shouldSelect(item: PHAssetItem<AppValue>) -> Bool {
+    public func shouldSelect(item: PHAssetItem<ImageEditStateValue>) -> Bool {
         let cacheId = item.asset.localIdentifier
         if adjustedCache[cacheId] == nil{
             adjustedCache[cacheId] = item.asset.isAdjusted //TODO: find more fast way

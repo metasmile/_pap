@@ -13,7 +13,7 @@ import Foundation
 import Foundation
 import Photos
 
-class _StabilizerAppAsset: PHAssetItem<AppValue> {
+class _StabilizerAppAsset: PHAssetItem<ImageEditStateValue> {
     fileprivate var exportSession: AVAssetExportSession?
     
     func cancelProcessing() {
@@ -22,7 +22,7 @@ class _StabilizerAppAsset: PHAssetItem<AppValue> {
     }
 }
 
-public class StabilizerAppValue: AppValue {
+public class StabilizerAppValue: ImageEditStateValue {
     override var stabilizationMode: ImageAlignment.StabilizationMode? {
         return _stabilizationMode
     }
@@ -36,7 +36,7 @@ public class StabilizerAppValue: AppValue {
     }
 }
 
-public extension StateValueSet where T: AppValue {
+public extension StateValueSet where T: ImageEditStateValue {
     var stabilizationMode: ImageAlignment.StabilizationMode? {
         return self.iterator().reversed().first?.stabilizationMode
     }
@@ -51,7 +51,7 @@ public class StabilizerAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrrib
     public var tintColor: UIColor?
     
     @objc dynamic
-    public var stabilizationMode: AppValue?
+    public var stabilizationMode: ImageEditStateValue?
     
     public func adoptValues(fromOther: AppConfigValuable) {
         if let other = fromOther as? AppConfigUIAttrributeValuable {
@@ -99,7 +99,7 @@ public class Stabilizer: BatchApp, PHAssetFinalizableApp, AppDockControllableApp
         return "Stabilize".localized
     }
     
-    public func shouldSelect(item: PHAssetItem<AppValue>) -> Bool {
+    public func shouldSelect(item: PHAssetItem<ImageEditStateValue>) -> Bool {
         return item.asset.mediaType == .video// || (item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive))
     }
     

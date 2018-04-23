@@ -16,7 +16,7 @@ public class TransformAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrribu
     public var tintColor: UIColor?
 
     @objc dynamic
-    public var transform: AppValue?
+    public var transform: ImageEditStateValue?
 
     public func adoptValues(fromOther: AppConfigValuable) {
         if let other = fromOther as? AppConfigUIAttrributeValuable {

@@ -6,7 +6,7 @@
 import Foundation
 import Photos
 
-public typealias AppAsset = PHAssetItem<AppValue>
+public typealias AppAsset = PHAssetItem<ImageEditStateValue>
 
 //TODO: internal / locally collect
 public final class AppAssets: NSObject {
@@ -106,7 +106,7 @@ public final class AppAssets: NSObject {
         }
     }
 
-    func appendValue(_ item: AppValue, `for`:[AppAsset]?=nil) {
+    func appendValue(_ item: ImageEditStateValue, `for`:[AppAsset]?=nil) {
         for e in `for` ??  _items {
             e.editState.append(item)
         }

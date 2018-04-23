@@ -7,9 +7,9 @@ import Foundation
 import UIKit
 import Photos
 
-extension PHAssetItem where EditStateValueType: AppValue {}
+extension PHAssetItem where EditStateValueType: ImageEditStateValue {}
 
-public class AppValue: Object {
+public class ImageEditStateValue: Object {
     var transform: CGAffineTransform {
         return .identity
     }

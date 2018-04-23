@@ -11,7 +11,7 @@ import AVFoundation
 import Photos
 
 protocol EditViewControllerDelegate {
-    func editViewController(_ photoEditor: PhotoEditViewController, didFinishWith editItem: StateValueSet<AppValue>?, at indexPath: IndexPath?)
+    func editViewController(_ photoEditor: PhotoEditViewController, didFinishWith editItem: StateValueSet<ImageEditStateValue>?, at indexPath: IndexPath?)
 }
 
 class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
@@ -34,12 +34,12 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
             layoutAssetView()
         }
     }
-    fileprivate var editItem = StateValueSet<AppValue>()
+    fileprivate var editItem = StateValueSet<ImageEditStateValue>()
 
     var indexPathInPicker: IndexPath?
     var selectedInPicker: Bool = false
     var asset: PHAsset?
-    var preferredEditState = StateValueSet<AppValue>()
+    var preferredEditState = StateValueSet<ImageEditStateValue>()
     
     var transitionID: String?
 
@@ -163,7 +163,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     
     // MARK: - Navigation Bar Actions
     
-    private func setAppValue(_ value: AppValue) {
+    private func setAppValue(_ value: ImageEditStateValue) {
         editItem.append(value)
         
         updatePreview()

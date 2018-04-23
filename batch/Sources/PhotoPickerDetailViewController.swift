@@ -7,7 +7,7 @@ import UIKit
 import Photos
 
 class PhotoPickerDetailViewController: UIViewController {
-    var assetItem: PHAssetItem<AppValue>?
+    var assetItem: PHAssetItem<ImageEditStateValue>?
     var actionItems:[UIPreviewActionItem]?
     
     private lazy var assetView: AssetView = {

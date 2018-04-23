@@ -8,7 +8,7 @@
 
 import UIKit
 
-class _GIFMakerAppAsset: PHAssetItem<AppValue> {
+class _GIFMakerAppAsset: PHAssetItem<ImageEditStateValue> {
     func cancelProcessing() {
         
     }
@@ -61,7 +61,7 @@ PhotoPickerViewControllerDelegatableApp {
         return "Make".localized
     }
     
-    public func shouldSelect(item: PHAssetItem<AppValue>) -> Bool {
+    public func shouldSelect(item: PHAssetItem<ImageEditStateValue>) -> Bool {
         guard let firstItem = AppAssets.selected.at(unsafeIndex: 0) else { return true }
         return firstItem.asset.mediaType == item.asset.mediaType
     }
