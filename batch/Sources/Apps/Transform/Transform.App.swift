@@ -126,7 +126,13 @@ private class _TransfromAppTask: TaskPrototype, Taskable {
 
         async?.begin()
 
-        assetItem.runEditing(nil) { (asset, contentEditingOutput) in
+        assetItem.runEditing({ (progress) in
+            guard let progress = progress else { return }
+            NotificationCenter.default.post(name: PHAssetProcessableNotification.Name.progressChanged, object: self, userInfo: [
+                PHAssetProcessableNotification.UserInfo.Key.progress: progress,
+                PHAssetProcessableNotification.UserInfo.Key.assetItem: assetItem
+                ])
+        }) { (asset, contentEditingOutput) in
             if let asset = asset, let contentEditingOutput = contentEditingOutput {
                 result = PHAssetResultItem(
                         asset: asset,

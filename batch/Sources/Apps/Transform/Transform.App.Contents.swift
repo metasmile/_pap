@@ -70,9 +70,10 @@ extension _TransformAppAsset: PHAssetLivePhotoEditable {
             }
             
             self.editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: item.input)
+            let duration = self.editingContext?.duration.seconds
             self.editingContext?.frameProcessor = { frame, error in
                 progressHandler?({
-                    guard let duration = self.editingContext?.duration.seconds else { return nil }
+                    guard let duration = duration else { return nil }
                     return Float(frame.time.seconds / duration)
                 }())
                 let editItemConvertedCoordinates = StateValueSet<AppValue>()
