@@ -172,6 +172,7 @@
 		51494501208591F60053896A /* BAppUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51494500208591F60053896A /* BAppUICollectionView.swift */; };
 		51594868208708D0001AF9ED /* BAppUICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51594867208708D0001AF9ED /* BAppUICollectionViewCell.xib */; };
 		51680042208D627600910B49 /* CodeKit.AVAssetExportSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51680041208D627600910B49 /* CodeKit.AVAssetExportSession.swift */; };
+		51680045208DB6D700910B49 /* GIFMaker.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51680044208DB6D700910B49 /* GIFMaker.App.swift */; };
 		A099B0452080FDAE003AC819 /* PhotosFilter.App.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A099B0442080FDAE003AC819 /* PhotosFilter.App.Assets.xcassets */; };
 		A099B0492080FE8E003AC819 /* Revert.App.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A099B0482080FE8E003AC819 /* Revert.App.Assets.xcassets */; };
 		A0CFD8E92052D9F10007041B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CFD8E82052D9F10007041B /* R.generated.swift */; };
@@ -361,6 +362,7 @@
 		51494500208591F60053896A /* BAppUICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAppUICollectionView.swift; sourceTree = "<group>"; };
 		51594867208708D0001AF9ED /* BAppUICollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BAppUICollectionViewCell.xib; sourceTree = "<group>"; };
 		51680041208D627600910B49 /* CodeKit.AVAssetExportSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.AVAssetExportSession.swift; sourceTree = "<group>"; };
+		51680044208DB6D700910B49 /* GIFMaker.App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFMaker.App.swift; sourceTree = "<group>"; };
 		614D248BD87AEAE91795DFC4 /* Pods-batch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch.release.xcconfig"; path = "Pods/Target Support Files/Pods-batch/Pods-batch.release.xcconfig"; sourceTree = "<group>"; };
 		7A5AA560EA015DA4EF60D3A9 /* Pods_batch_batchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_batch_batchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A099B0442080FDAE003AC819 /* PhotosFilter.App.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PhotosFilter.App.Assets.xcassets; sourceTree = "<group>"; };
@@ -1112,6 +1114,7 @@
 		4F71DFDFC21955E57EED45EB /* Apps */ = {
 			isa = PBXGroup;
 			children = (
+				51680043208DB68900910B49 /* GIFMaker */,
 				514944FC208591110053896A /* AutoAdjustment */,
 				4F71DE577096F5EC57AA3E7C /* Clean */,
 				4F71D6CD9D0A7D36FC1A58DA /* Revert */,
@@ -1144,6 +1147,14 @@
 				51594867208708D0001AF9ED /* BAppUICollectionViewCell.xib */,
 			);
 			path = BAppUIKit;
+			sourceTree = "<group>";
+		};
+		51680043208DB68900910B49 /* GIFMaker */ = {
+			isa = PBXGroup;
+			children = (
+				51680044208DB6D700910B49 /* GIFMaker.App.swift */,
+			);
+			path = GIFMaker;
 			sourceTree = "<group>";
 		};
 		DEBB1972B2E19B0514B3BEDD /* Frameworks */ = {
@@ -1471,6 +1482,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0ABFCF7C1F14B65C0078A583 /* AppDelegate.swift in Sources */,
+				51680045208DB6D700910B49 /* GIFMaker.App.swift in Sources */,
 				A0CFD8E92052D9F10007041B /* R.generated.swift in Sources */,
 				4F71D0190478F0F2C802635A /* PreviewView.swift in Sources */,
 				4F71DF3F191DA14BBC7A53E3 /* PhotoPickerFooterView.swift in Sources */,

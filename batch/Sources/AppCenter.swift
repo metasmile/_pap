@@ -44,6 +44,12 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             config.tintColor = .black
             return config
         }
+        
+        GIFMaker.configure = {
+            let config = GIFMakerAppConfig()
+            config.tintColor = .black
+            return config
+        }
 
         var config = AppManagerConfig()
         config.appCollection = [
@@ -55,6 +61,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             , Clean.self
             , Stabilizer.self
             , AutoAdjustmentApp.self
+            , GIFMaker.self
         ]
 
         return config
