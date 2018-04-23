@@ -169,18 +169,21 @@ class AssetView: UIView {
     var image: UIImage? {
         didSet {
             updateImageContents(image)
+            applyEditState(editState)
         }
     }
     
     var playerItem: AVPlayerItem? {
         didSet {
             videoLayer.player?.replaceCurrentItem(with: playerItem)
+            applyEditState(editState)
         }
     }
     
     var livePhoto: PHLivePhoto? {
         didSet {
             livePhotoView.livePhoto = livePhoto
+            applyEditState(editState)
         }
     }
     
@@ -234,7 +237,6 @@ extension AssetView {
                 
                 DispatchQueue.main.async { [weak self] in
                     self?.livePhoto = livePhoto
-                    self?.applyEditState(self?.editState)
                     completionWithLivePhoto?(livePhoto)
                 }
             }
@@ -248,7 +250,6 @@ extension AssetView {
                 
                 DispatchQueue.main.async { [weak self] in
                     self?.image = image
-                    self?.applyEditState(self?.editState)
                     completion?(image)
                 }
             }
@@ -273,7 +274,6 @@ extension AssetView {
             
             DispatchQueue.main.async { [weak self] in
                 self?.playerItem = playerItem
-                self?.applyEditState(self?.editState)
                 completion?(playerItem)
             }
         }
@@ -292,7 +292,6 @@ extension AssetView {
                 }
                 
                 self?.image = image
-                self?.applyEditState(self?.editState)
                 completion?(image)
             }
         }
