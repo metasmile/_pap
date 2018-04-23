@@ -6,7 +6,7 @@
 import Foundation
 
 public protocol PhotoPickerCollectionViewDisplayableApp: App {
-    func shouldSelect(item:PHAssetItem<AppValue>) -> Bool
+    func shouldSelect(item:PHAssetItem<ImageEditStateValue>) -> Bool
 
     var numberOfItemsShouldSelect: Int? {get}
 }

@@ -11,7 +11,7 @@ import Photos
 import MobileCoreServices
 import AVFoundation
 
-class _PhotosFilterAppAsset: PHAssetItem<AppValue> {
+class _PhotosFilterAppAsset: PHAssetItem<ImageEditStateValue> {
     fileprivate var editingContext: PHLivePhotoEditingContext?
     fileprivate var exportSession: AVAssetExportSession?
     

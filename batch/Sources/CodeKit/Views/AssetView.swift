@@ -28,7 +28,7 @@ class AssetView: UIView {
     }()
     
     fileprivate var previewMode: Bool = false
-    fileprivate var editState: StateValueSet<AppValue>?
+    fileprivate var editState: StateValueSet<ImageEditStateValue>?
     
     var preferredTransform: CGAffineTransform = .identity {
         didSet {
@@ -307,15 +307,13 @@ extension AssetView {
 //MARK: - Apply Edit State
 
 extension AssetView {
-    func applyEditState<T>(_ editState: StateValueSet<T>?) where T: AppValue {
-        self.editState = editState as? StateValueSet<AppValue>
-        
+    func applyEditState<T>(_ editState: StateValueSet<T>?) where T: ImageEditStateValue {
+        self.editState = editState as? StateValueSet<ImageEditStateValue>
+
         applyFilter(editState)
     }
-}
 
-extension AssetView {
-    fileprivate func applyFilter<T>(_ editState: StateValueSet<T>?) where T: AppValue {
+    fileprivate func applyFilter<T>(_ editState: StateValueSet<T>?) where T: ImageEditStateValue {
         if asset?.mediaType == .image || previewMode {
             applyImageFilter(ciFilter: editState?.ciFilter)
         }

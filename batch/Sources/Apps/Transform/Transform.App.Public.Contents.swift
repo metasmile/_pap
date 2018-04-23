@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-public extension StateValueSet where T: AppValue {
+public extension StateValueSet where T: ImageEditStateValue {
     var transform: CGAffineTransform {
         var t = CGAffineTransform.identity
 
@@ -28,7 +28,7 @@ public extension StateValueSet where T: AppValue {
 }
 
 
-public class RotationTransformItem: AppValue {
+public class RotationTransformItem: ImageEditStateValue {
     var angle: CGFloat = 0
 
     override var transform: CGAffineTransform {
@@ -52,7 +52,7 @@ public class RotationTransformItem: AppValue {
     }
 }
 
-public class VerticalFlipTransformItem: AppValue {
+public class VerticalFlipTransformItem: ImageEditStateValue {
     override var transform: CGAffineTransform {
         return CGAffineTransform(scaleX: 1, y: -1)
     }
@@ -62,7 +62,7 @@ public class VerticalFlipTransformItem: AppValue {
     }
 }
 
-public class HorizontalFlipTransformItem: AppValue {
+public class HorizontalFlipTransformItem: ImageEditStateValue {
     override var transform: CGAffineTransform {
         return CGAffineTransform(scaleX: -1, y: 1)
     }

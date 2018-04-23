@@ -9,7 +9,7 @@ import Photos
 public class Clean: BatchApp, PHAssetFinalizableApp, AppDockControllableApp, PhotoPickerViewControllerDelegatableApp {
     public static let taskType:Taskable.Type = _CleanTask.self
 
-    public static let paramType:TaskParamable.Type = PHAssetItem<AppValue>.self
+    public static let paramType:TaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.clean"
@@ -40,7 +40,7 @@ private class _CleanTask: TaskPrototype, Taskable {
     public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?){}
 
     public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable?) throws -> TaskResultable? {
-        if let asset = (param as? PHAssetItem<AppValue>)?.asset{
+        if let asset = (param as? PHAssetItem<ImageEditStateValue>)?.asset{
             return PHAssetResultItem(asset: asset, contentEditingOutput: nil)
         }
         return nil

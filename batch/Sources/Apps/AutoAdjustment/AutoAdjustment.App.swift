@@ -69,7 +69,7 @@ public class AutoAdjustmentApp: NSObject, BatchApp, KeyPathWatchable, Configurab
         return "Apply".localized
     }
     
-    public func shouldSelect(item: PHAssetItem<AppValue>) -> Bool {
+    public func shouldSelect(item: PHAssetItem<ImageEditStateValue>) -> Bool {
         return (item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive))
     }
     
