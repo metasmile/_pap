@@ -40,13 +40,19 @@ struct PDFactorySettings{
 }
 
 private protocol PDFactoryDefaults: AppDefaults{
-    var formatLabel: String {get set}
+    var format: String {get set}
+    var landscape: Bool {get set}
 }
 
 extension Defaults: PDFactoryDefaults {
-    fileprivate var formatLabel:String {
+    fileprivate var format:String {
         set{ set(newValue) }
         get{ return get(or: PDFPageFormat.a4.label ) }
+    }
+
+    fileprivate var landscape:Bool {
+        set{ set(newValue) }
+        get{ return get(or: false ) }
     }
 }
 
@@ -54,6 +60,26 @@ private struct PDFactoryPHAssetResult: TaskResultable{
     public var asset: PHAsset
     public var renderPixelSize: CGSize
     public var renderImage: UIImage
+}
+
+extension PDFactory{
+    fileprivate class var defaultsPDFFormat:PDFPageFormat{
+        if let defaults = PDFactory.defaults as? PDFactoryDefaults, let format = PDFactorySettings.FormatPresets[defaults.format] {
+            return format
+        }else{
+            return PDFPageFormat.a4
+        }
+    }
+
+    fileprivate class var defaultsPDFLayout:PDFPageLayout{
+        var defaultLayout:PDFPageLayout = defaultsPDFFormat.layout
+
+        if let defaults = PDFactory.defaults as? PDFactoryDefaults, defaults.landscape {
+            defaultLayout.size = CGSize(width: defaultLayout.size.height, height: defaultLayout.size.width)
+        }
+
+        return defaultLayout
+    }
 }
 
 public class PDFactory: BatchApp, FinalizableApp, PhotoPickerViewControllerDelegatableApp,
@@ -133,15 +159,7 @@ public class PDFactory: BatchApp, FinalizableApp, PhotoPickerViewControllerDeleg
         }
 
         do {
-
-            let layout:PDFPageLayout
-            if let defaults = PDFactory.defaults as? PDFactoryDefaults, let format = PDFactorySettings.FormatPresets[defaults.formatLabel] {
-                layout = format.layout
-            }else{
-                layout = PDFPageFormat.a4.layout
-            }
-
-            let document = PDFDocument(layout: layout)
+            let document = PDFDocument(layout: PDFactory.defaultsPDFLayout)
 
             for (i, item) in resultItems.enumerated(){
                 let pdfImage = PDFImage(image: item.renderImage, caption: nil, size: .zero, sizeFit: PDFImageSizeFit.widthHeight)
@@ -231,15 +249,8 @@ private class _PDFactoryTask: TaskPrototype, Taskable {
 
             async?.begin()
 
-
-            let formatSize:CGSize
-            if let defaults = PDFactory.defaults as? PDFactoryDefaults, let format = PDFactorySettings.FormatPresets[defaults.formatLabel] {
-                formatSize = format.layout.size
-            }else{
-                formatSize = PDFPageFormat.a4.aSize
-            }
-
-            let imagePixelSize = formatSize.applying(CGAffineTransform(scaleX: 2, y: 2))
+            let imageMaxSize:CGSize = PDFactory.defaultsPDFLayout.size
+            let imagePixelSize = imageMaxSize.applying(CGAffineTransform(scaleX: 2, y: 2))
             let imageRequestID = PHImageManager.default().requestImage(for: asset, targetSize: imagePixelSize, contentMode: .aspectFit, options: _pdfImageRequestOptions) { (image, info) in
                 renderImage = image
                 async?.end()

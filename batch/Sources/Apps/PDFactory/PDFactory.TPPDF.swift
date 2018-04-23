@@ -24,7 +24,8 @@ extension PDFPageFormat{
     }
 
     var defaultLabel:String{
-        return "\(self.layout.size.width)px x \(self.layout.size.height)px"
+        let dpi:CGFloat = 72
+        return "\(self.layout.size.width/dpi) x \(self.layout.size.height/dpi) (inch, 72 DPI)"
     }
 
     /**
@@ -103,7 +104,7 @@ extension PDFPageFormat{
     }
 
     /**
-     Returns the defined B-Series paper size if this format is a B-Series format.
+     Returns the defined B-Series paper label if this format is a B-Series format.
      If it is not a B-Series format, it will check other constants for correct size
      */
     var bLabel: String {
@@ -136,7 +137,7 @@ extension PDFPageFormat{
     }
 
     /**
-     Returns the defined C-Series paper size if this format is a C-Series format.
+     Returns the defined C-Series paper label if this format is a C-Series format.
      If it is not a C-Series format, it will check other constants for correct size
      */
     var cLabel: String {
