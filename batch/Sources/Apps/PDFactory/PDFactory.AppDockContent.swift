@@ -4,18 +4,29 @@
 //
 
 import Foundation
-
-import Foundation
 import UIKit
 import DefaultsKit
+import AUPickerCell
 
 private struct PDFSettingItem{
     fileprivate var label:String
-    fileprivate var valueType:Any.Type
+    fileprivate var value:Any
+    fileprivate var cell:String
 }
 
-class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource{
-    private var settings:[PDFSettingItem] = []
+class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, AUPickerCellDelegate{
+    private var settings = [
+        PDFSettingItem(
+                label: "Page Size"
+                , value:PDFactorySettings.FormatPresets.keys.map { String($0) }
+                , cell: AUPickerCell.cellId
+        )
+        , PDFSettingItem(
+                label: "Land Scape"
+                , value:false
+                , cell: SwitcherCell.cellId
+        )
+    ]
 
     var view: UIView{
         let view = UITableView()
@@ -24,7 +35,8 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         view.rowHeight = 44
         view.allowsSelection = false
         view.allowsMultipleSelection = false
-        view.register(Cell.self, forCellReuseIdentifier: PDFactory.info.identifier)
+        view.register(SwitcherCell.self, forCellReuseIdentifier: SwitcherCell.cellId)
+        view.register(AUPickerCell.self, forCellReuseIdentifier: AUPickerCell.cellId)
         return view
     }
 
@@ -36,8 +48,6 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     }
 
     func didSetContentView(_ view:UIView) {
-
-
         (view as! UITableView).reloadData()
     }
 
@@ -46,38 +56,65 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return nil
+        return "PDF Export Options"
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settings.count
     }
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let cell = tableView.cellForRow(at: indexPath)
+        if let cell = cell as? AUPickerCell {
+            return cell.height
+        }
+        return tableView.rowHeight
+    }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
+        if let cell = tableView.dequeueReusableCell(withIdentifier: AUPickerCell.cellId, for: indexPath) as? AUPickerCell {
+            cell.selectedInTableView(tableView)
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let settingItem = self.settings[indexPath.section]
+        let item = self.settings[indexPath.item]
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: PDFactory.info.identifier) as! Cell
+        if item.cell == AUPickerCell.cellId, let value = item.value as? [String] {
+            var cell:AUPickerCell
+            if let c = tableView.dequeueReusableCell(withIdentifier: SwitcherCell.cellId) as? AUPickerCell{
+                cell = c
+            }else{
+                cell = AUPickerCell(type: .default, reuseIdentifier: item.cell)
+            }
 
-        cell.textLabel?.text = settingItem.label
+            cell.values = value
+            cell.delegate = self
+            cell.selectedRow = 1
+            cell.leftLabel.text = item.label
+            return cell
 
-//        cell.optionSwitch.setOn(selected, animated: false)
-//        cell.switchDidChange = { on in
-//            let dict = self.settings[indexPath.section]
-//            if on{
-//                self.appDefaults?.removeHandledProperty(dict.key, dict.items[indexPath.item].key)
-//            }else{
-//                self.appDefaults?.addHandledProperty(dict.key, dict.items[indexPath.item].key)
-//            }
-//
-//            if self.initialSelectedIndexPaths != nil{
-//                self.initialSelectedIndexPaths = nil
-//            }
-//        }
+        }else if item.cell == SwitcherCell.cellId, let value = item.value as? Bool {
+            let cell = tableView.dequeueReusableCell(withIdentifier: SwitcherCell.cellId) as! SwitcherCell
+            cell.textLabel?.text = item.label
+            cell.optionSwitch.setOn(value, animated: false)
+            cell.switchDidChange = { on in
+                let item = self.settings[indexPath.section]
+
+            }
+            return cell
+        }
+
+        let cell = tableView.cellForRow(at: indexPath) ?? UITableViewCell()
+        cell.textLabel?.text = item.label
         return cell
+
+    }
+
+    func auPickerCell(_ cell: AUPickerCell, didPick row: Int, value: Any) {
+
     }
 
     func createSelectedBackgroundView() -> UIView {
@@ -87,7 +124,18 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     }
 }
 
-private class Cell: UITableViewCell {
+extension AUPickerCell{
+    static var cellId:String {
+        return "AUPickerCell"
+    }
+}
+extension SwitcherCell {
+    static var cellId:String {
+        return "SwitcherCell"
+    }
+}
+
+private class SwitcherCell: UITableViewCell {
     lazy var optionSwitch: UISwitch = {
         let view = UISwitch()
         view.addTarget(self, action: #selector(self.cellSwitchDidChange), for: .valueChanged)
