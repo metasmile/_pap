@@ -843,9 +843,10 @@ internal class DrawerView: DesignableView {
 
     var isBarHidden = false {
         didSet{
+            let disableActionsToRestore = CATransaction.disableActions()
             CATransaction.setDisableActions(true)
             drawerShapeLayer.isHidden = isBarHidden
-            CATransaction.setDisableActions(false)
+            CATransaction.setDisableActions(disableActionsToRestore)
         }
     }
 
@@ -880,6 +881,8 @@ internal class DrawerView: DesignableView {
         drawerShapeLayer.lineWidth = 5
         drawerShapeLayer.lineCap = kCALineCapRound
         layer.addSublayer(drawerShapeLayer)
+        
+        contentMode = .redraw
     }
     
     override func draw(_ rect: CGRect) {
@@ -887,7 +890,7 @@ internal class DrawerView: DesignableView {
         
         let cornerRadius: CGFloat = 8
 
-        let roundedRectPath = UIBezierPath(roundedRect: CGRect(x: 0, y: topMargin, width: rect.width, height: rect.height), byRoundingCorners: [UIRectCorner.topLeft, UIRectCorner.topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+        let roundedRectPath = UIBezierPath(roundedRect: CGRect(x: 0, y: topMargin, width: rect.width, height: rect.height - topMargin), byRoundingCorners: [UIRectCorner.topLeft, UIRectCorner.topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
         
         let ctx = UIGraphicsGetCurrentContext()
         ctx?.saveGState()
@@ -914,9 +917,10 @@ internal class DrawerView: DesignableView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        let disableActionsToRestore = CATransaction.disableActions()
         CATransaction.setDisableActions(true)
         drawerShapeLayer.position = center
-        CATransaction.setDisableActions(false)
+        CATransaction.setDisableActions(disableActionsToRestore)
     }
 
 }

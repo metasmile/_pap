@@ -72,11 +72,12 @@ class AssetView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        let disableActionsToRestore = CATransaction.disableActions()
         CATransaction.setDisableActions(true)
         imageLayer.frame = bounds
         videoLayer.frame = bounds
         livePhotoView.frame = bounds
-        CATransaction.setDisableActions(false)
+        CATransaction.setDisableActions(disableActionsToRestore)
     }
     
     override var contentMode: UIViewContentMode {
