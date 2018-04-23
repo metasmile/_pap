@@ -114,7 +114,7 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
         options.resizeMode = .exact
         options.progressHandler = { progress, error, stop, info in
             let userInfo: [String: Any] = [
-                RemoteSourceFetchNotification.UserInfo.Key.progress: progress,
+                RemoteSourceFetchNotification.UserInfo.Key.progress: Float(progress),
                 RemoteSourceFetchNotification.UserInfo.Key.asset: self
             ]
             NotificationCenter.default.post(name: RemoteSourceFetchNotification.Name.progressChanged, object: self, userInfo: userInfo)
@@ -129,7 +129,7 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
         options.version = .current
         options.progressHandler = { progress, error, stop, info in
             let userInfo: [String: Any] = [
-                RemoteSourceFetchNotification.UserInfo.Key.progress: progress,
+                RemoteSourceFetchNotification.UserInfo.Key.progress: Float(progress),
                 RemoteSourceFetchNotification.UserInfo.Key.asset: self
             ]
             NotificationCenter.default.post(name: RemoteSourceFetchNotification.Name.progressChanged, object: self, userInfo: userInfo)
@@ -164,7 +164,7 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
         options.version = .current
         options.progressHandler = { progress, error, stop, info in
             let userInfo: [String: Any] = [
-                RemoteSourceFetchNotification.UserInfo.Key.progress: progress,
+                RemoteSourceFetchNotification.UserInfo.Key.progress: Float(progress),
                 RemoteSourceFetchNotification.UserInfo.Key.asset: self
             ]
             NotificationCenter.default.post(name: RemoteSourceFetchNotification.Name.progressChanged, object: self, userInfo: userInfo)

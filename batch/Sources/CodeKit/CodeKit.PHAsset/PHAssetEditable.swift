@@ -11,6 +11,19 @@ typealias PHAssetContentEditingHandler = (PHAssetContentEditingItem?) -> Void
 typealias PHAssetEditableProgressHandler = (Float?) -> Void
 typealias PHAssetEditableCompletionHandler = (PHAsset?, PHContentEditingOutput?) -> Void
 
+public struct PHAssetProcessableNotification {
+    enum Name {
+        static let progressChanged = Notification.Name("PHAssetProcessableNotificationProgressChanged")
+    }
+    
+    struct UserInfo {
+        enum Key {
+            static let progress = "progress"
+            static let assetItem = "assetItem"
+        }
+    }
+}
+
 protocol PHAssetProcessable {}
 
 protocol ImageProcessable: PHAssetProcessable {}

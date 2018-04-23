@@ -16,6 +16,7 @@ protocol PreviewViewDelegate {
 
     func batchPreviewView(_ view: PreviewView, didUpdateProgress progress: Float)
     func batchPreviewView(_ view: PreviewView, didUpdateFetching progress: Float)
+    func batchPreviewView(_ view: PreviewView, didUpdateProcessing progress: Float)
     func batchPreviewViewWillCancelProgress(_ view: PreviewView)
 
     func batchPreviewViewWillBeginEdit(_ view: PreviewView)
@@ -184,6 +185,7 @@ extension PreviewView {
         AppCenter.default.task.perform(createTaskReaction())
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.fetchProgressChanged), name: RemoteSourceFetchNotification.Name.progressChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.processingProgressChanged), name: PHAssetProcessableNotification.Name.progressChanged, object: nil)
 
         return true
     }
@@ -259,9 +261,17 @@ extension PreviewView {
     }
     
     @objc func fetchProgressChanged(sender: NSNotification) {
-        if let progress = sender.userInfo?[RemoteSourceFetchNotification.UserInfo.Key.progress] as? Double {
+        if let progress = sender.userInfo?[RemoteSourceFetchNotification.UserInfo.Key.progress] as? Float {
             DispatchQueue.main.async {
-                self.delegate?.batchPreviewView(self, didUpdateFetching: Float(progress))
+                self.delegate?.batchPreviewView(self, didUpdateFetching: progress)
+            }
+        }
+    }
+    
+    @objc func processingProgressChanged(sender: NSNotification) {
+        if let progress = sender.userInfo?[PHAssetProcessableNotification.UserInfo.Key.progress] as? Float {
+            DispatchQueue.main.async {
+                self.delegate?.batchPreviewView(self, didUpdateProcessing: progress)
             }
         }
     }
