@@ -55,7 +55,7 @@ class AppDockView: CustomView {
     @IBOutlet weak private var controllerViewHeightLayout: NSLayoutConstraint!
     @IBOutlet weak private var dockView: DockView!
     @IBOutlet weak private var dockViewHeightLayout: NSLayoutConstraint!
-    @IBOutlet weak private var appCollectionView: DockCollectionView!
+    @IBOutlet weak private var appCollectionView: UICollectionView!
     @IBOutlet weak private var appCollectionViewHeightLayout: NSLayoutConstraint!
     @IBOutlet weak private var bottomAccessoryView: UIView!
     
@@ -71,13 +71,15 @@ class AppDockView: CustomView {
 
     var barStyle: UIBarStyle = UIBarStyle.default {
         didSet {
-            switch barStyle {
-            case .black:
-                backgroundView.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1)
-            default:
-                backgroundView.backgroundColor = .white
-            }
+            updateBackgroundColors()
         }
+    }
+    
+    private func updateBackgroundColors() {
+        let color = hasAnyContentAsLayout ? (barStyle == .black ? UIColor(red:0.11, green:0.11, blue:0.11, alpha:1) : .white) : .clear
+        backgroundView.backgroundColor = color
+        drawerView.tintColor = color
+        bottomAccessoryView.backgroundColor = color
     }
 
     override func initialize() {
@@ -230,6 +232,10 @@ extension AppDockView {
     fileprivate var hasContentAsLayout: Bool {
         return hasAppContentAsLayout && preferredDockViewHeight > 0
     }
+    
+    fileprivate var hasAnyContentAsLayout: Bool {
+        return hasAppContentAsLayout || preferredDockViewHeight > 0
+    }
 
     fileprivate var hasAppContentAsLayout: Bool{
         return preferredAppContentViewHeight > 0
@@ -311,7 +317,7 @@ extension AppDockView {
         
         layoutDrawerView()
         
-        backgroundView.isHidden = !hasContentAsLayout
+        updateBackgroundColors()
         
         invalidateIntrinsicContentSize()
     }
@@ -352,6 +358,10 @@ extension AppDockView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         zoomOutAppCollectionView(delay: 0)
         delegate?.appDockView(self, didSelectItemWith: items[indexPath.item])
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        return !collectionView.isDecelerating
     }
 }
 
@@ -538,7 +548,7 @@ extension AppDockView: UIScrollViewDelegate {
         }, completion: nil)
     }
     
-    func zoomOutAppCollectionView(delay: Double = 0.5) {
+    func zoomOutAppCollectionView(delay: Double = 1.0) {
         guard (appCollectionView.collectionViewLayout as? AppCollectionViewLayout)?.layoutMetrics == .prominent else { return }
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) { [unowned self] in
@@ -791,12 +801,13 @@ internal class DockView: UIView {
     }
 }
 
-internal class DockCollectionView: UICollectionView {
+internal class DockCollectionBackgroundView: UIView {
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         
         let ctx = UIGraphicsGetCurrentContext()
         ctx?.setLineWidth(0.5)
+        ctx?.setFillColor(UIColor(red: 246 / 255.0, green: 246 / 255.0, blue: 246 / 255.0, alpha: 1).cgColor)
         ctx?.setStrokeColor(UIColor(red: 204 / 255.0, green: 203 / 255.0, blue: 203 / 255.0, alpha: 1).cgColor)
         ctx?.move(to: .zero)
         ctx?.addLine(to: CGPoint(x: rect.width, y: 0))
@@ -810,6 +821,20 @@ internal class DockCollectionView: UICollectionView {
 
 internal class DrawerView: DesignableView {
     var topMargin: CGFloat = 6
+    override var tintColor: UIColor! {
+        didSet {
+            drawerColor = tintColor
+            
+            switch tintColor {
+            case .white:
+                drawerStrokeColor = UIColor(red: 212 / 255.0, green: 211 / 255.0, blue: 212 / 255.0, alpha: 1)
+            default:
+                drawerStrokeColor = UIColor(red: 40 / 255.0, green: 40 / 255.0, blue: 40 / 255.0, alpha: 1)
+            }
+        }
+    }
+    private var drawerColor: UIColor = UIColor(red: 212 / 255.0, green: 211 / 255.0, blue: 212 / 255.0, alpha: 1)
+    private var drawerStrokeColor: UIColor = UIColor(red: 212 / 255.0, green: 211 / 255.0, blue: 212 / 255.0, alpha: 1)
     
     // 108 x 14
     lazy private var drawerShapeLayer: CAShapeLayer = { return CAShapeLayer() }()
@@ -848,9 +873,7 @@ internal class DrawerView: DesignableView {
 
     override func initialize() {
         super.initialize()
-
-        self.contentMode = .redraw
-
+        
         drawerShapeLayer.frame.size = drawerShapeLayerSize
         drawerShapeLayer.strokeColor = UIColor(red: 199 / 255.0, green: 199 / 255.0, blue: 203 / 255.0, alpha: 1).cgColor
         drawerShapeLayer.fillColor = UIColor.clear.cgColor
@@ -870,7 +893,7 @@ internal class DrawerView: DesignableView {
         ctx?.saveGState()
         
         ctx?.setBlendMode(.normal)
-        ctx?.setFillColor(UIColor.white.cgColor)
+        ctx?.setFillColor(drawerColor.cgColor)
 
         ctx?.setShadow(offset: .zero, blur: topMargin, color: UIColor.black.withAlphaComponent(0.3).cgColor)
         
@@ -880,7 +903,7 @@ internal class DrawerView: DesignableView {
         ctx?.restoreGState()
         
         ctx?.setLineWidth(0.5)
-        ctx?.setStrokeColor(UIColor(red: 212 / 255.0, green: 211 / 255.0, blue: 212 / 255.0, alpha: 1).cgColor)
+        ctx?.setStrokeColor(drawerStrokeColor.cgColor)
         ctx?.move(to: CGPoint(x: cornerRadius, y: topMargin))
         ctx?.addLine(to: CGPoint(x: rect.width - cornerRadius, y: topMargin))
         ctx?.move(to: CGPoint(x: 0, y: rect.height))
