@@ -389,6 +389,7 @@ class PhotoPickerViewController: AppDockViewController {
             }
             
             self.restoreSelectionByUser(selectedAssetIdentifiers)
+            
             if AppAssets.selected.count > 0 {
                 self.appDockView?.reloadKeepingDrawerOpened()
             }
@@ -402,7 +403,7 @@ class PhotoPickerViewController: AppDockViewController {
     private func restoreSelectionByUser(_ assetLocalIdentifiers: [String]?) {
         guard let localIdentifiers = assetLocalIdentifiers else { return }
         PHAsset.fetchAssets(withLocalIdentifiers: localIdentifiers, options: nil).enumerateObjects { (asset, idx, stop) in
-            self.selectCollectionViewItem(by: asset)
+            self.updateCollectionViewSelection(by: asset)
         }
     }
 }

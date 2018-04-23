@@ -39,6 +39,19 @@ extension PhotoPickerViewController{
 
         return true
     }
+    
+    func updateCollectionViewSelection(by asset: PHAsset, animated:Bool = false) {
+        guard let indexPath = PHAssets.fetched.indexPath(of: asset) else { return }
+        
+        if photoCollectionView.delegate?.collectionView!(photoCollectionView, shouldSelectItemAt: indexPath) == false {
+            photoCollectionView.deselectItem(at: indexPath, animated: animated)
+            collectionView(photoCollectionView, didDeselectItemAt: indexPath)
+        }
+        else {
+            photoCollectionView.selectItem(at: indexPath, animated: animated, scrollPosition: [])
+            collectionView(photoCollectionView, didSelectItemAt: indexPath)
+        }
+    }
 
     var selectedAssetsInCollectionView:[PHAsset]?{
         return photoCollectionView.indexPathsForSelectedItems?.compactMap({ PHAssets.fetched.asset(at: $0) })
