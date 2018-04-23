@@ -18,9 +18,15 @@ FinalizableApp Common Share ActivityViewController
 
 import DefaultsKit
 
-struct PDFactorySettings{
-    static let FormatPresets:[String:PDFPageFormat] = [
+private enum PDFDocumentDPI{
+    case dpi72
+    case dpi300
+}
 
+struct PDFactorySettings{
+    static let FormatPresetFitToPhotoSize = "Fit To Photo Size"
+
+    static let FormatPresets:[String:PDFPageFormat] = [
         PDFPageFormat.a3.label: PDFPageFormat.a3
         , PDFPageFormat.a4.label: PDFPageFormat.a4
         , PDFPageFormat.a5.label: PDFPageFormat.a5
@@ -36,16 +42,19 @@ struct PDFactorySettings{
         , PDFPageFormat.usLetter.label: PDFPageFormat.usLetter
         , PDFPageFormat.usHalfLetter.label: PDFPageFormat.usHalfLetter
         , PDFPageFormat.usLedger.label: PDFPageFormat.usLedger
+
+        , FormatPresetFitToPhotoSize : PDFPageFormat.a4
     ]
 }
 
 private protocol PDFactoryDefaults: AppDefaults{
-    var format: String {get set}
+    var formatPreset: String {get set}
     var landscape: Bool {get set}
+    var copiesPerPage: UInt {get set}
 }
 
 extension Defaults: PDFactoryDefaults {
-    fileprivate var format:String {
+    fileprivate var formatPreset:String {
         set{ set(newValue) }
         get{ return get(or: PDFPageFormat.a4.label ) }
     }
@@ -53,6 +62,11 @@ extension Defaults: PDFactoryDefaults {
     fileprivate var landscape:Bool {
         set{ set(newValue) }
         get{ return get(or: false ) }
+    }
+
+    fileprivate var copiesPerPage:UInt {
+        set{ set(newValue) }
+        get{ return get(or: 1 ) }
     }
 }
 
@@ -64,7 +78,8 @@ private struct PDFactoryPHAssetResult: TaskResultable{
 
 extension PDFactory{
     fileprivate class var defaultsPDFFormat:PDFPageFormat{
-        if let defaults = PDFactory.defaults as? PDFactoryDefaults, let format = PDFactorySettings.FormatPresets[defaults.format] {
+        if let defaults = PDFactory.defaults as? PDFactoryDefaults
+        , let format = PDFactorySettings.FormatPresets[defaults.formatPreset] {
             return format
         }else{
             return PDFPageFormat.a4
@@ -73,11 +88,9 @@ extension PDFactory{
 
     fileprivate class var defaultsPDFLayout:PDFPageLayout{
         var defaultLayout:PDFPageLayout = defaultsPDFFormat.layout
-
         if let defaults = PDFactory.defaults as? PDFactoryDefaults, defaults.landscape {
             defaultLayout.size = CGSize(width: defaultLayout.size.height, height: defaultLayout.size.width)
         }
-
         return defaultLayout
     }
 }
@@ -121,28 +134,31 @@ public class PDFactory: BatchApp, FinalizableApp, PhotoPickerViewControllerDeleg
         return item.asset.mediaType == .image
     }
 
-    //TODO: Canvase Size
-    //TODO: vertical horizontal
+    //TODO: Canvas Size
+    //TODO: Portrait Landscape
     //TODO: Aspectfit/fill
     //TODO: DPI
     //TODO: numbers of photos for each pages
-    //TODO: caption enabled
+    //TODO: exif caption enabled
+
+    // next
     //TODO: thumbnail table sheet
-    //TOOD: support 4x6 photos inch size
+    //TOOD: support 4x6 ... photos inch size
 
-    public var controller: AppDockContent? {
-        let items = PDFactorySettings.FormatPresets.map { (label, _) -> BAppUICollectionView.CollectionItem in
-            return BAppUICollectionView.CollectionItem(title: label, image: nil, action: {
-
-            })
-        }
-        let view = BAppUICollectionView(items:items)
-
-        var p = AppDockContentPreferences()
-        p.pinned = true
-        p.minimumHeight = 100 // for test. remove this line after fixed app design
-        return AppDockContentItem(view: view, preferences: p)
-    }
+    public lazy var controller: AppDockContent? = PDFactoryAppDockContent()
+//    public var controller: AppDockContent? {
+//        let items = PDFactorySettings.FormatPresets.map { (label, _) -> BAppUICollectionView.CollectionItem in
+//            return BAppUICollectionView.CollectionItem(title: label, image: nil, action: {
+//
+//            })
+//        }
+//        let view = BAppUICollectionView(items:items)
+//
+//        var p = AppDockContentPreferences()
+//        p.pinned = true
+//        p.minimumHeight = 100 // for test. remove this line after fixed app design
+//        return AppDockContentItem(view: view, preferences: p)
+//    }
 
     public var finalizingOptions: [PHAssetFinalizingOption]{
         return [.custom]

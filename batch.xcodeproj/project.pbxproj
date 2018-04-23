@@ -91,6 +91,7 @@
 		4F71D8B058F180F2F8C3C251 /* ExifGhost.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB895A3FB604A9F08CBD /* ExifGhost.App.swift */; };
 		4F71D8B3EFA19CD0DC83DD89 /* ImageIO.Metadata.Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DACA5CD586777634F34C /* ImageIO.Metadata.Data.swift */; };
 		4F71D8B74536594CCE1664A4 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB1426CB14FCF6BC2389 /* CustomView.swift */; };
+		4F71D8C14CD45B8874FF68A8 /* PDFactory.AppDockContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD4524B1D3D608ECFD4F /* PDFactory.AppDockContent.swift */; };
 		4F71D8C5F1069E43DAC175FB /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D866AB412DC0BDEF03A8 /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift */; };
 		4F71D8E72553DE16AA8BBD63 /* AppAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC0D33A6C59D6893EB36 /* AppAssets.swift */; };
 		4F71D91244FDCFE9DC644E76 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DF5E6FB47FF24A1584B4 /* Localizable.strings */; };
@@ -330,6 +331,7 @@
 		4F71DCE88FEDD7C0EAEEC4C5 /* PhotoPickerViewController.UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.UICollectionView.swift; sourceTree = "<group>"; };
 		4F71DD34564541E70092760E /* PreviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewView.xib; sourceTree = "<group>"; };
 		4F71DD39604C6D5D883F8CFD /* PHAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAsset.swift; sourceTree = "<group>"; };
+		4F71DD4524B1D3D608ECFD4F /* PDFactory.AppDockContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFactory.AppDockContent.swift; sourceTree = "<group>"; };
 		4F71DD4724459BA191CAECC3 /* IMG_0679.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0679.JPG; sourceTree = "<group>"; };
 		4F71DD50BA40D5B1F2284B9C /* CodeKit.UIView.GestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIView.GestureRecognizer.swift; sourceTree = "<group>"; };
 		4F71DD5661069BB5E3B95480 /* zh_TW */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = zh_TW; path = Localizable.strings; sourceTree = "<group>"; };
@@ -469,6 +471,7 @@
 				A0F19AA32080FFA40073916D /* PDFactory.App.Assets.xcassets */,
 				4F71D7AF6686AACFE36C40A1 /* PDFactory.App.swift */,
 				4F71DAE6004619E4A355CDAD /* PDFactory.TPPDF.swift */,
+				4F71DD4524B1D3D608ECFD4F /* PDFactory.AppDockContent.swift */,
 			);
 			path = PDFactory;
 			sourceTree = "<group>";
@@ -1560,6 +1563,7 @@
 				4F71D1AC88AB3FA1EC86994B /* App.Finalizable.PHAsset.swift in Sources */,
 				4F71D4CFA693A7C8BFBC012C /* BAppUICollectionView.swift in Sources */,
 				4F71D7BF2C008E2056FCDE83 /* PDFactory.TPPDF.swift in Sources */,
+				4F71D8C14CD45B8874FF68A8 /* PDFactory.AppDockContent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
