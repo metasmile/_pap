@@ -28,6 +28,7 @@ class AssetView: UIView {
     }()
     
     fileprivate var previewMode: Bool = false
+    fileprivate var editState: StateValueSet<AppValue>?
     
     var preferredTransform: CGAffineTransform = .identity {
         didSet {
@@ -116,6 +117,7 @@ class AssetView: UIView {
         
         image = nil
         playerItem = nil
+        editState = nil
     }
     
     fileprivate func cancelCurrentImageRequest() {
@@ -217,6 +219,13 @@ extension AssetView {
         if asset.mediaSubtypes.contains(.photoLive) {
             livePhotoView.isHidden = false
             
+            loadImage(for: asset) { (image) in
+                DispatchQueue.main.async { [weak self] in
+                    self?.image = image
+                    self?.applyImageFilter(ciFilter: self?.editState?.ciFilter)
+                }
+            }
+            
             loadLivePhoto(for: asset) { [weak self] livePhoto in
                 guard !cancellation() else {
                     self?.clearDrawing()
@@ -225,6 +234,7 @@ extension AssetView {
                 
                 DispatchQueue.main.async { [weak self] in
                     self?.livePhoto = livePhoto
+                    self?.applyEditState(self?.editState)
                     completionWithLivePhoto?(livePhoto)
                 }
             }
@@ -238,6 +248,7 @@ extension AssetView {
                 
                 DispatchQueue.main.async { [weak self] in
                     self?.image = image
+                    self?.applyEditState(self?.editState)
                     completion?(image)
                 }
             }
@@ -246,6 +257,14 @@ extension AssetView {
     
     private func setVideoAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: ((AVPlayerItem?) -> Void)? = nil) {
         self.asset = asset
+        
+        loadImage(for: asset) { (image) in
+            DispatchQueue.main.async { [weak self] in
+                self?.image = image
+                self?.applyImageFilter(ciFilter: self?.editState?.ciFilter)
+            }
+        }
+        
         loadVideo(for: asset) { [weak self] playerItem in
             guard !cancellation() else {
                 self?.clearDrawing()
@@ -254,6 +273,7 @@ extension AssetView {
             
             DispatchQueue.main.async { [weak self] in
                 self?.playerItem = playerItem
+                self?.applyEditState(self?.editState)
                 completion?(playerItem)
             }
         }
@@ -272,6 +292,7 @@ extension AssetView {
                 }
                 
                 self?.image = image
+                self?.applyEditState(self?.editState)
                 completion?(image)
             }
         }
@@ -288,6 +309,8 @@ extension AssetView {
 
 extension AssetView {
     func applyEditState<T>(_ editState: StateValueSet<T>?) where T: AppValue {
+        self.editState = editState as? StateValueSet<AppValue>
+        
         applyFilter(editState)
     }
 }
