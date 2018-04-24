@@ -50,7 +50,7 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
     
     @objc dynamic
     public private(set) lazy var config: GIFMakerAppConfig? = GIFMaker.configure?()
-    public private(set) lazy var controller: AppDockContent? = createController()
+    public private(set) lazy var controller: AppDockContent? = GIFMakerAppDockContent()
     
     public static let info = AppInfo(
         identifier: "com.stells.batch.gifmaker"
@@ -85,24 +85,11 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
     }
     
     public var finalizingOptions: [PHAssetFinalizingOption]{
-        return [.create]
+        return [.custom]
     }
     
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
         self.config?.adoptValues(fromOther: config)
-    }
-    
-    private func createController() -> AppDockContent {
-        let items = [
-            BAppUICollectionView.CollectionItem(title: "FPS", image: nil, action: nil),
-            BAppUICollectionView.CollectionItem(title: "Direction", image: nil, action: nil)
-        ]
-        
-        let view = BAppUICollectionStackView(items: items)
-        var preferences = AppDockContentPreferences()
-        preferences.pinned = true
-        preferences.minimumHeight = 44
-        return AppDockContentItem(view: view, preferences: preferences)
     }
     
     public func shouldFinalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> Bool {
@@ -187,5 +174,99 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
         
         async?.waitUntilEnd()
         return result
+    }
+}
+
+class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
+    fileprivate var menus = [
+        "Content mode",
+        "Frame delay",
+        "Loop",
+        "Direction",
+        "Quality"
+    ]
+    
+    var view: UIView{
+        let view = UITableView()
+        view.dataSource = self
+        view.delegate = self
+        view.rowHeight = 44
+        view.allowsSelection = false
+        view.register(Cell.self, forCellReuseIdentifier: GIFMaker.info.identifier)
+        
+        return view
+    }
+    
+    var preferences: AppDockContentPreferable? {
+        var preferences = AppDockContentPreferences()
+        preferences.minimumHeight = 44 * CGFloat(menus.count) + 20
+        preferences.pinned = false
+        return preferences
+    }
+    
+    func didSetContentView(_ view:UIView) {
+        if options != nil{
+            (view as! UITableView).reloadData()
+        }
+    }
+    
+    @objc dynamic
+    var options:[String: Any]? // Bool may be other custom Codable type instead of Any
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return GIFMaker.info.displayName
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return menus.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: GIFMaker.info.identifier) as! Cell
+        cell.textLabel?.text = menus[indexPath.row]
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    private class Cell: UITableViewCell {
+        lazy var optionSwitch: UISwitch = {
+            let view = UISwitch()
+            view.addTarget(self, action: #selector(self.cellSwitchDidChange), for: .valueChanged)
+            return view
+        }()
+        
+        var switchDidChange: ((Bool) -> Void)?
+        
+        override func prepareForReuse() {
+            super.prepareForReuse()
+            
+            switchDidChange = nil
+        }
+        
+        override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+            super.init(style: style, reuseIdentifier: reuseIdentifier)
+            
+//            accessoryView = optionSwitch
+        }
+        
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+        
+        @objc func cellSwitchDidChange(sender: UISwitch) {
+            switchDidChange?(sender.isOn)
+        }
     }
 }
