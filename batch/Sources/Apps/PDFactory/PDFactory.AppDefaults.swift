@@ -10,7 +10,7 @@ import Photos
 
 
 protocol PDFactoryDefaults: AppDefaults{
-    var formatPreset: String {get set}
+    var sizePreset: String {get set}
     var landscape: Bool {get set}
     var imagesPerPage: Int {get set}
     var scaleMode: Int {get set}
@@ -18,7 +18,7 @@ protocol PDFactoryDefaults: AppDefaults{
 }
 
 extension Defaults: PDFactoryDefaults {
-    var formatPreset:String {
+    var sizePreset:String {
         set{ set(newValue) }
         get{ return get(or: PDFPageFormat.a4.label ) }
     }
@@ -35,7 +35,7 @@ extension Defaults: PDFactoryDefaults {
 
     var scaleMode:Int {
         set{ set(newValue) }
-        get{ return get(or: PDFScaleMode.fitPage ) }
+        get{ return get(or: PDFactorySettings.ScaleMode.fitPage ) }
     }
 
     var metadataCaption:Bool {
@@ -44,22 +44,25 @@ extension Defaults: PDFactoryDefaults {
     }
 }
 
-
-struct PDFScaleMode{
-    static let fitPage = 0
-    static let fillPage = 1
-}
-
-enum PDFDocumentDPI{
-    case dpi72
-    case dpi300
-}
-
 struct PDFactorySettings{
+    enum ScaleMode {
+        static let fitPage = 0
+        static let fillPage = 1
 
-    static let FormatPresetFitToPhotoSize = "Fit To Photo Size"
+        static let Labels = [
+            "Entire Image": PDFactorySettings.ScaleMode.fitPage
+            , "Fill Page": PDFactorySettings.ScaleMode.fillPage
+        ]
+    }
 
-    static let FormatPresets:[String:PDFPageFormat] = [
+    enum DPI {
+        case dpi72
+        case dpi300
+    }
+
+    static let SizePresetFitToPhotoSize = "Fit To Photo Size"
+
+    static let SizePresets:[String:PDFPageFormat] = [
         PDFPageFormat.a3.label: PDFPageFormat.a3
         , PDFPageFormat.a4.label: PDFPageFormat.a4
         , PDFPageFormat.a5.label: PDFPageFormat.a5
@@ -76,14 +79,14 @@ struct PDFactorySettings{
         , PDFPageFormat.usHalfLetter.label: PDFPageFormat.usHalfLetter
         , PDFPageFormat.usLedger.label: PDFPageFormat.usLedger
 
-        , FormatPresetFitToPhotoSize : PDFPageFormat.a4
+        , SizePresetFitToPhotoSize: PDFPageFormat.a4
     ]
 }
 
 extension PDFactory{
     class var defaultsPDFFormat:PDFPageFormat{
         if let defaults = PDFactory.defaults as? PDFactoryDefaults
-        , let format = PDFactorySettings.FormatPresets[defaults.formatPreset] {
+        , let format = PDFactorySettings.SizePresets[defaults.sizePreset] {
             return format
         }else{
             return PDFPageFormat.a4

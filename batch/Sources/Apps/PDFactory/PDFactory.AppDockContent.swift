@@ -8,18 +8,28 @@ import UIKit
 import DefaultsKit
 import TPPDF
 
-private struct PDFSettingItem{
+private struct SettingsItem {
+    enum Keys {
+        case sizePreset
+        case landscape
+        case imagesPerPage
+        case scaleMode
+        case metadataCaption
+    }
+
+    fileprivate var key: Keys
     fileprivate var label:String
     fileprivate var value:Any
     fileprivate var valueCollection:Any?
+    fileprivate var valueHandler:((Any) -> ())?
     fileprivate var cell:String
-    fileprivate var imageName:String?
+    fileprivate var iconImageName:String?
 }
 
 class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate {
     private var defaults = PDFactory.defaults as? PDFactoryDefaults
 
-    private var settings = [PDFSettingItem]()
+    private var settings = [SettingsItem]()
 
     var view: UIView{
         let view = UITableView()
@@ -47,34 +57,50 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     func willSetContentView(_ view:UIView, dock:AppDock) {
         appDock = dock
         settings = [
-            PDFSettingItem(
-                    label: "Page Size"
-                    , value: defaults?.formatPreset ?? PDFPageFormat.a4.label
-                    , valueCollection: PDFactorySettings.FormatPresets.keys.map { String($0) }
+            SettingsItem(
+                    key: .sizePreset
+                    , label: "Page Size Preset"
+                    , value: defaults?.sizePreset ?? PDFPageFormat.a4.label
+                    , valueCollection: PDFactorySettings.SizePresets.keys.map { String($0) }
+                    , valueHandler: nil
                     , cell: UITableViewPickerCell.cellId
-                    , imageName: nil
+                    , iconImageName: nil
             )
-            , PDFSettingItem(
-                    label: "Land Scape"
+            , SettingsItem(
+                    key: .landscape
+                    , label: "Landscape Mode"
                     , value: defaults?.landscape ?? false
                     , valueCollection: nil
+                    , valueHandler: { self.defaults?.landscape = $0 as? Bool ?? false }
                     , cell: SwitcherCell.cellId
-                    , imageName: R.image.pdFactoryAppIcon.name
+                    , iconImageName: R.image.pdFactoryAppIcon.name
             )
-            , PDFSettingItem(
-                    label: "Images Per Page"
+            , SettingsItem(
+                    key: .imagesPerPage
+                    , label: "Max. Images Per Page"
                     , value: defaults?.imagesPerPage ?? 1
                     , valueCollection: nil
+                    , valueHandler: { self.defaults?.imagesPerPage = Int($0 as? Double ?? 1) }
                     , cell: StepperCell.cellId
-                    , imageName: nil
+                    , iconImageName: nil
             )
-            , PDFSettingItem(
-                    label: "Scale To Fit"
-                    , value: defaults?.scaleMode ?? PDFScaleMode.fitPage
-                    , valueCollection: ["Entire Image": PDFScaleMode.fitPage
-                                        , "Fill Page": PDFScaleMode.fillPage]
+            , SettingsItem(
+                    key: .metadataCaption
+                    , label: "Caption With Metadata"
+                    , value: defaults?.metadataCaption ?? false
+                    , valueCollection: nil
+                    , valueHandler: { self.defaults?.metadataCaption = $0 as? Bool ?? false }
+                    , cell: SwitcherCell.cellId
+                    , iconImageName: nil
+            )
+            , SettingsItem(
+                    key: .scaleMode
+                    , label: "Scale To Fit"
+                    , value: defaults?.scaleMode ?? PDFactorySettings.ScaleMode.fitPage
+                    , valueCollection: PDFactorySettings.ScaleMode.Labels
+                    , valueHandler: { self.defaults?.scaleMode = PDFactorySettings.ScaleMode.Labels.valuesArray[$0 as? Int ?? 0] }
                     , cell: SegmentedControlCell.cellId
-                    , imageName: nil
+                    , iconImageName: nil
             )
         ]
     }
@@ -142,11 +168,8 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
             let cell = tableView.dequeueReusableCell(withIdentifier: SwitcherCell.cellId) as! SwitcherCell
             cell.textLabel?.text = item.label
             cell.switcher.setOn(value, animated: false)
-            cell.imageView?.image = item.imageName?.asUIImage
-            cell.switchDidChange = { on in
-
-                self.defaults?.landscape = on
-            }
+            cell.imageView?.image = item.iconImageName?.asUIImage
+            cell.switchDidChange = item.valueHandler
             return cell
         }
 
@@ -154,7 +177,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
             let cell = tableView.dequeueReusableCell(withIdentifier: StepperCell.cellId) as! StepperCell
             cell.textLabel?.text = item.label
             cell.detailTextLabel?.text = String(value)
-            cell.imageView?.image = item.imageName?.asUIImage
+            cell.imageView?.image = item.iconImageName?.asUIImage
 
             cell.stepper.stepValue = 1
             cell.stepper.minimumValue = 1
@@ -163,7 +186,8 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
             cell.didChangeValue = { value in
                 cell.detailTextLabel?.text = String(Int(value))
-                self.defaults?.imagesPerPage = Int(value)
+                item.valueHandler?(value)
+
             }
             return cell
         }
@@ -173,18 +197,15 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
             let cell = tableView.dequeueReusableCell(withIdentifier: SegmentedControlCell.cellId) as! SegmentedControlCell
 
             cell.textLabel?.text = item.label
-            cell.imageView?.image = item.imageName?.asUIImage
+            cell.imageView?.image = item.iconImageName?.asUIImage
 
-            if cell.segmentedControl.numberOfSegments==0{
-                for k in valueCollection{
-                    cell.segmentedControl.insertSegment(withTitle: k.key, at: cell.segmentedControl.numberOfSegments, animated: false)
-                }
+            cell.segmentedControl.removeAllSegments()
+            for k in valueCollection{
+                cell.segmentedControl.insertSegment(withTitle: k.key, at: cell.segmentedControl.numberOfSegments, animated: false)
             }
 
-            cell.segmentedControl.selectedSegmentIndex = valueCollection.valuesArray.index(of: self.defaults?.scaleMode ?? PDFScaleMode.fitPage) ?? 0
-            cell.didChangeValue = { value in
-                self.defaults?.scaleMode = valueCollection.valuesArray[value]
-            }
+            cell.segmentedControl.selectedSegmentIndex = valueCollection.valuesArray.index(of: item.value as? Int ?? PDFactorySettings.ScaleMode.fitPage) ?? 0
+            cell.didChangeValue = item.valueHandler
             return cell
         }
 
@@ -195,7 +216,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     }
 
     func pickerCell(_ cell: UITableViewPickerCell, didPick row: Int, value: Any) {
-        defaults?.formatPreset = cell.values[row]
+        defaults?.sizePreset = cell.values[row]
     }
 
     func createSelectedBackgroundView() -> UIView {
