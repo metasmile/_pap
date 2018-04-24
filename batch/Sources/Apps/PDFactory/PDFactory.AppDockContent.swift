@@ -52,7 +52,10 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         return preferences
     }
 
-    func didSetContentView(_ view:UIView, on:AppDock) {
+    var appDock:AppDock?
+
+    func didSetContentView(_ view:UIView, dock:AppDock) {
+        appDock = dock
         (view as! UITableView).reloadData()
     }
 
@@ -81,7 +84,12 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         tableView.deselectRow(at: indexPath, animated: true)
 
         if let cell = tableView.cellForRow(at: indexPath) as? UITableViewPickerCell {
-            cell.isExpanded ? cell.contract(tableView) : cell.expand(tableView)
+            if cell.isExpanded{
+                cell.contract(tableView)
+            } else{
+                cell.expand(tableView)
+                appDock?.expandLayout(reloadContents: nil)
+            }
         }
     }
 

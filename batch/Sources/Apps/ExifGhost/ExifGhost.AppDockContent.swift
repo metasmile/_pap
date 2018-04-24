@@ -112,7 +112,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         return ExifGhost.defaults as? ExifGhostAppDefaults
     }
 
-    func didSetContentView(_ view:UIView, on:AppDock) {
+    func didSetContentView(_ view:UIView, dock:AppDock) {
 
         if let defaultsCollection = self.appDefaults?.ghostedImageMetadataCollection {
             //sort ascending for handling exif properties
