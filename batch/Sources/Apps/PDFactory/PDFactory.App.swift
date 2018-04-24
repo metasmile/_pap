@@ -5,7 +5,7 @@
 
 import Foundation
 import Photos
-import TPPDF // https://github.com/Techprimate/TPPDF 👍
+import TPPDF
 import UIKit
 
 /*
@@ -18,81 +18,10 @@ FinalizableApp Common Share ActivityViewController
 
 import DefaultsKit
 
-private enum PDFDocumentDPI{
-    case dpi72
-    case dpi300
-}
-
-struct PDFactorySettings{
-    static let FormatPresetFitToPhotoSize = "Fit To Photo Size"
-
-    static let FormatPresets:[String:PDFPageFormat] = [
-        PDFPageFormat.a3.label: PDFPageFormat.a3
-        , PDFPageFormat.a4.label: PDFPageFormat.a4
-        , PDFPageFormat.a5.label: PDFPageFormat.a5
-        , PDFPageFormat.a6.label: PDFPageFormat.a6
-
-        , PDFPageFormat.b3.label: PDFPageFormat.b3
-        , PDFPageFormat.b4.label: PDFPageFormat.b4
-
-        , PDFPageFormat.b5.label: PDFPageFormat.b5
-        , PDFPageFormat.c5.label: PDFPageFormat.c5
-
-        , PDFPageFormat.usLegal.label: PDFPageFormat.usLegal
-        , PDFPageFormat.usLetter.label: PDFPageFormat.usLetter
-        , PDFPageFormat.usHalfLetter.label: PDFPageFormat.usHalfLetter
-        , PDFPageFormat.usLedger.label: PDFPageFormat.usLedger
-
-        , FormatPresetFitToPhotoSize : PDFPageFormat.a4
-    ]
-}
-
-private protocol PDFactoryDefaults: AppDefaults{
-    var formatPreset: String {get set}
-    var landscape: Bool {get set}
-    var copiesPerPage: UInt {get set}
-}
-
-extension Defaults: PDFactoryDefaults {
-    fileprivate var formatPreset:String {
-        set{ set(newValue) }
-        get{ return get(or: PDFPageFormat.a4.label ) }
-    }
-
-    fileprivate var landscape:Bool {
-        set{ set(newValue) }
-        get{ return get(or: false ) }
-    }
-
-    fileprivate var copiesPerPage:UInt {
-        set{ set(newValue) }
-        get{ return get(or: 1 ) }
-    }
-}
-
 private struct PDFactoryPHAssetResult: TaskResultable{
     public var asset: PHAsset
     public var renderPixelSize: CGSize
     public var renderImage: UIImage
-}
-
-extension PDFactory{
-    fileprivate class var defaultsPDFFormat:PDFPageFormat{
-        if let defaults = PDFactory.defaults as? PDFactoryDefaults
-        , let format = PDFactorySettings.FormatPresets[defaults.formatPreset] {
-            return format
-        }else{
-            return PDFPageFormat.a4
-        }
-    }
-
-    fileprivate class var defaultsPDFLayout:PDFPageLayout{
-        var defaultLayout:PDFPageLayout = defaultsPDFFormat.layout
-        if let defaults = PDFactory.defaults as? PDFactoryDefaults, defaults.landscape {
-            defaultLayout.size = CGSize(width: defaultLayout.size.height, height: defaultLayout.size.width)
-        }
-        return defaultLayout
-    }
 }
 
 public class PDFactory: BatchApp, FinalizableApp, PhotoPickerViewControllerDelegatableApp,

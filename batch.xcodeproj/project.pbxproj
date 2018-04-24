@@ -172,6 +172,7 @@
 		4F71DFB854604511311802F1 /* ImageIO.Metadata.VoidValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D917110E7A484E4E82DF /* ImageIO.Metadata.VoidValues.swift */; };
 		4F71DFE43FF864C907579514 /* CodeKit.Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD8D0F498343A0F9E956 /* CodeKit.Thread.swift */; };
 		4F71DFEC865AA80D613A636F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D301F74DE286EEECCC9F /* Localizable.strings */; };
+		4F71DFF135992B983BB8ECFF /* PDFactory.AppDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D836FB2DC3BFC266EDAB /* PDFactory.AppDefaults.swift */; };
 		4F71DFF8D55824E32A18110E /* CodeKit.UIView.Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDBE65F819676D3B5DEC /* CodeKit.UIView.Property.swift */; };
 		514944FE2085913B0053896A /* AutoAdjustment.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514944FD2085913B0053896A /* AutoAdjustment.App.swift */; };
 		51680042208D627600910B49 /* CodeKit.AVAssetExportSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51680041208D627600910B49 /* CodeKit.AVAssetExportSession.swift */; };
@@ -289,6 +290,7 @@
 		4F71D7C1E4B21C4D1DEC9334 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; name = "GoogleService-Info.plist"; path = "batch/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4F71D80FD073168B3E7A6C3D /* Transform.App.Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.App.Defaults.swift; sourceTree = "<group>"; };
 		4F71D824173DDC0C14C6EAB1 /* ro */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ro; path = Localizable.strings; sourceTree = "<group>"; };
+		4F71D836FB2DC3BFC266EDAB /* PDFactory.AppDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFactory.AppDefaults.swift; sourceTree = "<group>"; };
 		4F71D8600E3A2D03D0D182F8 /* ImageIO.Metadata.Properties.Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.Metadata.Properties.Label.swift; sourceTree = "<group>"; };
 		4F71D866AB412DC0BDEF03A8 /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift; sourceTree = "<group>"; };
 		4F71D8698EAC3EA68C658ECE /* CodeKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKitTests.swift; sourceTree = "<group>"; };
@@ -474,6 +476,7 @@
 				4F71D7AF6686AACFE36C40A1 /* PDFactory.App.swift */,
 				4F71DAE6004619E4A355CDAD /* PDFactory.TPPDF.swift */,
 				4F71DD4524B1D3D608ECFD4F /* PDFactory.AppDockContent.swift */,
+				4F71D836FB2DC3BFC266EDAB /* PDFactory.AppDefaults.swift */,
 			);
 			path = PDFactory;
 			sourceTree = "<group>";
@@ -1612,6 +1615,7 @@
 				4F71D7BF2C008E2056FCDE83 /* PDFactory.TPPDF.swift in Sources */,
 				4F71D8C14CD45B8874FF68A8 /* PDFactory.AppDockContent.swift in Sources */,
 				4F71DCE1CF7DDDB8CCD30458 /* UITableViewPickerCell.swift in Sources */,
+				4F71DFF135992B983BB8ECFF /* PDFactory.AppDefaults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

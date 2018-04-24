@@ -6,31 +6,19 @@
 import Foundation
 import UIKit
 import DefaultsKit
+import TPPDF
 
 private struct PDFSettingItem{
     fileprivate var label:String
     fileprivate var value:Any
+    fileprivate var valueCollection:Any?=nil
     fileprivate var cell:String
 }
 
 class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate {
-    private var settings = [
-        PDFSettingItem(
-                label: "Page Size"
-                , value:PDFactorySettings.FormatPresets.keys.map { String($0) }
-                , cell: UITableViewPickerCell.cellId
-        )
-        , PDFSettingItem(
-                label: "Land Scape"
-                , value:false
-                , cell: SwitcherCell.cellId
-        )
-        , PDFSettingItem(
-                label: "Copies Per Page"
-                , value:1
-                , cell: StepperCell.cellId
-        )
-    ]
+    private var defaults = PDFactory.defaults as? PDFactoryDefaults
+
+    private var settings = [PDFSettingItem]()
 
     var view: UIView{
         let view = UITableView()
@@ -54,8 +42,31 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
     var appDock:AppDock?
 
-    func didSetContentView(_ view:UIView, dock:AppDock) {
+    func willSetContentView(_ view:UIView, dock:AppDock) {
         appDock = dock
+        settings = [
+            PDFSettingItem(
+                    label: "Page Size"
+                    , value: defaults?.formatPreset ?? PDFPageFormat.a4.label
+                    , valueCollection: PDFactorySettings.FormatPresets.keys.map { String($0) }
+                    , cell: UITableViewPickerCell.cellId
+            )
+            , PDFSettingItem(
+                    label: "Land Scape"
+                    , value: defaults?.landscape ?? false
+                    , valueCollection: nil
+                    , cell: SwitcherCell.cellId
+            )
+            , PDFSettingItem(
+                    label: "Copies Per Page"
+                    , value: defaults?.copiesPerPage ?? 1
+                    , valueCollection: nil
+                    , cell: StepperCell.cellId
+            )
+        ]
+    }
+
+    func didSetContentView(_ view:UIView, dock:AppDock) {
         (view as! UITableView).reloadData()
     }
 
@@ -96,23 +107,29 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = self.settings[indexPath.item]
 
-        if item.cell == UITableViewPickerCell.cellId, let value = item.value as? [String] {
+        if item.cell == UITableViewPickerCell.cellId, let valueCollection = item.valueCollection as? [String] {
             let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: item.cell) as? UITableViewPickerCell
                     ?? UITableViewPickerCell(type: .default, reuseIdentifier: item.cell)
-            cell.values = value
+
+            cell.values = valueCollection
             cell.delegate = self
-            cell.selectedRow = 1
+            if let value = item.value as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
+                cell.selectedRow = index
+            } else{
+                cell.selectedRow = 0
+            }
             cell.titleLabel.text = item.label
             return cell
 
         }
+
         else if item.cell == SwitcherCell.cellId, let value = item.value as? Bool {
             let cell = tableView.dequeueReusableCell(withIdentifier: SwitcherCell.cellId) as! SwitcherCell
             cell.textLabel?.text = item.label
-            cell.optionSwitch.setOn(value, animated: false)
+            cell.switcher.setOn(value, animated: false)
             cell.switchDidChange = { on in
-                let item = self.settings[indexPath.section]
 
+                self.defaults?.landscape = on
             }
             return cell
         }
@@ -121,9 +138,15 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
             let cell = tableView.dequeueReusableCell(withIdentifier: StepperCell.cellId) as! StepperCell
             cell.textLabel?.text = item.label
             cell.detailTextLabel?.text = String(value)
+
+            cell.stepper.stepValue = 1
+            cell.stepper.minimumValue = 1
+            cell.stepper.maximumValue = 60
             cell.stepper.value = Double(value)
+
             cell.didChangeValue = { value in
                 cell.detailTextLabel?.text = String(Int(value))
+                self.defaults?.copiesPerPage = Int(value)
             }
             return cell
         }
@@ -135,7 +158,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     }
 
     func pickerCell(_ cell: UITableViewPickerCell, didPick row: Int, value: Any) {
-
+        defaults?.formatPreset = cell.values[row]
     }
 
     func createSelectedBackgroundView() -> UIView {
@@ -157,7 +180,7 @@ private class SwitcherCell: UITableViewCell {
         return "SwitcherCell"
     }
 
-    lazy var optionSwitch: UISwitch = {
+    private(set) lazy var switcher: UISwitch = {
         let view = UISwitch()
         view.addTarget(self, action: #selector(self.cellSwitchDidChange), for: .valueChanged)
         return view
@@ -174,7 +197,7 @@ private class SwitcherCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        accessoryView = optionSwitch
+        accessoryView = switcher
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -186,29 +209,23 @@ private class SwitcherCell: UITableViewCell {
     }
 }
 
-
 private class StepperCell: UITableViewCell {
     static var cellId:String {
         return "StepperCell"
     }
 
-    lazy var stepper: UIStepper = UIStepper()
+    private(set) lazy var stepper: UIStepper = UIStepper()
 
     var didChangeValue: ((Double) -> Void)?
 
     override func prepareForReuse() {
         super.prepareForReuse()
 
-        stepper.stepValue = 1
         didChangeValue = nil
     }
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-
-        stepper.stepValue = 1
-        stepper.minimumValue = 1
-        stepper.maximumValue = 60
 
         stepper.addTarget(self, action: #selector(self.valueDidChange), for: .valueChanged)
 

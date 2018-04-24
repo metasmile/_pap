@@ -28,7 +28,7 @@ class AppDockGestureRecognizer: UIPanGestureRecognizer {
     var beginAppContentViewOffset: CGFloat = 0
 }
 
-class AppDockView: CustomView, AppDock {
+class AppDockView: CustomView {
     private struct DefaultPreferences{
         struct AppDockView {
             static let compactHeight: CGFloat = 44
@@ -125,14 +125,6 @@ class AppDockView: CustomView, AppDock {
         return drawerView.isOpened
     }
 
-    func expandLayout(reloadContents: Bool?=nil) {
-        self.openDrawer(reloadDockContentViews: reloadContents)
-    }
-
-    func contractLayout(reloadContents: Bool?=nil) {
-        self.closeDrawer(reloadDockContentViews: reloadContents)
-    }
-
     /*
         layout priority : controller > accessory
     */
@@ -141,6 +133,8 @@ class AppDockView: CustomView, AppDock {
     var controller: AppDockContent?{
         didSet {
             if let view = controller?.view {
+                controller?.willSetContentView(view, dock: self)
+
                 setControllerView(view, animated: true)
 
                 DispatchQueue.main.async{
@@ -233,6 +227,17 @@ class AppDockView: CustomView, AppDock {
         if animated {
             animateAsSpringSuperviewLayoutIfNeeded()
         }
+    }
+}
+
+//AppDock
+extension AppDockView: AppDock{
+    func expandLayout(reloadContents: Bool?=nil) {
+        self.openDrawer(reloadDockContentViews: reloadContents)
+    }
+
+    func contractLayout(reloadContents: Bool?=nil) {
+        self.closeDrawer(reloadDockContentViews: reloadContents)
     }
 }
 
