@@ -232,11 +232,11 @@ class AppDockView: CustomView {
 
 //AppDock
 extension AppDockView: AppDock{
-    func expandLayout(reloadContents: Bool?=nil) {
+    func expandLayoutIfNeeded(reloadContents: Bool?=nil) {
         self.openDrawer(reloadDockContentViews: reloadContents)
     }
 
-    func contractLayout(reloadContents: Bool?=nil) {
+    func contractLayoutIfNeeded(reloadContents: Bool?=nil) {
         self.closeDrawer(reloadDockContentViews: reloadContents)
     }
 }

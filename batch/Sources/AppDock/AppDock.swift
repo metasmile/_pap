@@ -8,8 +8,8 @@ import UIKit
 
 // AppDock
 public protocol AppDock {
-    func expandLayout(reloadContents:Bool?) // nil means it should act with default behavior
-    func contractLayout(reloadContents:Bool?)
+    func expandLayoutIfNeeded(reloadContents:Bool?) // nil means it should act with default behavior
+    func contractLayoutIfNeeded(reloadContents:Bool?)
 }
 
 // AppDockContentPreferable

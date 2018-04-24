@@ -95,6 +95,7 @@
 		4F71D8C5F1069E43DAC175FB /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D866AB412DC0BDEF03A8 /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift */; };
 		4F71D8E72553DE16AA8BBD63 /* AppAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC0D33A6C59D6893EB36 /* AppAssets.swift */; };
 		4F71D91244FDCFE9DC644E76 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DF5E6FB47FF24A1584B4 /* Localizable.strings */; };
+		4F71D915F8920CA2C51E2EB3 /* CodeKit.Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7993A5504D22E26D6FC /* CodeKit.Dictionary.swift */; };
 		4F71D91CC8EEAF228DAD28F9 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D75C627857507AD7B3F1 /* RoundedButton.swift */; };
 		4F71D92D43B34E4EB5010A03 /* PDFactory.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7AF6686AACFE36C40A1 /* PDFactory.App.swift */; };
 		4F71D9391BBFB00BA695C8BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D7C1E4B21C4D1DEC9334 /* GoogleService-Info.plist */; };
@@ -284,6 +285,7 @@
 		4F71D7771AF9D4319CDD3CC0 /* App.Persistable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Persistable.swift; sourceTree = "<group>"; };
 		4F71D785021113F0D131D52F /* ca */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ca; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D797FBC4543B06C44975 /* no */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = no; path = Localizable.strings; sourceTree = "<group>"; };
+		4F71D7993A5504D22E26D6FC /* CodeKit.Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Dictionary.swift; sourceTree = "<group>"; };
 		4F71D7A66CE97DD5A352D489 /* Base */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Base; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D7AF6686AACFE36C40A1 /* PDFactory.App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFactory.App.swift; sourceTree = "<group>"; };
 		4F71D7BA9D96FFFB58C99B24 /* CodeKit.UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIImage.swift; sourceTree = "<group>"; };
@@ -806,6 +808,7 @@
 				4F71DA3D1860CB18A8698B9D /* CodeKit.Collection.swift */,
 				51680041208D627600910B49 /* CodeKit.AVAssetExportSession.swift */,
 				4F71D555AD39AB46E32ECBC9 /* CodeKit.UITableViewCell */,
+				4F71D7993A5504D22E26D6FC /* CodeKit.Dictionary.swift */,
 			);
 			path = CodeKit;
 			sourceTree = "<group>";
@@ -1616,6 +1619,7 @@
 				4F71D8C14CD45B8874FF68A8 /* PDFactory.AppDockContent.swift in Sources */,
 				4F71DCE1CF7DDDB8CCD30458 /* UITableViewPickerCell.swift in Sources */,
 				4F71DFF135992B983BB8ECFF /* PDFactory.AppDefaults.swift in Sources */,
+				4F71D915F8920CA2C51E2EB3 /* CodeKit.Dictionary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

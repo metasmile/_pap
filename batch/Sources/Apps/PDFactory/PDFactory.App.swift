@@ -75,19 +75,6 @@ public class PDFactory: BatchApp, FinalizableApp, PhotoPickerViewControllerDeleg
     //TOOD: support 4x6 ... photos inch size
 
     public lazy var controller: AppDockContent? = PDFactoryAppDockContent()
-//    public var controller: AppDockContent? {
-//        let items = PDFactorySettings.FormatPresets.map { (label, _) -> BAppUICollectionView.CollectionItem in
-//            return BAppUICollectionView.CollectionItem(title: label, image: nil, action: {
-//
-//            })
-//        }
-//        let view = BAppUICollectionView(items:items)
-//
-//        var p = AppDockContentPreferences()
-//        p.pinned = true
-//        p.minimumHeight = 100 // for test. remove this line after fixed app design
-//        return AppDockContentItem(view: view, preferences: p)
-//    }
 
     public var finalizingOptions: [PHAssetFinalizingOption]{
         return [.custom]

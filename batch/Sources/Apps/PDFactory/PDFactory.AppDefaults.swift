@@ -12,7 +12,9 @@ import Photos
 protocol PDFactoryDefaults: AppDefaults{
     var formatPreset: String {get set}
     var landscape: Bool {get set}
-    var copiesPerPage: Int {get set}
+    var imagesPerPage: Int {get set}
+    var scaleMode: Int {get set}
+    var metadataCaption: Bool {get set}
 }
 
 extension Defaults: PDFactoryDefaults {
@@ -26,12 +28,27 @@ extension Defaults: PDFactoryDefaults {
         get{ return get(or: false ) }
     }
 
-    var copiesPerPage:Int {
+    var imagesPerPage:Int {
         set{ set(newValue) }
         get{ return get(or: 1 ) }
     }
+
+    var scaleMode:Int {
+        set{ set(newValue) }
+        get{ return get(or: PDFScaleMode.fitPage ) }
+    }
+
+    var metadataCaption:Bool {
+        set{ set(newValue) }
+        get{ return get(or: false ) }
+    }
 }
 
+
+struct PDFScaleMode{
+    static let fitPage = 0
+    static let fillPage = 1
+}
 
 enum PDFDocumentDPI{
     case dpi72
@@ -39,6 +56,7 @@ enum PDFDocumentDPI{
 }
 
 struct PDFactorySettings{
+
     static let FormatPresetFitToPhotoSize = "Fit To Photo Size"
 
     static let FormatPresets:[String:PDFPageFormat] = [

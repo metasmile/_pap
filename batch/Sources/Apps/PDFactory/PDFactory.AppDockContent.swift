@@ -11,8 +11,9 @@ import TPPDF
 private struct PDFSettingItem{
     fileprivate var label:String
     fileprivate var value:Any
-    fileprivate var valueCollection:Any?=nil
+    fileprivate var valueCollection:Any?
     fileprivate var cell:String
+    fileprivate var imageName:String?
 }
 
 class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate {
@@ -29,6 +30,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         view.allowsMultipleSelection = false
         view.register(SwitcherCell.self, forCellReuseIdentifier: SwitcherCell.cellId)
         view.register(StepperCell.self, forCellReuseIdentifier: StepperCell.cellId)
+        view.register(SegmentedControlCell.self, forCellReuseIdentifier: SegmentedControlCell.cellId)
         view.register(UITableViewPickerCell.self, forCellReuseIdentifier: UITableViewPickerCell.cellId)
         return view
     }
@@ -50,18 +52,29 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
                     , value: defaults?.formatPreset ?? PDFPageFormat.a4.label
                     , valueCollection: PDFactorySettings.FormatPresets.keys.map { String($0) }
                     , cell: UITableViewPickerCell.cellId
+                    , imageName: nil
             )
             , PDFSettingItem(
                     label: "Land Scape"
                     , value: defaults?.landscape ?? false
                     , valueCollection: nil
                     , cell: SwitcherCell.cellId
+                    , imageName: R.image.pdFactoryAppIcon.name
             )
             , PDFSettingItem(
-                    label: "Copies Per Page"
-                    , value: defaults?.copiesPerPage ?? 1
+                    label: "Images Per Page"
+                    , value: defaults?.imagesPerPage ?? 1
                     , valueCollection: nil
                     , cell: StepperCell.cellId
+                    , imageName: nil
+            )
+            , PDFSettingItem(
+                    label: "Scale To Fit"
+                    , value: defaults?.scaleMode ?? PDFScaleMode.fitPage
+                    , valueCollection: ["Entire Image": PDFScaleMode.fitPage
+                                        , "Fill Page": PDFScaleMode.fillPage]
+                    , cell: SegmentedControlCell.cellId
+                    , imageName: nil
             )
         ]
     }
@@ -98,8 +111,10 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
             if cell.isExpanded{
                 cell.contract(tableView)
             } else{
-                cell.expand(tableView)
-                appDock?.expandLayout(reloadContents: nil)
+                appDock?.expandLayoutIfNeeded(reloadContents: nil)
+                DispatchQueue.main.async{
+                    cell.expand(tableView)
+                }
             }
         }
     }
@@ -127,6 +142,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
             let cell = tableView.dequeueReusableCell(withIdentifier: SwitcherCell.cellId) as! SwitcherCell
             cell.textLabel?.text = item.label
             cell.switcher.setOn(value, animated: false)
+            cell.imageView?.image = item.imageName?.asUIImage
             cell.switchDidChange = { on in
 
                 self.defaults?.landscape = on
@@ -138,6 +154,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
             let cell = tableView.dequeueReusableCell(withIdentifier: StepperCell.cellId) as! StepperCell
             cell.textLabel?.text = item.label
             cell.detailTextLabel?.text = String(value)
+            cell.imageView?.image = item.imageName?.asUIImage
 
             cell.stepper.stepValue = 1
             cell.stepper.minimumValue = 1
@@ -146,7 +163,27 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
             cell.didChangeValue = { value in
                 cell.detailTextLabel?.text = String(Int(value))
-                self.defaults?.copiesPerPage = Int(value)
+                self.defaults?.imagesPerPage = Int(value)
+            }
+            return cell
+        }
+
+        else if item.cell == SegmentedControlCell.cellId, let valueCollection = item.valueCollection as? [String:Int] {
+
+            let cell = tableView.dequeueReusableCell(withIdentifier: SegmentedControlCell.cellId) as! SegmentedControlCell
+
+            cell.textLabel?.text = item.label
+            cell.imageView?.image = item.imageName?.asUIImage
+
+            if cell.segmentedControl.numberOfSegments==0{
+                for k in valueCollection{
+                    cell.segmentedControl.insertSegment(withTitle: k.key, at: cell.segmentedControl.numberOfSegments, animated: false)
+                }
+            }
+
+            cell.segmentedControl.selectedSegmentIndex = valueCollection.valuesArray.index(of: self.defaults?.scaleMode ?? PDFScaleMode.fitPage) ?? 0
+            cell.didChangeValue = { value in
+                self.defaults?.scaleMode = valueCollection.valuesArray[value]
             }
             return cell
         }
@@ -244,5 +281,44 @@ private class StepperCell: UITableViewCell {
 
     @objc func valueDidChange(sender: UIStepper) {
         didChangeValue?(sender.value)
+    }
+}
+
+
+private class SegmentedControlCell: UITableViewCell {
+    static var cellId:String {
+        return "SegmentedControlCell"
+    }
+
+    private(set) lazy var segmentedControl: UISegmentedControl = UISegmentedControl(items: [])
+
+    var didChangeValue: ((Int) -> Void)?
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        didChangeValue = nil
+    }
+
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+
+        segmentedControl.addTarget(self, action: #selector(self.valueDidChange), for: .valueChanged)
+
+        accessoryView = segmentedControl
+
+        self.detailTextLabel?.textColor = UIColor.gray
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    @objc func valueDidChange(sender: UISegmentedControl) {
+        didChangeValue?(sender.selectedSegmentIndex)
     }
 }
