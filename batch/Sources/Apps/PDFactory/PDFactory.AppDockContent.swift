@@ -52,7 +52,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         return preferences
     }
 
-    func didSetContentView(_ view:UIView) {
+    func didSetContentView(_ view:UIView, on:AppDock) {
         (view as! UITableView).reloadData()
     }
 

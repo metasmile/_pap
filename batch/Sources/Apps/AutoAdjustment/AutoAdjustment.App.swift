@@ -221,7 +221,7 @@ class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, 
         return preferences
     }
     
-    func didSetContentView(_ view:UIView) {
+    func didSetContentView(_ view:UIView, on:AppDock) {
         if options != nil{
             (view as! UITableView).reloadData()
         }
