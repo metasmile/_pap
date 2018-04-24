@@ -6,7 +6,6 @@
 import Foundation
 import UIKit
 import DefaultsKit
-import AUPickerCell
 
 private struct PDFSettingItem{
     fileprivate var label:String
@@ -14,12 +13,12 @@ private struct PDFSettingItem{
     fileprivate var cell:String
 }
 
-class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, AUPickerCellDelegate{
+class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate {
     private var settings = [
         PDFSettingItem(
                 label: "Page Size"
                 , value:PDFactorySettings.FormatPresets.keys.map { String($0) }
-                , cell: AUPickerCell.cellId
+                , cell: UITableViewPickerCell.cellId
         )
         , PDFSettingItem(
                 label: "Land Scape"
@@ -38,11 +37,11 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         view.dataSource = self
         view.delegate = self
         view.rowHeight = 44
-        view.allowsSelection = false
+//        view.allowsSelection = false
         view.allowsMultipleSelection = false
         view.register(SwitcherCell.self, forCellReuseIdentifier: SwitcherCell.cellId)
         view.register(StepperCell.self, forCellReuseIdentifier: StepperCell.cellId)
-        view.register(AUPickerCell.self, forCellReuseIdentifier: AUPickerCell.cellId)
+        view.register(UITableViewPickerCell.self, forCellReuseIdentifier: UITableViewPickerCell.cellId)
         return view
     }
 
@@ -71,8 +70,8 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let cell = tableView.cellForRow(at: indexPath)
-        if let cell = cell as? AUPickerCell {
-            return cell.height
+        if let c = cell as? UITableViewPickerCell {
+            return c.heightForRowSelected
         }
         return tableView.rowHeight
     }
@@ -80,7 +79,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        if let cell = tableView.dequeueReusableCell(withIdentifier: AUPickerCell.cellId, for: indexPath) as? AUPickerCell {
+        if let cell = tableView.cellForRow(at: indexPath) as? UITableViewPickerCell {
             cell.selectedInTableView(tableView)
         }
     }
@@ -88,14 +87,9 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = self.settings[indexPath.item]
 
-        if item.cell == AUPickerCell.cellId, let value = item.value as? [String] {
-            var cell:AUPickerCell
-            if let c = tableView.dequeueReusableCell(withIdentifier: SwitcherCell.cellId) as? AUPickerCell{
-                cell = c
-            }else{
-                cell = AUPickerCell(type: .default, reuseIdentifier: item.cell)
-            }
-
+        if item.cell == UITableViewPickerCell.cellId, let value = item.value as? [String] {
+            let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: item.cell) as? UITableViewPickerCell
+                    ?? UITableViewPickerCell(type: .default, reuseIdentifier: item.cell)
             cell.values = value
             cell.delegate = self
             cell.selectedRow = 1
@@ -131,7 +125,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
     }
 
-    func auPickerCell(_ cell: AUPickerCell, didPick row: Int, value: Any) {
+    func pickerCell(_ cell: UITableViewPickerCell, didPick row: Int, value: Any) {
 
     }
 
@@ -142,9 +136,9 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     }
 }
 
-extension AUPickerCell{
+extension UITableViewPickerCell {
     static var cellId:String {
-        return "AUPickerCell"
+        return "UITableViewPickerCell"
     }
 }
 

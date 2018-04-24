@@ -1,5 +1,4 @@
 PODS:
-  - AUPickerCell (1.0.1.1)
   - Crashlytics (3.10.1):
     - Fabric (~> 1.7.5)
   - DefaultsKit (0.0.8)
@@ -10,14 +9,14 @@ PODS:
   - FirebaseAnalytics (4.2.0):
     - FirebaseCore (~> 4.0)
     - FirebaseInstanceID (~> 2.0)
-    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
     - nanopb (~> 0.3)
   - FirebaseCore (4.0.20):
-    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FirebaseInstanceID (2.0.10):
     - FirebaseCore (~> 4.0)
   - GoogleToolboxForMac/Defines (2.1.4)
-  - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
+  - GoogleToolboxForMac/NSData+zlib (2.1.4):
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -33,7 +32,6 @@ PODS:
     - SwiftLint
 
 DEPENDENCIES:
-  - AUPickerCell
   - Crashlytics
   - DefaultsKit (from `https://github.com/metasmile/DefaultsKit`)
   - Fabric
@@ -41,23 +39,6 @@ DEPENDENCIES:
   - NSGIF2
   - R.swift
   - TPPDF
-
-SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - AUPickerCell
-    - Crashlytics
-    - Fabric
-    - Firebase
-    - FirebaseAnalytics
-    - FirebaseCore
-    - FirebaseInstanceID
-    - GoogleToolboxForMac
-    - nanopb
-    - NSGIF2
-    - R.swift
-    - R.swift.Library
-    - SwiftLint
-    - TPPDF
 
 EXTERNAL SOURCES:
   DefaultsKit:
@@ -69,7 +50,6 @@ CHECKOUT OPTIONS:
     :git: https://github.com/metasmile/DefaultsKit
 
 SPEC CHECKSUMS:
-  AUPickerCell: 9ee277059c3507bade7089661c59ab973fbc6e90
   Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
   DefaultsKit: 626a70a6cbcef36b503b9961c77798094b6bfa5c
   Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
@@ -85,6 +65,6 @@ SPEC CHECKSUMS:
   SwiftLint: ce933681be10c3266e82576dad676fa815a602e9
   TPPDF: 27bc0c390d6f88a8345613fefbe91a3de650f618
 
-PODFILE CHECKSUM: 7a6af2ac1aad78f3edf7f219e8059cd0886e8cea
+PODFILE CHECKSUM: fc37107557c70e45c1449f5af6419904d8c141bc
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.4.0

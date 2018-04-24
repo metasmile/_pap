@@ -18,6 +18,5 @@ target 'batch' do
 
   # com.stells.batch.pdfactory
   pod 'TPPDF'
-  pod 'AUPickerCell'
 end
 
