@@ -47,7 +47,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
-        preferences.minimumHeight = (self.view as! UITableView).rowHeight * 5
+        preferences.minimumHeight = (self.view as! UITableView).rowHeight * 5 + 27
         preferences.pinned = false
         return preferences
     }
@@ -76,21 +76,21 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
                     , iconImageName: R.image.pdFactoryAppIcon.name
             )
             , SettingsItem(
-                    key: .imagesPerPage
-                    , label: "Max. Images Per Page"
-                    , value: defaults?.imagesPerPage ?? 1
-                    , valueCollection: nil
-                    , valueHandler: { self.defaults?.imagesPerPage = Int($0 as? Double ?? 1) }
-                    , cell: StepperCell.cellId
-                    , iconImageName: nil
-            )
-            , SettingsItem(
                     key: .metadataCaption
                     , label: "Caption With Metadata"
                     , value: defaults?.metadataCaption ?? false
                     , valueCollection: nil
                     , valueHandler: { self.defaults?.metadataCaption = $0 as? Bool ?? false }
                     , cell: SwitcherCell.cellId
+                    , iconImageName: nil
+            )
+            , SettingsItem(
+                    key: .imagesPerPage
+                    , label: "Max. Images Per Page"
+                    , value: defaults?.imagesPerPage ?? 1
+                    , valueCollection: nil
+                    , valueHandler: { self.defaults?.imagesPerPage = Int($0 as? Double ?? 1) }
+                    , cell: StepperCell.cellId
                     , iconImageName: nil
             )
             , SettingsItem(
