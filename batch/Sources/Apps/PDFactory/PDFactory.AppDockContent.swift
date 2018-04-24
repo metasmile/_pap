@@ -70,8 +70,9 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let cell = tableView.cellForRow(at: indexPath)
+
         if let c = cell as? UITableViewPickerCell {
-            return c.heightForRowSelected
+            return c.estimatedHeightForRowSelected
         }
         return tableView.rowHeight
     }
@@ -80,7 +81,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         tableView.deselectRow(at: indexPath, animated: true)
 
         if let cell = tableView.cellForRow(at: indexPath) as? UITableViewPickerCell {
-            cell.selectedInTableView(tableView)
+            cell.isExpanded ? cell.contract(tableView) : cell.expand(tableView)
         }
     }
 
@@ -93,7 +94,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
             cell.values = value
             cell.delegate = self
             cell.selectedRow = 1
-            cell.leftLabel.text = item.label
+            cell.titleLabel.text = item.label
             return cell
 
         }

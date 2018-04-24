@@ -51,19 +51,24 @@ public class UITableViewPickerCell: UITableViewCell {
     }
 
     /// The label on the left side of the cell that typically displays an explanatory text.
-    public let leftLabel: UILabel = {
+    public let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     /// The label on the right side of the cell that displays the currently selected value in the picker view.
-    public let rightLabel: UILabel = {
+    public let valueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    private var rightLabelTextColor = UIColor.darkText
+
+    public var defaultValueLabelTextColor = UIColor.darkText {
+        didSet{
+            valueLabel.textColor = defaultValueLabelTextColor
+        }
+    }
 
     private let separator: ColorLockedView = {
         let view = ColorLockedView()
@@ -71,23 +76,23 @@ public class UITableViewPickerCell: UITableViewCell {
         view.lockedBackgroundColor = UIColor(white: 0, alpha: 0.1)
         return view
     }()
-    private(set) var picker: UIView = UIPickerView()
+    private var picker: UIView = UIPickerView()
 
     /// The type of the picker used in the cell.
     public private(set) var pickerType = PickerType.default
 
     /// The current status of the cell's status. The picker view is visible while the cell is expanded and hidden when it is not. Set this property to the desired state and reload table view rows to expand or contract the cell.
-    public var expanded = false
+    private(set) var isExpanded = false
 
-    private var leftLabelHeightConstraint: NSLayoutConstraint?
-    private var rightLabelHeightConstraint: NSLayoutConstraint?
+    private var titleLabelHeightConstraint: NSLayoutConstraint?
+    private var valueLabelHeightConstraint: NSLayoutConstraint?
     private var separatorHeightConstraint: NSLayoutConstraint?
 
     /// The height of the cell when the it is not expanded. The default is 44.0.
     public var unexpandedHeight: CGFloat = 44.0 {
         didSet {
-            leftLabelHeightConstraint?.constant = unexpandedHeight
-            rightLabelHeightConstraint?.constant = unexpandedHeight
+            titleLabelHeightConstraint?.constant = unexpandedHeight
+            valueLabelHeightConstraint?.constant = unexpandedHeight
         }
     }
 
@@ -130,7 +135,7 @@ public class UITableViewPickerCell: UITableViewCell {
                 return
             }
             UITableViewPickerCell.dateFormatter.timeStyle = timeStyle
-            rightLabel.text = UITableViewPickerCell.dateFormatter.string(from: date)
+            valueLabel.text = UITableViewPickerCell.dateFormatter.string(from: date)
         }
     }
 
@@ -143,7 +148,7 @@ public class UITableViewPickerCell: UITableViewCell {
                 return
             }
             UITableViewPickerCell.dateFormatter.dateStyle = dateStyle
-            rightLabel.text = UITableViewPickerCell.dateFormatter.string(from: date)
+            valueLabel.text = UITableViewPickerCell.dateFormatter.string(from: date)
         }
     }
 
@@ -159,7 +164,7 @@ public class UITableViewPickerCell: UITableViewCell {
             }
             picker.timeZone = timeZone
             UITableViewPickerCell.dateFormatter.timeZone = timeZone
-            rightLabel.text = UITableViewPickerCell.dateFormatter.string(from: date)
+            valueLabel.text = UITableViewPickerCell.dateFormatter.string(from: date)
         }
     }
 
@@ -239,9 +244,9 @@ public class UITableViewPickerCell: UITableViewCell {
     private var _date = Date()
 
     /// The height of table view cell. Height is calculated dynamically based on whether or not the cell is expanded.
-    public var heightForRowSelected: CGFloat {
+    public var estimatedHeightForRowSelected: CGFloat {
         let expandedHeight = unexpandedHeight + picker.bounds.height
-        return expanded ? expandedHeight : unexpandedHeight
+        return isExpanded ? expandedHeight : unexpandedHeight
     }
 
     /// Returns an object initialized from data in a given unarchiver.
@@ -282,26 +287,26 @@ public class UITableViewPickerCell: UITableViewCell {
         }
         picker.translatesAutoresizingMaskIntoConstraints = false
 
-        contentView.addSubview(leftLabel)
-        contentView.addSubview(rightLabel)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(valueLabel)
         contentView.addSubview(separator)
         contentView.addSubview(picker)
 
-        leftLabelHeightConstraint = leftLabel.heightAnchor.constraint(equalToConstant: unexpandedHeight)
-        leftLabelHeightConstraint?.isActive = true
-        leftLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        leftLabel.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor).isActive = true
+        titleLabelHeightConstraint = titleLabel.heightAnchor.constraint(equalToConstant: unexpandedHeight)
+        titleLabelHeightConstraint?.isActive = true
+        titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor).isActive = true
 
-        rightLabelHeightConstraint = rightLabel.heightAnchor.constraint(equalToConstant: unexpandedHeight)
-        rightLabelHeightConstraint?.isActive = true
-        rightLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        rightLabel.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor).isActive = true
+        valueLabelHeightConstraint = valueLabel.heightAnchor.constraint(equalToConstant: unexpandedHeight)
+        valueLabelHeightConstraint?.isActive = true
+        valueLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        valueLabel.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor).isActive = true
 
         separatorHeightConstraint = separator.heightAnchor.constraint(equalToConstant: separatorHeight)
         separatorHeightConstraint?.isActive = true
         separator.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor).isActive = true
         separator.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor).isActive = true
-        separator.topAnchor.constraint(equalTo: leftLabel.bottomAnchor).isActive = true
+        separator.topAnchor.constraint(equalTo: titleLabel.bottomAnchor).isActive = true
 
         picker.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor).isActive = true
         picker.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor).isActive = true
@@ -312,15 +317,32 @@ public class UITableViewPickerCell: UITableViewCell {
      Expands or contracts the table cell depending on its current state. Call this method from the "tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)" delegate method to show or hide the picker view with an animation.
      - Parameter tableView: The UITableView object that contains the cell.
     */
-    public func selectedInTableView(_ tableView: UITableView) {
-        if !expanded {
-            rightLabelTextColor = rightLabel.textColor
+    public func expand(_ tableView: UITableView, animated:Bool=true) {
+        if !isExpanded {
+            isExpanded = true
+            updateForExpansion(tableView, animated: animated)
         }
-        expanded = !expanded
+    }
 
-        UIView.transition(with: rightLabel, duration: 0.25, options: .transitionCrossDissolve, animations: { [unowned self] in
-            self.rightLabel.textColor = self.expanded ? self.tintColor : self.rightLabelTextColor
-        })
+    public func contract(_ tableView: UITableView, animated:Bool=true) {
+        if isExpanded {
+            isExpanded = false
+            updateForExpansion(tableView, animated: animated)
+        }
+    }
+
+    private func updateForExpansion(_ tableView: UITableView, animated:Bool=true){
+        func changeLabelColor(){
+            self.valueLabel.textColor = self.isExpanded ? self.tintColor : self.defaultValueLabelTextColor
+        }
+
+        if animated{
+            UIView.transition(with: valueLabel, duration: 0.25, options: .transitionCrossDissolve, animations: { [unowned self] in
+                changeLabelColor()
+            })
+        }else{
+            changeLabelColor()
+        }
 
         tableView.beginUpdates()
         tableView.endUpdates()
@@ -339,7 +361,7 @@ public class UITableViewPickerCell: UITableViewCell {
         picker.setDate(date, animated: animated)
         UITableViewPickerCell.dateFormatter.dateStyle = dateStyle
         UITableViewPickerCell.dateFormatter.timeStyle = timeStyle
-        rightLabel.text = UITableViewPickerCell.dateFormatter.string(from: date)
+        valueLabel.text = UITableViewPickerCell.dateFormatter.string(from: date)
     }
 
     /**
@@ -353,7 +375,7 @@ public class UITableViewPickerCell: UITableViewCell {
         }
         _selectedRow = row
         picker.selectRow(row, inComponent: 0, animated: animated)
-        rightLabel.text = values[row]
+        valueLabel.text = values[row]
     }
 
     @objc private func datePicked() {
@@ -369,9 +391,10 @@ extension UITableViewPickerCell: UIPickerViewDelegate {
     }
 
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        rightLabel.text = values[row]
+        valueLabel.text = values[row]
         delegate?.pickerCell(self, didPick: row, value: values[row])
     }
+
 }
 
 extension UITableViewPickerCell: UIPickerViewDataSource {
