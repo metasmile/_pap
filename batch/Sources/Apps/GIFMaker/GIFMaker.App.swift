@@ -7,11 +7,19 @@
 //
 
 import UIKit
+import Photos
+import NSGIF2
 
 class _GIFMakerAppAsset: PHAssetItem<ImageEditStateValue> {
     func cancelProcessing() {
         
     }
+}
+
+private struct GIFMakerPHAssetResult: TaskResultable{
+    public var asset: PHAsset
+    public var renderPixelSize: CGSize
+    public var renderImage: UIImage
 }
 
 public class GIFMakerAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrributeValuable, AppConfigAdoptableValuable {
@@ -34,7 +42,7 @@ public class GIFMakerAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrribut
 
 public class GIFMaker: BatchApp, ConfigurableApp, _ConfigurableApp,
     AppDockControllableApp, PHAssetFinalizableApp, PhotoPickerCollectionViewDisplayableApp,
-PhotoPickerViewControllerDelegatableApp {
+PhotoPickerViewControllerDelegatableApp, FinalizableApp {
     public static let taskType:Taskable.Type = _GIFMakerAppTask.self
     public static let paramType:TaskParamable.Type = _GIFMakerAppAsset.self
     
@@ -58,7 +66,7 @@ PhotoPickerViewControllerDelegatableApp {
     required public init() {}
     
     public var doneButtonTitle: String? {
-        return "Make".localized
+        return "Make GIF".localized
     }
     
     public func shouldSelect(item: PHAssetItem<ImageEditStateValue>) -> Bool {
@@ -72,7 +80,7 @@ PhotoPickerViewControllerDelegatableApp {
             return 1
         }
         else {
-            return Int.max
+            return 10
         }
     }
     
@@ -96,6 +104,40 @@ PhotoPickerViewControllerDelegatableApp {
         preferences.minimumHeight = 44
         return AppDockContentItem(view: view, preferences: preferences)
     }
+    
+    public func shouldFinalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> Bool {
+        return true
+    }
+    
+    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
+        let resultItems = result
+            .filter { respondable in respondable.info.state == .completed }
+            .compactMap { $0.result as? GIFMakerPHAssetResult }
+        
+        //TODO: test test
+        
+        func createGIF(with images: [UIImage], loopCount: Int = 0, frameDelay: Double) -> Data? {
+            let fileProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFLoopCount as String: loopCount]]
+            let frameProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFDelayTime as String: frameDelay]]
+            
+            let url = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("animated.gif")
+            
+            guard let destination = CGImageDestinationCreateWithURL(url as CFURL, kUTTypeGIF, images.count, nil) else { return nil }
+            CGImageDestinationSetProperties(destination, fileProperties as CFDictionary)
+            
+            images.compactMap({ $0.cgImage }).forEach({ CGImageDestinationAddImage(destination, $0, frameProperties as CFDictionary) })
+            
+            if CGImageDestinationFinalize(destination) {
+                return try? Data(contentsOf: url)
+            } else {
+                return nil
+            }
+        }
+        
+        print(createGIF(with: resultItems.map({ $0.renderImage }), frameDelay: 10))
+        
+        return []
+    }
 }
 
 private class _GIFMakerAppTask: TaskPrototype, Taskable {
@@ -109,34 +151,41 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
     }
     
     public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable?) throws -> TaskResultable? {
-        assert(param is _GIFMakerAppAsset, "TaskParamable type of this app is \(_PhotosFilterAppAsset.self)")
-        guard let _param = param as? _GIFMakerAppAsset else{
-            throw TaskError.invalidParam
-        }
-        return try self._perform(_param, async)
+        guard let appAsset = param as? AppAsset else { return nil }
+        return try _perform(appAsset, async)
     }
     
-    private func _perform(_ assetItem: _GIFMakerAppAsset, _ async: AsyncManualSignalable?) throws -> PHAssetResultItem?  {
-        var result: PHAssetResultItem?
+    private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable?) throws -> TaskResultable?  {
+        var result: GIFMakerPHAssetResult?
         
-//        async?.begin()
-//
-//        assetItem.runEditing({ (progress) in
-//            guard let progress = progress else { return }
-//            NotificationCenter.default.post(name: PHAssetProcessableNotification.Name.progressChanged, object: self, userInfo: [
-//                PHAssetProcessableNotification.UserInfo.Key.progress: progress,
-//                PHAssetProcessableNotification.UserInfo.Key.assetItem: assetItem
-//                ])
-//        }) { (asset, contentEditingOutput) in
-//            if let asset = asset, let contentEditingOutput = contentEditingOutput {
-//                result = PHAssetResultItem(
-//                    asset: asset,
-//                    contentEditingOutput: contentEditingOutput)
-//            }
-//            async?.end()
-//        }
-//
-//        async?.waitUntilEnd()
+        let size = CGSize(width: 300, height: 300)
+        
+        async?.begin()
+        
+        if assetItem.asset.mediaType == .video {
+            
+        }
+        else if assetItem.asset.mediaType == .image {
+            if assetItem.asset.mediaSubtypes.contains(.photoLive) {
+               
+            }
+            else {
+                let options = PHImageRequestOptions()
+                options.isNetworkAccessAllowed = true
+                options.deliveryMode = .opportunistic
+                options.resizeMode = .exact
+                
+                let response = assetItem.asset.requestImage(targetSize: size, contentMode: .aspectFit, options: options)
+                if let image = response.1 {
+                    result = GIFMakerPHAssetResult(asset: assetItem.asset, renderPixelSize: size, renderImage: image)
+                    assetItem.requestIDs += [PHAssetRequestID(forImage:response.0)]
+                }
+                
+                async?.end()
+            }
+        }
+        
+        async?.waitUntilEnd()
         return result
     }
 }

@@ -1233,7 +1233,7 @@
 					0ABFCF771F14B65C0078A583 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = DAGHHLSPPQ;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Manual;
 					};
 					A0AEACCD206006500086E3E0 = {
@@ -1424,6 +1424,7 @@
 				"${BUILT_PRODUCTS_DIR}/AUPickerCell/AUPickerCell.framework",
 				"${BUILT_PRODUCTS_DIR}/DefaultsKit/DefaultsKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/NSGIF2/NSGIF2.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/TPPDF/TPPDF.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -1433,6 +1434,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AUPickerCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DefaultsKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSGIF2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPPDF.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -1452,6 +1454,7 @@
 				"${BUILT_PRODUCTS_DIR}/AUPickerCell/AUPickerCell.framework",
 				"${BUILT_PRODUCTS_DIR}/DefaultsKit/DefaultsKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/NSGIF2/NSGIF2.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/TPPDF/TPPDF.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -1461,6 +1464,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AUPickerCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DefaultsKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSGIF2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPPDF.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -2073,6 +2077,7 @@
 			baseConfigurationReference = E6C115FBD773BA835480B08C /* Pods-batch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -2084,6 +2089,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "fe7bc759-0bdf-4bf3-94c1-d5cb49f2d909";
 				PROVISIONING_PROFILE_SPECIFIER = "com.stells.batch Development";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
@@ -2094,6 +2100,7 @@
 			baseConfigurationReference = 614D248BD87AEAE91795DFC4 /* Pods-batch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";

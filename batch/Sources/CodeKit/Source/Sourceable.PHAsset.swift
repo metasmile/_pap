@@ -21,28 +21,33 @@ public struct RemoteSourceFetchNotification {
     }
 }
 
+extension PHAsset {
+    func requestImage(targetSize: CGSize = PHImageManagerMaximumSize, contentMode: PHImageContentMode = .aspectFit, options: PHImageRequestOptions?) -> (PHImageRequestID, UIImage?) {
+        let signal = AsyncSignal()
+        signal.begin()
+        
+        var result: UIImage? = nil
+        let imageRequestID = PHImageManager.default().requestImage(for: self, targetSize: targetSize, contentMode: contentMode, options: options) { (image, info) in
+            result = image
+            
+            _ = signal.end()
+        }
+        
+        let userInfo: [String: Any] = [
+            RemoteSourceFetchNotification.UserInfo.Key.imageRequestID: imageRequestID,
+            RemoteSourceFetchNotification.UserInfo.Key.asset: self
+        ]
+        NotificationCenter.default.post(name: RemoteSourceFetchNotification.Name.fetchBagan, object: self, userInfo: userInfo)
+        
+        signal.waitUntilEnd()
+        return (imageRequestID, result)
+    }
+}
+
 extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSourceable, VideoSourceable, LivePhotoSourceable {
     public var asUIImage:UIImage? {
         get {
-            let signal = AsyncSignal()
-            signal.begin()
-            
-            var result: UIImage? = nil
-            let imageRequestID = PHImageManager.default().requestImage(for: self, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: fullResolutionImageRequestOptions) { (image, info) in
-                result = image
-                
-                _ = signal.end()
-            }
-            
-            let userInfo: [String: Any] = [
-                RemoteSourceFetchNotification.UserInfo.Key.imageRequestID: imageRequestID,
-                RemoteSourceFetchNotification.UserInfo.Key.asset: self
-            ]
-            NotificationCenter.default.post(name: RemoteSourceFetchNotification.Name.fetchBagan, object: self, userInfo: userInfo)
-            
-            signal.waitUntilEnd()
-            
-            return result
+            return self.requestImage(targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: fullResolutionImageRequestOptions).1
         }
     }
 
