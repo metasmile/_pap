@@ -59,34 +59,34 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             SettingsItem(
                     key: .sizePreset
                     , label: "Page Size Preset"
-                    , valueGetter: { () -> String in self.defaults?.sizePreset ?? PDFPageFormat.a4.label }
+                    , valueGetter: { self.defaults?.sizePreset ?? PDFPageFormat.a4.label }
                     , valueCollection: PDFactorySettings.SizePresets.keysArray
                     , valueHandler: nil
-                    , cellDescriber: UITableViewPickerCellDescriber(cellClass:UITableViewPickerCell.self)
+                    , cellDescriber: UITableViewPickerCellDescriber()
                     , iconImageName: nil
             )
             , SettingsItem(
                     key: .landscape
                     , label: "Landscape Mode"
-                    , valueGetter: { () -> Bool in self.defaults?.landscape ?? false}
+                    , valueGetter: { self.defaults?.landscape ?? false}
                     , valueCollection: nil
                     , valueHandler: { self.defaults?.landscape = $0 as? Bool ?? false }
-                    , cellDescriber: UITableViewSwitchCellDescriber(cellClass: UITableViewSwitchCell.self)
+                    , cellDescriber: UITableViewSwitchCellDescriber()
                     , iconImageName: R.image.pdFactoryAppIcon.name
             )
             , SettingsItem(
                     key: .metadataCaption
                     , label: "Metadata Caption"
-                    , valueGetter: { () -> Bool in self.defaults?.metadataCaption ?? false}
+                    , valueGetter: { self.defaults?.metadataCaption ?? false}
                     , valueCollection: nil
                     , valueHandler: { self.defaults?.metadataCaption = $0 as? Bool ?? false }
-                    , cellDescriber: UITableViewSwitchCellDescriber(cellClass: UITableViewSwitchCell.self)
+                    , cellDescriber: UITableViewSwitchCellDescriber()
                     , iconImageName: nil
             )
             , SettingsItem(
                     key: .imagesPerPage
                     , label: "Max. Images Per Page"
-                    , valueGetter: { () -> Int in self.defaults?.imagesPerPage ?? 1}
+                    , valueGetter: { self.defaults?.imagesPerPage ?? 1}
                     , valueCollection: nil
                     , valueHandler: { self.defaults?.imagesPerPage = Int($0 as? Double ?? 1) }
                     , cellDescriber: UITableViewStepperCellDescriber(cellClass: UITableViewStepperCell.self, minimumValue: 1, maximumValue: 50, stepValue: 1)
@@ -95,10 +95,10 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             , SettingsItem(
                     key: .scaleMode
                     , label: "Scale To Fit"
-                    , valueGetter: { () -> Int in self.defaults?.scaleMode ?? PDFactorySettings.ScaleMode.fitPage}
+                    , valueGetter: { self.defaults?.scaleMode ?? PDFactorySettings.ScaleMode.fitPage}
                     , valueCollection: PDFactorySettings.ScaleMode.Labels
                     , valueHandler: { self.defaults?.scaleMode = PDFactorySettings.ScaleMode.Labels.valuesArray[$0 as? Int ?? 0] }
-                    , cellDescriber: UITableViewSegmentControlCellDescriber(cellClass: UITableViewSegmentedControlCell.self)
+                    , cellDescriber: UITableViewSegmentControlCellDescriber()
                     , iconImageName: nil
             )
         ]
@@ -110,8 +110,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             view.allowsMultipleSelection = false
 
             for item in settings{
-                let item = item as! SettingsItem
-                view.register(item.cellDescriber.cellClass, forCellReuseIdentifier: item.cellDescriber.identifier)
+                view.register(describer: item.cellDescriber)
             }
         }
     }
@@ -160,10 +159,9 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
         let item = self.settings[indexPath.item] as! SettingsItem
 
         if let cellDescriber = item.cellDescriber as? UITableViewPickerCellDescriber
-            , let valueCollection = item.valueCollection as? [String] {
-
-            let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewPickerCell
-                    ?? UITableViewPickerCell(type: .default, reuseIdentifier: cellDescriber.identifier)
+            , let valueCollection = item.valueCollection as? [String]
+            , let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewPickerCell
+                ?? UITableViewPickerCell(type: .default, reuseIdentifier: cellDescriber.identifier) {
 
             cell.values = valueCollection
             cell.delegate = self
@@ -176,8 +174,10 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             return cell
 
         }
-        else if let cellDescriber = item.cellDescriber as? UITableViewSwitchCellDescriber, let value = item.valueGetter() as? Bool {
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as! UITableViewSwitchCell
+        else if let cellDescriber = item.cellDescriber as? UITableViewSwitchCellDescriber
+            , let value = item.valueGetter() as? Bool
+            , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewSwitchCell {
+
             cell.textLabel?.text = item.label
             cell.switcher.setOn(value, animated: false)
             cell.imageView?.image = item.iconImageName?.asUIImage
@@ -185,8 +185,10 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             return cell
         }
 
-        else if let cellDescriber = item.cellDescriber as? UITableViewStepperCellDescriber, let value = item.valueGetter() as? Int {
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as! UITableViewStepperCell
+        else if let cellDescriber = item.cellDescriber as? UITableViewStepperCellDescriber
+            , let value = item.valueGetter() as? Int
+            , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewStepperCell {
+
             cell.textLabel?.text = item.label
             cell.detailTextLabel?.text = String(value)
             cell.imageView?.image = item.iconImageName?.asUIImage
@@ -204,8 +206,9 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             return cell
         }
 
-        else if let cellDescriber = item.cellDescriber as? UITableViewSegmentControlCellDescriber, let valueCollection = item.valueCollection as? [String:Int] {
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as! UITableViewSegmentedControlCell
+        else if let cellDescriber = item.cellDescriber as? UITableViewSegmentControlCellDescriber
+            , let valueCollection = item.valueCollection as? [String:Int]
+            , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewSegmentedControlCell{
 
             cell.textLabel?.text = item.label
             cell.imageView?.image = item.iconImageName?.asUIImage
@@ -237,105 +240,5 @@ extension UITableViewPickerCellDelegate where Self:PDFactoryAppDockContent{
 
     func pickerCell(_ cell: UITableViewPickerCell, didPick row: Int, value: Any) {
         defaults?.sizePreset = cell.values[row]
-    }
-}
-
-//TODO: cell by type
-private class UITableViewSwitchCell: UITableViewCell {
-    private(set) lazy var switcher: UISwitch = {
-        let view = UISwitch()
-        view.addTarget(self, action: #selector(self.cellSwitchDidChange), for: .valueChanged)
-        return view
-    }()
-
-    var switchDidChange: ((Bool) -> Void)?
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-
-        switchDidChange = nil
-    }
-
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-
-        accessoryView = switcher
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    @objc func cellSwitchDidChange(sender: UISwitch) {
-        switchDidChange?(sender.isOn)
-    }
-}
-
-private class UITableViewStepperCell: UITableViewCell {
-    private(set) lazy var stepper: UIStepper = UIStepper()
-
-    var didChangeValue: ((Double) -> Void)?
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-
-        didChangeValue = nil
-    }
-
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-
-        stepper.addTarget(self, action: #selector(self.valueDidChange), for: .valueChanged)
-
-        accessoryView = stepper
-
-        self.detailTextLabel?.textColor = UIColor.gray
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    @objc func valueDidChange(sender: UIStepper) {
-        didChangeValue?(sender.value)
-    }
-}
-
-
-private class UITableViewSegmentedControlCell: UITableViewCell {
-    private(set) lazy var segmentedControl: UISegmentedControl = UISegmentedControl(items: [])
-
-    var didChangeValue: ((Int) -> Void)?
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-
-        didChangeValue = nil
-    }
-
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-
-        segmentedControl.addTarget(self, action: #selector(self.valueDidChange), for: .valueChanged)
-
-        accessoryView = segmentedControl
-
-        self.detailTextLabel?.textColor = UIColor.gray
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    @objc func valueDidChange(sender: UISegmentedControl) {
-        didChangeValue?(sender.selectedSegmentIndex)
     }
 }

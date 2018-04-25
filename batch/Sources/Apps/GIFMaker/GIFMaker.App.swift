@@ -291,10 +291,10 @@ private struct SettingsItem {
     
     fileprivate var key: Keys
     fileprivate var label:String
-    fileprivate var value:Any
+    fileprivate var valueGetter:() -> Any
     fileprivate var valueCollection:Any?
     fileprivate var valueHandler:((Any) -> ())?
-    fileprivate var cell:String
+    fileprivate var cellDescriber: UITableViewDescribable //INFO: it will integrate all properties later
     fileprivate var iconImageName:String?
 }
 
@@ -322,19 +322,19 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             SettingsItem(
                 key: .aspectRatio
                 , label: "Aspect Ratio"
-                , value: defaults?.aspectRatio ?? 1
-                , valueCollection: GIFMakerSettings.aspectRatio.labels.keys.map({ String($0) })
+                , valueGetter: { self.defaults?.aspectRatio ?? 1 }
+                , valueCollection: GIFMakerSettings.aspectRatio.labels.keysArray
                 , valueHandler: nil
-                , cell: "UITableViewPickerCell"
+                , cellDescriber: UITableViewPickerCellDescriber()
                 , iconImageName: nil
                 )
             , SettingsItem(
                 key: .contentMode
                 , label: "Crop"
-                , value: defaults?.contentMode ?? PHImageContentMode.aspectFill.rawValue
+                , valueGetter: { self.defaults?.contentMode ?? PHImageContentMode.aspectFill.rawValue }
                 , valueCollection: GIFMakerSettings.contentMode.labels
                 , valueHandler: { self.defaults?.contentMode = GIFMakerSettings.contentMode.labels.valuesArray[$0 as? Int ?? 0] }
-                , cell: SegmentedControlCell.cellId
+                , cellDescriber: UITableViewSegmentControlCellDescriber()
                 , iconImageName: nil
             )
         ]
@@ -343,8 +343,10 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             view.dataSource = self
             view.delegate = self
             view.rowHeight = 44
-            view.register(SegmentedControlCell.self, forCellReuseIdentifier: SegmentedControlCell.cellId)
-            view.register(UITableViewPickerCell.self, forCellReuseIdentifier: "UITableViewPickerCell")
+
+            for item in settings{
+                view.register(describer: item.cellDescriber)
+            }
         }
     }
 
@@ -402,13 +404,15 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = self.settings[indexPath.item]
-        if item.cell == "UITableViewPickerCell", let valueCollection = item.valueCollection as? [String] {
-            let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: item.cell) as? UITableViewPickerCell
-                ?? UITableViewPickerCell(type: .default, reuseIdentifier: item.cell)
-            
+
+        if let cellDescriber = item.cellDescriber as? UITableViewPickerCellDescriber
+            , let valueCollection = item.valueCollection as? [String]
+            , let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewPickerCell
+                ?? UITableViewPickerCell(type: .default, reuseIdentifier: cellDescriber.identifier) {
+
             cell.values = valueCollection
             cell.delegate = self
-            if let value = item.value as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
+            if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
                 cell.selectedRow = index
             } else{
                 cell.selectedRow = 0
@@ -416,19 +420,20 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             cell.titleLabel.text = item.label
             return cell
         }
-        else if item.cell == SegmentedControlCell.cellId, let valueCollection = item.valueCollection as? [String:Int] {
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: SegmentedControlCell.cellId) as! SegmentedControlCell
-            
+        else if let cellDescriber = item.cellDescriber as? UITableViewSegmentControlCellDescriber
+            , let valueCollection = item.valueCollection as? [String:Int]
+            , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewSegmentedControlCell {
+
             cell.textLabel?.text = item.label
             cell.imageView?.image = item.iconImageName?.asUIImage
+            cell.detailTextLabel?.textColor = UIColor.gray
             
             cell.segmentedControl.removeAllSegments()
             for k in valueCollection{
                 cell.segmentedControl.insertSegment(withTitle: k.key, at: cell.segmentedControl.numberOfSegments, animated: false)
             }
             
-            cell.segmentedControl.selectedSegmentIndex = valueCollection.valuesArray.index(of: item.value as? Int ?? GIFMakerSettings.contentMode.fill) ?? 0
+            cell.segmentedControl.selectedSegmentIndex = valueCollection.valuesArray.index(of: item.valueGetter() as? Int ?? GIFMakerSettings.contentMode.fill) ?? 0
             cell.didChangeValue = item.valueHandler
             return cell
         }
@@ -439,49 +444,5 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     
     func pickerCell(_ cell: UITableViewPickerCell, didPick row: Int, value: Any) {
         defaults?.aspectRatio = GIFMakerSettings.aspectRatio.labels[cell.values[row]] ?? 1
-    }
-    
-    private class SegmentedControlCell: UITableViewCell {
-        static var cellId:String {
-            return "SegmentedControlCell"
-        }
-        
-        private(set) lazy var segmentedControl: UISegmentedControl = UISegmentedControl(items: [])
-        
-        var didChangeValue: ((Int) -> Void)?
-        
-        override func prepareForReuse() {
-            super.prepareForReuse()
-            
-            didChangeValue = nil
-        }
-        
-        override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-            super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-            
-            segmentedControl.addTarget(self, action: #selector(self.valueDidChange), for: .valueChanged)
-            
-            accessoryView = segmentedControl
-            
-            self.detailTextLabel?.textColor = UIColor.gray
-        }
-        
-        override func layoutSubviews() {
-            super.layoutSubviews()
-        }
-        
-        required init?(coder aDecoder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-        
-        @objc func valueDidChange(sender: UISegmentedControl) {
-            didChangeValue?(sender.selectedSegmentIndex)
-        }
-    }
-}
-
-extension UITableViewPickerCell{
-    var cellId:String{
-        return "UITableViewPickerCell"
     }
 }

@@ -19,19 +19,19 @@ extension UITableViewDescribable{
 }
 
 public struct UITableViewPickerCellDescriber: UITableViewDescribable {
-    public var cellClass:Swift.AnyClass
+    public var cellClass:Swift.AnyClass = UITableViewPickerCell.self
 }
 
 public struct UITableViewSwitchCellDescriber: UITableViewDescribable {
-    public var cellClass:Swift.AnyClass
+    public var cellClass:Swift.AnyClass = UITableViewSwitchCell.self
 }
 
 public struct UITableViewSegmentControlCellDescriber: UITableViewDescribable {
-    public var cellClass:Swift.AnyClass
+    public var cellClass:Swift.AnyClass = UITableViewSegmentedControlCell.self
 }
 
 public struct UITableViewStepperCellDescriber: UITableViewDescribable {
-    public var cellClass:Swift.AnyClass
+    public var cellClass:Swift.AnyClass = UITableViewStepperCell.self
 
 //    var isContinuous: Bool = true // if YES, value change events are sent any time the value changes during interaction. default = YES
 //
