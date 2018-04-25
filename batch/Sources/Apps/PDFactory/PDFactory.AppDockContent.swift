@@ -15,14 +15,15 @@ private struct SettingsItem {
         case imagesPerPage
         case scaleMode
         case metadataCaption
+        case imageQuality
     }
 
     fileprivate var key: Keys
     fileprivate var label:String
-    fileprivate var value:Any
+    fileprivate var valueGetter:() -> Any
     fileprivate var valueCollection:Any?
     fileprivate var valueHandler:((Any) -> ())?
-    fileprivate var cell:String
+    fileprivate var cellDescriber: UITableViewDescribable //TODO: integrate all properties
     fileprivate var iconImageName:String?
 }
 
@@ -58,59 +59,61 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             SettingsItem(
                     key: .sizePreset
                     , label: "Page Size Preset"
-                    , value: defaults?.sizePreset ?? PDFPageFormat.a4.label
+                    , valueGetter: { () -> String in self.defaults?.sizePreset ?? PDFPageFormat.a4.label }
                     , valueCollection: PDFactorySettings.SizePresets.keysArray
                     , valueHandler: nil
-                    , cell: UITableViewPickerCell.cellId
+                    , cellDescriber: UITableViewPickerCellDescriber(cellClass:UITableViewPickerCell.self)
                     , iconImageName: nil
             )
             , SettingsItem(
                     key: .landscape
                     , label: "Landscape Mode"
-                    , value: defaults?.landscape ?? false
+                    , valueGetter: { () -> Bool in self.defaults?.landscape ?? false}
                     , valueCollection: nil
                     , valueHandler: { self.defaults?.landscape = $0 as? Bool ?? false }
-                    , cell: SwitcherCell.cellId
+                    , cellDescriber: UITableViewSwitchCellDescriber(cellClass: UITableViewSwitchCell.self)
                     , iconImageName: R.image.pdFactoryAppIcon.name
             )
             , SettingsItem(
                     key: .metadataCaption
-                    , label: "Caption With Metadata"
-                    , value: defaults?.metadataCaption ?? false
+                    , label: "Metadata Caption"
+                    , valueGetter: { () -> Bool in self.defaults?.metadataCaption ?? false}
                     , valueCollection: nil
                     , valueHandler: { self.defaults?.metadataCaption = $0 as? Bool ?? false }
-                    , cell: SwitcherCell.cellId
+                    , cellDescriber: UITableViewSwitchCellDescriber(cellClass: UITableViewSwitchCell.self)
                     , iconImageName: nil
             )
             , SettingsItem(
                     key: .imagesPerPage
                     , label: "Max. Images Per Page"
-                    , value: defaults?.imagesPerPage ?? 1
+                    , valueGetter: { () -> Int in self.defaults?.imagesPerPage ?? 1}
                     , valueCollection: nil
                     , valueHandler: { self.defaults?.imagesPerPage = Int($0 as? Double ?? 1) }
-                    , cell: StepperCell.cellId
+                    , cellDescriber: UITableViewStepperCellDescriber(cellClass: UITableViewStepperCell.self, minimumValue: 1, maximumValue: 50, stepValue: 1)
                     , iconImageName: nil
             )
             , SettingsItem(
                     key: .scaleMode
                     , label: "Scale To Fit"
-                    , value: defaults?.scaleMode ?? PDFactorySettings.ScaleMode.fitPage
+                    , valueGetter: { () -> Int in self.defaults?.scaleMode ?? PDFactorySettings.ScaleMode.fitPage}
                     , valueCollection: PDFactorySettings.ScaleMode.Labels
                     , valueHandler: { self.defaults?.scaleMode = PDFactorySettings.ScaleMode.Labels.valuesArray[$0 as? Int ?? 0] }
-                    , cell: SegmentedControlCell.cellId
+                    , cellDescriber: UITableViewSegmentControlCellDescriber(cellClass: UITableViewSegmentedControlCell.self)
                     , iconImageName: nil
             )
         ]
 
-        let view = view as! UITableView
-        view.dataSource = self
-        view.delegate = self
-        view.rowHeight = 44
-        view.allowsMultipleSelection = false
-        view.register(SwitcherCell.self, forCellReuseIdentifier: SwitcherCell.cellId)
-        view.register(StepperCell.self, forCellReuseIdentifier: StepperCell.cellId)
-        view.register(SegmentedControlCell.self, forCellReuseIdentifier: SegmentedControlCell.cellId)
-        view.register(UITableViewPickerCell.self, forCellReuseIdentifier: UITableViewPickerCell.cellId)
+        if let view = view as? UITableView{
+            view.dataSource = self
+            view.delegate = self
+            view.rowHeight = 44
+            view.allowsMultipleSelection = false
+
+            for item in settings{
+                let item = item as! SettingsItem
+                view.register(item.cellDescriber.cellClass, forCellReuseIdentifier: item.cellDescriber.identifier)
+            }
+        }
     }
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
@@ -154,15 +157,17 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = self.settings[indexPath.item]
+        let item = self.settings[indexPath.item] as! SettingsItem
 
-        if item.cell == UITableViewPickerCell.cellId, let valueCollection = item.valueCollection as? [String] {
-            let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: item.cell) as? UITableViewPickerCell
-                    ?? UITableViewPickerCell(type: .default, reuseIdentifier: item.cell)
+        if let cellDescriber = item.cellDescriber as? UITableViewPickerCellDescriber
+            , let valueCollection = item.valueCollection as? [String] {
+
+            let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewPickerCell
+                    ?? UITableViewPickerCell(type: .default, reuseIdentifier: cellDescriber.identifier)
 
             cell.values = valueCollection
             cell.delegate = self
-            if let value = item.value as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
+            if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
                 cell.selectedRow = index
             } else{
                 cell.selectedRow = 0
@@ -171,9 +176,8 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             return cell
 
         }
-
-        else if item.cell == SwitcherCell.cellId, let value = item.value as? Bool {
-            let cell = tableView.dequeueReusableCell(withIdentifier: SwitcherCell.cellId) as! SwitcherCell
+        else if let cellDescriber = item.cellDescriber as? UITableViewSwitchCellDescriber, let value = item.valueGetter() as? Bool {
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as! UITableViewSwitchCell
             cell.textLabel?.text = item.label
             cell.switcher.setOn(value, animated: false)
             cell.imageView?.image = item.iconImageName?.asUIImage
@@ -181,15 +185,15 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             return cell
         }
 
-        else if item.cell == StepperCell.cellId, let value = item.value as? Int {
-            let cell = tableView.dequeueReusableCell(withIdentifier: StepperCell.cellId) as! StepperCell
+        else if let cellDescriber = item.cellDescriber as? UITableViewStepperCellDescriber, let value = item.valueGetter() as? Int {
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as! UITableViewStepperCell
             cell.textLabel?.text = item.label
             cell.detailTextLabel?.text = String(value)
             cell.imageView?.image = item.iconImageName?.asUIImage
 
-            cell.stepper.stepValue = 1
-            cell.stepper.minimumValue = 1
-            cell.stepper.maximumValue = 60
+            cell.stepper.stepValue = cellDescriber.stepValue
+            cell.stepper.minimumValue = cellDescriber.minimumValue
+            cell.stepper.maximumValue = cellDescriber.maximumValue
             cell.stepper.value = Double(value)
 
             cell.didChangeValue = { value in
@@ -200,9 +204,8 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             return cell
         }
 
-        else if item.cell == SegmentedControlCell.cellId, let valueCollection = item.valueCollection as? [String:Int] {
-
-            let cell = tableView.dequeueReusableCell(withIdentifier: SegmentedControlCell.cellId) as! SegmentedControlCell
+        else if let cellDescriber = item.cellDescriber as? UITableViewSegmentControlCellDescriber, let valueCollection = item.valueCollection as? [String:Int] {
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as! UITableViewSegmentedControlCell
 
             cell.textLabel?.text = item.label
             cell.imageView?.image = item.iconImageName?.asUIImage
@@ -212,7 +215,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
                 cell.segmentedControl.insertSegment(withTitle: k.key, at: cell.segmentedControl.numberOfSegments, animated: false)
             }
 
-            cell.segmentedControl.selectedSegmentIndex = valueCollection.valuesArray.index(of: item.value as? Int ?? PDFactorySettings.ScaleMode.fitPage) ?? 0
+            cell.segmentedControl.selectedSegmentIndex = valueCollection.valuesArray.index(of: item.valueGetter() as? Int ?? PDFactorySettings.ScaleMode.fitPage) ?? 0
             cell.didChangeValue = item.valueHandler
             return cell
         }
@@ -237,18 +240,8 @@ extension UITableViewPickerCellDelegate where Self:PDFactoryAppDockContent{
     }
 }
 
-extension UITableViewPickerCell {
-    static var cellId:String {
-        return "UITableViewPickerCell"
-    }
-}
-
 //TODO: cell by type
-private class SwitcherCell: UITableViewCell {
-    static var cellId:String {
-        return "SwitcherCell"
-    }
-
+private class UITableViewSwitchCell: UITableViewCell {
     private(set) lazy var switcher: UISwitch = {
         let view = UISwitch()
         view.addTarget(self, action: #selector(self.cellSwitchDidChange), for: .valueChanged)
@@ -278,11 +271,7 @@ private class SwitcherCell: UITableViewCell {
     }
 }
 
-private class StepperCell: UITableViewCell {
-    static var cellId:String {
-        return "StepperCell"
-    }
-
+private class UITableViewStepperCell: UITableViewCell {
     private(set) lazy var stepper: UIStepper = UIStepper()
 
     var didChangeValue: ((Double) -> Void)?
@@ -317,11 +306,7 @@ private class StepperCell: UITableViewCell {
 }
 
 
-private class SegmentedControlCell: UITableViewCell {
-    static var cellId:String {
-        return "SegmentedControlCell"
-    }
-
+private class UITableViewSegmentedControlCell: UITableViewCell {
     private(set) lazy var segmentedControl: UISegmentedControl = UISegmentedControl(items: [])
 
     var didChangeValue: ((Int) -> Void)?

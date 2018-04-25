@@ -90,15 +90,21 @@ public class PDFactory: BatchApp, FinalizableApp, PhotoPickerViewControllerDeleg
             return result
         }
 
+        let defaults = PDFactory.defaults as? PDFactoryDefaults
+        let imagesPerPage = defaults?.imagesPerPage ?? 1
+
+
         do {
             let document = PDFDocument(layout: PDFactory.defaultsPDFLayout)
 
-            for (i, item) in resultItems.enumerated(){
-                let pdfImage = PDFImage(image: item.renderImage, caption: nil, size: .zero, sizeFit: PDFImageSizeFit.widthHeight)
-                document.addImage(image: pdfImage)
+            for items in resultItems.chunked(into: imagesPerPage){
+                for (i, item) in items.enumerated(){
+                    let pdfImage = PDFImage(image: item.renderImage, caption: nil, size: .zero, sizeFit: PDFImageSizeFit.widthHeight)
+                    document.addImage(image: pdfImage)
 
-                if i < resultItems.count-1{
-                    document.createNewPage()
+                    if i < items.count-1{
+                        document.createNewPage()
+                    }
                 }
             }
 

@@ -325,7 +325,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
                 , value: defaults?.aspectRatio ?? 1
                 , valueCollection: GIFMakerSettings.aspectRatio.labels.keys.map({ String($0) })
                 , valueHandler: nil
-                , cell: UITableViewPickerCell.cellId
+                , cell: "UITableViewPickerCell"
                 , iconImageName: nil
                 )
             , SettingsItem(
@@ -344,7 +344,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             view.delegate = self
             view.rowHeight = 44
             view.register(SegmentedControlCell.self, forCellReuseIdentifier: SegmentedControlCell.cellId)
-            view.register(UITableViewPickerCell.self, forCellReuseIdentifier: UITableViewPickerCell.cellId)
+            view.register(UITableViewPickerCell.self, forCellReuseIdentifier: "UITableViewPickerCell")
         }
     }
 
@@ -402,7 +402,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = self.settings[indexPath.item]
-        if item.cell == UITableViewPickerCell.cellId, let valueCollection = item.valueCollection as? [String] {
+        if item.cell == "UITableViewPickerCell", let valueCollection = item.valueCollection as? [String] {
             let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: item.cell) as? UITableViewPickerCell
                 ?? UITableViewPickerCell(type: .default, reuseIdentifier: item.cell)
             
@@ -477,5 +477,11 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         @objc func valueDidChange(sender: UISegmentedControl) {
             didChangeValue?(sender.selectedSegmentIndex)
         }
+    }
+}
+
+extension UITableViewPickerCell{
+    var cellId:String{
+        return "UITableViewPickerCell"
     }
 }
