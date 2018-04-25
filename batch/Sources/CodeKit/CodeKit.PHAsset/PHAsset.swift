@@ -83,3 +83,29 @@ extension PHAsset {
            }
                */
 }
+
+public enum PHAssetImageType: Int {
+    case unknown
+    case stillImage
+    case livePhoto
+    case animatedGIF
+    case burst
+}
+
+extension PHAsset {
+    var imageType: PHAssetImageType {
+        guard mediaType == .image else { return .unknown }
+        if value(forKey: "uniformTypeIdentifier") as? String == kUTTypeGIF as String {
+            return .animatedGIF
+        }
+        else if representsBurst {
+            return .burst
+        }
+        else if mediaSubtypes.contains(.photoLive) {
+            return .livePhoto
+        }
+        else {
+            return .stillImage
+        }
+    }
+}
