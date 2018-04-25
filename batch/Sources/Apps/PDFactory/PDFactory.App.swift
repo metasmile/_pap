@@ -22,7 +22,7 @@ private struct PDFactoryPHAssetResult: TaskResultable{
     public var asset: PHAsset
     public var renderImageBoundSize: CGSize // maximum size of image + paper size
     public var renderImage: UIImage
-//    public var imageMetadata: [String: Any]?
+    public var imageMetadata: [String: Any]?
 }
 
 public class PDFactory: BatchApp, FinalizableApp, PhotoPickerViewControllerDelegatableApp,
@@ -249,10 +249,10 @@ private class _PDFactoryTask: TaskPrototype, Taskable {
             let asset = appAsset.asset
 
             //TODO: URL? to use low mem
+            //read image
             var renderImage:UIImage?
 
             async?.begin()
-
             let imageMaxSize:CGSize = PDFactory.defaultsPDFLayout.size
             let imagePixelSize = imageMaxSize.applying(CGAffineTransform(scaleX: 2, y: 2))
             let imageRequestID = PHImageManager.default().requestImage(for: asset, targetSize: imagePixelSize, contentMode: .aspectFit, options: _pdfImageRequestOptions) { (image, info) in
@@ -263,25 +263,28 @@ private class _PDFactoryTask: TaskPrototype, Taskable {
             appAsset.requestIDs += [PHAssetRequestID(forImage:imageRequestID)]
             async?.waitUntilEnd()
 
-//            async?.begin()
-//            let id = param.requestContentEditing(options:option) { item in
-//
-//                assert(item?.input.fullSizeImageURL != nil, "item.input.fullSizeImageURL is nil")
-//                if let item = item, let url = item.input.fullSizeImageURL {
-//
-//                    let data = try! Data(contentsOf: url)
-//
-//                    if let metadata = data.getMetadata() {
-//
-//                    }
-//                }
-//
-//                async?.end()
-//            }
-//            async?.waitUntilEnd()
+            //read metadata
+            var imageMetadata: [String: Any]?
+            async?.begin()
+
+            let option = PHContentEditingInputRequestOptions()
+            option.isNetworkAccessAllowed = true
+            option.canHandleAdjustmentData = { _ -> Bool in
+                return true
+            }
+            let editingInputId = appAsset.requestContentEditing(options: option) { item in
+                assert(item?.input.fullSizeImageURL != nil, "item.input.fullSizeImageURL is nil")
+                if let item = item, let url = item.input.fullSizeImageURL {
+                    let data = try! Data(contentsOf: url)
+                    imageMetadata = data.getMetadata()
+                }
+                async?.end()
+            }
+            appAsset.requestIDs += [PHAssetRequestID(forEditingInput: editingInputId)]
+            async?.waitUntilEnd()
 
             if let image = renderImage{
-                return PDFactoryPHAssetResult(asset: asset, renderImageBoundSize: imagePixelSize, renderImage:image)
+                return PDFactoryPHAssetResult(asset: asset, renderImageBoundSize: imagePixelSize, renderImage:image, imageMetadata:imageMetadata)
             }
         }
         return nil

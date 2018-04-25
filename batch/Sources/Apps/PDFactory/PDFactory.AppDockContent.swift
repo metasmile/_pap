@@ -90,7 +90,16 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
                     , valueGetter: { self.defaults?.margin ?? 10 }
                     , valueCollection: nil
                     , valueHandler: { self.defaults?.margin = Int($0 as? Int ?? 10) }
-                    , cellDescriber: UITableViewStepperCellDescriber(cellClass: UITableViewStepperCell.self, minimumValue: 0, maximumValue: 50, stepValue: 1, transformValueLabel:{ value in return String(Int(value as? Int ?? 0))+"%" })
+                    , cellDescriber: UITableViewStepperCellDescriber(cellClass: UITableViewStepperCell.self, minimumValue: 0, maximumValue: 50, stepValue: 1, transformValueLabel:{ value in
+                            var label:String?
+                            if let val = value as? Double{
+                                label = String(Int(val))
+                            }
+                            if let val = value as? Int{
+                                label = String(val)
+                            }
+                            return (label ?? "-")+"%"
+                    })
                     , iconImageName: nil
             )
 //            , SettingsItem(
@@ -223,7 +232,6 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             cell.didChangeValue = { value in
                 cell.detailTextLabel?.text = cellDescriber.transformValueLabel?(value) ?? String(Int(value))
                 item.valueHandler?(value)
-
             }
             return cell
         }
