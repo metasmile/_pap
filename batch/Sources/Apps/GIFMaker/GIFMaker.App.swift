@@ -25,13 +25,13 @@ private struct GIFMakerPHAssetResult: TaskResultable{
 //MARK: -
 
 protocol GIFMakerDefaults: AppDefaults{
-    var aspectRatio: CGFloat {get set}
+    var aspectRatio: Double {get set}
     var contentMode: Int {get set}
     var frameDelay: Double {get set}
 }
 
 extension Defaults: GIFMakerDefaults {
-    var aspectRatio: CGFloat {
+    var aspectRatio: Double {
         set{ set(newValue) }
         get{ return get(or: 1 ) }
     }
@@ -44,6 +44,27 @@ extension Defaults: GIFMakerDefaults {
     var frameDelay: Double {
         set { set(newValue) }
         get { return get(or: 0.3)}
+    }
+}
+
+struct GIFMakerSettings {
+    enum aspectRatio {
+        static let labels: [String: Double] = [
+            "Square": 1.0,
+            "4:3": 3.0 / 4.0,
+            "16:9": 9.0 / 16.0,
+            "3:4": 4.0 / 3.0,
+            "9:16": 16.0 / 9.0
+        ]
+    }
+    
+    enum contentMode {
+        static let fit = PHImageContentMode.aspectFit.rawValue
+        static let fill = PHImageContentMode.aspectFill.rawValue
+        static let labels: [String: Int] = [
+            "No Crop": contentMode.fit,
+            "Crop": contentMode.fill
+        ]
     }
 }
 
@@ -262,96 +283,190 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
     }
 }
 
-class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
-    fileprivate var menus = [
-        "Content mode",
-        "Frame delay",
-        "Loop",
-        "Direction",
-        "Quality"
-    ]
+private struct SettingsItem {
+    enum Keys {
+        case contentMode
+        case aspectRatio
+    }
+    
+    fileprivate var key: Keys
+    fileprivate var label:String
+    fileprivate var value:Any
+    fileprivate var valueCollection:Any?
+    fileprivate var valueHandler:((Any) -> ())?
+    fileprivate var cell:String
+    fileprivate var iconImageName:String?
+}
+
+class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate {
+    private var defaults = GIFMaker.defaults as? GIFMakerDefaults
+    
+    private var settings = [SettingsItem]()
     
     var view: UIView{
         let view = UITableView()
         view.dataSource = self
         view.delegate = self
         view.rowHeight = 44
-        view.allowsSelection = false
-        view.register(Cell.self, forCellReuseIdentifier: GIFMaker.info.identifier)
+        view.register(SegmentedControlCell.self, forCellReuseIdentifier: SegmentedControlCell.cellId)
+        view.register(UITableViewPickerCell.self, forCellReuseIdentifier: UITableViewPickerCell.cellId)
         
         return view
     }
     
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
-        preferences.minimumHeight = 44 * CGFloat(menus.count) + 20
+        preferences.minimumHeight = (self.view as! UITableView).rowHeight * 3 + 27
         preferences.pinned = false
         return preferences
     }
     
-    func didSetContentView(_ view:UIView, dock:AppDock) {
-        if options != nil{
-            (view as! UITableView).reloadData()
-        }
+    var appDock:AppDock?
+    
+    func willSetContentView(_ view: UIView, dock: AppDock) {
+        appDock = dock
+        settings = [
+            SettingsItem(
+                key: .aspectRatio
+                , label: "Aspect Ratio"
+                , value: defaults?.aspectRatio ?? 1
+                , valueCollection: GIFMakerSettings.aspectRatio.labels.keys.map({ String($0) })
+                , valueHandler: nil
+                , cell: UITableViewPickerCell.cellId
+                , iconImageName: nil
+                )
+            , SettingsItem(
+                key: .contentMode
+                , label: "Crop"
+                , value: defaults?.contentMode ?? PHImageContentMode.aspectFill.rawValue
+                , valueCollection: GIFMakerSettings.contentMode.labels
+                , valueHandler: { self.defaults?.contentMode = GIFMakerSettings.contentMode.labels.valuesArray[$0 as? Int ?? 0] }
+                , cell: SegmentedControlCell.cellId
+                , iconImageName: nil
+            )
+            ]
     }
     
-    @objc dynamic
-    var options:[String: Any]? // Bool may be other custom Codable type instead of Any
+    func didSetContentView(_ view:UIView, dock:AppDock) {
+        (view as! UITableView).reloadData()
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return GIFMaker.info.displayName
+        return "GIF Options"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menus.count
+        return settings.count
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 20
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: GIFMaker.info.identifier) as! Cell
-        cell.textLabel?.text = menus[indexPath.row]
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let cell = tableView.cellForRow(at: indexPath)
         
-        return cell
+        if let c = cell as? UITableViewPickerCell {
+            return c.estimatedHeightForRowSelected
+        }
+        return tableView.rowHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        if let cell = tableView.cellForRow(at: indexPath) as? UITableViewPickerCell {
+            if cell.isExpanded{
+                cell.contract(tableView)
+            } else{
+                appDock?.expandLayoutIfNeeded(reloadContents: nil)
+                DispatchQueue.main.async{
+                    cell.expand(tableView)
+                }
+            }
+        }
     }
     
-    private class Cell: UITableViewCell {
-        lazy var optionSwitch: UISwitch = {
-            let view = UISwitch()
-            view.addTarget(self, action: #selector(self.cellSwitchDidChange), for: .valueChanged)
-            return view
-        }()
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item = self.settings[indexPath.item]
+        if item.cell == UITableViewPickerCell.cellId, let valueCollection = item.valueCollection as? [String] {
+            let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: item.cell) as? UITableViewPickerCell
+                ?? UITableViewPickerCell(type: .default, reuseIdentifier: item.cell)
+            
+            cell.values = valueCollection
+            cell.delegate = self
+            if let value = item.value as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
+                cell.selectedRow = index
+            } else{
+                cell.selectedRow = 0
+            }
+            cell.titleLabel.text = item.label
+            return cell
+        }
+        else if item.cell == SegmentedControlCell.cellId, let valueCollection = item.valueCollection as? [String:Int] {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: SegmentedControlCell.cellId) as! SegmentedControlCell
+            
+            cell.textLabel?.text = item.label
+            cell.imageView?.image = item.iconImageName?.asUIImage
+            
+            cell.segmentedControl.removeAllSegments()
+            for k in valueCollection{
+                cell.segmentedControl.insertSegment(withTitle: k.key, at: cell.segmentedControl.numberOfSegments, animated: false)
+            }
+            
+            cell.segmentedControl.selectedSegmentIndex = valueCollection.valuesArray.index(of: item.value as? Int ?? GIFMakerSettings.contentMode.fill) ?? 0
+            cell.didChangeValue = item.valueHandler
+            return cell
+        }
+        else {
+            return UITableViewCell()
+        }
+    }
+    
+    func pickerCell(_ cell: UITableViewPickerCell, didPick row: Int, value: Any) {
+        defaults?.aspectRatio = GIFMakerSettings.aspectRatio.labels[cell.values[row]] ?? 1
+    }
+    
+    private class SegmentedControlCell: UITableViewCell {
+        static var cellId:String {
+            return "SegmentedControlCell"
+        }
         
-        var switchDidChange: ((Bool) -> Void)?
+        private(set) lazy var segmentedControl: UISegmentedControl = UISegmentedControl(items: [])
+        
+        var didChangeValue: ((Int) -> Void)?
         
         override func prepareForReuse() {
             super.prepareForReuse()
             
-            switchDidChange = nil
+            didChangeValue = nil
         }
         
         override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-            super.init(style: style, reuseIdentifier: reuseIdentifier)
+            super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
             
-//            accessoryView = optionSwitch
+            segmentedControl.addTarget(self, action: #selector(self.valueDidChange), for: .valueChanged)
+            
+            accessoryView = segmentedControl
+            
+            self.detailTextLabel?.textColor = UIColor.gray
+        }
+        
+        override func layoutSubviews() {
+            super.layoutSubviews()
         }
         
         required init?(coder aDecoder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }
         
-        @objc func cellSwitchDidChange(sender: UISwitch) {
-            switchDidChange?(sender.isOn)
+        @objc func valueDidChange(sender: UISegmentedControl) {
+            didChangeValue?(sender.selectedSegmentIndex)
         }
     }
 }
