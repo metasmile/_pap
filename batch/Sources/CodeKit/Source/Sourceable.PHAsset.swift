@@ -22,7 +22,7 @@ public struct RemoteSourceFetchNotification {
 }
 
 extension PHAsset {
-    func requestImage(targetSize: CGSize = PHImageManagerMaximumSize, contentMode: PHImageContentMode = .aspectFit, options: PHImageRequestOptions?) -> (PHImageRequestID, UIImage?) {
+    func requestImage(targetSize: CGSize = PHImageManagerMaximumSize, contentMode: PHImageContentMode = .aspectFit, options: PHImageRequestOptions? = PHAsset.highQualityImageRequestOptions) -> (PHImageRequestID, UIImage?) {
         let signal = AsyncSignal()
         signal.begin()
         
@@ -47,7 +47,7 @@ extension PHAsset {
 extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSourceable, VideoSourceable, LivePhotoSourceable {
     public var asUIImage:UIImage? {
         get {
-            return self.requestImage(targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: fullResolutionImageRequestOptions).1
+            return self.requestImage(targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: PHAsset.highQualityImageRequestOptions).1
         }
     }
 
@@ -111,7 +111,7 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
         return CIImage(image: image)
     }
 
-    private var fullResolutionImageRequestOptions: PHImageRequestOptions {
+    static var highQualityImageRequestOptions: PHImageRequestOptions {
         let options = PHImageRequestOptions()
         options.isSynchronous = false
         options.isNetworkAccessAllowed = true

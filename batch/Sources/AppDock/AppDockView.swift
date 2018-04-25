@@ -561,7 +561,7 @@ extension AppDockView: UIScrollViewDelegate {
         }, completion: nil)
     }
     
-    func zoomOutAppCollectionView(delay: Double = 1.0) {
+    func zoomOutAppCollectionView(delay: Double = 2.0) {
         guard (appCollectionView.collectionViewLayout as? AppCollectionViewLayout)?.layoutMetrics == .prominent else { return }
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) { [unowned self] in

@@ -9,6 +9,7 @@
 import UIKit
 import Photos
 import NSGIF2
+import DefaultsKit
 
 class _GIFMakerAppAsset: PHAssetItem<ImageEditStateValue> {
     func cancelProcessing() {
@@ -18,9 +19,35 @@ class _GIFMakerAppAsset: PHAssetItem<ImageEditStateValue> {
 
 private struct GIFMakerPHAssetResult: TaskResultable{
     public var asset: PHAsset
-    public var renderPixelSize: CGSize
-    public var renderImage: UIImage
+    public var imageFileURL: URL
 }
+
+//MARK: -
+
+protocol GIFMakerDefaults: AppDefaults{
+    var aspectRatio: CGFloat {get set}
+    var contentMode: Int {get set}
+    var frameDelay: Double {get set}
+}
+
+extension Defaults: GIFMakerDefaults {
+    var aspectRatio: CGFloat {
+        set{ set(newValue) }
+        get{ return get(or: 1 ) }
+    }
+    
+    var contentMode: Int {
+        set{ set(newValue) }
+        get{ return get(or: PHImageContentMode.aspectFill.rawValue ) }
+    }
+    
+    var frameDelay: Double {
+        set { set(newValue) }
+        get { return get(or: 0.3)}
+    }
+}
+
+//MARK: -
 
 public class GIFMakerAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrributeValuable, AppConfigAdoptableValuable {
     @objc dynamic
@@ -70,8 +97,10 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
     }
     
     public func shouldSelect(item: PHAssetItem<ImageEditStateValue>) -> Bool {
-        guard let firstItem = AppAssets.selected.at(unsafeIndex: 0) else { return true }
-        return firstItem.asset.mediaType == item.asset.mediaType
+        return item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive)
+        
+//        guard let firstItem = AppAssets.selected.at(unsafeIndex: 0) else { return true }
+//        return firstItem.asset.mediaType == item.asset.mediaType
     }
     
     public var numberOfItemsShouldSelect: Int? {
@@ -80,7 +109,7 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
             return 1
         }
         else {
-            return 10
+            return Int.max
         }
     }
     
@@ -103,27 +132,59 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
         
         //TODO: test test
         
-        func createGIF(with images: [UIImage], loopCount: Int = 0, frameDelay: Double) -> Data? {
-            let fileProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFLoopCount as String: loopCount]]
-            let frameProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFDelayTime as String: frameDelay]]
+        func createGIF(with imageFiles: [URL], loopCount: Int = 0, frameDelay: Double) -> Data? {
+            let fileProperties = [
+                kCGImagePropertyGIFDictionary: [
+                    kCGImagePropertyGIFLoopCount: loopCount
+                ]
+            ]
+            let frameProperties = [
+                kCGImagePropertyGIFDictionary: [
+                    kCGImagePropertyGIFDelayTime: frameDelay,
+                    kCGImagePropertyColorModel: kCGImagePropertyColorModelRGB
+                ]
+            ]
             
-            let url = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("animated.gif")
+            let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(GIFMaker.info.identifier).gif")
             
-            guard let destination = CGImageDestinationCreateWithURL(url as CFURL, kUTTypeGIF, images.count, nil) else { return nil }
+            guard let destination = CGImageDestinationCreateWithURL(url as CFURL, kUTTypeGIF, imageFiles.count, nil) else { return nil }
             CGImageDestinationSetProperties(destination, fileProperties as CFDictionary)
             
-            images.compactMap({ $0.cgImage }).forEach({ CGImageDestinationAddImage(destination, $0, frameProperties as CFDictionary) })
-            
-            if CGImageDestinationFinalize(destination) {
-                return try? Data(contentsOf: url)
-            } else {
-                return nil
+            for imageFile in imageFiles {
+                autoreleasepool {
+                    guard let cgImage = UIImage(contentsOfFile: imageFile.path)?.cgImage else { return }
+                    CGImageDestinationAddImage(destination, cgImage, frameProperties as CFDictionary)
+                }
             }
+            
+            var gifData: Data?
+            if CGImageDestinationFinalize(destination) {
+                gifData = try? Data(contentsOf: url)
+            }
+            
+            imageFiles.forEach({ try? FileManager.default.removeItem(at: $0) })
+            try? FileManager.default.removeItem(at: url)
+            
+            return gifData
         }
         
-        print(createGIF(with: resultItems.map({ $0.renderImage }), frameDelay: 10))
+        let gifData = createGIF(with: resultItems.map({ $0.imageFileURL }), frameDelay: (GIFMaker.defaults as? GIFMakerDefaults)?.frameDelay ?? 0.3)
         
-        return []
+        asyncSignal.begin()
+        
+        DispatchQueue.main.async {
+            guard let data = gifData, let rootViewController = UIApplication.shared.keyWindow?.rootViewController else { return }
+            let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+            activityViewController.completionWithItemsHandler = { (activityType:UIActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
+                asyncSignal.end()
+            }
+            activityViewController.popoverPresentationController?.sourceView=rootViewController.view
+            rootViewController.present(activityViewController, animated: true, completion: nil)
+        }
+        
+        asyncSignal.waitUntilEnd()
+        
+        return result
     }
 }
 
@@ -145,7 +206,10 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
     private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable?) throws -> TaskResultable?  {
         var result: GIFMakerPHAssetResult?
         
-        let size = CGSize(width: 300, height: 300)
+        //TODO: to be options
+        let aspectRatio = (GIFMaker.defaults as? GIFMakerDefaults)?.aspectRatio ?? 1
+        let targetSize = CGSize(width: 640, height: 640 * aspectRatio)
+        let contentMode = PHImageContentMode(rawValue: (GIFMaker.defaults as? GIFMakerDefaults)?.contentMode ?? PHImageContentMode.aspectFit.rawValue) ?? PHImageContentMode.aspectFit
         
         async?.begin()
         
@@ -157,14 +221,35 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
                
             }
             else {
-                let options = PHImageRequestOptions()
-                options.isNetworkAccessAllowed = true
-                options.deliveryMode = .opportunistic
-                options.resizeMode = .exact
+                let response = assetItem.asset.requestImage(targetSize: targetSize, contentMode: contentMode)
                 
-                let response = assetItem.asset.requestImage(targetSize: size, contentMode: .aspectFit, options: options)
-                if let image = response.1 {
-                    result = GIFMakerPHAssetResult(asset: assetItem.asset, renderPixelSize: size, renderImage: image)
+                if let image = response.1, let res = PHAssetResource.assetResources(for: assetItem.asset).first {
+                    let imageToWrite: UIImage
+                    if targetSize == image.size {
+                        imageToWrite = image
+                    }
+                    else {
+                        imageToWrite = UIGraphicsImageRenderer(size: targetSize).image(actions: { (ctx) in
+                            UIColor.white.setFill()
+                            ctx.cgContext.fill(CGRect(origin: .zero, size: targetSize))
+                            image.draw(at: CGPoint(x: (targetSize.width - image.size.width) / 2, y: (targetSize.height - image.size.height) / 2))
+                        })
+                    }
+                    
+                    let data: Data?
+                    var fileExtension = "jpg"
+                    switch res.uniformTypeIdentifier as CFString {
+                        case kUTTypePNG:
+                            data = UIImagePNGRepresentation(imageToWrite)
+                            fileExtension = "png"
+                        default:
+                            data = UIImageJPEGRepresentation(imageToWrite, 1)
+                    }
+                    
+                    let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(GIFMaker.info.identifier)_\(uuid).\(fileExtension)")
+                    try data?.write(to: url)
+                    
+                    result = GIFMakerPHAssetResult(asset: assetItem.asset, imageFileURL: url)
                     assetItem.requestIDs += [PHAssetRequestID(forImage:response.0)]
                 }
                 
