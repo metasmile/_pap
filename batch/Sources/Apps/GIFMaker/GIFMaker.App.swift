@@ -298,21 +298,14 @@ private struct SettingsItem {
     fileprivate var iconImageName:String?
 }
 
-class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate {
+class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDockDelegate,
+        UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate {
+
     private var defaults = GIFMaker.defaults as? GIFMakerDefaults
     
     private var settings = [SettingsItem]()
     
-    var view: UIView{
-        let view = UITableView()
-        view.dataSource = self
-        view.delegate = self
-        view.rowHeight = 44
-        view.register(SegmentedControlCell.self, forCellReuseIdentifier: SegmentedControlCell.cellId)
-        view.register(UITableViewPickerCell.self, forCellReuseIdentifier: UITableViewPickerCell.cellId)
-        
-        return view
-    }
+    lazy var view: UIView = UITableView()
     
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
@@ -344,9 +337,25 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITabl
                 , cell: SegmentedControlCell.cellId
                 , iconImageName: nil
             )
-            ]
+        ]
+
+        if let view = view as? UITableView{
+            view.dataSource = self
+            view.delegate = self
+            view.rowHeight = 44
+            view.register(SegmentedControlCell.self, forCellReuseIdentifier: SegmentedControlCell.cellId)
+            view.register(UITableViewPickerCell.self, forCellReuseIdentifier: UITableViewPickerCell.cellId)
+        }
     }
-    
+
+    var delegate: AppDockDelegate? {
+        return self
+    }
+
+    func dockWillContract(_ dock: AppDock) {
+        (self.view as? UITableView)?.contractAllVisiblePickerCells()
+    }
+
     func didSetContentView(_ view:UIView, dock:AppDock) {
         (view as! UITableView).reloadData()
     }

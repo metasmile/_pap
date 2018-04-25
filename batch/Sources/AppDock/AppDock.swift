@@ -20,6 +20,14 @@ public protocol AppDockDelegate {
     func dockDidContract(_ dock:AppDock)
 }
 
+extension AppDockDelegate{
+    func dockWillExpand(_ dock: AppDock) {}
+    func dockDidExpand(_ dock: AppDock) {}
+
+    func dockWillContract(_ dock: AppDock) {}
+    func dockDidContract(_ dock: AppDock) {}
+}
+
 // AppDockContentPreferable
 public protocol AppDockContentPreferable {
     var minimumHeight: CGFloat {get}
@@ -40,10 +48,12 @@ public struct AppDockContentPreferences: AppDockContentPreferable {
 
 // AppDockContent
 public protocol AppDockContent {
+    //INFO: `lazy var view: UIView = UIView()` is recommended to prevent creating new instance always.
     var view: UIView {get}
     var preferences: AppDockContentPreferable? {get}
     var delegate: AppDockDelegate? {get}
 
+    //INFO: initializer codes should locate on `willSetContentView` (e.g. assigning delegate object)
     func willSetContentView(_ view:UIView, dock:AppDock)
     func didSetContentView(_ view:UIView, dock:AppDock)
 

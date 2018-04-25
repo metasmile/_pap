@@ -317,21 +317,21 @@ public class UITableViewPickerCell: UITableViewCell {
      Expands or contracts the table cell depending on its current state. Call this method from the "tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)" delegate method to show or hide the picker view with an animation.
      - Parameter tableView: The UITableView object that contains the cell.
     */
-    public func expand(_ tableView: UITableView, animated:Bool=true) {
+    public func expand(_ tableView: UITableView, animated:Bool=true, completion:((Bool) -> Swift.Void)? = nil) {
         if !isExpanded {
             isExpanded = true
-            updateForExpansion(tableView, animated: animated)
+            updateForExpansion(tableView, animated: animated, completion: completion)
         }
     }
 
-    public func contract(_ tableView: UITableView, animated:Bool=true) {
+    public func contract(_ tableView: UITableView, animated:Bool=true, completion:((Bool) -> Swift.Void)? = nil) {
         if isExpanded {
             isExpanded = false
-            updateForExpansion(tableView, animated: animated)
+            updateForExpansion(tableView, animated: animated, completion: completion)
         }
     }
 
-    private func updateForExpansion(_ tableView: UITableView, animated:Bool=true){
+    private func updateForExpansion(_ tableView: UITableView, animated:Bool=true, completion:((Bool) -> Swift.Void)? = nil){
         func changeLabelColor(){
             self.valueLabel.textColor = self.isExpanded ? self.tintColor : self.defaultValueLabelTextColor
         }
@@ -339,9 +339,10 @@ public class UITableViewPickerCell: UITableViewCell {
         if animated{
             UIView.transition(with: valueLabel, duration: 0.25, options: .transitionCrossDissolve, animations: { [unowned self] in
                 changeLabelColor()
-            })
+            }, completion:completion)
         }else{
             changeLabelColor()
+            completion?(true)
         }
 
         tableView.beginUpdates()

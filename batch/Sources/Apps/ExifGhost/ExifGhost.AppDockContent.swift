@@ -86,16 +86,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
     private var initialSelectedIndexPaths:[IndexPath]? = [IndexPath]()
 
-    var view: UIView{
-        let view = UITableView()
-        view.dataSource = self
-        view.delegate = self
-        view.rowHeight = 44
-        view.allowsSelection = false
-        view.allowsMultipleSelection = false
-        view.register(Cell.self, forCellReuseIdentifier: ExifGhost.info.identifier)
-        return view
-    }
+    lazy var view: UIView = UITableView()
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
@@ -110,6 +101,17 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
     fileprivate var appDefaults:ExifGhostAppDefaults?{
         return ExifGhost.defaults as? ExifGhostAppDefaults
+    }
+
+    func willSetContentView(_ view: UIView, dock: AppDock) {
+        if let view = view as? UITableView{
+            view.dataSource = self
+            view.delegate = self
+            view.rowHeight = 44
+            view.allowsSelection = false
+            view.allowsMultipleSelection = false
+            view.register(Cell.self, forCellReuseIdentifier: ExifGhost.info.identifier)
+        }
     }
 
     func didSetContentView(_ view:UIView, dock:AppDock) {

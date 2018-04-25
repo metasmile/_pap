@@ -203,24 +203,25 @@ extension Defaults: AutoAdjustmentAppDefaults {
 class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
     fileprivate var autoAdjustmentOptionKeys = AutoAdjustmentApp.AutoAdjustmentsKeys
 
-    var view: UIView{
-        let view = UITableView()
-        view.dataSource = self
-        view.delegate = self
-        view.rowHeight = 44
-        view.allowsSelection = false
-        view.register(Cell.self, forCellReuseIdentifier: AutoAdjustmentApp.info.identifier)
-        
-        return view
-    }
-    
+    lazy var view: UIView = UITableView()
+
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
         preferences.minimumHeight = 44 * CGFloat(autoAdjustmentOptionKeys.count) + 20
         preferences.pinned = true
         return preferences
     }
-    
+
+    func willSetContentView(_ view: UIView, dock: AppDock) {
+        if let view = view as? UITableView{
+            view.dataSource = self
+            view.delegate = self
+            view.rowHeight = 44
+            view.allowsSelection = false
+            view.register(Cell.self, forCellReuseIdentifier: AutoAdjustmentApp.info.identifier)
+        }
+    }
+
     func didSetContentView(_ view:UIView, dock:AppDock) {
         if options != nil{
             (view as! UITableView).reloadData()

@@ -57,6 +57,7 @@
 		4F71D4A9C313C6702FA30261 /* batch.App.PhotoPickerCollectionViewDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D39AF0B7FD798207B14B /* batch.App.PhotoPickerCollectionViewDisplayable.swift */; };
 		4F71D4CFA693A7C8BFBC012C /* BAppUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7606BCE89B9E0E4D230 /* BAppUICollectionView.swift */; };
 		4F71D5159D503A1C85067FDB /* CodeKit.Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D98A51387658CDC4FE16 /* CodeKit.Int.swift */; };
+		4F71D5207443AD6E1531E1F7 /* UITableViewPickerCell.UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D06B72D59EE5F67E4142 /* UITableViewPickerCell.UITableView.swift */; };
 		4F71D536A35F5A80442B85EE /* ImageIO.HEIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1A1158ED55553BDD631 /* ImageIO.HEIF.swift */; };
 		4F71D580C4E4953367D47FDC /* CodeKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8698EAC3EA68C658ECE /* CodeKitTests.swift */; };
 		4F71D599C8B7D7FE68646DF8 /* CodeKit.UIView.GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD50BA40D5B1F2284B9C /* CodeKit.UIView.GestureRecognizer.swift */; };
@@ -207,6 +208,7 @@
 		44650A1820DF0DD9DA679980 /* Pods-batchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batchTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-batchTests/Pods-batchTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4A3324BBC70AFB2083574786 /* libPods-batchTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-batchTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F71D03C389CAB4C247D9CB5 /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		4F71D06B72D59EE5F67E4142 /* UITableViewPickerCell.UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewPickerCell.UITableView.swift; sourceTree = "<group>"; };
 		4F71D07823F5C942948C394C /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = Localizable.strings; sourceTree = "<group>"; };
 		4F71D080E201B80067BF2F59 /* PHAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAssets.swift; sourceTree = "<group>"; };
 		4F71D0870FD2EB4014BC4E60 /* vi */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = vi; path = Localizable.strings; sourceTree = "<group>"; };
@@ -708,6 +710,7 @@
 			isa = PBXGroup;
 			children = (
 				4F71D9A37B48DAACA3EAC730 /* UITableViewPickerCell.swift */,
+				4F71D06B72D59EE5F67E4142 /* UITableViewPickerCell.UITableView.swift */,
 			);
 			path = CodeKit.UITableViewCell;
 			sourceTree = "<group>";
@@ -1588,6 +1591,7 @@
 				4F71DCE1CF7DDDB8CCD30458 /* UITableViewPickerCell.swift in Sources */,
 				4F71DFF135992B983BB8ECFF /* PDFactory.AppDefaults.swift in Sources */,
 				4F71D915F8920CA2C51E2EB3 /* CodeKit.Dictionary.swift in Sources */,
+				4F71D5207443AD6E1531E1F7 /* UITableViewPickerCell.UITableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

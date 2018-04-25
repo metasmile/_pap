@@ -33,19 +33,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
 
     fileprivate var settings = [SettingsItem]()
 
-    var view: UIView{
-        let view = UITableView()
-        view.dataSource = self
-        view.delegate = self
-        view.rowHeight = 44
-//        view.allowsSelection = false
-        view.allowsMultipleSelection = false
-        view.register(SwitcherCell.self, forCellReuseIdentifier: SwitcherCell.cellId)
-        view.register(StepperCell.self, forCellReuseIdentifier: StepperCell.cellId)
-        view.register(SegmentedControlCell.self, forCellReuseIdentifier: SegmentedControlCell.cellId)
-        view.register(UITableViewPickerCell.self, forCellReuseIdentifier: UITableViewPickerCell.cellId)
-        return view
-    }
+    lazy var view: UIView = UITableView()
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
@@ -58,20 +46,8 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
         return self
     }
 
-    func dockWillExpand(_ dock: AppDock) {
-
-    }
-
     func dockWillContract(_ dock: AppDock) {
-
-    }
-
-    func dockDidExpand(_ dock: AppDock) {
-
-    }
-
-    func dockDidContract(_ dock: AppDock) {
-
+        (self.view as? UITableView)?.contractAllVisiblePickerCells()
     }
 
     var appDock:AppDock?
@@ -125,6 +101,16 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
                     , iconImageName: nil
             )
         ]
+
+        let view = view as! UITableView
+        view.dataSource = self
+        view.delegate = self
+        view.rowHeight = 44
+        view.allowsMultipleSelection = false
+        view.register(SwitcherCell.self, forCellReuseIdentifier: SwitcherCell.cellId)
+        view.register(StepperCell.self, forCellReuseIdentifier: StepperCell.cellId)
+        view.register(SegmentedControlCell.self, forCellReuseIdentifier: SegmentedControlCell.cellId)
+        view.register(UITableViewPickerCell.self, forCellReuseIdentifier: UITableViewPickerCell.cellId)
     }
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
