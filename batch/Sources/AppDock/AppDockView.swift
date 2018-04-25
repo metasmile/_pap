@@ -187,6 +187,8 @@ class AppDockView: CustomView {
     var accessory: AppDockContent?{
         didSet {
             if let view = accessory?.view {
+                accessory?.willSetContentView(view, dock: self)
+
                 setTopAccessoryView(view, animated: true)
 
                 DispatchQueue.main.async{
@@ -232,11 +234,11 @@ class AppDockView: CustomView {
 
 //AppDock
 extension AppDockView: AppDock{
-    func expandLayoutIfNeeded(reloadContents: Bool?=nil) {
+    func expandDockIfNeeded(reloadContents: Bool?=nil) {
         self.openDrawer(reloadDockContentViews: reloadContents)
     }
 
-    func contractLayoutIfNeeded(reloadContents: Bool?=nil) {
+    func contractDockIfNeeded(reloadContents: Bool?=nil) {
         self.closeDrawer(reloadDockContentViews: reloadContents)
     }
 }
@@ -498,9 +500,16 @@ extension AppDockView: UIGestureRecognizerDelegate {
         }
         
         invalidateIntrinsicContentSize()
-        
-        animateAsSpringSuperviewLayoutIfNeeded()
-        
+
+        controller?.delegate?.dockWillExpand(self)
+        accessory?.delegate?.dockWillExpand(self)
+
+        animateAsSpringSuperviewLayoutIfNeeded { _ in
+
+            self.controller?.delegate?.dockDidExpand(self)
+            self.accessory?.delegate?.dockDidExpand(self)
+        }
+
         if reloadDockContentViews {
             (accessory?.view as? AppDockContentView)?.reloadContentThatFits(size:CGSize(width: UIViewNoIntrinsicMetric, height: accessoryLayoutConstant))
 
@@ -533,7 +542,13 @@ extension AppDockView: UIGestureRecognizerDelegate {
         
         invalidateIntrinsicContentSize()
 
-        animateAsSpringSuperviewLayoutIfNeeded()
+        controller?.delegate?.dockWillContract(self)
+        accessory?.delegate?.dockWillContract(self)
+
+        animateAsSpringSuperviewLayoutIfNeeded { _ in
+            self.controller?.delegate?.dockDidContract(self)
+            self.accessory?.delegate?.dockDidContract(self)
+        }
 
         if reloadDockContentViews {
             (accessory?.view as? AppDockContentView)?.reloadContent()

@@ -26,10 +26,12 @@ private struct SettingsItem {
     fileprivate var iconImageName:String?
 }
 
-class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate {
-    private var defaults = PDFactory.defaults as? PDFactoryDefaults
+class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
+        , UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate {
 
-    private var settings = [SettingsItem]()
+    fileprivate var defaults = PDFactory.defaults as? PDFactoryDefaults
+
+    fileprivate var settings = [SettingsItem]()
 
     var view: UIView{
         let view = UITableView()
@@ -52,6 +54,26 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         return preferences
     }
 
+    var delegate: AppDockDelegate? {
+        return self
+    }
+
+    func dockWillExpand(_ dock: AppDock) {
+
+    }
+
+    func dockWillContract(_ dock: AppDock) {
+
+    }
+
+    func dockDidExpand(_ dock: AppDock) {
+
+    }
+
+    func dockDidContract(_ dock: AppDock) {
+
+    }
+
     var appDock:AppDock?
 
     func willSetContentView(_ view:UIView, dock:AppDock) {
@@ -61,7 +83,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
                     key: .sizePreset
                     , label: "Page Size Preset"
                     , value: defaults?.sizePreset ?? PDFPageFormat.a4.label
-                    , valueCollection: PDFactorySettings.SizePresets.keys.map { String($0) }
+                    , valueCollection: PDFactorySettings.SizePresets.keysArray
                     , valueHandler: nil
                     , cell: UITableViewPickerCell.cellId
                     , iconImageName: nil
@@ -137,7 +159,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
             if cell.isExpanded{
                 cell.contract(tableView)
             } else{
-                appDock?.expandLayoutIfNeeded(reloadContents: nil)
+                appDock?.expandDockIfNeeded(reloadContents: nil)
                 DispatchQueue.main.async{
                     cell.expand(tableView)
                 }
@@ -215,14 +237,17 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
     }
 
-    func pickerCell(_ cell: UITableViewPickerCell, didPick row: Int, value: Any) {
-        defaults?.sizePreset = cell.values[row]
-    }
-
     func createSelectedBackgroundView() -> UIView {
         let view = UIView()
         view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
         return view
+    }
+}
+
+extension UITableViewPickerCellDelegate where Self:PDFactoryAppDockContent{
+
+    func pickerCell(_ cell: UITableViewPickerCell, didPick row: Int, value: Any) {
+        defaults?.sizePreset = cell.values[row]
     }
 }
 

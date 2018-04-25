@@ -31,8 +31,7 @@ extension UIView{
         UIView.animate(withDuration: duration, delay: delay, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: [.beginFromCurrentState, .allowUserInteraction], animations: animations, completion: completion)
     }
 
-    public func animateAsSpringSuperviewLayoutIfNeeded() {
-        // FIXME: except for navigation bar
+    public func animateAsSpringSuperviewLayoutIfNeeded(completion:((Bool) -> Void)? = nil) {
         if let navigationBar = self.superview?.subviews.first(where: { (view) -> Bool in
             view is UINavigationBar
         }) {
@@ -41,6 +40,6 @@ extension UIView{
         
         UIView.animateAsSpring(animations: { [unowned self] in
             self.superview?.layoutIfNeeded()
-        }, completion: nil)
+        }, completion: completion)
     }
 }

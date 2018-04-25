@@ -8,8 +8,16 @@ import UIKit
 
 // AppDock
 public protocol AppDock {
-    func expandLayoutIfNeeded(reloadContents:Bool?) // nil means it should act with default behavior
-    func contractLayoutIfNeeded(reloadContents:Bool?)
+    func expandDockIfNeeded(reloadContents:Bool?) // nil means it should act with default behavior
+    func contractDockIfNeeded(reloadContents:Bool?)
+}
+
+public protocol AppDockDelegate {
+    func dockWillExpand(_ dock:AppDock)
+    func dockDidExpand(_ dock:AppDock)
+
+    func dockWillContract(_ dock:AppDock)
+    func dockDidContract(_ dock:AppDock)
 }
 
 // AppDockContentPreferable
@@ -34,13 +42,17 @@ public struct AppDockContentPreferences: AppDockContentPreferable {
 public protocol AppDockContent {
     var view: UIView {get}
     var preferences: AppDockContentPreferable? {get}
+    var delegate: AppDockDelegate? {get}
 
     func willSetContentView(_ view:UIView, dock:AppDock)
     func didSetContentView(_ view:UIView, dock:AppDock)
+
     func willRemoveContentView()
 }
 
 extension AppDockContent{
+    public var delegate: AppDockDelegate? { return nil }
+
     public func willSetContentView(_ view:UIView, dock:AppDock) {}
     public func didSetContentView(_ view:UIView, dock:AppDock) {}
 

@@ -383,7 +383,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITabl
             if cell.isExpanded{
                 cell.contract(tableView)
             } else{
-                appDock?.expandLayoutIfNeeded(reloadContents: nil)
+                appDock?.expandDockIfNeeded(reloadContents: nil)
                 DispatchQueue.main.async{
                     cell.expand(tableView)
                 }
