@@ -20,8 +20,9 @@ import DefaultsKit
 
 private struct PDFactoryPHAssetResult: TaskResultable{
     public var asset: PHAsset
-    public var renderPixelSize: CGSize
+    public var renderImageBoundSize: CGSize // maximum size of image + paper size
     public var renderImage: UIImage
+//    public var imageMetadata: [String: Any]?
 }
 
 public class PDFactory: BatchApp, FinalizableApp, PhotoPickerViewControllerDelegatableApp,
@@ -82,7 +83,7 @@ public class PDFactory: BatchApp, FinalizableApp, PhotoPickerViewControllerDeleg
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
 
-        let resultItems = result
+        let items = result
                 .filter { respondable in respondable.info.state == .completed }
                 .compactMap { $0.result as? PDFactoryPHAssetResult }
 
@@ -92,21 +93,86 @@ public class PDFactory: BatchApp, FinalizableApp, PhotoPickerViewControllerDeleg
 
         let defaults = PDFactory.defaults as? PDFactoryDefaults
         let imagesPerPage = defaults?.imagesPerPage ?? 1
-
+        let imageQuality = defaults?.imageQuality ?? 1
+        print(defaults, imagesPerPage)
 
         do {
             let document = PDFDocument(layout: PDFactory.defaultsPDFLayout)
+            let container = PDFContainer.contentCenter
 
-            for items in resultItems.chunked(into: imagesPerPage){
-                for (i, item) in items.enumerated(){
-                    let pdfImage = PDFImage(image: item.renderImage, caption: nil, size: .zero, sizeFit: PDFImageSizeFit.widthHeight)
-                    document.addImage(image: pdfImage)
-
-                    if i < items.count-1{
-                        document.createNewPage()
-                    }
-                }
+            for (i, item) in items.enumerated(){
+                let pdfImage = PDFImage(image: item.renderImage, caption: nil, size: .zero, sizeFit: PDFImageSizeFit.widthHeight)
+                document.addImage(container, image: pdfImage)
+//                if i < items.count-1{
+//                    document.createNewPage()
+//                }
             }
+
+
+
+//            for items in resultItems.chunked(into: imagesPerPage){
+//                let container = PDFContainer.contentCenter
+
+//                let table = PDFTable()
+//
+//                do {
+//                    let style = PDFTableStyle()
+//                    style.rowHeaderCount = 0
+//                    style.columnHeaderCount = 0
+//
+//                    table.style = style
+//
+////                    try table.setCellStyle(row: 2, column: 2, style: nil)
+//
+//                    let tableData = items.chunked(into: 2).map { _items -> [UIImage] in
+//                        return _items.map { _item -> UIImage in return _item.renderImage }
+//                    }
+//
+//                    print(tableData)
+//
+//                    try table.generateCells(data: tableData, alignments: [
+//                        [.center, .center],
+//                        [.center, .center]
+//                    ])
+//                    document.addTable(container, table: table)
+//
+//                } catch PDFError.tableContentInvalid(let value) {
+//                    // In case invalid input is provided, this error will be thrown.
+//
+//                    print("This type of object is not supported as table content: " + String(describing: (type(of: value))))
+//                } catch {
+//                    // General error handling in case something goes wrong.
+//
+//                    print("Error while creating table: " + error.localizedDescription)
+//                }
+
+//                for (i, item) in items.enumerated(){
+//                    let sizefit:PDFImageSizeFit
+//                    if item.renderImageBoundSize.height >= item.renderImageBoundSize.width{
+//                        sizefit = PDFImageSizeFit.height
+//                    }else{
+//                        sizefit = PDFImageSizeFit.width
+//                    }
+//
+//                    var avgLayoutConstant:CGFloat = 0
+//                    for _item in items{
+//                        if PDFImageSizeFit.width==sizefit{
+//                            avgLayoutConstant += _item.renderImage.size.width
+//                        }else if PDFImageSizeFit.height==sizefit{
+//                            avgLayoutConstant += _item.renderImage.size.height
+//                        }
+//                    }
+//
+//                    let imageSize = CGSize(width: item.renderImage.size.width, height: avgLayoutConstant/CGFloat(items.count))
+//
+//                    let pdfImage = PDFImage(image: item.renderImage, caption: nil, size: imageSize, sizeFit: PDFImageSizeFit.height)
+//                    pdfImage.quality = CGFloat(imageQuality)
+//                    document.addImage(container, image: pdfImage)
+//                }
+//
+//
+//                document.createNewPage()
+//            }
 
             /*
             let images = [
@@ -193,12 +259,29 @@ private class _PDFactoryTask: TaskPrototype, Taskable {
                 renderImage = image
                 async?.end()
             }
-            appAsset.requestIDs += [PHAssetRequestID(forImage:imageRequestID)]
 
+            appAsset.requestIDs += [PHAssetRequestID(forImage:imageRequestID)]
             async?.waitUntilEnd()
 
+//            async?.begin()
+//            let id = param.requestContentEditing(options:option) { item in
+//
+//                assert(item?.input.fullSizeImageURL != nil, "item.input.fullSizeImageURL is nil")
+//                if let item = item, let url = item.input.fullSizeImageURL {
+//
+//                    let data = try! Data(contentsOf: url)
+//
+//                    if let metadata = data.getMetadata() {
+//
+//                    }
+//                }
+//
+//                async?.end()
+//            }
+//            async?.waitUntilEnd()
+
             if let image = renderImage{
-                return PDFactoryPHAssetResult(asset: asset, renderPixelSize: imagePixelSize, renderImage:image)
+                return PDFactoryPHAssetResult(asset: asset, renderImageBoundSize: imagePixelSize, renderImage:image)
             }
         }
         return nil

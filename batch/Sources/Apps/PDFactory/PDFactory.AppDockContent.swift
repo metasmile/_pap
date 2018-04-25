@@ -16,6 +16,7 @@ private struct SettingsItem {
         case scaleMode
         case metadataCaption
         case imageQuality
+        case margin
     }
 
     fileprivate var key: Keys
@@ -84,12 +85,33 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
                     , iconImageName: nil
             )
             , SettingsItem(
-                    key: .imagesPerPage
-                    , label: "Max. Images Per Page"
-                    , valueGetter: { self.defaults?.imagesPerPage ?? 1}
+                    key: .margin
+                    , label: "Page Margin"
+                    , valueGetter: { self.defaults?.margin ?? 10 }
                     , valueCollection: nil
-                    , valueHandler: { self.defaults?.imagesPerPage = Int($0 as? Double ?? 1) }
-                    , cellDescriber: UITableViewStepperCellDescriber(cellClass: UITableViewStepperCell.self, minimumValue: 1, maximumValue: 50, stepValue: 1)
+                    , valueHandler: { self.defaults?.margin = Int($0 as? Int ?? 10) }
+                    , cellDescriber: UITableViewStepperCellDescriber(cellClass: UITableViewStepperCell.self, minimumValue: 0, maximumValue: 50, stepValue: 1, transformValueLabel:{ value in return String(Int(value as? Int ?? 0))+"%" })
+                    , iconImageName: nil
+            )
+//            , SettingsItem(
+//                    key: .imagesPerPage
+//                    , label: "Max. Images Per Page"
+//                    , valueGetter: { self.defaults?.imagesPerPage ?? 1}
+//                    , valueCollection: nil
+//                    , valueHandler: { self.defaults?.imagesPerPage = Int($0 as? Double ?? 1) }
+//                    , cellDescriber: UITableViewStepperCellDescriber(cellClass: UITableViewStepperCell.self, minimumValue: 1, maximumValue: 50, stepValue: 1, transformValueLabel:nil)
+//                    , iconImageName: nil
+//            )
+            , SettingsItem(
+                    key: .imageQuality
+                    , label: "Image Quality"
+                    , valueGetter: { Int((self.defaults?.imageQuality ?? 1) * 100) }
+                    , valueCollection: nil
+                    , valueHandler: {
+                        var defatuls = self.defaults
+                        defatuls?.imageQuality = (($0 as? Double) ?? 1)/100
+                    }
+                    , cellDescriber: UITableViewStepperCellDescriber(cellClass: UITableViewStepperCell.self, minimumValue: 60, maximumValue: 100, stepValue: 2, transformValueLabel:nil)
                     , iconImageName: nil
             )
             , SettingsItem(
@@ -156,7 +178,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = self.settings[indexPath.item] as! SettingsItem
+        let item = self.settings[indexPath.item]
 
         if let cellDescriber = item.cellDescriber as? UITableViewPickerCellDescriber
             , let valueCollection = item.valueCollection as? [String]
@@ -190,7 +212,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewStepperCell {
 
             cell.textLabel?.text = item.label
-            cell.detailTextLabel?.text = String(value)
+            cell.detailTextLabel?.text = cellDescriber.transformValueLabel?(value) ?? String(value)
             cell.imageView?.image = item.iconImageName?.asUIImage
 
             cell.stepper.stepValue = cellDescriber.stepValue
@@ -199,7 +221,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             cell.stepper.value = Double(value)
 
             cell.didChangeValue = { value in
-                cell.detailTextLabel?.text = String(Int(value))
+                cell.detailTextLabel?.text = cellDescriber.transformValueLabel?(value) ?? String(Int(value))
                 item.valueHandler?(value)
 
             }

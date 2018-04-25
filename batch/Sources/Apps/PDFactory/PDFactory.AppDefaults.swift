@@ -15,6 +15,8 @@ protocol PDFactoryDefaults: AppDefaults{
     var imagesPerPage: Int {get set}
     var scaleMode: Int {get set}
     var metadataCaption: Bool {get set}
+    var imageQuality: Double {get set} // 0 - 1
+    var margin: Int {get set} // 0 - 100 %
 }
 
 extension Defaults: PDFactoryDefaults {
@@ -42,6 +44,16 @@ extension Defaults: PDFactoryDefaults {
         set{ set(newValue) }
         get{ return get(or: false ) }
     }
+
+    var imageQuality:Double {
+        set{ set(newValue) }
+        get{ return get(or: 1 ) }
+    }
+
+    var margin:Int {
+        set{ set(newValue) }
+        get{ return get(or: 10 ) }
+    }
 }
 
 struct PDFactorySettings{
@@ -63,8 +75,10 @@ struct PDFactorySettings{
     static let SizePresetFitToPhotoSize = "Fit To Photo Size"
 
     static let SizePresets:[String:PDFPageFormat] = [
-        PDFPageFormat.a3.label: PDFPageFormat.a3
+        SizePresetFitToPhotoSize: PDFPageFormat.a4
+
         , PDFPageFormat.a4.label: PDFPageFormat.a4
+        , PDFPageFormat.a3.label: PDFPageFormat.a3
         , PDFPageFormat.a5.label: PDFPageFormat.a5
         , PDFPageFormat.a6.label: PDFPageFormat.a6
 
@@ -78,8 +92,6 @@ struct PDFactorySettings{
         , PDFPageFormat.usLetter.label: PDFPageFormat.usLetter
         , PDFPageFormat.usHalfLetter.label: PDFPageFormat.usHalfLetter
         , PDFPageFormat.usLedger.label: PDFPageFormat.usLedger
-
-        , SizePresetFitToPhotoSize: PDFPageFormat.a4
     ]
 }
 
@@ -95,8 +107,16 @@ extension PDFactory{
 
     class var defaultsPDFLayout:PDFPageLayout{
         var defaultLayout:PDFPageLayout = defaultsPDFFormat.layout
-        if let defaults = PDFactory.defaults as? PDFactoryDefaults, defaults.landscape {
-            defaultLayout.size = CGSize(width: defaultLayout.size.height, height: defaultLayout.size.width)
+        if let defaults = PDFactory.defaults as? PDFactoryDefaults {
+
+            if defaults.landscape{
+                defaultLayout.size = CGSize(width: defaultLayout.size.height, height: defaultLayout.size.width)
+            }
+
+            let horizontalMargin = defaultLayout.size.width/2 * CGFloat(defaults.margin)/100
+            let verticalMargin = defaultLayout.size.height/2 * CGFloat(defaults.margin)/100
+
+            defaultLayout.margin = UIEdgeInsets(top: verticalMargin, left: horizontalMargin, bottom: verticalMargin, right: horizontalMargin)
         }
         return defaultLayout
     }
