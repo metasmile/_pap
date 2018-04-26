@@ -189,7 +189,7 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
             return gifData
         }
         
-        let gifData = createGIF(with: resultItems.map({ $0.imageFileURL }), frameDelay: (GIFMaker.defaults as? GIFMakerDefaults)?.frameDelay ?? 0.3)
+        let gifData = createGIF(with: resultItems.map({ $0.imageFileURL }), frameDelay: (GIFMaker.defaults as! GIFMakerDefaults).frameDelay )
         
         asyncSignal.begin()
         
@@ -228,9 +228,9 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
         var result: GIFMakerPHAssetResult?
         
         //TODO: to be options
-        let aspectRatio = (GIFMaker.defaults as? GIFMakerDefaults)?.aspectRatio ?? 1
+        let aspectRatio = (GIFMaker.defaults as! GIFMakerDefaults).aspectRatio
         let targetSize = CGSize(width: 640, height: 640 * aspectRatio)
-        let contentMode = PHImageContentMode(rawValue: (GIFMaker.defaults as? GIFMakerDefaults)?.contentMode ?? PHImageContentMode.aspectFit.rawValue) ?? PHImageContentMode.aspectFit
+        let contentMode = PHImageContentMode(rawValue: (GIFMaker.defaults as! GIFMakerDefaults).contentMode) ?? PHImageContentMode.aspectFit
         
         async?.begin()
         
@@ -301,7 +301,7 @@ private struct SettingsItem {
 class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDockDelegate,
         UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate {
 
-    private var defaults = GIFMaker.defaults as? GIFMakerDefaults
+    private var defaults = GIFMaker.defaults as! GIFMakerDefaults
     
     private var settings = [SettingsItem]()
     
@@ -322,7 +322,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             SettingsItem(
                 key: .aspectRatio
                 , label: "Aspect Ratio"
-                , valueGetter: { self.defaults?.aspectRatio ?? 1 }
+                , valueGetter: { self.defaults.aspectRatio }
                 , valueCollection: GIFMakerSettings.aspectRatio.labels.keysArray
                 , valueHandler: nil
                 , cellDescriber: UITableViewPickerCellDescriber()
@@ -331,9 +331,9 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             , SettingsItem(
                 key: .contentMode
                 , label: "Crop"
-                , valueGetter: { self.defaults?.contentMode ?? PHImageContentMode.aspectFill.rawValue }
+                , valueGetter: { self.defaults.contentMode }
                 , valueCollection: GIFMakerSettings.contentMode.labels
-                , valueHandler: { self.defaults?.contentMode = GIFMakerSettings.contentMode.labels.valuesArray[$0 as? Int ?? 0] }
+                , valueHandler: { self.defaults.contentMode = GIFMakerSettings.contentMode.labels.valuesArray[$0 as? Int ?? 0] }
                 , cellDescriber: UITableViewSegmentControlCellDescriber()
                 , iconImageName: nil
             )
@@ -443,6 +443,6 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     }
     
     func pickerCell(_ cell: UITableViewPickerCell, didPick row: Int, value: Any) {
-        defaults?.aspectRatio = GIFMakerSettings.aspectRatio.labels[cell.values[row]] ?? 1
+        defaults.aspectRatio = GIFMakerSettings.aspectRatio.labels[cell.values[row]] ?? 1
     }
 }

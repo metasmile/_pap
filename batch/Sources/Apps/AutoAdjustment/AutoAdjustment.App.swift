@@ -44,7 +44,7 @@ public class AutoAdjustmentApp: NSObject, BatchApp, KeyPathWatchable, Configurab
         let controllerContent = self.controller as? AutoAdjustmentAppDockContent
         controllerContent?.watch(\.options, options: [.initial, .new]) {
 
-            var defaults = type(of: self).defaults as? AutoAdjustmentAppDefaults
+            var defaults = type(of: self).defaults as! AutoAdjustmentAppDefaults
 
             if let options = controllerContent?.options {
                 let filter = CIAutoAdjustmentFilter(options: options)
@@ -57,10 +57,10 @@ public class AutoAdjustmentApp: NSObject, BatchApp, KeyPathWatchable, Configurab
                     }
                 }
 
-                defaults?.autoAdjustmentOptions = optionsToStore
+                defaults.autoAdjustmentOptions = optionsToStore
 
             }else{
-                controllerContent?.options = defaults?.autoAdjustmentOptions
+                controllerContent?.options = defaults.autoAdjustmentOptions
             }
         }
     }

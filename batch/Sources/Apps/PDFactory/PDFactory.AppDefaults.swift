@@ -37,7 +37,7 @@ extension Defaults: PDFactoryDefaults {
 
     var scaleMode:Int {
         set{ set(newValue) }
-        get{ return get(or: PDFactorySettings.ScaleMode.fitPage ) }
+        get{ return get(or: PDFactorySettings.ScaleMode.fitPage.rawValue ) }
     }
 
     var metadataCaption:Bool {
@@ -57,13 +57,13 @@ extension Defaults: PDFactoryDefaults {
 }
 
 struct PDFactorySettings{
-    enum ScaleMode {
-        static let fitPage = 0
-        static let fillPage = 1
+    enum ScaleMode:Int {
+        case fitPage
+        case fillPage
 
         static let Labels = [
-            "Entire Image": PDFactorySettings.ScaleMode.fitPage
-            , "Fill Page": PDFactorySettings.ScaleMode.fillPage
+            "Entire Image": PDFactorySettings.ScaleMode.fitPage.rawValue
+            , "Fill Page": PDFactorySettings.ScaleMode.fillPage.rawValue
         ]
     }
 
@@ -97,8 +97,8 @@ struct PDFactorySettings{
 
 extension PDFactory{
     class var defaultsPDFFormat:PDFPageFormat{
-        if let defaults = PDFactory.defaults as? PDFactoryDefaults
-        , let format = PDFactorySettings.SizePresets[defaults.sizePreset] {
+        let defaults = PDFactory.defaults as! PDFactoryDefaults
+        if let format = PDFactorySettings.SizePresets[defaults.sizePreset] {
             return format
         }else{
             return PDFPageFormat.a4
@@ -107,19 +107,15 @@ extension PDFactory{
 
     class var defaultsPDFLayout:PDFPageLayout{
         var defaultLayout:PDFPageLayout = defaultsPDFFormat.layout
-        if let defaults = PDFactory.defaults as? PDFactoryDefaults {
-
-            if defaults.landscape{
-                defaultLayout.size = CGSize(width: defaultLayout.size.height, height: defaultLayout.size.width)
-            }
-
-            print(defaults.margin)
-            let horizontalMargin = defaultLayout.size.width/2 * CGFloat(defaults.margin)/100
-            let verticalMargin = defaultLayout.size.height/2 * CGFloat(defaults.margin)/100
-
-            defaultLayout.margin = UIEdgeInsets(top: verticalMargin, left: horizontalMargin, bottom: verticalMargin, right: horizontalMargin)
-
+        let defaults = PDFactory.defaults as! PDFactoryDefaults
+        if defaults.landscape{
+            defaultLayout.size = CGSize(width: defaultLayout.size.height, height: defaultLayout.size.width)
         }
+
+        let horizontalMargin = defaultLayout.size.width/2 * CGFloat(defaults.margin)/100
+        let verticalMargin = defaultLayout.size.height/2 * CGFloat(defaults.margin)/100
+
+        defaultLayout.margin = UIEdgeInsets(top: verticalMargin, left: horizontalMargin, bottom: verticalMargin, right: horizontalMargin)
         return defaultLayout
     }
 }

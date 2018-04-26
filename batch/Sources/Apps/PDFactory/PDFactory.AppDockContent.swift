@@ -31,7 +31,7 @@ private struct SettingsItem {
 class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
         , UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate {
 
-    fileprivate var defaults = PDFactory.defaults as? PDFactoryDefaults
+    fileprivate var defaults = PDFactory.defaults as! PDFactoryDefaults
 
     fileprivate var settings = [SettingsItem]()
 
@@ -60,7 +60,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             SettingsItem(
                     key: .sizePreset
                     , label: "Page Size Preset"
-                    , valueGetter: { self.defaults?.sizePreset ?? PDFPageFormat.a4.label }
+                    , valueGetter: { self.defaults.sizePreset }
                     , valueCollection: PDFactorySettings.SizePresets.keysArray
                     , valueHandler: nil
                     , cellDescriber: UITableViewPickerCellDescriber()
@@ -69,27 +69,27 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             , SettingsItem(
                     key: .landscape
                     , label: "Landscape Mode"
-                    , valueGetter: { self.defaults?.landscape ?? false}
+                    , valueGetter: { self.defaults.landscape }
                     , valueCollection: nil
-                    , valueHandler: { self.defaults?.landscape = $0 as? Bool ?? false }
+                    , valueHandler: { self.defaults.landscape = $0 as? Bool ?? false }
                     , cellDescriber: UITableViewSwitchCellDescriber()
                     , iconImageName: R.image.pdFactoryAppIcon.name
             )
             , SettingsItem(
                     key: .metadataCaption
                     , label: "Metadata Caption"
-                    , valueGetter: { self.defaults?.metadataCaption ?? false}
+                    , valueGetter: { self.defaults.metadataCaption }
                     , valueCollection: nil
-                    , valueHandler: { self.defaults?.metadataCaption = $0 as? Bool ?? false }
+                    , valueHandler: { self.defaults.metadataCaption = $0 as? Bool ?? false }
                     , cellDescriber: UITableViewSwitchCellDescriber()
                     , iconImageName: nil
             )
             , SettingsItem(
                     key: .margin
                     , label: "Page Margin"
-                    , valueGetter: { self.defaults?.margin ?? 10 }
+                    , valueGetter: { self.defaults.margin }
                     , valueCollection: nil
-                    , valueHandler: { self.defaults?.margin = Int($0 as? Double ?? 10) }
+                    , valueHandler: { self.defaults.margin = Int($0 as? Double ?? 10) }
                     , cellDescriber: UITableViewStepperCellDescriber(cellClass: UITableViewStepperCell.self, minimumValue: 0, maximumValue: 80, stepValue: 1, transformValueLabel:{ value in
                             var label:String?
                             if let val = value as? Double{
@@ -105,20 +105,19 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
 //            , SettingsItem(
 //                    key: .imagesPerPage
 //                    , label: "Max. Images Per Page"
-//                    , valueGetter: { self.defaults?.imagesPerPage ?? 1}
+//                    , valueGetter: { self.defaults.imagesPerPage ?? 1}
 //                    , valueCollection: nil
-//                    , valueHandler: { self.defaults?.imagesPerPage = Int($0 as? Double ?? 1) }
+//                    , valueHandler: { self.defaults.imagesPerPage = Int($0 as? Double ?? 1) }
 //                    , cellDescriber: UITableViewStepperCellDescriber(cellClass: UITableViewStepperCell.self, minimumValue: 1, maximumValue: 50, stepValue: 1, transformValueLabel:nil)
 //                    , iconImageName: nil
 //            )
             , SettingsItem(
                     key: .imageQuality
                     , label: "Image Quality"
-                    , valueGetter: { Int((self.defaults?.imageQuality ?? 1) * 100) }
+                    , valueGetter: { Int((self.defaults.imageQuality ?? 1) * 100) }
                     , valueCollection: nil
                     , valueHandler: {
-                        var defatuls = self.defaults
-                        defatuls?.imageQuality = (($0 as? Double) ?? 1)/100
+                        self.defaults.imageQuality = (($0 as? Double) ?? 1)/100
                     }
                     , cellDescriber: UITableViewStepperCellDescriber(cellClass: UITableViewStepperCell.self, minimumValue: 60, maximumValue: 100, stepValue: 2, transformValueLabel:{ value in
                         var label:String?
@@ -135,9 +134,9 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             , SettingsItem(
                     key: .scaleMode
                     , label: "Scale To Fit"
-                    , valueGetter: { self.defaults?.scaleMode ?? PDFactorySettings.ScaleMode.fitPage}
+                    , valueGetter: { self.defaults.scaleMode ?? PDFactorySettings.ScaleMode.fitPage.rawValue}
                     , valueCollection: PDFactorySettings.ScaleMode.Labels
-                    , valueHandler: { self.defaults?.scaleMode = PDFactorySettings.ScaleMode.Labels.valuesArray[$0 as? Int ?? 0] }
+                    , valueHandler: { self.defaults.scaleMode = PDFactorySettings.ScaleMode.Labels.valuesArray[$0 as? Int ?? 0] }
                     , cellDescriber: UITableViewSegmentControlCellDescriber()
                     , iconImageName: nil
             )
@@ -257,7 +256,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
                 cell.segmentedControl.insertSegment(withTitle: k.key, at: cell.segmentedControl.numberOfSegments, animated: false)
             }
 
-            cell.segmentedControl.selectedSegmentIndex = valueCollection.valuesArray.index(of: item.valueGetter() as? Int ?? PDFactorySettings.ScaleMode.fitPage) ?? 0
+            cell.segmentedControl.selectedSegmentIndex = valueCollection.valuesArray.index(of: item.valueGetter() as? Int ?? PDFactorySettings.ScaleMode.fitPage.rawValue) ?? 0
             cell.didChangeValue = item.valueHandler
             return cell
         }
@@ -278,6 +277,6 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
 extension UITableViewPickerCellDelegate where Self:PDFactoryAppDockContent{
 
     func pickerCell(_ cell: UITableViewPickerCell, didPick row: Int, value: Any) {
-        defaults?.sizePreset = cell.values[row]
+        defaults.sizePreset = cell.values[row]
     }
 }

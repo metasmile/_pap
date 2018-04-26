@@ -25,7 +25,7 @@ public enum AppPersistedStatus {
 }
 
 public protocol PersistableApp{
-    static var defaults:AppDefaults? {get}
+    static var defaults:AppDefaults {get}
     static var status: AppPersistedStatus {get}
 }
 
@@ -36,7 +36,7 @@ private struct _AppDefaultsCollection {
 
 extension PersistableApp where Self:App{
     public static var status: AppPersistedStatus {
-        let touchedVersion = self.defaults?.touchedVersion
+        let touchedVersion = self.defaults.touchedVersion
         if self.info.phase == .release{
             if touchedVersion == nil{
                 return .released
@@ -53,16 +53,18 @@ extension PersistableApp where Self:App{
         }
     }
 
-    public static var defaults:AppDefaults? {
+    public static var defaults:AppDefaults {
         let defaultsId = "\(String(describing: PersistableApp.self))_\(self.info.identifier)"
-        var _defaults:AppDefaults? = _AppDefaultsCollection.defaults.collection[defaultsId]
-        if _defaults == nil{
-            if let userDefaults = UserDefaults(suiteName: defaultsId){
-                _defaults = Defaults(userDefaults: userDefaults)
-                assert(_defaults != nil,"userDefaults id:\(defaultsId) didn't create at \(String(describing: PersistableApp.self))")
-                _AppDefaultsCollection.defaults.collection[defaultsId] = _defaults
-            }
+
+        if let defaults = _AppDefaultsCollection.defaults.collection[defaultsId]{
+            return defaults
         }
-        return _defaults
+
+        let userDefaults = UserDefaults(suiteName: defaultsId)
+        assert(userDefaults != nil,"userDefaults suiteName:\(defaultsId) didn't create at \(String(describing: self))")
+
+        let defaults = Defaults(userDefaults: userDefaults ?? UserDefaults())
+        _AppDefaultsCollection.defaults.collection[defaultsId] = defaults
+        return defaults
     }
 }

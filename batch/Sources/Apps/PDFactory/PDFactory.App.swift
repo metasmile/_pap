@@ -91,9 +91,9 @@ public class PDFactory: BatchApp, FinalizableApp, PhotoPickerViewControllerDeleg
             return result
         }
 
-        let defaults = PDFactory.defaults as? PDFactoryDefaults
-        let imagesPerPage = defaults?.imagesPerPage ?? 1
-        let imageQuality = defaults?.imageQuality ?? 1
+        let defaults = PDFactory.defaults as! PDFactoryDefaults
+        let imagesPerPage = defaults.imagesPerPage
+        let imageQuality = defaults.imageQuality
 
         do {
             let document = PDFDocument(layout: PDFactory.defaultsPDFLayout)

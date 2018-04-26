@@ -100,7 +100,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     }
 
     fileprivate var appDefaults:ExifGhostAppDefaults?{
-        return ExifGhost.defaults as? ExifGhostAppDefaults
+        return ExifGhost.defaults as! ExifGhostAppDefaults
     }
 
     func willSetContentView(_ view: UIView, dock: AppDock) {
