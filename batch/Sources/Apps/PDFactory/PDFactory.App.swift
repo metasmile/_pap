@@ -35,7 +35,7 @@ public class PDFactory: BatchApp, FinalizableApp, PhotoPickerViewControllerDeleg
     public static let info = AppInfo(
             identifier: "com.stells.batch.pdfactory"
             , version: "1.0"
-            , phase: .beta
+            , phase: .release
             , appType: PDFactory.self
             , displayName: "PDFactory"
             , icon: R.image.pdFactoryAppIcon.name
@@ -93,104 +93,52 @@ public class PDFactory: BatchApp, FinalizableApp, PhotoPickerViewControllerDeleg
 
         let defaults = PDFactory.defaults as! PDFactoryDefaults
         let imagesPerPage = defaults.imagesPerPage
-        let imageQuality = defaults.imageQuality
 
         do {
             let document = PDFDocument(layout: PDFactory.defaultsPDFLayout)
+            let isLandspace = document.layout.size.width > document.layout.size.height
             let container = PDFContainer.contentCenter
 
             for (i, item) in items.enumerated(){
-                let pdfImage = PDFImage(image: item.renderImage, caption: nil, size: .zero, sizeFit: PDFImageSizeFit.widthHeight)
+
+                //metadata
+                var caption:PDFText?
+                if item.imageMetadata != nil && defaults.metadataCaption {
+                    document.setFont(font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize/6))
+                    caption = PDFSimpleText(text: String(describing: item.imageMetadata))
+                }
+
+                //scale mode
+                var sizeFitMode = PDFImageSizeFit.widthHeight
+                let fillPageMode = defaults.scaleMode == PDFactorySettings.ScaleMode.fillPage.rawValue
+                if fillPageMode{
+                    let isImageLandspace = item.renderImage.size.width > item.renderImage.size.height
+
+                    if isLandspace {
+                        if isImageLandspace {
+                            sizeFitMode = PDFImageSizeFit.width
+                        }else{
+                            sizeFitMode = PDFImageSizeFit.height
+                        }
+                    }else{
+                        if isImageLandspace {
+                            sizeFitMode = PDFImageSizeFit.height
+                        }else{
+                            sizeFitMode = PDFImageSizeFit.width
+                        }
+                    }
+                }
+
+                let pdfImage = PDFImage(image: item.renderImage, caption: caption, size: item.renderImage.size, sizeFit: sizeFitMode)
+                //quality
+                pdfImage.quality = CGFloat(defaults.imageQuality)
+
                 document.addImage(container, image: pdfImage)
-                if i < items.count-1{
+
+                if i < items.count-1, fillPageMode == false{
                     document.createNewPage()
                 }
             }
-
-
-
-//            for items in resultItems.chunked(into: imagesPerPage){
-//                let container = PDFContainer.contentCenter
-
-//                let table = PDFTable()
-//
-//                do {
-//                    let style = PDFTableStyle()
-//                    style.rowHeaderCount = 0
-//                    style.columnHeaderCount = 0
-//
-//                    table.style = style
-//
-////                    try table.setCellStyle(row: 2, column: 2, style: nil)
-//
-//                    let tableData = items.chunked(into: 2).map { _items -> [UIImage] in
-//                        return _items.map { _item -> UIImage in return _item.renderImage }
-//                    }
-//
-//                    print(tableData)
-//
-//                    try table.generateCells(data: tableData, alignments: [
-//                        [.center, .center],
-//                        [.center, .center]
-//                    ])
-//                    document.addTable(container, table: table)
-//
-//                } catch PDFError.tableContentInvalid(let value) {
-//                    // In case invalid input is provided, this error will be thrown.
-//
-//                    print("This type of object is not supported as table content: " + String(describing: (type(of: value))))
-//                } catch {
-//                    // General error handling in case something goes wrong.
-//
-//                    print("Error while creating table: " + error.localizedDescription)
-//                }
-
-//                for (i, item) in items.enumerated(){
-//                    let sizefit:PDFImageSizeFit
-//                    if item.renderImageBoundSize.height >= item.renderImageBoundSize.width{
-//                        sizefit = PDFImageSizeFit.height
-//                    }else{
-//                        sizefit = PDFImageSizeFit.width
-//                    }
-//
-//                    var avgLayoutConstant:CGFloat = 0
-//                    for _item in items{
-//                        if PDFImageSizeFit.width==sizefit{
-//                            avgLayoutConstant += _item.renderImage.size.width
-//                        }else if PDFImageSizeFit.height==sizefit{
-//                            avgLayoutConstant += _item.renderImage.size.height
-//                        }
-//                    }
-//
-//                    let imageSize = CGSize(width: item.renderImage.size.width, height: avgLayoutConstant/CGFloat(items.count))
-//
-//                    let pdfImage = PDFImage(image: item.renderImage, caption: nil, size: imageSize, sizeFit: PDFImageSizeFit.height)
-//                    pdfImage.quality = CGFloat(imageQuality)
-//                    document.addImage(container, image: pdfImage)
-//                }
-//
-//
-//                document.createNewPage()
-//            }
-
-            /*
-            let images = [
-                PDFImage(image: UIImage(named: "Image-1.jpg")!,
-                         caption: PDFAttributedText(text: NSAttributedString(string: "In this picture you can see a beautiful waterfall!", attributes: captionAttributes))),
-                PDFImage(image: UIImage(named: "Image-2.jpg")!,
-                         caption: PDFAttributedText(text: NSAttributedString(string: "Forrest", attributes: captionAttributes))),
-            ]
-
-            document.addImagesInRow(images: images, spacing: 10)
-
-            list.addItem(PDFListItem(symbol: .numbered(value: nil))
-            .addItem(PDFListItem(content: "Introduction")
-                .addItem(PDFListItem(symbol: .numbered(value: nil))
-                    .addItem(PDFListItem(content: "Text"))
-                    .addItem(PDFListItem(content: "Attributed Text"))
-                ))
-            .addItem(PDFListItem(content: "Usage")))
-            */
 
             let pdfURL = try PDFGenerator.generateURL(document: document, filename: "exported_\(String(describing: type(of: self))).pdf")
 
@@ -230,6 +178,7 @@ public class PDFactory: BatchApp, FinalizableApp, PhotoPickerViewControllerDeleg
 }
 
 private class _PDFactoryTask: TaskPrototype, Taskable {
+
     private var _pdfImageRequestOptions: PHImageRequestOptions {
         let options = PHImageRequestOptions()
         options.isSynchronous = false
@@ -264,23 +213,26 @@ private class _PDFactoryTask: TaskPrototype, Taskable {
 
             //read metadata
             var imageMetadata: [String: Any]?
-            async?.begin()
 
-            let option = PHContentEditingInputRequestOptions()
-            option.isNetworkAccessAllowed = true
-            option.canHandleAdjustmentData = { _ -> Bool in
-                return true
-            }
-            let editingInputId = appAsset.requestContentEditing(options: option) { item in
-                assert(item?.input.fullSizeImageURL != nil, "item.input.fullSizeImageURL is nil")
-                if let item = item, let url = item.input.fullSizeImageURL {
-                    let data = try! Data(contentsOf: url)
-                    imageMetadata = data.getMetadata()
+            if (PDFactory.defaults as! PDFactoryDefaults).metadataCaption{
+                async?.begin()
+
+                let option = PHContentEditingInputRequestOptions()
+                option.isNetworkAccessAllowed = true
+                option.canHandleAdjustmentData = { _ -> Bool in
+                    return true
                 }
-                async?.end()
+                let editingInputId = appAsset.requestContentEditing(options: option) { item in
+                    assert(item?.input.fullSizeImageURL != nil, "item.input.fullSizeImageURL is nil")
+                    if let item = item, let url = item.input.fullSizeImageURL {
+                        let data = try! Data(contentsOf: url)
+                        imageMetadata = data.getMetadata()
+                    }
+                    async?.end()
+                }
+                appAsset.requestIDs += [PHAssetRequestID(forEditingInput: editingInputId)]
+                async?.waitUntilEnd()
             }
-            appAsset.requestIDs += [PHAssetRequestID(forEditingInput: editingInputId)]
-            async?.waitUntilEnd()
 
             if let image = renderImage{
                 return PDFactoryPHAssetResult(asset: asset, renderImageBoundSize: imagePixelSize, renderImage:image, imageMetadata:imageMetadata)

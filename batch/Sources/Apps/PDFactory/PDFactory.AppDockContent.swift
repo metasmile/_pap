@@ -75,15 +75,15 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
                     , cellDescriber: UITableViewSwitchCellDescriber()
                     , iconImageName: R.image.pdFactoryAppIcon.name
             )
-            , SettingsItem(
-                    key: .metadataCaption
-                    , label: "Metadata Caption"
-                    , valueGetter: { self.defaults.metadataCaption }
-                    , valueCollection: nil
-                    , valueHandler: { self.defaults.metadataCaption = $0 as? Bool ?? false }
-                    , cellDescriber: UITableViewSwitchCellDescriber()
-                    , iconImageName: nil
-            )
+//            , SettingsItem(
+//                    key: .metadataCaption
+//                    , label: "Metadata Caption"
+//                    , valueGetter: { self.defaults.metadataCaption }
+//                    , valueCollection: nil
+//                    , valueHandler: { self.defaults.metadataCaption = $0 as? Bool ?? false }
+//                    , cellDescriber: UITableViewSwitchCellDescriber()
+//                    , iconImageName: nil
+//            )
             , SettingsItem(
                     key: .margin
                     , label: "Page Margin"
@@ -136,7 +136,12 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
                     , label: "Scale To Fit"
                     , valueGetter: { self.defaults.scaleMode ?? PDFactorySettings.ScaleMode.fitPage.rawValue}
                     , valueCollection: PDFactorySettings.ScaleMode.Labels
-                    , valueHandler: { self.defaults.scaleMode = PDFactorySettings.ScaleMode.Labels.valuesArray[$0 as? Int ?? 0] }
+                    , valueHandler: {
+                        self.defaults.scaleMode = PDFactorySettings.ScaleMode.Labels.valuesArray[$0 as? Int ?? 0]
+                        if let index = (self.settings.index { item in item.key == .margin}) {
+                          (self.view as? UITableView)?.reloadRows(at: [IndexPath(row: index, section: 0)], with: UITableViewRowAnimation.automatic)
+                        }
+                    }
                     , cellDescriber: UITableViewSegmentControlCellDescriber()
                     , iconImageName: nil
             )
@@ -237,6 +242,21 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             cell.stepper.maximumValue = cellDescriber.maximumValue
             cell.stepper.value = Double(value)
 
+            // margin
+            if item.key == .margin && defaults.scaleMode == PDFactorySettings.ScaleMode.fillPage.rawValue{
+                cell.textLabel?.isEnabled = false
+                cell.detailTextLabel?.isEnabled = false
+                cell.stepper.isEnabled = false
+                cell.stepper.tintColor = self.view.tintColor.withAlphaComponent(0.3)
+                cell.isUserInteractionEnabled = false
+            }else{
+                cell.textLabel?.isEnabled = true
+                cell.detailTextLabel?.isEnabled = true
+                cell.stepper.isEnabled = true
+                cell.stepper.tintColor = self.view.tintColor
+                cell.isUserInteractionEnabled = true
+            }
+
             cell.didChangeValue = { value in
                 cell.detailTextLabel?.text = cellDescriber.transformValueLabel?(value) ?? String(Int(value))
                 item.valueHandler?(value)
@@ -264,7 +284,6 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
         let cell = tableView.cellForRow(at: indexPath) ?? UITableViewCell()
         cell.textLabel?.text = item.label
         return cell
-
     }
 
     func createSelectedBackgroundView() -> UIView {

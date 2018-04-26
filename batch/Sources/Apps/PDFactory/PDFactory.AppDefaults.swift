@@ -75,9 +75,7 @@ struct PDFactorySettings{
     static let SizePresetFitToPhotoSize = "Fit To Photo Size"
 
     static let SizePresets:[String:PDFPageFormat] = [
-        SizePresetFitToPhotoSize: PDFPageFormat.a4
-
-        , PDFPageFormat.a4.label: PDFPageFormat.a4
+        PDFPageFormat.a4.label: PDFPageFormat.a4
         , PDFPageFormat.a3.label: PDFPageFormat.a3
         , PDFPageFormat.a5.label: PDFPageFormat.a5
         , PDFPageFormat.a6.label: PDFPageFormat.a6
@@ -108,14 +106,21 @@ extension PDFactory{
     class var defaultsPDFLayout:PDFPageLayout{
         var defaultLayout:PDFPageLayout = defaultsPDFFormat.layout
         let defaults = PDFactory.defaults as! PDFactoryDefaults
+
+        // swap width and height
         if defaults.landscape{
             defaultLayout.size = CGSize(width: defaultLayout.size.height, height: defaultLayout.size.width)
         }
 
-        let horizontalMargin = defaultLayout.size.width/2 * CGFloat(defaults.margin)/100
-        let verticalMargin = defaultLayout.size.height/2 * CGFloat(defaults.margin)/100
+        // if ScaleMode is fillPage, margin will be ignored.
+        if defaults.scaleMode == PDFactorySettings.ScaleMode.fillPage.rawValue{
+            defaultLayout.margin = .zero
+        }else{
+            let horizontalMargin = defaultLayout.size.width/2 * CGFloat(defaults.margin)/100
+            let verticalMargin = defaultLayout.size.height/2 * CGFloat(defaults.margin)/100
+            defaultLayout.margin = UIEdgeInsets(top: verticalMargin, left: horizontalMargin, bottom: verticalMargin, right: horizontalMargin)
+        }
 
-        defaultLayout.margin = UIEdgeInsets(top: verticalMargin, left: horizontalMargin, bottom: verticalMargin, right: horizontalMargin)
         return defaultLayout
     }
 }
