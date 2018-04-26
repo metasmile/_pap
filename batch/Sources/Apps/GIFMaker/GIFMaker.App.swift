@@ -134,8 +134,8 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
         }
     }
     
-    public var finalizingOptions: [PHAssetFinalizingOption]{
-        return [.custom]
+    public var finalizingPresets: [PHAssetFinalizingPresets]? {
+        return nil
     }
     
     public func setConfigValues<T: AppConfigValuable>(_ config:T){

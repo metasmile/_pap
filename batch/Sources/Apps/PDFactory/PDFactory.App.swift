@@ -77,8 +77,8 @@ public class PDFactory: BatchApp, FinalizableApp, PhotoPickerViewControllerDeleg
 
     public lazy var controller: AppDockContent? = PDFactoryAppDockContent()
 
-    public var finalizingOptions: [PHAssetFinalizingOption]{
-        return [.custom]
+    public var finalizingPresets: [PHAssetFinalizingPresets]? {
+        return nil
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {

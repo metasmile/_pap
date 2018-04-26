@@ -73,7 +73,7 @@ public class AutoAdjustmentApp: NSObject, BatchApp, KeyPathWatchable, Configurab
         return (item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive))
     }
     
-    public var finalizingOptions: [PHAssetFinalizingOption]{
+    public var finalizingPresets: [PHAssetFinalizingPresets]? {
         return [.modify]
     }
     

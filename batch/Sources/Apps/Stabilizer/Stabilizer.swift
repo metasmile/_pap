@@ -88,7 +88,7 @@ public class Stabilizer: BatchApp, PHAssetFinalizableApp, AppDockControllableApp
 
     required public init() {}
     
-    public var finalizingOptions: [PHAssetFinalizingOption]{
+    public var finalizingPresets: [PHAssetFinalizingPresets]? {
         return [.modify]
     }
 

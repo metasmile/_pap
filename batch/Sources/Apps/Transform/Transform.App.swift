@@ -68,7 +68,7 @@ public class TransformApp: NSObject, BatchApp, KeyPathWatchable
         self.updateControllerView()
     }
 
-    public var finalizingOptions: [PHAssetFinalizingOption]{
+    public var finalizingPresets: [PHAssetFinalizingPresets]? {
         return [.modify]
     }
 }

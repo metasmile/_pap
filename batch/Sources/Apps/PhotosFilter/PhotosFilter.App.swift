@@ -85,7 +85,7 @@ public class PhotosFilterApp: NSObject, BatchApp, KeyPathWatchable, Configurable
         return (item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive)) || item.asset.mediaType == .video
     }
     
-    public var finalizingOptions: [PHAssetFinalizingOption]{
+    public var finalizingPresets: [PHAssetFinalizingPresets]? {
         return [.modify]
     }
     

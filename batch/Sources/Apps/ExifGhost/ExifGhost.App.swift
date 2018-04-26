@@ -28,7 +28,7 @@ data
 
 private typealias ParamType = PHAssetItem<ImageEditStateValue>
 
-public class ExifGhost: BatchApp, PHAssetFinalizableApp,
+public class ExifGhost: BatchApp, PHAssetFinalizableApp, PhotoPickerViewControllerDelegatableApp,
         PhotoPickerCollectionViewDisplayableApp, AppDockControllableApp {
 
     public static let taskType:Taskable.Type = _ExifGhostTask.self
@@ -50,7 +50,7 @@ public class ExifGhost: BatchApp, PHAssetFinalizableApp,
 
     public required init() {}
 
-    public var finalizingOptions: [PHAssetFinalizingOption]{
+    public var finalizingPresets: [PHAssetFinalizingPresets]? {
         return [.share, .delete]
     }
 

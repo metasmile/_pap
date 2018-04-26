@@ -7,22 +7,25 @@ import Foundation
 import Photos
 
 
-public enum PHAssetFinalizingOption: Int{
+public enum PHAssetFinalizingPresets: Int{
     case modify
     case create
     case delete
     case share
-    case custom
 }
 
 public protocol PHAssetFinalizableApp: FinalizableApp {
-    var finalizingOptions: [PHAssetFinalizingOption] {get}
+    var finalizingPresets: [PHAssetFinalizingPresets]? {get}
 }
 
 extension PHAssetFinalizableApp {
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
         if result.isAnyTask(inState: .cancelled) && result.defaultTaskPolicy.cancellation == TaskPolicy.Cancellation.shallow {
+            return result
+        }
+
+        guard let finalizingPresets = self.finalizingPresets else {
             return result
         }
 
@@ -38,8 +41,8 @@ extension PHAssetFinalizableApp {
             return result
         }
 
-        let exclusiveOption = self.finalizingOptions.count==1
-        for option in self.finalizingOptions{
+        let exclusiveOption = finalizingPresets.count==1
+        for option in finalizingPresets{
             if option == .delete{
                 self.deletingAndWait(targetResultAssets: targetResultAssets, asyncSignal)
 

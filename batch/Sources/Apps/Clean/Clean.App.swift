@@ -24,7 +24,7 @@ public class Clean: BatchApp, PHAssetFinalizableApp, AppDockControllableApp, Pho
 
     public required init() {}
 
-    public var finalizingOptions: [PHAssetFinalizingOption]{
+    public var finalizingPresets: [PHAssetFinalizingPresets]? {
         return [.delete]
     }
 
