@@ -118,7 +118,7 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
     }
     
     public func shouldSelect(item: PHAssetItem<ImageEditStateValue>) -> Bool {
-        return item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive)
+        return item.asset.imageType == .stillImage
         
 //        guard let firstItem = AppAssets.selected.at(unsafeIndex: 0) else { return true }
 //        return firstItem.asset.mediaType == item.asset.mediaType
@@ -126,7 +126,7 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
     
     public var numberOfItemsShouldSelect: Int? {
         guard let firstItem = AppAssets.selected.at(unsafeIndex: 0) else { return Int.max }
-        if firstItem.asset.mediaType == .video || (firstItem.asset.mediaType == .image && firstItem.asset.mediaSubtypes.contains(.photoLive)) {
+        if firstItem.asset.mediaType == .video || firstItem.asset.imageType != .stillImage {
             return 1
         }
         else {
