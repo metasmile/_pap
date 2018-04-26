@@ -94,7 +94,6 @@ public class PDFactory: BatchApp, FinalizableApp, PhotoPickerViewControllerDeleg
         let defaults = PDFactory.defaults as? PDFactoryDefaults
         let imagesPerPage = defaults?.imagesPerPage ?? 1
         let imageQuality = defaults?.imageQuality ?? 1
-        print(defaults, imagesPerPage)
 
         do {
             let document = PDFDocument(layout: PDFactory.defaultsPDFLayout)
@@ -103,9 +102,9 @@ public class PDFactory: BatchApp, FinalizableApp, PhotoPickerViewControllerDeleg
             for (i, item) in items.enumerated(){
                 let pdfImage = PDFImage(image: item.renderImage, caption: nil, size: .zero, sizeFit: PDFImageSizeFit.widthHeight)
                 document.addImage(container, image: pdfImage)
-//                if i < items.count-1{
-//                    document.createNewPage()
-//                }
+                if i < items.count-1{
+                    document.createNewPage()
+                }
             }
 
 

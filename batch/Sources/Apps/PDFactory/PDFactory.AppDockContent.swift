@@ -89,8 +89,8 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
                     , label: "Page Margin"
                     , valueGetter: { self.defaults?.margin ?? 10 }
                     , valueCollection: nil
-                    , valueHandler: { self.defaults?.margin = Int($0 as? Int ?? 10) }
-                    , cellDescriber: UITableViewStepperCellDescriber(cellClass: UITableViewStepperCell.self, minimumValue: 0, maximumValue: 50, stepValue: 1, transformValueLabel:{ value in
+                    , valueHandler: { self.defaults?.margin = Int($0 as? Double ?? 10) }
+                    , cellDescriber: UITableViewStepperCellDescriber(cellClass: UITableViewStepperCell.self, minimumValue: 0, maximumValue: 80, stepValue: 1, transformValueLabel:{ value in
                             var label:String?
                             if let val = value as? Double{
                                 label = String(Int(val))
@@ -120,7 +120,16 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
                         var defatuls = self.defaults
                         defatuls?.imageQuality = (($0 as? Double) ?? 1)/100
                     }
-                    , cellDescriber: UITableViewStepperCellDescriber(cellClass: UITableViewStepperCell.self, minimumValue: 60, maximumValue: 100, stepValue: 2, transformValueLabel:nil)
+                    , cellDescriber: UITableViewStepperCellDescriber(cellClass: UITableViewStepperCell.self, minimumValue: 60, maximumValue: 100, stepValue: 2, transformValueLabel:{ value in
+                        var label:String?
+                        if let val = value as? Double{
+                            label = String(Int(val))
+                        }
+                        if let val = value as? Int{
+                            label = String(val)
+                        }
+                        return (label ?? "-")+"%"
+                    })
                     , iconImageName: nil
             )
             , SettingsItem(

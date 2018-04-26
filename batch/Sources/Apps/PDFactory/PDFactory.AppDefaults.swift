@@ -52,7 +52,7 @@ extension Defaults: PDFactoryDefaults {
 
     var margin:Int {
         set{ set(newValue) }
-        get{ return get(or: 10 ) }
+        get{ return get(or: 15 ) }
     }
 }
 
@@ -113,10 +113,12 @@ extension PDFactory{
                 defaultLayout.size = CGSize(width: defaultLayout.size.height, height: defaultLayout.size.width)
             }
 
+            print(defaults.margin)
             let horizontalMargin = defaultLayout.size.width/2 * CGFloat(defaults.margin)/100
             let verticalMargin = defaultLayout.size.height/2 * CGFloat(defaults.margin)/100
 
             defaultLayout.margin = UIEdgeInsets(top: verticalMargin, left: horizontalMargin, bottom: verticalMargin, right: horizontalMargin)
+
         }
         return defaultLayout
     }
