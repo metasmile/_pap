@@ -96,10 +96,10 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     }
 
     var ghostedImageMetadataCollection: ImageMetadataPropertyCollection?{
-        return appDefaults?.ghostedImageMetadataCollection
+        return appDefaults.ghostedImageMetadataCollection
     }
 
-    fileprivate var appDefaults:ExifGhostAppDefaults?{
+    fileprivate var appDefaults:ExifGhostAppDefaults{
         return ExifGhost.defaults as! ExifGhostAppDefaults
     }
 
@@ -116,46 +116,46 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
 
-        if let defaultsCollection = self.appDefaults?.ghostedImageMetadataCollection {
-            //sort ascending for handling exif properties
-            self.collection = self.collection.map { dictionary -> MetadataDictionary in
-                if let handledItems = defaultsCollection[dictionary.key]{
-                    var dict = dictionary
-                    dict.items = dict.items.sorted { item0, item1 in
-                        if let i0 = handledItems.index(of:item0.key){
-                            if let i1 = handledItems.index(of:item1.key){
-                                return i0 > i1
-                            }
-                            return true
+        let defaultsCollection = self.appDefaults.ghostedImageMetadataCollection
+
+        //sort ascending for handling exif properties
+        self.collection = self.collection.map { dictionary -> MetadataDictionary in
+            if let handledItems = defaultsCollection[dictionary.key]{
+                var dict = dictionary
+                dict.items = dict.items.sorted { item0, item1 in
+                    if let i0 = handledItems.index(of:item0.key){
+                        if let i1 = handledItems.index(of:item1.key){
+                            return i0 > i1
                         }
-                        return false
+                        return true
                     }
-                    return dict
+                    return false
                 }
-                return dictionary
+                return dict
             }
+            return dictionary
+        }
 
-            //get indexes
-            let sections = self.collection.enumerated().compactMap { (section, dictionary) -> [IndexPath]? in
-                if let handledItems = defaultsCollection[dictionary.key]{
+        //get indexes
+        let sections = self.collection.enumerated().compactMap { (section, dictionary) -> [IndexPath]? in
+            if let handledItems = defaultsCollection[dictionary.key]{
 
-                    return handledItems.compactMap { key -> IndexPath? in
-                        guard let item = dictionary.items.index(where: { item -> Bool in
-                            return key == item.key
-                        }) else{
-                            return nil
-                        }
-                        return IndexPath(item: item, section: section)
+                return handledItems.compactMap { key -> IndexPath? in
+                    guard let item = dictionary.items.index(where: { item -> Bool in
+                        return key == item.key
+                    }) else{
+                        return nil
                     }
+                    return IndexPath(item: item, section: section)
                 }
-                return nil
             }
+            return nil
+        }
 
 
-            //init initialSelectedIndexPaths
-            for indexPaths in sections{
-                initialSelectedIndexPaths?.append(contentsOf: indexPaths)
-            }
+        //init initialSelectedIndexPaths
+        for indexPaths in sections{
+            initialSelectedIndexPaths?.append(contentsOf: indexPaths)
         }
 
         (view as! UITableView).reloadData()
@@ -184,8 +184,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         if let _ = initialSelectedIndexPaths?.index(of: indexPath) {
             selected = false
         }
-        if let appDefaults = appDefaults
-        , let _ = appDefaults.ghostedImageMetadataCollection[dict.key]?.index(of: dict.items[indexPath.item].key){
+        if let _ = appDefaults.ghostedImageMetadataCollection[dict.key]?.index(of: dict.items[indexPath.item].key){
             selected = false
         }
 
@@ -195,9 +194,9 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         cell.switchDidChange = { on in
             let dict = self.collection[indexPath.section]
             if on{
-                self.appDefaults?.removeHandledProperty(dict.key, dict.items[indexPath.item].key)
+                self.appDefaults.removeHandledProperty(dict.key, dict.items[indexPath.item].key)
             }else{
-                self.appDefaults?.addHandledProperty(dict.key, dict.items[indexPath.item].key)
+                self.appDefaults.addHandledProperty(dict.key, dict.items[indexPath.item].key)
             }
 
             if self.initialSelectedIndexPaths != nil{
