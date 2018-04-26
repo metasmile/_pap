@@ -27,7 +27,7 @@ private struct GIFMakerPHAssetResult: TaskResultable{
 protocol GIFMakerDefaults: AppDefaults{
     var aspectRatio: Double {get set}
     var contentMode: Int {get set}
-    var frameDelay: Double {get set}
+    var frameDelay: Int {get set}
 }
 
 extension Defaults: GIFMakerDefaults {
@@ -41,9 +41,9 @@ extension Defaults: GIFMakerDefaults {
         get{ return get(or: PHImageContentMode.aspectFill.rawValue ) }
     }
     
-    var frameDelay: Double {
+    var frameDelay: Int {
         set { set(newValue) }
-        get { return get(or: 0.3)}
+        get { return get(or: 300)}
     }
 }
 
@@ -56,14 +56,22 @@ struct GIFMakerSettings {
             "3:4": 4.0 / 3.0,
             "9:16": 16.0 / 9.0
         ]
+        
+        static let orderedKeys: [String] = [
+            "Square",
+            "4:3",
+            "16:9",
+            "3:4",
+            "9:16"
+        ]
     }
     
     enum contentMode {
         static let fit = PHImageContentMode.aspectFit.rawValue
         static let fill = PHImageContentMode.aspectFill.rawValue
         static let labels: [String: Int] = [
-            "No Crop": contentMode.fit,
-            "Crop": contentMode.fill
+            "Crop": contentMode.fill,
+            "No Crop": contentMode.fit
         ]
     }
 }
@@ -189,7 +197,7 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
             return gifData
         }
         
-        let gifData = createGIF(with: resultItems.map({ $0.imageFileURL }), frameDelay: (GIFMaker.defaults as! GIFMakerDefaults).frameDelay )
+        let gifData = createGIF(with: resultItems.map({ $0.imageFileURL }), frameDelay: Double((GIFMaker.defaults as! GIFMakerDefaults).frameDelay) / 1000.0 )
         
         asyncSignal.begin()
         
@@ -287,6 +295,7 @@ private struct SettingsItem {
     enum Keys {
         case contentMode
         case aspectRatio
+        case frameDelay
     }
     
     fileprivate var key: Keys
@@ -318,23 +327,42 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     
     func willSetContentView(_ view: UIView, dock: AppDock) {
         appDock = dock
+        
         settings = [
             SettingsItem(
                 key: .aspectRatio
                 , label: "Aspect Ratio"
                 , valueGetter: { self.defaults.aspectRatio }
-                , valueCollection: GIFMakerSettings.aspectRatio.labels.keysArray
+                , valueCollection: GIFMakerSettings.aspectRatio.orderedKeys
                 , valueHandler: nil
                 , cellDescriber: UITableViewPickerCellDescriber()
                 , iconImageName: nil
                 )
             , SettingsItem(
                 key: .contentMode
-                , label: "Crop"
+                , label: "Crop to Fit"
                 , valueGetter: { self.defaults.contentMode }
                 , valueCollection: GIFMakerSettings.contentMode.labels
                 , valueHandler: { self.defaults.contentMode = GIFMakerSettings.contentMode.labels.valuesArray[$0 as? Int ?? 0] }
                 , cellDescriber: UITableViewSegmentControlCellDescriber()
+                , iconImageName: nil
+            )
+            , SettingsItem(
+                key: .frameDelay
+                , label: "Frame Delay"
+                , valueGetter: { self.defaults.frameDelay }
+                , valueCollection: nil
+                , valueHandler: { self.defaults.frameDelay = Int($0 as? Double ?? 300) }
+                , cellDescriber: UITableViewStepperCellDescriber(cellClass: UITableViewStepperCell.self, minimumValue: 100, maximumValue: 3000, stepValue: 100, transformValueLabel:{ value in
+                    var label:String?
+                    if let val = value as? Double {
+                        label = String(format: "%.01f", val / 1000)
+                    }
+                    else if let val = value as? Int {
+                        label = String(format: "%.01f", Double(val) / 1000)
+                    }
+                    return (label ?? "-")+"s"
+                })
                 , iconImageName: nil
             )
         ]
@@ -407,8 +435,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
 
         if let cellDescriber = item.cellDescriber as? UITableViewPickerCellDescriber
             , let valueCollection = item.valueCollection as? [String]
-            , let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewPickerCell
-                ?? UITableViewPickerCell(type: .default, reuseIdentifier: cellDescriber.identifier) {
+            , let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewPickerCell {
 
             cell.values = valueCollection
             cell.delegate = self
@@ -435,6 +462,31 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             
             cell.segmentedControl.selectedSegmentIndex = valueCollection.valuesArray.index(of: item.valueGetter() as? Int ?? GIFMakerSettings.contentMode.fill) ?? 0
             cell.didChangeValue = item.valueHandler
+            return cell
+        }
+        else if let cellDescriber = item.cellDescriber as? UITableViewStepperCellDescriber
+            , let value = item.valueGetter() as? Int
+            , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewStepperCell {
+            
+            cell.textLabel?.text = item.label
+            cell.detailTextLabel?.text = cellDescriber.transformValueLabel?(value) ?? String(value)
+            cell.imageView?.image = item.iconImageName?.asUIImage
+            
+            cell.stepper.stepValue = cellDescriber.stepValue
+            cell.stepper.minimumValue = cellDescriber.minimumValue
+            cell.stepper.maximumValue = cellDescriber.maximumValue
+            cell.stepper.value = Double(value)
+            
+            cell.textLabel?.isEnabled = true
+            cell.detailTextLabel?.isEnabled = true
+            cell.stepper.isEnabled = true
+            cell.stepper.tintColor = self.view.tintColor
+            cell.isUserInteractionEnabled = true
+            
+            cell.didChangeValue = { value in
+                cell.detailTextLabel?.text = cellDescriber.transformValueLabel?(value) ?? String(value)
+                item.valueHandler?(value)
+            }
             return cell
         }
         else {
