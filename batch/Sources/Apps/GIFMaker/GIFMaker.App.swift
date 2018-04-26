@@ -126,7 +126,7 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
     
     public var numberOfItemsShouldSelect: Int? {
         guard let firstItem = AppAssets.selected.at(unsafeIndex: 0) else { return Int.max }
-        if firstItem.asset.mediaType == .video || (firstItem.asset.mediaType == .image && firstItem.asset.mediaSubtypes.contains(.photoLive)) {
+        if firstItem.asset.mediaType == .video || firstItem.asset.imageType != .stillImage {
             return 1
         }
         else {
