@@ -6,9 +6,12 @@
 import Foundation
 import ImageIO
 import MobileCoreServices
+import CoreImage
 
 extension Data {
     func getMetadata() -> [String: Any]? {
+//        return self.asCIImage?.properties
+
         let imageSource = CGImageSourceCreateWithData(self as CFData, nil)
         if let imageSource = imageSource {
             let options: [String: Any] = [kCGImageSourceShouldCache as String: false]
@@ -29,12 +32,13 @@ extension Data {
     }
 
     func setMetadata(with metadata:[String:Any]) -> Data{
+//        return self.asCIImage?.settingProperties(metadata).asData ?? self // new api since 10.0 but slow.
+
         let source = CGImageSourceCreateWithData(self as CFData, nil)!
         let imageData = CFDataCreateMutable(nil, 0)!
         let destination = CGImageDestinationCreateWithData(imageData, kUTTypeJPEG, 1, nil)!
         CGImageDestinationAddImageFromSource(destination, source, 0, metadata as CFDictionary)
         CGImageDestinationFinalize(destination)
-
         return imageData as Data
     }
 

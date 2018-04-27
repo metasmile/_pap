@@ -88,6 +88,12 @@ extension CALayer: ImageSourceable {
     }
 }
 
+extension CIImage: DataSourceable{
+    public var asData:Data? {
+        return CIContext().jpegRepresentation(of: self, colorSpace: self.colorSpace ?? CGColorSpaceCreateDeviceRGB())
+    }
+}
+
 extension Data: ImageSourceable, DataSourceable, URLSourceable, StringSourceable {
     public var asUIImage:UIImage? { get { return nil } }
     public var asData:Data? { get { return self } }
