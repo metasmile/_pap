@@ -28,6 +28,7 @@ protocol GIFMakerDefaults: AppDefaults{
     var aspectRatio: Double {get set}
     var contentMode: Int {get set}
     var frameDelay: Int {get set}
+    var size: Double {get set}
 }
 
 extension Defaults: GIFMakerDefaults {
@@ -44,6 +45,11 @@ extension Defaults: GIFMakerDefaults {
     var frameDelay: Int {
         set { set(newValue) }
         get { return get(or: 300)}
+    }
+    
+    var size: Double {
+        set{ set(newValue) }
+        get{ return get(or: 640 ) }
     }
 }
 
@@ -73,6 +79,31 @@ struct GIFMakerSettings {
             "Crop": contentMode.fill,
             "No Crop": contentMode.fit
         ]
+    }
+    
+    enum size {
+        static let labels: [String: Double] = [
+            "Large": 1920,
+            "Medium": 1280,
+            "Small": 640
+        ]
+        
+        static let orderedKeys: [String] = [
+            "Large",
+            "Medium",
+            "Small"
+        ]
+        
+        static func sizeWithAspectRatio() -> CGSize {
+            let size = (GIFMaker.defaults as! GIFMakerDefaults).size
+            let aspectRatio = (GIFMaker.defaults as! GIFMakerDefaults).aspectRatio
+            if aspectRatio < 1 {
+                return CGSize(width: Int(size), height: Int(size * aspectRatio))
+            }
+            else {
+                return CGSize(width: Int(size * aspectRatio), height: Int(size))
+            }
+        }
     }
 }
 
@@ -159,45 +190,9 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
             .filter { respondable in respondable.info.state == .completed }
             .compactMap { $0.result as? GIFMakerPHAssetResult }
         
-        //TODO: test test
-        
-        func createGIF(with imageFiles: [URL], loopCount: Int = 0, frameDelay: Double) -> Data? {
-            let fileProperties = [
-                kCGImagePropertyGIFDictionary: [
-                    kCGImagePropertyGIFLoopCount: loopCount
-                ]
-            ]
-            let frameProperties = [
-                kCGImagePropertyGIFDictionary: [
-                    kCGImagePropertyGIFDelayTime: frameDelay,
-                    kCGImagePropertyColorModel: kCGImagePropertyColorModelRGB
-                ]
-            ]
-            
-            let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(GIFMaker.info.identifier).gif")
-            
-            guard let destination = CGImageDestinationCreateWithURL(url as CFURL, kUTTypeGIF, imageFiles.count, nil) else { return nil }
-            CGImageDestinationSetProperties(destination, fileProperties as CFDictionary)
-            
-            for imageFile in imageFiles {
-                autoreleasepool {
-                    guard let cgImage = UIImage(contentsOfFile: imageFile.path)?.cgImage else { return }
-                    CGImageDestinationAddImage(destination, cgImage, frameProperties as CFDictionary)
-                }
-            }
-            
-            var gifData: Data?
-            if CGImageDestinationFinalize(destination) {
-                gifData = try? Data(contentsOf: url)
-            }
-            
-            imageFiles.forEach({ try? FileManager.default.removeItem(at: $0) })
-            try? FileManager.default.removeItem(at: url)
-            
-            return gifData
-        }
-        
-        let gifData = createGIF(with: resultItems.map({ $0.imageFileURL }), frameDelay: Double((GIFMaker.defaults as! GIFMakerDefaults).frameDelay) / 1000.0 )
+        let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(GIFMaker.info.identifier).gif")
+        let frameDelay = Double((GIFMaker.defaults as! GIFMakerDefaults).frameDelay) / 1000.0
+        let gifData = GIFactory.createGIF(with: resultItems.map({ $0.imageFileURL }), frameDelay: frameDelay, to: url)
         
         asyncSignal.begin()
         
@@ -214,6 +209,42 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
         asyncSignal.waitUntilEnd()
         
         return result
+    }
+}
+
+private struct GIFactory {
+    static func createGIF(with imageFiles: [URL], loopCount: Int = 0, frameDelay: Double, to url: URL) -> Data? {
+        let fileProperties = [
+            kCGImagePropertyGIFDictionary: [
+                kCGImagePropertyGIFLoopCount: loopCount
+            ]
+        ]
+        let frameProperties = [
+            kCGImagePropertyGIFDictionary: [
+                kCGImagePropertyGIFDelayTime: frameDelay,
+                kCGImagePropertyColorModel: kCGImagePropertyColorModelRGB
+            ]
+        ]
+        
+        guard let destination = CGImageDestinationCreateWithURL(url as CFURL, kUTTypeGIF, imageFiles.count, nil) else { return nil }
+        CGImageDestinationSetProperties(destination, fileProperties as CFDictionary)
+        
+        for imageFile in imageFiles {
+            autoreleasepool {
+                guard let cgImage = UIImage(contentsOfFile: imageFile.path)?.cgImage else { return }
+                CGImageDestinationAddImage(destination, cgImage, frameProperties as CFDictionary)
+            }
+        }
+        
+        var gifData: Data?
+        if CGImageDestinationFinalize(destination) {
+            gifData = try? Data(contentsOf: url)
+        }
+        
+        imageFiles.forEach({ try? FileManager.default.removeItem(at: $0) })
+        try? FileManager.default.removeItem(at: url)
+        
+        return gifData
     }
 }
 
@@ -235,55 +266,51 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
     private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable?) throws -> TaskResultable?  {
         var result: GIFMakerPHAssetResult?
         
-        //TODO: to be options
-        let aspectRatio = (GIFMaker.defaults as! GIFMakerDefaults).aspectRatio
-        let targetSize = CGSize(width: 640, height: 640 * aspectRatio)
+        let targetSize = GIFMakerSettings.size.sizeWithAspectRatio()
         let contentMode = PHImageContentMode(rawValue: (GIFMaker.defaults as! GIFMakerDefaults).contentMode) ?? PHImageContentMode.aspectFit
         
         async?.begin()
         
         if assetItem.asset.mediaType == .video {
-            
+            async?.end()
         }
-        else if assetItem.asset.mediaType == .image {
-            if assetItem.asset.mediaSubtypes.contains(.photoLive) {
-               
-            }
-            else {
-                let response = assetItem.asset.requestImage(targetSize: targetSize, contentMode: contentMode)
-                
-                if let image = response.1, let res = PHAssetResource.assetResources(for: assetItem.asset).first {
-                    let imageToWrite: UIImage
-                    if targetSize == image.size {
-                        imageToWrite = image
-                    }
-                    else {
-                        imageToWrite = UIGraphicsImageRenderer(size: targetSize).image(actions: { (ctx) in
-                            UIColor.white.setFill()
-                            ctx.cgContext.fill(CGRect(origin: .zero, size: targetSize))
-                            image.draw(at: CGPoint(x: (targetSize.width - image.size.width) / 2, y: (targetSize.height - image.size.height) / 2))
-                        })
-                    }
-                    
-                    let data: Data?
-                    var fileExtension = "jpg"
-                    switch res.uniformTypeIdentifier as CFString {
-                        case kUTTypePNG:
-                            data = UIImagePNGRepresentation(imageToWrite)
-                            fileExtension = "png"
-                        default:
-                            data = UIImageJPEGRepresentation(imageToWrite, 1)
-                    }
-                    
-                    let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(GIFMaker.info.identifier)_\(uuid).\(fileExtension)")
-                    try data?.write(to: url)
-                    
-                    result = GIFMakerPHAssetResult(asset: assetItem.asset, imageFileURL: url)
-                    assetItem.requestIDs += [PHAssetRequestID(forImage:response.0)]
+        else if assetItem.asset.imageType == .stillImage {
+            let response = assetItem.asset.requestImage(targetSize: targetSize, contentMode: contentMode)
+            
+            if let image = response.1, let res = PHAssetResource.assetResources(for: assetItem.asset).first {
+                let imageToWrite: UIImage
+                if targetSize == image.size {
+                    imageToWrite = image
+                }
+                else {
+                    imageToWrite = UIGraphicsImageRenderer(size: targetSize).image(actions: { (ctx) in
+                        UIColor.white.setFill()
+                        ctx.cgContext.fill(CGRect(origin: .zero, size: targetSize))
+                        image.draw(at: CGPoint(x: (targetSize.width - image.size.width) / 2, y: (targetSize.height - image.size.height) / 2))
+                    })
                 }
                 
-                async?.end()
+                let data: Data?
+                var fileExtension = "jpg"
+                switch res.uniformTypeIdentifier as CFString {
+                case kUTTypePNG:
+                    data = UIImagePNGRepresentation(imageToWrite)
+                    fileExtension = "png"
+                default:
+                    data = UIImageJPEGRepresentation(imageToWrite, 1)
+                }
+                
+                let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(GIFMaker.info.identifier)_\(uuid).\(fileExtension)")
+                try data?.write(to: url)
+                
+                result = GIFMakerPHAssetResult(asset: assetItem.asset, imageFileURL: url)
+                assetItem.requestIDs += [PHAssetRequestID(forImage:response.0)]
             }
+            
+            async?.end()
+        }
+        else if assetItem.asset.imageType == .livePhoto {
+            async?.end()
         }
         
         async?.waitUntilEnd()
@@ -296,6 +323,7 @@ private struct SettingsItem {
         case contentMode
         case aspectRatio
         case frameDelay
+        case size
     }
     
     fileprivate var key: Keys
@@ -318,7 +346,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
-        preferences.minimumHeight = (self.view as! UITableView).rowHeight * 3 + 27
+        preferences.minimumHeight = (self.view as! UITableView).rowHeight * 4 + 27
         preferences.pinned = false
         return preferences
     }
@@ -330,9 +358,18 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         
         settings = [
             SettingsItem(
+                key: .size
+                , label: "Size"
+                , valueGetter: { GIFMakerSettings.size.labels.first(where: { $0.value == self.defaults.size })?.key ?? GIFMakerSettings.size.orderedKeys[0] }
+                , valueCollection: GIFMakerSettings.size.orderedKeys
+                , valueHandler: nil
+                , cellDescriber: UITableViewPickerCellDescriber()
+                , iconImageName: nil
+            )
+            , SettingsItem(
                 key: .aspectRatio
                 , label: "Aspect Ratio"
-                , valueGetter: { self.defaults.aspectRatio }
+                , valueGetter: { GIFMakerSettings.aspectRatio.labels.first(where: { $0.value == self.defaults.aspectRatio })?.key ?? GIFMakerSettings.aspectRatio.orderedKeys[0] }
                 , valueCollection: GIFMakerSettings.aspectRatio.orderedKeys
                 , valueHandler: nil
                 , cellDescriber: UITableViewPickerCellDescriber()
@@ -444,7 +481,14 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             } else{
                 cell.selectedRow = 0
             }
-            cell.titleLabel.text = item.label
+            
+            if item.key == .size {
+                let size = GIFMakerSettings.size.sizeWithAspectRatio()
+                cell.titleLabel.text = "\(Int(size.width)) x \(Int(size.height))"
+            }
+            else {
+                cell.titleLabel.text = item.label
+            }
             return cell
         }
         else if let cellDescriber = item.cellDescriber as? UITableViewSegmentControlCellDescriber
@@ -495,6 +539,28 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     }
     
     func pickerCell(_ cell: UITableViewPickerCell, didPick row: Int, value: Any) {
-        defaults.aspectRatio = GIFMakerSettings.aspectRatio.labels[cell.values[row]] ?? 1
+        guard let indexPath = (view as! UITableView).indexPath(for: cell) else { return }
+        let setting = settings[indexPath.row]
+        
+        var needsToUpdateSizeCell = false
+        
+        if setting.key == .aspectRatio {
+            defaults.aspectRatio = GIFMakerSettings.aspectRatio.labels[cell.values[row]] ?? 1
+            
+            needsToUpdateSizeCell = true
+            
+        }
+        else if setting.key == .size {
+            defaults.size = GIFMakerSettings.size.labels[cell.values[row]] ?? 640
+            
+            needsToUpdateSizeCell = true
+        }
+        
+        if needsToUpdateSizeCell, let rowOfSizeSetting = settings.index(where: { $0.key == .size }) {
+            let sizeCell = (view as! UITableView).cellForRow(at: IndexPath(row: rowOfSizeSetting, section: 0)) as? UITableViewPickerCell
+            
+            let size = GIFMakerSettings.size.sizeWithAspectRatio()
+            sizeCell?.titleLabel.text = "\(Int(size.width)) x \(Int(size.height))"
+        }
     }
 }
