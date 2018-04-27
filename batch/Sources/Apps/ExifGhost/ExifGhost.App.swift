@@ -38,6 +38,14 @@ public class ExifGhost: BApp, PHAssetFinalizableApp, PhotoPickerViewControllerDe
     public func shouldSelect(item: PHAssetItem<ImageEditStateValue>) -> Bool {
         return item.asset.mediaType == .image
     }
+
+    public var doneButtonTitle: String?{
+        return "Run Ghost"
+    }
+
+    public var titleWillBegin:String{
+        return "Purging selected properties...".localized
+    }
 }
 
 private class _ExifGhostTask: TaskPrototype, Taskable {
