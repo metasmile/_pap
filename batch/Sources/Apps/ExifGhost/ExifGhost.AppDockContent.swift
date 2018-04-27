@@ -7,9 +7,45 @@ import Foundation
 import UIKit
 import DefaultsKit
 
+private struct ExifGhostSettings{
+    enum Presets:Int{
+        case all = 0
+        case privacy = 1
+        case custom = 2
+    }
+
+    enum Keys {
+        case presets
+    }
+}
+
+private struct SettingsItem {
+    fileprivate var key: ExifGhostSettings.Keys
+    fileprivate var label:String
+    fileprivate var valueGetter:() -> Any
+    fileprivate var valueCollection:Any?
+    fileprivate var valueHandler:((Any) -> ())?
+    fileprivate var cellDescriber: UITableViewDescribable //TODO: integrate all properties
+    fileprivate var iconImageName:String?
+}
+
 private protocol ExifGhostAppDefaults: AppDefaults{
     var ghostedImageMetadataCollection: ImageMetadataPropertyCollection {get set}
+    var selectionPreset: Int {get set}
 }
+
+extension Defaults: ExifGhostAppDefaults {
+    fileprivate var ghostedImageMetadataCollection: ImageMetadataPropertyCollection {
+        set{ set(newValue) }
+        get{ return get(or: ImageMetadata.Collection.DefaultSensitivity) }
+    }
+
+    fileprivate var selectionPreset: Int {
+        set{ set(newValue) }
+        get{ return get(or: ExifGhostSettings.Presets.privacy.rawValue ) }
+    }
+}
+
 
 extension ExifGhostAppDefaults{
     fileprivate func addHandledProperty(_ dictionary:String, _ property:String){
@@ -48,13 +84,6 @@ extension ExifGhostAppDefaults{
     }
 }
 
-extension Defaults: ExifGhostAppDefaults {
-    fileprivate var ghostedImageMetadataCollection: ImageMetadataPropertyCollection {
-        set{ set(newValue) }
-        get{ return get(or: ImageMetadata.Collection.DefaultSensitivity) }
-    }
-}
-
 private struct MetadataItem{
     fileprivate var key:String
     fileprivate var label:String
@@ -66,8 +95,10 @@ private struct MetadataDictionary{
     fileprivate var items:[MetadataItem]
 }
 
-class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource{
-    private var collection:[MetadataDictionary] = [
+class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
+    fileprivate var settings = [SettingsItem]()
+
+    private var metadataCollection:[MetadataDictionary] = [
         MetadataDictionary(key:ImageMetadata.Dictionary.GPS, label: "GPS",
                 items: ImageMetadata.PropertyApple.GPS.map { key -> MetadataItem in
                     return MetadataItem(key:key, label: ImageMetadata.Labels.GPS[key] ?? key)
@@ -86,7 +117,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
     private var initialSelectedIndexPaths:[IndexPath]? = [IndexPath]()
 
-    lazy var view: UIView = UITableView()
+    lazy var view: UIView = UITableView(frame: .zero, style: .grouped)
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
@@ -96,30 +127,72 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     }
 
     var ghostedImageMetadataCollection: ImageMetadataPropertyCollection?{
-        return appDefaults.ghostedImageMetadataCollection
+        return defaults.ghostedImageMetadataCollection
     }
 
-    fileprivate var appDefaults:ExifGhostAppDefaults{
-        return ExifGhost.defaults as! ExifGhostAppDefaults
-    }
+    fileprivate var defaults:ExifGhostAppDefaults = ExifGhost.defaults as! ExifGhostAppDefaults
 
     func willSetContentView(_ view: UIView, dock: AppDock) {
+
+        settings = [
+            SettingsItem(
+                    key: .presets
+                    , label: "Select For"
+                    , valueGetter: { self.defaults.selectionPreset }
+                    , valueCollection: ["All":ExifGhostSettings.Presets.all.rawValue, "Privacy":ExifGhostSettings.Presets.privacy.rawValue, "Custom":ExifGhostSettings.Presets.custom.rawValue]
+                    , valueHandler: {
+                            let preset = $0 as? Int ?? 0
+                            self.defaults.selectionPreset = preset
+
+                            (view as? UITableView)?.performBatchUpdates({
+                                if preset == ExifGhostSettings.Presets.all.rawValue{
+                                    for m in self.metadataCollection{
+                                        for i in m.items{
+                                            self.defaults.addHandledProperty(m.key, i.key)
+                                        }
+                                    }
+                                }else if preset == ExifGhostSettings.Presets.privacy.rawValue{
+                                    for m in ImageMetadata.Collection.DefaultSensitivity{
+                                        for i in m.value{
+                                            self.defaults.addHandledProperty(m.key, i)
+                                        }
+                                    }
+                                }
+                                (view as? UITableView)?.reloadData()
+                            }, completion:nil)
+                    }
+                    , cellDescriber: UITableViewSegmentControlCellDescriber()
+                    , iconImageName: nil
+            )
+        ]
+
         if let view = view as? UITableView{
+
             view.dataSource = self
             view.delegate = self
             view.rowHeight = 44
             view.allowsSelection = false
             view.allowsMultipleSelection = false
             view.register(Cell.self, forCellReuseIdentifier: ExifGhost.info.identifier)
+
+            for setting in settings{
+                view.register(describer: setting.cellDescriber)
+            }
+
+            let headerView = UITableViewHeaderFooterView()
+//            headerView.textLabel?.text = "Original quality of all the image files will be remained purely. Please turn on properties you want to purge them."
+            headerView.textLabel?.text = "Please turn on properties you want to purge them."
+            view.tableHeaderView = headerView
+//            view.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: String(describing: UITableViewHeaderFooterView.self))
         }
     }
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
 
-        let defaultsCollection = self.appDefaults.ghostedImageMetadataCollection
+        let defaultsCollection = self.defaults.ghostedImageMetadataCollection
 
         //sort ascending for handling exif properties
-        self.collection = self.collection.map { dictionary -> MetadataDictionary in
+        self.metadataCollection = self.metadataCollection.map { dictionary -> MetadataDictionary in
             if let handledItems = defaultsCollection[dictionary.key]{
                 var dict = dictionary
                 dict.items = dict.items.sorted { item0, item1 in
@@ -137,7 +210,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         }
 
         //get indexes
-        let sections = self.collection.enumerated().compactMap { (section, dictionary) -> [IndexPath]? in
+        let sections = self.metadataCollection.enumerated().compactMap { (section, dictionary) -> [IndexPath]? in
             if let handledItems = defaultsCollection[dictionary.key]{
 
                 return handledItems.compactMap { key -> IndexPath? in
@@ -146,7 +219,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
                     }) else{
                         return nil
                     }
-                    return IndexPath(item: item, section: section)
+                    return IndexPath(item: item, section: 1+section)
                 }
             }
             return nil
@@ -161,55 +234,159 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         (view as! UITableView).reloadData()
     }
 
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+
+        if section == 0, let tableHeaderView = tableView.tableHeaderView as? UITableViewHeaderFooterView {
+            tableHeaderView.textLabel?.textAlignment = .center
+        }
+    }
+
+    func tableView(_ tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int) {
+
+    }
+
     func numberOfSections(in tableView: UITableView) -> Int {
-        return collection.count
+        return settings.count + metadataCollection.count
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return collection[section].label
+        return section == 0 ? nil : metadataCollection[section-1].label
+    }
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return nil
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return collection[section].items.count
+        return section == 0 ? settings.count : metadataCollection[section-1].items.count
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let dict = self.collection[indexPath.section]
 
-        var selected = true
-        if let _ = initialSelectedIndexPaths?.index(of: indexPath) {
-            selected = false
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return indexPath.section == 0
+                ? settings_tableView(tableView, cellForRowAt: indexPath)
+                : metadataCollection_tableView(tableView, cellForRowAt: IndexPath(item: indexPath.item, section: indexPath.section))
+    }
+
+    func settings_tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item = self.settings[indexPath.item]
+
+        if let cellDescriber = item.cellDescriber as? UITableViewPickerCellDescriber
+        , let valueCollection = item.valueCollection as? [String]
+        , let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewPickerCell
+                ?? UITableViewPickerCell(type: .default, reuseIdentifier: cellDescriber.identifier) {
+
+            cell.values = valueCollection
+            cell.delegate = self
+            if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
+                cell.selectedRow = index
+            } else{
+                cell.selectedRow = 0
+            }
+            cell.titleLabel.text = item.label
+            return cell
+
         }
-        if let _ = appDefaults.ghostedImageMetadataCollection[dict.key]?.index(of: dict.items[indexPath.item].key){
-            selected = false
+        else if let cellDescriber = item.cellDescriber as? UITableViewSwitchCellDescriber
+        , let value = item.valueGetter() as? Bool
+        , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewSwitchCell {
+
+            cell.textLabel?.text = item.label
+            cell.switcher.setOn(value, animated: false)
+            cell.imageView?.image = item.iconImageName?.asUIImage
+            cell.switchDidChange = item.valueHandler
+            return cell
+        }
+
+        else if let cellDescriber = item.cellDescriber as? UITableViewStepperCellDescriber
+        , let value = item.valueGetter() as? Int
+        , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewStepperCell {
+
+            cell.textLabel?.text = item.label
+            cell.detailTextLabel?.text = cellDescriber.transformValueLabel?(value) ?? String(value)
+            cell.imageView?.image = item.iconImageName?.asUIImage
+
+            cell.stepper.stepValue = cellDescriber.stepValue
+            cell.stepper.minimumValue = cellDescriber.minimumValue
+            cell.stepper.maximumValue = cellDescriber.maximumValue
+            cell.stepper.value = Double(value)
+
+            cell.didChangeValue = { value in
+                cell.detailTextLabel?.text = cellDescriber.transformValueLabel?(value) ?? String(Int(value))
+                item.valueHandler?(value)
+            }
+            return cell
+        }
+
+        else if let cellDescriber = item.cellDescriber as? UITableViewSegmentControlCellDescriber
+        , let valueCollection = item.valueCollection as? [String:Int]
+        , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewSegmentedControlCell{
+
+            cell.textLabel?.text = item.label
+            cell.imageView?.image = item.iconImageName?.asUIImage
+
+            cell.segmentedControl.removeAllSegments()
+
+            let keys = valueCollection.keysArray
+
+            for k in keys{
+                cell.segmentedControl.insertSegment(withTitle: k, at: cell.segmentedControl.numberOfSegments, animated: false)
+            }
+
+            cell.segmentedControl.selectedSegmentIndex = keys.map { valueCollection[$0] }.index(of: item.valueGetter() as! Int) ?? 0
+            cell.didChangeValue = item.valueHandler
+            return cell
+        }
+
+        let cell = tableView.cellForRow(at: indexPath) ?? UITableViewCell()
+        cell.textLabel?.text = item.label
+        return cell
+    }
+
+    func metadataCollection_tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let dict = self.metadataCollection[indexPath.section-1]
+
+        var selected = false
+        if let _ = initialSelectedIndexPaths?.index(of: indexPath) {
+            selected = true
+        }
+        if let _ = defaults.ghostedImageMetadataCollection[dict.key]?.index(of: dict.items[indexPath.item].key){
+            selected = true
         }
 
         let cell = tableView.dequeueReusableCell(withIdentifier: ExifGhost.info.identifier) as! Cell
         cell.textLabel?.text = dict.items[indexPath.item].label
+        cell.detailTextLabel?.text = selected ? "will be ghosted" : nil
+//        cell.imageView?.image = selected ? R.image.pdFactoryAppIcon() : nil //selected ? UIImageView(image: R.image.pdFactoryAppIcon()) : nil
+        cell.detailTextLabel?.textColor = UIColor.gray
         cell.optionSwitch.setOn(selected, animated: false)
         cell.switchDidChange = { on in
-            let dict = self.collection[indexPath.section]
             if on{
-                self.appDefaults.removeHandledProperty(dict.key, dict.items[indexPath.item].key)
+                self.defaults.addHandledProperty(dict.key, dict.items[indexPath.item].key)
             }else{
-                self.appDefaults.addHandledProperty(dict.key, dict.items[indexPath.item].key)
+                self.defaults.removeHandledProperty(dict.key, dict.items[indexPath.item].key)
             }
 
             if self.initialSelectedIndexPaths != nil{
                 self.initialSelectedIndexPaths = nil
             }
+
+            tableView.reloadRows(at: [indexPath], with: .fade)
         }
         return cell
     }
 
-    func createSelectedBackgroundView() -> UIView {
-        let view = UIView()
-        view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
-        return view
+    func pickerCell(_ cell: UITableViewPickerCell, didPick row: Int, value: Any) {
+
     }
 }
 
@@ -217,6 +394,7 @@ private class Cell: UITableViewCell {
     lazy var optionSwitch: UISwitch = {
         let view = UISwitch()
         view.addTarget(self, action: #selector(self.cellSwitchDidChange), for: .valueChanged)
+        view.onTintColor = UIColor(red:0.13, green:0.15, blue:0.16, alpha:1)
         return view
     }()
 
@@ -229,7 +407,7 @@ private class Cell: UITableViewCell {
     }
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
 
         accessoryView = optionSwitch
     }
