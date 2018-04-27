@@ -23,8 +23,8 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         return UIView(frame: view.bounds)
     }()
     
-    lazy var assetView: AssetView = {
-        return AssetView(frame: zoomingContentView.bounds)
+    lazy var assetView: BAppUIAssetView = {
+        return BAppUIAssetView(frame: zoomingContentView.bounds)
     }()
     
     var placeholderImage: UIImage? {

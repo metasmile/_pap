@@ -10,8 +10,8 @@ class PhotoPickerDetailViewController: UIViewController {
     var assetItem: PHAssetItem<ImageEditStateValue>?
     var actionItems:[UIPreviewActionItem]?
     
-    private lazy var assetView: AssetView = {
-        let assetView = AssetView()
+    private lazy var assetView: BAppUIAssetView = {
+        let assetView = BAppUIAssetView()
         assetView.contentMode = .scaleAspectFit
         assetView.translatesAutoresizingMaskIntoConstraints = false
         return assetView

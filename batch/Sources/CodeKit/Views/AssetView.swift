@@ -27,9 +27,7 @@ class AssetView: UIView {
         return PHLivePhotoView(frame: CGRect(origin: .zero, size: frame.size))
     }()
     
-    fileprivate var previewMode: Bool = false
-    fileprivate var editState: StateValueSet<ImageEditStateValue>?
-    
+    var previewMode: Bool = false
     var preferredTransform: CGAffineTransform = .identity {
         didSet {
             imageLayer.transform = CATransform3DMakeAffineTransform(preferredTransform)
@@ -108,7 +106,7 @@ class AssetView: UIView {
         }
     }
     
-    fileprivate func clearDrawing() {
+    func clearDrawing() {
         cancelCurrentImageRequest()
         
         isLivePhotoPlaying = false
@@ -118,7 +116,6 @@ class AssetView: UIView {
         
         image = nil
         playerItem = nil
-        editState = nil
     }
     
     fileprivate func cancelCurrentImageRequest() {
@@ -170,21 +167,18 @@ class AssetView: UIView {
     var image: UIImage? {
         didSet {
             updateImageContents(image)
-            applyEditState(editState)
         }
     }
     
     var playerItem: AVPlayerItem? {
         didSet {
             videoLayer.player?.replaceCurrentItem(with: playerItem)
-            applyEditState(editState)
         }
     }
     
     var livePhoto: PHLivePhoto? {
         didSet {
             livePhotoView.livePhoto = livePhoto
-            applyEditState(editState)
         }
     }
     
@@ -226,7 +220,6 @@ extension AssetView {
             loadImage(for: asset) { (image) in
                 DispatchQueue.main.async { [weak self] in
                     self?.image = image
-                    self?.applyImageFilter(ciFilter: self?.editState?.ciFilter)
                 }
             }
             
@@ -263,7 +256,6 @@ extension AssetView {
         loadImage(for: asset) { (image) in
             DispatchQueue.main.async { [weak self] in
                 self?.image = image
-                self?.applyImageFilter(ciFilter: self?.editState?.ciFilter)
             }
         }
         
@@ -300,41 +292,8 @@ extension AssetView {
 }
 
 extension AssetView {
-    fileprivate func updateImageContents(_ image: UIImage?) {
+    func updateImageContents(_ image: UIImage?) {
         imageLayer.contents = image?.cgImage
-    }
-}
-
-//MARK: - Apply Edit State
-
-extension AssetView {
-    func applyEditState<T>(_ editState: StateValueSet<T>?) where T: ImageEditStateValue {
-        self.editState = editState as? StateValueSet<ImageEditStateValue>
-
-        applyFilter(editState)
-    }
-
-    fileprivate func applyFilter<T>(_ editState: StateValueSet<T>?) where T: ImageEditStateValue {
-        if asset?.mediaType == .image || previewMode {
-            applyImageFilter(ciFilter: editState?.ciFilter)
-        }
-        else if asset?.mediaType == .video {
-            if let mode = editState?.stabilizationMode {
-                playerItem?.videoComposition = playerItem?.asset.stabilize(with: mode, clamp: editState?.stabilizationClamp ?? 0)
-            }
-            else {
-                playerItem?.videoComposition = playerItem?.asset.applyFilter(editState?.ciFilter)
-            }
-        }
-    }
-    
-    fileprivate func applyImageFilter(ciFilter: CIFilter?) {
-        if asset?.mediaSubtypes.contains(.photoLive) == true {
-            
-        }
-        else {
-            updateImageContents(image?.applyFilter(ciFilter: ciFilter))
-        }
     }
 }
 

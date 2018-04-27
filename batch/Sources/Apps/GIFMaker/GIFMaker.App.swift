@@ -484,7 +484,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             
             if item.key == .size {
                 let size = GIFMakerSettings.size.sizeWithAspectRatio()
-                cell.titleLabel.text = "\(Int(size.width)) x \(Int(size.height))"
+                cell.titleLabel.text = "Size (\(Int(size.width)) x \(Int(size.height)))"
             }
             else {
                 cell.titleLabel.text = item.label
@@ -560,7 +560,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             let sizeCell = (view as! UITableView).cellForRow(at: IndexPath(row: rowOfSizeSetting, section: 0)) as? UITableViewPickerCell
             
             let size = GIFMakerSettings.size.sizeWithAspectRatio()
-            sizeCell?.titleLabel.text = "\(Int(size.width)) x \(Int(size.height))"
+            sizeCell?.titleLabel.text = "Size (\(Int(size.width)) x \(Int(size.height)))"
         }
     }
 }

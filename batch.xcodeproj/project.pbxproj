@@ -181,6 +181,7 @@
 		4F71DFF135992B983BB8ECFF /* PDFactory.AppDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D836FB2DC3BFC266EDAB /* PDFactory.AppDefaults.swift */; };
 		4F71DFF8D55824E32A18110E /* CodeKit.UIView.Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDBE65F819676D3B5DEC /* CodeKit.UIView.Property.swift */; };
 		514944FE2085913B0053896A /* AutoAdjustment.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514944FD2085913B0053896A /* AutoAdjustment.App.swift */; };
+		515EA0CB2092F4610029DD38 /* BAppUIAssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515EA0CA2092F4610029DD38 /* BAppUIAssetView.swift */; };
 		51680042208D627600910B49 /* CodeKit.AVAssetExportSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51680041208D627600910B49 /* CodeKit.AVAssetExportSession.swift */; };
 		51680045208DB6D700910B49 /* GIFMaker.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51680044208DB6D700910B49 /* GIFMaker.App.swift */; };
 		A099B0452080FDAE003AC819 /* PhotosFilter.App.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A099B0442080FDAE003AC819 /* PhotosFilter.App.Assets.xcassets */; };
@@ -381,6 +382,7 @@
 		4F71DFA92443925F2D9553B2 /* Clean.App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clean.App.swift; sourceTree = "<group>"; };
 		4F71DFCA8020E56BB968A0A8 /* hu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = hu; path = Localizable.strings; sourceTree = "<group>"; };
 		514944FD2085913B0053896A /* AutoAdjustment.App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoAdjustment.App.swift; sourceTree = "<group>"; };
+		515EA0CA2092F4610029DD38 /* BAppUIAssetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAppUIAssetView.swift; sourceTree = "<group>"; };
 		51680041208D627600910B49 /* CodeKit.AVAssetExportSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.AVAssetExportSession.swift; sourceTree = "<group>"; };
 		51680044208DB6D700910B49 /* GIFMaker.App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFMaker.App.swift; sourceTree = "<group>"; };
 		614D248BD87AEAE91795DFC4 /* Pods-batch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch.release.xcconfig"; path = "Pods/Target Support Files/Pods-batch/Pods-batch.release.xcconfig"; sourceTree = "<group>"; };
@@ -875,6 +877,7 @@
 			children = (
 				4F71D7606BCE89B9E0E4D230 /* BAppUICollectionView.swift */,
 				4F71D9CDE4667D45329C585C /* BAppUICollectionViewCell.xib */,
+				515EA0CA2092F4610029DD38 /* BAppUIAssetView.swift */,
 			);
 			name = BAppUIKit;
 			path = batch/Sources/AppDock/BAppUIKit;
@@ -1595,6 +1598,7 @@
 				4F71D3BEF9E9511756D48C8B /* ImageIO.GIF.swift in Sources */,
 				4F71D536A35F5A80442B85EE /* ImageIO.HEIF.swift in Sources */,
 				4F71DA3B94224AB0D8F05585 /* batch.App.swift in Sources */,
+				515EA0CB2092F4610029DD38 /* BAppUIAssetView.swift in Sources */,
 				4F71DF4BCD57998FEF4F6E9D /* CodeKit.Collection.swift in Sources */,
 				4F71D1AC88AB3FA1EC86994B /* App.Finalizable.PHAsset.swift in Sources */,
 				4F71D4CFA693A7C8BFBC012C /* BAppUICollectionView.swift in Sources */,
