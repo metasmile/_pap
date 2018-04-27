@@ -28,7 +28,7 @@ data
 
 private typealias ParamType = PHAssetItem<ImageEditStateValue>
 
-public class ExifGhost: BatchApp, PHAssetFinalizableApp, PhotoPickerViewControllerDelegatableApp,
+public class ExifGhost: BApp, PHAssetFinalizableApp, PhotoPickerViewControllerDelegatableApp,
         PhotoPickerCollectionViewDisplayableApp, AppDockControllableApp {
 
     public static let taskType:Taskable.Type = _ExifGhostTask.self

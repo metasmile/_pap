@@ -127,7 +127,7 @@ public class GIFMakerAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrribut
     }
 }
 
-public class GIFMaker: BatchApp, ConfigurableApp, _ConfigurableApp,
+public class GIFMaker: BApp, ConfigurableApp, _ConfigurableApp,
     AppDockControllableApp, PHAssetFinalizableApp, PhotoPickerCollectionViewDisplayableApp,
 PhotoPickerViewControllerDelegatableApp, FinalizableApp {
     public static let taskType:Taskable.Type = _GIFMakerAppTask.self

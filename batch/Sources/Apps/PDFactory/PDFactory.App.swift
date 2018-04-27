@@ -25,7 +25,7 @@ private struct PDFactoryPHAssetResult: TaskResultable{
     public var imageMetadata: [String: Any]?
 }
 
-public class PDFactory: BatchApp, FinalizableApp, PhotoPickerViewControllerDelegatableApp,
+public class PDFactory: BApp, FinalizableApp, PhotoPickerViewControllerDelegatableApp,
         PhotoPickerCollectionViewDisplayableApp , AppDockControllableApp{
 
     public static let taskType:Taskable.Type = _PDFactoryTask.self
