@@ -25,7 +25,7 @@ extension UITableView{
         //contract expanded picker cells
         if let cells = allVisiblePickerCells{
             var count = cells.count
-            for (index, cell) in cells where cell.isExpanded == false{
+            for (_, cell) in cells where cell.isExpanded == false{
                 cell.expand(self, animated: true) { _ in
                     count -= 1
                     if count==0{
@@ -40,7 +40,7 @@ extension UITableView{
         //contract expanded picker cells
         if let cells = allVisiblePickerCells{
             var count = cells.count
-            for (index, cell) in cells where cell.isExpanded == true{
+            for (_, cell) in cells where cell.isExpanded == true{
                 cell.contract(self, animated: true) { _ in
                     count -= 1
                     if count==0{

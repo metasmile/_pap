@@ -281,8 +281,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
         if let cellDescriber = item.cellDescriber as? UITableViewPickerCellDescriber
         , let valueCollection = item.valueCollection as? [String]
-        , let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewPickerCell
-                ?? UITableViewPickerCell(type: .default, reuseIdentifier: cellDescriber.identifier) {
+        , let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewPickerCell {
 
             cell.values = valueCollection
             cell.delegate = self
@@ -341,7 +340,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
                 cell.segmentedControl.insertSegment(withTitle: k, at: cell.segmentedControl.numberOfSegments, animated: false)
             }
 
-            cell.segmentedControl.selectedSegmentIndex = keys.map { valueCollection[$0] }.index(of: item.valueGetter() as! Int) ?? 0
+            cell.segmentedControl.selectedSegmentIndex = keys.map{ valueCollection[$0] }.index(of: (item.valueGetter() as! Int)) ?? 0
             cell.didChangeValue = item.valueHandler
             return cell
         }

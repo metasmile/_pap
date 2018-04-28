@@ -92,7 +92,7 @@ public class PDFactory: BApp, FinalizableApp, PhotoPickerViewControllerDelegatab
         }
 
         let defaults = PDFactory.defaults as! PDFactoryDefaults
-        let imagesPerPage = defaults.imagesPerPage
+//        let imagesPerPage = defaults.imagesPerPage
 
         do {
             let document = PDFDocument(layout: PDFactory.defaultsPDFLayout)

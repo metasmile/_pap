@@ -38,7 +38,7 @@ extension ImageMetadata{
             }
 
             // date
-            for (format, replacement) in VoidDateTimeFormats {
+            for (format, _) in VoidDateTimeFormats {
                 VoidDateFormatter.dateFormat = format
                 if let _ = VoidDateFormatter.date(from: val){
                     return VoidDateFormatter.string(from: Date(timeIntervalSince1970: 0))
