@@ -1,0 +1,94 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "ఫోటోలు ప్రాప్యత నిలిపివేయబడింది";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "దయచేసి సెట్టింగ్లను తెరిచి, మీ ఫోటోలకు ప్రాప్యతను అనుమతించండి";
+/*Translated from: Open Settings*/
+"Open Settings" = "సెట్టింగులను తెరవండి";
+/*Translated from: OK*/
+"OK" = "అలాగే";
+/*Translated from: Done*/
+"Done" = "పూర్తి";
+/*Translated from: Confirm*/
+"Confirm" = "నిర్ధారించండి";
+/*Translated from: Cancel*/
+"Cancel" = "రద్దు";
+/*Translated from: Detail*/
+"Detail" = "వివరాలు";
+/*Translated from: Delete*/
+"Delete" = "తొలగించు";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "క్షమించండి, ఏదో తప్పు జరిగింది.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "%d ఫోటో (లు) ను సవరించండి";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "%d వీడియో (లు) ను సవరించండి";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "%d అంశం (లు) ను సవరించండి";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "బ్యాచ్ మార్చు";
+/*Translated from: Edit*/
+"Edit" = "మార్చు";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "మార్పులను విస్మరించు";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "బ్యాచ్ ఎడిటింగ్ను ప్రారంభించండి ...";
+/*Translated from: Processing...*/
+"Processing..." = "ప్రోసెసింగ్ ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "రద్దు ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "ఫోటోలను సేవ్ చేస్తోంది ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "ఫోటోలను తొలగిస్తోంది ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "ఫోటోలను తిరిగి మారుస్తోంది ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "ఈ ఫోటోను ఎంచుకోండి";
+/*Translated from: Select this video*/
+"Select this video" = "ఈ వీడియోను ఎంచుకోండి";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "ఈ ఫోటోను తీసివేయి";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "ఈ వీడియో ఎంపికను తీసివేయండి";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "ఈ ఫోటోను సవరించండి";
+/*Translated from: Edit this video*/
+"Edit this video" = "ఈ వీడియోని సవరించండి";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ ఫోటో";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ వీడియో";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ అంశం";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ ఫోటోలు";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ వీడియోలు";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ అంశాలు";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "%@ ఫోటోను సవరించండి";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "%@ వీడియోని సవరించండి";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "%@ ఫోటోలు సవరించండి";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "%@ వీడియోలు సవరించండి";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "%@ అంశాలు సవరించండి";
+/*com.stells.batch.transform*/
+"Transform" = "ట్రాన్స్ఫారమ్";
+/*com.stells.batch.photosfilter*/
+"Apply" = "వర్తించు";
+/*com.stells.batch.revert*/
+"Revert" = "కు తిరిగి వెళ్లు";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "తిరిగి మార్చడం మొదలుపెట్టింది ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "ఫోటోలను తిరిగి మారుస్తోంది ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "%@ సృష్టించు";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "PDF ను సృష్టించడం ప్రారంభిస్తోంది ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "PDF పేజీలను సృష్టిస్తోంది ...";

@@ -1,0 +1,94 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Photos Access Disabled";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Azafady misafidiana ary ampidiro ny sary";
+/*Translated from: Open Settings*/
+"Open Settings" = "Sokafy misimisy";
+/*Translated from: OK*/
+"OK" = "ok";
+/*Translated from: Done*/
+"Done" = "vita";
+/*Translated from: Confirm*/
+"Confirm" = "Hamarino";
+/*Translated from: Cancel*/
+"Cancel" = "hanafoana";
+/*Translated from: Detail*/
+"Detail" = "antsipirihany";
+/*Translated from: Delete*/
+"Delete" = "Fafao";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Miala tsiny fa nisy zavatra tsy nety.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Hanova %d sary (s)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Hanova %d video (s)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Hanamboatra %d singa (s)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Batch Edit";
+/*Translated from: Edit*/
+"Edit" = "anglisy";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Manaova fanovana";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Hanomboka Batch Editing ...";
+/*Translated from: Processing...*/
+"Processing..." = "Fikarakarana ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Manafoana ny ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Meny fitetezana";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Alefa sary ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Miverina amin'ny sary ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Misafidiana ity sary ity";
+/*Translated from: Select this video*/
+"Select this video" = "Mifidiana ity horonantsary ity";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Afilaho ity sary ity";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Alefaso ity horonantsary ity";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Hanova ity sary ity";
+/*Translated from: Edit this video*/
+"Edit this video" = "Hanova ity video ity";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Sary";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Video";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Item";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Sary";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Videos";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Items";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Hanova %@ sary";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Hanova %@ Video";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Hanova %@ sary";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Hanova %@ vidéo";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Hanova %@ Items";
+/*com.stells.batch.transform*/
+"Transform" = "hanova";
+/*com.stells.batch.photosfilter*/
+"Apply" = "Ampiharo";
+/*com.stells.batch.revert*/
+"Revert" = "hiverina";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Manomboka miverina ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Miverina amin'ny sary ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "Hamorona %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Manomboka mamorona PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Famoronana pejy PDF ...";

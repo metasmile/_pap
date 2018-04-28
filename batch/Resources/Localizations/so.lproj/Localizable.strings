@@ -1,0 +1,94 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Sawirrada Helitaanka Naafada";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Fadlan furo goobaha iyo u oggolow in aad sawirradaada hesho";
+/*Translated from: Open Settings*/
+"Open Settings" = "Furaha Furaha";
+/*Translated from: OK*/
+"OK" = "OK";
+/*Translated from: Done*/
+"Done" = "Done";
+/*Translated from: Confirm*/
+"Confirm" = "Xaqiiji";
+/*Translated from: Cancel*/
+"Cancel" = "Jooji";
+/*Translated from: Detail*/
+"Detail" = "Faahfaahin";
+/*Translated from: Delete*/
+"Delete" = "Tirtir";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Waan ka xumahay, wax ayaa khaldan.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Edit %d photo (s)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Tifatir %d video (s)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Edit %d qodob (s)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Isku-darka Isugeynta";
+/*Translated from: Edit*/
+"Edit" = "Isbedel";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Tuur Isbedelka";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Ku bilaw Abaabul Qeybinta ...";
+/*Translated from: Processing...*/
+"Processing..." = "Kala shaqeynta ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Joojinta ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Kaydinta Sawirrada ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Tirtirida sawirada ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Joojinta Sawirrada ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Dooro sawirkan";
+/*Translated from: Select this video*/
+"Select this video" = "Xulo fiidiyowgaan";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Jooji sawirkan";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Ka fogow fiidyowgaan";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Tafatir sawirkan";
+/*Translated from: Edit this video*/
+"Edit this video" = "Fiiri fiidiyaha";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Sawir";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Video";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Sheyga";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Sawirro";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Videos";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Waxyaabaha";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Edit %@ sawir";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Edit %@ Video";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Tifatir %@ Sawirro";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Edit %@ Videos";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Edit %@ waxyaabaha";
+/*com.stells.batch.transform*/
+"Transform" = "Bedelka";
+/*com.stells.batch.photosfilter*/
+"Apply" = "Codso";
+/*com.stells.batch.revert*/
+"Revert" = "Dib u noqo";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Laga bilaabo bilowgii dib u noqoshada ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Joojinta Sawirrada ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "Samee %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Laga bilaabo inuu abuuro PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Abuurista PDF Bog ...";

@@ -1,0 +1,94 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Ekran aksè ki andikape";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Tanpri louvri anviwònman ak pèmèt aksè a foto ou";
+/*Translated from: Open Settings*/
+"Open Settings" = "Louvri Anviwònman";
+/*Translated from: OK*/
+"OK" = "OK";
+/*Translated from: Done*/
+"Done" = "Fè";
+/*Translated from: Confirm*/
+"Confirm" = "Konfime";
+/*Translated from: Cancel*/
+"Cancel" = "Anile";
+/*Translated from: Detail*/
+"Detail" = "Detay";
+/*Translated from: Delete*/
+"Delete" = "Efase";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Padon, yon bagay ale mal.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Edit %d foto (yo)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Edit %d videyo (yo)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Edit %d atik (yo)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Batch Edit";
+/*Translated from: Edit*/
+"Edit" = "Edit";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Chanje chanjman";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Kòmanse pake Editing ...";
+/*Translated from: Processing...*/
+"Processing..." = "Pwosesis ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Anilasyon ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Ekonomize Ekran ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Efase Ekran ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Retounen Ekran ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Chwazi foto sa a";
+/*Translated from: Select this video*/
+"Select this video" = "Chwazi videyo sa a";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Deselect this photo";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Deselect videyo sa a";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Edit foto sa a";
+/*Translated from: Edit this video*/
+"Edit this video" = "Edit videyo sa a";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Foto";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Videyo";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Item";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Ekran";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Videyo";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Atik yo";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Edit %@ foto";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Edit %@ Videyo";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Edit %@ Ekran";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Edit %@ videyo";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Edit %@ Atik yo";
+/*com.stells.batch.transform*/
+"Transform" = "Transfòme";
+/*com.stells.batch.photosfilter*/
+"Apply" = "Aplike";
+/*com.stells.batch.revert*/
+"Revert" = "Retounen";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Kòmanse retounen ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Retounen Ekran ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "Kreye %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Kòmanse kreye PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Kreye paj Paj ...";

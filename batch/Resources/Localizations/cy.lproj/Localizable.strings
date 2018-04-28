@@ -1,0 +1,94 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Lluniau Mynediad Anabl";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Os gwelwch yn dda agorwch leoliadau a chaniatáu mynediad i'ch lluniau";
+/*Translated from: Open Settings*/
+"Open Settings" = "Gosodiadau Agored";
+/*Translated from: OK*/
+"OK" = "iawn";
+/*Translated from: Done*/
+"Done" = "Wedi'i wneud";
+/*Translated from: Confirm*/
+"Confirm" = "Cadarnhau";
+/*Translated from: Cancel*/
+"Cancel" = "Diddymu";
+/*Translated from: Detail*/
+"Detail" = "Manylion";
+/*Translated from: Delete*/
+"Delete" = "Dileu";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Mae'n ddrwg gennym, aeth rhywbeth o'i le.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Golygu %d llun (au)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Golygu %d fideo (au)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Golygu %d eitem (au)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Llwyth Golygu";
+/*Translated from: Edit*/
+"Edit" = "Golygu";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Gwahardd Newidiadau";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Dechrau Golygu Swp ...";
+/*Translated from: Processing...*/
+"Processing..." = "Prosesu ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Diddymu ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Arbed Lluniau ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Dileu Lluniau ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Dychwelyd Lluniau ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Dewiswch y llun hwn";
+/*Translated from: Select this video*/
+"Select this video" = "Dewiswch y fideo hwn";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Dewiswch y llun hwn";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Dewiswch y fideo hwn";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Golygu'r llun hwn";
+/*Translated from: Edit this video*/
+"Edit this video" = "Golygu'r fideo hwn";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Llun";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Fideo";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Eitem";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Lluniau";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Fideos";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Eitemau";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Golygu %@ Ffotograff";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Golygu %@ Fideo";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Golygu %@ Lluniau";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Golygu %@ Fideos";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Golygu %@ Eitemau";
+/*com.stells.batch.transform*/
+"Transform" = "Trawsnewid";
+/*com.stells.batch.photosfilter*/
+"Apply" = "Gwneud cais";
+/*com.stells.batch.revert*/
+"Revert" = "Dychwelyd";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Dechrau dychwelyd ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Dychwelyd Lluniau ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "Creu %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Dechrau creu PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Creu Tudalennau PDF ...";
