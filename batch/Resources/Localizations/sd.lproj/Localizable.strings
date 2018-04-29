@@ -1,0 +1,94 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "تصويرن جي رسائي معطل";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "مهرباني ڪري سيٽنگون کوليو ۽ توهان جي فوٽن تائين رسائي جي اجازت ڏيو";
+/*Translated from: Open Settings*/
+"Open Settings" = "سيٽنگون";
+/*Translated from: OK*/
+"OK" = "ٺيڪ آهي";
+/*Translated from: Done*/
+"Done" = "ٿي ويو";
+/*Translated from: Confirm*/
+"Confirm" = "تصديق ڪريو";
+/*Translated from: Cancel*/
+"Cancel" = "منسوخ ڪريو";
+/*Translated from: Detail*/
+"Detail" = "تفصيل";
+/*Translated from: Delete*/
+"Delete" = "ختم ڪريو";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "معاف ڪريو، ڪا غلطي ٿي آهي.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "تبديلي آڻيو %d ڦوٽو";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "تبديل ڪريو %d وڊيو (ن)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "تبديل ڪريو %d شيون";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "ڪچهري ايڊٽ ڪريو";
+/*Translated from: Edit*/
+"Edit" = "ترميم ڪريو";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "تبديلين کي رد ڪريو";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "شروعات جي شروعات ڪريو";
+/*Translated from: Processing...*/
+"Processing..." = "پروسيسنگ ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "رد ڪندي ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "تصويرون بچايو ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "تصويرون ختم ڪندي ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "تصويرون ڪڍڻ ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "هن تصوير چونڊيو";
+/*Translated from: Select this video*/
+"Select this video" = "هي وڊيو چونڊيو";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "ھن ڦوٽو کي چونڊيو";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "ھن وڊيو کي چونڊيو";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "هن تصوير ۾ تبديلي آڻيو";
+/*Translated from: Edit this video*/
+"Edit this video" = "ھن ويڊيو کي ايڊٽ ڪريو";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ فوٽو";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ وڊيو";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ شئي";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ تصويرون";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ وڊيوز";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ شيون";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "تبديلي آڻيو %@ فوٽو";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "تبديل ڪريو %@ وڊيو";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "ترميم ڪريو %@ تصويرون";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "تبديل ڪريو %@ وڊيوز";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "تبديل ڪريو %@ شيون";
+/*com.stells.batch.transform*/
+"Transform" = "منتقلي";
+/*com.stells.batch.photosfilter*/
+"Apply" = "درخواست ڏيو";
+/*com.stells.batch.revert*/
+"Revert" = "واپس آڻيو";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "واپس ڪرڻ شروع ڪرڻ ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "تصويرون ڪڍڻ ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "ٺاهيو %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "پي PDF ٺاھڻ شروع ڪيو ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "PDF صفحن ٺاهڻ واريون ...";

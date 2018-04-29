@@ -25,7 +25,7 @@ private struct PDFactoryPHAssetResult: TaskResultable{
     public var imageMetadata: [String: Any]?
 }
 
-public class PDFactory: BatchApp, FinalizableApp, PhotoPickerViewControllerDelegatableApp,
+public class PDFactory: BApp, FinalizableApp, PhotoPickerViewControllerDelegatableApp,
         PhotoPickerCollectionViewDisplayableApp , AppDockControllableApp{
 
     public static let taskType:Taskable.Type = _PDFactoryTask.self
@@ -92,7 +92,7 @@ public class PDFactory: BatchApp, FinalizableApp, PhotoPickerViewControllerDeleg
         }
 
         let defaults = PDFactory.defaults as! PDFactoryDefaults
-        let imagesPerPage = defaults.imagesPerPage
+//        let imagesPerPage = defaults.imagesPerPage
 
         do {
             let document = PDFDocument(layout: PDFactory.defaultsPDFLayout)

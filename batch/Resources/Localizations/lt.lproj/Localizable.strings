@@ -1,0 +1,94 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Nuotraukos prieiga neleidžiama";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Prašome atidaryti nustatymus ir leisti naudotis savo nuotraukomis";
+/*Translated from: Open Settings*/
+"Open Settings" = "Atidaryti nustatymus";
+/*Translated from: OK*/
+"OK" = "Gerai";
+/*Translated from: Done*/
+"Done" = "padaryta";
+/*Translated from: Confirm*/
+"Confirm" = "Patvirtinti";
+/*Translated from: Cancel*/
+"Cancel" = "Atšaukti";
+/*Translated from: Detail*/
+"Detail" = "Išsamiau";
+/*Translated from: Delete*/
+"Delete" = "Ištrinti";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Atsiprašome, kažkas nutiko.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Redaguoti %d nuotrauką (-as)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Redaguoti %d vaizdo įrašą (-us)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Redaguoti %d elementą (-us)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Batch Edit";
+/*Translated from: Edit*/
+"Edit" = "Redaguoti";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Atsisakyti pakeitimų";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Pradėti serijos redagavimą ...";
+/*Translated from: Processing...*/
+"Processing..." = "Apdorojimas...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Atšaukiamas ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Išsaugoti nuotraukas ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Nuotraukų ištrynimas ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Nuotraukos atstatymas ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Pasirinkite šią nuotrauką";
+/*Translated from: Select this video*/
+"Select this video" = "Pasirinkite šį vaizdo įrašą";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Panaikinkite šios nuotraukos pasirinkimą";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Atšaukti šį vaizdo įrašą";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Redaguoti šią nuotrauką";
+/*Translated from: Edit this video*/
+"Edit this video" = "Redaguoti šį vaizdo įrašą";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Nuotrauka";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Vaizdo įrašas";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Elementas";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Nuotraukos";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Vaizdo klipai";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Elementai";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Redaguoti %@ nuotrauką";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Redaguoti %@ vaizdo įrašą";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Redaguoti %@ nuotraukas";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Redaguoti %@ vaizdo įrašus";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Redaguoti %@ elementus";
+/*com.stells.batch.transform*/
+"Transform" = "Transformuoti";
+/*com.stells.batch.photosfilter*/
+"Apply" = "Taikyti";
+/*com.stells.batch.revert*/
+"Revert" = "Grąžinti";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Pradedant grįžti ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Nuotraukos atstatymas ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "Sukurti %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Pradedant kurti PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "PDF puslapių kūrimas ...";

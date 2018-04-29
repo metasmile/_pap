@@ -1,0 +1,94 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "ਫੋਟੋਆਂ ਅਸੈੱਸ ਅਯੋਗ";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "ਕਿਰਪਾ ਕਰਕੇ ਸੈਟਿੰਗਜ਼ ਖੋਲ੍ਹੋ ਅਤੇ ਆਪਣੀਆਂ ਫੋਟੋਆਂ ਤੱਕ ਪਹੁੰਚ ਦੀ ਆਗਿਆ ਦਿਓ";
+/*Translated from: Open Settings*/
+"Open Settings" = "ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ";
+/*Translated from: OK*/
+"OK" = "ਠੀਕ ਹੈ";
+/*Translated from: Done*/
+"Done" = "ਹੋ ਗਿਆ";
+/*Translated from: Confirm*/
+"Confirm" = "ਪੁਸ਼ਟੀ ਕਰੋ";
+/*Translated from: Cancel*/
+"Cancel" = "ਰੱਦ ਕਰੋ";
+/*Translated from: Detail*/
+"Detail" = "ਵੇਰਵੇ";
+/*Translated from: Delete*/
+"Delete" = "ਮਿਟਾਓ";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "ਮੁਆਫ ਕਰਨਾ, ਕੁਝ ਗਲਤ ਹੋ ਗਿਆ.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "%d ਫੋਟੋ ਸੰਪਾਦਿਤ ਕਰੋ";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "%d ਵੀਡੀਓਜ਼ ਸੰਪਾਦਿਤ ਕਰੋ";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "%d ਆਈਟਮਾਂ ਨੂੰ ਸੰਪਾਦਿਤ ਕਰੋ";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "ਬੈਚ ਸੋਧ";
+/*Translated from: Edit*/
+"Edit" = "ਸੰਪਾਦਿਤ ਕਰੋ";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "ਬਦਲਾਅ ਛੱਡੋ";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "ਬੈਚ ਸੰਪਾਦਨ ਸ਼ੁਰੂ ਕਰੋ ...";
+/*Translated from: Processing...*/
+"Processing..." = "ਪ੍ਰੋਸੈਸਿੰਗ ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "ਰੱਦ ਕਰ ਰਿਹਾ ਹੈ ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "ਫੋਟੋਆਂ ਨੂੰ ਸੁਰੱਖਿਅਤ ਕਰ ਰਿਹਾ ਹੈ ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "ਫੋਟੋਆਂ ਨੂੰ ਮਿਟਾ ਰਿਹਾ ਹੈ ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "ਫੋਟੋਆਂ ਵਾਪਸ ਲੈ ਰਿਹਾ ਹੈ ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "ਇਸ ਫੋਟੋ ਨੂੰ ਚੁਣੋ";
+/*Translated from: Select this video*/
+"Select this video" = "ਇਸ ਵੀਡੀਓ ਨੂੰ ਚੁਣੋ";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "ਇਸ ਫੋਟੋ ਦੀ ਚੋਣ ਰੱਦ ਕਰੋ";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "ਇਸ ਵੀਡੀਓ ਨੂੰ ਅਚੋਣਵਾਂ ਕਰੋ";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "ਇਸ ਫੋਟੋ ਨੂੰ ਸੰਪਾਦਿਤ ਕਰੋ";
+/*Translated from: Edit this video*/
+"Edit this video" = "ਇਸ ਵੀਡੀਓ ਨੂੰ ਸੰਪਾਦਿਤ ਕਰੋ";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ ਫੋਟੋ";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ ਵੀਡੀਓ";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ ਆਈਟਮ";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ ਫੋਟੋਆਂ";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ ਵੀਡੀਓਜ਼";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ ਆਈਟਮਾਂ";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "%@ ਫੋਟੋ ਸੰਪਾਦਿਤ ਕਰੋ";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "%@ ਵੀਡੀਓ ਸੰਪਾਦਿਤ ਕਰੋ";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "%@ ਫੋਟੋਜ਼ ਸੰਪਾਦਿਤ ਕਰੋ";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "%@ ਵੀਡੀਓਜ਼ ਸੰਪਾਦਿਤ ਕਰੋ";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "%@ ਆਈਟਮਾਂ ਸੰਪਾਦਿਤ ਕਰੋ";
+/*com.stells.batch.transform*/
+"Transform" = "ਬਦਲੋ";
+/*com.stells.batch.photosfilter*/
+"Apply" = "ਲਾਗੂ ਕਰੋ";
+/*com.stells.batch.revert*/
+"Revert" = "ਵਾਪਸ ਕਰੋ";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "ਵਾਪਸ ਲਿਆਉਣ ਲਈ ਸ਼ੁਰੂ ਕਰ ਰਿਹਾ ਹੈ ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "ਫੋਟੋਆਂ ਵਾਪਸ ਲੈ ਰਿਹਾ ਹੈ ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "%@ ਬਣਾਓ";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "PDF ਬਣਾਉਣ ਦੀ ਸ਼ੁਰੂਆਤ ਕਰ ਰਿਹਾ ਹੈ ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "PDF ਪੇਜ ਬਣਾ ਰਿਹਾ ਹੈ ...";

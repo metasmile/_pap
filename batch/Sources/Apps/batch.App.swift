@@ -5,4 +5,4 @@
 
 import Foundation
 
-protocol BatchApp: App, PersistableApp{}
+protocol BApp: App, PersistableApp{}

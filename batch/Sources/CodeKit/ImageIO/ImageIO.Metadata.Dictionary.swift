@@ -51,9 +51,11 @@ extension Dictionary{
 
         for (rootProperty, _) in gotMetadata {
             // purge for keys in specific collection
-            if let collection = properties, let colllection_p = collection[rootProperty]{
-                for p in colllection_p {
-                    purgedMetadata = purgedMetadata.purgeMetadata(dictionary:rootProperty, property: p)
+            if let collection = properties{
+                if let colllection_p = collection[rootProperty]{
+                    for p in colllection_p {
+                        purgedMetadata = purgedMetadata.purgeMetadata(dictionary:rootProperty, property: p)
+                    }
                 }
             }else{
                 // undefined specific collection -> purge all if possible

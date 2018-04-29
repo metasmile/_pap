@@ -1,0 +1,94 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Mga Access sa Larawan Hindi Pinagana";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Mangyaring buksan ang mga setting at payagan ang pag-access sa iyong mga larawan";
+/*Translated from: Open Settings*/
+"Open Settings" = "Buksan ang settings";
+/*Translated from: OK*/
+"OK" = "OK";
+/*Translated from: Done*/
+"Done" = "Tapos na";
+/*Translated from: Confirm*/
+"Confirm" = "Kumpirmahin";
+/*Translated from: Cancel*/
+"Cancel" = "Kanselahin";
+/*Translated from: Detail*/
+"Detail" = "Detalye";
+/*Translated from: Delete*/
+"Delete" = "Tanggalin";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Pasensya, mayroong kamalian.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "I-edit ang %d (mga) larawan";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "I-edit ang %d (mga) video";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "I-edit ang %d (mga) item";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Batch Edit";
+/*Translated from: Edit*/
+"Edit" = "I-edit";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Itapon ang Mga Pagbabago";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Magsimula ng Pag-edit ng Batch ...";
+/*Translated from: Processing...*/
+"Processing..." = "Pinoproseso ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Kinakansela ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Pag-save ng Mga Larawan ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Tinatanggal ang Mga Larawan ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Binabalik ang Mga Larawan ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Piliin ang larawang ito";
+/*Translated from: Select this video*/
+"Select this video" = "Piliin ang video na ito";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Tanggalin ang larawang ito";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Alisin sa pagkakapili ang video na ito";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "I-edit ang larawang ito";
+/*Translated from: Edit this video*/
+"Edit this video" = "I-edit ang video na ito";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Larawan";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Video";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Item";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Mga larawan";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Mga Video";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Mga Item";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "I-edit ang %@ Larawan";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "I-edit ang %@ Video";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "I-edit ang %@ Mga Larawan";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "I-edit ang %@ Mga Video";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "I-edit ang %@ Mga Item";
+/*com.stells.batch.transform*/
+"Transform" = "Transform";
+/*com.stells.batch.photosfilter*/
+"Apply" = "Mag-apply";
+/*com.stells.batch.revert*/
+"Revert" = "Ibalik";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Simula na bumalik ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Binabalik ang Mga Larawan ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "Lumikha ng %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Nagsisimula upang lumikha ng PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Paglikha ng Mga Pahina sa PDF ...";

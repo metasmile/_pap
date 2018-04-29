@@ -337,7 +337,7 @@ public class UITableViewPickerCell: UITableViewCell {
         }
 
         if animated{
-            UIView.transition(with: valueLabel, duration: 0.25, options: .transitionCrossDissolve, animations: { [unowned self] in
+            UIView.transition(with: valueLabel, duration: 0.25, options: .transitionCrossDissolve, animations: {
                 changeLabelColor()
             }, completion:completion)
         }else{

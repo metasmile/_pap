@@ -10,7 +10,7 @@ import UIKit
 
 class _AutoAdjustmentAppAsset: _PhotosFilterAppAsset {}
 
-public class AutoAdjustmentApp: NSObject, BatchApp, KeyPathWatchable, ConfigurableApp, _ConfigurableApp,
+public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _ConfigurableApp,
         AppDockControllableApp, PHAssetFinalizableApp, PhotoPickerCollectionViewDisplayableApp,
         PhotoPickerViewControllerDelegatableApp {
 

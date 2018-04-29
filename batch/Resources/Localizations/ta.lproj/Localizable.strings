@@ -1,0 +1,94 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "புகைப்படங்கள் அணுகல் முடக்கப்பட்டது";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "அமைப்புகளைத் திறந்து, உங்கள் புகைப்படங்களை அணுக அனுமதிக்கவும்";
+/*Translated from: Open Settings*/
+"Open Settings" = "திறந்த அமைப்புகள்";
+/*Translated from: OK*/
+"OK" = "சரி";
+/*Translated from: Done*/
+"Done" = "முடிந்தது";
+/*Translated from: Confirm*/
+"Confirm" = "உறுதிப்படுத்தவும்";
+/*Translated from: Cancel*/
+"Cancel" = "ரத்து";
+/*Translated from: Detail*/
+"Detail" = "விவரம்";
+/*Translated from: Delete*/
+"Delete" = "அழி";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "மன்னிக்கவும், ஏதோ தவறு ஏற்பட்டது.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "%d படத்தை (கள்) திருத்து";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "%d வீடியோ (கள்) ஐத் திருத்து";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "%d உருப்படி (கள்)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "தொகுதி திருத்து";
+/*Translated from: Edit*/
+"Edit" = "தொகு";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "மாற்றங்களை கைவிடலாம்";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "தொகுதி திருத்துதலை தொடங்கவும் ...";
+/*Translated from: Processing...*/
+"Processing..." = "செயலாக்கும் ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "ரத்து செய்கிறது ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "படங்களைச் சேமிக்கிறது ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "படங்களை நீக்குகிறது ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "படங்களை மாற்றியமைக்கிறது ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "இந்த புகைப்படத்தைத் தேர்ந்தெடுக்கவும்";
+/*Translated from: Select this video*/
+"Select this video" = "இந்த வீடியோவைத் தேர்ந்தெடுக்கவும்";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "இந்த புகைப்படத்தை தேர்வுநீக்கம் செய்யவும்";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "இந்த வீடியோவை தேர்வுநீக்கம் செய்யவும்";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "இந்த புகைப்படத்தை திருத்தவும்";
+/*Translated from: Edit this video*/
+"Edit this video" = "இந்த வீடியோவை திருத்தவும்";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ புகைப்படம்";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ வீடியோ";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ பொருள்";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ புகைப்படங்கள்";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ வீடியோக்கள்";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ பொருட்கள்";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "%@ படத்தை திருத்தவும்";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "%@ வீடியோவை திருத்து";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "%@ புகைப்படங்கள் திருத்தவும்";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "%@ வீடியோக்கள் திருத்தவும்";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "%@ உருப்படிகளை திருத்துக";
+/*com.stells.batch.transform*/
+"Transform" = "மாற்றும்";
+/*com.stells.batch.photosfilter*/
+"Apply" = "விண்ணப்பிக்கவும்";
+/*com.stells.batch.revert*/
+"Revert" = "மாற்றியமை";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "மாற்றியமைக்கத் தொடங்குகிறது ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "படங்களை மாற்றியமைக்கிறது ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "%@ உருவாக்கு";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "PDF ஐ உருவாக்கத் தொடங்குகிறது ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "PDF பக்கங்களை உருவாக்குகிறது ...";

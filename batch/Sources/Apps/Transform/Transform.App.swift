@@ -29,7 +29,7 @@ public class TransformAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrribu
     }
 }
 
-public class TransformApp: NSObject, BatchApp, KeyPathWatchable
+public class TransformApp: NSObject, BApp, KeyPathWatchable
         , ConfigurableApp, _ConfigurableApp, AppDockControllableApp, PHAssetFinalizableApp
         , PhotoPickerViewControllerDelegatableApp {
 

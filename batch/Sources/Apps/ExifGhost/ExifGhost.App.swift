@@ -7,28 +7,9 @@ import Foundation
 import Photos
 import ImageIO
 
-
-//TODO:
-/*
-use flow
-
-try
--> share vc
--> save or share
--> remove original? Image itself will be equal. Its quality has not affected.
--> yes -> remove
--> no -> modify
-
-
-data
-
-- OR operation for all metadata keys in selected photos
-- AND operation for handling with EXIFGhost
-*/
-
 private typealias ParamType = PHAssetItem<ImageEditStateValue>
 
-public class ExifGhost: BatchApp, PHAssetFinalizableApp, PhotoPickerViewControllerDelegatableApp,
+public class ExifGhost: BApp, PHAssetFinalizableApp, PhotoPickerViewControllerDelegatableApp,
         PhotoPickerCollectionViewDisplayableApp, AppDockControllableApp {
 
     public static let taskType:Taskable.Type = _ExifGhostTask.self
@@ -37,8 +18,8 @@ public class ExifGhost: BatchApp, PHAssetFinalizableApp, PhotoPickerViewControll
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.exifghost"
-            , version: "0.1"
-            , phase: .develop
+            , version: "1.0"
+            , phase: .beta
             , appType: ExifGhost.self
             , displayName: "EXIF Ghost"
             , icon: nil
@@ -51,11 +32,19 @@ public class ExifGhost: BatchApp, PHAssetFinalizableApp, PhotoPickerViewControll
     public required init() {}
 
     public var finalizingPresets: [PHAssetFinalizingPresets]? {
-        return [.share, .delete]
+        return [.share]
     }
 
     public func shouldSelect(item: PHAssetItem<ImageEditStateValue>) -> Bool {
         return item.asset.mediaType == .image
+    }
+
+    public var doneButtonTitle: String?{
+        return "Run Ghost"
+    }
+
+    public var titleWillBegin:String{
+        return "Purging selected properties...".localized
     }
 }
 
@@ -83,26 +72,26 @@ private class _ExifGhostTask: TaskPrototype, Taskable {
             assert(item?.input.fullSizeImageURL != nil, "item.input.fullSizeImageURL is nil")
             if let item = item, let url = item.input.fullSizeImageURL{
 
-                let data = try! Data(contentsOf: url)
-
-                if let metadata = data.getMetadata(){
+                if let data = try? Data(contentsOf: url)
+                , let metadata = data.getMetadata(){
 
                     var ghostedData:Data
-
                     if let appContentAsExifGhost = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.controller as? ExifGhostAppDockContent
-                       , let ghostedImageMetadataCollection = appContentAsExifGhost.ghostedImageMetadataCollection {
+                    , let ghostedImageMetadataCollection = appContentAsExifGhost.ghostedImageMetadataCollection {
 
                         ghostedData = data.purgeMetadata(with: metadata, for: ghostedImageMetadataCollection)
                     }else{
                         ghostedData = data.purgeMetadata(with: metadata, for: ImageMetadata.Collection.DefaultSensitivity)
                     }
 
-                    try! ghostedData.write(to: item.output.renderedContentURL, options: .atomic)
-
-                    result = PHAssetResultItem(asset:param.asset, contentEditingOutput:item.output)
+                    do{
+                        try ghostedData.write(to: item.output.renderedContentURL, options: .atomic)
+                        result = PHAssetResultItem(asset:param.asset, contentEditingOutput:item.output)
+                    }catch _ {}
                 }
 
             }
+
             async?.end()
         }
 

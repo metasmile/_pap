@@ -1,0 +1,94 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "د انځور لاسرسی معیوب";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "لطفا د پرانیستې پرانیستې او ستاسو عکسونو ته لاسرسی ته اجازه ورکړئ";
+/*Translated from: Open Settings*/
+"Open Settings" = "پرانیستې سایټونه";
+/*Translated from: OK*/
+"OK" = "سمه ده";
+/*Translated from: Done*/
+"Done" = "بشپړ شوی";
+/*Translated from: Confirm*/
+"Confirm" = "تایید کړئ";
+/*Translated from: Cancel*/
+"Cancel" = "لغوه کړه";
+/*Translated from: Detail*/
+"Detail" = "تفصیل";
+/*Translated from: Delete*/
+"Delete" = "ړنګول";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "بخښنه غواړئ، یو څه خراب شو.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "%d عکسونه";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "%d ویډیو";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "د %d توکي (توکي)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "بچ سمون";
+/*Translated from: Edit*/
+"Edit" = "سمون";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "بدلونونه رد کړئ";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "د بستې شروع کول ...";
+/*Translated from: Processing...*/
+"Processing..." = "پروسس کول ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "رد کول ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "انځورونه خوندي کول ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "انځورونه ړنګول ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "انځورونه بیرته راګرځول ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "دا عکس وټاکئ";
+/*Translated from: Select this video*/
+"Select this video" = "دا ویډیو وټاکئ";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "دا انځور غوره کړئ";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "دا ویډیو غوره کول";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "دا انځور سم کړه";
+/*Translated from: Edit this video*/
+"Edit this video" = "دا ویډیو";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ عکس";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ ویدیو";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ توکي";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ انځورونه";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ ویډیو";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ توکي";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "%@ عکس";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "%@ ویډیو";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "%@ انځورونه";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "%@ ویډیو";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "%@ توکي";
+/*com.stells.batch.transform*/
+"Transform" = "بدلون";
+/*com.stells.batch.photosfilter*/
+"Apply" = "تطبیق کړئ";
+/*com.stells.batch.revert*/
+"Revert" = "بيرته راوګرځئ";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "د بیرته راوستلو پیل ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "انځورونه بیرته راګرځول ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "جوړول %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "د پی ډی ایف جوړول پیلول ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "د پی ډی افونو جوړول ...";

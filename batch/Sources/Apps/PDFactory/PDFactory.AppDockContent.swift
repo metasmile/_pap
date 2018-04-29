@@ -114,7 +114,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             , SettingsItem(
                     key: .imageQuality
                     , label: "Image Quality"
-                    , valueGetter: { Int((self.defaults.imageQuality ?? 1) * 100) }
+                , valueGetter: { Int((self.defaults.imageQuality ) * 100) }
                     , valueCollection: nil
                     , valueHandler: {
                         self.defaults.imageQuality = (($0 as? Double) ?? 1)/100
@@ -134,7 +134,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             , SettingsItem(
                     key: .scaleMode
                     , label: "Scale To Fit"
-                    , valueGetter: { self.defaults.scaleMode ?? PDFactorySettings.ScaleMode.fitPage.rawValue}
+                    , valueGetter: { self.defaults.scaleMode }
                     , valueCollection: PDFactorySettings.ScaleMode.Labels
                     , valueHandler: {
                         self.defaults.scaleMode = PDFactorySettings.ScaleMode.Labels.valuesArray[$0 as? Int ?? 0]
@@ -204,9 +204,8 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
 
         if let cellDescriber = item.cellDescriber as? UITableViewPickerCellDescriber
             , let valueCollection = item.valueCollection as? [String]
-            , let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewPickerCell
-                ?? UITableViewPickerCell(type: .default, reuseIdentifier: cellDescriber.identifier) {
-
+            , let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewPickerCell{
+            
             cell.values = valueCollection
             cell.delegate = self
             if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
@@ -284,12 +283,6 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
         let cell = tableView.cellForRow(at: indexPath) ?? UITableViewCell()
         cell.textLabel?.text = item.label
         return cell
-    }
-
-    func createSelectedBackgroundView() -> UIView {
-        let view = UIView()
-        view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
-        return view
     }
 }
 

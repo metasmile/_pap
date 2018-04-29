@@ -1,0 +1,94 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Photos Access Behinderten";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Opgepasst a gefrote Moduler a kënnt Zougang zu Äre Fotoen";
+/*Translated from: Open Settings*/
+"Open Settings" = "Open Settings";
+/*Translated from: OK*/
+"OK" = "ok";
+/*Translated from: Done*/
+"Done" = "Gemaach";
+/*Translated from: Confirm*/
+"Confirm" = "Confirm";
+/*Translated from: Cancel*/
+"Cancel" = "Ofbriechen";
+/*Translated from: Detail*/
+"Detail" = "Detailer";
+/*Translated from: Delete*/
+"Delete" = "Läschen";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "T'eet näischt, eppes ass falsch.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Edit %d Foto (en)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Edit %d Video (en)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Edit %d item(s)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Batch Edit";
+/*Translated from: Edit*/
+"Edit" = "Editéieren";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Ännerunge verwerfen";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Start Batch Editing Start";
+/*Translated from: Processing...*/
+"Processing..." = "Veraarbechtung ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Ofbriechen ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Fotoen spueren ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Läschen Photosen ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "D 'Biller opmaachen ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Wielt dës Foto";
+/*Translated from: Select this video*/
+"Select this video" = "Wielt dës Video";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Wielt dës Säit";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Wëllt Dir dësen Video hunn";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Dës Foto änneren";
+/*Translated from: Edit this video*/
+"Edit this video" = "Bewäert dëst Video";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Photo";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Video";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Item";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Fotoen";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Videos";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Artikelen";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Edit %@ Photo";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Edit %@ Video";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Edit %@ Fotoen";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Edit %@ Videos";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Edit %@ Elementer";
+/*com.stells.batch.transform*/
+"Transform" = "Transforméieren";
+/*com.stells.batch.photosfilter*/
+"Apply" = "Uwenden";
+/*com.stells.batch.revert*/
+"Revert" = "Zréckgoen";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Ausgefouert ginn un ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "D 'Biller opmaachen ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "Create %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Ufro fir PDF ze kreéieren ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "PDF Säiten erstellen ...";

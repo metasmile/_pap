@@ -108,7 +108,7 @@ extension PHAssetFinalizableApp {
             DispatchQueue.global().async {
 
                 let activityItems = targetResultAssets.compactMap { (resultable: PHAssetResultable) -> Any? in
-                    return self.routeUIActivityItems(by:resultable.asset)
+                    return self.routeUIActivityShareItems(by:resultable)
                 }
 
                 DispatchQueue.main.async {
@@ -124,7 +124,7 @@ extension PHAssetFinalizableApp {
         }
     }
 
-    private func routeUIActivityItems(by asset:PHAsset) -> Any?{
+    private func routeUIActivityShareItems(by result:PHAssetResultable) -> Any?{
         /*
         case photo
         case video
@@ -157,9 +157,13 @@ extension PHAssetFinalizableApp {
         kUTTypeBMP
         kUTTypeICO
         */
-        switch (asset.mediaType){
+        switch (result.asset.mediaType){
             case .image:
-                return asset.asUIImage
+                if let imageUrl = result.contentEditingOutput?.renderedContentURL{
+                    return try? Data(contentsOf: imageUrl)
+                }
+
+                return result.asset.asUIImage
 
 //                let resources = PHAssetResource.assetResources(for: asset)
 //                if resources.count > 1{

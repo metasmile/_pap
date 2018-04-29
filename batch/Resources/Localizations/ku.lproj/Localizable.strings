@@ -1,0 +1,94 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Alîkariya Destûrbarên Wêne";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Ji kerema xwe pergalên vekirî û destûr bide wêneyên xwe";
+/*Translated from: Open Settings*/
+"Open Settings" = "Settings";
+/*Translated from: OK*/
+"OK" = "OK";
+/*Translated from: Done*/
+"Done" = "Done";
+/*Translated from: Confirm*/
+"Confirm" = "Tesdîqkirin";
+/*Translated from: Cancel*/
+"Cancel" = "Bişûndekirin";
+/*Translated from: Detail*/
+"Detail" = "Hûrî";
+/*Translated from: Delete*/
+"Delete" = "Jêbirin";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Xwezî, tiştek xerab bû.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Edit %d Wêne (s)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Guhertoya %d video (s)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Guhertina %d şîfre";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Edit Batch";
+/*Translated from: Edit*/
+"Edit" = "Weşandin";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Guhertin";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Guhertina Batch Destpêk ...";
+/*Translated from: Processing...*/
+"Processing..." = "Xebitandinî...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Cancer ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Wêneyên Saving ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Wêneyên jêbirin ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Wêne vekişîne ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Vê wêneyê hilbijêrin";
+/*Translated from: Select this video*/
+"Select this video" = "Vî vîdî hilbijêrin";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Vê wêneyê hilbijêre";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Vê vîdyoyê hilbijêre";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Ev wêneyê biguherîne";
+/*Translated from: Edit this video*/
+"Edit this video" = "Vîdyoyê biguherîne";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Wêne";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Video";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Mijar";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Wêne";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Videos";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Şîfre";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Edit %@ Wêne";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Guhertina %@ Video";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Guhertina %@ Wêne";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Guhertoya %@ Videos";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Edit %@ Şîfre";
+/*com.stells.batch.transform*/
+"Transform" = "Guhertin";
+/*com.stells.batch.photosfilter*/
+"Apply" = "Bikaranîn";
+/*com.stells.batch.revert*/
+"Revert" = "Şûndehatin";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Dest bi vekişînê ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Wêne vekişîne ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "Create %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Destpêkkirina PDFê PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Creating PDF Pages ...";

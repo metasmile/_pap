@@ -1,0 +1,94 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Լուսանկարներ մուտք գործելը անջատված է";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Խնդրում ենք բացել կարգավորումները եւ թույլատրել ձեր լուսանկարներին մուտք գործել";
+/*Translated from: Open Settings*/
+"Open Settings" = "Բաց կարգավորումները";
+/*Translated from: OK*/
+"OK" = "լավ";
+/*Translated from: Done*/
+"Done" = "Կատարած";
+/*Translated from: Confirm*/
+"Confirm" = "Հաստատեք";
+/*Translated from: Cancel*/
+"Cancel" = "Չեղարկել";
+/*Translated from: Detail*/
+"Detail" = "Մանրամասն";
+/*Translated from: Delete*/
+"Delete" = "Ջնջել";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Ներեցեք, սխալ է տեղի ունեցել:";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Խմբագրել %d լուսանկար (ներ)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Խմբագրել %d տեսանյութ (ներ)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Խմբագրել %d կետ (ներ)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Խմբաքանակի խմբագրում";
+/*Translated from: Edit*/
+"Edit" = "Խմբագրել";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Հրաժարվել փոփոխություններից";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Սկսեք խմբաքանակի խմբագրումը ...";
+/*Translated from: Processing...*/
+"Processing..." = "Գործընթացը ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Canceling ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Լուսանկարներ պահելը ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Լուսանկարները ջնջվում են ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Կրկին լուսանկարներ ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Ընտրեք այս լուսանկարը";
+/*Translated from: Select this video*/
+"Select this video" = "Ընտրեք այս տեսանյութը";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Հեռացնել այս լուսանկարը";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Հեռացնել այս տեսանյութը";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Խմբագրել այս լուսանկարը";
+/*Translated from: Edit this video*/
+"Edit this video" = "Խմբագրել այս տեսանյութը";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Լուսանկարը";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Տեսանյութ";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Կետ";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Լուսանկարներ";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Տեսանյութեր";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Նյութեր";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Խմբագրել %@ Լուսանկարը";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Խմբագրել %@ Տեսանյութը";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Խմբագրել %@ Լուսանկարներ";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "%@ Տեսանյութեր խմբագրել";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Խմբագրել %@ Նյութեր";
+/*com.stells.batch.transform*/
+"Transform" = "Փոխակերպել";
+/*com.stells.batch.photosfilter*/
+"Apply" = "Դիմել";
+/*com.stells.batch.revert*/
+"Revert" = "Վերադարձեք";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Վերադառնալու ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Կրկին լուսանկարներ ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "Ստեղծեք %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Սկսել է ստեղծել PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "PDF էջերի ստեղծում ...";
