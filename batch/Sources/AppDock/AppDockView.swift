@@ -579,18 +579,22 @@ extension AppDockView: UIScrollViewDelegate {
     func zoomOutAppCollectionView(delay: Double = 2.0) {
         guard (appCollectionView.collectionViewLayout as? AppCollectionViewLayout)?.layoutMetrics == .prominent else { return }
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) { [unowned self] in
-            guard !self.appCollectionView.isDragging else { return }
-            
-            let promptLayout = AppCollectionViewLayout()
-            promptLayout.layoutMetrics = .compact
-            
-            self.appCollectionViewHeightLayout.constant = AppCollectionViewLayout.LayoutConstants.compactHeight
-            UIView.animateAsSpring(0.5, delay: 0, animations: {
-                self.appCollectionView.superview?.layoutIfNeeded()
-                self.appCollectionView.setCollectionViewLayout(promptLayout, animated: false)
-            }, completion: nil)
+        let timerId = "app_dock_bar_magnifying_timer"
+        Timer.getScheduledTimer(identifier: timerId)?.invalidate()
+        Timer.scheduledTimer(identifier: timerId, withTimeInterval: delay, repeats: false) { timer in
+            self.showAppCollectionZoomOutAnimation()
         }
+    }
+    
+    private func showAppCollectionZoomOutAnimation() {
+        let promptLayout = AppCollectionViewLayout()
+        promptLayout.layoutMetrics = .compact
+        
+        self.appCollectionViewHeightLayout.constant = AppCollectionViewLayout.LayoutConstants.compactHeight
+        UIView.animateAsSpring(0.5, delay: 0, animations: {
+            self.appCollectionView.superview?.layoutIfNeeded()
+            self.appCollectionView.setCollectionViewLayout(promptLayout, animated: false)
+        }, completion: nil)
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
