@@ -93,9 +93,13 @@ public enum PHAssetImageType: Int {
 }
 
 extension PHAsset {
+    var uniformTypeIdentifier: String? {
+        return value(forKey: "uniformTypeIdentifier") as? String
+    }
+    
     var imageType: PHAssetImageType {
         guard mediaType == .image else { return .unknown }
-        if value(forKey: "uniformTypeIdentifier") as? String == kUTTypeGIF as String {
+        if uniformTypeIdentifier == kUTTypeGIF as String {
             return .animatedGIF
         }
         else if representsBurst {

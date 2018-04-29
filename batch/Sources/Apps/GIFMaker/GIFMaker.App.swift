@@ -17,9 +17,42 @@ class _GIFMakerAppAsset: PHAssetItem<ImageEditStateValue> {
     }
 }
 
-private struct GIFMakerPHAssetResult: TaskResultable{
+private struct GIFMakerCachedAsset {
     public var asset: PHAsset
     public var imageFileURL: URL
+    
+    static func cacheAsset(_ asset: PHAsset, image: UIImage, targetSize: CGSize, uti: String) -> GIFMakerCachedAsset {
+        let imageToWrite: UIImage
+        if targetSize == image.size {
+            imageToWrite = image
+        }
+        else {
+            imageToWrite = UIGraphicsImageRenderer(size: targetSize).image(actions: { (ctx) in
+                UIColor.white.setFill()
+                ctx.cgContext.fill(CGRect(origin: .zero, size: targetSize))
+                image.draw(at: CGPoint(x: (targetSize.width - image.size.width) / 2, y: (targetSize.height - image.size.height) / 2))
+            })
+        }
+        
+        let data: Data?
+        var fileExtension = "jpg"
+        switch uti as CFString {
+        case kUTTypePNG:
+            data = UIImagePNGRepresentation(imageToWrite)
+            fileExtension = "png"
+        default:
+            data = UIImageJPEGRepresentation(imageToWrite, 1)
+        }
+        
+        let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(GIFMaker.info.identifier)_\(UUID().uuidString).\(fileExtension)")
+        try? data?.write(to: url)
+        
+        return GIFMakerCachedAsset(asset: asset, imageFileURL: url)
+    }
+}
+
+private struct GIFMakerPHAssetResult: TaskResultable{
+    public var items: [GIFMakerCachedAsset]
 }
 
 //MARK: -
@@ -157,7 +190,7 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
     }
     
     public func shouldSelect(item: PHAssetItem<ImageEditStateValue>) -> Bool {
-        return item.asset.imageType == .stillImage
+        return item.asset.imageType == .stillImage || item.asset.imageType == .burst
         
 //        guard let firstItem = AppAssets.selected.at(unsafeIndex: 0) else { return true }
 //        return firstItem.asset.mediaType == item.asset.mediaType
@@ -165,7 +198,7 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
     
     public var numberOfItemsShouldSelect: Int? {
         guard let firstItem = AppAssets.selected.at(unsafeIndex: 0) else { return Int.max }
-        if firstItem.asset.mediaType == .video || firstItem.asset.imageType != .stillImage {
+        if firstItem.asset.mediaType == .video || firstItem.asset.imageType == .burst {
             return 1
         }
         else {
@@ -188,7 +221,9 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
         let resultItems = result
             .filter { respondable in respondable.info.state == .completed }
-            .compactMap { $0.result as? GIFMakerPHAssetResult }
+            .compactMap { ($0.result as? GIFMakerPHAssetResult)?.items }.reduce([], +)
+        
+        print(resultItems)
         
         let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(GIFMaker.info.identifier).gif")
         let frameDelay = Double((GIFMaker.defaults as! GIFMakerDefaults).frameDelay) / 1000.0
@@ -263,7 +298,7 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
         return try _perform(appAsset, async)
     }
     
-    private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable?) throws -> TaskResultable?  {
+    private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable?) throws -> GIFMakerPHAssetResult?  {
         var result: GIFMakerPHAssetResult?
         
         let targetSize = GIFMakerSettings.size.sizeWithAspectRatio()
@@ -277,35 +312,30 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
         else if assetItem.asset.imageType == .stillImage {
             let response = assetItem.asset.requestImage(targetSize: targetSize, contentMode: contentMode)
             
-            if let image = response.1, let res = PHAssetResource.assetResources(for: assetItem.asset).first {
-                let imageToWrite: UIImage
-                if targetSize == image.size {
-                    imageToWrite = image
-                }
-                else {
-                    imageToWrite = UIGraphicsImageRenderer(size: targetSize).image(actions: { (ctx) in
-                        UIColor.white.setFill()
-                        ctx.cgContext.fill(CGRect(origin: .zero, size: targetSize))
-                        image.draw(at: CGPoint(x: (targetSize.width - image.size.width) / 2, y: (targetSize.height - image.size.height) / 2))
-                    })
-                }
-                
-                let data: Data?
-                var fileExtension = "jpg"
-                switch res.uniformTypeIdentifier as CFString {
-                case kUTTypePNG:
-                    data = UIImagePNGRepresentation(imageToWrite)
-                    fileExtension = "png"
-                default:
-                    data = UIImageJPEGRepresentation(imageToWrite, 1)
-                }
-                
-                let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(GIFMaker.info.identifier)_\(uuid).\(fileExtension)")
-                try data?.write(to: url)
-                
-                result = GIFMakerPHAssetResult(asset: assetItem.asset, imageFileURL: url)
+            if let image = response.1, let uti = assetItem.asset.uniformTypeIdentifier {
+                result = GIFMakerPHAssetResult(items: [GIFMakerCachedAsset.cacheAsset(assetItem.asset, image: image, targetSize: targetSize, uti: uti)])
                 assetItem.requestIDs += [PHAssetRequestID(forImage:response.0)]
             }
+            
+            async?.end()
+        }
+        else if assetItem.asset.imageType == .burst {
+            var results = [GIFMakerCachedAsset]()
+            
+            let fetchOptions = PHFetchOptions()
+            fetchOptions.includeAllBurstAssets = true
+            
+            let fetchedAsset = PHAsset.fetchAssets(withBurstIdentifier: assetItem.asset.burstIdentifier ?? "", options: fetchOptions)
+            fetchedAsset.enumerateObjects { (asset, idx, stop) in
+                let response = asset.requestImage(targetSize: targetSize, contentMode: contentMode)
+                
+                if let image = response.1, let uti = assetItem.asset.uniformTypeIdentifier {
+                    results.append(GIFMakerCachedAsset.cacheAsset(assetItem.asset, image: image, targetSize: targetSize, uti: uti))
+                    assetItem.requestIDs += [PHAssetRequestID(forImage:response.0)]
+                }
+            }
+            
+            result = GIFMakerPHAssetResult(items: results)
             
             async?.end()
         }
