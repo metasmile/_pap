@@ -31,13 +31,24 @@ extension Data {
         return nil
     }
 
-    func setMetadata(with metadata:[String:Any]) -> Data{
+    func setMetadata(with metadata:[String:Any]?) -> Data{
 //        return self.asCIImage?.settingProperties(metadata).asData ?? self // new api since 10.0 but slow.
 
         let source = CGImageSourceCreateWithData(self as CFData, nil)!
         let imageData = CFDataCreateMutable(nil, 0)!
         let destination = CGImageDestinationCreateWithData(imageData, kUTTypeJPEG, 1, nil)!
-        CGImageDestinationAddImageFromSource(destination, source, 0, metadata as CFDictionary)
+        if let metadata = metadata{
+            CGImageDestinationAddImageFromSource(destination, source, 0, metadata as CFDictionary)
+
+        }else {
+            if let dict = self.getMetadata(){
+                var newDict = dict
+                for (k,v) in dict where ImageMetadata.isValueVoid(v) == false{
+                    newDict[k] = ImageMetadata.getVoidValue(v)
+                }
+                CGImageDestinationAddImageFromSource(destination, source, 0, newDict as CFDictionary)
+            }
+        }
         CGImageDestinationFinalize(destination)
         return imageData as Data
     }

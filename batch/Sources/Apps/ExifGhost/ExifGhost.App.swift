@@ -76,12 +76,15 @@ private class _ExifGhostTask: TaskPrototype, Taskable {
                 , let metadata = data.getMetadata(){
 
                     var ghostedData:Data
-                    if let appContentAsExifGhost = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.controller as? ExifGhostAppDockContent
-                    , let ghostedImageMetadataCollection = appContentAsExifGhost.ghostedImageMetadataCollection {
+                    if let appContentAsExifGhost = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.controller as? ExifGhostAppDockContent {
+                        if appContentAsExifGhost.shouldGhostAll{
+                            ghostedData = data.setMetadata(with: nil)
 
-                        ghostedData = data.purgeMetadata(with: metadata, for: ghostedImageMetadataCollection)
+                        }else{
+                            ghostedData = data.purgeMetadata(with: metadata, for: appContentAsExifGhost.ghostedImageMetadataCollection)
+                        }
                     }else{
-                        ghostedData = data.purgeMetadata(with: metadata, for: ImageMetadata.Collection.DefaultSensitivity)
+                        ghostedData = data.setMetadata(with: nil)
                     }
 
                     do{

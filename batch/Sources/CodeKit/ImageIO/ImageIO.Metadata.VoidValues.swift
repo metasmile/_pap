@@ -56,6 +56,8 @@ extension ImageMetadata{
 
             return VoidAnyString
         }
+
+        //NSArray
         if value is NSArray{
             let val = value as! NSArray
 
@@ -68,14 +70,25 @@ extension ImageMetadata{
 
             return NSArray()
         }
+
+        //NSDictionary
         if value is NSDictionary{
             let val = value as! NSDictionary
 
-            if let keys = val.allKeys as? [NSCopying]{
-                return NSDictionary(objects: val.allValues.compactMap { value -> Any? in
-                    return getVoidValue(value)
-                }, forKeys: keys)
+            let valuesDict = NSMutableDictionary()
+
+            let keys = val.allKeys.compactMap { k -> Any? in
+                if let value = val[k], let voidValue = getVoidValue(value){
+                    valuesDict[k] = voidValue
+                    return k
+                }
+                return nil
             }
+
+            if let keys = keys as? [NSCopying]{
+                return NSDictionary(objects: valuesDict.allValues, forKeys: keys)
+            }
+
             return [VoidAnyString:VoidAnyString]
         }
 

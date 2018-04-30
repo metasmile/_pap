@@ -126,12 +126,12 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         return preferences
     }
 
-    var ghostedImageMetadataCollection: ImageMetadataPropertyCollection?{
-        if defaults.selectionPreset == ExifGhostSettings.Presets.all.rawValue{
-            return nil
-        }
-
+    var ghostedImageMetadataCollection: ImageMetadataPropertyCollection{
         return defaults.ghostedImageMetadataCollection
+    }
+
+    var shouldGhostAll:Bool{
+        return defaults.selectionPreset == ExifGhostSettings.Presets.all.rawValue
     }
 
     fileprivate var defaults:ExifGhostAppDefaults = ExifGhost.defaults as! ExifGhostAppDefaults

@@ -55,9 +55,8 @@ public protocol StringSourceable:Sourceable {
 extension UIImage: ImageSourceable, DataSourceable, URLSourceable, PHAssetSourceable, StringSourceable {
     public var asUIImage:UIImage? { get { return self } }
     public var asData:Data? {
-        get {
-            return UIImagePNGRepresentation(self)
-        }
+        assert(false, "not implemented yet.")
+        return nil
     }
     public var asURL:URL? { get { return nil } }
     public var asURLOfFileNameInTemporaryDirectory:URL? { return nil }
