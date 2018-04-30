@@ -131,10 +131,10 @@ struct GIFMakerSettings {
             let size = (GIFMaker.defaults as! GIFMakerDefaults).size
             let aspectRatio = (GIFMaker.defaults as! GIFMakerDefaults).aspectRatio
             if aspectRatio < 1 {
-                return CGSize(width: Int(size), height: Int(size * aspectRatio))
+                return CGSize(width: Int(size * aspectRatio), height: Int(size))
             }
             else {
-                return CGSize(width: Int(size * aspectRatio), height: Int(size))
+                return CGSize(width: Int(size), height: Int(size / aspectRatio))
             }
         }
     }
