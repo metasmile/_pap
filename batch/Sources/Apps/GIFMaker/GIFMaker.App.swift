@@ -87,45 +87,67 @@ extension Defaults: GIFMakerDefaults {
 }
 
 struct GIFMakerSettings {
-    enum aspectRatio {
-        static let labels: [String: Double] = [
-            "Square": 1.0,
-            "4:3": 3.0 / 4.0,
-            "16:9": 9.0 / 16.0,
-            "3:4": 4.0 / 3.0,
-            "9:16": 16.0 / 9.0
+    struct aspectRatio {
+        struct keys {
+            static let square = "Square"
+            static let w4h3 = "4:3"
+            static let w16h9 = "16:9"
+            static let w3h4 = "3:4"
+            static let w9h16 = "9:16"
+        }
+        
+        static let values: [String: Double] = [
+            keys.square: 1.0,
+            keys.w3h4: 3.0 / 4.0,
+            keys.w9h16: 9.0 / 16.0,
+            keys.w4h3: 4.0 / 3.0,
+            keys.w16h9: 16.0 / 9.0
         ]
         
         static let orderedKeys: [String] = [
-            "Square",
-            "4:3",
-            "16:9",
-            "3:4",
-            "9:16"
+            keys.w9h16,
+            keys.w3h4,
+            keys.square,
+            keys.w4h3,
+            keys.w16h9
         ]
+        
+        static func value(_ key: String) -> Double {
+            return values[key] ?? 1.0
+        }
     }
     
-    enum contentMode {
+    struct contentMode {
         static let fit = PHImageContentMode.aspectFit.rawValue
         static let fill = PHImageContentMode.aspectFill.rawValue
-        static let labels: [String: Int] = [
+        static let values: [String: Int] = [
             "Crop": contentMode.fill,
             "No Crop": contentMode.fit
         ]
     }
     
-    enum size {
-        static let labels: [String: Double] = [
-            "Large": 1920,
-            "Medium": 1280,
-            "Small": 640
+    struct size {
+        struct keys {
+            static let large = "Large"
+            static let medium = "Medium"
+            static let small = "Small"
+        }
+        
+        static let values: [String: Double] = [
+            keys.large: 1920,
+            keys.medium: 1280,
+            keys.small: 640
         ]
         
         static let orderedKeys: [String] = [
-            "Large",
-            "Medium",
-            "Small"
+            keys.small,
+            keys.medium,
+            keys.large
         ]
+        
+        static func value(_ key: String) -> Double {
+            return values[key] ?? 1280
+        }
         
         static func sizeWithAspectRatio() -> CGSize {
             let size = (GIFMaker.defaults as! GIFMakerDefaults).size
@@ -390,7 +412,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             SettingsItem(
                 key: .size
                 , label: "Size"
-                , valueGetter: { GIFMakerSettings.size.labels.first(where: { $0.value == self.defaults.size })?.key ?? GIFMakerSettings.size.orderedKeys[0] }
+                , valueGetter: { GIFMakerSettings.size.values.first(where: { $0.value == self.defaults.size })?.key ?? GIFMakerSettings.size.keys.medium }
                 , valueCollection: GIFMakerSettings.size.orderedKeys
                 , valueHandler: nil
                 , cellDescriber: UITableViewPickerCellDescriber()
@@ -399,7 +421,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             , SettingsItem(
                 key: .aspectRatio
                 , label: "Aspect Ratio"
-                , valueGetter: { GIFMakerSettings.aspectRatio.labels.first(where: { $0.value == self.defaults.aspectRatio })?.key ?? GIFMakerSettings.aspectRatio.orderedKeys[0] }
+                , valueGetter: { GIFMakerSettings.aspectRatio.values.first(where: { $0.value == self.defaults.aspectRatio })?.key ?? GIFMakerSettings.aspectRatio.keys.square }
                 , valueCollection: GIFMakerSettings.aspectRatio.orderedKeys
                 , valueHandler: nil
                 , cellDescriber: UITableViewPickerCellDescriber()
@@ -409,8 +431,8 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
                 key: .contentMode
                 , label: "Crop to Fit"
                 , valueGetter: { self.defaults.contentMode }
-                , valueCollection: GIFMakerSettings.contentMode.labels
-                , valueHandler: { self.defaults.contentMode = GIFMakerSettings.contentMode.labels.valuesArray[$0 as? Int ?? 0] }
+                , valueCollection: GIFMakerSettings.contentMode.values
+                , valueHandler: { self.defaults.contentMode = GIFMakerSettings.contentMode.values.valuesArray[$0 as? Int ?? 0] }
                 , cellDescriber: UITableViewSegmentControlCellDescriber()
                 , iconImageName: nil
             )
@@ -611,13 +633,13 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         var needsToUpdateSizeCell = false
         
         if setting.key == .aspectRatio {
-            defaults.aspectRatio = GIFMakerSettings.aspectRatio.labels[cell.values[row]] ?? 1
+            defaults.aspectRatio = GIFMakerSettings.aspectRatio.values[cell.values[row]] ?? GIFMakerSettings.aspectRatio.value(GIFMakerSettings.aspectRatio.keys.square)
             
             needsToUpdateSizeCell = true
             
         }
         else if setting.key == .size {
-            defaults.size = GIFMakerSettings.size.labels[cell.values[row]] ?? 640
+            defaults.size = GIFMakerSettings.size.values[cell.values[row]] ?? GIFMakerSettings.size.value(GIFMakerSettings.size.keys.medium)
             
             needsToUpdateSizeCell = true
         }
