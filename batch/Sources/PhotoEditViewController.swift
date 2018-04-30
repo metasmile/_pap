@@ -76,11 +76,9 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         layoutAssetView()
         
         if let asset = asset {
-            assetView.setAsset(asset, completion: { (result) in
+            assetView.setAsset(asset, completion: {
                 self.assetView.applyEditState(self.preferredEditState)
-                if result is AVPlayerItem {
-                    self.assetView.playVideoWithLooping()
-                }
+                self.assetView.playVideoWithLooping()
             })
         }
     }

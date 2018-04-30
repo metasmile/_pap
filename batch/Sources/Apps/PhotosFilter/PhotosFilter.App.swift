@@ -82,7 +82,7 @@ public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp,
     }
 
     public func shouldSelect(item: PHAssetItem<ImageEditStateValue>) -> Bool {
-        return (item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive)) || item.asset.mediaType == .video
+        return item.asset.imageType == .stillImage || item.asset.mediaType == .video
     }
     
     public var finalizingPresets: [PHAssetFinalizingPresets]? {

@@ -31,7 +31,7 @@ public class TransformAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrribu
 
 public class TransformApp: NSObject, BApp, KeyPathWatchable
         , ConfigurableApp, _ConfigurableApp, AppDockControllableApp, PHAssetFinalizableApp
-        , PhotoPickerViewControllerDelegatableApp {
+        , PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp {
 
     public static let taskType:Taskable.Type = _TransfromAppTask.self
 
@@ -70,6 +70,10 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
 
     public var finalizingPresets: [PHAssetFinalizingPresets]? {
         return [.modify]
+    }
+    
+    public func shouldSelect(item: PHAssetItem<ImageEditStateValue>) -> Bool {
+        return item.asset.imageType != .animatedGIF && item.asset.imageType != .burst
     }
 }
 

@@ -70,7 +70,7 @@ public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableAp
     }
     
     public func shouldSelect(item: PHAssetItem<ImageEditStateValue>) -> Bool {
-        return (item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive))
+        return item.asset.imageType == .stillImage
     }
     
     public var finalizingPresets: [PHAssetFinalizingPresets]? {

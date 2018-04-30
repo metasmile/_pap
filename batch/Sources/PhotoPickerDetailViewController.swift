@@ -39,7 +39,7 @@ class PhotoPickerDetailViewController: UIViewController {
             assetView.center = CGPoint(x: actualContentSize.width / 2, y: actualContentSize.height / 2)
             
             assetView.preferredTransform = preferredTransform
-            assetView.setAsset(asset, completion: { result in
+            assetView.setAsset(asset, completion: {
                 self.assetView.applyEditState(self.assetItem?.editState)
             })
             assetView.playAny()

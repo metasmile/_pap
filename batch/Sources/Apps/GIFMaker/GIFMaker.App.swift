@@ -593,8 +593,8 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
                     
                     let attrString = NSAttributedString(string: "\(i + 1)", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
                     let stringSize = attrString.size()
-                    let centerPoint = CGPoint(x: max(0, (renderBounds.width - stringSize.width) / 2), y: max(0, (renderBounds.height - stringSize.height) / 2))
-                    attrString.draw(in: CGRect(origin: centerPoint, size: renderBounds.size))
+                    
+                    attrString.draw(at: CGPoint(x: max(0, (renderBounds.width - stringSize.width) / 2), y: max(0, (renderBounds.height - stringSize.height) / 2)))
                 })
             }
             

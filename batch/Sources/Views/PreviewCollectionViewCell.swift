@@ -51,7 +51,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         layoutIfNeeded()
         assetView.setAsset(asset, cancelDrawingIfNeeded: { [weak self] in
             return self?.indexPath != indexPath
-        }, completion: { [weak self] result in
+        }, completion: { [weak self] in
             self?.setImageEditItem(item.editState)
         })
     }
