@@ -11,6 +11,8 @@ import Photos
 import NSGIF2
 import DefaultsKit
 
+//INFO: feature reference: https://ezgif.com
+
 class _GIFMakerAppAsset: PHAssetItem<ImageEditStateValue> {
     func cancelProcessing() {
         
@@ -196,8 +198,8 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
     
     public static let info = AppInfo(
         identifier: "com.stells.batch.gifmaker"
-        , version: "0.1"
-        , phase: .beta
+        , version: "1.0"
+        , phase: .release
         , appType: GIFMaker.self
         , displayName: "GIF Maker"
         , icon: R.image.photosFilterAppIcon.name
@@ -445,13 +447,13 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
                     self.defaults.frameDelay = Int($0 as? Double ?? 300)
                     self.updateFrameDelayPreview()
                 }
-                , cellDescriber: UITableViewStepperCellDescriber(cellClass: UITableViewStepperCell.self, minimumValue: 100, maximumValue: 3000, stepValue: 100, transformValueLabel:{ value in
+                , cellDescriber: UITableViewStepperCellDescriber(cellClass: UITableViewStepperCell.self, minimumValue: 50, maximumValue: 3000, stepValue: 50, transformValueLabel:{ value in
                     var label:String?
                     if let val = value as? Double {
-                        label = String(format: "%.01f", val / 1000)
+                        label = String(format: "%.02f", val / 1000)
                     }
                     else if let val = value as? Int {
-                        label = String(format: "%.01f", Double(val) / 1000)
+                        label = String(format: "%.02f", Double(val) / 1000)
                     }
                     return (label ?? "-")+"s"
                 })
@@ -599,26 +601,37 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         let indexPath = IndexPath(row: row, section: 0)
         let cell = (view as! UITableView).cellForRow(at: indexPath)
         
-        let frames = 10
+        let frames = 8
         
         if let image = cell?.imageView?.image, let images = image.images {
             cell?.imageView?.image = UIImage.animatedImage(with: images, duration: Double(frames * self.defaults.frameDelay) / 1000)
         }
         else {
-            let renderBounds = CGRect(x: 0, y: 0, width: 20, height: 20)
-            
-            var images = [UIImage]()
-            for i in 0..<frames {
-                images.append(UIGraphicsImageRenderer(bounds: renderBounds).image { (ctx) in
-                    ctx.cgContext.setFillColor(view.tintColor.cgColor)
-                    ctx.cgContext.fill(renderBounds)
-                    
-                    let attrString = NSAttributedString(string: "\(i + 1)", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-                    let stringSize = attrString.size()
-                    
-                    attrString.draw(at: CGPoint(x: max(0, (renderBounds.width - stringSize.width) / 2), y: max(0, (renderBounds.height - stringSize.height) / 2)))
-                })
-            }
+            let images = [
+                R.image.exifmaker_preview_frame_0()!,
+                R.image.exifmaker_preview_frame_1()!,
+                R.image.exifmaker_preview_frame_2()!,
+                R.image.exifmaker_preview_frame_3()!,
+                R.image.exifmaker_preview_frame_4()!,
+                R.image.exifmaker_preview_frame_5()!,
+                R.image.exifmaker_preview_frame_6()!,
+                R.image.exifmaker_preview_frame_7()!
+            ]
+
+//            let renderBounds = CGRect(x: 0, y: 0, width: 40, height: 40)
+//            for i in 0..<frames {
+//                R.image.exifmaker_preview_frame_0()
+//
+//                images.append(UIGraphicsImageRenderer(bounds: renderBounds).image { (ctx) in
+//                    ctx.cgContext.setFillColor(view.tintColor.cgColor)
+//                    ctx.cgContext.fill(renderBounds)
+//
+//                    let attrString = NSAttributedString(string: "\(i + 1)", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//                    let stringSize = attrString.size()
+//
+//                    attrString.draw(at: CGPoint(x: max(0, (renderBounds.width - stringSize.width) / 2), y: max(0, (renderBounds.height - stringSize.height) / 2)))
+//                })
+//            }
             
             cell?.imageView?.image = UIImage.animatedImage(with: images, duration: Double(frames * self.defaults.frameDelay) / 1000)
         }

@@ -5,10 +5,6 @@
 
 import Foundation
 
-public func ValueAnyType<T>(_ value:T) -> T.Type{
-    return T.self
-}
-
 public func isEqualAny<T: Equatable>(type: T.Type, value1: Any, value2: Any) -> Bool {
     guard let a = value1 as? T, let b = value2 as? T else {
         return false

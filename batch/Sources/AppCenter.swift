@@ -52,6 +52,10 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
         }
 
         var config = AppManagerConfig()
+        //TODO: append/remove dynamically
+        //TODO: Reorder via icon DnD
+        //TODO: batchOS essential/settings app (it cannot be removed)
+
         config.appCollection = [
             TransformApp.self
             , PhotosFilterApp.self
