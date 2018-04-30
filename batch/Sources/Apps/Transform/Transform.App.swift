@@ -73,7 +73,7 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
     }
     
     public func shouldSelect(item: PHAssetItem<ImageEditStateValue>) -> Bool {
-        return item.asset.imageType != .animatedGIF && item.asset.imageType != .burst
+        return item.asset.imageType != .animatedGIF
     }
 }
 
