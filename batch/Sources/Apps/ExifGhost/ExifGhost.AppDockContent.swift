@@ -121,12 +121,16 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
-        preferences.minimumHeight = (self.view as! UITableView).rowHeight * 5
+        preferences.minimumHeight = 300
         preferences.pinned = false
         return preferences
     }
 
     var ghostedImageMetadataCollection: ImageMetadataPropertyCollection?{
+        if defaults.selectionPreset == ExifGhostSettings.Presets.all.rawValue{
+            return nil
+        }
+
         return defaults.ghostedImageMetadataCollection
     }
 
@@ -173,24 +177,18 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
             )
         ]
 
-        if let view = view as? UITableView{
+        if let tableView = view as? UITableView{
 
-            view.dataSource = self
-            view.delegate = self
-            view.rowHeight = 44
-            view.allowsSelection = false
-            view.allowsMultipleSelection = false
-            view.register(Cell.self, forCellReuseIdentifier: ExifGhost.info.identifier)
+            tableView.dataSource = self
+            tableView.delegate = self
+            tableView.rowHeight = 44
+            tableView.allowsSelection = false
+            tableView.allowsMultipleSelection = false
+            tableView.register(Cell.self, forCellReuseIdentifier: ExifGhost.info.identifier)
 
             for setting in settings{
-                view.register(describer: setting.cellDescriber)
+                tableView.register(describer: setting.cellDescriber)
             }
-
-            let headerView = UITableViewHeaderFooterView()
-//            headerView.textLabel?.text = "Original quality of all the image files will be remained purely. Please turn on properties you want to purge them."
-            headerView.textLabel?.text = "Please turn on properties you want to purge them."
-            view.tableHeaderView = headerView
-//            view.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: String(describing: UITableViewHeaderFooterView.self))
         }
     }
 
@@ -245,10 +243,6 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     }
 
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-
-        if section == 0, let tableHeaderView = tableView.tableHeaderView as? UITableViewHeaderFooterView {
-            tableHeaderView.textLabel?.textAlignment = .center
-        }
     }
 
     func tableView(_ tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int) {
@@ -260,11 +254,19 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return section == 0
+                ? 70
+                : 40
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 0 ? nil : metadataCollection[section-1].label
+        return section == 0
+                ? "Turn on properties you want to purge. Original quality of each image files will be remained purely."
+                : metadataCollection[section-1].label
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
