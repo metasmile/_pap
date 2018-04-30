@@ -115,7 +115,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
                 })
     ]
 
-    private var initialSelectedIndexPaths:[IndexPath]? = [IndexPath]()
+    private var initialSelectedIndexPaths:[IndexPath]?
 
     lazy var view: UIView = UITableView(frame: .zero, style: .grouped)
 
@@ -139,9 +139,9 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
                     key: .presets
                     , label: "Select For"
                     , valueGetter: { self.defaults.selectionPreset }
-                    , valueCollection: ["All":ExifGhostSettings.Presets.all.rawValue, "Privacy":ExifGhostSettings.Presets.privacy.rawValue, "Custom":ExifGhostSettings.Presets.custom.rawValue]
+                    , valueCollection: [(label:"All",value:ExifGhostSettings.Presets.all.rawValue), (label:"Privacy",value:ExifGhostSettings.Presets.privacy.rawValue), (label:"Custom", value:ExifGhostSettings.Presets.custom.rawValue)]
                     , valueHandler: {
-                            let preset = $0 as? Int ?? 0
+                            let preset = $0 as! Int
                             self.defaults.selectionPreset = preset
 
                             (view as? UITableView)?.performBatchUpdates({
@@ -152,12 +152,18 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
                                         }
                                     }
                                 }else if preset == ExifGhostSettings.Presets.privacy.rawValue{
+                                    for m in self.metadataCollection{
+                                        for i in m.items{
+                                            self.defaults.removeHandledProperty(m.key, i.key)
+                                        }
+                                    }
                                     for m in ImageMetadata.Collection.DefaultSensitivity{
                                         for i in m.value{
                                             self.defaults.addHandledProperty(m.key, i)
                                         }
                                     }
                                 }
+
                                 (view as? UITableView)?.reloadData()
                             }, completion:nil)
                     }
@@ -198,7 +204,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
                 dict.items = dict.items.sorted { item0, item1 in
                     if let i0 = handledItems.index(of:item0.key){
                         if let i1 = handledItems.index(of:item1.key){
-                            return i0 > i1
+                            return i0 < i1
                         }
                         return true
                     }
@@ -227,11 +233,14 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
 
         //init initialSelectedIndexPaths
+        initialSelectedIndexPaths = [IndexPath]()
         for indexPaths in sections{
             initialSelectedIndexPaths?.append(contentsOf: indexPaths)
         }
 
         (view as! UITableView).reloadData()
+
+        initialSelectedIndexPaths = nil
     }
 
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -326,7 +335,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         }
 
         else if let cellDescriber = item.cellDescriber as? UITableViewSegmentControlCellDescriber
-        , let valueCollection = item.valueCollection as? [String:Int]
+        , let valueCollection = item.valueCollection as? [(String,Int)]
         , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewSegmentedControlCell{
 
             cell.textLabel?.text = item.label
@@ -334,13 +343,14 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
             cell.segmentedControl.removeAllSegments()
 
-            let keys = valueCollection.keysArray
-
-            for k in keys{
-                cell.segmentedControl.insertSegment(withTitle: k, at: cell.segmentedControl.numberOfSegments, animated: false)
+            for (label, _) in valueCollection{
+                cell.segmentedControl.insertSegment(withTitle: label, at: cell.segmentedControl.numberOfSegments, animated: false)
             }
 
-            cell.segmentedControl.selectedSegmentIndex = keys.map{ valueCollection[$0] }.index(of: (item.valueGetter() as! Int)) ?? 0
+            cell.segmentedControl.selectedSegmentIndex = valueCollection.index { t in
+                t.1 == (item.valueGetter() as! Int)
+            } ?? 0
+
             cell.didChangeValue = item.valueHandler
             return cell
         }
@@ -373,10 +383,6 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
                 self.defaults.addHandledProperty(dict.key, dict.items[indexPath.item].key)
             }else{
                 self.defaults.removeHandledProperty(dict.key, dict.items[indexPath.item].key)
-            }
-
-            if self.initialSelectedIndexPaths != nil{
-                self.initialSelectedIndexPaths = nil
             }
 
             tableView.reloadRows(at: [indexPath], with: .fade)

@@ -86,9 +86,9 @@ open class UITableViewSegmentedControlCell: UITableViewCell {
     override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
 
-        segmentedControl.addTarget(self, action: #selector(self.valueDidChange), for: .valueChanged)
-
         accessoryView = segmentedControl
+
+        segmentedControl.addTarget(self, action: #selector(self.valueDidChange), for: .valueChanged)
 
         self.detailTextLabel?.textColor = UIColor.gray
     }
@@ -102,6 +102,7 @@ open class UITableViewSegmentedControlCell: UITableViewCell {
     }
 
     @objc func valueDidChange(sender: UISegmentedControl) {
+        print(sender.selectedSegmentIndex)
         didChangeValue?(sender.selectedSegmentIndex)
     }
 }
