@@ -10,6 +10,7 @@ target 'batch' do
   pod 'R.swift'
   pod 'DefaultsKit', :git => "https://github.com/metasmile/DefaultsKit" #TODO: consider get DefaultKit into CodeKit
   pod 'NSGIF2'
+  pod 'SwiftyGif'
   # pod 'SwipeCellKit'
 
   target 'batchTests' do

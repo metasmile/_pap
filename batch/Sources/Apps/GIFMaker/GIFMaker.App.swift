@@ -419,7 +419,10 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
                 , label: "Frame Delay"
                 , valueGetter: { self.defaults.frameDelay }
                 , valueCollection: nil
-                , valueHandler: { self.defaults.frameDelay = Int($0 as? Double ?? 300) }
+                , valueHandler: {
+                    self.defaults.frameDelay = Int($0 as? Double ?? 300)
+                    self.updateFrameDelayPreview()
+                }
                 , cellDescriber: UITableViewStepperCellDescriber(cellClass: UITableViewStepperCell.self, minimumValue: 100, maximumValue: 3000, stepValue: 100, transformValueLabel:{ value in
                     var label:String?
                     if let val = value as? Double {
@@ -455,6 +458,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
         (view as! UITableView).reloadData()
+        updateFrameDelayPreview()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -482,9 +486,11 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         tableView.deselectRow(at: indexPath, animated: true)
         
         if let cell = tableView.cellForRow(at: indexPath) as? UITableViewPickerCell {
-            if cell.isExpanded{
+            if cell.isExpanded {
                 cell.contract(tableView)
             } else{
+                tableView.contractAllVisiblePickerCells()
+                
                 appDock?.expandDockIfNeeded(reloadContents: nil)
                 DispatchQueue.main.async{
                     cell.expand(tableView)
@@ -557,11 +563,45 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
                 cell.detailTextLabel?.text = cellDescriber.transformValueLabel?(value) ?? String(value)
                 item.valueHandler?(value)
             }
+            
+            updateFrameDelayPreview()
             return cell
         }
         else {
             return UITableViewCell()
         }
+    }
+    
+    private func updateFrameDelayPreview() {
+        guard let row = settings.index(where: { $0.key == .frameDelay }) else { return }
+        let indexPath = IndexPath(row: row, section: 0)
+        let cell = (view as! UITableView).cellForRow(at: indexPath)
+        
+        let frames = 10
+        
+        if let image = cell?.imageView?.image, let images = image.images {
+            cell?.imageView?.image = UIImage.animatedImage(with: images, duration: Double(frames * self.defaults.frameDelay) / 1000)
+        }
+        else {
+            let renderBounds = CGRect(x: 0, y: 0, width: 20, height: 20)
+            
+            var images = [UIImage]()
+            for i in 0..<frames {
+                images.append(UIGraphicsImageRenderer(bounds: renderBounds).image { (ctx) in
+                    ctx.cgContext.setFillColor(view.tintColor.cgColor)
+                    ctx.cgContext.fill(renderBounds)
+                    
+                    let attrString = NSAttributedString(string: "\(i + 1)", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+                    let stringSize = attrString.size()
+                    let centerPoint = CGPoint(x: max(0, (renderBounds.width - stringSize.width) / 2), y: max(0, (renderBounds.height - stringSize.height) / 2))
+                    attrString.draw(in: CGRect(origin: centerPoint, size: renderBounds.size))
+                })
+            }
+            
+            cell?.imageView?.image = UIImage.animatedImage(with: images, duration: Double(frames * self.defaults.frameDelay) / 1000)
+        }
+        cell?.imageView?.startAnimating()
+        cell?.setNeedsLayout()
     }
     
     func pickerCell(_ cell: UITableViewPickerCell, didPick row: Int, value: Any) {

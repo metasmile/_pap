@@ -28,6 +28,7 @@ PODS:
     - R.swift.Library (~> 4.0.0)
   - R.swift.Library (4.0.0)
   - SwiftLint (0.25.1)
+  - SwiftyGif (4.1.0)
   - TPPDF (1.0.2):
     - SwiftLint
 
@@ -38,6 +39,7 @@ DEPENDENCIES:
   - Firebase/Core
   - NSGIF2
   - R.swift
+  - SwiftyGif
   - TPPDF
 
 SPEC REPOS:
@@ -54,6 +56,7 @@ SPEC REPOS:
     - R.swift
     - R.swift.Library
     - SwiftLint
+    - SwiftyGif
     - TPPDF
 
 EXTERNAL SOURCES:
@@ -79,8 +82,9 @@ SPEC CHECKSUMS:
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
   SwiftLint: ce933681be10c3266e82576dad676fa815a602e9
+  SwiftyGif: d36c6dfb52e2ca1e48fe349d225f50ec4123ec85
   TPPDF: 27bc0c390d6f88a8345613fefbe91a3de650f618
 
-PODFILE CHECKSUM: fc37107557c70e45c1449f5af6419904d8c141bc
+PODFILE CHECKSUM: 636f25cc4c749858c41bc6b304b451a5c166e64c
 
 COCOAPODS: 1.5.0
