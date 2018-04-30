@@ -21,7 +21,10 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
 
             let vc = PhotoPickerDetailViewController()
             vc.assetItem = item
-            setActions(with: item, at: indexPath, to: vc)
+            
+            if self.collectionView(photoCollectionView, shouldSelectItemAt: indexPath) {
+                setActions(with: item, at: indexPath, to: vc)
+            }
 
             previewingContext.sourceRect = cell.frame
             return vc
@@ -42,7 +45,10 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
 
             let vc = PhotoPickerDetailViewController()
             vc.assetItem = item
-            setActions(with: item, at: selectedIndexPath, to: vc)
+            
+            if self.collectionView(photoCollectionView, shouldSelectItemAt: indexPath) {
+                setActions(with: item, at: selectedIndexPath, to: vc)
+            }
 
             previewingContext.sourceRect = batchPreviewView.collectionView.convert(cell.frame, to: batchPreviewView)
             return vc
@@ -52,8 +58,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
     }
 
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        guard let vc = viewControllerToCommit as? PhotoPickerDetailViewController, let item = vc.assetItem else {
-            assert(false, "what case?")
+        guard let vc = viewControllerToCommit as? PhotoPickerDetailViewController, let item = vc.assetItem, let indexPath = PHAssets.fetched.indexPath(of: item.asset), self.collectionView(photoCollectionView, shouldSelectItemAt: indexPath) else {
             return
         }
 
