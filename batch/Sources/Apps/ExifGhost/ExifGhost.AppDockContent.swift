@@ -142,6 +142,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
                     , valueCollection: [(label:"All",value:ExifGhostSettings.Presets.all.rawValue), (label:"Privacy",value:ExifGhostSettings.Presets.privacy.rawValue), (label:"Custom", value:ExifGhostSettings.Presets.custom.rawValue)]
                     , valueHandler: {
                             let preset = $0 as! Int
+
                             self.defaults.selectionPreset = preset
 
                             (view as? UITableView)?.performBatchUpdates({
@@ -386,6 +387,15 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
             }
 
             tableView.reloadRows(at: [indexPath], with: .fade)
+
+            let selectedPreset = self.defaults.selectionPreset
+
+            if selectedPreset == ExifGhostSettings.Presets.all.rawValue || selectedPreset == ExifGhostSettings.Presets.privacy.rawValue{
+                self.defaults.selectionPreset = ExifGhostSettings.Presets.custom.rawValue
+
+                tableView.reloadSections(IndexSet(integer: 0), with: .none)
+            }
+
         }
         return cell
     }
