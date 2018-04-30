@@ -505,7 +505,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         }
         return tableView.rowHeight
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
@@ -587,8 +587,9 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
                 cell.detailTextLabel?.text = cellDescriber.transformValueLabel?(value) ?? String(value)
                 item.valueHandler?(value)
             }
+
+            updateFrameDelayPreview(cell:cell)
             
-            updateFrameDelayPreview()
             return cell
         }
         else {
@@ -596,18 +597,18 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         }
     }
     
-    private func updateFrameDelayPreview() {
+    private func updateFrameDelayPreview(cell:UITableViewStepperCell?=nil) {
         guard let row = settings.index(where: { $0.key == .frameDelay }) else { return }
         let indexPath = IndexPath(row: row, section: 0)
-        let cell = (view as! UITableView).cellForRow(at: indexPath)
+        let cell = cell ?? (view as! UITableView).cellForRow(at: indexPath)
         
         let frames = 8
-        
-        if let image = cell?.imageView?.image, let images = image.images {
-            cell?.imageView?.image = UIImage.animatedImage(with: images, duration: Double(frames * self.defaults.frameDelay) / 1000)
-        }
-        else {
-            let images = [
+
+        let durationNeeded = TimeInterval(frames * self.defaults.frameDelay) / 1000
+
+        if let imageView = cell?.imageView, imageView.image?.duration != durationNeeded {
+
+            let images = [ // already cached by main bundle.
                 R.image.exifmaker_preview_frame_0()!,
                 R.image.exifmaker_preview_frame_1()!,
                 R.image.exifmaker_preview_frame_2()!,
@@ -617,24 +618,10 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
                 R.image.exifmaker_preview_frame_6()!,
                 R.image.exifmaker_preview_frame_7()!
             ]
-
-//            let renderBounds = CGRect(x: 0, y: 0, width: 40, height: 40)
-//            for i in 0..<frames {
-//                R.image.exifmaker_preview_frame_0()
-//
-//                images.append(UIGraphicsImageRenderer(bounds: renderBounds).image { (ctx) in
-//                    ctx.cgContext.setFillColor(view.tintColor.cgColor)
-//                    ctx.cgContext.fill(renderBounds)
-//
-//                    let attrString = NSAttributedString(string: "\(i + 1)", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//                    let stringSize = attrString.size()
-//
-//                    attrString.draw(at: CGPoint(x: max(0, (renderBounds.width - stringSize.width) / 2), y: max(0, (renderBounds.height - stringSize.height) / 2)))
-//                })
-//            }
-            
-            cell?.imageView?.image = UIImage.animatedImage(with: images, duration: Double(frames * self.defaults.frameDelay) / 1000)
+            assert(images.count == frames)
+            imageView.image = UIImage.animatedImage(with: images, duration: durationNeeded)
         }
+
         cell?.imageView?.startAnimating()
         cell?.setNeedsLayout()
     }
