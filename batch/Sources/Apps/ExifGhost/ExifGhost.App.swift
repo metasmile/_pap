@@ -19,7 +19,7 @@ public class ExifGhost: BApp, PHAssetFinalizableApp, PhotoPickerViewControllerDe
     public static let info = AppInfo(
             identifier: "com.stells.batch.exifghost"
             , version: "1.0"
-            , phase: .beta
+            , phase: .release
             , appType: ExifGhost.self
             , displayName: "EXIF Ghost"
             , icon: nil
@@ -40,10 +40,10 @@ public class ExifGhost: BApp, PHAssetFinalizableApp, PhotoPickerViewControllerDe
     }
 
     public var doneButtonTitle: String?{
-        return "Run Ghost"
+        return "Purge"
     }
 
-    public var titleWillBegin:String{
+    public var titleWillBegin:String? {
         return "Purging selected properties...".localized
     }
 }

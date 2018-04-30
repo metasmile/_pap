@@ -16,6 +16,7 @@ private struct ExifGhostSettings{
 
     enum Keys {
         case presets
+        case delete
     }
 }
 
@@ -32,6 +33,7 @@ private struct SettingsItem {
 private protocol ExifGhostAppDefaults: AppDefaults{
     var ghostedImageMetadataCollection: ImageMetadataPropertyCollection {get set}
     var selectionPreset: Int {get set}
+    var removeOriginal: Bool {get set}
 }
 
 extension Defaults: ExifGhostAppDefaults {
@@ -43,6 +45,11 @@ extension Defaults: ExifGhostAppDefaults {
     fileprivate var selectionPreset: Int {
         set{ set(newValue) }
         get{ return get(or: ExifGhostSettings.Presets.privacy.rawValue ) }
+    }
+
+    fileprivate var removeOriginal: Bool {
+        set{ set(newValue) }
+        get{ return get(or: false ) }
     }
 }
 
@@ -141,7 +148,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         settings = [
             SettingsItem(
                     key: .presets
-                    , label: "Select For"
+                    , label: "Selection Presets".localized
                     , valueGetter: { self.defaults.selectionPreset }
                     , valueCollection: [(label:"All",value:ExifGhostSettings.Presets.all.rawValue), (label:"Privacy",value:ExifGhostSettings.Presets.privacy.rawValue), (label:"Custom", value:ExifGhostSettings.Presets.custom.rawValue)]
                     , valueHandler: {
@@ -175,6 +182,15 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
                     , cellDescriber: UITableViewSegmentControlCellDescriber()
                     , iconImageName: nil
             )
+//            , SettingsItem(
+//                    key: .delete
+//                    , label: "Remove Originals After Save"
+//                    , valueGetter: { false }
+//                    , valueCollection: nil
+//                    , valueHandler: nil
+//                    , cellDescriber: UITableViewSwitchCellDescriber()
+//                    , iconImageName: nil
+//            )
         ]
 
         if let tableView = view as? UITableView{
@@ -250,7 +266,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return settings.count + metadataCollection.count
+        return 1 + metadataCollection.count
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -265,7 +281,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return section == 0
-                ? "Turn on properties you want to purge. Original quality of each image files will be remained purely."
+                ? "Turn on each items you want to purge. The quality of each images will be perfectly remained the same."
                 : metadataCollection[section-1].label
     }
 
@@ -377,7 +393,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
         let cell = tableView.dequeueReusableCell(withIdentifier: ExifGhost.info.identifier) as! Cell
         cell.textLabel?.text = dict.items[indexPath.item].label
-        cell.detailTextLabel?.text = selected ? "will be ghosted" : nil
+        cell.detailTextLabel?.text = selected ? "will be purged" : nil
 //        cell.imageView?.image = selected ? R.image.pdFactoryAppIcon() : nil //selected ? UIImageView(image: R.image.pdFactoryAppIcon()) : nil
         cell.detailTextLabel?.textColor = UIColor.gray
         cell.optionSwitch.setOn(selected, animated: false)
