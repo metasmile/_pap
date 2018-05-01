@@ -256,10 +256,10 @@ private extension UIImage {
             break
         }
 
-        return UIGraphicsImageRenderer(size: rotatedSize, format: imageRendererFormat).image { (ctx) in
+        return UIGraphicsImageRenderer(size: rotatedSize, format: imageRendererFormat).imageWithCurrentContext { (cgContext) in
             guard let cgImage = self.cgImage else { return }
-            ctx.cgContext.concatenate(transform)
-            ctx.cgContext.draw(cgImage, in: CGRect(origin: .zero, size: rotatedSize))
-        }
+            cgContext.concatenate(transform)
+            cgContext.draw(cgImage, in: CGRect(origin: .zero, size: rotatedSize))
+        } ?? self
     }
 }

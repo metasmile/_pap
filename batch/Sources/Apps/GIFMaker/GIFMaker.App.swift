@@ -29,14 +29,14 @@ private struct GIFMakerCachedAsset {
             imageToWrite = image
         }
         else {
-            imageToWrite = UIGraphicsImageRenderer(size: targetSize).image(actions: { (ctx) in
+            imageToWrite = UIGraphicsImageRenderer(size: targetSize, format: image.imageRendererFormat).imageWithCurrentContext { (cgContext) in
                 UIColor.white.setFill()
-                ctx.cgContext.fill(CGRect(origin: .zero, size: targetSize))
+                cgContext.fill(CGRect(origin: .zero, size: targetSize))
                 image.draw(at: CGPoint(x: (targetSize.width - image.size.width) / 2, y: (targetSize.height - image.size.height) / 2))
-            })
+            } ?? image
         }
         
-        let data: Data?
+        var data: Data?
         var fileExtension = "jpg"
         switch uti as CFString {
         case kUTTypePNG:
@@ -246,8 +246,6 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
         let resultItems = result
             .filter { respondable in respondable.info.state == .completed }
             .compactMap { ($0.result as? GIFMakerPHAssetResult)?.items }.reduce([], +)
-        
-        print(resultItems)
         
         let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(GIFMaker.info.identifier).gif")
         let frameDelay = Double((GIFMaker.defaults as! GIFMakerDefaults).frameDelay) / 1000.0
