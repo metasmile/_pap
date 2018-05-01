@@ -428,6 +428,8 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         cell0.valueHandler = { value in
             if let key = value as? String, let sizeValue = GIFMakerSettings.size.values[key]{
                 self.defaults.size = sizeValue
+
+                (self.view as? UITableView)?.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
             }
         }
         cellDescribers.append(cell0)
@@ -569,7 +571,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
                 cell.textLabel?.text = item.label
             }
 
-            cell.valueLabel.text = cellDescriber.presentableValue
+            cell.valueLabelText = cellDescriber.presentableValue
             cell.imageView?.image = cellDescriber.iconImage?.asUIImage
             cell.detailTextLabel?.textColor = UIColor.gray
 

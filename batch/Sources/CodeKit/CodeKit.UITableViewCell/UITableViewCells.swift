@@ -38,7 +38,15 @@ open class UITableViewSwitchCell: UITableViewCell {
 }
 
 open class UITableViewSimpleValueCell: UITableViewCell {
-    private(set) lazy var valueLabel: UILabel = {
+    var valueLabelText: String?{
+        didSet {
+            valueLabel.text = valueLabelText
+            valueLabel.sizeToFit()
+            self.layoutIfNeeded()
+        }
+    }
+
+    private var valueLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.darkText
         return label
@@ -90,9 +98,7 @@ open class UITableViewActionSheetCell: UITableViewSimpleValueCell {
                 alert.addAction(UIAlertAction(title: l, style: . default, handler: { action in
                     if let title = action.title{
                         self.valueSelected?(action, self.valueLabels?.index(of: title))
-
-                        self.valueLabel.text = title
-                        self.valueLabel.sizeToFit()
+                        self.valueLabelText = title
                     }
                 }))
             }
@@ -103,6 +109,11 @@ open class UITableViewActionSheetCell: UITableViewSimpleValueCell {
         UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true) {
             self.actionSheetPresented?(alert)
         }
+    }
+
+    override open func layoutSubviews() {
+        super.layoutSubviews()
+        valueLabelText = valueLabelText
     }
 }
 
