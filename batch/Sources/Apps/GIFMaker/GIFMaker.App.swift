@@ -376,17 +376,9 @@ private struct SettingsItem {
     enum Keys {
         case contentMode
         case aspectRatio
-        case frameDelay
         case size
+        case frameDelay
     }
-    
-    fileprivate var key: Keys
-    fileprivate var label:String
-    fileprivate var valueGetter:() -> Any
-    fileprivate var valueCollection:Any?
-    fileprivate var valueHandler:((Any) -> ())?
-    fileprivate var cellDescriber: UITableViewDescribable //INFO: it will integrate all properties later
-    fileprivate var iconImageName:String?
 }
 
 class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDockDelegate,
@@ -394,7 +386,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
 
     private var defaults = GIFMaker.defaults as! GIFMakerDefaults
     
-    private var settings = [SettingsItem]()
+    private var cellDescribers = [UITableViewCellDefaultDescribable]()
     
     lazy var view: UIView = UITableView()
     
@@ -409,67 +401,81 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     
     func willSetContentView(_ view: UIView, dock: AppDock) {
         appDock = dock
-        
-        settings = [
-            SettingsItem(
-                key: .size
-                , label: "Size"
-                , valueGetter: { GIFMakerSettings.size.values.first(where: { $0.value == self.defaults.size })?.key ?? GIFMakerSettings.size.keys.medium }
-                , valueCollection: GIFMakerSettings.size.orderedKeys
-                , valueHandler: nil
-                , cellDescriber: UITableViewPickerCellDescriber()
-                , iconImageName: nil
-            )
-            , SettingsItem(
-                key: .aspectRatio
-                , label: "Aspect Ratio"
-                , valueGetter: { GIFMakerSettings.aspectRatio.values.first(where: { $0.value == self.defaults.aspectRatio })?.key ?? GIFMakerSettings.aspectRatio.keys.square }
-                , valueCollection: GIFMakerSettings.aspectRatio.orderedKeys
-                , valueHandler: nil
-                , cellDescriber: UITableViewPickerCellDescriber()
-                , iconImageName: nil
-                )
-            , SettingsItem(
-                key: .contentMode
-                , label: "Crop to Fit"
-                , valueGetter: { self.defaults.contentMode }
-                , valueCollection: GIFMakerSettings.contentMode.values
-                , valueHandler: { self.defaults.contentMode = GIFMakerSettings.contentMode.values.valuesArray[$0 as? Int ?? 0] }
-                , cellDescriber: UITableViewSegmentControlCellDescriber()
-                , iconImageName: nil
-            )
-            , SettingsItem(
-                key: .frameDelay
-                , label: "Frame Delay"
-                , valueGetter: { self.defaults.frameDelay }
-                , valueCollection: nil
-                , valueHandler: {
-                    self.defaults.frameDelay = Int($0 as? Double ?? 300)
-                    self.updateFrameDelayPreview()
+
+        if cellDescribers.count==0{
+            cellDescribers = createCellDescribers()
+
+            if let view = view as? UITableView{
+                view.dataSource = self
+                view.delegate = self
+                view.rowHeight = 44
+
+                for item in cellDescribers {
+                    view.register(describer: item)
                 }
-                , cellDescriber: UITableViewStepperCellDescriber(cellClass: UITableViewStepperCell.self, minimumValue: 50, maximumValue: 3000, stepValue: 50, transformValueLabel:{ value in
-                    var label:String?
-                    if let val = value as? Double {
-                        label = String(format: "%.02f", val / 1000)
-                    }
-                    else if let val = value as? Int {
-                        label = String(format: "%.02f", Double(val) / 1000)
-                    }
-                    return (label ?? "-")+"s"
-                })
-                , iconImageName: nil
-            )
-        ]
-
-        if let view = view as? UITableView{
-            view.dataSource = self
-            view.delegate = self
-            view.rowHeight = 44
-
-            for item in settings{
-                view.register(describer: item.cellDescriber)
             }
         }
+    }
+
+    private func createCellDescribers() -> [UITableViewCellDefaultDescribable] {
+        var cellDescribers = [UITableViewCellDefaultDescribable]()
+
+        let cell0 = UITableViewPickerCellDescriber()
+        cell0.localIdentifier = SettingsItem.Keys.size.hashValue
+        cell0.label = "Size"
+        cell0.valueGetter =  {
+            GIFMakerSettings.size.values.first(where: { $0.value == self.defaults.size })?.key
+                    ?? GIFMakerSettings.size.keys.medium
+        }
+        cell0.valueCollection = GIFMakerSettings.size.orderedKeys
+        cellDescribers.append(cell0)
+
+        let cell1 = UITableViewPickerCellDescriber()
+        cell1.localIdentifier = SettingsItem.Keys.aspectRatio.hashValue
+        cell1.label = "Aspect Ratio"
+        cell1.valueGetter =  {
+            GIFMakerSettings.aspectRatio.values.first(where: { $0.value == self.defaults.aspectRatio })?.key
+                    ?? GIFMakerSettings.aspectRatio.keys.square
+        }
+        cell1.valueCollection = GIFMakerSettings.aspectRatio.orderedKeys
+        cellDescribers.append(cell1)
+
+
+        let cell2 = UITableViewSegmentControlCellDescriber()
+        cell2.localIdentifier = SettingsItem.Keys.contentMode.hashValue
+        cell2.label = "Crop to Fit"
+        cell2.valueGetter = { self.defaults.contentMode }
+        cell2.valueCollection = GIFMakerSettings.contentMode.values
+        cell2.valueHandler = {
+            self.defaults.contentMode = GIFMakerSettings.contentMode.values.valuesArray[$0 as? Int ?? 0]
+        }
+        cellDescribers.append(cell2)
+
+
+        let cell3 =  UITableViewStepperCellDescriber()
+        cell3.label = "Frame Delay"
+        cell3.localIdentifier = SettingsItem.Keys.frameDelay.hashValue
+        cell3.valueGetter = { self.defaults.frameDelay }
+        cell3.valueHandler = {
+            self.defaults.frameDelay = Int($0 as? Double ?? 300)
+            self.updateFrameDelayPreview()
+        }
+        cell3.minimumValue = 50
+        cell3.maximumValue = 3000
+        cell3.stepValue = 50
+        cell3.transformValueLabel = { value in
+            var label:String?
+            if let val = value as? Double {
+                label = String(format: "%.02f", val / 1000)
+            }
+            else if let val = value as? Int {
+                label = String(format: "%.02f", Double(val) / 1000)
+            }
+            return (label ?? "-")+"s"
+        }
+        cellDescribers.append(cell3)
+
+        return cellDescribers
     }
 
     var delegate: AppDockDelegate? {
@@ -494,7 +500,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settings.count
+        return cellDescribers.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -524,21 +530,21 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = self.settings[indexPath.item]
+        let item = self.cellDescribers[indexPath.item]
 
-        if let cellDescriber = item.cellDescriber as? UITableViewPickerCellDescriber
+        if let cellDescriber = item as? UITableViewPickerCellDescriber
             , let valueCollection = item.valueCollection as? [String]
-            , let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewPickerCell {
+            , let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewPickerCell {
 
             cell.values = valueCollection
             cell.delegate = self
-            if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
+            if let value = item.valueGetter?() as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
                 cell.selectedRow = index
             } else{
                 cell.selectedRow = 0
             }
             
-            if item.key == .size {
+            if item.localIdentifier == SettingsItem.Keys.size.hashValue {
                 let size = GIFMakerSettings.size.sizeWithAspectRatio()
                 cell.titleLabel.text = "Size (\(Int(size.width)) x \(Int(size.height)))"
             }
@@ -547,12 +553,12 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             }
             return cell
         }
-        else if let cellDescriber = item.cellDescriber as? UITableViewSegmentControlCellDescriber
+        else if let cellDescriber = item as? UITableViewSegmentControlCellDescriber
             , let valueCollection = item.valueCollection as? [String:Int]
-            , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewSegmentedControlCell {
+            , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewSegmentedControlCell {
 
             cell.textLabel?.text = item.label
-            cell.imageView?.image = item.iconImageName?.asUIImage
+            cell.imageView?.image = item.iconImage?.asUIImage
             cell.detailTextLabel?.textColor = UIColor.gray
             
             cell.segmentedControl.removeAllSegments()
@@ -560,17 +566,17 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
                 cell.segmentedControl.insertSegment(withTitle: k.key, at: cell.segmentedControl.numberOfSegments, animated: false)
             }
             
-            cell.segmentedControl.selectedSegmentIndex = valueCollection.valuesArray.index(of: item.valueGetter() as? Int ?? GIFMakerSettings.contentMode.fill) ?? 0
+            cell.segmentedControl.selectedSegmentIndex = valueCollection.valuesArray.index(of: item.valueGetter?() as? Int ?? GIFMakerSettings.contentMode.fill) ?? 0
             cell.didChangeValue = item.valueHandler
             return cell
         }
-        else if let cellDescriber = item.cellDescriber as? UITableViewStepperCellDescriber
-            , let value = item.valueGetter() as? Int
-            , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewStepperCell {
+        else if let cellDescriber = item as? UITableViewStepperCellDescriber
+            , let value = item.valueGetter?() as? Int
+            , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewStepperCell {
             
             cell.textLabel?.text = item.label
             cell.detailTextLabel?.text = cellDescriber.transformValueLabel?(value) ?? String(value)
-            cell.imageView?.image = item.iconImageName?.asUIImage
+            cell.imageView?.image = item.iconImage?.asUIImage
             
             cell.stepper.stepValue = cellDescriber.stepValue
             cell.stepper.minimumValue = cellDescriber.minimumValue
@@ -598,7 +604,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     }
     
     private func updateFrameDelayPreview(cell:UITableViewStepperCell?=nil) {
-        guard let row = settings.index(where: { $0.key == .frameDelay }) else { return }
+        guard let row = cellDescribers.index(where: { $0.localIdentifier == SettingsItem.Keys.frameDelay.hashValue }) else { return }
         let indexPath = IndexPath(row: row, section: 0)
         let cell = cell ?? (view as! UITableView).cellForRow(at: indexPath)
         
@@ -628,23 +634,23 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     
     func pickerCell(_ cell: UITableViewPickerCell, didPick row: Int, value: Any) {
         guard let indexPath = (view as! UITableView).indexPath(for: cell) else { return }
-        let setting = settings[indexPath.row]
+        let setting = cellDescribers[indexPath.row]
         
         var needsToUpdateSizeCell = false
-        
-        if setting.key == .aspectRatio {
+
+        if setting.localIdentifier == SettingsItem.Keys.aspectRatio.hashValue {
             defaults.aspectRatio = GIFMakerSettings.aspectRatio.values[cell.values[row]] ?? GIFMakerSettings.aspectRatio.value(GIFMakerSettings.aspectRatio.keys.square)
             
             needsToUpdateSizeCell = true
             
         }
-        else if setting.key == .size {
+        else if setting.localIdentifier == SettingsItem.Keys.size.hashValue {
             defaults.size = GIFMakerSettings.size.values[cell.values[row]] ?? GIFMakerSettings.size.value(GIFMakerSettings.size.keys.medium)
             
             needsToUpdateSizeCell = true
         }
         
-        if needsToUpdateSizeCell, let rowOfSizeSetting = settings.index(where: { $0.key == .size }) {
+        if needsToUpdateSizeCell, let rowOfSizeSetting = cellDescribers.index(where: { $0.localIdentifier == SettingsItem.Keys.size.hashValue }) {
             let sizeCell = (view as! UITableView).cellForRow(at: IndexPath(row: rowOfSizeSetting, section: 0)) as? UITableViewPickerCell
             
             let size = GIFMakerSettings.size.sizeWithAspectRatio()

@@ -26,7 +26,7 @@ private struct SettingsItem {
     fileprivate var valueGetter:() -> Any
     fileprivate var valueCollection:Any?
     fileprivate var valueHandler:((Any) -> ())?
-    fileprivate var cellDescriber: UITableViewDescribable //TODO: integrate all properties
+    fileprivate var cellDescriber: UITableViewCellDescribable //TODO: integrate all properties
     fileprivate var iconImageName:String?
 }
 
@@ -103,7 +103,7 @@ private struct MetadataDictionary{
 }
 
 class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
-    fileprivate var settings = [SettingsItem]()
+    fileprivate var cellDescribers = [UITableViewCellDefaultDescribable]()
 
     private var metadataCollection:[MetadataDictionary] = [
         MetadataDictionary(key:ImageMetadata.Dictionary.GPS, label: "GPS",
@@ -145,56 +145,50 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
     func willSetContentView(_ view: UIView, dock: AppDock) {
 
-        settings = [
-            SettingsItem(
-                    key: .presets
-                    , label: "Selection Presets".localized
-                    , valueGetter: { self.defaults.selectionPreset }
-                    , valueCollection: [(label:"All",value:ExifGhostSettings.Presets.all.rawValue), (label:"Privacy",value:ExifGhostSettings.Presets.privacy.rawValue), (label:"Custom", value:ExifGhostSettings.Presets.custom.rawValue)]
-                    , valueHandler: {
-                            let preset = $0 as! Int
+        if cellDescribers.count>0{
+            return
+        }
 
-                            self.defaults.selectionPreset = preset
-
-                            (view as? UITableView)?.performBatchUpdates({
-                                if preset == ExifGhostSettings.Presets.all.rawValue{
-                                    for m in self.metadataCollection{
-                                        for i in m.items{
-                                            self.defaults.addHandledProperty(m.key, i.key)
-                                        }
-                                    }
-                                }else if preset == ExifGhostSettings.Presets.privacy.rawValue{
-                                    for m in self.metadataCollection{
-                                        for i in m.items{
-                                            self.defaults.removeHandledProperty(m.key, i.key)
-                                        }
-                                    }
-                                    for m in ImageMetadata.Collection.DefaultSensitivity{
-                                        for i in m.value{
-                                            self.defaults.addHandledProperty(m.key, i)
-                                        }
-                                    }
-                                }
-
-                                (view as? UITableView)?.reloadData()
-                            }, completion:nil)
-                    }
-                    , cellDescriber: UITableViewSegmentControlCellDescriber()
-                    , iconImageName: nil
-            )
-//            , SettingsItem(
-//                    key: .delete
-//                    , label: "Remove Originals After Save"
-//                    , valueGetter: { false }
-//                    , valueCollection: nil
-//                    , valueHandler: nil
-//                    , cellDescriber: UITableViewSwitchCellDescriber()
-//                    , iconImageName: nil
-//            )
+        let cell0 = UITableViewSegmentControlCellDescriber()
+        cell0.localIdentifier = ExifGhostSettings.Keys.presets.hashValue
+        cell0.label = "Selection Presets".localized
+        cell0.valueGetter = { self.defaults.selectionPreset }
+        cell0.valueCollection = [
+            (label:"All",value:ExifGhostSettings.Presets.all.rawValue),
+            (label:"Privacy",value:ExifGhostSettings.Presets.privacy.rawValue),
+            (label:"Custom", value:ExifGhostSettings.Presets.custom.rawValue)
         ]
+        cell0.valueHandler = {
+            let preset = $0 as! Int
+
+            self.defaults.selectionPreset = preset
+
+            (view as? UITableView)?.performBatchUpdates({
+                if preset == ExifGhostSettings.Presets.all.rawValue{
+                    for m in self.metadataCollection{
+                        for i in m.items{
+                            self.defaults.addHandledProperty(m.key, i.key)
+                        }
+                    }
+                }else if preset == ExifGhostSettings.Presets.privacy.rawValue{
+                    for m in self.metadataCollection{
+                        for i in m.items{
+                            self.defaults.removeHandledProperty(m.key, i.key)
+                        }
+                    }
+                    for m in ImageMetadata.Collection.DefaultSensitivity{
+                        for i in m.value{
+                            self.defaults.addHandledProperty(m.key, i)
+                        }
+                    }
+                }
+
+                (view as? UITableView)?.reloadData()
+            }, completion:nil)
+        }
+        cellDescribers.append(cell0)
 
         if let tableView = view as? UITableView{
-
             tableView.dataSource = self
             tableView.delegate = self
             tableView.rowHeight = 44
@@ -202,8 +196,8 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
             tableView.allowsMultipleSelection = false
             tableView.register(Cell.self, forCellReuseIdentifier: ExifGhost.info.identifier)
 
-            for setting in settings{
-                tableView.register(describer: setting.cellDescriber)
+            for desc in cellDescribers {
+                tableView.register(describer: desc)
             }
         }
     }
@@ -290,7 +284,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? settings.count : metadataCollection[section-1].items.count
+        return section == 0 ? cellDescribers.count : metadataCollection[section-1].items.count
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -305,15 +299,15 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     }
 
     func settings_tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = self.settings[indexPath.item]
+        let item = self.cellDescribers[indexPath.item]
 
-        if let cellDescriber = item.cellDescriber as? UITableViewPickerCellDescriber
+        if let cellDescriber = item as? UITableViewPickerCellDescriber
         , let valueCollection = item.valueCollection as? [String]
-        , let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewPickerCell {
+        , let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewPickerCell {
 
             cell.values = valueCollection
             cell.delegate = self
-            if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
+            if let value = item.valueGetter?() as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
                 cell.selectedRow = index
             } else{
                 cell.selectedRow = 0
@@ -322,24 +316,24 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
             return cell
 
         }
-        else if let cellDescriber = item.cellDescriber as? UITableViewSwitchCellDescriber
-        , let value = item.valueGetter() as? Bool
-        , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewSwitchCell {
+        else if let cellDescriber = item as? UITableViewSwitchCellDescriber
+        , let value = item.valueGetter?() as? Bool
+        , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewSwitchCell {
 
             cell.textLabel?.text = item.label
             cell.switcher.setOn(value, animated: false)
-            cell.imageView?.image = item.iconImageName?.asUIImage
+            cell.imageView?.image = item.iconImage?.asUIImage
             cell.switchDidChange = item.valueHandler
             return cell
         }
 
-        else if let cellDescriber = item.cellDescriber as? UITableViewStepperCellDescriber
-        , let value = item.valueGetter() as? Int
-        , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewStepperCell {
+        else if let cellDescriber = item as? UITableViewStepperCellDescriber
+        , let value = item.valueGetter?() as? Int
+        , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewStepperCell {
 
             cell.textLabel?.text = item.label
             cell.detailTextLabel?.text = cellDescriber.transformValueLabel?(value) ?? String(value)
-            cell.imageView?.image = item.iconImageName?.asUIImage
+            cell.imageView?.image = item.iconImage?.asUIImage
 
             cell.stepper.stepValue = cellDescriber.stepValue
             cell.stepper.minimumValue = cellDescriber.minimumValue
@@ -353,12 +347,12 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
             return cell
         }
 
-        else if let cellDescriber = item.cellDescriber as? UITableViewSegmentControlCellDescriber
+        else if let cellDescriber = item as? UITableViewSegmentControlCellDescriber
         , let valueCollection = item.valueCollection as? [(String,Int)]
-        , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.identifier) as? UITableViewSegmentedControlCell{
+        , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewSegmentedControlCell{
 
             cell.textLabel?.text = item.label
-            cell.imageView?.image = item.iconImageName?.asUIImage
+            cell.imageView?.image = item.iconImage?.asUIImage
 
             cell.segmentedControl.removeAllSegments()
 
@@ -367,7 +361,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
             }
 
             cell.segmentedControl.selectedSegmentIndex = valueCollection.index { t in
-                t.1 == (item.valueGetter() as! Int)
+                t.1 == (item.valueGetter?() as! Int)
             } ?? 0
 
             cell.didChangeValue = item.valueHandler

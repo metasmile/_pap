@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 
 extension UITableView{
-    public func register(describer:UITableViewDescribable){
-        self.register(describer.cellClass, forCellReuseIdentifier: describer.identifier)
+    public func register(describer: UITableViewCellDescribable){
+        self.register(describer.cellClass, forCellReuseIdentifier: describer.cellIdentifier)
     }
 }
