@@ -42,8 +42,8 @@ public protocol UITableViewCellAccessoryDescribable {
 
 extension UITableViewCellAccessoryDescribable where Self:UITableViewCellValueDescribable{
     public var presentableValue: String? {
-        if let presenter = valuePresenter, let value = self.valueGetter(){
-            return presenter(value)
+        if let value = self.valueGetter(){
+            return valuePresenter?(value) ?? value as? String
         }
         return nil
     }
@@ -62,10 +62,6 @@ extension UITableViewCellAccessoryDescribable{
             return (label ?? "-")+"%"
         }
     }
-
-    public static var stringValuePresenter:((Any) -> (String)) {
-        return { value in value as? String ?? "" }
-    }
 }
 
 public class UITableViewCellDescriber: UITableViewCellDefaultDescribable {
@@ -81,20 +77,21 @@ public class UITableViewCellDescriber: UITableViewCellDefaultDescribable {
     public var valueHandler: ((Any) -> ())?
 }
 
-public class UITableViewCellMultipleValueDescriber: UITableViewCellDescriber {
-    public var valueCollection: Any?
-}
 
-public class UITableViewPickerCellDescriber: UITableViewCellMultipleValueDescriber {
+public class UITableViewPickerCellDescriber: UITableViewCellDescriber, UITableViewCellMultipleValueDescribable {
     public override var cellClass:Swift.AnyClass { return UITableViewPickerCell.self }
+
+    public var valueCollection: Any?
 }
 
 public class UITableViewSwitchCellDescriber: UITableViewCellDescriber {
     public override var cellClass:Swift.AnyClass { return UITableViewSwitchCell.self }
 }
 
-public class UITableViewSegmentControlCellDescriber: UITableViewCellMultipleValueDescriber {
+public class UITableViewSegmentControlCellDescriber: UITableViewCellDescriber, UITableViewCellMultipleValueDescribable {
     public override var cellClass:Swift.AnyClass { return UITableViewSegmentedControlCell.self }
+
+    public var valueCollection: Any?
 }
 
 public class UITableViewSimpleValueCellDescriber: UITableViewCellDescriber, UITableViewCellAccessoryDescribable {
@@ -103,7 +100,15 @@ public class UITableViewSimpleValueCellDescriber: UITableViewCellDescriber, UITa
     public var valuePresenter: ((Any) -> (String))?
 }
 
-public class UITableViewStepperCellDescriber: UITableViewCellMultipleValueDescriber, UITableViewCellAccessoryDescribable {
+public class UITableViewActionSheetCellDescriber: UITableViewCellDescriber, UITableViewCellMultipleValueDescribable, UITableViewCellAccessoryDescribable {
+    public override var cellClass:Swift.AnyClass { return UITableViewActionSheetCell.self }
+
+    public var valueCollection: Any?
+
+    public var valuePresenter: ((Any) -> (String))?
+}
+
+public class UITableViewStepperCellDescriber: UITableViewCellDescriber, UITableViewCellMultipleValueDescribable, UITableViewCellAccessoryDescribable {
     public override var cellClass:Swift.AnyClass { return UITableViewStepperCell.self }
 
 //    var isContinuous: Bool = true // if YES, value change events are sent any time the value changes during interaction. default = YES
@@ -119,6 +124,8 @@ public class UITableViewStepperCellDescriber: UITableViewCellMultipleValueDescri
     public var maximumValue: Double = 100 // default 100. must be greater than minimumValue
 
     public var stepValue: Double = 1 // default 1. must be greater than 0
+
+    public var valueCollection: Any?
 
     public var valuePresenter: ((Any) -> (String))?
 }

@@ -45,7 +45,7 @@ open class UITableViewSimpleValueCell: UITableViewCell {
     }()
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         accessoryView = valueLabel
     }
@@ -59,6 +59,53 @@ open class UITableViewSimpleValueCell: UITableViewCell {
         valueLabel.sizeToFit()
     }
 }
+
+open class UITableViewActionSheetCell: UITableViewSimpleValueCell {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: .default, reuseIdentifier: reuseIdentifier)
+
+        let g = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        g.cancelsTouchesInView = true
+        self.addGestureRecognizer(g)
+    }
+
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    public var actionSheetTitleText:String?
+    public var actionSheetMessageText:String?
+    public var valueLabels:[String]?
+
+    public var valueSelected:((UIAlertAction, Int?) -> ())?
+    public var cancelled:((UIAlertAction) -> ())?
+    public var actionSheetPresented:((UIAlertController) -> ())?
+
+    @objc func tapped(r: UITapGestureRecognizer) {
+
+        let alert = UIAlertController(title: actionSheetTitleText, message: actionSheetMessageText, preferredStyle: .actionSheet)
+
+        if let labels = valueLabels {
+            for l in labels {
+                alert.addAction(UIAlertAction(title: l, style: . default, handler: { action in
+                    if let title = action.title{
+                        self.valueSelected?(action, self.valueLabels?.index(of: title))
+
+                        self.valueLabel.text = title
+                        self.valueLabel.sizeToFit()
+                    }
+                }))
+            }
+        }
+
+        alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: cancelled))
+
+        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true) {
+            self.actionSheetPresented?(alert)
+        }
+    }
+}
+
 
 open class UITableViewStepperCell: UITableViewCell {
     private(set) lazy var stepper: UIStepper = UIStepper()

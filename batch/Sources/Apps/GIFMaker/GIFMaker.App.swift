@@ -418,25 +418,33 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     private func createCellDescribers() -> [UITableViewCellDefaultDescribable] {
         var cellDescribers = [UITableViewCellDefaultDescribable]()
 
-        let cell0 = UITableViewSimpleValueCellDescriber()//UITableViewPickerCellDescriber()
+        let cell0 = UITableViewActionSheetCellDescriber()
         cell0.localIdentifier = Cells.size.hashValue
         cell0.label = "Size"
         cell0.valueGetter =  {
             GIFMakerSettings.size.values.first(where: { $0.value == self.defaults.size })?.key
         }
-        cell0.valuePresenter = UITableViewSimpleValueCellDescriber.stringValuePresenter
-//        cell0.valueCollection = GIFMakerSettings.size.orderedKeys
+        cell0.valueCollection = GIFMakerSettings.size.orderedKeys
+        cell0.valueHandler = { value in
+            if let key = value as? String, let sizeValue = GIFMakerSettings.size.values[key]{
+                self.defaults.size = sizeValue
+            }
+        }
         cellDescribers.append(cell0)
 
-        let cell1 = UITableViewPickerCellDescriber()
+        let cell1 = UITableViewActionSheetCellDescriber()
         cell1.localIdentifier = Cells.aspectRatio.hashValue
         cell1.label = "Aspect Ratio"
         cell1.valueGetter =  {
             GIFMakerSettings.aspectRatio.values.first(where: { $0.value == self.defaults.aspectRatio })?.key
         }
         cell1.valueCollection = GIFMakerSettings.aspectRatio.orderedKeys
+        cell1.valueHandler = { value in
+            if let key = value as? String, let sizeValue = GIFMakerSettings.aspectRatio.values[key]{
+                self.defaults.aspectRatio = sizeValue
+            }
+        }
         cellDescribers.append(cell1)
-
 
         let cell2 = UITableViewSegmentControlCellDescriber()
         cell2.localIdentifier = Cells.contentMode.hashValue
@@ -550,8 +558,8 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             }
             return cell
         }
-        else if let cellDescriber = item as? UITableViewSimpleValueCellDescriber
-        , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewSimpleValueCell {
+        else if let cellDescriber = item as? UITableViewActionSheetCellDescriber
+        , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewActionSheetCell {
 
             if item.localIdentifier == Cells.size.hashValue {
                 let size = GIFMakerSettings.size.sizeWithAspectRatio()
@@ -564,6 +572,16 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             cell.valueLabel.text = cellDescriber.presentableValue
             cell.imageView?.image = cellDescriber.iconImage?.asUIImage
             cell.detailTextLabel?.textColor = UIColor.gray
+
+            // valueCollection -> [String]
+            if let collection = cellDescriber.valueCollection as? [String]{
+                cell.valueLabels = collection
+                cell.valueSelected = { action, index in
+                    if let index = index{
+                        cellDescriber.valueHandler?(collection[index])
+                    }
+                }
+            }
 
             return cell
         }
