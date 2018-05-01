@@ -7,21 +7,19 @@ import Foundation
 import UIKit
 import DefaultsKit
 
-private struct ExifGhostSettings{
-    enum Presets:Int{
-        case all = 0
-        case privacy = 1
-        case custom = 2
-    }
+private enum SelectionPresets:Int{
+    case all
+    case privacy
+    case custom
+}
 
-    enum Keys {
-        case presets
-        case delete
-    }
+private enum Cells {
+    case presets
+    case delete
 }
 
 private struct SettingsItem {
-    fileprivate var key: ExifGhostSettings.Keys
+    fileprivate var key: Cells
     fileprivate var label:String
     fileprivate var valueGetter:() -> Any
     fileprivate var valueCollection:Any?
@@ -44,7 +42,7 @@ extension Defaults: ExifGhostAppDefaults {
 
     fileprivate var selectionPreset: Int {
         set{ set(newValue) }
-        get{ return get(or: ExifGhostSettings.Presets.privacy.rawValue ) }
+        get{ return get(or: SelectionPresets.privacy.rawValue ) }
     }
 
     fileprivate var removeOriginal: Bool {
@@ -138,7 +136,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     }
 
     var shouldGhostAll:Bool{
-        return defaults.selectionPreset == ExifGhostSettings.Presets.all.rawValue
+        return defaults.selectionPreset == SelectionPresets.all.rawValue
     }
 
     fileprivate var defaults:ExifGhostAppDefaults = ExifGhost.defaults as! ExifGhostAppDefaults
@@ -150,13 +148,13 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         }
 
         let cell0 = UITableViewSegmentControlCellDescriber()
-        cell0.localIdentifier = ExifGhostSettings.Keys.presets.hashValue
+        cell0.localIdentifier = Cells.presets.hashValue
         cell0.label = "Selection Presets".localized
         cell0.valueGetter = { self.defaults.selectionPreset }
         cell0.valueCollection = [
-            (label:"All",value:ExifGhostSettings.Presets.all.rawValue),
-            (label:"Privacy",value:ExifGhostSettings.Presets.privacy.rawValue),
-            (label:"Custom", value:ExifGhostSettings.Presets.custom.rawValue)
+            (label:"All",value:SelectionPresets.all.rawValue),
+            (label:"Privacy",value:SelectionPresets.privacy.rawValue),
+            (label:"Custom", value:SelectionPresets.custom.rawValue)
         ]
         cell0.valueHandler = {
             let preset = $0 as! Int
@@ -164,13 +162,13 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
             self.defaults.selectionPreset = preset
 
             (view as? UITableView)?.performBatchUpdates({
-                if preset == ExifGhostSettings.Presets.all.rawValue{
+                if preset == SelectionPresets.all.rawValue{
                     for m in self.metadataCollection{
                         for i in m.items{
                             self.defaults.addHandledProperty(m.key, i.key)
                         }
                     }
-                }else if preset == ExifGhostSettings.Presets.privacy.rawValue{
+                }else if preset == SelectionPresets.privacy.rawValue{
                     for m in self.metadataCollection{
                         for i in m.items{
                             self.defaults.removeHandledProperty(m.key, i.key)
@@ -402,8 +400,8 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
             let selectedPreset = self.defaults.selectionPreset
 
-            if selectedPreset == ExifGhostSettings.Presets.all.rawValue || selectedPreset == ExifGhostSettings.Presets.privacy.rawValue{
-                self.defaults.selectionPreset = ExifGhostSettings.Presets.custom.rawValue
+            if selectedPreset == SelectionPresets.all.rawValue || selectedPreset == SelectionPresets.privacy.rawValue{
+                self.defaults.selectionPreset = SelectionPresets.custom.rawValue
 
                 tableView.reloadSections(IndexSet(integer: 0), with: .none)
             }

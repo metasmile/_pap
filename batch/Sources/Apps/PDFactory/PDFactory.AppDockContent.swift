@@ -8,16 +8,14 @@ import UIKit
 import DefaultsKit
 import TPPDF
 
-private struct SettingsItem {
-    enum Keys {
-        case sizePreset
-        case landscape
-        case imagesPerPage
-        case scaleMode
-        case metadataCaption
-        case imageQuality
-        case margin
-    }
+private enum Cells {
+    case sizePreset
+    case landscape
+    case imagesPerPage
+    case scaleMode
+    case metadataCaption
+    case imageQuality
+    case margin
 }
 
 class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
@@ -89,7 +87,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
         var cellDescribers = [UITableViewCellDefaultDescribable]()
 
         let cell0 =  UITableViewPickerCellDescriber()
-        cell0.localIdentifier = SettingsItem.Keys.sizePreset.hashValue
+        cell0.localIdentifier = Cells.sizePreset.hashValue
         cell0.label = "Page Size Preset"
         cell0.valueGetter = { self.defaults.sizePreset }
         cell0.valueCollection = PDFactorySettings.SizePresets.keysArray
@@ -97,7 +95,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
         cellDescribers.append(cell0)
 
         let cell1 =  UITableViewSwitchCellDescriber()
-        cell1.localIdentifier = SettingsItem.Keys.sizePreset.hashValue
+        cell1.localIdentifier = Cells.sizePreset.hashValue
         cell1.label = "Landscape Mode"
         cell1.valueGetter = { self.defaults.landscape }
         cell1.valueHandler = { self.defaults.landscape = $0 as? Bool ?? false }
@@ -105,7 +103,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
         cellDescribers.append(cell1)
 
         let cell2 =  UITableViewStepperCellDescriber()
-        cell2.localIdentifier = SettingsItem.Keys.margin.hashValue
+        cell2.localIdentifier = Cells.margin.hashValue
         cell2.label = "Page Margin"
         cell2.valueGetter = { self.defaults.margin }
         cell2.valueHandler = { self.defaults.margin = Int($0 as? Double ?? 10) }
@@ -116,7 +114,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
         cellDescribers.append(cell2)
 
         let cell3 =  UITableViewStepperCellDescriber()
-        cell3.localIdentifier = SettingsItem.Keys.imageQuality.hashValue
+        cell3.localIdentifier = Cells.imageQuality.hashValue
         cell3.label = "Image Quality"
         cell3.valueGetter = { Int((self.defaults.imageQuality ) * 100) }
         cell3.valueHandler = {
@@ -129,13 +127,13 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
         cellDescribers.append(cell3)
 
         let cell4 =  UITableViewSegmentControlCellDescriber()
-        cell4.localIdentifier = SettingsItem.Keys.scaleMode.hashValue
+        cell4.localIdentifier = Cells.scaleMode.hashValue
         cell4.label = "Scale To Fit"
         cell4.valueGetter = { self.defaults.scaleMode }
         cell4.valueCollection = PDFactorySettings.ScaleMode.Labels
         cell4.valueHandler = {
             self.defaults.scaleMode = PDFactorySettings.ScaleMode.Labels.valuesArray[$0 as? Int ?? 0]
-            if let index = (self.cellDescribers.index { item in item.localIdentifier == SettingsItem.Keys.margin.hashValue }) {
+            if let index = (self.cellDescribers.index { item in item.localIdentifier == Cells.margin.hashValue }) {
                 (self.view as? UITableView)?.reloadRows(at: [IndexPath(row: index, section: 0)], with: UITableViewRowAnimation.automatic)
             }
         }
@@ -227,7 +225,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             cell.stepper.value = Double(value)
 
             // margin
-            if item.localIdentifier == SettingsItem.Keys.margin.hashValue && defaults.scaleMode == PDFactorySettings.ScaleMode.fillPage.rawValue{
+            if item.localIdentifier == Cells.margin.hashValue && defaults.scaleMode == PDFactorySettings.ScaleMode.fillPage.rawValue{
                 cell.textLabel?.isEnabled = false
                 cell.detailTextLabel?.isEnabled = false
                 cell.stepper.isEnabled = false

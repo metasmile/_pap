@@ -372,13 +372,11 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
     }
 }
 
-private struct SettingsItem {
-    enum Keys {
-        case contentMode
-        case aspectRatio
-        case size
-        case frameDelay
-    }
+private enum Cells {
+    case contentMode
+    case aspectRatio
+    case size
+    case frameDelay
 }
 
 class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDockDelegate,
@@ -421,7 +419,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         var cellDescribers = [UITableViewCellDefaultDescribable]()
 
         let cell0 = UITableViewPickerCellDescriber()
-        cell0.localIdentifier = SettingsItem.Keys.size.hashValue
+        cell0.localIdentifier = Cells.size.hashValue
         cell0.label = "Size"
         cell0.valueGetter =  {
             GIFMakerSettings.size.values.first(where: { $0.value == self.defaults.size })?.key
@@ -431,7 +429,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         cellDescribers.append(cell0)
 
         let cell1 = UITableViewPickerCellDescriber()
-        cell1.localIdentifier = SettingsItem.Keys.aspectRatio.hashValue
+        cell1.localIdentifier = Cells.aspectRatio.hashValue
         cell1.label = "Aspect Ratio"
         cell1.valueGetter =  {
             GIFMakerSettings.aspectRatio.values.first(where: { $0.value == self.defaults.aspectRatio })?.key
@@ -442,7 +440,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
 
 
         let cell2 = UITableViewSegmentControlCellDescriber()
-        cell2.localIdentifier = SettingsItem.Keys.contentMode.hashValue
+        cell2.localIdentifier = Cells.contentMode.hashValue
         cell2.label = "Crop to Fit"
         cell2.valueGetter = { self.defaults.contentMode }
         cell2.valueCollection = GIFMakerSettings.contentMode.values
@@ -454,7 +452,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
 
         let cell3 =  UITableViewStepperCellDescriber()
         cell3.label = "Frame Delay"
-        cell3.localIdentifier = SettingsItem.Keys.frameDelay.hashValue
+        cell3.localIdentifier = Cells.frameDelay.hashValue
         cell3.valueGetter = { self.defaults.frameDelay }
         cell3.valueHandler = {
             self.defaults.frameDelay = Int($0 as? Double ?? 300)
@@ -544,7 +542,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
                 cell.selectedRow = 0
             }
             
-            if item.localIdentifier == SettingsItem.Keys.size.hashValue {
+            if item.localIdentifier == Cells.size.hashValue {
                 let size = GIFMakerSettings.size.sizeWithAspectRatio()
                 cell.titleLabel.text = "Size (\(Int(size.width)) x \(Int(size.height)))"
             }
@@ -604,7 +602,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     }
     
     private func updateFrameDelayPreview(cell:UITableViewStepperCell?=nil) {
-        guard let row = cellDescribers.index(where: { $0.localIdentifier == SettingsItem.Keys.frameDelay.hashValue }) else { return }
+        guard let row = cellDescribers.index(where: { $0.localIdentifier == Cells.frameDelay.hashValue }) else { return }
         let indexPath = IndexPath(row: row, section: 0)
         let cell = cell ?? (view as! UITableView).cellForRow(at: indexPath)
         
@@ -638,19 +636,19 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         
         var needsToUpdateSizeCell = false
 
-        if setting.localIdentifier == SettingsItem.Keys.aspectRatio.hashValue {
+        if setting.localIdentifier == Cells.aspectRatio.hashValue {
             defaults.aspectRatio = GIFMakerSettings.aspectRatio.values[cell.values[row]] ?? GIFMakerSettings.aspectRatio.value(GIFMakerSettings.aspectRatio.keys.square)
             
             needsToUpdateSizeCell = true
             
         }
-        else if setting.localIdentifier == SettingsItem.Keys.size.hashValue {
+        else if setting.localIdentifier == Cells.size.hashValue {
             defaults.size = GIFMakerSettings.size.values[cell.values[row]] ?? GIFMakerSettings.size.value(GIFMakerSettings.size.keys.medium)
             
             needsToUpdateSizeCell = true
         }
         
-        if needsToUpdateSizeCell, let rowOfSizeSetting = cellDescribers.index(where: { $0.localIdentifier == SettingsItem.Keys.size.hashValue }) {
+        if needsToUpdateSizeCell, let rowOfSizeSetting = cellDescribers.index(where: { $0.localIdentifier == Cells.size.hashValue }) {
             let sizeCell = (view as! UITableView).cellForRow(at: IndexPath(row: rowOfSizeSetting, section: 0)) as? UITableViewPickerCell
             
             let size = GIFMakerSettings.size.sizeWithAspectRatio()
