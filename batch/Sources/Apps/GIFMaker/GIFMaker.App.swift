@@ -423,7 +423,6 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         cell0.label = "Size"
         cell0.valueGetter =  {
             GIFMakerSettings.size.values.first(where: { $0.value == self.defaults.size })?.key
-                    ?? GIFMakerSettings.size.keys.medium
         }
         cell0.valuePresenter = UITableViewSimpleValueCellDescriber.stringValuePresenter
 //        cell0.valueCollection = GIFMakerSettings.size.orderedKeys
@@ -434,7 +433,6 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         cell1.label = "Aspect Ratio"
         cell1.valueGetter =  {
             GIFMakerSettings.aspectRatio.values.first(where: { $0.value == self.defaults.aspectRatio })?.key
-                    ?? GIFMakerSettings.aspectRatio.keys.square
         }
         cell1.valueCollection = GIFMakerSettings.aspectRatio.orderedKeys
         cellDescribers.append(cell1)
@@ -537,7 +535,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
 
             cell.values = valueCollection
             cell.delegate = self
-            if let value = item.valueGetter?() as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
+            if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
                 cell.selectedRow = index
             } else{
                 cell.selectedRow = 0
@@ -582,12 +580,12 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
                 cell.segmentedControl.insertSegment(withTitle: k.key, at: cell.segmentedControl.numberOfSegments, animated: false)
             }
             
-            cell.segmentedControl.selectedSegmentIndex = valueCollection.valuesArray.index(of: item.valueGetter?() as? Int ?? GIFMakerSettings.contentMode.fill) ?? 0
+            cell.segmentedControl.selectedSegmentIndex = valueCollection.valuesArray.index(of: item.valueGetter() as? Int ?? GIFMakerSettings.contentMode.fill) ?? 0
             cell.didChangeValue = item.valueHandler
             return cell
         }
         else if let cellDescriber = item as? UITableViewStepperCellDescriber
-            , let value = item.valueGetter?() as? Int
+            , let value = item.valueGetter() as? Int
             , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewStepperCell {
             
             cell.textLabel?.text = item.label

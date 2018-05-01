@@ -191,7 +191,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             
             cell.values = valueCollection
             cell.delegate = self
-            if let value = item.valueGetter?() as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
+            if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
                 cell.selectedRow = index
             } else{
                 cell.selectedRow = 0
@@ -201,7 +201,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
 
         }
         else if let cellDescriber = item as? UITableViewSwitchCellDescriber
-            , let value = item.valueGetter?() as? Bool
+            , let value = item.valueGetter() as? Bool
             , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewSwitchCell {
 
             cell.textLabel?.text = item.label
@@ -212,7 +212,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
         }
 
         else if let cellDescriber = item as? UITableViewStepperCellDescriber
-            , let value = item.valueGetter?() as? Int
+            , let value = item.valueGetter() as? Int
             , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewStepperCell {
 
             cell.textLabel?.text = item.label
@@ -258,7 +258,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
                 cell.segmentedControl.insertSegment(withTitle: k.key, at: cell.segmentedControl.numberOfSegments, animated: false)
             }
 
-            cell.segmentedControl.selectedSegmentIndex = valueCollection.valuesArray.index(of: item.valueGetter?() as? Int ?? PDFactorySettings.ScaleMode.fitPage.rawValue) ?? 0
+            cell.segmentedControl.selectedSegmentIndex = valueCollection.valuesArray.index(of: item.valueGetter() as? Int ?? PDFactorySettings.ScaleMode.fitPage.rawValue) ?? 0
             cell.didChangeValue = item.valueHandler
             return cell
         }

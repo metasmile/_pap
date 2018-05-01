@@ -305,7 +305,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
             cell.values = valueCollection
             cell.delegate = self
-            if let value = item.valueGetter?() as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
+            if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
                 cell.selectedRow = index
             } else{
                 cell.selectedRow = 0
@@ -315,7 +315,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
         }
         else if let cellDescriber = item as? UITableViewSwitchCellDescriber
-        , let value = item.valueGetter?() as? Bool
+        , let value = item.valueGetter() as? Bool
         , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewSwitchCell {
 
             cell.textLabel?.text = item.label
@@ -326,7 +326,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         }
 
         else if let cellDescriber = item as? UITableViewStepperCellDescriber
-        , let value = item.valueGetter?() as? Int
+        , let value = item.valueGetter() as? Int
         , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewStepperCell {
 
             cell.textLabel?.text = item.label
@@ -359,7 +359,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
             }
 
             cell.segmentedControl.selectedSegmentIndex = valueCollection.index { t in
-                t.1 == (item.valueGetter?() as! Int)
+                t.1 == (item.valueGetter() as! Int)
             } ?? 0
 
             cell.didChangeValue = item.valueHandler

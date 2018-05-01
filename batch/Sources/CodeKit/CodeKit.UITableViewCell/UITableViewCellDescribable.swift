@@ -28,7 +28,7 @@ public protocol UITableViewCellAppearanceDescribable {
 }
 
 public protocol UITableViewCellValueDescribable {
-    var valueGetter:(() -> Any)? {set get}
+    var valueGetter:() -> Any? {set get}
     var valueHandler:((Any) -> ())? {set get}
 }
 
@@ -42,7 +42,7 @@ public protocol UITableViewCellAccessoryDescribable {
 
 extension UITableViewCellAccessoryDescribable where Self:UITableViewCellValueDescribable{
     public var presentableValue: String? {
-        if let presenter = valuePresenter, let value = self.valueGetter?(){
+        if let presenter = valuePresenter, let value = self.valueGetter(){
             return presenter(value)
         }
         return nil
@@ -77,7 +77,7 @@ public class UITableViewCellDescriber: UITableViewCellDefaultDescribable {
     public var label: String = "Untitled"
     public var iconImage: ImageSourceable?
 
-    public var valueGetter: (() -> Any)?
+    public var valueGetter: () -> Any? = { nil }
     public var valueHandler: ((Any) -> ())?
 }
 
