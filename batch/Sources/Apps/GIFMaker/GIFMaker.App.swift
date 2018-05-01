@@ -418,14 +418,15 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     private func createCellDescribers() -> [UITableViewCellDefaultDescribable] {
         var cellDescribers = [UITableViewCellDefaultDescribable]()
 
-        let cell0 = UITableViewPickerCellDescriber()
+        let cell0 = UITableViewSimpleValueCellDescriber()//UITableViewPickerCellDescriber()
         cell0.localIdentifier = Cells.size.hashValue
         cell0.label = "Size"
         cell0.valueGetter =  {
             GIFMakerSettings.size.values.first(where: { $0.value == self.defaults.size })?.key
                     ?? GIFMakerSettings.size.keys.medium
         }
-        cell0.valueCollection = GIFMakerSettings.size.orderedKeys
+        cell0.valuePresenter = UITableViewSimpleValueCellDescriber.stringValuePresenter
+//        cell0.valueCollection = GIFMakerSettings.size.orderedKeys
         cellDescribers.append(cell0)
 
         let cell1 = UITableViewPickerCellDescriber()
@@ -461,7 +462,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         cell3.minimumValue = 50
         cell3.maximumValue = 3000
         cell3.stepValue = 50
-        cell3.transformValueLabel = { value in
+        cell3.valuePresenter = { value in
             var label:String?
             if let val = value as? Double {
                 label = String(format: "%.02f", val / 1000)
@@ -531,7 +532,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         let item = self.cellDescribers[indexPath.item]
 
         if let cellDescriber = item as? UITableViewPickerCellDescriber
-            , let valueCollection = item.valueCollection as? [String]
+            , let valueCollection = cellDescriber.valueCollection as? [String]
             , let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewPickerCell {
 
             cell.values = valueCollection
@@ -551,8 +552,25 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             }
             return cell
         }
+        else if let cellDescriber = item as? UITableViewSimpleValueCellDescriber
+        , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewSimpleValueCell {
+
+            if item.localIdentifier == Cells.size.hashValue {
+                let size = GIFMakerSettings.size.sizeWithAspectRatio()
+                cell.textLabel?.text = "Size (\(Int(size.width)) x \(Int(size.height)))"
+            }
+            else {
+                cell.textLabel?.text = item.label
+            }
+
+            cell.valueLabel.text = cellDescriber.presentableValue
+            cell.imageView?.image = cellDescriber.iconImage?.asUIImage
+            cell.detailTextLabel?.textColor = UIColor.gray
+
+            return cell
+        }
         else if let cellDescriber = item as? UITableViewSegmentControlCellDescriber
-            , let valueCollection = item.valueCollection as? [String:Int]
+            , let valueCollection = cellDescriber.valueCollection as? [String:Int]
             , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewSegmentedControlCell {
 
             cell.textLabel?.text = item.label
@@ -573,7 +591,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewStepperCell {
             
             cell.textLabel?.text = item.label
-            cell.detailTextLabel?.text = cellDescriber.transformValueLabel?(value) ?? String(value)
+            cell.detailTextLabel?.text = cellDescriber.valuePresenter?(value) ?? String(value)
             cell.imageView?.image = item.iconImage?.asUIImage
             
             cell.stepper.stepValue = cellDescriber.stepValue
@@ -588,7 +606,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             cell.isUserInteractionEnabled = true
             
             cell.didChangeValue = { value in
-                cell.detailTextLabel?.text = cellDescriber.transformValueLabel?(value) ?? String(value)
+                cell.detailTextLabel?.text = cellDescriber.valuePresenter?(value) ?? String(value)
                 item.valueHandler?(value)
             }
 

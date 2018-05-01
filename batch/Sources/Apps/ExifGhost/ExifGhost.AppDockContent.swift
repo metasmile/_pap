@@ -300,7 +300,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         let item = self.cellDescribers[indexPath.item]
 
         if let cellDescriber = item as? UITableViewPickerCellDescriber
-        , let valueCollection = item.valueCollection as? [String]
+        , let valueCollection = cellDescriber.valueCollection as? [String]
         , let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewPickerCell {
 
             cell.values = valueCollection
@@ -330,7 +330,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewStepperCell {
 
             cell.textLabel?.text = item.label
-            cell.detailTextLabel?.text = cellDescriber.transformValueLabel?(value) ?? String(value)
+            cell.detailTextLabel?.text = cellDescriber.valuePresenter?(value) ?? String(value)
             cell.imageView?.image = item.iconImage?.asUIImage
 
             cell.stepper.stepValue = cellDescriber.stepValue
@@ -339,14 +339,14 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
             cell.stepper.value = Double(value)
 
             cell.didChangeValue = { value in
-                cell.detailTextLabel?.text = cellDescriber.transformValueLabel?(value) ?? String(Int(value))
+                cell.detailTextLabel?.text = cellDescriber.valuePresenter?(value) ?? String(Int(value))
                 item.valueHandler?(value)
             }
             return cell
         }
 
         else if let cellDescriber = item as? UITableViewSegmentControlCellDescriber
-        , let valueCollection = item.valueCollection as? [(String,Int)]
+        , let valueCollection = cellDescriber.valueCollection as? [(String, Int)]
         , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewSegmentedControlCell{
 
             cell.textLabel?.text = item.label

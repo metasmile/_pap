@@ -110,7 +110,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
         cell2.minimumValue = 0
         cell2.maximumValue = 80
         cell2.stepValue = 1
-        cell2.transformValueLabel = UITableViewStepperCellDescriber.percentageValueTransformer
+        cell2.valuePresenter = UITableViewStepperCellDescriber.percentageValuePresenter
         cellDescribers.append(cell2)
 
         let cell3 =  UITableViewStepperCellDescriber()
@@ -123,7 +123,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
         cell3.minimumValue = 60
         cell3.maximumValue = 100
         cell3.stepValue = 2
-        cell3.transformValueLabel = UITableViewStepperCellDescriber.percentageValueTransformer
+        cell3.valuePresenter = UITableViewStepperCellDescriber.percentageValuePresenter
         cellDescribers.append(cell3)
 
         let cell4 =  UITableViewSegmentControlCellDescriber()
@@ -186,7 +186,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
         let item = self.cellDescribers[indexPath.item]
 
         if let cellDescriber = item as? UITableViewPickerCellDescriber
-            , let valueCollection = item.valueCollection as? [String]
+            , let valueCollection = cellDescriber.valueCollection as? [String]
             , let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewPickerCell{
             
             cell.values = valueCollection
@@ -216,7 +216,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewStepperCell {
 
             cell.textLabel?.text = item.label
-            cell.detailTextLabel?.text = cellDescriber.transformValueLabel?(value) ?? String(value)
+            cell.detailTextLabel?.text = cellDescriber.valuePresenter?(value) ?? String(value)
             cell.imageView?.image = item.iconImage?.asUIImage
 
             cell.stepper.stepValue = cellDescriber.stepValue
@@ -240,14 +240,14 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             }
 
             cell.didChangeValue = { value in
-                cell.detailTextLabel?.text = cellDescriber.transformValueLabel?(value) ?? String(Int(value))
+                cell.detailTextLabel?.text = cellDescriber.valuePresenter?(value) ?? String(Int(value))
                 item.valueHandler?(value)
             }
             return cell
         }
 
         else if let cellDescriber = item as? UITableViewSegmentControlCellDescriber
-            , let valueCollection = item.valueCollection as? [String:Int]
+            , let valueCollection = cellDescriber.valueCollection as? [String:Int]
             , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewSegmentedControlCell{
 
             cell.textLabel?.text = item.label
