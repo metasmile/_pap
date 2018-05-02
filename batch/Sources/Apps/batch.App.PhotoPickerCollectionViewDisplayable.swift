@@ -5,6 +5,13 @@
 
 import Foundation
 
+// App -> PhotoPickerCollectionView
+public protocol PhotoPickerCollectionViewPropagableApp: PropagableApp {
+    //TODO: reload or render visible cells
+}
+
+
+// PhotoPickerCollectionView -> App
 public protocol PhotoPickerCollectionViewDisplayableApp: App {
     func shouldSelect(item:PHAssetItem<ImageEditStateValue>) -> Bool
 

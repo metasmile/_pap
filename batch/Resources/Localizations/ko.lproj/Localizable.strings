@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "PDF 작성을 시작합니다 ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "PDF 페이지 만들기 ...";
+/*com.stells.batch.converter*/
+"Convert" = "변하게 하다";

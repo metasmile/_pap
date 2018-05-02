@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "Kuanza kuunda PDF ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "Kujenga Kurasa za PDF ...";
+/*com.stells.batch.converter*/
+"Convert" = "Badilisha";

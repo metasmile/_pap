@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "पीडीएफ सिर्जना गर्न सुरु हुँदै ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "PDF पृष्ठ सिर्जना गर्दै ...";
+/*com.stells.batch.converter*/
+"Convert" = "रूपान्तरण गर्नुहोस्";

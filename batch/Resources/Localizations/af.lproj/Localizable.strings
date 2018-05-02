@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "Begin om PDF te skep ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "PDF-bladsye skep ...";
+/*com.stells.batch.converter*/
+"Convert" = "omskep";

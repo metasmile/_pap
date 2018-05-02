@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "开始创建PDF ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "创建PDF页面...";
+/*com.stells.batch.converter*/
+"Convert" = "兑换";

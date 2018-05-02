@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "កំពុងចាប់ផ្ដើមបង្កើត PDF ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "បង្កើតទំព័រ PDF ...";
+/*com.stells.batch.converter*/
+"Convert" = "បម្លែង";

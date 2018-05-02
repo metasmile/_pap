@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "Bắt đầu tạo PDF ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "Tạo trang PDF ...";
+/*com.stells.batch.converter*/
+"Convert" = "Đổi";

@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "Ho qala ho bopa PDF ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "Ho theha maqephe a PDF ...";
+/*com.stells.batch.converter*/
+"Convert" = "Fetola";

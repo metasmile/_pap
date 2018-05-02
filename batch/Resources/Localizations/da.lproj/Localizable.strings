@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "Begynder at oprette PDF ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "Oprettelse af PDF-sider ...";
+/*com.stells.batch.converter*/
+"Convert" = "Konvertere";

@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "PDF létrehozása ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "PDF-oldalak létrehozása ...";
+/*com.stells.batch.converter*/
+"Convert" = "Alakítani";

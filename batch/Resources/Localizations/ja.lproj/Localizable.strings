@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "PDFの作成を開始します...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "PDFページの作成...";
+/*com.stells.batch.converter*/
+"Convert" = "変換";

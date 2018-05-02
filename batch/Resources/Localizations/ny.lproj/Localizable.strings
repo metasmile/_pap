@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "Kuyambira kupanga pulogalamu ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "Kupanga masamba a PDF ...";
+/*com.stells.batch.converter*/
+"Convert" = "Sintha";

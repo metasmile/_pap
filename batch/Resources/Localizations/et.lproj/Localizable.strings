@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "PDF-i loomise alustamine ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "PDF-lehekülgede loomine ...";
+/*com.stells.batch.converter*/
+"Convert" = "Teisenda";

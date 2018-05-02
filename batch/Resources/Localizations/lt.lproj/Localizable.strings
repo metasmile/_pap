@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "Pradedant kurti PDF ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "PDF puslapių kūrimas ...";
+/*com.stells.batch.converter*/
+"Convert" = "Paversti";

@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "Ag tosú le PDF a chruthú ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "Ag Cruthaigh Leathanaigh PDF ...";
+/*com.stells.batch.converter*/
+"Convert" = "Tiontaigh";

@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "Laga bilaabo inuu abuuro PDF ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "Abuurista PDF Bog ...";
+/*com.stells.batch.converter*/
+"Convert" = "Isbedel";

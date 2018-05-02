@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "Sākot PDF izveidi ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "PDF lapu izveide ...";
+/*com.stells.batch.converter*/
+"Convert" = "Konvertēšana";

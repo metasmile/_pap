@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "د پی ډی ایف جوړول پیلول ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "د پی ډی افونو جوړول ...";
+/*com.stells.batch.converter*/
+"Convert" = "بدلول";

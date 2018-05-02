@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "Byrjar að búa til PDF ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "Búa til PDF síður ...";
+/*com.stells.batch.converter*/
+"Convert" = "Umbreyta";

@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "ເລີ່ມສ້າງ PDF ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "ການສ້າງຫນ້າ PDF ...";
+/*com.stells.batch.converter*/
+"Convert" = "ປ່ຽນແປງ";

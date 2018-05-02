@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "PDF ను సృష్టించడం ప్రారంభిస్తోంది ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "PDF పేజీలను సృష్టిస్తోంది ...";
+/*com.stells.batch.converter*/
+"Convert" = "మార్చండి";

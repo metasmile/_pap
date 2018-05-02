@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "Iqala ukwakha i-PDF ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "Ukudala amakhasi we-PDF ...";
+/*com.stells.batch.converter*/
+"Convert" = "Guqula";

@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "ፒዲኤፍ ለመፍጠር ጀምር ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "የፒዲኤፍ ገጾች በመፍጠር ላይ ...";
+/*com.stells.batch.converter*/
+"Convert" = "ለውጥ";

@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "Ξεκινώντας τη δημιουργία PDF ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "Δημιουργία σελίδων PDF ...";
+/*com.stells.batch.converter*/
+"Convert" = "Μετατρέπω";

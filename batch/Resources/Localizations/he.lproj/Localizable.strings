@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "מתחיל ליצור PDF ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "יוצר דפי PDF ...";
+/*com.stells.batch.converter*/
+"Convert" = "להמיר";

@@ -64,3 +64,6 @@
 "Create %@" = "Create %@";
 "Starting to create PDF..." = "Starting to create PDF...";
 "Creating PDF Pages..." = "Creating PDF Pages...";
+
+/*com.stells.batch.converter*/
+"Convert" = "Convert";

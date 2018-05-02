@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "Začne ustvarjati PDF ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "Ustvarjanje strani PDF ...";
+/*com.stells.batch.converter*/
+"Convert" = "Pretvorba";

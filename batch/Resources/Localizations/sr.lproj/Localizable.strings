@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "Почиње да креира ПДФ ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "Креирање ПДФ страница ...";
+/*com.stells.batch.converter*/
+"Convert" = "Претвори";

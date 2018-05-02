@@ -92,3 +92,5 @@
 "Starting to create PDF..." = "PDF- ის შექმნა ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "PDF გვერდების შექმნა ...";
+/*com.stells.batch.converter*/
+"Convert" = "კონვერტაცია";

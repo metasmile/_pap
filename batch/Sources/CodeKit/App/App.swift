@@ -46,6 +46,7 @@ public struct AppInfoValues: AppInfoSchemeValues {
 
 public typealias AppInfoScheme = AppInfoSchemeKey & AppInfoSchemeValues
 
+//TODO: Auto-generate from own App class
 public struct AppInfo: Hashable, AppInfoScheme {
     public let identifier:String
     public let version:String
