@@ -117,8 +117,12 @@ struct GIFMakerSettings {
         static let orderedLabels: [String?] = [
             labels[.photo],
             labels[.burst],
-            labels[.video]
+//            labels[.video]
         ]
+        
+        static func key(with value: String) -> Int {
+            return (labels.first(where: { value == $0.value })?.key ?? .photo).rawValue
+        }
     }
     
     struct aspectRatio {
@@ -488,18 +492,22 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     private func createCellDescribers() -> [UITableViewCellDefaultDescribable] {
         var cellDescribers = [UITableViewCellDefaultDescribable]()
         
-//        let sourceTypeCell = UITableViewActionSheetCellDescriber()
-//        sourceTypeCell.localIdentifier = Cells.sourceType.hashValue
-//        sourceTypeCell.label = "Import".localized
-//        sourceTypeCell.valueGetter = {
-//            GIFMakerSettings.sourceType.labels[GIFMakerSettings.sourceType.type(rawValue: self.defaults.sourceType) ?? .photo]
-//        }
-//        sourceTypeCell.valueCollection = GIFMakerSettings.sourceType.orderedLabels
-//        sourceTypeCell.valueHandler = {
-//            self.defaults.sourceType = (GIFMakerSettings.sourceType.type(rawValue: $0 as? Int ?? 0) ?? .photo).rawValue
-//        }
-//        cellDescribers.append(sourceTypeCell)
-
+        let sourceTypeCell = UITableViewActionSheetCellDescriber()
+        sourceTypeCell.localIdentifier = Cells.sourceType.hashValue
+        sourceTypeCell.label = "Import".localized
+        sourceTypeCell.valueGetter = {
+            GIFMakerSettings.sourceType.labels[GIFMakerSettings.sourceType.type(rawValue: self.defaults.sourceType) ?? .photo]
+        }
+        sourceTypeCell.valueCollection = GIFMakerSettings.sourceType.orderedLabels
+        sourceTypeCell.valueHandler = {
+            if let value = $0 as? String {
+                //TODO: Needs to reload photo picker
+                self.defaults.sourceType = GIFMakerSettings.sourceType.key(with: value)
+            }
+        }
+        cellDescribers.append(sourceTypeCell)
+        
+        let indexOfCell0 = cellDescribers.count
         let cell0 = UITableViewActionSheetCellDescriber()
         cell0.localIdentifier = Cells.size.hashValue
         cell0.label = "Size".localized
@@ -511,7 +519,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             if let key = value as? String, let sizeValue = GIFMakerSettings.size.values[key]{
                 self.defaults.size = sizeValue
 
-                (self.view as? UITableView)?.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
+                (self.view as? UITableView)?.reloadRows(at: [IndexPath(row: indexOfCell0, section: 0)], with: .none)
             }
         }
         cellDescribers.append(cell0)
