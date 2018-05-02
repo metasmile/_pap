@@ -7,22 +7,14 @@
 
 import Foundation
 import UIKit
+import MobileCoreServices
+import Photos
 
 public class Converter: BApp,
         AppDockControllableApp,
         PHAssetFinalizableApp,
         PhotoPickerCollectionViewDisplayableApp,
         PhotoPickerViewControllerDelegatableApp {
-
-    private class ConverterTask: TaskPrototype, Taskable{
-        func perform(_ param: TaskParamable, _ async: AsyncManualSignalable?) throws -> TaskResultable? {
-            fatalError("perform(param:async:) has not been implemented")
-        }
-
-        func cancel(_ param: TaskParamable, _ async: AsyncManualSignalable?) {
-
-        }
-    }
 
     public static let taskType:Taskable.Type = ConverterTask.self
     public static let paramType:TaskParamable.Type = AppAsset.self
@@ -31,7 +23,8 @@ public class Converter: BApp,
 
     @objc dynamic
     public private(set) lazy var config: GIFMakerAppConfig? = GIFMaker.configure?()
-    public private(set) lazy var controller: AppDockContent? = GIFMakerAppDockContent()
+//    public private(set) lazy var controller: AppDockContent? = GIFMakerAppDockContent()
+    public private(set) var controller: AppDockContent?
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.converter"
@@ -71,7 +64,146 @@ public class Converter: BApp,
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
+        let resultItems = result
+                .filter { respondable in respondable.info.state == .completed }
+                .compactMap { ($0.result as? ConverterPHAssetResult)?.items }.reduce([], +)
+
+        let imageFiles = resultItems.map({ $0.imageFileURL.path })
+
+        var data:URL?
+
+        asyncSignal.begin()
+        let builder = TimeLapsBuilder(imagePaths: imageFiles)
+        builder.build({ progress in  }, success: { url in
+            data = url
+
+            asyncSignal.end()
+
+        }, failure: { error in
+            print(error)
+            asyncSignal.end()
+        })
+        asyncSignal.waitUntilEnd()
+
+
+        asyncSignal.begin()
+
+        DispatchQueue.main.async {
+            guard let data = data, let rootViewController = UIApplication.shared.keyWindow?.rootViewController else { return }
+            let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+            activityViewController.completionWithItemsHandler = { (activityType:UIActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
+                asyncSignal.end()
+            }
+            activityViewController.popoverPresentationController?.sourceView=rootViewController.view
+            rootViewController.present(activityViewController, animated: true, completion: nil)
+        }
+
+        asyncSignal.waitUntilEnd()
 
         return result
     }
+}
+
+
+private class ConverterTask: TaskPrototype, Taskable {
+    public typealias ParamType = AppAsset
+    public typealias ResultType = ConverterPHAssetResult
+
+    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?){
+
+        (param as? AppAsset)?.cancelAllRequestIDs()
+    }
+
+    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable?) throws -> TaskResultable? {
+        guard let appAsset = param as? AppAsset else { return nil }
+        return try _perform(appAsset, async)
+    }
+
+    private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable?) throws -> ConverterPHAssetResult?  {
+        var result: ConverterPHAssetResult?
+
+        let targetSize = GIFMakerSettings.size.sizeWithAspectRatio()
+        let contentMode = PHImageContentMode.aspectFit//PHImageContentMode(rawValue: (GIFMaker.defaults as! GIFMakerDefaults).contentMode) ?? PHImageContentMode.aspectFit
+
+        async?.begin()
+
+        if assetItem.asset.mediaType == .video {
+            async?.end()
+        }
+        else if assetItem.asset.imageType == .stillImage {
+            let response = assetItem.asset.requestImage(targetSize: targetSize, contentMode: contentMode)
+
+            if let image = response.1, let uti = assetItem.asset.uniformTypeIdentifier {
+                result = ConverterPHAssetResult(items: [ConverterCachedAsset.cacheAsset(assetItem.asset, image: image, targetSize: targetSize, uti: uti)])
+                assetItem.requestIDs += [PHAssetRequestID(forImage:response.0)]
+            }
+
+            async?.end()
+        }
+        else if assetItem.asset.imageType == .burst {
+            var results = [ConverterCachedAsset]()
+
+            let fetchOptions = PHFetchOptions()
+            fetchOptions.includeAllBurstAssets = true
+
+            let fetchedAsset = PHAsset.fetchAssets(withBurstIdentifier: assetItem.asset.burstIdentifier ?? "", options: fetchOptions)
+            fetchedAsset.enumerateObjects { (asset, idx, stop) in
+                let response = asset.requestImage(targetSize: targetSize, contentMode: contentMode)
+
+                if let image = response.1, let uti = assetItem.asset.uniformTypeIdentifier {
+                    results.append(ConverterCachedAsset.cacheAsset(assetItem.asset, image: image, targetSize: targetSize, uti: uti))
+                    assetItem.requestIDs += [PHAssetRequestID(forImage:response.0)]
+                }
+            }
+
+            result = ConverterPHAssetResult(items: results)
+
+            async?.end()
+        }
+        else if assetItem.asset.imageType == .livePhoto {
+            async?.end()
+        }
+
+        async?.waitUntilEnd()
+        return result
+    }
+}
+
+
+private struct ConverterCachedAsset {
+    public var asset: PHAsset
+    public var imageFileURL: URL
+
+    static func cacheAsset(_ asset: PHAsset, image: UIImage, targetSize: CGSize, uti: String) -> ConverterCachedAsset {
+        let imageToWrite: UIImage
+        if targetSize == image.size {
+            imageToWrite = image
+        }
+        else {
+            imageToWrite = UIGraphicsImageRenderer(size: targetSize, format: image.imageRendererFormat).imageWithCurrentContext { (cgContext) in
+                UIColor.white.setFill()
+                cgContext.fill(CGRect(origin: .zero, size: targetSize))
+                image.draw(at: CGPoint(x: (targetSize.width - image.size.width) / 2, y: (targetSize.height - image.size.height) / 2))
+            } ?? image
+        }
+
+        var data: Data?
+        var fileExtension = "jpg"
+        switch uti as CFString {
+        case kUTTypePNG:
+            data = UIImagePNGRepresentation(imageToWrite)
+            fileExtension = "png"
+        default:
+            data = UIImageJPEGRepresentation(imageToWrite, 1)
+        }
+
+        let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(Converter.info.identifier)_\(UUID().uuidString).\(fileExtension)")
+        try? data?.write(to: url)
+
+        return ConverterCachedAsset(asset: asset, imageFileURL: url)
+    }
+}
+
+private struct ConverterPHAssetResult: TaskResultable{
+    public var items: [ConverterCachedAsset]
 }

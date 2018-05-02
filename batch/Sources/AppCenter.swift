@@ -63,9 +63,10 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             , PDFactory.self
             , ExifGhost.self
 //            , Clean.self
-            , Stabilizer.self
+//            , Stabilizer.self
             , AutoAdjustmentApp.self
             , GIFMaker.self
+            , Converter.self
         ]
 
         return config

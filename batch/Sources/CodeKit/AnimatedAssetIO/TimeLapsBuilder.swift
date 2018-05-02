@@ -18,12 +18,12 @@ let kErrorDomain = "TimeLapseBuilder"
 let kFailedToStartAssetWriterError = 0
 let kFailedToAppendPixelBufferError = 1
 
-public final class TimeLapseBuilder: NSObject {
-    var videoWriter: AVAssetWriter?
+public final class TimeLapsBuilder: NSObject {
+    private var videoWriter: AVAssetWriter?
+
     var fps: Int32 = 30
     var inputSize: CGSize = .zero
     var outputSize: CGSize = .zero
-    var FPS:Int32 = 30
     var destinationFilePath: String?
     var pixelFormatType:OSType = kCVPixelFormatType_32ARGB
 
@@ -149,11 +149,12 @@ public final class TimeLapseBuilder: NSObject {
     }
 
     func appendPixelBufferForImageAtURL(_ url: String, pixelBufferAdaptor: AVAssetWriterInputPixelBufferAdaptor, presentationTime: CMTime) -> Bool {
-        var appendSucceeded = false
+        return autoreleasepool {
+            var appendSucceeded = false
 
-        autoreleasepool {
-            if let url = URL(string: url),
-               let imageData = try? Data(contentsOf: url),
+            let url = URL(fileURLWithPath: url)
+
+            if let imageData = try? Data(contentsOf: url),
                let image = UIImage(data: imageData),
                let pixelBufferPool = pixelBufferAdaptor.pixelBufferPool {
                 let pixelBufferPointer = UnsafeMutablePointer<CVPixelBuffer?>.allocate(capacity: 1)
@@ -173,14 +174,14 @@ public final class TimeLapseBuilder: NSObject {
 
                     pixelBufferPointer.deinitialize(count: 1)
                 } else {
-                    NSLog("error: Failed to allocate pixel buffer from pool")
+                    print("error: Failed to allocate pixel buffer from pool")
                 }
 
                 pixelBufferPointer.deallocate()
             }
-        }
 
-        return appendSucceeded
+            return appendSucceeded
+        }
     }
 
     func fillPixelBufferFromImage(_ image: UIImage, pixelBuffer: CVPixelBuffer) {

@@ -18,7 +18,7 @@
 		4F71D0B2461E4E69BDC46328 /* BAppUIAssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC1B5B9385BE3DF74803 /* BAppUIAssetView.swift */; };
 		4F71D0C0D7C716510050A514 /* Sourceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D19E240994BBE08C347B /* Sourceable.swift */; };
 		4F71D0ED05CC581BCC05BD0C /* PreviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DB9D84840AFF3698CC49 /* PreviewCollectionViewCell.xib */; };
-		4F71D0F56A70A74761840CDF /* TimeLapseBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDAEF2BABC0387EB02A5 /* TimeLapseBuilder.swift */; };
+		4F71D0F56A70A74761840CDF /* TimeLapsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDAEF2BABC0387EB02A5 /* TimeLapsBuilder.swift */; };
 		4F71D1198596B42DCB2F42E4 /* Transform.App.Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE20A7DE6585F1DB3246 /* Transform.App.Tests.swift */; };
 		4F71D1A499C263F02D97EB72 /* PhotosFilter.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEE9C4634EE3BB71BE8D /* PhotosFilter.App.swift */; };
 		4F71D1AC88AB3FA1EC86994B /* App.Finalizable.PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D40FE43FFFF1A605761E /* App.Finalizable.PHAsset.swift */; };
@@ -413,7 +413,7 @@
 		4F71DD8D0F498343A0F9E956 /* CodeKit.Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Thread.swift; sourceTree = "<group>"; };
 		4F71DDA05AB43EE9145626E1 /* UIKitItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitItem.swift; sourceTree = "<group>"; };
 		4F71DDA77DBB76E005377882 /* App.Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Configurable.swift; sourceTree = "<group>"; };
-		4F71DDAEF2BABC0387EB02A5 /* TimeLapseBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLapseBuilder.swift; sourceTree = "<group>"; };
+		4F71DDAEF2BABC0387EB02A5 /* TimeLapsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLapsBuilder.swift; sourceTree = "<group>"; };
 		4F71DDBE65F819676D3B5DEC /* CodeKit.UIView.Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIView.Property.swift; sourceTree = "<group>"; };
 		4F71DE19FA28916BD3E69C7C /* AppTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTask.swift; sourceTree = "<group>"; };
 		4F71DE1E89A42D1DA4445B69 /* Sourceable.PHAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sourceable.PHAsset.swift; sourceTree = "<group>"; };
@@ -1001,7 +1001,7 @@
 			isa = PBXGroup;
 			children = (
 				4F71D0DA25F0E381AB904F59 /* LivePhotoWriter.swift */,
-				4F71DDAEF2BABC0387EB02A5 /* TimeLapseBuilder.swift */,
+				4F71DDAEF2BABC0387EB02A5 /* TimeLapsBuilder.swift */,
 				4F71D2A12FE2FBAB45562B4B /* LivePhotoWriter.Image.swift */,
 				4F71D9AD8FB2C706DBEE4B67 /* LivePhotoWriter.Movie.swift */,
 			);
@@ -2582,7 +2582,7 @@
 				4F71D0B2461E4E69BDC46328 /* BAppUIAssetView.swift in Sources */,
 				4F71D26C02382F69A3C67E91 /* BAppUICollectionView.swift in Sources */,
 				4F71D9062646285D1697AFAA /* LivePhotoWriter.swift in Sources */,
-				4F71D0F56A70A74761840CDF /* TimeLapseBuilder.swift in Sources */,
+				4F71D0F56A70A74761840CDF /* TimeLapsBuilder.swift in Sources */,
 				4F71DDE1D1B30801C8A3E8D9 /* LivePhotoWriter.Image.swift in Sources */,
 				4F71D35E4AF83A7F37413988 /* LivePhotoWriter.Movie.swift in Sources */,
 			);

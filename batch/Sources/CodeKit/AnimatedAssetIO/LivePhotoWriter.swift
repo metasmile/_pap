@@ -153,7 +153,7 @@ public class LivePhotoWriter {
     ) {
 
         if let titleImagePath = indexOfTitle < photoPaths.count-1 ? photoPaths[indexOfTitle] : photoPaths.first{
-            let builder = TimeLapseBuilder(imagePaths: photoPaths)
+            let builder = TimeLapsBuilder(imagePaths: photoPaths)
             builder.fps = fps
             builder.build({ p in progress?(p) }, success: { url in
 
