@@ -7,7 +7,8 @@
 //  TimeLapseBuilder30.swift
 //
 //  Created by Adam Jensen on 11/18/16.
-//
+//  Newly Written by metasmile (github.com/metasmile) on 9/12/16.
+
 //  NOTE: This implementation is written in Swift 3.0.
 
 import AVFoundation
@@ -17,22 +18,37 @@ let kErrorDomain = "TimeLapseBuilder"
 let kFailedToStartAssetWriterError = 0
 let kFailedToAppendPixelBufferError = 1
 
-class TimeLapseBuilder: NSObject {
-    let photoURLs: [String]
+public final class TimeLapseBuilder: NSObject {
     var videoWriter: AVAssetWriter?
     var fps: Int32 = 30
+    var inputSize: CGSize = .zero
+    var outputSize: CGSize = .zero
+    var FPS:Int32 = 30
+    var destinationFilePath: String?
+    var pixelFormatType:OSType = kCVPixelFormatType_32ARGB
 
-    init(photoURLs: [String]) {
-        self.photoURLs = photoURLs
+    let imagePaths: [String]
+    init(imagePaths: [String]) {
+        self.imagePaths = imagePaths
+    }
+
+    func initProperties(){
+        if self.inputSize.equalTo(.zero){
+            self.inputSize = UIImage(contentsOfFile: imagePaths.first! as String)!.size
+            self.outputSize = self.inputSize
+        }
     }
 
     func build(_ progress: @escaping ((Progress) -> Void), success: @escaping ((URL) -> Void), failure: @escaping ((NSError) -> Void)) {
-        let inputSize = CGSize(width: 4000, height: 3000)
-        let outputSize = CGSize(width: 1280, height: 720)
+        self.initProperties()
+
+        let inputSize = self.inputSize
+        let outputSize = self.outputSize
+
         var error: NSError?
 
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
-        let videoOutputURL = URL(fileURLWithPath: documentsPath.appendingPathComponent("AssembledVideo.mov"))
+        let documentsPath = self.destinationFilePath ?? (NSTemporaryDirectory() as NSString).appendingPathComponent("TimeLapseVideo.mov")
+        let videoOutputURL = URL(fileURLWithPath: documentsPath)
 
         do {
             try FileManager.default.removeItem(at: videoOutputURL)
@@ -60,7 +76,7 @@ class TimeLapseBuilder: NSObject {
             let videoWriterInput = AVAssetWriterInput(mediaType: AVMediaType.video, outputSettings: videoSettings)
 
             let sourceBufferAttributes = [
-                (kCVPixelBufferPixelFormatTypeKey as String): Int(kCVPixelFormatType_32ARGB),
+                (kCVPixelBufferPixelFormatTypeKey as String): Int(self.pixelFormatType),
                 (kCVPixelBufferWidthKey as String): Float(inputSize.width),
                 (kCVPixelBufferHeightKey as String): Float(inputSize.height)] as [String : Any]
 
@@ -81,10 +97,10 @@ class TimeLapseBuilder: NSObject {
                 videoWriterInput.requestMediaDataWhenReady(on: media_queue) {
                     let fps: Int32 = self.fps
                     let frameDuration = CMTimeMake(1, fps)
-                    let currentProgress = Progress(totalUnitCount: Int64(self.photoURLs.count))
+                    let currentProgress = Progress(totalUnitCount: Int64(self.imagePaths.count))
 
                     var frameCount: Int64 = 0
-                    var remainingPhotoURLs = [String](self.photoURLs)
+                    var remainingPhotoURLs = [String](self.imagePaths)
 
                     while videoWriterInput.isReadyForMoreMediaData && !remainingPhotoURLs.isEmpty {
                         let nextPhotoURL = remainingPhotoURLs.remove(at: 0)
@@ -155,12 +171,12 @@ class TimeLapseBuilder: NSObject {
                             withPresentationTime: presentationTime
                     )
 
-                    pixelBufferPointer.deinitialize()
+                    pixelBufferPointer.deinitialize(count: 1)
                 } else {
                     NSLog("error: Failed to allocate pixel buffer from pool")
                 }
 
-                pixelBufferPointer.deallocate(capacity: 1)
+                pixelBufferPointer.deallocate()
             }
         }
 

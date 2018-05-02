@@ -13,6 +13,8 @@ public typealias LivePhotoWriterAssetSavedAndFetchedHandler = ((Bool, PHLivePhot
 
 public class LivePhotoWriter {
 
+    public var jpegQuality:CGFloat = 0.8
+
     // MARK: Create PHLivePhoto
     public func createLivePhotoFromImages(paths: [String]
             , indexOfTitle: Int
@@ -89,7 +91,7 @@ public class LivePhotoWriter {
 
             let options = PHAssetResourceCreationOptions()
             request.addResource(with: .pairedVideo, fileURL: pairedVideoURL, options: options)
-            request.addResource(with:.photo, fileURL: imageURL, options: options)
+            request.addResource(with: .photo, fileURL: imageURL, options: options)
 
             createdAssetsLocalIdentifier = request.placeholderForCreatedAsset?.localIdentifier
 
@@ -151,7 +153,7 @@ public class LivePhotoWriter {
     ) {
 
         if let titleImagePath = indexOfTitle < photoPaths.count-1 ? photoPaths[indexOfTitle] : photoPaths.first{
-            let builder = TimeLapseBuilder(photoURLs: photoPaths)
+            let builder = TimeLapseBuilder(imagePaths: photoPaths)
             builder.fps = fps
             builder.build({ p in progress?(p) }, success: { url in
 
@@ -181,9 +183,8 @@ public class LivePhotoWriter {
 
         generator.generateCGImagesAsynchronously(forTimes: [time]) { [weak self] _, image, _, result, error in
             if let image = image
-            , let data = UIImageJPEGRepresentation(UIImage(cgImage: image), 0.8)
+            , let data = UIImageJPEGRepresentation(UIImage(cgImage: image), self?.jpegQuality ?? 0.8)
             , result != .succeeded && error == nil {
-
                 do{
                     try data.write(to: URL(fileURLWithPath: destExtractedImagePath))
 
