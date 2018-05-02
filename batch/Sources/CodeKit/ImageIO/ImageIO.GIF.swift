@@ -8,12 +8,47 @@ import UIKit
 import ImageIO
 import MobileCoreServices
 
-//https://gist.github.com/powhu/00acd9d34fa8d61d2ddf5652f19cafcf
-public func UIImageGIFRepresentation(_ image: UIImage) -> Data? {
-    return UIImageGIFRepresentation(image, duration: 0.0, repeatCount: 0)
+public func UIImageGIFRepresentation(with imageFiles: [URL], loopCount: Int = 0, frameDelay: Double) -> Data? {
+    let fileProperties = [
+        ImageMetadata.Dictionary.GIF: [
+            ImageMetadata.Property.GIFLoopCount: loopCount
+        ]
+    ]
+    let frameProperties = [
+        ImageMetadata.Dictionary.GIF: [
+            ImageMetadata.Property.GIFDelayTime: frameDelay,
+            ImageMetadata.ColorModel: ImageMetadata.ColorModelRGB
+        ]
+    ]
+
+    let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(UUID().uuidString).gif")
+    guard let destination = CGImageDestinationCreateWithURL(url as CFURL, kUTTypeGIF, imageFiles.count, nil) else { return nil }
+    CGImageDestinationSetProperties(destination, fileProperties as CFDictionary)
+
+    for imageFile in imageFiles {
+        autoreleasepool {
+            guard let cgImage = UIImage(contentsOfFile: imageFile.path)?.cgImage else { return }
+            CGImageDestinationAddImage(destination, cgImage, frameProperties as CFDictionary)
+        }
+    }
+
+    var gifData: Data?
+    if CGImageDestinationFinalize(destination) {
+        gifData = try? Data(contentsOf: url)
+    }
+
+    imageFiles.forEach({ try? FileManager.default.removeItem(at: $0) })
+    try? FileManager.default.removeItem(at: url)
+
+    return gifData
 }
 
-public func UIImageGIFRepresentation(_ image: UIImage, duration: TimeInterval, repeatCount: Int) -> Data? {
+//https://gist.github.com/powhu/00acd9d34fa8d61d2ddf5652f19cafcf
+public func UIImageGIFRepresentation(_ image: UIImage) -> Data? {
+    return UIImageGIFRepresentation(image, duration: 0.0, loopCount: 0)
+}
+
+public func UIImageGIFRepresentation(_ image: UIImage, duration: TimeInterval, loopCount: Int) -> Data? {
     guard let images = image.images else {
         return nil
     }
@@ -21,8 +56,8 @@ public func UIImageGIFRepresentation(_ image: UIImage, duration: TimeInterval, r
     let frameCount = images.count
     let gifDuration = duration <= 0.0 ? image.duration / Double(frameCount) : duration / Double(frameCount)
 
-    let frameProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFDelayTime as String: gifDuration]]
-    let imageProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFLoopCount as String: repeatCount]]
+    let frameProperties = [ImageMetadata.Dictionary.GIF: [ImageMetadata.Property.GIFDelayTime: gifDuration]]
+    let imageProperties = [ImageMetadata.Dictionary.GIF: [ImageMetadata.Property.GIFLoopCount: loopCount]]
 
     let data = NSMutableData()
 
@@ -32,7 +67,9 @@ public func UIImageGIFRepresentation(_ image: UIImage, duration: TimeInterval, r
     CGImageDestinationSetProperties(destination, imageProperties as CFDictionary)
 
     for image in images {
-        CGImageDestinationAddImage(destination, image.cgImage!, frameProperties as CFDictionary)
+        if let cgImage = image.cgImage{
+            CGImageDestinationAddImage(destination, cgImage, frameProperties as CFDictionary)
+        }
     }
 
     return CGImageDestinationFinalize(destination) ? Data(data as Data) : nil
@@ -62,8 +99,8 @@ public extension UIImage {
             }
 
             guard let properties = CGImageSourceCopyPropertiesAtIndex(imageSource, i, nil),
-                  let gifInfo = (properties as! [String:Any])[kCGImagePropertyGIFDictionary as String] as? [String:Any],
-                  let frameDuration = (gifInfo[kCGImagePropertyGIFDelayTime as String] as? Double) else
+                  let gifInfo = (properties as! [String:Any])[ImageMetadata.Dictionary.GIF] as? [String:Any],
+                  let frameDuration = (gifInfo[ImageMetadata.Property.GIFDelayTime] as? Double) else
             {
                 return nil
             }
@@ -127,7 +164,7 @@ __attribute__((overloadable)) UIImage * UIImageWithAnimatedGIFData(NSData *data,
             CGImageRef imageRef = CGImageSourceCreateImageAtIndex(imageSource, idx, (__bridge CFDictionaryRef)mutableOptions);
 
             NSDictionary *properties = (__bridge_transfer NSDictionary *)CGImageSourceCopyPropertiesAtIndex(imageSource, idx, NULL);
-            calculatedDuration += [[[properties objectForKey:(__bridge NSString *)kCGImagePropertyGIFDictionary] objectForKey:(__bridge  NSString *)kCGImagePropertyGIFDelayTime] doubleValue];
+            calculatedDuration += [[[properties objectForKey:(__bridge NSString *)ImageMetadata.Dictionary.GIF] objectForKey:(__bridge  NSString *)kCGImagePropertyGIFDelayTime] doubleValue];
 
             [mutableImages addObject:[UIImage imageWithCGImage:imageRef scale:scale orientation:UIImageOrientationUp]];
 
@@ -168,7 +205,7 @@ __attribute__((overloadable)) NSData * _UIImagesAnimatedGIFRepresentation(NSArra
         size_t frameCount = images.count;
         NSTimeInterval frameDuration = duration / frameCount;
         NSDictionary *frameProperties = @{
-                (__bridge NSString *)kCGImagePropertyGIFDictionary: @{
+                (__bridge NSString *)ImageMetadata.Dictionary.GIF: @{
                         (__bridge NSString *)kCGImagePropertyGIFDelayTime: @(frameDuration)
                 }
         };
@@ -176,7 +213,7 @@ __attribute__((overloadable)) NSData * _UIImagesAnimatedGIFRepresentation(NSArra
         NSMutableData *mutableData = [NSMutableData data];
         CGImageDestinationRef destination = CGImageDestinationCreateWithData((__bridge CFMutableDataRef)mutableData, kUTTypeGIF, frameCount, NULL);
 
-        NSDictionary *imageProperties = @{ (__bridge NSString *)kCGImagePropertyGIFDictionary: @{
+        NSDictionary *imageProperties = @{ (__bridge NSString *)ImageMetadata.Dictionary.GIF: @{
                 (__bridge NSString *)kCGImagePropertyGIFLoopCount: @(loopCount)
         }
         };

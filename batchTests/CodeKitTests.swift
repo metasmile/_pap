@@ -126,7 +126,7 @@ class CodeKitTests: XCTestCase {
 
         if let data = Bundle(for: type(of: self)).bundleURL.appendingPathComponent("bath01.gif").asData{
             XCTAssertNotNil(UIImage.animatedImageWithGIFData(data))
-            XCTAssertNotNil(UIImageGIFRepresentation(UIImage.animatedImageWithGIFData(data)!, duration: 0, repeatCount: 0))
+            XCTAssertNotNil(UIImageGIFRepresentation(UIImage.animatedImageWithGIFData(data)!, duration: 0, loopCount: 0))
         }else{
             XCTFail()
         }

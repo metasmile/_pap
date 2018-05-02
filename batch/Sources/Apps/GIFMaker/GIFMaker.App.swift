@@ -8,8 +8,8 @@
 
 import UIKit
 import Photos
-import NSGIF2
 import DefaultsKit
+import MobileCoreServices
 
 //INFO: feature reference: https://ezgif.com
 
@@ -317,7 +317,8 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
         case .forwardAndBackward?: imageFiles.append(contentsOf: imageFiles.reversed())
         default: break
         }
-        let gifData = GIFactory.createGIF(with: imageFiles, frameDelay: frameDelay)
+
+        let gifData = UIImageGIFRepresentation(with:imageFiles, frameDelay:frameDelay)
         
         asyncSignal.begin()
         
@@ -334,43 +335,6 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
         asyncSignal.waitUntilEnd()
         
         return result
-    }
-}
-
-private struct GIFactory {
-    static func createGIF(with imageFiles: [URL], loopCount: Int = 0, frameDelay: Double) -> Data? {
-        let fileProperties = [
-            kCGImagePropertyGIFDictionary: [
-                kCGImagePropertyGIFLoopCount: loopCount
-            ]
-        ]
-        let frameProperties = [
-            kCGImagePropertyGIFDictionary: [
-                kCGImagePropertyGIFDelayTime: frameDelay,
-                kCGImagePropertyColorModel: kCGImagePropertyColorModelRGB
-            ]
-        ]
-        
-        let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(UUID().uuidString).gif")
-        guard let destination = CGImageDestinationCreateWithURL(url as CFURL, kUTTypeGIF, imageFiles.count, nil) else { return nil }
-        CGImageDestinationSetProperties(destination, fileProperties as CFDictionary)
-        
-        for imageFile in imageFiles {
-            autoreleasepool {
-                guard let cgImage = UIImage(contentsOfFile: imageFile.path)?.cgImage else { return }
-                CGImageDestinationAddImage(destination, cgImage, frameProperties as CFDictionary)
-            }
-        }
-        
-        var gifData: Data?
-        if CGImageDestinationFinalize(destination) {
-            gifData = try? Data(contentsOf: url)
-        }
-        
-        imageFiles.forEach({ try? FileManager.default.removeItem(at: $0) })
-        try? FileManager.default.removeItem(at: url)
-        
-        return gifData
     }
 }
 
