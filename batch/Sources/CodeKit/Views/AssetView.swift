@@ -256,6 +256,12 @@ extension AssetView {
         else if asset.imageType == .animatedGIF {
             gifImageView.isHidden = false
             
+            loadImage(for: asset) { (image) in
+                DispatchQueue.main.async { [weak self] in
+                    self?.image = image
+                }
+            }
+            
             loadImageData(for: asset) { [weak self] data in
                 guard !cancellation(), let data = data else {
                     self?.clearDrawing()
