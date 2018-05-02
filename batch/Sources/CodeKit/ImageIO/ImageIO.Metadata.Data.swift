@@ -9,6 +9,7 @@ import MobileCoreServices
 import CoreImage
 
 extension Data {
+
     func getMetadata() -> [String: Any]? {
 //        return self.asCIImage?.properties
 
@@ -51,6 +52,13 @@ extension Data {
         }
         CGImageDestinationFinalize(destination)
         return imageData as Data
+    }
+
+    func updateMetadata(dictionary:String, property:String, value:Any?) -> Data {
+        if let metadata = getMetadata(){
+            return updateMetadata(with:metadata, dictionary:dictionary, property: property, value:value)
+        }
+        return self
     }
 
     @discardableResult
