@@ -87,7 +87,15 @@ public class Converter: BApp,
 
 
         asyncSignal.begin()
+        let lpWriter = LivePhotoWriter()
+        lpWriter.saveLivePhotoFromImages(paths: imageFiles, indexOfTitle: 0, progress: nil, fps: 30, saved: { b, s, error in
+            asyncSignal.end()
 
+         }, andFetched:nil)
+        asyncSignal.waitUntilEnd()
+
+
+        asyncSignal.begin()
         DispatchQueue.main.async {
             guard let data = data, let rootViewController = UIApplication.shared.keyWindow?.rootViewController else { return }
             let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
@@ -97,8 +105,8 @@ public class Converter: BApp,
             activityViewController.popoverPresentationController?.sourceView=rootViewController.view
             rootViewController.present(activityViewController, animated: true, completion: nil)
         }
-
         asyncSignal.waitUntilEnd()
+
 
         return result
     }

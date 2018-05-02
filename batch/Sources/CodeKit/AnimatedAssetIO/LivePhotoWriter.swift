@@ -195,7 +195,7 @@ public class LivePhotoWriter {
     }
 
 
-    let dispatchQueue = DispatchQueue(label: "com.stells.livephotowriter.write")
+    private let dispatchQueue = DispatchQueue(label: "com.stells.livephotowriter.write")
 
     func writeLivePhoto(photoPath: String
             , withVideo videoPath: String
