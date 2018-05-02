@@ -235,6 +235,9 @@ struct GIFMakerSettings {
 public class GIFMakerAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrributeValuable, AppConfigAdoptableValuable {
     @objc dynamic
     public var tintColor: UIColor?
+
+    @objc dynamic
+    public var sourceType: Int = Int.max
     
     public func adoptValues(fromOther: AppConfigValuable) {
         if let other = fromOther as? AppConfigUIAttrributeValuable {
@@ -501,8 +504,10 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         sourceTypeCell.valueCollection = GIFMakerSettings.sourceType.orderedLabels
         sourceTypeCell.valueHandler = {
             if let value = $0 as? String {
-                //TODO: Needs to reload photo picker
-                self.defaults.sourceType = GIFMakerSettings.sourceType.key(with: value)
+                let sourceType = GIFMakerSettings.sourceType.key(with: value)
+                self.defaults.sourceType = sourceType
+
+                AppCenter.default.currentInstanceAs(GIFMaker.self)?.config?.sourceType = sourceType
             }
         }
         cellDescribers.append(sourceTypeCell)

@@ -133,6 +133,12 @@ class PhotoPickerViewController: AppDockViewController {
                     self.setAppValue(value)
                 }
             }
+
+            AppCenter.default.currentInstanceAs(GIFMaker.self)?.config?.watch(\.sourceType, id:"picker\(GIFMaker.info.identifier)") { (config, changed) in
+                AppAssets.selected.reloadAll()
+                self.redisplayVisibleCellsWhenChangeApp()
+                self.batchPreviewView.updatePreviews()
+            }
         }
     }
     
@@ -147,6 +153,8 @@ class PhotoPickerViewController: AppDockViewController {
         AppCenter.default.currentInstanceAs(PhotosFilterApp.self)?.config?.unwatch(\.filter, forIds:["picker\(PhotosFilterApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(AutoAdjustmentApp.self)?.config?.unwatch(\.filter, forIds:["picker\(AutoAdjustmentApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(Stabilizer.self)?.config?.unwatch(\.stabilizationMode, forIds:["picker\(Stabilizer.info.identifier)"])
+        AppCenter.default.currentInstanceAs(GIFMaker.self)?.config?.unwatch(\.sourceType, forIds:["picker\(GIFMaker.info.identifier)"])
+
         AppCenter.default.unwatchAllFilePrivate(\.currentIdentifier)
     }
 

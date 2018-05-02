@@ -5,11 +5,6 @@
 
 import Foundation
 
-// App -> PhotoPicker
-public protocol PhotoPickerViewControllerPropagableApp: PropagableApp {
-    //TODO: reapply or regenerate, reconfigurate something all
-}
-
 // PhotoPicker -> App
 public protocol PhotoPickerViewControllerDelegatableApp: App {
     var doneButtonTitle:String? {get}

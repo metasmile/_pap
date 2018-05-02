@@ -7,15 +7,6 @@ import Foundation
 import Photos
 import TPPDF
 import UIKit
-
-/*
-TODO: UIActivity as a file
-TODO: change 'imageToRender' as URL to prevent memory peaking
-TODO: password input
-TODO: Quality
-FinalizableApp Common Share ActivityViewController
-*/
-
 import DefaultsKit
 
 private struct PDFactoryPHAssetResult: TaskResultable{
@@ -63,17 +54,6 @@ public class PDFactory: BApp, FinalizableApp, PhotoPickerViewControllerDelegatab
         //for test
         return item.asset.mediaType == .image
     }
-
-    //TODO: Canvas Size
-    //TODO: Portrait Landscape
-    //TODO: Aspectfit/fill
-    //TODO: DPI
-    //TODO: numbers of photos for each pages
-    //TODO: exif caption enabled
-
-    // next
-    //TODO: thumbnail table sheet
-    //TOOD: support 4x6 ... photos inch size
 
     public lazy var controller: AppDockContent? = PDFactoryAppDockContent()
 
