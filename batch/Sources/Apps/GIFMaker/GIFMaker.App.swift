@@ -170,27 +170,31 @@ struct GIFMakerSettings {
         ]
     }
     
+    // https://en.wikipedia.org/wiki/Graphics_display_resolution
     struct size {
         struct labels {
-            static let large = "Large".localized
-            static let medium = "Medium".localized
-            static let small = "Small".localized
+            static let nhd = "nHD".localized
+            static let qhd = "qHD".localized
+            static let hd = "HD".localized
+            static let fhd = "FHD".localized
         }
         
         static let values: [String: Double] = [
-            labels.large: 1920,
-            labels.medium: 1280,
-            labels.small: 640
+            labels.nhd: 640,
+            labels.qhd: 960,
+            labels.hd: 1280,
+            labels.fhd: 1920
         ]
         
         static let orderedLabels: [String] = [
-            labels.small,
-            labels.medium,
-            labels.large
+            labels.nhd,
+            labels.qhd,
+            labels.hd,
+            labels.fhd,
         ]
         
         static func value(_ key: String) -> Double {
-            return values[key] ?? 1280
+            return values[key] ?? 960
         }
         
         static func sizeWithAspectRatio() -> CGSize {
@@ -277,19 +281,13 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
     
     public func shouldSelect(item: PHAssetItem<ImageEditStateValue>) -> Bool {
         return (dockContent as? GIFMakerAppDockContent)?.shouldImport(asset: item.asset) ?? false
-//        return item.asset.imageType == .stillImage || item.asset.imageType == .burst
-        
-//        guard let firstItem = AppAssets.selected.at(unsafeIndex: 0) else { return true }
-//        return firstItem.asset.mediaType == item.asset.mediaType
     }
     
     public var numberOfItemsShouldSelect: Int? {
-        guard let firstItem = AppAssets.selected.at(unsafeIndex: 0) else { return Int.max }
-        if firstItem.asset.mediaType == .video || firstItem.asset.imageType == .burst {
-            return 1
-        }
-        else {
-            return Int.max
+        switch GIFMakerSettings.sourceType.type(rawValue: (GIFMaker.defaults as! GIFMakerDefaults).sourceType) {
+        case .photo?: return Int.max
+        case .burst?: return Int.max
+        default: return Int.max
         }
     }
     
@@ -379,11 +377,11 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
             
             let fetchOptions = PHFetchOptions()
             fetchOptions.includeAllBurstAssets = true
+            fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
             
             let fetchedAsset = PHAsset.fetchAssets(withBurstIdentifier: assetItem.asset.burstIdentifier ?? "", options: fetchOptions)
             fetchedAsset.enumerateObjects { (asset, idx, stop) in
                 let response = asset.requestImage(targetSize: targetSize, contentMode: contentMode)
-                
                 if let image = response.1, let uti = assetItem.asset.uniformTypeIdentifier {
                     results.append(GIFMakerCachedAsset.cacheAsset(assetItem.asset, image: image, targetSize: targetSize, uti: uti))
                     assetItem.requestIDs += [PHAssetRequestID(forImage:response.0)]
@@ -752,7 +750,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             
         }
         else if setting.localIdentifier == Cells.size.hashValue {
-            defaults.size = GIFMakerSettings.size.values[cell.values[row]] ?? GIFMakerSettings.size.value(GIFMakerSettings.size.labels.medium)
+            defaults.size = GIFMakerSettings.size.values[cell.values[row]] ?? GIFMakerSettings.size.value(GIFMakerSettings.size.labels.qhd)
             
             needsToUpdateSizeCell = true
         }
