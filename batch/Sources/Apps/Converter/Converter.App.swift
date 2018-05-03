@@ -257,6 +257,7 @@ fileprivate struct ConvertableDirection {
 fileprivate protocol ConverterWorker {
     static var direction:ConvertableDirection {get}
 
+    //TODO: add var reqIDs = [PHAssetRequestID]()
     func convert(asset:AppAsset, _ async: AsyncManualSignalable) -> Any?
 
     func isSupported(asset:AppAsset) -> Bool
@@ -296,30 +297,44 @@ fileprivate struct VideoConverter_Burst: VideoConverter {
     }
 }
 
-
 fileprivate struct VideoConverter_LivePhoto: VideoConverter {
     fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.livephoto, to:.video)
 
     func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
 
+        guard let livePhoto = asset.asset.asPHLivePhoto else {
+            return nil
+        }
 
+        let resources = PHAssetResource.assetResources(for: livePhoto)
 
-//        let req1 = PHAssetResourceManager.default().requestData(for: videoResource, options: nil, dataReceivedHandler: { (data) in
-//            videoData.append(data)
-//        }) { (error) in
-//            guard error == nil else {
-//                completionHandler(nil, nil)
-//                return
-//            }
-//
-//            let pairedVideoFileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("pairedVideo.mov")
-//            try? videoData.write(to: pairedVideoFileURL, options: Data.WritingOptions.atomicWrite)
-//            pairedVideo = AVAsset(url: pairedVideoFileURL)
-//            retrievePairedResourcesHandler()
-//        }
-//        reqIDs.append(PHAssetRequestID(forResourceData: req1))
+        guard let videoResource = resources.first(where: { $0.type == PHAssetResourceType.pairedVideo }),
+              let _ = resources.first(where: { $0.type == PHAssetResourceType.photo }) else {
+            return nil
+        }
 
-        return nil
+        var videoData = Data()
+
+        var resultURL:URL?
+
+        async.begin()
+
+        //TODO: add reqids to cancel
+        let _ = PHAssetResourceManager.default().requestData(for: videoResource, options: nil, dataReceivedHandler: { (data) in
+            videoData.append(data)
+
+        }) { (error) in
+            if error == nil{
+                let pairedVideoFileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("pairedVideo.mov")
+                try? videoData.write(to: pairedVideoFileURL, options: Data.WritingOptions.atomicWrite)
+
+                resultURL = pairedVideoFileURL
+            }
+            async.end()
+        }
+        async.waitUntilEnd()
+
+        return resultURL
     }
 
     func isSupported(asset: AppAsset) -> Bool {
