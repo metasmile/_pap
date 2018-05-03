@@ -23,8 +23,8 @@ public class Converter: BApp,
 
     @objc dynamic
     public private(set) lazy var config: GIFMakerAppConfig? = GIFMaker.configure?()
-//    public private(set) lazy var controller: AppDockContent? = GIFMakerAppDockContent()
-    public private(set) var controller: AppDockContent?
+//    public private(set) lazy var dockContent: AppDockContent? = GIFMakerAppDockContent()
+    public private(set) var dockContent: AppDockContent?
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.converter"

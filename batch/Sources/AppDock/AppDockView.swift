@@ -130,7 +130,7 @@ class AppDockView: CustomView {
     */
 
     // AppDock Control
-    var controller: AppDockContent?{
+    var controller: AppDockContent? {
         didSet {
             if let view = controller?.view {
                 controller?.willSetContentView(view, dock: self)

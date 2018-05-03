@@ -42,7 +42,7 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
     @objc dynamic
     public private(set) lazy var config: TransformAppConfig? = TransformApp.configure?()
 
-    public private(set) lazy var controller: AppDockContent? = createController()
+    public private(set) lazy var dockContent: AppDockContent? = createController()
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.transform"
@@ -102,7 +102,7 @@ private extension TransformApp{
     }
 
     private func updateControllerView(){
-        self.controller?.view.tintColor = config?.tintColor
+        self.dockContent?.view.tintColor = config?.tintColor
     }
 }
 

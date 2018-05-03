@@ -256,7 +256,7 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
     
     @objc dynamic
     public private(set) lazy var config: GIFMakerAppConfig? = GIFMaker.configure?()
-    public private(set) lazy var controller: AppDockContent? = GIFMakerAppDockContent()
+    public private(set) lazy var dockContent: AppDockContent? = GIFMakerAppDockContent()
     
     public static let info = AppInfo(
         identifier: "com.stells.batch.gifmaker"
@@ -276,7 +276,7 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
     }
     
     public func shouldSelect(item: PHAssetItem<ImageEditStateValue>) -> Bool {
-        return (controller as? GIFMakerAppDockContent)?.shouldImport(asset: item.asset) ?? false
+        return (dockContent as? GIFMakerAppDockContent)?.shouldImport(asset: item.asset) ?? false
 //        return item.asset.imageType == .stillImage || item.asset.imageType == .burst
         
 //        guard let firstItem = AppAssets.selected.at(unsafeIndex: 0) else { return true }

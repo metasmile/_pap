@@ -21,7 +21,7 @@ public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableAp
     
     @objc dynamic
     public private(set) lazy var config: PhotosFilterAppConfig? = PhotosFilterApp.configure?()
-    public private(set) lazy var controller: AppDockContent? = AutoAdjustmentAppDockContent()
+    public private(set) lazy var dockContent: AppDockContent? = AutoAdjustmentAppDockContent()
     
     public static let info = AppInfo(
         identifier: "com.stells.batch.autoadjustment"
@@ -41,7 +41,7 @@ public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableAp
             self.updateControllerView()
         }
 
-        let controllerContent = self.controller as? AutoAdjustmentAppDockContent
+        let controllerContent = self.dockContent as? AutoAdjustmentAppDockContent
         controllerContent?.watch(\.options, options: [.initial, .new]) {
 
             var defaults = type(of: self).defaults as! AutoAdjustmentAppDefaults
@@ -138,7 +138,7 @@ private extension AutoAdjustmentApp {
     ]
     
     private func updateControllerView(){
-        self.controller?.view.tintColor = config?.tintColor
+        self.dockContent?.view.tintColor = config?.tintColor
     }
 }
 

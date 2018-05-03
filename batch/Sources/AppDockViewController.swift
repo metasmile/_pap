@@ -53,11 +53,11 @@ extension AppDockNavigationController: AppDockViewDelegate {
         if AppCenter.default.current != item.app {
             AppCenter.default.current = item.app
             
-            appDockView.controller = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.controller
+            appDockView.controller = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.dockContent
             appDockView.closeDrawer(reloadDockContentViews: true)
         }
         else {
-            appDockView.controller = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.controller
+            appDockView.controller = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.dockContent
             appDockView.isDrawerOpened ? appDockView.openDrawer(reloadDockContentViews: true) : appDockView.closeDrawer(reloadDockContentViews: true)
         }
     }

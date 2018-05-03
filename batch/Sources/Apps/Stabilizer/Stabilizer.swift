@@ -73,7 +73,7 @@ public class Stabilizer: BApp, PHAssetFinalizableApp, AppDockControllableApp, Ph
     
     @objc dynamic
     public private(set) lazy var config: StabilizerAppConfig? = Stabilizer.configure?()
-    public private(set) lazy var controller: AppDockContent? = createController()
+    public private(set) lazy var dockContent: AppDockContent? = createController()
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.stabilizer"

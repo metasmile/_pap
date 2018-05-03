@@ -56,7 +56,7 @@ public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp,
     
     @objc dynamic
     public private(set) lazy var config: PhotosFilterAppConfig? = PhotosFilterApp.configure?()
-    public private(set) lazy var controller: AppDockContent? = createController()
+    public private(set) lazy var dockContent: AppDockContent? = createController()
 
     public static let info = AppInfo(
         identifier: "com.stells.batch.photosfilter"
@@ -149,7 +149,7 @@ private extension PhotosFilterApp {
     }
     
     private func updateControllerView(){
-        self.controller?.view.tintColor = config?.tintColor
+        self.dockContent?.view.tintColor = config?.tintColor
     }
 }
 

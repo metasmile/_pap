@@ -27,7 +27,7 @@ public class ExifGhost: BApp, PHAssetFinalizableApp, PhotoPickerViewControllerDe
             , minOSVersion: nil
     )
 
-    public private(set) lazy var controller: AppDockContent? = ExifGhostAppDockContent()
+    public private(set) lazy var dockContent: AppDockContent? = ExifGhostAppDockContent()
 
     public required init() {}
 
@@ -76,7 +76,7 @@ private class _ExifGhostTask: TaskPrototype, Taskable {
                 , let metadata = data.getMetadata(){
 
                     var ghostedData:Data
-                    if let appContentAsExifGhost = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.controller as? ExifGhostAppDockContent {
+                    if let appContentAsExifGhost = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.dockContent as? ExifGhostAppDockContent {
                         if appContentAsExifGhost.shouldGhostAll{
                             ghostedData = data.setMetadata(with: nil)
 

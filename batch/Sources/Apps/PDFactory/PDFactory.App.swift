@@ -55,7 +55,7 @@ public class PDFactory: BApp, FinalizableApp, PhotoPickerViewControllerDelegatab
         return item.asset.mediaType == .image
     }
 
-    public lazy var controller: AppDockContent? = PDFactoryAppDockContent()
+    public lazy var dockContent: AppDockContent? = PDFactoryAppDockContent()
 
     public var finalizingPresets: [PHAssetFinalizingPresets]? {
         return nil
