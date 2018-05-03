@@ -139,26 +139,26 @@ private class ConverterTask: TaskPrototype, Taskable {
     public typealias ParamType = AppAsset
     public typealias ResultType = ConverterPHAssetResult
 
-    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?){
+    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){
 
         (param as? AppAsset)?.cancelAllRequestIDs()
     }
 
-    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable?) throws -> TaskResultable? {
+    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
         guard let appAsset = param as? AppAsset else { return nil }
         return try _perform(appAsset, async)
     }
 
-    private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable?) throws -> ConverterPHAssetResult?  {
+    private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable) throws -> ConverterPHAssetResult?  {
         var result: ConverterPHAssetResult?
 
         let targetSize = GIFMakerSettings.size.sizeWithAspectRatio()
         let contentMode = PHImageContentMode.aspectFit//PHImageContentMode(rawValue: (GIFMaker.defaults as! GIFMakerDefaults).contentMode) ?? PHImageContentMode.aspectFit
 
-        async?.begin()
+        async.begin()
 
         if assetItem.asset.mediaType == .video {
-            async?.end()
+            async.end()
         }
         else if assetItem.asset.imageType == .stillImage {
             let response = assetItem.asset.requestImage(targetSize: targetSize, contentMode: contentMode)
@@ -168,7 +168,7 @@ private class ConverterTask: TaskPrototype, Taskable {
                 assetItem.requestIDs += [PHAssetRequestID(forImage:response.0)]
             }
 
-            async?.end()
+            async.end()
         }
         else if assetItem.asset.imageType == .burst {
             var results = [ConverterCachedAsset]()
@@ -188,13 +188,13 @@ private class ConverterTask: TaskPrototype, Taskable {
 
             result = ConverterPHAssetResult(items: results)
 
-            async?.end()
+            async.end()
         }
         else if assetItem.asset.imageType == .livePhoto {
-            async?.end()
+            async.end()
         }
 
-        async?.waitUntilEnd()
+        async.waitUntilEnd()
         return result
     }
 }
@@ -257,7 +257,7 @@ fileprivate struct ConvertableDirection {
 fileprivate protocol ConverterWorker {
     static var direction:ConvertableDirection {get}
 
-    func convert(asset:AppAsset, _ async: AsyncManualSignalable?) -> Any?
+    func convert(asset:AppAsset, _ async: AsyncManualSignalable) -> Any?
 
     func isSupported(asset:AppAsset) -> Bool
 }
@@ -275,7 +275,7 @@ extension VideoConverter{
 fileprivate struct VideoConverter_Gif: VideoConverter {
     fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.gif, to:.video)
 
-    func convert(asset: AppAsset, _ async: AsyncManualSignalable?) -> Any? {
+    func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
     }
 
@@ -287,7 +287,7 @@ fileprivate struct VideoConverter_Gif: VideoConverter {
 fileprivate struct VideoConverter_Burst: VideoConverter {
     fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.burst, to:.video)
 
-    func convert(asset: AppAsset, _ async: AsyncManualSignalable?) -> Any? {
+    func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
     }
 
@@ -300,7 +300,7 @@ fileprivate struct VideoConverter_Burst: VideoConverter {
 fileprivate struct VideoConverter_LivePhoto: VideoConverter {
     fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.livephoto, to:.video)
 
-    func convert(asset: AppAsset, _ async: AsyncManualSignalable?) -> Any? {
+    func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
 
         return nil
     }
@@ -324,7 +324,7 @@ extension GifConverter{
 fileprivate struct GifConverter_Video: GifConverter {
     fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.video, to:.gif)
 
-    func convert(asset: AppAsset, _ async: AsyncManualSignalable?) -> Any? {
+    func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
     }
 
@@ -336,7 +336,7 @@ fileprivate struct GifConverter_Video: GifConverter {
 fileprivate struct GifConverter_LivePhoto: GifConverter {
     fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.livephoto, to:.gif)
 
-    func convert(asset: AppAsset, _ async: AsyncManualSignalable?) -> Any? {
+    func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
     }
 
@@ -348,7 +348,7 @@ fileprivate struct GifConverter_LivePhoto: GifConverter {
 fileprivate struct GifConverter_Timelapse: GifConverter {
     fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.timelapse, to:.gif)
 
-    func convert(asset: AppAsset, _ async: AsyncManualSignalable?) -> Any? {
+    func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
     }
 
@@ -360,7 +360,7 @@ fileprivate struct GifConverter_Timelapse: GifConverter {
 fileprivate struct GifConverter_Burst: GifConverter {
     fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.burst, to:.gif)
 
-    func convert(asset: AppAsset, _ async: AsyncManualSignalable?) -> Any? {
+    func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
     }
 
@@ -384,7 +384,7 @@ extension LivePhotoConverter{
 fileprivate struct LivePhotoConverter_Gif: LivePhotoConverter {
     fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.gif, to:.livephoto)
 
-    func convert(asset: AppAsset, _ async: AsyncManualSignalable?) -> Any? {
+    func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
 
 
 //        LivePhotoWriter().createLivePhotoFromImages(paths: <#T##[String]##[Swift.String]#>, indexOfTitle: <#T##Int##Swift.Int#>, progress: <#T##((Progress) -> ())?##((Foundation.Progress) -> ())?#>, fps: <#T##Int32##Swift.Int32#>, created: <#T##((PHLivePhoto?) -> ())?##((Photos.PHLivePhoto?) -> ())?#>)
@@ -399,7 +399,7 @@ fileprivate struct LivePhotoConverter_Gif: LivePhotoConverter {
 fileprivate struct LivePhotoConverter_Burst: LivePhotoConverter {
     fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.burst, to:.livephoto)
 
-    func convert(asset: AppAsset, _ async: AsyncManualSignalable?) -> Any? {
+    func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
     }
 
@@ -411,7 +411,7 @@ fileprivate struct LivePhotoConverter_Burst: LivePhotoConverter {
 fileprivate struct LivePhotoConverter_Videp: LivePhotoConverter {
     fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.video, to:.livephoto)
 
-    func convert(asset: AppAsset, _ async: AsyncManualSignalable?) -> Any? {
+    func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
     }
 

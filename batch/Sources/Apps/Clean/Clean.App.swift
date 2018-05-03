@@ -37,9 +37,9 @@ public class Clean: BApp, PHAssetFinalizableApp, AppDockControllableApp, PhotoPi
 }
 
 private class _CleanTask: TaskPrototype, Taskable {
-    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?){}
+    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){}
 
-    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable?) throws -> TaskResultable? {
+    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
         if let asset = (param as? PHAssetItem<ImageEditStateValue>)?.asset{
             return PHAssetResultItem(asset: asset, contentEditingOutput: nil)
         }

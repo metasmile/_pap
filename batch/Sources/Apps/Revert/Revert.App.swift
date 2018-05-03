@@ -81,9 +81,9 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp, FinalizableApp, AppMan
 }
 
 private class _RevertAppTask: TaskPrototype, Taskable {
-    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?){}
+    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){}
 
-    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable?) throws -> TaskResultable? {
+    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
         assert(param is RevertAppParam, "TaskParamable type of this app is \(RevertAppParam.self)")
 
         guard let _param = param as? RevertAppParam else{

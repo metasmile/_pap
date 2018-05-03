@@ -49,18 +49,18 @@ public class ExifGhost: BApp, PHAssetFinalizableApp, PhotoPickerViewControllerDe
 }
 
 private class _ExifGhostTask: TaskPrototype, Taskable {
-    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?){
+    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){
         (param as? ParamType)?.cancelAllRequestIDs()
     }
 
-    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable?) throws -> TaskResultable? {
+    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
         guard let param = param as? ParamType else{
             throw TaskError.invalidParam
         }
 
         var result: PHAssetResultItem?
 
-        async?.begin()
+        async.begin()
         let option = PHContentEditingInputRequestOptions()
         option.isNetworkAccessAllowed = true
         option.canHandleAdjustmentData = { _ -> Bool in
@@ -95,12 +95,12 @@ private class _ExifGhostTask: TaskPrototype, Taskable {
 
             }
 
-            async?.end()
+            async.end()
         }
 
         param.requestIDs += [PHAssetRequestID(forEditingInput: id)]
 
-        async?.waitUntilEnd()
+        async.waitUntilEnd()
         return result
     }
 

@@ -32,15 +32,15 @@ public class TestApp: App {
 }
 
 private class _TestAppTask: TaskPrototype, Taskable {
-    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?){}
+    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){}
 
-    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable?) throws -> TaskResultable? {
-        async?.begin()
+    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
+        async.begin()
         DispatchQueue.global().async{
             sleep(UInt32(arc4random_uniform(2)))
-            async?.end()
+            async.end()
         }
-        async?.waitUntilEnd()
+        async.waitUntilEnd()
         return TestTaskResult(id:(param as! TestTaskParam).id)
     }
 }

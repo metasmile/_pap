@@ -342,27 +342,27 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
     public typealias ParamType = _GIFMakerAppAsset
     public typealias ResultType = PHAssetResultItem
     
-    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?){
+    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){
         
         (param as? _GIFMakerAppAsset)?.cancelAllRequestIDs()
         (param as? _GIFMakerAppAsset)?.cancelProcessing()
     }
     
-    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable?) throws -> TaskResultable? {
+    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
         guard let appAsset = param as? AppAsset else { return nil }
         return try _perform(appAsset, async)
     }
     
-    private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable?) throws -> GIFMakerPHAssetResult?  {
+    private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable) throws -> GIFMakerPHAssetResult?  {
         var result: GIFMakerPHAssetResult?
         
         let targetSize = GIFMakerSettings.size.sizeWithAspectRatio()
         let contentMode = PHImageContentMode(rawValue: (GIFMaker.defaults as! GIFMakerDefaults).contentMode) ?? PHImageContentMode.aspectFit
         
-        async?.begin()
+        async.begin()
         
         if assetItem.asset.mediaType == .video {
-            async?.end()
+            async.end()
         }
         else if assetItem.asset.imageType == .stillImage {
             let response = assetItem.asset.requestImage(targetSize: targetSize, contentMode: contentMode)
@@ -372,7 +372,7 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
                 assetItem.requestIDs += [PHAssetRequestID(forImage:response.0)]
             }
             
-            async?.end()
+            async.end()
         }
         else if assetItem.asset.imageType == .burst {
             var results = [GIFMakerCachedAsset]()
@@ -392,13 +392,13 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
             
             result = GIFMakerPHAssetResult(items: results)
             
-            async?.end()
+            async.end()
         }
         else if assetItem.asset.imageType == .livePhoto {
-            async?.end()
+            async.end()
         }
         
-        async?.waitUntilEnd()
+        async.waitUntilEnd()
         return result
     }
 }

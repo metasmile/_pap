@@ -168,11 +168,11 @@ private class _PDFactoryTask: TaskPrototype, Taskable {
         return options
     }
 
-    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?){
+    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){
         (param as? AppAsset)?.cancelAllRequestIDs()
     }
 
-    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable?) throws -> TaskResultable? {
+    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
         if let appAsset = param as? AppAsset{
             let asset = appAsset.asset
 
@@ -180,22 +180,22 @@ private class _PDFactoryTask: TaskPrototype, Taskable {
             //read image
             var renderImage:UIImage?
 
-            async?.begin()
+            async.begin()
             let imageMaxSize:CGSize = PDFactory.defaultsPDFLayout.size
             let imagePixelSize = imageMaxSize.applying(CGAffineTransform(scaleX: 2, y: 2))
             let imageRequestID = PHImageManager.default().requestImage(for: asset, targetSize: imagePixelSize, contentMode: .aspectFit, options: _pdfImageRequestOptions) { (image, info) in
                 renderImage = image
-                async?.end()
+                async.end()
             }
 
             appAsset.requestIDs += [PHAssetRequestID(forImage:imageRequestID)]
-            async?.waitUntilEnd()
+            async.waitUntilEnd()
 
             //read metadata
             var imageMetadata: [String: Any]?
 
             if (PDFactory.defaults as! PDFactoryDefaults).metadataCaption{
-                async?.begin()
+                async.begin()
 
                 let option = PHContentEditingInputRequestOptions()
                 option.isNetworkAccessAllowed = true
@@ -208,10 +208,10 @@ private class _PDFactoryTask: TaskPrototype, Taskable {
                         let data = try! Data(contentsOf: url)
                         imageMetadata = data.getMetadata()
                     }
-                    async?.end()
+                    async.end()
                 }
                 appAsset.requestIDs += [PHAssetRequestID(forEditingInput: editingInputId)]
-                async?.waitUntilEnd()
+                async.waitUntilEnd()
             }
 
             if let image = renderImage{

@@ -126,13 +126,13 @@ public class Stabilizer: BApp, PHAssetFinalizableApp, AppDockControllableApp, Ph
 private class StabilizerTask: TaskPrototype, Taskable {
     private var isCancelled: Bool = false
     
-    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?) {
+    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable) {
         
         (param as? _StabilizerAppAsset)?.cancelAllRequestIDs()
         (param as? _StabilizerAppAsset)?.cancelProcessing()
     }
 
-    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable?) throws -> TaskResultable? {
+    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
         assert(param is _StabilizerAppAsset, "TaskParamable type of this app is \(_StabilizerAppAsset.self)")
         guard let _param = param as? _StabilizerAppAsset else{
             throw TaskError.invalidParam
@@ -140,10 +140,10 @@ private class StabilizerTask: TaskPrototype, Taskable {
         return try self._perform(_param, async)
     }
     
-    private func _perform(_ assetItem: _StabilizerAppAsset, _ async: AsyncManualSignalable?) throws -> PHAssetResultItem?  {
+    private func _perform(_ assetItem: _StabilizerAppAsset, _ async: AsyncManualSignalable) throws -> PHAssetResultItem?  {
         var result: PHAssetResultItem?
         
-        async?.begin()
+        async.begin()
         
         assetItem.runEditing({ (progress) in
             guard let progress = progress else { return }
@@ -157,10 +157,10 @@ private class StabilizerTask: TaskPrototype, Taskable {
                     asset: asset,
                     contentEditingOutput: contentEditingOutput)
             }
-            async?.end()
+            async.end()
         }
         
-        async?.waitUntilEnd()
+        async.waitUntilEnd()
         return result
     }
 }

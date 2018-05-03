@@ -157,13 +157,13 @@ private class _PhotosFilterAppTask: TaskPrototype, Taskable {
     public typealias ParamType = _PhotosFilterAppAsset
     public typealias ResultType = PHAssetResultItem
     
-    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?){
+    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){
         
         (param as? _PhotosFilterAppAsset)?.cancelAllRequestIDs()
         (param as? _PhotosFilterAppAsset)?.cancelProcessing()
     }
     
-    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable?) throws -> TaskResultable? {
+    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
         assert(param is _PhotosFilterAppAsset, "TaskParamable type of this app is \(_PhotosFilterAppAsset.self)")
         guard let _param = param as? _PhotosFilterAppAsset else{
             throw TaskError.invalidParam
@@ -171,10 +171,10 @@ private class _PhotosFilterAppTask: TaskPrototype, Taskable {
         return try self._perform(_param, async)
     }
     
-    private func _perform(_ assetItem: _PhotosFilterAppAsset, _ async: AsyncManualSignalable?) throws -> PHAssetResultItem?  {
+    private func _perform(_ assetItem: _PhotosFilterAppAsset, _ async: AsyncManualSignalable) throws -> PHAssetResultItem?  {
         var result: PHAssetResultItem?
         
-        async?.begin()
+        async.begin()
         
         assetItem.runEditing({ (progress) in
             guard let progress = progress else { return }
@@ -188,10 +188,10 @@ private class _PhotosFilterAppTask: TaskPrototype, Taskable {
                     asset: asset,
                     contentEditingOutput: contentEditingOutput)
             }
-            async?.end()
+            async.end()
         }
         
-        async?.waitUntilEnd()
+        async.waitUntilEnd()
         return result
     }
 }

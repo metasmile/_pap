@@ -46,9 +46,9 @@ public struct TaskPolicy{
 public protocol _Taskable{
     init(_ info: TaskInfo)
 
-    func perform(_ param: TaskParamable, _ async: AsyncManualSignalable?) throws -> TaskResultable?
+    func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable?
 
-    func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable?)
+    func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable)
 }
 
 public protocol Taskable: _Taskable{
