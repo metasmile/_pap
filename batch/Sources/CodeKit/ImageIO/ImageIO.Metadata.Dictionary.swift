@@ -12,8 +12,9 @@ extension Dictionary{
     func updateMetadata(dictionary:String?=nil, property:String, value:Any?) -> [String:Any] {
         var newMetadata = self as! [String:Any]
 
-        if let dictionary = dictionary, let data = newMetadata[dictionary] as? [String:Any]{
-            var data = data
+        if let dictionary = dictionary{
+
+            var data = newMetadata[dictionary] as? [String:Any] ?? [String:Any]()
             if value == nil{
                 data.removeValue(forKey: property)
             }else{
