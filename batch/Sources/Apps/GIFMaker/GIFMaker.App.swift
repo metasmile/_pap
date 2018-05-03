@@ -32,7 +32,7 @@ private struct GIFMakerCachedAsset {
             imageToWrite = UIGraphicsImageRenderer(size: targetSize, format: image.imageRendererFormat).imageWithCurrentContext { (cgContext) in
                 UIColor.white.setFill()
                 cgContext.fill(CGRect(origin: .zero, size: targetSize))
-                image.draw(at: CGPoint(x: (targetSize.width - image.size.width) / 2, y: (targetSize.height - image.size.height) / 2))
+                image.draw(in: AVMakeRect(aspectRatio: image.size, insideRect: CGRect(origin: .zero, size: targetSize)))
             } ?? image
         }
         

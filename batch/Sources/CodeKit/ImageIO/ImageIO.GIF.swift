@@ -8,7 +8,7 @@ import UIKit
 import ImageIO
 import MobileCoreServices
 
-public func UIImageGIFRepresentation(with imageFiles: [URL], loopCount: Int = 0, frameDelay: Double) -> Data? {
+public func UIImageGIFRepresentation(with imageFiles: [URL], loopCount: Int = 0, frameDelay: Double, removesImageFilePaths: Bool = true) -> Data? {
     let fileProperties = [
         ImageMetadata.Dictionary.GIF: [
             ImageMetadata.Property.GIFLoopCount: loopCount
@@ -36,8 +36,10 @@ public func UIImageGIFRepresentation(with imageFiles: [URL], loopCount: Int = 0,
     if CGImageDestinationFinalize(destination) {
         gifData = try? Data(contentsOf: url)
     }
-
-    imageFiles.forEach({ try? FileManager.default.removeItem(at: $0) })
+    
+    if removesImageFilePaths {
+        imageFiles.forEach({ try? FileManager.default.removeItem(at: $0) })
+    }
     try? FileManager.default.removeItem(at: url)
 
     return gifData
