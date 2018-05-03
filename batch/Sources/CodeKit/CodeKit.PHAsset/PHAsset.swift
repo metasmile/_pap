@@ -99,7 +99,8 @@ extension PHAsset {
     
     var imageType: PHAssetImageType {
         guard mediaType == .image else { return .unknown }
-        if uniformTypeIdentifier == kUTTypeGIF as String {
+
+        if uniformTypeIdentifier == UTI.GIF {
             return .animatedGIF
         }
         else if representsBurst {

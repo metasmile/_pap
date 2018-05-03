@@ -15,7 +15,7 @@ import MobileCoreServices
 
 class _GIFMakerAppAsset: PHAssetItem<ImageEditStateValue> {
     func cancelProcessing() {
-        
+
     }
 }
 
@@ -38,12 +38,12 @@ private struct GIFMakerCachedAsset {
         
         var data: Data?
         var fileExtension = "jpg"
-        switch uti as CFString {
-        case kUTTypePNG:
-            data = UIImagePNGRepresentation(imageToWrite)
-            fileExtension = "png"
-        default:
-            data = UIImageJPEGRepresentation(imageToWrite, 1)
+        switch uti{
+            case UTI.PNG:
+                data = UIImagePNGRepresentation(imageToWrite)
+                fileExtension = "png"
+            default:
+                data = UIImageJPEGRepresentation(imageToWrite, 1)
         }
         
         let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(GIFMaker.info.identifier)_\(UUID().uuidString).\(fileExtension)")

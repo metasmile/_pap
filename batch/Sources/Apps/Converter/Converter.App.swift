@@ -44,7 +44,24 @@ public class Converter: BApp,
     }
 
     public func shouldSelect(item: PHAssetItem<ImageEditStateValue>) -> Bool {
-        return true
+        let t = item.asset.mediaType
+        let it = item.asset.imageType
+        let st = item.asset.mediaSubtypes
+//        let u = item.asset.uniformTypeIdentifier
+
+        if it == .animatedGIF || it == .burst{
+            return true
+        }
+
+        if t == PHAssetMediaType.video {
+           return true
+        }
+
+        if t == PHAssetMediaType.image && (st.contains(.photoLive) || st.contains(.videoTimelapse)){
+            return true
+        }
+
+        return false
     }
 
     public var numberOfItemsShouldSelect: Int? {
@@ -59,16 +76,12 @@ public class Converter: BApp,
 
     }
 
-    public func shouldFinalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> Bool {
-        return true
-    }
-
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
         let resultItems = result
                 .filter { respondable in respondable.info.state == .completed }
                 .compactMap { ($0.result as? ConverterPHAssetResult)?.items }.reduce([], +)
 
-        let imageFiles = resultItems.map({ $0.imageFileURL.path })
+        let imageFiles = resultItems.map({ $0.resultFileURL.path })
 
         var shareItem:Any?
 
@@ -122,7 +135,6 @@ public class Converter: BApp,
     }
 }
 
-
 private class ConverterTask: TaskPrototype, Taskable {
     public typealias ParamType = AppAsset
     public typealias ResultType = ConverterPHAssetResult
@@ -152,7 +164,7 @@ private class ConverterTask: TaskPrototype, Taskable {
             let response = assetItem.asset.requestImage(targetSize: targetSize, contentMode: contentMode)
 
             if let image = response.1, let uti = assetItem.asset.uniformTypeIdentifier {
-                result = ConverterPHAssetResult(items: [ConverterCachedAsset.cacheAsset(assetItem.asset, image: image, targetSize: targetSize, uti: uti)])
+                result = ConverterPHAssetResult(items: [ConverterCachedAsset.cacheAsset(assetItem.asset, image: image, targetSize: targetSize)])
                 assetItem.requestIDs += [PHAssetRequestID(forImage:response.0)]
             }
 
@@ -169,7 +181,7 @@ private class ConverterTask: TaskPrototype, Taskable {
                 let response = asset.requestImage(targetSize: targetSize, contentMode: contentMode)
 
                 if let image = response.1, let uti = assetItem.asset.uniformTypeIdentifier {
-                    results.append(ConverterCachedAsset.cacheAsset(assetItem.asset, image: image, targetSize: targetSize, uti: uti))
+                    results.append(ConverterCachedAsset.cacheAsset(assetItem.asset, image: image, targetSize: targetSize))
                     assetItem.requestIDs += [PHAssetRequestID(forImage:response.0)]
                 }
             }
@@ -187,12 +199,11 @@ private class ConverterTask: TaskPrototype, Taskable {
     }
 }
 
-
 private struct ConverterCachedAsset {
     public var asset: PHAsset
-    public var imageFileURL: URL
+    public var resultFileURL: URL
 
-    static func cacheAsset(_ asset: PHAsset, image: UIImage, targetSize: CGSize, uti: String) -> ConverterCachedAsset {
+    static func cacheAsset(_ asset: PHAsset, image: UIImage, targetSize: CGSize) -> ConverterCachedAsset {
         let imageToWrite: UIImage
         if targetSize == image.size {
             imageToWrite = image
@@ -205,23 +216,207 @@ private struct ConverterCachedAsset {
             } ?? image
         }
 
+
+
         var data: Data?
         var fileExtension = "jpg"
-        switch uti as CFString {
-        case kUTTypePNG:
-            data = UIImagePNGRepresentation(imageToWrite)
-            fileExtension = "png"
-        default:
-            data = UIImageJPEGRepresentation(imageToWrite, 1)
+        switch asset.uniformTypeIdentifier{
+            case UTI.PNG:
+                data = UIImagePNGRepresentation(imageToWrite)
+                fileExtension = "png"
+            default:
+                data = UIImageJPEGRepresentation(imageToWrite, 1)
         }
 
         let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(Converter.info.identifier)_\(UUID().uuidString).\(fileExtension)")
         try? data?.write(to: url)
 
-        return ConverterCachedAsset(asset: asset, imageFileURL: url)
+        return ConverterCachedAsset(asset: asset, resultFileURL: url)
     }
 }
 
 private struct ConverterPHAssetResult: TaskResultable{
     public var items: [ConverterCachedAsset]
 }
+
+
+fileprivate enum ConvertableMediaType{
+    case any
+    case video
+    case livephoto
+    case gif
+    case burst
+    case timelapse
+}
+
+fileprivate struct ConvertableDirection {
+    var from:ConvertableMediaType
+    var to:ConvertableMediaType
+}
+
+fileprivate protocol ConverterWorker {
+    static var direction:ConvertableDirection {get}
+
+    func convert(asset:AppAsset, _ async: AsyncManualSignalable?) -> Any?
+
+    func isSupported(asset:AppAsset) -> Bool
+}
+/*
+    VideoConverter
+*/
+fileprivate protocol VideoConverter: ConverterWorker{}
+
+extension VideoConverter{
+    fileprivate static var direction: ConvertableDirection {
+        return ConvertableDirection(from: .any, to: .video)
+    }
+}
+
+fileprivate struct VideoConverter_Gif: VideoConverter {
+    fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.gif, to:.video)
+
+    func convert(asset: AppAsset, _ async: AsyncManualSignalable?) -> Any? {
+        return nil
+    }
+
+    func isSupported(asset: AppAsset) -> Bool {
+        return asset.asset.uniformTypeIdentifier == UTI.GIF
+    }
+}
+
+fileprivate struct VideoConverter_Burst: VideoConverter {
+    fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.burst, to:.video)
+
+    func convert(asset: AppAsset, _ async: AsyncManualSignalable?) -> Any? {
+        return nil
+    }
+
+    func isSupported(asset: AppAsset) -> Bool {
+        return asset.asset.imageType == .burst
+    }
+}
+
+
+fileprivate struct VideoConverter_LivePhoto: VideoConverter {
+    fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.livephoto, to:.video)
+
+    func convert(asset: AppAsset, _ async: AsyncManualSignalable?) -> Any? {
+
+        return nil
+    }
+
+    func isSupported(asset: AppAsset) -> Bool {
+        return asset.asset.imageType == .burst
+    }
+}
+
+/*
+    GifConverter
+*/
+fileprivate protocol GifConverter: ConverterWorker{}
+
+extension GifConverter{
+    fileprivate static var direction: ConvertableDirection {
+        return ConvertableDirection(from: .any, to: .gif)
+    }
+}
+
+fileprivate struct GifConverter_Video: GifConverter {
+    fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.video, to:.gif)
+
+    func convert(asset: AppAsset, _ async: AsyncManualSignalable?) -> Any? {
+        return nil
+    }
+
+    func isSupported(asset: AppAsset) -> Bool {
+        return asset.asset.mediaType == .video
+    }
+}
+
+fileprivate struct GifConverter_LivePhoto: GifConverter {
+    fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.livephoto, to:.gif)
+
+    func convert(asset: AppAsset, _ async: AsyncManualSignalable?) -> Any? {
+        return nil
+    }
+
+    func isSupported(asset: AppAsset) -> Bool {
+        return asset.asset.imageType == .livePhoto
+    }
+}
+
+fileprivate struct GifConverter_Timelapse: GifConverter {
+    fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.timelapse, to:.gif)
+
+    func convert(asset: AppAsset, _ async: AsyncManualSignalable?) -> Any? {
+        return nil
+    }
+
+    func isSupported(asset: AppAsset) -> Bool {
+        return asset.asset.mediaSubtypes.contains(.videoTimelapse)
+    }
+}
+
+fileprivate struct GifConverter_Burst: GifConverter {
+    fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.burst, to:.gif)
+
+    func convert(asset: AppAsset, _ async: AsyncManualSignalable?) -> Any? {
+        return nil
+    }
+
+    func isSupported(asset: AppAsset) -> Bool {
+        return asset.asset.imageType == .burst
+    }
+}
+
+
+/*
+    LivePhotoConverter
+*/
+
+fileprivate protocol LivePhotoConverter: ConverterWorker{}
+extension LivePhotoConverter{
+    static var direction: ConvertableDirection {
+        return ConvertableDirection(from: .any, to: .livephoto)
+    }
+}
+
+fileprivate struct LivePhotoConverter_Gif: LivePhotoConverter {
+    fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.gif, to:.livephoto)
+
+    func convert(asset: AppAsset, _ async: AsyncManualSignalable?) -> Any? {
+
+
+//        LivePhotoWriter().createLivePhotoFromImages(paths: <#T##[String]##[Swift.String]#>, indexOfTitle: <#T##Int##Swift.Int#>, progress: <#T##((Progress) -> ())?##((Foundation.Progress) -> ())?#>, fps: <#T##Int32##Swift.Int32#>, created: <#T##((PHLivePhoto?) -> ())?##((Photos.PHLivePhoto?) -> ())?#>)
+        return nil
+    }
+
+    func isSupported(asset: AppAsset) -> Bool {
+        return asset.asset.mediaType == .video
+    }
+}
+
+fileprivate struct LivePhotoConverter_Burst: LivePhotoConverter {
+    fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.burst, to:.livephoto)
+
+    func convert(asset: AppAsset, _ async: AsyncManualSignalable?) -> Any? {
+        return nil
+    }
+
+    func isSupported(asset: AppAsset) -> Bool {
+        return asset.asset.mediaType == .video
+    }
+}
+
+fileprivate struct LivePhotoConverter_Videp: LivePhotoConverter {
+    fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.video, to:.livephoto)
+
+    func convert(asset: AppAsset, _ async: AsyncManualSignalable?) -> Any? {
+        return nil
+    }
+
+    func isSupported(asset: AppAsset) -> Bool {
+        return asset.asset.mediaType == .video
+    }
+}
+
