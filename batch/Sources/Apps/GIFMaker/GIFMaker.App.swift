@@ -43,7 +43,7 @@ private struct GIFMakerCachedAsset {
                 data = UIImagePNGRepresentation(imageToWrite)
                 fileExtension = "png"
             default:
-                data = UIImageJPEGRepresentation(imageToWrite, 1)
+                data = UIImageJPEGRepresentation(imageToWrite, CGFloat((GIFMaker.defaults as! GIFMakerDefaults).gifQuality))
         }
         
         let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(GIFMaker.info.identifier)_\(UUID().uuidString).\(fileExtension)")
@@ -66,6 +66,7 @@ protocol GIFMakerDefaults: AppDefaults{
     var frameDelay: Int {get set}
     var size: Double {get set}
     var direction: Int {get set}
+    var gifQuality: Double {get set}
 }
 
 extension Defaults: GIFMakerDefaults {
@@ -97,6 +98,11 @@ extension Defaults: GIFMakerDefaults {
     var direction: Int {
         set { set(newValue) }
         get { return get(or: 0) }
+    }
+    
+    var gifQuality: Double {
+        set{ set(newValue) }
+        get{ return get(or: 0.8) }
     }
 }
 
@@ -212,20 +218,20 @@ struct GIFMakerSettings {
     struct direction {
         enum type: Int {
             case forward
-            case backward
-            case forwardAndBackward
+            case reverse
+            case forwardAndReverse
         }
         
         static let labels: [type: String] = [
             .forward: "Forward".localized,
-            .backward: "Backward".localized,
-            .forwardAndBackward: "Forward & Backward".localized
+            .reverse: "Reverse".localized,
+            .forwardAndReverse: "Forward & Reverse".localized
         ]
         
         static let orderedLabels: [String?] = [
             labels[.forward],
-            labels[.backward],
-            labels[.forwardAndBackward]
+            labels[.reverse],
+            labels[.forwardAndReverse]
         ]
         
         static func key(with value: String) -> Int {
@@ -310,10 +316,12 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
         
         let frameDelay = Double((GIFMaker.defaults as! GIFMakerDefaults).frameDelay) / 1000.0
         var imageFiles = resultItems.map({ $0.imageFileURL })
-        switch GIFMakerSettings.direction.type(rawValue: (GIFMaker.defaults as! GIFMakerDefaults).direction) {
-        case .backward?: imageFiles.reverse()
-        case .forwardAndBackward?: imageFiles.append(contentsOf: imageFiles.reversed())
-        default: break
+        if imageFiles.count > 1 {
+            switch GIFMakerSettings.direction.type(rawValue: (GIFMaker.defaults as! GIFMakerDefaults).direction) {
+            case .reverse?: imageFiles.reverse()
+            case .forwardAndReverse?: imageFiles.append(contentsOf: imageFiles[1...].reversed()[1...])
+            default: break
+            }
         }
 
         let gifData = UIImageGIFRepresentation(with:imageFiles, frameDelay:frameDelay)
@@ -408,6 +416,7 @@ private enum Cells {
     case size
     case frameDelay
     case direction
+    case gifQuality
 }
 
 class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDockDelegate,
@@ -538,6 +547,19 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             return (label ?? "-")+"s"
         }
         cellDescribers.append(cell3)
+        
+        let qualityCell =  UITableViewStepperCellDescriber()
+        qualityCell.label = "Image Quality".localized
+        qualityCell.localIdentifier = Cells.gifQuality.hashValue
+        qualityCell.valueGetter = { Int((self.defaults.gifQuality ) * 100) }
+        qualityCell.valueHandler = {
+            self.defaults.gifQuality = (($0 as? Double) ?? 1)/100
+        }
+        qualityCell.minimumValue = 10
+        qualityCell.maximumValue = 100
+        qualityCell.stepValue = 10
+        qualityCell.valuePresenter = UITableViewStepperCellDescriber.percentageValuePresenter
+        cellDescribers.append(qualityCell)
         
         let directionCell = UITableViewActionSheetCellDescriber()
         directionCell.localIdentifier = Cells.direction.hashValue
@@ -699,7 +721,9 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
                 item.valueHandler?(value)
             }
 
-            updateFrameDelayPreview(cell:cell)
+            if item.localIdentifier == Cells.frameDelay.hashValue {
+                updateFrameDelayPreview(cell:cell)
+            }
             
             return cell
         }
