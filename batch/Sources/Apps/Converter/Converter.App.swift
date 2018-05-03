@@ -75,7 +75,7 @@ public class Converter: BApp,
 //        asyncSignal.begin()
 //        let builder = TimeLapsBuilder(imagePaths: imageFiles)
 //        builder.build({ progress in  }, success: { url in
-//            data = url
+//            shareItem = url
 //
 //            asyncSignal.end()
 //

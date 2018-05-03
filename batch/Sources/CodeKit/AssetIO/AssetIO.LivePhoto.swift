@@ -7,11 +7,16 @@ import Foundation
 import AVFoundation
 import Photos
 
+//TODO: all string path -> URL
+//TODO: clean convention
+//TODO: clean queues.
+
 public typealias LivePhotoWriterResultHandler = ((Bool, URL?, URL?, Error?) -> ())?
 public typealias LivePhotoWriterAssetSavedHandler = ((Bool, String?, Error?) -> ())?
 public typealias LivePhotoWriterAssetSavedAndFetchedHandler = ((Bool, PHLivePhoto?, PHAsset?, Error?) -> ())?
 
-public class LivePhotoWriter {
+public final class LivePhotoWriter {
+    public static let `default` = LivePhotoWriter()
 
     public var jpegQuality:CGFloat = 0.8
 
@@ -153,7 +158,7 @@ public class LivePhotoWriter {
     ) {
 
         if let titleImagePath = indexOfTitle < photoPaths.count-1 ? photoPaths[indexOfTitle] : photoPaths.first{
-            let builder = TimeLapsBuilder(imagePaths: photoPaths)
+            let builder = TimelapsVideoBuilder(imagePaths: photoPaths)
             builder.fps = fps
             builder.build({ p in progress?(p) }, success: { url in
 
@@ -220,11 +225,9 @@ public class LivePhotoWriter {
             // clean all the APIs
             LivePhotoImageResourceWriter().write(from: URL(fileURLWithPath: photoPath), to: URL(fileURLWithPath: destImageURL.path), assetIdentifier: uuid)
 
-            LivePhotoMovieResourceWriter(path: videoPath).write(destPath: destPairedVideoURL.path, assetIdentifier: uuid)
+            LivePhotoVideoResourceWriter(path: videoPath).write(destPath: destPairedVideoURL.path, assetIdentifier: uuid)
 
-            DispatchQueue.main.async{
-                completion?(true, destImageURL, destPairedVideoURL, nil)
-            }
+            completion?(true, destImageURL, destPairedVideoURL, nil)
         }
     }
 

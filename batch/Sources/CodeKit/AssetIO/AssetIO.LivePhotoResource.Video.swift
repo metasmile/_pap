@@ -1,5 +1,5 @@
 //
-//  LivePhotoWriter.Movie.swift
+//  AssetIO.LivePhotoResource.Video.swift
 //  Live Photos
 //
 //  Originally Created by genadyo (github.com/genadyo).
@@ -9,7 +9,7 @@
 import Foundation
 import AVFoundation
 
-public class LivePhotoMovieResourceWriter: NSObject {
+public class LivePhotoVideoResourceWriter: NSObject {
     private let kKeyContentIdentifier = "com.apple.quicktime.content.identifier"
     private let kKeyStillImageTime = "com.apple.quicktime.still-image-time"
     private let kKeySpaceQuickTimeMetadata = "mdta"
