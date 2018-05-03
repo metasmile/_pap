@@ -115,6 +115,57 @@ public extension UIImage {
             return UIImage.animatedImage(with: images, duration: duration <= 0.0 ? gifDuration : duration)
         }
     }
+
+    public static func animatedImageURLsWithGIFData(_ data: Data, directory:String=NSTemporaryDirectory(), filenamePrefix:String="exported_gif_image_") -> [URL]? {
+
+        let options = [kCGImageSourceShouldCache as String: true, kCGImageSourceTypeIdentifierHint as String: kUTTypeGIF] as [String : Any]
+        guard let imageSource = CGImageSourceCreateWithData(data as CFData, options as CFDictionary) else {
+            return nil
+        }
+
+        let frameCount = CGImageSourceGetCount(imageSource)
+        var urls = [URL]()
+
+        for i in 0 ..< frameCount {
+            guard let imageRef = CGImageSourceCreateImageAtIndex(imageSource, i, options as CFDictionary) else {
+
+                return nil
+            }
+
+            guard let properties = CGImageSourceCopyPropertiesAtIndex(imageSource, i, nil),
+                  let gifInfo = (properties as! [String:Any])[ImageMetadata.Dictionary.GIF] as? [String:Any],
+                  let _ = (gifInfo[ImageMetadata.Property.GIFDelayTime] as? Double) else {
+
+                return nil
+            }
+
+            let mutableData = CFDataCreateMutable(nil, 0)!
+            if let destination = CGImageDestinationCreateWithData(mutableData, UTI.PNG as CFString, 1, nil){
+                CGImageDestinationAddImage(destination, imageRef, nil)
+                if CGImageDestinationFinalize(destination) {
+                    let data = mutableData as Data
+                    let url = URL(fileURLWithPath: (directory as NSString).appendingPathComponent("\(filenamePrefix)\(i)"))
+
+                    do {
+                        try data.write(to: url)
+                        urls.append(url)
+                    } catch {
+                        print("failed to save url for: \(url.path)")
+                    }
+                } else {
+                    print("Error writing Image")
+                }
+            }
+        }
+
+        return urls
+    }
+}
+
+extension Data{
+    public func extractAnimatedImageURLsAsGIF(directory:String=NSTemporaryDirectory(), filenamePrefix:String="exported_gif_image_") -> [URL]? {
+        return UIImage.animatedImageURLsWithGIFData(self, directory: directory, filenamePrefix: filenamePrefix)
+    }
 }
 
 

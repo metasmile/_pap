@@ -302,6 +302,23 @@ fileprivate struct VideoConverter_LivePhoto: VideoConverter {
 
     func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
 
+
+
+//        let req1 = PHAssetResourceManager.default().requestData(for: videoResource, options: nil, dataReceivedHandler: { (data) in
+//            videoData.append(data)
+//        }) { (error) in
+//            guard error == nil else {
+//                completionHandler(nil, nil)
+//                return
+//            }
+//
+//            let pairedVideoFileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("pairedVideo.mov")
+//            try? videoData.write(to: pairedVideoFileURL, options: Data.WritingOptions.atomicWrite)
+//            pairedVideo = AVAsset(url: pairedVideoFileURL)
+//            retrievePairedResourcesHandler()
+//        }
+//        reqIDs.append(PHAssetRequestID(forResourceData: req1))
+
         return nil
     }
 
@@ -386,8 +403,31 @@ fileprivate struct LivePhotoConverter_Gif: LivePhotoConverter {
 
     func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
 
+        var paths:[String]?
 
-//        LivePhotoWriter().createLivePhotoFromImages(paths: <#T##[String]##[Swift.String]#>, indexOfTitle: <#T##Int##Swift.Int#>, progress: <#T##((Progress) -> ())?##((Foundation.Progress) -> ())?#>, fps: <#T##Int32##Swift.Int32#>, created: <#T##((PHLivePhoto?) -> ())?##((Photos.PHLivePhoto?) -> ())?#>)
+        async.begin()
+        PHImageManager.default().requestImageData(for: asset.asset, options: nil) { data, s, orientation, dictionary in
+            if let data = data, let urls = data.extractAnimatedImageURLsAsGIF(){
+                paths = urls.map { $0.path }
+            }
+            async.end()
+        }
+        async.waitUntilEnd()
+
+
+        if let paths = paths{
+            var result:PHLivePhoto?
+
+            async.begin()
+            LivePhotoWriter().createLivePhotoFromImages(paths: paths, indexOfTitle: 0, progress: nil, fps: 30) { photo in
+                result = photo
+                async.end()
+            }
+            async.waitUntilEnd()
+
+            return result
+        }
+
         return nil
     }
 
