@@ -70,40 +70,50 @@ public class Converter: BApp,
 
         let imageFiles = resultItems.map({ $0.imageFileURL.path })
 
-        var data:URL?
+        var shareItem:Any?
+
+//        asyncSignal.begin()
+//        let builder = TimeLapsBuilder(imagePaths: imageFiles)
+//        builder.build({ progress in  }, success: { url in
+//            data = url
+//
+//            asyncSignal.end()
+//
+//        }, failure: { error in
+//            print(error)
+//            asyncSignal.end()
+//        })
+//        asyncSignal.waitUntilEnd()
+
 
         asyncSignal.begin()
-        let builder = TimeLapsBuilder(imagePaths: imageFiles)
-        builder.build({ progress in  }, success: { url in
-            data = url
+        let lpWriter = LivePhotoWriter()
 
-            asyncSignal.end()
+        lpWriter.saveLivePhotoFromImages(paths: imageFiles, indexOfTitle: 0, progress: nil, fps: 30, saved: { b, s, error in
 
-        }, failure: { error in
-            print(error)
+         }, andFetched:{ b, lphoto, asset, error in
+
+            shareItem = lphoto
+
             asyncSignal.end()
         })
         asyncSignal.waitUntilEnd()
 
 
         asyncSignal.begin()
-        let lpWriter = LivePhotoWriter()
-        lpWriter.saveLivePhotoFromImages(paths: imageFiles, indexOfTitle: 0, progress: nil, fps: 30, saved: { b, s, error in
-            asyncSignal.end()
-
-         }, andFetched:nil)
-        asyncSignal.waitUntilEnd()
-
-
-        asyncSignal.begin()
         DispatchQueue.main.async {
-            guard let data = data, let rootViewController = UIApplication.shared.keyWindow?.rootViewController else { return }
-            let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
-            activityViewController.completionWithItemsHandler = { (activityType:UIActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
+            if let shareItem = shareItem, let rootViewController = UIApplication.shared.keyWindow?.rootViewController {
+
+                let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [shareItem], applicationActivities: nil)
+                activityViewController.completionWithItemsHandler = { (activityType:UIActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
+                    asyncSignal.end()
+                }
+                activityViewController.popoverPresentationController?.sourceView=rootViewController.view
+                rootViewController.present(activityViewController, animated: true, completion: nil)
+
+            }else{
                 asyncSignal.end()
             }
-            activityViewController.popoverPresentationController?.sourceView=rootViewController.view
-            rootViewController.present(activityViewController, animated: true, completion: nil)
         }
         asyncSignal.waitUntilEnd()
 

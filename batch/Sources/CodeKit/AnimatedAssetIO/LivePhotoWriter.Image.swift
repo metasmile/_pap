@@ -11,10 +11,10 @@ import MobileCoreServices
 import ImageIO
 
 public class LivePhotoImageResourceWriter: NSObject {
-    private static let kFigAppleMakerNote_AssetIdentifier = "17"
+    private let kFigAppleMakerNote_AssetIdentifier = "17"
 
     @discardableResult
-    public static func write(from fromUrl:URL, to toUrl: URL, assetIdentifier : String) -> Bool {
+    public func write(from fromUrl:URL, to toUrl: URL, assetIdentifier : String) -> Bool {
         guard let data = fromUrl.asData else {
             return false
         }

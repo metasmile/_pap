@@ -128,6 +128,7 @@ public final class TimeLapsBuilder: NSObject {
                         if let error = error {
                             failure(error)
                         } else {
+                            print("videoWriter.finishWriting ", videoOutputURL)
                             success(videoOutputURL)
                         }
 

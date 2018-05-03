@@ -217,10 +217,11 @@ public class LivePhotoWriter {
 
             let uuid = UUID().uuidString
 
-            LivePhotoImageResourceWriter.write(from: URL(fileURLWithPath: photoPath), to: URL(fileURLWithPath: destImageURL.path), assetIdentifier: uuid)
+            // clean all the APIs
+            LivePhotoImageResourceWriter().write(from: URL(fileURLWithPath: photoPath), to: URL(fileURLWithPath: destImageURL.path), assetIdentifier: uuid)
 
-            LivePhotoImageResourceWriter.write(from: URL(fileURLWithPath: videoPath), to: URL(fileURLWithPath: destPairedVideoURL.path), assetIdentifier: uuid)
-            
+            LivePhotoMovieResourceWriter(path: videoPath).write(destPath: destPairedVideoURL.path, assetIdentifier: uuid)
+
             DispatchQueue.main.async{
                 completion?(true, destImageURL, destPairedVideoURL, nil)
             }
