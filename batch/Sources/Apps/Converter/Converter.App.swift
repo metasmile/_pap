@@ -134,7 +134,7 @@ public class Converter: BApp,
 }
 
 extension Converter{
-    fileprivate static let supportedWorkers:[ConverterWorker.Type] = [
+    static let supportedWorkers:[ConverterWorker.Type] = [
         VideoConverter_Burst.self,
         VideoConverter_LivePhoto.self,
         VideoConverter_Gif.self,
@@ -148,6 +148,11 @@ extension Converter{
         GifConverter_Timelapse.self,
         GifConverter_Video.self
     ]
+}
+
+
+private struct ConverterPHAssetResult: TaskResultable{
+    var result:Any?
 }
 
 private class ConverterTask: TaskPrototype, Taskable {
@@ -164,18 +169,12 @@ private class ConverterTask: TaskPrototype, Taskable {
         return try _perform(appAsset, async)
     }
 
-    var converter:ConverterWorker? {
+    private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable) throws -> ConverterPHAssetResult?  {
         let defaults = Converter.defaults as! ConverterAppDefaults
         let direction = defaults.convertingDirection
+        let needsConverter = ConverterSpec.acquireWorker(collection: Converter.supportedWorkers, direction: direction, asset: assetItem)
 
-        let matchedWorkers = Converter.supportedWorkers.filter { $0.direction==direction }
-        assert(matchedWorkers.count==1, "Duplicated converter worker direction found. \(matchedWorkers)")
-
-        return type(of: matchedWorkers).init() as? ConverterWorker
-    }
-
-    private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable) throws -> ConverterPHAssetResult?  {
-        guard let converter = self.converter, converter.isSupported(asset: assetItem) else{
+        guard let converter = needsConverter else {
             throw TaskError.rejectedParam
         }
 
@@ -217,8 +216,4 @@ private struct ConverterCachedAsset {
 
         return ConverterCachedAsset(asset: asset, resultFileURL: url)
     }
-}
-
-private struct ConverterPHAssetResult: TaskResultable{
-    var result:Any?
 }

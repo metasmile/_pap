@@ -6,6 +6,21 @@
 import Foundation
 import Photos
 
+struct ConverterSpec {
+
+    static func acquireWorker(collection:[ConverterWorker.Type], direction:ConvertableDirection, asset:AppAsset) -> ConverterWorker?{
+
+        let matchedWorkers = collection.filter { $0.direction==direction }
+        assert(matchedWorkers.count==1, "Duplicated converter worker direction found. \(matchedWorkers)")
+
+        if let worker = type(of: matchedWorkers).init() as? ConverterWorker{
+            return worker.isSupported(asset: asset) ? worker : nil
+        }
+
+        return nil
+    }
+}
+
 enum ConvertableMediaType: Int, Decodable{
     case any
     case video
@@ -47,6 +62,8 @@ protocol ConverterWorker {
 
     func isSupported(asset:AppAsset) -> Bool
 }
+
+
 /*
     VideoConverter
 */
