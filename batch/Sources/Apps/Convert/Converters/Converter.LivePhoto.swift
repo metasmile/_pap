@@ -24,34 +24,14 @@ struct LivePhotoConverter_Gif: LivePhotoConverter {
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
 
-        var paths:[String]?
+        let urls = extractImageURLsFromGIFData(asset:source.asset, async)
 
-        async.begin()
-        PHImageManager.default().requestImageData(for: source.asset, options: nil) { data, s, orientation, dictionary in
-            if let data = data, let urls = data.extractAnimatedImageURLsAsGIF(){
-                paths = urls.map { $0.path }
-            }
-            async.end()
-        }
-        async.waitUntilEnd()
-
-
-        if let paths = paths{
-            var result:PHLivePhoto?
-
-            async.begin()
-            LivePhotoWriter().createLivePhotoFromImages(paths: paths, indexOfTitle: 0, progress: nil, fps: 30) { photo in
-                result = photo
-                async.end()
-            }
-            async.waitUntilEnd()
-
-            return result
+        if let urls = urls{
+            return self.createLivePhoto(fromImagePaths: urls.mapAsPath, async)
         }
 
         return nil
     }
-
 
 }
 
@@ -61,6 +41,11 @@ struct LivePhotoConverter_Burst: LivePhotoConverter {
     init() {}
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+
+        if let urls = self.extractBurstImageURLs(source: source, async){
+            return self.createLivePhoto(fromImageURLs: urls, async)
+        }
+
         return nil
     }
 
@@ -75,6 +60,8 @@ struct LivePhotoConverter_Video: LivePhotoConverter {
     init() {}
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+
+
         return nil
     }
 

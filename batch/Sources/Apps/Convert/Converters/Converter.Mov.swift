@@ -36,7 +36,7 @@ struct MovConverter_Gif: MovConverter {
         let fps:Int32 = 15
 
         if let paths = paths{
-            return self.buildVideo(sources: paths, fps: fps, async)
+            return self.buildVideo(paths: paths, fps: fps, async)
         }
 
         return nil
@@ -54,9 +54,11 @@ struct MovConverter_Burst: MovConverter {
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
 
-        let urls = self.extractBurstImageURLs(source: source, async)
+        if let urls = self.extractBurstImageURLs(source: source, async){
+            return self.buildVideo(urls: urls, fps: 15, async)
+        }
 
-        return self.buildVideo(sources: urls, fps: 15, async)
+        return nil
     }
 
     func isSupported(source: AppAsset) -> Bool {

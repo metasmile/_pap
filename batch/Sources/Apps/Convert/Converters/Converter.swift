@@ -85,21 +85,18 @@ class OptionableConverterBase<T>: OptionableConverter {
 */
 extension Converter{
 
-    func buildVideo(sources:[URL], fps:Int32, _ async: AsyncManualSignalable) -> URL?{
-        return self.buildVideo(sources: sources.map { url -> String in
-            assert(url.isFileURL)
-            return url.path
-        }, fps: fps, async)
+    func buildVideo(urls:[URL], fps:Int32, _ async: AsyncManualSignalable) -> URL?{
+        return self.buildVideo(paths: urls.mapAsPath, fps: fps, async)
     }
 
-    func buildVideo(sources:[String], fps:Int32, _ async: AsyncManualSignalable) -> URL?{
+    func buildVideo(paths:[String], fps:Int32, _ async: AsyncManualSignalable) -> URL?{
 
         var videoUrl:URL?
 
-        if sources.count > 0{
+        if paths.count > 0{
             async.begin()
 
-            let builder = TimelapsVideoBuilder(imagePaths: sources)
+            let builder = TimelapsVideoBuilder(imagePaths: paths)
             builder.fps = fps
             builder.build({ _ in  }, success: { url in
 
@@ -129,7 +126,7 @@ struct ConverterBurstImageExtractParam {
 
 extension Converter{
 
-    func extractBurstImageURLs(source:AppAsset, param: ConverterBurstImageExtractParam = ConverterBurstImageExtractParam(), _ async: AsyncManualSignalable) -> [URL]{
+    func extractBurstImageURLs(source:AppAsset, param: ConverterBurstImageExtractParam = ConverterBurstImageExtractParam(), _ async: AsyncManualSignalable) -> [URL]?{
 
         let fetchOptions = PHFetchOptions()
         fetchOptions.includeAllBurstAssets = true
@@ -171,6 +168,67 @@ extension Converter{
             }
         }
 
-        return urls
+        return urls.count>0 ? urls : nil
+    }
+}
+
+/*
+  Create Live Photos from URLs or Paths
+*/
+
+extension Converter{
+    func createLivePhoto(fromImageURLs:[URL], fps:Int32=30, _ async: AsyncManualSignalable) -> PHLivePhoto?{
+        return self.createLivePhoto(fromImagePaths: fromImageURLs.mapAsPath, fps: fps, async)
+    }
+
+    func createLivePhoto(fromImagePaths:[String], fps:Int32=30, _ async: AsyncManualSignalable) -> PHLivePhoto?{
+        var result:PHLivePhoto?
+
+        async.begin()
+
+        LivePhotoWriter().createLivePhotoFromImages(paths: fromImagePaths, indexOfTitle: 0, progress: nil, fps: fps) { photo in
+            result = photo
+            async.end()
+        }
+        async.waitUntilEnd()
+
+        return result
+    }
+
+    func createLivePhoto(fromVideoPath:String, timeLocationOfTitle:Double=0, _ async: AsyncManualSignalable) -> PHLivePhoto?{
+        var result:PHLivePhoto?
+
+        async.begin()
+
+        LivePhotoWriter().createLivePhotoFromVideo(videoPath: fromVideoPath, timeLocationOfTitle: 0) { photo in
+            result = photo
+            async.end()
+        }
+
+        async.waitUntilEnd()
+
+        return result
+    }
+}
+
+
+/*
+   Create GIF URLs from PHAsset data
+ */
+
+extension Converter{
+
+    func extractImageURLsFromGIFData(asset:PHAsset, _ async: AsyncManualSignalable) -> [URL]?{
+        var resultUrls:[URL]?
+
+        async.begin()
+        PHImageManager.default().requestImageData(for: asset, options: nil) { data, s, orientation, dictionary in
+            if let data = data, let urls = data.extractAnimatedImageURLsAsGIF(){
+                resultUrls = urls
+            }
+            async.end()
+        }
+        async.waitUntilEnd()
+        return resultUrls
     }
 }
