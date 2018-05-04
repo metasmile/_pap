@@ -14,7 +14,7 @@ struct ConverterSpec {
         assert(matchedWorkers.count==1, "Duplicated converter worker direction found. \(matchedWorkers)")
 
         if let worker = type(of: matchedWorkers).init() as? Converter {
-            return worker.isSupported(asset: asset) ? worker : nil
+            return worker.isSupported(source: asset) ? worker : nil
         }
 
         return nil
@@ -62,9 +62,9 @@ protocol Converter {
 
     static var direction:ConvertableDirection {get}
 
-    func convert(asset:AppAsset, _ async: AsyncManualSignalable) -> Any?
+    func convert(source:AppAsset, _ async: AsyncManualSignalable) -> Any?
 
-    func isSupported(asset:AppAsset) -> Bool
+    func isSupported(source:AppAsset) -> Bool
 }
 
 protocol OptionableConverter {
@@ -77,4 +77,39 @@ class OptionableConverterBase<T>: OptionableConverter {
     var options: OptionType?
 
     required init(){}
+}
+
+
+extension Converter{
+
+    func buildVideo(sources:[URL], fps:Int32, _ async: AsyncManualSignalable) -> URL?{
+        return self.buildVideo(sources: sources.map { url -> String in
+            assert(url.isFileURL)
+            return url.path
+        }, fps: fps, async)
+    }
+
+    func buildVideo(sources:[String], fps:Int32, _ async: AsyncManualSignalable) -> URL?{
+
+        var videoUrl:URL?
+
+        if sources.count > 0{
+            async.begin()
+
+            let builder = TimelapsVideoBuilder(imagePaths: sources)
+            builder.fps = fps
+            builder.build({ _ in  }, success: { url in
+
+                videoUrl = url
+                async.end()
+            }, failure: { error in
+
+                async.end()
+            })
+
+            async.waitUntilEnd()
+        }
+
+        return videoUrl
+    }
 }

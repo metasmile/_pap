@@ -16,18 +16,18 @@ extension LivePhotoConverter{
 struct LivePhotoConverter_Gif: LivePhotoConverter {
     static var direction: ConvertableDirection { return ConvertableDirection(from:.gif, to:.livephoto) }
 
-    func isSupported(asset: AppAsset) -> Bool {
-        return asset.asset.mediaType == .video
+    func isSupported(source: AppAsset) -> Bool {
+        return source.asset.mediaType == .video
     }
 
     init() {}
 
-    func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
 
         var paths:[String]?
 
         async.begin()
-        PHImageManager.default().requestImageData(for: asset.asset, options: nil) { data, s, orientation, dictionary in
+        PHImageManager.default().requestImageData(for: source.asset, options: nil) { data, s, orientation, dictionary in
             if let data = data, let urls = data.extractAnimatedImageURLsAsGIF(){
                 paths = urls.map { $0.path }
             }
@@ -60,12 +60,12 @@ struct LivePhotoConverter_Burst: LivePhotoConverter {
 
     init() {}
 
-    func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
     }
 
-    func isSupported(asset: AppAsset) -> Bool {
-        return asset.asset.mediaType == .video
+    func isSupported(source: AppAsset) -> Bool {
+        return source.asset.mediaType == .video
     }
 }
 
@@ -74,12 +74,12 @@ struct LivePhotoConverter_Video: LivePhotoConverter {
 
     init() {}
 
-    func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
     }
 
-    func isSupported(asset: AppAsset) -> Bool {
-        return asset.asset.mediaType == .video
+    func isSupported(source: AppAsset) -> Bool {
+        return source.asset.mediaType == .video
     }
 }
 

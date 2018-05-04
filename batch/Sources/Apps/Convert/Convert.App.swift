@@ -178,7 +178,7 @@ private class ConvertAppTask: TaskPrototype, Taskable {
             throw TaskError.rejectedParam
         }
 
-        let result = converter.convert(asset: assetItem, async)
+        let result = converter.convert(source: assetItem, async)
         return result == nil ? nil : ConvertAppResult(result: result)
     }
 }

@@ -5,6 +5,7 @@
 
 import Foundation
 import Photos
+import ImageIO
 
 protocol MovConverter: Converter {}
 
@@ -19,12 +20,12 @@ struct MovConverter_Gif: MovConverter {
 
     init() {}
 
-    func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
 
         var paths:[String]?
 
         async.begin()
-        PHImageManager.default().requestImageData(for: asset.asset, options: nil) { data, s, orientation, dictionary in
+        PHImageManager.default().requestImageData(for: source.asset, options: nil) { data, s, orientation, dictionary in
             if let data = data, let urls = data.extractAnimatedImageURLsAsGIF(){
                 paths = urls.map { $0.path }
             }
@@ -32,27 +33,17 @@ struct MovConverter_Gif: MovConverter {
         }
         async.waitUntilEnd()
 
+        let fps:Int32 = 15
 
-        var videoUrl:URL?
-
-        async.begin()
         if let paths = paths{
-            let builder = TimelapsVideoBuilder(imagePaths: paths)
-            builder.fps = 15
-            builder.build({ _ in  }, success: { url in
-                videoUrl = url
-                async.end()
-            }, failure: { error in
-                async.end()
-            })
+            return self.buildVideo(sources: paths, fps: fps, async)
         }
-        async.waitUntilEnd()
 
-        return videoUrl
+        return nil
     }
 
-    func isSupported(asset: AppAsset) -> Bool {
-        return asset.asset.uniformTypeIdentifier == UTI.GIF
+    func isSupported(source: AppAsset) -> Bool {
+        return source.asset.uniformTypeIdentifier == UTI.GIF
     }
 }
 
@@ -61,12 +52,53 @@ struct MovConverter_Burst: MovConverter {
 
     init() {}
 
-    func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
-        return nil
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+
+        let fetchOptions = PHFetchOptions()
+        fetchOptions.includeAllBurstAssets = true
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
+
+
+        let targetSize = CGSize(width: 1920, height: 1920)
+        let imageQuality = 0.7
+        let fps:Int32 = 15
+        var urls = [URL]()
+
+        let fetchedAsset = PHAsset.fetchAssets(withBurstIdentifier: source.asset.burstIdentifier ?? "", options: fetchOptions)
+        fetchedAsset.enumerateObjects { (asset:PHAsset, idx, stop) in
+
+            async.begin()
+
+            var resultUrl: URL? = nil
+            let imageRequestID = PHImageManager.default().requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: PHAsset.highQualityImageRequestOptions) { (image, info) in
+                guard let isDegraded = info?[PHImageResultIsDegradedKey] as? Bool, !isDegraded else { return }
+                guard let image = image else { return }
+
+                if let data = UIImageJPEGRepresentation(image, CGFloat(imageQuality)){
+                    let url = "MovConverter_Burst_\(idx)".asURLOfFileNameInTemporaryDirectory!
+
+                    do{
+                        try data.write(to: url)
+                        resultUrl = url
+                    }catch _ {}
+                }
+
+                async.end()
+            }
+            source.requestIDs.append(PHAssetRequestID(forImage: imageRequestID))
+
+            async.waitUntilEnd()
+
+            if let resultUrl = resultUrl {
+                urls.append(resultUrl)
+            }
+        }
+
+        return self.buildVideo(sources: urls, fps: fps, async)
     }
 
-    func isSupported(asset: AppAsset) -> Bool {
-        return asset.asset.imageType == .burst
+    func isSupported(source: AppAsset) -> Bool {
+        return source.asset.imageType == .burst
     }
 }
 
@@ -75,7 +107,7 @@ struct MovConverter_LivePhoto: MovConverter {
 
     init() {}
 
-    func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
 
         var exportedlivePhoto: PHLivePhoto?
 
@@ -84,7 +116,7 @@ struct MovConverter_LivePhoto: MovConverter {
         let livePhotoOptions = PHLivePhotoRequestOptions()
 
         livePhotoOptions.deliveryMode = .highQualityFormat
-        let req_livephoto = PHImageManager.default().requestLivePhoto(for: asset.asset
+        let req_livephoto = PHImageManager.default().requestLivePhoto(for: source.asset
                 , targetSize: .zero
                 , contentMode: .default
                 , options: livePhotoOptions
@@ -94,7 +126,7 @@ struct MovConverter_LivePhoto: MovConverter {
             async.end()
 
         })
-        asset.requestIDs.append(PHAssetRequestID(forImage: req_livephoto))
+        source.requestIDs.append(PHAssetRequestID(forImage: req_livephoto))
         async.waitUntilEnd()
 
         guard let livePhoto = exportedlivePhoto else {
@@ -125,13 +157,13 @@ struct MovConverter_LivePhoto: MovConverter {
             }
             async.end()
         }
-        asset.requestIDs.append(PHAssetRequestID(forResourceData: req_data))
+        source.requestIDs.append(PHAssetRequestID(forResourceData: req_data))
         async.waitUntilEnd()
 
         return resultURL
     }
 
-    func isSupported(asset: AppAsset) -> Bool {
-        return asset.asset.imageType == .burst
+    func isSupported(source: AppAsset) -> Bool {
+        return source.asset.imageType == .burst
     }
 }

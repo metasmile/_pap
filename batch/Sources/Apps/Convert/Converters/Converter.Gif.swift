@@ -6,7 +6,6 @@
 import Foundation
 import Photos
 
-
 struct GifConverterDefaultOption {
     var aspectRatio: Double
     var contentMode: Int
@@ -27,8 +26,9 @@ struct GifConverterDefaultOption {
                 loopCount: 0
         )
     }
-
 }
+
+
 
 
 protocol GifConverter: Converter {}
@@ -42,24 +42,24 @@ extension GifConverter{
 class GifConverter_Jpeg: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
     static var direction: ConvertableDirection { return ConvertableDirection(from:.jpeg, to:.gif) }
 
-    func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
     }
 
-    func isSupported(asset: AppAsset) -> Bool {
-        return asset.asset.mediaType == .video
+    func isSupported(source: AppAsset) -> Bool {
+        return source.asset.mediaType == .video
     }
 }
 
 class GifConverter_Mov: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
     static var direction: ConvertableDirection { return ConvertableDirection(from:.mov, to:.gif) }
 
-    func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
     }
 
-    func isSupported(asset: AppAsset) -> Bool {
-        return asset.asset.mediaType == .video
+    func isSupported(source: AppAsset) -> Bool {
+        return source.asset.mediaType == .video
     }
 }
 
@@ -67,24 +67,24 @@ class GifConverter_LivePhoto: OptionableConverterBase<GifConverterDefaultOption>
     static var direction: ConvertableDirection { return ConvertableDirection(from:.livephoto, to:.gif) }
 
 
-    func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
     }
 
-    func isSupported(asset: AppAsset) -> Bool {
-        return asset.asset.imageType == .livePhoto
+    func isSupported(source: AppAsset) -> Bool {
+        return source.asset.imageType == .livePhoto
     }
 }
 
 class GifConverter_Timelapse: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
     static var direction: ConvertableDirection { return ConvertableDirection(from:.timelapse, to:.gif) }
 
-    func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
     }
 
-    func isSupported(asset: AppAsset) -> Bool {
-        return asset.asset.mediaSubtypes.contains(.videoTimelapse)
+    func isSupported(source: AppAsset) -> Bool {
+        return source.asset.mediaSubtypes.contains(.videoTimelapse)
     }
 }
 
@@ -92,11 +92,11 @@ class GifConverter_Burst: OptionableConverterBase<GifConverterDefaultOption>, Gi
     static var direction: ConvertableDirection { return ConvertableDirection(from:.burst, to:.gif) }
 
 
-    func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
     }
 
-    func isSupported(asset: AppAsset) -> Bool {
-        return asset.asset.imageType == .burst
+    func isSupported(source: AppAsset) -> Bool {
+        return source.asset.imageType == .burst
     }
 }
