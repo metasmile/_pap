@@ -28,6 +28,8 @@ enum ConvertableMediaType: Int, Decodable{
     case heif
     case mov
     case mp4
+    case wav // e.g. mov -> sound -> wav or mp4
+    case mp3
     case livephoto
     case gif
     case burst
@@ -85,7 +87,35 @@ struct MovConverter_Gif: MovConverter {
     init() {}
 
     func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
-        return nil
+
+        var paths:[String]?
+
+        async.begin()
+        PHImageManager.default().requestImageData(for: asset.asset, options: nil) { data, s, orientation, dictionary in
+            if let data = data, let urls = data.extractAnimatedImageURLsAsGIF(){
+                paths = urls.map { $0.path }
+            }
+            async.end()
+        }
+        async.waitUntilEnd()
+
+
+        var videoUrl:URL?
+
+        async.begin()
+        if let paths = paths{
+            let builder = TimelapsVideoBuilder(imagePaths: paths)
+            builder.fps = 15
+            builder.build({ _ }, success: { url in
+                videoUrl = url
+                async.end()
+            }, failure: { error in
+                async.end()
+            })
+        }
+        async.waitUntilEnd()
+
+        return videoUrl
     }
 
     func isSupported(asset: AppAsset) -> Bool {
