@@ -437,7 +437,11 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
 
     private var defaults = GIFMaker.defaults as! GIFMakerDefaults
     
-    lazy var view: UIView = UITableView(frame: .zero, style: .grouped)
+    lazy var view: UIView = {
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.tintColor = UIColor(red: 255 / 255.0, green: 0 / 255.0, blue: 170 / 255.0, alpha: 1)
+        return tableView
+    }()
     
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()

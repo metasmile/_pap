@@ -62,7 +62,8 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
             return
         }
 
-        showPhotoEditor(with: item)
+        //TODO: Not yet supported
+//        showPhotoEditor(with: item)
     }
 
     private func setActions(with item: PHAssetItem<ImageEditStateValue>, at indexPath: IndexPath, to vc: PhotoPickerDetailViewController) {
@@ -71,17 +72,17 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
             typeWord = "video"
         }
 
-        let editAction = UIPreviewAction(title: "Edit this \(typeWord)".localized, style: .default) { (action, controller) in
-
-            self.showPhotoEditor(with: item)
-        }
+//        let editAction = UIPreviewAction(title: "Edit this \(typeWord)".localized, style: .default) { (action, controller) in
+//
+//            self.showPhotoEditor(with: item)
+//        }
 
         if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == true {
             vc.actionItems = [
                 UIPreviewAction(title: "Deselect this \(typeWord)".localized, style: .default) { action, controller in
                     self.deselectCollectionViewItem(at:indexPath)
                 },
-                editAction
+//                editAction
             ]
         }
         else {
@@ -89,7 +90,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
                 UIPreviewAction(title: "Select this \(typeWord)".localized, style: .default) { action, controller in
                     self.selectCollectionViewItem(at: indexPath)
                 },
-                editAction
+//                editAction
             ]
         }
     }
