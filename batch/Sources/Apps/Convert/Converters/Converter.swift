@@ -80,6 +80,9 @@ class OptionableConverterBase<T>: OptionableConverter {
 }
 
 
+/*
+    Create Video with a URL
+*/
 extension Converter{
 
     func buildVideo(sources:[URL], fps:Int32, _ async: AsyncManualSignalable) -> URL?{
@@ -111,5 +114,63 @@ extension Converter{
         }
 
         return videoUrl
+    }
+}
+
+
+/*
+    Extract Burst Image URLs
+*/
+struct ConverterBurstImageExtractParam {
+    let filenamePrefix:String = String(describing: ConverterBurstImageExtractParam.self)
+    let targetSize:CGSize = CGSize(width: 1920, height: 1920)
+    let imageQuality:CGFloat = CGFloat(0.7)
+}
+
+extension Converter{
+
+    func extractBurstImageURLs(source:AppAsset, param: ConverterBurstImageExtractParam = ConverterBurstImageExtractParam(), _ async: AsyncManualSignalable) -> [URL]{
+
+        let fetchOptions = PHFetchOptions()
+        fetchOptions.includeAllBurstAssets = true
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
+
+        let targetSize = param.targetSize
+        let imageQuality = param.imageQuality
+
+        var urls = [URL]()
+
+        let fetchedAsset = PHAsset.fetchAssets(withBurstIdentifier: source.asset.burstIdentifier ?? "", options: fetchOptions)
+        fetchedAsset.enumerateObjects { (asset:PHAsset, idx, stop) in
+
+            async.begin()
+
+            var resultUrl: URL? = nil
+            let imageRequestID = PHImageManager.default().requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: PHAsset.highQualityImageRequestOptions) { (image, info) in
+                guard let isDegraded = info?[PHImageResultIsDegradedKey] as? Bool, !isDegraded else { return }
+                guard let image = image else { return }
+
+                if let data = UIImageJPEGRepresentation(image, CGFloat(imageQuality)){
+
+                    let url = "\(param.filenamePrefix)_\(idx)".asURLOfFileNameInTemporaryDirectory!
+
+                    do{
+                        try data.write(to: url)
+                        resultUrl = url
+                    }catch _ {}
+                }
+
+                async.end()
+            }
+            source.requestIDs.append(PHAssetRequestID(forImage: imageRequestID))
+
+            async.waitUntilEnd()
+
+            if let resultUrl = resultUrl {
+                urls.append(resultUrl)
+            }
+        }
+
+        return urls
     }
 }

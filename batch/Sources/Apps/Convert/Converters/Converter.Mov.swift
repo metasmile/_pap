@@ -54,47 +54,9 @@ struct MovConverter_Burst: MovConverter {
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
 
-        let fetchOptions = PHFetchOptions()
-        fetchOptions.includeAllBurstAssets = true
-        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
+        let urls = self.extractBurstImageURLs(source: source, async)
 
-
-        let targetSize = CGSize(width: 1920, height: 1920)
-        let imageQuality = 0.7
-        let fps:Int32 = 15
-        var urls = [URL]()
-
-        let fetchedAsset = PHAsset.fetchAssets(withBurstIdentifier: source.asset.burstIdentifier ?? "", options: fetchOptions)
-        fetchedAsset.enumerateObjects { (asset:PHAsset, idx, stop) in
-
-            async.begin()
-
-            var resultUrl: URL? = nil
-            let imageRequestID = PHImageManager.default().requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: PHAsset.highQualityImageRequestOptions) { (image, info) in
-                guard let isDegraded = info?[PHImageResultIsDegradedKey] as? Bool, !isDegraded else { return }
-                guard let image = image else { return }
-
-                if let data = UIImageJPEGRepresentation(image, CGFloat(imageQuality)){
-                    let url = "MovConverter_Burst_\(idx)".asURLOfFileNameInTemporaryDirectory!
-
-                    do{
-                        try data.write(to: url)
-                        resultUrl = url
-                    }catch _ {}
-                }
-
-                async.end()
-            }
-            source.requestIDs.append(PHAssetRequestID(forImage: imageRequestID))
-
-            async.waitUntilEnd()
-
-            if let resultUrl = resultUrl {
-                urls.append(resultUrl)
-            }
-        }
-
-        return self.buildVideo(sources: urls, fps: fps, async)
+        return self.buildVideo(sources: urls, fps: 15, async)
     }
 
     func isSupported(source: AppAsset) -> Bool {
