@@ -67,6 +67,7 @@ protocol GIFMakerDefaults: AppDefaults{
     var size: Double {get set}
     var direction: Int {get set}
     var gifQuality: Double {get set}
+    var loopCount: Int {get set}
 }
 
 extension Defaults: GIFMakerDefaults {
@@ -103,6 +104,11 @@ extension Defaults: GIFMakerDefaults {
     var gifQuality: Double {
         set{ set(newValue) }
         get{ return get(or: 0.8) }
+    }
+    
+    var loopCount: Int {
+        set { set(newValue) }
+        get { return get(or: 0)}
     }
 }
 
@@ -319,6 +325,7 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
             .compactMap { ($0.result as? GIFMakerPHAssetResult)?.items }.reduce([], +)
         
         let frameDelay = Double((GIFMaker.defaults as! GIFMakerDefaults).frameDelay) / 1000.0
+        let loopCount = (GIFMaker.defaults as! GIFMakerDefaults).loopCount
         var imageFiles = resultItems.map({ $0.imageFileURL })
         if imageFiles.count > 1 {
             switch GIFMakerSettings.direction.type(rawValue: (GIFMaker.defaults as! GIFMakerDefaults).direction) {
@@ -328,7 +335,7 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
             }
         }
 
-        let gifData = UIImageGIFRepresentation(with:imageFiles, frameDelay:frameDelay)
+        let gifData = UIImageGIFRepresentation(with:imageFiles, loopCount:loopCount, frameDelay:frameDelay)
         
         asyncSignal.begin()
         
@@ -415,12 +422,14 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
 
 private enum Cells {
     case sourceType
+    case export
     case contentMode
     case aspectRatio
     case size
     case frameDelay
     case direction
     case gifQuality
+    case loopCount
 }
 
 class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDockDelegate,
@@ -483,6 +492,13 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             }
         }
         cellDescribers.append(sourceTypeCell)
+        
+        let exportCell = UITableViewSegmentControlCellDescriber()
+        exportCell.localIdentifier = Cells.export.hashValue
+        exportCell.label = "Export".localized
+        exportCell.valueGetter = { "Animated GIF" }
+        exportCell.valueCollection = ["Animated GIF"]
+        cellDescribers.append(exportCell)
         
         let cell0 = UITableViewActionSheetCellDescriber()
         cell0.localIdentifier = Cells.size.hashValue
@@ -579,9 +595,40 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         }
         cellDescribers.append(directionCell)
         
-        sections.append((GIFMaker.info.displayName, [sourceTypeCell]))
+        let loopCell =  UITableViewStepperCellDescriber()
+        loopCell.label = "Repeat".localized
+        loopCell.localIdentifier = Cells.loopCount.hashValue
+        loopCell.valueGetter = { self.defaults.loopCount }
+        loopCell.valueHandler = { self.defaults.loopCount = Int($0 as? Double ?? 0) }
+        loopCell.minimumValue = 0
+        loopCell.maximumValue = 100
+        loopCell.stepValue = 1
+        loopCell.valuePresenter = { value in
+            var count = 0
+            if let val = value as? Int {
+                count = val
+            }
+            else if let val = value as? Double {
+                count = Int(val)
+            }
+            
+            if count > 0 {
+                if count == 1 {
+                    return "No loop".localized
+                }
+                else {
+                    return "\(count) \("times".localized)"
+                }
+            }
+            else {
+                return "Loop".localized
+            }
+        }
+        cellDescribers.append(loopCell)
+        
+        sections.append(("GIF Maker".localized, [sourceTypeCell, exportCell]))
         sections.append(("Quality".localized, [cell0, cell1, qualityCell, cell2]))
-        sections.append(("Animation".localized, [cell3, directionCell]))
+        sections.append(("Animation".localized, [cell3, directionCell, loopCell]))
 
         return cellDescribers
     }
@@ -696,6 +743,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             cell.imageView?.image = item.iconImage?.asUIImage
             cell.detailTextLabel?.textColor = UIColor.gray
             
+            cell.segmentedControl.width = 140
             cell.segmentedControl.removeAllSegments()
             for k in valueCollection{
                 cell.segmentedControl.insertSegment(withTitle: k, at: cell.segmentedControl.numberOfSegments, animated: false)
@@ -712,7 +760,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewStepperCell {
             
             cell.textLabel?.text = item.label
-            cell.detailTextLabel?.text = cellDescriber.valuePresenter?(value) ?? String(value)
+            cell.detailTextLabel?.text = cellDescriber.valuePresenter?(value)
             cell.imageView?.image = item.iconImage?.asUIImage
             
             cell.stepper.stepValue = cellDescriber.stepValue
@@ -727,7 +775,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             cell.isUserInteractionEnabled = true
             
             cell.didChangeValue = { value in
-                cell.detailTextLabel?.text = cellDescriber.valuePresenter?(value) ?? String(value)
+                cell.detailTextLabel?.text = cellDescriber.valuePresenter?(value)
                 item.valueHandler?(value)
             }
 
