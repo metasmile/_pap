@@ -31,7 +31,7 @@ public class ConvertApp: BApp,
             , version: "1.0"
             , phase: .develop
             , appType: ConvertApp.self
-            , displayName: "Converter" // 1 - 1
+            , displayName: "Convert" // 1 - 1
             , icon: R.image.photosFilterAppIcon.name
             , policy: AppPolicy.default
             , minOSVersion: nil
