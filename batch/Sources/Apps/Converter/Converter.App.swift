@@ -81,7 +81,7 @@ public class Converter: BApp,
                 .filter { respondable in respondable.info.state == .completed }
                 .compactMap { ($0.result as? ConverterPHAssetResult)?.result }
 
-        var shareItem:[Any]?
+        var shareItems:[Any]? = resultItems
 
 //        asyncSignal.begin()
 //        let builder = TimeLapsBuilder(imagePaths: imageFiles)
@@ -113,9 +113,9 @@ public class Converter: BApp,
 
         asyncSignal.begin()
         DispatchQueue.main.async {
-            if let shareItem = shareItem, let rootViewController = UIApplication.shared.keyWindow?.rootViewController {
+            if let shareItems = shareItems, let rootViewController = UIApplication.shared.keyWindow?.rootViewController {
 
-                let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [shareItem], applicationActivities: nil)
+                let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
                 activityViewController.completionWithItemsHandler = { (activityType:UIActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
                     asyncSignal.end()
                 }
@@ -149,7 +149,17 @@ private class ConverterTask: TaskPrototype, Taskable {
 
     private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable) throws -> ConverterPHAssetResult?  {
 
-        return ConverterPHAssetResult(result: "")
+        var converter:ConverterWorker?
+
+        if assetItem.asset.imageType == .livePhoto{
+            converter = VideoConverter_LivePhoto()
+        }
+
+        if let converter = converter{
+            return ConverterPHAssetResult(result: converter.convert(asset: assetItem, async))
+        }
+
+        return nil
     }
 }
 
@@ -170,7 +180,7 @@ private struct ConverterCachedAsset {
             } ?? image
         }
 
-        
+
         var data: Data?
         var fileExtension = "jpg"
         switch asset.uniformTypeIdentifier{
@@ -189,21 +199,7 @@ private struct ConverterCachedAsset {
 }
 
 private struct ConverterPHAssetResult: TaskResultable{
-    var result:Any
-}
-
-fileprivate enum ConvertableMediaType{
-    case any
-    case video
-    case livephoto
-    case gif
-    case burst
-    case timelapse
-}
-
-fileprivate struct ConvertableDirection {
-    var from:ConvertableMediaType
-    var to:ConvertableMediaType
+    var result:Any?
 }
 
 fileprivate protocol ConverterWorker {

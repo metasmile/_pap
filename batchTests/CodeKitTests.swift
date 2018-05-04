@@ -132,4 +132,56 @@ class CodeKitTests: XCTestCase {
         }
 
     }
+
+    func test_CodableEnumUserDefaults(){
+        var defaults:TestAppDefaults = Defaults(userDefaults:UserDefaults())
+
+        XCTAssertEqual(defaults.valueWithCustomCodableType.from, .video)
+
+        defaults.valueWithCustomCodableType = CustomCodableType(from: .livephoto, to:.video)
+
+        XCTAssertEqual(defaults.valueWithCustomCodableType.from, .livephoto)
+
+        defaults.valueWithCustomCodableType = CustomCodableType(from: .video, to: .livephoto)
+
+    }
+}
+
+
+import DefaultsKit
+
+protocol TestAppDefaults: AppDefaults{
+    var valueWithCustomCodableType: CustomCodableType {get set}
+}
+
+extension Defaults: TestAppDefaults {
+    var valueWithCustomCodableType: CustomCodableType {
+        set { set(newValue) }
+        get { return get(or:CustomCodableType(from: .video, to: .livephoto)) }
+    }
+}
+
+enum CustomDecodableEnum: Int, Decodable{
+    case any
+    case video
+    case livephoto
+    case gif
+    case burst
+    case timelapse
+}
+
+struct CustomCodableType: Codable {
+    var from:CustomDecodableEnum
+    var to:CustomDecodableEnum
+
+    private enum CodingKeys: Int, CodingKey {
+        case from
+        case to
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(from.rawValue, forKey: .from)
+        try container.encode(to.rawValue, forKey: .to)
+    }
 }
