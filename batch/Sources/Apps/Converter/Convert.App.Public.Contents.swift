@@ -8,12 +8,12 @@ import Photos
 
 struct ConverterSpec {
 
-    static func acquireWorker(collection:[ConverterWorker.Type], direction:ConvertableDirection, asset:AppAsset) -> ConverterWorker?{
+    static func acquireWorker(collection:[Converter.Type], direction:ConvertableDirection, asset:AppAsset) -> Converter?{
 
         let matchedWorkers = collection.filter { $0.direction==direction }
         assert(matchedWorkers.count==1, "Duplicated converter worker direction found. \(matchedWorkers)")
 
-        if let worker = type(of: matchedWorkers).init() as? ConverterWorker{
+        if let worker = type(of: matchedWorkers).init() as? Converter {
             return worker.isSupported(asset: asset) ? worker : nil
         }
 
@@ -56,9 +56,7 @@ struct ConvertableDirection: Codable, Equatable {
     }
 }
 
-
-//TODO: convert option
-protocol ConverterWorker {
+protocol Converter {
 
     init()
 
@@ -69,11 +67,23 @@ protocol ConverterWorker {
     func isSupported(asset:AppAsset) -> Bool
 }
 
+protocol OptionableConverter {
+    associatedtype OptionType
+    var options:OptionType? {set get}
+}
+
+class OptionableConverterBase<T>: OptionableConverter {
+    typealias OptionType = T
+    var options: OptionType?
+
+    required init(){}
+}
+
 
 /*
     VideoConverter
 */
-protocol MovConverter: ConverterWorker{}
+protocol MovConverter: Converter {}
 
 extension MovConverter {
     static var direction: ConvertableDirection {
@@ -106,7 +116,7 @@ struct MovConverter_Gif: MovConverter {
         if let paths = paths{
             let builder = TimelapsVideoBuilder(imagePaths: paths)
             builder.fps = 15
-            builder.build({ _ }, success: { url in
+            builder.build({ _ in  }, success: { url in
                 videoUrl = url
                 async.end()
             }, failure: { error in
@@ -209,18 +219,33 @@ struct MovConverter_LivePhoto: MovConverter {
 
 /*
 GifConverter-specific options
-
-var sourceType: Int {get set}
-    var aspectRatio: Double {get set}
-    var contentMode: Int {get set}
-    var frameDelay: Int {get set}
-    var size: Double {get set}
-    var direction: Int {get set}
-    var gifQuality: Double {get set}
-    var loopCount: Int {get set}
 */
 
-protocol GifConverter: ConverterWorker{}
+struct GifConverterDefaultOption {
+    var aspectRatio: Double
+    var contentMode: Int
+    var frameDelay: Int
+    var size: Double
+    var direction: Int
+    var gifQuality: Double
+    var loopCount: Int
+
+    static var `default`: GifConverterDefaultOption {
+        return GifConverterDefaultOption(
+                aspectRatio: 0,
+                contentMode: 0,
+                frameDelay: 0,
+                size: 0,
+                direction: 0,
+                gifQuality: 0,
+                loopCount: 0
+        )
+    }
+
+}
+
+
+protocol GifConverter: Converter {}
 
 extension GifConverter{
     static var direction: ConvertableDirection {
@@ -228,11 +253,9 @@ extension GifConverter{
     }
 }
 
-struct GifConverter_Jpeg: GifConverter {
+class GifConverter_Jpeg: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
     static var direction: ConvertableDirection { return ConvertableDirection(from:.jpeg, to:.gif) }
 
-    init() {}
-
     func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
     }
@@ -242,12 +265,10 @@ struct GifConverter_Jpeg: GifConverter {
     }
 }
 
-struct GifConverter_Mov: GifConverter {
+class GifConverter_Mov: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
     static var direction: ConvertableDirection { return ConvertableDirection(from:.mov, to:.gif) }
 
-    init() {}
-
-    func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+        func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
     }
 
@@ -256,10 +277,9 @@ struct GifConverter_Mov: GifConverter {
     }
 }
 
-struct GifConverter_LivePhoto: GifConverter {
+class GifConverter_LivePhoto: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
     static var direction: ConvertableDirection { return ConvertableDirection(from:.livephoto, to:.gif) }
 
-    init() {}
 
     func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
@@ -270,10 +290,8 @@ struct GifConverter_LivePhoto: GifConverter {
     }
 }
 
-struct GifConverter_Timelapse: GifConverter {
+class GifConverter_Timelapse: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
     static var direction: ConvertableDirection { return ConvertableDirection(from:.timelapse, to:.gif) }
-
-    init() {}
 
     func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
@@ -284,10 +302,9 @@ struct GifConverter_Timelapse: GifConverter {
     }
 }
 
-struct GifConverter_Burst: GifConverter {
+class GifConverter_Burst: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
     static var direction: ConvertableDirection { return ConvertableDirection(from:.burst, to:.gif) }
-
-    init() {}
+    
 
     func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
@@ -303,7 +320,7 @@ struct GifConverter_Burst: GifConverter {
     LivePhotoConverter
 */
 
-protocol LivePhotoConverter: ConverterWorker{}
+protocol LivePhotoConverter: Converter {}
 extension LivePhotoConverter{
     static var direction: ConvertableDirection {
         return ConvertableDirection(from: .any, to: .livephoto)

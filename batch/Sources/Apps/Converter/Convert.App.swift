@@ -10,13 +10,13 @@ import UIKit
 import MobileCoreServices
 import Photos
 
-public class Converter: BApp,
+public class ConvertApp: BApp,
         AppDockControllableApp,
         PHAssetFinalizableApp,
         PhotoPickerCollectionViewDisplayableApp,
         PhotoPickerViewControllerDelegatableApp {
 
-    public static let taskType:Taskable.Type = ConverterTask.self
+    public static let taskType:Taskable.Type = ConvertAppTask.self
     public static let paramType:TaskParamable.Type = AppAsset.self
 
     public static var configure:(() -> GIFMakerAppConfig)?
@@ -30,7 +30,7 @@ public class Converter: BApp,
             identifier: "com.stells.batch.converter"
             , version: "1.0"
             , phase: .develop
-            , appType: Converter.self
+            , appType: ConvertApp.self
             , displayName: "Converter" // 1 - 1
             , icon: R.image.photosFilterAppIcon.name
             , policy: AppPolicy.default
@@ -79,7 +79,7 @@ public class Converter: BApp,
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
         let resultItems = result
                 .filter { respondable in respondable.info.state == .completed }
-                .compactMap { ($0.result as? ConverterPHAssetResult)?.result }
+                .compactMap { ($0.result as? ConvertAppResult)?.result }
 
         var shareItems:[Any]? = resultItems
 
@@ -133,8 +133,8 @@ public class Converter: BApp,
     }
 }
 
-extension Converter{
-    static let supportedWorkers:[ConverterWorker.Type] = [
+extension ConvertApp {
+    static let supportedWorkers:[Converter.Type] = [
         MovConverter_Burst.self,
         MovConverter_LivePhoto.self,
         MovConverter_Gif.self,
@@ -151,13 +151,13 @@ extension Converter{
 }
 
 
-private struct ConverterPHAssetResult: TaskResultable{
+private struct ConvertAppResult: TaskResultable{
     var result:Any?
 }
 
-private class ConverterTask: TaskPrototype, Taskable {
+private class ConvertAppTask: TaskPrototype, Taskable {
     public typealias ParamType = AppAsset
-    public typealias ResultType = ConverterPHAssetResult
+    public typealias ResultType = ConvertAppResult
 
     public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){
 
@@ -169,17 +169,17 @@ private class ConverterTask: TaskPrototype, Taskable {
         return try _perform(appAsset, async)
     }
 
-    private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable) throws -> ConverterPHAssetResult?  {
-        let defaults = Converter.defaults as! ConverterAppDefaults
+    private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable) throws -> ConvertAppResult?  {
+        let defaults = ConvertApp.defaults as! ConverterAppDefaults
         let direction = defaults.convertingDirection
-        let needsConverter = ConverterSpec.acquireWorker(collection: Converter.supportedWorkers, direction: direction, asset: assetItem)
+        let needsConverter = ConverterSpec.acquireWorker(collection: ConvertApp.supportedWorkers, direction: direction, asset: assetItem)
 
         guard let converter = needsConverter else {
             throw TaskError.rejectedParam
         }
 
         let result = converter.convert(asset: assetItem, async)
-        return result == nil ? nil : ConverterPHAssetResult(result: result)
+        return result == nil ? nil : ConvertAppResult(result: result)
     }
 }
 
@@ -211,7 +211,7 @@ private struct ConverterCachedAsset {
                 data = UIImageJPEGRepresentation(imageToWrite, 1)
         }
 
-        let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(Converter.info.identifier)_\(UUID().uuidString).\(fileExtension)")
+        let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(ConvertApp.info.identifier)_\(UUID().uuidString).\(fileExtension)")
         try? data?.write(to: url)
 
         return ConverterCachedAsset(asset: asset, resultFileURL: url)

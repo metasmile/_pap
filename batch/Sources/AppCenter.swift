@@ -66,7 +66,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
 //            , Stabilizer.self
             , AutoAdjustmentApp.self
             , GIFMaker.self
-            , Converter.self
+            , ConvertApp.self
         ]
 
         return config
