@@ -135,9 +135,9 @@ public class Converter: BApp,
 
 extension Converter{
     static let supportedWorkers:[ConverterWorker.Type] = [
-        VideoConverter_Burst.self,
-        VideoConverter_LivePhoto.self,
-        VideoConverter_Gif.self,
+        MovConverter_Burst.self,
+        MovConverter_LivePhoto.self,
+        MovConverter_Gif.self,
 
         LivePhotoConverter_Burst.self,
         LivePhotoConverter_Gif.self,
@@ -146,7 +146,7 @@ extension Converter{
         GifConverter_Burst.self,
         GifConverter_LivePhoto.self,
         GifConverter_Timelapse.self,
-        GifConverter_Video.self
+        GifConverter_Mov.self
     ]
 }
 

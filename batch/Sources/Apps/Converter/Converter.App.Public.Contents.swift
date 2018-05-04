@@ -23,7 +23,11 @@ struct ConverterSpec {
 
 enum ConvertableMediaType: Int, Decodable{
     case any
-    case video
+    case jpeg // e.g. - jpeg -> gif/livephoto/video == sliced Panorama -> play left to right
+    case png // e.g. screenshots
+    case heif
+    case mov
+    case mp4
     case livephoto
     case gif
     case burst
@@ -67,16 +71,16 @@ protocol ConverterWorker {
 /*
     VideoConverter
 */
-protocol VideoConverter: ConverterWorker{}
+protocol MovConverter: ConverterWorker{}
 
-extension VideoConverter{
+extension MovConverter {
     static var direction: ConvertableDirection {
-        return ConvertableDirection(from: .any, to: .video)
+        return ConvertableDirection(from: .any, to: .mov)
     }
 }
 
-struct VideoConverter_Gif: VideoConverter {
-    static var direction: ConvertableDirection { return ConvertableDirection(from:.gif, to:.video) }
+struct MovConverter_Gif: MovConverter {
+    static var direction: ConvertableDirection { return ConvertableDirection(from:.gif, to:.mov) }
 
     init() {}
 
@@ -89,8 +93,8 @@ struct VideoConverter_Gif: VideoConverter {
     }
 }
 
-struct VideoConverter_Burst: VideoConverter {
-    static var direction: ConvertableDirection { return ConvertableDirection(from:.burst, to:.video) }
+struct MovConverter_Burst: MovConverter {
+    static var direction: ConvertableDirection { return ConvertableDirection(from:.burst, to:.mov) }
 
     init() {}
 
@@ -103,8 +107,8 @@ struct VideoConverter_Burst: VideoConverter {
     }
 }
 
-struct VideoConverter_LivePhoto: VideoConverter {
-    static var direction: ConvertableDirection { return ConvertableDirection(from:.livephoto, to:.video) }
+struct MovConverter_LivePhoto: MovConverter {
+    static var direction: ConvertableDirection { return ConvertableDirection(from:.livephoto, to:.mov) }
 
     init() {}
 
@@ -172,6 +176,20 @@ struct VideoConverter_LivePhoto: VideoConverter {
 /*
     GifConverter
 */
+
+/*
+GifConverter-specific options
+
+var sourceType: Int {get set}
+    var aspectRatio: Double {get set}
+    var contentMode: Int {get set}
+    var frameDelay: Int {get set}
+    var size: Double {get set}
+    var direction: Int {get set}
+    var gifQuality: Double {get set}
+    var loopCount: Int {get set}
+*/
+
 protocol GifConverter: ConverterWorker{}
 
 extension GifConverter{
@@ -180,8 +198,22 @@ extension GifConverter{
     }
 }
 
-struct GifConverter_Video: GifConverter {
-    static var direction: ConvertableDirection { return ConvertableDirection(from:.video, to:.gif) }
+struct GifConverter_Jpeg: GifConverter {
+    static var direction: ConvertableDirection { return ConvertableDirection(from:.jpeg, to:.gif) }
+
+    init() {}
+
+    func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+        return nil
+    }
+
+    func isSupported(asset: AppAsset) -> Bool {
+        return asset.asset.mediaType == .video
+    }
+}
+
+struct GifConverter_Mov: GifConverter {
+    static var direction: ConvertableDirection { return ConvertableDirection(from:.mov, to:.gif) }
 
     init() {}
 
@@ -305,7 +337,7 @@ struct LivePhotoConverter_Burst: LivePhotoConverter {
 }
 
 struct LivePhotoConverter_Video: LivePhotoConverter {
-    static var direction: ConvertableDirection { return ConvertableDirection(from:.video, to:.livephoto) }
+    static var direction: ConvertableDirection { return ConvertableDirection(from:.mov, to:.livephoto) }
 
     init() {}
 

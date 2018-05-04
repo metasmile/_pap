@@ -13,6 +13,6 @@ protocol ConverterAppDefaults: AppDefaults{
 extension Defaults: ConverterAppDefaults {
     var convertingDirection: ConvertableDirection {
         set { set(newValue) }
-        get { return get(or:ConvertableDirection(from: .video, to: .livephoto)) }
+        get { return get(or:ConvertableDirection(from: .mov, to: .livephoto)) }
     }
 }
