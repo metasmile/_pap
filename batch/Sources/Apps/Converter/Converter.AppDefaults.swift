@@ -26,7 +26,7 @@ enum ConvertableMediaType: Int, Decodable{
     case timelapse
 }
 
-struct ConvertableDirection: Codable {
+struct ConvertableDirection: Codable, Equatable {
     var from:ConvertableMediaType
     var to:ConvertableMediaType
 
@@ -39,5 +39,9 @@ struct ConvertableDirection: Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(from.rawValue, forKey: .from)
         try container.encode(to.rawValue, forKey: .to)
+    }
+
+    public static func == (lhs: ConvertableDirection, rhs: ConvertableDirection) -> Bool {
+        return lhs.from == rhs.from && lhs.to == rhs.to
     }
 }

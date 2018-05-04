@@ -133,6 +133,23 @@ public class Converter: BApp,
     }
 }
 
+extension Converter{
+    fileprivate static let supportedWorkers:[ConverterWorker.Type] = [
+        VideoConverter_Burst.self,
+        VideoConverter_LivePhoto.self,
+        VideoConverter_Gif.self,
+
+        LivePhotoConverter_Burst.self,
+        LivePhotoConverter_Gif.self,
+        LivePhotoConverter_Video.self,
+
+        GifConverter_Burst.self,
+        GifConverter_LivePhoto.self,
+        GifConverter_Timelapse.self,
+        GifConverter_Video.self
+    ]
+}
+
 private class ConverterTask: TaskPrototype, Taskable {
     public typealias ParamType = AppAsset
     public typealias ResultType = ConverterPHAssetResult
@@ -147,19 +164,23 @@ private class ConverterTask: TaskPrototype, Taskable {
         return try _perform(appAsset, async)
     }
 
+    var converter:ConverterWorker? {
+        let defaults = Converter.defaults as! ConverterAppDefaults
+        let direction = defaults.convertingDirection
+
+        let matchedWorkers = Converter.supportedWorkers.filter { $0.direction==direction }
+        assert(matchedWorkers.count==1, "Duplicated converter worker direction found. \(matchedWorkers)")
+
+        return type(of: matchedWorkers).init() as? ConverterWorker
+    }
+
     private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable) throws -> ConverterPHAssetResult?  {
-
-        var converter:ConverterWorker?
-
-        if assetItem.asset.imageType == .livePhoto{
-            converter = VideoConverter_LivePhoto()
+        guard let converter = self.converter, converter.isSupported(asset: assetItem) else{
+            throw TaskError.rejectedParam
         }
 
-        if let converter = converter{
-            return ConverterPHAssetResult(result: converter.convert(asset: assetItem, async))
-        }
-
-        return nil
+        let result = converter.convert(asset: assetItem, async)
+        return result == nil ? nil : ConverterPHAssetResult(result: result)
     }
 }
 
@@ -203,9 +224,11 @@ private struct ConverterPHAssetResult: TaskResultable{
 }
 
 fileprivate protocol ConverterWorker {
+
+    init()
+
     static var direction:ConvertableDirection {get}
 
-    //TODO: add var reqIDs = [PHAssetRequestID]()
     func convert(asset:AppAsset, _ async: AsyncManualSignalable) -> Any?
 
     func isSupported(asset:AppAsset) -> Bool
@@ -222,7 +245,9 @@ extension VideoConverter{
 }
 
 fileprivate struct VideoConverter_Gif: VideoConverter {
-    fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.gif, to:.video)
+    fileprivate static var direction: ConvertableDirection { return ConvertableDirection(from:.gif, to:.video) }
+
+    init() {}
 
     func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
@@ -234,7 +259,9 @@ fileprivate struct VideoConverter_Gif: VideoConverter {
 }
 
 fileprivate struct VideoConverter_Burst: VideoConverter {
-    fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.burst, to:.video)
+    fileprivate static var direction: ConvertableDirection { return ConvertableDirection(from:.burst, to:.video) }
+
+    init() {}
 
     func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
@@ -246,11 +273,33 @@ fileprivate struct VideoConverter_Burst: VideoConverter {
 }
 
 fileprivate struct VideoConverter_LivePhoto: VideoConverter {
-    fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.livephoto, to:.video)
+    fileprivate static var direction: ConvertableDirection { return ConvertableDirection(from:.livephoto, to:.video) }
+
+    init() {}
 
     func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
 
-        guard let livePhoto = asset.asset.asPHLivePhoto else {
+        var exportedlivePhoto: PHLivePhoto?
+
+        async.begin()
+
+        let livePhotoOptions = PHLivePhotoRequestOptions()
+
+        livePhotoOptions.deliveryMode = .highQualityFormat
+        let req_livephoto = PHImageManager.default().requestLivePhoto(for: asset.asset
+                , targetSize: .zero
+                , contentMode: .default
+                , options: livePhotoOptions
+                , resultHandler: { livePhoto, info in
+
+            exportedlivePhoto = livePhoto
+            async.end()
+
+        })
+        asset.requestIDs.append(PHAssetRequestID(forImage: req_livephoto))
+        async.waitUntilEnd()
+
+        guard let livePhoto = exportedlivePhoto else {
             return nil
         }
 
@@ -262,13 +311,11 @@ fileprivate struct VideoConverter_LivePhoto: VideoConverter {
         }
 
         var videoData = Data()
-
         var resultURL:URL?
 
         async.begin()
 
-        //TODO: add reqids to cancel
-        let _ = PHAssetResourceManager.default().requestData(for: videoResource, options: nil, dataReceivedHandler: { (data) in
+        let req_data = PHAssetResourceManager.default().requestData(for: videoResource, options: nil, dataReceivedHandler: { (data) in
             videoData.append(data)
 
         }) { (error) in
@@ -280,6 +327,7 @@ fileprivate struct VideoConverter_LivePhoto: VideoConverter {
             }
             async.end()
         }
+        asset.requestIDs.append(PHAssetRequestID(forResourceData: req_data))
         async.waitUntilEnd()
 
         return resultURL
@@ -302,7 +350,9 @@ extension GifConverter{
 }
 
 fileprivate struct GifConverter_Video: GifConverter {
-    fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.video, to:.gif)
+    fileprivate static var direction: ConvertableDirection { return ConvertableDirection(from:.video, to:.gif) }
+
+    init() {}
 
     func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
@@ -314,7 +364,9 @@ fileprivate struct GifConverter_Video: GifConverter {
 }
 
 fileprivate struct GifConverter_LivePhoto: GifConverter {
-    fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.livephoto, to:.gif)
+    fileprivate static var direction: ConvertableDirection { return ConvertableDirection(from:.livephoto, to:.gif) }
+
+    init() {}
 
     func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
@@ -326,7 +378,9 @@ fileprivate struct GifConverter_LivePhoto: GifConverter {
 }
 
 fileprivate struct GifConverter_Timelapse: GifConverter {
-    fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.timelapse, to:.gif)
+    fileprivate static var direction: ConvertableDirection { return ConvertableDirection(from:.timelapse, to:.gif) }
+
+    init() {}
 
     func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
@@ -338,7 +392,9 @@ fileprivate struct GifConverter_Timelapse: GifConverter {
 }
 
 fileprivate struct GifConverter_Burst: GifConverter {
-    fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.burst, to:.gif)
+    fileprivate static var direction: ConvertableDirection { return ConvertableDirection(from:.burst, to:.gif) }
+
+    init() {}
 
     func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
@@ -362,7 +418,9 @@ extension LivePhotoConverter{
 }
 
 fileprivate struct LivePhotoConverter_Gif: LivePhotoConverter {
-    fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.gif, to:.livephoto)
+    fileprivate static var direction: ConvertableDirection { return ConvertableDirection(from:.gif, to:.livephoto) }
+
+    init() {}
 
     func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
 
@@ -400,7 +458,9 @@ fileprivate struct LivePhotoConverter_Gif: LivePhotoConverter {
 }
 
 fileprivate struct LivePhotoConverter_Burst: LivePhotoConverter {
-    fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.burst, to:.livephoto)
+    fileprivate static var direction: ConvertableDirection { return ConvertableDirection(from:.burst, to:.livephoto) }
+
+    init() {}
 
     func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
@@ -412,7 +472,9 @@ fileprivate struct LivePhotoConverter_Burst: LivePhotoConverter {
 }
 
 fileprivate struct LivePhotoConverter_Video: LivePhotoConverter {
-    fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.video, to:.livephoto)
+    fileprivate static var direction: ConvertableDirection { return ConvertableDirection(from:.video, to:.livephoto) }
+
+    init() {}
 
     func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
