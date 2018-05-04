@@ -115,9 +115,9 @@ struct GIFMakerSettings {
         }
         
         static let labels: [type: String] = [
-            .photo: "Photos to GIF".localized,
-            .burst: "Burst to GIF".localized,
-            .video: "Video to GIF".localized
+            .photo: "Photos".localized,
+            .burst: "Burst".localized,
+            .video: "Video".localized
         ]
         
         static let orderedLabels: [String?] = [
@@ -165,15 +165,19 @@ struct GIFMakerSettings {
         static let fit = PHImageContentMode.aspectFit.rawValue
         static let fill = PHImageContentMode.aspectFill.rawValue
         
-        struct labels {
-            static let crop = "Crop".localized
-            static let noCrop = "No Crop".localized
-        }
-        
-        static let values: [String: Int] = [
-            labels.crop: contentMode.fill,
-            labels.noCrop: contentMode.fit
+        static let labels: [Int: String] = [
+            PHImageContentMode.aspectFit.rawValue: "No Crop".localized,
+            PHImageContentMode.aspectFill.rawValue: "Crop".localized
         ]
+        
+        static let orderedLabels: [String?] = [
+            labels[PHImageContentMode.aspectFill.rawValue],
+            labels[PHImageContentMode.aspectFit.rawValue],
+        ]
+        
+        static func key(with value: String) -> Int {
+            return labels.first(where: { value == $0.value })?.key ?? PHImageContentMode.aspectFill.rawValue
+        }
     }
     
     // https://en.wikipedia.org/wiki/Graphics_display_resolution
@@ -424,9 +428,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
 
     private var defaults = GIFMaker.defaults as! GIFMakerDefaults
     
-    private var cellDescribers = [UITableViewCellDefaultDescribable]()
-    
-    lazy var view: UIView = UITableView()
+    lazy var view: UIView = UITableView(frame: .zero, style: .grouped)
     
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
@@ -448,8 +450,8 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     func willSetContentView(_ view: UIView, dock: AppDock) {
         appDock = dock
 
-        if cellDescribers.count==0{
-            cellDescribers = createCellDescribers()
+        if sections.count==0{
+            let cellDescribers = createCellDescribers()
 
             if let view = view as? UITableView{
                 view.dataSource = self
@@ -462,28 +464,26 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             }
         }
     }
+    
+    private var sections = [(String, [UITableViewCellDefaultDescribable])]()
 
     private func createCellDescribers() -> [UITableViewCellDefaultDescribable] {
         var cellDescribers = [UITableViewCellDefaultDescribable]()
         
-        let sourceTypeCell = UITableViewActionSheetCellDescriber()
+        let sourceTypeCell = UITableViewSegmentControlCellDescriber()
         sourceTypeCell.localIdentifier = Cells.sourceType.hashValue
         sourceTypeCell.label = "Import".localized
-        sourceTypeCell.valueGetter = {
-            GIFMakerSettings.sourceType.labels[GIFMakerSettings.sourceType.type(rawValue: self.defaults.sourceType) ?? .photo]
-        }
+        sourceTypeCell.valueGetter = { GIFMakerSettings.sourceType.labels[GIFMakerSettings.sourceType.type(rawValue: self.defaults.sourceType) ?? .photo] }
         sourceTypeCell.valueCollection = GIFMakerSettings.sourceType.orderedLabels
         sourceTypeCell.valueHandler = {
-            if let value = $0 as? String {
-                let sourceType = GIFMakerSettings.sourceType.key(with: value)
-                self.defaults.sourceType = sourceType
-
-                AppCenter.default.currentInstanceAs(GIFMaker.self)?.config?.sourceType = sourceType
+            if let index = $0 as? Int {
+                let key = GIFMakerSettings.sourceType.key(with: GIFMakerSettings.sourceType.orderedLabels[index] ?? "")
+                self.defaults.sourceType = key
+                AppCenter.default.currentInstanceAs(GIFMaker.self)?.config?.sourceType = key
             }
         }
         cellDescribers.append(sourceTypeCell)
         
-        let indexOfCell0 = cellDescribers.count
         let cell0 = UITableViewActionSheetCellDescriber()
         cell0.localIdentifier = Cells.size.hashValue
         cell0.label = "Size".localized
@@ -494,8 +494,9 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         cell0.valueHandler = { value in
             if let key = value as? String, let sizeValue = GIFMakerSettings.size.values[key]{
                 self.defaults.size = sizeValue
-
-                (self.view as? UITableView)?.reloadRows(at: [IndexPath(row: indexOfCell0, section: 0)], with: .none)
+                
+                guard let indexPath = self.indexPath(with: cell0.localIdentifier) else { return }
+                (self.view as? UITableView)?.reloadRows(at: [indexPath], with: .none)
             }
         }
         cellDescribers.append(cell0)
@@ -517,10 +518,13 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         let cell2 = UITableViewSegmentControlCellDescriber()
         cell2.localIdentifier = Cells.contentMode.hashValue
         cell2.label = "Crop to Fit".localized
-        cell2.valueGetter = { self.defaults.contentMode }
-        cell2.valueCollection = GIFMakerSettings.contentMode.values
+        cell2.valueGetter = { GIFMakerSettings.contentMode.labels[self.defaults.contentMode] }
+        cell2.valueCollection = GIFMakerSettings.contentMode.orderedLabels
         cell2.valueHandler = {
-            self.defaults.contentMode = GIFMakerSettings.contentMode.values.valuesArray[$0 as? Int ?? 0]
+            if let index = $0 as? Int {
+                let key = GIFMakerSettings.contentMode.key(with: GIFMakerSettings.contentMode.orderedLabels[index] ?? "")
+                self.defaults.contentMode = key
+            }
         }
         cellDescribers.append(cell2)
 
@@ -574,6 +578,10 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             }
         }
         cellDescribers.append(directionCell)
+        
+        sections.append((GIFMaker.info.displayName, [sourceTypeCell]))
+        sections.append(("Quality".localized, [cell0, cell1, qualityCell, cell2]))
+        sections.append(("Animation".localized, [cell3, directionCell]))
 
         return cellDescribers
     }
@@ -592,15 +600,15 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return sections.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "GIF Options"
+        return sections[section].0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellDescribers.count
+        return sections[section].1.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -630,7 +638,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = self.cellDescribers[indexPath.item]
+        let item = self.sections[indexPath.section].1[indexPath.item]
 
         if let cellDescriber = item as? UITableViewPickerCellDescriber
             , let valueCollection = cellDescriber.valueCollection as? [String]
@@ -681,7 +689,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             return cell
         }
         else if let cellDescriber = item as? UITableViewSegmentControlCellDescriber
-            , let valueCollection = cellDescriber.valueCollection as? [String:Int]
+            , let valueCollection = cellDescriber.valueCollection as? [String]
             , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewSegmentedControlCell {
 
             cell.textLabel?.text = item.label
@@ -690,10 +698,12 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             
             cell.segmentedControl.removeAllSegments()
             for k in valueCollection{
-                cell.segmentedControl.insertSegment(withTitle: k.key, at: cell.segmentedControl.numberOfSegments, animated: false)
+                cell.segmentedControl.insertSegment(withTitle: k, at: cell.segmentedControl.numberOfSegments, animated: false)
             }
             
-            cell.segmentedControl.selectedSegmentIndex = valueCollection.valuesArray.index(of: item.valueGetter() as? Int ?? GIFMakerSettings.contentMode.fill) ?? 0
+            if let label = item.valueGetter() as? String {
+                cell.segmentedControl.selectedSegmentIndex = valueCollection.index(of: label) ?? 0
+            }
             cell.didChangeValue = item.valueHandler
             return cell
         }
@@ -732,9 +742,17 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         }
     }
     
+    private func indexPath(with localIdentifier: Int) -> IndexPath? {
+        return sections.enumerated().compactMap({ (idx, section) -> IndexPath? in
+            guard let row = section.1.index(where: { (describer) -> Bool in
+                describer.localIdentifier == localIdentifier
+            }), row != NSNotFound else { return nil }
+            return IndexPath(row: row, section: idx)
+        }).first
+    }
+    
     private func updateFrameDelayPreview(cell:UITableViewStepperCell?=nil) {
-        guard let row = cellDescribers.index(where: { $0.localIdentifier == Cells.frameDelay.hashValue }) else { return }
-        let indexPath = IndexPath(row: row, section: 0)
+        guard let indexPath = indexPath(with: Cells.frameDelay.hashValue) else { return }
         let cell = cell ?? (view as! UITableView).cellForRow(at: indexPath)
         
         let frames = 8
@@ -763,7 +781,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     
     func pickerCell(_ cell: UITableViewPickerCell, didPick row: Int, value: Any) {
         guard let indexPath = (view as! UITableView).indexPath(for: cell) else { return }
-        let setting = cellDescribers[indexPath.row]
+        let setting = sections[indexPath.section].1[indexPath.row]
         
         var needsToUpdateSizeCell = false
 
@@ -779,8 +797,8 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             needsToUpdateSizeCell = true
         }
         
-        if needsToUpdateSizeCell, let rowOfSizeSetting = cellDescribers.index(where: { $0.localIdentifier == Cells.size.hashValue }) {
-            let sizeCell = (view as! UITableView).cellForRow(at: IndexPath(row: rowOfSizeSetting, section: 0)) as? UITableViewPickerCell
+        if needsToUpdateSizeCell, let indexPathOfSizeSetting = self.indexPath(with: Cells.size.hashValue) {
+            let sizeCell = (view as! UITableView).cellForRow(at: indexPathOfSizeSetting) as? UITableViewPickerCell
             
             let size = GIFMakerSettings.size.sizeWithAspectRatio()
             sizeCell?.titleLabel.text = "\("Size".localized) (\(Int(size.width)) x \(Int(size.height)))"
