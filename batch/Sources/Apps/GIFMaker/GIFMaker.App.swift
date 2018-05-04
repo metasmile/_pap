@@ -484,7 +484,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         var cellDescribers = [UITableViewCellDefaultDescribable]()
         
         let sourceTypeCell = UITableViewSegmentControlCellDescriber()
-        sourceTypeCell.localIdentifier = Cells.sourceType.hashValue
+        sourceTypeCell.itemIdentifier = Cells.sourceType.hashValue
         sourceTypeCell.label = "Import".localized
         sourceTypeCell.valueGetter = { GIFMakerSettings.sourceType.labels[GIFMakerSettings.sourceType.type(rawValue: self.defaults.sourceType) ?? .photo] }
         sourceTypeCell.valueCollection = GIFMakerSettings.sourceType.orderedLabels
@@ -498,14 +498,14 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         cellDescribers.append(sourceTypeCell)
         
         let exportCell = UITableViewSegmentControlCellDescriber()
-        exportCell.localIdentifier = Cells.export.hashValue
+        exportCell.itemIdentifier = Cells.export.hashValue
         exportCell.label = "Export".localized
         exportCell.valueGetter = { "Animated GIF" }
         exportCell.valueCollection = ["Animated GIF"]
         cellDescribers.append(exportCell)
         
         let cell0 = UITableViewActionSheetCellDescriber()
-        cell0.localIdentifier = Cells.size.hashValue
+        cell0.itemIdentifier = Cells.size.hashValue
         cell0.label = "Size".localized
         cell0.valueGetter =  {
             GIFMakerSettings.size.values.first(where: { $0.value == self.defaults.size })?.key
@@ -515,14 +515,14 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             if let key = value as? String, let sizeValue = GIFMakerSettings.size.values[key]{
                 self.defaults.size = sizeValue
                 
-                guard let indexPath = self.indexPath(with: cell0.localIdentifier) else { return }
+                guard let indexPath = self.indexPath(with: cell0.itemIdentifier) else { return }
                 (self.view as? UITableView)?.reloadRows(at: [indexPath], with: .none)
             }
         }
         cellDescribers.append(cell0)
 
         let cell1 = UITableViewActionSheetCellDescriber()
-        cell1.localIdentifier = Cells.aspectRatio.hashValue
+        cell1.itemIdentifier = Cells.aspectRatio.hashValue
         cell1.label = "Aspect Ratio".localized
         cell1.valueGetter =  {
             GIFMakerSettings.aspectRatio.values.first(where: { $0.value == self.defaults.aspectRatio })?.key
@@ -536,7 +536,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         cellDescribers.append(cell1)
 
         let cell2 = UITableViewSegmentControlCellDescriber()
-        cell2.localIdentifier = Cells.contentMode.hashValue
+        cell2.itemIdentifier = Cells.contentMode.hashValue
         cell2.label = "Crop to Fit".localized
         cell2.valueGetter = { GIFMakerSettings.contentMode.labels[self.defaults.contentMode] }
         cell2.valueCollection = GIFMakerSettings.contentMode.orderedLabels
@@ -551,7 +551,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
 
         let cell3 =  UITableViewStepperCellDescriber()
         cell3.label = "Frame Delay".localized
-        cell3.localIdentifier = Cells.frameDelay.hashValue
+        cell3.itemIdentifier = Cells.frameDelay.hashValue
         cell3.valueGetter = { self.defaults.frameDelay }
         cell3.valueHandler = {
             self.defaults.frameDelay = Int($0 as? Double ?? 300)
@@ -574,7 +574,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         
         let qualityCell =  UITableViewStepperCellDescriber()
         qualityCell.label = "Image Quality".localized
-        qualityCell.localIdentifier = Cells.gifQuality.hashValue
+        qualityCell.itemIdentifier = Cells.gifQuality.hashValue
         qualityCell.valueGetter = { Int((self.defaults.gifQuality ) * 100) }
         qualityCell.valueHandler = {
             self.defaults.gifQuality = (($0 as? Double) ?? 1)/100
@@ -582,11 +582,11 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         qualityCell.minimumValue = 10
         qualityCell.maximumValue = 100
         qualityCell.stepValue = 10
-        qualityCell.valuePresenter = UITableViewStepperCellDescriber.percentageValuePresenter
+        qualityCell.valuePresenter = UITableViewStepperCellDescriber.percentageAsIntValuePresenter
         cellDescribers.append(qualityCell)
         
         let directionCell = UITableViewActionSheetCellDescriber()
-        directionCell.localIdentifier = Cells.direction.hashValue
+        directionCell.itemIdentifier = Cells.direction.hashValue
         directionCell.label = "Direction".localized
         directionCell.valueGetter = {
             GIFMakerSettings.direction.labels[GIFMakerSettings.direction.type(rawValue: self.defaults.direction) ?? .forward]
@@ -601,7 +601,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         
         let loopCell =  UITableViewStepperCellDescriber()
         loopCell.label = "Repeat".localized
-        loopCell.localIdentifier = Cells.loopCount.hashValue
+        loopCell.itemIdentifier = Cells.loopCount.hashValue
         loopCell.valueGetter = { self.defaults.loopCount }
         loopCell.valueHandler = { self.defaults.loopCount = Int($0 as? Double ?? 0) }
         loopCell.minimumValue = 0
@@ -703,7 +703,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
                 cell.selectedRow = 0
             }
             
-            if item.localIdentifier == Cells.size.hashValue {
+            if item.itemIdentifier == Cells.size.hashValue {
                 let size = GIFMakerSettings.size.sizeWithAspectRatio()
                 cell.titleLabel.text = "\("Size".localized) (\(Int(size.width)) x \(Int(size.height)))"
             }
@@ -715,7 +715,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         else if let cellDescriber = item as? UITableViewActionSheetCellDescriber
         , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewActionSheetCell {
 
-            if item.localIdentifier == Cells.size.hashValue {
+            if item.itemIdentifier == Cells.size.hashValue {
                 let size = GIFMakerSettings.size.sizeWithAspectRatio()
                 cell.textLabel?.text = "\("Size".localized) (\(Int(size.width)) x \(Int(size.height)))"
             }
@@ -783,7 +783,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
                 item.valueHandler?(value)
             }
 
-            if item.localIdentifier == Cells.frameDelay.hashValue {
+            if item.itemIdentifier == Cells.frameDelay.hashValue {
                 updateFrameDelayPreview(cell:cell)
             }
             
@@ -794,10 +794,10 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         }
     }
     
-    private func indexPath(with localIdentifier: Int) -> IndexPath? {
+    private func indexPath(with itemIdentifier: Int) -> IndexPath? {
         return sections.enumerated().compactMap({ (idx, section) -> IndexPath? in
             guard let row = section.1.index(where: { (describer) -> Bool in
-                describer.localIdentifier == localIdentifier
+                describer.itemIdentifier == itemIdentifier
             }), row != NSNotFound else { return nil }
             return IndexPath(row: row, section: idx)
         }).first
@@ -837,13 +837,13 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         
         var needsToUpdateSizeCell = false
 
-        if setting.localIdentifier == Cells.aspectRatio.hashValue {
+        if setting.itemIdentifier == Cells.aspectRatio.hashValue {
             defaults.aspectRatio = GIFMakerSettings.aspectRatio.values[cell.values[row]] ?? GIFMakerSettings.aspectRatio.value(GIFMakerSettings.aspectRatio.labels.square)
             
             needsToUpdateSizeCell = true
             
         }
-        else if setting.localIdentifier == Cells.size.hashValue {
+        else if setting.itemIdentifier == Cells.size.hashValue {
             defaults.size = GIFMakerSettings.size.values[cell.values[row]] ?? GIFMakerSettings.size.value(GIFMakerSettings.size.labels.qhd)
             
             needsToUpdateSizeCell = true

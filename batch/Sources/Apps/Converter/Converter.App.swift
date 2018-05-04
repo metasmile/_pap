@@ -79,11 +79,9 @@ public class Converter: BApp,
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
         let resultItems = result
                 .filter { respondable in respondable.info.state == .completed }
-                .compactMap { ($0.result as? ConverterPHAssetResult)?.items }.reduce([], +)
+                .compactMap { ($0.result as? ConverterPHAssetResult)?.result }
 
-        let imageFiles = resultItems.map({ $0.resultFileURL.path })
-
-        var shareItem:Any?
+        var shareItem:[Any]?
 
 //        asyncSignal.begin()
 //        let builder = TimeLapsBuilder(imagePaths: imageFiles)
@@ -99,18 +97,18 @@ public class Converter: BApp,
 //        asyncSignal.waitUntilEnd()
 
 
-        asyncSignal.begin()
-        let lpWriter = LivePhotoWriter()
-
-        lpWriter.saveLivePhotoFromImages(paths: imageFiles, indexOfTitle: 0, progress: nil, fps: 30, saved: { b, s, error in
-
-         }, andFetched:{ b, lphoto, asset, error in
-
-            shareItem = lphoto
-
-            asyncSignal.end()
-        })
-        asyncSignal.waitUntilEnd()
+//        asyncSignal.begin()
+//        let lpWriter = LivePhotoWriter()
+//
+//        lpWriter.saveLivePhotoFromImages(paths: imageFiles, indexOfTitle: 0, progress: nil, fps: 30, saved: { b, s, error in
+//
+//         }, andFetched:{ b, lphoto, asset, error in
+//
+//            shareItem = lphoto
+//
+//            asyncSignal.end()
+//        })
+//        asyncSignal.waitUntilEnd()
 
 
         asyncSignal.begin()
@@ -150,52 +148,8 @@ private class ConverterTask: TaskPrototype, Taskable {
     }
 
     private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable) throws -> ConverterPHAssetResult?  {
-        var result: ConverterPHAssetResult?
 
-        let targetSize = GIFMakerSettings.size.sizeWithAspectRatio()
-        let contentMode = PHImageContentMode.aspectFit//PHImageContentMode(rawValue: (GIFMaker.defaults as! GIFMakerDefaults).contentMode) ?? PHImageContentMode.aspectFit
-
-        async.begin()
-
-        if assetItem.asset.mediaType == .video {
-            async.end()
-        }
-        else if assetItem.asset.imageType == .stillImage {
-            let response = assetItem.asset.requestImage(targetSize: targetSize, contentMode: contentMode)
-
-            if let image = response.1, let uti = assetItem.asset.uniformTypeIdentifier {
-                result = ConverterPHAssetResult(items: [ConverterCachedAsset.cacheAsset(assetItem.asset, image: image, targetSize: targetSize)])
-                assetItem.requestIDs += [PHAssetRequestID(forImage:response.0)]
-            }
-
-            async.end()
-        }
-        else if assetItem.asset.imageType == .burst {
-            var results = [ConverterCachedAsset]()
-
-            let fetchOptions = PHFetchOptions()
-            fetchOptions.includeAllBurstAssets = true
-
-            let fetchedAsset = PHAsset.fetchAssets(withBurstIdentifier: assetItem.asset.burstIdentifier ?? "", options: fetchOptions)
-            fetchedAsset.enumerateObjects { (asset, idx, stop) in
-                let response = asset.requestImage(targetSize: targetSize, contentMode: contentMode)
-
-                if let image = response.1, let uti = assetItem.asset.uniformTypeIdentifier {
-                    results.append(ConverterCachedAsset.cacheAsset(assetItem.asset, image: image, targetSize: targetSize))
-                    assetItem.requestIDs += [PHAssetRequestID(forImage:response.0)]
-                }
-            }
-
-            result = ConverterPHAssetResult(items: results)
-
-            async.end()
-        }
-        else if assetItem.asset.imageType == .livePhoto {
-            async.end()
-        }
-
-        async.waitUntilEnd()
-        return result
+        return ConverterPHAssetResult(result: "")
     }
 }
 
@@ -216,8 +170,7 @@ private struct ConverterCachedAsset {
             } ?? image
         }
 
-
-
+        
         var data: Data?
         var fileExtension = "jpg"
         switch asset.uniformTypeIdentifier{
@@ -236,9 +189,8 @@ private struct ConverterCachedAsset {
 }
 
 private struct ConverterPHAssetResult: TaskResultable{
-    public var items: [ConverterCachedAsset]
+    var result:Any
 }
-
 
 fileprivate enum ConvertableMediaType{
     case any
@@ -463,7 +415,7 @@ fileprivate struct LivePhotoConverter_Burst: LivePhotoConverter {
     }
 }
 
-fileprivate struct LivePhotoConverter_Videp: LivePhotoConverter {
+fileprivate struct LivePhotoConverter_Video: LivePhotoConverter {
     fileprivate static let direction: ConvertableDirection = ConvertableDirection(from:.video, to:.livephoto)
 
     func convert(asset: AppAsset, _ async: AsyncManualSignalable) -> Any? {

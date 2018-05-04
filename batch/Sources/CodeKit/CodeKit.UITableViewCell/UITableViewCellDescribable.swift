@@ -13,7 +13,7 @@ public protocol UITableViewCellDescribable {
     var cellIdentifier:String{get}
     var cellClass:Swift.AnyClass{get}
 
-    var localIdentifier:Int {set get}
+    var itemIdentifier:Int {set get}
 }
 
 extension UITableViewCellDescribable {
@@ -50,7 +50,7 @@ extension UITableViewCellAccessoryDescribable where Self:UITableViewCellValueDes
 }
 
 extension UITableViewCellAccessoryDescribable{
-    public static var percentageValuePresenter:((Any) -> (String)) {
+    public static var percentageAsIntValuePresenter:((Any) -> (String)) {
         return { value in
             var label:String?
             if let val = value as? Double{
@@ -68,7 +68,7 @@ public class UITableViewCellDescriber: UITableViewCellDefaultDescribable {
 
     public var cellClass:Swift.AnyClass { return UITableViewCell.self }
 
-    public var localIdentifier:Int = Int.max
+    public var itemIdentifier:Int = Int.max
 
     public var label: String = "Untitled"
     public var iconImage: ImageSourceable?
