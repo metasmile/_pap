@@ -28,8 +28,6 @@ extension PHAsset {
         
         var result: UIImage? = nil
         let imageRequestID = PHImageManager.default().requestImage(for: self, targetSize: targetSize, contentMode: contentMode, options: options) { (image, info) in
-            guard let isDegraded = info?[PHImageResultIsDegradedKey] as? Bool, !isDegraded else { return }
-            
             result = image
             
             _ = signal.end()
@@ -75,8 +73,6 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
             options.version = .original
 
             PHImageManager.default().requestAVAsset(forVideo: self, options: options, resultHandler: {(asset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
-                guard let isDegraded = info?[PHImageResultIsDegradedKey] as? Bool, !isDegraded else { return }
-                
                 if let urlAsset = asset as? AVURLAsset {
                     returningURL = urlAsset.url as URL
                 }
@@ -152,8 +148,6 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
         
         var result: AVAsset?
         let imageRequestID = PHImageManager.default().requestAVAsset(forVideo: self, options: highQualityVideoRequestOptions) { (video, audioMix, info) in
-            guard let isDegraded = info?[PHImageResultIsDegradedKey] as? Bool, !isDegraded else { return }
-            
             result = video
             _ = signal.end()
         }
@@ -189,8 +183,6 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
         
         var result: PHLivePhoto?
         let imageRequestID = PHImageManager.default().requestLivePhoto(for: self, targetSize: PHImageManagerMaximumSize, contentMode: .default, options: highQualityLivePhotoRequestOptions, resultHandler: { (livePhoto, info) in
-            guard let isDegraded = info?[PHImageResultIsDegradedKey] as? Bool, !isDegraded else { return }
-            
             result = livePhoto
             _ = signal.end()
         })
