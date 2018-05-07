@@ -15,6 +15,12 @@ private enum Cells {
     case convertingDirection
 }
 
+private extension ConvertableDirection{
+    var label:String{
+        return "\(from.rawValue) To \(to.rawValue)"
+    }
+}
+
 class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
         , UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate {
 
@@ -83,14 +89,20 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
     private func createCellDescribers() -> [UITableViewCellDefaultDescribable]{
         var cellDescribers = [UITableViewCellDefaultDescribable]()
 
+        let convertModeLabels = ConvertApp.supportedWorkers.map { converterType -> String in
+            return converterType.direction.label
+        }
+
         let cell0 =  UITableViewPickerCellDescriber()
         cell0.itemIdentifier = Cells.convertingDirection.hashValue
-        cell0.label = "Page Size Preset"
-        cell0.valueGetter = { self.defaults.convertingDirection }
-        cell0.valueCollection = PDFactorySettings.SizePresets.keysArray
-        cell0.valueHandler = {
-            $0
-            self.defaults.convertingDirection = ConvertableDirection(from: .livephoto, to: .mov)
+        cell0.label = "Convert From"
+        cell0.valueGetter = { self.defaults.convertingDirection.label }
+        cell0.valueCollection = convertModeLabels
+        cell0.valueHandler = { value in
+            if let label = value as? String
+            , let index = convertModeLabels.index(of: label){
+                self.defaults.convertingDirection = ConvertApp.supportedWorkers[index].direction
+            }
         }
         cellDescribers.append(cell0)
 

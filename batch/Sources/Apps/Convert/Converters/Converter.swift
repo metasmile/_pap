@@ -6,34 +6,19 @@
 import Foundation
 import Photos
 
-struct ConverterSpec {
-
-    static func acquireWorker(collection:[Converter.Type], direction:ConvertableDirection, asset:AppAsset) -> Converter?{
-
-        let matchedWorkers = collection.filter { $0.direction==direction }
-        assert(matchedWorkers.count==1, "Duplicated converter worker direction found. \(matchedWorkers)")
-
-        if let worker = type(of: matchedWorkers).init() as? Converter {
-            return worker.isSupported(source: asset) ? worker : nil
-        }
-
-        return nil
-    }
-}
-
-enum ConvertableMediaType: Int, Decodable{
-    case any
-    case jpeg // e.g. - jpeg -> gif/livephoto/video == sliced Panorama -> play left to right
-    case png // e.g. screenshots
-    case heif
-    case mov
-    case mp4
-    case wav // e.g. mov -> sound -> wav or mp4
-    case mp3
-    case livephoto
-    case gif
-    case burst
-    case timelapse
+enum ConvertableMediaType: String, Decodable{
+    case any = "Any"
+    case jpeg = "Image (.jpg)" // e.g. - jpeg -> gif/livephoto/video == sliced Panorama -> play left to right
+    case png = "Image (.png)" // e.g. screenshots
+    case heif = "Image (.heif)"
+    case mov = "Video (.mov)"
+    case mp4 = "Video (.mp4)"
+    case wav = "Sound (.wav)" // e.g. mov -> sound -> wav or mp4
+    case mp3 = "Audio (.mp3)"
+    case livephoto = "Live Photo"
+    case gif = "GIF"
+    case burst = "Burst Photos"
+    case timelapse = "Timelapse Video"
 }
 
 struct ConvertableDirection: Codable, Equatable {
@@ -53,6 +38,21 @@ struct ConvertableDirection: Codable, Equatable {
 
     public static func == (lhs: ConvertableDirection, rhs: ConvertableDirection) -> Bool {
         return lhs.from == rhs.from && lhs.to == rhs.to
+    }
+}
+
+
+struct ConverterSpec {
+    static func acquireWorker(collection:[Converter.Type], direction:ConvertableDirection, asset:AppAsset) -> Converter?{
+
+        let matchedWorkers = collection.filter { $0.direction==direction }
+        assert(matchedWorkers.count==1, "Duplicated converter worker direction found. \(matchedWorkers)")
+
+        if let worker = type(of: matchedWorkers).init() as? Converter {
+            return worker.isSupported(source: asset) ? worker : nil
+        }
+
+        return nil
     }
 }
 
