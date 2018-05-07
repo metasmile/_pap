@@ -28,6 +28,8 @@ extension PHAsset {
         
         var result: UIImage? = nil
         let imageRequestID = PHImageManager.default().requestImage(for: self, targetSize: targetSize, contentMode: contentMode, options: options) { (image, info) in
+            guard let isDegraded = info?[PHImageResultIsDegradedKey] as? Bool, !isDegraded else { return }
+            
             result = image
             
             _ = signal.end()
@@ -183,6 +185,8 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
         
         var result: PHLivePhoto?
         let imageRequestID = PHImageManager.default().requestLivePhoto(for: self, targetSize: PHImageManagerMaximumSize, contentMode: .default, options: highQualityLivePhotoRequestOptions, resultHandler: { (livePhoto, info) in
+            guard let isDegraded = info?[PHImageResultIsDegradedKey] as? Bool, !isDegraded else { return }
+            
             result = livePhoto
             _ = signal.end()
         })
