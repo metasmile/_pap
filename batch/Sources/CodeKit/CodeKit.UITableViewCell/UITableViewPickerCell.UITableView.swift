@@ -41,7 +41,7 @@ extension UITableView{
         if let cells = allVisiblePickerCells{
             var count = cells.count
             for (_, cell) in cells where cell.isExpanded == true{
-                cell.contract(self, animated: true) { _ in
+                cell.contract(self, animated: false) { _ in
                     count -= 1
                     if count==0{
                         completion?(cells.map { path, _ -> IndexPath in path })

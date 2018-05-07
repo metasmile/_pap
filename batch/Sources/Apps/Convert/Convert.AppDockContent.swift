@@ -12,7 +12,8 @@ import DefaultsKit
 import TPPDF
 
 private enum Cells {
-    case convertingDirection
+    case convertingDirectionFrom
+    case convertingDirectionTo
 }
 
 private extension ConvertableDirection{
@@ -22,7 +23,7 @@ private extension ConvertableDirection{
 }
 
 class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
-        , UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate {
+        , UITableViewDelegate, UITableViewDataSource {
 
     fileprivate var defaults = ConvertApp.defaults as! ConvertAppDefaults
 
@@ -38,17 +39,13 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
-        preferences.minimumHeight = (self.view as! UITableView).rowHeight * 5 + 27
+        preferences.minimumHeight = (self.view as! UITableView).rowHeight * 2 - 2
         preferences.pinned = false
         return preferences
     }
 
     var delegate: AppDockDelegate? {
         return self
-    }
-
-    func dockWillContract(_ dock: AppDock) {
-        (self.view as? UITableView)?.contractAllVisiblePickerCells()
     }
 
     var appDock:AppDock?
@@ -70,49 +67,102 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
                 }
             }
         }
-
-//            , SettingsItem(
-//                    key: .metadataCaption
-//                    , label: "Metadata Caption"
-//                    , valueGetter: { self.defaults.metadataCaption }
-//                    , valueCollection: nil
-//                    , valueHandler: { self.defaults.metadataCaption = $0 as? Bool ?? false }
-//                    , cellDescriber: UITableViewSwitchCellDescriber()
-//                    , iconImageName: nil
-//            )
-
-//            , SettingsItem(
-//                    key: .imagesPerPage
-//                    , label: "Max. Images Per Page"
-//                    , valueGetter: { self.defaults.imagesPerPage ?? 1}
-//                    , valueCollection: nil
-//                    , valueHandler: { self.defaults.imagesPerPage = Int($0 as? Double ?? 1) }
-//                    , cellDescriber: UITableViewStepperCellDescriber(cellClass: UITableViewStepperCell.self, minimumValue: 1, maximumValue: 50, stepValue: 1, transformValueLabel:nil)
-//                    , iconImageName: nil
-//            )
     }
 
     private func createCellDescribers() -> [UITableViewCellDefaultDescribable]{
         var cellDescribers = [UITableViewCellDefaultDescribable]()
 
-        let convertModeLabels = ConvertApp.supportedWorkers.map { converterType -> String in
-            return converterType.direction.label
+//        let convertModeLabels = ConvertApp.supportedWorkers.map { converterType -> String in
+//            return converterType.direction.label
+//        }
+
+//        let cell0 =  UITableViewPickerCellDescriber()
+//        cell0.itemIdentifier = Cells.convertingDirection.hashValue
+//        cell0.label = "Convert From"
+//        cell0.valueGetter = { self.defaults.convertingDirection.label }
+//        cell0.valueCollection = convertModeLabels
+//        cell0.valueHandler = { value in
+//            if let label = value as? String
+//            , let index = convertModeLabels.index(of: label){
+//
+//                let direction = ConvertApp.supportedWorkers[index].direction
+//                self.defaults.convertingDirection = direction
+//                self.app?.config?.convertingDirectionIdentifier = direction.identifier
+//            }
+//        }
+//        cellDescribers.append(cell0)
+
+
+        let convertDirections = ConvertApp.supportedWorkers.map { converterType -> ConvertableDirection in
+            return converterType.direction
         }
 
-        let cell0 =  UITableViewPickerCellDescriber()
-        cell0.itemIdentifier = Cells.convertingDirection.hashValue
-        cell0.label = "Convert From"
-        cell0.valueGetter = { self.defaults.convertingDirection.label }
-        cell0.valueCollection = convertModeLabels
-        cell0.valueHandler = { value in
-            if let label = value as? String
-            , let index = convertModeLabels.index(of: label){
-                let direction = ConvertApp.supportedWorkers[index].direction
-                self.defaults.convertingDirection = direction
-                self.app?.config?.convertingDirectionIdentifier = direction.identifier
+        let convertFromLabels = Array(Set(convertDirections.map { direction -> String in  direction.from.rawValue }))
+        let convertToLabels = Array(Set(convertDirections.map { direction -> String in  direction.to.rawValue }))
+
+        let cell_from = UITableViewActionSheetCellDescriber()
+        let cell_to = UITableViewActionSheetCellDescriber()
+
+        cell_from.itemIdentifier = Cells.convertingDirectionFrom.hashValue
+        cell_from.label = "Convert From"
+        cell_from.valueGetter =  { self.defaults.convertingDirection.from.rawValue }
+        cell_from.valueCollection = convertFromLabels
+//        cell0.valuePresenter = { value in
+//            if let direction = value as? ConvertableDirection {
+//                return direction.from.rawValue
+//            }
+//            return ""
+//        }
+        cell_from.valueHandler = { value in
+            if let from = value as? String, let to = cell_to.valueGetter() as? String {
+
+                if let direction = convertDirections.first(where:{ direction in
+                   direction.to.rawValue==to
+                }){
+
+                    self.defaults.convertingDirection = direction
+                    self.app?.config?.convertingDirectionIdentifier = direction.identifier
+
+                    cell_to.valueGetter = { direction.to.rawValue }
+                    cell_to.valueCollection = convertDirections.compactMap ({ direction -> String? in
+                        return direction.from.rawValue == from ? direction.to.rawValue : nil
+                    })
+
+                    if let index = (self.cellDescribers.index { item in item.itemIdentifier == Cells.convertingDirectionTo.hashValue }) {
+                        (self.view as? UITableView)?.reloadRows(at: [IndexPath(row: index, section: 0)], with: UITableViewRowAnimation.automatic)
+                    }
+                }
             }
         }
-        cellDescribers.append(cell0)
+        cellDescribers.append(cell_from)
+
+        cell_to.itemIdentifier = Cells.convertingDirectionTo.hashValue
+        cell_to.label = "To"
+        cell_from.valueGetter =  { self.defaults.convertingDirection.to.rawValue }
+        cell_to.valueCollection = convertToLabels
+        cell_to.valueHandler = { value in
+            if let to = value as? String, let from = cell_from.valueGetter() as? String {
+
+                if let direction = convertDirections.first(where:{ direction in
+                    direction.from.rawValue==from
+                }){
+
+                    self.defaults.convertingDirection = direction
+                    self.app?.config?.convertingDirectionIdentifier = direction.identifier
+
+                    cell_from.valueGetter = { direction.from.rawValue }
+                    cell_from.valueCollection = convertDirections.compactMap ({ direction -> String? in
+                        return direction.to.rawValue == to ? direction.from.rawValue : nil
+                    })
+
+                    if let index = (self.cellDescribers.index { item in item.itemIdentifier == Cells.convertingDirectionFrom.hashValue }) {
+                        (self.view as? UITableView)?.reloadRows(at: [IndexPath(row: index, section: 0)], with: UITableViewRowAnimation.automatic)
+                    }
+
+                }
+            }
+        }
+        cellDescribers.append(cell_to)
 
 
         return cellDescribers
@@ -127,7 +177,7 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "PDF Export Options"
+        return nil
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -143,12 +193,19 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
         return tableView.rowHeight
     }
 
+
+    func dockWillContract(_ dock: AppDock) {
+        (self.view as? UITableView)?.contractAllVisiblePickerCells()
+    }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
         if let cell = tableView.cellForRow(at: indexPath) as? UITableViewPickerCell {
             if cell.isExpanded{
-                cell.contract(tableView)
+                cell.contract(tableView, animated: true) { b in
+
+                }
             } else{
                 appDock?.expandDockIfNeeded(reloadContents: nil)
                 DispatchQueue.main.async{
@@ -166,15 +223,57 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
         , let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewPickerCell{
 
             cell.values = valueCollection
-            cell.delegate = self
+            cell.delegate = self as? UITableViewPickerCellDelegate
             if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
                 cell.selectedRow = index
             } else{
                 cell.selectedRow = 0
             }
             cell.titleLabel.text = item.label
+            cell.didPickHandler = { cell, row, value in
+                cellDescriber.valueHandler?(value)
+            }
             return cell
 
+        }
+        else if let cellDescriber = item as? UITableViewActionSheetCellDescriber
+        , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewActionSheetCell {
+
+            cell.textLabel?.text = item.label
+            cell.valueLabelText = cellDescriber.presentableValue
+            cell.imageView?.image = cellDescriber.iconImage?.asUIImage
+            cell.detailTextLabel?.textColor = UIColor.gray
+
+            // valuePresenter ->
+            if let presenter = cellDescriber.valuePresenter{
+
+                //valueCollection [Any] -> [String]
+                if let collection = cellDescriber.valueCollection as? [Any] {
+                    cell.valueLabels = collection.map { value -> String in
+                        return presenter(value)
+                    }
+                    cell.valueSelected = { action, index in
+                        if let index = index{
+                            cellDescriber.valueHandler?(collection[index])
+                        }
+                    }
+                }
+            }else{
+
+                // valueCollection -> [String]
+                if let collection = cellDescriber.valueCollection as? [String]{
+                    cell.valueLabels = collection
+                    cell.valueSelected = { action, index in
+                        if let index = index{
+                            cellDescriber.valueHandler?(collection[index])
+                        }
+                    }
+                }
+            }
+
+
+
+            return cell
         }
         else if let cellDescriber = item as? UITableViewSwitchCellDescriber
         , let value = item.valueGetter() as? Bool
@@ -227,9 +326,5 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
         let cell = tableView.cellForRow(at: indexPath) ?? UITableViewCell()
         cell.textLabel?.text = item.label
         return cell
-    }
-
-    func pickerCell(_ cell: UITableViewPickerCell, didPick row: Int, value: Any) {
-
     }
 }

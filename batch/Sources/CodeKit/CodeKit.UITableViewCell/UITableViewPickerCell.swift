@@ -103,6 +103,9 @@ public class UITableViewPickerCell: UITableViewCell {
         }
     }
 
+    // option handler
+    public var didPickHandler:((_ cell: UITableViewPickerCell, _ row: Int, _ value: Any) -> ())?
+
     /// An array of strings to be displayed by the picker view. This is ignored if picker type is not .default.
     public var values = [String]()
 
@@ -382,6 +385,7 @@ public class UITableViewPickerCell: UITableViewCell {
     @objc private func datePicked() {
         date = (picker as! UIDatePicker).date
         delegate?.pickerCell(self, didPick: selectedRow, value: date)
+        didPickHandler?(self, selectedRow, date)
     }
 }
 
@@ -392,8 +396,10 @@ extension UITableViewPickerCell: UIPickerViewDelegate {
     }
 
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        valueLabel.text = values[row]
-        delegate?.pickerCell(self, didPick: row, value: values[row])
+        let value = values[row]
+        valueLabel.text = value
+        delegate?.pickerCell(self, didPick: row, value: value)
+        didPickHandler?(self, selectedRow, value)
     }
 
 }

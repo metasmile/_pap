@@ -17,7 +17,7 @@ struct LivePhotoConverter_Gif: LivePhotoConverter {
     static var direction: ConvertableDirection { return ConvertableDirection(from:.gif, to:.livephoto) }
 
     static func shouldSelect(source: AppAsset) -> Bool {
-        return source.asset.mediaType == .video
+        return source.asset.imageType == .animatedGIF
     }
 
     init() {}
@@ -49,7 +49,7 @@ struct LivePhotoConverter_Burst: LivePhotoConverter {
     }
 
     static func shouldSelect(source: AppAsset) -> Bool {
-        return source.asset.mediaType == .video
+        return source.asset.imageType == .burst
     }
 }
 

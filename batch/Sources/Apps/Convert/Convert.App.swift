@@ -33,7 +33,7 @@ public class ConvertApp: BApp,
     public private(set) var dockContent: AppDockContent?
 
     public static let info = AppInfo(
-            identifier: "com.stells.batch.converter"
+            identifier: "com.stells.batch.convert"
             , version: "1.0"
             , phase: .develop
             , appType: ConvertApp.self

@@ -19,7 +19,7 @@ private enum Cells {
 }
 
 class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
-        , UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate {
+        , UITableViewDelegate, UITableViewDataSource {
 
     fileprivate var defaults = PDFactory.defaults as! PDFactoryDefaults
 
@@ -133,6 +133,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
         cell4.valueCollection = PDFactorySettings.ScaleMode.Labels
         cell4.valueHandler = {
             self.defaults.scaleMode = PDFactorySettings.ScaleMode.Labels.valuesArray[$0 as? Int ?? 0]
+
             if let index = (self.cellDescribers.index { item in item.itemIdentifier == Cells.margin.hashValue }) {
                 (self.view as? UITableView)?.reloadRows(at: [IndexPath(row: index, section: 0)], with: UITableViewRowAnimation.automatic)
             }
@@ -190,13 +191,16 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             , let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewPickerCell{
             
             cell.values = valueCollection
-            cell.delegate = self
+            cell.delegate = self as? UITableViewPickerCellDelegate
             if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
                 cell.selectedRow = index
             } else{
                 cell.selectedRow = 0
             }
             cell.titleLabel.text = item.label
+            cell.didPickHandler = { cell, row, value in
+                self.defaults.sizePreset = cell.values[row]
+            }
             return cell
 
         }
@@ -266,12 +270,5 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
         let cell = tableView.cellForRow(at: indexPath) ?? UITableViewCell()
         cell.textLabel?.text = item.label
         return cell
-    }
-}
-
-extension UITableViewPickerCellDelegate where Self:PDFactoryAppDockContent{
-
-    func pickerCell(_ cell: UITableViewPickerCell, didPick row: Int, value: Any) {
-        defaults.sizePreset = cell.values[row]
     }
 }

@@ -45,7 +45,7 @@ class GifConverter_Jpeg: OptionableConverterBase<GifConverterDefaultOption>, Gif
     }
 
     static func shouldSelect(source: AppAsset) -> Bool {
-        return source.asset.mediaType == .video
+        return source.asset.imageType == .stillImage
     }
 }
 
