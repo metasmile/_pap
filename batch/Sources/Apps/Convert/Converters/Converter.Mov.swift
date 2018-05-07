@@ -43,7 +43,7 @@ struct MovConverter_Gif: MovConverter {
     }
 
     func isSupported(source: AppAsset) -> Bool {
-        return source.asset.uniformTypeIdentifier == UTI.GIF
+        return source.asset.uniformTypeIdentifier == UTCoreTypes.GIF
     }
 }
 

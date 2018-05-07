@@ -204,7 +204,7 @@ private struct ConverterCachedAsset {
         var data: Data?
         var fileExtension = "jpg"
         switch asset.uniformTypeIdentifier{
-            case UTI.PNG:
+            case UTCoreTypes.PNG:
                 data = UIImagePNGRepresentation(imageToWrite)
                 fileExtension = "png"
             default:

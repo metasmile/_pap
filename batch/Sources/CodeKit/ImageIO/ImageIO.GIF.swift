@@ -142,7 +142,7 @@ public extension UIImage {
             }
 
             let mutableData = CFDataCreateMutable(nil, 0)!
-            if let destination = CGImageDestinationCreateWithData(mutableData, UTI.PNG as CFString, 1, nil){
+            if let destination = CGImageDestinationCreateWithData(mutableData, UTCoreTypes.PNG as CFString, 1, nil){
                 CGImageDestinationAddImage(destination, imageRef, nil)
                 if CGImageDestinationFinalize(destination) {
                     let data = mutableData as Data

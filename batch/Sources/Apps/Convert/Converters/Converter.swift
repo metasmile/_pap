@@ -149,7 +149,7 @@ extension Converter{
 
                 if let data = UIImageJPEGRepresentation(image, CGFloat(imageQuality)){
 
-                    let url = "\(param.filenamePrefix)_\(idx)".asURLOfFileNameInTemporaryDirectory!
+                    let url = "\(param.filenamePrefix)_\(idx)".asURLInTemporaryDirectory!
 
                     do{
                         try data.write(to: url)

@@ -39,7 +39,7 @@ private struct GIFMakerCachedAsset {
         var data: Data?
         var fileExtension = "jpg"
         switch uti{
-            case UTI.PNG:
+            case UTCoreTypes.PNG:
                 data = UIImagePNGRepresentation(imageToWrite)
                 fileExtension = "png"
             default:

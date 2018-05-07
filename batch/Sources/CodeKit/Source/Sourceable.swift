@@ -40,7 +40,7 @@ public protocol URLSourceable:Sourceable {
 
 extension URLSourceable{
     public var asURLOfFileNameInTemporaryDirectory:URL? {
-        return asURL?.lastPathComponent.asURLOfFileNameInTemporaryDirectory
+        return asURL?.lastPathComponent.asURLInTemporaryDirectory
     }
 }
 
@@ -156,8 +156,12 @@ extension String: ImageSourceable, BundleImageSourceable, DataSourceable, URLSou
         return URL(string: self)
     }
 
-    public var asURLOfFileNameInTemporaryDirectory:URL? {
-        return URL(fileURLWithPath:NSTemporaryDirectory()).appendingPathComponent(self)
+    public var asURLInTemporaryDirectory:URL? {
+        if #available(iOS 10.0, *) {
+            return FileManager.default.temporaryDirectory.appendingPathComponent(self)
+        } else {
+            return URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true).appendingPathComponent(self)
+        }
     }
 
     public var asCIImage: CIImage?{
