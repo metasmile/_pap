@@ -28,6 +28,12 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
 
     fileprivate var cellDescribers = [UITableViewCellDefaultDescribable]()
 
+    weak var app:ConvertApp?
+
+    required init(app:ConvertApp){
+        self.app = app
+    }
+
     lazy var view: UIView = UITableView()
 
     var preferences: AppDockContentPreferable? {
@@ -101,7 +107,9 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
         cell0.valueHandler = { value in
             if let label = value as? String
             , let index = convertModeLabels.index(of: label){
-                self.defaults.convertingDirection = ConvertApp.supportedWorkers[index].direction
+                let direction = ConvertApp.supportedWorkers[index].direction
+                self.defaults.convertingDirection = direction
+                self.app?.config?.convertingDirectionIdentifier = direction.identifier
             }
         }
         cellDescribers.append(cell0)

@@ -96,6 +96,12 @@ class PhotoPickerViewController: AppDockViewController {
         dragSelectionGesture.delegate = self
         photoCollectionView.addGestureRecognizer(dragSelectionGesture)
     }
+
+    func redisplayCurrentVisibleCellsWhenUpdateApps() {
+        AppAssets.selected.reloadAll()
+        self.redisplayVisibleCellsWhenChangeApp()
+        self.batchPreviewView.updatePreviews()
+    }
     
     override func registerWatchingAppConfig() {
         AppCenter.default.watch(\.currentIdentifier, options:[.new, .old, .initial]) { (appCenter, dict) in
@@ -135,9 +141,11 @@ class PhotoPickerViewController: AppDockViewController {
             }
 
             AppCenter.default.currentInstanceAs(GIFMaker.self)?.config?.watch(\.sourceType, id:"picker\(GIFMaker.info.identifier)") { (config, changed) in
-                AppAssets.selected.reloadAll()
-                self.redisplayVisibleCellsWhenChangeApp()
-                self.batchPreviewView.updatePreviews()
+                self.redisplayCurrentVisibleCellsWhenUpdateApps()
+            }
+
+            AppCenter.default.currentInstanceAs(ConvertApp.self)?.config?.watch(\.convertingDirectionIdentifier, id:"picker\(ConvertApp.info.identifier)") { (config, changed) in
+                self.redisplayCurrentVisibleCellsWhenUpdateApps()
             }
         }
     }
@@ -154,6 +162,7 @@ class PhotoPickerViewController: AppDockViewController {
         AppCenter.default.currentInstanceAs(AutoAdjustmentApp.self)?.config?.unwatch(\.filter, forIds:["picker\(AutoAdjustmentApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(Stabilizer.self)?.config?.unwatch(\.stabilizationMode, forIds:["picker\(Stabilizer.info.identifier)"])
         AppCenter.default.currentInstanceAs(GIFMaker.self)?.config?.unwatch(\.sourceType, forIds:["picker\(GIFMaker.info.identifier)"])
+        AppCenter.default.currentInstanceAs(ConvertApp.self)?.config?.unwatch(\.convertingDirectionIdentifier, forIds:["picker\(ConvertApp.info.identifier)"])
 
         AppCenter.default.unwatchAllFilePrivate(\.currentIdentifier)
     }

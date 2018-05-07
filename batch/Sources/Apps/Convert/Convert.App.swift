@@ -12,7 +12,7 @@ import Photos
 
 public class ConvertAppConfigValue: NSObject, KeyPathWatchable, AppConfigValuable {
     @objc dynamic
-    public var convertableDirectionIdentifier:String = ConvertApp.defaultWorker.direction.identifier
+    public var convertingDirectionIdentifier:String = ConvertApp.defaultWorker.direction.identifier
 }
 
 public class ConvertApp: BApp,
@@ -30,7 +30,7 @@ public class ConvertApp: BApp,
     @objc dynamic
     public private(set) lazy var config: ConvertAppConfigValue? = ConvertAppConfigValue()
 
-    public private(set) lazy var dockContent: AppDockContent? = ConvertAppDockContent()
+    public private(set) var dockContent: AppDockContent?
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.converter"
@@ -43,7 +43,9 @@ public class ConvertApp: BApp,
             , minOSVersion: nil
     )
 
-    required public init() {}
+    required public init() {
+        dockContent = ConvertAppDockContent(app:self)
+    }
 
     public var doneButtonTitle: String? {
         return "Convert".localized
