@@ -19,12 +19,13 @@ public class ConvertApp: BApp,
     public static let taskType:Taskable.Type = ConvertAppTask.self
     public static let paramType:TaskParamable.Type = AppAsset.self
 
-    public static var configure:(() -> GIFMakerAppConfig)?
+//    public static var configure:(() -> GIFMakerAppConfig)?
 
-    @objc dynamic
-    public private(set) lazy var config: GIFMakerAppConfig? = GIFMaker.configure?()
+//    @objc dynamic
+//    public private(set) lazy var config: GIFMakerAppConfig? = GIFMaker.configure?()
+
 //    public private(set) lazy var dockContent: AppDockContent? = GIFMakerAppDockContent()
-    public private(set) var dockContent: AppDockContent?
+    public private(set) lazy var dockContent: AppDockContent? = ConvertAppDockContent()
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.converter"
@@ -170,7 +171,7 @@ private class ConvertAppTask: TaskPrototype, Taskable {
     }
 
     private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable) throws -> ConvertAppResult?  {
-        let defaults = ConvertApp.defaults as! ConverterAppDefaults
+        let defaults = ConvertApp.defaults as! ConvertAppDefaults
         let direction = defaults.convertingDirection
         let needsConverter = ConverterSpec.acquireWorker(collection: ConvertApp.supportedWorkers, direction: direction, asset: assetItem)
 

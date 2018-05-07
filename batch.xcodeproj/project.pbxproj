@@ -14,6 +14,7 @@
 		397A6257D093017CECCE8464 /* Pods_batch_batchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5AA560EA015DA4EF60D3A9 /* Pods_batch_batchTests.framework */; };
 		4F71D0190478F0F2C802635A /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D90165EEB512FCBDC6E8 /* PreviewView.swift */; };
 		4F71D06BDFC37974BFD660FB /* AppStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D17D046074C1554FE347 /* AppStoryboard.storyboard */; };
+		4F71D092992E3327FEC152C2 /* Convert.AppDockContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D677D8ED8C27D3BA1F16 /* Convert.AppDockContent.swift */; };
 		4F71D0A2091865DB1332FD4B /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D50884B6217C0F874DA9 /* Selectable.swift */; };
 		4F71D0B2461E4E69BDC46328 /* BAppUIAssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC1B5B9385BE3DF74803 /* BAppUIAssetView.swift */; };
 		4F71D0C0D7C716510050A514 /* Sourceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D19E240994BBE08C347B /* Sourceable.swift */; };
@@ -353,6 +354,7 @@
 		4F71D63CB291936A1CEE9FEA /* PHPhotoLibraryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHPhotoLibraryManager.swift; sourceTree = "<group>"; };
 		4F71D6682C4C8F0E19B427E6 /* System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 		4F71D675376283244D20CCB6 /* PhotoPickerDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerDetailViewController.swift; sourceTree = "<group>"; };
+		4F71D677D8ED8C27D3BA1F16 /* Convert.AppDockContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convert.AppDockContent.swift; sourceTree = "<group>"; };
 		4F71D69553C5C4CC704DD4A6 /* AppTaskOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTaskOperationQueue.swift; sourceTree = "<group>"; };
 		4F71D69FD14BCE56DFBF419C /* UITableViewCellDescribable.UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellDescribable.UITableView.swift; sourceTree = "<group>"; };
 		4F71D6C035D3537FAAC38A47 /* UITableViewCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCells.swift; sourceTree = "<group>"; };
@@ -1084,6 +1086,7 @@
 				4F71D58BB53F1D2881B269BA /* Convert.App.swift */,
 				4F71D577016F44690CCF11CD /* Convert.AppDefaults.swift */,
 				4F71D66944C013B2315CE1FB /* Converters */,
+				4F71D677D8ED8C27D3BA1F16 /* Convert.AppDockContent.swift */,
 			);
 			path = Convert;
 			sourceTree = "<group>";
@@ -2585,6 +2588,7 @@
 				4F71D3F92468FB49219E7921 /* Converter.Mov.swift in Sources */,
 				4F71DD2672E39B3E283DF566 /* Converter.Gif.swift in Sources */,
 				4F71D7A4744731C83FCA0A36 /* Converter.LivePhoto.swift in Sources */,
+				4F71D092992E3327FEC152C2 /* Convert.AppDockContent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

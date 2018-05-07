@@ -6,11 +6,11 @@
 import Foundation
 import DefaultsKit
 
-protocol ConverterAppDefaults: AppDefaults{
+protocol ConvertAppDefaults: AppDefaults{
     var convertingDirection: ConvertableDirection {get set}
 }
 
-extension Defaults: ConverterAppDefaults {
+extension Defaults: ConvertAppDefaults {
     var convertingDirection: ConvertableDirection {
         set { set(newValue) }
         get { return get(or:ConvertableDirection(from: .mov, to: .livephoto)) }
