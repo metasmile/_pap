@@ -35,11 +35,11 @@ public protocol DataSourceable:Sourceable {
 
 public protocol URLSourceable:Sourceable {
     var asURL:URL? { get }
-    var asURLOfFileNameInTemporaryDirectory:URL? { get }
+    var asURLInTemporaryDirectory:URL? { get }
 }
 
 extension URLSourceable{
-    public var asURLOfFileNameInTemporaryDirectory:URL? {
+    public var asURLInTemporaryDirectory:URL? {
         return asURL?.lastPathComponent.asURLInTemporaryDirectory
     }
 }
@@ -59,7 +59,7 @@ extension UIImage: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
         return nil
     }
     public var asURL:URL? { get { return nil } }
-    public var asURLOfFileNameInTemporaryDirectory:URL? { return nil }
+    public var asURLInTemporaryDirectory:URL? { return nil }
 
     public var asString:String? {
         get {

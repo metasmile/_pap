@@ -112,6 +112,25 @@ extension Converter{
 
         return videoUrl
     }
+
+
+    public func extractVideoFileURL(source:AppAsset, options: PHVideoRequestOptions? = nil, _ async: AsyncManualSignalable) -> URL? {
+
+        var videoURL:URL?
+        guard let requestId = source.asset.exportVideoFile(options: options, progressHandler: nil, completionHandler: { success, url, mimetype in
+            videoURL = success ? url : nil
+            async.end()
+
+        }) else{
+            return nil
+        }
+
+        async.begin()
+        source.requestIDs.append(PHAssetRequestID(forImage: requestId))
+
+        async.waitUntilEnd()
+        return videoURL
+    }
 }
 
 

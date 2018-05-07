@@ -49,7 +49,7 @@ class ExifGhostAppTests: PHAssetsXCTestCase {
 
             if let latestAsset = PHAssets.fetched.asset(at: latestIndexPath){
 
-                let url = "temp.jpg".asURLOfFileNameInTemporaryDirectory
+                let url = "temp.jpg".asURLInTemporaryDirectory
                 latestAsset.writeJPEGRepresentation(to: url, transformMetadata: { dictionary in
                     var metadata = dictionary
                     print(metadata)

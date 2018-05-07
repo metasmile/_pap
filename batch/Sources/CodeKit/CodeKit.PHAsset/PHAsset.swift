@@ -114,3 +114,43 @@ extension PHAsset {
         }
     }
 }
+
+
+extension PHAsset{
+
+    public func exportVideoFile(options: PHVideoRequestOptions? = nil, progressHandler:((Float) -> Void)? = nil, completionHandler: @escaping ((_ succeed:Bool, _ videoUrl:URL, _ mimetype:String) -> Void)) -> PHImageRequestID?{
+        if self.mediaType == .video {
+            assert(false, "check asset type out")
+            return nil
+        }
+
+        let type = PHAssetResourceType.video
+
+        guard let resource = (resources.filter{ $0.type == type }).first else {
+            return nil
+        }
+
+        let fileName = resource.originalFilename
+        let writeURL = fileName.asURLInTemporaryDirectory
+
+        guard let localURL = writeURL,let mimetype = MIMEType(writeURL) else {
+            return nil
+        }
+
+        var requestOptions = PHVideoRequestOptions()
+        if let options = options {
+            requestOptions = options
+        }else {
+            requestOptions.isNetworkAccessAllowed = true
+        }
+
+        return PHImageManager.default().requestAVAsset(forVideo: self, options: options) { (avasset, avaudioMix, infoDict) in
+            guard let avasset = avasset else { return }
+
+            //TODO: cancelExport statically with unique id resource.originalFilename
+            let _ = AVAssetExportSession.init(asset: avasset, videoComposition: nil, outputURL: localURL, progressHandler: progressHandler, completionHandler: { (success) in
+                completionHandler(success, localURL, mimetype)
+            })
+        }
+    }
+}

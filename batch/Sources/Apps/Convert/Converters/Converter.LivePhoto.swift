@@ -41,7 +41,6 @@ struct LivePhotoConverter_Burst: LivePhotoConverter {
     init() {}
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
-
         if let urls = self.extractBurstImageURLs(source: source, async){
             return self.createLivePhoto(fromImageURLs: urls, async)
         }
@@ -60,7 +59,9 @@ struct LivePhotoConverter_Video: LivePhotoConverter {
     init() {}
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
-
+        if let url = self.extractVideoFileURL(source: source, async){
+            return self.createLivePhoto(fromVideoPath: url.path, timeLocationOfTitle: 0, async)
+        }
 
         return nil
     }
