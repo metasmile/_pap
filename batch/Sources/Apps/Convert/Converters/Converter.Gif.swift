@@ -29,8 +29,6 @@ struct GifConverterDefaultOption {
 }
 
 
-
-
 protocol GifConverter: Converter {}
 
 extension GifConverter{
@@ -46,7 +44,7 @@ class GifConverter_Jpeg: OptionableConverterBase<GifConverterDefaultOption>, Gif
         return nil
     }
 
-    func isSupported(source: AppAsset) -> Bool {
+    static func shouldSelect(source: AppAsset) -> Bool {
         return source.asset.mediaType == .video
     }
 }
@@ -58,7 +56,7 @@ class GifConverter_Mov: OptionableConverterBase<GifConverterDefaultOption>, GifC
         return nil
     }
 
-    func isSupported(source: AppAsset) -> Bool {
+    static func shouldSelect(source: AppAsset) -> Bool {
         return source.asset.mediaType == .video
     }
 }
@@ -71,7 +69,7 @@ class GifConverter_LivePhoto: OptionableConverterBase<GifConverterDefaultOption>
         return nil
     }
 
-    func isSupported(source: AppAsset) -> Bool {
+    static func shouldSelect(source: AppAsset) -> Bool {
         return source.asset.imageType == .livePhoto
     }
 }
@@ -83,7 +81,7 @@ class GifConverter_Timelapse: OptionableConverterBase<GifConverterDefaultOption>
         return nil
     }
 
-    func isSupported(source: AppAsset) -> Bool {
+    static func shouldSelect(source: AppAsset) -> Bool {
         return source.asset.mediaSubtypes.contains(.videoTimelapse)
     }
 }
@@ -96,7 +94,7 @@ class GifConverter_Burst: OptionableConverterBase<GifConverterDefaultOption>, Gi
         return nil
     }
 
-    func isSupported(source: AppAsset) -> Bool {
+    static func shouldSelect(source: AppAsset) -> Bool {
         return source.asset.imageType == .burst
     }
 }

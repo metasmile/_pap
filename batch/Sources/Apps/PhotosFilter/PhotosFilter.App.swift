@@ -30,7 +30,7 @@ public extension StateValueSet where T: ImageEditStateValue {
     }
 }
 
-public class PhotosFilterAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrributeValuable, AppConfigAdoptableValuable {
+public class PhotosFilterAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttrributeValuable, AppConfigAdoptableValuable {
     @objc dynamic
     public var tintColor: UIColor?
     
@@ -42,7 +42,7 @@ public class PhotosFilterAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrr
             self.tintColor = other.tintColor
         }
         
-        if let other = fromOther as? PhotosFilterAppConfig, let filter = other.filter{
+        if let other = fromOther as? PhotosFilterAppConfigValue, let filter = other.filter{
             self.filter = filter
         }
     }
@@ -52,10 +52,10 @@ public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp,
     public static let taskType:Taskable.Type = _PhotosFilterAppTask.self
     public static let paramType:TaskParamable.Type = _PhotosFilterAppAsset.self
     
-    public static var configure:(() -> PhotosFilterAppConfig)?
+    public static var configure:(() -> PhotosFilterAppConfigValue)?
     
     @objc dynamic
-    public private(set) lazy var config: PhotosFilterAppConfig? = PhotosFilterApp.configure?()
+    public private(set) lazy var config: PhotosFilterAppConfigValue? = PhotosFilterApp.configure?()
     public private(set) lazy var dockContent: AppDockContent? = createController()
 
     public static let info = AppInfo(
@@ -81,7 +81,7 @@ public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp,
         return "Apply".localized
     }
 
-    public func shouldSelect(item: PHAssetItem<ImageEditStateValue>) -> Bool {
+    public func shouldSelect(item: AppAsset) -> Bool {
         return item.asset.imageType == .stillImage || item.asset.imageType == .burst || item.asset.mediaType == .video
     }
     

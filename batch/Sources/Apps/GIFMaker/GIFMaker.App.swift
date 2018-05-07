@@ -252,7 +252,7 @@ struct GIFMakerSettings {
 
 //MARK: -
 
-public class GIFMakerAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrributeValuable, AppConfigAdoptableValuable {
+public class GIFMakerAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttrributeValuable, AppConfigAdoptableValuable {
     @objc dynamic
     public var tintColor: UIColor?
 
@@ -272,10 +272,10 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
     public static let taskType:Taskable.Type = _GIFMakerAppTask.self
     public static let paramType:TaskParamable.Type = _GIFMakerAppAsset.self
     
-    public static var configure:(() -> GIFMakerAppConfig)?
+    public static var configure:(() -> GIFMakerAppConfigValue)?
     
     @objc dynamic
-    public private(set) lazy var config: GIFMakerAppConfig? = GIFMaker.configure?()
+    public private(set) lazy var config: GIFMakerAppConfigValue? = GIFMaker.configure?()
     public private(set) lazy var dockContent: AppDockContent? = GIFMakerAppDockContent()
     
     public static let info = AppInfo(
@@ -295,7 +295,7 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
         return "Make GIF".localized
     }
     
-    public func shouldSelect(item: PHAssetItem<ImageEditStateValue>) -> Bool {
+    public func shouldSelect(item: AppAsset) -> Bool {
         return (dockContent as? GIFMakerAppDockContent)?.shouldImport(asset: item.asset) ?? false
     }
     

@@ -11,7 +11,7 @@ import MobileCoreServices
 import Crashlytics
 import DefaultsKit
 
-public class TransformAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrributeValuable, AppConfigAdoptableValuable {
+public class TransformAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttrributeValuable, AppConfigAdoptableValuable {
     @objc dynamic
     public var tintColor: UIColor?
 
@@ -23,7 +23,7 @@ public class TransformAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrribu
             self.tintColor = other.tintColor
         }
 
-        if let other = fromOther as? TransformAppConfig, let transform = other.transform{
+        if let other = fromOther as? TransformAppConfigValue, let transform = other.transform{
             self.transform = transform
         }
     }
@@ -37,10 +37,10 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
 
     public static let paramType:TaskParamable.Type = _TransformAppAsset.self
 
-    public static var configure:(() -> TransformAppConfig)?
+    public static var configure:(() -> TransformAppConfigValue)?
 
     @objc dynamic
-    public private(set) lazy var config: TransformAppConfig? = TransformApp.configure?()
+    public private(set) lazy var config: TransformAppConfigValue? = TransformApp.configure?()
 
     public private(set) lazy var dockContent: AppDockContent? = createController()
 
@@ -72,7 +72,7 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
         return [.modify]
     }
     
-    public func shouldSelect(item: PHAssetItem<ImageEditStateValue>) -> Bool {
+    public func shouldSelect(item: AppAsset) -> Bool {
         return item.asset.imageType != .animatedGIF
     }
 }

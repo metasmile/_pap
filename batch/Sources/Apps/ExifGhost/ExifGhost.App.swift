@@ -35,7 +35,7 @@ public class ExifGhost: BApp, PHAssetFinalizableApp, PhotoPickerViewControllerDe
         return [.share]
     }
 
-    public func shouldSelect(item: PHAssetItem<ImageEditStateValue>) -> Bool {
+    public func shouldSelect(item: AppAsset) -> Bool {
         return item.asset.mediaType == .image
     }
 

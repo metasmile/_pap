@@ -42,7 +42,7 @@ struct MovConverter_Gif: MovConverter {
         return nil
     }
 
-    func isSupported(source: AppAsset) -> Bool {
+    static func shouldSelect(source: AppAsset) -> Bool {
         return source.asset.uniformTypeIdentifier == UTCoreTypes.GIF
     }
 }
@@ -61,7 +61,7 @@ struct MovConverter_Burst: MovConverter {
         return nil
     }
 
-    func isSupported(source: AppAsset) -> Bool {
+    static func shouldSelect(source: AppAsset) -> Bool {
         return source.asset.imageType == .burst
     }
 }
@@ -127,7 +127,7 @@ struct MovConverter_LivePhoto: MovConverter {
         return resultURL
     }
 
-    func isSupported(source: AppAsset) -> Bool {
+    static func shouldSelect(source: AppAsset) -> Bool {
         return source.asset.imageType == .burst
     }
 }

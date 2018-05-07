@@ -25,6 +25,10 @@ struct ConvertableDirection: Codable, Equatable {
     var from:ConvertableMediaType
     var to:ConvertableMediaType
 
+    var identifier:String{
+        return from.rawValue + to.rawValue
+    }
+
     private enum CodingKeys: Int, CodingKey {
         case from
         case to
@@ -42,29 +46,57 @@ struct ConvertableDirection: Codable, Equatable {
 }
 
 
-struct ConverterSpec {
-    static func acquireWorker(collection:[Converter.Type], direction:ConvertableDirection, asset:AppAsset) -> Converter?{
-
-        let matchedWorkers = collection.filter { $0.direction==direction }
-        assert(matchedWorkers.count==1, "Duplicated converter worker direction found. \(matchedWorkers)")
-
-        if let worker = type(of: matchedWorkers).init() as? Converter {
-            return worker.isSupported(source: asset) ? worker : nil
-        }
-
-        return nil
-    }
-}
-
 protocol Converter {
 
     init()
 
     static var direction:ConvertableDirection {get}
 
-    func convert(source:AppAsset, _ async: AsyncManualSignalable) -> Any?
+    static func shouldSelect(source:AppAsset) -> Bool
 
-    func isSupported(source:AppAsset) -> Bool
+    static var numberOfItemsShouldSelect: Int? {get}
+
+    func convert(source:AppAsset, _ async: AsyncManualSignalable) -> Any?
+}
+
+extension Converter{
+    static func shouldSelect(source: AppAsset) -> Bool {
+        let t = source.asset.mediaType
+        let it = source.asset.imageType
+        let st = source.asset.mediaSubtypes
+
+        if it == .animatedGIF || it == .burst{
+            return true
+        }
+
+        if t == PHAssetMediaType.video {
+            return true
+        }
+
+        if t == PHAssetMediaType.image && (st.contains(.photoLive) || st.contains(.videoTimelapse)){
+            return true
+        }
+
+        return false
+    }
+
+    static var numberOfItemsShouldSelect: Int? {
+        return nil
+    }
+}
+
+struct ConverterSpec{
+    static func acquireInstance(collection:[Converter.Type], direction:ConvertableDirection, asset:AppAsset) -> Converter?{
+
+        let matchedWorkers = collection.filter { $0.direction==direction }
+        assert(matchedWorkers.count==1, "Duplicated converter worker direction found. \(matchedWorkers)")
+
+        if let worker = matchedWorkers.first, worker.shouldSelect(source: asset) {
+            return worker.init()
+        }
+
+        return nil
+    }
 }
 
 protocol OptionableConverter {

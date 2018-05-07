@@ -46,7 +46,7 @@ public extension StateValueSet where T: ImageEditStateValue {
     }
 }
 
-public class StabilizerAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrributeValuable, AppConfigAdoptableValuable {
+public class StabilizerAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttrributeValuable, AppConfigAdoptableValuable {
     @objc dynamic
     public var tintColor: UIColor?
     
@@ -58,7 +58,7 @@ public class StabilizerAppConfig: NSObject, KeyPathWatchable, AppConfigUIAttrrib
             self.tintColor = other.tintColor
         }
         
-        if let other = fromOther as? StabilizerAppConfig, let stabilizationMode = other.stabilizationMode{
+        if let other = fromOther as? StabilizerAppConfigValue, let stabilizationMode = other.stabilizationMode{
             self.stabilizationMode = stabilizationMode
         }
     }
@@ -69,10 +69,10 @@ public class Stabilizer: BApp, PHAssetFinalizableApp, AppDockControllableApp, Ph
 
     public static let paramType:TaskParamable.Type = _StabilizerAppAsset.self
     
-    public static var configure:(() -> StabilizerAppConfig)?
+    public static var configure:(() -> StabilizerAppConfigValue)?
     
     @objc dynamic
-    public private(set) lazy var config: StabilizerAppConfig? = Stabilizer.configure?()
+    public private(set) lazy var config: StabilizerAppConfigValue? = Stabilizer.configure?()
     public private(set) lazy var dockContent: AppDockContent? = createController()
 
     public static let info = AppInfo(
@@ -99,7 +99,7 @@ public class Stabilizer: BApp, PHAssetFinalizableApp, AppDockControllableApp, Ph
         return "Stabilize".localized
     }
     
-    public func shouldSelect(item: PHAssetItem<ImageEditStateValue>) -> Bool {
+    public func shouldSelect(item: AppAsset) -> Bool {
         return item.asset.mediaType == .video// || (item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive))
     }
     

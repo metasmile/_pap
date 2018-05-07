@@ -28,25 +28,25 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
     func configure() -> AppManagerConfig? {
 
         TransformApp.configure = {
-            let config = TransformAppConfig()
+            let config = TransformAppConfigValue()
             config.tintColor = .black
             return config
         }
         
         PhotosFilterApp.configure = {
-            let config = PhotosFilterAppConfig()
+            let config = PhotosFilterAppConfigValue()
             config.tintColor = .black
             return config
         }
         
         Stabilizer.configure = {
-            let config = StabilizerAppConfig()
+            let config = StabilizerAppConfigValue()
             config.tintColor = .black
             return config
         }
         
         GIFMaker.configure = {
-            let config = GIFMakerAppConfig()
+            let config = GIFMakerAppConfigValue()
             config.tintColor = .black
             return config
         }

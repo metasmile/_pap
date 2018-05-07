@@ -10,8 +10,14 @@ import UIKit
 import MobileCoreServices
 import Photos
 
+public class ConvertAppConfigValue: NSObject, KeyPathWatchable, AppConfigValuable {
+    @objc dynamic
+    public var convertableDirectionIdentifier:String = ConvertApp.defaultWorker.direction.identifier
+}
+
 public class ConvertApp: BApp,
         AppDockControllableApp,
+        ConfigurableApp, _ConfigurableApp,
         PHAssetFinalizableApp,
         PhotoPickerCollectionViewDisplayableApp,
         PhotoPickerViewControllerDelegatableApp {
@@ -19,12 +25,11 @@ public class ConvertApp: BApp,
     public static let taskType:Taskable.Type = ConvertAppTask.self
     public static let paramType:TaskParamable.Type = AppAsset.self
 
-//    public static var configure:(() -> GIFMakerAppConfig)?
+    public static var configure:(() -> ConvertAppConfigValue)?
 
-//    @objc dynamic
-//    public private(set) lazy var config: GIFMakerAppConfig? = GIFMaker.configure?()
+    @objc dynamic
+    public private(set) lazy var config: ConvertAppConfigValue? = ConvertAppConfigValue()
 
-//    public private(set) lazy var dockContent: AppDockContent? = GIFMakerAppDockContent()
     public private(set) lazy var dockContent: AppDockContent? = ConvertAppDockContent()
 
     public static let info = AppInfo(
@@ -44,29 +49,12 @@ public class ConvertApp: BApp,
         return "Convert".localized
     }
 
-    public func shouldSelect(item: PHAssetItem<ImageEditStateValue>) -> Bool {
-        let t = item.asset.mediaType
-        let it = item.asset.imageType
-        let st = item.asset.mediaSubtypes
-//        let u = item.asset.uniformTypeIdentifier
-
-        if it == .animatedGIF || it == .burst{
-            return true
-        }
-
-        if t == PHAssetMediaType.video {
-           return true
-        }
-
-        if t == PHAssetMediaType.image && (st.contains(.photoLive) || st.contains(.videoTimelapse)){
-            return true
-        }
-
-        return false
+    public func shouldSelect(item: AppAsset) -> Bool {
+        return currentWorker?.shouldSelect(source: item) ?? true
     }
 
     public var numberOfItemsShouldSelect: Int? {
-        return nil
+        return currentWorker?.numberOfItemsShouldSelect ?? nil
     }
 
     public var finalizingPresets: [PHAssetFinalizingPresets]? {
@@ -134,7 +122,17 @@ public class ConvertApp: BApp,
     }
 }
 
-extension ConvertApp {
+extension ConvertApp{
+    var defaults:ConvertAppDefaults{
+        return ConvertApp.defaults as! ConvertAppDefaults
+    }
+
+    var currentWorker:Converter.Type?{
+        return ConvertApp.supportedWorkers.first { converterType in
+            return converterType.direction==defaults.convertingDirection
+        }
+    }
+
     static let supportedWorkers:[Converter.Type] = [
         MovConverter_Burst.self,
         MovConverter_LivePhoto.self,
@@ -149,6 +147,10 @@ extension ConvertApp {
         GifConverter_Timelapse.self,
         GifConverter_Mov.self
     ]
+
+    static var defaultWorker:Converter.Type{
+        return GifConverter_LivePhoto.self
+    }
 }
 
 
@@ -173,7 +175,8 @@ private class ConvertAppTask: TaskPrototype, Taskable {
     private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable) throws -> ConvertAppResult?  {
         let defaults = ConvertApp.defaults as! ConvertAppDefaults
         let direction = defaults.convertingDirection
-        let needsConverter = ConverterSpec.acquireWorker(collection: ConvertApp.supportedWorkers, direction: direction, asset: assetItem)
+
+        let needsConverter = ConverterSpec.acquireInstance(collection: ConvertApp.supportedWorkers, direction: direction, asset: assetItem)
 
         guard let converter = needsConverter else {
             throw TaskError.rejectedParam

@@ -17,10 +17,10 @@ public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableAp
     public static let taskType:Taskable.Type = _AutoAdjustmentAppTask.self
     public static let paramType:TaskParamable.Type = _AutoAdjustmentAppAsset.self
     
-    public static var configure:(() -> PhotosFilterAppConfig)?
+    public static var configure:(() -> PhotosFilterAppConfigValue)?
     
     @objc dynamic
-    public private(set) lazy var config: PhotosFilterAppConfig? = PhotosFilterApp.configure?()
+    public private(set) lazy var config: PhotosFilterAppConfigValue? = PhotosFilterApp.configure?()
     public private(set) lazy var dockContent: AppDockContent? = AutoAdjustmentAppDockContent()
     
     public static let info = AppInfo(
@@ -69,7 +69,7 @@ public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableAp
         return "Apply".localized
     }
     
-    public func shouldSelect(item: PHAssetItem<ImageEditStateValue>) -> Bool {
+    public func shouldSelect(item: AppAsset) -> Bool {
         return item.asset.imageType == .stillImage
     }
     
