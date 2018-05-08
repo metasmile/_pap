@@ -726,7 +726,6 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             cell.imageView?.image = item.iconImage?.asUIImage
             cell.detailTextLabel?.textColor = UIColor.gray
             
-            cell.segmentedControl.width = 140
             cell.segmentedControl.removeAllSegments()
             for k in valueCollection{
                 cell.segmentedControl.insertSegment(withTitle: k, at: cell.segmentedControl.numberOfSegments, animated: false)
