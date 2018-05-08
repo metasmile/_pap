@@ -43,7 +43,7 @@ struct MovConverter_Gif: MovConverter {
     }
 
     static func canPerformWith(source: AppAsset) -> Bool {
-        return source.asset.uniformTypeIdentifier == UTCoreTypes.GIF
+        return source.asset.imageType == .animatedGIF
     }
 }
 
@@ -128,6 +128,6 @@ struct MovConverter_LivePhoto: MovConverter {
     }
 
     static func canPerformWith(source: AppAsset) -> Bool {
-        return source.asset.imageType == .burst
+        return source.asset.imageType == .livePhoto
     }
 }

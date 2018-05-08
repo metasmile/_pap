@@ -130,12 +130,12 @@ extension ConvertApp{
     }
 
     var currentWorker:Converter.Type?{
-        return ConvertApp.supportedWorkers.first { converterType in
+        return ConvertApp.availableWorkers.first { converterType in
             return converterType.direction==defaults.convertingDirection
         }
     }
 
-    static let supportedWorkers:[Converter.Type] = [
+    static let availableWorkers:[Converter.Type] = [
         MovConverter_Burst.self,
         MovConverter_LivePhoto.self,
         MovConverter_Gif.self,
@@ -149,6 +149,32 @@ extension ConvertApp{
         GifConverter_Timelapse.self,
         GifConverter_Mov.self
     ]
+
+    static func getAvailableDirections() -> [ConvertableDirection] {
+        return ConvertApp.availableWorkers.map { converterType -> ConvertableDirection in
+            return converterType.direction
+        }
+    }
+
+    static func getAvailableWorkers(fromRawValue:String) -> [Converter.Type]{
+        return availableWorkers.filter { converterType in
+            return converterType.direction.from.rawValue == fromRawValue
+        }
+    }
+
+    static func getAvailableWorkers(toRawValue:String) -> [Converter.Type]{
+        return availableWorkers.filter { converterType in
+            return converterType.direction.to.rawValue == toRawValue
+        }
+    }
+
+    static func getAvailableWorkersNamesTo(fromRawValue:String) -> [String]{
+        return Array(Set(self.getAvailableWorkers(fromRawValue: fromRawValue).map { converter -> String in  converter.direction.to.rawValue }))
+    }
+
+    static func getAvailableWorkersNamesFrom(toRawValue:String) -> [String]{
+        return Array(Set(self.getAvailableWorkers(toRawValue: toRawValue).map { converter -> String in  converter.direction.from.rawValue }))
+    }
 
     static var defaultWorker:Converter.Type{
         return GifConverter_LivePhoto.self
@@ -178,7 +204,7 @@ private class ConvertAppTask: TaskPrototype, Taskable {
         let defaults = ConvertApp.defaults as! ConvertAppDefaults
         let direction = defaults.convertingDirection
 
-        let needsConverter = ConverterSpec.acquireInstance(collection: ConvertApp.supportedWorkers, direction: direction, asset: assetItem)
+        let needsConverter = ConverterSpec.acquireInstance(collection: ConvertApp.availableWorkers, direction: direction, asset: assetItem)
 
         guard let converter = needsConverter else {
             throw TaskError.rejectedParam

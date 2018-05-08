@@ -16,10 +16,6 @@ extension LivePhotoConverter{
 struct LivePhotoConverter_Gif: LivePhotoConverter {
     static var direction: ConvertableDirection { return ConvertableDirection(from:.gif, to:.livephoto) }
 
-    static func canPerformWith(source: AppAsset) -> Bool {
-        return source.asset.imageType == .animatedGIF
-    }
-
     init() {}
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
@@ -31,6 +27,10 @@ struct LivePhotoConverter_Gif: LivePhotoConverter {
         }
 
         return nil
+    }
+
+    static func canPerformWith(source: AppAsset) -> Bool {
+        return source.asset.imageType == .animatedGIF
     }
 
 }

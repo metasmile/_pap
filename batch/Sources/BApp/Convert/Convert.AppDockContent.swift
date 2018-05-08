@@ -72,100 +72,79 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
     private func createCellDescribers() -> [UITableViewCellDefaultDescribable]{
         var cellDescribers = [UITableViewCellDefaultDescribable]()
 
-//        let convertModeLabels = ConvertApp.supportedWorkers.map { converterType -> String in
-//            return converterType.direction.label
-//        }
-
-//        let cell0 =  UITableViewPickerCellDescriber()
-//        cell0.itemIdentifier = Cells.convertingDirection.hashValue
-//        cell0.label = "Convert From"
-//        cell0.valueGetter = { self.defaults.convertingDirection.label }
-//        cell0.valueCollection = convertModeLabels
-//        cell0.valueHandler = { value in
-//            if let label = value as? String
-//            , let index = convertModeLabels.index(of: label){
-//
-//                let direction = ConvertApp.supportedWorkers[index].direction
-//                self.defaults.convertingDirection = direction
-//                self.app?.config?.convertingDirectionIdentifier = direction.identifier
-//            }
-//        }
-//        cellDescribers.append(cell0)
-
-
-        let convertDirections = ConvertApp.supportedWorkers.map { converterType -> ConvertableDirection in
-            return converterType.direction
-        }
-
-        let convertFromLabels = Array(Set(convertDirections.map { direction -> String in  direction.from.rawValue }))
-        let convertToLabels = Array(Set(convertDirections.map { direction -> String in  direction.to.rawValue }))
-
         let cell_from = UITableViewActionSheetCellDescriber()
         let cell_to = UITableViewActionSheetCellDescriber()
 
         cell_from.itemIdentifier = Cells.convertingDirectionFrom.hashValue
         cell_from.label = "Convert From"
         cell_from.valueGetter =  { self.defaults.convertingDirection.from.rawValue }
-        cell_from.valueCollection = convertFromLabels
-//        cell0.valuePresenter = { value in
-//            if let direction = value as? ConvertableDirection {
-//                return direction.from.rawValue
-//            }
-//            return ""
-//        }
+        cell_from.valueCollection = ConvertApp.getAvailableWorkersNamesFrom(toRawValue:defaults.convertingDirection.to.rawValue)
         cell_from.valueHandler = { value in
-            if let from = value as? String, let to = cell_to.valueGetter() as? String {
+            guard let from = value as? String else {
+                return
+            }
 
-                if let direction = convertDirections.first(where:{ direction in
-                   direction.to.rawValue==to
-                }){
+            let availableToList = ConvertApp.getAvailableWorkersNamesTo(fromRawValue:from)
 
-                    self.defaults.convertingDirection = direction
-                    self.app?.config?.convertingDirectionIdentifier = direction.identifier
+            //update to cell
+            let valueUpdatingGetter = cell_to.valueGetter() as? String
+            if let containsValue = valueUpdatingGetter, !availableToList.contains(containsValue){
+                cell_to.valueGetter = { availableToList.first }
+            }
 
-                    cell_to.valueGetter = { direction.to.rawValue }
-                    cell_to.valueCollection = convertDirections.compactMap ({ direction -> String? in
-                        return direction.from.rawValue == from ? direction.to.rawValue : nil
-                    })
+            if let toValue = valueUpdatingGetter, let direction = ConvertApp.getAvailableDirections().first(where:{ direction in
+                direction.to.rawValue == toValue && direction.from.rawValue == from
+            }){
 
-                    if let index = (self.cellDescribers.index { item in item.itemIdentifier == Cells.convertingDirectionTo.hashValue }) {
-                        (self.view as? UITableView)?.reloadRows(at: [IndexPath(row: index, section: 0)], with: UITableViewRowAnimation.automatic)
-                    }
-                }
+                cell_to.valueCollection = availableToList
+                self.reloadRows(by:Cells.convertingDirectionTo.hashValue)
+
+                self.defaults.convertingDirection = direction
+                self.app?.config?.convertingDirectionIdentifier = direction.identifier
+
             }
         }
         cellDescribers.append(cell_from)
 
+
         cell_to.itemIdentifier = Cells.convertingDirectionTo.hashValue
         cell_to.label = "To"
-        cell_from.valueGetter =  { self.defaults.convertingDirection.to.rawValue }
-        cell_to.valueCollection = convertToLabels
+        cell_to.valueGetter =  { self.defaults.convertingDirection.to.rawValue }
+        cell_to.valueCollection = ConvertApp.getAvailableWorkersNamesTo(fromRawValue:defaults.convertingDirection.from.rawValue)
         cell_to.valueHandler = { value in
-            if let to = value as? String, let from = cell_from.valueGetter() as? String {
+            guard let to = value as? String else {
+                return
+            }
 
-                if let direction = convertDirections.first(where:{ direction in
-                    direction.from.rawValue==from
-                }){
+            let availableFromList = ConvertApp.getAvailableWorkersNamesFrom(toRawValue: to)
 
-                    self.defaults.convertingDirection = direction
-                    self.app?.config?.convertingDirectionIdentifier = direction.identifier
+            //update to cell
+            let valueUpdatingGetter = cell_from.valueGetter() as? String
+            if let containsValue = valueUpdatingGetter, !availableFromList.contains(containsValue){
+                cell_from.valueGetter = { availableFromList.first }
+            }
 
-                    cell_from.valueGetter = { direction.from.rawValue }
-                    cell_from.valueCollection = convertDirections.compactMap ({ direction -> String? in
-                        return direction.to.rawValue == to ? direction.from.rawValue : nil
-                    })
+            if let fromValue = valueUpdatingGetter, let direction = ConvertApp.getAvailableDirections().first(where:{ direction in
+                direction.from.rawValue == fromValue && direction.to.rawValue == to
+            }){
 
-                    if let index = (self.cellDescribers.index { item in item.itemIdentifier == Cells.convertingDirectionFrom.hashValue }) {
-                        (self.view as? UITableView)?.reloadRows(at: [IndexPath(row: index, section: 0)], with: UITableViewRowAnimation.automatic)
-                    }
+                cell_from.valueCollection = availableFromList
+                self.reloadRows(by:Cells.convertingDirectionFrom.hashValue)
 
-                }
+                self.defaults.convertingDirection = direction
+                self.app?.config?.convertingDirectionIdentifier = direction.identifier
             }
         }
         cellDescribers.append(cell_to)
 
 
         return cellDescribers
+    }
+
+    func reloadRows(by itemIdentifier:Int){
+        if let index = (self.cellDescribers.index { item in item.itemIdentifier == itemIdentifier }) {
+            (self.view as? UITableView)?.reloadRows(at: [IndexPath(row: index, section: 0)], with: UITableViewRowAnimation.automatic)
+        }
     }
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
