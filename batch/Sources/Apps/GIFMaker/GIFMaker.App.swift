@@ -19,40 +19,6 @@ class _GIFMakerAppAsset: PHAssetItem<ImageEditStateValue> {
     }
 }
 
-private struct GIFMakerCachedAsset {
-    public var asset: PHAsset
-    public var imageFileURL: URL
-    
-    static func cacheAsset(_ asset: PHAsset, image: UIImage, targetSize: CGSize, uti: String) -> GIFMakerCachedAsset {
-        let imageToWrite: UIImage
-        if targetSize == image.size {
-            imageToWrite = image
-        }
-        else {
-            imageToWrite = UIGraphicsImageRenderer(size: targetSize, format: image.imageRendererFormat).imageWithCurrentContext { (cgContext) in
-                UIColor.white.setFill()
-                cgContext.fill(CGRect(origin: .zero, size: targetSize))
-                image.draw(in: AVMakeRect(aspectRatio: image.size, insideRect: CGRect(origin: .zero, size: targetSize)))
-            } ?? image
-        }
-        
-        var data: Data?
-        var fileExtension = "jpg"
-        switch uti{
-            case UTCoreTypes.PNG:
-                data = UIImagePNGRepresentation(imageToWrite)
-                fileExtension = "png"
-            default:
-                data = UIImageJPEGRepresentation(imageToWrite, CGFloat((GIFMaker.defaults as! GIFMakerDefaults).gifQuality))
-        }
-        
-        let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(GIFMaker.info.identifier)_\(UUID().uuidString).\(fileExtension)")
-        try? data?.write(to: url)
-        
-        return GIFMakerCachedAsset(asset: asset, imageFileURL: url)
-    }
-}
-
 private struct GIFMakerPHAssetResult: TaskResultable{
     public var fileURL: URL?
 }
@@ -117,18 +83,21 @@ struct GIFMakerSettings {
         enum type: Int {
             case photo
             case burst
+            case livePhoto
             case video
         }
         
         static let labels: [type: String] = [
             .photo: "Photos".localized,
             .burst: "Burst".localized,
+            .livePhoto: "Live Photo".localized,
             .video: "Video".localized
         ]
         
         static let orderedLabels: [String?] = [
             labels[.photo],
             labels[.burst],
+            labels[.livePhoto],
 //            labels[.video]
         ]
         
@@ -303,6 +272,7 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
         switch GIFMakerSettings.sourceType.type(rawValue: (GIFMaker.defaults as! GIFMakerDefaults).sourceType) {
         case .photo?: return Int.max
         case .burst?: return Int.max
+        case .livePhoto?: return Int.max
         default: return Int.max
         }
     }
@@ -343,9 +313,7 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
             if let url = UIImageGIFRepresentationURL(with: imageFiles, loopCount: defaults.loopCount, frameDelay: Double(defaults.frameDelay) / 1000) {
                 results.append(url)
             }
-        case .burst?:
-            results += resultItems.compactMap({ $0.fileURL })
-        default: return []
+        default: results += resultItems.compactMap({ $0.fileURL })
         }
         
         asyncSignal.begin()
@@ -394,8 +362,8 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
             
             let response = assetItem.asset.requestImage(targetSize: targetSize, contentMode: contentMode)
             
-            if let image = response.1, let uti = assetItem.asset.uniformTypeIdentifier {
-                let cachedAsset = GIFMakerCachedAsset.cacheAsset(assetItem.asset, image: image, targetSize: targetSize, uti: uti)
+            if let image = response.1 {
+                let cachedAsset = LocalCachedAsset(assetItem.asset, image: image, targetSize: targetSize, imageQuality: CGFloat(defaults.gifQuality))
                 result = GIFMakerPHAssetResult(fileURL: cachedAsset.imageFileURL)
                 assetItem.requestIDs += [PHAssetRequestID(forImage:response.0)]
             }
@@ -414,6 +382,14 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
             async.end()
         }
         else if assetItem.asset.imageType == .livePhoto {
+            let converter = GifConverter_LivePhoto()
+            converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount)
+            
+            let subAsyncTask = AsyncSignal()
+            if let url = converter.convert(source: assetItem, subAsyncTask) as? URL {
+                result = GIFMakerPHAssetResult(fileURL: url)
+            }
+            
             async.end()
         }
         
@@ -456,6 +432,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         switch GIFMakerSettings.sourceType.type(rawValue: defaults.sourceType) {
         case .photo?: return asset.imageType == .stillImage
         case .burst?: return asset.imageType == .burst
+        case .livePhoto?: return asset.imageType == .livePhoto
         default: return false
         }
     }

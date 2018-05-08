@@ -35,6 +35,17 @@ struct GifConverterDefaultOption {
             return CGSize(width: Int(size), height: Int(size / aspectRatio))
         }
     }
+    
+    func urlWithDirection(urls: [URL]) -> [URL] {
+        if urls.count > 1 {
+            switch direction {
+            case 1: return urls.reversed()
+            case 2: return urls + urls[1...].reversed()[1...]
+            default: break
+            }
+        }
+        return urls
+    }
 }
 
 
@@ -74,6 +85,43 @@ class GifConverter_LivePhoto: OptionableConverterBase<GifConverterDefaultOption>
     static var direction: ConvertableDirection { return ConvertableDirection(from:.livephoto, to:.gif) }
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+        let gifOptions = options ?? GifConverterDefaultOption.default
+        
+        let extractMovieTask = AsyncSignal()
+        if let videoURL = MovConverter_LivePhoto().convert(source: source, extractMovieTask) as? URL {
+            async.begin()
+            
+            let video = AVAsset(url: videoURL)
+            let imageGenerator = AVAssetImageGenerator(asset: video)
+            imageGenerator.appliesPreferredTrackTransform = true
+            imageGenerator.requestedTimeToleranceBefore = kCMTimeZero
+            imageGenerator.requestedTimeToleranceAfter = kCMTimeZero
+            imageGenerator.maximumSize = gifOptions.sizeWithAspectRatio()
+            
+            var times = [NSValue]()
+            let tick = CMTimeMultiplyByFloat64(video.duration, Double(gifOptions.frameDelay) / 1000)
+            var time = kCMTimeZero
+            while time <= video.duration {
+                times.append(NSValue(time: time))
+                time = CMTimeAdd(time, tick)
+            }
+            
+            var imageFiles = [URL]()
+            imageGenerator.generateCGImagesAsynchronously(forTimes: times) { (requestedTime, cgImage, actualTime, result, error) in
+                if let cgImage = cgImage {
+                    imageFiles.append(LocalCachedAsset(image: UIImage(cgImage: cgImage), targetSize: gifOptions.sizeWithAspectRatio(), imageQuality: CGFloat(gifOptions.gifQuality), contentMode: PHImageContentMode(rawValue: gifOptions.contentMode) ?? .aspectFit).imageFileURL)
+                }
+                
+                if requestedTime == times.last?.timeValue {
+                    async.end()
+                }
+            }
+            
+            async.waitUntilEnd()
+            
+            return UIImageGIFRepresentationURL(with: gifOptions.urlWithDirection(urls: imageFiles), loopCount: gifOptions.loopCount, frameDelay: Double(gifOptions.frameDelay) / 1000)
+        }
+        
         return nil
     }
 
@@ -103,21 +151,52 @@ class GifConverter_Burst: OptionableConverterBase<GifConverterDefaultOption>, Gi
         
         let extractTask = AsyncSignal()
         guard let urls = extractBurstImageURLs(source: source, param: param, extractTask) else { return nil }
-        let imageFiles: [URL] = {
-            if urls.count > 1 {
-                switch gifOptions.direction {
-                case 1: return urls.reversed()
-                case 2: return urls + urls[1...].reversed()[1...]
-                default: break
-                }
-            }
-            return []
-        }()
-        
-        return UIImageGIFRepresentationURL(with: imageFiles, loopCount: gifOptions.loopCount, frameDelay: Double(gifOptions.frameDelay) / 1000)
+        return UIImageGIFRepresentationURL(with: gifOptions.urlWithDirection(urls: urls), loopCount: gifOptions.loopCount, frameDelay: Double(gifOptions.frameDelay) / 1000)
     }
 
     static func shouldSelect(source: AppAsset) -> Bool {
         return source.asset.imageType == .burst
+    }
+}
+
+struct LocalCachedAsset {
+    public var asset: PHAsset?
+    public var imageFileURL: URL
+    
+    init(_ asset: PHAsset? = nil, image: UIImage, targetSize: CGSize, imageQuality: CGFloat, contentMode: PHImageContentMode = .aspectFit) {
+        let imageToWrite: UIImage
+        if targetSize == image.size {
+            imageToWrite = image
+        }
+        else {
+            imageToWrite = UIGraphicsImageRenderer(size: targetSize, format: image.imageRendererFormat).imageWithCurrentContext { (cgContext) in
+                if contentMode == .aspectFit {
+                    UIColor.white.setFill()
+                    cgContext.fill(CGRect(origin: .zero, size: targetSize))
+                    image.draw(in: AVMakeRect(aspectRatio: image.size, insideRect: CGRect(origin: .zero, size: targetSize)))
+                }
+                else {
+                    let scale = image.size.width > image.size.height ? targetSize.height / image.size.height : targetSize.width / image.size.width
+                    let scaledSize = image.size.applying(CGAffineTransform(scaleX: scale, y: scale))
+                    image.draw(in: CGRect(origin: CGPoint(x: (targetSize.width - scaledSize.width) / 2, y: (targetSize.height - scaledSize.height) / 2), size: scaledSize))
+                }
+            } ?? image
+        }
+        
+        var data: Data?
+        var fileExtension = "jpg"
+        switch asset?.uniformTypeIdentifier {
+        case UTCoreTypes.PNG?:
+            data = UIImagePNGRepresentation(imageToWrite)
+            fileExtension = "png"
+        default:
+            data = UIImageJPEGRepresentation(imageToWrite, imageQuality)
+        }
+        
+        let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(String(describing: LocalCachedAsset.self))_\(UUID().uuidString).\(fileExtension)")
+        try? data?.write(to: url)
+        
+        self.asset = asset
+        self.imageFileURL = url
     }
 }
