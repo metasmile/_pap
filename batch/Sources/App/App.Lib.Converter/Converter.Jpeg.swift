@@ -23,7 +23,7 @@ struct JpgConverter_ScreenshotPng: JpgConverter {
 
         var result:Any?
 
-        let quality = 0.7
+        let quality:CGFloat = 0.7
 
         async.begin()
         PHImageManager.default().requestImageData(for: source.asset, options: nil) { data, s, orientation, dictionary in

@@ -21,10 +21,6 @@ public protocol PHAssetFinalizableApp: FinalizableApp {
 extension PHAssetFinalizableApp {
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
-        if result.isAnyTask(inState: .cancelled) && result.defaultTaskPolicy.cancellation == TaskPolicy.Cancellation.shallow {
-            return result
-        }
-
         guard let finalizingPresets = self.finalizingPresets else {
             return result
         }

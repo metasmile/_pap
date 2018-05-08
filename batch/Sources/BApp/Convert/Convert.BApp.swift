@@ -18,7 +18,7 @@ public class ConvertAppConfigValue: NSObject, KeyPathWatchable, AppConfigValuabl
 public class ConvertApp: BApp,
         AppDockControllableApp,
         ConfigurableApp, _ConfigurableApp,
-        PHAssetFinalizableApp,
+        FinalizableApp,
         PhotoPickerCollectionViewDisplayableApp,
         PhotoPickerViewControllerDelegatableApp {
 
@@ -59,52 +59,18 @@ public class ConvertApp: BApp,
         return nil
     }
 
-    public var finalizingPresets: [PHAssetFinalizingPresets]? {
-        return nil
-    }
-
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
 
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
-        let resultItems = result
+        let resultItems:[Any]? = result
                 .filter { respondable in respondable.info.state == .completed }
                 .compactMap { ($0.result as? ConvertAppResult)?.result }
 
-        var shareItems:[Any]? = resultItems
-
-//        asyncSignal.begin()
-//        let builder = TimeLapsBuilder(imagePaths: imageFiles)
-//        builder.build({ progress in  }, success: { url in
-//            shareItem = url
-//
-//            asyncSignal.end()
-//
-//        }, failure: { error in
-//            print(error)
-//            asyncSignal.end()
-//        })
-//        asyncSignal.waitUntilEnd()
-
-
-//        asyncSignal.begin()
-//        let lpWriter = LivePhotoWriter()
-//
-//        lpWriter.saveLivePhotoFromImages(paths: imageFiles, indexOfTitle: 0, progress: nil, fps: 30, saved: { b, s, error in
-//
-//         }, andFetched:{ b, lphoto, asset, error in
-//
-//            shareItem = lphoto
-//
-//            asyncSignal.end()
-//        })
-//        asyncSignal.waitUntilEnd()
-
-
         asyncSignal.begin()
         DispatchQueue.main.async {
-            if let shareItems = shareItems, let rootViewController = UIApplication.shared.keyWindow?.rootViewController {
+            if let shareItems = resultItems, let rootViewController = UIApplication.shared.keyWindow?.rootViewController {
 
                 let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
                 activityViewController.completionWithItemsHandler = { (activityType:UIActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
@@ -123,6 +89,7 @@ public class ConvertApp: BApp,
         return result
     }
 }
+
 
 extension ConvertApp{
     var defaults:ConvertAppDefaults{
