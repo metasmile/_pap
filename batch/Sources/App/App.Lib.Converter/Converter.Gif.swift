@@ -153,8 +153,7 @@ class GifConverter_Burst: OptionableConverterBase<GifConverterDefaultOption>, Gi
         let gifOptions = options ?? GifConverterDefaultOption.default
         let param = ConverterBurstImageExtractParam(targetSize: gifOptions.sizeWithAspectRatio(), imageQuality: CGFloat(gifOptions.gifQuality), contentMode: PHImageContentMode(rawValue: gifOptions.contentMode) ?? PHImageContentMode.aspectFit)
         
-        let extractTask = AsyncSignal()
-        guard let urls = extractBurstImageURLs(source: source, param: param, extractTask) else { return nil }
+        guard let urls = extractBurstImageURLs(source: source, param: param, async) else { return nil }
         return UIImageGIFRepresentationURL(with: gifOptions.urlWithDirection(urls: urls), loopCount: gifOptions.loopCount, frameDelay: Double(gifOptions.frameDelay) / 1000)
     }
 

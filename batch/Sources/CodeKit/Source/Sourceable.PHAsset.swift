@@ -22,8 +22,7 @@ public struct RemoteSourceFetchNotification {
 }
 
 extension PHAsset {
-    func requestImage(targetSize: CGSize = PHImageManagerMaximumSize, contentMode: PHImageContentMode = .aspectFit, options: PHImageRequestOptions? = PHAsset.highQualityImageRequestOptions) -> (PHImageRequestID, UIImage?) {
-        let async = AsyncSignal()
+    func requestImage(targetSize: CGSize = PHImageManagerMaximumSize, contentMode: PHImageContentMode = .aspectFit, options: PHImageRequestOptions? = PHAsset.highQualityImageRequestOptions, _ async: AsyncManualSignalable = AsyncSignal()) -> (PHImageRequestID, UIImage?) {
         async.begin()
         
         var result: UIImage? = nil

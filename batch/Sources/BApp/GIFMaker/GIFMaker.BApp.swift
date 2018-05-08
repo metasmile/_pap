@@ -158,20 +158,26 @@ struct GIFMakerSettings {
     // https://en.wikipedia.org/wiki/Graphics_display_resolution
     struct size {
         struct labels {
-            static let nhd = "nHD".localized
-            static let qhd = "qHD".localized
-            static let hd = "HD".localized
-            static let fhd = "FHD".localized
+            static let nhd = "nHD (640×360)".localized
+            static let qhd = "qHD (960×540)".localized
+            static let hd = "HD (1280×720)".localized
+            static let fhd = "FHD (1920×1080)".localized
+            static let qvga = "QVGA (320×240)".localized
+            static let hvga = "HVGA (480×320)".localized
         }
         
         static let values: [String: Double] = [
             labels.nhd: 640,
             labels.qhd: 960,
             labels.hd: 1280,
-            labels.fhd: 1920
+            labels.fhd: 1920,
+            labels.qvga: 320,
+            labels.hvga: 480
         ]
         
         static let orderedLabels: [String] = [
+            labels.qvga,
+            labels.hvga,
             labels.nhd,
             labels.qhd,
             labels.hd,
@@ -179,7 +185,7 @@ struct GIFMakerSettings {
         ]
         
         static func value(_ key: String) -> Double {
-            return values[key] ?? 960
+            return values[key] ?? 640
         }
         
         static func sizeWithAspectRatio() -> CGSize {
@@ -341,49 +347,38 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
         
         let defaults = (GIFMaker.defaults as! GIFMakerDefaults)
         
-        async.begin()
-        
         if assetItem.asset.mediaType == .video {
-            async.end()
+            
         }
         else if assetItem.asset.imageType == .stillImage {
             let targetSize = GIFMakerSettings.size.sizeWithAspectRatio()
             let contentMode = PHImageContentMode(rawValue: defaults.contentMode) ?? PHImageContentMode.aspectFit
             
-            let response = assetItem.asset.requestImage(targetSize: targetSize, contentMode: contentMode)
+            let response = assetItem.asset.requestImage(targetSize: targetSize, contentMode: contentMode, async)
             
             if let image = response.1 {
                 let cachedAsset = LocalCachedAsset(assetItem.asset, image: image, targetSize: targetSize, imageQuality: CGFloat(defaults.gifQuality))
                 result = GIFMakerPHAssetResult(fileURL: cachedAsset.imageFileURL)
                 assetItem.requestIDs += [PHAssetRequestID(forImage:response.0)]
             }
-            
-            async.end()
         }
         else if assetItem.asset.imageType == .burst {
             let converter = GifConverter_Burst()
             converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount)
             
-            let subAsyncTask = AsyncSignal()
-            if let url = converter.convert(source: assetItem, subAsyncTask) as? URL {
+            if let url = converter.convert(source: assetItem, async) as? URL {
                 result = GIFMakerPHAssetResult(fileURL: url)
             }
-            
-            async.end()
         }
         else if assetItem.asset.imageType == .livePhoto {
             let converter = GifConverter_LivePhoto()
             converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount)
             
-            let subAsyncTask = AsyncSignal()
-            if let url = converter.convert(source: assetItem, subAsyncTask) as? URL {
+            if let url = converter.convert(source: assetItem, async) as? URL {
                 result = GIFMakerPHAssetResult(fileURL: url)
             }
-            
-            async.end()
         }
         
-        async.waitUntilEnd()
         return result
     }
 }
@@ -420,7 +415,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     
     func shouldImport(asset: PHAsset) -> Bool {
         switch GIFMakerSettings.sourceType.type(rawValue: defaults.sourceType) {
-        case .photo?: return asset.imageType == .stillImage
+        case .photo?: return asset.mediaType == .image // live photo and burst as a photo
         case .burst?: return asset.imageType == .burst
         case .livePhoto?: return asset.imageType == .livePhoto
         default: return false
