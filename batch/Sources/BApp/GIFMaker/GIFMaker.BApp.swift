@@ -347,10 +347,8 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
         
         let defaults = (GIFMaker.defaults as! GIFMakerDefaults)
         
-        if assetItem.asset.mediaType == .video {
-            
-        }
-        else if assetItem.asset.imageType == .stillImage {
+        switch GIFMakerSettings.sourceType.type(rawValue: (GIFMaker.defaults as! GIFMakerDefaults).sourceType) {
+        case .photo?:
             let targetSize = GIFMakerSettings.size.sizeWithAspectRatio()
             let contentMode = PHImageContentMode(rawValue: defaults.contentMode) ?? PHImageContentMode.aspectFit
             
@@ -361,22 +359,21 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
                 result = GIFMakerPHAssetResult(fileURL: cachedAsset.imageFileURL)
                 assetItem.requestIDs += [PHAssetRequestID(forImage:response.0)]
             }
-        }
-        else if assetItem.asset.imageType == .burst {
+        case .burst?:
             let converter = GifConverter_Burst()
             converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount)
             
             if let url = converter.convert(source: assetItem, async) as? URL {
                 result = GIFMakerPHAssetResult(fileURL: url)
             }
-        }
-        else if assetItem.asset.imageType == .livePhoto {
+        case .livePhoto?:
             let converter = GifConverter_LivePhoto()
             converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount)
             
             if let url = converter.convert(source: assetItem, async) as? URL {
                 result = GIFMakerPHAssetResult(fileURL: url)
             }
+        default: break
         }
         
         return result
