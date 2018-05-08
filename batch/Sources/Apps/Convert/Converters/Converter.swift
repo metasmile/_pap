@@ -171,8 +171,8 @@ extension Converter{
 */
 struct ConverterBurstImageExtractParam {
     let filenamePrefix:String = String(describing: ConverterBurstImageExtractParam.self)
-    let targetSize:CGSize = CGSize(width: 1920, height: 1920)
-    let imageQuality:CGFloat = CGFloat(0.7)
+    var targetSize:CGSize = CGSize(width: 1920, height: 1920)
+    var imageQuality:CGFloat = CGFloat(0.7)
 }
 
 extension Converter{
@@ -187,37 +187,32 @@ extension Converter{
         let imageQuality = param.imageQuality
 
         var urls = [URL]()
-
+        
         let fetchedAsset = PHAsset.fetchAssets(withBurstIdentifier: source.asset.burstIdentifier ?? "", options: fetchOptions)
         fetchedAsset.enumerateObjects { (asset:PHAsset, idx, stop) in
-
             async.begin()
+            
+            let response = asset.requestImage(targetSize: targetSize, contentMode: .aspectFit, options: PHAsset.highQualityImageRequestOptions)
 
             var resultUrl: URL? = nil
-            let imageRequestID = PHImageManager.default().requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: PHAsset.highQualityImageRequestOptions) { (image, info) in
-                guard let isDegraded = info?[PHImageResultIsDegradedKey] as? Bool, !isDegraded else { return }
-                guard let image = image else { return }
-
-                if let data = UIImageJPEGRepresentation(image, CGFloat(imageQuality)){
-
-                    let url = "\(param.filenamePrefix)_\(idx)".asURLInTemporaryDirectory!
-
-                    do{
-                        try data.write(to: url)
-                        resultUrl = url
-                    }catch _ {}
-                }
-
-                async.end()
+            if let image = response.1, let data = UIImageJPEGRepresentation(image, CGFloat(imageQuality)) {
+                let url = "\(param.filenamePrefix)_\(UUID().uuidString)".asURLInTemporaryDirectory!
+                
+                do {
+                    try data.write(to: url)
+                    resultUrl = url
+                } catch _ {}
             }
-            source.requestIDs.append(PHAssetRequestID(forImage: imageRequestID))
-
-            async.waitUntilEnd()
+            source.requestIDs.append(PHAssetRequestID(forImage: response.0))
 
             if let resultUrl = resultUrl {
                 urls.append(resultUrl)
             }
+            
+            async.end()
         }
+        
+        async.waitUntilEnd()
 
         return urls.count>0 ? urls : nil
     }
@@ -271,9 +266,14 @@ extension Converter{
 
     func extractImageURLsFromGIFData(asset:PHAsset, _ async: AsyncManualSignalable) -> [URL]?{
         var resultUrls:[URL]?
+        
+        let options = PHImageRequestOptions()
+        options.isNetworkAccessAllowed = true
+        options.isSynchronous = false
 
         async.begin()
-        PHImageManager.default().requestImageData(for: asset, options: nil) { data, s, orientation, dictionary in
+        PHImageManager.default().requestImageData(for: asset, options: options) { data, uti, orientation, info in
+            guard (info?[PHImageResultIsDegradedKey] as? Bool) != true else { return }
             if let data = data, let urls = data.extractAnimatedImageURLsAsGIF(){
                 resultUrls = urls
             }

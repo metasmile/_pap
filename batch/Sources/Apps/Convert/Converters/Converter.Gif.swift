@@ -26,6 +26,15 @@ struct GifConverterDefaultOption {
                 loopCount: 0
         )
     }
+    
+    func sizeWithAspectRatio() -> CGSize {
+        if aspectRatio < 1 {
+            return CGSize(width: Int(size * aspectRatio), height: Int(size))
+        }
+        else {
+            return CGSize(width: Int(size), height: Int(size / aspectRatio))
+        }
+    }
 }
 
 
@@ -64,7 +73,6 @@ class GifConverter_Mov: OptionableConverterBase<GifConverterDefaultOption>, GifC
 class GifConverter_LivePhoto: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
     static var direction: ConvertableDirection { return ConvertableDirection(from:.livephoto, to:.gif) }
 
-
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
     }
@@ -89,9 +97,14 @@ class GifConverter_Timelapse: OptionableConverterBase<GifConverterDefaultOption>
 class GifConverter_Burst: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
     static var direction: ConvertableDirection { return ConvertableDirection(from:.burst, to:.gif) }
 
-
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
-        return nil
+        let gifOptions = options ?? GifConverterDefaultOption.default
+        let param = ConverterBurstImageExtractParam(targetSize: gifOptions.sizeWithAspectRatio(), imageQuality: CGFloat(gifOptions.gifQuality))
+        
+        let extractTask = AsyncSignal()
+        guard let urls = extractBurstImageURLs(source: source, param: param, extractTask) else { return nil }
+        let result = UIImageGIFRepresentation(with: urls, direction: gifOptions.direction, loopCount: gifOptions.loopCount, frameDelay: Double(gifOptions.frameDelay) / 1000)
+        return result
     }
 
     static func shouldSelect(source: AppAsset) -> Bool {

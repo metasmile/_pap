@@ -54,7 +54,7 @@ private struct GIFMakerCachedAsset {
 }
 
 private struct GIFMakerPHAssetResult: TaskResultable{
-    public var items: [GIFMakerCachedAsset]
+    public var source: Any?
 }
 
 //MARK: -
@@ -283,7 +283,7 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
         , version: "1.0"
         , phase: .release
         , appType: GIFMaker.self
-        , displayName: "GIF Maker"
+        , displayName: "GIF Maker".localized
         , icon: R.image.photosFilterAppIcon.name
         , policy: AppPolicy.default
         , minOSVersion: nil
@@ -322,26 +322,26 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
         let resultItems = result
             .filter { respondable in respondable.info.state == .completed }
-            .compactMap { ($0.result as? GIFMakerPHAssetResult)?.items }.reduce([], +)
+            .compactMap { ($0.result as? GIFMakerPHAssetResult) }
         
-        let frameDelay = Double((GIFMaker.defaults as! GIFMakerDefaults).frameDelay) / 1000.0
-        let loopCount = (GIFMaker.defaults as! GIFMakerDefaults).loopCount
-        var imageFiles = resultItems.map({ $0.imageFileURL })
-        if imageFiles.count > 1 {
-            switch GIFMakerSettings.direction.type(rawValue: (GIFMaker.defaults as! GIFMakerDefaults).direction) {
-            case .reverse?: imageFiles.reverse()
-            case .forwardAndReverse?: imageFiles.append(contentsOf: imageFiles[1...].reversed()[1...])
-            default: break
+        let defaults =  (GIFMaker.defaults as! GIFMakerDefaults)
+        
+        var results = [Data]()
+        if resultItems.contains(where: { $0.source is URL }) {
+            let urls = resultItems.compactMap({ $0.source as? URL })
+            if let data = UIImageGIFRepresentation(with: urls, direction: defaults.direction, loopCount: defaults.loopCount, frameDelay: Double(defaults.frameDelay) / 1000) {
+                results.append(data)
             }
         }
-
-        let gifData = UIImageGIFRepresentation(with:imageFiles, loopCount:loopCount, frameDelay:frameDelay)
+        else if resultItems.contains(where: { $0.source is Data }) {
+            results += resultItems.compactMap({ $0.source as? Data })
+        }
         
         asyncSignal.begin()
         
         DispatchQueue.main.async {
-            guard let data = gifData, let rootViewController = UIApplication.shared.keyWindow?.rootViewController else { return }
-            let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+            guard results.count > 0, let rootViewController = UIApplication.shared.keyWindow?.rootViewController else { return }
+            let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: results, applicationActivities: nil)
             activityViewController.completionWithItemsHandler = { (activityType:UIActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
                 asyncSignal.end()
             }
@@ -373,8 +373,7 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
     private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable) throws -> GIFMakerPHAssetResult?  {
         var result: GIFMakerPHAssetResult?
         
-        let targetSize = GIFMakerSettings.size.sizeWithAspectRatio()
-        let contentMode = PHImageContentMode(rawValue: (GIFMaker.defaults as! GIFMakerDefaults).contentMode) ?? PHImageContentMode.aspectFit
+        let defaults = (GIFMaker.defaults as! GIFMakerDefaults)
         
         async.begin()
         
@@ -382,32 +381,27 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
             async.end()
         }
         else if assetItem.asset.imageType == .stillImage {
+            let targetSize = GIFMakerSettings.size.sizeWithAspectRatio()
+            let contentMode = PHImageContentMode(rawValue: defaults.contentMode) ?? PHImageContentMode.aspectFit
+            
             let response = assetItem.asset.requestImage(targetSize: targetSize, contentMode: contentMode)
             
             if let image = response.1, let uti = assetItem.asset.uniformTypeIdentifier {
-                result = GIFMakerPHAssetResult(items: [GIFMakerCachedAsset.cacheAsset(assetItem.asset, image: image, targetSize: targetSize, uti: uti)])
+                let cachedAsset = GIFMakerCachedAsset.cacheAsset(assetItem.asset, image: image, targetSize: targetSize, uti: uti)
+                result = GIFMakerPHAssetResult(source: cachedAsset.imageFileURL)
                 assetItem.requestIDs += [PHAssetRequestID(forImage:response.0)]
             }
             
             async.end()
         }
         else if assetItem.asset.imageType == .burst {
-            var results = [GIFMakerCachedAsset]()
+            let converter = GifConverter_Burst()
+            converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount)
             
-            let fetchOptions = PHFetchOptions()
-            fetchOptions.includeAllBurstAssets = true
-            fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
-            
-            let fetchedAsset = PHAsset.fetchAssets(withBurstIdentifier: assetItem.asset.burstIdentifier ?? "", options: fetchOptions)
-            fetchedAsset.enumerateObjects { (asset, idx, stop) in
-                let response = asset.requestImage(targetSize: targetSize, contentMode: contentMode)
-                if let image = response.1, let uti = assetItem.asset.uniformTypeIdentifier {
-                    results.append(GIFMakerCachedAsset.cacheAsset(assetItem.asset, image: image, targetSize: targetSize, uti: uti))
-                    assetItem.requestIDs += [PHAssetRequestID(forImage:response.0)]
-                }
+            let subAsyncTask = AsyncSignal()
+            if let gifData = converter.convert(source: assetItem, subAsyncTask) as? Data {
+                result = GIFMakerPHAssetResult(source: gifData)
             }
-            
-            result = GIFMakerPHAssetResult(items: results)
             
             async.end()
         }

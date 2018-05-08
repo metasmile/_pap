@@ -8,6 +8,20 @@ import UIKit
 import ImageIO
 import MobileCoreServices
 
+public func UIImageGIFRepresentation(with imageFiles: [URL], direction: Int = 0, loopCount: Int = 0, frameDelay: Double, removesImageFilePaths: Bool = true) -> Data? {
+    let urls: [URL] = {
+        if imageFiles.count > 1 {
+            switch direction {
+            case 1: return imageFiles.reversed()
+            case 2: return imageFiles + imageFiles[1...].reversed()[1...]
+            default: break
+            }
+        }
+        return []
+    }()
+    return UIImageGIFRepresentation(with:urls, loopCount:loopCount, frameDelay:frameDelay, removesImageFilePaths: removesImageFilePaths)
+}
+
 public func UIImageGIFRepresentation(with imageFiles: [URL], loopCount: Int = 0, frameDelay: Double, removesImageFilePaths: Bool = true) -> Data? {
     let fileProperties = [
         ImageMetadata.Dictionary.GIF: [
