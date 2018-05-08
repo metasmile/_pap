@@ -45,22 +45,19 @@ struct ConvertableDirection: Codable, Equatable {
     }
 }
 
-
 protocol Converter {
 
     init()
 
     static var direction:ConvertableDirection {get}
 
-    static func shouldSelect(source:AppAsset) -> Bool
-
-    static var numberOfItemsShouldSelect: Int? {get}
+    static func canPerformWith(source:AppAsset) -> Bool
 
     func convert(source:AppAsset, _ async: AsyncManualSignalable) -> Any?
 }
 
 extension Converter{
-    static func shouldSelect(source: AppAsset) -> Bool {
+    static func canPerformWith(source: AppAsset) -> Bool {
         let t = source.asset.mediaType
         let it = source.asset.imageType
         let st = source.asset.mediaSubtypes
@@ -91,7 +88,7 @@ struct ConverterSpec{
         let matchedWorkers = collection.filter { $0.direction==direction }
         assert(matchedWorkers.count==1, "Duplicated converter worker direction found. \(matchedWorkers)")
 
-        if let worker = matchedWorkers.first, worker.shouldSelect(source: asset) {
+        if let worker = matchedWorkers.first, worker.canPerformWith(source: asset) {
             return worker.init()
         }
 

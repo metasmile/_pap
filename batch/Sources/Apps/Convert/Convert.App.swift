@@ -52,11 +52,11 @@ public class ConvertApp: BApp,
     }
 
     public func shouldSelect(item: AppAsset) -> Bool {
-        return currentWorker?.shouldSelect(source: item) ?? true
+        return currentWorker?.canPerformWith(source: item) ?? true
     }
 
     public var numberOfItemsShouldSelect: Int? {
-        return currentWorker?.numberOfItemsShouldSelect ?? nil
+        return nil
     }
 
     public var finalizingPresets: [PHAssetFinalizingPresets]? {

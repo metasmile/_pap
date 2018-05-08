@@ -16,7 +16,7 @@ extension LivePhotoConverter{
 struct LivePhotoConverter_Gif: LivePhotoConverter {
     static var direction: ConvertableDirection { return ConvertableDirection(from:.gif, to:.livephoto) }
 
-    static func shouldSelect(source: AppAsset) -> Bool {
+    static func canPerformWith(source: AppAsset) -> Bool {
         return source.asset.imageType == .animatedGIF
     }
 
@@ -48,7 +48,7 @@ struct LivePhotoConverter_Burst: LivePhotoConverter {
         return nil
     }
 
-    static func shouldSelect(source: AppAsset) -> Bool {
+    static func canPerformWith(source: AppAsset) -> Bool {
         return source.asset.imageType == .burst
     }
 }
@@ -66,7 +66,7 @@ struct LivePhotoConverter_Video: LivePhotoConverter {
         return nil
     }
 
-    static func shouldSelect(source: AppAsset) -> Bool {
+    static func canPerformWith(source: AppAsset) -> Bool {
         return source.asset.mediaType == .video
     }
 }

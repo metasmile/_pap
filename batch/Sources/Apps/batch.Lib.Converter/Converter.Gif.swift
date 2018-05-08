@@ -64,7 +64,7 @@ class GifConverter_Jpeg: OptionableConverterBase<GifConverterDefaultOption>, Gif
         return nil
     }
 
-    static func shouldSelect(source: AppAsset) -> Bool {
+    static func canPerformWith(source: AppAsset) -> Bool {
         return source.asset.imageType == .stillImage
     }
 }
@@ -76,7 +76,7 @@ class GifConverter_Mov: OptionableConverterBase<GifConverterDefaultOption>, GifC
         return nil
     }
 
-    static func shouldSelect(source: AppAsset) -> Bool {
+    static func canPerformWith(source: AppAsset) -> Bool {
         return source.asset.mediaType == .video
     }
 }
@@ -125,7 +125,7 @@ class GifConverter_LivePhoto: OptionableConverterBase<GifConverterDefaultOption>
         return nil
     }
 
-    static func shouldSelect(source: AppAsset) -> Bool {
+    static func canPerformWith(source: AppAsset) -> Bool {
         return source.asset.imageType == .livePhoto
     }
 }
@@ -137,7 +137,7 @@ class GifConverter_Timelapse: OptionableConverterBase<GifConverterDefaultOption>
         return nil
     }
 
-    static func shouldSelect(source: AppAsset) -> Bool {
+    static func canPerformWith(source: AppAsset) -> Bool {
         return source.asset.mediaSubtypes.contains(.videoTimelapse)
     }
 }
@@ -154,7 +154,7 @@ class GifConverter_Burst: OptionableConverterBase<GifConverterDefaultOption>, Gi
         return UIImageGIFRepresentationURL(with: gifOptions.urlWithDirection(urls: urls), loopCount: gifOptions.loopCount, frameDelay: Double(gifOptions.frameDelay) / 1000)
     }
 
-    static func shouldSelect(source: AppAsset) -> Bool {
+    static func canPerformWith(source: AppAsset) -> Bool {
         return source.asset.imageType == .burst
     }
 }
