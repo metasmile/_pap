@@ -1,0 +1,224 @@
+//
+// Created by BLACKGENE on 27/03/2018.
+// Copyright (c) 2018 Stells. All rights reserved.
+//
+
+import Foundation
+import Photos
+import TPPDF
+import UIKit
+import DefaultsKit
+
+private struct PDFactoryPHAssetResult: TaskResultable{
+    public var asset: PHAsset
+    public var renderImageBoundSize: CGSize // maximum size of image + paper size
+    public var renderImage: UIImage
+    public var imageMetadata: [String: Any]?
+}
+
+public class PDFactory: BApp, FinalizableApp, PhotoPickerViewControllerDelegatableApp,
+        PhotoPickerCollectionViewDisplayableApp , AppDockControllableApp{
+
+    public static let taskType:Taskable.Type = _PDFactoryTask.self
+
+    public static let paramType:TaskParamable.Type = AppAsset.self
+
+    public static let info = AppInfo(
+            identifier: "com.stells.batch.pdfactory"
+            , version: "1.0"
+            , phase: .release
+            , appType: PDFactory.self
+            , displayName: "PDFactory"
+            , icon: R.image.pdFactoryBAppIcon.name
+            , policy: AppPolicy.default
+            , minOSVersion: nil
+    )
+
+    public required init() {}
+
+    public var doneButtonTitle: String?{
+        return "Create %@".localizedFormatted("PDF")
+    }
+
+    public var titleWillBegin:String{
+        return "Starting to create PDF...".localized
+    }
+
+    public var titleWillFinalize:String{
+        return "Creating PDF Pages...".localized
+    }
+
+    public lazy var numberOfItemsShouldSelect: Int? = 20 //for test
+
+    public func shouldSelect(item: AppAsset) -> Bool {
+        //for test
+        return item.asset.mediaType == .image
+    }
+
+    public lazy var dockContent: AppDockContent? = PDFactoryAppDockContent()
+
+    public var finalizingPresets: [PHAssetFinalizingPresets]? {
+        return nil
+    }
+
+    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
+
+        let items = result
+                .filter { respondable in respondable.info.state == .completed }
+                .compactMap { $0.result as? PDFactoryPHAssetResult }
+
+        guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController else{
+            return result
+        }
+
+        let defaults = PDFactory.defaults as! PDFactoryDefaults
+//        let imagesPerPage = defaults.imagesPerPage
+
+        do {
+            let document = PDFDocument(layout: PDFactory.defaultsPDFLayout)
+            let isLandspace = document.layout.size.width > document.layout.size.height
+            let container = PDFContainer.contentCenter
+
+            for (i, item) in items.enumerated(){
+
+                //metadata
+                var caption:PDFText?
+                if item.imageMetadata != nil && defaults.metadataCaption {
+                    document.setFont(font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize/6))
+                    caption = PDFSimpleText(text: String(describing: item.imageMetadata))
+                }
+
+                //scale mode
+                var sizeFitMode = PDFImageSizeFit.widthHeight
+                let fillPageMode = defaults.scaleMode == PDFactorySettings.ScaleMode.fillPage.rawValue
+                if fillPageMode{
+                    let isImageLandspace = item.renderImage.size.width > item.renderImage.size.height
+
+                    if isLandspace {
+                        if isImageLandspace {
+                            sizeFitMode = PDFImageSizeFit.width
+                        }else{
+                            sizeFitMode = PDFImageSizeFit.height
+                        }
+                    }else{
+                        if isImageLandspace {
+                            sizeFitMode = PDFImageSizeFit.height
+                        }else{
+                            sizeFitMode = PDFImageSizeFit.width
+                        }
+                    }
+                }
+
+                let pdfImage = PDFImage(image: item.renderImage, caption: caption, size: item.renderImage.size, sizeFit: sizeFitMode)
+                //quality
+                pdfImage.quality = CGFloat(defaults.imageQuality)
+
+                document.addImage(container, image: pdfImage)
+
+                if i < items.count-1, fillPageMode == false{
+                    document.createNewPage()
+                }
+            }
+
+            let pdfURL = try PDFGenerator.generateURL(document: document, filename: "exported_\(String(describing: type(of: self))).pdf")
+
+            if FileManager.default.fileExists(atPath: pdfURL.path) == false {
+                throw "\(#function)_\(#file)"
+            }
+
+            guard let pdfData = try? Data(contentsOf: pdfURL) else {
+                throw "\(#function)_\(#file)"
+            }
+
+            asyncSignal.begin()
+            DispatchQueue.main.async {
+                let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [pdfData], applicationActivities: nil)
+                activityViewController.completionWithItemsHandler = { (activityType:UIActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
+                    asyncSignal.end()
+                }
+                activityViewController.popoverPresentationController?.sourceView=rootViewController.view
+                rootViewController.present(activityViewController, animated: true, completion: nil)
+            }
+
+            asyncSignal.waitUntilEnd()
+
+        } catch _ {
+
+            asyncSignal.begin()
+            DispatchQueue.main.async {
+                UIAlertController.alert("Sorry, something went wrong.".localized, title:type(of: self).info.displayName) { alertAction in
+                    DispatchQueue.global().async{ asyncSignal.end() }
+                }
+            }
+            asyncSignal.waitUntilEnd()
+        }
+
+        return result
+    }
+}
+
+private class _PDFactoryTask: TaskPrototype, Taskable {
+
+    private var _pdfImageRequestOptions: PHImageRequestOptions {
+        let options = PHImageRequestOptions()
+        options.isSynchronous = false
+        options.isNetworkAccessAllowed = true
+        options.deliveryMode = .highQualityFormat
+        options.resizeMode = .exact
+        return options
+    }
+
+    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){
+        (param as? AppAsset)?.cancelAllRequestIDs()
+    }
+
+    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
+        if let appAsset = param as? AppAsset{
+            let asset = appAsset.asset
+
+            //TODO: URL? to use low mem
+            //read image
+            var renderImage:UIImage?
+
+            async.begin()
+            let imageMaxSize:CGSize = PDFactory.defaultsPDFLayout.size
+            let imagePixelSize = imageMaxSize.applying(CGAffineTransform(scaleX: 2, y: 2))
+            let imageRequestID = PHImageManager.default().requestImage(for: asset, targetSize: imagePixelSize, contentMode: .aspectFit, options: _pdfImageRequestOptions) { (image, info) in
+                renderImage = image
+                async.end()
+            }
+
+            appAsset.requestIDs += [PHAssetRequestID(forImage:imageRequestID)]
+            async.waitUntilEnd()
+
+            //read metadata
+            var imageMetadata: [String: Any]?
+
+            if (PDFactory.defaults as! PDFactoryDefaults).metadataCaption{
+                async.begin()
+
+                let option = PHContentEditingInputRequestOptions()
+                option.isNetworkAccessAllowed = true
+                option.canHandleAdjustmentData = { _ -> Bool in
+                    return true
+                }
+                let editingInputId = appAsset.requestContentEditing(options: option) { item in
+                    assert(item?.input.fullSizeImageURL != nil, "item.input.fullSizeImageURL is nil")
+                    if let item = item, let url = item.input.fullSizeImageURL {
+                        let data = try! Data(contentsOf: url)
+                        imageMetadata = data.getMetadata()
+                    }
+                    async.end()
+                }
+                appAsset.requestIDs += [PHAssetRequestID(forEditingInput: editingInputId)]
+                async.waitUntilEnd()
+            }
+
+            if let image = renderImage{
+                return PDFactoryPHAssetResult(asset: asset, renderImageBoundSize: imagePixelSize, renderImage:image, imageMetadata:imageMetadata)
+            }
+        }
+        return nil
+    }
+}
+
