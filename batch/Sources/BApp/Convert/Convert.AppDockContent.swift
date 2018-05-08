@@ -16,7 +16,7 @@ private enum Cells {
     case convertingDirectionTo
 }
 
-private extension ConvertableDirection{
+private extension ConvertingDirection {
     var label:String{
         return "\(from.rawValue) To \(to.rawValue)"
     }
@@ -78,7 +78,9 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
         cell_from.itemIdentifier = Cells.convertingDirectionFrom.hashValue
         cell_from.label = "Convert From"
         cell_from.valueGetter =  { self.defaults.convertingDirection.from.rawValue }
-        cell_from.valueCollection = ConvertApp.getAvailableWorkersNamesFrom(toRawValue:defaults.convertingDirection.to.rawValue)
+//        cell_from.valueCollection = ConvertApp.getAvailableWorkersNamesFrom(toRawValue:defaults.convertingDirection.to.rawValue)
+        cell_from.valueCollection = ConvertApp.availableWorkerNames
+
         cell_from.valueHandler = { value in
             guard let from = value as? String else {
                 return
@@ -92,8 +94,8 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
                 cell_to.valueGetter = { availableToList.first }
             }
 
-            if let toValue = valueUpdatingGetter, let direction = ConvertApp.getAvailableDirections().first(where:{ direction in
-                direction.to.rawValue == toValue && direction.from.rawValue == from
+            if /*let toValue = valueUpdatingGetter,*/ let direction = ConvertApp.availableDirections.first(where:{ direction in
+                /*direction.to.rawValue == toValue &&*/ direction.from.rawValue == from
             }){
 
                 cell_to.valueCollection = availableToList
@@ -116,23 +118,26 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
                 return
             }
 
-            let availableFromList = ConvertApp.getAvailableWorkersNamesFrom(toRawValue: to)
+//            let availableFromList = ConvertApp.getAvailableWorkersNamesFrom(toRawValue: to)
 
             //update to cell
             let valueUpdatingGetter = cell_from.valueGetter() as? String
-            if let containsValue = valueUpdatingGetter, !availableFromList.contains(containsValue){
-                cell_from.valueGetter = { availableFromList.first }
-            }
+//            if let containsValue = valueUpdatingGetter, !availableFromList.contains(containsValue){
+//                cell_from.valueGetter = { availableFromList.first }
+//            }
 
-            if let fromValue = valueUpdatingGetter, let direction = ConvertApp.getAvailableDirections().first(where:{ direction in
+            if let fromValue = valueUpdatingGetter, let direction = ConvertApp.availableDirections.first(where:{ direction in
                 direction.from.rawValue == fromValue && direction.to.rawValue == to
             }){
 
-                cell_from.valueCollection = availableFromList
-                self.reloadRows(by:Cells.convertingDirectionFrom.hashValue)
+//                cell_from.valueCollection = ConvertApp.availableWorkerNames
+//                self.reloadRows(by:Cells.convertingDirectionFrom.hashValue)
 
                 self.defaults.convertingDirection = direction
                 self.app?.config?.convertingDirectionIdentifier = direction.identifier
+
+            }else{
+                assert(false, "Not found any matched workers.")
             }
         }
         cellDescribers.append(cell_to)

@@ -24,4 +24,8 @@ extension String {
             return NSString(format: self.localized, arguments: $0) as String
         }
     }
+
+    public func replace(_ with:Character, _ replacement:Character) -> String{
+        return String(map { return $0 == with ? replacement : $0 })
+    }
 }

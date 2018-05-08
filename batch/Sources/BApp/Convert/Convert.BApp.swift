@@ -147,13 +147,19 @@ extension ConvertApp{
         GifConverter_Burst.self,
         GifConverter_LivePhoto.self,
         GifConverter_Timelapse.self,
-        GifConverter_Mov.self
+        GifConverter_Mov.self,
+
+        JpgConverter_ScreenshotPng.self
     ]
 
-    static func getAvailableDirections() -> [ConvertableDirection] {
-        return ConvertApp.availableWorkers.map { converterType -> ConvertableDirection in
+    static var availableDirections:[ConvertingDirection] {
+        return ConvertApp.availableWorkers.map { converterType -> ConvertingDirection in
             return converterType.direction
         }
+    }
+
+    static var availableWorkerNames:[String] {
+        return Array(Set(availableDirections.map { $0.from.rawValue }))
     }
 
     static func getAvailableWorkers(fromRawValue:String) -> [Converter.Type]{

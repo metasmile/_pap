@@ -7,12 +7,12 @@ import Foundation
 import DefaultsKit
 
 protocol ConvertAppDefaults: AppDefaults{
-    var convertingDirection: ConvertableDirection {get set}
+    var convertingDirection: ConvertingDirection {get set}
 }
 
 extension Defaults: ConvertAppDefaults {
-    var convertingDirection: ConvertableDirection {
+    var convertingDirection: ConvertingDirection {
         set { set(newValue) }
-        get { return get(or:ConvertableDirection(from: .mov, to: .livephoto)) }
+        get { return get(or: ConvertingDirection(from: .mov, to: .livephoto)) }
     }
 }

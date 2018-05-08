@@ -8,13 +8,13 @@ import Photos
 
 protocol LivePhotoConverter: Converter {}
 extension LivePhotoConverter{
-    static var direction: ConvertableDirection {
-        return ConvertableDirection(from: .any, to: .livephoto)
+    static var direction: ConvertingDirection {
+        return ConvertingDirection(from: .any, to: .livephoto)
     }
 }
 
 struct LivePhotoConverter_Gif: LivePhotoConverter {
-    static var direction: ConvertableDirection { return ConvertableDirection(from:.gif, to:.livephoto) }
+    static var direction: ConvertingDirection { return ConvertingDirection(from:.gif, to:.livephoto) }
 
     init() {}
 
@@ -36,7 +36,7 @@ struct LivePhotoConverter_Gif: LivePhotoConverter {
 }
 
 struct LivePhotoConverter_Burst: LivePhotoConverter {
-    static var direction: ConvertableDirection { return ConvertableDirection(from:.burst, to:.livephoto) }
+    static var direction: ConvertingDirection { return ConvertingDirection(from:.burst, to:.livephoto) }
 
     init() {}
 
@@ -54,7 +54,7 @@ struct LivePhotoConverter_Burst: LivePhotoConverter {
 }
 
 struct LivePhotoConverter_Video: LivePhotoConverter {
-    static var direction: ConvertableDirection { return ConvertableDirection(from:.mov, to:.livephoto) }
+    static var direction: ConvertingDirection { return ConvertingDirection(from:.mov, to:.livephoto) }
 
     init() {}
 

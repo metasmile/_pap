@@ -10,13 +10,13 @@ import ImageIO
 protocol MovConverter: Converter {}
 
 extension MovConverter {
-    static var direction: ConvertableDirection {
-        return ConvertableDirection(from: .any, to: .mov)
+    static var direction: ConvertingDirection {
+        return ConvertingDirection(from: .any, to: .mov)
     }
 }
 
 struct MovConverter_Gif: MovConverter {
-    static var direction: ConvertableDirection { return ConvertableDirection(from:.gif, to:.mov) }
+    static var direction: ConvertingDirection { return ConvertingDirection(from:.gif, to:.mov) }
 
     init() {}
 
@@ -48,7 +48,7 @@ struct MovConverter_Gif: MovConverter {
 }
 
 struct MovConverter_Burst: MovConverter {
-    static var direction: ConvertableDirection { return ConvertableDirection(from:.burst, to:.mov) }
+    static var direction: ConvertingDirection { return ConvertingDirection(from:.burst, to:.mov) }
 
     init() {}
 
@@ -67,7 +67,7 @@ struct MovConverter_Burst: MovConverter {
 }
 
 struct MovConverter_LivePhoto: MovConverter {
-    static var direction: ConvertableDirection { return ConvertableDirection(from:.livephoto, to:.mov) }
+    static var direction: ConvertingDirection { return ConvertingDirection(from:.livephoto, to:.mov) }
 
     init() {}
 

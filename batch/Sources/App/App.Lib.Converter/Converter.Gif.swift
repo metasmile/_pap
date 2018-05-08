@@ -52,13 +52,13 @@ struct GifConverterDefaultOption {
 protocol GifConverter: Converter {}
 
 extension GifConverter{
-    static var direction: ConvertableDirection {
-        return ConvertableDirection(from: .any, to: .gif)
+    static var direction: ConvertingDirection {
+        return ConvertingDirection(from: .any, to: .gif)
     }
 }
 
 class GifConverter_Jpeg: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
-    static var direction: ConvertableDirection { return ConvertableDirection(from:.jpeg, to:.gif) }
+    static var direction: ConvertingDirection { return ConvertingDirection(from:.jpeg, to:.gif) }
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
@@ -70,7 +70,7 @@ class GifConverter_Jpeg: OptionableConverterBase<GifConverterDefaultOption>, Gif
 }
 
 class GifConverter_Mov: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
-    static var direction: ConvertableDirection { return ConvertableDirection(from:.mov, to:.gif) }
+    static var direction: ConvertingDirection { return ConvertingDirection(from:.mov, to:.gif) }
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
@@ -82,7 +82,7 @@ class GifConverter_Mov: OptionableConverterBase<GifConverterDefaultOption>, GifC
 }
 
 class GifConverter_LivePhoto: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
-    static var direction: ConvertableDirection { return ConvertableDirection(from:.livephoto, to:.gif) }
+    static var direction: ConvertingDirection { return ConvertingDirection(from:.livephoto, to:.gif) }
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         let gifOptions = options ?? GifConverterDefaultOption.default
@@ -131,7 +131,7 @@ class GifConverter_LivePhoto: OptionableConverterBase<GifConverterDefaultOption>
 }
 
 class GifConverter_Timelapse: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
-    static var direction: ConvertableDirection { return ConvertableDirection(from:.timelapse, to:.gif) }
+    static var direction: ConvertingDirection { return ConvertingDirection(from:.mov_timelapse, to:.gif) }
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         return nil
@@ -143,7 +143,7 @@ class GifConverter_Timelapse: OptionableConverterBase<GifConverterDefaultOption>
 }
 
 class GifConverter_Burst: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
-    static var direction: ConvertableDirection { return ConvertableDirection(from:.burst, to:.gif) }
+    static var direction: ConvertingDirection { return ConvertingDirection(from:.burst, to:.gif) }
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         let gifOptions = options ?? GifConverterDefaultOption.default

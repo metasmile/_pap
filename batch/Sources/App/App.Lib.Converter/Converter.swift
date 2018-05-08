@@ -6,24 +6,25 @@
 import Foundation
 import Photos
 
-enum ConvertableMediaType: String, Decodable{
+enum ConvertingType: String, Decodable{
     case any = "Any"
     case jpeg = "Image (.jpg)" // e.g. - jpeg -> gif/livephoto/video == sliced Panorama -> play left to right
-    case png = "Image (.png)" // e.g. screenshots
+    case png = "Image (.png)"
+    case png_screenshot = "Screenshot Image" // e.g. screenshots
     case heif = "Image (.heif)"
     case mov = "Video (.mov)"
+    case mov_timelapse = "Timelapse Video"
     case mp4 = "Video (.mp4)"
     case wav = "Sound (.wav)" // e.g. mov -> sound -> wav or mp4
     case mp3 = "Audio (.mp3)"
     case livephoto = "Live Photo"
     case gif = "GIF"
     case burst = "Burst Photos"
-    case timelapse = "Timelapse Video"
 }
 
-struct ConvertableDirection: Codable, Equatable {
-    var from:ConvertableMediaType
-    var to:ConvertableMediaType
+struct ConvertingDirection: Codable, Equatable {
+    var from: ConvertingType
+    var to: ConvertingType
 
     var identifier:String{
         return from.rawValue + to.rawValue
@@ -40,7 +41,7 @@ struct ConvertableDirection: Codable, Equatable {
         try container.encode(to.rawValue, forKey: .to)
     }
 
-    public static func == (lhs: ConvertableDirection, rhs: ConvertableDirection) -> Bool {
+    public static func == (lhs: ConvertingDirection, rhs: ConvertingDirection) -> Bool {
         return lhs.from == rhs.from && lhs.to == rhs.to
     }
 }
@@ -49,41 +50,15 @@ protocol Converter {
 
     init()
 
-    static var direction:ConvertableDirection {get}
+    static var direction: ConvertingDirection {get}
 
     static func canPerformWith(source:AppAsset) -> Bool
 
     func convert(source:AppAsset, _ async: AsyncManualSignalable) -> Any?
 }
 
-extension Converter{
-    static func canPerformWith(source: AppAsset) -> Bool {
-        let t = source.asset.mediaType
-        let it = source.asset.imageType
-        let st = source.asset.mediaSubtypes
-
-        if it == .animatedGIF || it == .burst{
-            return true
-        }
-
-        if t == PHAssetMediaType.video {
-            return true
-        }
-
-        if t == PHAssetMediaType.image && (st.contains(.photoLive) || st.contains(.videoTimelapse)){
-            return true
-        }
-
-        return false
-    }
-
-    static var numberOfItemsShouldSelect: Int? {
-        return nil
-    }
-}
-
 struct ConverterSpec{
-    static func acquireInstance(collection:[Converter.Type], direction:ConvertableDirection, asset:AppAsset) -> Converter?{
+    static func acquireInstance(collection:[Converter.Type], direction: ConvertingDirection, asset:AppAsset) -> Converter?{
 
         let matchedWorkers = collection.filter { $0.direction==direction }
         assert(matchedWorkers.count==1, "Duplicated converter worker direction found. \(matchedWorkers)")
