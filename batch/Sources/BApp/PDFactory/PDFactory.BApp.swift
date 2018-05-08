@@ -57,10 +57,6 @@ public class PDFactory: BApp, FinalizableApp, PhotoPickerViewControllerDelegatab
 
     public lazy var dockContent: AppDockContent? = PDFactoryAppDockContent()
 
-    public var finalizingPresets: [PHAssetFinalizingPresets]? {
-        return nil
-    }
-
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
 
         let items = result

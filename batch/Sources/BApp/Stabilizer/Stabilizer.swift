@@ -88,7 +88,7 @@ public class Stabilizer: BApp, PHAssetFinalizableApp, AppDockControllableApp, Ph
 
     required public init() {}
     
-    public var finalizingPresets: [PHAssetFinalizingPresets]? {
+    public var finalizingPresets: [PHAssetFinalizingPresets] {
         return [.modify]
     }
 

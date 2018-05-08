@@ -277,7 +277,7 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
         }
     }
     
-    public var finalizingPresets: [PHAssetFinalizingPresets]? {
+    public var finalizingPresets: [PHAssetFinalizingPresets] {
         return [.create]
     }
     

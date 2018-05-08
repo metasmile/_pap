@@ -24,7 +24,7 @@ public class Clean: BApp, PHAssetFinalizableApp, AppDockControllableApp, PhotoPi
 
     public required init() {}
 
-    public var finalizingPresets: [PHAssetFinalizingPresets]? {
+    public var finalizingPresets: [PHAssetFinalizingPresets] {
         return [.delete]
     }
 

@@ -15,15 +15,19 @@ public enum PHAssetFinalizingPresets: Int{
 }
 
 public protocol PHAssetFinalizableApp: FinalizableApp {
-    var finalizingPresets: [PHAssetFinalizingPresets]? {get}
+    var finalizingPresets: [PHAssetFinalizingPresets] {get}
+}
+
+extension PHAssetFinalizableApp{
+    var finalizingPresets: [PHAssetFinalizingPresets] {
+        return [.share]
+    }
 }
 
 extension PHAssetFinalizableApp {
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
-        guard let finalizingPresets = self.finalizingPresets else {
-            return result
-        }
+        let finalizingPresets = self.finalizingPresets
 
         // filter only completed.
         let result = result.filter { respondable in respondable.info.state == .completed }
