@@ -133,14 +133,14 @@ private extension PhotosFilterApp {
     
     private func createController() -> AppDockContent {
         let image = PhotosFilterApp.info.icon?.asUIImage
-        var items = CIFilters.filters.map({ (filter) -> BAppUICollectionView.CollectionItem in
-            return BAppUICollectionView.CollectionItem(title: PhotosFilterNames.aliasName(filter.name), image: image?.applyFilter(ciFilter: filter), action: {
+        var items = CIFilters.filters.map({ (filter) -> AppUICollectionView.CollectionItem in
+            return AppUICollectionView.CollectionItem(title: PhotosFilterNames.aliasName(filter.name), image: image?.applyFilter(ciFilter: filter), action: {
                 self.config?.filter = CIFilterItem(filter)
             })
         })
-        items.insert(BAppUICollectionView.CollectionItem(title: "Original".localized, image: image, action: { self.config?.filter = CIFilterItem() }), at: 0)
+        items.insert(AppUICollectionView.CollectionItem(title: "Original".localized, image: image, action: { self.config?.filter = CIFilterItem() }), at: 0)
         
-        let view = BAppUICollectionView(items: items)
+        let view = AppUICollectionView(items: items)
         
         var p = AppDockContentPreferences()
         p.pinned = true

@@ -21,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a00-02-yOl" customClass="BAppUIAssetView" customModule="batch" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a00-02-yOl" customClass="AppUIAssetView" customModule="batch" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="HCf-3S-g43"/>

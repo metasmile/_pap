@@ -33,7 +33,7 @@ class PhotoPickerViewController: AppDockViewController {
         batchPreviewView.delegate = self
 
         //photos collection
-        photoCollectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: "PhotoCollectionViewCell")
+        photoCollectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: PhotoCollectionViewCell.self))
         photoCollectionView.register(PhotoPickerFooterView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: "PhotoPickerFooterView")
         photoCollectionView.allowsMultipleSelection = true
         

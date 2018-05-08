@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BAppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     struct CollectionItem {
         var title: String?
         var image: UIImage?
@@ -46,7 +46,7 @@ class BAppUICollectionView: UIView, UICollectionViewDataSource, UICollectionView
     }
     
     private lazy var collectionView: UICollectionView = {
-        let view = UICollectionView(frame: bounds, collectionViewLayout: BAppUICollectionViewLayout())
+        let view = UICollectionView(frame: bounds, collectionViewLayout: AppUICollectionViewLayout())
         view.dataSource = self
         view.delegate = self
         view.allowsMultipleSelection = false
@@ -56,7 +56,7 @@ class BAppUICollectionView: UIView, UICollectionViewDataSource, UICollectionView
         view.showsHorizontalScrollIndicator = false
         view.scrollsToTop = false
         view.backgroundColor = UIColor.clear
-        view.register(BAppUICollectionViewCell.self, forCellWithReuseIdentifier: "BAppUICollectionViewCell")
+        view.register(AppUICollectionViewCell.self, forCellWithReuseIdentifier: String(describing: AppUICollectionViewCell.self))
         return view
     }()
     
@@ -72,7 +72,7 @@ class BAppUICollectionView: UIView, UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BAppUICollectionViewCell", for: indexPath) as! BAppUICollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.nib.appUICollectionViewCell.name, for: indexPath) as! AppUICollectionViewCell
         cell.title = items[indexPath.item].title
         cell.image = items[indexPath.item].image
         return cell
@@ -87,7 +87,7 @@ class BAppUICollectionView: UIView, UICollectionViewDataSource, UICollectionView
     }
 }
 
-class BAppUICollectionViewLayout: UICollectionViewLayout {
+class AppUICollectionViewLayout: UICollectionViewLayout {
     private enum LayoutItem: String {
         case item = "Item"
         case header = "UICollectionElementKindSectionHeader"
@@ -156,7 +156,7 @@ class BAppUICollectionViewLayout: UICollectionViewLayout {
     }
 }
 
-class BAppUICollectionViewCell: CustomCollectionViewCell {
+class AppUICollectionViewCell: CustomCollectionViewCell {
     @IBOutlet private weak var selectionView: RoundedView!
     @IBOutlet private  weak var imageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
@@ -208,7 +208,7 @@ class BAppUICollectionViewCell: CustomCollectionViewCell {
     }
 }
 
-class BAppUICollectionStackView: BAppUICollectionView {
+class AppUICollectionStackView: AppUICollectionView {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         super.collectionView(collectionView, didSelectItemAt: indexPath)
         collectionView.deselectItem(at: indexPath, animated: true)

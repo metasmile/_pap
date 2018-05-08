@@ -10,7 +10,7 @@ import UIKit
 import Photos
 
 class PreviewCollectionViewCell: CustomCollectionViewCell {
-    @IBOutlet weak var assetView: BAppUIAssetView!
+    @IBOutlet weak var assetView: AppUIAssetView!
     
     var indexPath: IndexPath?
     var asset: PHAsset?

@@ -42,7 +42,7 @@ class PreviewView: CustomView {
         
         collectionView.contentInset.top = 1
         collectionView.contentInset.bottom = 1
-        collectionView.register(PreviewCollectionViewCell.self, forCellWithReuseIdentifier: "PreviewCollectionViewCell")
+        collectionView.register(PreviewCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: PreviewCollectionViewCell.self))
         updateCollectionViewAlignment(animated: false)
     }
 
@@ -291,7 +291,7 @@ extension PreviewView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PreviewCollectionViewCell", for: indexPath) as! PreviewCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.nib.previewCollectionViewCell.name, for: indexPath) as! PreviewCollectionViewCell
         cell.setEditItemForPreview(appAssetsSelected.at(indexPath.item), at: indexPath)
         return cell
     }

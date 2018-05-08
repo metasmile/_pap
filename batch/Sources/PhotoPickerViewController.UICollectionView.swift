@@ -40,7 +40,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as! PhotoCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.nib.photoCollectionViewCell.name, for: indexPath) as! PhotoCollectionViewCell
         if let asset = PHAssets.fetched.asset(at: indexPath) {
             cell.imageContentMode = .aspectFill
             cell.setAsset(asset, at: indexPath)

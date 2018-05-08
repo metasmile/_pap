@@ -80,21 +80,21 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
 private extension TransformApp{
     private func createController() -> AppDockContent {
         let items = [
-            BAppUICollectionView.CollectionItem(title: nil, image: R.image.flipVertical()?.withRenderingMode(.alwaysTemplate), action: {
+            AppUICollectionView.CollectionItem(title: nil, image: R.image.flipVertical()?.withRenderingMode(.alwaysTemplate), action: {
                 self.config?.transform = VerticalFlipTransformItem()
             }),
-            BAppUICollectionView.CollectionItem(title: nil, image: R.image.flipHorizontal()?.withRenderingMode(.alwaysTemplate), action: {
+            AppUICollectionView.CollectionItem(title: nil, image: R.image.flipHorizontal()?.withRenderingMode(.alwaysTemplate), action: {
                 self.config?.transform = HorizontalFlipTransformItem()
             }),
-            BAppUICollectionView.CollectionItem(title: nil, image: R.image.rotateLeft()?.withRenderingMode(.alwaysTemplate), action: {
+            AppUICollectionView.CollectionItem(title: nil, image: R.image.rotateLeft()?.withRenderingMode(.alwaysTemplate), action: {
                 self.config?.transform = RotationTransformItem(degrees: -90)
             }),
-            BAppUICollectionView.CollectionItem(title: nil, image: R.image.rotateRight()?.withRenderingMode(.alwaysTemplate), action: {
+            AppUICollectionView.CollectionItem(title: nil, image: R.image.rotateRight()?.withRenderingMode(.alwaysTemplate), action: {
                 self.config?.transform = RotationTransformItem(degrees: 90)
             })
         ]
         
-        let view = BAppUICollectionStackView(items: items)
+        let view = AppUICollectionStackView(items: items)
         var preferences = AppDockContentPreferences()
         preferences.pinned = true
         preferences.minimumHeight = 44

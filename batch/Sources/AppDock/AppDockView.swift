@@ -90,7 +90,7 @@ class AppDockView: CustomView {
 
         appCollectionView.contentInset.top = 0
         appCollectionView.contentInset.bottom = 0
-        appCollectionView.register(AppDockViewCell.self, forCellWithReuseIdentifier: "AppDockViewCell")
+        appCollectionView.register(AppDockViewCell.self, forCellWithReuseIdentifier: String(describing: AppDockViewCell.self))
 
         drawerView.topMargin = DefaultPreferences.DrawerView.topMargin
 
@@ -354,7 +354,7 @@ extension AppDockView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AppDockViewCell", for: indexPath) as! AppDockViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.nib.appDockViewCell.name, for: indexPath) as! AppDockViewCell
         let app = items[indexPath.item].app
         cell.setApp(app, at: indexPath)
         

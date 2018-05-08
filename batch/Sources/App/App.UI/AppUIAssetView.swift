@@ -11,7 +11,7 @@ import Photos
 import AVFoundation
 import PhotosUI
 
-class BAppUIAssetView: AssetView {
+class AppUIAssetView: AssetView {
     fileprivate var editState: StateValueSet<ImageEditStateValue>?
     
     override var image: UIImage? {
@@ -41,7 +41,7 @@ class BAppUIAssetView: AssetView {
 
 //MARK: - Apply Edit State
 
-extension BAppUIAssetView {
+extension AppUIAssetView {
     func applyEditState<T>(_ editState: StateValueSet<T>?) where T: ImageEditStateValue {
         self.editState = editState as? StateValueSet<ImageEditStateValue>
         

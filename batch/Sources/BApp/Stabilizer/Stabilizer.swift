@@ -105,12 +105,12 @@ public class Stabilizer: BApp, PHAssetFinalizableApp, AppDockControllableApp, Ph
     
     private func createController() -> AppDockContent {
         let items = [
-            BAppUICollectionView.CollectionItem(title: "Original".localized, image: nil, action: { self.config?.stabilizationMode = StabilizerAppValue() }),
-            BAppUICollectionView.CollectionItem(title: "Normal".localized, image: nil, action: { self.config?.stabilizationMode = StabilizerAppValue(.translation) }),
-            BAppUICollectionView.CollectionItem(title: "Strong".localized, image: nil, action: { self.config?.stabilizationMode = StabilizerAppValue(.homographic) })
+            AppUICollectionView.CollectionItem(title: "Original".localized, image: nil, action: { self.config?.stabilizationMode = StabilizerAppValue() }),
+            AppUICollectionView.CollectionItem(title: "Normal".localized, image: nil, action: { self.config?.stabilizationMode = StabilizerAppValue(.translation) }),
+            AppUICollectionView.CollectionItem(title: "Strong".localized, image: nil, action: { self.config?.stabilizationMode = StabilizerAppValue(.homographic) })
         ]
         
-        let view = BAppUICollectionView(items: items)
+        let view = AppUICollectionView(items: items)
         
         var p = AppDockContentPreferences()
         p.pinned = true

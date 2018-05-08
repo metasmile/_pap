@@ -103,7 +103,6 @@
 		4F71DAEE1C20D9C8B9C38E95 /* bath01.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D489CB86B80D005FDC3C /* bath01.gif */; };
 		4F71DB2B9DF220FBD8CBB497 /* PhotoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D47F20EC723F99C7D8F4 /* PhotoEditViewController.swift */; };
 		4F71DB6DFA22872615C35AB0 /* warp.metal in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5D63852192CF4147FD5 /* warp.metal */; };
-		4F71DBA0BF47C86662094DDF /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7B9B7448BC702F90C6A /* README.md */; };
 		4F71DBB61D645367E3ED362A /* ImageIO.Metadata.Properties.Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF2BA1EF2662C299D170 /* ImageIO.Metadata.Properties.Label.swift */; };
 		4F71DBCB2A884DD7DB4E77C5 /* AssetIO.TimelapsVideoBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D528E12644D0332ECCAF /* AssetIO.TimelapsVideoBuilder.swift */; };
 		4F71DC6066F5DE652D19626D /* ImageIO.Metadata.VoidValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2A052463FFF3B331002 /* ImageIO.Metadata.VoidValues.swift */; };
@@ -121,7 +120,6 @@
 		4F71DD96889086A493429E3F /* AppAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0150990AE9E6B4D72A2 /* AppAssets.swift */; };
 		4F71DDA1AEBC0351DA96F2E4 /* AppUIAssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC9B1E3F0901394FC91B /* AppUIAssetView.swift */; };
 		4F71DE0A2F73FBEA8A941558 /* CodeKit.OptionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2593153FA71D25C1A2D /* CodeKit.OptionSet.swift */; };
-		4F71DE2617E175A62C30027C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DA3532F822CE2EB7A5A9 /* LICENSE */; };
 		4F71DE3457812690D3C52766 /* PreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7F57559839F5372E741 /* PreviewCollectionViewCell.swift */; };
 		4F71DE4601387AC191A52227 /* CodeKit.AVAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDA8A017FB240BD27C24 /* CodeKit.AVAsset.swift */; };
 		4F71DE6DDDD0BC4FB5B79F6D /* App.Finalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD0573CFB93A8F794768 /* App.Finalizable.swift */; };
@@ -356,7 +354,6 @@
 		4F71D773FC46EC6E276E5D44 /* CodeKit.Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Collection.swift; sourceTree = "<group>"; };
 		4F71D7856058B185FB79A489 /* App.Lib.EditStateValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Lib.EditStateValue.swift; sourceTree = "<group>"; };
 		4F71D7B9B61BD2BA1F16758D /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
-		4F71D7B9B7448BC702F90C6A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4F71D7C1E4B21C4D1DEC9334 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; name = "GoogleService-Info.plist"; path = "batch/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4F71D7D5C4AEA9D67FB0FFFD /* AppDockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDockView.swift; sourceTree = "<group>"; };
 		4F71D7F57559839F5372E741 /* PreviewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -379,7 +376,6 @@
 		4F71D9E00E76B61EE487E600 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		4F71DA10E97AC3BD6F9BEB5F /* App.PhotoPickerCollectionViewDisplayable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.PhotoPickerCollectionViewDisplayable.swift; sourceTree = "<group>"; };
 		4F71DA2C81A5E64BA1A98AF7 /* PreviewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewCollectionViewCell.xib; sourceTree = "<group>"; };
-		4F71DA3532F822CE2EB7A5A9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4F71DA3C273565A6E320B6AF /* PhotoPickerFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerFooterView.swift; sourceTree = "<group>"; };
 		4F71DA4D5DD50E9D0383BBA0 /* UITableViewCellDescribable.UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellDescribable.UITableView.swift; sourceTree = "<group>"; };
 		4F71DA4EAE4DF6B4FF6A583D /* BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BApp.swift; sourceTree = "<group>"; };
@@ -865,8 +861,6 @@
 		4F71D4E47D5460ED84924F1D /* AssetIO */ = {
 			isa = PBXGroup;
 			children = (
-				4F71DA3532F822CE2EB7A5A9 /* LICENSE */,
-				4F71D7B9B7448BC702F90C6A /* README.md */,
 				4F71D31EC3D1084A8DDCE00E /* AssetIO.LivePhoto.swift */,
 				4F71D528E12644D0332ECCAF /* AssetIO.TimelapsVideoBuilder.swift */,
 				4F71DA862E45A6C3A07BFC8C /* AssetIO.LivePhotoResource.Image.swift */,
@@ -2333,7 +2327,6 @@
 				4F71D5EEC984FAED85297905 /* AppDockView.xib in Resources */,
 				4F71D466EFAA7A462A5C0945 /* AppDockViewCell.xib in Resources */,
 				4F71D78E5582BC36F7298D40 /* AppUICollectionViewCell.xib in Resources */,
-				4F71DE2617E175A62C30027C /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2522,7 +2515,6 @@
 				A0FAA0CF20A1D92700B102ED /* Convert.BApp.swift in Sources */,
 				4F71DAC710F2B7DEDFE6164E /* Sourceable.PHAsset.swift in Sources */,
 				A0FAA0B720A1D92700B102ED /* Revert.BApp.Public.Contents.swift in Sources */,
-				4F71DBA0BF47C86662094DDF /* README.md in Sources */,
 				A0FAA0CB20A1D92700B102ED /* Transform.BApp.Contents.swift in Sources */,
 				4F71D0440EB3CB53F84A71C1 /* AssetIO.LivePhoto.swift in Sources */,
 				4F71DBCB2A884DD7DB4E77C5 /* AssetIO.TimelapsVideoBuilder.swift in Sources */,
