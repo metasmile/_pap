@@ -300,17 +300,7 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
         switch GIFMakerSettings.sourceType.type(rawValue: (GIFMaker.defaults as! GIFMakerDefaults).sourceType) {
         case .photo?:
             let urls = resultItems.compactMap({ $0.fileURL })
-            let imageFiles: [URL] = {
-                if urls.count > 1 {
-                    switch GIFMakerSettings.direction.type(rawValue: defaults.direction) {
-                    case .reverse?: return urls.reversed()
-                    case .forwardAndReverse?: return urls + urls[1...].reversed()[1...]
-                    default: break
-                    }
-                }
-                return []
-            }()
-            if let url = UIImageGIFRepresentationURL(with: imageFiles, loopCount: defaults.loopCount, frameDelay: Double(defaults.frameDelay) / 1000) {
+            if let url = UIImageGIFRepresentationURL(with: GifConverterDefaultOption.URLs(urls: urls, with: defaults.direction), loopCount: defaults.loopCount, frameDelay: Double(defaults.frameDelay) / 1000) {
                 results.append(url)
             }
         default: results += resultItems.compactMap({ $0.fileURL })
@@ -726,10 +716,12 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             cell.imageView?.image = item.iconImage?.asUIImage
             cell.detailTextLabel?.textColor = UIColor.gray
             
+            cell.segmentedControl.apportionsSegmentWidthsByContent = true
             cell.segmentedControl.removeAllSegments()
             for k in valueCollection{
                 cell.segmentedControl.insertSegment(withTitle: k, at: cell.segmentedControl.numberOfSegments, animated: false)
             }
+            cell.segmentedControl.sizeToFit()
             
             if let label = item.valueGetter() as? String {
                 cell.segmentedControl.selectedSegmentIndex = valueCollection.index(of: label) ?? 0

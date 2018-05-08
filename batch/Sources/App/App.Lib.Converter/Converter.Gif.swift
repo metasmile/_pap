@@ -37,6 +37,10 @@ struct GifConverterDefaultOption {
     }
     
     func urlWithDirection(urls: [URL]) -> [URL] {
+        return GifConverterDefaultOption.URLs(urls: urls, with: direction)
+    }
+    
+    static func URLs(urls: [URL], with direction: Int) -> [URL] {
         if urls.count > 1 {
             switch direction {
             case 1: return urls.reversed()
