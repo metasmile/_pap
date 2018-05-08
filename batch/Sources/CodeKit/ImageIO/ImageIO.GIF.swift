@@ -8,21 +8,18 @@ import UIKit
 import ImageIO
 import MobileCoreServices
 
-public func UIImageGIFRepresentation(with imageFiles: [URL], direction: Int = 0, loopCount: Int = 0, frameDelay: Double, removesImageFilePaths: Bool = true) -> Data? {
-    let urls: [URL] = {
-        if imageFiles.count > 1 {
-            switch direction {
-            case 1: return imageFiles.reversed()
-            case 2: return imageFiles + imageFiles[1...].reversed()[1...]
-            default: break
-            }
-        }
-        return []
-    }()
-    return UIImageGIFRepresentation(with:urls, loopCount:loopCount, frameDelay:frameDelay, removesImageFilePaths: removesImageFilePaths)
+public func UIImageGIFRepresentation(with imageFiles: [URL], loopCount: Int = 0, frameDelay: Double, removesImageFilePaths: Bool = true) -> Data? {
+    guard let url = UIImageGIFRepresentationURL(with: imageFiles, loopCount: loopCount, frameDelay: frameDelay, removesImageFilePaths: removesImageFilePaths) else { return nil }
+    let gifData = try? Data(contentsOf: url)
+    
+    if removesImageFilePaths {
+        try? FileManager.default.removeItem(at: url)
+    }
+
+    return gifData
 }
 
-public func UIImageGIFRepresentation(with imageFiles: [URL], loopCount: Int = 0, frameDelay: Double, removesImageFilePaths: Bool = true) -> Data? {
+public func UIImageGIFRepresentationURL(with imageFiles: [URL], loopCount: Int = 0, frameDelay: Double, removesImageFilePaths: Bool = true) -> URL? {
     let fileProperties = [
         ImageMetadata.Dictionary.GIF: [
             ImageMetadata.Property.GIFLoopCount: loopCount
@@ -34,29 +31,25 @@ public func UIImageGIFRepresentation(with imageFiles: [URL], loopCount: Int = 0,
             ImageMetadata.ColorModel: ImageMetadata.ColorModelRGB
         ]
     ]
-
+    
     let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(UUID().uuidString).gif")
     guard let destination = CGImageDestinationCreateWithURL(url as CFURL, kUTTypeGIF, imageFiles.count, nil) else { return nil }
     CGImageDestinationSetProperties(destination, fileProperties as CFDictionary)
-
+    
     for imageFile in imageFiles {
         autoreleasepool {
             guard let cgImage = UIImage(contentsOfFile: imageFile.path)?.cgImage else { return }
             CGImageDestinationAddImage(destination, cgImage, frameProperties as CFDictionary)
         }
     }
-
-    var gifData: Data?
-    if CGImageDestinationFinalize(destination) {
-        gifData = try? Data(contentsOf: url)
-    }
+    
+    let success = CGImageDestinationFinalize(destination)
     
     if removesImageFilePaths {
         imageFiles.forEach({ try? FileManager.default.removeItem(at: $0) })
     }
-    try? FileManager.default.removeItem(at: url)
-
-    return gifData
+    
+    return success ? url : nil
 }
 
 //https://gist.github.com/powhu/00acd9d34fa8d61d2ddf5652f19cafcf

@@ -99,12 +99,22 @@ class GifConverter_Burst: OptionableConverterBase<GifConverterDefaultOption>, Gi
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         let gifOptions = options ?? GifConverterDefaultOption.default
-        let param = ConverterBurstImageExtractParam(targetSize: gifOptions.sizeWithAspectRatio(), imageQuality: CGFloat(gifOptions.gifQuality))
+        let param = ConverterBurstImageExtractParam(targetSize: gifOptions.sizeWithAspectRatio(), imageQuality: CGFloat(gifOptions.gifQuality), contentMode: PHImageContentMode(rawValue: gifOptions.contentMode) ?? PHImageContentMode.aspectFit)
         
         let extractTask = AsyncSignal()
         guard let urls = extractBurstImageURLs(source: source, param: param, extractTask) else { return nil }
-        let result = UIImageGIFRepresentation(with: urls, direction: gifOptions.direction, loopCount: gifOptions.loopCount, frameDelay: Double(gifOptions.frameDelay) / 1000)
-        return result
+        let imageFiles: [URL] = {
+            if urls.count > 1 {
+                switch gifOptions.direction {
+                case 1: return urls.reversed()
+                case 2: return urls + urls[1...].reversed()[1...]
+                default: break
+                }
+            }
+            return []
+        }()
+        
+        return UIImageGIFRepresentationURL(with: imageFiles, loopCount: gifOptions.loopCount, frameDelay: Double(gifOptions.frameDelay) / 1000)
     }
 
     static func shouldSelect(source: AppAsset) -> Bool {

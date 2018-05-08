@@ -173,6 +173,7 @@ struct ConverterBurstImageExtractParam {
     let filenamePrefix:String = String(describing: ConverterBurstImageExtractParam.self)
     var targetSize:CGSize = CGSize(width: 1920, height: 1920)
     var imageQuality:CGFloat = CGFloat(0.7)
+    var contentMode: PHImageContentMode = .aspectFit
 }
 
 extension Converter{
@@ -192,7 +193,7 @@ extension Converter{
         fetchedAsset.enumerateObjects { (asset:PHAsset, idx, stop) in
             async.begin()
             
-            let response = asset.requestImage(targetSize: targetSize, contentMode: .aspectFit, options: PHAsset.highQualityImageRequestOptions)
+            let response = asset.requestImage(targetSize: targetSize, contentMode: param.contentMode, options: PHAsset.highQualityImageRequestOptions)
 
             var resultUrl: URL? = nil
             if let image = response.1, let data = UIImageJPEGRepresentation(image, CGFloat(imageQuality)) {
