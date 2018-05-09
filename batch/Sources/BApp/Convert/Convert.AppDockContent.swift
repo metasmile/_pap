@@ -14,6 +14,7 @@ import TPPDF
 private enum Cells {
     case convertingDirectionFrom
     case convertingDirectionTo
+    case convertingDirection
 }
 
 private extension ConvertingDirection {
@@ -71,77 +72,39 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
 
     private func createCellDescribers() -> [UITableViewCellDefaultDescribable]{
         var cellDescribers = [UITableViewCellDefaultDescribable]()
-
-        let cell_from = UITableViewActionSheetCellDescriber()
-        let cell_to = UITableViewActionSheetCellDescriber()
-
-        cell_from.itemIdentifier = Cells.convertingDirectionFrom.hashValue
-        cell_from.label = "Convert From"
-        cell_from.valueGetter =  { self.defaults.convertingDirection.from.rawValue }
-//        cell_from.valueCollection = ConvertApp.getAvailableWorkersNamesFrom(toRawValue:defaults.convertingDirection.to.rawValue)
-        cell_from.valueCollection = ConvertApp.availableWorkerNames
-
-        cell_from.valueHandler = { value in
-            guard let from = value as? String else {
-                return
-            }
-
-            let availableToList = ConvertApp.getAvailableWorkersNamesTo(fromRawValue:from)
-
-            //update to cell
-            let valueUpdatingGetter = cell_to.valueGetter() as? String
-            if let containsValue = valueUpdatingGetter, !availableToList.contains(containsValue){
-                cell_to.valueGetter = { availableToList.first }
-            }
-
-            if /*let toValue = valueUpdatingGetter,*/ let direction = ConvertApp.availableDirections.first(where:{ direction in
-                /*direction.to.rawValue == toValue &&*/ direction.from.rawValue == from
-            }){
-
-                cell_to.valueCollection = availableToList
-                self.reloadRows(by:Cells.convertingDirectionTo.hashValue)
-
+        
+        let valueCollection = {
+            return [
+                UIPickerItem(component: "From", values: ConvertApp.availableWorkerNames),
+                UIPickerItem(component: "To", values: ConvertApp.getAvailableWorkersNamesTo(fromRawValue:self.defaults.convertingDirection.from.rawValue)),
+                ]
+        }
+        
+        let from_to_cell = UITableViewMultiplePickerCellDescriber()
+        from_to_cell.itemIdentifier = Cells.convertingDirection.hashValue
+        from_to_cell.label = "Convert"
+        from_to_cell.valueGetter = { (self.defaults.convertingDirection.from, self.defaults.convertingDirection.to) }
+        from_to_cell.valueCollection = valueCollection
+        from_to_cell.valueHandler = { value in
+            guard let value = value as? (UITableViewMultiplePickerCell, Int, String) else { return }
+            
+            let cell = value.0
+            let component = value.1
+            let convertTypeRawValue = value.2
+            
+            if component == 0, let direction = ConvertApp.availableDirections.first(where:{ $0.from.rawValue == convertTypeRawValue }) {
                 self.defaults.convertingDirection = direction
                 self.app?.config?.convertingDirectionIdentifier = direction.identifier
-
+                
+                cell.values = valueCollection()
+                cell.picker.reloadComponent(1)
             }
-        }
-        cellDescribers.append(cell_from)
-
-
-        cell_to.itemIdentifier = Cells.convertingDirectionTo.hashValue
-        cell_to.label = "To"
-        cell_to.valueGetter =  { self.defaults.convertingDirection.to.rawValue }
-        cell_to.valueCollection = ConvertApp.getAvailableWorkersNamesTo(fromRawValue:defaults.convertingDirection.from.rawValue)
-        cell_to.valueHandler = { value in
-            guard let to = value as? String else {
-                return
-            }
-
-//            let availableFromList = ConvertApp.getAvailableWorkersNamesFrom(toRawValue: to)
-
-            //update to cell
-            let valueUpdatingGetter = cell_from.valueGetter() as? String
-//            if let containsValue = valueUpdatingGetter, !availableFromList.contains(containsValue){
-//                cell_from.valueGetter = { availableFromList.first }
-//            }
-
-            if let fromValue = valueUpdatingGetter, let direction = ConvertApp.availableDirections.first(where:{ direction in
-                direction.from.rawValue == fromValue && direction.to.rawValue == to
-            }){
-
-//                cell_from.valueCollection = ConvertApp.availableWorkerNames
-//                self.reloadRows(by:Cells.convertingDirectionFrom.hashValue)
-
+            else if component == 1, let direction = ConvertApp.availableDirections.first(where:{ $0.from == self.defaults.convertingDirection.from && $0.to.rawValue == convertTypeRawValue }) {
                 self.defaults.convertingDirection = direction
                 self.app?.config?.convertingDirectionIdentifier = direction.identifier
-
-            }else{
-                assert(false, "Not found any matched workers.")
             }
         }
-        cellDescribers.append(cell_to)
-
+        cellDescribers.append(from_to_cell)
 
         return cellDescribers
     }
@@ -171,7 +134,7 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let cell = tableView.cellForRow(at: indexPath)
 
-        if let c = cell as? UITableViewPickerCell {
+        if let c = cell as? UITableViewExpandableCell {
             return c.estimatedHeightForRowSelected
         }
         return tableView.rowHeight
@@ -184,16 +147,16 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-
-        if let cell = tableView.cellForRow(at: indexPath) as? UITableViewPickerCell {
-            if cell.isExpanded{
-                cell.contract(tableView, animated: true) { b in
-
-                }
+        
+        if let cell = tableView.cellForRow(at: indexPath) as? UITableViewExpandableCell {
+            if cell.isExpanded {
+                cell.contract(tableView, animated: true, completion: nil)
             } else{
+                tableView.contractAllVisiblePickerCells()
+                
                 appDock?.expandDockIfNeeded(reloadContents: nil)
                 DispatchQueue.main.async{
-                    cell.expand(tableView)
+                    cell.expand(tableView, animated: true, completion: nil)
                 }
             }
         }
@@ -202,7 +165,32 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = self.cellDescribers[indexPath.item]
 
-        if let cellDescriber = item as? UITableViewPickerCellDescriber
+        if let cellDescriber = item as? UITableViewMultiplePickerCellDescriber
+            , let valueCollection = cellDescriber.valueCollection as? (() -> [UIPickerItem])
+            , let cell: UITableViewMultiplePickerCell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewMultiplePickerCell{
+            
+            cell.values = valueCollection()
+            if let value = item.valueGetter() as? (ConvertingType, ConvertingType) {
+                let row1 = cell.values[0].values.index(where: { $0 == value.0.rawValue }) ?? 0
+                let row2 = cell.values[1].values.index(where: { $0 == value.1.rawValue }) ?? 0
+                
+                cell.setSelectedRow(row1, inComponent: 0, animated: true)
+                cell.setSelectedRow(row2, inComponent: 1, animated: true)
+                
+                cell.valueLabel.text = "\(cell.values[0].values[row1]) > \(cell.values[1].values[row2])"
+            }
+            cell.titleLabel.text = item.label
+            cell.pickerDidChange = { cell, row, component, value in
+                cellDescriber.valueHandler?((cell, component, value))
+                
+                cell.valueLabel.text = "\(cell.values[0].values[cell.selectedRow(for: 0) ?? 0]) > \(cell.values[1].values[cell.selectedRow(for: 1) ?? 0])"
+                
+                print("\(cell.values[0].values[cell.selectedRow(for: 0) ?? 0]) > \(cell.values[1].values[cell.selectedRow(for: 1) ?? 0])")
+            }
+            return cell
+            
+        }
+        else if let cellDescriber = item as? UITableViewPickerCellDescriber
         , let valueCollection = cellDescriber.valueCollection as? [String]
         , let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewPickerCell{
 

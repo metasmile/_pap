@@ -84,6 +84,12 @@ public class UITableViewPickerCellDescriber: UITableViewCellDescriber, UITableVi
     public var valueCollection: Any?
 }
 
+public class UITableViewMultiplePickerCellDescriber: UITableViewCellDescriber, UITableViewCellMultipleValueDescribable {
+    public override var cellClass:Swift.AnyClass { return UITableViewMultiplePickerCell.self }
+    
+    public var valueCollection: Any?
+}
+
 public class UITableViewSwitchCellDescriber: UITableViewCellDescriber {
     public override var cellClass:Swift.AnyClass { return UITableViewSwitchCell.self }
 }

@@ -635,15 +635,15 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if let cell = tableView.cellForRow(at: indexPath) as? UITableViewPickerCell {
+        if let cell = tableView.cellForRow(at: indexPath) as? UITableViewExpandableCell {
             if cell.isExpanded {
-                cell.contract(tableView)
+                cell.contract(tableView, animated: true, completion: nil)
             } else{
                 tableView.contractAllVisiblePickerCells()
                 
                 appDock?.expandDockIfNeeded(reloadContents: nil)
                 DispatchQueue.main.async{
-                    cell.expand(tableView)
+                    cell.expand(tableView, animated: true, completion: nil)
                 }
             }
         }

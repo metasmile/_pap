@@ -13,6 +13,18 @@
 import Foundation
 import UIKit
 
+public protocol UITableViewExpandableCell {
+    var isExpanded: Bool { get }
+    var estimatedHeightForRowSelected: CGFloat { get }
+    /**
+     Expands or contracts the table cell depending on its current state. Call this method from the "tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)" delegate method to show or hide the picker view with an animation.
+     - Parameter tableView: The UITableView object that contains the cell.
+     */
+    func expand(_ tableView: UITableView, animated:Bool, completion:((Bool) -> Swift.Void)?)
+    func contract(_ tableView: UITableView, animated:Bool, completion:((Bool) -> Swift.Void)?)
+    func updateForExpansion(_ tableView: UITableView, animated:Bool, completion:((Bool) -> Swift.Void)?)
+}
+
 /**
  The delegate of an UITableViewPickerCell object must adopt this protocol and implement its methods to retrieve the currently selected values.
 */
@@ -26,7 +38,7 @@ public protocol UITableViewPickerCellDelegate {
     func pickerCell(_ cell: UITableViewPickerCell, didPick row: Int, value: Any)
 }
 
-public class UITableViewPickerCell: UITableViewCell {
+public class UITableViewPickerCell: UITableViewCell, UITableViewExpandableCell {
 
     /**
      The picker type determines whether a UIPickerView or a UIDatePicker is used to display and pick values.
@@ -82,7 +94,7 @@ public class UITableViewPickerCell: UITableViewCell {
     public private(set) var pickerType = PickerType.default
 
     /// The current status of the cell's status. The picker view is visible while the cell is expanded and hidden when it is not. Set this property to the desired state and reload table view rows to expand or contract the cell.
-    private(set) var isExpanded = false
+    private(set) public var isExpanded = false
 
     private var titleLabelHeightConstraint: NSLayoutConstraint?
     private var valueLabelHeightConstraint: NSLayoutConstraint?
@@ -334,7 +346,7 @@ public class UITableViewPickerCell: UITableViewCell {
         }
     }
 
-    private func updateForExpansion(_ tableView: UITableView, animated:Bool=true, completion:((Bool) -> Swift.Void)? = nil){
+    public func updateForExpansion(_ tableView: UITableView, animated:Bool=true, completion:((Bool) -> Swift.Void)? = nil){
         func changeLabelColor(){
             self.valueLabel.textColor = self.isExpanded ? self.tintColor : self.defaultValueLabelTextColor
         }

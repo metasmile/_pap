@@ -8,11 +8,11 @@ import UIKit
 
 extension UITableView{
 
-    private var allVisiblePickerCells:[(IndexPath, UITableViewPickerCell)]?{
+    private var allVisiblePickerCells:[(IndexPath, UITableViewExpandableCell)]?{
         if let indexes = self.indexPathsForVisibleRows{
-            var cells = [(IndexPath, UITableViewPickerCell)]()
+            var cells = [(IndexPath, UITableViewExpandableCell)]()
             for index in indexes{
-                if let pickerCell = self.cellForRow(at: index) as? UITableViewPickerCell{
+                if let pickerCell = self.cellForRow(at: index) as? UITableViewExpandableCell{
                     cells.append((index, pickerCell))
                 }
             }

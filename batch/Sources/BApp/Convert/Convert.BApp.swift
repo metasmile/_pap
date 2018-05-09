@@ -187,38 +187,3 @@ private class ConvertAppTask: TaskPrototype, Taskable {
         return result == nil ? nil : ConvertAppResult(result: result)
     }
 }
-
-private struct ConverterCachedAsset {
-    public var asset: PHAsset
-    public var resultFileURL: URL
-
-    static func cacheAsset(_ asset: PHAsset, image: UIImage, targetSize: CGSize) -> ConverterCachedAsset {
-        let imageToWrite: UIImage
-        if targetSize == image.size {
-            imageToWrite = image
-        }
-        else {
-            imageToWrite = UIGraphicsImageRenderer(size: targetSize, format: image.imageRendererFormat).imageWithCurrentContext { (cgContext) in
-                UIColor.white.setFill()
-                cgContext.fill(CGRect(origin: .zero, size: targetSize))
-                image.draw(in: AVMakeRect(aspectRatio: image.size, insideRect: CGRect(origin: .zero, size: targetSize)))
-            } ?? image
-        }
-
-
-        var data: Data?
-        var fileExtension = "jpg"
-        switch asset.uniformTypeIdentifier{
-            case UTCoreTypes.PNG:
-                data = UIImagePNGRepresentation(imageToWrite)
-                fileExtension = "png"
-            default:
-                data = UIImageJPEGRepresentation(imageToWrite, 1)
-        }
-
-        let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(ConvertApp.info.identifier)_\(UUID().uuidString).\(fileExtension)")
-        try? data?.write(to: url)
-
-        return ConverterCachedAsset(asset: asset, resultFileURL: url)
-    }
-}
