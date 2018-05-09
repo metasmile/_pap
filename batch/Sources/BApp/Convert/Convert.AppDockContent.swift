@@ -177,13 +177,13 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
                 cell.setSelectedRow(row1, inComponent: 0, animated: true)
                 cell.setSelectedRow(row2, inComponent: 1, animated: true)
                 
-                cell.valueLabel.text = "\(cell.values[0].values[row1]) > \(cell.values[1].values[row2])"
+                cell.valueLabel.text = "\(cell.values[0].values[row1]) ‣ \(cell.values[1].values[row2])"
             }
             cell.titleLabel.text = item.label
             cell.pickerDidChange = { cell, row, component, value in
                 cellDescriber.valueHandler?((cell, component, value))
                 
-                cell.valueLabel.text = "\(cell.values[0].values[cell.selectedRow(for: 0)]) > \(cell.values[1].values[cell.selectedRow(for: 1)])"
+                cell.valueLabel.text = "\(cell.values[0].values[cell.selectedRow(for: 0)]) ‣ \(cell.values[1].values[cell.selectedRow(for: 1)])"
             }
             return cell
             

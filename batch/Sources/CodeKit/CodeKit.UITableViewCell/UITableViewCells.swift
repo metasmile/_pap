@@ -306,13 +306,18 @@ open class UITableViewMultiplePickerCell: UITableViewCell, UITableViewExpandable
         return values[component].values.count
     }
     
-    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return values[component].values[row]
-    }
-    
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         _selectedRow[component] = row
         pickerDidChange?(self, row, component, values[component].values[row])
+    }
+    
+    public func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let label = view as? UILabel ?? UILabel(frame: .zero)
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.textAlignment = .center
+        label.text = values[component].values[row]
+        label.sizeToFit()
+        return label
     }
     
     /**
