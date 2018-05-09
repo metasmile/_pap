@@ -22,7 +22,7 @@ public class ExifGhost: BApp, PHAssetFinalizableApp, PhotoPickerViewControllerDe
             , phase: .release
             , appType: ExifGhost.self
             , displayName: "EXIF Ghost"
-            , icon: nil
+            , icon: R.image.exifGhostBAppIcon.name
             , policy: AppPolicy.default
             , minOSVersion: nil
     )

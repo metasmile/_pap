@@ -17,7 +17,7 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp, FinalizableApp, AppMan
     public static let info = AppInfo(
             identifier: "com.stells.batch.revert"
             , version: "1.0"
-            , phase: .beta
+            , phase: .release
             , appType: RevertApp.self
             , displayName: "Revert"
             , icon: R.image.revertBAppIcon.name

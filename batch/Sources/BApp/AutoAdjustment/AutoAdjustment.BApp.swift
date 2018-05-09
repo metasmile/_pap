@@ -25,11 +25,11 @@ public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableAp
     
     public static let info = AppInfo(
         identifier: "com.stells.batch.autoadjustment"
-        , version: "0.1"
-        , phase: .beta
+        , version: "1.0"
+        , phase: .release
         , appType: AutoAdjustmentApp.self
-        , displayName: "Auto Adjustment"
-        , icon: R.image.photosFilterBAppIcon.name
+        , displayName: "Auto Edit"
+        , icon: R.image.autoAdjustmentBAppIcon.name
         , policy: AppPolicy.default
         , minOSVersion: nil
     )
@@ -117,14 +117,24 @@ private extension AutoAdjustmentApp {
         static let Enhance = kCIImageAutoAdjustEnhance
         static let RedEye = kCIImageAutoAdjustRedEye
         static let Crop = kCIImageAutoAdjustCrop
-        static let Level = kCIImageAutoAdjustLevel
+        static let Straighten = kCIImageAutoAdjustLevel
 
         static func aliasName(_ filterName: String?) -> String? {
             switch filterName {
             case Enhance?: return "Auto Enhance"
             case RedEye?: return "Auto Red-Eye Removal"
             case Crop?: return "Auto Crop"
-            case Level?: return "Auto Straighten"
+            case Straighten?: return "Auto Straighten"
+            default: return nil
+            }
+        }
+
+        static func iconImage(_ filterName: String?) -> UIImage? {
+            switch filterName {
+            case Enhance?: return R.image.auto_enhance()?.withRenderingMode(.alwaysTemplate)
+            case RedEye?: return R.image.auto_redeye()?.withRenderingMode(.alwaysTemplate)
+            case Crop?: return R.image.auto_crop()?.withRenderingMode(.alwaysTemplate)
+            case Straighten?: return R.image.auto_straighten()?.withRenderingMode(.alwaysTemplate)
             default: return nil
             }
         }
@@ -134,7 +144,7 @@ private extension AutoAdjustmentApp {
         AutoAdjustmentApp.AutoAdjustments.Enhance,
         AutoAdjustmentApp.AutoAdjustments.RedEye,
         AutoAdjustmentApp.AutoAdjustments.Crop,
-        AutoAdjustmentApp.AutoAdjustments.Level
+        AutoAdjustmentApp.AutoAdjustments.Straighten
     ]
     
     private func updateControllerView(){
@@ -249,8 +259,14 @@ class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AutoAdjustmentApp.info.identifier) as! Cell
-        cell.imageView?.image = R.image.photosFilterBAppIcon()
-        cell.textLabel?.text = AutoAdjustmentApp.AutoAdjustments.aliasName(autoAdjustmentOptionKeys[indexPath.row])
+        let filterName = autoAdjustmentOptionKeys[indexPath.row]
+
+        cell.imageView?.image = AutoAdjustmentApp.AutoAdjustments.iconImage(filterName)
+        //TODO: apply AppearancableApp.primaryColor
+        cell.imageView?.tintColor = UIColor.black
+        cell.imageView?.contentMode = .scaleAspectFit
+
+        cell.textLabel?.text = AutoAdjustmentApp.AutoAdjustments.aliasName(filterName)
         cell.optionSwitch.setOn((self.options?[self.autoAdjustmentOptionKeys[indexPath.row]] as? Bool) == true, animated: false)
         cell.switchDidChange = { on in
             self.options?[self.autoAdjustmentOptionKeys[indexPath.row]] = on ? true : false

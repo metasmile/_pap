@@ -259,7 +259,7 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
         , phase: .release
         , appType: GIFMaker.self
         , displayName: "GIF Maker".localized
-        , icon: R.image.photosFilterBAppIcon.name
+        , icon: R.image.gifMakerBAppIcon.name
         , policy: AppPolicy.default
         , minOSVersion: nil
     )
@@ -776,14 +776,14 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         if let imageView = cell?.imageView, imageView.image?.duration != durationNeeded {
 
             let images = [ // already cached by main bundle.
-                R.image.exifmaker_preview_frame_0()!,
-                R.image.exifmaker_preview_frame_1()!,
-                R.image.exifmaker_preview_frame_2()!,
-                R.image.exifmaker_preview_frame_3()!,
-                R.image.exifmaker_preview_frame_4()!,
-                R.image.exifmaker_preview_frame_5()!,
-                R.image.exifmaker_preview_frame_6()!,
-                R.image.exifmaker_preview_frame_7()!
+                R.image.gifmaker_preview_frame_0()!,
+                R.image.gifmaker_preview_frame_1()!,
+                R.image.gifmaker_preview_frame_2()!,
+                R.image.gifmaker_preview_frame_3()!,
+                R.image.gifmaker_preview_frame_4()!,
+                R.image.gifmaker_preview_frame_5()!,
+                R.image.gifmaker_preview_frame_6()!,
+                R.image.gifmaker_preview_frame_7()!
             ]
             assert(images.count == frames)
             imageView.image = UIImage.animatedImage(with: images, duration: durationNeeded)
