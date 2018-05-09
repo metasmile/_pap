@@ -89,13 +89,14 @@ class GifConverter_LivePhoto: OptionableConverterBase<GifConverterDefaultOption>
     static var direction: ConvertingDirection { return ConvertingDirection(from:.livephoto, to:.gif) }
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
-        let gifOptions = options ?? GifConverterDefaultOption.default
-        
         let extractMovieTask = AsyncSignal()
         if let videoURL = MovConverter_LivePhoto().convert(source: source, extractMovieTask) as? URL {
             async.begin()
             
             let video = AVAsset(url: videoURL)
+            
+            let gifOptions = options ?? GifConverterDefaultOption(aspectRatio: Double(source.asset.pixelSize.width / source.asset.pixelSize.height), contentMode: 0, frameDelay: 100, size: 480, direction: 0, gifQuality: 0.5, loopCount: 0)
+            
             let imageGenerator = AVAssetImageGenerator(asset: video)
             imageGenerator.appliesPreferredTrackTransform = true
             imageGenerator.requestedTimeToleranceBefore = kCMTimeZero
