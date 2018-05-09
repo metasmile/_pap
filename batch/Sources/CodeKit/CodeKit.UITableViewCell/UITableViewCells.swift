@@ -356,8 +356,8 @@ open class UITableViewMultiplePickerCell: UITableViewCell, UITableViewExpandable
         _selectedRow[component] = row
     }
     
-    public func selectedRow(for component: Int) -> Int? {
-        return _selectedRow[component]
+    public func selectedRow(for component: Int) -> Int {
+        return max(0, min(values[component].values.count - 1, (_selectedRow[component] ?? 0)))
     }
     
     private class ColorLockedView: UIView {

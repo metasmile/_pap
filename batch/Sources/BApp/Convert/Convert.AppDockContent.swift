@@ -183,9 +183,7 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
             cell.pickerDidChange = { cell, row, component, value in
                 cellDescriber.valueHandler?((cell, component, value))
                 
-                cell.valueLabel.text = "\(cell.values[0].values[cell.selectedRow(for: 0) ?? 0]) > \(cell.values[1].values[cell.selectedRow(for: 1) ?? 0])"
-                
-                print("\(cell.values[0].values[cell.selectedRow(for: 0) ?? 0]) > \(cell.values[1].values[cell.selectedRow(for: 1) ?? 0])")
+                cell.valueLabel.text = "\(cell.values[0].values[cell.selectedRow(for: 0)]) > \(cell.values[1].values[cell.selectedRow(for: 1)])"
             }
             return cell
             
