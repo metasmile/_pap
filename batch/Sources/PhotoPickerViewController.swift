@@ -364,6 +364,8 @@ class PhotoPickerViewController: AppDockViewController {
         for removedAsset in removedAssets{
             self.batchPreviewView.removeCollectionViewItem(with: removedAsset)
         }
+        
+        var lastInsertedIndexPath: IndexPath?
 
         //perform batch update
         //confirm and remove: https://console.firebase.google.com/project/batch-photos/crashlytics/app/ios:com.stells.batch/issues/5ac8295036c7b23527c249dd?time=1523145600000:1523231999000&sessionId=18f49e20db084ed8b9c8b26e72871bad_DNE_0_v2
@@ -388,7 +390,10 @@ class PhotoPickerViewController: AppDockViewController {
                     self.photoCollectionView.deleteItems(at: removed.map { IndexPath(item: $0, section:section) })
                 }
                 if let inserted = changes.insertedIndexes, inserted.count > 0 {
-                    self.photoCollectionView.insertItems(at: inserted.map { IndexPath(item: $0, section:section) })
+                    let indexPaths = inserted.map { IndexPath(item: $0, section:section) }
+                    lastInsertedIndexPath = indexPaths.last
+                    
+                    self.photoCollectionView.insertItems(at: indexPaths)
                 }
                 if let changed = changes.changedIndexes, changed.count > 0 {
                     self.photoCollectionView.reloadItems(at: changed.map { IndexPath(item: $0, section:section) })
@@ -405,7 +410,14 @@ class PhotoPickerViewController: AppDockViewController {
                 self.updateSelectedItemUIs()
             }
             
-            self.restoreSelectionByUser(selectedAssetIdentifiers)
+            if let indexPathToScroll = lastInsertedIndexPath {
+                //TODO: test for scroll inserted items instead of restore previous selections
+                self.deselectCollectionViewItems(with: selectedAssetIdentifiers)
+                self.photoCollectionView.scrollToItem(at: indexPathToScroll, at: UICollectionViewScrollPosition.bottom, animated: true)
+            }
+            else {
+                self.restoreSelectionByUser(selectedAssetIdentifiers)
+            }
             
             if AppAssets.selected.count > 0 {
                 self.appDockView?.reloadKeepingDrawerOpened()
@@ -422,6 +434,16 @@ class PhotoPickerViewController: AppDockViewController {
         PHAsset.fetchAssets(withLocalIdentifiers: localIdentifiers, options: nil).enumerateObjects { (asset, idx, stop) in
             self.updateCollectionViewSelection(by: asset)
         }
+    }
+    
+    private func deselectCollectionViewItems(with assetLocalIdentifiers: [String]?) {
+        guard let localIdentifiers = assetLocalIdentifiers else { return }
+        var indexPaths = [IndexPath]()
+        PHAsset.fetchAssets(withLocalIdentifiers: localIdentifiers, options: nil).enumerateObjects { (asset, idx, stop) in
+            guard let indexPath = PHAssets.fetched.indexPath(of: asset) else { return }
+            indexPaths.append(indexPath)
+        }
+        self.deselectCollectionViewItems(indexPaths)
     }
 }
 
