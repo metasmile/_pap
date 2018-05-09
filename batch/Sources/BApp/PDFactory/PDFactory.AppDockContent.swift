@@ -91,15 +91,22 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
         cell0.label = "Page Size Preset"
         cell0.valueGetter = { self.defaults.sizePreset }
         cell0.valueCollection = PDFactorySettings.SizePresets.keysArray
-        cell0.valueHandler = { self.defaults.margin = Int($0 as? Double ?? 10) }
+        cell0.valueHandler = {
+            print($0)
+            if let preset = $0 as? String{
+                self.defaults.sizePreset = preset
+            }
+        }
         cellDescribers.append(cell0)
 
-        let cell1 =  UITableViewSwitchCellDescriber()
-        cell1.itemIdentifier = Cells.sizePreset.hashValue
-        cell1.label = "Landscape Mode"
-        cell1.valueGetter = { self.defaults.landscape }
-        cell1.valueHandler = { self.defaults.landscape = $0 as? Bool ?? false }
-        cell1.iconImage = R.image.pdFactoryBAppIcon.name
+        let cell1 =  UITableViewSegmentControlCellDescriber()
+        cell1.itemIdentifier = Cells.landscape.hashValue
+        cell1.label = "Layout"
+        cell1.valueGetter = { Int(self.defaults.landscape ? 1 : 0) }
+        cell1.valueCollection = ["Portrait": 0, "Landscape":1]
+        cell1.valueHandler = {
+            self.defaults.landscape = ($0 as? Int ?? 0) == 0
+        }
         cellDescribers.append(cell1)
 
         let cell2 =  UITableViewStepperCellDescriber()
@@ -189,9 +196,8 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
         if let cellDescriber = item as? UITableViewPickerCellDescriber
             , let valueCollection = cellDescriber.valueCollection as? [String]
             , let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewPickerCell{
-            
+
             cell.values = valueCollection
-            cell.delegate = self as? UITableViewPickerCellDelegate
             if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
                 cell.selectedRow = index
             } else{
@@ -199,7 +205,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             }
             cell.titleLabel.text = item.label
             cell.didPickHandler = { cell, row, value in
-                self.defaults.sizePreset = cell.values[row]
+                cellDescriber.valueHandler?(value)
             }
             return cell
 
@@ -257,12 +263,14 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             cell.textLabel?.text = item.label
             cell.imageView?.image = item.iconImage?.asUIImage
 
+            var values = [(String,Int)]()
             cell.segmentedControl.removeAllSegments()
             for k in valueCollection{
                 cell.segmentedControl.insertSegment(withTitle: k.key, at: cell.segmentedControl.numberOfSegments, animated: false)
+                values.append(k)
             }
 
-            cell.segmentedControl.selectedSegmentIndex = valueCollection.valuesArray.index(of: item.valueGetter() as? Int ?? PDFactorySettings.ScaleMode.fitPage.rawValue) ?? 0
+            cell.segmentedControl.selectedSegmentIndex = values.map{ $0.1 }.index(of: item.valueGetter() as? Int ?? PDFactorySettings.ScaleMode.fitPage.rawValue) ?? 0
             cell.didChangeValue = item.valueHandler
             return cell
         }

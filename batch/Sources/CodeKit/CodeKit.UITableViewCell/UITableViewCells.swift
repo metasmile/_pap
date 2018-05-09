@@ -183,7 +183,6 @@ open class UITableViewSegmentedControlCell: UITableViewCell {
     }
 
     @objc func valueDidChange(sender: UISegmentedControl) {
-        print(sender.selectedSegmentIndex)
         didChangeValue?(sender.selectedSegmentIndex)
     }
 }
