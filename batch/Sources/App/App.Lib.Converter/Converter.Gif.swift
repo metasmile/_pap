@@ -6,37 +6,10 @@
 import Foundation
 import Photos
 
-enum GIFConverterOptionPresets {
-    case low
-    case medium
-    case high
-    case original
-    
-    static func option(_ preset: GIFConverterOptionPresets, with asset: PHAsset) -> GifConverterDefaultOption {
-        var optionPreset = GifConverterDefaultOption.default
-        optionPreset.aspectRatio = Double(asset.pixelSize.width / asset.pixelSize.height)
-        switch preset {
-        case .low:
-            optionPreset.gifQuality = 0.5
-            optionPreset.size = 320
-        case .medium:
-            optionPreset.gifQuality = 0.6
-            optionPreset.size = 480
-        case .high:
-            optionPreset.gifQuality = 0.7
-            optionPreset.size = 640
-        case .original:
-            optionPreset.gifQuality = 0.8
-            optionPreset.size = Double(asset.pixelWidth)
-        }
-        return optionPreset
-    }
-}
-
 struct GifConverterDefaultOption {
     var aspectRatio: Double
     var contentMode: Int
-    var frameDelay: Int
+    var frameDelay: Double
     var size: Double
     var direction: Int
     var gifQuality: Double
@@ -52,6 +25,29 @@ struct GifConverterDefaultOption {
                 gifQuality: 0,
                 loopCount: 0
         )
+    }
+    
+    static func preset(_ quality: ExportQualityType, with asset: PHAsset) -> GifConverterDefaultOption {
+        var optionPreset = GifConverterDefaultOption.default
+        optionPreset.aspectRatio = Double(asset.pixelSize.width / asset.pixelSize.height)
+        optionPreset.frameDelay = 1.0 / 15.0
+        
+        switch quality {
+        case .low:
+            optionPreset.gifQuality = 0.5
+            optionPreset.size = 320
+        case .medium:
+            optionPreset.gifQuality = 0.6
+            optionPreset.size = 480
+        case .high:
+            optionPreset.gifQuality = 0.7
+            optionPreset.size = 640
+        case .original:
+            optionPreset.gifQuality = 0.8
+            optionPreset.size = Double(asset.pixelWidth)
+        }
+        print(optionPreset)
+        return optionPreset
     }
     
     func sizeWithAspectRatio() -> CGSize {
@@ -122,7 +118,7 @@ class GifConverter_LivePhoto: OptionableConverterBase<GifConverterDefaultOption>
             
             let video = AVAsset(url: videoURL)
             
-            let gifOptions = options ?? GifConverterDefaultOption(aspectRatio: Double(source.asset.pixelSize.width / source.asset.pixelSize.height), contentMode: 0, frameDelay: 100, size: 480, direction: 0, gifQuality: 0.5, loopCount: 0)
+            let gifOptions = options ?? GifConverterDefaultOption(aspectRatio: Double(source.asset.pixelSize.width / source.asset.pixelSize.height), contentMode: 0, frameDelay: 1 / 15, size: 480, direction: 0, gifQuality: 0.5, loopCount: 0)
             
             let imageGenerator = AVAssetImageGenerator(asset: video)
             imageGenerator.appliesPreferredTrackTransform = true
@@ -131,7 +127,7 @@ class GifConverter_LivePhoto: OptionableConverterBase<GifConverterDefaultOption>
             imageGenerator.maximumSize = gifOptions.sizeWithAspectRatio()
             
             var times = [NSValue]()
-            let tick = CMTimeMultiplyByFloat64(video.duration, Double(gifOptions.frameDelay) / 1000)
+            let tick = CMTimeMultiplyByFloat64(video.duration, gifOptions.frameDelay)
             var time = kCMTimeZero
             while time <= video.duration {
                 times.append(NSValue(time: time))
@@ -151,7 +147,7 @@ class GifConverter_LivePhoto: OptionableConverterBase<GifConverterDefaultOption>
             
             async.waitUntilEnd()
             
-            return UIImageGIFRepresentationURL(with: gifOptions.urlWithDirection(urls: imageFiles), loopCount: gifOptions.loopCount, frameDelay: Double(gifOptions.frameDelay) / 1000)
+            return UIImageGIFRepresentationURL(with: gifOptions.urlWithDirection(urls: imageFiles), loopCount: gifOptions.loopCount, frameDelay: gifOptions.frameDelay)
         }
         
         return nil
@@ -178,11 +174,11 @@ class GifConverter_Burst: OptionableConverterBase<GifConverterDefaultOption>, Gi
     static var direction: ConvertingDirection { return ConvertingDirection(from:.burst, to:.gif) }
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
-        let gifOptions = options ?? GifConverterDefaultOption(aspectRatio: Double(source.asset.pixelSize.width / source.asset.pixelSize.height), contentMode: 0, frameDelay: 100, size: 480, direction: 0, gifQuality: 0.5, loopCount: 0)
+        let gifOptions = options ?? GifConverterDefaultOption(aspectRatio: Double(source.asset.pixelSize.width / source.asset.pixelSize.height), contentMode: 0, frameDelay: 1 / 15, size: 480, direction: 0, gifQuality: 0.5, loopCount: 0)
         let param = ConverterBurstImageExtractParam(targetSize: gifOptions.sizeWithAspectRatio(), imageQuality: CGFloat(gifOptions.gifQuality), contentMode: PHImageContentMode(rawValue: gifOptions.contentMode) ?? PHImageContentMode.aspectFit)
         
         guard let urls = extractBurstImageURLs(source: source, param: param, async) else { return nil }
-        return UIImageGIFRepresentationURL(with: gifOptions.urlWithDirection(urls: urls), loopCount: gifOptions.loopCount, frameDelay: Double(gifOptions.frameDelay) / 1000)
+        return UIImageGIFRepresentationURL(with: gifOptions.urlWithDirection(urls: urls), loopCount: gifOptions.loopCount, frameDelay: gifOptions.frameDelay)
     }
 
     static func canPerformWith(source: AppAsset) -> Bool {

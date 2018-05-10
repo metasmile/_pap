@@ -182,6 +182,10 @@ private class ConvertAppTask: TaskPrototype, Taskable {
         guard let converter = needsConverter else {
             throw TaskError.rejectedParam
         }
+        
+        if let gifConverter = converter as? OptionableConverterBase<GifConverterDefaultOption> {
+            gifConverter.options = GifConverterDefaultOption.preset(defaults.convertingQuality.qualityType, with: assetItem.asset)
+        }
 
         let result = converter.convert(source: assetItem, async)
         return result == nil ? nil : ConvertAppResult(result: result)

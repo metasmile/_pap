@@ -50,10 +50,6 @@ struct ConvertingQuality: Codable {
     var convertingDirection: ConvertingDirection
     var qualityType: ExportQualityType
     
-    var identifier:String{
-        return convertingDirection.identifier + qualityType.rawValue
-    }
-    
     private enum CodingKeys: Int, CodingKey {
         case convertingDirection
         case qualityType

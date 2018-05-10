@@ -29,7 +29,7 @@ protocol GIFMakerDefaults: AppDefaults{
     var sourceType: Int {get set}
     var aspectRatio: Double {get set}
     var contentMode: Int {get set}
-    var frameDelay: Int {get set}
+    var frameDelay: Double {get set}
     var size: Double {get set}
     var direction: Int {get set}
     var gifQuality: Double {get set}
@@ -52,9 +52,9 @@ extension Defaults: GIFMakerDefaults {
         get{ return get(or: PHImageContentMode.aspectFill.rawValue ) }
     }
     
-    var frameDelay: Int {
+    var frameDelay: Double {
         set { set(newValue) }
-        get { return get(or: 300)}
+        get { return get(or: 0.05)}
     }
     
     var size: Double {
@@ -306,7 +306,7 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
         switch GIFMakerSettings.sourceType.type(rawValue: (GIFMaker.defaults as! GIFMakerDefaults).sourceType) {
         case .photo?:
             let urls = resultItems.compactMap({ $0.fileURL })
-            if let url = UIImageGIFRepresentationURL(with: GifConverterDefaultOption.URLs(urls: urls, with: defaults.direction), loopCount: defaults.loopCount, frameDelay: Double(defaults.frameDelay) / 1000) {
+            if let url = UIImageGIFRepresentationURL(with: GifConverterDefaultOption.URLs(urls: urls, with: defaults.direction), loopCount: defaults.loopCount, frameDelay: defaults.frameDelay) {
                 results.append(url)
             }
         default: results += resultItems.compactMap({ $0.fileURL })
@@ -369,6 +369,8 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
         case .livePhoto?:
             let converter = GifConverter_LivePhoto()
             converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount)
+            
+            print(converter.options)
             
             if let url = converter.convert(source: assetItem, async) as? URL {
                 result = GIFMakerPHAssetResult(fileURL: url)
@@ -513,9 +515,9 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         let cell3 =  UITableViewStepperCellDescriber()
         cell3.label = "Frame Delay".localized
         cell3.itemIdentifier = Cells.frameDelay.hashValue
-        cell3.valueGetter = { self.defaults.frameDelay }
+        cell3.valueGetter = { Int(self.defaults.frameDelay * 1000) }
         cell3.valueHandler = {
-            self.defaults.frameDelay = Int($0 as? Double ?? 300)
+            self.defaults.frameDelay = ($0 as? Double ?? 50) / 1000
             self.updateFrameDelayPreview()
         }
         cell3.minimumValue = 50
@@ -771,7 +773,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         
         let frames = 8
 
-        let durationNeeded = TimeInterval(frames * self.defaults.frameDelay) / 1000
+        let durationNeeded = TimeInterval(Double(frames) * self.defaults.frameDelay)
 
         if let imageView = cell?.imageView, imageView.image?.duration != durationNeeded {
 
