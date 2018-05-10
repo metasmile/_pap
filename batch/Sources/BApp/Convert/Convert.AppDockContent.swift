@@ -120,10 +120,11 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
         qualityCell.itemIdentifier = Cells.exportQuality.hashValue
         qualityCell.label = "Quality".localized
         qualityCell.valueCollection = qualityPresets.map { $0.rawValue }
-//        qualityCell.valueGetter = {  }
+        qualityCell.valueGetter = { self.defaults.convertingQuality.qualityType.rawValue }
         qualityCell.valueHandler = {
             if let index = $0 as? Int {
-                
+                let direction = self.defaults.convertingDirection
+                self.defaults.convertingQuality = ConvertingQuality(convertingDirection: direction, qualityType: qualityPresets[index])
             }
         }
         cellDescribers.append(qualityCell)

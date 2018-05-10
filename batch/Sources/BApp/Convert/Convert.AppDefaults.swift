@@ -8,11 +8,17 @@ import DefaultsKit
 
 protocol ConvertAppDefaults: AppDefaults{
     var convertingDirection: ConvertingDirection {get set}
+    var convertingQuality: ConvertingQuality {get set}
 }
 
 extension Defaults: ConvertAppDefaults {
     var convertingDirection: ConvertingDirection {
         set { set(newValue) }
         get { return get(or: ConvertingDirection(from: .mov, to: .livephoto)) }
+    }
+    
+    var convertingQuality: ConvertingQuality {
+        set { set(newValue, for: Key("convertingQualityFor_\(newValue.convertingDirection.identifier)")) }
+        get { return get(for: Key("convertingQualityFor_\(convertingDirection.identifier)")) ?? ConvertingQuality(convertingDirection: convertingDirection, qualityType: .high) }
     }
 }

@@ -46,6 +46,26 @@ struct ConvertingDirection: Codable, Equatable {
     }
 }
 
+struct ConvertingQuality: Codable {
+    var convertingDirection: ConvertingDirection
+    var qualityType: ExportQualityType
+    
+    var identifier:String{
+        return convertingDirection.identifier + qualityType.rawValue
+    }
+    
+    private enum CodingKeys: Int, CodingKey {
+        case convertingDirection
+        case qualityType
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(convertingDirection, forKey: .convertingDirection)
+        try container.encode(qualityType.rawValue, forKey: .qualityType)
+    }
+}
+
 enum ExportQualityType: String, Decodable {
     case low = "Low"
     case medium = "Medium"
