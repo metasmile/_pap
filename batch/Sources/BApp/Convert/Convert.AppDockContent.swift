@@ -12,9 +12,8 @@ import DefaultsKit
 import TPPDF
 
 private enum Cells {
-    case convertingDirectionFrom
-    case convertingDirectionTo
     case convertingDirection
+    case exportQuality
 }
 
 private extension ConvertingDirection {
@@ -29,6 +28,7 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
     fileprivate var defaults = ConvertApp.defaults as! ConvertAppDefaults
 
     fileprivate var cellDescribers = [UITableViewCellDefaultDescribable]()
+    fileprivate var cells = [(String, [UITableViewCellDefaultDescribable])]()
 
     weak var app:ConvertApp?
 
@@ -36,11 +36,11 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
         self.app = app
     }
 
-    lazy var view: UIView = UITableView()
+    lazy var view: UIView = UITableView(frame: .zero, style: .grouped)
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
-        preferences.minimumHeight = (self.view as! UITableView).rowHeight * 2 - 2
+        preferences.minimumHeight = (self.view as! UITableView).rowHeight * 4
         preferences.pinned = false
         return preferences
     }
@@ -82,7 +82,7 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
         
         let from_to_cell = UITableViewMultiplePickerCellDescriber()
         from_to_cell.itemIdentifier = Cells.convertingDirection.hashValue
-        from_to_cell.label = "Convert"
+        from_to_cell.label = "Convert".localized
         from_to_cell.valueGetter = { (self.defaults.convertingDirection.from, self.defaults.convertingDirection.to) }
         from_to_cell.valueCollection = valueCollection
         from_to_cell.valueHandler = { value in
@@ -98,37 +98,62 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
                 
                 cell.values = valueCollection()
                 cell.picker.reloadComponent(1)
+                
+                cell.setSelectedRow(cell.values[1].values.index(of: direction.to.rawValue) ?? 0, inComponent: 1, animated: true)
             }
             else if component == 1, let direction = ConvertApp.availableDirections.first(where:{ $0.from == self.defaults.convertingDirection.from && $0.to.rawValue == convertTypeRawValue }) {
                 self.defaults.convertingDirection = direction
                 self.app?.config?.convertingDirectionIdentifier = direction.identifier
             }
+            self.reloadSection(at: 1)
         }
         cellDescribers.append(from_to_cell)
+        
+        let qualityPresets = [
+            ExportQualityType.low,
+            ExportQualityType.medium,
+            ExportQualityType.high,
+            ExportQualityType.original,
+        ]
+        
+        let qualityCell = UITableViewSegmentControlCellDescriber()
+        qualityCell.itemIdentifier = Cells.exportQuality.hashValue
+        qualityCell.label = "Quality".localized
+        qualityCell.valueCollection = qualityPresets.map { $0.rawValue }
+//        qualityCell.valueGetter = {  }
+        qualityCell.valueHandler = {
+            if let index = $0 as? Int {
+                
+            }
+        }
+        cellDescribers.append(qualityCell)
+        
+        cells = [
+            ("Select Formats to Convert:\nFrom ‣ To".localized, [from_to_cell]),
+            ("Export Options:\n⚠️ Original may take a long processing time".localized, [qualityCell])
+        ]
 
         return cellDescribers
-    }
-
-    func reloadRows(by itemIdentifier:Int){
-        if let index = (self.cellDescribers.index { item in item.itemIdentifier == itemIdentifier }) {
-            (self.view as? UITableView)?.reloadRows(at: [IndexPath(row: index, section: 0)], with: UITableViewRowAnimation.automatic)
-        }
     }
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
         (view as! UITableView).reloadData()
     }
+    
+    func reloadSection(at section: Int) {
+        (self.view as? UITableView)?.reloadSections(IndexSet(integer: section), with: .automatic)
+    }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return cells.count
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return nil
+        return cells[section].0
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellDescribers.count
+        return cells[section].1.count
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -163,7 +188,7 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = self.cellDescribers[indexPath.item]
+        let item = cells[indexPath.section].1[indexPath.row]
 
         if let cellDescriber = item as? UITableViewMultiplePickerCellDescriber
             , let valueCollection = cellDescriber.valueCollection as? (() -> [UIPickerItem])
@@ -289,6 +314,27 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
             }
 
             cell.segmentedControl.selectedSegmentIndex = valueCollection.valuesArray.index(of: item.valueGetter() as? Int ?? PDFactorySettings.ScaleMode.fitPage.rawValue) ?? 0
+            cell.didChangeValue = item.valueHandler
+            return cell
+        }
+        else if let cellDescriber = item as? UITableViewSegmentControlCellDescriber
+            , let valueCollection = cellDescriber.valueCollection as? [String]
+            , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewSegmentedControlCell {
+            
+            cell.textLabel?.text = item.label
+            cell.imageView?.image = item.iconImage?.asUIImage
+            cell.detailTextLabel?.textColor = UIColor.gray
+            
+            cell.segmentedControl.apportionsSegmentWidthsByContent = true
+            cell.segmentedControl.removeAllSegments()
+            for k in valueCollection{
+                cell.segmentedControl.insertSegment(withTitle: k, at: cell.segmentedControl.numberOfSegments, animated: false)
+            }
+            cell.segmentedControl.sizeToFit()
+            
+            if let label = item.valueGetter() as? String {
+                cell.segmentedControl.selectedSegmentIndex = valueCollection.index(of: label) ?? 0
+            }
             cell.didChangeValue = item.valueHandler
             return cell
         }

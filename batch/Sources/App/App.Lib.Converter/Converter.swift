@@ -46,6 +46,13 @@ struct ConvertingDirection: Codable, Equatable {
     }
 }
 
+enum ExportQualityType: String, Decodable {
+    case low = "Low"
+    case medium = "Medium"
+    case high = "High"
+    case original = "Original"
+}
+
 protocol Converter {
 
     init()

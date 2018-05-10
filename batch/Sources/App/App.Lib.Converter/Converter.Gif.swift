@@ -6,6 +6,33 @@
 import Foundation
 import Photos
 
+enum GIFConverterOptionPresets {
+    case low
+    case medium
+    case high
+    case original
+    
+    static func option(_ preset: GIFConverterOptionPresets, with asset: PHAsset) -> GifConverterDefaultOption {
+        var optionPreset = GifConverterDefaultOption.default
+        optionPreset.aspectRatio = Double(asset.pixelSize.width / asset.pixelSize.height)
+        switch preset {
+        case .low:
+            optionPreset.gifQuality = 0.5
+            optionPreset.size = 320
+        case .medium:
+            optionPreset.gifQuality = 0.6
+            optionPreset.size = 480
+        case .high:
+            optionPreset.gifQuality = 0.7
+            optionPreset.size = 640
+        case .original:
+            optionPreset.gifQuality = 0.8
+            optionPreset.size = Double(asset.pixelWidth)
+        }
+        return optionPreset
+    }
+}
+
 struct GifConverterDefaultOption {
     var aspectRatio: Double
     var contentMode: Int
