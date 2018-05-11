@@ -182,20 +182,13 @@ public final class LivePhotoWriter {
         let generator = AVAssetImageGenerator(asset: asset)
         generator.appliesPreferredTrackTransform = true
 
-        let tempPath = self.tempWritingPathByAppedingSuffix(lastPathComponent: (videoPath as NSString).lastPathComponent, suffix: "", ext: nil).path
-        let destExtractedImagePath = self.tempWritingPathByAppedingSuffix(lastPathComponent: tempPath, suffix: "_extracted_image", ext: "jpg").path
-        let time = NSValue(time: CMTimeMakeWithSeconds(CMTimeGetSeconds(asset.duration) * (timeLocationOfTitle), asset.duration.timescale))
-
-        generator.generateCGImagesAsynchronously(forTimes: [time]) { [weak self] _, image, _, result, error in
-            if let image = image
-            , let data = UIImageJPEGRepresentation(UIImage(cgImage: image), self?.jpegQuality ?? 0.8)
-            , result != .succeeded && error == nil {
-                do{
-                    try data.write(to: URL(fileURLWithPath: destExtractedImagePath))
-
-                    self?.writeLivePhoto(photoPath: destExtractedImagePath, withVideo: videoPath, completion: completion)
-                }catch {}
-            }
+        let destExtractedImagePath = self.tempWritingPathByAppedingSuffix(lastPathComponent: (videoPath as NSString).lastPathComponent, suffix: "_extracted_image", ext: "jpg").path
+        let time = CMTimeMakeWithSeconds(CMTimeGetSeconds(asset.duration) * (timeLocationOfTitle), asset.duration.timescale)
+        
+        if let image = try? generator.copyCGImage(at: time, actualTime: nil),
+            let data = UIImageJPEGRepresentation(UIImage(cgImage: image), jpegQuality) {
+            try? data.write(to: URL(fileURLWithPath: destExtractedImagePath))
+            writeLivePhoto(photoPath: destExtractedImagePath, withVideo: videoPath, completion: completion)
         }
     }
 

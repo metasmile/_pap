@@ -119,7 +119,7 @@ extension PHAsset {
 extension PHAsset{
 
     public func exportVideoFile(options: PHVideoRequestOptions? = nil, progressHandler:((Float) -> Void)? = nil, completionHandler: @escaping ((_ succeed:Bool, _ videoUrl:URL, _ mimetype:String) -> Void)) -> PHImageRequestID?{
-        if self.mediaType == .video {
+        if self.mediaType != .video {
             assert(false, "check asset type out")
             return nil
         }

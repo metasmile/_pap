@@ -26,9 +26,7 @@ struct MovConverter_Gif: MovConverter {
 
         async.begin()
         PHImageManager.default().requestImageData(for: source.asset, options: nil) { data, s, orientation, dictionary in
-            if let data = data {
-                urls = data.extractAnimatedImageURLsAsGIF()
-            }
+            urls = data?.extractAnimatedImageURLsAsGIF()
             async.end()
         }
         async.waitUntilEnd()
@@ -53,7 +51,7 @@ struct MovConverter_Burst: MovConverter {
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
 
         if let urls = self.extractBurstImageURLs(source: source, async){
-            return self.buildVideo(urls: urls.map { $0.url }, fps: 15, async)
+            return self.buildVideo(urls: urls, async)
         }
 
         return nil

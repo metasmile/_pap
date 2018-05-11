@@ -17,6 +17,8 @@ extension AVAssetExportSession {
 
         let exportingVideo = DispatchGroup()
         exportingVideo.enter()
+        
+        try? FileManager.default.removeItem(at: outputURL)
 
         exportSession.outputFileType = outputFileType
         exportSession.outputURL = outputURL
