@@ -370,8 +370,6 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
             let converter = GifConverter_LivePhoto()
             converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount)
             
-            print(converter.options)
-            
             if let url = converter.convert(source: assetItem, async) as? URL {
                 result = GIFMakerPHAssetResult(fileURL: url)
             }
@@ -401,14 +399,13 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     
     lazy var view: UIView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        
-        tableView.tintColor = UIColor(red: 84 / 255.0, green: 174 / 255.0, blue: 71 / 255.0, alpha: 1)
+        tableView.tintColor = UIColor(red: 108 / 255.0, green: 212 / 255.0, blue: 99 / 255.0, alpha: 1)
         return tableView
     }()
     
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
-        preferences.minimumHeight = (self.view as! UITableView).rowHeight * 4 + 27
+        preferences.minimumHeight = (self.view as! UITableView).rowHeight * 5 + 27
         preferences.pinned = false
         return preferences
     }

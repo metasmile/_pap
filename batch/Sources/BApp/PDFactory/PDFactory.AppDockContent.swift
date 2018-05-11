@@ -54,6 +54,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
                 view.dataSource = self
                 view.delegate = self
                 view.rowHeight = 44
+                view.tintColor = .red
                 view.allowsMultipleSelection = false
 
                 for item in cellDescribers {

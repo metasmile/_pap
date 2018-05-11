@@ -230,6 +230,7 @@ class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, 
             view.allowsSelection = false
             view.register(Cell.self, forCellReuseIdentifier: AutoAdjustmentApp.info.identifier)
             view.backgroundColor = UIColor(red: 31 / 255.0, green: 31 / 255.0, blue: 31 / 255.0, alpha: 1)
+            view.tintColor = UIColor(red: 72 / 255.0, green: 168 / 255.0, blue: 247 / 255.0, alpha: 1)
             view.separatorInset.left = view.rowHeight
         }
     }
@@ -292,7 +293,6 @@ class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, 
             super.init(style: style, reuseIdentifier: reuseIdentifier)
             
             accessoryView = optionSwitch
-            optionSwitch.onTintColor = UIColor(red: 72 / 255.0, green: 168 / 255.0, blue: 247 / 255.0, alpha: 1)
             backgroundColor = .clear
             textLabel?.font = UIFont.systemFont(ofSize: 14)
             textLabel?.textColor = UIColor.white
@@ -313,6 +313,12 @@ class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, 
             imageView?.frame.origin = CGPoint(x: 10, y: (contentView.bounds.height - 30) / 2)
             
             textLabel?.frame.origin.x = (imageView?.frame.maxX ?? 0) + 10
+        }
+        
+        override func tintColorDidChange() {
+            super.tintColorDidChange()
+            
+            optionSwitch.onTintColor = tintColor
         }
     }
 }

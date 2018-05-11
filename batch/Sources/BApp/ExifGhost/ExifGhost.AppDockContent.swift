@@ -122,7 +122,11 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
     private var initialSelectedIndexPaths:[IndexPath]?
 
-    lazy var view: UIView = UITableView(frame: .zero, style: .grouped)
+    lazy var view: UIView = {
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.tintColor = UIColor(red:0.13, green:0.15, blue:0.16, alpha:1)
+        return tableView
+    }()
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
@@ -419,7 +423,6 @@ private class Cell: UITableViewCell {
     lazy var optionSwitch: UISwitch = {
         let view = UISwitch()
         view.addTarget(self, action: #selector(self.cellSwitchDidChange), for: .valueChanged)
-        view.onTintColor = UIColor(red:0.13, green:0.15, blue:0.16, alpha:1)
         return view
     }()
 
@@ -443,5 +446,11 @@ private class Cell: UITableViewCell {
 
     @objc func cellSwitchDidChange(sender: UISwitch) {
         switchDidChange?(sender.isOn)
+    }
+    
+    override func tintColorDidChange() {
+        super.tintColorDidChange()
+        
+        optionSwitch.onTintColor = tintColor
     }
 }
