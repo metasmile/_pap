@@ -22,21 +22,19 @@ struct MovConverter_Gif: MovConverter {
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
 
-        var paths:[String]?
+        var urls:[(URL, Double)]?
 
         async.begin()
         PHImageManager.default().requestImageData(for: source.asset, options: nil) { data, s, orientation, dictionary in
-            if let data = data, let urls = data.extractAnimatedImageURLsAsGIF(){
-                paths = urls.map { $0.url.path }
+            if let data = data {
+                urls = data.extractAnimatedImageURLsAsGIF()
             }
             async.end()
         }
         async.waitUntilEnd()
 
-        let fps:Int32 = 15
-
-        if let paths = paths{
-            return self.buildVideo(paths: paths, fps: fps, async)
+        if let urls = urls{
+            return self.buildVideo(urls: urls, async)
         }
 
         return nil

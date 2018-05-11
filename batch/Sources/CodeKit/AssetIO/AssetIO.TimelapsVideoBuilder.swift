@@ -22,6 +22,8 @@ public final class TimelapsVideoBuilder: NSObject {
     private var videoWriter: AVAssetWriter?
 
     var fps: Int32 = 30
+    var fpsEachImages = [String: Int32]()
+    
     var inputSize: CGSize = .zero
     var outputSize: CGSize = .zero
     var destinationFilePath: String?
@@ -95,8 +97,6 @@ public final class TimelapsVideoBuilder: NSObject {
                 let media_queue = DispatchQueue(label: "mediaInputQueue")
 
                 videoWriterInput.requestMediaDataWhenReady(on: media_queue) {
-                    let fps: Int32 = self.fps
-                    let frameDuration = CMTimeMake(1, fps)
                     let currentProgress = Progress(totalUnitCount: Int64(self.imagePaths.count))
 
                     var frameCount: Int64 = 0
@@ -104,6 +104,9 @@ public final class TimelapsVideoBuilder: NSObject {
 
                     while videoWriterInput.isReadyForMoreMediaData && !remainingPhotoURLs.isEmpty {
                         let nextPhotoURL = remainingPhotoURLs.remove(at: 0)
+                        
+                        let fps: Int32 = self.fpsEachImages[nextPhotoURL] ?? self.fps
+                        let frameDuration = CMTimeMake(1, fps)
                         let lastFrameTime = CMTimeMake(frameCount, fps)
                         let presentationTime = frameCount == 0 ? lastFrameTime : CMTimeAdd(lastFrameTime, frameDuration)
 
