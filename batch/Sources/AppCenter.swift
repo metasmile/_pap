@@ -60,13 +60,13 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             TransformApp.self
             , PhotosFilterApp.self
             , RevertApp.self
+            , ConvertApp.self
+            , GIFMaker.self
             , PDFactory.self
+            , AutoAdjustmentApp.self
             , ExifGhost.self
 //            , Clean.self
 //            , Stabilizer.self
-            , AutoAdjustmentApp.self
-            , GIFMaker.self
-            , ConvertApp.self
         ]
 
         return config

@@ -35,10 +35,10 @@ public class ConvertApp: BApp,
     public static let info = AppInfo(
             identifier: "com.stells.batch.convert"
             , version: "1.0"
-            , phase: .develop
+            , phase: .release
             , appType: ConvertApp.self
             , displayName: "Convert" // 1 - 1
-            , icon: R.image.photosFilterBAppIcon.name
+            , icon: R.image.convertBAppIcon.name
             , policy: AppPolicy.default
             , minOSVersion: nil
     )

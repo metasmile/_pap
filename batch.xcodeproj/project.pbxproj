@@ -157,6 +157,7 @@
 		4F71DE6DDDD0BC4FB5B79F6D /* App.Finalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD0573CFB93A8F794768 /* App.Finalizable.swift */; };
 		4F71DE701D89D3576571839C /* AppCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D720E8D148915253E277 /* AppCenter.swift */; };
 		4F71DE7B6FDF14D21C374D63 /* UIKitItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D132D30EEEBCF933A408 /* UIKitItem.swift */; };
+		4F71DE85F138FAFCEF7CF5B0 /* Convert.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A09F74DD20A5D952001890DB /* Convert.BApp.Assets.xcassets */; };
 		4F71DE878F3F12AB840B64A7 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5BE3EC7986FCBEDA9B4 /* GradientView.swift */; };
 		4F71DE92ECA4FA18D5E02F33 /* CodeKit.UIView.Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0043D08EE0021680D4F /* CodeKit.UIView.Animation.swift */; };
 		4F71DEB236685AB6222E02C7 /* CodeKit.MobileCoreSerivices.UTCoreTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D623E81A421C6B35DECB /* CodeKit.MobileCoreSerivices.UTCoreTypes.swift */; };
@@ -577,6 +578,7 @@
 		A0956BB22095005200E680B9 /* ta */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ta; path = Localizable.strings; sourceTree = "<group>"; };
 		A0956BB52095005200E680B9 /* gu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = gu; path = Localizable.strings; sourceTree = "<group>"; };
 		A0956C20209501B500E680B9 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = Localizable.strings; sourceTree = "<group>"; };
+		A09F74DD20A5D952001890DB /* Convert.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Convert.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		A0AEACCE206006500086E3E0 /* batchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = batchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0CFD8E82052D9F10007041B /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		DEBBDFD189BD3262FBB224A8 /* Pods-batchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batchTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-batchTests/Pods-batchTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -1032,6 +1034,7 @@
 		4F71D88F0A122A621D1EDDF2 /* Convert */ = {
 			isa = PBXGroup;
 			children = (
+				A09F74DD20A5D952001890DB /* Convert.BApp.Assets.xcassets */,
 				4F71D1A461AE7B7F63ADA64C /* Convert.BApp.swift */,
 				4F71D1FF1A96D99209FFCF5D /* Convert.AppDefaults.swift */,
 				4F71D55FEA084578B7A60171 /* Convert.AppDockContent.swift */,
@@ -2372,6 +2375,7 @@
 				4F71DF2B56C4738972077ED9 /* auto_crop.png in Resources */,
 				4F71D44CDCBAB74BF0580746 /* auto_redeye.png in Resources */,
 				4F71D5C053B83DAC002D5808 /* auto_straighten.png in Resources */,
+				4F71DE85F138FAFCEF7CF5B0 /* Convert.BApp.Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -44,7 +44,7 @@ public class ExifGhost: BApp, PHAssetFinalizableApp, PhotoPickerViewControllerDe
     }
 
     public var titleWillBegin:String? {
-        return "Purging selected properties...".localized
+        return "Purging selected ...".localized
     }
 }
 

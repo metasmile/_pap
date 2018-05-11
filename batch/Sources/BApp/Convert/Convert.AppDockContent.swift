@@ -40,7 +40,7 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
-        preferences.minimumHeight = (self.view as! UITableView).rowHeight * 5
+        preferences.minimumHeight = (self.view as! UITableView).rowHeight * 5 - 5
         preferences.pinned = false
         return preferences
     }
@@ -53,6 +53,8 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
 
     func willSetContentView(_ view:UIView, dock:AppDock) {
         appDock = dock
+
+        view.tintColor = UIColor(red:0.99, green:0.51, blue:0.15, alpha:1)
 
         if cellDescribers.count==0{
             cellDescribers = createCellDescribers()
@@ -147,6 +149,10 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return cells.count
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

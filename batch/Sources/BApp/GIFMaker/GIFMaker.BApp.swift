@@ -399,7 +399,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     
     lazy var view: UIView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.tintColor = UIColor(red: 108 / 255.0, green: 212 / 255.0, blue: 99 / 255.0, alpha: 1)
+        tableView.tintColor = UIColor(red:0.22, green:0.75, blue:0.31, alpha:1)
         return tableView
     }()
     
@@ -622,7 +622,11 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sections[section].1.count
     }
-    
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let cell = tableView.cellForRow(at: indexPath)
         

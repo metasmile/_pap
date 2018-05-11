@@ -29,7 +29,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
-        preferences.minimumHeight = (self.view as! UITableView).rowHeight * 5 + 27
+        preferences.minimumHeight = (self.view as! UITableView).rowHeight * 5 - 2
         preferences.pinned = false
         return preferences
     }
@@ -160,7 +160,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "PDF Export Options"
+        return nil
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
