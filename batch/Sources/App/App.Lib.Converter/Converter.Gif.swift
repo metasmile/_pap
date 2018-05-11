@@ -30,23 +30,25 @@ struct GifConverterDefaultOption {
     static func preset(_ quality: ExportQualityType, with asset: PHAsset) -> GifConverterDefaultOption {
         var optionPreset = GifConverterDefaultOption.default
         optionPreset.aspectRatio = Double(asset.pixelSize.width / asset.pixelSize.height)
-        optionPreset.frameDelay = 1.0 / 15.0
         
         switch quality {
         case .low:
             optionPreset.gifQuality = 0.5
             optionPreset.size = 320
+            optionPreset.frameDelay = 1 / 15
         case .medium:
             optionPreset.gifQuality = 0.6
             optionPreset.size = 480
+            optionPreset.frameDelay = 1 / 15
         case .high:
             optionPreset.gifQuality = 0.7
             optionPreset.size = 640
+            optionPreset.frameDelay = 1 / 15
         case .original:
             optionPreset.gifQuality = 0.8
             optionPreset.size = Double(asset.pixelWidth)
         }
-        print(optionPreset)
+        
         return optionPreset
     }
     
@@ -100,7 +102,51 @@ class GifConverter_Mov: OptionableConverterBase<GifConverterDefaultOption>, GifC
     static var direction: ConvertingDirection { return ConvertingDirection(from:.mov, to:.gif) }
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+        if let video = source.asset.asAVAsset, let option = options {
+            return convert(video: video, option: option, async)
+        }
         return nil
+    }
+    
+    func convert(video: AVAsset, option: GifConverterDefaultOption, _ async: AsyncManualSignalable) -> Any? {
+        guard let videoTrack = video.tracks(withMediaType: .video).first else { return nil }
+        
+        async.begin()
+        
+        var gifOptions = option
+        
+        if gifOptions.frameDelay == 0 {
+            gifOptions.frameDelay = Double(1 / videoTrack.nominalFrameRate)
+        }
+        
+        let imageGenerator = AVAssetImageGenerator(asset: video)
+        imageGenerator.appliesPreferredTrackTransform = true
+        imageGenerator.requestedTimeToleranceBefore = kCMTimeZero
+        imageGenerator.requestedTimeToleranceAfter = kCMTimeZero
+        imageGenerator.maximumSize = gifOptions.sizeWithAspectRatio()
+        
+        var times = [NSValue]()
+        let tick = CMTime(seconds: gifOptions.frameDelay, preferredTimescale: video.duration.timescale)
+        var time = kCMTimeZero
+        while time <= video.duration {
+            times.append(NSValue(time: time))
+            time = CMTimeAdd(time, tick)
+        }
+        
+        var imageFiles = [URL]()
+        imageGenerator.generateCGImagesAsynchronously(forTimes: times) { (requestedTime, cgImage, actualTime, result, error) in
+            if let cgImage = cgImage {
+                imageFiles.append(LocalCachedAsset(image: UIImage(cgImage: cgImage), targetSize: gifOptions.sizeWithAspectRatio(), imageQuality: CGFloat(gifOptions.gifQuality), contentMode: PHImageContentMode(rawValue: gifOptions.contentMode) ?? .aspectFit).imageFileURL)
+            }
+            
+            if requestedTime == times.last?.timeValue {
+                async.end()
+            }
+        }
+        
+        async.waitUntilEnd()
+        
+        return UIImageGIFRepresentationURL(with: gifOptions.urlWithDirection(urls: imageFiles), loopCount: gifOptions.loopCount, frameDelay: gifOptions.frameDelay)
     }
 
     static func canPerformWith(source: AppAsset) -> Bool {
@@ -113,43 +159,9 @@ class GifConverter_LivePhoto: OptionableConverterBase<GifConverterDefaultOption>
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         let extractMovieTask = AsyncSignal()
-        if let videoURL = MovConverter_LivePhoto().convert(source: source, extractMovieTask) as? URL {
-            async.begin()
-            
-            let video = AVAsset(url: videoURL)
-            
-            let gifOptions = options ?? GifConverterDefaultOption(aspectRatio: Double(source.asset.pixelSize.width / source.asset.pixelSize.height), contentMode: 0, frameDelay: 1 / 15, size: 480, direction: 0, gifQuality: 0.5, loopCount: 0)
-            
-            let imageGenerator = AVAssetImageGenerator(asset: video)
-            imageGenerator.appliesPreferredTrackTransform = true
-            imageGenerator.requestedTimeToleranceBefore = kCMTimeZero
-            imageGenerator.requestedTimeToleranceAfter = kCMTimeZero
-            imageGenerator.maximumSize = gifOptions.sizeWithAspectRatio()
-            
-            var times = [NSValue]()
-            let tick = CMTimeMultiplyByFloat64(video.duration, gifOptions.frameDelay)
-            var time = kCMTimeZero
-            while time <= video.duration {
-                times.append(NSValue(time: time))
-                time = CMTimeAdd(time, tick)
-            }
-            
-            var imageFiles = [URL]()
-            imageGenerator.generateCGImagesAsynchronously(forTimes: times) { (requestedTime, cgImage, actualTime, result, error) in
-                if let cgImage = cgImage {
-                    imageFiles.append(LocalCachedAsset(image: UIImage(cgImage: cgImage), targetSize: gifOptions.sizeWithAspectRatio(), imageQuality: CGFloat(gifOptions.gifQuality), contentMode: PHImageContentMode(rawValue: gifOptions.contentMode) ?? .aspectFit).imageFileURL)
-                }
-                
-                if requestedTime == times.last?.timeValue {
-                    async.end()
-                }
-            }
-            
-            async.waitUntilEnd()
-            
-            return UIImageGIFRepresentationURL(with: gifOptions.urlWithDirection(urls: imageFiles), loopCount: gifOptions.loopCount, frameDelay: gifOptions.frameDelay)
+        if let videoURL = MovConverter_LivePhoto().convert(source: source, extractMovieTask) as? URL, let options = options {
+            return GifConverter_Mov().convert(video: AVAsset(url: videoURL), option: options, async)
         }
-        
         return nil
     }
 
