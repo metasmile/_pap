@@ -61,11 +61,11 @@ struct GifConverterDefaultOption {
         }
     }
     
-    func urlWithDirection(urls: [URL]) -> [URL] {
+    func urlWithDirection<T>(urls: [T]) -> [T] {
         return GifConverterDefaultOption.URLs(urls: urls, with: direction)
     }
     
-    static func URLs(urls: [URL], with direction: Int) -> [URL] {
+    static func URLs<T>(urls: [T], with direction: Int) -> [T] {
         if urls.count > 1 {
             switch direction {
             case 1: return urls.reversed()
@@ -190,7 +190,7 @@ class GifConverter_Burst: OptionableConverterBase<GifConverterDefaultOption>, Gi
         let param = ConverterBurstImageExtractParam(targetSize: gifOptions.sizeWithAspectRatio(), imageQuality: CGFloat(gifOptions.gifQuality), contentMode: PHImageContentMode(rawValue: gifOptions.contentMode) ?? PHImageContentMode.aspectFit)
         
         guard let urls = extractBurstImageURLs(source: source, param: param, async) else { return nil }
-        return UIImageGIFRepresentationURL(with: gifOptions.urlWithDirection(urls: urls), loopCount: gifOptions.loopCount, frameDelay: gifOptions.frameDelay)
+        return UIImageGIFRepresentationURL(with: gifOptions.urlWithDirection(urls: urls), loopCount: gifOptions.loopCount)
     }
 
     static func canPerformWith(source: AppAsset) -> Bool {

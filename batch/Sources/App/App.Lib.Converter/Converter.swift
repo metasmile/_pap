@@ -173,7 +173,7 @@ struct ConverterBurstImageExtractParam {
 
 extension Converter{
 
-    func extractBurstImageURLs(source:AppAsset, param: ConverterBurstImageExtractParam = ConverterBurstImageExtractParam(), _ async: AsyncManualSignalable) -> [URL]?{
+    func extractBurstImageURLs(source:AppAsset, param: ConverterBurstImageExtractParam = ConverterBurstImageExtractParam(), _ async: AsyncManualSignalable) -> [(url: URL, frameDelay: Double)]?{
 
         let fetchOptions = PHFetchOptions()
         fetchOptions.includeAllBurstAssets = true
@@ -183,9 +183,13 @@ extension Converter{
         let imageQuality = param.imageQuality
 
         var urls = [URL]()
+        var intervals = [Double]()
+        
+        var interval = 0.1
+        var assetDate: Date?
         
         let fetchedAsset = PHAsset.fetchAssets(withBurstIdentifier: source.asset.burstIdentifier ?? "", options: fetchOptions)
-        fetchedAsset.enumerateObjects { (asset:PHAsset, idx, stop) in
+        fetchedAsset.enumerateObjects { (asset, idx, stop) in
             async.begin()
             
             let response = asset.requestImage(targetSize: targetSize, contentMode: param.contentMode, options: PHAsset.highQualityImageRequestOptions)
@@ -203,14 +207,23 @@ extension Converter{
 
             if let resultUrl = resultUrl {
                 urls.append(resultUrl)
+                
+                if let prevDate = assetDate {
+                    interval = asset.creationDate?.timeIntervalSince(prevDate) ?? 0.1
+                    intervals.append(interval)
+                }
             }
+            
+            assetDate = asset.creationDate
             
             async.end()
         }
         
+        intervals.append(interval)
+        
         async.waitUntilEnd()
-
-        return urls.count>0 ? urls : nil
+        
+        return (urls.count>0 && urls.count == intervals.count) ? urls.enumerated().map { ($0.element, intervals[$0.offset]) } : nil
     }
 }
 
@@ -260,8 +273,8 @@ extension Converter{
 
 extension Converter{
 
-    func extractImageURLsFromGIFData(asset:PHAsset, _ async: AsyncManualSignalable) -> [URL]?{
-        var resultUrls:[URL]?
+    func extractImageURLsFromGIFData(asset:PHAsset, _ async: AsyncManualSignalable) -> [(url: URL, frameDelay: Double)]?{
+        var resultUrls:[(URL, Double)]?
         
         let options = PHImageRequestOptions()
         options.isNetworkAccessAllowed = true

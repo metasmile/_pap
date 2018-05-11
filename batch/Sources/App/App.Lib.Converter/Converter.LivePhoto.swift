@@ -23,7 +23,7 @@ struct LivePhotoConverter_Gif: LivePhotoConverter {
         let urls = extractImageURLsFromGIFData(asset:source.asset, async)
 
         if let urls = urls{
-            return self.createLivePhoto(fromImagePaths: urls.mapAsPath, async)
+            return self.createLivePhoto(fromImagePaths: urls.map { $0.url.path }, async)
         }
 
         return nil
@@ -42,7 +42,7 @@ struct LivePhotoConverter_Burst: LivePhotoConverter {
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         if let urls = self.extractBurstImageURLs(source: source, async){
-            return self.createLivePhoto(fromImageURLs: urls, async)
+            return self.createLivePhoto(fromImageURLs: urls.map { $0.url }, async)
         }
 
         return nil

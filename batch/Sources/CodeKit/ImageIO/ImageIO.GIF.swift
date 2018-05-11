@@ -52,6 +52,41 @@ public func UIImageGIFRepresentationURL(with imageFiles: [URL], loopCount: Int =
     return success ? url : nil
 }
 
+public func UIImageGIFRepresentationURL(with imageFilesWithFrameDelay: [(URL, Double)], loopCount: Int = 0, removesImageFilePaths: Bool = true) -> URL? {
+    let fileProperties = [
+        ImageMetadata.Dictionary.GIF: [
+            ImageMetadata.Property.GIFLoopCount: loopCount
+        ]
+    ]
+    
+    let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(UUID().uuidString).gif")
+    guard let destination = CGImageDestinationCreateWithURL(url as CFURL, kUTTypeGIF, imageFilesWithFrameDelay.count, nil) else { return nil }
+    CGImageDestinationSetProperties(destination, fileProperties as CFDictionary)
+    
+    for (imageFile, frameDelay) in imageFilesWithFrameDelay {
+        autoreleasepool {
+            guard let cgImage = UIImage(contentsOfFile: imageFile.path)?.cgImage else { return }
+            
+            let frameProperties = [
+                ImageMetadata.Dictionary.GIF: [
+                    ImageMetadata.Property.GIFDelayTime: frameDelay,
+                    ImageMetadata.ColorModel: ImageMetadata.ColorModelRGB
+                ]
+            ]
+            
+            CGImageDestinationAddImage(destination, cgImage, frameProperties as CFDictionary)
+        }
+    }
+    
+    let success = CGImageDestinationFinalize(destination)
+    
+    if removesImageFilePaths {
+        imageFilesWithFrameDelay.forEach({ try? FileManager.default.removeItem(at: $0.0) })
+    }
+    
+    return success ? url : nil
+}
+
 //https://gist.github.com/powhu/00acd9d34fa8d61d2ddf5652f19cafcf
 public func UIImageGIFRepresentation(_ image: UIImage) -> Data? {
     return UIImageGIFRepresentation(image, duration: 0.0, loopCount: 0)
@@ -125,7 +160,7 @@ public extension UIImage {
         }
     }
 
-    public static func animatedImageURLsWithGIFData(_ data: Data, directory:String=NSTemporaryDirectory(), filenamePrefix:String="exported_gif_image_") -> [URL]? {
+    public static func animatedImageURLsWithGIFData(_ data: Data, directory:String=NSTemporaryDirectory(), filenamePrefix:String="exported_gif_image_") -> [(url: URL, frameDelay: Double)]? {
 
         let options = [kCGImageSourceShouldCache as String: true, kCGImageSourceTypeIdentifierHint as String: kUTTypeGIF] as [String : Any]
         guard let imageSource = CGImageSourceCreateWithData(data as CFData, options as CFDictionary) else {
@@ -133,7 +168,7 @@ public extension UIImage {
         }
 
         let frameCount = CGImageSourceGetCount(imageSource)
-        var urls = [URL]()
+        var urls = [(URL, Double)]()
 
         for i in 0 ..< frameCount {
             guard let imageRef = CGImageSourceCreateImageAtIndex(imageSource, i, options as CFDictionary) else {
@@ -143,7 +178,7 @@ public extension UIImage {
 
             guard let properties = CGImageSourceCopyPropertiesAtIndex(imageSource, i, nil),
                   let gifInfo = (properties as! [String:Any])[ImageMetadata.Dictionary.GIF] as? [String:Any],
-                  let _ = (gifInfo[ImageMetadata.Property.GIFDelayTime] as? Double) else {
+                  let frameDelay = (gifInfo[ImageMetadata.Property.GIFDelayTime] as? Double) else {
 
                 return nil
             }
@@ -157,7 +192,7 @@ public extension UIImage {
 
                     do {
                         try data.write(to: url)
-                        urls.append(url)
+                        urls.append((url, frameDelay))
                     } catch {
                         print("failed to save url for: \(url.path)")
                     }
@@ -172,7 +207,7 @@ public extension UIImage {
 }
 
 extension Data{
-    public func extractAnimatedImageURLsAsGIF(directory:String=NSTemporaryDirectory(), filenamePrefix:String="exported_gif_image_") -> [URL]? {
+    public func extractAnimatedImageURLsAsGIF(directory:String=NSTemporaryDirectory(), filenamePrefix:String="exported_gif_image_") -> [(url: URL, frameDelay: Double)]? {
         return UIImage.animatedImageURLsWithGIFData(self, directory: directory, filenamePrefix: filenamePrefix)
     }
 }
