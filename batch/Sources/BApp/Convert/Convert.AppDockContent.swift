@@ -28,7 +28,7 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
     fileprivate var defaults = ConvertApp.defaults as! ConvertAppDefaults
 
     fileprivate var cellDescribers = [UITableViewCellDefaultDescribable]()
-    fileprivate var cells = [(String, [UITableViewCellDefaultDescribable])]()
+    fileprivate var cells = [(section: String, items: [UITableViewCellDefaultDescribable], description: String)]()
 
     weak var app:ConvertApp?
 
@@ -130,8 +130,8 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
         cellDescribers.append(qualityCell)
         
         cells = [
-            ("Select Formats to Convert:\nFrom ‣ To".localized, [from_to_cell]),
-            ("Export Options:\n⚠️ Original may take a long processing time".localized, [qualityCell])
+            ("Select Formats to Convert".localized, [from_to_cell], "From ‣ To".localized),
+            ("Export Options".localized, [qualityCell], "⚠️ Original may take a long processing time".localized)
         ]
 
         return cellDescribers
@@ -150,11 +150,15 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return cells[section].0
+        return cells[section].section
+    }
+    
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return cells[section].description
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cells[section].1.count
+        return cells[section].items.count
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -217,7 +217,7 @@ class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, 
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
-        preferences.minimumHeight = 44 * CGFloat(autoAdjustmentOptionKeys.count) + 20
+        preferences.minimumHeight = (view as! UITableView).rowHeight * CGFloat(autoAdjustmentOptionKeys.count)
         preferences.pinned = true
         return preferences
     }
@@ -226,9 +226,11 @@ class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, 
         if let view = view as? UITableView{
             view.dataSource = self
             view.delegate = self
-            view.rowHeight = 44
+            view.rowHeight = 52
             view.allowsSelection = false
             view.register(Cell.self, forCellReuseIdentifier: AutoAdjustmentApp.info.identifier)
+            view.backgroundColor = UIColor(red: 31 / 255.0, green: 31 / 255.0, blue: 31 / 255.0, alpha: 1)
+            view.separatorInset.left = view.rowHeight
         }
     }
 
@@ -245,25 +247,17 @@ class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, 
         return 1
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return AutoAdjustmentApp.info.displayName
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return autoAdjustmentOptionKeys.count
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-         return 20
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AutoAdjustmentApp.info.identifier) as! Cell
         let filterName = autoAdjustmentOptionKeys[indexPath.row]
-
+        
         cell.imageView?.image = AutoAdjustmentApp.AutoAdjustments.iconImage(filterName)
         //TODO: apply AppearancableApp.primaryColor
-        cell.imageView?.tintColor = UIColor.black
+        cell.imageView?.tintColor = UIColor.white
         cell.imageView?.contentMode = .scaleAspectFit
 
         cell.textLabel?.text = AutoAdjustmentApp.AutoAdjustments.aliasName(filterName)
@@ -298,6 +292,10 @@ class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, 
             super.init(style: style, reuseIdentifier: reuseIdentifier)
             
             accessoryView = optionSwitch
+            optionSwitch.onTintColor = UIColor(red: 72 / 255.0, green: 168 / 255.0, blue: 247 / 255.0, alpha: 1)
+            backgroundColor = .clear
+            textLabel?.font = UIFont.systemFont(ofSize: 14)
+            textLabel?.textColor = UIColor.white
         }
         
         required init?(coder aDecoder: NSCoder) {
@@ -306,6 +304,15 @@ class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, 
         
         @objc func cellSwitchDidChange(sender: UISwitch) {
             switchDidChange?(sender.isOn)
+        }
+        
+        override func layoutSubviews() {
+            super.layoutSubviews()
+            
+            imageView?.frame.size = CGSize(width: 30, height: 30)
+            imageView?.frame.origin = CGPoint(x: 10, y: (contentView.bounds.height - 30) / 2)
+            
+            textLabel?.frame.origin.x = (imageView?.frame.maxX ?? 0) + 10
         }
     }
 }

@@ -401,7 +401,8 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     
     lazy var view: UIView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.tintColor = UIColor(red: 255 / 255.0, green: 0 / 255.0, blue: 170 / 255.0, alpha: 1)
+        
+        tableView.tintColor = UIColor(red: 84 / 255.0, green: 174 / 255.0, blue: 71 / 255.0, alpha: 1)
         return tableView
     }()
     
