@@ -133,7 +133,13 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         //duration label
         durationLabelForVideo.isHidden = asset.mediaType != .video
         if !durationLabelForVideo.isHidden{
-            durationLabelForVideo.text = PhotoCollectionViewCell.durationLabelFormat.string(from: asset.duration)
+            let format = PhotoCollectionViewCell.durationLabelFormat
+            if asset.duration > 3600 {
+                format.allowedUnits.insert(.hour)
+            }
+            
+            let milliseconds = asset.duration.truncatingRemainder(dividingBy: 60) / 60
+            durationLabelForVideo.text = PhotoCollectionViewCell.durationLabelFormat.string(from: asset.duration + ceil(milliseconds))
         }
         
         //live photo icon

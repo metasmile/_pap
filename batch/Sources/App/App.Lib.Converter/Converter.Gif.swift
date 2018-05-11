@@ -174,7 +174,9 @@ class GifConverter_Timelapse: OptionableConverterBase<GifConverterDefaultOption>
     static var direction: ConvertingDirection { return ConvertingDirection(from:.mov_timelapse, to:.gif) }
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
-        return nil
+        let converter = GifConverter_Mov()
+        converter.options = options
+        return converter.convert(source: source, async)
     }
 
     static func canPerformWith(source: AppAsset) -> Bool {
@@ -186,7 +188,8 @@ class GifConverter_Burst: OptionableConverterBase<GifConverterDefaultOption>, Gi
     static var direction: ConvertingDirection { return ConvertingDirection(from:.burst, to:.gif) }
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
-        let gifOptions = options ?? GifConverterDefaultOption(aspectRatio: Double(source.asset.pixelSize.width / source.asset.pixelSize.height), contentMode: 0, frameDelay: 1 / 15, size: 480, direction: 0, gifQuality: 0.5, loopCount: 0)
+        guard let gifOptions = options else { return nil }
+        
         let param = ConverterBurstImageExtractParam(targetSize: gifOptions.sizeWithAspectRatio(), imageQuality: CGFloat(gifOptions.gifQuality), contentMode: PHImageContentMode(rawValue: gifOptions.contentMode) ?? PHImageContentMode.aspectFit)
         
         guard let urls = extractBurstImageURLs(source: source, param: param, async) else { return nil }
