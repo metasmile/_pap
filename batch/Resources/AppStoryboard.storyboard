@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-634" y="188"/>
         </scene>
-        <!--Photos Apps-->
+        <!--Photo Apps-->
         <scene sceneID="f5k-qW-NGj">
             <objects>
                 <viewController storyboardIdentifier="PhotoPickerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lkB-fw-5jX" customClass="PhotoPickerViewController" customModule="batch" customModuleProvider="target" sceneMemberID="viewController">
@@ -63,7 +63,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Photos Apps" id="nKx-xc-xBf"/>
+                    <navigationItem key="navigationItem" title="Photo Apps" id="nKx-xc-xBf"/>
                     <connections>
                         <outlet property="photoCollectionView" destination="Fza-uH-EMZ" id="25a-Kq-na0"/>
                     </connections>
