@@ -118,10 +118,17 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
             ExportQualityType.original,
         ]
         
+        let qualityCollection: (() -> [String]) = {
+            var values = qualityPresets.map { $0.rawValue }
+            if self.defaults.convertingDirection.to == .gif {
+                values.removeLast()
+            }
+            return values
+        }
         let qualityCell = UITableViewSegmentControlCellDescriber()
         qualityCell.itemIdentifier = Cells.exportQuality.hashValue
         qualityCell.label = "Quality".localized
-        qualityCell.valueCollection = qualityPresets.map { $0.rawValue }
+        qualityCell.valueCollection = qualityCollection
         qualityCell.valueGetter = { self.defaults.convertingQuality.qualityType.rawValue }
         qualityCell.valueHandler = {
             if let index = $0 as? Int {
@@ -133,7 +140,7 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
         
         cells = [
             ("Select Formats to Convert".localized, [from_to_cell], "From ‣ To".localized),
-            ("Export Options".localized, [qualityCell], "⚠️ Original may take a long processing time".localized)
+            ("Export Options".localized, [qualityCell], "")
         ]
 
         return cellDescribers
@@ -329,22 +336,23 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
             return cell
         }
         else if let cellDescriber = item as? UITableViewSegmentControlCellDescriber
-            , let valueCollection = cellDescriber.valueCollection as? [String]
+            , let valueCollection = cellDescriber.valueCollection as? (() -> [String])
             , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewSegmentedControlCell {
             
             cell.textLabel?.text = item.label
             cell.imageView?.image = item.iconImage?.asUIImage
             cell.detailTextLabel?.textColor = UIColor.gray
             
+            let values = valueCollection()
             cell.segmentedControl.apportionsSegmentWidthsByContent = true
             cell.segmentedControl.removeAllSegments()
-            for k in valueCollection{
+            for k in values {
                 cell.segmentedControl.insertSegment(withTitle: k, at: cell.segmentedControl.numberOfSegments, animated: false)
             }
             cell.segmentedControl.sizeToFit()
             
             if let label = item.valueGetter() as? String {
-                cell.segmentedControl.selectedSegmentIndex = valueCollection.index(of: label) ?? 0
+                cell.segmentedControl.selectedSegmentIndex = values.index(of: label) ?? 0
             }
             cell.didChangeValue = item.valueHandler
             return cell

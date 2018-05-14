@@ -43,7 +43,6 @@ struct GifConverterDefaultOption {
         case .high:
             optionPreset.gifQuality = 0.7
             optionPreset.size = 640
-            optionPreset.frameDelay = 1 / 15
         case .original:
             optionPreset.gifQuality = 0.8
             optionPreset.size = Double(asset.pixelWidth)
