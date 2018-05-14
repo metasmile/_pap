@@ -116,13 +116,16 @@ extension Converter{
         return self.buildVideo(paths: urls.mapAsPath, fps: fps, async)
     }
     
-    func buildVideo(urls:[(url: URL, frameDelay: Double)], _ async: AsyncManualSignalable) -> URL?{
+    func buildVideo(urls:[(url: URL, frameDelay: Double)], outputSize: CGSize? = nil, _ async: AsyncManualSignalable) -> URL?{
         var videoUrl:URL?
         
         if urls.count > 0{
             async.begin()
             
             let builder = TimelapsVideoBuilder(imagePaths: urls.map { $0.url.path })
+            if let outputSize = outputSize {
+                builder.outputSize = outputSize
+            }
             builder.fpsEachImages = urls.reduce(into: [String: Int32]()) { (result, value) in
                 var dict = result
                 dict[value.url.path] = Int32(1 / value.frameDelay)

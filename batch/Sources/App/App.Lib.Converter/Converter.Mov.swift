@@ -7,6 +7,46 @@ import Foundation
 import Photos
 import ImageIO
 
+struct MovConverterOption {
+    var exportSize: CGSize = .zero
+    
+    static var `default`: MovConverterOption {
+        return MovConverterOption(exportSize: CGSize(width: 1920, height: 1080))
+    }
+    
+    static func preset(_ quality: ExportQualityType, with asset: PHAsset) -> MovConverterOption {
+        var optionPreset = MovConverterOption.default
+        optionPreset.exportSize = scaleSize(asset.pixelSize, with: quality)
+        return optionPreset
+    }
+    
+    private static func scaleSize(_ size: CGSize, with quality: ExportQualityType) -> CGSize {
+        guard quality != .original else { return size }
+        
+        let maximumSize = max(640, size.width, size.height)
+        let sizePhases: [CGFloat] = [3840, 1920, 1280, 960, 640, 480, 320, 240]
+        let indexOfQuality: ((ExportQualityType) -> Int) = { type in
+            switch type {
+            case .high: return 0
+            case .medium: return 1
+            case .low: return 2
+            default: return NSNotFound
+            }
+        }
+        
+        let allowedSizes = sizePhases.filter({ maximumSize > $0 })
+        let baseSize = allowedSizes[indexOfQuality(quality)]
+        let aspectRatio = size.width / size.height
+        
+        if aspectRatio < 1 {
+            return CGSize(width: Int(baseSize * aspectRatio), height: Int(baseSize))
+        }
+        else {
+            return CGSize(width: Int(baseSize), height: Int(baseSize / aspectRatio))
+        }
+    }
+}
+
 protocol MovConverter: Converter {}
 
 extension MovConverter {
@@ -15,10 +55,8 @@ extension MovConverter {
     }
 }
 
-struct MovConverter_Gif: MovConverter {
+class MovConverter_Gif: OptionableConverterBase<MovConverterOption>, MovConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.gif, to:.mov) }
-
-    init() {}
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
 
@@ -31,8 +69,8 @@ struct MovConverter_Gif: MovConverter {
         }
         async.waitUntilEnd()
 
-        if let urls = urls{
-            return self.buildVideo(urls: urls, async)
+        if let urls = urls {
+            return self.buildVideo(urls: urls, outputSize: options?.exportSize, async)
         }
 
         return nil
@@ -43,15 +81,13 @@ struct MovConverter_Gif: MovConverter {
     }
 }
 
-struct MovConverter_Burst: MovConverter {
+class MovConverter_Burst: OptionableConverterBase<MovConverterOption>, MovConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.burst, to:.mov) }
-
-    init() {}
-
+    
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
 
         if let urls = self.extractBurstImageURLs(source: source, async){
-            return self.buildVideo(urls: urls, async)
+            return self.buildVideo(urls: urls, outputSize: options?.exportSize, async)
         }
 
         return nil
@@ -64,8 +100,6 @@ struct MovConverter_Burst: MovConverter {
 
 struct MovConverter_LivePhoto: MovConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.livephoto, to:.mov) }
-
-    init() {}
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
 

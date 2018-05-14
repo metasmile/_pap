@@ -37,6 +37,9 @@ public final class TimelapsVideoBuilder: NSObject {
     func initProperties(){
         if self.inputSize.equalTo(.zero){
             self.inputSize = UIImage(contentsOfFile: imagePaths.first! as String)!.size
+        }
+        
+        if self.outputSize == .zero {
             self.outputSize = self.inputSize
         }
     }
@@ -46,7 +49,7 @@ public final class TimelapsVideoBuilder: NSObject {
 
         let inputSize = self.inputSize
         let outputSize = self.outputSize
-
+        
         var error: NSError?
 
         let documentsPath = self.destinationFilePath ?? (NSTemporaryDirectory() as NSString).appendingPathComponent("TimeLapseVideo.mov")

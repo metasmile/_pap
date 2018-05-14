@@ -119,11 +119,18 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
         ]
         
         let qualityCollection: (() -> [String]) = {
-            var values = qualityPresets.map { $0.rawValue }
-            if self.defaults.convertingDirection.to == .gif {
-                values.removeLast()
+            var values = qualityPresets
+            
+            if self.defaults.convertingDirection.from == .livephoto, self.defaults.convertingDirection.to == .mov {
+                values = [ExportQualityType.original]
             }
-            return values
+            else {
+                switch self.defaults.convertingDirection.to {
+                case .gif: values.removeLast()
+                default: break
+                }
+            }
+            return values.map { $0.rawValue }
         }
         let qualityCell = UITableViewSegmentControlCellDescriber()
         qualityCell.itemIdentifier = Cells.exportQuality.hashValue
