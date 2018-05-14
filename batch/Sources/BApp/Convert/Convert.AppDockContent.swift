@@ -126,7 +126,7 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
             }
             else {
                 switch self.defaults.convertingDirection.to {
-                case .gif: values.removeLast()
+                case .gif, .jpeg: values.removeLast()
                 default: break
                 }
             }

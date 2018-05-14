@@ -7,6 +7,25 @@ import Foundation
 import UIKit
 import Photos
 
+struct JpgConverterOption {
+    var compressionQuality: CGFloat = 0.7
+    
+    static var `default`: JpgConverterOption {
+        return JpgConverterOption(compressionQuality: 0.7)
+    }
+    
+    static func preset(_ quality: ExportQualityType, with asset: PHAsset) -> JpgConverterOption {
+        var options = JpgConverterOption.default
+        switch quality {
+        case .high: options.compressionQuality = 1.0
+        case .medium: options.compressionQuality = 0.7
+        case .low: options.compressionQuality = 0.5
+        default: break
+        }
+        return options
+    }
+}
+
 protocol JpgConverter: Converter {}
 extension JpgConverter{
     static var direction: ConvertingDirection {
@@ -14,16 +33,14 @@ extension JpgConverter{
     }
 }
 
-struct JpgConverter_ScreenshotPng: JpgConverter {
+class JpgConverter_ScreenshotPng: OptionableConverterBase<JpgConverterOption>, JpgConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.png_screenshot, to:.jpeg) }
-
-    init() {}
-
+    
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
 
         var result:Any?
 
-        let quality:CGFloat = 0.7
+        let quality:CGFloat = options?.compressionQuality ?? 0.7
 
         async.begin()
         PHImageManager.default().requestImageData(for: source.asset, options: nil) { data, s, orientation, dictionary in

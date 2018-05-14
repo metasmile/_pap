@@ -189,6 +189,9 @@ private class ConvertAppTask: TaskPrototype, Taskable {
         else if let movConverter = converter as? OptionableConverterBase<MovConverterOption> {
             movConverter.options = MovConverterOption.preset(defaults.convertingQuality.qualityType, with: assetItem.asset)
         }
+        else if let jpgConverter = converter as? OptionableConverterBase<JpgConverterOption> {
+            jpgConverter.options = JpgConverterOption.preset(defaults.convertingQuality.qualityType, with: assetItem.asset)
+        }
 
         let result = converter.convert(source: assetItem, async)
         return result == nil ? nil : ConvertAppResult(result: result)
