@@ -40,7 +40,7 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
-        preferences.minimumHeight = (self.view as! UITableView).rowHeight * 5 - 5
+        preferences.minimumHeight = (self.view as! UITableView).rowHeight * 4
         preferences.pinned = false
         return preferences
     }
@@ -146,7 +146,7 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
         cellDescribers.append(qualityCell)
         
         cells = [
-            ("Select Formats to Convert".localized, [from_to_cell], "From ‣ To".localized),
+            ("Select Formats to Convert".localized, [from_to_cell], ""/*"From ‣ To".localized*/),
             ("Export Options".localized, [qualityCell], "")
         ]
 
