@@ -124,6 +124,11 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
             }
             groupedIndexPaths.append(indexPath)
         }
+        
+        groupedIndexPaths.sort()
+        if groupDirection == .up {
+            groupedIndexPaths.reverse()
+        }
 
         var ignoredIndexPaths = [IndexPath]()
         if selectionMode == .select {
@@ -156,11 +161,11 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
     }
 
     private func dragSelection(with indexPaths: [IndexPath]) {
-        _ = indexPaths.map({ self.dragSelection(at: $0) })
+        indexPaths.forEach({ self.dragSelection(at: $0) })
     }
 
     private func dragDeselection(with indexPaths: [IndexPath]) {
-        _ = indexPaths.map({ self.dragDeselection(at: $0) })
+        indexPaths.forEach({ self.dragDeselection(at: $0) })
     }
 
     private func dragSelection(at indexPath: IndexPath) {

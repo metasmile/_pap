@@ -21,6 +21,7 @@ class _GIFMakerAppAsset: PHAssetItem<ImageEditStateValue> {
 
 private struct GIFMakerPHAssetResult: TaskResultable{
     public var fileURL: URL?
+    public var orderedIndex: Int?
 }
 
 //MARK: -
@@ -161,7 +162,7 @@ struct GIFMakerSettings {
             static let nhd = "nHD (640×360)".localized
             static let qhd = "qHD (960×540)".localized
             static let hd = "HD (1280×720)".localized
-            static let fhd = "FHD (1920×1080)".localized
+            static let fhd = "1080p (1920×1080)".localized
             static let qvga = "QVGA (320×240)".localized
             static let hvga = "HVGA (480×320)".localized
         }
@@ -296,9 +297,11 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
     }
     
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
-        let resultItems = result
+        var resultItems = result
             .filter { respondable in respondable.info.state == .completed }
             .compactMap { ($0.result as? GIFMakerPHAssetResult) }
+        
+        resultItems.sort { ($0.orderedIndex ?? 0) < ($1.orderedIndex ?? 0) }
         
         let defaults =  (GIFMaker.defaults as! GIFMakerDefaults)
         var results = [URL]()
@@ -356,7 +359,7 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
             
             if let image = response.1 {
                 let cachedAsset = LocalCachedAsset(assetItem.asset, image: image, targetSize: targetSize, imageQuality: CGFloat(defaults.gifQuality))
-                result = GIFMakerPHAssetResult(fileURL: cachedAsset.imageFileURL)
+                result = GIFMakerPHAssetResult(fileURL: cachedAsset.imageFileURL, orderedIndex: AppAssets.selected.index(of: assetItem))
                 assetItem.requestIDs += [PHAssetRequestID(forImage:response.0)]
             }
         case .burst?:
@@ -364,14 +367,14 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
             converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount)
             
             if let url = converter.convert(source: assetItem, async) as? URL {
-                result = GIFMakerPHAssetResult(fileURL: url)
+                result = GIFMakerPHAssetResult(fileURL: url, orderedIndex: AppAssets.selected.index(of: assetItem))
             }
         case .livePhoto?:
             let converter = GifConverter_LivePhoto()
             converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount)
             
             if let url = converter.convert(source: assetItem, async) as? URL {
-                result = GIFMakerPHAssetResult(fileURL: url)
+                result = GIFMakerPHAssetResult(fileURL: url, orderedIndex: AppAssets.selected.index(of: assetItem))
             }
         default: break
         }

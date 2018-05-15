@@ -66,7 +66,11 @@ public class ConvertApp: BApp,
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
         let resultItems:[Any]? = result
                 .filter { respondable in respondable.info.state == .completed }
-                .compactMap { ($0.result as? ConvertAppResult)?.result }
+                .compactMap{ $0.result as? ConvertAppResult }
+                .sorted { (result1: ConvertAppResult?, result2: ConvertAppResult?) -> Bool in
+                    (result1?.orderedIndex ?? 0) < (result2?.orderedIndex ?? 0)
+                }
+                .compactMap { $0?.result }
 
         asyncSignal.begin()
         DispatchQueue.main.async {
@@ -157,6 +161,7 @@ extension ConvertApp{
 
 private struct ConvertAppResult: TaskResultable{
     var result:Any?
+    var orderedIndex: Int?
 }
 
 private class ConvertAppTask: TaskPrototype, Taskable {
@@ -194,6 +199,6 @@ private class ConvertAppTask: TaskPrototype, Taskable {
         }
 
         let result = converter.convert(source: assetItem, async)
-        return result == nil ? nil : ConvertAppResult(result: result)
+        return result == nil ? nil : ConvertAppResult(result: result, orderedIndex: AppAssets.selected.index(of: assetItem))
     }
 }
