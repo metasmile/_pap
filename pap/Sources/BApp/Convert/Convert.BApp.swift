@@ -121,7 +121,8 @@ extension ConvertApp{
         GifConverter_Timelapse.self,
         GifConverter_Mov.self,
 
-        JpgConverter_ScreenshotPng.self
+        JpgConverter_ScreenshotPng.self,
+        MP4Converter_Mov.self
     ]
 
     static var availableDirections:[ConvertingDirection] {

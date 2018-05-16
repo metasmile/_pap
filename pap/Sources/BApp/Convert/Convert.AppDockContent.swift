@@ -121,7 +121,9 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
         let qualityCollection: (() -> [String]) = {
             var values = qualityPresets
             
-            if self.defaults.convertingDirection.from == .livephoto, self.defaults.convertingDirection.to == .mov {
+            if (self.defaults.convertingDirection.from == .livephoto && self.defaults.convertingDirection.to == .mov) ||
+                (self.defaults.convertingDirection.from == .mov && self.defaults.convertingDirection.to == .mp4) ||
+                (self.defaults.convertingDirection.from == .mp4 && self.defaults.convertingDirection.to == .mov){
                 values = [ExportQualityType.original]
             }
             else {

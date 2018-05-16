@@ -10,10 +10,12 @@ import UIKit
 import AVFoundation
 
 extension AVAssetExportSession {
-    static func `init`(asset: AVAsset, videoComposition: AVVideoComposition?
+    @discardableResult
+    static func `init`(asset: AVAsset, videoComposition: AVVideoComposition? = nil
             , presetName: String = AVAssetExportPresetPassthrough
             , outputFileType: AVFileType = AVFileType.mov
             , outputURL: URL
+            , shouldOptimizeForNetworkUse: Bool = false
             , progressHandler: ((Float) -> Void)? = nil
             , completionHandler: @escaping (Bool) -> Void) -> AVAssetExportSession? {
 
@@ -30,7 +32,7 @@ extension AVAssetExportSession {
         exportSession.outputFileType = outputFileType
         exportSession.outputURL = outputURL
         exportSession.videoComposition = videoComposition
-        exportSession.shouldOptimizeForNetworkUse = false
+        exportSession.shouldOptimizeForNetworkUse = shouldOptimizeForNetworkUse
         exportSession.exportAsynchronously {
             exportingVideo.leave()
 
