@@ -10,14 +10,21 @@ import UIKit
 import AVFoundation
 
 extension AVAssetExportSession {
-    static func `init`(asset: AVAsset, videoComposition: AVVideoComposition?, presetName: String = AVAssetExportPresetPassthrough, outputFileType: AVFileType = AVFileType.mov, outputURL: URL, progressHandler: ((Float) -> Void)? = nil, completionHandler: @escaping (Bool) -> Void) -> AVAssetExportSession? {
+    static func `init`(asset: AVAsset, videoComposition: AVVideoComposition?
+            , presetName: String = AVAssetExportPresetPassthrough
+            , outputFileType: AVFileType = AVFileType.mov
+            , outputURL: URL
+            , progressHandler: ((Float) -> Void)? = nil
+            , completionHandler: @escaping (Bool) -> Void) -> AVAssetExportSession? {
+
         guard let exportSession = AVAssetExportSession(asset: asset, presetName: presetName) else {
             return nil
         }
 
         let exportingVideo = DispatchGroup()
         exportingVideo.enter()
-        
+
+        //TODO: apply TEMP_FILE_GC (in some case outputURL may be a cause of queue hanging)
         try? FileManager.default.removeItem(at: outputURL)
 
         exportSession.outputFileType = outputFileType

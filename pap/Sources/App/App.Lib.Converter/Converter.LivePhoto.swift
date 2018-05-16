@@ -23,6 +23,7 @@ struct LivePhotoConverter_Gif: LivePhotoConverter {
         let urls = extractImageURLsFromGIFData(asset:source.asset, async)
 
         if let urls = urls{
+            //TODO: must perform "saveLivePhoto"
             return self.createLivePhoto(fromImagePaths: urls.map { $0.url.path }, async)
         }
 
@@ -42,6 +43,7 @@ struct LivePhotoConverter_Burst: LivePhotoConverter {
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         if let urls = self.extractBurstImageURLs(source: source, async){
+            //TODO: must perform "saveLivePhoto"
             return self.createLivePhoto(fromImageURLs: urls.map { $0.url }, async)
         }
 
@@ -59,11 +61,24 @@ struct LivePhotoConverter_Video: LivePhotoConverter {
     init() {}
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
-        if let url = self.extractVideoFileURL(source: source, async){
-            return self.createLivePhoto(fromVideoPath: url.path, timeLocationOfTitle: 0, async)
+        var succeed = false
+        if let videoURL = self.extractVideoFileURL(source: source, async){
+
+            async.begin()
+
+            LivePhotoWriter().saveLivePhotoFromVideo(videoPath: videoURL.path, timeLocationOfTitle: 0, saved: { success, s, error in
+                succeed = success
+
+                async.end()
+            }, andFetched: nil)
+
+        }else{
+            async.end()
         }
 
-        return nil
+        async.waitUntilEnd()
+        //FIXME: succeed always == false
+        return nil//succeed ? ConverterVoidReturnValue : nil
     }
 
     static func canPerformWith(source: AppAsset) -> Bool {

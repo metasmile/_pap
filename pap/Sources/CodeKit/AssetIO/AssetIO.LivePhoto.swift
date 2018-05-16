@@ -11,9 +11,9 @@ import Photos
 //TODO: clean convention
 //TODO: clean queues.
 
-public typealias LivePhotoWriterResultHandler = ((Bool, URL?, URL?, Error?) -> ())?
-public typealias LivePhotoWriterAssetSavedHandler = ((Bool, String?, Error?) -> ())?
-public typealias LivePhotoWriterAssetSavedAndFetchedHandler = ((Bool, PHLivePhoto?, PHAsset?, Error?) -> ())?
+public typealias LivePhotoWriterResultHandler = ((Bool, URL?, URL?, Error?) -> ())
+public typealias LivePhotoWriterAssetSavedHandler = ((Bool, String?, Error?) -> ())
+public typealias LivePhotoWriterAssetSavedAndFetchedHandler = ((Bool, PHLivePhoto?, PHAsset?, Error?) -> ())
 
 public final class LivePhotoWriter {
     public static let `default` = LivePhotoWriter()
@@ -59,8 +59,8 @@ public final class LivePhotoWriter {
             , indexOfTitle: Int
             , progress: ((Progress) -> ())?
             , fps: Int32
-            , saved: LivePhotoWriterAssetSavedHandler
-            , andFetched: LivePhotoWriterAssetSavedAndFetchedHandler
+            , saved: LivePhotoWriterAssetSavedHandler?
+            , andFetched: LivePhotoWriterAssetSavedAndFetchedHandler?
     ) {
         self.writeLivePhotoFromImages(photoPaths: paths, indexOfTitle: indexOfTitle, progress: progress, fps: fps) {
             success, imageURL, pairedVideoURL, _ in
@@ -72,9 +72,10 @@ public final class LivePhotoWriter {
 
     public func saveLivePhotoFromVideo(videoPath: String
             , timeLocationOfTitle : Double
-            , saved: LivePhotoWriterAssetSavedHandler
-            , andFetched: LivePhotoWriterAssetSavedAndFetchedHandler
+            , saved: LivePhotoWriterAssetSavedHandler?
+            , andFetched: LivePhotoWriterAssetSavedAndFetchedHandler?
     ) {
+
         self.writeLivePhotoFromVideo(videoPath: videoPath, timeLocationOfTitle: timeLocationOfTitle, completion:{
             success, imageURL, pairedVideoURL, error in
 
@@ -85,8 +86,8 @@ public final class LivePhotoWriter {
     // MARK: PhotoKit Procedures
     func saveLivePhoto(imageURL: URL
             , withPairedVideo pairedVideoURL: URL
-            , completion: LivePhotoWriterAssetSavedHandler
-            , fetchCompletion: LivePhotoWriterAssetSavedAndFetchedHandler
+            , completion: LivePhotoWriterAssetSavedHandler?
+            , fetchCompletion: LivePhotoWriterAssetSavedAndFetchedHandler?
     ) {
 
         var createdAssetsLocalIdentifier: String?
@@ -154,7 +155,7 @@ public final class LivePhotoWriter {
             , indexOfTitle: Int
             , progress: ((Progress) -> Void)?
             , fps: Int32
-            , completion: LivePhotoWriterResultHandler
+            , completion: LivePhotoWriterResultHandler?
     ) {
 
         if let titleImagePath = indexOfTitle < photoPaths.count-1 ? photoPaths[indexOfTitle] : photoPaths.first{
@@ -174,7 +175,7 @@ public final class LivePhotoWriter {
 
     func writeLivePhotoFromVideo(videoPath: String
             , timeLocationOfTitle: Double
-            , completion: LivePhotoWriterResultHandler
+            , completion: LivePhotoWriterResultHandler?
     ) {
 
         let asset = AVURLAsset(url:URL(fileURLWithPath: videoPath))
@@ -197,7 +198,7 @@ public final class LivePhotoWriter {
 
     func writeLivePhoto(photoPath: String
             , withVideo videoPath: String
-            , completion: LivePhotoWriterResultHandler
+            , completion: LivePhotoWriterResultHandler?
     ) {
 
         dispatchQueue.async {

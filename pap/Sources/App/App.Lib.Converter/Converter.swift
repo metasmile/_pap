@@ -6,13 +6,19 @@
 import Foundation
 import Photos
 
+/*
+ if converter needs only internally-finishing process, should return `ConverterVoidReturnValue`
+ */
+public typealias ConverterVoidReturnType = Int
+public let ConverterVoidReturnValue = ConverterVoidReturnType.max
+
 enum ConvertingType: String, Decodable{
     case any = "Any"
     case jpeg = "Image (.jpg)" // e.g. - jpeg -> gif/livephoto/video == sliced Panorama -> play left to right
     case png = "Image (.png)"
     case png_screenshot = "Screenshot Image" // e.g. screenshots
     case heif = "Image (.heif)"
-    case mov = "Video (.mov)"
+    case mov = "Video"
     case mov_timelapse = "Timelapse Video"
     case mp4 = "Video (.mp4)"
     case wav = "Sound (.wav)" // e.g. mov -> sound -> wav or mp4
@@ -171,20 +177,35 @@ extension Converter{
 
 
     public func extractVideoFileURL(source:AppAsset, options: PHVideoRequestOptions? = nil, _ async: AsyncManualSignalable) -> URL? {
+
+        let options: PHVideoRequestOptions = PHVideoRequestOptions()
+//        options.version = .original
+
+    //TODO: quality
+//        options.deliveryMode
+//
+//        case automatic // only apply with PHVideoRequestOptionsVersionCurrent // let us pick the quality (typ. PHVideoRequestOptionsDeliveryModeMediumQualityFormat for streamed AVPlayerItem or AVAsset, or PHVideoRequestOptionsDeliveryModeHighQualityFormat for AVAssetExportSession)
+//
+//        case highQualityFormat // best quality
+//
+//        case mediumQualityFormat // medium quality (typ. 720p), currently only supported for AVPlayerItem or AVAsset when streaming from iCloud (will systematically default to PHVideoRequestOptionsDeliveryModeHighQualityFormat if locally available)
+//
+//        case fastFormat // fa
+
         async.begin()
-        var videoURL:URL?
-        guard let requestId = source.asset.exportVideoFile(options: options, progressHandler: nil, completionHandler: { success, url, mimetype in
-            videoURL = success ? url : nil
+
+        var returningURL:URL?
+        let requestId = PHImageManager.default().requestAVAsset(forVideo: source.asset, options: options, resultHandler: {(asset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
+            if let urlAsset = asset as? AVURLAsset {
+                returningURL = urlAsset.url as URL
+            }
             async.end()
+        })
 
-        }) else{
-            return nil
-        }
-        
         source.requestIDs.append(PHAssetRequestID(forImage: requestId))
-
         async.waitUntilEnd()
-        return videoURL
+
+        return returningURL
     }
 }
 
