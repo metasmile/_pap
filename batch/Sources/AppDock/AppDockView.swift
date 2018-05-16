@@ -575,7 +575,7 @@ extension AppDockView: UIScrollViewDelegate {
         let targetIndexPath = visibleItemCount > 0 ? appCollectionView.indexPathsForVisibleItems.sorted()[index] : nil
         
         appCollectionViewHeightLayout.constant = AppCollectionViewLayout.LayoutConstants.prominentHeight
-        UIView.animateAsSpring(0.4, delay: 0, animations: {
+        UIView.animate(withDuration: 0.3, delay: 0, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
             self.appCollectionView.superview?.layoutIfNeeded()
             self.appCollectionView.setCollectionViewLayout(toLayout, animated: false)
             
@@ -613,7 +613,9 @@ extension AppDockView: UIScrollViewDelegate {
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        zoomInAppCollectionView()
+        if scrollView.isTracking, scrollView.isDragging {
+            zoomInAppCollectionView()
+        }
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
@@ -683,7 +685,7 @@ class AppCollectionViewLayout: UICollectionViewLayout {
         case .compact:
             size = CGSize(width: LayoutConstants.compactHeight * 1.333, height: LayoutConstants.compactHeight)
         case .prominent:
-            size = CGSize(width: LayoutConstants.prominentHeight * 1.2, height: LayoutConstants.prominentHeight)
+            size = CGSize(width: LayoutConstants.prominentHeight * 1.1, height: LayoutConstants.prominentHeight)
         }
         return size
     }
