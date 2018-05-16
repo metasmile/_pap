@@ -1,0 +1,96 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Fotók hozzáférés letiltva";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Nyissa meg a beállításokat, és engedélyezze a fényképekhez való hozzáférést";
+/*Translated from: Open Settings*/
+"Open Settings" = "Nyisd meg a beállításokat";
+/*Translated from: OK*/
+"OK" = "OK";
+/*Translated from: Done*/
+"Done" = "Kész";
+/*Translated from: Confirm*/
+"Confirm" = "megerősít";
+/*Translated from: Cancel*/
+"Cancel" = "Megszünteti";
+/*Translated from: Detail*/
+"Detail" = "Részlet";
+/*Translated from: Delete*/
+"Delete" = "Töröl";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Elnézést, valami nem ment jól.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "%d Kép szerkesztése";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "%d Videók szerkesztése";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "%d Elemek szerkesztése";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Batch Szerkesztés";
+/*Translated from: Edit*/
+"Edit" = "szerkesztése";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Módosítások elvetése";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Kötegelt szerkesztés indítása ...";
+/*Translated from: Processing...*/
+"Processing..." = "Feldolgozás...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Visszavonás ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Fotók mentése ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Fotók törlése ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Fotók visszavétele ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Válassza ezt a fotót";
+/*Translated from: Select this video*/
+"Select this video" = "Válassza ezt a videót";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Törölje ezt a fotót";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Törölje ezt a videót";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Szerkessze ezt a fotót";
+/*Translated from: Edit this video*/
+"Edit this video" = "Szerkessze ezt a videót";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Fotó";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Videó";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Tétel";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Fotók";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Videók";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Elemek";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Szerkesztés: %@ Fotó";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "%@ Videó szerkesztése";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "%@ Fotók szerkesztése";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "%@ Videók szerkesztése";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "%@ Elemek szerkesztése";
+/*com.stells.pap.transform*/
+"Transform" = "Transform";
+/*com.stells.pap.photosfilter*/
+"Apply" = "Apply";
+/*com.stells.pap.revert*/
+"Revert" = "Visszaszáll";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "A visszaállítás ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Fotók visszavétele ...";
+/*com.stells.pap.pdfactory*/
+"Create %@" = "Hozz létre %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "PDF létrehozása ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "PDF-oldalak létrehozása ...";
+/*com.stells.pap.converter*/
+"Convert" = "Alakítani";

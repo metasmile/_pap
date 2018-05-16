@@ -1,0 +1,96 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "ការចូលប្រើរូបថតត្រូវបានបិទ";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "សូមបើកការកំណត់និងអនុញ្ញាតឱ្យចូលមើលរូបថតរបស់អ្នក";
+/*Translated from: Open Settings*/
+"Open Settings" = "បើកការកំណត់";
+/*Translated from: OK*/
+"OK" = "យល់ព្រម";
+/*Translated from: Done*/
+"Done" = "ធ្វើ";
+/*Translated from: Confirm*/
+"Confirm" = "អះអាង";
+/*Translated from: Cancel*/
+"Cancel" = "បោះបង់";
+/*Translated from: Detail*/
+"Detail" = "លំអិត";
+/*Translated from: Delete*/
+"Delete" = "លុប";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "សូមទោសមានអ្វីមួយខុសប្រក្រតី។";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "កែប្រែ %d រូបថត (s)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "កែសម្រួល %d វីដេអូ (s បាន)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "កែសម្រួល %d ធាតុ (s បាន)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "កែសម្រួលបាច់";
+/*Translated from: Edit*/
+"Edit" = "កែសម្រួល";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "បោះបង់ការផ្លាស់ប្តូរ";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "ចាប់ផ្តើមការកែប្រែបាច់ ...";
+/*Translated from: Processing...*/
+"Processing..." = "កំពុងដំណើរការ ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "កំពុងបោះបង់ ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "កំពុងរក្សាទុករូបភាព ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "កំពុងលុបរូបថត ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "កំពុងត្រឡប់រូបភាព ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "ជ្រើសរើសរូបថតនេះ";
+/*Translated from: Select this video*/
+"Select this video" = "ជ្រើសវីដេអូនេះ";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "មិនជ្រើសរូបថតនេះ";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "មិនជ្រើសវីដេអូនេះ";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "កែសម្រួលរូបថតនេះ";
+/*Translated from: Edit this video*/
+"Edit this video" = "កែសម្រួលវីដេអូនេះ";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ រូបថត";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ វីដេអូ";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ ធាតុ";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ រូបថត";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ វីដេអូ";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ ធាតុ";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "កែប្រែ %@ រូបថត";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "កែសម្រួល %@ វីដេអូ";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "កែប្រែ %@ រូបថត";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "កែសម្រួល %@ វីដេអូ";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "កែសម្រួល %@ ធាតុ";
+/*com.stells.pap.transform*/
+"Transform" = "ផ្លាស់ប្តូរ";
+/*com.stells.pap.photosfilter*/
+"Apply" = "អនុវត្ត";
+/*com.stells.pap.revert*/
+"Revert" = "ត្រលប់មកវិញ";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "កំពុងចាប់ផ្តើមត្រឡប់ទៅ ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "កំពុងត្រឡប់រូបភាព ...";
+/*com.stells.pap.pdfactory*/
+"Create %@" = "បង្កើត %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "កំពុងចាប់ផ្ដើមបង្កើត PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "បង្កើតទំព័រ PDF ...";
+/*com.stells.pap.converter*/
+"Convert" = "បម្លែង";

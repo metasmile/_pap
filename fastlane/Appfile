@@ -1,5 +1,5 @@
-app_identifier "com.stells.batch" # The bundle identifier of your app
-team_id "DAGHHLSPPQ" # Developer Portal Team ID
+app_identifier "com.stells.pap" # The bundle identifier of your app
+team_id "MCAFR355J4" #Tae ho Lee
 
 # you can even provide different app identifiers, Apple IDs and team names per lane:
 # More information: https://docs.fastlane.tools/advanced/#appfile

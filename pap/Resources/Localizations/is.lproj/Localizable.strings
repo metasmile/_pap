@@ -1,0 +1,96 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Myndir Aðgangur óvirk";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Opnaðu stillingar og leyfðu aðgang að myndunum þínum";
+/*Translated from: Open Settings*/
+"Open Settings" = "Opnaðu stillingar";
+/*Translated from: OK*/
+"OK" = "Allt í lagi";
+/*Translated from: Done*/
+"Done" = "Gert";
+/*Translated from: Confirm*/
+"Confirm" = "Staðfesta";
+/*Translated from: Cancel*/
+"Cancel" = "Hætta við";
+/*Translated from: Detail*/
+"Detail" = "Nánar";
+/*Translated from: Delete*/
+"Delete" = "Eyða";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Afsakið, eitthvað fór úrskeiðis.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Breyta %d mynd (ir)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Breyta %d myndskeiðum";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Breyta %d atriði (s)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Batch Edit";
+/*Translated from: Edit*/
+"Edit" = "Breyta";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Hætta við breytingar";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Byrjaðu lotuvinnslu ...";
+/*Translated from: Processing...*/
+"Processing..." = "Vinnsla ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Hættir við ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Vistar myndir ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Eyðir myndum ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Afturkalla myndir ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Veldu þessa mynd";
+/*Translated from: Select this video*/
+"Select this video" = "Veldu þetta myndskeið";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Afveldu þessa mynd";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Afveldu þetta myndband";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Breyta þessari mynd";
+/*Translated from: Edit this video*/
+"Edit this video" = "Breyta þessu myndskeiði";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Mynd";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Myndskeið";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Atriði";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Myndir";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Myndbönd";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Atriði";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Breyta %@ mynd";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Breyta %@ myndskeið";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Breyta %@ Myndir";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Breyta %@ myndböndum";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Breyta %@ atriðum";
+/*com.stells.pap.transform*/
+"Transform" = "Breyta";
+/*com.stells.pap.photosfilter*/
+"Apply" = "Sækja um";
+/*com.stells.pap.revert*/
+"Revert" = "Snúa aftur";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Byrjar að snúa aftur ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Afturkalla myndir ...";
+/*com.stells.pap.pdfactory*/
+"Create %@" = "Búðu til %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Byrjar að búa til PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Búa til PDF síður ...";
+/*com.stells.pap.converter*/
+"Convert" = "Umbreyta";

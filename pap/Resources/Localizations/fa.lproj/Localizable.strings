@@ -1,0 +1,96 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "عکس دسترسی غیرفعال شده است";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "لطفا تنظیمات را باز کرده و اجازه دسترسی به عکس های خود را بدهید";
+/*Translated from: Open Settings*/
+"Open Settings" = "تنظیمات را باز کنید";
+/*Translated from: OK*/
+"OK" = "خوب";
+/*Translated from: Done*/
+"Done" = "انجام شده";
+/*Translated from: Confirm*/
+"Confirm" = "تایید";
+/*Translated from: Cancel*/
+"Cancel" = "لغو";
+/*Translated from: Detail*/
+"Detail" = "جزئیات";
+/*Translated from: Delete*/
+"Delete" = "حذف";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "با عرض پوزش، چیزی اشتباه رفت";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "ویرایش %d عکس (ها)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "ویرایش %d ویدیو (های)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "ویرایش %d آیتم (های)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "ویرایش دسته ای";
+/*Translated from: Edit*/
+"Edit" = "ویرایش";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "لغو تغییرات";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "شروع به ویرایش دسته ای ...";
+/*Translated from: Processing...*/
+"Processing..." = "در حال پردازش...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "لغو ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "ذخیره عکس ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "حذف عکسها ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "بازگرداندن عکسها ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "این عکس را انتخاب کنید";
+/*Translated from: Select this video*/
+"Select this video" = "این ویدیو را انتخاب کنید";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "این عکس را بردارید";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "این ویدیو را بردارید";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "ویرایش این عکس";
+/*Translated from: Edit this video*/
+"Edit this video" = "ویرایش این ویدیو";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ عکس";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ ویدیو";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ مورد";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ عکسها";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ فیلم ها";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ آیتم ها";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "ویرایش %@ عکس";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "ویرایش %@ ویدیو";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "ویرایش %@ عکسها";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "ویرایش %@ ویدیوها";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "ویرایش %@ آیتمها";
+/*com.stells.pap.transform*/
+"Transform" = "تبدیل";
+/*com.stells.pap.photosfilter*/
+"Apply" = "درخواست دادن";
+/*com.stells.pap.revert*/
+"Revert" = "بازگرداندن";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "شروع به بازگشت ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "بازگرداندن عکسها ...";
+/*com.stells.pap.pdfactory*/
+"Create %@" = "ایجاد %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "شروع به ایجاد PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "ایجاد صفحات PDF ...";
+/*com.stells.pap.converter*/
+"Convert" = "تبدیل";

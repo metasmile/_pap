@@ -1,0 +1,96 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Akses Foto Dinonaktifkan";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Harap buka pengaturan dan izinkan akses ke foto Anda";
+/*Translated from: Open Settings*/
+"Open Settings" = "Buka Pengaturan";
+/*Translated from: OK*/
+"OK" = "baik";
+/*Translated from: Done*/
+"Done" = "Selesai";
+/*Translated from: Confirm*/
+"Confirm" = "Memastikan";
+/*Translated from: Cancel*/
+"Cancel" = "Membatalkan";
+/*Translated from: Detail*/
+"Detail" = "Detail";
+/*Translated from: Delete*/
+"Delete" = "Menghapus";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Maaf, ada yang salah.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Edit foto %d";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Edit %d video";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Edit %d item";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Batch Edit";
+/*Translated from: Edit*/
+"Edit" = "Edit";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Membuang perubahan";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Mulai Batch Editing ...";
+/*Translated from: Processing...*/
+"Processing..." = "Pengolahan...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Membatalkan ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Menyimpan Foto ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Menghapus Foto ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Mengembalikan Foto ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Pilih foto ini";
+/*Translated from: Select this video*/
+"Select this video" = "Pilih video ini";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Hapus pilihan foto ini";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Hapus pilihan video ini";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Edit foto ini";
+/*Translated from: Edit this video*/
+"Edit this video" = "Edit video ini";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Foto";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Video";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Item";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Foto";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Video";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Items";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Edit %@ Foto";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Edit %@ Video";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Edit %@ Foto";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Edit %@ Video";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Edit %@ Item";
+/*com.stells.pap.transform*/
+"Transform" = "Transform";
+/*com.stells.pap.photosfilter*/
+"Apply" = "Menerapkan";
+/*com.stells.pap.revert*/
+"Revert" = "Revert";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Mulai mengembalikan ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Mengembalikan Foto ...";
+/*com.stells.pap.pdfactory*/
+"Create %@" = "Create %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Mulai membuat PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Membuat Halaman PDF ...";
+/*com.stells.pap.converter*/
+"Convert" = "Mengubah";

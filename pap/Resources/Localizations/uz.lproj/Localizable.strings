@@ -1,0 +1,96 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Rasmlar kirish o'chirilgan";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Sozlamalarni oching va rasmlaringizga kiring";
+/*Translated from: Open Settings*/
+"Open Settings" = "Sozlamalarni ochish";
+/*Translated from: OK*/
+"OK" = "OK";
+/*Translated from: Done*/
+"Done" = "Bajarildi";
+/*Translated from: Confirm*/
+"Confirm" = "Tasdiqlash";
+/*Translated from: Cancel*/
+"Cancel" = "Bekor qilish";
+/*Translated from: Detail*/
+"Detail" = "Batafsil";
+/*Translated from: Delete*/
+"Delete" = "O'chir";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Kechirasiz, biror narsa noto'g'ri ketdi.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "%d Rasmlar (lar) ni tahrirlash";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "%d Video (lar) ni tahrirlash";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "%d Element (lar) ni tahrirlash";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Ommaviy tartibga solish";
+/*Translated from: Edit*/
+"Edit" = "Tahrirlash";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "O'zgarishlarni bekor qilish";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Ommaviy tartibga solishni boshla ...";
+/*Translated from: Processing...*/
+"Processing..." = "Ishlov berilmoqda ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Bekor qilinmoqda ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Rasmlar saqlanmoqda ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Rasmlar o'chirilmoqda ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Rasmlar o'chirib tashlanmoqda ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Ushbu fotosuratni tanlang";
+/*Translated from: Select this video*/
+"Select this video" = "Ushbu videoni tanlang";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Ushbu rasmni olib tashlash";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Ushbu videoni o'chirib tashlash";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Ushbu rasmni tahrirlash";
+/*Translated from: Edit this video*/
+"Edit this video" = "Ushbu videoni tahrirlash";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Surat";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Video";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Element";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Rasmlar";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Video";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Ma'lumotlar";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "%@ Rasmni tahrirlash";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "%@ Video tahrirlash";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "%@ Rasmlar tahrirlash";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "%@ Videolarni tahrirlash";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "%@ Elementlarni tahrirlash";
+/*com.stells.pap.transform*/
+"Transform" = "Transform";
+/*com.stells.pap.photosfilter*/
+"Apply" = "Ilova qiling";
+/*com.stells.pap.revert*/
+"Revert" = "Qaytish";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Orqaga qaytish ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Rasmlar o'chirib tashlanmoqda ...";
+/*com.stells.pap.pdfactory*/
+"Create %@" = "%@ Yaratish";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "PDF yaratish uchun boshlanmoqda ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "PDF-fayllarni yaratish ...";
+/*com.stells.pap.converter*/
+"Convert" = "Aylantirish";

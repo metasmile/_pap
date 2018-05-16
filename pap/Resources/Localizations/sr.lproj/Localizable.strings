@@ -1,0 +1,96 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Фотографије Аццесс Дисаблед";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Отворите подешавања и омогућите приступ својим фотографијама";
+/*Translated from: Open Settings*/
+"Open Settings" = "Отворите подешавања";
+/*Translated from: OK*/
+"OK" = "ок";
+/*Translated from: Done*/
+"Done" = "Готово";
+/*Translated from: Confirm*/
+"Confirm" = "Потврди";
+/*Translated from: Cancel*/
+"Cancel" = "Поништити, отказати";
+/*Translated from: Detail*/
+"Detail" = "Детаљ";
+/*Translated from: Delete*/
+"Delete" = "Избриши";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Извини, нешто није у реду.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Измени %d слику (е)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Измени %d видео (е)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Измени %d ставку (е)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Батцх Едит";
+/*Translated from: Edit*/
+"Edit" = "Уредити";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Одбаците промене";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Започни уређивање серије ...";
+/*Translated from: Processing...*/
+"Processing..." = "Обрада ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Отказивање ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Снимање фотографија ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Брисање фотографија ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Повратак фотографија ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Изаберите ову фотографију";
+/*Translated from: Select this video*/
+"Select this video" = "Изаберите овај видео";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Деселецт тхис пхото";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Деселецт тхис видео";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Измените ову фотографију";
+/*Translated from: Edit this video*/
+"Edit this video" = "Уредите овај видео";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Фото";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Видео";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Ставка";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Фотографије";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Видео";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Ставке";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Измени %@ Фото";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Измени %@ Видео";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Измените %@ Фотографије";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Измени %@ Видео";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Измени %@ ставке";
+/*com.stells.pap.transform*/
+"Transform" = "Преобразити";
+/*com.stells.pap.photosfilter*/
+"Apply" = "Применити";
+/*com.stells.pap.revert*/
+"Revert" = "Вратити се";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Почиње да се поврати ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Повратак фотографија ...";
+/*com.stells.pap.pdfactory*/
+"Create %@" = "Креирај %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Почиње да креира ПДФ ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Креирање ПДФ страница ...";
+/*com.stells.pap.converter*/
+"Convert" = "Претвори";

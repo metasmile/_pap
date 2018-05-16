@@ -1,0 +1,96 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Zithunzi Zopeza Olemala";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Chonde mutsegule makonzedwe ndi kulola kuti mupeze zithunzi zanu";
+/*Translated from: Open Settings*/
+"Open Settings" = "Tsegulani Zosintha";
+/*Translated from: OK*/
+"OK" = "Chabwino";
+/*Translated from: Done*/
+"Done" = "Wachita";
+/*Translated from: Confirm*/
+"Confirm" = "Tsimikizirani";
+/*Translated from: Cancel*/
+"Cancel" = "Sakanizani";
+/*Translated from: Detail*/
+"Detail" = "Tsatanetsatane";
+/*Translated from: Delete*/
+"Delete" = "Chotsani";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Pepani, chinachake chalakwika.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Sinthani %d chithunzi (s)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Sinthani %d kanema (s)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Sinthani %d chinthu (s)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Gawo lachigawo";
+/*Translated from: Edit*/
+"Edit" = "Sintha";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Taya Kusintha";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Yambani Kusintha kwa Bungwe ...";
+/*Translated from: Processing...*/
+"Processing..." = "Kusaka ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Kuletsera ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Kusunga Photos ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Kutulutsa Zithunzi ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Kubwezeretsa Zithunzi ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Sankhani chithunzichi";
+/*Translated from: Select this video*/
+"Select this video" = "Sankhani kanema iyi";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Sankhani chithunzi ichi";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Sankhani kanema iyi";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Sinthani chithunzichi";
+/*Translated from: Edit this video*/
+"Edit this video" = "Sinthani kanema iyi";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Chithunzi";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Video";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Chinthu";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Zithunzi";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Mavidiyo";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Zinthu";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Sinthani %@ Chithunzi";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Sinthani %@ Video";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Sinthani %@ Zithunzi";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Sinthani %@ Mavidiyo";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Sinthani %@ Zinthu";
+/*com.stells.pap.transform*/
+"Transform" = "Sintha";
+/*com.stells.pap.photosfilter*/
+"Apply" = "Ikani";
+/*com.stells.pap.revert*/
+"Revert" = "Bwererani";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Kuyambira kubwereza ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Kubwezeretsa Zithunzi ...";
+/*com.stells.pap.pdfactory*/
+"Create %@" = "Pangani %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Kuyambira kupanga pulogalamu ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Kupanga masamba a PDF ...";
+/*com.stells.pap.converter*/
+"Convert" = "Sintha";

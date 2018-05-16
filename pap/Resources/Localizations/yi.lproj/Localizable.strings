@@ -1,0 +1,96 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "פאָטאָס אַקסעס דיסאַבלעד";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "ביטע עפענען סעטטינגס און לאָזן צוטריט צו דיין פאָטאָס";
+/*Translated from: Open Settings*/
+"Open Settings" = "עפֿן סעטטינגס";
+/*Translated from: OK*/
+"OK" = "אקעי";
+/*Translated from: Done*/
+"Done" = "געטאן";
+/*Translated from: Confirm*/
+"Confirm" = "באַשטעטיקן";
+/*Translated from: Cancel*/
+"Cancel" = "Cancel";
+/*Translated from: Detail*/
+"Detail" = "דעטאַל";
+/*Translated from: Delete*/
+"Delete" = "Delete";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "אנטשולדיגט, עפּעס איז פאַלש.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "רעדאַגירן %d פאָטאָ (s)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "רעדאַגירן %d ווידעא (s)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "רעדאַגירן %d נומער (s)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Batch Edit";
+/*Translated from: Edit*/
+"Edit" = "רעדאַגירן";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "אָפּשפּרונג ענדערונגען";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "אָנהייב באַטש עדיטינג ...";
+/*Translated from: Processing...*/
+"Processing..." = "פּראַסעסינג ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "קאַנסעלינג ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "שפּאָרן פאָטאָס ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "דיליטינג פאָטאָס ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "רעווערטינג פאָטאָס ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "אויסקלייַבן דעם פאָטאָ";
+/*Translated from: Select this video*/
+"Select this video" = "אויסקלייַבן דעם ווידעא";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "אָפּלייקענונג דעם בילד";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "אָפּלייקענען דעם ווידעא";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "רעדאַגירן דעם בילד";
+/*Translated from: Edit this video*/
+"Edit this video" = "רעדאַגירן דעם ווידעא";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ פאָטאָ";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ ווידעא";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ פּונקט";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ פאָטאָס";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ ווידיאס";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ זאכן";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "רעדאַגירן %@ פאָטאָ";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "רעדאַגירן %@ ווידעא";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "רעדאַגירן %@ פאָטאָס";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "רעדאַגירן %@ ווידיאס";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "רעדאַגירן %@ זאכן";
+/*com.stells.pap.transform*/
+"Transform" = "Transform";
+/*com.stells.pap.photosfilter*/
+"Apply" = "צולייגן";
+/*com.stells.pap.revert*/
+"Revert" = "צוריקקומען";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "סטאַרטינג צו צוריקקריגן ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "רעווערטינג פאָטאָס ...";
+/*com.stells.pap.pdfactory*/
+"Create %@" = "שאַפֿן %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "סטאַרטינג צו שאַפֿן פּדף ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Creating PDF Pages ...";
+/*com.stells.pap.converter*/
+"Convert" = "גער";

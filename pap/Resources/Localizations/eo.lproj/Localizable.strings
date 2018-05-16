@@ -1,0 +1,96 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Alŝutoj Malŝaltitaj";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Bonvolu malfermi agordojn kaj permesi aliron al viaj fotoj";
+/*Translated from: Open Settings*/
+"Open Settings" = "Malfermaj agordoj";
+/*Translated from: OK*/
+"OK" = "bone";
+/*Translated from: Done*/
+"Done" = "Farita";
+/*Translated from: Confirm*/
+"Confirm" = "Konfirmu";
+/*Translated from: Cancel*/
+"Cancel" = "Nuligi";
+/*Translated from: Detail*/
+"Detail" = "Detalo";
+/*Translated from: Delete*/
+"Delete" = "Forigi";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Pardonu, io iris malbone.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Redakti %d foto (j)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Redakti %d filmetojn (j)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Redakti %d eron (j)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Batch Redakti";
+/*Translated from: Edit*/
+"Edit" = "Redakti";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Forĵeti Ŝanĝojn";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Komenci Batch-Eldonadon ...";
+/*Translated from: Processing...*/
+"Processing..." = "Procezo ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Nuligi ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Savante fotojn ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Forigante fotojn ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Revenante fotojn ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Elektu ĉi tiun foton";
+/*Translated from: Select this video*/
+"Select this video" = "Elektu ĉi tiun filmon";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Malŝalti ĉi tiun foton";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Forigu ĉi tiun video";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Redaktu ĉi tiun foton";
+/*Translated from: Edit this video*/
+"Edit this video" = "Redaktu ĉi tiun filmon";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Fotoj";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Video";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Item";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Fotoj";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Videoj";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Eroj";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Redakti %@ Foton";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Redakti %@ Video";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Redakti %@ Fotoj";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Redakti %@ Filmetojn";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Redakti %@ Erojn";
+/*com.stells.pap.transform*/
+"Transform" = "Transformi";
+/*com.stells.pap.photosfilter*/
+"Apply" = "Apliki";
+/*com.stells.pap.revert*/
+"Revert" = "Reverti";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Komencante reverti ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Revenante fotojn ...";
+/*com.stells.pap.pdfactory*/
+"Create %@" = "Krei %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Komencante krei PDFon ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Krei PDF-paĝojn ...";
+/*com.stells.pap.converter*/
+"Convert" = "Konverti";

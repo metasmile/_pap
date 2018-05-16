@@ -1,15 +1,8 @@
-###################### More Options ######################
-# If you want to have even more control, check out the documentation
-# https://github.com/KrauseFx/deliver/blob/master/Deliverfile.md
-
-
-###################### Automatically generated ######################
-# Feel free to remove the following line if you use fastlane (which you should)
-
-# https://github.com/fastlane/deliver/blob/master/lib/deliver/options.rb
-
-team_id "DAGHHLSPPQ" # Developer Portal Team ID
-app_identifier "com.stells.batch"
-metadata_path "./fastlane/com.stells.batch"
-ipa "batch.ipa"
-username "croing09@gmail.com"
+# The Deliverfile allows you to store various iTunes Connect metadata
+# For more information, check out the docs
+# https://docs.fastlane.tools/actions/deliver/
+team_id "2020888" #Tae ho Lee
+app_identifier "com.stells.pap"
+metadata_path "./fastlane/com.stells.pap"
+ipa "pap.ipa"
+username "illhert@yahoo.com"

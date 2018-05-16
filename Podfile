@@ -1,8 +1,8 @@
 platform :ios, '11.0'
 
-target 'batch' do
+target 'pap' do
   use_frameworks!
-  
+
   # pod 'RealmSwift'
   pod 'Firebase/Core'
   pod 'Fabric'
@@ -12,11 +12,10 @@ target 'batch' do
   pod 'SwiftyGif'
   # pod 'SwipeCellKit'
 
-  target 'batchTests' do
+  target 'papTests' do
     inherit! :complete
   end
 
-  # com.stells.batch.pdfactory
+  # com.stells.pap.pdfactory
   pod 'TPPDF'
 end
-

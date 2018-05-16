@@ -1,0 +1,96 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Foto's Toegang uitgeschakeld";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Please open settings and allow access to your photos";
+/*Translated from: Open Settings*/
+"Open Settings" = "Open Settings";
+/*Translated from: OK*/
+"OK" = "OK";
+/*Translated from: Done*/
+"Done" = "Gedaan";
+/*Translated from: Confirm*/
+"Confirm" = "Bevestigen";
+/*Translated from: Cancel*/
+"Cancel" = "Annuleer";
+/*Translated from: Detail*/
+"Detail" = "Detail";
+/*Translated from: Delete*/
+"Delete" = "Verwijder";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Sorry, er ging iets mis.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Bewerk %d foto ('s)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Bewerk %d video ('s)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Bewerk %d item (s)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Batchbewerking";
+/*Translated from: Edit*/
+"Edit" = "Bewerk";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Veranderingen ongedaan maken";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Start Batch Editing ...";
+/*Translated from: Processing...*/
+"Processing..." = "Verwerken...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Annuleren ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Foto's opslaan ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Foto's verwijderen ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Foto's terugzetten ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Selecteer deze foto";
+/*Translated from: Select this video*/
+"Select this video" = "Selecteer deze video";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Maak de selectie van deze foto ongedaan";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Deselecteer deze video";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Bewerk deze foto";
+/*Translated from: Edit this video*/
+"Edit this video" = "Bewerk deze video";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Foto";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Video";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Item";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Foto's";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Video's";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Items";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Bewerk %@ Foto";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Bewerk %@ Video";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Bewerk %@ Foto's";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Bewerk %@ video's";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Bewerk %@ Items";
+/*com.stells.pap.transform*/
+"Transform" = "Transformeren";
+/*com.stells.pap.photosfilter*/
+"Apply" = "Van toepassing zijn";
+/*com.stells.pap.revert*/
+"Revert" = "terugkeren";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Beginnen met terugzetten ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Foto's terugzetten ...";
+/*com.stells.pap.pdfactory*/
+"Create %@" = "Maak %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Beginnen met het maken van PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "PDF-pagina's maken ...";
+/*com.stells.pap.converter*/
+"Convert" = "Converteren";

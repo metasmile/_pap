@@ -1,0 +1,96 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Φωτογραφίες Η πρόσβαση είναι απενεργοποιημένη";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Ανοίξτε τις ρυθμίσεις και επιτρέψτε την πρόσβαση στις φωτογραφίες σας";
+/*Translated from: Open Settings*/
+"Open Settings" = "Ανοίξτε τις ρυθμίσεις";
+/*Translated from: OK*/
+"OK" = "Εντάξει";
+/*Translated from: Done*/
+"Done" = "Εγινε";
+/*Translated from: Confirm*/
+"Confirm" = "Επιβεβαιώνω";
+/*Translated from: Cancel*/
+"Cancel" = "Ματαίωση";
+/*Translated from: Detail*/
+"Detail" = "Λεπτομέρεια";
+/*Translated from: Delete*/
+"Delete" = "Διαγράφω";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Συγνώμη, κάτι πήγε στραβά.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Επεξεργασία %d φωτογραφίας";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Επεξεργασία %d βίντεο";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Επεξεργασία %d στοιχείου";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Επεξεργασία παρτίδας";
+/*Translated from: Edit*/
+"Edit" = "Επεξεργασία";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Απορρίψετε τις αλλαγές";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Έναρξη επεξεργασίας παρτίδας ...";
+/*Translated from: Processing...*/
+"Processing..." = "Επεξεργασία...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Ακύρωση ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Αποθήκευση φωτογραφιών ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Διαγραφή φωτογραφιών ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Επαναφορά φωτογραφιών ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Επιλέξτε αυτήν τη φωτογραφία";
+/*Translated from: Select this video*/
+"Select this video" = "Επιλέξτε αυτό το βίντεο";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Καταργήστε την επιλογή αυτής της φωτογραφίας";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Αποεπιλέξτε αυτό το βίντεο";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Επεξεργασία αυτής της φωτογραφίας";
+/*Translated from: Edit this video*/
+"Edit this video" = "Επεξεργαστείτε αυτό το βίντεο";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Φωτογραφία";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Βίντεο";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Στοιχείο";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Φωτογραφίες";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Βίντεο";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Στοιχεία";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Επεξεργασία %@ Φωτογραφία";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Επεξεργαστείτε το %@ Βίντεο";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Επεξεργαστείτε τις %@ Φωτογραφίες";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Επεξεργασία %@ Βίντεο";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Επεξεργαστείτε τα %@ Στοιχεία";
+/*com.stells.pap.transform*/
+"Transform" = "Μεταμορφώνω";
+/*com.stells.pap.photosfilter*/
+"Apply" = "Ισχύουν";
+/*com.stells.pap.revert*/
+"Revert" = "Επαναστρέφω";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Ξεκινώντας να επαναφέρετε ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Επαναφορά φωτογραφιών ...";
+/*com.stells.pap.pdfactory*/
+"Create %@" = "Δημιουργία %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Ξεκινώντας τη δημιουργία PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Δημιουργία σελίδων PDF ...";
+/*com.stells.pap.converter*/
+"Convert" = "Μετατρέπω";

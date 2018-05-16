@@ -1,0 +1,96 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Достъпът до снимки е деактивиран";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Моля, отворете настройките и позволете достъп до вашите снимки";
+/*Translated from: Open Settings*/
+"Open Settings" = "Отворете Настройки";
+/*Translated from: OK*/
+"OK" = "Добре";
+/*Translated from: Done*/
+"Done" = "Свършен";
+/*Translated from: Confirm*/
+"Confirm" = "потвърждавам";
+/*Translated from: Cancel*/
+"Cancel" = "Отказ";
+/*Translated from: Detail*/
+"Detail" = "детайл";
+/*Translated from: Delete*/
+"Delete" = "Изтрий";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Съжалявам нещо се обърка.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Редактирайте %d снимка (и)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Редактиране на %d видеоклип (и)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Редактиране на %d елемент (и)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Редактиране на партида";
+/*Translated from: Edit*/
+"Edit" = "редактиране";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Отхвърлите промените";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Стартиране на партидирането ...";
+/*Translated from: Processing...*/
+"Processing..." = "Обработка ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Анулира се ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Записване на снимки ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Изтриване на снимки ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Връщане на снимки ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Изберете тази снимка";
+/*Translated from: Select this video*/
+"Select this video" = "Изберете този видеоклип";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Премахнете тази снимка";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Премахнете този видеоклип";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Редактиране на тази снимка";
+/*Translated from: Edit this video*/
+"Edit this video" = "Редактирайте този видеоклип";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Снимка";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Видеоклип";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Елемент";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Снимки";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Видеоклипове";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Елементи";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Редактирайте %@ Снимка";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Редактирайте %@ Видеоклипа";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Редактирайте %@ Снимки";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Редактирайте %@ Видеоклипове";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Редактирайте %@ Елементи";
+/*com.stells.pap.transform*/
+"Transform" = "Трансформирайте";
+/*com.stells.pap.photosfilter*/
+"Apply" = "Приложи";
+/*com.stells.pap.revert*/
+"Revert" = "обръщам";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Започва да се връща ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Връщане на снимки ...";
+/*com.stells.pap.pdfactory*/
+"Create %@" = "Създайте %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Започва да създава PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Създаване на PDF страници ...";
+/*com.stells.pap.converter*/
+"Convert" = "превръщам";

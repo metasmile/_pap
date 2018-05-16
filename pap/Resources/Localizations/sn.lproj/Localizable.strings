@@ -1,0 +1,96 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Mafiri Access Akaremara";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Ndapota svinura maitiro uye tendera kugona kumifananidzo yako";
+/*Translated from: Open Settings*/
+"Open Settings" = "Vhura Zvirongwa";
+/*Translated from: OK*/
+"OK" = "Zvakanaka";
+/*Translated from: Done*/
+"Done" = "Yakaitwa";
+/*Translated from: Confirm*/
+"Confirm" = "Tsimbisa";
+/*Translated from: Cancel*/
+"Cancel" = "Kanzura";
+/*Translated from: Detail*/
+"Detail" = "Detail";
+/*Translated from: Delete*/
+"Delete" = "Bvisa";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Ndine urombo, chimwe chinhu chakakanganisika.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Rongai %d mifananidzo (s)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Rongai %d vhidhiyo (s)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Hora %d chinhu (s)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Batch Edit";
+/*Translated from: Edit*/
+"Edit" = "Hora";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Ramba Kuchinja";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Tanga Batch Editing ...";
+/*Translated from: Processing...*/
+"Processing..." = "Processing ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Canceling ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Kuchengetera Mifananidzo ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Kusvuta Photos ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Kudzosera Photos ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Sarudza iyi chithunzi";
+/*Translated from: Select this video*/
+"Select this video" = "Sarudza vhidhiyo iyi";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Sarudza iyi mufananidzo";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Sarudza vhidhiyo iyi";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Ronga iyi chithunzi";
+/*Translated from: Edit this video*/
+"Edit this video" = "Rongai vidiyo iyi";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Mufananidzo";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Vhidhiyo";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Item";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Mifananidzo";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Mavhidhiyo";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Zvinhu";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Tanga %@ Mufananidzo";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Rongai %@ Vhidhiyo";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Rongai %@ Mifananidzo";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Rongai %@ Mavhidhiyo";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Rongai %@ Zvinhu";
+/*com.stells.pap.transform*/
+"Transform" = "Transform";
+/*com.stells.pap.photosfilter*/
+"Apply" = "Shandisa";
+/*com.stells.pap.revert*/
+"Revert" = "Dzokorora";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Kutanga kudzoka ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Kudzosera Photos ...";
+/*com.stells.pap.pdfactory*/
+"Create %@" = "Dza %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Kutanga kuumba PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Kuumba PDF Mapeji ...";
+/*com.stells.pap.converter*/
+"Convert" = "Shandura";

@@ -1,0 +1,96 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "ფოტოები წვდომა შეზღუდულია";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "გთხოვთ, გახსენით პარამეტრები და გადააადგილოთ თქვენი ფოტოები";
+/*Translated from: Open Settings*/
+"Open Settings" = "გახსენით პარამეტრები";
+/*Translated from: OK*/
+"OK" = "კარგი";
+/*Translated from: Done*/
+"Done" = "შესრულებულია";
+/*Translated from: Confirm*/
+"Confirm" = "დადასტურება";
+/*Translated from: Cancel*/
+"Cancel" = "გაუქმება";
+/*Translated from: Detail*/
+"Detail" = "დეტალურად";
+/*Translated from: Delete*/
+"Delete" = "წაშლა";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "ბოდიში, რაღაც არ არის რიგზე.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "რედაქტირება %d ფოტო (ებ)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "რედაქტირება %d ვიდეო (ებ)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "რედაქტირება %d პუნქტი (ებ)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "სურათების რედაქტირება";
+/*Translated from: Edit*/
+"Edit" = "რედაქტირება";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "ცვლილებების გაუქმება";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "დაიწყეთ სურათების რედაქტირება ...";
+/*Translated from: Processing...*/
+"Processing..." = "დამუშავება ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "გაუქმება ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "შენახვის ფოტოები ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "წაშლა ფოტოები ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "გადატვირთვა ფოტოები ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "აირჩიეთ ეს ფოტო";
+/*Translated from: Select this video*/
+"Select this video" = "ამ ვიდეოს აირჩიეთ";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "წაშალეთ ეს ფოტო";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "ამ ვიდეოს წაშლა";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "ამ სურათის რედაქტირება";
+/*Translated from: Edit this video*/
+"Edit this video" = "ამ ვიდეოს რედაქტირება";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ ფოტო";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ ვიდეო";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ საქონელი";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ ფოტოები";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ ვიდეოები";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ საქონელი";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "რედაქტირება %@ ფოტო";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "რედაქტირება %@ ვიდეო";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "რედაქტირება %@ ფოტოები";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "რედაქტირება %@ ვიდეოები";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "რედაქტირება %@ Items";
+/*com.stells.pap.transform*/
+"Transform" = "ტრანსფორმაცია";
+/*com.stells.pap.photosfilter*/
+"Apply" = "მიმართვა";
+/*com.stells.pap.revert*/
+"Revert" = "დაბრუნება";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "დაწყების დასაწყებად ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "გადატვირთვა ფოტოები ...";
+/*com.stells.pap.pdfactory*/
+"Create %@" = "შექმნა %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "PDF- ის შექმნა ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "PDF გვერდების შექმნა ...";
+/*com.stells.pap.converter*/
+"Convert" = "კონვერტაცია";

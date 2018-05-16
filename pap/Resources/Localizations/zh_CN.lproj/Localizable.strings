@@ -1,0 +1,96 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "照片访问被禁用";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "请打开设置并允许访问您的照片";
+/*Translated from: Open Settings*/
+"Open Settings" = "打开设置";
+/*Translated from: OK*/
+"OK" = "好";
+/*Translated from: Done*/
+"Done" = "完成";
+/*Translated from: Confirm*/
+"Confirm" = "确认";
+/*Translated from: Cancel*/
+"Cancel" = "取消";
+/*Translated from: Detail*/
+"Detail" = "详情";
+/*Translated from: Delete*/
+"Delete" = "删除";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "抱歉，出了一些问题。";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "编辑%d照片";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "编辑%d个视频";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "编辑%d项目";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "批量编辑";
+/*Translated from: Edit*/
+"Edit" = "编辑";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "放弃更改";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "开始批量编辑...";
+/*Translated from: Processing...*/
+"Processing..." = "处理...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "取消...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "储存照片...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "删除照片...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "还原照片...";
+/*Translated from: Select this photo*/
+"Select this photo" = "选择这张照片";
+/*Translated from: Select this video*/
+"Select this video" = "选择这个视频";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "取消选择此照片";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "取消选择此视频";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "编辑这张照片";
+/*Translated from: Edit this video*/
+"Edit this video" = "编辑这个视频";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@照片";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Video";
+/*Translated from: %@ Item*/
+"%d Item" = "%@物品";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@照片";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@影片";
+/*Translated from: %@ Items*/
+"%d Items" = "%@项目";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "编辑%@照片";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "编辑%@视频";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "编辑%@照片";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "编辑%@个视频";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "编辑%@项目";
+/*com.stells.pap.transform*/
+"Transform" = "Transform";
+/*com.stells.pap.photosfilter*/
+"Apply" = "Apply";
+/*com.stells.pap.revert*/
+"Revert" = "还原";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "开始回复...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "还原照片...";
+/*com.stells.pap.pdfactory*/
+"Create %@" = "创建%@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "开始创建PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "创建PDF页面...";
+/*com.stells.pap.converter*/
+"Convert" = "兑换";

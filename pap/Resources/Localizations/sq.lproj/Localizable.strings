@@ -1,0 +1,96 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Fotografitë Qasja me aftësi të kufizuara";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Ju lutemi hapni cilësimet dhe lejoni hyrjen në fotot tuaja";
+/*Translated from: Open Settings*/
+"Open Settings" = "Hap cilësimet";
+/*Translated from: OK*/
+"OK" = "Ne rregull";
+/*Translated from: Done*/
+"Done" = "e bërë";
+/*Translated from: Confirm*/
+"Confirm" = "konfirmoj";
+/*Translated from: Cancel*/
+"Cancel" = "anuloj";
+/*Translated from: Detail*/
+"Detail" = "hollësi";
+/*Translated from: Delete*/
+"Delete" = "fshij";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Na vjen keq, diçka shkoi keq.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Ndrysho fotografitë e %d";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Ndrysho () %d video (s)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Ndrysho %d elementin (et)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Edit grumbull";
+/*Translated from: Edit*/
+"Edit" = "redaktoj";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Heq ndryshimet";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Fillimi i shkrimit të serisë ...";
+/*Translated from: Processing...*/
+"Processing..." = "Të përpunimit të ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Anulimi ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Ruajtja e fotove ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Po fshihet fotot ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Riktheu fotot ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Zgjidh këtë foto";
+/*Translated from: Select this video*/
+"Select this video" = "Zgjidh këtë video";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Zvogloje këtë foto";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Zbrisni këtë video";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Ndrysho këtë foto";
+/*Translated from: Edit this video*/
+"Edit this video" = "Redakto këtë video";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Foto";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Video";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Pika";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Fotot";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Video";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Artikuj";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Ndrysho %@ Foto";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Ndrysho %@ Video";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Ndrysho %@ Fotot";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Ndrysho %@ Video";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Ndrysho artikujt %@";
+/*com.stells.pap.transform*/
+"Transform" = "transformoj";
+/*com.stells.pap.photosfilter*/
+"Apply" = "aplikoni";
+/*com.stells.pap.revert*/
+"Revert" = "rikthehem";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Duke filluar të kthehesh ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Riktheu fotot ...";
+/*com.stells.pap.pdfactory*/
+"Create %@" = "Krijo %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Fillimi për të krijuar PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Krijimi i faqeve PDF ...";
+/*com.stells.pap.converter*/
+"Convert" = "Convert";

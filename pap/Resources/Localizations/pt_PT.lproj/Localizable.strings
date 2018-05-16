@@ -1,0 +1,96 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Acesso a fotos desativado";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Abra as configurações e permita o acesso às suas fotos";
+/*Translated from: Open Settings*/
+"Open Settings" = "Abrir configurações";
+/*Translated from: OK*/
+"OK" = "Está bem";
+/*Translated from: Done*/
+"Done" = "Feito";
+/*Translated from: Confirm*/
+"Confirm" = "confirme";
+/*Translated from: Cancel*/
+"Cancel" = "Cancelar";
+/*Translated from: Detail*/
+"Detail" = "Detalhe";
+/*Translated from: Delete*/
+"Delete" = "Excluir";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Desculpe, algo deu errado.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Editar %d fotografia (s)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Edite %d video (s)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Edite %d item (s)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Editar em lote";
+/*Translated from: Edit*/
+"Edit" = "Editar";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Descartar mudanças";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Comece a edição em lote ...";
+/*Translated from: Processing...*/
+"Processing..." = "Em processamento...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Cancelando ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Salvando fotos ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Excluindo fotos ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Revertendo fotos ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Selecione esta foto";
+/*Translated from: Select this video*/
+"Select this video" = "Selecione este video";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Desmarque esta foto";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Desmarcar este vídeo";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Edite esta foto";
+/*Translated from: Edit this video*/
+"Edit this video" = "Edite este vídeo";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Foto";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Vídeo";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Item";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Fotos";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Vídeos";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Itens";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Editar %@ Foto";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Editar %@ Vídeo";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Editar %@ Fotos";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Editar %@ Vídeos";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Editar %@ Itens";
+/*com.stells.pap.transform*/
+"Transform" = "Transformar";
+/*com.stells.pap.photosfilter*/
+"Apply" = "Aplique";
+/*com.stells.pap.revert*/
+"Revert" = "Reverter";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Começando a reverter ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Revertendo fotos ...";
+/*com.stells.pap.pdfactory*/
+"Create %@" = "Crie %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Começando a criar PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Criando Páginas PDF ...";
+/*com.stells.pap.converter*/
+"Convert" = "Convert";

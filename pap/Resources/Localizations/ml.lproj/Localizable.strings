@@ -1,0 +1,96 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "ഫോട്ടോകൾ ആക്സസ്സ് അപ്രാപ്തമാക്കി";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "ക്രമീകരണങ്ങൾ തുറന്ന് നിങ്ങളുടെ ഫോട്ടോകളിലേക്ക് ആക്സസ് അനുവദിക്കുക";
+/*Translated from: Open Settings*/
+"Open Settings" = "ക്രമീകരണങ്ങൾ തുറക്കുക";
+/*Translated from: OK*/
+"OK" = "ശരി";
+/*Translated from: Done*/
+"Done" = "ചെയ്തുകഴിഞ്ഞു";
+/*Translated from: Confirm*/
+"Confirm" = "സ്ഥിരീകരിക്കുക";
+/*Translated from: Cancel*/
+"Cancel" = "റദ്ദാക്കുക";
+/*Translated from: Detail*/
+"Detail" = "വിശദമായി";
+/*Translated from: Delete*/
+"Delete" = "ഇല്ലാതാക്കുക";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "ക്ഷമിക്കണം, എന്തോ കുഴപ്പം സംഭവിച്ചു.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "%d ഫോട്ടോ (ഫോട്ടോകൾ) എഡിറ്റുചെയ്യുക";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "%d വീഡിയോ (കൾ) എഡിറ്റുചെയ്യുക";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "%d ഇനം (ങ്ങൾ) എഡിറ്റുചെയ്യുക";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "ബാച്ച് എഡിറ്റ്";
+/*Translated from: Edit*/
+"Edit" = "എഡിറ്റുചെയ്യുക";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "മാറ്റങ്ങള് ഉപേക്ഷിക്കുക";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "ബാച്ച് എഡിറ്റിംഗ് ആരംഭിക്കുക ...";
+/*Translated from: Processing...*/
+"Processing..." = "പ്രോസസ്സ് ചെയ്യുന്നു ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "റദ്ദാക്കുന്നു ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "ഫോട്ടോകൾ സംരക്ഷിക്കുന്നു ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "ഫോട്ടോകൾ ഇല്ലാതാക്കുന്നു ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "ഫോട്ടോകൾ പഴയപടിയാക്കുന്നു ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "ഈ ഫോട്ടോ തിരഞ്ഞെടുക്കുക";
+/*Translated from: Select this video*/
+"Select this video" = "ഈ വീഡിയോ തിരഞ്ഞെടുക്കുക";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "ഈ ഫോട്ടോ തിരഞ്ഞെടുത്തത് മാറ്റുക";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "ഈ വീഡിയോ തിരഞ്ഞെടുത്തത് മാറ്റുക";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "ഈ ഫോട്ടോ എഡിറ്റുചെയ്യുക";
+/*Translated from: Edit this video*/
+"Edit this video" = "ഈ വീഡിയോ എഡിറ്റുചെയ്യുക";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ ഫോട്ടോ";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ വീഡിയോ";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ ഇനം";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ ഫോട്ടോകൾ";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ വീഡിയോകൾ";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ ഇനങ്ങൾ";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "%@ ഫോട്ടോ എഡിറ്റുചെയ്യുക";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "%@ വീഡിയോ എഡിറ്റുചെയ്യുക";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "%@ ഫോട്ടോകൾ എഡിറ്റുചെയ്യുക";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "%@ വീഡിയോകൾ എഡിറ്റുചെയ്യുക";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "%@ ഇനങ്ങൾ എഡിറ്റുചെയ്യുക";
+/*com.stells.pap.transform*/
+"Transform" = "പരിവർത്തനം ചെയ്യുക";
+/*com.stells.pap.photosfilter*/
+"Apply" = "പ്രയോഗിക്കുക";
+/*com.stells.pap.revert*/
+"Revert" = "പഴയപടിയാക്കുക";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "പഴയപടിയാക്കാൻ തുടങ്ങുന്നു ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "ഫോട്ടോകൾ പഴയപടിയാക്കുന്നു ...";
+/*com.stells.pap.pdfactory*/
+"Create %@" = "%@ സൃഷ്ടിക്കുക";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "PDF സൃഷ്ടിക്കാൻ തുടങ്ങുന്നു ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "PDF പേജുകൾ സൃഷ്ടിക്കുന്നു ...";
+/*com.stells.pap.converter*/
+"Convert" = "മാറ്റുക";

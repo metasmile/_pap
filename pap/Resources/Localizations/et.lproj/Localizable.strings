@@ -1,0 +1,96 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Fotod juurdepääsuga on keelatud";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Palun avage seadeid ja lubage juurdepääs oma fotodele";
+/*Translated from: Open Settings*/
+"Open Settings" = "Avage seaded";
+/*Translated from: OK*/
+"OK" = "Okei";
+/*Translated from: Done*/
+"Done" = "Valmis";
+/*Translated from: Confirm*/
+"Confirm" = "Kinnita";
+/*Translated from: Cancel*/
+"Cancel" = "Loobu";
+/*Translated from: Detail*/
+"Detail" = "Üksikasjalikult";
+/*Translated from: Delete*/
+"Delete" = "Kustuta";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Vabandust, midagi läks valesti.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Muuda %d foto (de)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Muuda %d video (de)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Muuda %d üksus (id)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Batch Edit";
+/*Translated from: Edit*/
+"Edit" = "Muuda";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Tühista muudatused";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Alusta partii redigeerimist ...";
+/*Translated from: Processing...*/
+"Processing..." = "Töötlemine ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Tühistamine ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Fotode salvestamine ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Fotode kustutamine ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Fotode taastamine ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Valige see foto";
+/*Translated from: Select this video*/
+"Select this video" = "Valige see video";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Tühista selle foto valimine";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Tühista selle video valimine";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Muutke seda fotot";
+/*Translated from: Edit this video*/
+"Edit this video" = "Muutke seda videot";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Foto";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Video";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Üksus";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Fotod";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Videod";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Üksused";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Muuda %@ Foto";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Muutke %@ videot";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Muuda %@ Fotod";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Muuda %@ Videod";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Redigeeri %@ üksusi";
+/*com.stells.pap.transform*/
+"Transform" = "Muundama";
+/*com.stells.pap.photosfilter*/
+"Apply" = "Rakenda";
+/*com.stells.pap.revert*/
+"Revert" = "Tagasi";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Alustades ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Fotode taastamine ...";
+/*com.stells.pap.pdfactory*/
+"Create %@" = "Loo %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "PDF-i loomise alustamine ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "PDF-lehekülgede loomine ...";
+/*com.stells.pap.converter*/
+"Convert" = "Teisenda";

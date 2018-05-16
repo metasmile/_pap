@@ -1,0 +1,96 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Grianghraif Rochtain faoi Mhíchumas";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Oscail suímh le do thoil agus lig do rochtain ar do chuid grianghraif";
+/*Translated from: Open Settings*/
+"Open Settings" = "Socruithe Oscailte";
+/*Translated from: OK*/
+"OK" = "OK";
+/*Translated from: Done*/
+"Done" = "Arna dhéanamh";
+/*Translated from: Confirm*/
+"Confirm" = "Deimhnigh";
+/*Translated from: Cancel*/
+"Cancel" = "Cealaigh";
+/*Translated from: Detail*/
+"Detail" = "Sonraigh";
+/*Translated from: Delete*/
+"Delete" = "Scrios";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Tá brón orm, rud a chuaigh mícheart.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Cuir %d grianghraf (í) in eagar";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Cuir %d físeán (í) in eagar";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Cuir %d mír (í) in eagar";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Baisc Edit";
+/*Translated from: Edit*/
+"Edit" = "Athraigh";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Athruithe a Dhíscaoileadh";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Tosaigh Eagarthóireacht Baisc ...";
+/*Translated from: Processing...*/
+"Processing..." = "Próiseáil ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Cealaithe ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Sábháil Grianghraif ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Grianghraif a scriosadh ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Grianghraif ag Filleadh ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Roghnaigh an grianghraf seo";
+/*Translated from: Select this video*/
+"Select this video" = "Roghnaigh an físeán seo";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Roghnaigh an grianghraf seo";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Roghnaigh an físeán seo";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Cuir an grianghraf seo in eagar";
+/*Translated from: Edit this video*/
+"Edit this video" = "Cuir an físeán seo in eagar";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Grianghraf";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Video";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Mír";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Grianghraif";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Físeáin";
+/*Translated from: %@ Items*/
+"%d Items" = "Míreanna %@";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Cuir %@ Grianghraf in eagar";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Cuir %@ Físeáin in eagar";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Cuir %@ Grianghraif ar fáil";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Cuir %@ Físeáin in eagar";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Eagraigh %@ Míreanna";
+/*com.stells.pap.transform*/
+"Transform" = "Athraigh";
+/*com.stells.pap.photosfilter*/
+"Apply" = "Cuir iarratas isteach";
+/*com.stells.pap.revert*/
+"Revert" = "Revert";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Ag tosú ar ais ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Grianghraif ag Filleadh ...";
+/*com.stells.pap.pdfactory*/
+"Create %@" = "Cruthaigh %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Ag tosú le PDF a chruthú ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Ag Cruthaigh Leathanaigh PDF ...";
+/*com.stells.pap.converter*/
+"Convert" = "Tiontaigh";

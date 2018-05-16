@@ -1,0 +1,96 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Фотосуреттер қатынасы ажыратылған";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Параметрлерді ашып, фотосуреттеріңізге рұқсат беріңіз";
+/*Translated from: Open Settings*/
+"Open Settings" = "Параметрлерді ашыңыз";
+/*Translated from: OK*/
+"OK" = "ЖАРАЙДЫ МА";
+/*Translated from: Done*/
+"Done" = "Аяқталды";
+/*Translated from: Confirm*/
+"Confirm" = "Растау";
+/*Translated from: Cancel*/
+"Cancel" = "Болдырмау";
+/*Translated from: Detail*/
+"Detail" = "Толығырақ";
+/*Translated from: Delete*/
+"Delete" = "Жою";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Кешіріңіз, бірдеңе дұрыс емес.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Edit %d photo(s)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "%d Бейнені өңдеу";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "%d Элементтерді өңдеу";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Топтаманы өңдеу";
+/*Translated from: Edit*/
+"Edit" = "Өңдеу";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Өзгерістерді алып тастау";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Топтаманы өңдеуді бастау ...";
+/*Translated from: Processing...*/
+"Processing..." = "Өңдеу...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Болдырмау ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Фотосуреттерді сақтау ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Фотосуреттерді жою ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Фотосуреттерді қалпына келтіру ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Осы фотосуретті таңдаңыз";
+/*Translated from: Select this video*/
+"Select this video" = "Осы бейнені таңдаңыз";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Бұл фотосуретті алып тастаңыз";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Бұл бейнені алып тастаңыз";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Бұл фотосуретті өңдеңіз";
+/*Translated from: Edit this video*/
+"Edit this video" = "Бұл бейнені өңдеу";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Фото";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Бейне";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Тармақ";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Суреттер";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Videos";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Элементтер";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "%@ Фотосуретті өңдеу";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "%@ Бейне өңдеу";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "%@ Фотосуреттерді өңдеу";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "%@ Бейнелерді өңдеу";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "%@ Элементтерді өңдеу";
+/*com.stells.pap.transform*/
+"Transform" = "Трансформация";
+/*com.stells.pap.photosfilter*/
+"Apply" = "Қолданыңыз";
+/*com.stells.pap.revert*/
+"Revert" = "Қайту";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Қайтарудан басталады ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Фотосуреттерді қалпына келтіру ...";
+/*com.stells.pap.pdfactory*/
+"Create %@" = "%@ Жасаңыз";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "PDF жасаудан басталуда ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "PDF парақтарын жасау ...";
+/*com.stells.pap.converter*/
+"Convert" = "Түрлендіру";

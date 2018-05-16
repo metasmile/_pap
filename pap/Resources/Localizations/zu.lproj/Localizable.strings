@@ -1,0 +1,96 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Izithombe Ukufinyelela kukhutshaziwe";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Sicela uvule izilungiselelo futhi uvumele ukufinyelela kwezithombe zakho";
+/*Translated from: Open Settings*/
+"Open Settings" = "Vula izilungiselelo";
+/*Translated from: OK*/
+"OK" = "KULUNGILE";
+/*Translated from: Done*/
+"Done" = "Kwenziwe";
+/*Translated from: Confirm*/
+"Confirm" = "Qinisekisa";
+/*Translated from: Cancel*/
+"Cancel" = "Khansela";
+/*Translated from: Detail*/
+"Detail" = "Imininingwane";
+/*Translated from: Delete*/
+"Delete" = "Susa";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Uxolo, kukhona okungahmabnga kahle.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Hlela %d isithombe (s)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Hlela %d ividiyo (s)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Hlela %d into (s)";
+/*Translated from: Batch Edit*/
+"Batch Edit" = "Hlela ukuhlela";
+/*Translated from: Edit*/
+"Edit" = "Hlela";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Lahla Izinguquko";
+/*Translated from: Start Batch Editing...*/
+"Start Batch Editing..." = "Qala ukuhlela kwe-Batch ...";
+/*Translated from: Processing...*/
+"Processing..." = "Iyacubungula ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Ikhansela ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Ilondoloza Izithombe ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Isusa Izithombe ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Ibuyisela Izithombe ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Khetha lesi sithombe";
+/*Translated from: Select this video*/
+"Select this video" = "Khetha le vidiyo";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Ungakhethi lesi sithombe";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Khetha le vidiyo";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Hlela lesi sithombe";
+/*Translated from: Edit this video*/
+"Edit this video" = "Hlela le vidiyo";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Isithombe";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Ividiyo";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Into";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Izithombe";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Amavidiyo";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Izinto";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Hlela %@ Isithombe";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Hlela %@ Ividiyo";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Hlela %@ Izithombe";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Hlela %@ Amavidiyo";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Hlela %@ Izinto";
+/*com.stells.pap.transform*/
+"Transform" = "Guqula";
+/*com.stells.pap.photosfilter*/
+"Apply" = "Faka isicelo";
+/*com.stells.pap.revert*/
+"Revert" = "Buyela emuva";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Iqala ukubuyela emuva ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Ibuyisela Izithombe ...";
+/*com.stells.pap.pdfactory*/
+"Create %@" = "Dala %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Iqala ukwakha i-PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Ukudala amakhasi we-PDF ...";
+/*com.stells.pap.converter*/
+"Convert" = "Guqula";
