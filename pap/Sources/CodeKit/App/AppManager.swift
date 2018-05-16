@@ -79,12 +79,12 @@ open class AppManager: NSObject, SelectableCollection {
         willSet {
             assert(newValue == nil || _apps.contains { appType in appType == newValue },"Given current app \(String(describing:newValue)) is not contained in app collection")
             guard newValue != previous else{ return }
-
+            
             getInstance(current, as:AppManagerDelegatableApp.self)?.willSetPrevious(newCurrent:newValue)
             getInstance(newValue, as:AppManagerDelegatableApp.self)?.willSetCurrent(oldCurrent:current)
         }
         didSet {
-            guard oldValue != current else{ return }
+            guard previous == nil || oldValue != current else { return }
 
             self.previous = oldValue
             self.currentIdentifier = current?.info.identifier
