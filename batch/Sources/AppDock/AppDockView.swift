@@ -564,19 +564,28 @@ extension AppDockView: UIGestureRecognizerDelegate {
 
 extension AppDockView: UIScrollViewDelegate {
     func zoomInAppCollectionView() {
-        guard (appCollectionView.collectionViewLayout as? AppCollectionViewLayout)?.layoutMetrics == .compact else { return }
+        guard let fromLayout = appCollectionView.collectionViewLayout as? AppCollectionViewLayout, fromLayout.layoutMetrics == .compact else { return }
         
-        let promptLayout = AppCollectionViewLayout()
-        promptLayout.layoutMetrics = .prominent
+        let toLayout = AppCollectionViewLayout(layoutMetrics: .prominent)
+        
+        let visibleItemCount = appCollectionView.indexPathsForVisibleItems.count
+        let touchRatio = appCollectionView.panGestureRecognizer.location(in: self).x / appCollectionView.bounds.width
+        let index = Int(CGFloat(visibleItemCount - 1) * touchRatio)
+        
+        let targetIndexPath = visibleItemCount > 0 ? appCollectionView.indexPathsForVisibleItems.sorted()[index] : nil
         
         appCollectionViewHeightLayout.constant = AppCollectionViewLayout.LayoutConstants.prominentHeight
-        UIView.animateAsSpring(0.5, delay: 0, animations: {
+        UIView.animateAsSpring(0.4, delay: 0, animations: {
             self.appCollectionView.superview?.layoutIfNeeded()
-            self.appCollectionView.setCollectionViewLayout(promptLayout, animated: false)
+            self.appCollectionView.setCollectionViewLayout(toLayout, animated: false)
+            
+            if let indexPath = targetIndexPath {
+                self.appCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+            }
         }, completion: nil)
     }
     
-    func zoomOutAppCollectionView(delay: Double = 2.0) {
+    func zoomOutAppCollectionView(delay: Double = 1.5) {
         guard (appCollectionView.collectionViewLayout as? AppCollectionViewLayout)?.layoutMetrics == .prominent else { return }
         
         let timerId = "app_dock_bar_magnifying_timer"
@@ -587,13 +596,19 @@ extension AppDockView: UIScrollViewDelegate {
     }
     
     private func showAppCollectionZoomOutAnimation() {
-        let promptLayout = AppCollectionViewLayout()
-        promptLayout.layoutMetrics = .compact
+        let toLayout = AppCollectionViewLayout(layoutMetrics: .compact)
+        
+        let visibleItemCount = appCollectionView.indexPathsForVisibleItems.count
+        let targetIndexPath = visibleItemCount > 0 ? appCollectionView.indexPathsForVisibleItems.sorted()[visibleItemCount / 2] : nil
         
         self.appCollectionViewHeightLayout.constant = AppCollectionViewLayout.LayoutConstants.compactHeight
-        UIView.animateAsSpring(0.5, delay: 0, animations: {
+        UIView.animateAsSpring(0.4, delay: 0, animations: {
             self.appCollectionView.superview?.layoutIfNeeded()
-            self.appCollectionView.setCollectionViewLayout(promptLayout, animated: false)
+            self.appCollectionView.setCollectionViewLayout(toLayout, animated: false)
+            
+            if let indexPath = targetIndexPath {
+                self.appCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+            }
         }, completion: nil)
     }
     
@@ -645,6 +660,15 @@ class AppCollectionViewLayout: UICollectionViewLayout {
         cache[.footer] = [IndexPath: UICollectionViewLayoutAttributes]()
     }
     
+    init(layoutMetrics: LayoutMetrics = .compact) {
+        super.init()
+        self.layoutMetrics = layoutMetrics
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     private var numberOfItems: Int {
         return collectionView?.numberOfItems(inSection: 0) ?? 0
     }
@@ -694,7 +718,7 @@ class AppCollectionViewLayout: UICollectionViewLayout {
         return false
     }
     
-    private var contentSize: CGSize {
+    var contentSize: CGSize {
         let contentsWidth = (CGFloat(numberOfItems) * itemSize(with: layoutMetrics).width) + (CGFloat(numberOfItems - 1) * minimumSpacing)
         return CGSize(width: contentsWidth, height: itemSize(with: layoutMetrics).height)
     }
