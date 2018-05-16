@@ -119,3 +119,7 @@ Preview.html
 *.log.zip
 *.dSYM
 *.generated.swift
+pap.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+pap.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+pap.xcworkspace/contents.xcworkspacedata
+pap.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist

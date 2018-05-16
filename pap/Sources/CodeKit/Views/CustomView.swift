@@ -47,8 +47,11 @@ class RoundedView: DesignableView {
     @IBInspectable
     var cornerRadius: CGFloat = 6 {
         didSet {
+            let disabledActions = CATransaction.disableActions()
+            CATransaction.setDisableActions(true)
             layer.masksToBounds = true
             layer.cornerRadius = cornerRadius
+            CATransaction.setDisableActions(disabledActions)
         }
     }
     
