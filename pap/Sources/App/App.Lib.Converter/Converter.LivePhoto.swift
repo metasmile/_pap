@@ -79,27 +79,24 @@ struct LivePhotoConverter_Video: LivePhotoConverter {
     init() {}
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
-        if let videoURL = self.extractVideoFileURL(source: source, async) {
+        var succeed = false
+        if let videoURL = self.extractVideoFileURL(source: source, async){
+
             async.begin()
-            
-            var result: (imageURL: URL, pairedVideoURL: URL)?
-            
-            LivePhotoWriter().writeLivePhotoFromVideo(videoPath: videoURL.path, timeLocationOfTitle: 0, completion:{
-                success, imageURL, pairedVideoURL, error in
-                if let imageURL = imageURL, let pairedVideoURL = pairedVideoURL {
-                    result = (imageURL, pairedVideoURL)
-                }
-                
+
+            LivePhotoWriter().saveLivePhotoFromVideo(videoPath: videoURL.path, timeLocationOfTitle: 0, saved: { success, s, error in
+                succeed = success
+
                 async.end()
-            })
-            
-            async.waitUntilEnd()
-            
-            return result
+            }, andFetched: nil)
+
+        }else{
+            async.end()
         }
-        else {
-            return nil
-        }
+
+        async.waitUntilEnd()
+        //FIXME: succeed always == false
+        return nil//succeed ? ConverterVoidReturnValue : nil
     }
 
     static func canPerformWith(source: AppAsset) -> Bool {

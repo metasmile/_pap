@@ -18,7 +18,7 @@ public class ConvertAppConfigValue: NSObject, KeyPathWatchable, AppConfigValuabl
 public class ConvertApp: BApp,
         AppDockControllableApp,
         ConfigurableApp, _ConfigurableApp,
-        PHAssetUIActivityFinalizableApp,
+        FinalizableApp,
         PhotoPickerCollectionViewDisplayableApp,
         PhotoPickerViewControllerDelegatableApp {
 
@@ -62,21 +62,34 @@ public class ConvertApp: BApp,
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
 
     }
-    
-    public var finalizingActions: [PHAssetFinalizingAction] {
-        return [.create, .share]
-    }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
-        let resultItems:[ConvertAppResult]? = result
+        let resultItems:[Any]? = result
                 .filter { respondable in respondable.info.state == .completed }
                 .compactMap{ $0.result as? ConvertAppResult }
-                .sorted { ($0?.orderedIndex ?? 0) < ($1?.orderedIndex ?? 0) }
-        
-//                .compactMap { ($0.result as? ConverterVoidReturnType) == ConverterVoidReturnValue ? nil : $0.result }
-//                .compactMap { $0.result }
+                .sorted { (result1: ConvertAppResult?, result2: ConvertAppResult?) -> Bool in
+                    (result1?.orderedIndex ?? 0) < (result2?.orderedIndex ?? 0)
+                }
+                //                .compactMap { ($0.result as? ConverterVoidReturnType) == ConverterVoidReturnValue ? nil : $0.result }
+                .compactMap { $0.result }
 
-        self.presentFinalizingActivity(items: resultItems?.compactMap { $0.finalizingItem }, asyncSignal)
+        asyncSignal.begin()
+        DispatchQueue.main.async {
+            if let shareItems = resultItems, shareItems.count > 0, let rootViewController = UIApplication.shared.keyWindow?.rootViewController {
+
+                let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
+                activityViewController.completionWithItemsHandler = { (activityType:UIActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
+                    asyncSignal.end()
+                }
+                activityViewController.popoverPresentationController?.sourceView=rootViewController.view
+                rootViewController.present(activityViewController, animated: true, completion: nil)
+
+            }else{
+                asyncSignal.end()
+            }
+        }
+        asyncSignal.waitUntilEnd()
+
 
         return result
     }
@@ -149,7 +162,7 @@ extension ConvertApp{
 
 
 private struct ConvertAppResult: TaskResultable{
-    var finalizingItem:PHAssetFinalizingActivityItem?
+    var result:Any?
     var orderedIndex: Int?
 }
 
@@ -176,7 +189,7 @@ private class ConvertAppTask: TaskPrototype, Taskable {
         guard let converter = needsConverter else {
             throw TaskError.rejectedParam
         }
-        
+
         if let gifConverter = converter as? OptionableConverterBase<GifConverterDefaultOption> {
             gifConverter.options = GifConverterDefaultOption.preset(defaults.convertingQuality.qualityType, with: assetItem.asset)
         }
@@ -188,25 +201,6 @@ private class ConvertAppTask: TaskPrototype, Taskable {
         }
 
         let result = converter.convert(source: assetItem, async)
-        
-        var output: PHAssetFinalizingOutput? = nil
-        if let url = result as? URL {
-            if direction.to == .mov || direction.to == .mp4 {
-                output = PHAssetFinalizingOutput(resources: [(.video, url)])
-            }
-            else {
-                output = PHAssetFinalizingOutput(resources: [(.photo, url)])
-            }
-        }
-        else if let urls = result as? (imageURL: URL, pairedVideoURL: URL) {
-            if direction.to == .livephoto {
-                output = PHAssetFinalizingOutput(resources: [
-                    (.photo, urls.imageURL),
-                    (.pairedVideo, urls.pairedVideoURL)
-                ])
-            }
-        }
-        let finalizingItem = PHAssetFinalizingActivityItem(input: assetItem, output: output)
-        return result == nil ? nil : ConvertAppResult(finalizingItem: finalizingItem, orderedIndex: AppAssets.selected.index(of: assetItem))
+        return result == nil ? nil : ConvertAppResult(result: result, orderedIndex: AppAssets.selected.index(of: assetItem))
     }
 }
