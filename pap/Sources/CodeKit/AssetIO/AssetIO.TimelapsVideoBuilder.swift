@@ -24,8 +24,15 @@ public final class TimelapsVideoBuilder: NSObject {
     var fps: Int32 = 30
     var fpsEachImages = [String: Int32]()
     
-    var inputSize: CGSize = .zero
-    var outputSize: CGSize = .zero
+    var inputSize: CGSize {
+        if let firestImagePath = imagePaths.first, let firstImageSize = UIImage(contentsOfFile: firestImagePath)?.size{
+            return firstImageSize
+        }
+        return .zero
+    }
+
+    var preferredOutputSize:CGSize = .zero
+    var shouldOutputSizeAspectFitWithInputSize = false
     var destinationFilePath: String?
     var pixelFormatType:OSType = kCVPixelFormatType_32ARGB
 
@@ -35,20 +42,29 @@ public final class TimelapsVideoBuilder: NSObject {
     }
 
     func initProperties(){
-        if self.inputSize.equalTo(.zero){
-            self.inputSize = UIImage(contentsOfFile: imagePaths.first! as String)!.size
+        if self.preferredOutputSize == .zero {
+            self.preferredOutputSize = self.inputSize
+
+        }else if self.preferredOutputSize.area > self.inputSize.area{
+            self.preferredOutputSize = self.preferredOutputSize.aspectFit(in: self.inputSize)
         }
-        
-        if self.outputSize == .zero {
-            self.outputSize = self.inputSize
+
+        if shouldOutputSizeAspectFitWithInputSize {
+            self.preferredOutputSize = self.preferredOutputSize.aspectFit(in: self.inputSize)
         }
     }
 
     func build(_ progress: @escaping ((Progress) -> Void), success: @escaping ((URL) -> Void), failure: @escaping ((NSError) -> Void)) {
         self.initProperties()
 
+        if self.inputSize.equalTo(.zero) || self.preferredOutputSize.equalTo(.zero){
+            assert(false, "inputSize or preferredOutputSize is zero")
+            failure(NSError(domain: "inputSize or preferredOutputSize is zero", code: 1))
+            return
+        }
+
         let inputSize = self.inputSize
-        let outputSize = self.outputSize
+        let outputSize = self.preferredOutputSize
         
         var error: NSError?
 

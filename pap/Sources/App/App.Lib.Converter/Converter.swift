@@ -118,8 +118,35 @@ class OptionableConverterBase<T>: OptionableConverter {
 */
 extension Converter{
 
-    func buildVideo(urls:[URL], fps:Int32, _ async: AsyncManualSignalable) -> URL?{
-        return self.buildVideo(paths: urls.mapAsPath, fps: fps, async)
+    func buildVideo(imageUrls:[URL], fps:Int32?=nil, _ async: AsyncManualSignalable) -> URL?{
+        return self.buildVideo(imagePaths: imageUrls.mapAsPath, fps: fps, async)
+    }
+
+    func buildVideo(imagePaths:[String], fps:Int32?=nil, outputSize: CGSize = .zero, _ async: AsyncManualSignalable) -> URL?{
+
+        var videoUrl:URL?
+
+        if imagePaths.count > 0{
+            async.begin()
+
+            let builder = TimelapsVideoBuilder(imagePaths: imagePaths)
+            if let fps = fps{
+                builder.fps = fps
+            }
+            builder.preferredOutputSize = outputSize
+            builder.build({ _ in  }, success: { url in
+
+                videoUrl = url
+                async.end()
+            }, failure: { error in
+
+                async.end()
+            })
+
+            async.waitUntilEnd()
+        }
+
+        return videoUrl
     }
     
     func buildVideo(urls:[(url: URL, frameDelay: Double)], outputSize: CGSize? = nil, _ async: AsyncManualSignalable) -> URL?{
@@ -130,7 +157,8 @@ extension Converter{
             
             let builder = TimelapsVideoBuilder(imagePaths: urls.map { $0.url.path })
             if let outputSize = outputSize {
-                builder.outputSize = outputSize
+                builder.preferredOutputSize = outputSize
+
             }
             builder.fpsEachImages = urls.reduce(into: [String: Int32]()) { (result, value) in
                 var dict = result
@@ -150,31 +178,6 @@ extension Converter{
         
         return videoUrl
     }
-
-    func buildVideo(paths:[String], fps:Int32, _ async: AsyncManualSignalable) -> URL?{
-
-        var videoUrl:URL?
-
-        if paths.count > 0{
-            async.begin()
-
-            let builder = TimelapsVideoBuilder(imagePaths: paths)
-            builder.fps = fps
-            builder.build({ _ in  }, success: { url in
-
-                videoUrl = url
-                async.end()
-            }, failure: { error in
-
-                async.end()
-            })
-
-            async.waitUntilEnd()
-        }
-
-        return videoUrl
-    }
-
 
     public func extractVideoFileURL(source:AppAsset, options: PHVideoRequestOptions? = nil, _ async: AsyncManualSignalable) -> URL? {
 

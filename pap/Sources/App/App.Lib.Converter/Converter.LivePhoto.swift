@@ -57,19 +57,26 @@ struct LivePhotoConverter_Burst: LivePhotoConverter {
         
         if let urls = self.extractBurstImageURLs(source: source, param: param, async){
 
-            if let videoURL = buildVideo(urls: urls, async) {
+            var preferredOutputSize:CGSize = .zero
+            if let firstImageUrl = urls.first?.url, let firstImageSize = UIImage(contentsOfFile: firstImageUrl.path)?.size{
+                preferredOutputSize = firstImageSize.aspectFit(in: LivePhotoWritableMaximumStandardSize)
+            }
 
-                var result: (imageURL: URL, pairedVideoURL: URL)?
+            if let videoURL = buildVideo(urls: urls, outputSize: preferredOutputSize, async) {
 
                 async.begin()
 
+                var succeed = false
+
                 LivePhotoWriter().saveLivePhotoFromVideo(videoPath: videoURL.path, timeLocationOfTitle: 0, saved: { success, s, error in
+                    succeed = success
                     async.end()
+
                 }, andFetched: nil)
 
                 async.waitUntilEnd()
 
-                return nil
+                return succeed ? ConverterVoidReturnValue : nil
             }
         }
 

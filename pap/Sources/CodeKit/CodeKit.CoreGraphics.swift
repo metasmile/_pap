@@ -31,6 +31,10 @@ extension CGSize {
         return CGSize(width: round(width.magnitude), height: round(height.magnitude))
     }
 
+    var area: CGFloat {
+        return width*height
+    }
+
     static func aspectFit(aspectRatio: CGSize, boundingSize: CGSize) -> CGSize {
         let mW = boundingSize.width / aspectRatio.width;
         let mH = boundingSize.height / aspectRatio.height;

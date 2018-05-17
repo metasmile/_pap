@@ -11,6 +11,9 @@ import Photos
 //TODO: clean convention
 //TODO: clean queues.
 
+public let LivePhotoWritableMaximumUnsafeSize = CGSize(width: 2880, height: 2880)
+public let LivePhotoWritableMaximumStandardSize = CGSize(width: 1440, height: 1440)
+
 public typealias LivePhotoWriterResultHandler = ((Bool, URL?, URL?, Error?) -> ())
 public typealias LivePhotoWriterAssetSavedHandler = ((Bool, String?, Error?) -> ())
 public typealias LivePhotoWriterAssetSavedAndFetchedHandler = ((Bool, PHLivePhoto?, PHAsset?, Error?) -> ())
@@ -24,7 +27,7 @@ public final class LivePhotoWriter {
     public func createLivePhotoFromImages(paths: [String]
             , indexOfTitle: Int
         , progress: ((Progress) -> ())?
-            , fps: Int32
+            , fps: Int32 = 30
         , created: ((_ livePhoto:PHLivePhoto?) -> ())?
     ) {
 
@@ -58,7 +61,7 @@ public final class LivePhotoWriter {
     public func saveLivePhotoFromImages(paths: [String]
             , indexOfTitle: Int
             , progress: ((Progress) -> ())?
-            , fps: Int32
+            , fps: Int32 = 30
             , saved: LivePhotoWriterAssetSavedHandler?
             , andFetched: LivePhotoWriterAssetSavedAndFetchedHandler?
     ) {
@@ -154,13 +157,14 @@ public final class LivePhotoWriter {
     func writeLivePhotoFromImages(photoPaths: [String]
             , indexOfTitle: Int
             , progress: ((Progress) -> Void)?
-            , fps: Int32
+            , fps: Int32 = 30
             , completion: LivePhotoWriterResultHandler?
     ) {
 
         if let titleImagePath = indexOfTitle < photoPaths.count-1 ? photoPaths[indexOfTitle] : photoPaths.first{
             let builder = TimelapsVideoBuilder(imagePaths: photoPaths)
             builder.fps = fps
+            builder.preferredOutputSize = LivePhotoWritableMaximumStandardSize
             builder.build({ p in progress?(p) }, success: { url in
 
                 self.writeLivePhoto(photoPath: titleImagePath, withVideo: url.path, completion: completion)
