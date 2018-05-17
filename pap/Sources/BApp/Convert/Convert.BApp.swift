@@ -70,8 +70,7 @@ public class ConvertApp: BApp,
                 .sorted { (result1: ConvertAppResult?, result2: ConvertAppResult?) -> Bool in
                     (result1?.orderedIndex ?? 0) < (result2?.orderedIndex ?? 0)
                 }
-                //                .compactMap { ($0.result as? ConverterVoidReturnType) == ConverterVoidReturnValue ? nil : $0.result }
-                .compactMap { $0.result }
+                .compactMap { ($0.result as? ConverterVoidReturnType) == ConverterVoidReturnValue ? nil : $0.result }
 
         asyncSignal.begin()
         DispatchQueue.main.async {

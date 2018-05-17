@@ -24,18 +24,18 @@ struct LivePhotoConverter_Gif: LivePhotoConverter {
 
             //(frames per second) = (1000) / (frame delay)
 
-            let defaultFps = 30//Int32(1000/(urls.first?.frameDelay ?? 0.2))
+            let defaultFps = Int32(20)//Int32(1000/(urls.first?.frameDelay ?? 0.2))
 
+            var succeed = false
             async.begin()
-            LivePhotoWriter().saveLivePhotoFromImages(paths: urls.map { $0.url.path }, indexOfTitle: 0, progress: nil, fps: 10, saved:  { success, s, error in
-
+            LivePhotoWriter().saveLivePhotoFromImages(paths: urls.map { $0.url.path }, indexOfTitle: 0, progress: nil, fps: defaultFps, saved:  { success, s, error in
+                succeed = success
                 async.end()
-
             }, andFetched: nil)
 
             async.waitUntilEnd()
 
-            return nil
+            return succeed ? ConverterVoidReturnValue : nil
         }
 
         return nil
@@ -88,6 +88,7 @@ struct LivePhotoConverter_Video: LivePhotoConverter {
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         var succeed = false
+
         if let videoURL = self.extractVideoFileURL(source: source, async){
 
             async.begin()
@@ -96,15 +97,13 @@ struct LivePhotoConverter_Video: LivePhotoConverter {
                 succeed = success
 
                 async.end()
+
             }, andFetched: nil)
 
-        }else{
-            async.end()
+            async.waitUntilEnd()
         }
 
-        async.waitUntilEnd()
-        //FIXME: succeed always == false
-        return nil//succeed ? ConverterVoidReturnValue : nil
+        return succeed ? ConverterVoidReturnValue : nil
     }
 
     static func canPerformWith(source: AppAsset) -> Bool {
