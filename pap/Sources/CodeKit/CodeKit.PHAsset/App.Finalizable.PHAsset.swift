@@ -209,7 +209,7 @@ extension PHAssetFinalizableApp {
             if let shareItems = items, shareItems.count > 0, let rootViewController = UIApplication.shared.keyWindow?.rootViewController {
                 let activities = self.finalizingPresets.map { PHAssetFinalizingActivity($0, finalizingActivityItems: shareItems) }
                 
-                let activityViewController = UIActivityViewController(activityItems: shareItems.compactMap({ $0.output?.resources }).reduce([],+).map { $0.url }, applicationActivities: activities)
+                let activityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: activities)
                 activityViewController.excludedActivityTypes = [UIActivityType.saveToCameraRoll, UIActivityType.copyToPasteboard, UIActivityType.print, UIActivityType.assignToContact]
                 activityViewController.completionWithItemsHandler = { (activityType:UIActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
                     asyncSignal.end()
@@ -264,7 +264,7 @@ internal class PHAssetFinalizingActivity: UIActivity {
     private var activityItems: [PHAssetFinalizingActivityItem]?
     
     override func canPerform(withActivityItems activityItems: [Any]) -> Bool {
-        return activityItems.contains(where: { $0 is URL })
+        return activityItems is [PHAssetFinalizingActivityItem]
     }
     
     override func perform() {
@@ -301,21 +301,19 @@ extension PHAssetFinalizingActivity {
     }
     
     func creatingAndWait(items:[PHAssetFinalizingActivityItem], _ asyncSignal: AsyncManualSignalable = AsyncSignal()){
-        asyncSignal.begin()
-        PHPhotoLibrary.shared().performChanges({
+        print("creatingAndWait", items.count)
+        try? PHPhotoLibrary.shared().performChangesAndWait {
             items.forEach { item in
                 let request = PHAssetCreationRequest.forAsset()
                 let options = PHAssetResourceCreationOptions()
+                options.shouldMoveFile = true
                 
                 item.output?.resources.forEach {
                     request.addResource(with: $0.resourceType, fileURL: $0.url, options: options)
                 }
             }
-        }, completionHandler: { (success, info) in
-            asyncSignal.end()
-            print("creatingAndWait", success)
-        })
-        asyncSignal.waitUntilEnd()
+        }
+        print("creatingAndWait end")
     }
     
     func deletingAndWait(items:[PHAssetFinalizingActivityItem], _ asyncSignal: AsyncManualSignalable = AsyncSignal()){
