@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoCollectionViewCell" customModule="batch" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoCollectionViewCell" customModule="pap" customModuleProvider="target">
             <connections>
+                <outlet property="cellIconAsImageView" destination="0KB-TD-3q8" id="5Gw-W6-q2g"/>
+                <outlet property="cellIconAsLabel" destination="N0D-pa-CND" id="DhP-kz-hQ6"/>
                 <outlet property="decorationView" destination="qXl-5L-ADI" id="WnI-eI-cxX"/>
-                <outlet property="durationLabelForVideo" destination="N0D-pa-CND" id="DhP-kz-hQ6"/>
-                <outlet property="iconForLivePhotos" destination="0KB-TD-3q8" id="5Gw-W6-q2g"/>
                 <outlet property="imageView" destination="eJc-gq-5xN" id="v9S-eC-euN"/>
                 <outlet property="selectionView" destination="Sk1-cQ-NDN" id="krd-K1-sez"/>
                 <outlet property="selectionViewHeight" destination="JzI-iM-bWg" id="YaT-XY-g61"/>
@@ -29,7 +28,7 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eJc-gq-5xN">
                     <rect key="frame" x="0.0" y="0.0" width="100" height="180"/>
                 </imageView>
-                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qXl-5L-ADI" customClass="GradientView" customModule="batch" customModuleProvider="target">
+                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qXl-5L-ADI" customClass="GradientView" customModule="pap" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="156" width="100" height="24"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:39" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0D-pa-CND">

@@ -10,6 +10,10 @@ import UIKit
 import Photos
 import PhotosUI
 
+private let LivePhotoIconImage = PHLivePhotoView.livePhotoBadgeImage(options: .overContent)
+private let BurstIconImage = R.image.cell_icon_burst()
+private let GIFIconImage = R.image.cell_icon_gif()
+
 class PhotoCollectionViewCell: CustomCollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     //TODO: wrap a view as a decorationrenderview later
@@ -20,11 +24,11 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
     
     @IBOutlet weak var decorationView: UIView!
 
-    @IBOutlet weak var durationLabelForVideo: UILabel!
-    @IBOutlet weak var iconForLivePhotos: UIImageView!
+    @IBOutlet weak var cellIconAsLabel: UILabel!
+    @IBOutlet weak var cellIconAsImageView: UIImageView!
     
     var selectionCheckView: CheckMark!
-    
+
     private var selectionViewSize: CGSize = .zero {
         didSet {
             selectionViewWidth.constant = selectionViewSize.width
@@ -53,8 +57,6 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         
         selectionView.addSubview(selectionCheckView)
         selectionView.backgroundColor = UIColor(white: 1, alpha: 0.25)
-        
-        iconForLivePhotos.image = PHLivePhotoView.livePhotoBadgeImage(options: .overContent)
     }
     
     override func prepareForReuse() {
@@ -131,21 +133,33 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         selectionCheckView.frame = CGRect(origin: CGPoint(x: selectionViewSize.height-checkmarkSize.width-checkmarkmargin, y: selectionViewSize.width-checkmarkSize.height-checkmarkmargin), size: checkmarkSize)
         
         //duration label
-        durationLabelForVideo.isHidden = asset.mediaType != .video
-        if !durationLabelForVideo.isHidden{
+        cellIconAsLabel.isHidden = asset.mediaType != .video
+        if !cellIconAsLabel.isHidden{
             let format = PhotoCollectionViewCell.durationLabelFormat
             if asset.duration > 3600 {
                 format.allowedUnits.insert(.hour)
             }
             
             let milliseconds = asset.duration.truncatingRemainder(dividingBy: 60) / 60
-            durationLabelForVideo.text = PhotoCollectionViewCell.durationLabelFormat.string(from: asset.duration + ceil(milliseconds))
+            cellIconAsLabel.text = PhotoCollectionViewCell.durationLabelFormat.string(from: asset.duration + ceil(milliseconds))
         }
+
+        //badge icon
+        var iconAsImage:UIImage? // 46
+        if asset.mediaSubtypes.contains(.photoLive){
+            iconAsImage = LivePhotoIconImage
+        }
+        else if asset.imageType == .animatedGIF{
+            iconAsImage = GIFIconImage
+        }
+        else if asset.imageType == .burst{
+            iconAsImage = BurstIconImage
+        }
+
+        cellIconAsImageView.isHidden = iconAsImage == nil
+        cellIconAsImageView.image = iconAsImage
         
-        //live photo icon
-        iconForLivePhotos.isHidden = !asset.mediaSubtypes.contains(.photoLive)
-        
-        decorationView.isHidden = durationLabelForVideo.isHidden && iconForLivePhotos.isHidden
+        decorationView.isHidden = cellIconAsLabel.isHidden && cellIconAsImageView.isHidden
     }
     
     private func updateImageViewContentMode() {
