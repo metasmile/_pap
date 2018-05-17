@@ -52,7 +52,7 @@ public final class TimelapsVideoBuilder: NSObject {
         
         var error: NSError?
 
-        let documentsPath = self.destinationFilePath ?? (NSTemporaryDirectory() as NSString).appendingPathComponent("TimeLapseVideo.mov")
+        let documentsPath = self.destinationFilePath ?? (NSTemporaryDirectory() as NSString).appendingPathComponent("\(UUID().uuidString)_TimeLapseVideo.mov")
         let videoOutputURL = URL(fileURLWithPath: documentsPath)
 
         do {

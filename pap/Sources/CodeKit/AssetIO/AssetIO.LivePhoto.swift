@@ -188,6 +188,7 @@ public final class LivePhotoWriter {
         
         if let image = try? generator.copyCGImage(at: time, actualTime: nil),
             let data = UIImageJPEGRepresentation(UIImage(cgImage: image), jpegQuality) {
+            try? FileManager.default.removeItem(atPath: destExtractedImagePath)
             try? data.write(to: URL(fileURLWithPath: destExtractedImagePath))
             writeLivePhoto(photoPath: destExtractedImagePath, withVideo: videoPath, completion: completion)
         }

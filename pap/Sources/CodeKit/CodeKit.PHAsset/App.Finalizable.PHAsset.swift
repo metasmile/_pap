@@ -286,12 +286,11 @@ extension PHAssetFinalizingActivity {
         PHPhotoLibrary.shared().performChanges({
             items.forEach { item in
                 guard let input = item.input, let resource = item.output?.resources.first else { return }
-                asyncSignal.begin()
+                
                 input.requestContentEditing({ (contentEditingItem) in
                     if let output = contentEditingItem?.output, (try? FileManager.default.moveItem(at: resource.url, to: output.renderedContentURL)) == nil {
                         PHAssetChangeRequest(for: input.asset).contentEditingOutput = output
                     }
-                    asyncSignal.end()
                 })
             }
         }, completionHandler: { (success, info) in

@@ -42,9 +42,27 @@ struct LivePhotoConverter_Burst: LivePhotoConverter {
     init() {}
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
-        if let urls = self.extractBurstImageURLs(source: source, async){
-            //TODO: must perform "saveLivePhoto"
-            return self.createLivePhoto(fromImageURLs: urls.map { $0.url }, async)
+        let param = ConverterBurstImageExtractParam(targetSize: source.asset.pixelSize, imageQuality: 0.8, contentMode: PHImageContentMode.aspectFit)
+        
+        if let urls = self.extractBurstImageURLs(source: source, param: param, async){
+            if let videoURL = buildVideo(urls: urls, async) {
+                async.begin()
+                
+                var result: (imageURL: URL, pairedVideoURL: URL)?
+                
+                LivePhotoWriter().writeLivePhotoFromVideo(videoPath: videoURL.path, timeLocationOfTitle: 0, completion:{
+                    success, imageURL, pairedVideoURL, error in
+                    if let imageURL = imageURL, let pairedVideoURL = pairedVideoURL {
+                        result = (imageURL, pairedVideoURL)
+                    }
+                    
+                    async.end()
+                })
+                
+                async.waitUntilEnd()
+                
+                return result
+            }
         }
 
         return nil

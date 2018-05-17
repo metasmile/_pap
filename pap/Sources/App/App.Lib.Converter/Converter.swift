@@ -239,33 +239,35 @@ extension Converter{
         
         let fetchedAsset = PHAsset.fetchAssets(withBurstIdentifier: source.asset.burstIdentifier ?? "", options: fetchOptions)
         fetchedAsset.enumerateObjects { (asset, idx, stop) in
-            async.begin()
-            
-            let response = asset.requestImage(targetSize: targetSize, contentMode: param.contentMode, options: PHAsset.highQualityImageRequestOptions)
-
-            var resultUrl: URL? = nil
-            if let image = response.1, let data = UIImageJPEGRepresentation(image, CGFloat(imageQuality)) {
-                let url = "\(param.filenamePrefix)_\(UUID().uuidString)".asURLInTemporaryDirectory!
+            autoreleasepool {
+                async.begin()
                 
-                do {
-                    try data.write(to: url)
-                    resultUrl = url
-                } catch _ {}
-            }
-            source.requestIDs.append(PHAssetRequestID(forImage: response.0))
+                let response = asset.requestImage(targetSize: targetSize, contentMode: param.contentMode, options: PHAsset.highQualityImageRequestOptions)
 
-            if let resultUrl = resultUrl {
-                urls.append(resultUrl)
-                
-                if let prevDate = assetDate {
-                    interval = asset.creationDate?.timeIntervalSince(prevDate) ?? 0.1
-                    intervals.append(interval)
+                var resultUrl: URL? = nil
+                if let image = response.1, let data = UIImageJPEGRepresentation(image, CGFloat(imageQuality)) {
+                    let url = "\(param.filenamePrefix)_\(UUID().uuidString)".asURLInTemporaryDirectory!
+                    
+                    do {
+                        try data.write(to: url)
+                        resultUrl = url
+                    } catch _ {}
                 }
+                source.requestIDs.append(PHAssetRequestID(forImage: response.0))
+
+                if let resultUrl = resultUrl {
+                    urls.append(resultUrl)
+                    
+                    if let prevDate = assetDate {
+                        interval = asset.creationDate?.timeIntervalSince(prevDate) ?? 0.1
+                        intervals.append(interval)
+                    }
+                }
+                
+                assetDate = asset.creationDate
+                
+                async.end()
             }
-            
-            assetDate = asset.creationDate
-            
-            async.end()
         }
         
         intervals.append(interval)
