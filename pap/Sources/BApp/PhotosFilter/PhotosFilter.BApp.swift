@@ -85,7 +85,7 @@ public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp,
         return item.asset.imageType == .stillImage || item.asset.imageType == .burst || item.asset.mediaType == .video
     }
     
-    public var finalizingPresets: [PHAssetFinalizingPresets] {
+    public var finalizingActions: [PHAssetFinalizingAction] {
         return [.modify]
     }
     

@@ -18,7 +18,7 @@ public class ConvertAppConfigValue: NSObject, KeyPathWatchable, AppConfigValuabl
 public class ConvertApp: BApp,
         AppDockControllableApp,
         ConfigurableApp, _ConfigurableApp,
-        PHAssetFinalizableApp,
+        PHAssetUIActivityFinalizableApp,
         PhotoPickerCollectionViewDisplayableApp,
         PhotoPickerViewControllerDelegatableApp {
 
@@ -63,7 +63,7 @@ public class ConvertApp: BApp,
 
     }
     
-    public var finalizingPresets: [PHAssetFinalizingPresets] {
+    public var finalizingActions: [PHAssetFinalizingAction] {
         return [.create, .share]
     }
 

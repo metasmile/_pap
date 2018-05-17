@@ -31,7 +31,7 @@ public class ExifGhost: BApp, PHAssetFinalizableApp, PhotoPickerViewControllerDe
 
     public required init() {}
 
-    public var finalizingPresets: [PHAssetFinalizingPresets] {
+    public var finalizingActions: [PHAssetFinalizingAction] {
         return [.share]
     }
 

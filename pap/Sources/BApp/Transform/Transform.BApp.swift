@@ -68,7 +68,7 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
         self.updateControllerView()
     }
 
-    public var finalizingPresets: [PHAssetFinalizingPresets] {
+    public var finalizingActions: [PHAssetFinalizingAction] {
         return [.modify]
     }
     

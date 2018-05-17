@@ -86,6 +86,7 @@
 		4F71D753FAC4D11F3FAA85C1 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D17919E12758958F0951 /* PreviewView.swift */; };
 		4F71D78E5582BC36F7298D40 /* AppUICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DE95525B05018BADF27D /* AppUICollectionViewCell.xib */; };
 		4F71D78EB364C2DF91F0B573 /* PHAssetItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC27C133314C1E92B775 /* PHAssetItem.swift */; };
+		4F71D7B31CEE30B075DFF30C /* App.Finalizable.PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D100CC0D42F18306A2AF /* App.Finalizable.PHAsset.swift */; };
 		4F71D7BFACFF382E5A837BF4 /* App.Lib.EditStateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7856058B185FB79A489 /* App.Lib.EditStateValue.swift */; };
 		4F71D7EEBE343A0437955522 /* FloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D754C14C46B92ED9E664 /* FloatingView.swift */; };
 		4F71D807BB06FA9489D34086 /* Transform.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D9FA96D3866E152A9B2B /* Transform.BApp.swift */; };
@@ -93,6 +94,7 @@
 		4F71D87185DBD1B878C1F91A /* AppTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D85980FE87C2FB5A2398 /* AppTask.swift */; };
 		4F71D89E45DC410C14B06DFD /* PhotoPickerViewController.OperationControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE2155C124D630681B16 /* PhotoPickerViewController.OperationControl.swift */; };
 		4F71D90BF0D739892B5EFB04 /* CodeKit.UUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D27A76BAB8CD67CEFCD6 /* CodeKit.UUID.swift */; };
+		4F71D92537450346626922BA /* App.Finalizable.UIActivity.PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE792BD35493BC1EAE77 /* App.Finalizable.UIActivity.PHAsset.swift */; };
 		4F71D94AB40E4823F540E025 /* Convert.AppDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1FF1A96D99209FFCF5D /* Convert.AppDefaults.swift */; };
 		4F71D9517538EDF39287054E /* ImageAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0E98B4DD272B9BAA3CF /* ImageAlignment.swift */; };
 		4F71D95D6387B6BEA989F5EE /* ImageIO.Metadata.Properties.Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8AD81A7900470EF8D1E /* ImageIO.Metadata.Properties.Collection.swift */; };
@@ -106,7 +108,6 @@
 		4F71DA179B296DA438DF7F6D /* ImageIO.Metadata.Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D88756315BEB67DAEDB2 /* ImageIO.Metadata.Dictionary.swift */; };
 		4F71DA17D09B551E38D1364A /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8B7895317B10D661C54 /* Object.swift */; };
 		4F71DA266388F7C0E58F0159 /* App.PhotoPickerCollectionViewDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA10E97AC3BD6F9BEB5F /* App.PhotoPickerCollectionViewDisplayable.swift */; };
-		4F71DA4E34B9CCB5D5528FBC /* App.Finalizable.PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D21074DB1BEA4A669C99 /* App.Finalizable.PHAsset.swift */; };
 		4F71DA55751D3743CE82BFB5 /* CodeKit.URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D23CA70B4177B7B400CD /* CodeKit.URL.swift */; };
 		4F71DA7390C0C2D6D4D06849 /* BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA4EAE4DF6B4FF6A583D /* BApp.swift */; };
 		4F71DA867580DB35978AC9CD /* CodeKit.Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6EE03CBABA678F99AF1 /* CodeKit.Sequence.swift */; };
@@ -310,6 +311,7 @@
 		4F71D09ACF49BF1FDAE797B4 /* ExifGhost.App.Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExifGhost.App.Tests.swift; sourceTree = "<group>"; };
 		4F71D0D967BFB92001862DCE /* auto_straighten.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = auto_straighten.png; sourceTree = "<group>"; };
 		4F71D0E98B4DD272B9BAA3CF /* ImageAlignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAlignment.swift; sourceTree = "<group>"; };
+		4F71D100CC0D42F18306A2AF /* App.Finalizable.PHAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Finalizable.PHAsset.swift; sourceTree = "<group>"; };
 		4F71D10EB70A4D26DAC6BA29 /* ExifGhost.AppDockContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExifGhost.AppDockContent.swift; sourceTree = "<group>"; };
 		4F71D11C4F488566874AD894 /* ExifGhost.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExifGhost.BApp.swift; sourceTree = "<group>"; };
 		4F71D11E9FAFC9667465E291 /* UITableViewCellDescribable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellDescribable.swift; sourceTree = "<group>"; };
@@ -323,7 +325,6 @@
 		4F71D1B67855F1829EB9787D /* CodeKit.Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Timer.swift; sourceTree = "<group>"; };
 		4F71D1DAE58BB8D95F99E248 /* System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 		4F71D1FF1A96D99209FFCF5D /* Convert.AppDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convert.AppDefaults.swift; sourceTree = "<group>"; };
-		4F71D21074DB1BEA4A669C99 /* App.Finalizable.PHAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Finalizable.PHAsset.swift; sourceTree = "<group>"; };
 		4F71D21D2B42C633EB01E378 /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
 		4F71D22BB2829DC0C2F62EC6 /* CodeKit.Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Thread.swift; sourceTree = "<group>"; };
 		4F71D23CA70B4177B7B400CD /* CodeKit.URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.URL.swift; sourceTree = "<group>"; };
@@ -455,6 +456,7 @@
 		4F71DE2155C124D630681B16 /* PhotoPickerViewController.OperationControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.OperationControl.swift; sourceTree = "<group>"; };
 		4F71DE77D153F85F4E5A92F2 /* AppUICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUICollectionView.swift; sourceTree = "<group>"; };
 		4F71DE78E969F349EB0EB06A /* Test.App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.App.swift; sourceTree = "<group>"; };
+		4F71DE792BD35493BC1EAE77 /* App.Finalizable.UIActivity.PHAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Finalizable.UIActivity.PHAsset.swift; sourceTree = "<group>"; };
 		4F71DE84166B2E2A154C0803 /* PHAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAssets.swift; sourceTree = "<group>"; };
 		4F71DE95525B05018BADF27D /* AppUICollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppUICollectionViewCell.xib; sourceTree = "<group>"; };
 		4F71DE9D04DED27BEE2E8E60 /* ImageIO.Metadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.Metadata.swift; sourceTree = "<group>"; };
@@ -929,7 +931,6 @@
 				4F71DB2D2A8777C95C0EE407 /* PHAsset.swift */,
 				4F71DC27C133314C1E92B775 /* PHAssetItem.swift */,
 				4F71DC8B9769052CB1A55D9C /* PHAssetEditable.swift */,
-				4F71D21074DB1BEA4A669C99 /* App.Finalizable.PHAsset.swift */,
 			);
 			path = CodeKit.PHAsset;
 			sourceTree = "<group>";
@@ -1140,6 +1141,8 @@
 				4F71DD0573CFB93A8F794768 /* App.Finalizable.swift */,
 				4F71D5B00151402B775F469B /* App.Persistable.swift */,
 				4F71D3070A5FEF2A41795CA0 /* App.Configurable.swift */,
+				4F71D100CC0D42F18306A2AF /* App.Finalizable.PHAsset.swift */,
+				4F71DE792BD35493BC1EAE77 /* App.Finalizable.UIActivity.PHAsset.swift */,
 			);
 			path = App.Types;
 			sourceTree = "<group>";
@@ -2572,7 +2575,6 @@
 				4F71D220E9F7C918354C3722 /* PHAsset.swift in Sources */,
 				4F71D78EB364C2DF91F0B573 /* PHAssetItem.swift in Sources */,
 				4F71DF203E1B6C4872D4F938 /* PHAssetEditable.swift in Sources */,
-				4F71DA4E34B9CCB5D5528FBC /* App.Finalizable.PHAsset.swift in Sources */,
 				4F71D257A844A6CD498EBE50 /* CodeKit.Int.swift in Sources */,
 				4F71DA55751D3743CE82BFB5 /* CodeKit.URL.swift in Sources */,
 				4F71D1201AFD8D1AAB7C3F9D /* CodeKit.Math.swift in Sources */,
@@ -2645,6 +2647,8 @@
 				4F71D329367C50ED1F136630 /* Transform.BApp.Contents.swift in Sources */,
 				4F71D42227168FB960E8292F /* Transform.BApp.Defaults.swift in Sources */,
 				4F71DC16226B8D70AE6BE82F /* Transform.BApp.Public.Contents.swift in Sources */,
+				4F71D7B31CEE30B075DFF30C /* App.Finalizable.PHAsset.swift in Sources */,
+				4F71D92537450346626922BA /* App.Finalizable.UIActivity.PHAsset.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

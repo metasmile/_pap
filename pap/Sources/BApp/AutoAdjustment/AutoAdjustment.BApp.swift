@@ -73,7 +73,7 @@ public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableAp
         return item.asset.imageType == .stillImage
     }
     
-    public var finalizingPresets: [PHAssetFinalizingPresets] {
+    public var finalizingActions: [PHAssetFinalizingAction] {
         return [.modify]
     }
     
