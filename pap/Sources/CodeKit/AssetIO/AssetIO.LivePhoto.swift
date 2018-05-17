@@ -164,7 +164,6 @@ public final class LivePhotoWriter {
         if let titleImagePath = indexOfTitle < photoPaths.count-1 ? photoPaths[indexOfTitle] : photoPaths.first{
             let builder = TimelapsVideoBuilder(imagePaths: photoPaths)
             builder.fps = fps
-            builder.preferredOutputSize = LivePhotoWritableMaximumStandardSize
             builder.build({ p in progress?(p) }, success: { url in
 
                 self.writeLivePhoto(photoPath: titleImagePath, withVideo: url.path, completion: completion)

@@ -20,11 +20,10 @@ struct LivePhotoConverter_Gif: LivePhotoConverter {
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
 
-        if let urls = extractImageURLsFromGIFData(asset:source.asset, async){
+        if let urls = extractImageURLsFromGIFData(asset:source.asset, async), urls.count > 0{
 
-            //(frames per second) = (1000) / (frame delay)
-
-            let defaultFps = Int32(20)//Int32(1000/(urls.first?.frameDelay ?? 0.2))
+            let totalDuration = urls.map { $0.frameDelay }.reduce(0, +)
+            let defaultFps = Int32(Double(urls.count-1)/totalDuration)
 
             var succeed = false
             async.begin()
