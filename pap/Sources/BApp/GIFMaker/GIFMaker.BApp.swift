@@ -297,11 +297,10 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
     }
     
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
-        var resultItems = result
+        let resultItems = result
             .filter { respondable in respondable.info.state == .completed }
             .compactMap { ($0.result as? GIFMakerPHAssetResult) }
-        
-        resultItems.sort { ($0.orderedIndex ?? 0) < ($1.orderedIndex ?? 0) }
+            .sorted { ($0.orderedIndex ?? 0) < ($1.orderedIndex ?? 0) }
         
         let defaults =  (GIFMaker.defaults as! GIFMakerDefaults)
         var results = [URL]()

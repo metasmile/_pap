@@ -18,7 +18,7 @@ public class ConvertAppConfigValue: NSObject, KeyPathWatchable, AppConfigValuabl
 public class ConvertApp: BApp,
         AppDockControllableApp,
         ConfigurableApp, _ConfigurableApp,
-        FinalizableApp,
+        PHAssetFinalizableApp,
         PhotoPickerCollectionViewDisplayableApp,
         PhotoPickerViewControllerDelegatableApp {
 
@@ -62,34 +62,21 @@ public class ConvertApp: BApp,
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
 
     }
+    
+    public var finalizingPresets: [PHAssetFinalizingPresets] {
+        return [.create, .share]
+    }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
-        let resultItems:[Any]? = result
+        let resultItems:[ConvertAppResult]? = result
                 .filter { respondable in respondable.info.state == .completed }
                 .compactMap{ $0.result as? ConvertAppResult }
-                .sorted { (result1: ConvertAppResult?, result2: ConvertAppResult?) -> Bool in
-                    (result1?.orderedIndex ?? 0) < (result2?.orderedIndex ?? 0)
-                }
+                .sorted { ($0?.orderedIndex ?? 0) < ($1?.orderedIndex ?? 0) }
+        
 //                .compactMap { ($0.result as? ConverterVoidReturnType) == ConverterVoidReturnValue ? nil : $0.result }
-                .compactMap { $0.result }
+//                .compactMap { $0.result }
 
-        asyncSignal.begin()
-        DispatchQueue.main.async {
-            if let shareItems = resultItems, shareItems.count > 0, let rootViewController = UIApplication.shared.keyWindow?.rootViewController {
-
-                let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
-                activityViewController.completionWithItemsHandler = { (activityType:UIActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
-                    asyncSignal.end()
-                }
-                activityViewController.popoverPresentationController?.sourceView=rootViewController.view
-                rootViewController.present(activityViewController, animated: true, completion: nil)
-
-            }else{
-                asyncSignal.end()
-            }
-        }
-        asyncSignal.waitUntilEnd()
-
+        self.presentFinalizingActivity(items: resultItems?.compactMap { $0.finalizingItem }, asyncSignal)
 
         return result
     }
@@ -162,7 +149,7 @@ extension ConvertApp{
 
 
 private struct ConvertAppResult: TaskResultable{
-    var result:Any?
+    var finalizingItem:PHAssetFinalizingActivityItem?
     var orderedIndex: Int?
 }
 
@@ -201,6 +188,25 @@ private class ConvertAppTask: TaskPrototype, Taskable {
         }
 
         let result = converter.convert(source: assetItem, async)
-        return result == nil ? nil : ConvertAppResult(result: result, orderedIndex: AppAssets.selected.index(of: assetItem))
+        
+        var output: PHAssetFinalizingOutput? = nil
+        if let url = result as? URL {
+            if direction.to == .mov || direction.to == .mp4 {
+                output = PHAssetFinalizingOutput(resources: [(.video, url)])
+            }
+            else {
+                output = PHAssetFinalizingOutput(resources: [(.photo, url)])
+            }
+        }
+        else if let urls = result as? (imageURL: URL, pairedVideoURL: URL) {
+            if direction.to == .livephoto {
+                output = PHAssetFinalizingOutput(resources: [
+                    (.photo, urls.imageURL),
+                    (.pairedVideo, urls.pairedVideoURL)
+                ])
+            }
+        }
+        let finalizingItem = PHAssetFinalizingActivityItem(input: assetItem, output: output)
+        return result == nil ? nil : ConvertAppResult(finalizingItem: finalizingItem, orderedIndex: AppAssets.selected.index(of: assetItem))
     }
 }
