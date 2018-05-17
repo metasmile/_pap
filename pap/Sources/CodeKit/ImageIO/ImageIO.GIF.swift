@@ -188,7 +188,7 @@ public extension UIImage {
                 CGImageDestinationAddImage(destination, imageRef, nil)
                 if CGImageDestinationFinalize(destination) {
                     let data = mutableData as Data
-                    let url = URL(fileURLWithPath: (directory as NSString).appendingPathComponent("\(filenamePrefix)\(i)"))
+                    let url = URL(fileURLWithPath: (directory as NSString).appendingPathComponent("\(filenamePrefix)\(i).png"))
 
                     do {
                         try data.write(to: url)

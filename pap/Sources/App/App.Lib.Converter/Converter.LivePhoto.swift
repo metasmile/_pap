@@ -7,7 +7,7 @@ import Foundation
 import Photos
 
 protocol LivePhotoConverter: Converter {}
-extension LivePhotoConverter{
+extension LivePhotoConverter {
     static var direction: ConvertingDirection {
         return ConvertingDirection(from: .any, to: .livephoto)
     }
@@ -20,11 +20,22 @@ struct LivePhotoConverter_Gif: LivePhotoConverter {
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
 
-        let urls = extractImageURLsFromGIFData(asset:source.asset, async)
+        if let urls = extractImageURLsFromGIFData(asset:source.asset, async){
 
-        if let urls = urls{
-            //TODO: must perform "saveLivePhoto"
-            return self.createLivePhoto(fromImagePaths: urls.map { $0.url.path }, async)
+            //(frames per second) = (1000) / (frame delay)
+
+            let defaultFps = 30//Int32(1000/(urls.first?.frameDelay ?? 0.2))
+
+            async.begin()
+            LivePhotoWriter().saveLivePhotoFromImages(paths: urls.map { $0.url.path }, indexOfTitle: 0, progress: nil, fps: 10, saved:  { success, s, error in
+
+                async.end()
+
+            }, andFetched: nil)
+
+            async.waitUntilEnd()
+
+            return nil
         }
 
         return nil
@@ -45,23 +56,20 @@ struct LivePhotoConverter_Burst: LivePhotoConverter {
         let param = ConverterBurstImageExtractParam(targetSize: source.asset.pixelSize, imageQuality: 0.8, contentMode: PHImageContentMode.aspectFit)
         
         if let urls = self.extractBurstImageURLs(source: source, param: param, async){
+
             if let videoURL = buildVideo(urls: urls, async) {
-                async.begin()
-                
+
                 var result: (imageURL: URL, pairedVideoURL: URL)?
-                
-                LivePhotoWriter().writeLivePhotoFromVideo(videoPath: videoURL.path, timeLocationOfTitle: 0, completion:{
-                    success, imageURL, pairedVideoURL, error in
-                    if let imageURL = imageURL, let pairedVideoURL = pairedVideoURL {
-                        result = (imageURL, pairedVideoURL)
-                    }
-                    
+
+                async.begin()
+
+                LivePhotoWriter().saveLivePhotoFromVideo(videoPath: videoURL.path, timeLocationOfTitle: 0, saved: { success, s, error in
                     async.end()
-                })
-                
+                }, andFetched: nil)
+
                 async.waitUntilEnd()
-                
-                return result
+
+                return nil
             }
         }
 
