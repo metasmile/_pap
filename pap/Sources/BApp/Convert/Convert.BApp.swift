@@ -74,7 +74,7 @@ public class ConvertApp: BApp,
         
         try? PHPhotoLibrary.shared().performChangesAndWait {
             resultItems?.forEach { item in
-                guard let item = item as? ConvertAppResult, let urls = item.result as? [URL] else { return }
+                guard let urls = item as? [URL] else { return }
                 let request = PHAssetCreationRequest.forAsset()
                 let options = PHAssetResourceCreationOptions()
                 options.shouldMoveFile = true

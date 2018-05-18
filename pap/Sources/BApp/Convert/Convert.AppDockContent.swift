@@ -123,9 +123,11 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
             
             if (self.defaults.convertingDirection.from == .livephoto && self.defaults.convertingDirection.to == .mov) ||
                 (self.defaults.convertingDirection.from == .mov && self.defaults.convertingDirection.to == .mp4) ||
-                (self.defaults.convertingDirection.from == .mp4 && self.defaults.convertingDirection.to == .mov) ||
-                (self.defaults.convertingDirection.to == .livephoto) {
+                (self.defaults.convertingDirection.from == .mp4 && self.defaults.convertingDirection.to == .mov) {
                 values = [ExportQualityType.original]
+            }
+            else if (self.defaults.convertingDirection.to == .livephoto) {
+                values = [ExportQualityType.high]
             }
             else {
                 switch self.defaults.convertingDirection.to {
