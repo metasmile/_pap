@@ -226,6 +226,7 @@ private class ConvertAppTask: TaskPrototype, Taskable {
         }
 
         let result = converter.convert(source: assetItem, async)
+
         if let urls = result as? [URL] {
             return ConvertAppResult(result: urls, orderedIndex: AppAssets.selected.index(of: assetItem))
         }

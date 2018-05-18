@@ -179,8 +179,14 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
                 }
             }
 
-            print(currentQueue.label)
-            currentQueue.enqueue(item)
+            print("Assigned a task \(task.info.token) into -> \(currentQueue.label)")
+
+            if task.info.policy.priority == .high {
+                currentQueue.enqueue(item, reverse: true)
+            }else{
+                currentQueue.enqueue(item)
+            }
+
             _staticRequestedWorkItems[item.request.token] = item
 
             return item.task.info
