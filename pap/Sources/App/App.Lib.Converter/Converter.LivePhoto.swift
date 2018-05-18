@@ -25,16 +25,23 @@ struct LivePhotoConverter_Gif: LivePhotoConverter {
             let totalDuration = urls.map { $0.frameDelay }.reduce(0, +)
             let defaultFps = Int32(Double(urls.count-1)/totalDuration)
 
-            var succeed = false
+            var photoURL: URL?
+            var movieURL: URL?
+            
             async.begin()
-            LivePhotoWriter().saveLivePhotoFromImages(paths: urls.map { $0.url.path }, indexOfTitle: 0, progress: nil, fps: defaultFps, saved:  { success, s, error in
-                succeed = success
+            LivePhotoWriter().writeLivePhotoFromImages(photoPaths: urls.map { $0.url.path }, indexOfTitle: 0, progress: nil, fps: defaultFps) { (success, imageURL, pairedVideoURL, error) in
+                
+                if success {
+                    photoURL = imageURL
+                    movieURL = pairedVideoURL
+                }
+                
                 async.end()
-            }, andFetched: nil)
+            }
 
             async.waitUntilEnd()
-
-            return succeed ? ConverterVoidReturnValue : nil
+            
+            return [photoURL, movieURL].compactMap { $0 }
         }
 
         return nil
@@ -62,20 +69,22 @@ struct LivePhotoConverter_Burst: LivePhotoConverter {
             }
 
             if let videoURL = buildVideo(urls: urls, outputSize: preferredOutputSize, async) {
-
+                var photoURL: URL?
+                var movieURL: URL?
+                
                 async.begin()
 
-                var succeed = false
-
-                LivePhotoWriter().saveLivePhotoFromVideo(videoPath: videoURL.path, timeLocationOfTitle: 0, saved: { success, s, error in
-                    succeed = success
+                LivePhotoWriter().writeLivePhotoFromVideo(videoPath: videoURL.path, timeLocationOfTitle: 0) { success, imageURL, pairedVideoURL, error in
+                    if success {
+                        photoURL = imageURL
+                        movieURL = pairedVideoURL
+                    }
                     async.end()
-
-                }, andFetched: nil)
+                }
 
                 async.waitUntilEnd()
 
-                return succeed ? ConverterVoidReturnValue : nil
+                return [photoURL, movieURL].compactMap { $0 }
             }
         }
 
@@ -93,23 +102,26 @@ struct LivePhotoConverter_Video: LivePhotoConverter {
     init() {}
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
-        var succeed = false
-
         if let videoURL = self.extractVideoFileURL(source: source, async){
 
+            var photoURL: URL?
+            var movieURL: URL?
+            
             async.begin()
-
-            LivePhotoWriter().saveLivePhotoFromVideo(videoPath: videoURL.path, timeLocationOfTitle: 0, saved: { success, s, error in
-                succeed = success
-
+            
+            LivePhotoWriter().writeLivePhotoFromVideo(videoPath: videoURL.path, timeLocationOfTitle: 0) { success, imageURL, pairedVideoURL, error in
+                if success {
+                    photoURL = imageURL
+                    movieURL = pairedVideoURL
+                }
                 async.end()
-
-            }, andFetched: nil)
-
+            }
+            
             async.waitUntilEnd()
+            
+            return [photoURL, movieURL].compactMap { $0 }
         }
-
-        return succeed ? ConverterVoidReturnValue : nil
+        return nil
     }
 
     static func canPerformWith(source: AppAsset) -> Bool {

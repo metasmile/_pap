@@ -415,7 +415,7 @@ class PhotoPickerViewController: AppDockViewController {
             if let indexPathToScroll = lastInsertedIndexPath {
                 //TODO: test for scroll inserted items instead of restore previous selections
                 self.deselectCollectionViewItems(with: selectedAssetIdentifiers)
-                self.photoCollectionView.scrollToItem(at: indexPathToScroll, at: UICollectionViewScrollPosition.bottom, animated: true)
+                self.photoCollectionView.scrollToItem(at: indexPathToScroll, at: UICollectionViewScrollPosition.centeredVertically, animated: true)
             }
             else {
                 self.restoreSelectionByUser(selectedAssetIdentifiers)

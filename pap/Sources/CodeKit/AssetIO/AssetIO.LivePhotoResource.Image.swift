@@ -33,6 +33,8 @@ public class LivePhotoImageResourceWriter: NSObject {
             ])
         }
 
+        try? FileManager.default.removeItem(at: toUrl)
+        
         do {
             try updatedData.write(to: toUrl)
             return true

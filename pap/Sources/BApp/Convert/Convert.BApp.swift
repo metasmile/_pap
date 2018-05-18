@@ -64,32 +64,36 @@ public class ConvertApp: BApp,
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
-        let resultItems:[Any]? = result
+        let resultItems:[ConvertAppResult]? = result
                 .filter { respondable in respondable.info.state == .completed }
                 .compactMap{ $0.result as? ConvertAppResult }
                 .sorted { (result1: ConvertAppResult?, result2: ConvertAppResult?) -> Bool in
                     (result1?.orderedIndex ?? 0) < (result2?.orderedIndex ?? 0)
                 }
-                .compactMap { ($0.result as? ConverterVoidReturnType) == ConverterVoidReturnValue ? nil : $0.result }
-
-        asyncSignal.begin()
-        DispatchQueue.main.async {
-            if let shareItems = resultItems, shareItems.count > 0, let rootViewController = UIApplication.shared.keyWindow?.rootViewController {
-
-                let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
-                activityViewController.completionWithItemsHandler = { (activityType:UIActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
-                    asyncSignal.end()
+        
+        try? PHPhotoLibrary.shared().performChangesAndWait {
+            resultItems?.forEach { item in
+                let request = PHAssetCreationRequest.forAsset()
+                let options = PHAssetResourceCreationOptions()
+                options.shouldMoveFile = true
+                
+                item.urls?.forEach { url in
+                    guard let uti = UTI(url) else { return }
+                    if UTTypeConformsTo(uti, kUTTypeImage) {
+                        request.addResource(with: .photo, fileURL: url, options: options)
+                    }
+                    else if UTTypeConformsTo(uti, kUTTypeMovie) {
+                        if item.urls?.contains(where: { UTTypeConformsTo(UTI($0) ?? "" as CFString, kUTTypeImage) }) == true {
+                            request.addResource(with: .pairedVideo, fileURL: url, options: options)
+                        }
+                        else {
+                            request.addResource(with: .video, fileURL: url, options: options)
+                        }
+                    }
                 }
-                activityViewController.popoverPresentationController?.sourceView=rootViewController.view
-                rootViewController.present(activityViewController, animated: true, completion: nil)
-
-            }else{
-                asyncSignal.end()
             }
         }
-        asyncSignal.waitUntilEnd()
-
-
+        
         return result
     }
 }
@@ -161,7 +165,7 @@ extension ConvertApp{
 
 
 private struct ConvertAppResult: TaskResultable{
-    var result:Any?
+    var urls:[URL]?
     var orderedIndex: Int?
 }
 
@@ -200,6 +204,12 @@ private class ConvertAppTask: TaskPrototype, Taskable {
         }
 
         let result = converter.convert(source: assetItem, async)
-        return result == nil ? nil : ConvertAppResult(result: result, orderedIndex: AppAssets.selected.index(of: assetItem))
+        if let urls = result as? [URL] {
+            return ConvertAppResult(urls: urls, orderedIndex: AppAssets.selected.index(of: assetItem))
+        }
+        else if let url = result as? URL {
+            return ConvertAppResult(urls: [url], orderedIndex: AppAssets.selected.index(of: assetItem))
+        }
+        return nil
     }
 }
