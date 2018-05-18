@@ -25,23 +25,16 @@ struct LivePhotoConverter_Gif: LivePhotoConverter {
             let totalDuration = urls.map { $0.frameDelay }.reduce(0, +)
             let defaultFps = Int32(Double(urls.count-1)/totalDuration)
 
-            var photoURL: URL?
-            var movieURL: URL?
-            
+            var succeed = false
             async.begin()
-            LivePhotoWriter().writeLivePhotoFromImages(photoPaths: urls.map { $0.url.path }, indexOfTitle: 0, progress: nil, fps: defaultFps) { (success, imageURL, pairedVideoURL, error) in
-                
-                if success {
-                    photoURL = imageURL
-                    movieURL = pairedVideoURL
-                }
-                
+            LivePhotoWriter().saveLivePhotoFromImages(paths: urls.map { $0.url.path }, indexOfTitle: 0, progress: nil, fps: defaultFps, saved:  { success, s, error in
+                succeed = success
                 async.end()
-            }
+            }, andFetched: nil)
 
             async.waitUntilEnd()
-            
-            return [photoURL, movieURL].compactMap { $0 }
+
+            return succeed ? ConverterVoidReturnValue : nil
         }
 
         return nil
@@ -59,32 +52,25 @@ struct LivePhotoConverter_Burst: LivePhotoConverter {
     init() {}
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
-        let param = ConverterBurstImageExtractParam(targetSize: source.asset.pixelSize, imageQuality: 0.8, contentMode: PHImageContentMode.aspectFit)
+        let targetSize = AVMakeRect(aspectRatio: source.asset.pixelSize, insideRect: CGRect(origin: .zero, size: LivePhotoWritableMaximumStandardSize)).size
+        let param = ConverterBurstImageExtractParam(targetSize: targetSize, imageQuality: 0.8, contentMode: PHImageContentMode.aspectFit)
         
         if let urls = self.extractBurstImageURLs(source: source, param: param, async){
+            if let videoURL = buildVideo(urls: urls, outputSize: targetSize, async) {
 
-            var preferredOutputSize:CGSize = .zero
-            if let firstImageUrl = urls.first?.url, let firstImageSize = UIImage(contentsOfFile: firstImageUrl.path)?.size{
-                preferredOutputSize = firstImageSize.aspectFit(in: LivePhotoWritableMaximumStandardSize)
-            }
-
-            if let videoURL = buildVideo(urls: urls, outputSize: preferredOutputSize, async) {
-                var photoURL: URL?
-                var movieURL: URL?
-                
                 async.begin()
 
-                LivePhotoWriter().writeLivePhotoFromVideo(videoPath: videoURL.path, timeLocationOfTitle: 0) { success, imageURL, pairedVideoURL, error in
-                    if success {
-                        photoURL = imageURL
-                        movieURL = pairedVideoURL
-                    }
+                var succeed = false
+
+                LivePhotoWriter().saveLivePhotoFromVideo(videoPath: videoURL.path, timeLocationOfTitle: 0, saved: { success, s, error in
+                    succeed = success
                     async.end()
-                }
+
+                }, andFetched: nil)
 
                 async.waitUntilEnd()
 
-                return [photoURL, movieURL].compactMap { $0 }
+                return succeed ? ConverterVoidReturnValue : nil
             }
         }
 
@@ -102,26 +88,23 @@ struct LivePhotoConverter_Video: LivePhotoConverter {
     init() {}
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+        var succeed = false
+
         if let videoURL = self.extractVideoFileURL(source: source, async){
 
-            var photoURL: URL?
-            var movieURL: URL?
-            
             async.begin()
-            
-            LivePhotoWriter().writeLivePhotoFromVideo(videoPath: videoURL.path, timeLocationOfTitle: 0) { success, imageURL, pairedVideoURL, error in
-                if success {
-                    photoURL = imageURL
-                    movieURL = pairedVideoURL
-                }
+
+            LivePhotoWriter().saveLivePhotoFromVideo(videoPath: videoURL.path, timeLocationOfTitle: 0, saved: { success, s, error in
+                succeed = success
+
                 async.end()
-            }
-            
+
+            }, andFetched: nil)
+
             async.waitUntilEnd()
-            
-            return [photoURL, movieURL].compactMap { $0 }
         }
-        return nil
+
+        return succeed ? ConverterVoidReturnValue : nil
     }
 
     static func canPerformWith(source: AppAsset) -> Bool {

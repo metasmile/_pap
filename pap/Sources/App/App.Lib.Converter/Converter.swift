@@ -251,6 +251,7 @@ extension Converter{
                 if let image = response.1, let data = UIImageJPEGRepresentation(image, CGFloat(imageQuality)) {
                     let url = "\(param.filenamePrefix)_\(UUID().uuidString)".asURLInTemporaryDirectory!
                     
+                    try? FileManager.default.removeItem(at: url)
                     do {
                         try data.write(to: url)
                         resultUrl = url

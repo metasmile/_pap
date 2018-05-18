@@ -145,6 +145,7 @@ struct MovConverter_LivePhoto: MovConverter {
         }) { (error) in
             if error == nil{
                 let pairedVideoFileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("\(UUID().uuidString)_pairedVideo.mov")
+                try? FileManager.default.removeItem(at: pairedVideoFileURL)
                 try? videoData.write(to: pairedVideoFileURL, options: Data.WritingOptions.atomicWrite)
 
                 resultURL = pairedVideoFileURL

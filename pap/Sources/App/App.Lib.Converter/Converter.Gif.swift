@@ -235,6 +235,7 @@ struct LocalCachedAsset {
         }
         
         let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(String(describing: LocalCachedAsset.self))_\(UUID().uuidString).\(fileExtension)")
+        try? FileManager.default.removeItem(at: url)
         try? data?.write(to: url)
         
         self.asset = asset

@@ -188,8 +188,9 @@ public extension UIImage {
                 CGImageDestinationAddImage(destination, imageRef, nil)
                 if CGImageDestinationFinalize(destination) {
                     let data = mutableData as Data
-                    let url = URL(fileURLWithPath: (directory as NSString).appendingPathComponent("\(filenamePrefix)\(i).png"))
+                    let url = URL(fileURLWithPath: (directory as NSString).appendingPathComponent("\(filenamePrefix)_\(UUID().uuidString)_\(i).png"))
 
+                    try? FileManager.default.removeItem(at: url)
                     do {
                         try data.write(to: url)
                         urls.append((url, frameDelay))
