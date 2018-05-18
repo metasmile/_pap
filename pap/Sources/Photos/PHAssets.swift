@@ -24,7 +24,7 @@ public final class PHAssets: NSObject, KeyPathWatchable {
     private override init() {}
 
     public func asset(at indexPath: IndexPath) -> PHAsset? {
-        return results?[indexPath.section][indexPath.item]
+        return asset(safe: indexPath)
     }
     
     public func asset(safe indexPath: IndexPath) -> PHAsset? {
