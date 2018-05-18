@@ -48,7 +48,10 @@ public class PhotosFilterAppConfigValue: NSObject, KeyPathWatchable, AppConfigUI
     }
 }
 
-public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _ConfigurableApp, AppDockControllableApp, PHAssetFinalizableApp, PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp {
+public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _ConfigurableApp,
+        AppDockControllableApp, PHAssetFinalizableApp,
+        PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp,
+        PhotoEditorViewControllerDelegatableApp {
     public static let taskType:Taskable.Type = _PhotosFilterAppTask.self
     public static let paramType:TaskParamable.Type = _PhotosFilterAppAsset.self
     
@@ -60,10 +63,10 @@ public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp,
 
     public static let info = AppInfo(
         identifier: "com.stells.pap.photosfilter"
-        , version: "0.1"
-        , phase: .beta
+        , version: "1.0"
+        , phase: .release
         , appType: PhotosFilterApp.self
-        , displayName: "Photos Filter"
+        , displayName: "Filters"
         , icon: R.image.photosFilterBAppIcon.name
         , policy: AppPolicy.default
         , minOSVersion: nil
