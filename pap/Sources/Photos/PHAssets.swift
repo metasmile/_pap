@@ -6,6 +6,12 @@
 import Foundation
 import Photos
 
+extension Array {
+    subscript (safe index: Int) -> Element? {
+        return indices ~= index ? self[index] : nil
+    }
+}
+
 public final class PHAssets: NSObject, KeyPathWatchable {
     public static let fetched = PHAssets()
 
@@ -19,6 +25,11 @@ public final class PHAssets: NSObject, KeyPathWatchable {
 
     public func asset(at indexPath: IndexPath) -> PHAsset? {
         return results?[indexPath.section][indexPath.item]
+    }
+    
+    public func asset(safe indexPath: IndexPath) -> PHAsset? {
+        guard let safeSection = results?[safe: indexPath.section] else { return nil }
+        return indexPath.item < safeSection.count ? safeSection[indexPath.item] : nil
     }
 
     public func isContained(section:Int) -> Bool{
@@ -43,8 +54,11 @@ public final class PHAssets: NSObject, KeyPathWatchable {
         return false
     }
     
-    public func load(with collectionType: PHAssetCollectionType = .smartAlbum, subtype collectionSubType: PHAssetCollectionSubtype = .smartAlbumUserLibrary, completion:(() -> Void)?=nil) {
+    public func load(with collectionType: PHAssetCollectionType = .smartAlbum, subtype collectionSubType: PHAssetCollectionSubtype = .smartAlbumUserLibrary, mediaType: PHAssetMediaType? = nil) {
         let options = PHFetchOptions()
+        if let mediaType = mediaType {
+            options.predicate = NSPredicate(format: "mediaType == %d", mediaType.rawValue)
+        }
 
         self.collections = PHAssetCollection.fetchAssetCollections(with: collectionType, subtype: collectionSubType, options: nil)
         var results = [PHFetchResult<PHAsset>]()

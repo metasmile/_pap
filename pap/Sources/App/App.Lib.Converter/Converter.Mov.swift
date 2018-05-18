@@ -6,6 +6,7 @@
 import Foundation
 import Photos
 import ImageIO
+import MobileCoreServices
 
 struct MovConverterOption {
     var exportSize: CGSize = .zero
@@ -79,6 +80,10 @@ class MovConverter_Gif: OptionableConverterBase<MovConverterOption>, MovConverte
     static func canPerformWith(source: AppAsset) -> Bool {
         return source.asset.imageType == .animatedGIF
     }
+    
+    static var performAssetCollectionType: PHAssetCollectionSubtype? {
+        return .smartAlbumAnimated
+    }
 }
 
 class MovConverter_Burst: OptionableConverterBase<MovConverterOption>, MovConverter {
@@ -95,6 +100,10 @@ class MovConverter_Burst: OptionableConverterBase<MovConverterOption>, MovConver
 
     static func canPerformWith(source: AppAsset) -> Bool {
         return source.asset.imageType == .burst
+    }
+    
+    static var performAssetCollectionType: PHAssetCollectionSubtype? {
+        return .smartAlbumBursts
     }
 }
 
@@ -160,5 +169,9 @@ struct MovConverter_LivePhoto: MovConverter {
 
     static func canPerformWith(source: AppAsset) -> Bool {
         return source.asset.imageType == .livePhoto
+    }
+    
+    static var performAssetCollectionType: PHAssetCollectionSubtype? {
+        return .smartAlbumLivePhotos
     }
 }

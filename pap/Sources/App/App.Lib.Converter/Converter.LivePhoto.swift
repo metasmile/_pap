@@ -43,6 +43,10 @@ struct LivePhotoConverter_Gif: LivePhotoConverter {
     static func canPerformWith(source: AppAsset) -> Bool {
         return source.asset.imageType == .animatedGIF
     }
+    
+    static var performAssetCollectionType: PHAssetCollectionSubtype? {
+        return .smartAlbumAnimated
+    }
 
 }
 
@@ -80,6 +84,10 @@ struct LivePhotoConverter_Burst: LivePhotoConverter {
     static func canPerformWith(source: AppAsset) -> Bool {
         return source.asset.imageType == .burst
     }
+    
+    static var performAssetCollectionType: PHAssetCollectionSubtype? {
+        return .smartAlbumBursts
+    }
 }
 
 struct LivePhotoConverter_Video: LivePhotoConverter {
@@ -109,6 +117,14 @@ struct LivePhotoConverter_Video: LivePhotoConverter {
 
     static func canPerformWith(source: AppAsset) -> Bool {
         return source.asset.mediaType == .video
+    }
+    
+    static var performAssetCollectionType: PHAssetCollectionSubtype? {
+        return .smartAlbumUserLibrary
+    }
+    
+    static var performMediaType: PHAssetMediaType? {
+        return .video
     }
 }
 

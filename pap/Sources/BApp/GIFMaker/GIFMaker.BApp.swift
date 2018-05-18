@@ -275,6 +275,22 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
         return (dockContent as? GIFMakerAppDockContent)?.shouldImport(asset: item.asset) ?? false
     }
     
+    public var conformsAssetCollectionType: PHAssetCollectionSubtype? {
+        switch GIFMakerSettings.sourceType.type(rawValue: (GIFMaker.defaults as! GIFMakerDefaults).sourceType) {
+        case .photo?: return .smartAlbumUserLibrary
+        case .burst?: return .smartAlbumBursts
+        case .livePhoto?: return .smartAlbumLivePhotos
+        default: return nil
+        }
+    }
+    
+    public var conformsMediaType: PHAssetMediaType? {
+        switch GIFMakerSettings.sourceType.type(rawValue: (GIFMaker.defaults as! GIFMakerDefaults).sourceType) {
+        case .photo?: return .image
+        default: return nil
+        }
+    }
+    
     public var numberOfItemsShouldSelect: Int? {
         switch GIFMakerSettings.sourceType.type(rawValue: (GIFMaker.defaults as! GIFMakerDefaults).sourceType) {
         case .photo?: return Int.max

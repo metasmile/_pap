@@ -95,6 +95,14 @@ class GifConverter_Jpeg: OptionableConverterBase<GifConverterDefaultOption>, Gif
     static func canPerformWith(source: AppAsset) -> Bool {
         return source.asset.imageType == .stillImage
     }
+    
+    static var performAssetCollectionType: PHAssetCollectionSubtype? {
+        return .smartAlbumUserLibrary
+    }
+    
+    static var performMediaType: PHAssetMediaType {
+        return .image
+    }
 }
 
 class GifConverter_Mov: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
@@ -151,6 +159,14 @@ class GifConverter_Mov: OptionableConverterBase<GifConverterDefaultOption>, GifC
     static func canPerformWith(source: AppAsset) -> Bool {
         return source.asset.mediaType == .video
     }
+    
+    static var performAssetCollectionType: PHAssetCollectionSubtype? {
+        return .smartAlbumUserLibrary
+    }
+    
+    static var performMediaType: PHAssetMediaType {
+        return .video
+    }
 }
 
 class GifConverter_LivePhoto: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
@@ -167,6 +183,10 @@ class GifConverter_LivePhoto: OptionableConverterBase<GifConverterDefaultOption>
     static func canPerformWith(source: AppAsset) -> Bool {
         return source.asset.imageType == .livePhoto
     }
+    
+    static var performAssetCollectionType: PHAssetCollectionSubtype? {
+        return .smartAlbumLivePhotos
+    }
 }
 
 class GifConverter_Timelapse: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
@@ -180,6 +200,10 @@ class GifConverter_Timelapse: OptionableConverterBase<GifConverterDefaultOption>
 
     static func canPerformWith(source: AppAsset) -> Bool {
         return source.asset.mediaSubtypes.contains(.videoTimelapse)
+    }
+    
+    static var performAssetCollectionType: PHAssetCollectionSubtype? {
+        return .smartAlbumTimelapses
     }
 }
 
@@ -197,6 +221,10 @@ class GifConverter_Burst: OptionableConverterBase<GifConverterDefaultOption>, Gi
 
     static func canPerformWith(source: AppAsset) -> Bool {
         return source.asset.imageType == .burst
+    }
+    
+    static var performAssetCollectionType: PHAssetCollectionSubtype? {
+        return .smartAlbumBursts
     }
 }
 

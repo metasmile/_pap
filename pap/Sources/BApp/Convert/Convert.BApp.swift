@@ -54,6 +54,14 @@ public class ConvertApp: BApp,
     public func shouldSelect(item: AppAsset) -> Bool {
         return currentWorker?.canPerformWith(source: item) ?? true
     }
+    
+    public var conformsAssetCollectionType: PHAssetCollectionSubtype? {
+        return currentWorker?.performAssetCollectionType
+    }
+    
+    public var conformsMediaType: PHAssetMediaType? {
+        return currentWorker?.performMediaType
+    }
 
     public var numberOfItemsShouldSelect: Int? {
         return nil

@@ -82,8 +82,15 @@ protocol Converter {
     static var direction: ConvertingDirection {get}
 
     static func canPerformWith(source:AppAsset) -> Bool
+    static var performAssetCollectionType: PHAssetCollectionSubtype? { get }
+    static var performMediaType: PHAssetMediaType? { get }
 
     func convert(source:AppAsset, _ async: AsyncManualSignalable) -> Any?
+}
+
+extension Converter {
+    static var performAssetCollectionType: PHAssetCollectionSubtype? { return nil }
+    static var performMediaType: PHAssetMediaType? { return nil }
 }
 
 struct ConverterSpec{

@@ -34,4 +34,12 @@ struct MP4Converter_Mov: MP4Converter {
     static func canPerformWith(source: AppAsset) -> Bool {
         return source.asset.mediaType == .video && source.asset.uniformTypeIdentifier != (kUTTypeMPEG4 as String)
     }
+    
+    static var performAssetCollectionType: PHAssetCollectionSubtype? {
+        return .smartAlbumUserLibrary
+    }
+    
+    static var performMediaType: PHAssetMediaType? {
+        return .video
+    }
 }

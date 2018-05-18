@@ -74,7 +74,7 @@ extension PhotoPickerViewController{
         }
     }
 
-    @objc func cancelAllSelection() {
+    private func cancelAllSelection() {
         guard let indexPaths = photoCollectionView.indexPathsForSelectedItems else { return }
         for indexPath in indexPaths {
             photoCollectionView.deselectItem(at: indexPath, animated: true)

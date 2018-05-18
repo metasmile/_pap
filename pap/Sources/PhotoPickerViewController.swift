@@ -54,19 +54,17 @@ class PhotoPickerViewController: AppDockViewController {
 
         PHPhotoLibraryManager.default.authorizeIfNeeded { authorized in
             guard authorized else { return }
-
+            
             PHAssets.fetched.unload()
-
-            //QA: attach initial progress activity view + non-mainqueue.async
-            PHAssets.fetched.load(with: .smartAlbum, subtype: .smartAlbumUserLibrary) // iphone x: .028702974319458s
-
+            PHAssets.fetched.load(with: .smartAlbum, subtype: self.collectionViewDisplayableApp?.conformsAssetCollectionType ?? .smartAlbumUserLibrary, mediaType: self.collectionViewDisplayableApp?.conformsMediaType) // iphone x: .028702974319458s
+            
             if let numberOfSection = PHAssets.fetched.results?.count, numberOfSection > 0
                 , let numberOfItemsInSection = PHAssets.fetched.results?[numberOfSection - 1].count
                 , numberOfItemsInSection > 0 {
-
+                
                 self.initialPhotoCollectionIndexPath = IndexPath(item: numberOfItemsInSection - 1, section: numberOfSection - 1)
-                self.photoCollectionView.reloadData()
             }
+            self.photoCollectionView.reloadData()
 
             //PHAssets.fetched.results?.first?.enumerateObjects { asset, i, pointer in }
          }
@@ -209,6 +207,27 @@ class PhotoPickerViewController: AppDockViewController {
     func redisplayVisibleCellsWhenChangeApp(){
         deselectCollectionViewItems(self.photoCollectionView.indexPathsForSelectedItems?.filter({ !collectionView(self.photoCollectionView, shouldSelectItemAt: $0) }) ?? [IndexPath]())
         updateVisiblePhotoCollectionCellsEnabled()
+        
+        refetchAssets()
+    }
+    
+    func refetchAssets() {
+        PHAssets.fetched.unload()
+        PHAssets.fetched.load(with: .smartAlbum, subtype: collectionViewDisplayableApp?.conformsAssetCollectionType ?? .smartAlbumUserLibrary, mediaType: collectionViewDisplayableApp?.conformsMediaType) // iphone x: .028702974319458s
+        
+        if let numberOfSection = PHAssets.fetched.results?.count, numberOfSection > 0
+            , let numberOfItemsInSection = PHAssets.fetched.results?[numberOfSection - 1].count
+            , numberOfItemsInSection > 0 {
+            
+            self.initialPhotoCollectionIndexPath = IndexPath(item: numberOfItemsInSection - 1, section: numberOfSection - 1)
+        }
+        self.photoCollectionView.reloadData()
+        self.photoCollectionView.layoutIfNeeded()
+        
+        self.batchPreviewView.removeAllCollectionViewItems()
+        self.updateSelectedItemUIs()
+        
+        self.appDockView?.reloadKeepingDrawerOpened()
     }
 
     func updateSelectedItemUIs() {
