@@ -164,7 +164,7 @@ class GifConverter_Mov: OptionableConverterBase<GifConverterDefaultOption>, GifC
         return .smartAlbumUserLibrary
     }
     
-    static var performMediaType: PHAssetMediaType {
+    static var performMediaType: PHAssetMediaType? {
         return .video
     }
 }
