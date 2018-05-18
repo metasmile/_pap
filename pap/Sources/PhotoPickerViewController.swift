@@ -343,6 +343,8 @@ class PhotoPickerViewController: AppDockViewController {
             }
             return nil
         }
+        
+        guard !fetchResultChanges.isEmpty else { return }
 
         /*
             Handle Tasks while batch performing
@@ -367,7 +369,8 @@ class PhotoPickerViewController: AppDockViewController {
             self.batchPreviewView.removeCollectionViewItem(with: removedAsset)
         }
         
-        var lastInsertedIndexPath: IndexPath?
+        var indexPathToScroll: IndexPath?
+        var needsToRestoreSelection = false
 
         //perform batch update
         //confirm and remove: https://console.firebase.google.com/project/batch-photos/crashlytics/app/ios:com.stells.pap/issues/5ac8295036c7b23527c249dd?time=1523145600000:1523231999000&sessionId=18f49e20db084ed8b9c8b26e72871bad_DNE_0_v2
@@ -382,18 +385,20 @@ class PhotoPickerViewController: AppDockViewController {
                 // Reload the collection view if incremental diffs are not available.
                 if false == (changes.hasIncrementalChanges || changes.hasMoves) {
                     self.photoCollectionView.reloadData()
-                    continue
+                    break
                 }
 
                 // If there are incremental diffs, animate them in the collection view.
                 // For indexes to make sense, updates must be in this order:
                 // delete, insert, reload, move
                 if let removed = changes.removedIndexes, removed.count > 0 {
+                    needsToRestoreSelection = true
                     self.photoCollectionView.deleteItems(at: removed.map { IndexPath(item: $0, section:section) })
                 }
                 if let inserted = changes.insertedIndexes, inserted.count > 0 {
                     let indexPaths = inserted.map { IndexPath(item: $0, section:section) }
-                    lastInsertedIndexPath = indexPaths.last
+                    indexPathToScroll = indexPaths.last
+                    needsToRestoreSelection = true
                     
                     self.photoCollectionView.insertItems(at: indexPaths)
                 }
@@ -401,6 +406,7 @@ class PhotoPickerViewController: AppDockViewController {
                     self.photoCollectionView.reloadItems(at: changed.map { IndexPath(item: $0, section:section) })
                 }
                 changes.enumerateMoves { fromIndex, toIndex in
+                    needsToRestoreSelection = true
                     self.photoCollectionView.moveItem(at: IndexPath(item: fromIndex, section: section), to: IndexPath(item: toIndex, section: section))
                 }
             }
@@ -412,12 +418,12 @@ class PhotoPickerViewController: AppDockViewController {
                 self.updateSelectedItemUIs()
             }
             
-            if let indexPathToScroll = lastInsertedIndexPath {
+            if let indexPathToScroll = indexPathToScroll {
                 //TODO: test for scroll inserted items instead of restore previous selections
-                self.deselectCollectionViewItems(with: selectedAssetIdentifiers)
-                self.photoCollectionView.scrollToItem(at: indexPathToScroll, at: UICollectionViewScrollPosition.centeredVertically, animated: true)
+                self.photoCollectionView.scrollToItem(at: indexPathToScroll, at: UICollectionViewScrollPosition.bottom, animated: true)
             }
-            else {
+            
+            if needsToRestoreSelection {
                 self.restoreSelectionByUser(selectedAssetIdentifiers)
             }
             
