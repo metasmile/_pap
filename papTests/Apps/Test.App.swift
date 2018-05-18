@@ -44,3 +44,4 @@ private class _TestAppTask: TaskPrototype, Taskable {
         return TestTaskResult(id:(param as! TestTaskParam).id)
     }
 }
+

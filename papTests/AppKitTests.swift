@@ -91,4 +91,65 @@ class AppTaskTests: XCTestCase {
             XCTAssertTrue(true)
         }
     }
+
+    func test_AppTaskManager_concurrentCount(){
+
+        class TestPreferredConcurrentCountApp: App {
+            public static let taskType:Taskable.Type = _TestConcurrentCountAppTask.self
+
+            public static let paramType:TaskParamable.Type = TestTaskParam.self
+
+            public static let info = AppInfo(
+                    identifier: "com.stells.pap.TestPreferredConcurrentCountApp"
+                    , version: "0.1"
+                    , phase: .develop
+                    , appType: TestPreferredConcurrentCountApp.self
+                    , displayName: "TestPreferredConcurrentCountApp"
+                    , icon: nil
+                    , policy: AppPolicy.default
+                    , minOSVersion: nil
+            )
+            public required init() {}
+        }
+
+        class _TestConcurrentCountAppTask: TaskPrototype, Taskable {
+            override var info: TaskInfo {
+                let info = super.info
+
+                info.policy.concurrencyCount = 2
+
+                return info
+            }
+
+            public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){}
+
+            public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
+                async.begin()
+                DispatchQueue.global().async{
+                    sleep(UInt32(arc4random_uniform(2)))
+                    async.end()
+                }
+                async.waitUntilEnd()
+                return TestTaskResult(id:(param as! TestTaskParam).id)
+            }
+        }
+
+        let e = self.expectation(description: "request will be succeed.")
+
+        for i in 0..<50{
+            let request = AppTaskRequest(TestPreferredConcurrentCountApp.self, TestTaskParam(id:i))
+//            request.taskPolicy = TaskPolicy.default
+
+            taskMan.append(request: request)
+        }
+
+        let performed = taskMan.perform(AppTaskReaction { dictionary, respondables in
+            e.fulfill()
+        })
+
+        XCTAssertTrue(performed)
+        waitForExpectations(timeout: 1000) { (e) in
+            XCTAssertTrue(true)
+        }
+    }
 }
