@@ -62,27 +62,58 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
             return
         }
 
-        //TODO: Not yet supported
-//        showPhotoEditor(with: item)
+        if let _ = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self){
+            showPhotoEditor(with: item)
+        }
     }
 
     private func setActions(with item: PHAssetItem<ImageEditStateValue>, at indexPath: IndexPath, to vc: PhotoPickerDetailViewController) {
+        if let _ = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self){
+            _setActionsWithEditor(with:item, at:indexPath,to:vc)
+
+        }else{
+            _setActionsWithoutEditor(with:item, at:indexPath,to:vc)
+        }
+    }
+
+    private func _setActionsWithoutEditor(with item: PHAssetItem<ImageEditStateValue>, at indexPath: IndexPath, to vc: PhotoPickerDetailViewController) {
         var typeWord = "photo"
         if item.asset.mediaType == .video {
             typeWord = "video"
         }
 
-//        let editAction = UIPreviewAction(title: "Edit this \(typeWord)".localized, style: .default) { (action, controller) in
-//
-//            self.showPhotoEditor(with: item)
-//        }
+        if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == true {
+            vc.actionItems = [
+                UIPreviewAction(title: "Deselect this \(typeWord)".localized, style: .default) { action, controller in
+                    self.deselectCollectionViewItem(at:indexPath)
+                }
+            ]
+        }
+        else {
+            vc.actionItems = [
+                UIPreviewAction(title: "Select this \(typeWord)".localized, style: .default) { action, controller in
+                    self.selectCollectionViewItem(at: indexPath)
+                }
+            ]
+        }
+    }
+
+    private func _setActionsWithEditor(with item: PHAssetItem<ImageEditStateValue>, at indexPath: IndexPath, to vc: PhotoPickerDetailViewController) {
+        var typeWord = "photo"
+        if item.asset.mediaType == .video {
+            typeWord = "video"
+        }
+
+        let editAction = UIPreviewAction(title: "Edit this \(typeWord)".localized, style: .default) { (action, controller) in
+            self.showPhotoEditor(with: item)
+        }
 
         if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == true {
             vc.actionItems = [
                 UIPreviewAction(title: "Deselect this \(typeWord)".localized, style: .default) { action, controller in
                     self.deselectCollectionViewItem(at:indexPath)
                 },
-//                editAction
+                editAction
             ]
         }
         else {
@@ -90,7 +121,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
                 UIPreviewAction(title: "Select this \(typeWord)".localized, style: .default) { action, controller in
                     self.selectCollectionViewItem(at: indexPath)
                 },
-//                editAction
+                editAction
             ]
         }
     }

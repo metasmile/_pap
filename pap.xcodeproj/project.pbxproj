@@ -42,6 +42,7 @@
 		4F71D257A844A6CD498EBE50 /* CodeKit.Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEA308D9B38286F2EC8F /* CodeKit.Int.swift */; };
 		4F71D25F83F348BF793853EF /* AppLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8059F302538FAFF84BD /* AppLifecycle.swift */; };
 		4F71D2979759E0B68AFC3519 /* PhotoPickerFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA3C273565A6E320B6AF /* PhotoPickerFooterView.swift */; };
+		4F71D299F2A20F87807CE9CE /* App.PhotoEditorViewControllerDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D03709F50D8869D69AE7 /* App.PhotoEditorViewControllerDelegatable.swift */; };
 		4F71D29A4E2023FE51D14CDD /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D45063F327509DB10F71 /* Item.swift */; };
 		4F71D29B3911115701282220 /* CodeKit.Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1B67855F1829EB9787D /* CodeKit.Timer.swift */; };
 		4F71D2A169A523C841ED63B8 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D9E00E76B61EE487E600 /* PhotoCollectionViewCell.xib */; };
@@ -309,6 +310,7 @@
 		33D37ED5B737EE655DF40FEE /* Pods-pap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pap/Pods-pap.debug.xcconfig"; sourceTree = "<group>"; };
 		4F71D0043D08EE0021680D4F /* CodeKit.UIView.Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIView.Animation.swift; sourceTree = "<group>"; };
 		4F71D0150990AE9E6B4D72A2 /* AppAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAssets.swift; sourceTree = "<group>"; };
+		4F71D03709F50D8869D69AE7 /* App.PhotoEditorViewControllerDelegatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.PhotoEditorViewControllerDelegatable.swift; sourceTree = "<group>"; };
 		4F71D07F06651FC2637771BB /* AssetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetView.swift; sourceTree = "<group>"; };
 		4F71D09ACF49BF1FDAE797B4 /* ExifGhost.App.Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExifGhost.App.Tests.swift; sourceTree = "<group>"; };
 		4F71D0D967BFB92001862DCE /* auto_straighten.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = auto_straighten.png; sourceTree = "<group>"; };
@@ -995,6 +997,7 @@
 				4F71DA10E97AC3BD6F9BEB5F /* App.PhotoPickerCollectionViewDisplayable.swift */,
 				4F71D756451C76841F34DEF7 /* App.PhotoPickerViewControllerDelegatable.swift */,
 				4F71DF947618FA164E95CD6D /* App.Finalizable.UIActivity.PHAsset.swift */,
+				4F71D03709F50D8869D69AE7 /* App.PhotoEditorViewControllerDelegatable.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -2665,6 +2668,7 @@
 				4F71DC16226B8D70AE6BE82F /* Transform.BApp.Public.Contents.swift in Sources */,
 				4F71D7B31CEE30B075DFF30C /* App.Finalizable.PHAsset.swift in Sources */,
 				4F71D6D4050B0229DB829B0E /* App.Finalizable.UIActivity.PHAsset.swift in Sources */,
+				4F71D299F2A20F87807CE9CE /* App.PhotoEditorViewControllerDelegatable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3686,7 +3690,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = MCAFR355J4;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = papTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
@@ -3710,7 +3714,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = MCAFR355J4;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = papTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;

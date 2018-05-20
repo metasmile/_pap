@@ -31,16 +31,47 @@ public enum TaskError: Error {
 }
 
 
+/*
+    The priority of TaskPolicy
+
+    AppTaskRequest > App > Task
+*/
+
 public struct TaskPolicy{
+    static let `default` = TaskPolicy(
+            cancellation: .shallow,
+            priority: .normal,
+            concurrencyCount: nil
+    )
+
     public enum Cancellation {
         case verbose
         case shallow
     }
     public let cancellation: Cancellation
 
-    static let `default` = TaskPolicy(
-            cancellation: .shallow
-    )
+    /*
+     when priority == .high if concurrencyCount == 1 -> highest priority will be guaranteed
+     when priority == .high if concurrencyCount > 1 -> highest priority will not be guaranteed
+    */
+    public enum Priority {
+        case normal
+        case high
+    }
+
+    public var priority: Priority = .normal
+
+    /*
+        if concurrencyCount was 0 or bigger than AppManager.maxConcurrentCount, ignored.
+    */
+    public var concurrencyCount: Int? {
+        didSet {
+            assert(concurrencyCount == nil || concurrencyCount! > 0, "preferredConcurrencyCount must be undefined(nil) or bigger than 0")
+            if concurrencyCount == 0{
+                concurrencyCount = 1
+            }
+        }
+    }
 }
 
 public protocol _Taskable{
