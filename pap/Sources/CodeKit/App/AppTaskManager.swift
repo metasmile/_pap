@@ -54,12 +54,6 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
     private var _staticRequestedWorkItems = [String: AppTaskItem]()
     private var _staticFinishedWorkItems = [AppTaskItem]()
 
-    //TODO: improve queue assign performance
-    private var _currentQueue: AppTaskOperationQueue {
-        print("load queues",_queuePool.map{ $0.value.count } )
-        return (_queuePool.min { a, b in a.value.count < b.value.count })!.value
-    }
-
     public final var maxConcurrentCount:Int{
         return self._queuePool.count
     }
@@ -92,9 +86,10 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
         let taskInfo = TaskInfo(request.token, taskType.self, request.appType)
 
         if let taskPolicy = request.taskPolicy{
+            //if request exactly has taskPolicy, that will have first priority.
             taskInfo.policy = taskPolicy
         }else{
-            //inheritance from app config
+            //or, request.taskPolicy was not defined, inheritance from app config
             taskInfo.policy = appInfo.policy.task
         }
 
@@ -124,9 +119,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
 
             guard let queuedTaskItem = _staticRequestedWorkItems[request.token]
             , let queueLabel = queuedTaskItem.info.queueLabel
-            , let queue = self._queuePool[queueLabel]
-
-                    else {
+            , let queue = self._queuePool[queueLabel] else {
                 print("[!] a queue by the request is unqueued")
                 return
             }
@@ -136,8 +129,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
                     return false
                 }
                 return item.info.requestToken == request.token
-            })
-                    else {
+            }) else {
                 print("[i] The item doest not exist, but try to remove. It might be already dequeued.")
                 return
             }
@@ -168,7 +160,33 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
                     , task: task
             )
 
-            self._currentQueue.enqueue(item)
+            var queues = Array(_queuePool.values)
+            if let preferredCount = task.info.policy.concurrencyCount {
+                assert(preferredCount>0, "preferredCount cannot be lower than 1 if it was preferred.")
+                queues = Array(queues[0 ..< min(queues.count, preferredCount)])
+            }
+
+            // if queue does not exist, return nil
+            if queues.count < 1{
+                return nil
+            }
+
+            //normally find a queue which has lowest number of child tasks.
+            var currentQueue:AppTaskOperationQueue = queues[0]
+            for queue in queues {
+                if queue.count < currentQueue.count {
+                    currentQueue = queue
+                }
+            }
+
+            print("Assigned a task \(task.info.token) into -> \(currentQueue.label)")
+
+            if task.info.policy.priority == .high {
+                currentQueue.enqueue(item, reverse: true)
+            }else{
+                currentQueue.enqueue(item)
+            }
+
             _staticRequestedWorkItems[item.request.token] = item
 
             return item.task.info

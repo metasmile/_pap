@@ -183,6 +183,28 @@ private class ConvertAppTask: TaskPrototype, Taskable {
     public typealias ParamType = AppAsset
     public typealias ResultType = ConvertAppResult
 
+    let defaults = ConvertApp.defaults as! ConvertAppDefaults
+
+    override var info: TaskInfo {
+        let info = super.info
+
+        //default is undefined.
+        info.policy.concurrencyCount = nil
+
+        if let currentWorkerType = ConvertApp.availableWorkers.first(where:{
+            $0.direction == defaults.convertingDirection
+        }) {
+
+            if currentWorkerType is LivePhotoConverter.Type{
+                //override concurrencyCount if currentWorkerType is LivePhotoConverter
+                info.policy.concurrencyCount = 1
+            }
+        }
+
+        return info
+
+    }
+
     public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){
 
         (param as? AppAsset)?.cancelAllRequestIDs()
@@ -194,9 +216,7 @@ private class ConvertAppTask: TaskPrototype, Taskable {
     }
 
     private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable) throws -> ConvertAppResult?  {
-        let defaults = ConvertApp.defaults as! ConvertAppDefaults
         let direction = defaults.convertingDirection
-
         let needsConverter = ConverterSpec.acquireInstance(collection: ConvertApp.availableWorkers, direction: direction, asset: assetItem)
 
         guard let converter = needsConverter else {
@@ -214,6 +234,7 @@ private class ConvertAppTask: TaskPrototype, Taskable {
         }
 
         let result = converter.convert(source: assetItem, async)
+
         if let urls = result as? [URL] {
             return ConvertAppResult(result: urls, orderedIndex: AppAssets.selected.index(of: assetItem))
         }
