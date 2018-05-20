@@ -212,8 +212,13 @@ class PhotoPickerViewController: AppDockViewController {
     }
     
     func refetchAssets() {
+        let collectionSubtype = collectionViewDisplayableApp?.conformsAssetCollectionType ?? .smartAlbumUserLibrary
+        let mediaType = collectionViewDisplayableApp?.conformsMediaType
+        
+        guard PHAssets.fetched.collectionSubtype != collectionSubtype || PHAssets.fetched.mediaType != mediaType else { return }
+        
         PHAssets.fetched.unload()
-        PHAssets.fetched.load(with: .smartAlbum, subtype: collectionViewDisplayableApp?.conformsAssetCollectionType ?? .smartAlbumUserLibrary, mediaType: collectionViewDisplayableApp?.conformsMediaType) // iphone x: .028702974319458s
+        PHAssets.fetched.load(with: .smartAlbum, subtype: collectionSubtype, mediaType: mediaType) // iphone x: .028702974319458s
         
         if let numberOfSection = PHAssets.fetched.results?.count, numberOfSection > 0
             , let numberOfItemsInSection = PHAssets.fetched.results?[numberOfSection - 1].count
@@ -224,7 +229,6 @@ class PhotoPickerViewController: AppDockViewController {
         self.photoCollectionView.reloadData()
         self.photoCollectionView.layoutIfNeeded()
         
-        self.batchPreviewView.removeAllCollectionViewItems()
         self.updateSelectedItemUIs()
         
         self.appDockView?.reloadKeepingDrawerOpened()

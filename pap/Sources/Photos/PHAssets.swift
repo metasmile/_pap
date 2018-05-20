@@ -54,7 +54,15 @@ public final class PHAssets: NSObject, KeyPathWatchable {
         return false
     }
     
+    public private(set) var collectionType: PHAssetCollectionType?
+    public private(set) var collectionSubtype: PHAssetCollectionSubtype?
+    public private(set) var mediaType: PHAssetMediaType?
+    
     public func load(with collectionType: PHAssetCollectionType = .smartAlbum, subtype collectionSubType: PHAssetCollectionSubtype = .smartAlbumUserLibrary, mediaType: PHAssetMediaType? = nil) {
+        self.collectionType = collectionType
+        self.collectionSubtype = collectionSubType
+        self.mediaType = mediaType
+        
         let options = PHFetchOptions()
         if let mediaType = mediaType {
             options.predicate = NSPredicate(format: "mediaType == %d", mediaType.rawValue)
@@ -73,5 +81,8 @@ public final class PHAssets: NSObject, KeyPathWatchable {
     public func unload(){
         collections = nil
         results = nil
+        
+        self.collectionType = nil
+        self.collectionSubtype = nil
     }
 }
