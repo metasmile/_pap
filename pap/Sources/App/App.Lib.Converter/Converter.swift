@@ -85,7 +85,7 @@ protocol Converter {
     static var performAssetCollectionType: PHAssetCollectionSubtype? { get }
     static var performMediaType: PHAssetMediaType? { get }
 
-    func convert(source:AppAsset, _ async: AsyncManualSignalable) -> Any?
+    func convert(source:AppAsset, _ async: AsyncManualSignalable) -> PHAssetResourceFinalizingOutput?
 }
 
 extension Converter {

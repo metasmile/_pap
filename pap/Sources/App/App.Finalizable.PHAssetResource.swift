@@ -1,0 +1,56 @@
+//
+//  App.Finalizable.PHAssetResource.swift
+//  pap
+//
+//  Created by HYOJIN MO on 2018. 5. 21..
+//  Copyright © 2018년 Stells. All rights reserved.
+//
+
+import UIKit
+
+import Foundation
+import Photos
+
+public struct PHAssetResourceFinalizingOutput: TaskResultable {
+    var resources = [(resourceType: PHAssetResourceType, url: URL)]()
+}
+
+public struct PHAssetResourceFinalizingTaskRespondable: AppTaskRespondable {
+    public var request: AppTaskRequest
+    public var result: TaskResultable?
+    public var info: TaskInfo
+    
+    public var assetLocalIdentifier: String? = nil
+}
+
+public protocol PHAssetResourceFinalizableApp: FinalizableApp {
+    
+}
+
+extension PHAssetResourceFinalizableApp {
+    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
+        // filter only completed.
+        let result = result
+            .filter { respondable in respondable.info.state == .completed }
+        
+        var resultItems = [PHAssetResourceFinalizingTaskRespondable]()
+        
+        try? PHPhotoLibrary.shared().performChangesAndWait {
+            for respondable in result {
+                guard let item = respondable.result as? PHAssetResourceFinalizingOutput else { continue }
+                
+                let request = PHAssetCreationRequest.forAsset()
+                let options = PHAssetResourceCreationOptions()
+                options.shouldMoveFile = true
+                
+                item.resources.forEach { resourceOutput in
+                    request.addResource(with: resourceOutput.resourceType, fileURL: resourceOutput.url, options: options)
+                }
+                
+                resultItems.append(PHAssetResourceFinalizingTaskRespondable(request: respondable.request, result: respondable.result, info: respondable.info, assetLocalIdentifier: request.placeholderForCreatedAsset?.localIdentifier))
+            }
+        }
+        
+        return resultItems
+    }
+}

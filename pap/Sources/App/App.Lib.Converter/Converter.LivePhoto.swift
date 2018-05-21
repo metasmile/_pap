@@ -18,23 +18,31 @@ struct LivePhotoConverter_Gif: LivePhotoConverter {
 
     init() {}
 
-    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> PHAssetResourceFinalizingOutput? {
 
         if let urls = extractImageURLsFromGIFData(asset:source.asset, async), urls.count > 0{
 
             let totalDuration = urls.map { $0.frameDelay }.reduce(0, +)
             let defaultFps = Int32(Double(urls.count-1)/totalDuration)
-
-            var succeed = false
+            
+            var result = PHAssetResourceFinalizingOutput()
+            
             async.begin()
-            LivePhotoWriter().saveLivePhotoFromImages(paths: urls.map { $0.url.path }, indexOfTitle: 0, progress: nil, fps: defaultFps, saved:  { success, s, error in
-                succeed = success
+            LivePhotoWriter().writeLivePhotoFromImages(photoPaths: urls.map { $0.url.path }, indexOfTitle: 0, progress: nil, fps: defaultFps) { (success, photoURL, videoURL, error) in
+                if let photoURL = photoURL {
+                    result.resources.append((resourceType: .photo, url: photoURL))
+                }
+                
+                if let videoURL = videoURL {
+                    result.resources.append((resourceType: .pairedVideo, url: videoURL))
+                }
+                
                 async.end()
-            }, andFetched: nil)
+            }
 
             async.waitUntilEnd()
 
-            return succeed ? ConverterVoidReturnValue : nil
+            return result
         }
 
         return nil
@@ -55,26 +63,29 @@ struct LivePhotoConverter_Burst: LivePhotoConverter {
 
     init() {}
 
-    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> PHAssetResourceFinalizingOutput? {
         let targetSize = AVMakeRect(aspectRatio: source.asset.pixelSize, insideRect: CGRect(origin: .zero, size: LivePhotoWritableMaximumStandardSize)).size
         let param = ConverterBurstImageExtractParam(targetSize: targetSize, imageQuality: 0.8, contentMode: PHImageContentMode.aspectFit)
         
         if let urls = self.extractBurstImageURLs(source: source, param: param, async){
             if let videoURL = buildVideo(urls: urls, outputSize: targetSize, async) {
-
+                var result = PHAssetResourceFinalizingOutput()
+                
                 async.begin()
-
-                var succeed = false
-
-                LivePhotoWriter().saveLivePhotoFromVideo(videoPath: videoURL.path, timeLocationOfTitle: 0, saved: { success, s, error in
-                    succeed = success
+                LivePhotoWriter().writeLivePhotoFromVideo(videoPath: videoURL.path, timeLocationOfTitle: 0) { (success, photoURL, videoURL, error) in
+                    if let photoURL = photoURL {
+                        result.resources.append((resourceType: .photo, url: photoURL))
+                    }
+                    
+                    if let videoURL = videoURL {
+                        result.resources.append((resourceType: .pairedVideo, url: videoURL))
+                    }
+                    
                     async.end()
-
-                }, andFetched: nil)
-
+                }
                 async.waitUntilEnd()
-
-                return succeed ? ConverterVoidReturnValue : nil
+                
+                return result
             }
         }
 
@@ -95,24 +106,28 @@ struct LivePhotoConverter_Video: LivePhotoConverter {
 
     init() {}
 
-    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
-        var succeed = false
-
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> PHAssetResourceFinalizingOutput? {
         if let videoURL = self.extractVideoFileURL(source: source, async){
-
+            var result = PHAssetResourceFinalizingOutput()
+            
             async.begin()
-
-            LivePhotoWriter().saveLivePhotoFromVideo(videoPath: videoURL.path, timeLocationOfTitle: 0, saved: { success, s, error in
-                succeed = success
-
+            LivePhotoWriter().writeLivePhotoFromVideo(videoPath: videoURL.path, timeLocationOfTitle: 0) { (success, photoURL, videoURL, error) in
+                if let photoURL = photoURL {
+                    result.resources.append((resourceType: .photo, url: photoURL))
+                }
+                
+                if let videoURL = videoURL {
+                    result.resources.append((resourceType: .pairedVideo, url: videoURL))
+                }
+                
                 async.end()
-
-            }, andFetched: nil)
-
+            }
             async.waitUntilEnd()
+            
+            return result
         }
 
-        return succeed ? ConverterVoidReturnValue : nil
+        return nil
     }
 
     static func canPerformWith(source: AppAsset) -> Bool {

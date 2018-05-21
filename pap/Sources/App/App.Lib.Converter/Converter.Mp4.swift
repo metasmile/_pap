@@ -19,7 +19,7 @@ extension MP4Converter {
 struct MP4Converter_Mov: MP4Converter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.mov, to:.mp4) }
     
-    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> PHAssetResourceFinalizingOutput? {
         guard let video = source.asset.asAVAsset else { return nil }
         
         let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(UUID().uuidString).mp4")
@@ -28,7 +28,7 @@ struct MP4Converter_Mov: MP4Converter {
             async.end()
         }
         async.waitUntilEnd()
-        return url
+        return PHAssetResourceFinalizingOutput(resources: [(resourceType: .video, url: url)])
     }
     
     static func canPerformWith(source: AppAsset) -> Bool {

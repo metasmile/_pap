@@ -381,14 +381,14 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
             let converter = GifConverter_Burst()
             converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount)
             
-            if let url = converter.convert(source: assetItem, async) as? URL {
+            if let url = converter.convert(source: assetItem, async)?.resources.first?.url {
                 result = GIFMakerPHAssetResult(fileURL: url, orderedIndex: AppAssets.selected.index(of: assetItem))
             }
         case .livePhoto?:
             let converter = GifConverter_LivePhoto()
             converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount)
             
-            if let url = converter.convert(source: assetItem, async) as? URL {
+            if let url = converter.convert(source: assetItem, async)?.resources.first?.url {
                 result = GIFMakerPHAssetResult(fileURL: url, orderedIndex: AppAssets.selected.index(of: assetItem))
             }
         default: break

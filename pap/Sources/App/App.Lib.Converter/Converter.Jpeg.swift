@@ -36,9 +36,9 @@ extension JpgConverter{
 class JpgConverter_ScreenshotPng: OptionableConverterBase<JpgConverterOption>, JpgConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.png_screenshot, to:.jpeg) }
     
-    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> PHAssetResourceFinalizingOutput? {
 
-        var result:Any?
+        var result:URL?
 
         let quality:CGFloat = options?.compressionQuality ?? 0.7
 
@@ -68,7 +68,13 @@ class JpgConverter_ScreenshotPng: OptionableConverterBase<JpgConverterOption>, J
         }
 
         async.waitUntilEnd()
-        return result
+        
+        if let result = result {
+            return PHAssetResourceFinalizingOutput(resources: [(resourceType: .photo, url: result)])
+        }
+        else {
+            return nil
+        }
     }
 
     static func canPerformWith(source: AppAsset) -> Bool {

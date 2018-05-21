@@ -22,6 +22,8 @@ protocol PreviewViewDelegate {
     func batchPreviewViewWillBeginEdit(_ view: PreviewView)
     func batchPreviewViewDidEndEdit(_ view: PreviewView)
     func batchPreviewViewDidCancelEdit(_ view: PreviewView)
+    
+    func batchPreviewView(_ view: PreviewView, didChangeAssets assets: PHFetchResult<PHAsset>)
 }
 
 class PreviewView: CustomView {
@@ -254,6 +256,12 @@ extension PreviewView {
                         ])
                     }
                 }
+                
+//                print((r as? PHAssetResourceFinalizingTaskRespondable)?.assetLocalIdentifier)
+                
+                
+                let assetLocalIdentifiers = results.compactMap { ($0 as? PHAssetResourceFinalizingTaskRespondable)?.assetLocalIdentifier }
+                self.delegate?.batchPreviewView(self, didChangeAssets: PHAsset.fetchAssets(withLocalIdentifiers: assetLocalIdentifiers, options: nil))
             }
         })
 

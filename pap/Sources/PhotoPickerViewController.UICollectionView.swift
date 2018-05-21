@@ -50,7 +50,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "PhotoPickerFooterView", for: indexPath) as! PhotoPickerFooterView
-        view.text = formattedStringForAllPhotos
+        view.text = formattedStringForAllPhotos(at: indexPath.section)
         return view
     }
 
@@ -84,7 +84,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
             , let asset = PHAssets.fetched.asset(at: indexPath)
             , let item = AppAssets.selected.at(unsafeIndex:indexPath.item) ?? AppAsset.create(for:asset) {
 
-            if collectableApp.shouldSelect(item: item) == false{
+            if collectableApp.shouldSelect(item: item) == false || indexPath.section != 0 { // section 0 is only selectable group
                 return false
             }
 

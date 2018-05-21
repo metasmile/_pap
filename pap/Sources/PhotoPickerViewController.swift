@@ -302,12 +302,12 @@ class PhotoPickerViewController: AppDockViewController {
             doneButton?.title = definedTitle ?? "Start".localized
         }
     }
-
-    var formattedStringForAllPhotos: String {
+    
+    func formattedStringForAllPhotos(at section: Int) -> String {
         var numberOfImages = 0
         var numberOfVideos = 0
-
-        PHAssets.fetched.results?.forEach { fetchResult in
+        
+        if let fetchResult = PHAssets.fetched.results?[safe: section] {
             numberOfImages += fetchResult.countOfAssets(with: PHAssetMediaType.image)
             numberOfVideos += fetchResult.countOfAssets(with: PHAssetMediaType.video)
         }
@@ -315,35 +315,36 @@ class PhotoPickerViewController: AppDockViewController {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
 
-        var footerText = ""
+        var formattedString = ""
         if numberOfImages > 0 {
             if numberOfImages == 1 {
-                footerText += "%d Photo".localizedFormatted(numberOfImages.decimalStyleString)
+                formattedString += "%d Photo".localizedFormatted(numberOfImages.decimalStyleString)
             }
             else {
-                footerText += "%d Photos".localizedFormatted(numberOfImages.decimalStyleString)
+                formattedString += "%d Photos".localizedFormatted(numberOfImages.decimalStyleString)
             }
         }
 
         if numberOfVideos > 0 {
             if numberOfImages > 0 {
-                footerText += ", "
+                formattedString += ", "
             }
 
             if numberOfVideos == 1 {
-                footerText += "%d Video".localizedFormatted(numberOfVideos.decimalStyleString)
+                formattedString += "%d Video".localizedFormatted(numberOfVideos.decimalStyleString)
             }
             else {
-                footerText += "%d Videos".localizedFormatted(numberOfVideos.decimalStyleString)
+                formattedString += "%d Videos".localizedFormatted(numberOfVideos.decimalStyleString)
             }
         }
 
-        return footerText
+        return formattedString
     }
     
     private func updateAllPhotosTitle() {
-        if let footer = self.photoCollectionView.visibleSupplementaryViews(ofKind: UICollectionElementKindSectionFooter).last as? PhotoPickerFooterView {
-            footer.text = self.formattedStringForAllPhotos
+        for section in 0..<(PHAssets.fetched.results?.count ?? 0) {
+            guard let footer = self.photoCollectionView.supplementaryView(forElementKind: UICollectionElementKindSectionFooter, at: IndexPath(item: 0, section: section)) as? PhotoPickerFooterView else { continue }
+            footer.text = formattedStringForAllPhotos(at: section)
         }
     }
 
@@ -417,6 +418,9 @@ class PhotoPickerViewController: AppDockViewController {
                 if let removed = changes.removedIndexes, removed.count > 0 {
                     needsToRestoreSelection = true
                     self.photoCollectionView.deleteItems(at: removed.map { IndexPath(item: $0, section:section) })
+                    if self.photoCollectionView.numberOfItems(inSection: section) == 0 {
+                        self.photoCollectionView.deleteSections(IndexSet(integer: section))
+                    }
                 }
                 if let inserted = changes.insertedIndexes, inserted.count > 0 {
                     let indexPaths = inserted.map { IndexPath(item: $0, section:section) }
@@ -618,6 +622,13 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         }
 
         progressBar.isHidden = true
+    }
+    
+    func batchPreviewView(_ view: PreviewView, didChangeAssets assets: PHFetchResult<PHAsset>) {
+        if let insertedSection = PHAssets.fetched.appendResult(assets) {
+            photoCollectionView.insertSections(IndexSet(integer: insertedSection))
+        }
+        updateVisiblePhotoCollectionCellsEnabled()
     }
 }
 

@@ -18,7 +18,7 @@ public class ConvertAppConfigValue: NSObject, KeyPathWatchable, AppConfigValuabl
 public class ConvertApp: BApp,
         AppDockControllableApp,
         ConfigurableApp, _ConfigurableApp,
-        FinalizableApp,
+        PHAssetResourceFinalizableApp,
         PhotoPickerCollectionViewDisplayableApp,
         PhotoPickerViewControllerDelegatableApp {
 
@@ -70,44 +70,7 @@ public class ConvertApp: BApp,
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
 
     }
-
-    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
-        let resultItems:[Any]? = result
-                .filter { respondable in respondable.info.state == .completed }
-                .compactMap{ $0.result as? ConvertAppResult }
-                .sorted { (result1: ConvertAppResult?, result2: ConvertAppResult?) -> Bool in
-                    (result1?.orderedIndex ?? 0) < (result2?.orderedIndex ?? 0)
-                }
-                .compactMap { ($0.result as? ConverterVoidReturnType) == ConverterVoidReturnValue ? nil : $0.result }
-        
-        try? PHPhotoLibrary.shared().performChangesAndWait {
-            resultItems?.forEach { item in
-                guard let urls = item as? [URL] else { return }
-                let request = PHAssetCreationRequest.forAsset()
-                let options = PHAssetResourceCreationOptions()
-                options.shouldMoveFile = true
-                
-                urls.forEach { url in
-                    guard let uti = UTI(url) else { return }
-                    if UTTypeConformsTo(uti, kUTTypeImage) {
-                        request.addResource(with: .photo, fileURL: url, options: options)
-                    }
-                    else if UTTypeConformsTo(uti, kUTTypeMovie) {
-                        if urls.contains(where: { UTTypeConformsTo(UTI($0) ?? "" as CFString, kUTTypeImage) }) == true {
-                            request.addResource(with: .pairedVideo, fileURL: url, options: options)
-                        }
-                        else {
-                            request.addResource(with: .video, fileURL: url, options: options)
-                        }
-                    }
-                }
-            }
-        }
-        
-        return result
-    }
 }
-
 
 extension ConvertApp{
     var defaults:ConvertAppDefaults{
@@ -215,7 +178,7 @@ private class ConvertAppTask: TaskPrototype, Taskable {
         return try _perform(appAsset, async)
     }
 
-    private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable) throws -> ConvertAppResult?  {
+    private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable) throws -> PHAssetResourceFinalizingOutput?  {
         let direction = defaults.convertingDirection
         let needsConverter = ConverterSpec.acquireInstance(collection: ConvertApp.availableWorkers, direction: direction, asset: assetItem)
 
@@ -233,14 +196,6 @@ private class ConvertAppTask: TaskPrototype, Taskable {
             jpgConverter.options = JpgConverterOption.preset(defaults.convertingQuality.qualityType, with: assetItem.asset)
         }
 
-        let result = converter.convert(source: assetItem, async)
-
-        if let urls = result as? [URL] {
-            return ConvertAppResult(result: urls, orderedIndex: AppAssets.selected.index(of: assetItem))
-        }
-        else if let url = result as? URL {
-            return ConvertAppResult(result: [url], orderedIndex: AppAssets.selected.index(of: assetItem))
-        }
-        return nil
+        return converter.convert(source: assetItem, async)
     }
 }

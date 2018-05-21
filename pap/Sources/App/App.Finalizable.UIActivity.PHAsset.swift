@@ -8,11 +8,7 @@ import Photos
 
 public struct PHAssetFinalizingActivityItem {
     var input: AppAsset?
-    var output: PHAssetFinalizingOutput?
-}
-
-public struct PHAssetFinalizingOutput {
-    var resources: [(resourceType: PHAssetResourceType, url: URL)] = []
+    var output: PHAssetResourceFinalizingOutput?
 }
 
 protocol PHAssetUIActivityFinalizableApp: PHAssetFinalizableApp{

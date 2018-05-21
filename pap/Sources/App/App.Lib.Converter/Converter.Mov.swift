@@ -59,7 +59,7 @@ extension MovConverter {
 class MovConverter_Gif: OptionableConverterBase<MovConverterOption>, MovConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.gif, to:.mov) }
 
-    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> PHAssetResourceFinalizingOutput? {
 
         var urls:[(URL, Double)]?
 
@@ -70,8 +70,8 @@ class MovConverter_Gif: OptionableConverterBase<MovConverterOption>, MovConverte
         }
         async.waitUntilEnd()
 
-        if let urls = urls {
-            return self.buildVideo(urls: urls, outputSize: options?.exportSize, async)
+        if let urls = urls, let url = self.buildVideo(urls: urls, outputSize: options?.exportSize, async) {
+            return PHAssetResourceFinalizingOutput(resources: [(resourceType: .video, url: url)])
         }
 
         return nil
@@ -89,10 +89,10 @@ class MovConverter_Gif: OptionableConverterBase<MovConverterOption>, MovConverte
 class MovConverter_Burst: OptionableConverterBase<MovConverterOption>, MovConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.burst, to:.mov) }
     
-    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> PHAssetResourceFinalizingOutput? {
 
-        if let urls = self.extractBurstImageURLs(source: source, async){
-            return self.buildVideo(urls: urls, outputSize: options?.exportSize, async)
+        if let urls = self.extractBurstImageURLs(source: source, async), let url = self.buildVideo(urls: urls, outputSize: options?.exportSize, async) {
+            return PHAssetResourceFinalizingOutput(resources: [(resourceType: .video, url: url)])
         }
 
         return nil
@@ -110,7 +110,7 @@ class MovConverter_Burst: OptionableConverterBase<MovConverterOption>, MovConver
 struct MovConverter_LivePhoto: MovConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.livephoto, to:.mov) }
 
-    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> PHAssetResourceFinalizingOutput? {
 
         var exportedlivePhoto: PHLivePhoto?
 
@@ -164,7 +164,8 @@ struct MovConverter_LivePhoto: MovConverter {
         source.requestIDs.append(PHAssetRequestID(forResourceData: req_data))
         async.waitUntilEnd()
 
-        return resultURL
+        guard let url = resultURL else { return nil }
+        return PHAssetResourceFinalizingOutput(resources: [(resourceType: .video, url: url)])
     }
 
     static func canPerformWith(source: AppAsset) -> Bool {

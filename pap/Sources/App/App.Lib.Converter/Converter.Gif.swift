@@ -88,7 +88,7 @@ extension GifConverter{
 class GifConverter_Jpeg: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.jpeg, to:.gif) }
 
-    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> PHAssetResourceFinalizingOutput? {
         return nil
     }
 
@@ -108,14 +108,14 @@ class GifConverter_Jpeg: OptionableConverterBase<GifConverterDefaultOption>, Gif
 class GifConverter_Mov: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.mov, to:.gif) }
 
-    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> PHAssetResourceFinalizingOutput? {
         if let video = source.asset.asAVAsset, let option = options {
             return convert(video: video, option: option, async)
         }
         return nil
     }
     
-    func convert(video: AVAsset, option: GifConverterDefaultOption, _ async: AsyncManualSignalable) -> Any? {
+    func convert(video: AVAsset, option: GifConverterDefaultOption, _ async: AsyncManualSignalable) -> PHAssetResourceFinalizingOutput? {
         guard let videoTrack = video.tracks(withMediaType: .video).first else { return nil }
         
         async.begin()
@@ -153,7 +153,8 @@ class GifConverter_Mov: OptionableConverterBase<GifConverterDefaultOption>, GifC
         
         async.waitUntilEnd()
         
-        return UIImageGIFRepresentationURL(with: gifOptions.urlWithDirection(urls: imageFiles), loopCount: gifOptions.loopCount, frameDelay: gifOptions.frameDelay)
+        guard let url = UIImageGIFRepresentationURL(with: gifOptions.urlWithDirection(urls: imageFiles), loopCount: gifOptions.loopCount, frameDelay: gifOptions.frameDelay) else { return nil }
+        return PHAssetResourceFinalizingOutput(resources: [(resourceType: .photo, url: url)])
     }
 
     static func canPerformWith(source: AppAsset) -> Bool {
@@ -172,9 +173,9 @@ class GifConverter_Mov: OptionableConverterBase<GifConverterDefaultOption>, GifC
 class GifConverter_LivePhoto: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.livephoto, to:.gif) }
 
-    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> PHAssetResourceFinalizingOutput? {
         let extractMovieTask = AsyncSignal()
-        if let videoURL = MovConverter_LivePhoto().convert(source: source, extractMovieTask) as? URL, let options = options {
+        if let videoURL = MovConverter_LivePhoto().convert(source: source, extractMovieTask)?.resources.first?.url, let options = options {
             return GifConverter_Mov().convert(video: AVAsset(url: videoURL), option: options, async)
         }
         return nil
@@ -192,7 +193,7 @@ class GifConverter_LivePhoto: OptionableConverterBase<GifConverterDefaultOption>
 class GifConverter_Timelapse: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.mov_timelapse, to:.gif) }
 
-    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> PHAssetResourceFinalizingOutput? {
         let converter = GifConverter_Mov()
         converter.options = options
         return converter.convert(source: source, async)
@@ -210,13 +211,13 @@ class GifConverter_Timelapse: OptionableConverterBase<GifConverterDefaultOption>
 class GifConverter_Burst: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.burst, to:.gif) }
 
-    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> PHAssetResourceFinalizingOutput? {
         guard let gifOptions = options else { return nil }
         
         let param = ConverterBurstImageExtractParam(targetSize: gifOptions.sizeWithAspectRatio(), imageQuality: CGFloat(gifOptions.gifQuality), contentMode: PHImageContentMode(rawValue: gifOptions.contentMode) ?? PHImageContentMode.aspectFit)
         
-        guard let urls = extractBurstImageURLs(source: source, param: param, async) else { return nil }
-        return UIImageGIFRepresentationURL(with: gifOptions.urlWithDirection(urls: urls), loopCount: gifOptions.loopCount)
+        guard let urls = extractBurstImageURLs(source: source, param: param, async), let url = UIImageGIFRepresentationURL(with: gifOptions.urlWithDirection(urls: urls), loopCount: gifOptions.loopCount) else { return nil }
+        return PHAssetResourceFinalizingOutput(resources: [(resourceType: .photo, url: url)])
     }
 
     static func canPerformWith(source: AppAsset) -> Bool {

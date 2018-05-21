@@ -54,6 +54,11 @@ public final class PHAssets: NSObject, KeyPathWatchable {
         return false
     }
     
+    public func appendResult(_ result: PHFetchResult<PHAsset>) -> Int? {
+        results?.append(result)
+        return results?.index(of: result)
+    }
+    
     public private(set) var collectionType: PHAssetCollectionType?
     public private(set) var collectionSubtype: PHAssetCollectionSubtype?
     public private(set) var mediaType: PHAssetMediaType?
