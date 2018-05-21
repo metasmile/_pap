@@ -422,9 +422,6 @@ class PhotoPickerViewController: AppDockViewController {
                 if let removed = changes.removedIndexes, removed.count > 0 {
                     needsToRestoreSelection = true
                     self.photoCollectionView.deleteItems(at: removed.map { IndexPath(item: $0, section:section) })
-                    if self.photoCollectionView.numberOfItems(inSection: section) == 0 {
-                        self.photoCollectionView.deleteSections(IndexSet(integer: section))
-                    }
                 }
                 if let inserted = changes.insertedIndexes, inserted.count > 0 {
                     let indexPaths = inserted.map { IndexPath(item: $0, section:section) }

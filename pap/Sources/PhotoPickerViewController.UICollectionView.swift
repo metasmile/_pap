@@ -150,7 +150,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: 60)
+        return PHAssets.fetched.results?[section].count == 0 ? .zero : CGSize(width: collectionView.bounds.width, height: 60)
     }
 }
 
