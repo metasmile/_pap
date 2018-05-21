@@ -4,6 +4,7 @@
 //
 
 import XCTest
+import MobileCoreServices
 @testable import pap
 
 class CodeKitTests: XCTestCase {
@@ -144,6 +145,85 @@ class CodeKitTests: XCTestCase {
 
         defaults.valueWithCustomCodableType = CustomCodableType(from: .video, to: .livephoto)
 
+    }
+
+    func test_UTI_Equality() {
+
+        let uti1 = UTI(rawValue: kUTTypePDF as String)
+        let uti2 = UTI.pdf
+        let uti3 = UTI.rtf
+
+        XCTAssertTrue(uti1 == uti2)
+        XCTAssertTrue(uti2 == uti1)
+        XCTAssertFalse(uti1 == uti3)
+        XCTAssertFalse(uti2 == uti3)
+    }
+
+    func test_UTI_Conformance() {
+
+        let uti1 = UTI.text
+        let uti2 = UTI.rtf
+        let uti3 = UTI.directory
+
+        XCTAssertTrue( uti2.conforms(to: uti1) )
+        XCTAssertFalse( uti1.conforms(to: uti2) )
+        XCTAssertFalse( uti1.conforms(to: uti3) )
+    }
+
+    func test_UTI_Tags() {
+
+        let uti1 = UTI.pdf
+
+        var uti2 = UTI(withExtension: "pdf")
+        XCTAssertTrue( uti1 == uti2 )
+
+        uti2 = UTI(withMimeType: "application/pdf")
+        XCTAssertTrue( uti1 == uti2 )
+
+#if os(macOS)
+        uti2 = UTI(withPBType: NSPDFPboardType) // Note: NSPasteboardTypePDF doesn't work
+        XCTAssertTrue( uti1 == uti2 )
+
+        uti2 = UTI(withOSType: "PDF ")
+        XCTAssertTrue( uti1 == uti2 )
+#endif
+
+        XCTAssertEqual(uti1.fileExtension, uti2.fileExtension)
+        XCTAssertEqual(uti1.mimeType, uti2.mimeType)
+
+#if os(macOS)
+        XCTAssertEqual(uti1.pbType, uti2.pbType)
+        XCTAssertEqual(uti1.osType, uti2.osType)
+#endif
+    }
+
+    func test_UTI_Dynamic() {
+
+        XCTAssertFalse(UTI.pdf.isDynamic)
+
+        XCTAssertTrue(UTI(withExtension: "random_unknown_value_xxxxx").isDynamic)
+    }
+
+
+    func test_tempURL() {
+
+        print(UTI.jpeg.fileExtension)
+
+        let url = FileURL.temporaryURL("identifier", UTI.jpeg, group: "groupname")
+
+        let diffUrl = FileManager.default.temporaryDirectory.appendingPathComponent("groupname", isDirectory: true).appendingPathComponent("identifier").appendingPathExtension(UTI.jpeg.fileExtension!)
+
+        print(url)
+        print("\n")
+        print(diffUrl)
+//        XCTAssertTrue(url==diffUrl)
+
+        print("\n")
+        print(FileURL.temporaryURL("identifier.jpg", nil, group: "groupname"))
+        print("\n")
+        print(FileURL.temporaryURL("identifier", nil))
+
+        XCTAssertTrue(UTI(withURL: FileURL.temporaryURL("identifier", UTI.jpeg)) == UTI.jpeg)
     }
 }
 

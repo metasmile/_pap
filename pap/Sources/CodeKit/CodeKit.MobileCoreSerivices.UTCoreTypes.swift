@@ -6,33 +6,6 @@
 import Foundation
 import MobileCoreServices
 
-func MIMEType(_ url: URL?) -> String? {
-    guard let ext = url?.pathExtension else { return nil }
-    if !ext.isEmpty {
-        let UTIRef = UTTypeCreatePreferredIdentifierForTag("public.filename-extension" as CFString, ext as CFString, nil)
-        let UTI = UTIRef?.takeUnretainedValue()
-        UTIRef?.release()
-        if let UTI = UTI {
-            guard let MIMETypeRef = UTTypeCopyPreferredTagWithClass(UTI, kUTTagClassMIMEType) else { return nil }
-            let MIMEType = MIMETypeRef.takeUnretainedValue()
-            MIMETypeRef.release()
-            return MIMEType as String
-        }
-    }
-    return nil
-}
-
-func UTI(_ url: URL?) -> CFString? {
-    guard let ext = url?.pathExtension else { return nil }
-    if !ext.isEmpty {
-        let UTIRef = UTTypeCreatePreferredIdentifierForTag("public.filename-extension" as CFString, ext as CFString, nil)
-        let UTI = UTIRef?.takeUnretainedValue()
-        UTIRef?.release()
-        return UTI
-    }
-    return nil
-}
-
 public struct UTCoreTypes {
 
 /*
