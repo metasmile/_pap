@@ -13,15 +13,7 @@ extension PHAsset {
     }
 
     public var isAdjusted:Bool{
-        let resources = self.resources
-        if resources.count > 1{
-            for r in resources{
-                if r.type == .adjustmentData || r.type == .adjustmentBasePairedVideo || r.type == .adjustmentBasePhoto{
-                    return true
-                }
-            }
-        }
-        return false
+        return resources.contains { $0.type == .adjustmentData || $0.type == .adjustmentBasePairedVideo || $0.type == .adjustmentBasePhoto }
     }
 
     //https://developer.apple.com/library/content/samplecode/UsingPhotosFramework/Listings/Shared_AssetViewController_swift.html

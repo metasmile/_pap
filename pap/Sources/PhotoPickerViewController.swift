@@ -217,6 +217,8 @@ class PhotoPickerViewController: AppDockViewController {
         
         guard PHAssets.fetched.collectionSubtype != collectionSubtype || PHAssets.fetched.mediaType != mediaType else { return }
         
+        let selectedAssetIdentifiers = photoCollectionView.indexPathsForSelectedItems?.compactMap({ PHAssets.fetched.asset(at: $0)?.localIdentifier })
+        
         PHAssets.fetched.unload()
         PHAssets.fetched.load(with: .smartAlbum, subtype: collectionSubtype, mediaType: mediaType) // iphone x: .028702974319458s
         
@@ -228,6 +230,8 @@ class PhotoPickerViewController: AppDockViewController {
         }
         self.photoCollectionView.reloadData()
         self.photoCollectionView.layoutIfNeeded()
+        
+        self.restoreSelectionByUser(selectedAssetIdentifiers)
         
         self.updateSelectedItemUIs()
         

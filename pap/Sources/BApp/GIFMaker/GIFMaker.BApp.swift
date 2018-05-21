@@ -243,7 +243,7 @@ public class GIFMakerAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttr
 }
 
 public class GIFMaker: BApp, ConfigurableApp, _ConfigurableApp,
-    AppDockControllableApp, PHAssetFinalizableApp, PhotoPickerCollectionViewDisplayableApp,
+    AppDockControllableApp, PHAssetResourceFinalizableApp, PhotoPickerCollectionViewDisplayableApp,
 PhotoPickerViewControllerDelegatableApp, FinalizableApp {
     public static let taskType:Taskable.Type = _GIFMakerAppTask.self
     public static let paramType:TaskParamable.Type = _GIFMakerAppAsset.self
@@ -300,10 +300,6 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
         }
     }
     
-    public var finalizingActions: [PHAssetFinalizingAction] {
-        return [.create]
-    }
-    
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
         self.config?.adoptValues(fromOther: config)
     }
@@ -315,33 +311,21 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
         let resultItems = result
             .filter { respondable in respondable.info.state == .completed }
-            .compactMap { ($0.result as? GIFMakerPHAssetResult) }
-            .sorted { ($0.orderedIndex ?? 0) < ($1.orderedIndex ?? 0) }
+            .map { PHAssetResourceFinalizingTaskRespondable.init(request: $0.request, result: $0.result, info: $0.info, assetLocalIdentifier: nil) }
         
         let defaults =  (GIFMaker.defaults as! GIFMakerDefaults)
-        var results = [URL]()
+        var results = [PHAssetResourceFinalizingTaskRespondable]()
         
         switch GIFMakerSettings.sourceType.type(rawValue: (GIFMaker.defaults as! GIFMakerDefaults).sourceType) {
         case .photo?:
-            let urls = resultItems.compactMap({ $0.fileURL })
-            if let url = UIImageGIFRepresentationURL(with: GifConverterDefaultOption.URLs(urls: urls, with: defaults.direction), loopCount: defaults.loopCount, frameDelay: defaults.frameDelay) {
-                results.append(url)
+            let urls = resultItems.compactMap({ ($0.result as? PHAssetResourceFinalizingOutput)?.resources.compactMap { $0.url } }).reduce([], +)
+            if let url = UIImageGIFRepresentationURL(with: GifConverterDefaultOption.URLs(urls: urls, with: defaults.direction), loopCount: defaults.loopCount, frameDelay: defaults.frameDelay), let request = resultItems.first?.request, let info = resultItems.first?.info {
+                results.append(PHAssetResourceFinalizingTaskRespondable(request: request, result: PHAssetResourceFinalizingOutput(resources: [(resourceType: .photo, url: url)], orderedIndex: nil), info: info, assetLocalIdentifier: nil))
             }
-        default: results += resultItems.compactMap({ $0.fileURL })
+        default: results += resultItems
         }
         
-        asyncSignal.begin()
-        PHPhotoLibrary.shared().performChanges({
-            for result in results{
-                PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL:result)
-            }
-        }, completionHandler: { (success, info) in
-            asyncSignal.end()
-            print("creatingAndWait", success)
-        })
-        asyncSignal.waitUntilEnd()
-        
-        return result
+        return createPHAssets(result: results)
     }
 }
 
@@ -360,8 +344,8 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
         return try _perform(appAsset, async)
     }
     
-    private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable) throws -> GIFMakerPHAssetResult?  {
-        var result: GIFMakerPHAssetResult?
+    private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable) throws -> PHAssetResourceFinalizingOutput?  {
+        var result: PHAssetResourceFinalizingOutput?
         
         let defaults = (GIFMaker.defaults as! GIFMakerDefaults)
         
@@ -374,23 +358,19 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
             
             if let image = response.1 {
                 let cachedAsset = LocalCachedAsset(assetItem.asset, image: image, targetSize: targetSize, imageQuality: CGFloat(defaults.gifQuality))
-                result = GIFMakerPHAssetResult(fileURL: cachedAsset.imageFileURL, orderedIndex: AppAssets.selected.index(of: assetItem))
+                result = PHAssetResourceFinalizingOutput(resources: [(resourceType: .photo, url: cachedAsset.imageFileURL)], orderedIndex: AppAssets.selected.index(of: assetItem))
                 assetItem.requestIDs += [PHAssetRequestID(forImage:response.0)]
             }
         case .burst?:
             let converter = GifConverter_Burst()
             converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount)
             
-            if let url = converter.convert(source: assetItem, async)?.resources.first?.url {
-                result = GIFMakerPHAssetResult(fileURL: url, orderedIndex: AppAssets.selected.index(of: assetItem))
-            }
+            result = converter.convert(source: assetItem, async)
         case .livePhoto?:
             let converter = GifConverter_LivePhoto()
             converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount)
             
-            if let url = converter.convert(source: assetItem, async)?.resources.first?.url {
-                result = GIFMakerPHAssetResult(fileURL: url, orderedIndex: AppAssets.selected.index(of: assetItem))
-            }
+            result = converter.convert(source: assetItem, async)
         default: break
         }
         

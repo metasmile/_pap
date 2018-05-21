@@ -12,7 +12,13 @@ import Foundation
 import Photos
 
 public struct PHAssetResourceFinalizingOutput: TaskResultable {
-    var resources = [(resourceType: PHAssetResourceType, url: URL)]()
+    var orderedIndex: Int?
+    var resources: [(resourceType: PHAssetResourceType, url: URL)]
+    
+    init(resources: [(resourceType: PHAssetResourceType, url: URL)] = [], orderedIndex: Int? = nil) {
+        self.resources = resources
+        self.orderedIndex = orderedIndex
+    }
 }
 
 public struct PHAssetResourceFinalizingTaskRespondable: AppTaskRespondable {
@@ -33,6 +39,10 @@ extension PHAssetResourceFinalizableApp {
         let result = result
             .filter { respondable in respondable.info.state == .completed }
         
+        return createPHAssets(result: result)
+    }
+    
+    public func createPHAssets(result: [AppTaskRespondable]) -> [AppTaskRespondable] {
         var resultItems = [PHAssetResourceFinalizingTaskRespondable]()
         
         try? PHPhotoLibrary.shared().performChangesAndWait {
@@ -50,7 +60,8 @@ extension PHAssetResourceFinalizableApp {
                 resultItems.append(PHAssetResourceFinalizingTaskRespondable(request: respondable.request, result: respondable.result, info: respondable.info, assetLocalIdentifier: request.placeholderForCreatedAsset?.localIdentifier))
             }
         }
-        
+        resultItems.sort(by: { ($0.result as? PHAssetResourceFinalizingOutput)?.orderedIndex ?? 0 < ($1.result as? PHAssetResourceFinalizingOutput)?.orderedIndex ?? 0
+        })
         return resultItems
     }
 }
