@@ -211,19 +211,68 @@ class CodeKitTests: XCTestCase {
 
         let url = FileURL.temporaryURL("identifier", UTI.jpeg, group: "groupname")
 
-        let diffUrl = FileManager.default.temporaryDirectory.appendingPathComponent("groupname", isDirectory: true).appendingPathComponent("identifier").appendingPathExtension(UTI.jpeg.fileExtension!)
+        let diffUrl = FileManager.default.temporaryDirectory.appendingPathComponent("groupname").appendingPathComponent("identifier").appendingPathExtension(UTI.jpeg.fileExtension!)
 
-        print(url)
-        print("\n")
-        print(diffUrl)
-//        XCTAssertTrue(url==diffUrl)
+        XCTAssertTrue(url.absoluteString == diffUrl.absoluteString)
+        XCTAssertTrue(UTI(withURL: FileURL.temporaryURL("identifier.jpg", nil, group: "groupname")) == UTI.jpeg)
+        XCTAssertTrue(UTI(withURL: FileURL.temporaryURL("identifier.jpg", nil, group: "groupname2")) == UTI.jpeg)
+        XCTAssertTrue(UTI(withURL: FileURL.temporaryURL("identifier.jpeg", nil, group: "groupname")) == UTI.jpeg)
 
-        print("\n")
-        print(FileURL.temporaryURL("identifier.jpg", nil, group: "groupname"))
-        print("\n")
-        print(FileURL.temporaryURL("identifier", nil))
-
+        XCTAssertTrue(UTI(withURL: FileURL.temporaryURL("identifier", nil)).isDynamic)
         XCTAssertTrue(UTI(withURL: FileURL.temporaryURL("identifier", UTI.jpeg)) == UTI.jpeg)
+
+        XCTAssertTrue(UTI(withExtension: "jpg") == UTI.jpeg)
+        XCTAssertTrue(UTI(withExtension: "jpeg") == UTI.jpeg)
+
+        XCTAssertTrue(FileURL.matchedTemporaryURLs("identifier", nil, group: "groupname").count == 0)
+
+        XCTAssertTrue(FileURL.matchedTemporaryURLs("identifier.jpg", nil, group: "groupname").count==1)
+
+        XCTAssertTrue(FileURL.matchedTemporaryURLs("identifier.jpg", nil, group: "groupname2").count==1)
+
+        XCTAssertTrue(FileURL.matchedTemporaryURLs("identifier.jpg", nil, group: nil).count==2)
+
+        XCTAssertTrue(FileURL.matchedTemporaryURLs(nil, nil, group: "groupname").count==3)
+
+        XCTAssertTrue(FileURL.matchedTemporaryURLs("identifier", nil).count==1)
+
+        XCTAssertTrue(FileURL.matchedTemporaryURLs("identifier.jpg", nil).count==2)
+
+        FileURL.temporaryURL("file.png", nil) // -> file.png
+        FileURL.temporaryURL("file.png", UTI.png) // -> file.png.png
+        FileURL.temporaryURL("file", nil) // -> file
+        FileURL.temporaryURL("file", UTI.png) // -> file.png
+
+        FileURL.temporaryURL("file", UTI.png, group:"ggg") // -> ggg/file.png
+        FileURL.temporaryURL("file.png", nil, group:"ggg") // -> ggg/file.png
+        FileURL.temporaryURL("file", nil, group:"ggg") // -> ggg/file
+
+        XCTAssertTrue(FileURL.matchedTemporaryURLs("file.png", nil).count==4)
+        XCTAssertTrue(FileURL.matchedTemporaryURLs("file.png",  UTI.png).count==1)
+
+        XCTAssertTrue(FileURL.matchedTemporaryURLs("file",  UTI.png, group:"ggg").count==2)
+        XCTAssertTrue(FileURL.matchedTemporaryURLs("file.png",  nil, group:"ggg").count==2)
+        XCTAssertTrue(FileURL.matchedTemporaryURLs(nil,  nil, group:"ggg").count==3)
+
+        XCTAssertTrue(FileURL.matchedTemporaryURLs(nil,  UTI.png).count==5)
+        XCTAssertTrue(FileURL.matchedTemporaryURLs("file",  UTI.png).count==4)
+        XCTAssertTrue(FileURL.matchedTemporaryURLs("file",  nil).count==2)
+
+        FileURL.temporaryURLFilePrivate("AssetIO.LivePhoto")
+        XCTAssertTrue(FileURL.matchedTemporaryURLsFilePrivate("AssetIO.LivePhoto").count==1)
+
+
+        FileURL.temporaryURL("file", UTI.gif, group: "AAAA.gif")
+        XCTAssertTrue(FileURL.matchedTemporaryURLs("file.gif", group:"AAAA.gif").count==1)
+        XCTAssertTrue(FileURL.matchedTemporaryURLs("file", UTI.gif, group:"AAAA.gif").count==1)
+        XCTAssertTrue(FileURL.matchedTemporaryURLs("file", UTI.gif).count==1)
+        XCTAssertTrue(FileURL.matchedTemporaryURLs("file", UTI.gif, group:"BBBB").count==0)
+        XCTAssertTrue(FileURL.matchedTemporaryURLs(nil, group:"AAAA.gif").count==1)
+
+        print(FileURL.matchedTemporaryURLs(nil).count)
+//        FileURL.discardMatchedTemporaryURLs(nil)
+        FileURL.discardAllURLs()
+        XCTAssertTrue(FileURL.matchedTemporaryURLs(nil).count == 0)
     }
 }
 

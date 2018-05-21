@@ -3,33 +3,6 @@
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
-func MIMETypeString(by url: URL?) -> String? {
-    guard let ext = url?.pathExtension else { return nil }
-    if !ext.isEmpty {
-        let UTIRef = UTTypeCreatePreferredIdentifierForTag("public.filename-extension" as CFString, ext as CFString, nil)
-        let UTI = UTIRef?.takeUnretainedValue()
-        UTIRef?.release()
-        if let UTI = UTI {
-            guard let MIMETypeRef = UTTypeCopyPreferredTagWithClass(UTI, kUTTagClassMIMEType) else { return nil }
-            let MIMEType = MIMETypeRef.takeUnretainedValue()
-            MIMETypeRef.release()
-            return MIMEType as String
-        }
-    }
-    return nil
-}
-
-func UTICFString(by url: URL?) -> CFString? {
-    guard let ext = url?.pathExtension else { return nil }
-    if !ext.isEmpty {
-        let UTIRef = UTTypeCreatePreferredIdentifierForTag("public.filename-extension" as CFString, ext as CFString, nil)
-        let UTI = UTIRef?.takeUnretainedValue()
-        UTIRef?.release()
-        return UTI
-    }
-    return nil
-}
-
 
 //
 //  UTI.swift
@@ -37,7 +10,14 @@ func UTICFString(by url: URL?) -> CFString? {
 //
 //  Created by Matthias Keiser on 09.01.17.
 //  Copyright © 2017 Tristan Inc. All rights reserved.
-//
+
+/*
+Modified history metasmile
+
+added: public init(withURL url: URL, conformingTo conforming: UTI? = nil)
+changed: class -> struct
+
+*/
 
 import Foundation
 
