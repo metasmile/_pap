@@ -627,8 +627,8 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     func batchPreviewView(_ view: PreviewView, didChangeAssets assets: PHFetchResult<PHAsset>) {
         if let insertedSection = PHAssets.fetched.appendResult(assets) {
             photoCollectionView.insertSections(IndexSet(integer: insertedSection))
+            updateVisiblePhotoCollectionCellsEnabled()
         }
-        updateVisiblePhotoCollectionCellsEnabled()
     }
 }
 

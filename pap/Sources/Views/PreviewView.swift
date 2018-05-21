@@ -257,11 +257,10 @@ extension PreviewView {
                     }
                 }
                 
-//                print((r as? PHAssetResourceFinalizingTaskRespondable)?.assetLocalIdentifier)
-                
-                
                 let assetLocalIdentifiers = results.compactMap { ($0 as? PHAssetResourceFinalizingTaskRespondable)?.assetLocalIdentifier }
-                self.delegate?.batchPreviewView(self, didChangeAssets: PHAsset.fetchAssets(withLocalIdentifiers: assetLocalIdentifiers, options: nil))
+                if assetLocalIdentifiers.count > 0 {
+                    self.delegate?.batchPreviewView(self, didChangeAssets: PHAsset.fetchAssets(withLocalIdentifiers: assetLocalIdentifiers, options: nil))
+                }
             }
         })
 
