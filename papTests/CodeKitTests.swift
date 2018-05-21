@@ -258,21 +258,33 @@ class CodeKitTests: XCTestCase {
         XCTAssertTrue(FileURL.matchedTemporaryURLs("file",  UTI.png).count==4)
         XCTAssertTrue(FileURL.matchedTemporaryURLs("file",  nil).count==2)
 
-        FileURL.temporaryURLFilePrivate("AssetIO.LivePhoto")
-        XCTAssertTrue(FileURL.matchedTemporaryURLsFilePrivate("AssetIO.LivePhoto").count==1)
+        FileURL.temporaryURL("AssetIO.LivePhoto", group:CodeFileName())
+        XCTAssertTrue(FileURL.matchedTemporaryURLs("AssetIO.LivePhoto", group:CodeFileName()).count==1)
 
 
-        FileURL.temporaryURL("file", UTI.gif, group: "AAAA.gif")
-        XCTAssertTrue(FileURL.matchedTemporaryURLs("file.gif", group:"AAAA.gif").count==1)
-        XCTAssertTrue(FileURL.matchedTemporaryURLs("file", UTI.gif, group:"AAAA.gif").count==1)
+        let groupname = "sd<>*fdf!:=?.@34ㄹㅎsd.fds.gif"
+        FileURL.temporaryURL("file", UTI.gif, group: groupname)
+        XCTAssertTrue(FileURL.matchedTemporaryURLs("file.gif", group:groupname).count==1)
+        XCTAssertTrue(FileURL.matchedTemporaryURLs("file", UTI.gif, group:groupname).count==1)
         XCTAssertTrue(FileURL.matchedTemporaryURLs("file", UTI.gif).count==1)
         XCTAssertTrue(FileURL.matchedTemporaryURLs("file", UTI.gif, group:"BBBB").count==0)
-        XCTAssertTrue(FileURL.matchedTemporaryURLs(nil, group:"AAAA.gif").count==1)
+        XCTAssertTrue(FileURL.matchedTemporaryURLs(nil, group:groupname).count==1)
 
-        print(FileURL.matchedTemporaryURLs(nil).count)
-//        FileURL.discardMatchedTemporaryURLs(nil)
+
+//          FileURL.discardMatchedTemporaryURLs(nil)
         FileURL.discardAllURLs()
         XCTAssertTrue(FileURL.matchedTemporaryURLs(nil).count == 0)
+
+        XCTAssertTrue(FileURL.fileAndQueuePrivateGroup()=="CodeKitTests_com.apple.main-thread")
+        XCTAssertTrue(FileURL.filePrivateGroup()=="CodeKitTests")
+        XCTAssertTrue(FileURL.queuePrivateGroup()=="com.apple.main-thread")
+
+        XCTAssertTrue(UTI(withURL: FileURL.temporaryURL("\(UUID().uuidString)_TimeLapseVideo", UTI.quickTimeMovie, group:FileURL.fileAndQueuePrivateGroup()))==UTI.quickTimeMovie)
+
+        XCTAssertTrue(FileURL.temporaryURL("\(UUID().uuidString)_TimeLapseVideo", UTI.quickTimeMovie, group:FileURL.fileAndQueuePrivateGroup()).pathExtension=="mov")
+
+
+
     }
 }
 

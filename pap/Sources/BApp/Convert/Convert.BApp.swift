@@ -81,7 +81,6 @@ public class ConvertApp: BApp,
                 
                 urls.forEach { url in
                     let uti = UTI(withURL: url)
-                    guard uti.isDynamic else { return }
 
                     if uti.conforms(to: UTI.image) {
                         request.addResource(with: .photo, fileURL: url, options: options)

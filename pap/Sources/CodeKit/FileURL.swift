@@ -19,7 +19,7 @@ public var DocumentsBaseURL:URL {
     return documentsDirectory
 }
 
-public func CodeFileName(_file:String=#file) -> String{
+public func CodeFileName(_ _file:String=#file) -> String{
     return URL(fileURLWithPath: _file).deletingPathExtension().lastPathComponent
 }
 
@@ -34,6 +34,18 @@ extension String{
 }
 
 public struct FileURL {
+    public static func fileAndQueuePrivateGroup(_ file:String=#file) -> String{
+        return filePrivateGroup(file)+"_"+queuePrivateGroup()
+    }
+
+    public static func filePrivateGroup(_ file:String=#file) -> String{
+        return CodeFileName(file)
+    }
+
+    public static func queuePrivateGroup(_ queueName:String=DispatchQueue.currentLabel) -> String{
+        return queueName
+    }
+
     /*
     Document
     */
@@ -49,17 +61,6 @@ public struct FileURL {
         return acquireURL(DocumentsBaseURL, pathComponents, uti, group:group)
     }
 
-    public static func discardMatchedDocumentURLsFilePrivate(_ pathComponents:String?, _ uti:UTI?=nil, _group:String=CodeFileName()) -> [URL]{
-        return discardMatchedDocumentURLs(pathComponents, uti, group: _group)
-    }
-
-    public static func matchedDocumentURLsFilePrivate(_ pathComponents:String?, _ uti:UTI?=nil, _group:String=CodeFileName()) -> [URL]{
-        return matchedDocumentURLs(pathComponents, uti, group: _group)
-    }
-
-    public static func documentURLFilePrivate(_ pathComponents:String, _ uti:UTI?=nil, _group:String=CodeFileName()) -> URL {
-        return documentURL(pathComponents, uti, group:_group)
-    }
 
     /*
     Temporary
@@ -75,19 +76,6 @@ public struct FileURL {
     public static func temporaryURL(_ pathComponents:String, _ uti:UTI?=nil, group:String?=nil) -> URL {
         return acquireURL(TemporaryBaseURL, pathComponents, uti, group:group)
     }
-
-    public static func discardMatchedTemporaryURLsFilePrivate(_ pathComponents:String?, _ uti:UTI?=nil, _group:String=CodeFileName()) -> [URL]{
-        return discardMatchedTemporaryURLs(pathComponents, uti, group: _group)
-    }
-
-    public static func matchedTemporaryURLsFilePrivate(_ pathComponents:String?, _ uti:UTI?=nil, _group:String=CodeFileName()) -> [URL]{
-        return matchedTemporaryURLs(pathComponents, uti, group: _group)
-    }
-
-    public static func temporaryURLFilePrivate(_ pathComponents:String, _ uti:UTI?=nil, _group:String=CodeFileName()) -> URL {
-        return temporaryURL(pathComponents, uti, group:_group)
-    }
-
 
     /*
         common
@@ -111,12 +99,19 @@ public struct FileURL {
     }
 
     private static func createURL(_ BaseURL:URL, _ pathComponents:String, _ uti:UTI?, group:String?=nil) -> URL {
-        var relativeURL = BaseURL
-        if let group = group {
-            relativeURL = URL(fileURLWithPath: group, isDirectory: true, relativeTo: relativeURL)
-        }else{
-            relativeURL = BaseURL
-        }
+        let relativeURL = BaseURL
+
+        //TODO: recursive dir create
+//        if let group = group {
+//            relativeURL = URL(fileURLWithPath: group, isDirectory: true, relativeTo: relativeURL)
+//        }else{
+//            relativeURL = BaseURL
+//        }
+
+//        var isDir : ObjCBool = false
+//        if !FileManager.default.fileExists(atPath: relativeURL.path, isDirectory:&isDir), isDir.boolValue {
+//            try? FileManager.default.createDirectory(atPath: relativeURL.path, withIntermediateDirectories: true, attributes: nil)
+//        }
 
         var url = relativeURL.appendingPathComponent(pathComponents)
         if let ext = uti?.fileExtension{

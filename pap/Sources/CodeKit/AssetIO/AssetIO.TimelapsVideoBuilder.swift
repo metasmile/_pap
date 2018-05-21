@@ -68,12 +68,13 @@ public final class TimelapsVideoBuilder: NSObject {
         
         var error: NSError?
 
-        let documentsPath = self.destinationFilePath ?? (NSTemporaryDirectory() as NSString).appendingPathComponent("\(UUID().uuidString)_TimeLapseVideo.mov")
-        let videoOutputURL = URL(fileURLWithPath: documentsPath)
+        let videoOutputURL:URL
+        if let documentsPath = self.destinationFilePath{
+            videoOutputURL = URL(fileURLWithPath: documentsPath)
+        }else{
+            videoOutputURL = FileURL.temporaryURL("\(UUID().uuidString)_TimeLapseVideo", UTI.quickTimeMovie, group:FileURL.filePrivateGroup())
+        }
 
-        do {
-            try FileManager.default.removeItem(at: videoOutputURL)
-        } catch {}
 
         do {
             try videoWriter = AVAssetWriter(outputURL: videoOutputURL, fileType: AVFileType.mov)
