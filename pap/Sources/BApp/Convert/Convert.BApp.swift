@@ -52,9 +52,12 @@ public class ConvertApp: BApp,
     }
 
     public func shouldSelect(item: AppAsset) -> Bool {
-        return currentWorker?.canPerformWith(source: item) ?? true
+        let shouldSelectToPerform = currentWorker?.canPerformWith(source: item) ?? true
+        let shouldSelectBySection = item.indexPath?.section ?? 0 != 0
+
+        return shouldSelectToPerform || shouldSelectBySection
     }
-    
+
     public var conformsAssetCollectionType: PHAssetCollectionSubtype? {
         return currentWorker?.performAssetCollectionType
     }

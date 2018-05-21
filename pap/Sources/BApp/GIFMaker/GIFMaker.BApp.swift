@@ -272,7 +272,10 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
     }
     
     public func shouldSelect(item: AppAsset) -> Bool {
-        return (dockContent as? GIFMakerAppDockContent)?.shouldImport(asset: item.asset) ?? false
+        let shouldSelectByImportance = (dockContent as? GIFMakerAppDockContent)?.shouldImport(asset: item.asset) ?? false
+        let shouldSelectBySection = item.indexPath?.section ?? 0 != 0
+
+        return shouldSelectByImportance || shouldSelectBySection
     }
     
     public var conformsAssetCollectionType: PHAssetCollectionSubtype? {

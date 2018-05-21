@@ -84,7 +84,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
             , let asset = PHAssets.fetched.asset(at: indexPath)
             , let item = AppAssets.selected.at(unsafeIndex:indexPath.item) ?? AppAsset.create(for:asset) {
 
-            if collectableApp.shouldSelect(item: item) == false || indexPath.section != 0 { // section 0 is only selectable group
+            if collectableApp.shouldSelect(item: item) == false {
                 return false
             }
 
