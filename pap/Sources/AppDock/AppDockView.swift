@@ -438,7 +438,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
             }()
 
             appContentViewHeightLayout.constant = max(preferredAppContentViewHeight, appContentViewHeight)
-            controllerViewHeightLayout.constant = hasControllerPinned ? preferredControllerViewHeight : appContentViewHeightLayout.constant - preferredAccessoryViewHeight
+            controllerViewHeightLayout.constant = hasControllerPinned ? preferredControllerViewHeight : appContentViewHeightLayout.constant - max(0, preferredAccessoryViewHeight)
             
             if drawerView.isOpened{
                 drawerView.progressToRenderOpening = remapNormalizeClamp(delta, minHeight, maxHeight)
@@ -508,8 +508,8 @@ extension AppDockView: UIGestureRecognizerDelegate {
         
         let contentLayoutConstant = appContentViewHeightLayout.constant
         let controllerPinned = controller?.preferences?.layoutMode == .pinned
-        let controllerLayoutConstant = controllerPinned ? preferredControllerViewHeight : contentLayoutConstant - preferredAccessoryViewHeight
-        let accessoryLayoutConstant = controllerPinned ? contentLayoutConstant - preferredControllerViewHeight : preferredAccessoryViewHeight
+        let controllerLayoutConstant = controllerPinned ? preferredControllerViewHeight : contentLayoutConstant - max(0, preferredAccessoryViewHeight)
+        let accessoryLayoutConstant = controllerPinned ? contentLayoutConstant - max(0, preferredControllerViewHeight) : preferredAccessoryViewHeight
         controllerViewHeightLayout.constant = controllerLayoutConstant
         
         if hasControllerPinned {
