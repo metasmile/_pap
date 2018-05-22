@@ -29,6 +29,7 @@
 		4F71D1201AFD8D1AAB7C3F9D /* CodeKit.Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DBB8908DF3CC41DA982B /* CodeKit.Math.swift */; };
 		4F71D1295C875656D5592FAE /* iOSCheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D38E5B3C6C14F3008821 /* iOSCheckMarkView.swift */; };
 		4F71D14E23286B026B778B05 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D89C31B1B675AF430B77 /* AppManager.swift */; };
+		4F71D1540AF49EDE81A4B6FD /* FileIO.URL.File.Glob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDABD0E154E13E14312B /* FileIO.URL.File.Glob.swift */; };
 		4F71D16C40408BF63B8E5348 /* ImageIO.HEIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D97ED9B2D6302113481F /* ImageIO.HEIF.swift */; };
 		4F71D1712188A2D31BBE3AFE /* PreviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DA2C81A5E64BA1A98AF7 /* PreviewCollectionViewCell.xib */; };
 		4F71D1738384165153213D00 /* gifmaker_preview_frame_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D2591FB627EFDEFDEA70 /* gifmaker_preview_frame_7.png */; };
@@ -460,6 +461,7 @@
 		4F71DD84BB4BCEA896661F14 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		4F71DD9369CD1EB10310816D /* gifmaker_preview_frame_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gifmaker_preview_frame_4.png; sourceTree = "<group>"; };
 		4F71DDA8A017FB240BD27C24 /* CodeKit.AVAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.AVAsset.swift; sourceTree = "<group>"; };
+		4F71DDABD0E154E13E14312B /* FileIO.URL.File.Glob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileIO.URL.File.Glob.swift; sourceTree = "<group>"; };
 		4F71DDADBA3628FE8356C6EB /* CodeKit.Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Array.swift; sourceTree = "<group>"; };
 		4F71DDE9A9CE37F16E753B80 /* Converter.Mov.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.Mov.swift; sourceTree = "<group>"; };
 		4F71DE20A7DE6585F1DB3246 /* Transform.App.Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.App.Tests.swift; sourceTree = "<group>"; };
@@ -754,6 +756,7 @@
 			children = (
 				4F71D05C5F9729D98015C194 /* FileIO.UTI.swift */,
 				4F71D5D74325BC077BBABF30 /* FileIO.URL.File.swift */,
+				4F71DDABD0E154E13E14312B /* FileIO.URL.File.Glob.swift */,
 			);
 			path = FileIO;
 			sourceTree = "<group>";
@@ -2717,6 +2720,7 @@
 				4F71D299F2A20F87807CE9CE /* App.PhotoEditorViewControllerDelegatable.swift in Sources */,
 				4F71D11AB02A679866F5595C /* FileIO.UTI.swift in Sources */,
 				4F71DA8A9A7ED3D643CD7298 /* FileIO.URL.File.swift in Sources */,
+				4F71D1540AF49EDE81A4B6FD /* FileIO.URL.File.Glob.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

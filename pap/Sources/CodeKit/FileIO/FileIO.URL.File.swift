@@ -5,20 +5,6 @@
 
 import Foundation
 
-public var TemporaryBaseURL:URL {
-    if #available(iOS 10.0, *) {
-        return FileManager.default.temporaryDirectory
-    } else {
-        return URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
-    }
-}
-
-public var DocumentsBaseURL:URL {
-    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-    let documentsDirectory = paths[0]
-    return documentsDirectory
-}
-
 public func CodeFileName(_ _file:String=#file) -> String{
     return URL(fileURLWithPath: _file).deletingPathExtension().lastPathComponent
 }
@@ -34,6 +20,20 @@ extension String{
 }
 
 public struct FileURL {
+    public static var tempBase:URL {
+        if #available(iOS 10.0, *) {
+            return FileManager.default.temporaryDirectory
+        } else {
+            return URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
+        }
+    }
+
+    public static var documentsBase:URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
+    }
+
     public static func fileAndQueuePrivateGroup(_ file:String=#file) -> String{
         return filePrivateGroup(file)+"_"+queuePrivateGroup()
     }
@@ -50,15 +50,15 @@ public struct FileURL {
     Document
     */
     public static func discardMatchedInDocument(_ pathComponents:String?, _ uti:UTI?=nil, group:String?=nil) -> [URL]{
-        return discardMatched(DocumentsBaseURL, pathComponents, uti, group: group)
+        return discardMatched(documentsBase, pathComponents, uti, group: group)
     }
 
     public static func matchedInDocument(_ pathComponents:String?, _ uti:UTI?=nil, group:String?=nil) -> [URL]{
-        return matched(DocumentsBaseURL, pathComponents, uti, group: group)
+        return matched(documentsBase, pathComponents, uti, group: group)
     }
 
     public static func document(_ pathComponents:String, _ uti:UTI?=nil, group:String?=nil) -> URL {
-        return acquire(DocumentsBaseURL, pathComponents, uti, group:group)
+        return acquire(documentsBase, pathComponents, uti, group:group)
     }
 
 
@@ -66,15 +66,15 @@ public struct FileURL {
     Temporary
     */
     public static func discardMatchedInTemp(_ pathComponents:String?, _ uti:UTI?=nil, group:String?=nil) -> [URL]{
-        return discardMatched(TemporaryBaseURL, pathComponents, uti, group: group)
+        return discardMatched(tempBase, pathComponents, uti, group: group)
     }
 
     public static func matchedInTemp(_ pathComponents:String?, _ uti:UTI?=nil, group:String?=nil) -> [URL]{
-        return matched(TemporaryBaseURL, pathComponents, uti, group: group)
+        return matched(tempBase, pathComponents, uti, group: group)
     }
 
     public static func temp(_ pathComponents:String, _ uti:UTI?=nil, group:String?=nil) -> URL {
-        return acquire(TemporaryBaseURL, pathComponents, uti, group:group)
+        return acquire(tempBase, pathComponents, uti, group:group)
     }
 
     /*
@@ -117,6 +117,7 @@ public struct FileURL {
         return url
     }
 
+    @discardableResult
     public static func discardMatched(_ baseURL:URL, _ pathComponents:String?, _ uti:UTI?, group:String?=nil) -> [URL]{
         var removedURLs = [URL]()
         let targetURLsInBaseURL = matched(baseURL, pathComponents, uti, group: group)
@@ -137,6 +138,7 @@ public struct FileURL {
         return removedURLs
     }
 
+    @discardableResult
     public static func discardAll(_ pathComponents:String?=nil, _ uti:UTI?=nil, group:String?=nil) -> [URL]{
         var removedURLs = [URL]()
         for baseurl in self.URLsByBaseURL.keys{

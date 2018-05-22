@@ -284,7 +284,9 @@ class CodeKitTests: XCTestCase {
         XCTAssertTrue(FileURL.temp("\(UUID().uuidString)_TimeLapseVideo", UTI.quickTimeMovie, group:FileURL.fileAndQueuePrivateGroup()).pathExtension=="mov")
 
 
-
+        print(FileURL.glob(FileURL.tempBase.path+"/*"))
+        print(FileURL.glob(FileURL.tempBase.path+"/*.jpg"))
+        print(FileURL.glob(FileURL.tempBase.path+"/*.png"))
     }
 }
 
