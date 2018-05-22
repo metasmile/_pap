@@ -35,6 +35,7 @@ class AppDockView: CustomView {
         }
 
         struct DrawerView {
+            static let compactDisabledHeight: CGFloat = 14
             static let compactHeight: CGFloat = 22
             static let topMargin: CGFloat = 5
             static let prominentHeight: CGFloat = 49
@@ -111,7 +112,6 @@ class AppDockView: CustomView {
     }
 
     private var shouldDrawerEnable: Bool {
-        print(hasAppContentAsLayout, hasAppControllerAsLayout,preferredAccessoryViewHeight + preferredControllerViewHeight)
         if hasAppContentAsLayout {
             let hasMultipleApps = items.count > 1
             if hasControllerPinned{
@@ -274,7 +274,10 @@ extension AppDockView {
     }
 
     fileprivate var preferredDrawerViewHeight: CGFloat {
-        return hasAppControllerAsLayout ? DefaultPreferences.DrawerView.compactHeight : AppDockView.VoidLayoutValue
+        if hasAppControllerAsLayout{
+            return shouldDrawerEnable ? DefaultPreferences.DrawerView.compactHeight : DefaultPreferences.DrawerView.compactDisabledHeight
+        }
+        return AppDockView.VoidLayoutValue
     }
     
     fileprivate var preferredDockViewHeight: CGFloat {
