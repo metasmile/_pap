@@ -227,15 +227,16 @@ struct LocalCachedAsset {
         var data: Data?
         var fileExtension = "jpg"
         switch asset?.uniformTypeIdentifier {
-        case UTCoreTypes.PNG?:
-            data = UIImagePNGRepresentation(imageToWrite)
-            fileExtension = "png"
-        default:
-            data = UIImageJPEGRepresentation(imageToWrite, imageQuality)
+            case UTCoreTypes.PNG?:
+                data = UIImagePNGRepresentation(imageToWrite)
+                fileExtension = "png"
+            default:
+                data = UIImageJPEGRepresentation(imageToWrite, imageQuality)
         }
         
-        let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(String(describing: LocalCachedAsset.self))_\(UUID().uuidString).\(fileExtension)")
-        try? FileManager.default.removeItem(at: url)
+        let identifier = asset?.localIdentifierWithoutSplitter ?? UUID().uuidString
+        let url = FileURL.temp("\(identifier).\(fileExtension)", group:String(describing: LocalCachedAsset.self)+FileURL.queuePrivateGroup())
+        
         try? data?.write(to: url)
         
         self.asset = asset

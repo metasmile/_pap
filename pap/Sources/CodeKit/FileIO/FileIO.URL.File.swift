@@ -112,7 +112,11 @@ public struct FileURL {
             url = url.appendingPathExtension(ext)
         }
 
-        try? FileManager.default.createDirectory(at: url.deletingLastPathComponent(), withIntermediateDirectories: true, attributes: nil)
+        do {
+            try FileManager.default.createDirectory(at: url.deletingLastPathComponent(), withIntermediateDirectories: true, attributes: nil)
+        }catch let e{
+            print(e)
+        }
 
         return url
     }

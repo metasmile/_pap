@@ -58,8 +58,8 @@ public func UIImageGIFRepresentationURL(with imageFilesWithFrameDelay: [(URL, Do
             ImageMetadata.Property.GIFLoopCount: loopCount
         ]
     ]
-    
-    let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(UUID().uuidString).gif")
+
+    let url = FileURL.temp(UUID().uuidString, UTI.gif)
     guard let destination = CGImageDestinationCreateWithURL(url as CFURL, kUTTypeGIF, imageFilesWithFrameDelay.count, nil) else { return nil }
     CGImageDestinationSetProperties(destination, fileProperties as CFDictionary)
     
