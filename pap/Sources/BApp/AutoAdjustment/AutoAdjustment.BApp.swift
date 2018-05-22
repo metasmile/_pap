@@ -218,7 +218,7 @@ class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
         preferences.minimumHeight = (view as! UITableView).rowHeight * CGFloat(autoAdjustmentOptionKeys.count)
-        preferences.pinned = true
+        preferences.layoutMode = .pinned
         return preferences
     }
 

@@ -149,7 +149,7 @@ class AppDockView: CustomView {
     }
 
     var hasControllerPinned:Bool{
-        return controller?.preferences?.pinned == true
+        return controller?.preferences?.layoutMode == .pinned
     }
 
     private func hasControlView(_ view: UIView?) -> Bool {
@@ -487,7 +487,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
         appContentViewHeightLayout.constant = constAppContentViewMaximumHeight
         
         let contentLayoutConstant = appContentViewHeightLayout.constant
-        let controllerPinned = controller?.preferences?.pinned ?? false
+        let controllerPinned = controller?.preferences?.layoutMode == .pinned
         let controllerLayoutConstant = controllerPinned ? preferredControllerViewHeight : contentLayoutConstant - preferredAccessoryViewHeight
         let accessoryLayoutConstant = controllerPinned ? contentLayoutConstant - preferredControllerViewHeight : preferredAccessoryViewHeight
         controllerViewHeightLayout.constant = controllerLayoutConstant
