@@ -141,7 +141,7 @@ extension _TransformAppAsset: PHAssetLivePhotoEditable {
                 return
             }
 
-            let pairedVideoFileURL = FileURL.temporaryURL("pairedVideo", UTI.quickTimeMovie, group: FileURL.fileAndQueuePrivateGroup())
+            let pairedVideoFileURL = FileURL.temp("pairedVideo", UTI.quickTimeMovie, group: FileURL.fileAndQueuePrivateGroup())
             try? videoData.write(to: pairedVideoFileURL, options: Data.WritingOptions.atomicWrite)
             pairedVideo = AVAsset(url: pairedVideoFileURL)
             retrievePairedResourcesHandler()

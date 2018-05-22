@@ -240,7 +240,7 @@ public final class LivePhotoWriter {
                 ((_lastPathComponent.deletingPathExtension as NSString).appending(suffix ?? "") as NSString).appendingPathExtension(ext ?? _lastPathComponent.pathExtension) ?? ""
         )
 
-        return FileURL.temporaryURL(path, group:FileURL.fileAndQueuePrivateGroup())
+        return FileURL.temp(path, group:FileURL.fileAndQueuePrivateGroup())
     }
 
 }

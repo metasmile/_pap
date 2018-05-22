@@ -32,7 +32,7 @@ public func UIImageGIFRepresentationURL(with imageFiles: [URL], loopCount: Int =
         ]
     ]
 
-    let url = FileURL.temporaryURL("\(UUID().uuidString)", UTI.gif)
+    let url = FileURL.temp("\(UUID().uuidString)", UTI.gif)
     guard let destination = CGImageDestinationCreateWithURL(url as CFURL, kUTTypeGIF, imageFiles.count, nil) else { return nil }
     CGImageDestinationSetProperties(destination, fileProperties as CFDictionary)
     
@@ -189,7 +189,7 @@ public extension UIImage {
                 if CGImageDestinationFinalize(destination) {
                     let data = mutableData as Data
 
-                    let url = FileURL.acquireURL(URL(fileURLWithPath: directory), "\(filenamePrefix)_\(i)", UTI.png, group: FileURL.fileAndQueuePrivateGroup())
+                    let url = FileURL.acquire(URL(fileURLWithPath: directory), "\(filenamePrefix)_\(i)", UTI.png, group: FileURL.fileAndQueuePrivateGroup())
                     do {
                         try data.write(to: url)
                         urls.append((url, frameDelay))

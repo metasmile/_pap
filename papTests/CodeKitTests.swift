@@ -209,79 +209,79 @@ class CodeKitTests: XCTestCase {
 
         print(UTI.jpeg.fileExtension)
 
-        let url = FileURL.temporaryURL("identifier", UTI.jpeg, group: "groupname")
+        let url = FileURL.temp("identifier", UTI.jpeg, group: "groupname")
 
         let diffUrl = FileManager.default.temporaryDirectory.appendingPathComponent("groupname").appendingPathComponent("identifier").appendingPathExtension(UTI.jpeg.fileExtension!)
 
         XCTAssertTrue(url.absoluteString == diffUrl.absoluteString)
-        XCTAssertTrue(UTI(withURL: FileURL.temporaryURL("identifier.jpg", nil, group: "groupname")) == UTI.jpeg)
-        XCTAssertTrue(UTI(withURL: FileURL.temporaryURL("identifier.jpg", nil, group: "groupname2")) == UTI.jpeg)
-        XCTAssertTrue(UTI(withURL: FileURL.temporaryURL("identifier.jpeg", nil, group: "groupname")) == UTI.jpeg)
+        XCTAssertTrue(UTI(withURL: FileURL.temp("identifier.jpg", nil, group: "groupname")) == UTI.jpeg)
+        XCTAssertTrue(UTI(withURL: FileURL.temp("identifier.jpg", nil, group: "groupname2")) == UTI.jpeg)
+        XCTAssertTrue(UTI(withURL: FileURL.temp("identifier.jpeg", nil, group: "groupname")) == UTI.jpeg)
 
-        XCTAssertTrue(UTI(withURL: FileURL.temporaryURL("identifier", nil)).isDynamic)
-        XCTAssertTrue(UTI(withURL: FileURL.temporaryURL("identifier", UTI.jpeg)) == UTI.jpeg)
+        XCTAssertTrue(UTI(withURL: FileURL.temp("identifier", nil)).isDynamic)
+        XCTAssertTrue(UTI(withURL: FileURL.temp("identifier", UTI.jpeg)) == UTI.jpeg)
 
         XCTAssertTrue(UTI(withExtension: "jpg") == UTI.jpeg)
         XCTAssertTrue(UTI(withExtension: "jpeg") == UTI.jpeg)
 
-        XCTAssertTrue(FileURL.matchedTemporaryURLs("identifier", nil, group: "groupname").count == 0)
+        XCTAssertTrue(FileURL.matchedInTemp("identifier", nil, group: "groupname").count == 0)
 
-        XCTAssertTrue(FileURL.matchedTemporaryURLs("identifier.jpg", nil, group: "groupname").count==1)
+        XCTAssertTrue(FileURL.matchedInTemp("identifier.jpg", nil, group: "groupname").count==1)
 
-        XCTAssertTrue(FileURL.matchedTemporaryURLs("identifier.jpg", nil, group: "groupname2").count==1)
+        XCTAssertTrue(FileURL.matchedInTemp("identifier.jpg", nil, group: "groupname2").count==1)
 
-        XCTAssertTrue(FileURL.matchedTemporaryURLs("identifier.jpg", nil, group: nil).count==2)
+        XCTAssertTrue(FileURL.matchedInTemp("identifier.jpg", nil, group: nil).count==2)
 
-        XCTAssertTrue(FileURL.matchedTemporaryURLs(nil, nil, group: "groupname").count==3)
+        XCTAssertTrue(FileURL.matchedInTemp(nil, nil, group: "groupname").count==3)
 
-        XCTAssertTrue(FileURL.matchedTemporaryURLs("identifier", nil).count==1)
+        XCTAssertTrue(FileURL.matchedInTemp("identifier", nil).count==1)
 
-        XCTAssertTrue(FileURL.matchedTemporaryURLs("identifier.jpg", nil).count==2)
+        XCTAssertTrue(FileURL.matchedInTemp("identifier.jpg", nil).count==2)
 
-        FileURL.temporaryURL("file.png", nil) // -> file.png
-        FileURL.temporaryURL("file.png", UTI.png) // -> file.png.png
-        FileURL.temporaryURL("file", nil) // -> file
-        FileURL.temporaryURL("file", UTI.png) // -> file.png
+        FileURL.temp("file.png", nil) // -> file.png
+        FileURL.temp("file.png", UTI.png) // -> file.png.png
+        FileURL.temp("file", nil) // -> file
+        FileURL.temp("file", UTI.png) // -> file.png
 
-        FileURL.temporaryURL("file", UTI.png, group:"ggg") // -> ggg/file.png
-        FileURL.temporaryURL("file.png", nil, group:"ggg") // -> ggg/file.png
-        FileURL.temporaryURL("file", nil, group:"ggg") // -> ggg/file
+        FileURL.temp("file", UTI.png, group:"ggg") // -> ggg/file.png
+        FileURL.temp("file.png", nil, group:"ggg") // -> ggg/file.png
+        FileURL.temp("file", nil, group:"ggg") // -> ggg/file
 
-        XCTAssertTrue(FileURL.matchedTemporaryURLs("file.png", nil).count==4)
-        XCTAssertTrue(FileURL.matchedTemporaryURLs("file.png",  UTI.png).count==1)
+        XCTAssertTrue(FileURL.matchedInTemp("file.png", nil).count==4)
+        XCTAssertTrue(FileURL.matchedInTemp("file.png",  UTI.png).count==1)
 
-        XCTAssertTrue(FileURL.matchedTemporaryURLs("file",  UTI.png, group:"ggg").count==2)
-        XCTAssertTrue(FileURL.matchedTemporaryURLs("file.png",  nil, group:"ggg").count==2)
-        XCTAssertTrue(FileURL.matchedTemporaryURLs(nil,  nil, group:"ggg").count==3)
+        XCTAssertTrue(FileURL.matchedInTemp("file",  UTI.png, group:"ggg").count==2)
+        XCTAssertTrue(FileURL.matchedInTemp("file.png",  nil, group:"ggg").count==2)
+        XCTAssertTrue(FileURL.matchedInTemp(nil,  nil, group:"ggg").count==3)
 
-        XCTAssertTrue(FileURL.matchedTemporaryURLs(nil,  UTI.png).count==5)
-        XCTAssertTrue(FileURL.matchedTemporaryURLs("file",  UTI.png).count==4)
-        XCTAssertTrue(FileURL.matchedTemporaryURLs("file",  nil).count==2)
+        XCTAssertTrue(FileURL.matchedInTemp(nil,  UTI.png).count==5)
+        XCTAssertTrue(FileURL.matchedInTemp("file",  UTI.png).count==4)
+        XCTAssertTrue(FileURL.matchedInTemp("file",  nil).count==2)
 
-        FileURL.temporaryURL("AssetIO.LivePhoto", group:CodeFileName())
-        XCTAssertTrue(FileURL.matchedTemporaryURLs("AssetIO.LivePhoto", group:CodeFileName()).count==1)
+        FileURL.temp("AssetIO.LivePhoto", group:CodeFileName())
+        XCTAssertTrue(FileURL.matchedInTemp("AssetIO.LivePhoto", group:CodeFileName()).count==1)
 
 
         let groupname = "sd<>*fdf!:=?.@34ㄹㅎsd.fds.gif"
-        FileURL.temporaryURL("file", UTI.gif, group: groupname)
-        XCTAssertTrue(FileURL.matchedTemporaryURLs("file.gif", group:groupname).count==1)
-        XCTAssertTrue(FileURL.matchedTemporaryURLs("file", UTI.gif, group:groupname).count==1)
-        XCTAssertTrue(FileURL.matchedTemporaryURLs("file", UTI.gif).count==1)
-        XCTAssertTrue(FileURL.matchedTemporaryURLs("file", UTI.gif, group:"BBBB").count==0)
-        XCTAssertTrue(FileURL.matchedTemporaryURLs(nil, group:groupname).count==1)
+        FileURL.temp("file", UTI.gif, group: groupname)
+        XCTAssertTrue(FileURL.matchedInTemp("file.gif", group:groupname).count==1)
+        XCTAssertTrue(FileURL.matchedInTemp("file", UTI.gif, group:groupname).count==1)
+        XCTAssertTrue(FileURL.matchedInTemp("file", UTI.gif).count==1)
+        XCTAssertTrue(FileURL.matchedInTemp("file", UTI.gif, group:"BBBB").count==0)
+        XCTAssertTrue(FileURL.matchedInTemp(nil, group:groupname).count==1)
 
 
 //          FileURL.discardMatchedTemporaryURLs(nil)
-        FileURL.discardAllURLs()
-        XCTAssertTrue(FileURL.matchedTemporaryURLs(nil).count == 0)
+        FileURL.discardAll()
+        XCTAssertTrue(FileURL.matchedInTemp(nil).count == 0)
 
         XCTAssertTrue(FileURL.fileAndQueuePrivateGroup()=="CodeKitTests_com.apple.main-thread")
         XCTAssertTrue(FileURL.filePrivateGroup()=="CodeKitTests")
         XCTAssertTrue(FileURL.queuePrivateGroup()=="com.apple.main-thread")
 
-        XCTAssertTrue(UTI(withURL: FileURL.temporaryURL("\(UUID().uuidString)_TimeLapseVideo", UTI.quickTimeMovie, group:FileURL.fileAndQueuePrivateGroup()))==UTI.quickTimeMovie)
+        XCTAssertTrue(UTI(withURL: FileURL.temp("\(UUID().uuidString)_TimeLapseVideo", UTI.quickTimeMovie, group:FileURL.fileAndQueuePrivateGroup()))==UTI.quickTimeMovie)
 
-        XCTAssertTrue(FileURL.temporaryURL("\(UUID().uuidString)_TimeLapseVideo", UTI.quickTimeMovie, group:FileURL.fileAndQueuePrivateGroup()).pathExtension=="mov")
+        XCTAssertTrue(FileURL.temp("\(UUID().uuidString)_TimeLapseVideo", UTI.quickTimeMovie, group:FileURL.fileAndQueuePrivateGroup()).pathExtension=="mov")
 
 
 

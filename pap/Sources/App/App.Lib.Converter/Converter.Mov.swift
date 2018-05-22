@@ -144,7 +144,7 @@ struct MovConverter_LivePhoto: MovConverter {
 
         }) { (error) in
             if error == nil{
-                let pairedVideoFileURL = FileURL.temporaryURL("\(UUID().uuidString)_pairedVideo", UTI.quickTimeMovie, group: FileURL.fileAndQueuePrivateGroup())
+                let pairedVideoFileURL = FileURL.temp("\(UUID().uuidString)_pairedVideo", UTI.quickTimeMovie, group: FileURL.fileAndQueuePrivateGroup())
                 try? videoData.write(to: pairedVideoFileURL, options: Data.WritingOptions.atomicWrite)
 
                 resultURL = pairedVideoFileURL

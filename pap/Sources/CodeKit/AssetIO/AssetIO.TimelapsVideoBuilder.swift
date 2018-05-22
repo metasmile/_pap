@@ -72,7 +72,7 @@ public final class TimelapsVideoBuilder: NSObject {
         if let documentsPath = self.destinationFilePath{
             videoOutputURL = URL(fileURLWithPath: documentsPath)
         }else{
-            videoOutputURL = FileURL.temporaryURL("\(UUID().uuidString)_TimeLapseVideo", UTI.quickTimeMovie, group:FileURL.filePrivateGroup())
+            videoOutputURL = FileURL.temp("\(UUID().uuidString)_TimeLapseVideo", UTI.quickTimeMovie, group:FileURL.filePrivateGroup())
         }
 
 

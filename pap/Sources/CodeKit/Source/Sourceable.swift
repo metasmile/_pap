@@ -157,7 +157,7 @@ extension String: ImageSourceable, BundleImageSourceable, DataSourceable, URLSou
     }
 
     public var asURLInTemporaryDirectory:URL? {
-        return FileURL.temporaryURL(self)
+        return FileURL.temp(self)
     }
 
     public var asCIImage: CIImage?{

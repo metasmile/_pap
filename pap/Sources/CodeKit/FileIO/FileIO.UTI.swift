@@ -5,11 +5,13 @@
 
 
 //
-//  UTI.swift
+//  FileIO.UTI.swift
 //  fseventstool
 //
 //  Created by Matthias Keiser on 09.01.17.
 //  Copyright © 2017 Tristan Inc. All rights reserved.
+
+// https://github.com/mkeiser/SwiftUTI
 
 /*
 Modified history metasmile
