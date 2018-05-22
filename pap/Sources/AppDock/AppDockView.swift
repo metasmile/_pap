@@ -47,17 +47,17 @@ class AppDockView: CustomView {
 
     @IBOutlet weak private var backgroundView: UIView!
     @IBOutlet weak private var drawerView: DrawerView!
-    @IBOutlet weak private var drawerViewHeightLayout: NSLayoutConstraint!
+    @IBOutlet weak private var drawerViewHeightLayout: AppDockVoidableLayoutConatraint!
     @IBOutlet weak private var appContentView: UIView!
-    @IBOutlet weak private var appContentViewHeightLayout: NSLayoutConstraint!
+    @IBOutlet weak private var appContentViewHeightLayout: AppDockVoidableLayoutConatraint!
 
     @IBOutlet weak private var topAccessoryView: UIView!
     @IBOutlet weak private var controllerView: UIView!
-    @IBOutlet weak private var controllerViewHeightLayout: NSLayoutConstraint!
+    @IBOutlet weak private var controllerViewHeightLayout: AppDockVoidableLayoutConatraint!
     @IBOutlet weak private var dockView: DockView!
-    @IBOutlet weak private var dockViewHeightLayout: NSLayoutConstraint!
+    @IBOutlet weak private var dockViewHeightLayout: AppDockVoidableLayoutConatraint!
     @IBOutlet weak private var appCollectionView: UICollectionView!
-    @IBOutlet weak private var appCollectionViewHeightLayout: NSLayoutConstraint!
+    @IBOutlet weak private var appCollectionViewHeightLayout: AppDockVoidableLayoutConatraint!
     @IBOutlet weak private var bottomAccessoryView: UIView!
     
     var delegate: AppDockViewDelegate?
@@ -270,7 +270,7 @@ extension AppDockView {
     }
 
     fileprivate var preferredAppContentViewHeight: CGFloat {
-        return preferredAccessoryViewHeight + preferredControllerViewHeight
+        return max(0, preferredAccessoryViewHeight) + max(0, preferredControllerViewHeight)
     }
 
     fileprivate var preferredDrawerViewHeight: CGFloat {
@@ -550,7 +550,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
         drawerView.isBarHidden = !shouldDrawerEnable
         drawerViewHeightLayout.constant = preferredDrawerViewHeight
 
-        appContentViewHeightLayout.constant = preferredControllerViewHeight + preferredAccessoryViewHeight
+        appContentViewHeightLayout.constant = max(0, preferredControllerViewHeight) + max(0, preferredAccessoryViewHeight)
         controllerViewHeightLayout.constant = preferredControllerViewHeight
         
         if hasControllerPinned {
@@ -1000,5 +1000,16 @@ internal class DrawerView: DesignableView {
         drawerShapeLayer.position = center
         CATransaction.setDisableActions(disableActionsToRestore)
     }
+}
 
+internal class AppDockVoidableLayoutConatraint: NSLayoutConstraint {
+    override var constant: CGFloat {
+        set {
+            super.constant = max(0, newValue)
+        }
+        
+        get {
+            return super.constant
+        }
+    }
 }
