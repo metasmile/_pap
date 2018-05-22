@@ -21,8 +21,8 @@ struct MP4Converter_Mov: MP4Converter {
     
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> PHAssetResourceFinalizingOutput? {
         guard let video = source.asset.asAVAsset else { return nil }
-        
-        let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(UUID().uuidString).mp4")
+
+        let url = FileURL.temp(source.asset.localIdentifierWithoutSplitter, UTI.mpeg4, group: FileURL.fileAndQueuePrivateGroup())
         async.begin()
         AVAssetExportSession.init(asset: video, outputFileType: .mp4, outputURL: url, shouldOptimizeForNetworkUse: true) { (success) in
             async.end()

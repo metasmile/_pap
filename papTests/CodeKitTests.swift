@@ -4,6 +4,7 @@
 //
 
 import XCTest
+import MobileCoreServices
 @testable import pap
 
 class CodeKitTests: XCTestCase {
@@ -144,6 +145,148 @@ class CodeKitTests: XCTestCase {
 
         defaults.valueWithCustomCodableType = CustomCodableType(from: .video, to: .livephoto)
 
+    }
+
+    func test_UTI_Equality() {
+
+        let uti1 = UTI(rawValue: kUTTypePDF as String)
+        let uti2 = UTI.pdf
+        let uti3 = UTI.rtf
+
+        XCTAssertTrue(uti1 == uti2)
+        XCTAssertTrue(uti2 == uti1)
+        XCTAssertFalse(uti1 == uti3)
+        XCTAssertFalse(uti2 == uti3)
+    }
+
+    func test_UTI_Conformance() {
+
+        let uti1 = UTI.text
+        let uti2 = UTI.rtf
+        let uti3 = UTI.directory
+
+        XCTAssertTrue( uti2.conforms(to: uti1) )
+        XCTAssertFalse( uti1.conforms(to: uti2) )
+        XCTAssertFalse( uti1.conforms(to: uti3) )
+    }
+
+    func test_UTI_Tags() {
+
+        let uti1 = UTI.pdf
+
+        var uti2 = UTI(withExtension: "pdf")
+        XCTAssertTrue( uti1 == uti2 )
+
+        uti2 = UTI(withMimeType: "application/pdf")
+        XCTAssertTrue( uti1 == uti2 )
+
+#if os(macOS)
+        uti2 = UTI(withPBType: NSPDFPboardType) // Note: NSPasteboardTypePDF doesn't work
+        XCTAssertTrue( uti1 == uti2 )
+
+        uti2 = UTI(withOSType: "PDF ")
+        XCTAssertTrue( uti1 == uti2 )
+#endif
+
+        XCTAssertEqual(uti1.fileExtension, uti2.fileExtension)
+        XCTAssertEqual(uti1.mimeType, uti2.mimeType)
+
+#if os(macOS)
+        XCTAssertEqual(uti1.pbType, uti2.pbType)
+        XCTAssertEqual(uti1.osType, uti2.osType)
+#endif
+    }
+
+    func test_UTI_Dynamic() {
+
+        XCTAssertFalse(UTI.pdf.isDynamic)
+
+        XCTAssertTrue(UTI(withExtension: "random_unknown_value_xxxxx").isDynamic)
+    }
+
+
+    func test_tempURL() {
+
+        print(UTI.jpeg.fileExtension)
+
+        let url = FileURL.temp("identifier", UTI.jpeg, group: "groupname")
+
+        let diffUrl = FileManager.default.temporaryDirectory.appendingPathComponent("groupname").appendingPathComponent("identifier").appendingPathExtension(UTI.jpeg.fileExtension!)
+
+        XCTAssertTrue(url.absoluteString == diffUrl.absoluteString)
+        XCTAssertTrue(UTI(withURL: FileURL.temp("identifier.jpg", nil, group: "groupname")) == UTI.jpeg)
+        XCTAssertTrue(UTI(withURL: FileURL.temp("identifier.jpg", nil, group: "groupname2")) == UTI.jpeg)
+        XCTAssertTrue(UTI(withURL: FileURL.temp("identifier.jpeg", nil, group: "groupname")) == UTI.jpeg)
+
+        XCTAssertTrue(UTI(withURL: FileURL.temp("identifier", nil)).isDynamic)
+        XCTAssertTrue(UTI(withURL: FileURL.temp("identifier", UTI.jpeg)) == UTI.jpeg)
+
+        XCTAssertTrue(UTI(withExtension: "jpg") == UTI.jpeg)
+        XCTAssertTrue(UTI(withExtension: "jpeg") == UTI.jpeg)
+
+        XCTAssertTrue(FileURL.matchedInTemp("identifier", nil, group: "groupname").count == 0)
+
+        XCTAssertTrue(FileURL.matchedInTemp("identifier.jpg", nil, group: "groupname").count==1)
+
+        XCTAssertTrue(FileURL.matchedInTemp("identifier.jpg", nil, group: "groupname2").count==1)
+
+        XCTAssertTrue(FileURL.matchedInTemp("identifier.jpg", nil, group: nil).count==2)
+
+        XCTAssertTrue(FileURL.matchedInTemp(nil, nil, group: "groupname").count==3)
+
+        XCTAssertTrue(FileURL.matchedInTemp("identifier", nil).count==1)
+
+        XCTAssertTrue(FileURL.matchedInTemp("identifier.jpg", nil).count==2)
+
+        FileURL.temp("file.png", nil) // -> file.png
+        FileURL.temp("file.png", UTI.png) // -> file.png.png
+        FileURL.temp("file", nil) // -> file
+        FileURL.temp("file", UTI.png) // -> file.png
+
+        FileURL.temp("file", UTI.png, group:"ggg") // -> ggg/file.png
+        FileURL.temp("file.png", nil, group:"ggg") // -> ggg/file.png
+        FileURL.temp("file", nil, group:"ggg") // -> ggg/file
+
+        XCTAssertTrue(FileURL.matchedInTemp("file.png", nil).count==4)
+        XCTAssertTrue(FileURL.matchedInTemp("file.png",  UTI.png).count==1)
+
+        XCTAssertTrue(FileURL.matchedInTemp("file",  UTI.png, group:"ggg").count==2)
+        XCTAssertTrue(FileURL.matchedInTemp("file.png",  nil, group:"ggg").count==2)
+        XCTAssertTrue(FileURL.matchedInTemp(nil,  nil, group:"ggg").count==3)
+
+        XCTAssertTrue(FileURL.matchedInTemp(nil,  UTI.png).count==5)
+        XCTAssertTrue(FileURL.matchedInTemp("file",  UTI.png).count==4)
+        XCTAssertTrue(FileURL.matchedInTemp("file",  nil).count==2)
+
+        FileURL.temp("AssetIO.LivePhoto", group:CodeFileName())
+        XCTAssertTrue(FileURL.matchedInTemp("AssetIO.LivePhoto", group:CodeFileName()).count==1)
+
+
+        let groupname = "sd<>*fdf!:=?.@34ㄹㅎsd.fds.gif"
+        FileURL.temp("file", UTI.gif, group: groupname)
+        XCTAssertTrue(FileURL.matchedInTemp("file.gif", group:groupname).count==1)
+        XCTAssertTrue(FileURL.matchedInTemp("file", UTI.gif, group:groupname).count==1)
+        XCTAssertTrue(FileURL.matchedInTemp("file", UTI.gif).count==1)
+        XCTAssertTrue(FileURL.matchedInTemp("file", UTI.gif, group:"BBBB").count==0)
+        XCTAssertTrue(FileURL.matchedInTemp(nil, group:groupname).count==1)
+
+
+//          FileURL.discardMatchedTemporaryURLs(nil)
+        FileURL.discardAll()
+        XCTAssertTrue(FileURL.matchedInTemp(nil).count == 0)
+
+        XCTAssertTrue(FileURL.fileAndQueuePrivateGroup()=="CodeKitTests_com.apple.main-thread")
+        XCTAssertTrue(FileURL.filePrivateGroup()=="CodeKitTests")
+        XCTAssertTrue(FileURL.queuePrivateGroup()=="com.apple.main-thread")
+
+        XCTAssertTrue(UTI(withURL: FileURL.temp("\(UUID().uuidString)_TimeLapseVideo", UTI.quickTimeMovie, group:FileURL.fileAndQueuePrivateGroup()))==UTI.quickTimeMovie)
+
+        XCTAssertTrue(FileURL.temp("\(UUID().uuidString)_TimeLapseVideo", UTI.quickTimeMovie, group:FileURL.fileAndQueuePrivateGroup()).pathExtension=="mov")
+
+
+        print(FileURL.glob(FileURL.tempBase.path+"/*"))
+        print(FileURL.glob(FileURL.tempBase.path+"/*.jpg"))
+        print(FileURL.glob(FileURL.tempBase.path+"/*.png"))
     }
 }
 

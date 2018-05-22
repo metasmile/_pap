@@ -33,14 +33,14 @@ class PreviewView: CustomView {
     var delegate: PreviewViewDelegate?
 
     let appAssetsSelected = AppAssets.selected
-    let _preferences = AppDockContentPreferences(height:44)
+    let _preferences = AppDockContentPreferences(preferredHeight:44)
 
     override func initialize() {
         super.initialize()
 
         print("[i] BatchAppCenter.default.task.maxConcurrentCount: ", AppCenter.default.task.maxConcurrentCount)
 
-        collectionViewHeightLayout.constant = _preferences.minimumHeight
+        collectionViewHeightLayout.constant = _preferences.preferredHeight
         
         collectionView.contentInset.top = 1
         collectionView.contentInset.bottom = 1
@@ -86,7 +86,7 @@ extension PreviewView: AppDockContentView, AppDockContent {
     }
 
     func reloadContent() {
-        reloadPreview(with:_preferences.minimumHeight)
+        reloadPreview(with:_preferences.preferredHeight)
     }
 
     func reloadContentThatFits(size:CGSize) {

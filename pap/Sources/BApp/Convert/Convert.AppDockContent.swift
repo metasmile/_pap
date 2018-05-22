@@ -40,8 +40,8 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
-        preferences.minimumHeight = (self.view as! UITableView).rowHeight * 4
-        preferences.pinned = false
+        preferences.preferredHeight = (self.view as! UITableView).rowHeight * 4
+        preferences.layoutMode = .none
         return preferences
     }
 

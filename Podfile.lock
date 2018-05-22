@@ -9,14 +9,14 @@ PODS:
   - FirebaseAnalytics (4.2.0):
     - FirebaseCore (~> 4.0)
     - FirebaseInstanceID (~> 2.0)
-    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
     - nanopb (~> 0.3)
   - FirebaseCore (4.0.20):
-    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FirebaseInstanceID (2.0.10):
     - FirebaseCore (~> 4.0)
   - GoogleToolboxForMac/Defines (2.1.4)
-  - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
+  - GoogleToolboxForMac/NSData+zlib (2.1.4):
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -39,22 +39,6 @@ DEPENDENCIES:
   - R.swift
   - SwiftyGif
   - TPPDF
-
-SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - Crashlytics
-    - Fabric
-    - Firebase
-    - FirebaseAnalytics
-    - FirebaseCore
-    - FirebaseInstanceID
-    - GoogleToolboxForMac
-    - nanopb
-    - R.swift
-    - R.swift.Library
-    - SwiftLint
-    - SwiftyGif
-    - TPPDF
 
 EXTERNAL SOURCES:
   DefaultsKit:
@@ -81,6 +65,6 @@ SPEC CHECKSUMS:
   SwiftyGif: d36c6dfb52e2ca1e48fe349d225f50ec4123ec85
   TPPDF: 27bc0c390d6f88a8345613fefbe91a3de650f618
 
-PODFILE CHECKSUM: 555715e9ebe6bcbebd8515f44eb5ba33deb6e7ca
+PODFILE CHECKSUM: ef2d95300c6d290a2257e05b76e832bd35cfb76e
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.4.0

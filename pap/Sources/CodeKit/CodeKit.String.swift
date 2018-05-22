@@ -25,7 +25,11 @@ extension String {
         }
     }
 
-    public func replace(_ with:Character, _ replacement:Character) -> String{
-        return String(map { return $0 == with ? replacement : $0 })
+    public func replace(_ with:String, _ replacement:String) -> String{
+        return self.replacingOccurrences(of: with, with: replacement)
+    }
+
+    public func remove(_ with:String) -> String{
+        return replace(with, "")
     }
 }

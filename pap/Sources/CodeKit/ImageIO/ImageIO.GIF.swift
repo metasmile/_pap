@@ -31,8 +31,8 @@ public func UIImageGIFRepresentationURL(with imageFiles: [URL], loopCount: Int =
             ImageMetadata.ColorModel: ImageMetadata.ColorModelRGB
         ]
     ]
-    
-    let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(UUID().uuidString).gif")
+
+    let url = FileURL.temp("\(UUID().uuidString)", UTI.gif)
     guard let destination = CGImageDestinationCreateWithURL(url as CFURL, kUTTypeGIF, imageFiles.count, nil) else { return nil }
     CGImageDestinationSetProperties(destination, fileProperties as CFDictionary)
     
@@ -58,8 +58,8 @@ public func UIImageGIFRepresentationURL(with imageFilesWithFrameDelay: [(URL, Do
             ImageMetadata.Property.GIFLoopCount: loopCount
         ]
     ]
-    
-    let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(UUID().uuidString).gif")
+
+    let url = FileURL.temp(UUID().uuidString, UTI.gif)
     guard let destination = CGImageDestinationCreateWithURL(url as CFURL, kUTTypeGIF, imageFilesWithFrameDelay.count, nil) else { return nil }
     CGImageDestinationSetProperties(destination, fileProperties as CFDictionary)
     
@@ -188,9 +188,8 @@ public extension UIImage {
                 CGImageDestinationAddImage(destination, imageRef, nil)
                 if CGImageDestinationFinalize(destination) {
                     let data = mutableData as Data
-                    let url = URL(fileURLWithPath: (directory as NSString).appendingPathComponent("\(filenamePrefix)_\(UUID().uuidString)_\(i).png"))
 
-                    try? FileManager.default.removeItem(at: url)
+                    let url = FileURL.acquire(URL(fileURLWithPath: directory), "\(filenamePrefix)_\(i)", UTI.png, group: FileURL.fileAndQueuePrivateGroup())
                     do {
                         try data.write(to: url)
                         urls.append((url, frameDelay))

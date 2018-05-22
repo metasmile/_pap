@@ -8,6 +8,10 @@ import Photos
 import MobileCoreServices
 
 extension PHAsset {
+    public var localIdentifierWithoutSplitter: String {
+        return localIdentifier.remove("/")
+    }
+
     public var resources:[PHAssetResource]{
         return PHAssetResource.assetResources(for: self)
     }

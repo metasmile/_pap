@@ -8,7 +8,7 @@ target 'pap' do
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'R.swift'
-  pod 'DefaultsKit', :git => "https://github.com/metasmile/DefaultsKit" #TODO: consider get DefaultKit into CodeKit
+  pod 'DefaultsKit', :git => "https://github.com/metasmile/DefaultsKit" #TODO: consider to get into CodeKit with Subfile
   pod 'SwiftyGif'
   # pod 'SwipeCellKit'
 

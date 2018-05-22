@@ -5,6 +5,15 @@
 
 import Foundation
 
+extension DispatchQueue {
+    public class var currentLabel: String {
+        return String(validatingUTF8: __dispatch_queue_get_label(nil)) ?? "anonymous"
+    }
+    public class var current:DispatchQueue {
+        return DispatchQueue(label: self.currentLabel)
+    }
+}
+
 public protocol Signalable {}
 
 public protocol AsyncSignalable: Signalable {

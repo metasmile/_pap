@@ -29,20 +29,30 @@ extension AppDockDelegate{
 }
 
 // AppDockContentPreferable
+public enum AppDockContentLayoutMode: Int{
+    case none
+    case pinned
+    case minimized
+}
+
 public protocol AppDockContentPreferable {
-    var minimumHeight: CGFloat {get}
-    var pinned:Bool {get}
-    //TODO: allow/disallow drawer open, or add something more detailed rules for accessory view.
+    /*
+        minHeight will be ignored when layoutMode is .minimized
+    */
+    var preferredHeight: CGFloat {get}
+
+    var layoutMode:AppDockContentLayoutMode {get}
 }
 
 public struct AppDockContentPreferences: AppDockContentPreferable {
-    public var minimumHeight: CGFloat = 0
-    public var pinned: Bool = false
+    public var preferredHeight: CGFloat = 0
+
+    public var layoutMode: AppDockContentLayoutMode = .none
 
     init(){}
 
-    init(height:CGFloat){
-        self.minimumHeight = height
+    init(preferredHeight:CGFloat){
+        self.preferredHeight = preferredHeight
     }
 }
 

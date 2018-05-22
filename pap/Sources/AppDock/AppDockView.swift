@@ -40,8 +40,8 @@ class AppDockView: CustomView {
             static let prominentHeight: CGFloat = 49
         }
 
-        static let Accessory = AppDockContentPreferences(height: 44)
-        static let Control = AppDockContentPreferences(height: 44)
+        static let Accessory = AppDockContentPreferences(preferredHeight: 44)
+        static let Control = AppDockContentPreferences(preferredHeight: 44)
     }
 
     @IBOutlet weak private var backgroundView: UIView!
@@ -111,6 +111,7 @@ class AppDockView: CustomView {
     }
 
     private var shouldDrawerEnable: Bool {
+        print(hasAppContentAsLayout, hasAppControllerAsLayout,preferredAccessoryViewHeight + preferredControllerViewHeight)
         if hasAppContentAsLayout {
             let hasMultipleApps = items.count > 1
             if hasControllerPinned{
@@ -149,7 +150,7 @@ class AppDockView: CustomView {
     }
 
     var hasControllerPinned:Bool{
-        return controller?.preferences?.pinned == true
+        return controller?.preferences?.layoutMode == .pinned
     }
 
     private func hasControlView(_ view: UIView?) -> Bool {
@@ -244,53 +245,69 @@ extension AppDockView: AppDock{
 }
 
 extension AppDockView {
+    fileprivate static var VoidLayoutValue:CGFloat {
+        return -1
+    }
+
     fileprivate var hasContentAsLayout: Bool {
-        return hasAppContentAsLayout && preferredDockViewHeight > 0
+        return hasAppContentAsLayout && preferredDockViewHeight != AppDockView.VoidLayoutValue
     }
     
     fileprivate var hasAnyContentAsLayout: Bool {
-        return hasAppContentAsLayout || preferredDockViewHeight > 0
-    }
-
-    fileprivate var hasAppContentAsLayout: Bool{
-        return preferredAppContentViewHeight > 0
+        return hasAppContentAsLayout || preferredDockViewHeight != AppDockView.VoidLayoutValue
     }
 
     fileprivate var hasAppControllerAsLayout: Bool{
-        return preferredControllerViewHeight > 0
+        return preferredControllerViewHeight != AppDockView.VoidLayoutValue
     }
 
     fileprivate var hasAppAccessoryAsLayout: Bool{
-        return preferredAccessoryViewHeight > 0
+        return preferredAccessoryViewHeight != AppDockView.VoidLayoutValue
     }
 
-    fileprivate var preferredDrawerViewHeight: CGFloat {
-        return hasAppControllerAsLayout ? DefaultPreferences.DrawerView.compactHeight : 0
+    fileprivate var hasAppContentAsLayout: Bool{
+        return hasAppControllerAsLayout || hasAppAccessoryAsLayout
     }
-    
-    fileprivate var preferredDockViewHeight: CGFloat {
-        return items.count > 1 ? DefaultPreferences.AppDockView.compactHeight : 0
-    }
-    
-    fileprivate var preferredAccessoryViewHeight: CGFloat {
-        if let accessory = self.accessory{
-            return accessory.preferences?.minimumHeight ?? DefaultPreferences.Accessory.minimumHeight
-        }
-        return 0
-    }
-    
-    fileprivate var preferredControllerViewHeight: CGFloat {
-        if let control = self.controller {
-            return control.preferences?.minimumHeight ?? DefaultPreferences.Control.minimumHeight
-        }
-        return 0
-    }
-    
+
     fileprivate var preferredAppContentViewHeight: CGFloat {
         return preferredAccessoryViewHeight + preferredControllerViewHeight
     }
 
-    fileprivate var constAppContentViewMaximumHeight: CGFloat {
+    fileprivate var preferredDrawerViewHeight: CGFloat {
+        return hasAppControllerAsLayout ? DefaultPreferences.DrawerView.compactHeight : AppDockView.VoidLayoutValue
+    }
+    
+    fileprivate var preferredDockViewHeight: CGFloat {
+        return items.count > 1 ? DefaultPreferences.AppDockView.compactHeight : AppDockView.VoidLayoutValue
+    }
+    
+    fileprivate var preferredAccessoryViewHeight: CGFloat {
+        if let accessory = self.accessory{
+            if accessory.preferences?.layoutMode == .minimized{
+                return 0
+            }else{
+                return accessory.preferences?.preferredHeight ?? DefaultPreferences.Accessory.preferredHeight
+            }
+        }
+        return AppDockView.VoidLayoutValue
+    }
+    
+    fileprivate var preferredControllerViewHeight: CGFloat {
+        if let control = self.controller {
+            if control.preferences?.layoutMode == .minimized{
+                return 0
+            }else{
+                return control.preferences?.preferredHeight ?? DefaultPreferences.Control.preferredHeight
+            }
+        }
+        return AppDockView.VoidLayoutValue
+    }
+    
+    fileprivate var preferredAppContentViewMaximumHeight: CGFloat {
+        return ConstAppContentViewMaximumHeight
+    }
+
+    private var ConstAppContentViewMaximumHeight: CGFloat{
         let TopMarginConstRatio:CGFloat = 0.84
 
         if let rvc = UIApplication.shared.keyWindow?.rootViewController{
@@ -316,7 +333,7 @@ extension AppDockView {
     fileprivate func layoutDockView() {
         dockViewHeightLayout.constant = preferredDockViewHeight
 
-        let isDockViewAppearing = preferredDockViewHeight != 0
+        let isDockViewAppearing = preferredDockViewHeight != AppDockView.VoidLayoutValue
         dockView.isHidden = !isDockViewAppearing
         
         dockView.layoutIfNeeded()
@@ -484,10 +501,10 @@ extension AppDockView: UIGestureRecognizerDelegate {
         drawerView.isBarHidden = !shouldDrawerEnable
         drawerViewHeightLayout.constant = DefaultPreferences.DrawerView.prominentHeight
 
-        appContentViewHeightLayout.constant = constAppContentViewMaximumHeight
+        appContentViewHeightLayout.constant = preferredAppContentViewMaximumHeight
         
         let contentLayoutConstant = appContentViewHeightLayout.constant
-        let controllerPinned = controller?.preferences?.pinned ?? false
+        let controllerPinned = controller?.preferences?.layoutMode == .pinned
         let controllerLayoutConstant = controllerPinned ? preferredControllerViewHeight : contentLayoutConstant - preferredAccessoryViewHeight
         let accessoryLayoutConstant = controllerPinned ? contentLayoutConstant - preferredControllerViewHeight : preferredAccessoryViewHeight
         controllerViewHeightLayout.constant = controllerLayoutConstant
