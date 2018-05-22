@@ -80,12 +80,13 @@ public class ConvertApp: BApp,
                 options.shouldMoveFile = true
                 
                 urls.forEach { url in
-                    guard let uti = UTI(url) else { return }
-                    if UTTypeConformsTo(uti, kUTTypeImage) {
+                    let uti = UTI(withURL: url)
+
+                    if uti.conforms(to: UTI.image) {
                         request.addResource(with: .photo, fileURL: url, options: options)
                     }
-                    else if UTTypeConformsTo(uti, kUTTypeMovie) {
-                        if urls.contains(where: { UTTypeConformsTo(UTI($0) ?? "" as CFString, kUTTypeImage) }) == true {
+                    else if uti.conforms(to: UTI.movie) {
+                        if urls.contains(where: { UTI(withURL: $0).conforms(to: UTI.image) }) == true {
                             request.addResource(with: .pairedVideo, fileURL: url, options: options)
                         }
                         else {

@@ -157,11 +157,7 @@ extension String: ImageSourceable, BundleImageSourceable, DataSourceable, URLSou
     }
 
     public var asURLInTemporaryDirectory:URL? {
-        if #available(iOS 10.0, *) {
-            return FileManager.default.temporaryDirectory.appendingPathComponent(self)
-        } else {
-            return URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true).appendingPathComponent(self)
-        }
+        return FileURL.temp(self)
     }
 
     public var asCIImage: CIImage?{

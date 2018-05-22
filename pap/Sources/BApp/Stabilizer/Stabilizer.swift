@@ -113,8 +113,8 @@ public class Stabilizer: BApp, PHAssetFinalizableApp, AppDockControllableApp, Ph
         let view = AppUICollectionView(items: items)
         
         var p = AppDockContentPreferences()
-        p.pinned = true
-        p.minimumHeight = 64 // for test. remove this line after fixed app design
+        p.layoutMode = .pinned
+        p.preferredHeight = 64 // for test. remove this line after fixed app design
         return AppDockContentItem(view: view, preferences: p)
     }
     

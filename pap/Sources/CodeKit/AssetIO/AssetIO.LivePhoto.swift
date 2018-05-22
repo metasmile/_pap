@@ -219,7 +219,6 @@ public final class LivePhotoWriter {
             }
 
             let uuid = UUID().uuidString
-
             // clean all the APIs
             LivePhotoImageResourceWriter().write(from: URL(fileURLWithPath: photoPath), to: URL(fileURLWithPath: destImageURL.path), assetIdentifier: uuid)
 
@@ -241,7 +240,7 @@ public final class LivePhotoWriter {
                 ((_lastPathComponent.deletingPathExtension as NSString).appending(suffix ?? "") as NSString).appendingPathExtension(ext ?? _lastPathComponent.pathExtension) ?? ""
         )
 
-        return URL(fileURLWithPath:NSTemporaryDirectory()).appendingPathComponent(path)
+        return FileURL.temp(path, group:FileURL.fileAndQueuePrivateGroup())
     }
 
 }
