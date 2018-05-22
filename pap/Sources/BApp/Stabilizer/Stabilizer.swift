@@ -114,7 +114,7 @@ public class Stabilizer: BApp, PHAssetFinalizableApp, AppDockControllableApp, Ph
         
         var p = AppDockContentPreferences()
         p.layoutMode = .pinned
-        p.minimumHeight = 64 // for test. remove this line after fixed app design
+        p.preferredHeight = 64 // for test. remove this line after fixed app design
         return AppDockContentItem(view: view, preferences: p)
     }
     

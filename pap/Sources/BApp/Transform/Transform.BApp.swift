@@ -97,7 +97,7 @@ private extension TransformApp{
         let view = AppUICollectionStackView(items: items)
         var preferences = AppDockContentPreferences()
         preferences.layoutMode = .pinned
-        preferences.minimumHeight = 44
+        preferences.preferredHeight = 44
         return AppDockContentItem(view: view, preferences: preferences)
     }
 

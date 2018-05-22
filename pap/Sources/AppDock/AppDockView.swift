@@ -40,8 +40,8 @@ class AppDockView: CustomView {
             static let prominentHeight: CGFloat = 49
         }
 
-        static let Accessory = AppDockContentPreferences(height: 44)
-        static let Control = AppDockContentPreferences(height: 44)
+        static let Accessory = AppDockContentPreferences(preferredHeight: 44)
+        static let Control = AppDockContentPreferences(preferredHeight: 44)
     }
 
     @IBOutlet weak private var backgroundView: UIView!
@@ -266,7 +266,7 @@ extension AppDockView {
     }
 
     fileprivate var hasAppContentAsLayout: Bool{
-        return hasAppControllerAsLayout && hasAppAccessoryAsLayout
+        return hasAppControllerAsLayout || hasAppAccessoryAsLayout
     }
 
     fileprivate var preferredAppContentViewHeight: CGFloat {
@@ -286,7 +286,7 @@ extension AppDockView {
             if accessory.preferences?.layoutMode == .minimized{
                 return 0
             }else{
-                return accessory.preferences?.minimumHeight ?? DefaultPreferences.Accessory.minimumHeight
+                return accessory.preferences?.preferredHeight ?? DefaultPreferences.Accessory.preferredHeight
             }
         }
         return AppDockView.VoidLayoutValue
@@ -297,13 +297,17 @@ extension AppDockView {
             if control.preferences?.layoutMode == .minimized{
                 return 0
             }else{
-                return control.preferences?.minimumHeight ?? DefaultPreferences.Control.minimumHeight
+                return control.preferences?.preferredHeight ?? DefaultPreferences.Control.preferredHeight
             }
         }
         return AppDockView.VoidLayoutValue
     }
     
-    fileprivate var constAppContentViewMaximumHeight: CGFloat {
+    fileprivate var preferredAppContentViewMaximumHeight: CGFloat {
+        return ConstAppContentViewMaximumHeight
+    }
+
+    private var ConstAppContentViewMaximumHeight: CGFloat{
         let TopMarginConstRatio:CGFloat = 0.84
 
         if let rvc = UIApplication.shared.keyWindow?.rootViewController{
@@ -497,7 +501,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
         drawerView.isBarHidden = !shouldDrawerEnable
         drawerViewHeightLayout.constant = DefaultPreferences.DrawerView.prominentHeight
 
-        appContentViewHeightLayout.constant = constAppContentViewMaximumHeight
+        appContentViewHeightLayout.constant = preferredAppContentViewMaximumHeight
         
         let contentLayoutConstant = appContentViewHeightLayout.constant
         let controllerPinned = controller?.preferences?.layoutMode == .pinned

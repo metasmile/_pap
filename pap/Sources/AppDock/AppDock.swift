@@ -36,18 +36,23 @@ public enum AppDockContentLayoutMode: Int{
 }
 
 public protocol AppDockContentPreferable {
-    var minimumHeight: CGFloat {get}
+    /*
+        minHeight will be ignored when layoutMode is .minimized
+    */
+    var preferredHeight: CGFloat {get}
+
     var layoutMode:AppDockContentLayoutMode {get}
 }
 
 public struct AppDockContentPreferences: AppDockContentPreferable {
-    public var minimumHeight: CGFloat = 0
+    public var preferredHeight: CGFloat = 0
+
     public var layoutMode: AppDockContentLayoutMode = .none
 
     init(){}
 
-    init(height:CGFloat){
-        self.minimumHeight = height
+    init(preferredHeight:CGFloat){
+        self.preferredHeight = preferredHeight
     }
 }
 
