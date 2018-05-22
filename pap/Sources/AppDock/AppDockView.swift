@@ -111,6 +111,7 @@ class AppDockView: CustomView {
     }
 
     private var shouldDrawerEnable: Bool {
+        print(hasAppContentAsLayout, hasAppControllerAsLayout,preferredAccessoryViewHeight + preferredControllerViewHeight)
         if hasAppContentAsLayout {
             let hasMultipleApps = items.count > 1
             if hasControllerPinned{
@@ -244,52 +245,64 @@ extension AppDockView: AppDock{
 }
 
 extension AppDockView {
+    fileprivate static var VoidLayoutValue:CGFloat {
+        return -1
+    }
+
     fileprivate var hasContentAsLayout: Bool {
-        return hasAppContentAsLayout && preferredDockViewHeight > 0
+        return hasAppContentAsLayout && preferredDockViewHeight != AppDockView.VoidLayoutValue
     }
     
     fileprivate var hasAnyContentAsLayout: Bool {
-        return hasAppContentAsLayout || preferredDockViewHeight > 0
-    }
-
-    fileprivate var hasAppContentAsLayout: Bool{
-        return preferredAppContentViewHeight > 0
+        return hasAppContentAsLayout || preferredDockViewHeight != AppDockView.VoidLayoutValue
     }
 
     fileprivate var hasAppControllerAsLayout: Bool{
-        return preferredControllerViewHeight > 0
+        return preferredControllerViewHeight != AppDockView.VoidLayoutValue
     }
 
     fileprivate var hasAppAccessoryAsLayout: Bool{
-        return preferredAccessoryViewHeight > 0
+        return preferredAccessoryViewHeight != AppDockView.VoidLayoutValue
     }
 
-    fileprivate var preferredDrawerViewHeight: CGFloat {
-        return hasAppControllerAsLayout ? DefaultPreferences.DrawerView.compactHeight : 0
+    fileprivate var hasAppContentAsLayout: Bool{
+        return hasAppControllerAsLayout && hasAppAccessoryAsLayout
     }
-    
-    fileprivate var preferredDockViewHeight: CGFloat {
-        return items.count > 1 ? DefaultPreferences.AppDockView.compactHeight : 0
-    }
-    
-    fileprivate var preferredAccessoryViewHeight: CGFloat {
-        if let accessory = self.accessory{
-            return accessory.preferences?.minimumHeight ?? DefaultPreferences.Accessory.minimumHeight
-        }
-        return 0
-    }
-    
-    fileprivate var preferredControllerViewHeight: CGFloat {
-        if let control = self.controller {
-            return control.preferences?.minimumHeight ?? DefaultPreferences.Control.minimumHeight
-        }
-        return 0
-    }
-    
+
     fileprivate var preferredAppContentViewHeight: CGFloat {
         return preferredAccessoryViewHeight + preferredControllerViewHeight
     }
 
+    fileprivate var preferredDrawerViewHeight: CGFloat {
+        return hasAppControllerAsLayout ? DefaultPreferences.DrawerView.compactHeight : AppDockView.VoidLayoutValue
+    }
+    
+    fileprivate var preferredDockViewHeight: CGFloat {
+        return items.count > 1 ? DefaultPreferences.AppDockView.compactHeight : AppDockView.VoidLayoutValue
+    }
+    
+    fileprivate var preferredAccessoryViewHeight: CGFloat {
+        if let accessory = self.accessory{
+            if accessory.preferences?.layoutMode == .minimized{
+                return 0
+            }else{
+                return accessory.preferences?.minimumHeight ?? DefaultPreferences.Accessory.minimumHeight
+            }
+        }
+        return AppDockView.VoidLayoutValue
+    }
+    
+    fileprivate var preferredControllerViewHeight: CGFloat {
+        if let control = self.controller {
+            if control.preferences?.layoutMode == .minimized{
+                return 0
+            }else{
+                return control.preferences?.minimumHeight ?? DefaultPreferences.Control.minimumHeight
+            }
+        }
+        return AppDockView.VoidLayoutValue
+    }
+    
     fileprivate var constAppContentViewMaximumHeight: CGFloat {
         let TopMarginConstRatio:CGFloat = 0.84
 
@@ -316,7 +329,7 @@ extension AppDockView {
     fileprivate func layoutDockView() {
         dockViewHeightLayout.constant = preferredDockViewHeight
 
-        let isDockViewAppearing = preferredDockViewHeight != 0
+        let isDockViewAppearing = preferredDockViewHeight != AppDockView.VoidLayoutValue
         dockView.isHidden = !isDockViewAppearing
         
         dockView.layoutIfNeeded()
