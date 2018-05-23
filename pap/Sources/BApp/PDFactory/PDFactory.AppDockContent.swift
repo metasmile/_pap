@@ -91,7 +91,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
         cell0.itemIdentifier = Cells.sizePreset.hashValue
         cell0.label = "Page Size Preset"
         cell0.valueGetter = { self.defaults.sizePreset }
-        cell0.valueCollection = PDFactorySettings.SizePresets.keysArray
+        cell0.valueCollection = Array(PDFactorySettings.SizePresets.keys)
         cell0.valueHandler = {
             print($0)
             if let preset = $0 as? String{
@@ -140,7 +140,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
         cell4.valueGetter = { self.defaults.scaleMode }
         cell4.valueCollection = PDFactorySettings.ScaleMode.Labels
         cell4.valueHandler = {
-            self.defaults.scaleMode = PDFactorySettings.ScaleMode.Labels.valuesArray[$0 as? Int ?? 0]
+            self.defaults.scaleMode = Array(PDFactorySettings.ScaleMode.Labels.values)[$0 as? Int ?? 0]
 
             if let index = (self.cellDescribers.index { item in item.itemIdentifier == Cells.margin.hashValue }) {
                 (self.view as? UITableView)?.reloadRows(at: [IndexPath(row: index, section: 0)], with: UITableViewRowAnimation.automatic)

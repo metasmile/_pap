@@ -59,7 +59,6 @@
 		4F71D3DD268561EF3958EEE1 /* gifmaker_preview_frame_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DC6616CF130CCC518DC5 /* gifmaker_preview_frame_3.png */; };
 		4F71D40522F7D0A17236CBE4 /* PhotosFilter.BApp.Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7C7C2C6686F86A92277 /* PhotosFilter.BApp.Contents.swift */; };
 		4F71D42227168FB960E8292F /* Transform.BApp.Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB8E5FCA799070C9CE26 /* Transform.BApp.Defaults.swift */; };
-		4F71D443DA827DCD06788065 /* CodeKit.Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D43078C465970F27780A /* CodeKit.Dictionary.swift */; };
 		4F71D44CDCBAB74BF0580746 /* auto_redeye.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D7487B34C1969FB174FE /* auto_redeye.png */; };
 		4F71D44F37DA87B7FF530283 /* UITableViewCellDescribable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D11E9FAFC9667465E291 /* UITableViewCellDescribable.swift */; };
 		4F71D466EFAA7A462A5C0945 /* AppDockViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D4D7D1C9F3CFA4EA5D6B /* AppDockViewCell.xib */; };
@@ -355,7 +354,6 @@
 		4F71D3DEBC7096177138684A /* pap.Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pap.Defaults.swift; sourceTree = "<group>"; };
 		4F71D402604D22D60E92ECB2 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		4F71D4244E62E40BB345C65F /* cell_icon_burst.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_icon_burst.png; sourceTree = "<group>"; };
-		4F71D43078C465970F27780A /* CodeKit.Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Dictionary.swift; sourceTree = "<group>"; };
 		4F71D44BB7D2917E81856D0A /* PreviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewView.xib; sourceTree = "<group>"; };
 		4F71D45063F327509DB10F71 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		4F71D46453DF01671E19C90F /* ImageIO.GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.GIF.swift; sourceTree = "<group>"; };
@@ -735,7 +733,6 @@
 				4F71D2593153FA71D25C1A2D /* CodeKit.OptionSet.swift */,
 				4F71D9B81A2E58D3C6BDEE99 /* CodeKit.UITableViewCell */,
 				4F71D773FC46EC6E276E5D44 /* CodeKit.Collection.swift */,
-				4F71D43078C465970F27780A /* CodeKit.Dictionary.swift */,
 				4F71DBCD5F4393C1B49479A2 /* CodeKit.CoreGraphics.swift */,
 				4F71D333058F5CDA9A8C83D0 /* CodeKit.DispatchQueue.swift */,
 				4F71DCF49BB6EB7CCC7FBF86 /* CodeKit.UIView.Property.swift */,
@@ -2635,7 +2632,6 @@
 				4F71D214A63A9E26D6B5F25B /* UITableViewPickerCell.UITableView.swift in Sources */,
 				4F71D4CC682057C620653382 /* UITableViewCellDescribable.UITableView.swift in Sources */,
 				4F71DAB78D600D44DC0CB2CC /* CodeKit.Collection.swift in Sources */,
-				4F71D443DA827DCD06788065 /* CodeKit.Dictionary.swift in Sources */,
 				4F71D977BEC450768BF59183 /* CodeKit.CoreGraphics.swift in Sources */,
 				4F71D1FF041181D0AD2BE1AE /* CodeKit.DispatchQueue.swift in Sources */,
 				4F71D6144CC058D3A9309E96 /* CodeKit.UIView.Property.swift in Sources */,

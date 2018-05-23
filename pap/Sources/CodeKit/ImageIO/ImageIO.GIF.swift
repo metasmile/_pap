@@ -189,7 +189,7 @@ public extension UIImage {
                 if CGImageDestinationFinalize(destination) {
                     let data = mutableData as Data
 
-                    let url = FileURL.acquire(URL(fileURLWithPath: directory), "\(filenamePrefix)_\(i)", UTI.png, group: FileURL.fileAndQueuePrivateGroup())
+                    let url = FileURL.create(URL(fileURLWithPath: directory), "\(filenamePrefix)_\(i)", UTI.png, group: FileURL.fileAndQueuePrivateGroup())
                     do {
                         try data.write(to: url)
                         urls.append((url, frameDelay))

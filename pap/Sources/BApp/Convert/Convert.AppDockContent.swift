@@ -343,7 +343,7 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
                 cell.segmentedControl.insertSegment(withTitle: k.key, at: cell.segmentedControl.numberOfSegments, animated: false)
             }
 
-            cell.segmentedControl.selectedSegmentIndex = valueCollection.valuesArray.index(of: item.valueGetter() as? Int ?? PDFactorySettings.ScaleMode.fitPage.rawValue) ?? 0
+            cell.segmentedControl.selectedSegmentIndex = Array(valueCollection.values).index(of: item.valueGetter() as? Int ?? PDFactorySettings.ScaleMode.fitPage.rawValue) ?? 0
             cell.didChangeValue = item.valueHandler
             return cell
         }

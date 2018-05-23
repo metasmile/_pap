@@ -49,65 +49,19 @@ public struct FileURL {
     /*
     Document
     */
-    public static func discardMatchedInDocument(_ pathComponents:String?, _ uti:UTI?=nil, group:String?=nil) -> [URL]{
-        return discardMatched(documentsBase, pathComponents, uti, group: group)
-    }
-
-    public static func matchedInDocument(_ pathComponents:String?, _ uti:UTI?=nil, group:String?=nil) -> [URL]{
-        return matched(documentsBase, pathComponents, uti, group: group)
-    }
-
     public static func document(_ pathComponents:String, _ uti:UTI?=nil, group:String?=nil) -> URL {
-        return acquire(documentsBase, pathComponents, uti, group:group)
+        return create(documentsBase, pathComponents, uti, group:group)
     }
 
 
     /*
     Temporary
     */
-    public static func discardMatchedInTemp(_ pathComponents:String?, _ uti:UTI?=nil, group:String?=nil) -> [URL]{
-        return discardMatched(tempBase, pathComponents, uti, group: group)
-    }
-
-    public static func matchedInTemp(_ pathComponents:String?, _ uti:UTI?=nil, group:String?=nil) -> [URL]{
-        return matched(tempBase, pathComponents, uti, group: group)
-    }
-
     public static func temp(_ pathComponents:String, _ uti:UTI?=nil, group:String?=nil) -> URL {
-        return acquire(tempBase, pathComponents, uti, group:group)
+        return create(tempBase, pathComponents, uti, group:group)
     }
 
-    /*
-        common
-    */
-    private static var URLsByBaseURL = [URL:[URL]]()
-
-    private static let FileURLSyncQueue = DispatchQueue(label: "com.stells.internal_FileURLSyncQueue")
-
-    private static func setURLs(_ BaseURL:URL, _ urls:[URL]) {
-        FileURLSyncQueue.sync(flags: .barrier) {
-            URLsByBaseURL[BaseURL] = urls
-        }
-    }
-
-    private static func getURLs(_ BaseURL:URL) -> [URL]{
-        if let urls = URLsByBaseURL[BaseURL]{
-            return urls
-        }
-        let urls = [URL]()
-        setURLs(BaseURL, urls)
-        return urls
-    }
-
-    public static func acquire(_ BaseURL:URL, _ pathComponents:String, _ uti:UTI?, group:String?=nil) -> URL {
-        let url = create(BaseURL, pathComponents, uti, group: group)
-        var urls = getURLs(BaseURL)
-        urls.append(url)
-        setURLs(BaseURL, urls)
-        return url
-    }
-
-    private static func create(_ BaseURL:URL, _ pathComponents:String, _ uti:UTI?, group:String?=nil) -> URL {
+    public static func create(_ BaseURL:URL, _ pathComponents:String, _ uti:UTI?, group:String?=nil) -> URL {
         var dirURL = BaseURL
 
         if let group = group {
@@ -130,6 +84,74 @@ public struct FileURL {
             print(e)
         }
 
+        return url
+    }
+}
+
+
+public struct FileCollectableURL {
+    /*
+    Document
+    */
+    public static func discardMatchedInDocument(_ pathComponents:String?, _ uti:UTI?=nil, group:String?=nil) -> [URL]{
+        return discardMatched(FileURL.documentsBase, pathComponents, uti, group: group)
+    }
+
+    public static func matchedInDocument(_ pathComponents:String?, _ uti:UTI?=nil, group:String?=nil) -> [URL]{
+        return matched(FileURL.documentsBase, pathComponents, uti, group: group)
+    }
+
+    public static func acquireDocument(_ pathComponents:String, _ uti:UTI?=nil, group:String?=nil) -> URL {
+        return acquire(FileURL.documentsBase, pathComponents, uti, group:group)
+    } 
+
+
+    /*
+    Temporary
+    */
+    public static func discardMatchedInTemp(_ pathComponents:String?, _ uti:UTI?=nil, group:String?=nil) -> [URL]{
+        return discardMatched(FileURL.tempBase, pathComponents, uti, group: group)
+    }
+
+    public static func matchedInTemp(_ pathComponents:String?, _ uti:UTI?=nil, group:String?=nil) -> [URL]{
+        return matched(FileURL.tempBase, pathComponents, uti, group: group)
+    }
+
+    public static func acquireTemp(_ pathComponents:String, _ uti:UTI?=nil, group:String?=nil) -> URL {
+        return acquire(FileURL.tempBase, pathComponents, uti, group:group)
+    } 
+
+    /*
+        common
+    */
+    private static var URLsByBaseURL = [URL:[URL]]()
+
+    private static let FileCollectableURLSyncQueue = DispatchQueue(label: "com.stells.internal_FileCollectableURLSyncQueue")
+
+    private static func setURLs(_ BaseURL:URL, _ urls:[URL]) {
+        FileCollectableURLSyncQueue.sync(flags: .barrier) {
+            URLsByBaseURL[BaseURL] = urls
+        }
+    }
+
+    private static func getURLs(_ BaseURL:URL) -> [URL]{
+        if let urls = URLsByBaseURL[BaseURL]{
+            return urls
+        }
+        let urls = [URL]()
+        setURLs(BaseURL, urls)
+        return urls
+    }
+
+    private static func getBaseURLs() -> [URL]{
+        return Array(URLsByBaseURL.keys)
+    }
+
+    public static func acquire(_ BaseURL:URL, _ pathComponents:String, _ uti:UTI?, group:String?=nil) -> URL {
+        let url = FileURL.create(BaseURL, pathComponents, uti, group: group)
+        var urls = getURLs(BaseURL)
+        urls.append(url)
+        setURLs(BaseURL, urls)
         return url
     }
 
@@ -157,7 +179,7 @@ public struct FileURL {
     @discardableResult
     public static func discardAll(_ pathComponents:String?=nil, _ uti:UTI?=nil, group:String?=nil) -> [URL]{
         var removedURLs = [URL]()
-        for baseurl in self.URLsByBaseURL.keys{
+        for baseurl in getBaseURLs(){
             removedURLs.append(contentsOf: discardMatched(baseurl, pathComponents, uti, group:group))
         }
         return removedURLs
@@ -172,7 +194,7 @@ public struct FileURL {
             }
 
             if let pathComponents = pathComponents{
-                let fileURL = create(baseURL, pathComponents, uti, group:group)
+                let fileURL = FileURL.create(baseURL, pathComponents, uti, group:group)
                 if url.lastPathComponent != fileURL.lastPathComponent{
                     return false
                 }
