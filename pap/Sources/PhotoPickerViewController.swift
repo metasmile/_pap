@@ -392,14 +392,17 @@ class PhotoPickerViewController: AppDockViewController {
                 // If there are incremental diffs, animate them in the collection view.
                 // For indexes to make sense, updates must be in this order:
                 // delete, insert, reload, move
+                var removedIndexPaths: [IndexPath]?
                 if let removed = changes.removedIndexes, removed.count > 0 {
                     let indexPaths = removed.map { IndexPath(item: $0, section:section) }.setable
                     needsToRestoreSelection = true
                     self.photoCollectionView.deleteItems(at: indexPaths)
                     
-                    if section > 0, PHAssets.fetched.results?[section].count == 0 {
+                    if PHAssets.fetched.results?[section].count == 0 {
                         self.photoCollectionView.reloadSections(IndexSet(integer: section))
                     }
+                    
+                    removedIndexPaths = indexPaths
                 }
                 if let inserted = changes.insertedIndexes, inserted.count > 0 {
                     let indexPaths = inserted.map { IndexPath(item: $0, section:section) }.setable
@@ -409,7 +412,8 @@ class PhotoPickerViewController: AppDockViewController {
                     self.photoCollectionView.insertItems(at: indexPaths)
                 }
                 if let changed = changes.changedIndexes, changed.count > 0 {
-                    self.photoCollectionView.reloadItems(at: changed.map { IndexPath(item: $0, section:section) }.setable)
+                    let indexPaths = changed.map { IndexPath(item: $0, section:section) }.setable
+                    self.photoCollectionView.reloadItems(at: indexPaths.filter { removedIndexPaths?.contains($0) == false })
                 }
                 changes.enumerateMoves { fromIndex, toIndex in
                     needsToRestoreSelection = true
