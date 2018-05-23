@@ -182,7 +182,7 @@ private class ConvertAppTask: TaskPrototype, Taskable {
         let info = super.info
 
         //default is undefined.
-        info.policy.concurrencyCount = nil
+        info.policy.estimatedConcurrencyCount = nil
 
         if let currentWorkerType = ConvertApp.availableWorkers.first(where:{
             $0.direction == defaults.convertingDirection
@@ -190,7 +190,7 @@ private class ConvertAppTask: TaskPrototype, Taskable {
 
             if currentWorkerType is LivePhotoConverter.Type{
                 //override concurrencyCount if currentWorkerType is LivePhotoConverter
-                info.policy.concurrencyCount = 1
+                info.policy.estimatedConcurrencyCount = 1
             }
         }
 

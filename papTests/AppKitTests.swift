@@ -116,7 +116,7 @@ class AppTaskTests: XCTestCase {
             override var info: TaskInfo {
                 let info = super.info
 
-                info.policy.concurrencyCount = 2
+                info.policy.estimatedConcurrencyCount = 2
 
                 return info
             }

@@ -83,7 +83,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
             return nil
         }
         let taskType = appInfo.appType.taskType
-        let taskInfo = TaskInfo(request.token, taskType.self, request.appType)
+        let taskInfo = TaskInfo(request.token, request.param, taskType.self, request.appType)
 
         if let taskPolicy = request.taskPolicy{
             //if request exactly has taskPolicy, that will have first priority.
@@ -161,7 +161,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
             )
 
             var queues = Array(_queuePool.values)
-            if let preferredCount = task.info.policy.concurrencyCount {
+            if let preferredCount = task.info.policy.estimatedConcurrencyCount {
                 assert(preferredCount>0, "preferredCount cannot be lower than 1 if it was preferred.")
                 queues = Array(queues[0 ..< min(queues.count, preferredCount)])
             }
