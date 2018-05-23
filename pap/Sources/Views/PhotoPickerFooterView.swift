@@ -7,7 +7,12 @@ import Foundation
 import UIKit
 
 class PhotoPickerFooterView: UICollectionReusableView {
-    var label: UILabel!
+    lazy var label: UILabel = {
+        let view = UILabel()
+        view.font = UIFont.boldSystemFont(ofSize: 16)
+        view.textAlignment = .center
+        return view
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,9 +27,6 @@ class PhotoPickerFooterView: UICollectionReusableView {
     }
 
     private func initialize() {
-        label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textAlignment = .center
         addSubview(label)
         
         label.fitConstraints(to: self)

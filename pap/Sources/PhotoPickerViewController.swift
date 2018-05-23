@@ -34,6 +34,7 @@ class PhotoPickerViewController: AppDockViewController {
 
         //photos collection
         photoCollectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: PhotoCollectionViewCell.self))
+        photoCollectionView.register(PhotoPickerSectionHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "PhotoPickerSectionHeaderView")
         photoCollectionView.register(PhotoPickerFooterView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: "PhotoPickerFooterView")
         photoCollectionView.allowsMultipleSelection = true
         

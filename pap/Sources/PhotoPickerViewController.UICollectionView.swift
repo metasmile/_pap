@@ -49,9 +49,20 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "PhotoPickerFooterView", for: indexPath) as! PhotoPickerFooterView
-        view.text = formattedStringForAllPhotos(at: indexPath.section)
-        return view
+        if kind == UICollectionElementKindSectionHeader {
+            let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "PhotoPickerSectionHeaderView", for: indexPath) as! PhotoPickerSectionHeaderView
+            view.image = currentDisplayableApp?.appIcon
+            view.text = "Saved".localized
+            return view
+        }
+        else if kind == UICollectionElementKindSectionFooter {
+            let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "PhotoPickerFooterView", for: indexPath) as! PhotoPickerFooterView
+            view.text = formattedStringForAllPhotos(at: indexPath.section)
+            return view
+        }
+        else {
+            return UICollectionReusableView()
+        }
     }
 
     // MARK: - UICollectionViewDataSourcePrefetching
@@ -82,7 +93,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
 
         if let collectableApp = collectionViewDisplayableApp
             , let asset = PHAssets.fetched.asset(at: indexPath)
-            , let item = AppAssets.selected.at(unsafeIndex:indexPath.item) ?? AppAsset.create(for:asset) {
+            , let item = AppAssets.selected.by(asset) ?? AppAsset.create(for:asset) {
 
             if collectableApp.shouldSelect(item: item) == false {
                 return false
@@ -147,6 +158,10 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return section == 0 || PHAssets.fetched.results?[section].count == 0 ? .zero : CGSize(width: collectionView.bounds.width, height: 60)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
