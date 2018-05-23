@@ -75,7 +75,9 @@ extension PHAsset {
             livePhotoRequestOptions.isNetworkAccessAllowed = true
 
             PHImageManager.default().requestLivePhoto(for: self, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: livePhotoRequestOptions, resultHandler: { (livePhoto, info) in
-                UIActivityViewController.presentAsDefault(activityItems: [livePhoto])
+                if let livePhoto = livePhoto{
+                    UIActivityViewController.presentAsDefault(activityItems: [livePhoto])
+                }
             })
 
         } else{
