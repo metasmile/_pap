@@ -37,4 +37,10 @@ class PhotoPickerFooterView: UICollectionReusableView {
             label.text = text
         }
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        text = nil
+    }
 }

@@ -82,4 +82,11 @@ class PhotoPickerSectionHeaderView: UICollectionReusableView {
         
         appIconView.cornerRadius = appIconView.bounds.height * 0.5
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        text = nil
+        image = nil
+    }
 }

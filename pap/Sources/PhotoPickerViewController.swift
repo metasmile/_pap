@@ -422,8 +422,13 @@ class PhotoPickerViewController: AppDockViewController {
                 // For indexes to make sense, updates must be in this order:
                 // delete, insert, reload, move
                 if let removed = changes.removedIndexes, removed.count > 0 {
+                    let indexPaths = removed.map { IndexPath(item: $0, section:section) }
                     needsToRestoreSelection = true
-                    self.photoCollectionView.deleteItems(at: removed.map { IndexPath(item: $0, section:section) })
+                    self.photoCollectionView.deleteItems(at: indexPaths)
+                    
+                    if PHAssets.fetched.results?[section].count == 0 {
+                        self.photoCollectionView.reloadSections(IndexSet(integer: section))
+                    }
                 }
                 if let inserted = changes.insertedIndexes, inserted.count > 0 {
                     let indexPaths = inserted.map { IndexPath(item: $0, section:section) }
