@@ -26,6 +26,7 @@ protocol AppDockViewDelegate {
 class AppDockGestureRecognizer: UIPanGestureRecognizer {
     var beginDrawerOffset: CGFloat = 0
     var beginAppContentViewOffset: CGFloat = 0
+    var beginLayoutMode: DrawerLayoutMode = .pinned
 }
 
 class AppDockView: CustomView {
@@ -122,8 +123,8 @@ class AppDockView: CustomView {
         return false
     }
 
-    var isDrawerOpened: Bool {
-        return drawerView.isOpened
+    var isDrawerMaximized: Bool {
+        return drawerView.layoutMode == .maximized
     }
 
     /*
@@ -236,11 +237,11 @@ class AppDockView: CustomView {
 //AppDock
 extension AppDockView: AppDock{
     func expandDockIfNeeded(reloadContents: Bool?=nil) {
-        self.openDrawer(reloadDockContentViews: reloadContents)
+        self.maximizeDrawer(reloadDockContentViews: reloadContents)
     }
 
     func contractDockIfNeeded(reloadContents: Bool?=nil) {
-        self.closeDrawer(reloadDockContentViews: reloadContents)
+        self.pinDrawer(reloadDockContentViews: reloadContents)
     }
 }
 
@@ -286,22 +287,14 @@ extension AppDockView {
     
     fileprivate var preferredAccessoryViewHeight: CGFloat {
         if let accessory = self.accessory{
-            if accessory.preferences?.layoutMode == .minimized{
-                return 0
-            }else{
-                return accessory.preferences?.preferredHeight ?? DefaultPreferences.Accessory.preferredHeight
-            }
+            return accessory.preferences?.preferredHeight ?? DefaultPreferences.Accessory.preferredHeight
         }
         return AppDockView.VoidLayoutValue
     }
     
     fileprivate var preferredControllerViewHeight: CGFloat {
         if let control = self.controller {
-            if control.preferences?.layoutMode == .minimized{
-                return 0
-            }else{
-                return control.preferences?.preferredHeight ?? DefaultPreferences.Control.preferredHeight
-            }
+            return control.preferences?.preferredHeight ?? DefaultPreferences.Control.preferredHeight
         }
         return AppDockView.VoidLayoutValue
     }
@@ -344,13 +337,29 @@ extension AppDockView {
     }
     
     fileprivate func layoutAppContentViews() {
-        controllerViewHeightLayout.constant = preferredControllerViewHeight
-        appContentViewHeightLayout.constant = preferredAppContentViewHeight
+        switch drawerView.layoutMode {
+        case .minimized:
+            drawerViewHeightLayout.constant = preferredDrawerViewHeight
+            appContentViewHeightLayout.constant = max(0, preferredAccessoryViewHeight)
+            controllerViewHeightLayout.constant = 0
+        case .maximized:
+            drawerViewHeightLayout.constant = DefaultPreferences.DrawerView.prominentHeight
+            appContentViewHeightLayout.constant = preferredAppContentViewMaximumHeight
+            
+            let contentLayoutConstant = appContentViewHeightLayout.constant
+            let controllerPinned = controller?.preferences?.layoutMode == .pinned
+            let controllerLayoutConstant = controllerPinned ? preferredControllerViewHeight : contentLayoutConstant - max(0, preferredAccessoryViewHeight)
+            controllerViewHeightLayout.constant = controllerLayoutConstant
+        case .pinned:
+            drawerViewHeightLayout.constant = preferredDrawerViewHeight
+            appContentViewHeightLayout.constant = max(0, preferredControllerViewHeight) + max(0, preferredAccessoryViewHeight)
+            controllerViewHeightLayout.constant = preferredControllerViewHeight
+        }
         
-        topAccessoryView.layoutIfNeeded()
         controllerView.layoutIfNeeded()
         
-        layoutDrawerView()
+        drawerView.isBarHidden = !shouldDrawerEnable
+        drawerView.layoutIfNeeded()
         
         updateBackgroundColors()
         
@@ -410,8 +419,12 @@ extension AppDockView: UIGestureRecognizerDelegate {
             //INFO: gestureRecognizerShouldBegin == false, but drawerDidTap was called.
             return
         }
-
-        drawerView.isOpened ? closeDrawer() : openDrawer()
+        
+        switch drawerView.layoutMode {
+        case .maximized: setDrawerLayoutMode(.pinned)
+        case .pinned: setDrawerLayoutMode(.maximized)
+        case .minimized: setDrawerLayoutMode(.pinned)
+        }
     }
     
     @objc func gestureDidRecognize(sender: AppDockGestureRecognizer) {
@@ -422,6 +435,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
         case .began:
             sender.beginDrawerOffset = drawerViewHeightLayout.constant
             sender.beginAppContentViewOffset = appContentViewHeightLayout.constant
+            sender.beginLayoutMode = drawerView.layoutMode
             break
         case .changed:
             let delta = sender.beginDrawerOffset - translation.y
@@ -434,17 +448,17 @@ extension AppDockView: UIGestureRecognizerDelegate {
                     return limitation * (1 + log10(yPosition/limitation))
                 }
                 let offset = sender.beginAppContentViewOffset - translation.y
-                return isDrawerOpened ? logConstraintValueForYPoisition(offset, limitation: sender.beginAppContentViewOffset) : offset
+                return isDrawerMaximized ? logConstraintValueForYPoisition(offset, limitation: sender.beginAppContentViewOffset) : offset
             }()
 
-            appContentViewHeightLayout.constant = max(preferredAppContentViewHeight, appContentViewHeight)
-            controllerViewHeightLayout.constant = hasControllerPinned ? preferredControllerViewHeight : appContentViewHeightLayout.constant - preferredAccessoryViewHeight
+            appContentViewHeightLayout.constant = max(preferredAccessoryViewHeight, appContentViewHeight)
+            controllerViewHeightLayout.constant = hasControllerPinned ? preferredControllerViewHeight : appContentViewHeightLayout.constant - max(0, preferredAccessoryViewHeight)
             
-            if drawerView.isOpened{
+            if drawerView.layoutMode == .maximized {
                 drawerView.progressToRenderOpening = remapNormalizeClamp(delta, minHeight, maxHeight)
                 topAccessoryView.layoutIfNeeded()
                 controllerView.layoutIfNeeded()
-            }else{
+            } else if drawerView.layoutMode == .pinned {
                 drawerViewHeightLayout.constant = min(DefaultPreferences.DrawerView.prominentHeight, max(DefaultPreferences.DrawerView.compactHeight, delta))
             }
             
@@ -461,46 +475,65 @@ extension AppDockView: UIGestureRecognizerDelegate {
             
             invalidateIntrinsicContentSize()
             
-            if drawerView.isOpened && sender.beginDrawerOffset - translation.y < 0 {
+            if drawerView.layoutMode != .minimized && sender.beginDrawerOffset - translation.y < 0 {
                 closeDrawer()
                 sender.isEnabled = false
                 sender.isEnabled = true
             }
-            else if !drawerView.isOpened && sender.beginDrawerOffset - translation.y > DefaultPreferences.DrawerView.prominentHeight * 2 {
+            else if drawerView.layoutMode != .maximized && sender.beginDrawerOffset - translation.y > DefaultPreferences.DrawerView.prominentHeight * 2 {
                 openDrawer()
                 sender.isEnabled = false
                 sender.isEnabled = true
             }
         default:
-            if velocity.y < 0 {
+            if sender.beginLayoutMode == drawerView.layoutMode && velocity.y < 0 {
                 openDrawer()
             }
-            else if velocity.y > 0 {
+            else if sender.beginLayoutMode == drawerView.layoutMode && velocity.y > 0 {
                 closeDrawer()
             }
             else {
-                drawerView.isOpened ? openDrawer() : closeDrawer()
+                reloadKeepingDrawerOpened()
             }
         }
     }
     
     func reloadKeepingDrawerOpened() {
-        if isDrawerOpened {
-            openDrawer(reloadDockContentViews: true)
+        setDrawerLayoutMode(drawerView.layoutMode, reloadDockContentViews: true)
+    }
+    
+    func closeDrawer(reloadDockContentViews: Bool? = nil) {
+        switch drawerView.layoutMode {
+        case .maximized: setDrawerLayoutMode(.pinned, reloadDockContentViews: reloadDockContentViews)
+        case .pinned: setDrawerLayoutMode(.minimized, reloadDockContentViews: reloadDockContentViews)
+        case .minimized: break
         }
-        else {
-            closeDrawer(reloadDockContentViews: true)
+    }
+    
+    func openDrawer(reloadDockContentViews: Bool? = nil) {
+        switch drawerView.layoutMode {
+        case .maximized: break
+        case .pinned: setDrawerLayoutMode(.maximized, reloadDockContentViews: reloadDockContentViews)
+        case .minimized: setDrawerLayoutMode(.pinned, reloadDockContentViews: reloadDockContentViews)
+        }
+    }
+    
+    func setDrawerLayoutMode(_ layoutMode: DrawerLayoutMode, reloadDockContentViews: Bool? = nil) {
+        switch layoutMode {
+        case .minimized: minimizeDrawer(reloadDockContentViews: reloadDockContentViews)
+        case .maximized: maximizeDrawer(reloadDockContentViews: reloadDockContentViews)
+        case .pinned: pinDrawer(reloadDockContentViews: reloadDockContentViews)
         }
     }
 
-    func openDrawer(reloadDockContentViews: Bool? = nil) {
-        let reloadDockContentViews = reloadDockContentViews ?? !drawerView.isOpened
+    func maximizeDrawer(reloadDockContentViews: Bool? = nil) {
+        let reloadDockContentViews = reloadDockContentViews ?? (drawerView.layoutMode != .maximized)
 
         UIView.animateAsSpring(animations: {
             self.topAccessoryView.transform = .identity
         })
         
-        drawerView.isOpened = true
+        drawerView.layoutMode = .maximized
         drawerView.isBarHidden = !shouldDrawerEnable
         drawerViewHeightLayout.constant = DefaultPreferences.DrawerView.prominentHeight
 
@@ -508,8 +541,8 @@ extension AppDockView: UIGestureRecognizerDelegate {
         
         let contentLayoutConstant = appContentViewHeightLayout.constant
         let controllerPinned = controller?.preferences?.layoutMode == .pinned
-        let controllerLayoutConstant = controllerPinned ? preferredControllerViewHeight : contentLayoutConstant - preferredAccessoryViewHeight
-        let accessoryLayoutConstant = controllerPinned ? contentLayoutConstant - preferredControllerViewHeight : preferredAccessoryViewHeight
+        let controllerLayoutConstant = controllerPinned ? preferredControllerViewHeight : contentLayoutConstant - max(0, preferredAccessoryViewHeight)
+        let accessoryLayoutConstant = controllerPinned ? contentLayoutConstant - max(0, preferredControllerViewHeight) : preferredAccessoryViewHeight
         controllerViewHeightLayout.constant = controllerLayoutConstant
         
         if hasControllerPinned {
@@ -539,14 +572,14 @@ extension AppDockView: UIGestureRecognizerDelegate {
         delegate?.appDockView(self, didOpenDrawer: true)
     }
     
-    func closeDrawer(reloadDockContentViews: Bool? = nil) {
-        let reloadDockContentViews = reloadDockContentViews ?? drawerView.isOpened
+    func pinDrawer(reloadDockContentViews: Bool? = nil) {
+        let reloadDockContentViews = reloadDockContentViews ?? (drawerView.layoutMode != .pinned)
 
         UIView.animateAsSpring(animations: {
             self.topAccessoryView.transform = .identity
         })
         
-        drawerView.isOpened = false
+        drawerView.layoutMode = .pinned
         drawerView.isBarHidden = !shouldDrawerEnable
         drawerViewHeightLayout.constant = preferredDrawerViewHeight
 
@@ -573,6 +606,46 @@ extension AppDockView: UIGestureRecognizerDelegate {
         if reloadDockContentViews {
             (accessory?.view as? AppDockContentView)?.reloadContent()
 
+            (controller?.view as? AppDockContentView)?.reloadContent()
+        }
+        
+        delegate?.appDockView(self, didOpenDrawer: false)
+    }
+    
+    func minimizeDrawer(reloadDockContentViews: Bool? = nil) {
+        let reloadDockContentViews = reloadDockContentViews ?? (drawerView.layoutMode != .minimized)
+        
+        UIView.animateAsSpring(animations: {
+            self.topAccessoryView.transform = .identity
+        })
+        
+        drawerView.layoutMode = .minimized
+        drawerView.isBarHidden = !shouldDrawerEnable
+        drawerViewHeightLayout.constant = preferredDrawerViewHeight
+        
+        appContentViewHeightLayout.constant = max(0, preferredAccessoryViewHeight)
+        controllerViewHeightLayout.constant = 0
+        
+        if hasControllerPinned {
+            topAccessoryView.layoutIfNeeded()
+        }
+        else {
+            appContentView.layoutIfNeeded()
+        }
+        
+        invalidateIntrinsicContentSize()
+        
+        controller?.delegate?.dockWillContract(self)
+        accessory?.delegate?.dockWillContract(self)
+        
+        animateAsSpringSuperviewLayoutIfNeeded { _ in
+            self.controller?.delegate?.dockDidContract(self)
+            self.accessory?.delegate?.dockDidContract(self)
+        }
+        
+        if reloadDockContentViews {
+            (accessory?.view as? AppDockContentView)?.reloadContent()
+            
             (controller?.view as? AppDockContentView)?.reloadContent()
         }
         
@@ -897,7 +970,15 @@ internal class DockCollectionBackgroundView: UIView {
 
 // MARK: - Drawer View
 
+public enum DrawerLayoutMode: Int{
+    case minimized
+    case pinned
+    case maximized
+}
+
 internal class DrawerView: DesignableView {
+    
+    
     var topMargin: CGFloat = 6
     override var tintColor: UIColor! {
         didSet {
@@ -927,11 +1008,11 @@ internal class DrawerView: DesignableView {
             CATransaction.setDisableActions(disableActionsToRestore)
         }
     }
-
-    var isOpened = false {
-        didSet{
+    
+    var layoutMode: DrawerLayoutMode = .pinned {
+        didSet {
             layoutIfNeeded()
-            progressToRenderOpening = isOpened ? 1 : 0
+            progressToRenderOpening = layoutMode == .maximized ? 1 : 0
         }
     }
 
