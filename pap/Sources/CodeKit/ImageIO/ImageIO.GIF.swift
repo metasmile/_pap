@@ -44,7 +44,7 @@ public func UIImageGIFRepresentationURL(with imageFiles: [URL], loopCount: Int =
     }
     
     let success = CGImageDestinationFinalize(destination)
-    
+
     if removesImageFilePaths {
         imageFiles.forEach({ try? FileManager.default.removeItem(at: $0) })
     }

@@ -39,33 +39,5 @@ class ExifGhostAppTests: PHAssetsXCTestCase {
 
     func test_exifWrite() {
         XCTAssertTrue(true)
-
-        let async = AsyncSignal()
-        async.begin()
-
-        //TODO: PHAsset async procedures does not work in XCTest
-        if let numberOfSection = PHAssets.fetched.results?.count, numberOfSection > 0, let numberOfItemsInSection = PHAssets.fetched.results?[numberOfSection - 1].count, numberOfItemsInSection > 0 {
-            let latestIndexPath = IndexPath(item: numberOfItemsInSection - 1, section: numberOfSection - 1)
-
-            if let latestAsset = PHAssets.fetched.asset(at: latestIndexPath){
-
-                if let url = "temp.jpg".asURLInTemporaryDirectory{
-                    latestAsset.writeJPEGRepresentation(to: url, transformMetadata: { dictionary in
-                        var metadata = dictionary
-                        print(metadata)
-                        metadata.removeValue(forKey: kCGImagePropertyGPSDictionary as String)
-                        return metadata
-                        
-                    }, completion: { succeed in
-                        print("succeed ------------- ", succeed)
-                        print(url.asMetadataFromCIImage)
-                        async.end()
-                    })
-                }
-                
-
-            }
-        }
-        async.waitUntilEnd(timeout: DispatchTime.now()+10.0)
     }
 }

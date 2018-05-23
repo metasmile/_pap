@@ -81,20 +81,29 @@ public struct FileURL {
         common
     */
     private static var URLsByBaseURL = [URL:[URL]]()
-    private static func getURLBy(_ BaseURL:URL) -> [URL]{
+
+    private static let FileURLSyncQueue = DispatchQueue(label: "com.stells.internal_FileURLSyncQueue")
+
+    private static func setURLs(_ BaseURL:URL, _ urls:[URL]) {
+        FileURLSyncQueue.sync(flags: .barrier) {
+            URLsByBaseURL[BaseURL] = urls
+        }
+    }
+
+    private static func getURLs(_ BaseURL:URL) -> [URL]{
         if let urls = URLsByBaseURL[BaseURL]{
             return urls
         }
         let urls = [URL]()
-        URLsByBaseURL[BaseURL] = urls
+        setURLs(BaseURL, urls)
         return urls
     }
 
     public static func acquire(_ BaseURL:URL, _ pathComponents:String, _ uti:UTI?, group:String?=nil) -> URL {
         let url = create(BaseURL, pathComponents, uti, group: group)
-        var urls = getURLBy(BaseURL)
+        var urls = getURLs(BaseURL)
         urls.append(url)
-        URLsByBaseURL[BaseURL] = urls
+        setURLs(BaseURL, urls)
         return url
     }
 
@@ -108,8 +117,11 @@ public struct FileURL {
         }
 
         var url = dirURL.appendingPathComponent(pathComponents)
-        if let ext = uti?.fileExtension{
-            url = url.appendingPathExtension(ext)
+        if let uti = uti{
+            assert(uti.fileExtension != nil, "Not found file extension for UTI \(uti.rawValue)")
+            if let ext = uti.fileExtension{
+                url = url.appendingPathExtension(ext)
+            }
         }
 
         do {
@@ -125,7 +137,7 @@ public struct FileURL {
     public static func discardMatched(_ baseURL:URL, _ pathComponents:String?, _ uti:UTI?, group:String?=nil) -> [URL]{
         var removedURLs = [URL]()
         let targetURLsInBaseURL = matched(baseURL, pathComponents, uti, group: group)
-        var urlsInBaseURL = getURLBy(baseURL)
+        var urlsInBaseURL = getURLs(baseURL)
 
         for url in targetURLsInBaseURL {
             if let index = urlsInBaseURL.index(where:{ $0 == url }) {
@@ -138,7 +150,7 @@ public struct FileURL {
             }
         }
 
-        URLsByBaseURL[baseURL] = urlsInBaseURL
+        setURLs(baseURL, urlsInBaseURL)
         return removedURLs
     }
 
@@ -153,7 +165,7 @@ public struct FileURL {
 
     public static func matched(_ baseURL:URL, _ pathComponents:String?, _ uti:UTI?, group:String?=nil) -> [URL] {
         // .jpg -> pathComponents -> group(dir)
-        return getURLBy(baseURL).filter { url in
+        return getURLs(baseURL).filter { url in
 
             if let uti = uti, uti != UTI(withURL: url) {
                 return false

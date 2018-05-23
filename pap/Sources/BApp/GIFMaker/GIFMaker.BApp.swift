@@ -308,10 +308,12 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
         switch GIFMakerSettings.sourceType.type(rawValue: (GIFMaker.defaults as! GIFMakerDefaults).sourceType) {
         case .photo?:
             let urls = resultItems.compactMap({ $0.fileURL })
+
             if let url = UIImageGIFRepresentationURL(with: GifConverterDefaultOption.URLs(urls: urls, with: defaults.direction), loopCount: defaults.loopCount, frameDelay: defaults.frameDelay) {
                 results.append(url)
             }
-        default: results += resultItems.compactMap({ $0.fileURL })
+        
+            default: results += resultItems.compactMap({ $0.fileURL })
         }
         
         asyncSignal.begin()

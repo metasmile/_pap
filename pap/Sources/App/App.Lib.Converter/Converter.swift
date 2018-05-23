@@ -249,9 +249,9 @@ extension Converter{
 
                 var resultUrl: URL? = nil
                 if let image = response.1, let data = UIImageJPEGRepresentation(image, CGFloat(imageQuality)) {
-                    let url = "\(param.filenamePrefix)_\(UUID().uuidString)".asURLInTemporaryDirectory!
-                    
-                    try? FileManager.default.removeItem(at: url)
+
+                    let identifier = "\(param.filenamePrefix)_\(source.asset.localIdentifierWithoutSplitter)"
+                    let url = FileURL.temp(identifier, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
                     do {
                         try data.write(to: url)
                         resultUrl = url
