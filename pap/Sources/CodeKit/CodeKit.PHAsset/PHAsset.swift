@@ -29,13 +29,68 @@ extension PHAsset {
     }
 
     //https://developer.apple.com/library/content/samplecode/UsingPhotosFramework/Listings/Shared_AssetViewController_swift.html
-    func revertToOriginal() {
+    public func revertToOriginal() {
         PHPhotoLibrary.shared().performChanges({
             let request = PHAssetChangeRequest(for: self)
             request.revertAssetContentToOriginal()
         }, completionHandler: { success, error in
             if !success { print("can't revert asset: \(String(describing: error))") }
         })
+    }
+
+    public func requestToDelete(wait:Bool=false, completion:((Bool, Error?) -> Swift.Void)? = nil) {
+        if wait{
+            do{
+                try PHPhotoLibrary.shared().performChangesAndWait {
+                    PHAssetChangeRequest.deleteAssets(NSArray(object: self))
+                }
+                completion?(true,nil)
+            }catch let e {
+                completion?(false, e)
+            }
+        }else{
+            PHPhotoLibrary.shared().performChanges({
+                PHAssetChangeRequest.deleteAssets(NSArray(object: self))
+            }, completionHandler: completion)
+        }
+    }
+
+
+    public func shareWithDefaultUIActivities(completion:UIKit.UIActivityViewControllerCompletionWithItemsHandler?=nil){
+
+        if self.mediaType == .video{
+            let videoRequestOptions = PHVideoRequestOptions()
+            videoRequestOptions.isNetworkAccessAllowed = true
+            videoRequestOptions.deliveryMode = .automatic
+
+            PHImageManager.default().requestAVAsset(forVideo: self, options: videoRequestOptions, resultHandler: {(asset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
+                if let urlAsset = asset as? AVURLAsset {
+                    UIActivityViewController.presentAsDefault(activityItems: [urlAsset.url as URL], excludedActivityTypes:[UIActivityType.saveToCameraRoll])
+                }
+            })
+        } else if self.imageType == .livePhoto{
+
+            let livePhotoRequestOptions = PHLivePhotoRequestOptions()
+            livePhotoRequestOptions.deliveryMode = .opportunistic
+            livePhotoRequestOptions.isNetworkAccessAllowed = true
+
+            PHImageManager.default().requestLivePhoto(for: self, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: livePhotoRequestOptions, resultHandler: { (livePhoto, info) in
+                UIActivityViewController.presentAsDefault(activityItems: [livePhoto])
+            })
+
+        } else{
+            let defaultImageRequestOptions = PHImageRequestOptions()
+            defaultImageRequestOptions.isNetworkAccessAllowed = true
+            defaultImageRequestOptions.isSynchronous = false
+            defaultImageRequestOptions.deliveryMode = .opportunistic
+            defaultImageRequestOptions.resizeMode = .exact
+
+            PHImageManager.default().requestImageData(for: self, options: defaultImageRequestOptions) { data, s, orientation, dictionary in
+                if let data = data{
+                    UIActivityViewController.presentAsDefault(activityItems: [data], excludedActivityTypes:[UIActivityType.saveToCameraRoll])
+                }
+            }
+        }
     }
 
     var pixelSize: CGSize {
