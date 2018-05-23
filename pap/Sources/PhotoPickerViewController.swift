@@ -366,7 +366,7 @@ class PhotoPickerViewController: AppDockViewController {
         }
 
         //remove preview items
-        for removedAsset in removedAssets{
+        for removedAsset in removedAssets {
             self.batchPreviewView.removeCollectionViewItem(with: removedAsset)
         }
         
@@ -393,18 +393,23 @@ class PhotoPickerViewController: AppDockViewController {
                 // For indexes to make sense, updates must be in this order:
                 // delete, insert, reload, move
                 if let removed = changes.removedIndexes, removed.count > 0 {
+                    let indexPaths = removed.map { IndexPath(item: $0, section:section) }.setable
                     needsToRestoreSelection = true
-                    self.photoCollectionView.deleteItems(at: removed.map { IndexPath(item: $0, section:section) })
+                    self.photoCollectionView.deleteItems(at: indexPaths)
+                    
+                    if section > 0, PHAssets.fetched.results?[section].count == 0 {
+                        self.photoCollectionView.reloadSections(IndexSet(integer: section))
+                    }
                 }
                 if let inserted = changes.insertedIndexes, inserted.count > 0 {
-                    let indexPaths = inserted.map { IndexPath(item: $0, section:section) }
+                    let indexPaths = inserted.map { IndexPath(item: $0, section:section) }.setable
                     indexPathToScroll = indexPaths.last
                     needsToRestoreSelection = true
                     
                     self.photoCollectionView.insertItems(at: indexPaths)
                 }
                 if let changed = changes.changedIndexes, changed.count > 0 {
-                    self.photoCollectionView.reloadItems(at: changed.map { IndexPath(item: $0, section:section) })
+                    self.photoCollectionView.reloadItems(at: changed.map { IndexPath(item: $0, section:section) }.setable)
                 }
                 changes.enumerateMoves { fromIndex, toIndex in
                     needsToRestoreSelection = true
