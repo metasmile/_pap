@@ -32,7 +32,7 @@ extension AppDockDelegate{
 public enum AppDockContentLayoutMode: Int{
     case none
     case pinned
-    case minimized
+//    case minimized
 }
 
 public protocol AppDockContentPreferable {

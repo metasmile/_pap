@@ -54,11 +54,11 @@ extension AppDockNavigationController: AppDockViewDelegate {
             AppCenter.default.current = item.app
             
             appDockView.controller = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.dockContent
-            appDockView.closeDrawer(reloadDockContentViews: true)
+            appDockView.pinDrawer(reloadDockContentViews: true)
         }
         else {
             appDockView.controller = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.dockContent
-            appDockView.isDrawerOpened ? appDockView.openDrawer(reloadDockContentViews: true) : appDockView.closeDrawer(reloadDockContentViews: true)
+            appDockView.reloadKeepingDrawerOpened()
             
             if let collectionView = self.topViewController?.view.subviews.first as? UICollectionView {
                 let bottomOffsetY = collectionView.contentSize.height - collectionView.bounds.size.height + collectionView.adjustedContentInset.bottom
@@ -134,11 +134,15 @@ class AppDockViewController: UIViewController {
     }
 
     @objc func cancelButtonDidTap(sender: Any) {
-        appDockView?.closeDrawer()
+        if appDockView?.isDrawerMaximized == true {
+            appDockView?.closeDrawer()
+        }
     }
 
     @objc func doneButtonDidTap(sender: Any) {
-        appDockView?.closeDrawer()
+        if appDockView?.isDrawerMaximized == true {
+            appDockView?.closeDrawer()
+        }
     }
     
     var appDockInsets: UIEdgeInsets {
