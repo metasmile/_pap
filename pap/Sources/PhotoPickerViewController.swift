@@ -19,6 +19,7 @@ class PhotoPickerViewController: AppDockViewController {
     var initialPhotoCollectionIndexPath: IndexPath?
     
     var batchPreviewView: PreviewView!
+    private var appDockDrawerLayoutModeRestoringAfterProcessing: DrawerLayoutMode?
     
     var progressBar: UIProgressView!
     private var taskProgress: Float = 0
@@ -524,6 +525,8 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         UIView.animate(withDuration: 0.2) {
             self.progressBar.alpha = 1
         }
+        
+        updateAppDockViewProcessingStart()
     }
     
     private func updateProgress(_ progress: Float, title: String, animated: Bool = true) {
@@ -586,6 +589,8 @@ extension PhotoPickerViewController: PreviewViewDelegate {
 
         updateSelectedItemUIs()
         updateVisiblePhotoCollectionCellsEnabled()
+        
+        updateAppDockViewProcessingEnd()
     }
     
     func batchPreviewViewDidCancelEdit(_ view: PreviewView) {
@@ -595,6 +600,24 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         }
 
         progressBar.isHidden = true
+        
+        updateAppDockViewProcessingEnd()
+    }
+    
+    private func updateAppDockViewProcessingStart() {
+        appDockDrawerLayoutModeRestoringAfterProcessing = appDockView?.drawerLayoutMode
+        appDockView?.minimizeDrawer(reloadDockContentViews: true)
+        
+        appDockView?.disabled = true
+    }
+    
+    private func updateAppDockViewProcessingEnd() {
+        if let layoutMode = appDockDrawerLayoutModeRestoringAfterProcessing {
+            appDockView?.setDrawerLayoutMode(layoutMode, reloadDockContentViews: true)
+            appDockDrawerLayoutModeRestoringAfterProcessing = nil
+        }
+        
+        appDockView?.disabled = false
     }
 }
 
