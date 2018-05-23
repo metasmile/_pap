@@ -21,34 +21,20 @@ public struct PHAssetResourceFinalizingOutput: TaskResultable {
     }
 }
 
-public struct PHAssetResourceFinalizingTaskRespondable: AppTaskRespondable {
-    public var request: AppTaskRequest
-    public var result: TaskResultable?
-    public var info: TaskInfo
-    
-    public var assetLocalIdentifier: String? = nil
-}
-
 public protocol PHAssetResourceFinalizableApp: FinalizableApp {
-    
+    var createdAssetLocalIdentifiers: [String]? {get}
 }
 
 extension PHAssetResourceFinalizableApp {
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
-        // filter only completed.
-        let result = result
-            .filter { respondable in respondable.info.state == .completed }
-        
-        return createPHAssets(result: result)
+        return result
     }
     
-    public func createPHAssets(result: [AppTaskRespondable]) -> [AppTaskRespondable] {
-        var resultItems = [PHAssetResourceFinalizingTaskRespondable]()
+    public func createPHAssets(from outputs: [PHAssetResourceFinalizingOutput]) -> [String] {
+        var localIdentifiers = [String]()
         
         try? PHPhotoLibrary.shared().performChangesAndWait {
-            for respondable in result {
-                guard let item = respondable.result as? PHAssetResourceFinalizingOutput else { continue }
-                
+            for item in outputs {
                 let request = PHAssetCreationRequest.forAsset()
                 let options = PHAssetResourceCreationOptions()
                 options.shouldMoveFile = true
@@ -57,11 +43,11 @@ extension PHAssetResourceFinalizableApp {
                     request.addResource(with: resourceOutput.resourceType, fileURL: resourceOutput.url, options: options)
                 }
                 
-                resultItems.append(PHAssetResourceFinalizingTaskRespondable(request: respondable.request, result: respondable.result, info: respondable.info, assetLocalIdentifier: request.placeholderForCreatedAsset?.localIdentifier))
+                if let identifier = request.placeholderForCreatedAsset?.localIdentifier {
+                    localIdentifiers.append(identifier)
+                }
             }
         }
-        resultItems.sort(by: { ($0.result as? PHAssetResourceFinalizingOutput)?.orderedIndex ?? 0 < ($1.result as? PHAssetResourceFinalizingOutput)?.orderedIndex ?? 0
-        })
-        return resultItems
+        return localIdentifiers
     }
 }

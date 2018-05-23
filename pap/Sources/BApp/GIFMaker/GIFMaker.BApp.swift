@@ -253,6 +253,7 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
     @objc dynamic
     public private(set) lazy var config: GIFMakerAppConfigValue? = GIFMaker.configure?()
     public private(set) lazy var dockContent: AppDockContent? = GIFMakerAppDockContent()
+    public private(set) var createdAssetLocalIdentifiers: [String]?
     
     public static let info = AppInfo(
         identifier: "com.stells.pap.gifmaker"
@@ -314,21 +315,24 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
         let resultItems = result
             .filter { respondable in respondable.info.state == .completed }
-            .map { PHAssetResourceFinalizingTaskRespondable.init(request: $0.request, result: $0.result, info: $0.info, assetLocalIdentifier: nil) }
+            .compactMap { $0.result as? PHAssetResourceFinalizingOutput }
+            .sorted { ($0.orderedIndex ?? 0) < ($1.orderedIndex ?? 0) }
         
         let defaults =  (GIFMaker.defaults as! GIFMakerDefaults)
-        var results = [PHAssetResourceFinalizingTaskRespondable]()
+        var results = [PHAssetResourceFinalizingOutput]()
         
         switch GIFMakerSettings.sourceType.type(rawValue: (GIFMaker.defaults as! GIFMakerDefaults).sourceType) {
         case .photo?:
-            let urls = resultItems.compactMap({ ($0.result as? PHAssetResourceFinalizingOutput)?.resources.compactMap { $0.url } }).reduce([], +)
-            if let url = UIImageGIFRepresentationURL(with: GifConverterDefaultOption.URLs(urls: urls, with: defaults.direction), loopCount: defaults.loopCount, frameDelay: defaults.frameDelay), let request = resultItems.first?.request, let info = resultItems.first?.info {
-                results.append(PHAssetResourceFinalizingTaskRespondable(request: request, result: PHAssetResourceFinalizingOutput(resources: [(resourceType: .photo, url: url)], orderedIndex: nil), info: info, assetLocalIdentifier: nil))
+            let urls = resultItems.map({ $0.resources.map { $0.url } }).reduce([], +)
+            if let url = UIImageGIFRepresentationURL(with: GifConverterDefaultOption.URLs(urls: urls, with: defaults.direction), loopCount: defaults.loopCount, frameDelay: defaults.frameDelay) {
+                results.append(PHAssetResourceFinalizingOutput(resources: [(resourceType: .photo, url: url)], orderedIndex: nil))
             }
         default: results += resultItems
         }
         
-        return createPHAssets(result: results)
+        createdAssetLocalIdentifiers = createPHAssets(from: results)
+        
+        return result
     }
 }
 

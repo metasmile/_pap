@@ -619,6 +619,14 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
     
     func batchPreviewViewDidEndEdit(_ view: PreviewView) {
+        if let assetLocalIdentifiers = self.collectionViewDisplayableApp?.createdAssetLocalIdentifiers, assetLocalIdentifiers.count > 0 {
+            let assets = PHAsset.fetchAssets(withLocalIdentifiers: assetLocalIdentifiers, options: nil)
+            if let insertedSection = PHAssets.fetched.appendResult(assets) {
+                photoCollectionView.insertSections(IndexSet(integer: insertedSection))
+                updateVisiblePhotoCollectionCellsEnabled()
+            }
+        }
+        
         progressBar.isHidden = true
 
         updateSelectedItemUIs()
@@ -652,13 +660,6 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         }
         
         appDockView?.disabled = false
-    }
-    
-    func batchPreviewView(_ view: PreviewView, didChangeAssets assets: PHFetchResult<PHAsset>) {
-        if let insertedSection = PHAssets.fetched.appendResult(assets) {
-            photoCollectionView.insertSections(IndexSet(integer: insertedSection))
-            updateVisiblePhotoCollectionCellsEnabled()
-        }
     }
 }
 

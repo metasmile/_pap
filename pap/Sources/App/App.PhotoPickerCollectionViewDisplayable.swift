@@ -13,6 +13,7 @@ public protocol PhotoPickerCollectionViewDisplayableApp: App {
     var conformsMediaType: PHAssetMediaType? { get }
 
     var numberOfItemsShouldSelect: Int? {get}
+    var createdAssetLocalIdentifiers: [String]? {get}
 }
 
 extension PhotoPickerCollectionViewDisplayableApp{
@@ -25,6 +26,10 @@ extension PhotoPickerCollectionViewDisplayableApp{
     }
     
     public var conformsMediaType: PHAssetMediaType? {
+        return nil
+    }
+    
+    public var createdAssetLocalIdentifiers: [String]? {
         return nil
     }
 }

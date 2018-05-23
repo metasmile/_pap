@@ -31,6 +31,8 @@ public class ConvertApp: BApp,
     public private(set) lazy var config: ConvertAppConfigValue? = ConvertAppConfigValue()
 
     public private(set) var dockContent: AppDockContent?
+    
+    public private(set) var createdAssetLocalIdentifiers: [String]?
 
     public static let info = AppInfo(
             identifier: "com.stells.pap.convert"
@@ -137,17 +139,23 @@ extension ConvertApp{
     static var defaultWorker:Converter.Type{
         return GifConverter_LivePhoto.self
     }
-}
-
-
-private struct ConvertAppResult: TaskResultable{
-    var result:Any?
-    var orderedIndex: Int?
+    
+    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
+        // filter only completed.
+        let resultItem = result
+            .filter { respondable in respondable.info.state == .completed }
+            .compactMap { $0.result as? PHAssetResourceFinalizingOutput }
+            .sorted { ($0.orderedIndex ?? 0) < ($1.orderedIndex ?? 0) }
+        
+        self.createdAssetLocalIdentifiers = createPHAssets(from: resultItem)
+        
+        return result
+    }
 }
 
 private class ConvertAppTask: TaskPrototype, Taskable {
     public typealias ParamType = AppAsset
-    public typealias ResultType = ConvertAppResult
+    public typealias ResultType = PHAssetResourceFinalizingOutput
 
     let defaults = ConvertApp.defaults as! ConvertAppDefaults
 
