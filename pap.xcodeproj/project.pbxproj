@@ -69,7 +69,6 @@
 		4F71D4FDDE4A6207CADC0C8E /* Revert.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D34F0E97063C79A5B851 /* Revert.BApp.swift */; };
 		4F71D515FC2A5004283B8875 /* Converter.Mp4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D605DE80A5FB8CD97923 /* Converter.Mp4.swift */; };
 		4F71D556F3C4B15099434B20 /* PDFactory.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D30FD7125061A538BA37 /* PDFactory.BApp.swift */; };
-		4F71D55A608FB41E48B72C1C /* CodeKit.Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D22BB2829DC0C2F62EC6 /* CodeKit.Thread.swift */; };
 		4F71D5C053B83DAC002D5808 /* auto_straighten.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D0D967BFB92001862DCE /* auto_straighten.png */; };
 		4F71D5DC10EAC011D158E6FE /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D402604D22D60E92ECB2 /* CustomView.swift */; };
 		4F71D5DF1F5B52FDC8E79376 /* PhotoPickerViewController.UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DBE2FAD161C2D94D9CC6 /* PhotoPickerViewController.UICollectionView.swift */; };
@@ -334,7 +333,6 @@
 		4F71D1DAE58BB8D95F99E248 /* System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 		4F71D1FF1A96D99209FFCF5D /* Convert.AppDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convert.AppDefaults.swift; sourceTree = "<group>"; };
 		4F71D21D2B42C633EB01E378 /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
-		4F71D22BB2829DC0C2F62EC6 /* CodeKit.Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Thread.swift; sourceTree = "<group>"; };
 		4F71D23CA70B4177B7B400CD /* CodeKit.URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.URL.swift; sourceTree = "<group>"; };
 		4F71D2428B6ACA432A97F89F /* CodeKit.Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Bundle.swift; sourceTree = "<group>"; };
 		4F71D254F1BF1DA092025DEA /* UITableViewPickerCell.UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewPickerCell.UITableView.swift; sourceTree = "<group>"; };
@@ -725,7 +723,6 @@
 				4F71D1B67855F1829EB9787D /* CodeKit.Timer.swift */,
 				4F71D2428B6ACA432A97F89F /* CodeKit.Bundle.swift */,
 				4F71DABA565AF8CCD87462E4 /* CodeKit.String.swift */,
-				4F71D22BB2829DC0C2F62EC6 /* CodeKit.Thread.swift */,
 				4F71DDA8A017FB240BD27C24 /* CodeKit.AVAsset.swift */,
 				4F71D61975F96BAE2FA0BC93 /* CodeKit.CIImage.swift */,
 				4F71D8432FF35FE7D9C633CC /* CodeKit.UIImage.swift */,
@@ -2620,7 +2617,6 @@
 				4F71D29B3911115701282220 /* CodeKit.Timer.swift in Sources */,
 				4F71DAA45D6A9A4FA7FB64DF /* CodeKit.Bundle.swift in Sources */,
 				4F71D370F19B5448F5653985 /* CodeKit.String.swift in Sources */,
-				4F71D55A608FB41E48B72C1C /* CodeKit.Thread.swift in Sources */,
 				4F71DE4601387AC191A52227 /* CodeKit.AVAsset.swift in Sources */,
 				4F71D615732AB957EA406477 /* CodeKit.CIImage.swift in Sources */,
 				4F71DEF484B21B231FAEDE66 /* CodeKit.UIImage.swift in Sources */,
