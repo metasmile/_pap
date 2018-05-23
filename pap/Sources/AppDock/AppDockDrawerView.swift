@@ -38,15 +38,22 @@ internal class AppDockDrawerView: DesignableView {
         }
     }
 
-    var progressToRenderOpening:CGFloat = 0 {
+    var isHandleOpened = false {
+        didSet{
+            layoutIfNeeded()
+            handleOpeningProgress = isHandleOpened ? 1 : 0
+        }
+    }
+
+    var handleOpeningProgress:CGFloat = 0 {
         didSet {
             drawerShapePath.removeAllPoints()
             drawerShapePath.move(to: CGPoint(x: 0, y: topMargin))
 
-            if progressToRenderOpening == 0{
+            if handleOpeningProgress == 0{
                 drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width, y: topMargin))
             }else{
-                drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width / 2, y: topMargin + (drawerShapeLayerSize.height * progressToRenderOpening)))
+                drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width / 2, y: topMargin + (drawerShapeLayerSize.height * handleOpeningProgress)))
                 drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width, y: topMargin))
             }
             drawerShapeLayer.path = drawerShapePath.cgPath

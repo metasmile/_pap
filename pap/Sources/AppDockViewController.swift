@@ -54,7 +54,8 @@ extension AppDockNavigationController: AppDockViewDelegate {
             AppCenter.default.current = item.app
             
             appDockView.controller = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.dockContent
-            appDockView.pinDrawer(reloadDockContentViews: true)
+            //INFO: by apps? or globally? hmm at first following imessage policy(global)
+            appDockView.setDrawerDisplay(forState: appDockView.contentLayoutState,reloadDockContentViews: true)
         }
         else {
             appDockView.controller = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.dockContent

@@ -11,6 +11,7 @@
 //    AppDockItem > AppDockViewCell
 
 import UIKit
+import DefaultsKit
 
 struct AppDockItem {
     var app: App.Type
@@ -123,17 +124,26 @@ class AppDockView: CustomView {
         return CGSize(width: UIViewNoIntrinsicMetric, height: drawerViewHeightLayout.constant + appContentViewHeightLayout.constant + dockViewHeightLayout.constant + bottomAccessoryView.bounds.height)
     }
 
-    var contentLayoutState: AppDockContentLayoutState = .neutralized {
-        didSet {
-            drawerView.layoutIfNeeded()
-            drawerView.progressToRenderOpening = contentLayoutState == .maximized ? 1 : 0
+    var contentLayoutState: AppDockContentLayoutState {
+        set(newValue){
+            if hasControllerPinned {
+                return
+            }
+
+            Defaults.shared.appDockContentLayoutState = newValue.rawValue
+            drawerView.isHandleOpened = newValue == .maximized
+        }
+        get {
+            if hasControllerPinned {
+                return .neutralized
+            }
+            return AppDockContentLayoutState(rawValue: Defaults.shared.appDockContentLayoutState) ?? .neutralized
         }
     }
 
     var isContentLayoutMaximized: Bool {
         return contentLayoutState == .maximized
     }
-
 
     private var shouldDrawerEnable: Bool {
         if hasAppContentAsLayout {
@@ -271,7 +281,7 @@ extension AppDockView: AppDock{
     }
 
     func contractDockIfNeeded(reloadContents: Bool?=nil) {
-        self.pinDrawer(reloadDockContentViews: reloadContents)
+        self.neutralizeDrawer(reloadDockContentViews: reloadContents)
     }
 }
 
@@ -485,7 +495,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
             controllerViewHeightLayout.constant = hasControllerPinned ? preferredControllerViewHeight : appContentViewHeightLayout.constant - max(0, preferredAccessoryViewHeight)
             
             if contentLayoutState == .maximized {
-                drawerView.progressToRenderOpening = remapNormalizeClamp(delta, minHeight, maxHeight)
+                drawerView.handleOpeningProgress = remapNormalizeClamp(delta, minHeight, maxHeight)
                 topAccessoryView.layoutIfNeeded()
                 controllerView.layoutIfNeeded()
             } else if contentLayoutState == .neutralized {
@@ -550,9 +560,9 @@ extension AppDockView: UIGestureRecognizerDelegate {
     
     func setDrawerDisplay(forState state: AppDockContentLayoutState, reloadDockContentViews: Bool? = nil) {
         switch state {
-        case .minimized: minimizeDrawer(reloadDockContentViews: reloadDockContentViews)
-        case .maximized: maximizeDrawer(reloadDockContentViews: reloadDockContentViews)
-        case .neutralized: pinDrawer(reloadDockContentViews: reloadDockContentViews)
+            case .minimized: minimizeDrawer(reloadDockContentViews: reloadDockContentViews)
+            case .maximized: maximizeDrawer(reloadDockContentViews: reloadDockContentViews)
+            case .neutralized: neutralizeDrawer(reloadDockContentViews: reloadDockContentViews)
         }
     }
 
@@ -602,7 +612,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
         delegate?.appDockView(self, didOpenDrawer: true)
     }
     
-    func pinDrawer(reloadDockContentViews: Bool? = nil) {
+    func neutralizeDrawer(reloadDockContentViews: Bool? = nil) {
         let reloadDockContentViews = reloadDockContentViews ?? (contentLayoutState != .neutralized)
 
         UIView.animateAsSpring(animations: {
