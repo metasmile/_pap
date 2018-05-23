@@ -126,6 +126,21 @@ class AppDockView: CustomView {
     var isDrawerMaximized: Bool {
         return drawerView.layoutMode == .maximized
     }
+    
+    var drawerLayoutMode: DrawerLayoutMode {
+        return drawerView.layoutMode
+    }
+    
+    @IBOutlet private weak var dimmedView: UIView!
+    var disabled: Bool = false {
+        didSet {
+            self.isUserInteractionEnabled = !disabled
+            
+            UIView.transition(with: self.dimmedView, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                self.dimmedView.isHidden = !self.disabled
+            }, completion: nil)
+        }
+    }
 
     /*
         layout priority : controller > accessory
