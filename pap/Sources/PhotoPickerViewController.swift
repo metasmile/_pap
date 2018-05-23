@@ -19,7 +19,7 @@ class PhotoPickerViewController: AppDockViewController {
     var initialPhotoCollectionIndexPath: IndexPath?
     
     var batchPreviewView: PreviewView!
-    private var appDockDrawerLayoutModeRestoringAfterProcessing: DrawerLayoutMode?
+    private var appDockContentLayoutStateRestoringAfterProcessing: AppDockContentLayoutState?
     
     var progressBar: UIProgressView!
     private var taskProgress: Float = 0
@@ -433,7 +433,7 @@ class PhotoPickerViewController: AppDockViewController {
                 self.restoreSelectionByUser(selectedAssetIdentifiers)
             }
             
-            if self.appDockView?.isDrawerMaximized == true {
+            if self.appDockView?.isContentLayoutMaximized == true {
                 self.appDockView?.closeDrawer(reloadDockContentViews: true)
             }
             else {
@@ -610,16 +610,16 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
     
     private func updateAppDockViewProcessingStart() {
-        appDockDrawerLayoutModeRestoringAfterProcessing = appDockView?.drawerLayoutMode
+        appDockContentLayoutStateRestoringAfterProcessing = appDockView?.contentLayoutState
         appDockView?.minimizeDrawer(reloadDockContentViews: true)
         
         appDockView?.disabled = true
     }
     
     private func updateAppDockViewProcessingEnd() {
-        if let layoutMode = appDockDrawerLayoutModeRestoringAfterProcessing {
-            appDockView?.setDrawerLayoutMode(layoutMode, reloadDockContentViews: true)
-            appDockDrawerLayoutModeRestoringAfterProcessing = nil
+        if let state = appDockContentLayoutStateRestoringAfterProcessing {
+            appDockView?.setDrawerDisplay(forState:state, reloadDockContentViews: true)
+            appDockContentLayoutStateRestoringAfterProcessing = nil
         }
         
         appDockView?.disabled = false

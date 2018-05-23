@@ -131,7 +131,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
         preferences.preferredHeight = 300
-        preferences.layoutMode = .none
+        preferences.displayMode = .none
         return preferences
     }
 

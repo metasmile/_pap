@@ -28,26 +28,30 @@ extension AppDockDelegate{
     func dockDidContract(_ dock: AppDock) {}
 }
 
-// AppDockContentPreferable
-public enum AppDockContentLayoutMode: Int{
+// AppDock Window
+public enum AppDockContentDisplayMode: Int{
     case none
     case pinned
-//    case minimized
 }
 
+public enum AppDockContentLayoutState: Int{
+    case minimized
+    case neutralized
+    case maximized
+}
+
+
+// AppDockContentPreferable
 public protocol AppDockContentPreferable {
-    /*
-        minHeight will be ignored when layoutMode is .minimized
-    */
     var preferredHeight: CGFloat {get}
 
-    var layoutMode:AppDockContentLayoutMode {get}
+    var displayMode: AppDockContentDisplayMode {get}
 }
 
 public struct AppDockContentPreferences: AppDockContentPreferable {
     public var preferredHeight: CGFloat = 0
 
-    public var layoutMode: AppDockContentLayoutMode = .none
+    public var displayMode: AppDockContentDisplayMode = .none
 
     init(){}
 

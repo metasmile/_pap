@@ -134,13 +134,13 @@ class AppDockViewController: UIViewController {
     }
 
     @objc func cancelButtonDidTap(sender: Any) {
-        if appDockView?.isDrawerMaximized == true {
+        if appDockView?.isContentLayoutMaximized == true {
             appDockView?.closeDrawer()
         }
     }
 
     @objc func doneButtonDidTap(sender: Any) {
-        if appDockView?.isDrawerMaximized == true {
+        if appDockView?.isContentLayoutMaximized == true {
             appDockView?.closeDrawer()
         }
     }

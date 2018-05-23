@@ -146,7 +146,7 @@ private extension PhotosFilterApp {
         let view = AppUICollectionView(items: items)
         
         var p = AppDockContentPreferences()
-        p.layoutMode = .pinned
+        p.displayMode = .pinned
         p.preferredHeight = 100 // for test. remove this line after fixed app design
         return AppDockContentItem(view: view, preferences: p)
     }

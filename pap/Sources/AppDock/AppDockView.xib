@@ -35,7 +35,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
-                <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eoy-3D-8zG" customClass="DrawerView" customModule="pap" customModuleProvider="target">
+                <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eoy-3D-8zG" customClass="AppDockDrawerView" customModule="pap" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
                     <constraints>
                         <constraint firstAttribute="height" id="oFG-xd-IUR" customClass="AppDockVoidableLayoutConatraint" customModule="pap" customModuleProvider="target"/>
