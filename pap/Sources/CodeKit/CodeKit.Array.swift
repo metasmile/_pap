@@ -11,6 +11,10 @@ extension Array {
             Array(self[$0 ..< Swift.min($0 + size, count)])
         }
     }
+}
 
-
+extension Array where Element: Hashable { // not ordered set 
+    var setable: Array {
+        return Array(Set<Element>(self))
+    }
 }
