@@ -147,7 +147,7 @@ class AppUICollectionViewLayout: UICollectionViewLayout {
     }
     
     private var padding: CGFloat {
-        return max(0, (collectionViewSize.width - contentSize.width) / 2)
+        return 0//max(0, (collectionViewSize.width - contentSize.width) / 2)
     }
     
     override var collectionViewContentSize: CGSize {

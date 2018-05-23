@@ -109,7 +109,7 @@ private extension PhotosFilterApp {
         static let CIPhotoEffectTransfer = "CIPhotoEffectTransfer"
         
         static func aliasName(_ filterName: String) -> String? {
-            return CIFilter.localizedName(forFilterName: filterName)
+            return CIFilter.localizedName(forFilterName: filterName)?.remove("Photo Effect")
         }
     }
     
@@ -135,7 +135,8 @@ private extension PhotosFilterApp {
     }
     
     private func createController() -> AppDockContent {
-        let image = PhotosFilterApp.info.icon?.asUIImage
+        let image = R.image.photoFilterSampleJpg()
+
         var items = CIFilters.filters.map({ (filter) -> AppUICollectionView.CollectionItem in
             return AppUICollectionView.CollectionItem(title: PhotosFilterNames.aliasName(filter.name), image: image?.applyFilter(ciFilter: filter), action: {
                 self.config?.filter = CIFilterItem(filter)
