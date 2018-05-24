@@ -155,6 +155,29 @@ private extension AutoAdjustmentApp {
 private class _AutoAdjustmentAppTask: TaskPrototype, Taskable {
     public typealias ParamType = _AutoAdjustmentAppAsset
     public typealias ResultType = PHAssetResultItem
+
+    override var info: TaskInfo {
+        let info = super.info
+
+        if let param = info.requestParam as? _AutoAdjustmentAppAsset{
+            let pixelAmount = param.asset.pixelWidth*param.asset.pixelHeight
+            if pixelAmount > 3000*3000{
+                info.policy.estimatedConcurrencyCount = 1
+
+            }else if pixelAmount > 2000*2000{
+                info.policy.estimatedConcurrencyCount = 2
+
+            }else {
+                info.policy.estimatedConcurrencyCount = nil
+            }
+        }else{
+            //default is undefined.
+            info.policy.estimatedConcurrencyCount = nil
+        }
+
+        return info
+
+    }
     
     public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){
         
@@ -218,7 +241,7 @@ class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
         preferences.preferredHeight = (view as! UITableView).rowHeight * CGFloat(autoAdjustmentOptionKeys.count)
-        preferences.displayMode = .pinned
+        preferences.displayMode = .none
         return preferences
     }
 
