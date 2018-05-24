@@ -43,7 +43,7 @@ class JpgConverter_ScreenshotPng: OptionableConverterBase<JpgConverterOption>, J
         let quality:CGFloat = options?.compressionQuality ?? 0.7
 
         async.begin()
-        PHImageManager.default().requestImageData(for: source.asset, options: nil) { data, s, orientation, dictionary in
+        let requestId = PHImageManager.default().requestImageData(for: source.asset, options: nil) { data, s, orientation, dictionary in
 
             for r in source.asset.resources{
                 let url = URL(fileURLWithPath: r.originalFilename)
@@ -66,6 +66,7 @@ class JpgConverter_ScreenshotPng: OptionableConverterBase<JpgConverterOption>, J
             async.end()
         }
 
+        source.requestIDs.append(PHAssetRequestID(forImage: requestId))
         async.waitUntilEnd()
         return result
     }

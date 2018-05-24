@@ -63,7 +63,7 @@ class MovConverter_Gif: OptionableConverterBase<MovConverterOption>, MovConverte
         var urls:[(URL, Double)]?
 
         async.begin()
-        PHImageManager.default().requestImageData(for: source.asset, options: nil) { data, s, orientation, dictionary in
+        let requestId = PHImageManager.default().requestImageData(for: source.asset, options: nil) { data, s, orientation, dictionary in
             urls = data?.extractAnimatedImageURLsAsGIF()
             async.end()
         }

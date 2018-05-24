@@ -114,7 +114,6 @@ extension PHAssetItem {
         
         for req in requestIDs{
             if req.forImage != PHAssetRequestID.DefaultValue.forImage{
-                print(req.forImage)
                 PHImageManager.default().cancelImageRequest(req.forImage)
             }
             

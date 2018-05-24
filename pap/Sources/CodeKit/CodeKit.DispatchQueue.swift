@@ -63,7 +63,6 @@ extension AsyncSignal: AsyncManualSignalable, AsyncControllableSignable {
     public func begin(){
         if setOffset(true) {
             dispatchGroup.enter()
-            print("1")
         }
     }
 
@@ -71,7 +70,6 @@ extension AsyncSignal: AsyncManualSignalable, AsyncControllableSignable {
     public func end() -> Self{
         if setOffset(false) {
             dispatchGroup.leave()
-            print("2")
         }
         return self
     }
