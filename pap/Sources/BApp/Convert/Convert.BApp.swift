@@ -71,15 +71,27 @@ public class ConvertApp: BApp,
                     (result1?.orderedIndex ?? 0) < (result2?.orderedIndex ?? 0)
                 }
                 .compactMap { ($0.result as? ConverterVoidReturnType) == ConverterVoidReturnValue ? nil : $0.result }
-        
+
+        guard let items = resultItems, items.count > 0 else {
+            return result
+        }
+
         try? PHPhotoLibrary.shared().performChangesAndWait {
-            resultItems?.forEach { item in
-                guard let urls = item as? [URL] else { return }
+            let urlsItems = items.compactMap { item -> [URL]? in
+                var urls = item as? [URL]
+                if urls == nil, let url = item as? URL{
+                    urls = [url]
+                }
+                return urls
+            }
+
+            for urls in urlsItems {
+
                 let request = PHAssetCreationRequest.forAsset()
                 let options = PHAssetResourceCreationOptions()
                 options.shouldMoveFile = true
-                
-                urls.forEach { url in
+
+                for url in urls{
                     let uti = UTI(withURL: url)
 
                     if uti.conforms(to: UTI.image) {
@@ -96,7 +108,7 @@ public class ConvertApp: BApp,
                 }
             }
         }
-        
+
         return result
     }
 }
@@ -120,7 +132,7 @@ extension ConvertApp{
 
         LivePhotoConverter_Burst.self,
         LivePhotoConverter_Gif.self,
-        LivePhotoConverter_Video.self,
+        LivePhotoConverter_Mov.self,
 
         GifConverter_Burst.self,
         GifConverter_LivePhoto.self,
@@ -227,13 +239,8 @@ private class ConvertAppTask: TaskPrototype, Taskable {
         }
 
         let result = converter.convert(source: assetItem, async)
+        let index = AppAssets.selected.index(of: assetItem)
 
-        if let urls = result as? [URL] {
-            return ConvertAppResult(result: urls, orderedIndex: AppAssets.selected.index(of: assetItem))
-        }
-        else if let url = result as? URL {
-            return ConvertAppResult(result: [url], orderedIndex: AppAssets.selected.index(of: assetItem))
-        }
-        return nil
+        return ConvertAppResult(result: result, orderedIndex: index)
     }
 }

@@ -63,6 +63,7 @@ extension AsyncSignal: AsyncManualSignalable, AsyncControllableSignable {
     public func begin(){
         if setOffset(true) {
             dispatchGroup.enter()
+            print("1")
         }
     }
 
@@ -70,6 +71,7 @@ extension AsyncSignal: AsyncManualSignalable, AsyncControllableSignable {
     public func end() -> Self{
         if setOffset(false) {
             dispatchGroup.leave()
+            print("2")
         }
         return self
     }
@@ -87,12 +89,13 @@ extension AsyncSignal: AsyncManualSignalable, AsyncControllableSignable {
         }
         #endif
 
-        guard let timeout = timeout else {
+        if let timeout = timeout {
+            return dispatchGroup.wait(timeout: timeout)
+
+        } else {
             dispatchGroup.wait()
             return nil
         }
-
-        return dispatchGroup.wait(timeout: timeout)
     }
 
     public func waitUntilEnd() {

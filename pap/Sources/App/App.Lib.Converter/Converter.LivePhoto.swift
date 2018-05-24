@@ -82,7 +82,7 @@ struct LivePhotoConverter_Burst: LivePhotoConverter {
     }
 }
 
-struct LivePhotoConverter_Video: LivePhotoConverter {
+struct LivePhotoConverter_Mov: LivePhotoConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.mov, to:.livephoto) }
 
     init() {}
