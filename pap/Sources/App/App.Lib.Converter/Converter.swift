@@ -250,7 +250,7 @@ extension Converter{
                 var resultUrl: URL? = nil
                 if let image = response.1, let data = UIImageJPEGRepresentation(image, CGFloat(imageQuality)) {
 
-                    let identifier = "\(param.filenamePrefix)_\(source.asset.localIdentifierWithoutSplitter)"
+                    let identifier = "\(param.filenamePrefix)_\(source.asset.localIdentifierWithoutSplitter)_burst_\(idx)"
                     let url = FileURL.temp(identifier, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
                     do {
                         try data.write(to: url)
