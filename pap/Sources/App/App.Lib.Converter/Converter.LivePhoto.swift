@@ -112,3 +112,15 @@ struct LivePhotoConverter_Mov: LivePhotoConverter {
     }
 }
 
+struct LivePhotoConverter_Timelapse: LivePhotoConverter {
+    static var direction: ConvertingDirection { return ConvertingDirection(from:.mov_timelapse, to:.livephoto) }
+
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+        let converter = LivePhotoConverter_Mov()
+        return converter.convert(source: source, async)
+    }
+
+    static func canPerformWith(source: AppAsset) -> Bool {
+        return source.asset.mediaSubtypes.contains(.videoTimelapse)
+    }
+}

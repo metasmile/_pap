@@ -129,10 +129,12 @@ extension ConvertApp{
         MovConverter_Burst.self,
         MovConverter_LivePhoto.self,
         MovConverter_Gif.self,
+        MP4Converter_Timelapse.self,
 
         LivePhotoConverter_Burst.self,
         LivePhotoConverter_Gif.self,
         LivePhotoConverter_Mov.self,
+        LivePhotoConverter_Timelapse.self,
 
         GifConverter_Burst.self,
         GifConverter_LivePhoto.self,

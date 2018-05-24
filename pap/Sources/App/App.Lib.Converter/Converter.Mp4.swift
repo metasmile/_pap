@@ -35,3 +35,16 @@ struct MP4Converter_Mov: MP4Converter {
         return source.asset.mediaType == .video && source.asset.uniformTypeIdentifier != (kUTTypeMPEG4 as String)
     }
 }
+
+struct MP4Converter_Timelapse: MP4Converter {
+    static var direction: ConvertingDirection { return ConvertingDirection(from:.mov_timelapse, to:.mp4) }
+
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
+        let converter = MP4Converter_Mov()
+        return converter.convert(source: source, async)
+    }
+
+    static func canPerformWith(source: AppAsset) -> Bool {
+        return source.asset.mediaSubtypes.contains(.videoTimelapse)
+    }
+}
