@@ -43,7 +43,7 @@ DEPENDENCIES:
   - TPPDF
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Crashlytics
     - Fabric
     - Firebase
@@ -85,4 +85,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: ef2d95300c6d290a2257e05b76e832bd35cfb76e
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.2

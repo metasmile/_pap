@@ -82,10 +82,17 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
             typeWord = "video"
         }
 
+
         if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == true {
             vc.actionItems = [
                 UIPreviewAction(title: "Deselect this \(typeWord)".localized, style: .default) { action, controller in
                     self.deselectCollectionViewItem(at:indexPath)
+                },
+                UIPreviewAction(title: "Share".localized, style: .default) { action, controller in
+                    item.asset.shareWithDefaultUIActivities()
+                },
+                UIPreviewAction(title: "Delete".localized, style: .destructive) { action, controller in
+                    item.asset.requestToDelete()
                 }
             ]
         }
@@ -93,6 +100,12 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
             vc.actionItems = [
                 UIPreviewAction(title: "Select this \(typeWord)".localized, style: .default) { action, controller in
                     self.selectCollectionViewItem(at: indexPath)
+                },
+                UIPreviewAction(title: "Share".localized, style: .default) { action, controller in
+                    item.asset.shareWithDefaultUIActivities()
+                },
+                UIPreviewAction(title: "Delete".localized, style: .destructive) { action, controller in
+                    item.asset.requestToDelete()
                 }
             ]
         }
@@ -110,18 +123,30 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
 
         if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == true {
             vc.actionItems = [
+                editAction,
                 UIPreviewAction(title: "Deselect this \(typeWord)".localized, style: .default) { action, controller in
                     self.deselectCollectionViewItem(at:indexPath)
                 },
-                editAction
+                UIPreviewAction(title: "Share".localized, style: .default) { action, controller in
+                    item.asset.shareWithDefaultUIActivities()
+                },
+                UIPreviewAction(title: "Delete".localized, style: .destructive) { action, controller in
+                    item.asset.requestToDelete()
+                }
             ]
         }
         else {
             vc.actionItems = [
+                editAction,
                 UIPreviewAction(title: "Select this \(typeWord)".localized, style: .default) { action, controller in
                     self.selectCollectionViewItem(at: indexPath)
                 },
-                editAction
+                UIPreviewAction(title: "Share".localized, style: .default) { action, controller in
+                    item.asset.shareWithDefaultUIActivities()
+                },
+                UIPreviewAction(title: "Delete".localized, style: .destructive) { action, controller in
+                    item.asset.requestToDelete()
+                }
             ]
         }
     }

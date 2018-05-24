@@ -109,7 +109,7 @@ private extension PhotosFilterApp {
         static let CIPhotoEffectTransfer = "CIPhotoEffectTransfer"
         
         static func aliasName(_ filterName: String) -> String? {
-            return CIFilter.localizedName(forFilterName: filterName)
+            return CIFilter.localizedName(forFilterName: filterName)?.remove("Photo Effect")
         }
     }
     
@@ -135,7 +135,8 @@ private extension PhotosFilterApp {
     }
     
     private func createController() -> AppDockContent {
-        let image = PhotosFilterApp.info.icon?.asUIImage
+        let image = R.image.photoFilterSampleJpg()
+
         var items = CIFilters.filters.map({ (filter) -> AppUICollectionView.CollectionItem in
             return AppUICollectionView.CollectionItem(title: PhotosFilterNames.aliasName(filter.name), image: image?.applyFilter(ciFilter: filter), action: {
                 self.config?.filter = CIFilterItem(filter)
@@ -146,7 +147,7 @@ private extension PhotosFilterApp {
         let view = AppUICollectionView(items: items)
         
         var p = AppDockContentPreferences()
-        p.layoutMode = .pinned
+        p.displayMode = .pinned
         p.preferredHeight = 100 // for test. remove this line after fixed app design
         return AppDockContentItem(view: view, preferences: p)
     }
@@ -159,7 +160,30 @@ private extension PhotosFilterApp {
 private class _PhotosFilterAppTask: TaskPrototype, Taskable {
     public typealias ParamType = _PhotosFilterAppAsset
     public typealias ResultType = PHAssetResultItem
-    
+
+    override var info: TaskInfo {
+        let info = super.info
+
+        if let param = info.requestParam as? _PhotosFilterAppAsset{
+            let pixelAmount = param.asset.pixelWidth*param.asset.pixelHeight
+            if pixelAmount > 3000*3000{
+                info.policy.estimatedConcurrencyCount = 1
+
+            }else if pixelAmount > 2000*2000{
+                info.policy.estimatedConcurrencyCount = 2
+
+            }else {
+                info.policy.estimatedConcurrencyCount = nil
+            }
+        }else{
+            //default is undefined.
+            info.policy.estimatedConcurrencyCount = nil
+        }
+
+        return info
+
+    }
+
     public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){
         
         (param as? _PhotosFilterAppAsset)?.cancelAllRequestIDs()

@@ -47,15 +47,14 @@ class JpgConverter_ScreenshotPng: OptionableConverterBase<JpgConverterOption>, J
 
             for r in source.asset.resources{
                 let url = URL(fileURLWithPath: r.originalFilename)
-                if url.pathExtension.lowercased() == "png", let data = data {
-                    let fileURL = url.deletingPathExtension().appendingPathExtension("jpg").lastPathComponent.asURLInTemporaryDirectory
+                if UTI(withURL: url) == UTI.png, let data = data {
+                    let fileURL = FileURL.temp(url.deletingPathExtension().lastPathComponent, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
 
                     do{
                         if let image = UIImage(data: data)
                         , let imageData = UIImageJPEGRepresentation(image, quality){
-                            try? FileManager.default.removeItem(at: fileURL!)
-                            try imageData.write(to: fileURL!)
-
+                            try? FileManager.default.removeItem(at: fileURL)
+                            try imageData.write(to: fileURL)
                             result = fileURL
                         }
 

@@ -411,7 +411,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
         preferences.preferredHeight = (self.view as! UITableView).rowHeight * 5 + 27
-        preferences.layoutMode = .none
+        preferences.displayMode = .none
         return preferences
     }
     

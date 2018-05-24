@@ -27,7 +27,7 @@ class _PhotosFilterAppAsset: PHAssetItem<ImageEditStateValue> {
 extension _PhotosFilterAppAsset: PHAssetImageEditable {
     func edit<T: ImageProcessable>(processor: T, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
         let asset = self.asset
-        
+
         guard
             let uiImage = asset.asUIImage,
             let filter = editState.ciFilter

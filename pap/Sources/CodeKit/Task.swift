@@ -41,7 +41,7 @@ public struct TaskPolicy{
     static let `default` = TaskPolicy(
             cancellation: .shallow,
             priority: .normal,
-            concurrencyCount: nil
+            estimatedConcurrencyCount: nil
     )
 
     public enum Cancellation {
@@ -62,13 +62,15 @@ public struct TaskPolicy{
     public var priority: Priority = .normal
 
     /*
+        estimatedConcurrencyCount means "preferred" concurrencyCount.
+        if estimatedConcurrencyCount == 1, the task always assign to specific queue.
         if concurrencyCount was 0 or bigger than AppManager.maxConcurrentCount, ignored.
     */
-    public var concurrencyCount: Int? {
+    public var estimatedConcurrencyCount: Int? {
         didSet {
-            assert(concurrencyCount == nil || concurrencyCount! > 0, "preferredConcurrencyCount must be undefined(nil) or bigger than 0")
-            if concurrencyCount == 0{
-                concurrencyCount = 1
+            assert(estimatedConcurrencyCount == nil || estimatedConcurrencyCount! > 0, "preferredConcurrencyCount must be undefined(nil) or bigger than 0")
+            if estimatedConcurrencyCount == 0{
+                estimatedConcurrencyCount = 1
             }
         }
     }
@@ -146,6 +148,7 @@ public protocol TaskResultable {}
 public class TaskInfo: Item<String> {
     private(set) public var token:String
     private(set) public var requestToken:String
+    private(set) public var requestParam:TaskParamable
     private(set) public var taskType: Taskable.Type
     private(set) public var appType: App.Type
 
@@ -154,16 +157,13 @@ public class TaskInfo: Item<String> {
     internal(set) public var queueLabel:String?
     internal(set) var error:TaskError?
 
-    required public init(_ requestToken: String, _ taskType: Taskable.Type, _ appType: App.Type){
+    required public init(_ requestToken: String, _ requestParam:TaskParamable, _ taskType: Taskable.Type, _ appType: App.Type){
         self.requestToken = requestToken
+        self.requestParam = requestParam
         self.taskType = taskType
         self.token = UUID().uuidString
         self.appType = appType
         super.init()
     }
 
-    public convenience init(_ requestToken: String, _ taskType: Taskable.Type, _ appType: App.Type, _ policy:TaskPolicy){
-        self.init(requestToken, taskType, appType)
-        self.policy = policy
-    }
 }
