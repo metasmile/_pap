@@ -416,15 +416,15 @@ extension AppDockView {
 // MARK: -
 
 extension AppDockView: UICollectionViewDataSource {
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.nib.appDockViewCell.name, for: indexPath) as! AppDockViewCell
-        let app = items[indexPath.item].app
-        cell.setApp(app, at: indexPath)
-        
+        cell.setAppInfo(items[indexPath.item].app, at: indexPath)
+
         switch barStyle {
         case .black:
             cell.iconViewTintColor = .white
@@ -434,6 +434,7 @@ extension AppDockView: UICollectionViewDataSource {
         
         return cell
     }
+
 }
 
 extension AppDockView: UICollectionViewDelegate {
@@ -441,7 +442,7 @@ extension AppDockView: UICollectionViewDelegate {
         zoomOutAppCollectionView(delay: 0)
         delegate?.appDockView(self, didSelectItemWith: items[indexPath.item])
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         return !collectionView.isDecelerating
     }
@@ -925,17 +926,20 @@ internal class AppDockViewCell: CustomCollectionViewCell {
             selectedStateView.isHidden = !isSelected
         }
     }
-    
-    func setApp(_ app: App.Type, at indexPath: IndexPath) {
+
+    //persistedStatus display will be maintained on runtime.
+    private static var persistedStatusDict = [String:AppPersistedStatus]()
+
+    func setAppInfo(_ app: App.Type, at indexPath: IndexPath) {
         iconImage = app.info.icon?.asUIImage ?? R.image.blankAppIcon()
         appTitleLabel.text = app.info.displayName.localized
-        
-        let status = AppCenter.default.persistedStatus(for: app)
-        appStatusIconView.backgroundColor = status.statusColor
-//        .unsupported --> app is not supported PersistableApp, or app.phase == develop/beta mode
-//        .released
-//        .updated
-//        .used
+
+        var status = AppDockViewCell.persistedStatusDict[app.info.identifier]
+        if status == nil{
+            status = AppCenter.default.persistedStatus(for: app)
+            AppDockViewCell.persistedStatusDict[app.info.identifier] = status
+        }
+        appStatusIconView.backgroundColor = status?.statusColor
     }
 }
 
