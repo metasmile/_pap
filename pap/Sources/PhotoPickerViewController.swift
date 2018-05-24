@@ -394,7 +394,7 @@ class PhotoPickerViewController: AppDockViewController {
                 // delete, insert, reload, move
                 var removedIndexPaths: [IndexPath]?
                 if let removed = changes.removedIndexes, removed.count > 0 {
-                    let indexPaths = removed.map { IndexPath(item: $0, section:section) }.setable
+                    let indexPaths = removed.map { IndexPath(item: $0, section:section) }
                     needsToRestoreSelection = true
                     self.photoCollectionView.deleteItems(at: indexPaths)
                     
@@ -405,14 +405,14 @@ class PhotoPickerViewController: AppDockViewController {
                     removedIndexPaths = indexPaths
                 }
                 if let inserted = changes.insertedIndexes, inserted.count > 0 {
-                    let indexPaths = inserted.map { IndexPath(item: $0, section:section) }.setable
+                    let indexPaths = inserted.map { IndexPath(item: $0, section:section) }
                     indexPathToScroll = indexPaths.last
                     needsToRestoreSelection = true
                     
                     self.photoCollectionView.insertItems(at: indexPaths)
                 }
                 if let changed = changes.changedIndexes, changed.count > 0 {
-                    let indexPaths = changed.map { IndexPath(item: $0, section:section) }.setable
+                    let indexPaths = changed.map { IndexPath(item: $0, section:section) }
                     self.photoCollectionView.reloadItems(at: indexPaths.filter { removedIndexPaths?.contains($0) == false })
                 }
                 changes.enumerateMoves { fromIndex, toIndex in

@@ -50,7 +50,7 @@
                         <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nsh-j1-0eF">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
                             <constraints>
-                                <constraint firstAttribute="height" id="mMQ-ZO-2JX" customClass="AppDockVoidableLayoutConatraint" customModule="pap" customModuleProvider="target"/>
+                                <constraint firstAttribute="height" priority="750" id="mMQ-ZO-2JX" customClass="AppDockVoidableLayoutConatraint" customModule="pap" customModuleProvider="target"/>
                             </constraints>
                         </view>
                     </subviews>
