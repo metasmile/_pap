@@ -276,11 +276,11 @@ class AppDockView: CustomView {
 //AppDock
 extension AppDockView: AppDock{
     func expandDockIfNeeded(reloadContents: Bool?=nil) {
-        self.maximizeDrawer(reloadDockContentViews: reloadContents)
+        self.setDrawerDisplay(forState: .maximized, reloadDockContentViews: reloadContents)
     }
 
     func contractDockIfNeeded(reloadContents: Bool?=nil) {
-        self.neutralizeDrawer(reloadDockContentViews: reloadContents)
+        self.setDrawerDisplay(forState: .neutralized, reloadDockContentViews: reloadContents)
     }
 }
 
@@ -557,18 +557,23 @@ extension AppDockView: UIGestureRecognizerDelegate {
     
     func setDrawerDisplay(forState state: AppDockContentLayoutState, reloadDockContentViews: Bool? = nil) {
         switch state {
-            case .minimized: minimizeDrawer(reloadDockContentViews: reloadDockContentViews)
-            case .maximized: maximizeDrawer(reloadDockContentViews: reloadDockContentViews)
-            case .neutralized: neutralizeDrawer(reloadDockContentViews: reloadDockContentViews)
+            case .minimized:
+                minimizeDrawer(reloadDockContentViews: reloadDockContentViews)
+
+            case .maximized:
+                if !(hasControllerPinned && !hasAppAccessoryAsLayout){
+                    maximizeDrawer(reloadDockContentViews: reloadDockContentViews)
+
+                } else if .maximized != contentLayoutState {
+                    setDrawerDisplay(forState: contentLayoutState, reloadDockContentViews: reloadDockContentViews)
+                }
+
+            case .neutralized:
+                neutralizeDrawer(reloadDockContentViews: reloadDockContentViews)
         }
     }
 
-    func maximizeDrawer(reloadDockContentViews: Bool? = nil) {
-        guard !(hasControllerPinned && !hasAppAccessoryAsLayout) else {
-            setDrawerDisplay(forState: contentLayoutState, reloadDockContentViews: reloadDockContentViews)
-            return
-        }
-        
+    private func maximizeDrawer(reloadDockContentViews: Bool? = nil) {
         let reloadDockContentViews = reloadDockContentViews ?? (contentLayoutState != .maximized)
 
         UIView.animateAsSpring(animations: {
@@ -609,8 +614,8 @@ extension AppDockView: UIGestureRecognizerDelegate {
         
         delegate?.appDockView(self, didOpenDrawer: true)
     }
-    
-    func neutralizeDrawer(reloadDockContentViews: Bool? = nil) {
+
+    private func neutralizeDrawer(reloadDockContentViews: Bool? = nil) {
         let reloadDockContentViews = reloadDockContentViews ?? (contentLayoutState != .neutralized)
 
         UIView.animateAsSpring(animations: {
@@ -647,7 +652,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
         delegate?.appDockView(self, didOpenDrawer: false)
     }
     
-    func minimizeDrawer(reloadDockContentViews: Bool? = nil) {
+    private func minimizeDrawer(reloadDockContentViews: Bool? = nil) {
         let reloadDockContentViews = reloadDockContentViews ?? (contentLayoutState != .minimized)
         
         UIView.animateAsSpring(animations: {

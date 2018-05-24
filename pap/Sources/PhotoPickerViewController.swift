@@ -615,7 +615,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     
     private func updateAppDockViewProcessingStart() {
         appDockContentLayoutStateRestoringAfterProcessing = appDockView?.contentLayoutState
-        appDockView?.minimizeDrawer(reloadDockContentViews: true)
+        appDockView?.setDrawerDisplay(forState: .minimized, reloadDockContentViews: true)
         
         appDockView?.disabled = true
     }
