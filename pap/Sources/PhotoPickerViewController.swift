@@ -63,7 +63,7 @@ class PhotoPickerViewController: AppDockViewController {
         }
 
         //monitor latest AppCenter task
-        AppCenter.default.task.watch(\.appIdentifiersLastPerformed) {
+        AppCenter.default.task.watch(\.appIdentifiersPerformed) {
             DispatchQueue.main.async {
                 while let changeInstance = self.queuedPhotoLibraryChanges.dequeue() {
                     self.photoLibraryDidChange(changeInstance)

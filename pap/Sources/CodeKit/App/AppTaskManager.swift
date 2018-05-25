@@ -51,7 +51,7 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
 
     // when all tasks are finished, this property will be filled.
     @objc dynamic
-    public var appIdentifiersLastPerformed:[String]?
+    public var appIdentifiersPerformed:[String]?
 
     //result collection
     private var _staticResponsesForEachApps = [AppInfo: [AppTaskRespondable]]()
@@ -342,7 +342,7 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
                         self.delegate?.didFinish(forEachApps: finalized_staticResponsesForEachApps, forAll: staticFinishedWorkItems)
                         self._reactionItem?.didFinishHandler?(finalized_staticResponsesForEachApps, staticFinishedWorkItems)
 
-                        self.appIdentifiersLastPerformed = finalized_staticResponsesForEachApps.keys.map { info -> String in
+                        self.appIdentifiersPerformed = finalized_staticResponsesForEachApps.keys.map { info -> String in
                             return info.identifier
                         }
                     }

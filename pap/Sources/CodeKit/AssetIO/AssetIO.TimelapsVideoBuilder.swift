@@ -173,7 +173,16 @@ public final class TimelapsVideoBuilder: NSObject {
     }
 
     func appendPixelBufferForImageAtURL(_ url: String, pixelBufferAdaptor: AVAssetWriterInputPixelBufferAdaptor, presentationTime: CMTime) -> Bool {
-        return autoreleasepool {
+        //TODO: RESOLVED autoreleasepool is actually reliable??
+        /*
+            related with EXC_BAD_ACCESS on CIContext Draw Image
+
+            1: fillPixelBufferFromImage(image, pixelBuffer: pixelBuffer)
+            2: context?.draw(image.cgImage!, in: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
+            3: EXC_BAD_ACCESS !
+        */
+
+//        return autoreleasepool {
             var appendSucceeded = false
 
             let url = URL(fileURLWithPath: url)
@@ -205,7 +214,7 @@ public final class TimelapsVideoBuilder: NSObject {
             }
 
             return appendSucceeded
-        }
+//        }
     }
 
     func fillPixelBufferFromImage(_ image: UIImage, pixelBuffer: CVPixelBuffer) {
