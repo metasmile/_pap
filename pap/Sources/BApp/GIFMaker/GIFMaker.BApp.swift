@@ -291,11 +291,7 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
         self.config?.adoptValues(fromOther: config)
     }
-    
-    public func shouldFinalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> Bool {
-        return true
-    }
-    
+
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
         let resultItems = result
             .filter { respondable in respondable.info.state == .completed }

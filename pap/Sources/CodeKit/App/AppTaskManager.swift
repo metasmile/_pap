@@ -125,7 +125,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
             }
 
             guard let removedItem = (queue.remove { item -> Bool in
-                if queue.currentTask != nil && item.info == queue.currentTask {
+                if queue.currentTaskInfo != nil && item.info == queue.currentTaskInfo {
                     return false
                 }
                 return item.info.requestToken == request.token
@@ -225,11 +225,15 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
     }
 
     public func cancel(){
-        _queuePool.forEach { (k,v) in v.cancel() }
+        for (_,v) in _queuePool{
+            v.cancel()
+        }
     }
 
     public func suspend(){
-        _queuePool.forEach { (k,v) in v.suspend() }
+        for (_,v) in _queuePool{
+            v.suspend()
+        }
     }
 
     func delegatingQueue(from: AppTaskOperationQueue) -> DispatchQueue {

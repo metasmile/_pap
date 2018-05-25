@@ -7,7 +7,17 @@ import Foundation
 
 public protocol FinalizableApp: App {
     /*
-     FinalizableApps basically should affect by shallow cancellation mode. if it is true, can manually control
+     INFO:
+     FinalizableApps basically should affect by shallow cancellation mode. (a.k.a. TaskPolicy.Cancellation.shallow, TaskPolicy.Cancellation.verbose)
+
+     TaskPolicy.Cancellation.shallow :
+        if user cancels just one item at least, all finalization processes will be passed though (ignored).
+
+     TaskPolicy.Cancellation.verbose :
+        if user cancels, the finalization process will be go though normally. But in this case, App should manually implement well finalize() method for responsible cancellation.
+
+     WARNING:
+        if App implement this, App also MUST manually control for all about cancellation conditions.
      */
     func shouldFinalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> Bool
 
