@@ -111,10 +111,10 @@ extension ConverterCapability{
 struct ConverterSpec{
     static func acquireInstance(collection:[Converter.Type], direction: ConvertingDirection, asset:AppAsset) -> Converter?{
 
-        let matchedWorkers = collection.filter { $0.direction==direction }
-        assert(matchedWorkers.count==1, "Duplicated converter worker direction found. \(matchedWorkers)")
+        let matchedConverters = collection.filter { $0.direction==direction }
+        assert(matchedConverters.count==1, "Duplicated converter worker direction found. \(matchedConverters)")
 
-        if let worker = matchedWorkers.first, worker.canPerformWith(source: asset) {
+        if let worker = matchedConverters.first, worker.canPerformWith(source: asset) {
             return worker.init()
         }
 

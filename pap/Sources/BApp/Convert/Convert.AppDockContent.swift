@@ -77,8 +77,8 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
         
         let valueCollection = {
             return [
-                UIPickerItem(component: "From", values: ConvertApp.availableWorkerNames),
-                UIPickerItem(component: "To", values: ConvertApp.getAvailableWorkersNamesTo(fromRawValue:self.defaults.convertingDirection.from.rawValue)),
+                UIPickerItem(component: "From", values: ConvertApp.availableConverterNames),
+                UIPickerItem(component: "To", values: ConvertApp.getAvailableConvertersNamesTo(fromRawValue:self.defaults.convertingDirection.from.rawValue)),
                 ]
         }
         
@@ -120,7 +120,7 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
 
         let qualityCollection: (() -> [String]) = {
             var supportedPresets:[ConverterQualityPreset]
-            if let converter = self.app?.currentWorker as? ConverterCapability.Type{
+            if let converter = self.app?.currentConverter as? ConverterCapability.Type{
                 supportedPresets = converter.supportedPresets
             }else{
                 print("INFO: current converter is not defined supportedPresets")
@@ -137,7 +137,10 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
         qualityCell.valueHandler = {
             if let index = $0 as? Int {
                 let direction = self.defaults.convertingDirection
-                self.defaults.convertingQuality = ConvertingQuality(convertingDirection: direction, qualityType: qualityPresets[index])
+
+                assert(qualityPresets.indices.contains(index), "given index of value in qualityPresets is not related with direction")
+                let qualityType = qualityPresets.indices.contains(index) ? qualityPresets[index] : ConverterQualityPreset.original
+                self.defaults.convertingQuality = ConvertingQuality(convertingDirection: direction, qualityType: qualityType)
             }
         }
         cellDescribers.append(qualityCell)

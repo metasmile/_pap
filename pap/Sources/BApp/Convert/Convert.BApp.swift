@@ -12,7 +12,7 @@ import Photos
 
 public class ConvertAppConfigValue: NSObject, KeyPathWatchable, AppConfigValuable {
     @objc dynamic
-    public var convertingDirectionIdentifier:String = ConvertApp.defaultWorker.direction.identifier
+    public var convertingDirectionIdentifier:String = ConvertApp.defaultConverter.direction.identifier
 }
 
 public class ConvertApp: BApp,
@@ -52,7 +52,7 @@ public class ConvertApp: BApp,
     }
 
     public func shouldSelect(item: AppAsset) -> Bool {
-        return currentWorker?.canPerformWith(source: item) ?? true
+        return currentConverter?.canPerformWith(source: item) ?? true
     }
 
     public var numberOfItemsShouldSelect: Int? {
@@ -119,13 +119,13 @@ extension ConvertApp{
         return ConvertApp.defaults as! ConvertAppDefaults
     }
 
-    var currentWorker:Converter.Type?{
-        return ConvertApp.availableWorkers.first { converterType in
+    var currentConverter:Converter.Type?{
+        return ConvertApp.availableConverters.first { converterType in
             return converterType.direction==defaults.convertingDirection
         }
     }
 
-    static let availableWorkers:[Converter.Type] = [
+    static let availableConverters:[Converter.Type] = [
         MovConverter_Burst.self,
         MovConverter_LivePhoto.self,
         MovConverter_Gif.self,
@@ -146,42 +146,42 @@ extension ConvertApp{
     ]
 
     static var availableDirections:[ConvertingDirection] {
-        return ConvertApp.availableWorkers.map { converterType -> ConvertingDirection in
+        return ConvertApp.availableConverters.map { converterType -> ConvertingDirection in
             return converterType.direction
         }
     }
 
-    static var availableWorkerNames:[String] {
+    static var availableConverterNames:[String] {
         return Array(Set(availableDirections.map { $0.from.rawValue }))
     }
 
-    static func getAvailableWorkers(fromRawValue:String) -> [Converter.Type]{
-        return availableWorkers.filter { converterType in
+    static func getAvailableConverters(fromRawValue:String) -> [Converter.Type]{
+        return availableConverters.filter { converterType in
             return converterType.direction.from.rawValue == fromRawValue
         }
     }
 
-    static func getAvailableWorkers(toRawValue:String) -> [Converter.Type]{
-        return availableWorkers.filter { converterType in
+    static func getAvailableConverters(toRawValue:String) -> [Converter.Type]{
+        return availableConverters.filter { converterType in
             return converterType.direction.to.rawValue == toRawValue
         }
     }
 
-    static func getAvailableWorkers(by direction:ConvertingDirection) -> [Converter.Type]{
-        return availableWorkers.filter { converterType in
+    static func getAvailableConverters(by direction:ConvertingDirection) -> [Converter.Type]{
+        return availableConverters.filter { converterType in
             return converterType.direction == direction
         }
     }
 
-    static func getAvailableWorkersNamesTo(fromRawValue:String) -> [String]{
-        return Array(Set(self.getAvailableWorkers(fromRawValue: fromRawValue).map { converter -> String in  converter.direction.to.rawValue }))
+    static func getAvailableConvertersNamesTo(fromRawValue:String) -> [String]{
+        return Array(Set(self.getAvailableConverters(fromRawValue: fromRawValue).map { converter -> String in  converter.direction.to.rawValue }))
     }
 
-    static func getAvailableWorkersNamesFrom(toRawValue:String) -> [String]{
-        return Array(Set(self.getAvailableWorkers(toRawValue: toRawValue).map { converter -> String in  converter.direction.from.rawValue }))
+    static func getAvailableConvertersNamesFrom(toRawValue:String) -> [String]{
+        return Array(Set(self.getAvailableConverters(toRawValue: toRawValue).map { converter -> String in  converter.direction.from.rawValue }))
     }
 
-    static var defaultWorker:Converter.Type{
+    static var defaultConverter:Converter.Type{
         return GifConverter_LivePhoto.self
     }
 }
@@ -204,12 +204,12 @@ private class ConvertAppTask: TaskPrototype, Taskable {
         //default is undefined.
         info.policy.estimatedConcurrencyCount = nil
 
-        if let currentWorkerType = ConvertApp.availableWorkers.first(where:{
+        if let currentConverterType = ConvertApp.availableConverters.first(where:{
             $0.direction == defaults.convertingDirection
         }) {
 
-            if currentWorkerType is LivePhotoConverter.Type{
-                //override concurrencyCount if currentWorkerType is LivePhotoConverter
+            if currentConverterType is LivePhotoConverter.Type{
+                //override concurrencyCount if currentConverterType is LivePhotoConverter
                 info.policy.estimatedConcurrencyCount = 1
             }
         }
@@ -230,7 +230,7 @@ private class ConvertAppTask: TaskPrototype, Taskable {
 
     private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable) throws -> ConvertAppResult?  {
         let direction = defaults.convertingDirection
-        let needsConverter = ConverterSpec.acquireInstance(collection: ConvertApp.availableWorkers, direction: direction, asset: assetItem)
+        let needsConverter = ConverterSpec.acquireInstance(collection: ConvertApp.availableConverters, direction: direction, asset: assetItem)
 
         guard let converter = needsConverter else {
             throw TaskError.rejectedParam
