@@ -85,7 +85,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
         }
 
         if let _exe = exe{
-            self.callbackQueue.async(execute: _exe)
+            _exe()
         }
 
         print("> "
@@ -106,15 +106,16 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
         }
     }
 
-    private func tryItem(_ item: AppTaskItem, _ async: AsyncManualSignalable & AsyncControllableSignable, cancel:Bool=false){
+    private func cancelItem(_ item: AppTaskItem, _ async: AsyncManualSignalable & AsyncControllableSignable) {
         let param = item.request.param
 
-        if cancel {
-            async.done()
-            item.task.cancel(param, async)
-            item.response(.cancelled)
-            return
-        }
+        async.done()
+        item.task.cancel(param, async)
+        item.response(.cancelled)
+    }
+
+    private func tryItem(_ item: AppTaskItem, _ async: AsyncManualSignalable & AsyncControllableSignable){
+        let param = item.request.param
 
         do {
 
@@ -164,7 +165,11 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
 
         queue.async { [unowned self] in
 
-            self.tryItem(item, self.asyncSignal, cancel: _cancelled)
+            if _cancelled{
+                self.cancelItem(item, self.asyncSignal)
+            }else{
+                self.tryItem(item, self.asyncSignal)
+            }
 
             self.callbackQueue.async{
 
@@ -200,8 +205,8 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
 
         //cancel currently progressing item
         if let currentItem = self.peek() {
-            queue.async(flags:.barrier){ [unowned self] in
-                self.tryItem(currentItem, self.asyncSignal, cancel: true)
+            queue.async { [unowned self] in
+                self.cancelItem(currentItem, self.asyncSignal)
             }
         }
 
