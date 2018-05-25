@@ -14,18 +14,18 @@ struct MovConverterOption {
         return MovConverterOption(exportSize: CGSize(width: 1920, height: 1080))
     }
     
-    static func preset(_ quality: ExportQualityType, with asset: PHAsset) -> MovConverterOption {
+    static func preset(_ quality: ConverterQualityPreset, with asset: PHAsset) -> MovConverterOption {
         var optionPreset = MovConverterOption.default
         optionPreset.exportSize = scaleSize(asset.pixelSize, with: quality)
         return optionPreset
     }
     
-    private static func scaleSize(_ size: CGSize, with quality: ExportQualityType) -> CGSize {
+    private static func scaleSize(_ size: CGSize, with quality: ConverterQualityPreset) -> CGSize {
         guard quality != .original else { return size }
         
         let maximumSize = max(640, size.width, size.height)
         let sizePhases: [CGFloat] = [3840, 1920, 1280, 960, 640, 480, 320, 240]
-        let indexOfQuality: ((ExportQualityType) -> Int) = { type in
+        let indexOfQuality: ((ConverterQualityPreset) -> Int) = { type in
             switch type {
             case .high: return 0
             case .medium: return 1
@@ -63,7 +63,7 @@ class MovConverter_Gif: OptionableConverterBase<MovConverterOption>, MovConverte
         var urls:[(URL, Double)]?
 
         async.begin()
-        let requestId = PHImageManager.default().requestImageData(for: source.asset, options: nil) { data, s, orientation, dictionary in
+        PHImageManager.default().requestImageData(for: source.asset, options: nil) { data, s, orientation, dictionary in
             urls = data?.extractAnimatedImageURLsAsGIF()
             async.end()
         }

@@ -10,8 +10,9 @@ import UIKit
 import AVFoundation
 
 extension AVAssetExportSession {
+
     @discardableResult
-    static func `init`(asset: AVAsset, videoComposition: AVVideoComposition? = nil
+    static func export(asset: AVAsset, videoComposition: AVVideoComposition? = nil
             , presetName: String = AVAssetExportPresetPassthrough
             , outputFileType: AVFileType = AVFileType.mov
             , outputURL: URL

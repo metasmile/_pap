@@ -27,7 +27,7 @@ struct GifConverterDefaultOption {
         )
     }
     
-    static func preset(_ quality: ExportQualityType, with asset: PHAsset) -> GifConverterDefaultOption {
+    static func preset(_ quality: ConverterQualityPreset, with asset: PHAsset) -> GifConverterDefaultOption {
         var optionPreset = GifConverterDefaultOption.default
         optionPreset.aspectRatio = Double(asset.pixelSize.width / asset.pixelSize.height)
         

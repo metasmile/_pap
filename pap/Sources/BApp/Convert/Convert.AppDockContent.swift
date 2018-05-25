@@ -112,10 +112,10 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
         cellDescribers.append(from_to_cell)
         
         let qualityPresets = [
-            ExportQualityType.low,
-            ExportQualityType.medium,
-            ExportQualityType.high,
-            ExportQualityType.original,
+            ConverterQualityPreset.low,
+            ConverterQualityPreset.medium,
+            ConverterQualityPreset.high,
+            ConverterQualityPreset.original,
         ]
         
         let qualityCollection: (() -> [String]) = {
@@ -124,10 +124,10 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
             if (self.defaults.convertingDirection.from == .livephoto && self.defaults.convertingDirection.to == .mov) ||
                 (self.defaults.convertingDirection.from == .mov && self.defaults.convertingDirection.to == .mp4) ||
                 (self.defaults.convertingDirection.from == .mp4 && self.defaults.convertingDirection.to == .mov) {
-                values = [ExportQualityType.original]
+                values = [ConverterQualityPreset.original]
             }
             else if (self.defaults.convertingDirection.to == .livephoto) {
-                values = [ExportQualityType.high]
+                values = [ConverterQualityPreset.high]
             }
             else {
                 switch self.defaults.convertingDirection.to {

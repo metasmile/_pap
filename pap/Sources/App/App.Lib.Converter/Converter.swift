@@ -54,7 +54,7 @@ struct ConvertingDirection: Codable, Equatable {
 
 struct ConvertingQuality: Codable {
     var convertingDirection: ConvertingDirection
-    var qualityType: ExportQualityType
+    var qualityType: ConverterQualityPreset
     
     private enum CodingKeys: Int, CodingKey {
         case convertingDirection
@@ -68,7 +68,7 @@ struct ConvertingQuality: Codable {
     }
 }
 
-enum ExportQualityType: String, Decodable {
+enum ConverterQualityPreset: String, Decodable {
     case low = "Low"
     case medium = "Medium"
     case high = "High"

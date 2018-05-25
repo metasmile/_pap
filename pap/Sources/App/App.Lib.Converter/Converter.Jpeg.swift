@@ -14,7 +14,7 @@ struct JpgConverterOption {
         return JpgConverterOption(compressionQuality: 0.7)
     }
     
-    static func preset(_ quality: ExportQualityType, with asset: PHAsset) -> JpgConverterOption {
+    static func preset(_ quality: ConverterQualityPreset, with asset: PHAsset) -> JpgConverterOption {
         var options = JpgConverterOption.default
         switch quality {
         case .high: options.compressionQuality = 1.0

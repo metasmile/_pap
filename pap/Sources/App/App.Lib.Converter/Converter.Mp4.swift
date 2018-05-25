@@ -8,6 +8,10 @@ import Photos
 import ImageIO
 import MobileCoreServices
 
+public struct MP4ConverterOption{
+
+}
+
 protocol MP4Converter: Converter {}
 
 extension MP4Converter {
@@ -16,7 +20,7 @@ extension MP4Converter {
     }
 }
 
-struct MP4Converter_Mov: MP4Converter {
+class MP4Converter_Mov: OptionableConverterBase<MP4ConverterOption>, MP4Converter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.mov, to:.mp4) }
     
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
@@ -24,9 +28,10 @@ struct MP4Converter_Mov: MP4Converter {
 
         let url = FileURL.temp(source.asset.localIdentifierWithoutSplitter, UTI.mpeg4, group: FileURL.fileAndQueuePrivateGroup())
         async.begin()
-        AVAssetExportSession.init(asset: video, outputFileType: .mp4, outputURL: url, shouldOptimizeForNetworkUse: true) { (success) in
+        AVAssetExportSession.export(asset: video, presetName:AVAssetExportPreset1920x1080, outputFileType: .mp4, outputURL: url, shouldOptimizeForNetworkUse: true) { (success) in
             async.end()
         }
+
         async.waitUntilEnd()
         return url
     }

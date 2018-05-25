@@ -132,7 +132,7 @@ public final class LivePhotoWriter {
 
                     })
                 } else {
-                    fetchCompletion?(false, nil, nil, "Not found asset \(createdAssetsLocalIdentifier)")
+                    fetchCompletion?(false, nil, nil, "Not found asset \(String(describing: createdAssetsLocalIdentifier))")
                 }
             }
 
