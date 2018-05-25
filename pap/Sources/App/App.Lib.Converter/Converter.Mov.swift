@@ -47,7 +47,7 @@ struct MovConverterOption {
     }
 }
 
-protocol MovConverter: Converter {}
+protocol MovConverter: Converter, ConverterCapability {}
 
 extension MovConverter {
     static var direction: ConvertingDirection {
@@ -57,6 +57,8 @@ extension MovConverter {
 
 class MovConverter_Gif: OptionableConverterBase<MovConverterOption>, MovConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.gif, to:.mov) }
+
+    static let supportedPresets = ConverterQualityPreset.all
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
 
@@ -83,6 +85,8 @@ class MovConverter_Gif: OptionableConverterBase<MovConverterOption>, MovConverte
 
 class MovConverter_Burst: OptionableConverterBase<MovConverterOption>, MovConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.burst, to:.mov) }
+
+    static let supportedPresets = ConverterQualityPreset.all
     
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
 
@@ -100,6 +104,8 @@ class MovConverter_Burst: OptionableConverterBase<MovConverterOption>, MovConver
 
 struct MovConverter_LivePhoto: MovConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.livephoto, to:.mov) }
+
+    static let supportedPresets = ConverterQualityPreset.originalOnly
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
 

@@ -73,6 +73,18 @@ enum ConverterQualityPreset: String, Decodable {
     case medium = "Medium"
     case high = "High"
     case original = "Original"
+
+    static var all:[ConverterQualityPreset]{
+        return [.low, .medium, .high, .original]
+    }
+
+    static var originalExcluded:[ConverterQualityPreset]{
+        return [.low, .medium, .high, .original]
+    }
+
+    static var originalOnly:[ConverterQualityPreset]{
+        return [.original]
+    }
 }
 
 protocol Converter {
@@ -84,6 +96,16 @@ protocol Converter {
     static func canPerformWith(source:AppAsset) -> Bool
 
     func convert(source:AppAsset, _ async: AsyncManualSignalable) -> Any?
+}
+
+protocol ConverterCapability{
+    static var supportedPresets: [ConverterQualityPreset] {get}
+}
+
+extension ConverterCapability{
+    static var supportedPresets: [ConverterQualityPreset] {
+        return [ConverterQualityPreset.medium]
+    }
 }
 
 struct ConverterSpec{

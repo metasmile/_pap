@@ -97,7 +97,7 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
             if component == 0, let direction = ConvertApp.availableDirections.first(where:{ $0.from.rawValue == convertTypeRawValue }) {
                 self.defaults.convertingDirection = direction
                 self.app?.config?.convertingDirectionIdentifier = direction.identifier
-                
+
                 cell.values = valueCollection()
                 cell.picker.reloadComponent(1)
                 
@@ -117,26 +117,18 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
             ConverterQualityPreset.high,
             ConverterQualityPreset.original,
         ]
-        
+
         let qualityCollection: (() -> [String]) = {
-            var values = qualityPresets
-            
-            if (self.defaults.convertingDirection.from == .livephoto && self.defaults.convertingDirection.to == .mov) ||
-                (self.defaults.convertingDirection.from == .mov && self.defaults.convertingDirection.to == .mp4) ||
-                (self.defaults.convertingDirection.from == .mp4 && self.defaults.convertingDirection.to == .mov) {
-                values = [ConverterQualityPreset.original]
+            var supportedPresets:[ConverterQualityPreset]
+            if let converter = self.app?.currentWorker as? ConverterCapability.Type{
+                supportedPresets = converter.supportedPresets
+            }else{
+                print("INFO: current converter is not defined supportedPresets")
+                supportedPresets = ConverterQualityPreset.originalOnly
             }
-            else if (self.defaults.convertingDirection.to == .livephoto) {
-                values = [ConverterQualityPreset.high]
-            }
-            else {
-                switch self.defaults.convertingDirection.to {
-                case .gif, .jpeg: values.removeLast()
-                default: break
-                }
-            }
-            return values.map { $0.rawValue }
+            return supportedPresets.map { $0.rawValue }
         }
+
         let qualityCell = UITableViewSegmentControlCellDescriber()
         qualityCell.itemIdentifier = Cells.exportQuality.hashValue
         qualityCell.label = "Quality".localized

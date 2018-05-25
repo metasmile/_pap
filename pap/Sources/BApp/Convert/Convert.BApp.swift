@@ -167,6 +167,12 @@ extension ConvertApp{
         }
     }
 
+    static func getAvailableWorkers(by direction:ConvertingDirection) -> [Converter.Type]{
+        return availableWorkers.filter { converterType in
+            return converterType.direction == direction
+        }
+    }
+
     static func getAvailableWorkersNamesTo(fromRawValue:String) -> [String]{
         return Array(Set(self.getAvailableWorkers(fromRawValue: fromRawValue).map { converter -> String in  converter.direction.to.rawValue }))
     }

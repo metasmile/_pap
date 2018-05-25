@@ -6,7 +6,7 @@
 import Foundation
 import Photos
 
-protocol LivePhotoConverter: Converter {}
+protocol LivePhotoConverter: Converter, ConverterCapability {}
 extension LivePhotoConverter {
     static var direction: ConvertingDirection {
         return ConvertingDirection(from: .any, to: .livephoto)
@@ -15,6 +15,8 @@ extension LivePhotoConverter {
 
 struct LivePhotoConverter_Gif: LivePhotoConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.gif, to:.livephoto) }
+
+    static let supportedPresets = [ConverterQualityPreset.high]
 
     init() {}
 
@@ -48,6 +50,8 @@ struct LivePhotoConverter_Gif: LivePhotoConverter {
 
 struct LivePhotoConverter_Burst: LivePhotoConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.burst, to:.livephoto) }
+
+    static let supportedPresets = [ConverterQualityPreset.high]
 
     init() {}
 
@@ -86,6 +90,8 @@ struct LivePhotoConverter_Burst: LivePhotoConverter {
 struct LivePhotoConverter_Mov: LivePhotoConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.mov, to:.livephoto) }
 
+    static let supportedPresets = [ConverterQualityPreset.high]
+
     init() {}
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
@@ -115,6 +121,8 @@ struct LivePhotoConverter_Mov: LivePhotoConverter {
 
 struct LivePhotoConverter_Timelapse: LivePhotoConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.mov_timelapse, to:.livephoto) }
+
+    static let supportedPresets = [ConverterQualityPreset.high]
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         let converter = LivePhotoConverter_Mov()

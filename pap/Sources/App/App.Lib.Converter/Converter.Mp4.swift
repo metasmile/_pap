@@ -12,7 +12,7 @@ public struct MP4ConverterOption{
 
 }
 
-protocol MP4Converter: Converter {}
+protocol MP4Converter: Converter, ConverterCapability {}
 
 extension MP4Converter {
     static var direction: ConvertingDirection {
@@ -22,6 +22,8 @@ extension MP4Converter {
 
 class MP4Converter_Mov: OptionableConverterBase<MP4ConverterOption>, MP4Converter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.mov, to:.mp4) }
+
+    static let supportedPresets = ConverterQualityPreset.originalOnly
     
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         guard let video = source.asset.asAVAsset else { return nil }
@@ -43,6 +45,8 @@ class MP4Converter_Mov: OptionableConverterBase<MP4ConverterOption>, MP4Converte
 
 struct MP4Converter_Timelapse: MP4Converter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.mov_timelapse, to:.mp4) }
+
+    static let supportedPresets = ConverterQualityPreset.all
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         let converter = MP4Converter_Mov()

@@ -26,7 +26,7 @@ struct JpgConverterOption {
     }
 }
 
-protocol JpgConverter: Converter {}
+protocol JpgConverter: Converter, ConverterCapability {}
 extension JpgConverter{
     static var direction: ConvertingDirection {
         return ConvertingDirection(from: .any, to: .jpeg)
@@ -35,6 +35,8 @@ extension JpgConverter{
 
 class JpgConverter_ScreenshotPng: OptionableConverterBase<JpgConverterOption>, JpgConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.png_screenshot, to:.jpeg) }
+
+    static let supportedPresets = ConverterQualityPreset.originalExcluded
     
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
 

@@ -77,7 +77,7 @@ struct GifConverterDefaultOption {
 }
 
 
-protocol GifConverter: Converter {}
+protocol GifConverter: Converter, ConverterCapability {}
 
 extension GifConverter{
     static var direction: ConvertingDirection {
@@ -99,6 +99,8 @@ class GifConverter_Jpeg: OptionableConverterBase<GifConverterDefaultOption>, Gif
 
 class GifConverter_Mov: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.mov, to:.gif) }
+
+    static let supportedPresets = ConverterQualityPreset.originalExcluded
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         if let video = source.asset.asAVAsset, let option = options {
@@ -156,6 +158,8 @@ class GifConverter_Mov: OptionableConverterBase<GifConverterDefaultOption>, GifC
 class GifConverter_LivePhoto: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.livephoto, to:.gif) }
 
+    static let supportedPresets = ConverterQualityPreset.originalExcluded
+
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         let extractMovieTask = AsyncSignal()
         if let videoURL = MovConverter_LivePhoto().convert(source: source, extractMovieTask) as? URL, let options = options {
@@ -172,6 +176,8 @@ class GifConverter_LivePhoto: OptionableConverterBase<GifConverterDefaultOption>
 class GifConverter_Timelapse: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.mov_timelapse, to:.gif) }
 
+    static let supportedPresets = ConverterQualityPreset.originalExcluded
+
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         let converter = GifConverter_Mov()
         converter.options = options
@@ -185,6 +191,8 @@ class GifConverter_Timelapse: OptionableConverterBase<GifConverterDefaultOption>
 
 class GifConverter_Burst: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.burst, to:.gif) }
+
+    static let supportedPresets = ConverterQualityPreset.originalExcluded
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> Any? {
         guard let gifOptions = options else { return nil }
