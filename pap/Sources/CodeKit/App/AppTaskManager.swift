@@ -24,7 +24,7 @@ public protocol AppTaskManagerTaskDelegate: AppTaskManagerDelegate {
     func didFailTask(info: AppTaskRespondable)
 }
 
-public class AppTaskManager: AppTaskOperationQueueDelegate {
+public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDelegate {
 
     fileprivate static let sharedSyncQueue:DispatchQueue = DispatchQueue(label:"com.stells.pap__shared_AppTaskManager")
 
@@ -49,6 +49,10 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
     //react
     private var _reactionItem: AppTaskReactable?
 
+    // when all tasks are finished, this property will be filled.
+    @objc dynamic
+    public var appIdentifiersLastPerformed:[String]?
+
     //result collection
     private var _staticResponsesForEachApps = [AppInfo: [AppTaskRespondable]]()
     private var _staticRequestedWorkItems = [String: AppTaskItem]()
@@ -56,6 +60,10 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
 
     public final var maxConcurrentCount:Int{
         return self._queuePool.count
+    }
+
+    public var isRunning:Bool{
+        return count > 0
     }
 
     public var count:Int{
@@ -69,6 +77,7 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
 
     private init(_ maxConcurrentCount:UInt=1) {
         assert(maxConcurrentCount>0, "concurrentCount must be 1 or higher.")
+        super.init()
         for _ in 0 ..< maxConcurrentCount{
             let q = AppTaskOperationQueue(delegate:self)
             _queuePool[q.label] = q
@@ -332,6 +341,10 @@ public class AppTaskManager: AppTaskOperationQueueDelegate {
                     DispatchQueue.main.async { [unowned self] in
                         self.delegate?.didFinish(forEachApps: finalized_staticResponsesForEachApps, forAll: staticFinishedWorkItems)
                         self._reactionItem?.didFinishHandler?(finalized_staticResponsesForEachApps, staticFinishedWorkItems)
+
+                        self.appIdentifiersLastPerformed = finalized_staticResponsesForEachApps.keys.map { info -> String in
+                            return info.identifier
+                        }
                     }
                 }
             }

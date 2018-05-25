@@ -241,7 +241,7 @@ extension PreviewView {
 
 
         }).did(finish: { resultsByApps, respondables in
-            assert(!AppCenter.default.isAppRunning)
+            assert(!AppCenter.default.task.isRunning)
 
             self.delegate?.batchPreviewViewDidEndEdit(self)
 
@@ -278,7 +278,7 @@ extension PreviewView {
     }
     
     func cancelBatchProcessing() {
-        assert(AppCenter.default.isAppRunning)
+        assert(AppCenter.default.task.isRunning)
 
         AppCenter.default.task.cancel()
 
@@ -300,7 +300,7 @@ extension PreviewView: UICollectionViewDataSource {
 
 extension PreviewView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return !AppCenter.default.isAppRunning
+        return !AppCenter.default.task.isRunning
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

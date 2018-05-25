@@ -26,9 +26,11 @@ class PhotoPickerViewController: AppDockViewController {
 
     var dragSelectionGesture: DragSelectionGestureRecognizer!
 
+    var queuedPhotoLibraryChanges = ItemQueue<PHChange>()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         //preview
         batchPreviewView = PreviewView(frame: .zero)
         batchPreviewView.delegate = self
@@ -44,15 +46,32 @@ class PhotoPickerViewController: AppDockViewController {
             registerForPreviewing(with: self, sourceView: batchPreviewView)
         }
 
-        //photos access authorization
+        //listen PHPhotoLibrary changes
         PHPhotoLibraryManager.default.watch(\.changes) {
             guard let changeInstance = PHPhotoLibraryManager.default.changes else { return }
 
             DispatchQueue.main.async {
-                self.photoLibraryDidChange(changeInstance)
+                if AppCenter.default.task.isRunning{
+                    self.queuedPhotoLibraryChanges.enqueue(changeInstance)
+
+                }else{
+                    assert(self.queuedPhotoLibraryChanges.count==0)
+                    self.queuedPhotoLibraryChanges.dequeueAll()
+                    self.photoLibraryDidChange(changeInstance)
+                }
             }
         }
 
+        //monitor latest AppCenter task
+        AppCenter.default.task.watch(\.appIdentifiersLastPerformed) {
+            DispatchQueue.main.async {
+                while let changeInstance = self.queuedPhotoLibraryChanges.dequeue() {
+                    self.photoLibraryDidChange(changeInstance)
+                }
+            }
+        }
+
+        //check photo library permission
         PHPhotoLibraryManager.default.authorizeIfNeeded { authorized in
             guard authorized else { return }
 
@@ -118,25 +137,25 @@ class PhotoPickerViewController: AppDockViewController {
             self.updateDoneButtonState()
 
             AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform, id:"picker\(TransformApp.info.identifier)") { (config, changed) in
-                if let value = config.transform, !AppCenter.default.isAppRunning{
+                if let value = config.transform, !AppCenter.default.task.isRunning{
                     self.setAppValue(value)
                 }
             }
             
             AppCenter.default.currentInstanceAs(PhotosFilterApp.self)?.config?.watch(\.filter, id:"picker\(PhotosFilterApp.info.identifier)") { (config, changed) in
-                if let value = config.filter, !AppCenter.default.isAppRunning{
+                if let value = config.filter, !AppCenter.default.task.isRunning{
                     self.setAppValue(value)
                 }
             }
             
             AppCenter.default.currentInstanceAs(AutoAdjustmentApp.self)?.config?.watch(\.filter, id:"picker\(AutoAdjustmentApp.info.identifier)") { (config, changed) in
-                if let value = config.filter, !AppCenter.default.isAppRunning{
+                if let value = config.filter, !AppCenter.default.task.isRunning{
                     self.setAppValue(value)
                 }
             }
             
             AppCenter.default.currentInstanceAs(Stabilizer.self)?.config?.watch(\.stabilizationMode, id:"picker\(Stabilizer.info.identifier)") { (config, changed) in
-                if let value = config.stabilizationMode, !AppCenter.default.isAppRunning{
+                if let value = config.stabilizationMode, !AppCenter.default.task.isRunning{
                     self.setAppValue(value)
                 }
             }
@@ -351,7 +370,7 @@ class PhotoPickerViewController: AppDockViewController {
             Handle Tasks while batch performing
         */
         let removedAssets = fetchResultChanges.compactMap { (_, changes) in changes.removedObjects}.reduce([],+)
-        let tasksWereRanAndRemoved = AppCenter.default.isAppRunning && removedAssets.count > 0
+        let tasksWereRanAndRemoved = AppCenter.default.task.isRunning && removedAssets.count > 0
         if tasksWereRanAndRemoved {
             AppCenter.default.task.suspend()
 
