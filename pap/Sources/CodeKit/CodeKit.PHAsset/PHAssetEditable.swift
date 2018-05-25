@@ -96,7 +96,6 @@ extension PHAssetItem {
             switch (asset.mediaType){
                 case .image where asset.mediaSubtypes.contains(.photoLive):
                     return (self as? PHAssetLivePhotoEditable)?.edit(processor: LivePhotoProcessor(), progress: progressHandler, completion: completionHandler)
-        //                return self.edit(processor: LivePhotoAdvancedProcessor(), completion: completionHandler)
                 case .image:
                     return (self as? PHAssetImageEditable)?.edit(processor: ImageProcessor(), progress: progressHandler, completion: completionHandler)
                 case .video:

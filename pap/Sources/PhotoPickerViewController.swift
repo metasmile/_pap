@@ -521,8 +521,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
     
     func batchPreviewViewWillBeginEdit(_ view: PreviewView) {
-        titleFade = currentDisplayableApp?.titleWillBegin
-                ?? "Start Batch Editing...".localized
+        titleFade = currentDisplayableApp?.titleWillBegin ?? "Start Batch Editing...".localized
         taskProgress = 0
 
         let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
@@ -559,7 +558,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         }
     }
     
-    func batchPreviewView(_ view: PreviewView, didUpdateFetching progress: Float) {
+    func batchPreviewView(_ view: PreviewView, didUpdateRemoteFetchingProgress progress: Float) {
         let fetchingProgressPerTask = progress / Float(AppAssets.selected.count)
         let currentProgress = taskProgress + fetchingProgressPerTask / 2 // for split progress into fetching and processing
         if progressBar.progress < currentProgress {
@@ -567,7 +566,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         }
     }
     
-    func batchPreviewView(_ view: PreviewView, didUpdateProcessing progress: Float) {
+    func batchPreviewView(_ view: PreviewView, didUpdateInternalProgress progress: Float) {
         let fetchingProgressPerTask = progress / Float(AppAssets.selected.count)
         let currentProgress = taskProgress + fetchingProgressPerTask / 2 // for split progress into fetching and processing
         if progressBar.progress < currentProgress {
@@ -576,8 +575,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
 
     func batchPreviewViewWillCancelProgress(_ view: PreviewView) {
-        titleFade = currentDisplayableApp?.titleWillCancel
-                ?? "Cancelling...".localized
+        titleFade = currentDisplayableApp?.titleWillCancel ?? "Cancelling...".localized
 
         UIView.animate(withDuration: 0.6) {
             self.progressBar.alpha = 0
@@ -585,8 +583,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
 
     func batchPreviewViewWillFinalize(_ view: PreviewView) {
-        titleFade = currentDisplayableApp?.titleWillFinalize
-                ?? "Saving Photos...".localized
+        titleFade = currentDisplayableApp?.titleWillFinalize ?? "Saving Photos...".localized
 
         UIView.animate(withDuration: 0.6) {
             self.progressBar.alpha = 0

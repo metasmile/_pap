@@ -15,8 +15,9 @@ protocol PreviewViewDelegate {
     func batchPreviewViewWillFinalize(_ view: PreviewView)
 
     func batchPreviewView(_ view: PreviewView, didUpdateProgress progress: Float)
-    func batchPreviewView(_ view: PreviewView, didUpdateFetching progress: Float)
-    func batchPreviewView(_ view: PreviewView, didUpdateProcessing progress: Float)
+    func batchPreviewView(_ view: PreviewView, didUpdateRemoteFetchingProgress progress: Float)
+    func batchPreviewView(_ view: PreviewView, didUpdateInternalProgress progress: Float)
+
     func batchPreviewViewWillCancelProgress(_ view: PreviewView)
 
     func batchPreviewViewWillBeginEdit(_ view: PreviewView)
@@ -263,7 +264,7 @@ extension PreviewView {
     @objc func fetchProgressChanged(sender: NSNotification) {
         if let progress = sender.userInfo?[RemoteSourceFetchNotification.UserInfo.Key.progress] as? Float {
             DispatchQueue.main.async {
-                self.delegate?.batchPreviewView(self, didUpdateFetching: progress)
+                self.delegate?.batchPreviewView(self, didUpdateRemoteFetchingProgress: progress)
             }
         }
     }
@@ -271,7 +272,7 @@ extension PreviewView {
     @objc func processingProgressChanged(sender: NSNotification) {
         if let progress = sender.userInfo?[PHAssetProcessableNotification.UserInfo.Key.progress] as? Float {
             DispatchQueue.main.async {
-                self.delegate?.batchPreviewView(self, didUpdateProcessing: progress)
+                self.delegate?.batchPreviewView(self, didUpdateInternalProgress: progress)
             }
         }
     }
