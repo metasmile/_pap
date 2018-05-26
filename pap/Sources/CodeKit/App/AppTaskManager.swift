@@ -8,22 +8,6 @@ import Dispatch
 
 public typealias AppTaskRequest = TaskRequest<App.Type, TaskParamable, AppTaskRespondable>
 
-/*
-    Protocols
-*/
-public protocol AppTaskManagerDelegate: class {
-    func didRespond(forCurrent: AppTaskRespondable, progress:Float, remained:[AppTaskRespondable], finished:[AppTaskRespondable])
-    func willFinish(forEachApps:[AppInfo:[AppTaskRespondable]], forAll:[AppTaskRespondable])
-    func didFinish(forEachApps:[AppInfo:[AppTaskRespondable]], forAll:[AppTaskRespondable])
-}
-
-public protocol AppTaskManagerTaskDelegate: AppTaskManagerDelegate {
-    func willPerformTask(info: AppTaskRespondable)
-    func didCompleteTask(info: AppTaskRespondable)
-    func didCancelTask(info: AppTaskRespondable)
-    func didFailTask(info: AppTaskRespondable)
-}
-
 public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDelegate {
 
     fileprivate static let sharedSyncQueue:DispatchQueue = DispatchQueue(label:"com.stells.pap__shared_AppTaskManager")
@@ -41,13 +25,11 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
         return manager
     }
 
-    public weak var delegate:AppTaskManagerDelegate?
-
     private let syncQueue:DispatchQueue = DispatchQueue(label:"com.stells.pap__internal_AppTaskManager"+UUID().uuidString)
     private var _queuePool = [String: AppTaskOperationQueue]()
 
     //react
-    private var _reactionItem: AppTaskReactable?
+    private var reaction: AppTaskReactable?
 
     // when all tasks are finished, this property will be filled.
     @objc dynamic
@@ -222,7 +204,7 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
     public func perform(_ reaction: AppTaskReactable?=nil) -> Bool {
         if reaction != nil{
             syncQueue.sync(flags:.barrier){ [unowned self] in
-                self._reactionItem = reaction
+                self.reaction = reaction
             }
         }
         return perform(ignoreIfSuspended:false)
@@ -250,28 +232,22 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
     }
 
     func willPerformTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskItem) {
-        (self.delegate as? AppTaskManagerTaskDelegate)?.willPerformTask(info: workItem)
+
     }
 
     func didFailTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskItem) {
-        (self.delegate as? AppTaskManagerTaskDelegate)?.didFailTask(info: workItem)
-
         syncQueue.sync(flags:.barrier){
             _countFinishedTaskByEachQueues(queue, workItem)
         }
     }
 
     func didCompleteTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskItem) {
-        (self.delegate as? AppTaskManagerTaskDelegate)?.didCompleteTask(info: workItem)
-
         syncQueue.sync(flags:.barrier){
             _countFinishedTaskByEachQueues(queue, workItem)
         }
     }
 
     func didCancelTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskItem) {
-        (self.delegate as? AppTaskManagerTaskDelegate)?.didCancelTask(info: workItem)
-
         syncQueue.sync(flags:.barrier){
             _countFinishedTaskByEachQueues(queue, workItem)
         }
@@ -307,12 +283,7 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
         let finishedResponses = self._staticFinishedWorkItems
 
         DispatchQueue.main.async { [unowned self] in
-            self.delegate?.didRespond(forCurrent: workItem
-                    , progress: progress
-                    , remained: remainedResponses
-                    , finished: finishedResponses)
-
-            self._reactionItem?.progressHandler?(
+            self.reaction?.progressHandler?(
                     workItem
                     ,progress
                     ,remainedResponses
@@ -331,16 +302,14 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
             DispatchQueue.main.async { [unowned self] in
 
                 //will finish
-                self.delegate?.willFinish(forEachApps: staticResponsesForEachApps, forAll: staticFinishedWorkItems)
-                self._reactionItem?.willFinishHandler?(staticResponsesForEachApps, staticFinishedWorkItems)
+                self.reaction?.willFinishHandler?(staticResponsesForEachApps, staticFinishedWorkItems)
 
                 self.syncQueue.async{
                     let finalized_staticResponsesForEachApps = self._finializeAllTasks(staticResponsesForEachApps)
 
                     //did finish
                     DispatchQueue.main.async { [unowned self] in
-                        self.delegate?.didFinish(forEachApps: finalized_staticResponsesForEachApps, forAll: staticFinishedWorkItems)
-                        self._reactionItem?.didFinishHandler?(finalized_staticResponsesForEachApps, staticFinishedWorkItems)
+                        self.reaction?.didFinishHandler?(finalized_staticResponsesForEachApps, staticFinishedWorkItems)
 
                         self.appIdentifiersFinished = finalized_staticResponsesForEachApps.keys.map { info -> String in
                             return info.identifier

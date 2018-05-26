@@ -87,7 +87,6 @@ public protocol AppTaskReactable {
     func did(finish:@escaping AppTaskReactableFinishHandler) -> Self
 }
 
-//TODO: custom queue when calling back
 public class AppTaskReaction: ItemObject, AppTaskReactable {
     internal(set) public var targetQueue:DispatchQueue?
 
