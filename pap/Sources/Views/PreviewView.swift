@@ -22,7 +22,6 @@ protocol PreviewViewDelegate {
 
     func batchPreviewViewWillBeginEdit(_ view: PreviewView)
     func batchPreviewViewDidEndEdit(_ view: PreviewView)
-    func batchPreviewViewDidCancelEdit(_ view: PreviewView)
 }
 
 class PreviewView: CustomView {
@@ -178,15 +177,15 @@ extension PreviewView {
 
         collectionView.scrollToItem(at: IndexPath(item: 0, section: targetSection), at: .centeredHorizontally, animated: true)
 
+        NotificationCenter.default.addObserver(self, selector: #selector(self.fetchProgressChanged), name: RemoteSourceFetchNotification.Name.progressChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.processingProgressChanged), name: PHAssetProcessableNotification.Name.progressChanged, object: nil)
+
         //TODO: BatchAppCenter.default.task.append immediatly from UI action instead of using "EditItems"
 
         for i in 0..<appAssetsSelected.count{
             AppCenter.default.task.append(request: AppTaskRequest(app, appAssetsSelected.at(i)))
         }
         AppCenter.default.task.perform(createTaskReaction())
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(self.fetchProgressChanged), name: RemoteSourceFetchNotification.Name.progressChanged, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.processingProgressChanged), name: PHAssetProcessableNotification.Name.progressChanged, object: nil)
 
         return true
     }
@@ -202,11 +201,6 @@ extension PreviewView {
 
             assert(totalCount>0, "totalCount == 0 but progress has started")
             if totalCount == 0{
-                return
-            }
-
-            if response.info.state == .cancelled {
-                self.delegate?.batchPreviewViewWillCancelProgress(self)
                 return
             }
 
@@ -280,9 +274,18 @@ extension PreviewView {
     func cancelBatchProcessing() {
         assert(AppCenter.default.task.isRunning)
 
-        AppCenter.default.task.cancel()
+        NotificationCenter.default.removeObserver(self, name: RemoteSourceFetchNotification.Name.progressChanged, object: nil)
+        NotificationCenter.default.removeObserver(self, name: PHAssetProcessableNotification.Name.progressChanged, object: nil)
 
-        delegate?.batchPreviewViewDidCancelEdit(self)
+
+        self.delegate?.batchPreviewViewWillCancelProgress(self)
+        UIApplication.shared.beginIgnoringInteractionEvents()
+
+        AppCenter.default.task.cancel(AppTaskCancellationReaction().will {
+            UIApplication.shared.endIgnoringInteractionEvents()
+        }.did{
+            self.delegate?.batchPreviewViewDidEndEdit(self)
+        })
     }
 }
 

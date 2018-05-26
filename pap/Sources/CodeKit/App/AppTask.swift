@@ -76,18 +76,35 @@ public typealias AppTaskReactableWillFinishHandler = (
         , _ forAllResponses:[AppTaskRespondable]
 ) -> Void
 
-public protocol AppTaskReactable {
-    var progressHandler: AppTaskReactableProgressHanlder? { get }
-    func when(progress:@escaping AppTaskReactableProgressHanlder) -> Self
+public class AppTaskCancellationReaction: ItemObject {
+    //progress
+    private(set) public var cancellationHandler: (() -> ())?
 
-    var willFinishHandler: AppTaskReactableWillFinishHandler?  { get }
-    func will(finish:@escaping AppTaskReactableWillFinishHandler) -> Self
+    @discardableResult
+    public func did(cancel:@escaping (() -> ())) -> Self {
+        self.cancellationHandler = cancel
+        return self
+    }
 
-    var didFinishHandler: AppTaskReactableFinishHandler?  { get }
-    func did(finish:@escaping AppTaskReactableFinishHandler) -> Self
+    //finalize
+    private(set) public var willCancelHandler: (() -> ())?
+
+    @discardableResult
+    public func will(cancel:@escaping (() -> ())) -> Self {
+        self.willCancelHandler = cancel
+        return self
+    }
+
+    public init(didCancel: (() -> ())?=nil){
+        super.init()
+
+        if let cancel = didCancel {
+            self.did(cancel: cancel)
+        }
+    }
 }
 
-public class AppTaskReaction: ItemObject, AppTaskReactable {
+public class AppTaskReaction: ItemObject {
     internal(set) public var targetQueue:DispatchQueue?
 
     //progress
@@ -119,8 +136,9 @@ public class AppTaskReaction: ItemObject, AppTaskReactable {
 
     public init(finish: AppTaskReactableFinishHandler?=nil){
         super.init()
-        if let _finish = finish{
-            self.did(finish:_finish)
+
+        if let finish = finish{
+            self.did(finish: finish)
         }
     }
 }

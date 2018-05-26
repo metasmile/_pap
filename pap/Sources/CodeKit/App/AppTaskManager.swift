@@ -12,13 +12,13 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
 
     fileprivate static let sharedSyncQueue:DispatchQueue = DispatchQueue(label:"com.stells.pap__shared_AppTaskManager")
 
-    private static var _sharedManagers = [UInt:AppTaskManager]()
+    private static var sharedManagers = [UInt:AppTaskManager]()
 
     public static func shared(_ maxConcurrentCount:UInt) -> AppTaskManager{
-        guard let manager = _sharedManagers[maxConcurrentCount] else{
+        guard let manager = sharedManagers[maxConcurrentCount] else{
             return sharedSyncQueue.sync(flags:.barrier){
                 let _manager = AppTaskManager(maxConcurrentCount)
-                _sharedManagers[maxConcurrentCount] = _manager
+                sharedManagers[maxConcurrentCount] = _manager
                 return _manager
             }
         }
@@ -26,22 +26,23 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
     }
 
     private let syncQueue:DispatchQueue = DispatchQueue(label:"com.stells.pap__internal_AppTaskManager"+UUID().uuidString)
-    private var _queuePool = [String: AppTaskOperationQueue]()
+    private var queuePool = [String: AppTaskOperationQueue]()
 
     //react
-    private var reaction: AppTaskReactable?
+    private var reaction: AppTaskReaction?
+    private var reactionToCancel: AppTaskCancellationReaction?
 
     // when all tasks are finished, this property will be filled.
     @objc dynamic
     public var appIdentifiersFinished:[String]?
 
     //result collection
-    private var _staticResponsesForEachApps = [AppInfo: [AppTaskRespondable]]()
-    private var _staticRequestedWorkItems = [String: AppTaskItem]()
-    private var _staticFinishedWorkItems = [AppTaskItem]()
+    private var staticResponsesForEachApps = [AppInfo: [AppTaskRespondable]]()
+    private var staticRequestedWorkItems = [String: AppTaskItem]()
+    private var staticFinishedWorkItems = [AppTaskItem]()
 
     public final var maxConcurrentCount:Int{
-        return self._queuePool.count
+        return self.queuePool.count
     }
 
     public var isRunning:Bool{
@@ -49,7 +50,7 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
     }
 
     public var count:Int{
-        var iter = _queuePool.values.makeIterator()
+        var iter = queuePool.values.makeIterator()
         var c = 0
         while let q = iter.next() {
             c += q.count
@@ -62,7 +63,7 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
         super.init()
         for _ in 0 ..< maxConcurrentCount{
             let q = AppTaskOperationQueue(delegate:self)
-            _queuePool[q.label] = q
+            queuePool[q.label] = q
         }
     }
 
@@ -88,13 +89,13 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
     }
 
     var currentTaskItems:[AppTaskItem] {
-        return _queuePool.values.flatMap { q -> [AppTaskItem] in Array(q.iterator()) }
+        return queuePool.values.flatMap { q -> [AppTaskItem] in Array(q.iterator()) }
     }
 
     //TODO: query by all of each request's properties.
     public func query(by requestTokens:[String]) -> [TaskInfo] {
         return requestTokens.compactMap { token -> TaskInfo? in
-            _staticRequestedWorkItems[token]?.info
+            staticRequestedWorkItems[token]?.info
         }
     }
 
@@ -108,9 +109,9 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
     public func remove(request:AppTaskRequest){
         syncQueue.sync(flags:.barrier){
 
-            guard let queuedTaskItem = _staticRequestedWorkItems[request.token]
+            guard let queuedTaskItem = staticRequestedWorkItems[request.token]
             , let queueLabel = queuedTaskItem.info.queueLabel
-            , let queue = self._queuePool[queueLabel] else {
+            , let queue = self.queuePool[queueLabel] else {
                 print("[!] a queue by the request is unqueued")
                 return
             }
@@ -126,7 +127,7 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
             }
 
             assert(removedItem.info.requestToken==request.token)
-            _staticRequestedWorkItems.removeValue(forKey: removedItem.info.requestToken)
+            staticRequestedWorkItems.removeValue(forKey: removedItem.info.requestToken)
         }
     }
 
@@ -151,7 +152,7 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
                     , task: task
             )
 
-            var queues = Array(_queuePool.values)
+            var queues = Array(queuePool.values)
             if let preferredCount = task.info.policy.estimatedConcurrencyCount {
                 assert(preferredCount>0, "preferredCount cannot be lower than 1 if it was preferred.")
                 queues = Array(queues[0 ..< min(queues.count, preferredCount)])
@@ -178,7 +179,7 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
                 currentQueue.enqueue(item)
             }
 
-            _staticRequestedWorkItems[item.request.token] = item
+            staticRequestedWorkItems[item.request.token] = item
 
             return item.task.info
         }
@@ -186,11 +187,11 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
     
     @discardableResult
     private func perform(ignoreIfSuspended:Bool=false) -> Bool {
-        if _queuePool.count==0 {
+        if queuePool.count==0 {
             return false
         }
 
-        for queue in _queuePool.values {
+        for queue in queuePool.values {
             if ignoreIfSuspended && queue.suspended{
                 return false
             }
@@ -201,11 +202,10 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
     }
 
     @discardableResult
-    public func perform(_ reaction: AppTaskReactable?=nil) -> Bool {
-        if reaction != nil{
-            syncQueue.sync(flags:.barrier){ [unowned self] in
-                self.reaction = reaction
-            }
+    public func perform(_ reaction: AppTaskReaction?=nil) -> Bool {
+        syncQueue.sync(flags:.barrier){ [unowned self] in
+            self.reactionToCancel = nil
+            self.reaction = reaction
         }
         return perform(ignoreIfSuspended:false)
     }
@@ -215,14 +215,19 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
         return perform(AppTaskReaction(finish: finished))
     }
 
-    public func cancel(){
-        for (_,v) in _queuePool{
+    public func cancel(_ reaction: AppTaskCancellationReaction?=nil){
+        syncQueue.sync(flags:.barrier){ [unowned self] in
+            self.reaction = nil
+            self.reactionToCancel = reaction
+        }
+
+        for (_,v) in queuePool {
             v.cancel()
         }
     }
 
     public func suspend(){
-        for (_,v) in _queuePool{
+        for (_,v) in queuePool {
             v.suspend()
         }
     }
@@ -237,19 +242,19 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
 
     func didFailTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskItem) {
         syncQueue.sync(flags:.barrier){
-            _countFinishedTaskByEachQueues(queue, workItem)
+            countFinishedTaskByEachQueues(queue, workItem)
         }
     }
 
     func didCompleteTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskItem) {
         syncQueue.sync(flags:.barrier){
-            _countFinishedTaskByEachQueues(queue, workItem)
+            countFinishedTaskByEachQueues(queue, workItem)
         }
     }
 
     func didCancelTask(_ queue: AppTaskOperationQueue, _ workItem: AppTaskItem) {
         syncQueue.sync(flags:.barrier){
-            _countFinishedTaskByEachQueues(queue, workItem)
+            countFinishedTaskByEachQueues(queue, workItem)
         }
     }
 
@@ -258,29 +263,27 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
     }
 
     //counter
-    //TODO: multi-apps for each requestToken
-
-    private func _countFinishedTaskByEachQueues(_ queue: AppTaskOperationQueue, _ workItem: AppTaskItem) {
+    private func countFinishedTaskByEachQueues(_ queue: AppTaskOperationQueue, _ workItem: AppTaskItem) {
         let appType = workItem.request.appType
         let appInfo = appType.info
 
-        if !_staticResponsesForEachApps.keys.contains(appInfo){
-            _staticResponsesForEachApps[appInfo] = [AppTaskRespondable]()
+        if !staticResponsesForEachApps.keys.contains(appInfo){
+            staticResponsesForEachApps[appInfo] = [AppTaskRespondable]()
         }
-        _staticResponsesForEachApps[appInfo]?.append(workItem)
+        staticResponsesForEachApps[appInfo]?.append(workItem)
 
-        _staticRequestedWorkItems.removeValue(forKey: workItem.info.requestToken)
-        _staticFinishedWorkItems.append(workItem)
+        staticRequestedWorkItems.removeValue(forKey: workItem.info.requestToken)
+        staticFinishedWorkItems.append(workItem)
 
-        print("Remaining tasks: ", _staticRequestedWorkItems.count)
+        print("Remaining tasks: ", staticRequestedWorkItems.count)
 
         //progress
-        let creq = _staticRequestedWorkItems.count
-        let cres = _staticFinishedWorkItems.count
+        let creq = staticRequestedWorkItems.count
+        let cres = staticFinishedWorkItems.count
         let progress = Float(cres)/Float(creq + cres)
 
-        let remainedResponses = Array(self._staticRequestedWorkItems.values)
-        let finishedResponses = self._staticFinishedWorkItems
+        let remainedResponses = Array(self.staticRequestedWorkItems.values)
+        let finishedResponses = self.staticFinishedWorkItems
 
         DispatchQueue.main.async { [unowned self] in
             self.reaction?.progressHandler?(
@@ -292,11 +295,11 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
         }
         
         //all finished
-        let allFinished = _staticRequestedWorkItems.count==0
+        let allFinished = staticRequestedWorkItems.count==0
 
         if allFinished {
-            let staticFinishedWorkItems = self._staticFinishedWorkItems
-            let staticResponsesForEachApps = self._staticResponsesForEachApps
+            let staticFinishedWorkItems = self.staticFinishedWorkItems
+            let staticResponsesForEachApps = self.staticResponsesForEachApps
 
             //enter finalize scope after already running main queue
             DispatchQueue.main.async { [unowned self] in
@@ -304,14 +307,18 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
                 //will finish
                 self.reaction?.willFinishHandler?(staticResponsesForEachApps, staticFinishedWorkItems)
 
+                self.reactionToCancel?.willCancelHandler?()
+
                 self.syncQueue.async{
-                    let finalized_staticResponsesForEachApps = self._finializeAllTasks(staticResponsesForEachApps)
+                    let finalizedStaticResponsesForEachApps = self.finializeAllTasks(staticResponsesForEachApps)
 
                     //did finish
                     DispatchQueue.main.async { [unowned self] in
-                        self.reaction?.didFinishHandler?(finalized_staticResponsesForEachApps, staticFinishedWorkItems)
+                        self.reactionToCancel?.cancellationHandler?()
 
-                        self.appIdentifiersFinished = finalized_staticResponsesForEachApps.keys.map { info -> String in
+                        self.reaction?.didFinishHandler?(finalizedStaticResponsesForEachApps, staticFinishedWorkItems)
+
+                        self.appIdentifiersFinished = finalizedStaticResponsesForEachApps.keys.map { info -> String in
                             return info.identifier
                         }
                     }
@@ -319,13 +326,13 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
             }
 
             //clean buffered results
-            _staticFinishedWorkItems.removeAll()
-            _staticRequestedWorkItems.removeAll()
-            _staticResponsesForEachApps.removeAll()
+            self.staticFinishedWorkItems.removeAll()
+            self.staticRequestedWorkItems.removeAll()
+            self.staticResponsesForEachApps.removeAll()
         }
     }
 
-    private func _finializeAllTasks(_ resForEachApps:[AppInfo: [AppTaskRespondable]]) -> [AppInfo: [AppTaskRespondable]] {
+    private func finializeAllTasks(_ resForEachApps:[AppInfo: [AppTaskRespondable]]) -> [AppInfo: [AppTaskRespondable]] {
         let asyncSignal = AsyncSignal()
         var finalizedResults = [AppInfo: [AppTaskRespondable]]()
 

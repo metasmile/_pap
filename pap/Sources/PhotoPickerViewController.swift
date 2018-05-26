@@ -620,19 +620,9 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     func batchPreviewViewDidEndEdit(_ view: PreviewView) {
         progressBar.isHidden = true
 
+        updateAllPhotosTitle()
         updateSelectedItemUIs()
         updateVisiblePhotoCollectionCellsEnabled()
-        
-        updateAppDockViewProcessingEnd()
-    }
-    
-    func batchPreviewViewDidCancelEdit(_ view: PreviewView) {
-        // waiting for remaining processing
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
-            self.updateAllPhotosTitle()
-        }
-
-        progressBar.isHidden = true
         
         updateAppDockViewProcessingEnd()
     }
