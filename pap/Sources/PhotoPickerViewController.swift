@@ -66,6 +66,11 @@ class PhotoPickerViewController: AppDockViewController {
             DispatchQueue.main.async {
                 self.flushQueuedPhotoLibraryChanges()
             }
+
+            //remove temp files after current all tasks are finished.
+            DispatchQueue.global(qos: .background).async{
+                FileManager.default.clearTemporaryDirectory()
+            }
         }
 
         //check photo library permission

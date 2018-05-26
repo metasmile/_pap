@@ -345,11 +345,6 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
                         self.appIdentifiersFinished = finalized_staticResponsesForEachApps.keys.map { info -> String in
                             return info.identifier
                         }
-
-                        //remove temp files.
-                        DispatchQueue.global(qos: .background).async{
-                            FileManager.default.clearTemporaryDirectory()
-                        }
                     }
                 }
             }
