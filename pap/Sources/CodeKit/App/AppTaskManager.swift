@@ -51,7 +51,7 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
 
     // when all tasks are finished, this property will be filled.
     @objc dynamic
-    public var appIdentifiersPerformed:[String]?
+    public var appIdentifiersFinished:[String]?
 
     //result collection
     private var _staticResponsesForEachApps = [AppInfo: [AppTaskRespondable]]()
@@ -342,8 +342,13 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
                         self.delegate?.didFinish(forEachApps: finalized_staticResponsesForEachApps, forAll: staticFinishedWorkItems)
                         self._reactionItem?.didFinishHandler?(finalized_staticResponsesForEachApps, staticFinishedWorkItems)
 
-                        self.appIdentifiersPerformed = finalized_staticResponsesForEachApps.keys.map { info -> String in
+                        self.appIdentifiersFinished = finalized_staticResponsesForEachApps.keys.map { info -> String in
                             return info.identifier
+                        }
+
+                        //remove temp files.
+                        DispatchQueue.global(qos: .background).async{
+                            FileManager.default.clearTemporaryDirectory()
                         }
                     }
                 }
@@ -372,7 +377,7 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
                 finalizedResults[appInfo] = reses
             }
 
-            if appInfo.policy.lifeCycleUnit == .allTasks {
+            if appInfo.policy.lifeCycle.instance == .allTasks {
                 AppLifecycleManager.shared.discard(appInfo)
                 assert(!AppLifecycleManager.shared.acquired.contains(appInfo.identifier))
             }

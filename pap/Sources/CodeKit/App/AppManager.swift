@@ -92,7 +92,7 @@ open class AppManager: NSObject, SelectableCollection {
             var defaultsOfCurrent = self.currentDefaults
             defaultsOfCurrent?.touchedVersion = current?.info.version
 
-            if let previous = self.previous, previous.info.policy.lifeCycleUnit == .availability {
+            if let previous = self.previous, previous.info.policy.lifeCycle.instance == .availability {
                 AppLifecycleManager.shared.discard(previous.info)
             }
 

@@ -5,11 +5,19 @@
 
 import Foundation
 
-public enum AppLifecycleUnit:UInt {
+public struct AppLifecyclePolicy{
+    public let instance: AppInstanceLifecycleUnit
+
+    public static var `default`:AppLifecyclePolicy{
+        return AppLifecyclePolicy(instance: .systemMemoryUsage)
+    }
+}
+
+public enum AppInstanceLifecycleUnit:UInt {
     case singleTask
     case allTasks
     case availability
-    case systemMemory //TODO: implement with system memory state
+    case systemMemoryUsage //INFO: Not implemented yet
     case permanent
 }
 
@@ -86,7 +94,7 @@ final class AppLifecycleManager {
         let identifier = info.identifier
         guard let appInstance = _instances[identifier] else { return false }
 
-        if info.policy.lifeCycleUnit == .permanent{
+        if info.policy.lifeCycle.instance == .permanent{
             return false
         }
 

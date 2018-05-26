@@ -67,9 +67,9 @@ public struct AppInfo: Hashable, AppInfoScheme {
 }
 
 public struct AppPolicy {
-    static let `default` = AppPolicy(lifeCycleUnit: .systemMemory, task: TaskPolicy.default)
+    static let `default` = AppPolicy(lifeCycle: AppLifecyclePolicy.default, task: TaskPolicy.default)
 
-    public let lifeCycleUnit: AppLifecycleUnit
+    public let lifeCycle: AppLifecyclePolicy
     public let task: TaskPolicy
 }
 

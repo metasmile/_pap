@@ -55,19 +55,16 @@ class PhotoPickerViewController: AppDockViewController {
                     self.queuedPhotoLibraryChanges.enqueue(changeInstance)
 
                 }else{
-                    assert(self.queuedPhotoLibraryChanges.count==0)
-                    self.queuedPhotoLibraryChanges.dequeueAll()
+                    self.flushQueuedPhotoLibraryChanges()
                     self.photoLibraryDidChange(changeInstance)
                 }
             }
         }
 
         //monitor latest AppCenter task
-        AppCenter.default.task.watch(\.appIdentifiersPerformed) {
+        AppCenter.default.task.watch(\.appIdentifiersFinished) {
             DispatchQueue.main.async {
-                while let changeInstance = self.queuedPhotoLibraryChanges.dequeue() {
-                    self.photoLibraryDidChange(changeInstance)
-                }
+                self.flushQueuedPhotoLibraryChanges()
             }
         }
 
@@ -121,6 +118,12 @@ class PhotoPickerViewController: AppDockViewController {
         AppAssets.selected.reloadAll()
         self.redisplayVisibleCellsWhenChangeApp()
         self.batchPreviewView.updatePreviews()
+    }
+
+    private func flushQueuedPhotoLibraryChanges(){
+        while let changeInstance = self.queuedPhotoLibraryChanges.dequeue() {
+            self.photoLibraryDidChange(changeInstance)
+        }
     }
     
     override func registerWatchingAppConfig() {

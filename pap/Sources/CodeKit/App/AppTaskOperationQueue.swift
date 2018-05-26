@@ -183,7 +183,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
 
 
                 // discard app if configured
-                if finishedItem.appInfo.policy.lifeCycleUnit == .singleTask {
+                if finishedItem.appInfo.policy.lifeCycle.instance == .singleTask {
                     AppLifecycleManager.shared.discard(finishedItem.appInfo)
                     assert(!AppLifecycleManager.shared.acquired.contains(finishedItem.appInfo.identifier))
                 }
