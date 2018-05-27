@@ -55,11 +55,9 @@ extension AppDockNavigationController: AppDockViewDelegate {
             
             appDockView.controller = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.dockContent
             //INFO: by apps? or globally? hmm at first following imessage policy(global)
-            appDockView.setDrawerDisplay(forState: appDockView.contentLayoutState,reloadDockContentViews: true)
         }
         else {
             appDockView.controller = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.dockContent
-            appDockView.reloadKeepingDrawerOpened()
             
             if let collectionView = self.topViewController?.view.subviews.first as? UICollectionView {
                 let bottomOffsetY = collectionView.contentSize.height - collectionView.bounds.size.height + collectionView.adjustedContentInset.bottom

@@ -130,7 +130,12 @@ class AppDockView: CustomView {
             drawerView.isHandleOpened = newValue == .maximized
         }
         get {
-            return AppDockContentLayoutState(rawValue: Defaults.shared.appDockContentLayoutState) ?? .neutralized
+            var state = AppDockContentLayoutState(rawValue: Defaults.shared.appDockContentLayoutState) ?? .neutralized
+            if controller == nil {
+                state = .minimized
+            }
+            drawerView.isHandleOpened = state == .maximized
+            return state
         }
     }
 
@@ -165,11 +170,18 @@ class AppDockView: CustomView {
     var controller: AppDockContent? {
         didSet {
             if let view = controller?.view {
+                // POLICY:
+                //   NO KEEP MAXIMIZED LAYOUT
+                //   force layout changed to neutralized when previous layout state is not minimized
+                if contentLayoutState != .minimized {
+                    contentLayoutState = .neutralized
+                }
+                
                 controller?.willSetContentView(view, dock: self)
 
                 setControllerView(view, animated: true)
 
-                DispatchQueue.main.async{
+                DispatchQueue.main.async {
                     self.controller?.didSetContentView(view, dock:self)
                 }
             }
@@ -177,6 +189,8 @@ class AppDockView: CustomView {
                 controller?.willRemoveContentView()
                 removeAllControllerViews()
             }
+            
+            delegate?.appDockView(self, didOpenDrawer: contentLayoutState == .maximized)
         }
     }
 
