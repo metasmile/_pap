@@ -9,7 +9,7 @@ public struct AppLifecyclePolicy{
     public let instance: AppInstanceLifecycleUnit
 
     public static var `default`:AppLifecyclePolicy{
-        return AppLifecyclePolicy(instance: .systemMemoryUsage)
+        return AppLifecyclePolicy(instance: .availability)
     }
 }
 
