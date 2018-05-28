@@ -145,10 +145,13 @@ private extension PhotosFilterApp {
         items.insert(AppUICollectionView.CollectionItem(title: "Original".localized, image: image, action: { self.config?.filter = CIFilterItem() }), at: 0)
         
         let view = AppUICollectionView(items: items)
+        view.cellSize = CGSize(width: 80, height: 120)
+        view.cellSpacing = 2
+        view.cellImageInsets = UIEdgeInsetsMake(0, 0, 4, 0)
         
         var p = AppDockContentPreferences()
         p.displayMode = .pinned
-        p.preferredHeight = 100 // for test. remove this line after fixed app design
+        p.preferredHeight = 120 // for test. remove this line after fixed app design
         return AppDockContentItem(view: view, preferences: p)
     }
     
