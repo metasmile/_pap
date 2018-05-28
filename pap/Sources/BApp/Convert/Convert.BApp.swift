@@ -236,14 +236,18 @@ private class ConvertAppTask: TaskPrototype, Taskable {
             throw TaskError.rejectedParam
         }
 
-        if let gifConverter = converter as? OptionableConverterBase<GifConverterDefaultOption> {
-            gifConverter.options = GifConverterDefaultOption.preset(defaults.convertingQuality.qualityType, with: assetItem.asset)
+        //TODO: integrate someday remove IFs
+        if let converter = converter as? OptionableConverterBase<GifConverterDefaultOption> {
+            converter.options = GifConverterDefaultOption.preset(defaults.convertingQuality.qualityType, with: assetItem.asset)
         }
-        else if let movConverter = converter as? OptionableConverterBase<MovConverterOption> {
-            movConverter.options = MovConverterOption.preset(defaults.convertingQuality.qualityType, with: assetItem.asset)
+        else if let converter = converter as? OptionableConverterBase<MovConverterOption> {
+            converter.options = MovConverterOption.preset(defaults.convertingQuality.qualityType, with: assetItem.asset)
         }
-        else if let jpgConverter = converter as? OptionableConverterBase<JpgConverterOption> {
-            jpgConverter.options = JpgConverterOption.preset(defaults.convertingQuality.qualityType, with: assetItem.asset)
+        else if let converter = converter as? OptionableConverterBase<JpgConverterOption> {
+            converter.options = JpgConverterOption.preset(defaults.convertingQuality.qualityType, with: assetItem.asset)
+        }
+        else if let converter = converter as? OptionableConverterBase<MP4ConverterOption> {
+            converter.options = MP4ConverterOption.optionBy(defaults.convertingQuality.qualityType, with: assetItem.asset)
         }
 
         let result = converter.convert(source: assetItem, async)
