@@ -134,6 +134,11 @@ class AppDockView: CustomView {
             if controller == nil {
                 state = .minimized
             }
+            // POLICY BEGIN: if controller has pinned, layout state is only neutralized OR minimized
+            else if hasControllerPinned{
+                state = hasAppAccessoryAsLayout ? .neutralized : .minimized
+            }
+            // POLICY END
             drawerView.isHandleOpened = state == .maximized
             return state
         }
@@ -174,12 +179,13 @@ class AppDockView: CustomView {
     var controller: AppDockContent? {
         didSet {
             if let view = controller?.view {
-                // POLICY:
+                // POLICY BEGIN:
                 //   NO KEEP MAXIMIZED LAYOUT
                 //   force layout changed to neutralized when previous layout state is not minimized
                 if contentLayoutState != .minimized {
                     contentLayoutState = .neutralized
                 }
+                // POLICY END
                 
                 controller?.willSetContentView(view, dock: self)
 
@@ -579,16 +585,11 @@ extension AppDockView: UIGestureRecognizerDelegate {
             case .minimized:
                 minimizeDrawer(reloadDockContentViews: reloadDockContentViews)
 
-            case .maximized:
-                if !(hasControllerPinned && !hasAppAccessoryAsLayout){
-                    maximizeDrawer(reloadDockContentViews: reloadDockContentViews)
-
-                } else if .maximized != contentLayoutState {
-                    setDrawerDisplay(forState: contentLayoutState, reloadDockContentViews: reloadDockContentViews)
-                }
-
             case .neutralized:
                 neutralizeDrawer(reloadDockContentViews: reloadDockContentViews)
+
+            case .maximized:
+                maximizeDrawer(reloadDockContentViews: reloadDockContentViews)
         }
     }
 
