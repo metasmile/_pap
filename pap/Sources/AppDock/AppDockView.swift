@@ -130,13 +130,20 @@ class AppDockView: CustomView {
             drawerView.isHandleOpened = newValue == .maximized
         }
         get {
-            var state = AppDockContentLayoutState(rawValue: Defaults.shared.appDockContentLayoutState) ?? .neutralized
-            if controller == nil {
-                state = .minimized
-            }
-            // POLICY BEGIN: if controller has pinned, layout state is only neutralized OR minimized
-            else if hasControllerPinned{
-                state = hasAppAccessoryAsLayout ? .neutralized : .minimized
+            var state = controller == nil ? .minimized : AppDockContentLayoutState(rawValue: Defaults.shared.appDockContentLayoutState) ?? .neutralized
+
+            // POLICY BEGIN:
+            if hasControllerPinned{
+                if hasAppAccessoryAsLayout{
+                    if state == .maximized{
+                        // maximized is allowed
+                    }else{
+                        state = .neutralized
+                    }
+                }else{
+                    // always minimized at default
+                    state = .minimized 
+                }
             }
             // POLICY END
             drawerView.isHandleOpened = state == .maximized
