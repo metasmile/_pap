@@ -573,17 +573,27 @@ extension AppDockView: UIGestureRecognizerDelegate {
     
     func closeDrawer(reloadDockContentViews: Bool? = nil) {
         switch contentLayoutState {
-        case .maximized: setDrawerDisplay(forState:.neutralized, reloadDockContentViews: reloadDockContentViews)
-        case .neutralized: setDrawerDisplay(forState:.minimized, reloadDockContentViews: reloadDockContentViews)
-        case .minimized: setDrawerDisplay(forState:.minimized)
+            case .maximized:
+                contentLayoutState = .neutralized
+                setDrawerDisplay(forState: contentLayoutState, reloadDockContentViews: reloadDockContentViews)
+            case .neutralized:
+                contentLayoutState = .minimized
+                setDrawerDisplay(forState: contentLayoutState, reloadDockContentViews: reloadDockContentViews)
+            case .minimized:
+                return
         }
     }
     
     func openDrawer(reloadDockContentViews: Bool? = nil) {
         switch contentLayoutState {
-        case .maximized: setDrawerDisplay(forState:.maximized)
-        case .neutralized: setDrawerDisplay(forState:.maximized, reloadDockContentViews: reloadDockContentViews)
-        case .minimized: setDrawerDisplay(forState:.neutralized, reloadDockContentViews: reloadDockContentViews)
+            case .maximized:
+                return
+            case .neutralized:
+                contentLayoutState = .maximized
+                setDrawerDisplay(forState: contentLayoutState, reloadDockContentViews: nil)
+            case .minimized:
+                contentLayoutState = .neutralized
+                setDrawerDisplay(forState: contentLayoutState, reloadDockContentViews: nil)
         }
     }
     

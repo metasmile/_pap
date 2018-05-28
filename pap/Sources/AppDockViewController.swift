@@ -58,10 +58,24 @@ extension AppDockNavigationController: AppDockViewDelegate {
         }
         else {
             appDockView.controller = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.dockContent
-            
+
+            var needsToOpenDockViewDrawer = false
+
             if let collectionView = self.topViewController?.view.subviews.first as? UICollectionView {
                 let bottomOffsetY = collectionView.contentSize.height - collectionView.bounds.size.height + collectionView.adjustedContentInset.bottom
-                collectionView.setContentOffset(CGPoint(x: 0, y: bottomOffsetY), animated: true)
+
+                if collectionView.contentOffset.y == bottomOffsetY{
+                    needsToOpenDockViewDrawer = true
+                }else{
+                    collectionView.setContentOffset(CGPoint(x: 0, y: bottomOffsetY), animated: true)
+                }
+
+            }else{
+                needsToOpenDockViewDrawer = true
+            }
+
+            if needsToOpenDockViewDrawer && appDockView.contentLayoutState == .minimized {
+                appDockView.openDrawer()
             }
         }
     }
