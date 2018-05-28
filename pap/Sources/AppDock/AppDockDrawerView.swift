@@ -21,13 +21,13 @@ internal class AppDockDrawerView: DesignableView {
             }
         }
     }
-    private var drawerColor: UIColor = UIColor(red: 212 / 255.0, green: 211 / 255.0, blue: 212 / 255.0, alpha: 1)
-    private var drawerStrokeColor: UIColor = UIColor(red: 212 / 255.0, green: 211 / 255.0, blue: 212 / 255.0, alpha: 1)
+    private var drawerColor = UIColor(red:0.785, green:0.785, blue:0.79, alpha:1)
+    private var drawerStrokeColor = UIColor(red:0.785, green:0.785, blue:0.79, alpha:1)
 
     // 108 x 14
     lazy private var drawerShapeLayer: CAShapeLayer = { return CAShapeLayer() }()
     lazy private var drawerShapePath: UIBezierPath = { return UIBezierPath() }()
-    private let drawerShapeLayerSize = CGSize(width: 31, height: 5.8)
+    private let drawerShapeLayerSize = CGSize(width: 32, height: 5)
 
     var isBarHidden = false {
         didSet{
@@ -64,9 +64,9 @@ internal class AppDockDrawerView: DesignableView {
         super.initialize()
 
         drawerShapeLayer.frame.size = drawerShapeLayerSize
-        drawerShapeLayer.strokeColor = UIColor(red: 199 / 255.0, green: 199 / 255.0, blue: 203 / 255.0, alpha: 1).cgColor
+        drawerShapeLayer.strokeColor = drawerStrokeColor.cgColor
         drawerShapeLayer.fillColor = UIColor.clear.cgColor
-        drawerShapeLayer.lineWidth = 5
+        drawerShapeLayer.lineWidth = 4.6
         drawerShapeLayer.lineCap = kCALineCapRound
         layer.addSublayer(drawerShapeLayer)
 
