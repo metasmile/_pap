@@ -21,8 +21,8 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
     private var finshedQueue = ItemQueue<AppTaskItem>()
     private weak var delegate: AppTaskOperationQueueDelegate?
 
-    private(set) public var currentTask: TaskInfo?
-    private(set) public var cancelled = false
+    private(set) public var currentTaskInfo: TaskInfo?
+    private(set) public var cancelled:Bool = false
     private(set) public var suspended = false
 
     private let queue:DispatchQueue = DispatchQueue(
@@ -59,7 +59,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
     }
 
     //external interface
-    private var _delegatingQueue:DispatchQueue {
+    private var callbackQueue:DispatchQueue {
         return self.delegate?.delegatingQueue(from: self) ?? DispatchQueue.main
     }
 
@@ -85,7 +85,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
         }
 
         if let _exe = exe{
-            self._delegatingQueue.async(execute: _exe)
+            _exe()
         }
 
         print("> "
@@ -101,20 +101,21 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
         print("dispatchFinishedResults", self.count, self.finshedQueue.count)
 
         let queueResult = self.finshedQueue.dequeueAll()
-        self._delegatingQueue.async {
+        self.callbackQueue.async {
             self.delegate?.didFinishAllTasksInQueue(self, queueResult)
         }
     }
 
-    private func tryItem(_ item: AppTaskItem, _ async: AsyncManualSignalable & AsyncControllableSignable, cancel:Bool=false){
+    private func cancelItem(_ item: AppTaskItem, _ async: AsyncManualSignalable & AsyncControllableSignable) {
         let param = item.request.param
 
-        guard !cancel && item.response(.performing) else{
-            async.done()
-            item.task.cancel(param, async)
-            item.response(.cancelled)
-            return
-        }
+        async.done()
+        item.task.cancel(param, async)
+        item.response(.cancelled)
+    }
+
+    private func tryItem(_ item: AppTaskItem, _ async: AsyncManualSignalable & AsyncControllableSignable){
+        let param = item.request.param
 
         do {
 
@@ -143,8 +144,8 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
         }
 
         guard let item = self.peek() else {
-            if currentTask != nil {
-                currentTask = nil
+            if currentTaskInfo != nil {
+                currentTaskInfo = nil
                 cancelled = false
 
                 dispatchFinishedAll()
@@ -154,19 +155,23 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
             return
         }
 
-        guard currentTask?.token != item.info.token else {
+        if currentTaskInfo?.token == item.info.token {
             return
         }
 
-        currentTask = item.info
+        currentTaskInfo = item.info
 
         let _cancelled = self.cancelled
 
         queue.async { [unowned self] in
 
-            self.tryItem(item, self.asyncSignal, cancel: _cancelled)
+            if _cancelled{
+                self.cancelItem(item, self.asyncSignal)
+            }else{
+                self.tryItem(item, self.asyncSignal)
+            }
 
-            self._delegatingQueue.async{
+            self.callbackQueue.async{
 
                 // dequeue
                 guard let finishedItem = self.dequeue() else {
@@ -178,7 +183,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
 
 
                 // discard app if configured
-                if finishedItem.appInfo.policy.lifeCycleUnit == .singleTask {
+                if finishedItem.appInfo.policy.lifeCycle.instance == .singleTask {
                     AppLifecycleManager.shared.discard(finishedItem.appInfo)
                     assert(!AppLifecycleManager.shared.acquired.contains(finishedItem.appInfo.identifier))
                 }
@@ -195,24 +200,23 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
             return
         }
 
-        //cancel currently progressing item
-        if let currentItem = self.peek() {
-            //FIXME: not work in queue??
-//            queue.async(flags:.barrier){ [unowned self] in
-                self.tryItem(currentItem, self.asyncSignal, cancel: true)
-//            }
-        }
-
         //set cancel flag and then from next item may cancel before it performs.
         cancelled = true
 
-        if currentTask == nil{
+        //cancel currently progressing item
+        if let currentItem = self.peek() {
+            queue.async { [unowned self] in
+                self.cancelItem(currentItem, self.asyncSignal)
+            }
+        }
+
+        if currentTaskInfo == nil{
             perform()
         }
     }
 
     func suspend(){
-        if self.count==0 || currentTask == nil{
+        if self.count==0 || currentTaskInfo == nil{
             return
         }
 

@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A0AEACCD206006500086E3E0"
+               BlueprintIdentifier = "A0F086BF20AC6C9B00E74025"
                BuildableName = "papTests.xctest"
                BlueprintName = "papTests"
                ReferencedContainer = "container:pap.xcodeproj">

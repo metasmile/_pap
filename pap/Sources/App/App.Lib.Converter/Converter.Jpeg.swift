@@ -14,7 +14,7 @@ struct JpgConverterOption {
         return JpgConverterOption(compressionQuality: 0.7)
     }
     
-    static func preset(_ quality: ExportQualityType, with asset: PHAsset) -> JpgConverterOption {
+    static func preset(_ quality: ConverterQualityPreset, with asset: PHAsset) -> JpgConverterOption {
         var options = JpgConverterOption.default
         switch quality {
         case .high: options.compressionQuality = 1.0
@@ -26,7 +26,7 @@ struct JpgConverterOption {
     }
 }
 
-protocol JpgConverter: Converter {}
+protocol JpgConverter: Converter, ConverterCapability {}
 extension JpgConverter{
     static var direction: ConvertingDirection {
         return ConvertingDirection(from: .any, to: .jpeg)
@@ -35,6 +35,8 @@ extension JpgConverter{
 
 class JpgConverter_ScreenshotPng: OptionableConverterBase<JpgConverterOption>, JpgConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.png_screenshot, to:.jpeg) }
+
+    static let supportedPresets = ConverterQualityPreset.originalExcluded
     
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> PHAssetResourceFinalizingOutput? {
 
@@ -43,7 +45,7 @@ class JpgConverter_ScreenshotPng: OptionableConverterBase<JpgConverterOption>, J
         let quality:CGFloat = options?.compressionQuality ?? 0.7
 
         async.begin()
-        PHImageManager.default().requestImageData(for: source.asset, options: nil) { data, s, orientation, dictionary in
+        let requestId = PHImageManager.default().requestImageData(for: source.asset, options: nil) { data, s, orientation, dictionary in
 
             for r in source.asset.resources{
                 let url = URL(fileURLWithPath: r.originalFilename)
@@ -66,6 +68,7 @@ class JpgConverter_ScreenshotPng: OptionableConverterBase<JpgConverterOption>, J
             async.end()
         }
 
+        source.requestIDs.append(PHAssetRequestID(forImage: requestId))
         async.waitUntilEnd()
         
         if let result = result {

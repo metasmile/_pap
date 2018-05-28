@@ -56,7 +56,7 @@ extension PhotoPickerViewController{
     }
 
     func cancelAllInCurrentContext(){
-        if AppCenter.default.isAppRunning {
+        if AppCenter.default.task.isRunning {
             batchPreviewView.cancelBatchProcessing()
         }
         else {

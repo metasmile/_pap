@@ -95,6 +95,10 @@ private extension TransformApp{
         ]
         
         let view = AppUICollectionStackView(items: items)
+        view.cellSize = CGSize(width: 44, height: 44)
+        view.cellSpacing = 2
+        view.cellImageInsets = UIEdgeInsetsMake(8, 10, 10, 10)
+        
         var preferences = AppDockContentPreferences()
         preferences.displayMode = .pinned
         preferences.preferredHeight = 44

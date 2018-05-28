@@ -26,9 +26,11 @@ class PhotoPickerViewController: AppDockViewController {
 
     var dragSelectionGesture: DragSelectionGestureRecognizer!
 
+    var queuedPhotoLibraryChanges = ItemQueue<PHChange>()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         //preview
         batchPreviewView = PreviewView(frame: .zero)
         batchPreviewView.delegate = self
@@ -45,15 +47,34 @@ class PhotoPickerViewController: AppDockViewController {
             registerForPreviewing(with: self, sourceView: batchPreviewView)
         }
 
-        //photos access authorization
+        //listen PHPhotoLibrary changes
         PHPhotoLibraryManager.default.watch(\.changes) {
             guard let changeInstance = PHPhotoLibraryManager.default.changes else { return }
 
             DispatchQueue.main.async {
-                self.photoLibraryDidChange(changeInstance)
+                if AppCenter.default.task.isRunning{
+                    self.queuedPhotoLibraryChanges.enqueue(changeInstance)
+
+                }else{
+                    self.flushQueuedPhotoLibraryChanges()
+                    self.photoLibraryDidChange(changeInstance)
+                }
             }
         }
 
+        //monitor latest AppCenter task
+        AppCenter.default.task.watch(\.appIdentifiersFinished) {
+            DispatchQueue.main.async {
+                self.flushQueuedPhotoLibraryChanges()
+            }
+
+            //remove temp files after current all tasks are finished.
+            DispatchQueue.global(qos: .background).async{
+                FileManager.default.clearTemporaryDirectory()
+            }
+        }
+
+        //check photo library permission
         PHPhotoLibraryManager.default.authorizeIfNeeded { authorized in
             guard authorized else { return }
             
@@ -102,6 +123,12 @@ class PhotoPickerViewController: AppDockViewController {
         self.redisplayVisibleCellsWhenChangeApp()
         self.batchPreviewView.updatePreviews()
     }
+
+    private func flushQueuedPhotoLibraryChanges(){
+        while let changeInstance = self.queuedPhotoLibraryChanges.dequeue() {
+            self.photoLibraryDidChange(changeInstance)
+        }
+    }
     
     override func registerWatchingAppConfig() {
         AppCenter.default.watch(\.currentIdentifier, options:[.new, .old, .initial]) { (appCenter, dict) in
@@ -117,25 +144,25 @@ class PhotoPickerViewController: AppDockViewController {
             self.updateDoneButtonState()
 
             AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform, id:"picker\(TransformApp.info.identifier)") { (config, changed) in
-                if let value = config.transform, !AppCenter.default.isAppRunning{
+                if let value = config.transform, !AppCenter.default.task.isRunning{
                     self.setAppValue(value)
                 }
             }
             
             AppCenter.default.currentInstanceAs(PhotosFilterApp.self)?.config?.watch(\.filter, id:"picker\(PhotosFilterApp.info.identifier)") { (config, changed) in
-                if let value = config.filter, !AppCenter.default.isAppRunning{
+                if let value = config.filter, !AppCenter.default.task.isRunning{
                     self.setAppValue(value)
                 }
             }
             
             AppCenter.default.currentInstanceAs(AutoAdjustmentApp.self)?.config?.watch(\.filter, id:"picker\(AutoAdjustmentApp.info.identifier)") { (config, changed) in
-                if let value = config.filter, !AppCenter.default.isAppRunning{
+                if let value = config.filter, !AppCenter.default.task.isRunning{
                     self.setAppValue(value)
                 }
             }
             
             AppCenter.default.currentInstanceAs(Stabilizer.self)?.config?.watch(\.stabilizationMode, id:"picker\(Stabilizer.info.identifier)") { (config, changed) in
-                if let value = config.stabilizationMode, !AppCenter.default.isAppRunning{
+                if let value = config.stabilizationMode, !AppCenter.default.task.isRunning{
                     self.setAppValue(value)
                 }
             }
@@ -380,7 +407,7 @@ class PhotoPickerViewController: AppDockViewController {
             Handle Tasks while batch performing
         */
         let removedAssets = fetchResultChanges.compactMap { (_, changes) in changes.removedObjects}.reduce([],+)
-        let tasksWereRanAndRemoved = AppCenter.default.isAppRunning && removedAssets.count > 0
+        let tasksWereRanAndRemoved = AppCenter.default.task.isRunning && removedAssets.count > 0
         if tasksWereRanAndRemoved {
             AppCenter.default.task.suspend()
 
@@ -504,6 +531,8 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
             photoEditViewController.delegate = self
             photoEditViewController.indexPathInPicker = PHAssets.fetched.indexPath(of:editItem.asset)
             photoEditViewController.selectedInPicker = AppAssets.selected.by(editItem.asset) != nil
+            
+            appDockView?.setDrawerDisplay(forState: .neutralized, reloadDockContentViews: true)
 
             let navigationController = AppDockNavigationController(rootViewController: photoEditViewController)
             present(navigationController,animated: true) {
@@ -550,8 +579,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
     
     func batchPreviewViewWillBeginEdit(_ view: PreviewView) {
-        titleFade = currentDisplayableApp?.titleWillBegin
-                ?? "Start Batch Editing...".localized
+        titleFade = currentDisplayableApp?.titleWillBegin ?? "Start Batch Editing...".localized
         taskProgress = 0
 
         let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
@@ -588,7 +616,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         }
     }
     
-    func batchPreviewView(_ view: PreviewView, didUpdateFetching progress: Float) {
+    func batchPreviewView(_ view: PreviewView, didUpdateRemoteFetchingProgress progress: Float) {
         let fetchingProgressPerTask = progress / Float(AppAssets.selected.count)
         let currentProgress = taskProgress + fetchingProgressPerTask / 2 // for split progress into fetching and processing
         if progressBar.progress < currentProgress {
@@ -596,7 +624,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         }
     }
     
-    func batchPreviewView(_ view: PreviewView, didUpdateProcessing progress: Float) {
+    func batchPreviewView(_ view: PreviewView, didUpdateInternalProgress progress: Float) {
         let fetchingProgressPerTask = progress / Float(AppAssets.selected.count)
         let currentProgress = taskProgress + fetchingProgressPerTask / 2 // for split progress into fetching and processing
         if progressBar.progress < currentProgress {
@@ -605,8 +633,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
 
     func batchPreviewViewWillCancelProgress(_ view: PreviewView) {
-        titleFade = currentDisplayableApp?.titleWillCancel
-                ?? "Cancelling...".localized
+        titleFade = currentDisplayableApp?.titleWillCancel ?? "Cancelling...".localized
 
         UIView.animate(withDuration: 0.6) {
             self.progressBar.alpha = 0
@@ -614,8 +641,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
 
     func batchPreviewViewWillFinalize(_ view: PreviewView) {
-        titleFade = currentDisplayableApp?.titleWillFinalize
-                ?? "Saving Photos...".localized
+        titleFade = currentDisplayableApp?.titleWillFinalize ?? "Saving Photos...".localized
 
         UIView.animate(withDuration: 0.6) {
             self.progressBar.alpha = 0
@@ -633,26 +659,16 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         
         progressBar.isHidden = true
 
+        updateAllPhotosTitle()
         updateSelectedItemUIs()
         updateVisiblePhotoCollectionCellsEnabled()
         
         updateAppDockViewProcessingEnd()
     }
     
-    func batchPreviewViewDidCancelEdit(_ view: PreviewView) {
-        // waiting for remaining processing
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
-            self.updateAllPhotosTitle()
-        }
-
-        progressBar.isHidden = true
-        
-        updateAppDockViewProcessingEnd()
-    }
-    
     private func updateAppDockViewProcessingStart() {
         appDockContentLayoutStateRestoringAfterProcessing = appDockView?.contentLayoutState
-        appDockView?.minimizeDrawer(reloadDockContentViews: true)
+        appDockView?.setDrawerDisplay(forState: .minimized, reloadDockContentViews: true)
         
         appDockView?.disabled = true
     }

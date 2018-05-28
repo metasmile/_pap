@@ -87,10 +87,12 @@ public class ItemQueue<Element>: MutableItemList<Element>{
         reverse ? items.insert(item, at: 0) : items.append(item)
     }
 
+    @discardableResult
     public func dequeue(reverse:Bool=false) -> Element? {
         return isEmpty ? nil : (reverse ? items.removeLast() : items.removeFirst())
     }
 
+    @discardableResult
     public func dequeueAll(reverse:Bool=false) -> [Element]? {
         if isEmpty {
             return nil

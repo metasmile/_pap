@@ -193,7 +193,7 @@ extension _TransformAppAsset: PHAssetVideoEditable {
             videoComposition.renderSize = videoTrack.naturalSize.applying(self.editState.transform).magnitude
             videoComposition.frameDuration = CMTimeMake(1, videoTrack.naturalTimeScale)
             
-            self.exportSession = AVAssetExportSession(asset: video, videoComposition: videoComposition, outputURL: item.output.renderedContentURL, progressHandler: progressHandler, completionHandler: { (success) in
+            self.exportSession = AVAssetExportSession.export(asset: video, videoComposition: videoComposition, outputURL: item.output.renderedContentURL, progressHandler: progressHandler, completionHandler: { (success) in
                 if success {
                     completionHandler(asset, item.output)
                 }

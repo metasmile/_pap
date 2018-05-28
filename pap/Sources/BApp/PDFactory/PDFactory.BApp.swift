@@ -48,7 +48,7 @@ public class PDFactory: BApp, FinalizableApp, PhotoPickerViewControllerDelegatab
         return "Creating PDF Pages...".localized
     }
 
-    public lazy var numberOfItemsShouldSelect: Int? = 20 //for test
+    public lazy var numberOfItemsShouldSelect: Int? = 100
 
     public func shouldSelect(item: AppAsset) -> Bool {
         //for test

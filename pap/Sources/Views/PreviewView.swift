@@ -15,13 +15,13 @@ protocol PreviewViewDelegate {
     func batchPreviewViewWillFinalize(_ view: PreviewView)
 
     func batchPreviewView(_ view: PreviewView, didUpdateProgress progress: Float)
-    func batchPreviewView(_ view: PreviewView, didUpdateFetching progress: Float)
-    func batchPreviewView(_ view: PreviewView, didUpdateProcessing progress: Float)
+    func batchPreviewView(_ view: PreviewView, didUpdateRemoteFetchingProgress progress: Float)
+    func batchPreviewView(_ view: PreviewView, didUpdateInternalProgress progress: Float)
+
     func batchPreviewViewWillCancelProgress(_ view: PreviewView)
 
     func batchPreviewViewWillBeginEdit(_ view: PreviewView)
     func batchPreviewViewDidEndEdit(_ view: PreviewView)
-    func batchPreviewViewDidCancelEdit(_ view: PreviewView)
 }
 
 class PreviewView: CustomView {
@@ -177,15 +177,15 @@ extension PreviewView {
 
         collectionView.scrollToItem(at: IndexPath(item: 0, section: targetSection), at: .centeredHorizontally, animated: true)
 
+        NotificationCenter.default.addObserver(self, selector: #selector(self.fetchProgressChanged), name: RemoteSourceFetchNotification.Name.progressChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.processingProgressChanged), name: PHAssetProcessableNotification.Name.progressChanged, object: nil)
+
         //TODO: BatchAppCenter.default.task.append immediatly from UI action instead of using "EditItems"
 
         for i in 0..<appAssetsSelected.count{
             AppCenter.default.task.append(request: AppTaskRequest(app, appAssetsSelected.at(i)))
         }
         AppCenter.default.task.perform(createTaskReaction())
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(self.fetchProgressChanged), name: RemoteSourceFetchNotification.Name.progressChanged, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.processingProgressChanged), name: PHAssetProcessableNotification.Name.progressChanged, object: nil)
 
         return true
     }
@@ -201,11 +201,6 @@ extension PreviewView {
 
             assert(totalCount>0, "totalCount == 0 but progress has started")
             if totalCount == 0{
-                return
-            }
-
-            if response.info.state == .cancelled {
-                self.delegate?.batchPreviewViewWillCancelProgress(self)
                 return
             }
 
@@ -240,7 +235,7 @@ extension PreviewView {
 
 
         }).did(finish: { resultsByApps, respondables in
-            assert(!AppCenter.default.isAppRunning)
+            assert(!AppCenter.default.task.isRunning)
 
             self.delegate?.batchPreviewViewDidEndEdit(self)
 
@@ -263,7 +258,7 @@ extension PreviewView {
     @objc func fetchProgressChanged(sender: NSNotification) {
         if let progress = sender.userInfo?[RemoteSourceFetchNotification.UserInfo.Key.progress] as? Float {
             DispatchQueue.main.async {
-                self.delegate?.batchPreviewView(self, didUpdateFetching: progress)
+                self.delegate?.batchPreviewView(self, didUpdateRemoteFetchingProgress: progress)
             }
         }
     }
@@ -271,17 +266,26 @@ extension PreviewView {
     @objc func processingProgressChanged(sender: NSNotification) {
         if let progress = sender.userInfo?[PHAssetProcessableNotification.UserInfo.Key.progress] as? Float {
             DispatchQueue.main.async {
-                self.delegate?.batchPreviewView(self, didUpdateProcessing: progress)
+                self.delegate?.batchPreviewView(self, didUpdateInternalProgress: progress)
             }
         }
     }
     
     func cancelBatchProcessing() {
-        assert(AppCenter.default.isAppRunning)
+        assert(AppCenter.default.task.isRunning)
 
-        AppCenter.default.task.cancel()
+        NotificationCenter.default.removeObserver(self, name: RemoteSourceFetchNotification.Name.progressChanged, object: nil)
+        NotificationCenter.default.removeObserver(self, name: PHAssetProcessableNotification.Name.progressChanged, object: nil)
 
-        delegate?.batchPreviewViewDidCancelEdit(self)
+
+        self.delegate?.batchPreviewViewWillCancelProgress(self)
+        UIApplication.shared.beginIgnoringInteractionEvents()
+
+        AppCenter.default.task.cancel(AppTaskCancellationReaction().will {
+            UIApplication.shared.endIgnoringInteractionEvents()
+        }.did{
+            self.delegate?.batchPreviewViewDidEndEdit(self)
+        })
     }
 }
 
@@ -299,7 +303,7 @@ extension PreviewView: UICollectionViewDataSource {
 
 extension PreviewView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return !AppCenter.default.isAppRunning
+        return !AppCenter.default.task.isRunning
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

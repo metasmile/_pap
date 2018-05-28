@@ -130,7 +130,24 @@ class AppDockView: CustomView {
             drawerView.isHandleOpened = newValue == .maximized
         }
         get {
-            return AppDockContentLayoutState(rawValue: Defaults.shared.appDockContentLayoutState) ?? .neutralized
+            var state = controller == nil ? .minimized : AppDockContentLayoutState(rawValue: Defaults.shared.appDockContentLayoutState) ?? .neutralized
+
+            // POLICY BEGIN:
+            if hasControllerPinned{
+                if hasAppAccessoryAsLayout{
+                    if state == .maximized{
+                        // maximized is allowed
+                    }else{
+                        state = .neutralized
+                    }
+                }else{
+                    // always minimized at default
+                    state = .minimized 
+                }
+            }
+            // POLICY END
+            drawerView.isHandleOpened = state == .maximized
+            return state
         }
     }
 
@@ -141,7 +158,11 @@ class AppDockView: CustomView {
     private var shouldDrawerEnable: Bool {
         if hasAppContentAsLayout {
             let hasMultipleApps = items.count > 1
-            return hasMultipleApps && hasAppControllerAsLayout
+            if hasControllerPinned{
+                return hasMultipleApps && hasAppAccessoryAsLayout
+            }else{
+                return hasMultipleApps && hasAppControllerAsLayout
+            }
         }
         return false
     }
@@ -165,11 +186,19 @@ class AppDockView: CustomView {
     var controller: AppDockContent? {
         didSet {
             if let view = controller?.view {
+                // POLICY BEGIN:
+                //   NO KEEP MAXIMIZED LAYOUT
+                //   force layout changed to neutralized when previous layout state is not minimized
+                if contentLayoutState != .minimized {
+                    contentLayoutState = .neutralized
+                }
+                // POLICY END
+                
                 controller?.willSetContentView(view, dock: self)
 
                 setControllerView(view, animated: true)
 
-                DispatchQueue.main.async{
+                DispatchQueue.main.async {
                     self.controller?.didSetContentView(view, dock:self)
                 }
             }
@@ -177,6 +206,8 @@ class AppDockView: CustomView {
                 controller?.willRemoveContentView()
                 removeAllControllerViews()
             }
+            
+            delegate?.appDockView(self, didOpenDrawer: contentLayoutState == .maximized)
         }
     }
 
@@ -276,11 +307,11 @@ class AppDockView: CustomView {
 //AppDock
 extension AppDockView: AppDock{
     func expandDockIfNeeded(reloadContents: Bool?=nil) {
-        self.maximizeDrawer(reloadDockContentViews: reloadContents)
+        self.setDrawerDisplay(forState: .maximized, reloadDockContentViews: reloadContents)
     }
 
     func contractDockIfNeeded(reloadContents: Bool?=nil) {
-        self.neutralizeDrawer(reloadDockContentViews: reloadContents)
+        self.setDrawerDisplay(forState: .neutralized, reloadDockContentViews: reloadContents)
     }
 }
 
@@ -416,15 +447,15 @@ extension AppDockView {
 // MARK: -
 
 extension AppDockView: UICollectionViewDataSource {
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.nib.appDockViewCell.name, for: indexPath) as! AppDockViewCell
-        let app = items[indexPath.item].app
-        cell.setApp(app, at: indexPath)
-        
+        cell.setAppInfo(items[indexPath.item].app, at: indexPath)
+
         switch barStyle {
         case .black:
             cell.iconViewTintColor = .white
@@ -434,6 +465,7 @@ extension AppDockView: UICollectionViewDataSource {
         
         return cell
     }
+
 }
 
 extension AppDockView: UICollectionViewDelegate {
@@ -441,7 +473,7 @@ extension AppDockView: UICollectionViewDelegate {
         zoomOutAppCollectionView(delay: 0)
         delegate?.appDockView(self, didSelectItemWith: items[indexPath.item])
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         return !collectionView.isDecelerating
     }
@@ -486,7 +518,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
                     return limitation * (1 + log10(yPosition/limitation))
                 }
                 let offset = sender.beginAppContentViewOffset - translation.y
-                return isContentLayoutMaximized ? logConstraintValueForYPoisition(offset, limitation: sender.beginAppContentViewOffset) : offset
+                return isContentLayoutMaximized || (hasControllerPinned && contentLayoutState != .minimized && !hasAppAccessoryAsLayout) ? logConstraintValueForYPoisition(offset, limitation: sender.beginAppContentViewOffset) : offset
             }()
 
             appContentViewHeightLayout.constant = max(preferredAccessoryViewHeight, appContentViewHeight)
@@ -557,18 +589,18 @@ extension AppDockView: UIGestureRecognizerDelegate {
     
     func setDrawerDisplay(forState state: AppDockContentLayoutState, reloadDockContentViews: Bool? = nil) {
         switch state {
-            case .minimized: minimizeDrawer(reloadDockContentViews: reloadDockContentViews)
-            case .maximized: maximizeDrawer(reloadDockContentViews: reloadDockContentViews)
-            case .neutralized: neutralizeDrawer(reloadDockContentViews: reloadDockContentViews)
+            case .minimized:
+                minimizeDrawer(reloadDockContentViews: reloadDockContentViews)
+
+            case .neutralized:
+                neutralizeDrawer(reloadDockContentViews: reloadDockContentViews)
+
+            case .maximized:
+                maximizeDrawer(reloadDockContentViews: reloadDockContentViews)
         }
     }
 
-    func maximizeDrawer(reloadDockContentViews: Bool? = nil) {
-        guard !(hasControllerPinned && !hasAppAccessoryAsLayout) else {
-            setDrawerDisplay(forState: contentLayoutState, reloadDockContentViews: reloadDockContentViews)
-            return
-        }
-        
+    private func maximizeDrawer(reloadDockContentViews: Bool? = nil) {
         let reloadDockContentViews = reloadDockContentViews ?? (contentLayoutState != .maximized)
 
         UIView.animateAsSpring(animations: {
@@ -609,8 +641,8 @@ extension AppDockView: UIGestureRecognizerDelegate {
         
         delegate?.appDockView(self, didOpenDrawer: true)
     }
-    
-    func neutralizeDrawer(reloadDockContentViews: Bool? = nil) {
+
+    private func neutralizeDrawer(reloadDockContentViews: Bool? = nil) {
         let reloadDockContentViews = reloadDockContentViews ?? (contentLayoutState != .neutralized)
 
         UIView.animateAsSpring(animations: {
@@ -647,7 +679,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
         delegate?.appDockView(self, didOpenDrawer: false)
     }
     
-    func minimizeDrawer(reloadDockContentViews: Bool? = nil) {
+    private func minimizeDrawer(reloadDockContentViews: Bool? = nil) {
         let reloadDockContentViews = reloadDockContentViews ?? (contentLayoutState != .minimized)
         
         UIView.animateAsSpring(animations: {
@@ -920,17 +952,20 @@ internal class AppDockViewCell: CustomCollectionViewCell {
             selectedStateView.isHidden = !isSelected
         }
     }
-    
-    func setApp(_ app: App.Type, at indexPath: IndexPath) {
+
+    //persistedStatus display will be maintained on runtime.
+    private static var persistedStatusDict = [String:AppPersistedStatus]()
+
+    func setAppInfo(_ app: App.Type, at indexPath: IndexPath) {
         iconImage = app.info.icon?.asUIImage ?? R.image.blankAppIcon()
         appTitleLabel.text = app.info.displayName.localized
-        
-        let status = AppCenter.default.persistedStatus(for: app)
-        appStatusIconView.backgroundColor = status.statusColor
-//        .unsupported --> app is not supported PersistableApp, or app.phase == develop/beta mode
-//        .released
-//        .updated
-//        .used
+
+        var status = AppDockViewCell.persistedStatusDict[app.info.identifier]
+        if status == nil{
+            status = AppCenter.default.persistedStatus(for: app)
+            AppDockViewCell.persistedStatusDict[app.info.identifier] = status
+        }
+        appStatusIconView.backgroundColor = status?.statusColor
     }
 }
 

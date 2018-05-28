@@ -87,12 +87,13 @@ extension AsyncSignal: AsyncManualSignalable, AsyncControllableSignable {
         }
         #endif
 
-        guard let timeout = timeout else {
+        if let timeout = timeout {
+            return dispatchGroup.wait(timeout: timeout)
+
+        } else {
             dispatchGroup.wait()
             return nil
         }
-
-        return dispatchGroup.wait(timeout: timeout)
     }
 
     public func waitUntilEnd() {

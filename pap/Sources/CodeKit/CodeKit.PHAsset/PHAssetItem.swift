@@ -60,23 +60,26 @@ public class PHAssetItem<EditStateValueType:Hashable>: ItemObject, PHAssetParama
     }
 }
 
-public class PHAssetRequestID {
+public struct PHAssetRequestID {
     enum DefaultValue{
         static let forImage = PHInvalidImageRequestID
         static let forResourceData = PHInvalidAssetResourceDataRequestID
         static let forEditingInput = Int.min
     }
 
-    var forImage:PHImageRequestID
-    var forResourceData:PHAssetResourceDataRequestID
-    var forEditingInput:PHContentEditingInputRequestID
+    private(set) var forImage:PHImageRequestID = DefaultValue.forImage
+    private(set) var forResourceData:PHAssetResourceDataRequestID = DefaultValue.forResourceData
+    private(set) var forEditingInput:PHContentEditingInputRequestID = DefaultValue.forEditingInput
 
-    init(forImage: PHImageRequestID = DefaultValue.forImage,
-         forResourceData: PHAssetResourceDataRequestID = DefaultValue.forResourceData,
-         forEditingInput: PHContentEditingInputRequestID = DefaultValue.forEditingInput) {
-
+    init(forImage: PHImageRequestID) {
         self.forImage = forImage
+    }
+
+    init(forResourceData: PHAssetResourceDataRequestID) {
         self.forResourceData = forResourceData
+    }
+
+    init(forEditingInput: PHContentEditingInputRequestID) {
         self.forEditingInput = forEditingInput
     }
 }

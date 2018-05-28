@@ -6,7 +6,7 @@
 import Foundation
 import Photos
 
-protocol LivePhotoConverter: Converter {}
+protocol LivePhotoConverter: Converter, ConverterCapability {}
 extension LivePhotoConverter {
     static var direction: ConvertingDirection {
         return ConvertingDirection(from: .any, to: .livephoto)
@@ -15,6 +15,8 @@ extension LivePhotoConverter {
 
 struct LivePhotoConverter_Gif: LivePhotoConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.gif, to:.livephoto) }
+
+    static let supportedPresets = [ConverterQualityPreset.high]
 
     init() {}
 
@@ -61,10 +63,13 @@ struct LivePhotoConverter_Gif: LivePhotoConverter {
 struct LivePhotoConverter_Burst: LivePhotoConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.burst, to:.livephoto) }
 
+    static let supportedPresets = [ConverterQualityPreset.high]
+
     init() {}
 
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> PHAssetResourceFinalizingOutput? {
         let targetSize = AVMakeRect(aspectRatio: source.asset.pixelSize, insideRect: CGRect(origin: .zero, size: LivePhotoWritableMaximumStandardSize)).size
+        //TODO: quality
         let param = ConverterBurstImageExtractParam(targetSize: targetSize, imageQuality: 0.8, contentMode: PHImageContentMode.aspectFit)
         
         if let urls = self.extractBurstImageURLs(source: source, param: param, async){
@@ -101,8 +106,10 @@ struct LivePhotoConverter_Burst: LivePhotoConverter {
     }
 }
 
-struct LivePhotoConverter_Video: LivePhotoConverter {
+struct LivePhotoConverter_Mov: LivePhotoConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.mov, to:.livephoto) }
+
+    static let supportedPresets = [ConverterQualityPreset.high]
 
     init() {}
 
@@ -143,3 +150,27 @@ struct LivePhotoConverter_Video: LivePhotoConverter {
     }
 }
 
+struct LivePhotoConverter_Timelapse: LivePhotoConverter {
+    static var direction: ConvertingDirection { return ConvertingDirection(from:.mov_timelapse, to:.livephoto) }
+
+    static let supportedPresets = [ConverterQualityPreset.high]
+
+    init() {}
+
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> PHAssetResourceFinalizingOutput? {
+        let converter = LivePhotoConverter_Mov()
+        return converter.convert(source: source, async)
+    }
+
+    static func canPerformWith(source: AppAsset) -> Bool {
+        return source.asset.mediaSubtypes.contains(.videoTimelapse)
+    }
+
+    static var performAssetCollectionType: PHAssetCollectionSubtype? {
+        return .smartAlbumUserLibrary
+    }
+
+    static var performMediaType: PHAssetMediaType? {
+        return .video
+    }
+}

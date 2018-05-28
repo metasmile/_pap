@@ -45,6 +45,25 @@ class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
         }
     }
     
+    var cellSize: CGSize = .zero {
+        didSet {
+            (collectionView.collectionViewLayout as? AppUICollectionViewLayout)?.itemSize = cellSize
+        }
+    }
+    var cellSpacing: CGFloat = 0 {
+        didSet {
+            collectionView.contentInset.left = cellSpacing
+            collectionView.contentInset.right = cellSpacing
+            
+            (collectionView.collectionViewLayout as? AppUICollectionViewLayout)?.minimumSpacing = cellSpacing
+        }
+    }
+    var cellImageInsets: UIEdgeInsets = .zero {
+        didSet {
+            (collectionView.collectionViewLayout as? AppUICollectionViewLayout)?.itemSize = cellSize
+        }
+    }
+    
     private lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: bounds, collectionViewLayout: AppUICollectionViewLayout())
         view.dataSource = self
@@ -73,6 +92,7 @@ class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.nib.appUICollectionViewCell.name, for: indexPath) as! AppUICollectionViewCell
+        cell.imageInsets = cellImageInsets
         cell.title = items[indexPath.item].title
         cell.image = items[indexPath.item].image
         return cell
@@ -97,6 +117,10 @@ class AppUICollectionViewLayout: UICollectionViewLayout {
     private func prepareCache() {
         cache.removeAll()
         
+        if itemSize == .zero {
+            itemSize = CGSize(width: self.collectionView?.bounds.height ?? 0, height: self.collectionView?.bounds.height ?? 0)
+        }
+        
         cache[.item] = [IndexPath: UICollectionViewLayoutAttributes]()
         cache[.header] = [IndexPath: UICollectionViewLayoutAttributes]()
         cache[.footer] = [IndexPath: UICollectionViewLayoutAttributes]()
@@ -110,7 +134,7 @@ class AppUICollectionViewLayout: UICollectionViewLayout {
         return collectionView?.frame.size ?? .zero
     }
     
-    lazy var itemSize: CGSize = CGSize(width: self.collectionView?.bounds.height ?? 0, height: self.collectionView?.bounds.height ?? 0)
+    var itemSize: CGSize = .zero
     var minimumSpacing: CGFloat = 4
     
     override func prepare() {
@@ -157,10 +181,22 @@ class AppUICollectionViewLayout: UICollectionViewLayout {
 }
 
 class AppUICollectionViewCell: CustomCollectionViewCell {
-    @IBOutlet private weak var selectionView: RoundedView!
+    @IBOutlet private weak var selectionView: UIView!
+    
     @IBOutlet private  weak var imageView: UIImageView!
+    @IBOutlet weak var imageViewWidthLayout: NSLayoutConstraint!
+    
+    @IBOutlet weak var imageViewTopLayout: NSLayoutConstraint!
+    @IBOutlet weak var imageViewBottomLayout: NSLayoutConstraint!
+    
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var titleLabelHeightLayout: NSLayoutConstraint!
+    
+    override func initialize() {
+        super.initialize()
+        
+        selectionView.layer.borderColor = tintColor.cgColor
+        selectionView.layer.borderWidth = 3
+    }
     
     var title: String? {
         didSet {
@@ -176,15 +212,12 @@ class AppUICollectionViewCell: CustomCollectionViewCell {
         }
     }
     
-    private func layoutContents() {
-        titleLabelHeightLayout.constant = imageView.image == nil ? contentView.bounds.height : ((titleLabel.text?.count ?? 0) > 0 ? 24 : 0)
-        titleLabel.layoutIfNeeded()
-    }
+    var imageInsets: UIEdgeInsets = .zero
     
-    override var isHighlighted: Bool {
-        didSet {
-            contentView.alpha = isHighlighted ? 0.5 : 1
-        }
+    private func layoutContents() {
+        imageViewWidthLayout.constant = image == nil ? 0 : (min(contentView.bounds.width, contentView.bounds.height) - imageInsets.left - imageInsets.right)
+        imageViewTopLayout.constant = 2 + imageInsets.top
+        imageViewBottomLayout.constant = 2 + imageInsets.bottom
     }
     
     override var isSelected: Bool {

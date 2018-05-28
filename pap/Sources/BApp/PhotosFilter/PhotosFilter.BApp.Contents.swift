@@ -114,7 +114,7 @@ extension _PhotosFilterAppAsset: PHAssetVideoEditable {
                     return
                 }
                 
-                self.exportSession = AVAssetExportSession(asset: video, videoComposition: video.applyFilter(self.editState.ciFilter), presetName: AVAssetExportPresetHighestQuality, outputURL: item.output.renderedContentURL, progressHandler: progressHandler, completionHandler: { (success) in
+                self.exportSession = AVAssetExportSession.export(asset: video, videoComposition: video.applyFilter(self.editState.ciFilter), presetName: AVAssetExportPresetHighestQuality, outputURL: item.output.renderedContentURL, progressHandler: progressHandler, completionHandler: { (success) in
                     if success {
                         completionHandler(asset, item.output)
                     }

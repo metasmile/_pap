@@ -40,7 +40,7 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
-        preferences.preferredHeight = (self.view as! UITableView).rowHeight * 4
+        preferences.preferredHeight = (self.view as! UITableView).rowHeight * 5
         preferences.displayMode = .none
         return preferences
     }
@@ -77,8 +77,8 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
         
         let valueCollection = {
             return [
-                UIPickerItem(component: "From", values: ConvertApp.availableWorkerNames),
-                UIPickerItem(component: "To", values: ConvertApp.getAvailableWorkersNamesTo(fromRawValue:self.defaults.convertingDirection.from.rawValue)),
+                UIPickerItem(component: "From", values: ConvertApp.availableConverterNames),
+                UIPickerItem(component: "To", values: ConvertApp.getAvailableConvertersNamesTo(fromRawValue:self.defaults.convertingDirection.from.rawValue)),
                 ]
         }
         
@@ -97,7 +97,7 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
             if component == 0, let direction = ConvertApp.availableDirections.first(where:{ $0.from.rawValue == convertTypeRawValue }) {
                 self.defaults.convertingDirection = direction
                 self.app?.config?.convertingDirectionIdentifier = direction.identifier
-                
+
                 cell.values = valueCollection()
                 cell.picker.reloadComponent(1)
                 
@@ -112,31 +112,23 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
         cellDescribers.append(from_to_cell)
         
         let qualityPresets = [
-            ExportQualityType.low,
-            ExportQualityType.medium,
-            ExportQualityType.high,
-            ExportQualityType.original,
+            ConverterQualityPreset.low,
+            ConverterQualityPreset.medium,
+            ConverterQualityPreset.high,
+            ConverterQualityPreset.original,
         ]
-        
+
         let qualityCollection: (() -> [String]) = {
-            var values = qualityPresets
-            
-            if (self.defaults.convertingDirection.from == .livephoto && self.defaults.convertingDirection.to == .mov) ||
-                (self.defaults.convertingDirection.from == .mov && self.defaults.convertingDirection.to == .mp4) ||
-                (self.defaults.convertingDirection.from == .mp4 && self.defaults.convertingDirection.to == .mov) {
-                values = [ExportQualityType.original]
+            var supportedPresets:[ConverterQualityPreset]
+            if let converter = self.app?.currentConverter as? ConverterCapability.Type{
+                supportedPresets = converter.supportedPresets
+            }else{
+                print("INFO: current converter is not defined supportedPresets")
+                supportedPresets = ConverterQualityPreset.originalOnly
             }
-            else if (self.defaults.convertingDirection.to == .livephoto) {
-                values = [ExportQualityType.high]
-            }
-            else {
-                switch self.defaults.convertingDirection.to {
-                case .gif, .jpeg: values.removeLast()
-                default: break
-                }
-            }
-            return values.map { $0.rawValue }
+            return supportedPresets.map { $0.rawValue }
         }
+
         let qualityCell = UITableViewSegmentControlCellDescriber()
         qualityCell.itemIdentifier = Cells.exportQuality.hashValue
         qualityCell.label = "Quality".localized
@@ -145,7 +137,10 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
         qualityCell.valueHandler = {
             if let index = $0 as? Int {
                 let direction = self.defaults.convertingDirection
-                self.defaults.convertingQuality = ConvertingQuality(convertingDirection: direction, qualityType: qualityPresets[index])
+
+                assert(qualityPresets.indices.contains(index), "given index of value in qualityPresets is not related with direction")
+                let qualityType = qualityPresets.indices.contains(index) ? qualityPresets[index] : ConverterQualityPreset.original
+                self.defaults.convertingQuality = ConvertingQuality(convertingDirection: direction, qualityType: qualityType)
             }
         }
         cellDescribers.append(qualityCell)

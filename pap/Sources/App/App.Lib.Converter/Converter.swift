@@ -54,7 +54,7 @@ struct ConvertingDirection: Codable, Equatable {
 
 struct ConvertingQuality: Codable {
     var convertingDirection: ConvertingDirection
-    var qualityType: ExportQualityType
+    var qualityType: ConverterQualityPreset
     
     private enum CodingKeys: Int, CodingKey {
         case convertingDirection
@@ -68,11 +68,23 @@ struct ConvertingQuality: Codable {
     }
 }
 
-enum ExportQualityType: String, Decodable {
+enum ConverterQualityPreset: String, Decodable {
     case low = "Low"
     case medium = "Medium"
     case high = "High"
     case original = "Original"
+
+    static var all:[ConverterQualityPreset]{
+        return [.low, .medium, .high, .original]
+    }
+
+    static var originalExcluded:[ConverterQualityPreset]{
+        return [.low, .medium, .high, .original]
+    }
+
+    static var originalOnly:[ConverterQualityPreset]{
+        return [.original]
+    }
 }
 
 protocol Converter {
@@ -93,13 +105,23 @@ extension Converter {
     static var performMediaType: PHAssetMediaType? { return nil }
 }
 
+protocol ConverterCapability{
+    static var supportedPresets: [ConverterQualityPreset] {get}
+}
+
+extension ConverterCapability{
+    static var supportedPresets: [ConverterQualityPreset] {
+        return [ConverterQualityPreset.medium]
+    }
+}
+
 struct ConverterSpec{
     static func acquireInstance(collection:[Converter.Type], direction: ConvertingDirection, asset:AppAsset) -> Converter?{
 
-        let matchedWorkers = collection.filter { $0.direction==direction }
-        assert(matchedWorkers.count==1, "Duplicated converter worker direction found. \(matchedWorkers)")
+        let matchedConverters = collection.filter { $0.direction==direction }
+        assert(matchedConverters.count==1, "Duplicated converter worker direction found. \(matchedConverters)")
 
-        if let worker = matchedWorkers.first, worker.canPerformWith(source: asset) {
+        if let worker = matchedConverters.first, worker.canPerformWith(source: asset) {
             return worker.init()
         }
 
@@ -257,7 +279,7 @@ extension Converter{
                 var resultUrl: URL? = nil
                 if let image = response.1, let data = UIImageJPEGRepresentation(image, CGFloat(imageQuality)) {
 
-                    let identifier = "\(param.filenamePrefix)_\(source.asset.localIdentifierWithoutSplitter)"
+                    let identifier = "\(param.filenamePrefix)_\(source.asset.localIdentifierWithoutSplitter)_burst_\(idx)"
                     let url = FileURL.temp(identifier, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
                     do {
                         try data.write(to: url)

@@ -89,7 +89,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        guard !AppCenter.default.isAppRunning else { return false }
+        guard !AppCenter.default.task.isRunning else { return false }
 
         if let collectableApp = collectionViewDisplayableApp
             , let asset = PHAssets.fetched.asset(at: indexPath)
@@ -113,7 +113,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
-        guard !AppCenter.default.isAppRunning else { return false }
+        guard !AppCenter.default.task.isRunning else { return false }
         return true
     }
 

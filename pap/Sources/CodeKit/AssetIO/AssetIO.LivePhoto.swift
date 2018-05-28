@@ -95,21 +95,23 @@ public final class LivePhotoWriter {
 
         var createdAssetsLocalIdentifier: String?
 
-        PHPhotoLibrary.shared().performChanges({
-            let request = PHAssetCreationRequest.forAsset()
+        do {
 
-            let options = PHAssetResourceCreationOptions()
-            request.addResource(with: .pairedVideo, fileURL: pairedVideoURL, options: options)
-            request.addResource(with: .photo, fileURL: imageURL, options: options)
+            try PHPhotoLibrary.shared().performChangesAndWait {
+                let request = PHAssetCreationRequest.forAsset()
 
-            createdAssetsLocalIdentifier = request.placeholderForCreatedAsset?.localIdentifier
+                let options = PHAssetResourceCreationOptions()
+                request.addResource(with: .pairedVideo, fileURL: pairedVideoURL, options: options)
+                request.addResource(with: .photo, fileURL: imageURL, options: options)
 
-        }, completionHandler: { success, error in
-            completion?(success, createdAssetsLocalIdentifier, error)
+                createdAssetsLocalIdentifier = request.placeholderForCreatedAsset?.localIdentifier
+            }
+
+            completion?(true, createdAssetsLocalIdentifier, nil)
 
             if fetchCompletion != nil {
-                if let createdAsset = PHAsset.fetchAssets(withLocalIdentifiers: [createdAssetsLocalIdentifier!], options: nil).firstObject
-                    , success{
+
+                if let createdAsset = PHAsset.fetchAssets(withLocalIdentifiers: [createdAssetsLocalIdentifier!], options: nil).firstObject {
 
                     let livePhotoOptions = PHLivePhotoRequestOptions()
                     livePhotoOptions.deliveryMode = .highQualityFormat
@@ -121,20 +123,25 @@ public final class LivePhotoWriter {
                             , resultHandler: { livePhoto, info in
 
                         if info?[PHImageCancelledKey] as? Bool ?? false
-                                || info?[PHImageErrorKey] as? Bool ?? false
-                                || info?[PHImageResultIsDegradedKey] as? Bool ?? false {
+                                   || info?[PHImageErrorKey] as? Bool ?? false
+                                   || info?[PHImageResultIsDegradedKey] as? Bool ?? false {
                             return
                         }
 
-                        fetchCompletion?(livePhoto != nil, livePhoto, createdAsset, error)
+                        fetchCompletion?(livePhoto != nil, livePhoto, createdAsset, nil)
+
                     })
                 } else {
-                    fetchCompletion?(success, nil, nil, error)
+                    fetchCompletion?(false, nil, nil, "Not found asset \(String(describing: createdAssetsLocalIdentifier))")
                 }
             }
 
             createdAssetsLocalIdentifier = nil
-        })
+
+        } catch let e {
+            completion?(false, createdAssetsLocalIdentifier, e)
+        }
+
     }
 
     func createLivePhoto(imageURL: URL
@@ -198,34 +205,32 @@ public final class LivePhotoWriter {
     }
 
 
-    private let dispatchQueue = DispatchQueue(label: "com.stells.livephotowriter.write")
-
     func writeLivePhoto(photoPath: String
             , withVideo videoPath: String
             , completion: LivePhotoWriterResultHandler?
     ) {
 
-        dispatchQueue.async {
-            let destImageURL = self.tempWritingPathByAppedingSuffix(lastPathComponent: (photoPath as NSString).lastPathComponent, suffix:"_encoded_livephoto", ext:nil)
+        let destImageURL = self.tempWritingPathByAppedingSuffix(lastPathComponent: (photoPath as NSString).lastPathComponent, suffix:"_encoded_livephoto", ext:nil)
 
-            if FileManager.default.fileExists(atPath: destImageURL.path) {
-                try? FileManager.default.removeItem(atPath: destImageURL.path)
-            }
-
-            let destPairedVideoURL = self.tempWritingPathByAppedingSuffix(lastPathComponent: (videoPath as NSString).lastPathComponent, suffix:"_encoded_livephoto", ext:nil)
-
-            if FileManager.default.fileExists(atPath: destPairedVideoURL.path) {
-                try? FileManager.default.removeItem(atPath:destPairedVideoURL.path)
-            }
-
-            let uuid = UUID().uuidString
-            // clean all the APIs
-            LivePhotoImageResourceWriter().write(from: URL(fileURLWithPath: photoPath), to: URL(fileURLWithPath: destImageURL.path), assetIdentifier: uuid)
-
-            LivePhotoVideoResourceWriter(path: videoPath).write(destPath: destPairedVideoURL.path, assetIdentifier: uuid)
-
-            completion?(true, destImageURL, destPairedVideoURL, nil)
+        if FileManager.default.fileExists(atPath: destImageURL.path) {
+            try? FileManager.default.removeItem(atPath: destImageURL.path)
         }
+
+        let destPairedVideoURL = self.tempWritingPathByAppedingSuffix(lastPathComponent: (videoPath as NSString).lastPathComponent, suffix:"_encoded_livephoto", ext:nil)
+
+        if FileManager.default.fileExists(atPath: destPairedVideoURL.path) {
+            try? FileManager.default.removeItem(atPath:destPairedVideoURL.path)
+        }
+
+        let uuid = UUID().uuidString
+        // clean all the APIs
+        LivePhotoImageResourceWriter().write(from: URL(fileURLWithPath: photoPath), to: URL(fileURLWithPath: destImageURL.path), assetIdentifier: uuid)
+
+        LivePhotoVideoResourceWriter(path: videoPath).write(destPath: destPairedVideoURL.path, assetIdentifier: uuid)
+
+
+        completion?(true, destImageURL, destPairedVideoURL, nil)
+
     }
 
     func tempWritingPathByAppedingSuffix(lastPathComponent:String

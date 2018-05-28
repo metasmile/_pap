@@ -12,7 +12,7 @@ import Photos
 
 public class ConvertAppConfigValue: NSObject, KeyPathWatchable, AppConfigValuable {
     @objc dynamic
-    public var convertingDirectionIdentifier:String = ConvertApp.defaultWorker.direction.identifier
+    public var convertingDirectionIdentifier:String = ConvertApp.defaultConverter.direction.identifier
 }
 
 public class ConvertApp: BApp,
@@ -54,18 +54,18 @@ public class ConvertApp: BApp,
     }
 
     public func shouldSelect(item: AppAsset) -> Bool {
-        let shouldSelectToPerform = currentWorker?.canPerformWith(source: item) ?? true
+        let shouldSelectToPerform = currentConverter?.canPerformWith(source: item) ?? true
         let shouldSelectBySection = item.indexPath?.section ?? 0 != 0
 
         return shouldSelectToPerform || shouldSelectBySection
     }
 
     public var conformsAssetCollectionType: PHAssetCollectionSubtype? {
-        return currentWorker?.performAssetCollectionType
+        return currentConverter?.performAssetCollectionType
     }
     
     public var conformsMediaType: PHAssetMediaType? {
-        return currentWorker?.performMediaType
+        return currentConverter?.performMediaType
     }
 
     public var numberOfItemsShouldSelect: Int? {
@@ -75,6 +75,58 @@ public class ConvertApp: BApp,
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
 
     }
+//<<<<<<< HEAD
+//=======
+//
+//    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
+//        let resultItems:[Any]? = result
+//                .filter { respondable in respondable.info.state == .completed }
+//                .compactMap{ $0.result as? ConvertAppResult }
+//                .sorted { (result1: ConvertAppResult?, result2: ConvertAppResult?) -> Bool in
+//                    (result1?.orderedIndex ?? 0) < (result2?.orderedIndex ?? 0)
+//                }
+//                .compactMap { ($0.result as? ConverterVoidReturnType) == ConverterVoidReturnValue ? nil : $0.result }
+//
+//        guard let items = resultItems, items.count > 0 else {
+//            return result
+//        }
+//
+//        try? PHPhotoLibrary.shared().performChangesAndWait {
+//            let urlsItems = items.compactMap { item -> [URL]? in
+//                var urls = item as? [URL]
+//                if urls == nil, let url = item as? URL{
+//                    urls = [url]
+//                }
+//                return urls
+//            }
+//
+//            for urls in urlsItems {
+//
+//                let request = PHAssetCreationRequest.forAsset()
+//                let options = PHAssetResourceCreationOptions()
+//                options.shouldMoveFile = true
+//
+//                for url in urls{
+//                    let uti = UTI(withURL: url)
+//
+//                    if uti.conforms(to: UTI.image) {
+//                        request.addResource(with: .photo, fileURL: url, options: options)
+//                    }
+//                    else if uti.conforms(to: UTI.movie) {
+//                        if urls.contains(where: { UTI(withURL: $0).conforms(to: UTI.image) }) == true {
+//                            request.addResource(with: .pairedVideo, fileURL: url, options: options)
+//                        }
+//                        else {
+//                            request.addResource(with: .video, fileURL: url, options: options)
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//
+//        return result
+//    }
+//>>>>>>> develop
 }
 
 extension ConvertApp{
@@ -82,20 +134,22 @@ extension ConvertApp{
         return ConvertApp.defaults as! ConvertAppDefaults
     }
 
-    var currentWorker:Converter.Type?{
-        return ConvertApp.availableWorkers.first { converterType in
+    var currentConverter:Converter.Type?{
+        return ConvertApp.availableConverters.first { converterType in
             return converterType.direction==defaults.convertingDirection
         }
     }
 
-    static let availableWorkers:[Converter.Type] = [
+    static let availableConverters:[Converter.Type] = [
         MovConverter_Burst.self,
         MovConverter_LivePhoto.self,
         MovConverter_Gif.self,
+        MP4Converter_Timelapse.self,
 
         LivePhotoConverter_Burst.self,
         LivePhotoConverter_Gif.self,
-        LivePhotoConverter_Video.self,
+        LivePhotoConverter_Mov.self,
+        LivePhotoConverter_Timelapse.self,
 
         GifConverter_Burst.self,
         GifConverter_LivePhoto.self,
@@ -107,36 +161,42 @@ extension ConvertApp{
     ]
 
     static var availableDirections:[ConvertingDirection] {
-        return ConvertApp.availableWorkers.map { converterType -> ConvertingDirection in
+        return ConvertApp.availableConverters.map { converterType -> ConvertingDirection in
             return converterType.direction
         }
     }
 
-    static var availableWorkerNames:[String] {
+    static var availableConverterNames:[String] {
         return Array(Set(availableDirections.map { $0.from.rawValue }))
     }
 
-    static func getAvailableWorkers(fromRawValue:String) -> [Converter.Type]{
-        return availableWorkers.filter { converterType in
+    static func getAvailableConverters(fromRawValue:String) -> [Converter.Type]{
+        return availableConverters.filter { converterType in
             return converterType.direction.from.rawValue == fromRawValue
         }
     }
 
-    static func getAvailableWorkers(toRawValue:String) -> [Converter.Type]{
-        return availableWorkers.filter { converterType in
+    static func getAvailableConverters(toRawValue:String) -> [Converter.Type]{
+        return availableConverters.filter { converterType in
             return converterType.direction.to.rawValue == toRawValue
         }
     }
 
-    static func getAvailableWorkersNamesTo(fromRawValue:String) -> [String]{
-        return Array(Set(self.getAvailableWorkers(fromRawValue: fromRawValue).map { converter -> String in  converter.direction.to.rawValue }))
+    static func getAvailableConverters(by direction:ConvertingDirection) -> [Converter.Type]{
+        return availableConverters.filter { converterType in
+            return converterType.direction == direction
+        }
     }
 
-    static func getAvailableWorkersNamesFrom(toRawValue:String) -> [String]{
-        return Array(Set(self.getAvailableWorkers(toRawValue: toRawValue).map { converter -> String in  converter.direction.from.rawValue }))
+    static func getAvailableConvertersNamesTo(fromRawValue:String) -> [String]{
+        return Array(Set(self.getAvailableConverters(fromRawValue: fromRawValue).map { converter -> String in  converter.direction.to.rawValue }))
     }
 
-    static var defaultWorker:Converter.Type{
+    static func getAvailableConvertersNamesFrom(toRawValue:String) -> [String]{
+        return Array(Set(self.getAvailableConverters(toRawValue: toRawValue).map { converter -> String in  converter.direction.from.rawValue }))
+    }
+
+    static var defaultConverter:Converter.Type{
         return GifConverter_LivePhoto.self
     }
     
@@ -165,12 +225,12 @@ private class ConvertAppTask: TaskPrototype, Taskable {
         //default is undefined.
         info.policy.estimatedConcurrencyCount = nil
 
-        if let currentWorkerType = ConvertApp.availableWorkers.first(where:{
+        if let currentConverterType = ConvertApp.availableConverters.first(where:{
             $0.direction == defaults.convertingDirection
         }) {
 
-            if currentWorkerType is LivePhotoConverter.Type{
-                //override concurrencyCount if currentWorkerType is LivePhotoConverter
+            if currentConverterType is LivePhotoConverter.Type{
+                //override concurrencyCount if currentConverterType is LivePhotoConverter
                 info.policy.estimatedConcurrencyCount = 1
             }
         }
@@ -191,7 +251,7 @@ private class ConvertAppTask: TaskPrototype, Taskable {
 
     private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable) throws -> PHAssetResourceFinalizingOutput?  {
         let direction = defaults.convertingDirection
-        let needsConverter = ConverterSpec.acquireInstance(collection: ConvertApp.availableWorkers, direction: direction, asset: assetItem)
+        let needsConverter = ConverterSpec.acquireInstance(collection: ConvertApp.availableConverters, direction: direction, asset: assetItem)
 
         guard let converter = needsConverter else {
             throw TaskError.rejectedParam

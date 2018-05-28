@@ -8,7 +8,11 @@ import Photos
 import ImageIO
 import MobileCoreServices
 
-protocol MP4Converter: Converter {}
+public struct MP4ConverterOption{
+
+}
+
+protocol MP4Converter: Converter, ConverterCapability {}
 
 extension MP4Converter {
     static var direction: ConvertingDirection {
@@ -16,17 +20,20 @@ extension MP4Converter {
     }
 }
 
-struct MP4Converter_Mov: MP4Converter {
+class MP4Converter_Mov: OptionableConverterBase<MP4ConverterOption>, MP4Converter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.mov, to:.mp4) }
+
+    static let supportedPresets = ConverterQualityPreset.originalOnly
     
     func convert(source: AppAsset, _ async: AsyncManualSignalable) -> PHAssetResourceFinalizingOutput? {
         guard let video = source.asset.asAVAsset else { return nil }
 
         let url = FileURL.temp(source.asset.localIdentifierWithoutSplitter, UTI.mpeg4, group: FileURL.fileAndQueuePrivateGroup())
         async.begin()
-        AVAssetExportSession.init(asset: video, outputFileType: .mp4, outputURL: url, shouldOptimizeForNetworkUse: true) { (success) in
+        AVAssetExportSession.export(asset: video, presetName:AVAssetExportPreset1920x1080, outputFileType: .mp4, outputURL: url, shouldOptimizeForNetworkUse: true) { (success) in
             async.end()
         }
+
         async.waitUntilEnd()
         return PHAssetResourceFinalizingOutput(resources: [(resourceType: .video, url: url)])
     }
@@ -39,6 +46,31 @@ struct MP4Converter_Mov: MP4Converter {
         return .smartAlbumUserLibrary
     }
     
+    static var performMediaType: PHAssetMediaType? {
+        return .video
+    }
+}
+
+struct MP4Converter_Timelapse: MP4Converter {
+    static var direction: ConvertingDirection { return ConvertingDirection(from:.mov_timelapse, to:.mp4) }
+
+    static let supportedPresets = ConverterQualityPreset.all
+
+    init() {}
+
+    func convert(source: AppAsset, _ async: AsyncManualSignalable) -> PHAssetResourceFinalizingOutput? {
+        let converter = MP4Converter_Mov()
+        return converter.convert(source: source, async)
+    }
+
+    static func canPerformWith(source: AppAsset) -> Bool {
+        return source.asset.mediaSubtypes.contains(.videoTimelapse)
+    }
+
+    static var performAssetCollectionType: PHAssetCollectionSubtype? {
+        return .smartAlbumUserLibrary
+    }
+
     static var performMediaType: PHAssetMediaType? {
         return .video
     }
