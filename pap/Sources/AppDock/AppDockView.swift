@@ -146,7 +146,11 @@ class AppDockView: CustomView {
     private var shouldDrawerEnable: Bool {
         if hasAppContentAsLayout {
             let hasMultipleApps = items.count > 1
-            return hasMultipleApps && hasAppControllerAsLayout
+            if hasControllerPinned{
+                return hasMultipleApps && hasAppAccessoryAsLayout
+            }else{
+                return hasMultipleApps && hasAppControllerAsLayout
+            }
         }
         return false
     }
