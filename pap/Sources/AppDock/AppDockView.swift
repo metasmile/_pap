@@ -126,6 +126,11 @@ class AppDockView: CustomView {
 
     var contentLayoutState: AppDockContentLayoutState {
         set(newValue){
+            // POLICY BEGIN:  --> this is locking point for resizing preview
+//            if hasControllerPinned{
+//                return
+//            }
+            // POLICY END
             Defaults.shared.appDockContentLayoutState = newValue.rawValue
             drawerView.isHandleOpened = newValue == .maximized
         }

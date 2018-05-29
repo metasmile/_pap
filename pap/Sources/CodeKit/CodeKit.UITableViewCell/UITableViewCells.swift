@@ -7,9 +7,27 @@ import Foundation
 import UIKit
 //TODO: integrate all.
 
-open class UITableViewSwitchCell: UITableViewCell {
+class UITableViewCellWithInclusiveHitTestSubview:UITableViewCell {
+    private let TagForExcludingHitTest = Int(arc4random_uniform(2))
+
+    open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        if let v = super.hitTest(point, with: event), v.tag==TagForExcludingHitTest {
+            return v
+        }
+        return nil
+    }
+
+    fileprivate func setSubviewInclusiveHitTestTarget(_ subview:UIView){
+        subview.tag = TagForExcludingHitTest
+    }
+}
+
+
+class UITableViewSwitchCell: UITableViewCellWithInclusiveHitTestSubview {
+
     private(set) lazy var switcher: UISwitch = {
         let view = UISwitch()
+        self.setSubviewInclusiveHitTestTarget(view)
         view.addTarget(self, action: #selector(self.cellSwitchDidChange), for: .valueChanged)
         return view
     }()
@@ -37,7 +55,7 @@ open class UITableViewSwitchCell: UITableViewCell {
     }
 }
 
-open class UITableViewSimpleValueCell: UITableViewCell {
+class UITableViewSimpleValueCell: UITableViewCell {
     var valueLabelText: String?{
         didSet {
             valueLabel.text = valueLabelText
@@ -68,7 +86,7 @@ open class UITableViewSimpleValueCell: UITableViewCell {
     }
 }
 
-open class UITableViewActionSheetCell: UITableViewSimpleValueCell {
+class UITableViewActionSheetCell: UITableViewSimpleValueCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
 
@@ -118,7 +136,7 @@ open class UITableViewActionSheetCell: UITableViewSimpleValueCell {
 }
 
 
-open class UITableViewStepperCell: UITableViewCell {
+class UITableViewStepperCell: UITableViewCellWithInclusiveHitTestSubview {
     private(set) lazy var stepper: UIStepper = UIStepper()
 
     var didChangeValue: ((Double) -> Void)?
@@ -135,6 +153,8 @@ open class UITableViewStepperCell: UITableViewCell {
         stepper.addTarget(self, action: #selector(self.valueDidChange), for: .valueChanged)
 
         accessoryView = stepper
+
+        self.setSubviewInclusiveHitTestTarget(stepper)
 
         self.detailTextLabel?.textColor = UIColor.gray
     }
@@ -153,7 +173,7 @@ open class UITableViewStepperCell: UITableViewCell {
 }
 
 
-open class UITableViewSegmentedControlCell: UITableViewCell {
+class UITableViewSegmentedControlCell: UITableViewCellWithInclusiveHitTestSubview {
     private(set) lazy var segmentedControl: UISegmentedControl = UISegmentedControl(items: [])
 
     var didChangeValue: ((Int) -> Void)?
@@ -168,6 +188,8 @@ open class UITableViewSegmentedControlCell: UITableViewCell {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
 
         accessoryView = segmentedControl
+
+        self.setSubviewInclusiveHitTestTarget(segmentedControl)
 
         segmentedControl.addTarget(self, action: #selector(self.valueDidChange), for: .valueChanged)
 
@@ -192,7 +214,7 @@ public struct UIPickerItem {
     var values = [String]()
 }
 
-open class UITableViewMultiplePickerCell: UITableViewCell, UITableViewExpandableCell, UIPickerViewDataSource, UIPickerViewDelegate {
+class UITableViewMultiplePickerCell: UITableViewCell, UITableViewExpandableCell, UIPickerViewDataSource, UIPickerViewDelegate {
     private(set) lazy var picker: UIPickerView = {
         let view = UIPickerView()
         view.delegate = self
