@@ -26,6 +26,7 @@ class PhotoPickerViewController: AppDockViewController {
 
     var dragSelectionGesture: DragSelectionGestureRecognizer!
 
+    var collection: PHAssetCollection?
     var queuedPhotoLibraryChanges = ItemQueue<PHChange>()
 
     override func viewDidLoad() {
@@ -77,10 +78,13 @@ class PhotoPickerViewController: AppDockViewController {
         PHPhotoLibraryManager.default.authorizeIfNeeded { authorized in
             guard authorized else { return }
 
-            PHAssets.fetched.unload()
-
             //QA: attach initial progress activity view + non-mainqueue.async
-            PHAssets.fetched.load(with: .smartAlbum, subtype: .smartAlbumUserLibrary) // iphone x: .028702974319458s
+            if let collection = self.collection {
+                PHAssets.fetched.load(from: collection)
+            }
+            else {
+                PHAssets.fetched.load(with: .smartAlbum, subtype: .smartAlbumUserLibrary) // iphone x: .028702974319458s
+            }
 
             if let numberOfSection = PHAssets.fetched.results?.count, numberOfSection > 0
                 , let numberOfItemsInSection = PHAssets.fetched.results?[numberOfSection - 1].count
@@ -94,7 +98,7 @@ class PhotoPickerViewController: AppDockViewController {
          }
 
         //navigation controller accessories
-        title = Bundle.main.displayName
+        title = self.collection?.localizedTitle ?? Bundle.main.displayName
 
         navigationItem.setLeftBarButton(nil, animated: false)
         navigationItem.setRightBarButton(nil, animated: false)
@@ -117,6 +121,12 @@ class PhotoPickerViewController: AppDockViewController {
         dragSelectionGesture = DragSelectionGestureRecognizer(target: self, action: #selector(self.dragSelectionGestureDidRecognize))
         dragSelectionGesture.delegate = self
         photoCollectionView.addGestureRecognizer(dragSelectionGesture)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        appDockNavigationController?.setAppDockHidden(false, animated: animated)
     }
 
     func redisplayCurrentVisibleCellsWhenUpdateApps() {
@@ -222,7 +232,8 @@ class PhotoPickerViewController: AppDockViewController {
     private func showAndRevertTitleByCurrentAppIfNeeded(){
         let timerId = "picker_title_change_timer"
         if self.selectedAssetsInCollectionView?.count ?? 0 == 0 {
-            let revertingTitle = self.title == Bundle.main.displayName ? self.title : Bundle.main.displayName
+            let defaultTitle = self.collection?.localizedTitle ?? Bundle.main.displayName
+            let revertingTitle = self.title == defaultTitle ? self.title : defaultTitle
             self.titleFade = AppCenter.default.current?.info.displayName
             Timer.scheduledTimer(identifier: timerId, withTimeInterval: 2, repeats: false) { timer in
                 if self.selectedAssetsInCollectionView?.count ?? 0 == 0{
@@ -253,7 +264,7 @@ class PhotoPickerViewController: AppDockViewController {
         let numberOfItems = numberOfPhotos + numberOfVideos
 
         if numberOfItems == 0 {
-            title = Bundle.main.displayName
+            title = self.collection?.localizedTitle ?? Bundle.main.displayName
         }
         else {
             if numberOfPhotos > 0 && numberOfVideos == 0 {

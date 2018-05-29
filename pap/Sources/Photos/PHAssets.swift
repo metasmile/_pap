@@ -43,6 +43,12 @@ public final class PHAssets: NSObject, KeyPathWatchable {
         return false
     }
     
+    public func load(from collection: PHAssetCollection) {
+        let options = PHFetchOptions()
+        
+        self.results = [PHAsset.fetchAssets(in: collection, options: options)]
+    }
+    
     public func load(with collectionType: PHAssetCollectionType = .smartAlbum, subtype collectionSubType: PHAssetCollectionSubtype = .smartAlbumUserLibrary, completion:(() -> Void)?=nil) {
         let options = PHFetchOptions()
 
