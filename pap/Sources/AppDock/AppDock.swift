@@ -49,7 +49,17 @@ public protocol AppDockContentPreferable {
 }
 
 public struct AppDockContentPreferences: AppDockContentPreferable {
-    public var preferredHeight: CGFloat = 0
+    private var _actualHeight: CGFloat = AppDockContentPreferences.kPreferredHeightLimitation
+    private static let kPreferredHeightLimitation: CGFloat = 250
+    public var preferredHeight: CGFloat {
+        set {
+            _actualHeight = min(AppDockContentPreferences.kPreferredHeightLimitation, newValue)
+        }
+        
+        get {
+            return _actualHeight
+        }
+    }
 
     public var displayMode: AppDockContentDisplayMode = .none
 
