@@ -498,7 +498,7 @@ class PhotoPickerViewController: AppDockViewController {
 extension PhotoPickerViewController: EditViewControllerDelegate {
     func showPhotoEditor(with editItem: PHAssetItem<ImageEditStateValue>?) {
         guard let editItem = editItem else { return }
-
+        
         if let photoEditViewController = R.storyboard.appStoryboard.photoEditViewController(){
             photoEditViewController.preferredEditState = editItem.editState
             photoEditViewController.asset = editItem.asset
@@ -506,6 +506,7 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
             photoEditViewController.indexPathInPicker = PHAssets.fetched.indexPath(of:editItem.asset)
             photoEditViewController.selectedInPicker = AppAssets.selected.by(editItem.asset) != nil
             
+            appDockContentLayoutStateRestoringAfterProcessing = appDockView?.contentLayoutState
             appDockView?.setDrawerDisplay(forState: .neutralized, reloadDockContentViews: true)
 
             let navigationController = AppDockNavigationController(rootViewController: photoEditViewController)
@@ -531,6 +532,8 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
         }
 
         AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues( AppConfigUIAttrribute(tintColor: .black))
+        
+        appDockView?.setDrawerDisplay(forState: appDockContentLayoutStateRestoringAfterProcessing ?? .neutralized, reloadDockContentViews: true)
 
         photoEditor.dismiss(animated: true, completion: {
             self.batchPreviewView.reloadCollectionViewItems()
