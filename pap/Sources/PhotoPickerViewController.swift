@@ -138,10 +138,8 @@ class PhotoPickerViewController: AppDockViewController {
         self.redisplayVisibleCellsWhenChangeApp()
         self.showAndRevertTitleByCurrentAppIfNeeded()
         
-        if appDockView?.accessory?.view == batchPreviewView {
-            self.appDockView?.reloadKeepingDrawerOpened()
-        }
-        else {
+        self.appDockView?.reloadKeepingDrawerOpened()
+        if appDockView?.accessory?.view != batchPreviewView {
             batchPreviewView.collectionView.reloadData()
         }
     }
