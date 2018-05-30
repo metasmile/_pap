@@ -145,6 +145,11 @@ class AppDockView: CustomView {
                     state = .neutralized
                 }
             }
+            else if state == .minimized {
+                if conformsPreviewable {
+                    state = .neutralized
+                }
+            }
             // POLICY END
             
             drawerView.isHandleOpened = state == .maximized
