@@ -9,9 +9,9 @@
 import UIKit
 
 public protocol PreviewableApp: App {
-
+    var currentEditStateValue: ImageEditStateValue? { get }
 }
 
 extension PreviewableApp {
-    
+    public var currentEditStateValue: ImageEditStateValue? { return nil }
 }

@@ -60,6 +60,8 @@ public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp,
     @objc dynamic
     public private(set) lazy var config: PhotosFilterAppConfigValue? = PhotosFilterApp.configure?()
     public private(set) lazy var dockContent: AppDockContent? = createController()
+    
+    public private(set) var currentEditStateValue: ImageEditStateValue?
 
     public static let info = AppInfo(
         identifier: "com.stells.pap.photosfilter"
@@ -140,6 +142,7 @@ private extension PhotosFilterApp {
         var items = CIFilters.filters.map({ (filter) -> AppUICollectionView.CollectionItem in
             return AppUICollectionView.CollectionItem(title: PhotosFilterNames.aliasName(filter.name), image: image?.applyFilter(ciFilter: filter), action: {
                 self.config?.filter = CIFilterItem(filter)
+                self.currentEditStateValue = CIFilterItem(filter)
             })
         })
         items.insert(AppUICollectionView.CollectionItem(title: "Original".localized, image: image, action: { self.config?.filter = CIFilterItem() }), at: 0)
