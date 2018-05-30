@@ -124,37 +124,56 @@ class AppDockView: CustomView {
         return CGSize(width: UIViewNoIntrinsicMetric, height: drawerViewHeightLayout.constant + appContentViewHeightLayout.constant + dockViewHeightLayout.constant + bottomAccessoryView.bounds.height)
     }
 
-    private var _temporaryContentLayoutState: AppDockContentLayoutState = .neutralized
+    private var _contentLayoutState: AppDockContentLayoutState = .neutralized
+
     var contentLayoutState: AppDockContentLayoutState {
         set(newValue){
-            _temporaryContentLayoutState = newValue
-            
-            Defaults.shared.appDockContentLayoutState = newValue.rawValue
+            _contentLayoutState = newValue
             drawerView.isHandleOpened = newValue == .maximized
-        }
-        get {
-            let savedState = AppDockContentLayoutState(rawValue: Defaults.shared.appDockContentLayoutState) ?? _temporaryContentLayoutState
-            var state = savedState != .maximized ? savedState : _temporaryContentLayoutState
+
+            var committingLayoutState:AppDockContentLayoutState? = newValue
 
             if controller == nil{
-                state = .minimized
-            }else{
-                // POLICY BEGIN:
-                if state == .maximized {
-                    if conformsPreviewable && !hasAppAccessoryAsLayout {
-                        state = .neutralized // force: .maximized -> .neutralized
-                    }
-                }
-                else if state == .minimized {
-                    if conformsPreviewable {
-                        state = .neutralized // force: .minimized -> .neutralized
-                    }
-                }
-                // POLICY END
+                committingLayoutState = nil
             }
-            
-            drawerView.isHandleOpened = state == .maximized
-            return state
+
+            // POLICY BEGIN:
+            else if conformsPreviewable {
+                committingLayoutState = nil
+            }
+            // POLICY END
+
+            if let state = committingLayoutState {
+                //commit state when !conformsPreviewable
+                Defaults.shared.appDockContentLayoutState = state.rawValue
+            }
+        }
+        get {
+
+            if controller == nil{
+                _contentLayoutState = .minimized
+            }
+
+            // POLICY BEGIN:
+            else if conformsPreviewable{
+                if _contentLayoutState == .maximized { //INFO: this is different with "state == .maximized && !hasAppAccessoryAsLayout"
+                    if !hasAppAccessoryAsLayout {
+                        _contentLayoutState = .neutralized // force: .maximized -> .neutralized
+                    }
+                }
+                else if _contentLayoutState == .minimized {
+                    _contentLayoutState = .neutralized // force: .minimized -> .neutralized
+                }
+            }
+            // POLICY END
+
+            else{
+                _contentLayoutState = AppDockContentLayoutState(rawValue: Defaults.shared.appDockContentLayoutState) ?? _contentLayoutState
+            }
+
+            //render
+            drawerView.isHandleOpened = _contentLayoutState == .maximized
+            return _contentLayoutState
         }
     }
 
