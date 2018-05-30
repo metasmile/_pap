@@ -51,7 +51,7 @@ public class PhotosFilterAppConfigValue: NSObject, KeyPathWatchable, AppConfigUI
 public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _ConfigurableApp,
         AppDockControllableApp, PHAssetFinalizableApp,
         PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp,
-        PhotoEditorViewControllerDelegatableApp {
+        PhotoEditorViewControllerDelegatableApp, PreviewableApp {
     public static let taskType:Taskable.Type = _PhotosFilterAppTask.self
     public static let paramType:TaskParamable.Type = _PhotosFilterAppAsset.self
     

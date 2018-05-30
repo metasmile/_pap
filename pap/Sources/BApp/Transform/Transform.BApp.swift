@@ -31,7 +31,7 @@ public class TransformAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAtt
 
 public class TransformApp: NSObject, BApp, KeyPathWatchable
         , ConfigurableApp, _ConfigurableApp, AppDockControllableApp, PHAssetFinalizableApp
-        , PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp, PhotoEditorViewControllerDelegatableApp {
+        , PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp, PhotoEditorViewControllerDelegatableApp, PreviewableApp {
 
     public static let taskType:Taskable.Type = _TransfromAppTask.self
 

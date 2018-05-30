@@ -199,13 +199,21 @@ class AppDockView: CustomView {
             }, completion: nil)
         }
     }
+    
+    // set an App
+    
+    var app: AppDockControllableApp? {
+        didSet {
+            self.controller = app?.dockContent
+        }
+    }
 
     /*
         layout priority : controller > accessory
     */
 
     // AppDock Control
-    var controller: AppDockContent? {
+    private var controller: AppDockContent? {
         didSet {
             if let view = controller?.view {
                 controller?.willSetContentView(view, dock: self)
@@ -228,7 +236,7 @@ class AppDockView: CustomView {
     }
 
     var conformsPreviewable:Bool{
-        return controller?.preferences?.displayMode == .pinned
+        return app is PreviewableApp
     }
 
     private func hasControlView(_ view: UIView?) -> Bool {

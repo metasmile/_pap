@@ -12,7 +12,7 @@ class _AutoAdjustmentAppAsset: _PhotosFilterAppAsset {}
 
 public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _ConfigurableApp,
         AppDockControllableApp, PHAssetFinalizableApp, PhotoPickerCollectionViewDisplayableApp,
-        PhotoPickerViewControllerDelegatableApp {
+        PhotoPickerViewControllerDelegatableApp, PreviewableApp {
 
     public static let taskType:Taskable.Type = _AutoAdjustmentAppTask.self
     public static let paramType:TaskParamable.Type = _AutoAdjustmentAppAsset.self
