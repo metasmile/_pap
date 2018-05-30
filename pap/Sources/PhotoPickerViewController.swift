@@ -464,13 +464,7 @@ class PhotoPickerViewController: AppDockViewController {
                 self.restoreSelectionByUser(selectedAssetIdentifiers)
             }
             
-            if self.appDockView?.isContentLayoutMaximized == true {
-                self.appDockView?.closeDrawer(reloadDockContentViews: true)
-            }
-            else {
-                self.appDockView?.reloadKeepingDrawerOpened()
-            }
-            self.batchPreviewView.reloadContent()
+            self.appDockView?.reloadKeepingDrawerOpened()
         })
     }
     
