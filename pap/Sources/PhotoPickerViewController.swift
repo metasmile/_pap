@@ -122,7 +122,6 @@ class PhotoPickerViewController: AppDockViewController {
     func redisplayCurrentVisibleCellsWhenUpdateApps() {
         AppAssets.selected.reloadAll()
         self.redisplayVisibleCellsWhenChangeApp()
-        self.appDockView?.reloadKeepingDrawerOpened()
     }
 
     private func flushQueuedPhotoLibraryChanges(){
@@ -137,11 +136,6 @@ class PhotoPickerViewController: AppDockViewController {
         AppAssets.selected.reloadAll()
         self.redisplayVisibleCellsWhenChangeApp()
         self.showAndRevertTitleByCurrentAppIfNeeded()
-        
-        self.appDockView?.reloadKeepingDrawerOpened()
-        if appDockView?.accessory?.view != batchPreviewView {
-            batchPreviewView.reloadContent()
-        }
     }
     
     override func registerWatchingAppConfig() {
@@ -630,6 +624,9 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     
     func batchPreviewViewDidEndEdit(_ view: PreviewView) {
         progressBar.isHidden = true
+        
+        //POLICY: no keeps selected items
+        deselectCollectionViewItems(self.photoCollectionView.indexPathsForSelectedItems ?? [])
 
         updateAllPhotosTitle()
         updateSelectedItemUIs()

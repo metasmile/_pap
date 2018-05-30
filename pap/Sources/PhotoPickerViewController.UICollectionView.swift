@@ -25,6 +25,11 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
             AppAssets.selected.remove(for: asset)
         }
         
+        self.appDockView?.reloadKeepingDrawerOpened()
+        if appDockView?.accessory?.view != batchPreviewView {
+            batchPreviewView.reloadContent()
+        }
+        
         updateSelectedItemUIs()
     }
 
