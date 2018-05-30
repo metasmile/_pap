@@ -122,7 +122,7 @@ class PhotoPickerViewController: AppDockViewController {
     func redisplayCurrentVisibleCellsWhenUpdateApps() {
         AppAssets.selected.reloadAll()
         self.redisplayVisibleCellsWhenChangeApp()
-        self.batchPreviewView.updatePreviews()
+        self.appDockView?.reloadKeepingDrawerOpened()
     }
 
     private func flushQueuedPhotoLibraryChanges(){
@@ -131,16 +131,33 @@ class PhotoPickerViewController: AppDockViewController {
         }
     }
     
+    override func appDidChange() {
+        super.appDidChange()
+        
+        AppAssets.selected.reloadAll()
+        self.redisplayVisibleCellsWhenChangeApp()
+        self.showAndRevertTitleByCurrentAppIfNeeded()
+        
+        if appDockView?.accessory?.view == batchPreviewView {
+            self.appDockView?.reloadKeepingDrawerOpened()
+        }
+        else {
+            batchPreviewView.collectionView.reloadData()
+        }
+    }
+    
     override func registerWatchingAppConfig() {
         AppCenter.default.watch(\.currentIdentifier, options:[.new, .old, .initial]) { (appCenter, dict) in
-            let old = dict.oldValue
-            let new = dict.newValue
-            
-            if old != nil && new != nil && old != new {
-                AppAssets.selected.reloadAll()
-                self.redisplayVisibleCellsWhenChangeApp()
-                self.showAndRevertTitleByCurrentAppIfNeeded()
-            }
+//            let old = dict.oldValue
+//            let new = dict.newValue
+//
+//            print(">>>>>>>>>>>>> watch")
+//
+//            if old != nil && new != nil && old != new {
+//                AppAssets.selected.reloadAll()
+//                self.redisplayVisibleCellsWhenChangeApp()
+//                self.showAndRevertTitleByCurrentAppIfNeeded()
+//            }
 
             self.updateDoneButtonState()
 

@@ -55,6 +55,10 @@ extension AppDockNavigationController: AppDockViewDelegate {
             
             appDockView.controller = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.dockContent
             //INFO: by apps? or globally? hmm at first following imessage policy(global)
+            
+            if let vc = self.topViewController as? AppDockViewController {
+                vc.appDidChange()
+            }
         }
         else {
             appDockView.controller = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.dockContent
@@ -139,6 +143,10 @@ class AppDockViewController: UIViewController {
     }
     
     func unregisterWatchingAppConfig() {
+        
+    }
+    
+    func appDidChange() {
         
     }
     
