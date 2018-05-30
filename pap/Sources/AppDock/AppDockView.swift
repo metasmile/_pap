@@ -135,22 +135,23 @@ class AppDockView: CustomView {
         get {
             let savedState = AppDockContentLayoutState(rawValue: Defaults.shared.appDockContentLayoutState) ?? _temporaryContentLayoutState
             var state = savedState != .maximized ? savedState : _temporaryContentLayoutState
-            
-            // POLICY BEGIN:
-            if state == .maximized {
-                if conformsPreviewable && !hasAppAccessoryAsLayout {
-                    state = .neutralized
+
+            if controller == nil{
+                state = .minimized
+            }else{
+                // POLICY BEGIN:
+                if state == .maximized {
+                    if conformsPreviewable && !hasAppAccessoryAsLayout {
+                        state = .neutralized // force: .maximized -> .neutralized
+                    }
                 }
-                else if controller == nil {
-                    state = .neutralized
+                else if state == .minimized {
+                    if conformsPreviewable {
+                        state = .neutralized // force: .minimized -> .neutralized
+                    }
                 }
+                // POLICY END
             }
-            else if state == .minimized {
-                if conformsPreviewable {
-                    state = .neutralized
-                }
-            }
-            // POLICY END
             
             drawerView.isHandleOpened = state == .maximized
             return state
@@ -568,9 +569,11 @@ extension AppDockView: UIGestureRecognizerDelegate {
     func closeDrawer(reloadDockContentViews: Bool? = nil) {
         switch contentLayoutState {
             case .maximized:
-                setDrawerDisplay(forState: .neutralized, reloadDockContentViews: reloadDockContentViews)
+                contentLayoutState = .neutralized
+                setDrawerDisplay(forState: contentLayoutState, reloadDockContentViews: reloadDockContentViews)
             case .neutralized:
-                setDrawerDisplay(forState: .minimized, reloadDockContentViews: reloadDockContentViews)
+                contentLayoutState = .minimized
+                setDrawerDisplay(forState: contentLayoutState, reloadDockContentViews: reloadDockContentViews)
             case .minimized:
                 return
         }
@@ -579,14 +582,17 @@ extension AppDockView: UIGestureRecognizerDelegate {
     func openDrawer(reloadDockContentViews: Bool? = nil) {
         switch contentLayoutState {
             case .maximized:
-                setDrawerDisplay(forState: .maximized) //INFO: prevent stuck drawer on top of the screen
+                contentLayoutState = .maximized
+                setDrawerDisplay(forState: contentLayoutState) //INFO: prevent stuck drawer on top of the screen
             case .neutralized:
-                setDrawerDisplay(forState: .maximized, reloadDockContentViews: reloadDockContentViews)
+                contentLayoutState = .maximized
+                setDrawerDisplay(forState: contentLayoutState, reloadDockContentViews: reloadDockContentViews)
             case .minimized:
-                setDrawerDisplay(forState: .neutralized, reloadDockContentViews: reloadDockContentViews)
+                contentLayoutState = .neutralized
+                setDrawerDisplay(forState: contentLayoutState, reloadDockContentViews: reloadDockContentViews)
         }
     }
-    
+
     func setDrawerDisplay(forState state: AppDockContentLayoutState, reloadDockContentViews: Bool? = nil) {
         switch state {
             case .minimized:
