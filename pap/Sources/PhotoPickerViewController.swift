@@ -455,7 +455,7 @@ class PhotoPickerViewController: AppDockViewController {
                 }
                 if let changed = changes.changedIndexes, changed.count > 0 {
                     let indexPaths = changed.map { IndexPath(item: $0, section:section) }
-                    self.photoCollectionView.reloadItems(at: indexPaths.filter { removedIndexPaths?.contains($0) == false })
+                    self.photoCollectionView.reloadItems(at: indexPaths.filter { removedIndexPaths?.contains($0) != true })
                 }
                 changes.enumerateMoves { fromIndex, toIndex in
                     needsToRestoreSelection = true
