@@ -140,7 +140,7 @@ class PhotoPickerViewController: AppDockViewController {
         
         self.appDockView?.reloadKeepingDrawerOpened()
         if appDockView?.accessory?.view != batchPreviewView {
-            batchPreviewView.collectionView.reloadData()
+            batchPreviewView.reloadContent()
         }
     }
     
