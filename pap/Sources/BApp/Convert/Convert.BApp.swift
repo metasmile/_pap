@@ -39,7 +39,7 @@ public class ConvertApp: BApp,
             , appType: ConvertApp.self
             , displayName: "Convert" // 1 - 1
             , icon: R.image.convertBAppIcon.name
-            , policy: AppPolicy.default
+            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: TaskPolicy.default)
             , minOSVersion: nil
     )
 
