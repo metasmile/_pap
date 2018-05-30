@@ -942,17 +942,22 @@ internal class AppDockViewCell: CustomCollectionViewCell {
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
         
+        let iconBorderColor: UIColor
         if AppCollectionViewLayout.LayoutConstants.compactHeight == layoutAttributes.frame.height {
             appInfoViewHeightLayout.constant = 0
+            iconBorderColor = UIColor(red: 218 / 255.0, green: 218 / 255.0, blue: 218 / 255.0, alpha: 1)
         }
         else {
             appInfoViewHeightLayout.constant = 20
+            iconBorderColor = UIColor(red: 208 / 255.0, green: 208 / 255.0, blue: 208 / 255.0, alpha: 1)
         }
         
         let margin: CGFloat = 4
         let contentBounds = UIEdgeInsetsInsetRect(layoutAttributes.frame, UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin))
         
         appIconView.cornerRadius = ((contentBounds.height - margin * 2) - appInfoViewHeightLayout.constant) * 0.5
+        appIconView.layer.borderColor = iconBorderColor.cgColor
+        appIconView.layer.borderWidth = 1 / UIScreen.main.scale
     }
 
     //32 x 24 (1x)
