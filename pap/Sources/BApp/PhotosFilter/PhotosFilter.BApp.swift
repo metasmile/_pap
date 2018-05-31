@@ -68,8 +68,8 @@ public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp,
         , version: "1.0"
         , phase: .release
         , appType: PhotosFilterApp.self
-        , displayName: "Filters"
-        , icon: R.image.photosFilterBAppIcon.name
+        , displayName: "Filters", description:nil, keywords:nil
+        , iconBundleName: R.image.photosFilterBAppIcon.name
         , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: TaskPolicy.default)
         , minOSVersion: nil
     )

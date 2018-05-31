@@ -259,8 +259,8 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
         , version: "1.0"
         , phase: .release
         , appType: GIFMaker.self
-        , displayName: "GIF Maker".localized
-        , icon: R.image.gifMakerBAppIcon.name
+        , displayName: "GIF Maker".localized, description:nil, keywords:nil
+        , iconBundleName: R.image.gifMakerBAppIcon.name
         , policy: AppPolicy.default
         , minOSVersion: nil
     )

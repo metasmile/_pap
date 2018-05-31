@@ -16,8 +16,8 @@ public class Clean: BApp, PHAssetFinalizableApp, AppDockApp, PhotoPickerViewCont
             , version: "0.1"
             , phase: .develop
             , appType: Clean.self
-            , displayName: "Clean"
-            , icon: nil
+            , displayName: "Clean", description:nil, keywords:nil
+            , iconBundleName: nil
             , policy: AppPolicy.default
             , minOSVersion: nil
     )

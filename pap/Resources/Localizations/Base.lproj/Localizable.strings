@@ -67,3 +67,19 @@
 
 /*com.stells.pap.converter*/
 "Convert" = "Convert";
+
+/*CoreSpotligth keywords - marketing*/
+"cs_keyword_0" = "album";
+"sp_keyword_1" = "camera";
+"sp_keyword_2" = "photos";
+"sp_keyword_3" = "editor";
+"sp_keyword_4" = "messenger";
+"sp_keyword_5" = "filter";
+"sp_keyword_6" = "edit";
+"sp_keyword_7" = "image";
+"sp_keyword_8" = "smart";
+"sp_keyword_9" = "picture";
+"sp_keyword_10" = "memory";
+"sp_keyword_11" = "familiy";
+"sp_keyword_12" = "friend";
+"sp_keyword_13" = "lover";

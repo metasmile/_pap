@@ -28,8 +28,8 @@ public class PDFactory: BApp, FinalizableApp, PhotoPickerViewControllerDelegatab
             , version: "1.0"
             , phase: .release
             , appType: PDFactory.self
-            , displayName: "PDFactory"
-            , icon: R.image.pdFactoryBAppIcon.name
+            , displayName: "PDFactory", description:nil, keywords:nil
+            , iconBundleName: R.image.pdFactoryBAppIcon.name
             , policy: AppPolicy.default
             , minOSVersion: nil
     )

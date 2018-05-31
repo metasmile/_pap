@@ -104,8 +104,8 @@ class AppTaskTests: XCTestCase {
                     , version: "0.1"
                     , phase: .develop
                     , appType: TestPreferredConcurrentCountApp.self
-                    , displayName: "TestPreferredConcurrentCountApp"
-                    , icon: nil
+                    , displayName: "TestPreferredConcurrentCountApp", description:nil, keywords:nil
+                    , iconBundleName: nil
                     , policy: AppPolicy.default
                     , minOSVersion: nil
             )

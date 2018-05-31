@@ -50,8 +50,8 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
             , version: "1.0"
             , phase: .release
             , appType: TransformApp.self
-            , displayName: "Transform".localized
-            , icon: R.image.transformBAppIcon.name
+            , displayName: "Transform".localized, description:nil, keywords:nil
+            , iconBundleName: R.image.transformBAppIcon.name
             , policy: AppPolicy.default
             , minOSVersion: nil
     )

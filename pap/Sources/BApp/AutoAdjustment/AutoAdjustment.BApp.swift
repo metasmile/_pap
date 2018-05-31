@@ -30,8 +30,8 @@ public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableAp
         , version: "1.0"
         , phase: .release
         , appType: AutoAdjustmentApp.self
-        , displayName: "Auto Edit"
-        , icon: R.image.autoAdjustmentBAppIcon.name
+        , displayName: "Auto Edit", description:nil, keywords:nil
+        , iconBundleName: R.image.autoAdjustmentBAppIcon.name
         , policy: AppPolicy.default
         , minOSVersion: nil
     )

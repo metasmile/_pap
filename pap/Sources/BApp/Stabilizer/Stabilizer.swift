@@ -80,8 +80,8 @@ public class Stabilizer: BApp, PHAssetFinalizableApp, AppDockApp, PhotoPickerVie
             , version: "0.1"
             , phase: .develop
             , appType: Stabilizer.self
-            , displayName: "Stabilizer"
-            , icon: nil
+            , displayName: "Stabilizer", description:nil, keywords:nil
+            , iconBundleName: nil
             , policy: AppPolicy.default
             , minOSVersion: nil
     )
