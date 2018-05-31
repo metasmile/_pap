@@ -124,30 +124,58 @@ class AppDockView: CustomView {
         return CGSize(width: UIViewNoIntrinsicMetric, height: drawerViewHeightLayout.constant + appContentViewHeightLayout.constant + dockViewHeightLayout.constant + bottomAccessoryView.bounds.height)
     }
 
+    private var _contentLayoutState: AppDockContentLayoutState = .neutralized
+
     var contentLayoutState: AppDockContentLayoutState {
         set(newValue){
-            Defaults.shared.appDockContentLayoutState = newValue.rawValue
+            _contentLayoutState = newValue
             drawerView.isHandleOpened = newValue == .maximized
-        }
-        get {
-            var state = controller == nil ? .minimized : AppDockContentLayoutState(rawValue: Defaults.shared.appDockContentLayoutState) ?? .neutralized
+
+            var committingLayoutState:AppDockContentLayoutState? = newValue
+
+            if controller == nil{
+                committingLayoutState = nil
+            }
 
             // POLICY BEGIN:
-            if hasControllerPinned{
-                if hasAppAccessoryAsLayout{
-                    if state == .maximized{
-                        // maximized is allowed
-                    }else{
-                        state = .neutralized
+            else if conformsPreviewable {
+                committingLayoutState = nil
+            }
+            // POLICY END
+
+            if let state = committingLayoutState {
+                //commit state when !conformsPreviewable
+                Defaults.shared.appDockContentLayoutState = state.rawValue
+            }
+        }
+        get {
+
+            // app does not provide/support appDockContent
+            if controller == nil{
+                _contentLayoutState = .minimized
+            }
+
+            // POLICY BEGIN:
+            // app supports previewable
+            else if conformsPreviewable{
+                if _contentLayoutState == .maximized { //INFO: this is different with "state == .maximized && !hasAppAccessoryAsLayout"
+                    if !hasAppAccessoryAsLayout {
+                        _contentLayoutState = .neutralized // force: .maximized -> .neutralized
                     }
-                }else{
-                    // always minimized at default
-                    state = .minimized 
+                }
+                else if _contentLayoutState == .minimized {
+                    _contentLayoutState = .neutralized // force: .minimized -> .neutralized
                 }
             }
             // POLICY END
-            drawerView.isHandleOpened = state == .maximized
-            return state
+            // default: apps support appDockContent
+            else{
+                _contentLayoutState = AppDockContentLayoutState(rawValue: Defaults.shared.appDockContentLayoutState) ?? _contentLayoutState
+            }
+
+            //render
+            drawerView.isHandleOpened = _contentLayoutState == .maximized
+            return _contentLayoutState
         }
     }
 
@@ -155,16 +183,11 @@ class AppDockView: CustomView {
         return contentLayoutState == .maximized
     }
 
-    private var shouldDrawerEnable: Bool {
-        if hasAppContentAsLayout {
-            let hasMultipleApps = items.count > 1
-            if hasControllerPinned{
-                return hasMultipleApps && hasAppAccessoryAsLayout
-            }else{
-                return hasMultipleApps && hasAppControllerAsLayout
-            }
+    private var shouldDrawerBarEnable: Bool {
+        if items.count == 0 {
+            return false
         }
-        return false
+        return hasAppControllerAsLayout || (hasAppAccessoryAsLayout && conformsPreviewable)
     }
 
     @IBOutlet private weak var dimmedView: UIView!
@@ -177,26 +200,25 @@ class AppDockView: CustomView {
             }, completion: nil)
         }
     }
+    
+    // set an App
+    weak var app: AppDockApp? {
+        didSet {
+            self.controller = app?.dockContent
+        }
+    }
 
     /*
         layout priority : controller > accessory
     */
 
     // AppDock Control
-    var controller: AppDockContent? {
+    private var controller: AppDockContent? {
         didSet {
             if let view = controller?.view {
-                // POLICY BEGIN:
-                //   NO KEEP MAXIMIZED LAYOUT
-                //   force layout changed to neutralized when previous layout state is not minimized
-                if contentLayoutState != .minimized {
-                    contentLayoutState = .neutralized
-                }
-                // POLICY END
-                
                 controller?.willSetContentView(view, dock: self)
 
-                setControllerView(view, animated: true)
+                setControllerView(view, animated: false)
 
                 DispatchQueue.main.async {
                     self.controller?.didSetContentView(view, dock:self)
@@ -204,15 +226,17 @@ class AppDockView: CustomView {
             }
             else {
                 controller?.willRemoveContentView()
-                removeAllControllerViews()
+                removeAllControllerViews(animated: false)
             }
             
-            delegate?.appDockView(self, didOpenDrawer: contentLayoutState == .maximized)
+            appContentView.layoutIfNeeded()
+            
+            delegate?.appDockView(self, didOpenDrawer: controller != nil && contentLayoutState == .maximized)
         }
     }
 
-    var hasControllerPinned:Bool{
-        return controller?.preferences?.displayMode == .pinned
+    var conformsPreviewable:Bool{
+        return app is PreviewableApp
     }
 
     private func hasControlView(_ view: UIView?) -> Bool {
@@ -226,7 +250,7 @@ class AppDockView: CustomView {
         if let view = view {
             controllerView.addSubview(view)
 
-            if hasControllerPinned {
+            if conformsPreviewable {
                 view.translatesAutoresizingMaskIntoConstraints = false
                 view.topAnchor.constraint(equalTo: controllerView.topAnchor).isActive = true
                 view.leadingAnchor.constraint(equalTo: controllerView.leadingAnchor).isActive = true
@@ -346,7 +370,7 @@ extension AppDockView {
 
     fileprivate var preferredDrawerViewHeight: CGFloat {
         if hasAppControllerAsLayout{
-            return shouldDrawerEnable ? DefaultPreferences.DrawerView.compactHeight : DefaultPreferences.DrawerView.compactDisabledHeight
+            return shouldDrawerBarEnable ? DefaultPreferences.DrawerView.compactHeight : DefaultPreferences.DrawerView.compactDisabledHeight
         }
         return AppDockView.VoidLayoutValue
     }
@@ -391,7 +415,7 @@ extension AppDockView {
     fileprivate func layoutDrawerView() {
         drawerViewHeightLayout.constant = preferredDrawerViewHeight
 
-        drawerView.isBarHidden = !shouldDrawerEnable
+        drawerView.isBarHidden = !shouldDrawerBarEnable
         drawerView.layoutIfNeeded()
         invalidateIntrinsicContentSize()
     }
@@ -417,7 +441,7 @@ extension AppDockView {
             appContentViewHeightLayout.constant = preferredAppContentViewMaximumHeight
             
             let contentLayoutConstant = appContentViewHeightLayout.constant
-            let controllerLayoutConstant = (hasControllerPinned && contentLayoutState == .maximized) ? preferredControllerViewHeight : contentLayoutConstant - max(0, preferredAccessoryViewHeight)
+            let controllerLayoutConstant = conformsPreviewable ? preferredControllerViewHeight : contentLayoutConstant - max(0, preferredAccessoryViewHeight)
             controllerViewHeightLayout.constant = controllerLayoutConstant
         case .neutralized:
             drawerViewHeightLayout.constant = preferredDrawerViewHeight
@@ -425,9 +449,7 @@ extension AppDockView {
             controllerViewHeightLayout.constant = preferredControllerViewHeight
         }
         
-        controllerView.layoutIfNeeded()
-        
-        drawerView.isBarHidden = !shouldDrawerEnable
+        drawerView.isBarHidden = !shouldDrawerBarEnable
         drawerView.layoutIfNeeded()
         
         updateBackgroundColors()
@@ -481,7 +503,7 @@ extension AppDockView: UICollectionViewDelegate {
 
 extension AppDockView: UIGestureRecognizerDelegate {
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return shouldDrawerEnable
+        return shouldDrawerBarEnable
     }
     
     @objc func drawerDidTap(sender: UITapGestureRecognizer) {
@@ -518,11 +540,11 @@ extension AppDockView: UIGestureRecognizerDelegate {
                     return limitation * (1 + log10(yPosition/limitation))
                 }
                 let offset = sender.beginAppContentViewOffset - translation.y
-                return isContentLayoutMaximized || (hasControllerPinned && contentLayoutState != .minimized && !hasAppAccessoryAsLayout) ? logConstraintValueForYPoisition(offset, limitation: sender.beginAppContentViewOffset) : offset
+                return isContentLayoutMaximized || (conformsPreviewable && contentLayoutState != .minimized && !hasAppAccessoryAsLayout) ? logConstraintValueForYPoisition(offset, limitation: sender.beginAppContentViewOffset) : offset
             }()
 
             appContentViewHeightLayout.constant = max(preferredAccessoryViewHeight, appContentViewHeight)
-            controllerViewHeightLayout.constant = (hasControllerPinned && contentLayoutState != .minimized) ? preferredControllerViewHeight : appContentViewHeightLayout.constant - max(0, preferredAccessoryViewHeight)
+            controllerViewHeightLayout.constant = (conformsPreviewable && contentLayoutState != .minimized) ? preferredControllerViewHeight : appContentViewHeightLayout.constant - max(0, preferredAccessoryViewHeight)
             
             if contentLayoutState == .maximized {
                 drawerView.handleOpeningProgress = remapNormalizeClamp(delta, minHeight, maxHeight)
@@ -532,13 +554,13 @@ extension AppDockView: UIGestureRecognizerDelegate {
                 drawerViewHeightLayout.constant = min(DefaultPreferences.DrawerView.prominentHeight, max(DefaultPreferences.DrawerView.compactHeight, delta))
             }
             
-            if hasControllerPinned && (contentLayoutState == .maximized || sender.beginContentLayoutState == .neutralized) {
+            if conformsPreviewable && (contentLayoutState == .maximized || sender.beginContentLayoutState == .neutralized) {
                 let draggingRatio = (translation.y / sender.beginAppContentViewOffset) * 0.5
                 let scale = max(1 - draggingRatio, 1)
                 topAccessoryView.transform = CGAffineTransform(scaleX: scale, y: scale)
             }
             
-            if !hasControllerPinned {
+            if !conformsPreviewable {
                 appContentView.layoutIfNeeded()
             }
             
@@ -556,10 +578,10 @@ extension AppDockView: UIGestureRecognizerDelegate {
             }
         default:
             if sender.beginContentLayoutState == contentLayoutState && velocity.y < 0 {
-                openDrawer()
+                openDrawer(reloadDockContentViews: true)
             }
             else if sender.beginContentLayoutState == contentLayoutState && velocity.y > 0 {
-                closeDrawer()
+                closeDrawer(reloadDockContentViews: true)
             }
             else {
                 reloadKeepingDrawerOpened()
@@ -587,16 +609,17 @@ extension AppDockView: UIGestureRecognizerDelegate {
     func openDrawer(reloadDockContentViews: Bool? = nil) {
         switch contentLayoutState {
             case .maximized:
-                return
+                contentLayoutState = .maximized
+                setDrawerDisplay(forState: contentLayoutState) //INFO: prevent stuck drawer on top of the screen
             case .neutralized:
                 contentLayoutState = .maximized
-                setDrawerDisplay(forState: contentLayoutState, reloadDockContentViews: nil)
+                setDrawerDisplay(forState: contentLayoutState, reloadDockContentViews: reloadDockContentViews)
             case .minimized:
                 contentLayoutState = .neutralized
-                setDrawerDisplay(forState: contentLayoutState, reloadDockContentViews: nil)
+                setDrawerDisplay(forState: contentLayoutState, reloadDockContentViews: reloadDockContentViews)
         }
     }
-    
+
     func setDrawerDisplay(forState state: AppDockContentLayoutState, reloadDockContentViews: Bool? = nil) {
         switch state {
             case .minimized:
@@ -609,8 +632,16 @@ extension AppDockView: UIGestureRecognizerDelegate {
                 maximizeDrawer(reloadDockContentViews: reloadDockContentViews)
         }
     }
+    
+    var shouldMaximizeDrawer: Bool {
+        return !(conformsPreviewable && !hasAppAccessoryAsLayout)
+    }
 
     private func maximizeDrawer(reloadDockContentViews: Bool? = nil) {
+        guard shouldMaximizeDrawer else {
+            setDrawerDisplay(forState: .neutralized, reloadDockContentViews: true)
+            return
+        }
         let reloadDockContentViews = reloadDockContentViews ?? (contentLayoutState != .maximized)
 
         UIView.animateAsSpring(animations: {
@@ -618,17 +649,17 @@ extension AppDockView: UIGestureRecognizerDelegate {
         })
         
         contentLayoutState = .maximized
-        drawerView.isBarHidden = !shouldDrawerEnable
+        drawerView.isBarHidden = !shouldDrawerBarEnable
         drawerViewHeightLayout.constant = DefaultPreferences.DrawerView.prominentHeight
 
         appContentViewHeightLayout.constant = preferredAppContentViewMaximumHeight
         
         let contentLayoutConstant = appContentViewHeightLayout.constant
-        let controllerLayoutConstant = (hasControllerPinned && contentLayoutState == .maximized) ? preferredControllerViewHeight : contentLayoutConstant - max(0, preferredAccessoryViewHeight)
-        let accessoryLayoutConstant = (hasControllerPinned && contentLayoutState == .maximized) ? contentLayoutConstant - max(0, preferredControllerViewHeight) : preferredAccessoryViewHeight
+        let controllerLayoutConstant = conformsPreviewable ? preferredControllerViewHeight : contentLayoutConstant - max(0, preferredAccessoryViewHeight)
+        let accessoryLayoutConstant = conformsPreviewable ? contentLayoutConstant - max(0, preferredControllerViewHeight) : preferredAccessoryViewHeight
         controllerViewHeightLayout.constant = controllerLayoutConstant
         
-        if !hasControllerPinned {
+        if !conformsPreviewable {
             appContentView.layoutIfNeeded()
         }
         
@@ -660,13 +691,13 @@ extension AppDockView: UIGestureRecognizerDelegate {
         })
         
         contentLayoutState = .neutralized
-        drawerView.isBarHidden = !shouldDrawerEnable
+        drawerView.isBarHidden = !shouldDrawerBarEnable
         drawerViewHeightLayout.constant = preferredDrawerViewHeight
 
         appContentViewHeightLayout.constant = max(0, preferredControllerViewHeight) + max(0, preferredAccessoryViewHeight)
         controllerViewHeightLayout.constant = preferredControllerViewHeight
         
-        if !hasControllerPinned {
+        if !conformsPreviewable {
             appContentView.layoutIfNeeded()
         }
         
@@ -697,13 +728,13 @@ extension AppDockView: UIGestureRecognizerDelegate {
         })
         
         contentLayoutState = .minimized
-        drawerView.isBarHidden = !shouldDrawerEnable
+        drawerView.isBarHidden = !shouldDrawerBarEnable
         drawerViewHeightLayout.constant = preferredDrawerViewHeight
         
         appContentViewHeightLayout.constant = preferredAccessoryViewHeight
         controllerViewHeightLayout.constant = 0
         
-        if !hasControllerPinned {
+        if !conformsPreviewable {
             appContentView.layoutIfNeeded()
         }
         
@@ -919,17 +950,22 @@ internal class AppDockViewCell: CustomCollectionViewCell {
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
         
+        let iconBorderColor: UIColor
         if AppCollectionViewLayout.LayoutConstants.compactHeight == layoutAttributes.frame.height {
             appInfoViewHeightLayout.constant = 0
+            iconBorderColor = UIColor(red: 218 / 255.0, green: 218 / 255.0, blue: 218 / 255.0, alpha: 1)
         }
         else {
             appInfoViewHeightLayout.constant = 20
+            iconBorderColor = UIColor(red: 208 / 255.0, green: 208 / 255.0, blue: 208 / 255.0, alpha: 1)
         }
         
         let margin: CGFloat = 4
         let contentBounds = UIEdgeInsetsInsetRect(layoutAttributes.frame, UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin))
         
         appIconView.cornerRadius = ((contentBounds.height - margin * 2) - appInfoViewHeightLayout.constant) * 0.5
+        appIconView.layer.borderColor = iconBorderColor.cgColor
+        appIconView.layer.borderWidth = 1 / UIScreen.main.scale
     }
 
     //32 x 24 (1x)
@@ -967,7 +1003,7 @@ internal class AppDockViewCell: CustomCollectionViewCell {
     private static var persistedStatusDict = [String:AppPersistedStatus]()
 
     func setAppInfo(_ app: App.Type, at indexPath: IndexPath) {
-        iconImage = app.info.icon?.asUIImage ?? R.image.blankAppIcon()
+        iconImage = app.info.iconBundleName?.asUIImage ?? R.image.blankAppIcon()
         appTitleLabel.text = app.info.displayName.localized
 
         var status = AppDockViewCell.persistedStatusDict[app.info.identifier]

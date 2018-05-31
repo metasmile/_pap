@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "PDF-oldalak létrehozása ...";
 /*com.stells.pap.converter*/
 "Convert" = "Alakítani";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "album";
+/*Translated from: camera*/
+"cs_keyword_1" = "kamera";
+/*Translated from: photos*/
+"cs_keyword_2" = "fotók";
+/*Translated from: editor*/
+"cs_keyword_3" = "szerkesztő";
+/*Translated from: messenger*/
+"cs_keyword_4" = "hírnök";
+/*Translated from: filter*/
+"cs_keyword_5" = "szűrő";
+/*Translated from: edit*/
+"cs_keyword_6" = "szerkesztés";
+/*Translated from: image*/
+"cs_keyword_7" = "kép";
+/*Translated from: smart*/
+"cs_keyword_8" = "Okos";
+/*Translated from: picture*/
+"cs_keyword_9" = "kép";
+/*Translated from: memory*/
+"cs_keyword_10" = "memória";
+/*Translated from: familiy*/
+"cs_keyword_11" = "család";
+/*Translated from: friend*/
+"cs_keyword_12" = "barát";
+/*Translated from: lover*/
+"cs_keyword_13" = "szerető";

@@ -23,8 +23,8 @@ public class TestApp: App {
             , version: "0.1"
             , phase: .develop
             , appType: TestApp.self
-            , displayName: "TestApp"
-            , icon: nil
+            , displayName: "TestApp", description:nil, keywords:nil
+            , iconBundleName: nil
             , policy: AppPolicy.default
             , minOSVersion: nil
     )

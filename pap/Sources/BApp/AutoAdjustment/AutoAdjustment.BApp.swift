@@ -11,8 +11,8 @@ import UIKit
 class _AutoAdjustmentAppAsset: _PhotosFilterAppAsset {}
 
 public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _ConfigurableApp,
-        AppDockControllableApp, PHAssetFinalizableApp, PhotoPickerCollectionViewDisplayableApp,
-        PhotoPickerViewControllerDelegatableApp {
+        PHAssetFinalizableApp, PreviewableApp, AppDockApp,
+        PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp {
 
     public static let taskType:Taskable.Type = _AutoAdjustmentAppTask.self
     public static let paramType:TaskParamable.Type = _AutoAdjustmentAppAsset.self
@@ -23,13 +23,15 @@ public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableAp
     public private(set) lazy var config: PhotosFilterAppConfigValue? = PhotosFilterApp.configure?()
     public private(set) lazy var dockContent: AppDockContent? = AutoAdjustmentAppDockContent()
     
+    public private(set) var currentEditStateValue: ImageEditStateValue?
+    
     public static let info = AppInfo(
         identifier: "com.stells.pap.autoadjustment"
         , version: "1.0"
         , phase: .release
         , appType: AutoAdjustmentApp.self
-        , displayName: "Auto Edit"
-        , icon: R.image.autoAdjustmentBAppIcon.name
+        , displayName: "Auto Edit", description:nil, keywords:nil
+        , iconBundleName: R.image.autoAdjustmentBAppIcon.name
         , policy: AppPolicy.default
         , minOSVersion: nil
     )
@@ -49,6 +51,7 @@ public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableAp
             if let options = controllerContent?.options {
                 let filter = CIAutoAdjustmentFilter(options: options)
                 self.config?.filter = CIFilterItem(filter)
+                self.currentEditStateValue = CIFilterItem(filter)
 
                 var optionsToStore = [String:Bool]()
                 for (k,v) in options{
@@ -61,6 +64,9 @@ public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableAp
 
             }else{
                 controllerContent?.options = defaults.autoAdjustmentOptions
+                
+                let filter = CIAutoAdjustmentFilter(options: defaults.autoAdjustmentOptions)
+                self.currentEditStateValue = CIFilterItem(filter)
             }
         }
     }
@@ -241,7 +247,6 @@ class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
         preferences.preferredHeight = (view as! UITableView).rowHeight * CGFloat(autoAdjustmentOptionKeys.count)
-        preferences.displayMode = .pinned
         return preferences
     }
 

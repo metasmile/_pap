@@ -9,7 +9,7 @@ public struct AppLifecyclePolicy{
     public let instance: AppInstanceLifecycleUnit
 
     public static var `default`:AppLifecyclePolicy{
-        return AppLifecyclePolicy(instance: .availability)
+        return AppLifecyclePolicy(instance: .systemMemoryUsage)
     }
 }
 
@@ -33,7 +33,7 @@ protocol AppLifecycleManagerDelegatableApp where Self:App {
 }
 
 final class AppLifecycleManager {
-    public static let shared = AppLifecycleManager()
+    static let shared = AppLifecycleManager()
 
     private var _instanceCreationQueue:DispatchQueue
     private var _instances:[String: App]
@@ -44,13 +44,13 @@ final class AppLifecycleManager {
         _instanceCreationQueue = DispatchQueue(label: "com.stells.internal__\(type(of: self))", attributes: .concurrent)
     }
 
-    public var acquired:[String]{
+    var acquired:[String]{
         return _instanceCreationQueue.sync(flags: .barrier) {
             _instances.map { e -> String in e.0 }
         }
     }
 
-    public func acquire(_ info: AppInfo) -> App?{
+    func acquire(_ info: AppInfo) -> App?{
         return _instanceCreationQueue.sync(flags: .barrier) {
             _acquire(info)
         }
@@ -74,13 +74,13 @@ final class AppLifecycleManager {
     }
 
     @discardableResult
-    public func discard(_ info: AppInfo) -> Bool{
+    func discard(_ info: AppInfo) -> Bool{
         return _instanceCreationQueue.sync(flags: .barrier) {
             _discard(info)
         }
     }
 
-    public func discardAll() -> [Bool]{
+    func discardAll() -> [Bool]{
         return _instanceCreationQueue.sync(flags: .barrier) {
             _instances.map { e -> Bool in
                 let _appInstance = e.1

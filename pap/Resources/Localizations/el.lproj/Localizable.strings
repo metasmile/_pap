@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "Δημιουργία σελίδων PDF ...";
 /*com.stells.pap.converter*/
 "Convert" = "Μετατρέπω";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "άλμπουμ";
+/*Translated from: camera*/
+"cs_keyword_1" = "ΦΩΤΟΓΡΑΦΙΚΗ ΜΗΧΑΝΗ";
+/*Translated from: photos*/
+"cs_keyword_2" = "φωτογραφίες";
+/*Translated from: editor*/
+"cs_keyword_3" = "συντάκτης";
+/*Translated from: messenger*/
+"cs_keyword_4" = "αγγελιαφόρος";
+/*Translated from: filter*/
+"cs_keyword_5" = "φίλτρο";
+/*Translated from: edit*/
+"cs_keyword_6" = "επεξεργασία";
+/*Translated from: image*/
+"cs_keyword_7" = "εικόνα";
+/*Translated from: smart*/
+"cs_keyword_8" = "έξυπνος";
+/*Translated from: picture*/
+"cs_keyword_9" = "εικόνα";
+/*Translated from: memory*/
+"cs_keyword_10" = "μνήμη";
+/*Translated from: familiy*/
+"cs_keyword_11" = "οικογένεια";
+/*Translated from: friend*/
+"cs_keyword_12" = "φίλος";
+/*Translated from: lover*/
+"cs_keyword_13" = "εραστής";

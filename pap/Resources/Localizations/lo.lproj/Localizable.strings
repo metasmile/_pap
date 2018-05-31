@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "ການສ້າງຫນ້າ PDF ...";
 /*com.stells.pap.converter*/
 "Convert" = "ປ່ຽນແປງ";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "ອັນລະບັ້ມ";
+/*Translated from: camera*/
+"cs_keyword_1" = "ກ້ອງ​ຖ່າຍ​ຮູບ";
+/*Translated from: photos*/
+"cs_keyword_2" = "ຮູບພາບ";
+/*Translated from: editor*/
+"cs_keyword_3" = "ບັນນາທິການ";
+/*Translated from: messenger*/
+"cs_keyword_4" = "messenger";
+/*Translated from: filter*/
+"cs_keyword_5" = "ຕົວກອງ";
+/*Translated from: edit*/
+"cs_keyword_6" = "ແກ້ໄຂ";
+/*Translated from: image*/
+"cs_keyword_7" = "ຮູບພາບ";
+/*Translated from: smart*/
+"cs_keyword_8" = "smart";
+/*Translated from: picture*/
+"cs_keyword_9" = "ຮູບພາບ";
+/*Translated from: memory*/
+"cs_keyword_10" = "ຄວາມຊົງຈໍາ";
+/*Translated from: familiy*/
+"cs_keyword_11" = "ຄອບຄົວ";
+/*Translated from: friend*/
+"cs_keyword_12" = "ຫມູ່ເພື່ອນ";
+/*Translated from: lover*/
+"cs_keyword_13" = "ຄົນຮັກ";

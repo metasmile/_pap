@@ -26,34 +26,53 @@ public protocol AppInfoSchemeValues {
     var version:String {get}
     var phase: AppProductPhase {get}
     var displayName:String {get}
-    var icon:ImageSourceable? {get}
+    var iconBundleName:String? {get}
     var policy:AppPolicy {get}
 }
 
-public struct AppInfoKey: AppInfoSchemeKey{
-    public private(set) var identifier: String
+public protocol AppInfoPresentableSchemeValues {
+    var description: String? {get}
+    var keywords:[String]? {get}
 }
 
-public struct AppInfoValues: AppInfoSchemeValues {
-    public private(set) var appType: App.Type
-    public private(set) var version: String = ""
-    public private(set) var phase: AppProductPhase
-    public private(set) var displayName: String = ""
-    public private(set) var icon: ImageSourceable? = nil
-    public private(set) var policy: AppPolicy
-    public private(set) var minOSVersion: OperatingSystemVersion?
+public protocol AppInfoLocalizedPresentableSchemeValues{
+    var localizableDisplayName: String? {get}
+    var localizableDescription: String? {get}
+    var localizableKeywords:[String]? {get}
+}
+
+extension AppInfoLocalizedPresentableSchemeValues where Self:AppInfoSchemeValues{
+    var localizableDisplayName: String? {
+        return NSLocalizedString(self.displayName, comment: "")
+    }
+}
+
+extension AppInfoLocalizedPresentableSchemeValues where Self:AppInfoPresentableSchemeValues{
+    var localizableDescription: String? {
+        if let desc = self.description{
+            return NSLocalizedString(desc, comment: "")
+        }
+        return nil
+    }
+    var localizableKeywords: [String]? {
+        return keywords?.map { s -> String in
+            return NSLocalizedString(s, comment: "")
+        }
+    }
 }
 
 public typealias AppInfoScheme = AppInfoSchemeKey & AppInfoSchemeValues
 
 //TODO: Auto-generate from own App class
-public struct AppInfo: Hashable, AppInfoScheme {
+public struct AppInfo: Hashable, AppInfoScheme, AppInfoPresentableSchemeValues {
     public let identifier:String
     public let version:String
     public let phase: AppProductPhase
     public let appType: App.Type
     public let displayName:String
-    public var icon:ImageSourceable?
+    public var description: String?
+    public var keywords:[String]?
+    public var iconBundleName:String?
     public let policy:AppPolicy
     public let minOSVersion:OperatingSystemVersion?
 

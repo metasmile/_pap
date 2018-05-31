@@ -44,14 +44,20 @@ public enum AppDockContentLayoutState: Int{
 // AppDockContentPreferable
 public protocol AppDockContentPreferable {
     var preferredHeight: CGFloat {get}
-
-    var displayMode: AppDockContentDisplayMode {get}
 }
 
 public struct AppDockContentPreferences: AppDockContentPreferable {
-    public var preferredHeight: CGFloat = 0
-
-    public var displayMode: AppDockContentDisplayMode = .none
+    private var _actualHeight: CGFloat = AppDockContentPreferences.kPreferredHeightLimitation
+    private static let kPreferredHeightLimitation: CGFloat = 250
+    public var preferredHeight: CGFloat {
+        set {
+            _actualHeight = min(AppDockContentPreferences.kPreferredHeightLimitation, newValue)
+        }
+        
+        get {
+            return _actualHeight
+        }
+    }
 
     init(){}
 

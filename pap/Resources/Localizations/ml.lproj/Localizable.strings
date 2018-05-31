@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "PDF പേജുകൾ സൃഷ്ടിക്കുന്നു ...";
 /*com.stells.pap.converter*/
 "Convert" = "മാറ്റുക";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "ആൽബം";
+/*Translated from: camera*/
+"cs_keyword_1" = "ക്യാമറ";
+/*Translated from: photos*/
+"cs_keyword_2" = "ഫോട്ടോകൾ";
+/*Translated from: editor*/
+"cs_keyword_3" = "എഡിറ്റർ";
+/*Translated from: messenger*/
+"cs_keyword_4" = "ദൂതൻ";
+/*Translated from: filter*/
+"cs_keyword_5" = "ഫിൽറ്റർ ചെയ്യുക";
+/*Translated from: edit*/
+"cs_keyword_6" = "എഡിറ്റ് ചെയ്യുക";
+/*Translated from: image*/
+"cs_keyword_7" = "ചിത്രം";
+/*Translated from: smart*/
+"cs_keyword_8" = "സ്മാർട്ട്";
+/*Translated from: picture*/
+"cs_keyword_9" = "ചിത്രം";
+/*Translated from: memory*/
+"cs_keyword_10" = "മെമ്മറി";
+/*Translated from: familiy*/
+"cs_keyword_11" = "കുടുംബം";
+/*Translated from: friend*/
+"cs_keyword_12" = "സുഹൃത്ത്";
+/*Translated from: lover*/
+"cs_keyword_13" = "കാമുകൻ";

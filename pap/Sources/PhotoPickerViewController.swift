@@ -132,7 +132,6 @@ class PhotoPickerViewController: AppDockViewController {
     func redisplayCurrentVisibleCellsWhenUpdateApps() {
         AppAssets.selected.reloadAll()
         self.redisplayVisibleCellsWhenChangeApp()
-        self.batchPreviewView.updatePreviews()
     }
 
     private func flushQueuedPhotoLibraryChanges(){
@@ -141,16 +140,26 @@ class PhotoPickerViewController: AppDockViewController {
         }
     }
     
+    override func appDidChange() {
+        super.appDidChange()
+        
+        AppAssets.selected.reloadAll()
+        self.redisplayVisibleCellsWhenChangeApp()
+        self.showAndRevertTitleByCurrentAppIfNeeded()
+    }
+    
     override func registerWatchingAppConfig() {
         AppCenter.default.watch(\.currentIdentifier, options:[.new, .old, .initial]) { (appCenter, dict) in
-            let old = dict.oldValue
-            let new = dict.newValue
-            
-            if old != nil && new != nil && old != new {
-                AppAssets.selected.reloadAll()
-                self.redisplayVisibleCellsWhenChangeApp()
-                self.showAndRevertTitleByCurrentAppIfNeeded()
-            }
+//            let old = dict.oldValue
+//            let new = dict.newValue
+//
+//            print(">>>>>>>>>>>>> watch")
+//
+//            if old != nil && new != nil && old != new {
+//                AppAssets.selected.reloadAll()
+//                self.redisplayVisibleCellsWhenChangeApp()
+//                self.showAndRevertTitleByCurrentAppIfNeeded()
+//            }
 
             self.updateDoneButtonState()
 
@@ -451,7 +460,7 @@ class PhotoPickerViewController: AppDockViewController {
                 }
                 if let changed = changes.changedIndexes, changed.count > 0 {
                     let indexPaths = changed.map { IndexPath(item: $0, section:section) }
-                    self.photoCollectionView.reloadItems(at: indexPaths.filter { removedIndexPaths?.contains($0) == false })
+                    self.photoCollectionView.reloadItems(at: indexPaths.filter { removedIndexPaths?.contains($0) != true })
                 }
                 changes.enumerateMoves { fromIndex, toIndex in
                     needsToRestoreSelection = true
@@ -475,13 +484,7 @@ class PhotoPickerViewController: AppDockViewController {
                 self.restoreSelectionByUser(selectedAssetIdentifiers)
             }
             
-            if self.appDockView?.isContentLayoutMaximized == true {
-                self.appDockView?.closeDrawer(reloadDockContentViews: true)
-            }
-            else {
-                self.appDockView?.reloadKeepingDrawerOpened()
-            }
-            self.batchPreviewView.reloadContent()
+            self.appDockView?.reloadKeepingDrawerOpened()
         })
     }
     
@@ -506,7 +509,7 @@ class PhotoPickerViewController: AppDockViewController {
 extension PhotoPickerViewController: EditViewControllerDelegate {
     func showPhotoEditor(with editItem: PHAssetItem<ImageEditStateValue>?) {
         guard let editItem = editItem else { return }
-
+        
         if let photoEditViewController = R.storyboard.appStoryboard.photoEditViewController(){
             photoEditViewController.preferredEditState = editItem.editState
             photoEditViewController.asset = editItem.asset
@@ -514,6 +517,7 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
             photoEditViewController.indexPathInPicker = PHAssets.fetched.indexPath(of:editItem.asset)
             photoEditViewController.selectedInPicker = AppAssets.selected.by(editItem.asset) != nil
             
+            appDockContentLayoutStateRestoringAfterProcessing = appDockView?.contentLayoutState
             appDockView?.setDrawerDisplay(forState: .neutralized, reloadDockContentViews: true)
 
             let navigationController = AppDockNavigationController(rootViewController: photoEditViewController)
@@ -539,6 +543,8 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
         }
 
         AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues( AppConfigUIAttrribute(tintColor: .black))
+        
+        appDockView?.setDrawerDisplay(forState: appDockContentLayoutStateRestoringAfterProcessing ?? .neutralized, reloadDockContentViews: true)
 
         photoEditor.dismiss(animated: true, completion: {
             self.batchPreviewView.reloadCollectionViewItems()
@@ -632,6 +638,9 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     
     func batchPreviewViewDidEndEdit(_ view: PreviewView) {
         progressBar.isHidden = true
+        
+        //POLICY: no keeps selected items
+        deselectCollectionViewItems(self.photoCollectionView.indexPathsForSelectedItems ?? [])
 
         updateAllPhotosTitle()
         updateSelectedItemUIs()

@@ -62,7 +62,7 @@ class PreviewView: CustomView {
 
         updateCollectionViewAlignment(animated: false)
     }
-
+    
     public func reloadPreview(with height: CGFloat) {
         collectionViewHeightLayout.constant = height
         collectionView.layoutIfNeeded()

@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "Ag Cruthaigh Leathanaigh PDF ...";
 /*com.stells.pap.converter*/
 "Convert" = "Tiontaigh";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "albam";
+/*Translated from: camera*/
+"cs_keyword_1" = "ceamara";
+/*Translated from: photos*/
+"cs_keyword_2" = "grianghraif";
+/*Translated from: editor*/
+"cs_keyword_3" = "eagarthóir";
+/*Translated from: messenger*/
+"cs_keyword_4" = "teachtaire";
+/*Translated from: filter*/
+"cs_keyword_5" = "scagaire";
+/*Translated from: edit*/
+"cs_keyword_6" = "in eagar";
+/*Translated from: image*/
+"cs_keyword_7" = "íomha";
+/*Translated from: smart*/
+"cs_keyword_8" = "cliste";
+/*Translated from: picture*/
+"cs_keyword_9" = "pictiúr";
+/*Translated from: memory*/
+"cs_keyword_10" = "cuimhne";
+/*Translated from: familiy*/
+"cs_keyword_11" = "teaghlach";
+/*Translated from: friend*/
+"cs_keyword_12" = "cara";
+/*Translated from: lover*/
+"cs_keyword_13" = "leannán";

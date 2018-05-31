@@ -49,7 +49,7 @@ public class PhotosFilterAppConfigValue: NSObject, KeyPathWatchable, AppConfigUI
 }
 
 public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _ConfigurableApp,
-        AppDockControllableApp, PHAssetFinalizableApp,
+        PHAssetFinalizableApp, PreviewableApp, AppDockApp,
         PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp,
         PhotoEditorViewControllerDelegatableApp {
     public static let taskType:Taskable.Type = _PhotosFilterAppTask.self
@@ -60,15 +60,17 @@ public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp,
     @objc dynamic
     public private(set) lazy var config: PhotosFilterAppConfigValue? = PhotosFilterApp.configure?()
     public private(set) lazy var dockContent: AppDockContent? = createController()
+    
+    public private(set) var currentEditStateValue: ImageEditStateValue?
 
     public static let info = AppInfo(
         identifier: "com.stells.pap.photosfilter"
         , version: "1.0"
         , phase: .release
         , appType: PhotosFilterApp.self
-        , displayName: "Filters"
-        , icon: R.image.photosFilterBAppIcon.name
-        , policy: AppPolicy.default
+        , displayName: "Filters", description:nil, keywords:nil
+        , iconBundleName: R.image.photosFilterBAppIcon.name
+        , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: TaskPolicy.default)
         , minOSVersion: nil
     )
     
@@ -140,6 +142,7 @@ private extension PhotosFilterApp {
         var items = CIFilters.filters.map({ (filter) -> AppUICollectionView.CollectionItem in
             return AppUICollectionView.CollectionItem(title: PhotosFilterNames.aliasName(filter.name), image: image?.applyFilter(ciFilter: filter), action: {
                 self.config?.filter = CIFilterItem(filter)
+                self.currentEditStateValue = CIFilterItem(filter)
             })
         })
         items.insert(AppUICollectionView.CollectionItem(title: "Original".localized, image: image, action: { self.config?.filter = CIFilterItem() }), at: 0)
@@ -150,7 +153,6 @@ private extension PhotosFilterApp {
         view.cellImageInsets = UIEdgeInsetsMake(0, 0, 4, 0)
         
         var p = AppDockContentPreferences()
-        p.displayMode = .pinned
         p.preferredHeight = 120 // for test. remove this line after fixed app design
         return AppDockContentItem(view: view, preferences: p)
     }

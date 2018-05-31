@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "Kupanga masamba a PDF ...";
 /*com.stells.pap.converter*/
 "Convert" = "Sintha";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "album";
+/*Translated from: camera*/
+"cs_keyword_1" = "kamera";
+/*Translated from: photos*/
+"cs_keyword_2" = "zithunzi";
+/*Translated from: editor*/
+"cs_keyword_3" = "mkonzi";
+/*Translated from: messenger*/
+"cs_keyword_4" = "mthenga";
+/*Translated from: filter*/
+"cs_keyword_5" = "fyuluta";
+/*Translated from: edit*/
+"cs_keyword_6" = "sintha";
+/*Translated from: image*/
+"cs_keyword_7" = "chithunzi";
+/*Translated from: smart*/
+"cs_keyword_8" = "wochenjera";
+/*Translated from: picture*/
+"cs_keyword_9" = "chithunzi";
+/*Translated from: memory*/
+"cs_keyword_10" = "kukumbukira";
+/*Translated from: familiy*/
+"cs_keyword_11" = "banja";
+/*Translated from: friend*/
+"cs_keyword_12" = "mnzanga";
+/*Translated from: lover*/
+"cs_keyword_13" = "wokondedwa";

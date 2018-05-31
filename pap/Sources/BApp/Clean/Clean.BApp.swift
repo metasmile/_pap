@@ -6,7 +6,7 @@
 import Foundation
 import Photos
 
-public class Clean: BApp, PHAssetFinalizableApp, AppDockControllableApp, PhotoPickerViewControllerDelegatableApp {
+public class Clean: BApp, PHAssetFinalizableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp {
     public static let taskType:Taskable.Type = _CleanTask.self
 
     public static let paramType:TaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
@@ -16,8 +16,8 @@ public class Clean: BApp, PHAssetFinalizableApp, AppDockControllableApp, PhotoPi
             , version: "0.1"
             , phase: .develop
             , appType: Clean.self
-            , displayName: "Clean"
-            , icon: nil
+            , displayName: "Clean", description:nil, keywords:nil
+            , iconBundleName: nil
             , policy: AppPolicy.default
             , minOSVersion: nil
     )

@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "創建PDF頁面...";
 /*com.stells.pap.converter*/
 "Convert" = "兌換";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "專輯";
+/*Translated from: camera*/
+"cs_keyword_1" = "相機";
+/*Translated from: photos*/
+"cs_keyword_2" = "相片";
+/*Translated from: editor*/
+"cs_keyword_3" = "編輯";
+/*Translated from: messenger*/
+"cs_keyword_4" = "信使";
+/*Translated from: filter*/
+"cs_keyword_5" = "過濾";
+/*Translated from: edit*/
+"cs_keyword_6" = "編輯";
+/*Translated from: image*/
+"cs_keyword_7" = "圖片";
+/*Translated from: smart*/
+"cs_keyword_8" = "聰明";
+/*Translated from: picture*/
+"cs_keyword_9" = "圖片";
+/*Translated from: memory*/
+"cs_keyword_10" = "記憶";
+/*Translated from: familiy*/
+"cs_keyword_11" = "家庭";
+/*Translated from: friend*/
+"cs_keyword_12" = "朋友";
+/*Translated from: lover*/
+"cs_keyword_13" = "情人";

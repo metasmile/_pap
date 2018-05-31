@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "Kujenga Kurasa za PDF ...";
 /*com.stells.pap.converter*/
 "Convert" = "Badilisha";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "albamu";
+/*Translated from: camera*/
+"cs_keyword_1" = "kamera";
+/*Translated from: photos*/
+"cs_keyword_2" = "picha";
+/*Translated from: editor*/
+"cs_keyword_3" = "mhariri";
+/*Translated from: messenger*/
+"cs_keyword_4" = "mjumbe";
+/*Translated from: filter*/
+"cs_keyword_5" = "chujio";
+/*Translated from: edit*/
+"cs_keyword_6" = "hariri";
+/*Translated from: image*/
+"cs_keyword_7" = "picha";
+/*Translated from: smart*/
+"cs_keyword_8" = "smart";
+/*Translated from: picture*/
+"cs_keyword_9" = "picha";
+/*Translated from: memory*/
+"cs_keyword_10" = "kumbukumbu";
+/*Translated from: familiy*/
+"cs_keyword_11" = "familia";
+/*Translated from: friend*/
+"cs_keyword_12" = "rafiki";
+/*Translated from: lover*/
+"cs_keyword_13" = "mpenzi";

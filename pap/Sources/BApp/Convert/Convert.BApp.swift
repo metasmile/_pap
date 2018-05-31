@@ -16,7 +16,7 @@ public class ConvertAppConfigValue: NSObject, KeyPathWatchable, AppConfigValuabl
 }
 
 public class ConvertApp: BApp,
-        AppDockControllableApp,
+        AppDockApp,
         ConfigurableApp, _ConfigurableApp,
         FinalizableApp,
         PhotoPickerCollectionViewDisplayableApp,
@@ -37,9 +37,9 @@ public class ConvertApp: BApp,
             , version: "1.0"
             , phase: .release
             , appType: ConvertApp.self
-            , displayName: "Convert" // 1 - 1
-            , icon: R.image.convertBAppIcon.name
-            , policy: AppPolicy.default
+            , displayName: "Convert", description:nil, keywords:nil
+            , iconBundleName: R.image.convertBAppIcon.name
+            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: TaskPolicy.default)
             , minOSVersion: nil
     )
 

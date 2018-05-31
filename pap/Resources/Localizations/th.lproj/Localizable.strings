@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "กำลังสร้างหน้า PDF ...";
 /*com.stells.pap.converter*/
 "Convert" = "แปลง";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "อัลบั้ม";
+/*Translated from: camera*/
+"cs_keyword_1" = "กล้อง";
+/*Translated from: photos*/
+"cs_keyword_2" = "ภาพถ่าย";
+/*Translated from: editor*/
+"cs_keyword_3" = "บรรณาธิการ";
+/*Translated from: messenger*/
+"cs_keyword_4" = "ผู้สื่อสาร";
+/*Translated from: filter*/
+"cs_keyword_5" = "กรอง";
+/*Translated from: edit*/
+"cs_keyword_6" = "แก้ไข";
+/*Translated from: image*/
+"cs_keyword_7" = "ภาพ";
+/*Translated from: smart*/
+"cs_keyword_8" = "ฉลาด";
+/*Translated from: picture*/
+"cs_keyword_9" = "ภาพ";
+/*Translated from: memory*/
+"cs_keyword_10" = "หน่วยความจำ";
+/*Translated from: familiy*/
+"cs_keyword_11" = "ครอบครัว";
+/*Translated from: friend*/
+"cs_keyword_12" = "เพื่อน";
+/*Translated from: lover*/
+"cs_keyword_13" = "คนรัก";

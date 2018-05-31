@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "Krijimi i faqeve PDF ...";
 /*com.stells.pap.converter*/
 "Convert" = "Convert";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "album";
+/*Translated from: camera*/
+"cs_keyword_1" = "aparat fotografik";
+/*Translated from: photos*/
+"cs_keyword_2" = "Fotografitë";
+/*Translated from: editor*/
+"cs_keyword_3" = "redaktor";
+/*Translated from: messenger*/
+"cs_keyword_4" = "lajmëtar";
+/*Translated from: filter*/
+"cs_keyword_5" = "filtër";
+/*Translated from: edit*/
+"cs_keyword_6" = "redaktoj";
+/*Translated from: image*/
+"cs_keyword_7" = "imazh";
+/*Translated from: smart*/
+"cs_keyword_8" = "i zgjuar";
+/*Translated from: picture*/
+"cs_keyword_9" = "Foto";
+/*Translated from: memory*/
+"cs_keyword_10" = "kujtim";
+/*Translated from: familiy*/
+"cs_keyword_11" = "familje";
+/*Translated from: friend*/
+"cs_keyword_12" = "mik";
+/*Translated from: lover*/
+"cs_keyword_13" = "dashnor";

@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "PDF 페이지 만들기 ...";
 /*com.stells.pap.converter*/
 "Convert" = "변하게 하다";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "앨범";
+/*Translated from: camera*/
+"cs_keyword_1" = "카메라";
+/*Translated from: photos*/
+"cs_keyword_2" = "사진들";
+/*Translated from: editor*/
+"cs_keyword_3" = "편집자";
+/*Translated from: messenger*/
+"cs_keyword_4" = "전령";
+/*Translated from: filter*/
+"cs_keyword_5" = "필터";
+/*Translated from: edit*/
+"cs_keyword_6" = "편집하다";
+/*Translated from: image*/
+"cs_keyword_7" = "영상";
+/*Translated from: smart*/
+"cs_keyword_8" = "똑똑한";
+/*Translated from: picture*/
+"cs_keyword_9" = "그림";
+/*Translated from: memory*/
+"cs_keyword_10" = "기억";
+/*Translated from: familiy*/
+"cs_keyword_11" = "가족";
+/*Translated from: friend*/
+"cs_keyword_12" = "친구";
+/*Translated from: lover*/
+"cs_keyword_13" = "연인";

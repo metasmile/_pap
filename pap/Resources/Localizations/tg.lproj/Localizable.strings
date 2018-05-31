@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "Эҷоди Паёмҳои Саҳифаҳо ...";
 /*com.stells.pap.converter*/
 "Convert" = "Табдил додан";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "албом";
+/*Translated from: camera*/
+"cs_keyword_1" = "камера";
+/*Translated from: photos*/
+"cs_keyword_2" = "хабарнигори";
+/*Translated from: editor*/
+"cs_keyword_3" = "муҳаррир";
+/*Translated from: messenger*/
+"cs_keyword_4" = "фаришта";
+/*Translated from: filter*/
+"cs_keyword_5" = "филтр";
+/*Translated from: edit*/
+"cs_keyword_6" = "таҳрир кардан";
+/*Translated from: image*/
+"cs_keyword_7" = "тасвир";
+/*Translated from: smart*/
+"cs_keyword_8" = "зебо";
+/*Translated from: picture*/
+"cs_keyword_9" = "тасвир";
+/*Translated from: memory*/
+"cs_keyword_10" = "хотира";
+/*Translated from: familiy*/
+"cs_keyword_11" = "оила";
+/*Translated from: friend*/
+"cs_keyword_12" = "дўстон";
+/*Translated from: lover*/
+"cs_keyword_13" = "лев";

@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "PDFページの作成...";
 /*com.stells.pap.converter*/
 "Convert" = "変換";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "アルバム";
+/*Translated from: camera*/
+"cs_keyword_1" = "カメラ";
+/*Translated from: photos*/
+"cs_keyword_2" = "写真";
+/*Translated from: editor*/
+"cs_keyword_3" = "編集者";
+/*Translated from: messenger*/
+"cs_keyword_4" = "メッセンジャー";
+/*Translated from: filter*/
+"cs_keyword_5" = "フィルタ";
+/*Translated from: edit*/
+"cs_keyword_6" = "編集";
+/*Translated from: image*/
+"cs_keyword_7" = "画像";
+/*Translated from: smart*/
+"cs_keyword_8" = "スマート";
+/*Translated from: picture*/
+"cs_keyword_9" = "画像";
+/*Translated from: memory*/
+"cs_keyword_10" = "記憶";
+/*Translated from: familiy*/
+"cs_keyword_11" = "家族";
+/*Translated from: friend*/
+"cs_keyword_12" = "友人";
+/*Translated from: lover*/
+"cs_keyword_13" = "恋人";

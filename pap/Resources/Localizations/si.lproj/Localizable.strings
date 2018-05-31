@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "PDF පිටු නිර්මාණය කිරීම ...";
 /*com.stells.pap.converter*/
 "Convert" = "පරිවර්තනය කරන්න";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "ඇල්බමය";
+/*Translated from: camera*/
+"cs_keyword_1" = "කැමරා";
+/*Translated from: photos*/
+"cs_keyword_2" = "ඡායාරූප";
+/*Translated from: editor*/
+"cs_keyword_3" = "සංස්කරණය හෝ";
+/*Translated from: messenger*/
+"cs_keyword_4" = "පණිවිඩකරුවෙක්";
+/*Translated from: filter*/
+"cs_keyword_5" = "පෙරහන";
+/*Translated from: edit*/
+"cs_keyword_6" = "සංස්කරණය කරන්න";
+/*Translated from: image*/
+"cs_keyword_7" = "රූප";
+/*Translated from: smart*/
+"cs_keyword_8" = "හොඳයි";
+/*Translated from: picture*/
+"cs_keyword_9" = "පින්තූරය";
+/*Translated from: memory*/
+"cs_keyword_10" = "මතකය";
+/*Translated from: familiy*/
+"cs_keyword_11" = "පවුලක්";
+/*Translated from: friend*/
+"cs_keyword_12" = "මිතුරිය";
+/*Translated from: lover*/
+"cs_keyword_13" = "පෙම්වතා";

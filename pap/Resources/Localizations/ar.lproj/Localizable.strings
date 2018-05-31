@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "إنشاء صفحات PDF ...";
 /*com.stells.pap.converter*/
 "Convert" = "تحول";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "الألبوم";
+/*Translated from: camera*/
+"cs_keyword_1" = "الة تصوير";
+/*Translated from: photos*/
+"cs_keyword_2" = "الصور";
+/*Translated from: editor*/
+"cs_keyword_3" = "محرر";
+/*Translated from: messenger*/
+"cs_keyword_4" = "مسنجر";
+/*Translated from: filter*/
+"cs_keyword_5" = "منقي";
+/*Translated from: edit*/
+"cs_keyword_6" = "تصحيح";
+/*Translated from: image*/
+"cs_keyword_7" = "صورة";
+/*Translated from: smart*/
+"cs_keyword_8" = "ذكي";
+/*Translated from: picture*/
+"cs_keyword_9" = "صورة";
+/*Translated from: memory*/
+"cs_keyword_10" = "ذاكرة";
+/*Translated from: familiy*/
+"cs_keyword_11" = "أسرة";
+/*Translated from: friend*/
+"cs_keyword_12" = "صديق";
+/*Translated from: lover*/
+"cs_keyword_13" = "حبيب";

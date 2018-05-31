@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "Búa til PDF síður ...";
 /*com.stells.pap.converter*/
 "Convert" = "Umbreyta";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "albúm";
+/*Translated from: camera*/
+"cs_keyword_1" = "myndavél";
+/*Translated from: photos*/
+"cs_keyword_2" = "myndir";
+/*Translated from: editor*/
+"cs_keyword_3" = "ritstjóri";
+/*Translated from: messenger*/
+"cs_keyword_4" = "boðberi";
+/*Translated from: filter*/
+"cs_keyword_5" = "sía";
+/*Translated from: edit*/
+"cs_keyword_6" = "breyta";
+/*Translated from: image*/
+"cs_keyword_7" = "mynd";
+/*Translated from: smart*/
+"cs_keyword_8" = "klárt";
+/*Translated from: picture*/
+"cs_keyword_9" = "mynd";
+/*Translated from: memory*/
+"cs_keyword_10" = "minni";
+/*Translated from: familiy*/
+"cs_keyword_11" = "fjölskylda";
+/*Translated from: friend*/
+"cs_keyword_12" = "vinur";
+/*Translated from: lover*/
+"cs_keyword_13" = "elskhugi";

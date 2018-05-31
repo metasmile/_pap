@@ -64,7 +64,7 @@ public class StabilizerAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAt
     }
 }
 
-public class Stabilizer: BApp, PHAssetFinalizableApp, AppDockControllableApp, PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp, ConfigurableApp, _ConfigurableApp {
+public class Stabilizer: BApp, PHAssetFinalizableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp, ConfigurableApp, _ConfigurableApp {
     public static let taskType:Taskable.Type = StabilizerTask.self
 
     public static let paramType:TaskParamable.Type = _StabilizerAppAsset.self
@@ -80,8 +80,8 @@ public class Stabilizer: BApp, PHAssetFinalizableApp, AppDockControllableApp, Ph
             , version: "0.1"
             , phase: .develop
             , appType: Stabilizer.self
-            , displayName: "Stabilizer"
-            , icon: nil
+            , displayName: "Stabilizer", description:nil, keywords:nil
+            , iconBundleName: nil
             , policy: AppPolicy.default
             , minOSVersion: nil
     )
@@ -113,7 +113,6 @@ public class Stabilizer: BApp, PHAssetFinalizableApp, AppDockControllableApp, Ph
         let view = AppUICollectionView(items: items)
         
         var p = AppDockContentPreferences()
-        p.displayMode = .pinned
         p.preferredHeight = 64 // for test. remove this line after fixed app design
         return AppDockContentItem(view: view, preferences: p)
     }

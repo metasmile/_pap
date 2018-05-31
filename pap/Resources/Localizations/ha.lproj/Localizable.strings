@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "Samar da takardun PDF ...";
 /*com.stells.pap.converter*/
 "Convert" = "Sanya";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "album";
+/*Translated from: camera*/
+"cs_keyword_1" = "kamara";
+/*Translated from: photos*/
+"cs_keyword_2" = "hotuna";
+/*Translated from: editor*/
+"cs_keyword_3" = "edita";
+/*Translated from: messenger*/
+"cs_keyword_4" = "manzo";
+/*Translated from: filter*/
+"cs_keyword_5" = "tace";
+/*Translated from: edit*/
+"cs_keyword_6" = "gyara";
+/*Translated from: image*/
+"cs_keyword_7" = "image";
+/*Translated from: smart*/
+"cs_keyword_8" = "mai kaifin baki";
+/*Translated from: picture*/
+"cs_keyword_9" = "hoto";
+/*Translated from: memory*/
+"cs_keyword_10" = "ƙwaƙwalwar";
+/*Translated from: familiy*/
+"cs_keyword_11" = "iyali";
+/*Translated from: friend*/
+"cs_keyword_12" = "abokin";
+/*Translated from: lover*/
+"cs_keyword_13" = "ƙauna";

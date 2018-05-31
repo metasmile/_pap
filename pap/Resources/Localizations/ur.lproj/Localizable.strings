@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "پی ڈی ایف صفحات بنانا ...";
 /*com.stells.pap.converter*/
 "Convert" = "تبدیل کریں";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "البم";
+/*Translated from: camera*/
+"cs_keyword_1" = "کیمرے";
+/*Translated from: photos*/
+"cs_keyword_2" = "تصاویر";
+/*Translated from: editor*/
+"cs_keyword_3" = "ایڈیٹر";
+/*Translated from: messenger*/
+"cs_keyword_4" = "رسول";
+/*Translated from: filter*/
+"cs_keyword_5" = "فلٹر";
+/*Translated from: edit*/
+"cs_keyword_6" = "ترمیم";
+/*Translated from: image*/
+"cs_keyword_7" = "تصویر";
+/*Translated from: smart*/
+"cs_keyword_8" = "ہوشیار";
+/*Translated from: picture*/
+"cs_keyword_9" = "تصویر";
+/*Translated from: memory*/
+"cs_keyword_10" = "یاداشت";
+/*Translated from: familiy*/
+"cs_keyword_11" = "خاندان";
+/*Translated from: friend*/
+"cs_keyword_12" = "دوست";
+/*Translated from: lover*/
+"cs_keyword_13" = "عاشق";

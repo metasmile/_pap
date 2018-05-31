@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "Креирање ПДФ страница ...";
 /*com.stells.pap.converter*/
 "Convert" = "Претвори";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "албум";
+/*Translated from: camera*/
+"cs_keyword_1" = "Камера";
+/*Translated from: photos*/
+"cs_keyword_2" = "фотографије";
+/*Translated from: editor*/
+"cs_keyword_3" = "уредник";
+/*Translated from: messenger*/
+"cs_keyword_4" = "мессенгер";
+/*Translated from: filter*/
+"cs_keyword_5" = "филтер";
+/*Translated from: edit*/
+"cs_keyword_6" = "Уредити";
+/*Translated from: image*/
+"cs_keyword_7" = "слика";
+/*Translated from: smart*/
+"cs_keyword_8" = "паметан";
+/*Translated from: picture*/
+"cs_keyword_9" = "слика";
+/*Translated from: memory*/
+"cs_keyword_10" = "меморија";
+/*Translated from: familiy*/
+"cs_keyword_11" = "породица";
+/*Translated from: friend*/
+"cs_keyword_12" = "пријатељ";
+/*Translated from: lover*/
+"cs_keyword_13" = "љубавник";

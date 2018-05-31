@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "Створення PDF-сторінок ...";
 /*com.stells.pap.converter*/
 "Convert" = "Перетворити";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "альбом";
+/*Translated from: camera*/
+"cs_keyword_1" = "камера";
+/*Translated from: photos*/
+"cs_keyword_2" = "фотографії";
+/*Translated from: editor*/
+"cs_keyword_3" = "редактор";
+/*Translated from: messenger*/
+"cs_keyword_4" = "посланник";
+/*Translated from: filter*/
+"cs_keyword_5" = "фільтр";
+/*Translated from: edit*/
+"cs_keyword_6" = "редагувати";
+/*Translated from: image*/
+"cs_keyword_7" = "зображення";
+/*Translated from: smart*/
+"cs_keyword_8" = "розумний";
+/*Translated from: picture*/
+"cs_keyword_9" = "картина";
+/*Translated from: memory*/
+"cs_keyword_10" = "пам'ять";
+/*Translated from: familiy*/
+"cs_keyword_11" = "сім'я";
+/*Translated from: friend*/
+"cs_keyword_12" = "друг";
+/*Translated from: lover*/
+"cs_keyword_13" = "коханець";

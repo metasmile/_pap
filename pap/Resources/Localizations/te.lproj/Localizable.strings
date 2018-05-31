@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "PDF పేజీలను సృష్టిస్తోంది ...";
 /*com.stells.pap.converter*/
 "Convert" = "మార్చండి";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "ఆల్బమ్";
+/*Translated from: camera*/
+"cs_keyword_1" = "కెమెరా";
+/*Translated from: photos*/
+"cs_keyword_2" = "ఫోటోలు";
+/*Translated from: editor*/
+"cs_keyword_3" = "ఎడిటర్";
+/*Translated from: messenger*/
+"cs_keyword_4" = "దూత";
+/*Translated from: filter*/
+"cs_keyword_5" = "వడపోత";
+/*Translated from: edit*/
+"cs_keyword_6" = "మార్చు";
+/*Translated from: image*/
+"cs_keyword_7" = "చిత్రం";
+/*Translated from: smart*/
+"cs_keyword_8" = "స్మార్ట్";
+/*Translated from: picture*/
+"cs_keyword_9" = "చిత్రాన్ని";
+/*Translated from: memory*/
+"cs_keyword_10" = "మెమరీ";
+/*Translated from: familiy*/
+"cs_keyword_11" = "కుటుంబం";
+/*Translated from: friend*/
+"cs_keyword_12" = "స్నేహితుడు";
+/*Translated from: lover*/
+"cs_keyword_13" = "ప్రేమికుడు";

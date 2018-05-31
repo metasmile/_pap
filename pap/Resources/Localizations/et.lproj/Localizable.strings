@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "PDF-lehekülgede loomine ...";
 /*com.stells.pap.converter*/
 "Convert" = "Teisenda";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "album";
+/*Translated from: camera*/
+"cs_keyword_1" = "kaamera";
+/*Translated from: photos*/
+"cs_keyword_2" = "fotod";
+/*Translated from: editor*/
+"cs_keyword_3" = "toimetaja";
+/*Translated from: messenger*/
+"cs_keyword_4" = "messenger";
+/*Translated from: filter*/
+"cs_keyword_5" = "filter";
+/*Translated from: edit*/
+"cs_keyword_6" = "redigeeri";
+/*Translated from: image*/
+"cs_keyword_7" = "pilt";
+/*Translated from: smart*/
+"cs_keyword_8" = "tark";
+/*Translated from: picture*/
+"cs_keyword_9" = "pilt";
+/*Translated from: memory*/
+"cs_keyword_10" = "mälu";
+/*Translated from: familiy*/
+"cs_keyword_11" = "perekond";
+/*Translated from: friend*/
+"cs_keyword_12" = "sõber";
+/*Translated from: lover*/
+"cs_keyword_13" = "armastaja";

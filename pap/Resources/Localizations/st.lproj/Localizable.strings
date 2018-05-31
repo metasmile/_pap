@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "Ho theha maqephe a PDF ...";
 /*com.stells.pap.converter*/
 "Convert" = "Fetola";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "album";
+/*Translated from: camera*/
+"cs_keyword_1" = "kamera";
+/*Translated from: photos*/
+"cs_keyword_2" = "lifoto";
+/*Translated from: editor*/
+"cs_keyword_3" = "mohlophisi";
+/*Translated from: messenger*/
+"cs_keyword_4" = "moemeli";
+/*Translated from: filter*/
+"cs_keyword_5" = "filthara";
+/*Translated from: edit*/
+"cs_keyword_6" = "fetola";
+/*Translated from: image*/
+"cs_keyword_7" = "setšoantšo";
+/*Translated from: smart*/
+"cs_keyword_8" = "bohlale";
+/*Translated from: picture*/
+"cs_keyword_9" = "setšoantšo";
+/*Translated from: memory*/
+"cs_keyword_10" = "mohopolo";
+/*Translated from: familiy*/
+"cs_keyword_11" = "lelapa";
+/*Translated from: friend*/
+"cs_keyword_12" = "motsoalle";
+/*Translated from: lover*/
+"cs_keyword_13" = "moratuoa";

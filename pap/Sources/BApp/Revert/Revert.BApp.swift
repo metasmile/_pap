@@ -19,8 +19,8 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp, FinalizableApp, AppMan
             , version: "1.0"
             , phase: .release
             , appType: RevertApp.self
-            , displayName: "Revert"
-            , icon: R.image.revertBAppIcon.name
+            , displayName: "Revert", description:nil, keywords:nil
+            , iconBundleName: R.image.revertBAppIcon.name
             , policy: AppPolicy.default
             , minOSVersion: nil
     )
@@ -90,7 +90,7 @@ private class _RevertAppTask: TaskPrototype, Taskable {
             throw TaskError.invalidParam
         }
 
-        let cachedAdjusted = (AppLifecycleManager.shared.acquire(RevertApp.info) as? RevertApp)?.adjustedCache
+        let cachedAdjusted = AppCenter.default.currentInstanceAs(RevertApp.self)?.adjustedCache
 
         let adjusted = cachedAdjusted == nil ? _param.asset.isAdjusted : cachedAdjusted?[_param.asset.localIdentifier] == true
 

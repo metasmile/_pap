@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "Izrada PDF stranica ...";
 /*com.stells.pap.converter*/
 "Convert" = "Pretvoriti";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "album";
+/*Translated from: camera*/
+"cs_keyword_1" = "fotoaparat";
+/*Translated from: photos*/
+"cs_keyword_2" = "fotografije";
+/*Translated from: editor*/
+"cs_keyword_3" = "urednik";
+/*Translated from: messenger*/
+"cs_keyword_4" = "glasnik";
+/*Translated from: filter*/
+"cs_keyword_5" = "filtar";
+/*Translated from: edit*/
+"cs_keyword_6" = "Uredi";
+/*Translated from: image*/
+"cs_keyword_7" = "slika";
+/*Translated from: smart*/
+"cs_keyword_8" = "pametan";
+/*Translated from: picture*/
+"cs_keyword_9" = "slika";
+/*Translated from: memory*/
+"cs_keyword_10" = "memorija";
+/*Translated from: familiy*/
+"cs_keyword_11" = "obitelj";
+/*Translated from: friend*/
+"cs_keyword_12" = "prijatelj";
+/*Translated from: lover*/
+"cs_keyword_13" = "ljubavnik";

@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "បង្កើតទំព័រ PDF ...";
 /*com.stells.pap.converter*/
 "Convert" = "បម្លែង";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "អាល់ប៊ុម";
+/*Translated from: camera*/
+"cs_keyword_1" = "កាមេរ៉ា";
+/*Translated from: photos*/
+"cs_keyword_2" = "រូបថត";
+/*Translated from: editor*/
+"cs_keyword_3" = "កម្មវិធីនិពន្ធ";
+/*Translated from: messenger*/
+"cs_keyword_4" = "អ្នកនាំសារ";
+/*Translated from: filter*/
+"cs_keyword_5" = "តម្រង";
+/*Translated from: edit*/
+"cs_keyword_6" = "កែប្រែ";
+/*Translated from: image*/
+"cs_keyword_7" = "រូបភាព";
+/*Translated from: smart*/
+"cs_keyword_8" = "ឆ្លាត";
+/*Translated from: picture*/
+"cs_keyword_9" = "រូបភាព";
+/*Translated from: memory*/
+"cs_keyword_10" = "សតិ";
+/*Translated from: familiy*/
+"cs_keyword_11" = "គ្រួសារ";
+/*Translated from: friend*/
+"cs_keyword_12" = "មិត្តភក្តិ";
+/*Translated from: lover*/
+"cs_keyword_13" = "ស្រឡាញ់";

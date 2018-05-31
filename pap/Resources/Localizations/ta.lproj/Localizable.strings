@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "PDF பக்கங்களை உருவாக்குகிறது ...";
 /*com.stells.pap.converter*/
 "Convert" = "மாற்று";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "ஆல்பம்";
+/*Translated from: camera*/
+"cs_keyword_1" = "கேமரா";
+/*Translated from: photos*/
+"cs_keyword_2" = "புகைப்படங்கள்";
+/*Translated from: editor*/
+"cs_keyword_3" = "ஆசிரியர்";
+/*Translated from: messenger*/
+"cs_keyword_4" = "தூதுவர்";
+/*Translated from: filter*/
+"cs_keyword_5" = "வடிகட்டி";
+/*Translated from: edit*/
+"cs_keyword_6" = "தொகு";
+/*Translated from: image*/
+"cs_keyword_7" = "படத்தை";
+/*Translated from: smart*/
+"cs_keyword_8" = "புத்திசாலி";
+/*Translated from: picture*/
+"cs_keyword_9" = "படம்";
+/*Translated from: memory*/
+"cs_keyword_10" = "நினைவக";
+/*Translated from: familiy*/
+"cs_keyword_11" = "குடும்ப";
+/*Translated from: friend*/
+"cs_keyword_12" = "நண்பன்";
+/*Translated from: lover*/
+"cs_keyword_13" = "காதலன்";

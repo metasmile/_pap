@@ -25,7 +25,11 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
             AppAssets.selected.remove(for: asset)
         }
         
-        batchPreviewView.reloadContent()
+        self.appDockView?.reloadKeepingDrawerOpened()
+        if appDockView?.accessory?.view != batchPreviewView {
+            batchPreviewView.reloadContent()
+        }
+        
         updateSelectedItemUIs()
     }
 
@@ -112,7 +116,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         if let asset = PHAssets.fetched.asset(at: indexPath){
             batchPreviewView.appendCollectionViewItem(with:asset)
             
-            if let app = AppCenter.default.currentInstanceAs(AutoAdjustmentApp.self), let value = app.config?.filter {
+            if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self), let value = app.currentEditStateValue {
                 AppAssets.selected.appendValue(value)
             }
         }

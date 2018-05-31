@@ -11,6 +11,7 @@ import Firebase
 import Crashlytics
 import Fabric
 import DefaultsKit
+import Armchair
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,6 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Crashlytics.self])
         FirebaseApp.configure()
         #endif
+
+        Armchair.appID("1309539102")
+
+        DispatchQueue.global(qos: .background).async{
+            self.indexDefaultSearchableItems()
+        }
+
         return true
     }
 
@@ -53,7 +61,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FileManager.default.clearTemporaryDirectory()
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 

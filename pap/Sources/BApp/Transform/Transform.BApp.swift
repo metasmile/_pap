@@ -30,8 +30,9 @@ public class TransformAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAtt
 }
 
 public class TransformApp: NSObject, BApp, KeyPathWatchable
-        , ConfigurableApp, _ConfigurableApp, AppDockControllableApp, PHAssetFinalizableApp
-        , PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp, PhotoEditorViewControllerDelegatableApp {
+        , ConfigurableApp, _ConfigurableApp, PreviewableApp, AppDockApp, PHAssetFinalizableApp
+        , PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp
+        , PhotoEditorViewControllerDelegatableApp {
 
     public static let taskType:Taskable.Type = _TransfromAppTask.self
 
@@ -49,8 +50,8 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
             , version: "1.0"
             , phase: .release
             , appType: TransformApp.self
-            , displayName: "Transform".localized
-            , icon: R.image.transformBAppIcon.name
+            , displayName: "Transform".localized, description:nil, keywords:nil
+            , iconBundleName: R.image.transformBAppIcon.name
             , policy: AppPolicy.default
             , minOSVersion: nil
     )
@@ -100,7 +101,6 @@ private extension TransformApp{
         view.cellImageInsets = UIEdgeInsetsMake(8, 10, 10, 10)
         
         var preferences = AppDockContentPreferences()
-        preferences.displayMode = .pinned
         preferences.preferredHeight = 44
         return AppDockContentItem(view: view, preferences: preferences)
     }
