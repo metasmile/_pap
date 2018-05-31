@@ -1,4 +1,5 @@
 PODS:
+  - Armchair (0.3.5)
   - Crashlytics (3.10.1):
     - Fabric (~> 1.7.5)
   - DefaultsKit (0.0.8)
@@ -34,6 +35,7 @@ PODS:
     - SwiftLint
 
 DEPENDENCIES:
+  - Armchair (>= 0.3)
   - Crashlytics
   - DefaultsKit (from `https://github.com/metasmile/DefaultsKit`)
   - Fabric
@@ -44,6 +46,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Armchair
     - Crashlytics
     - Fabric
     - Firebase
@@ -68,6 +71,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/metasmile/DefaultsKit
 
 SPEC CHECKSUMS:
+  Armchair: 0ab9237bc373e26245c7651acf193d85fb9c033a
   Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
   DefaultsKit: 626a70a6cbcef36b503b9961c77798094b6bfa5c
   Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
@@ -83,6 +87,6 @@ SPEC CHECKSUMS:
   SwiftyGif: d36c6dfb52e2ca1e48fe349d225f50ec4123ec85
   TPPDF: 3d631ce0356f3ea25f87266ce74199bb7e81936e
 
-PODFILE CHECKSUM: ef2d95300c6d290a2257e05b76e832bd35cfb76e
+PODFILE CHECKSUM: 26a01ee919632167fe06c65202956696a9e3ca07
 
 COCOAPODS: 1.5.2

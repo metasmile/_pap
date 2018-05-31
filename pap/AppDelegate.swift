@@ -11,6 +11,7 @@ import Firebase
 import Crashlytics
 import Fabric
 import DefaultsKit
+import Armchair
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,6 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Crashlytics.self])
         FirebaseApp.configure()
         #endif
+
+        Armchair.appID("1309539102")
         return true
     }
 
