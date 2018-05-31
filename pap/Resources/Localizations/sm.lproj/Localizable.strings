@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "Fausiaina o itulau PDF ...";
 /*com.stells.pap.converter*/
 "Convert" = "Suʻe";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "lipine";
+/*Translated from: camera*/
+"cs_keyword_1" = "ataata";
+/*Translated from: photos*/
+"cs_keyword_2" = "ata";
+/*Translated from: editor*/
+"cs_keyword_3" = "faatonu";
+/*Translated from: messenger*/
+"cs_keyword_4" = "avefeau";
+/*Translated from: filter*/
+"cs_keyword_5" = "faamama";
+/*Translated from: edit*/
+"cs_keyword_6" = "faʻafeiloaʻi";
+/*Translated from: image*/
+"cs_keyword_7" = "ata";
+/*Translated from: smart*/
+"cs_keyword_8" = "atamai";
+/*Translated from: picture*/
+"cs_keyword_9" = "ata";
+/*Translated from: memory*/
+"cs_keyword_10" = "manatua";
+/*Translated from: familiy*/
+"cs_keyword_11" = "aiga";
+/*Translated from: friend*/
+"cs_keyword_12" = "uo";
+/*Translated from: lover*/
+"cs_keyword_13" = "alofa";

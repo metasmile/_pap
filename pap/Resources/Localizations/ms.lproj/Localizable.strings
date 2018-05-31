@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "Mencipta Halaman PDF ...";
 /*com.stells.pap.converter*/
 "Convert" = "Tukar";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "album";
+/*Translated from: camera*/
+"cs_keyword_1" = "kamera";
+/*Translated from: photos*/
+"cs_keyword_2" = "gambar";
+/*Translated from: editor*/
+"cs_keyword_3" = "editor";
+/*Translated from: messenger*/
+"cs_keyword_4" = "utusan";
+/*Translated from: filter*/
+"cs_keyword_5" = "penapis";
+/*Translated from: edit*/
+"cs_keyword_6" = "edit";
+/*Translated from: image*/
+"cs_keyword_7" = "gambar";
+/*Translated from: smart*/
+"cs_keyword_8" = "pintar";
+/*Translated from: picture*/
+"cs_keyword_9" = "gambar";
+/*Translated from: memory*/
+"cs_keyword_10" = "ingatan";
+/*Translated from: familiy*/
+"cs_keyword_11" = "keluarga";
+/*Translated from: friend*/
+"cs_keyword_12" = "kawan";
+/*Translated from: lover*/
+"cs_keyword_13" = "kekasih";

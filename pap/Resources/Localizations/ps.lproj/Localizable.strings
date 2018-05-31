@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "د پی ډی افونو جوړول ...";
 /*com.stells.pap.converter*/
 "Convert" = "بدلول";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "البوم";
+/*Translated from: camera*/
+"cs_keyword_1" = "کیمرې";
+/*Translated from: photos*/
+"cs_keyword_2" = "انځورونه";
+/*Translated from: editor*/
+"cs_keyword_3" = "سمونګر";
+/*Translated from: messenger*/
+"cs_keyword_4" = "رسول";
+/*Translated from: filter*/
+"cs_keyword_5" = "فلټر";
+/*Translated from: edit*/
+"cs_keyword_6" = "سمول";
+/*Translated from: image*/
+"cs_keyword_7" = "انځور";
+/*Translated from: smart*/
+"cs_keyword_8" = "سمارټ";
+/*Translated from: picture*/
+"cs_keyword_9" = "انځور";
+/*Translated from: memory*/
+"cs_keyword_10" = "یادښت";
+/*Translated from: familiy*/
+"cs_keyword_11" = "کورنۍ";
+/*Translated from: friend*/
+"cs_keyword_12" = "ملګري";
+/*Translated from: lover*/
+"cs_keyword_13" = "مین";

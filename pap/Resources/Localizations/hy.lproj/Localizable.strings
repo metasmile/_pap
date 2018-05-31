@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "PDF էջերի ստեղծում ...";
 /*com.stells.pap.converter*/
 "Convert" = "Փոխարկել";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "ալբոմ";
+/*Translated from: camera*/
+"cs_keyword_1" = "տեսախցիկ";
+/*Translated from: photos*/
+"cs_keyword_2" = "նկարներ";
+/*Translated from: editor*/
+"cs_keyword_3" = "խմբագիր";
+/*Translated from: messenger*/
+"cs_keyword_4" = "սուրհանդակ";
+/*Translated from: filter*/
+"cs_keyword_5" = "ֆիլտր";
+/*Translated from: edit*/
+"cs_keyword_6" = "խմբագրել";
+/*Translated from: image*/
+"cs_keyword_7" = "նկարը";
+/*Translated from: smart*/
+"cs_keyword_8" = "խելացի";
+/*Translated from: picture*/
+"cs_keyword_9" = "նկարը";
+/*Translated from: memory*/
+"cs_keyword_10" = "հիշողության մեջ";
+/*Translated from: familiy*/
+"cs_keyword_11" = "ընտանիք";
+/*Translated from: friend*/
+"cs_keyword_12" = "ընկեր";
+/*Translated from: lover*/
+"cs_keyword_13" = "սիրահար";

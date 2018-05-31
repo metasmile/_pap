@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "PDF Sayfaları Oluşturuluyor ...";
 /*com.stells.pap.converter*/
 "Convert" = "Dönüştürmek";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "albüm";
+/*Translated from: camera*/
+"cs_keyword_1" = "kamera";
+/*Translated from: photos*/
+"cs_keyword_2" = "fotoğraflar";
+/*Translated from: editor*/
+"cs_keyword_3" = "editör";
+/*Translated from: messenger*/
+"cs_keyword_4" = "haberci";
+/*Translated from: filter*/
+"cs_keyword_5" = "filtre";
+/*Translated from: edit*/
+"cs_keyword_6" = "Düzenle";
+/*Translated from: image*/
+"cs_keyword_7" = "görüntü";
+/*Translated from: smart*/
+"cs_keyword_8" = "akıllı";
+/*Translated from: picture*/
+"cs_keyword_9" = "resim";
+/*Translated from: memory*/
+"cs_keyword_10" = "bellek";
+/*Translated from: familiy*/
+"cs_keyword_11" = "aile";
+/*Translated from: friend*/
+"cs_keyword_12" = "arkadaş";
+/*Translated from: lover*/
+"cs_keyword_13" = "sevgili";

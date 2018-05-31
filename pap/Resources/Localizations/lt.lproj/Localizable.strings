@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "PDF puslapių kūrimas ...";
 /*com.stells.pap.converter*/
 "Convert" = "Paversti";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "albumas";
+/*Translated from: camera*/
+"cs_keyword_1" = "fotoaparatas";
+/*Translated from: photos*/
+"cs_keyword_2" = "nuotraukos";
+/*Translated from: editor*/
+"cs_keyword_3" = "redaktorius";
+/*Translated from: messenger*/
+"cs_keyword_4" = "Messenger";
+/*Translated from: filter*/
+"cs_keyword_5" = "filtras";
+/*Translated from: edit*/
+"cs_keyword_6" = "Redaguoti";
+/*Translated from: image*/
+"cs_keyword_7" = "vaizdas";
+/*Translated from: smart*/
+"cs_keyword_8" = "protingas";
+/*Translated from: picture*/
+"cs_keyword_9" = "nuotrauka";
+/*Translated from: memory*/
+"cs_keyword_10" = "atmintis";
+/*Translated from: familiy*/
+"cs_keyword_11" = "šeima";
+/*Translated from: friend*/
+"cs_keyword_12" = "draugas";
+/*Translated from: lover*/
+"cs_keyword_13" = "meilužis";

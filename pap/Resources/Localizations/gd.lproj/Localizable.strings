@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "A 'cruthachadh duilleagan PDF ...";
 /*com.stells.pap.converter*/
 "Convert" = "Tionndadh";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "album";
+/*Translated from: camera*/
+"cs_keyword_1" = "camara";
+/*Translated from: photos*/
+"cs_keyword_2" = "dealbhan";
+/*Translated from: editor*/
+"cs_keyword_3" = "deasaiche";
+/*Translated from: messenger*/
+"cs_keyword_4" = "teachdaire";
+/*Translated from: filter*/
+"cs_keyword_5" = "criathrag";
+/*Translated from: edit*/
+"cs_keyword_6" = "deasaich";
+/*Translated from: image*/
+"cs_keyword_7" = "ìomhaigh";
+/*Translated from: smart*/
+"cs_keyword_8" = "glic";
+/*Translated from: picture*/
+"cs_keyword_9" = "dealbh";
+/*Translated from: memory*/
+"cs_keyword_10" = "cuimhne";
+/*Translated from: familiy*/
+"cs_keyword_11" = "teaghlach";
+/*Translated from: friend*/
+"cs_keyword_12" = "caraid";
+/*Translated from: lover*/
+"cs_keyword_13" = "leannan";

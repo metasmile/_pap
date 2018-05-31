@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "Creando páginas PDF ...";
 /*com.stells.pap.converter*/
 "Convert" = "Convertir";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "álbum";
+/*Translated from: camera*/
+"cs_keyword_1" = "cámara";
+/*Translated from: photos*/
+"cs_keyword_2" = "fotos";
+/*Translated from: editor*/
+"cs_keyword_3" = "editor";
+/*Translated from: messenger*/
+"cs_keyword_4" = "Mensajero";
+/*Translated from: filter*/
+"cs_keyword_5" = "filtrar";
+/*Translated from: edit*/
+"cs_keyword_6" = "editar";
+/*Translated from: image*/
+"cs_keyword_7" = "imagen";
+/*Translated from: smart*/
+"cs_keyword_8" = "inteligente";
+/*Translated from: picture*/
+"cs_keyword_9" = "imagen";
+/*Translated from: memory*/
+"cs_keyword_10" = "memoria";
+/*Translated from: familiy*/
+"cs_keyword_11" = "familia";
+/*Translated from: friend*/
+"cs_keyword_12" = "amigo";
+/*Translated from: lover*/
+"cs_keyword_13" = "amante";

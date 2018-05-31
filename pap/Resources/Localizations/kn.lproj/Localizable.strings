@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "PDF ಪುಟಗಳನ್ನು ರಚಿಸಲಾಗುತ್ತಿದೆ ...";
 /*com.stells.pap.converter*/
 "Convert" = "ಪರಿವರ್ತಿಸಿ";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "ಆಲ್ಬಮ್";
+/*Translated from: camera*/
+"cs_keyword_1" = "ಕ್ಯಾಮೆರಾ";
+/*Translated from: photos*/
+"cs_keyword_2" = "ಫೋಟೋಗಳು";
+/*Translated from: editor*/
+"cs_keyword_3" = "ಸಂಪಾದಕ";
+/*Translated from: messenger*/
+"cs_keyword_4" = "ಸಂದೇಶವಾಹಕ";
+/*Translated from: filter*/
+"cs_keyword_5" = "ಫಿಲ್ಟರ್";
+/*Translated from: edit*/
+"cs_keyword_6" = "ಸಂಪಾದಿಸು";
+/*Translated from: image*/
+"cs_keyword_7" = "ಚಿತ್ರ";
+/*Translated from: smart*/
+"cs_keyword_8" = "ಸ್ಮಾರ್ಟ್";
+/*Translated from: picture*/
+"cs_keyword_9" = "ಚಿತ್ರ";
+/*Translated from: memory*/
+"cs_keyword_10" = "ಮೆಮೊರಿ";
+/*Translated from: familiy*/
+"cs_keyword_11" = "ಕುಟುಂಬ";
+/*Translated from: friend*/
+"cs_keyword_12" = "ಗೆಳತಿ";
+/*Translated from: lover*/
+"cs_keyword_13" = "ಪ್ರೇಮಿ";

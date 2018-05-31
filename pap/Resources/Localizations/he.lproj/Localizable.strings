@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "יוצר דפי PDF ...";
 /*com.stells.pap.converter*/
 "Convert" = "להמיר";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "אַלבּוֹם";
+/*Translated from: camera*/
+"cs_keyword_1" = "מַצלֵמָה";
+/*Translated from: photos*/
+"cs_keyword_2" = "תמונות";
+/*Translated from: editor*/
+"cs_keyword_3" = "עוֹרֵך";
+/*Translated from: messenger*/
+"cs_keyword_4" = "שָׁלִיחַ";
+/*Translated from: filter*/
+"cs_keyword_5" = "לְסַנֵן";
+/*Translated from: edit*/
+"cs_keyword_6" = "לַעֲרוֹך";
+/*Translated from: image*/
+"cs_keyword_7" = "תמונה";
+/*Translated from: smart*/
+"cs_keyword_8" = "לִכאוֹב";
+/*Translated from: picture*/
+"cs_keyword_9" = "תְמוּנָה";
+/*Translated from: memory*/
+"cs_keyword_10" = "זיכרון";
+/*Translated from: familiy*/
+"cs_keyword_11" = "מִשׁפָּחָה";
+/*Translated from: friend*/
+"cs_keyword_12" = "חָבֵר";
+/*Translated from: lover*/
+"cs_keyword_13" = "מְאַהֵב";

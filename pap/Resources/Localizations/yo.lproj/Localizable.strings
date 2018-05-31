@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "Ṣiṣẹda awọn iwe-iwe PDF ...";
 /*com.stells.pap.converter*/
 "Convert" = "Yi pada";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "album";
+/*Translated from: camera*/
+"cs_keyword_1" = "kamẹra";
+/*Translated from: photos*/
+"cs_keyword_2" = "awọn fọto";
+/*Translated from: editor*/
+"cs_keyword_3" = "olootu";
+/*Translated from: messenger*/
+"cs_keyword_4" = "ojiṣẹ";
+/*Translated from: filter*/
+"cs_keyword_5" = "àlẹmọ";
+/*Translated from: edit*/
+"cs_keyword_6" = "satunkọ";
+/*Translated from: image*/
+"cs_keyword_7" = "aworan";
+/*Translated from: smart*/
+"cs_keyword_8" = "smati";
+/*Translated from: picture*/
+"cs_keyword_9" = "aworan";
+/*Translated from: memory*/
+"cs_keyword_10" = "iranti";
+/*Translated from: familiy*/
+"cs_keyword_11" = "ebi";
+/*Translated from: friend*/
+"cs_keyword_12" = "ore";
+/*Translated from: lover*/
+"cs_keyword_13" = "olufẹ";

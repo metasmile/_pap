@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "PDF парақтарын жасау ...";
 /*com.stells.pap.converter*/
 "Convert" = "Түрлендіру";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "альбом";
+/*Translated from: camera*/
+"cs_keyword_1" = "камера";
+/*Translated from: photos*/
+"cs_keyword_2" = "фотосуреттер";
+/*Translated from: editor*/
+"cs_keyword_3" = "редактор";
+/*Translated from: messenger*/
+"cs_keyword_4" = "хабаршы";
+/*Translated from: filter*/
+"cs_keyword_5" = "сүзгі";
+/*Translated from: edit*/
+"cs_keyword_6" = "өңдеу";
+/*Translated from: image*/
+"cs_keyword_7" = "сурет";
+/*Translated from: smart*/
+"cs_keyword_8" = "ақылды";
+/*Translated from: picture*/
+"cs_keyword_9" = "сурет";
+/*Translated from: memory*/
+"cs_keyword_10" = "жады";
+/*Translated from: familiy*/
+"cs_keyword_11" = "отбасы";
+/*Translated from: friend*/
+"cs_keyword_12" = "дос";
+/*Translated from: lover*/
+"cs_keyword_13" = "любовник";

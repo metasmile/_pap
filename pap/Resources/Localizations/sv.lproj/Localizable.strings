@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "Skapa PDF-sidor ...";
 /*com.stells.pap.converter*/
 "Convert" = "Konvertera";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "album";
+/*Translated from: camera*/
+"cs_keyword_1" = "kamera";
+/*Translated from: photos*/
+"cs_keyword_2" = "foton";
+/*Translated from: editor*/
+"cs_keyword_3" = "redaktör";
+/*Translated from: messenger*/
+"cs_keyword_4" = "budbärare";
+/*Translated from: filter*/
+"cs_keyword_5" = "filtrera";
+/*Translated from: edit*/
+"cs_keyword_6" = "redigera";
+/*Translated from: image*/
+"cs_keyword_7" = "bild";
+/*Translated from: smart*/
+"cs_keyword_8" = "smart";
+/*Translated from: picture*/
+"cs_keyword_9" = "bild";
+/*Translated from: memory*/
+"cs_keyword_10" = "minne";
+/*Translated from: familiy*/
+"cs_keyword_11" = "familj";
+/*Translated from: friend*/
+"cs_keyword_12" = "vän";
+/*Translated from: lover*/
+"cs_keyword_13" = "älskare";

@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "Creating PDF Pages ...";
 /*com.stells.pap.converter*/
 "Convert" = "Gûhertin";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "albûm";
+/*Translated from: camera*/
+"cs_keyword_1" = "kamîra";
+/*Translated from: photos*/
+"cs_keyword_2" = "wêneyên";
+/*Translated from: editor*/
+"cs_keyword_3" = "weşanvan";
+/*Translated from: messenger*/
+"cs_keyword_4" = "agahbir";
+/*Translated from: filter*/
+"cs_keyword_5" = "parzûn";
+/*Translated from: edit*/
+"cs_keyword_6" = "weşandin";
+/*Translated from: image*/
+"cs_keyword_7" = "wêne";
+/*Translated from: smart*/
+"cs_keyword_8" = "baqil";
+/*Translated from: picture*/
+"cs_keyword_9" = "sûret";
+/*Translated from: memory*/
+"cs_keyword_10" = "bîr";
+/*Translated from: familiy*/
+"cs_keyword_11" = "malbat";
+/*Translated from: friend*/
+"cs_keyword_12" = "heval";
+/*Translated from: lover*/
+"cs_keyword_13" = "hezkirinê";

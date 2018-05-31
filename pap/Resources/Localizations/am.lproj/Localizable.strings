@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "የፒዲኤፍ ገጾች በመፍጠር ላይ ...";
 /*com.stells.pap.converter*/
 "Convert" = "ለውጥ";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "አልበም";
+/*Translated from: camera*/
+"cs_keyword_1" = "ካሜራ";
+/*Translated from: photos*/
+"cs_keyword_2" = "ፎቶዎች";
+/*Translated from: editor*/
+"cs_keyword_3" = "አርታዒ";
+/*Translated from: messenger*/
+"cs_keyword_4" = "መልእክተኛ";
+/*Translated from: filter*/
+"cs_keyword_5" = "ማጣሪያ";
+/*Translated from: edit*/
+"cs_keyword_6" = "አርትዕ";
+/*Translated from: image*/
+"cs_keyword_7" = "ምስል";
+/*Translated from: smart*/
+"cs_keyword_8" = "ብልጥ";
+/*Translated from: picture*/
+"cs_keyword_9" = "ፎቶ";
+/*Translated from: memory*/
+"cs_keyword_10" = "ማህደረ ትውስታ";
+/*Translated from: familiy*/
+"cs_keyword_11" = "ቤተሰብ";
+/*Translated from: friend*/
+"cs_keyword_12" = "ጓደኛ";
+/*Translated from: lover*/
+"cs_keyword_13" = "ወዳጆች";

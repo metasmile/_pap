@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "PDF хуудас үүсгэх ...";
 /*com.stells.pap.converter*/
 "Convert" = "Хөрвүүлэх";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "цомог";
+/*Translated from: camera*/
+"cs_keyword_1" = "камер";
+/*Translated from: photos*/
+"cs_keyword_2" = "зурагнууд";
+/*Translated from: editor*/
+"cs_keyword_3" = "редактор";
+/*Translated from: messenger*/
+"cs_keyword_4" = "элч";
+/*Translated from: filter*/
+"cs_keyword_5" = "шүүлтүүр";
+/*Translated from: edit*/
+"cs_keyword_6" = "засварлах";
+/*Translated from: image*/
+"cs_keyword_7" = "зураг";
+/*Translated from: smart*/
+"cs_keyword_8" = "ухаалаг";
+/*Translated from: picture*/
+"cs_keyword_9" = "зураг";
+/*Translated from: memory*/
+"cs_keyword_10" = "санах ой";
+/*Translated from: familiy*/
+"cs_keyword_11" = "гэр бүл";
+/*Translated from: friend*/
+"cs_keyword_12" = "найз";
+/*Translated from: lover*/
+"cs_keyword_13" = "хайрт";

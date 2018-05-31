@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "Te hanga tuhinga PDF ...";
 /*com.stells.pap.converter*/
 "Convert" = "Tahuri";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "album";
+/*Translated from: camera*/
+"cs_keyword_1" = "kāmera";
+/*Translated from: photos*/
+"cs_keyword_2" = "whakaahua";
+/*Translated from: editor*/
+"cs_keyword_3" = "kaiwhakaatu";
+/*Translated from: messenger*/
+"cs_keyword_4" = "karere";
+/*Translated from: filter*/
+"cs_keyword_5" = "tātari";
+/*Translated from: edit*/
+"cs_keyword_6" = "whakatika";
+/*Translated from: image*/
+"cs_keyword_7" = "image";
+/*Translated from: smart*/
+"cs_keyword_8" = "atamai";
+/*Translated from: picture*/
+"cs_keyword_9" = "pikitia";
+/*Translated from: memory*/
+"cs_keyword_10" = "mahara";
+/*Translated from: familiy*/
+"cs_keyword_11" = "whānau";
+/*Translated from: friend*/
+"cs_keyword_12" = "hoa";
+/*Translated from: lover*/
+"cs_keyword_13" = "aroha";

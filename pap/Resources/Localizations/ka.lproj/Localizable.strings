@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "PDF გვერდების შექმნა ...";
 /*com.stells.pap.converter*/
 "Convert" = "კონვერტაცია";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "ალბომი";
+/*Translated from: camera*/
+"cs_keyword_1" = "კამერა";
+/*Translated from: photos*/
+"cs_keyword_2" = "ფოტოები";
+/*Translated from: editor*/
+"cs_keyword_3" = "რედაქტორი";
+/*Translated from: messenger*/
+"cs_keyword_4" = "მაცნე";
+/*Translated from: filter*/
+"cs_keyword_5" = "ფილტრი";
+/*Translated from: edit*/
+"cs_keyword_6" = "რედაქტირება";
+/*Translated from: image*/
+"cs_keyword_7" = "გამოსახულება";
+/*Translated from: smart*/
+"cs_keyword_8" = "ჭკვიანი";
+/*Translated from: picture*/
+"cs_keyword_9" = "სურათი";
+/*Translated from: memory*/
+"cs_keyword_10" = "მეხსიერება";
+/*Translated from: familiy*/
+"cs_keyword_11" = "ოჯახი";
+/*Translated from: friend*/
+"cs_keyword_12" = "მეგობარი";
+/*Translated from: lover*/
+"cs_keyword_13" = "შეყვარებული";

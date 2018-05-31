@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "PDF पृष्ठे तयार करीत आहे ...";
 /*com.stells.pap.converter*/
 "Convert" = "रूपांतरित करा";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "अल्बम";
+/*Translated from: camera*/
+"cs_keyword_1" = "कॅमेरा";
+/*Translated from: photos*/
+"cs_keyword_2" = "फोटो";
+/*Translated from: editor*/
+"cs_keyword_3" = "संपादक";
+/*Translated from: messenger*/
+"cs_keyword_4" = "मेसेंजर";
+/*Translated from: filter*/
+"cs_keyword_5" = "फिल्टर";
+/*Translated from: edit*/
+"cs_keyword_6" = "संपादित करा";
+/*Translated from: image*/
+"cs_keyword_7" = "प्रतिमा";
+/*Translated from: smart*/
+"cs_keyword_8" = "स्मार्ट";
+/*Translated from: picture*/
+"cs_keyword_9" = "चित्र";
+/*Translated from: memory*/
+"cs_keyword_10" = "मेमरी";
+/*Translated from: familiy*/
+"cs_keyword_11" = "कुटुंब";
+/*Translated from: friend*/
+"cs_keyword_12" = "मित्र";
+/*Translated from: lover*/
+"cs_keyword_13" = "प्रियकर";

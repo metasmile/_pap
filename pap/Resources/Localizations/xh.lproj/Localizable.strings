@@ -94,3 +94,31 @@
 "Creating PDF Pages..." = "Ukudala Amakhasi e-PDF ...";
 /*com.stells.pap.converter*/
 "Convert" = "Guqula";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "i-albhamu";
+/*Translated from: camera*/
+"cs_keyword_1" = "ikhamera";
+/*Translated from: photos*/
+"cs_keyword_2" = "iifoto";
+/*Translated from: editor*/
+"cs_keyword_3" = "umhleli";
+/*Translated from: messenger*/
+"cs_keyword_4" = "umthunywa";
+/*Translated from: filter*/
+"cs_keyword_5" = "kucoca";
+/*Translated from: edit*/
+"cs_keyword_6" = "ukuhlela";
+/*Translated from: image*/
+"cs_keyword_7" = "umfanekiso";
+/*Translated from: smart*/
+"cs_keyword_8" = "bulumko";
+/*Translated from: picture*/
+"cs_keyword_9" = "mfa nekiso";
+/*Translated from: memory*/
+"cs_keyword_10" = "imemori";
+/*Translated from: familiy*/
+"cs_keyword_11" = "intsapho";
+/*Translated from: friend*/
+"cs_keyword_12" = "ngumhlobo";
+/*Translated from: lover*/
+"cs_keyword_13" = "umthandi";
