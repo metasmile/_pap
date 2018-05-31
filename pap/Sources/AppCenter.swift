@@ -20,7 +20,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
 
         self.watch(\.currentIdentifier) { (target, value) in
             Defaults.shared.appIdentifier = target.currentIdentifier
-            print("App has started: \(Defaults.shared.appIdentifier ?? "nil")")
+            print("Current App: \(Defaults.shared.appIdentifier ?? "nil")")
         }
 
         if let configuredAppIdentifier = Defaults.shared.appIdentifier

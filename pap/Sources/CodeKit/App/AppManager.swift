@@ -73,15 +73,16 @@ open class AppManager: NSObject, SelectableCollection {
     @objc dynamic
     public private(set) var currentIdentifier: String?
 
-    //FIXME: FATAL -
     public var current: App.Type?
     {
         willSet {
             assert(newValue == nil || _apps.contains { appType in appType == newValue },"Given current app \(String(describing:newValue)) is not contained in app collection")
             guard newValue != previous else{ return }
-            
-            getInstance(current, as:AppManagerDelegatableApp.self)?.willSetPrevious(newCurrent:newValue)
-            getInstance(newValue, as:AppManagerDelegatableApp.self)?.willSetCurrent(oldCurrent:current)
+
+            DispatchQueue.current.async{
+                self.getInstance(self.current, as:AppManagerDelegatableApp.self)?.willSetPrevious(newCurrent:newValue)
+                self.getInstance(newValue, as:AppManagerDelegatableApp.self)?.willSetCurrent(oldCurrent:self.current)
+            }
         }
         didSet {
             guard previous == nil || oldValue != current else { return }
@@ -96,7 +97,9 @@ open class AppManager: NSObject, SelectableCollection {
                 AppLifecycleManager.shared.discard(previous.info)
             }
 
-            getInstance(current, as:AppManagerDelegatableApp.self)?.didSetCurrent(previous:previous)
+            DispatchQueue.current.async{
+                self.getInstance(self.current, as:AppManagerDelegatableApp.self)?.didSetCurrent(previous:self.previous)
+            }
         }
     }
 
