@@ -8,11 +8,22 @@
 
 import UIKit
 
+internal class AppDockContainerView: UIView {
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        let hitView = super.hitTest(point, with: event)
+        return hitView == self ? nil : hitView
+    }
+}
+
 class AppDockNavigationController: UINavigationController, UINavigationControllerDelegate {
     lazy var appDockView: AppDockView = {
         let view = AppDockView(frame: CGRect(origin: CGPoint(x: 0, y: self.view.bounds.height - 64), size: CGSize(width: self.view.bounds.width, height: 64)))
         view.delegate = self
         return view
+    }()
+    
+    lazy var appDockContainerView: AppDockContainerView = {
+        return AppDockContainerView(frame: view.bounds)
     }()
     
     lazy var dimmedView: UIView = {
@@ -36,18 +47,21 @@ class AppDockNavigationController: UINavigationController, UINavigationControlle
         view.addSubview(dimmedView)
         dimmedView.fitConstraints(to: view)
         
-        view.addSubview(appDockView)
+        view.addSubview(appDockContainerView)
+        appDockContainerView.fitConstraints(to: view)
+        
+        appDockContainerView.addSubview(appDockView)
         
         appDockView.translatesAutoresizingMaskIntoConstraints = false
-        appDockView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        appDockView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        appDockViewBottomLayout = appDockView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        appDockView.leadingAnchor.constraint(equalTo: appDockContainerView.leadingAnchor).isActive = true
+        appDockView.trailingAnchor.constraint(equalTo: appDockContainerView.trailingAnchor).isActive = true
+        appDockViewBottomLayout = appDockView.bottomAnchor.constraint(equalTo: appDockContainerView.bottomAnchor)
         appDockViewBottomLayout?.isActive = true
         
         self.viewControllers = [
-            R.storyboard.appStoryboard.photoAlbumViewController()!,
-            R.storyboard.appStoryboard.photoPickerViewController()!
-        ]
+            R.storyboard.appStoryboard.photoAlbumViewController(),
+            R.storyboard.appStoryboard.photoPickerViewController()
+        ].compactMap { $0 }
     }
     
     override func viewDidLayoutSubviews() {
@@ -63,7 +77,7 @@ class AppDockNavigationController: UINavigationController, UINavigationControlle
         viewControllers.forEach { $0.view.layoutIfNeeded() }
         
         UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
+            self.appDockView.superview?.layoutIfNeeded()
         }
     }
 }
@@ -175,7 +189,7 @@ class AppDockViewController: UIViewController {
     }
     
     var appDockItems: [AppDockItem] {
-        return AppCenter.default.apps(by: .default).map { AppDockItem(app: $0) }
+        return []
     }
 
     @objc func cancelButtonDidTap(sender: Any) {

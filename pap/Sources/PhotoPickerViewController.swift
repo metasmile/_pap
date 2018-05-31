@@ -91,8 +91,8 @@ class PhotoPickerViewController: AppDockViewController {
                 , numberOfItemsInSection > 0 {
 
                 self.initialPhotoCollectionIndexPath = IndexPath(item: numberOfItemsInSection - 1, section: numberOfSection - 1)
-                self.photoCollectionView.reloadData()
             }
+            self.photoCollectionView.reloadData()
 
             //PHAssets.fetched.results?.first?.enumerateObjects { asset, i, pointer in }
          }
@@ -140,6 +140,10 @@ class PhotoPickerViewController: AppDockViewController {
         }
     }
     
+    override var appDockItems: [AppDockItem] {
+        return AppCenter.default.apps(by: .default).map { AppDockItem(app: $0) }
+    }
+    
     override func appDidChange() {
         super.appDidChange()
         
@@ -150,17 +154,6 @@ class PhotoPickerViewController: AppDockViewController {
     
     override func registerWatchingAppConfig() {
         AppCenter.default.watch(\.currentIdentifier, options:[.new, .old, .initial]) { (appCenter, dict) in
-//            let old = dict.oldValue
-//            let new = dict.newValue
-//
-//            print(">>>>>>>>>>>>> watch")
-//
-//            if old != nil && new != nil && old != new {
-//                AppAssets.selected.reloadAll()
-//                self.redisplayVisibleCellsWhenChangeApp()
-//                self.showAndRevertTitleByCurrentAppIfNeeded()
-//            }
-
             self.updateDoneButtonState()
 
             AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform, id:"picker\(TransformApp.info.identifier)") { (config, changed) in

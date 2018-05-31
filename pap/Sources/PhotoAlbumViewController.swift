@@ -9,7 +9,7 @@
 import UIKit
 import Photos
 
-class PhotoAlbumViewController: AppDockViewController  {
+class PhotoAlbumViewController: UIViewController  {
     @IBOutlet weak var collectionView: UICollectionView!
     fileprivate var dataSource: PHFetchResult<PHAssetCollection>?
     
@@ -25,7 +25,7 @@ class PhotoAlbumViewController: AppDockViewController  {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        appDockNavigationController?.setAppDockHidden(true, animated: animated)
+        (navigationController as? AppDockNavigationController)?.setAppDockHidden(true, animated: animated)
     }
 }
 

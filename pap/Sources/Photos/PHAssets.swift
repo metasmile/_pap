@@ -18,7 +18,7 @@ public final class PHAssets: NSObject, KeyPathWatchable {
     private override init() {}
 
     public func asset(at indexPath: IndexPath) -> PHAsset? {
-        return results?[indexPath.section][indexPath.item]
+        return results?[safe: indexPath.section]?[indexPath.item]
     }
 
     public func isContained(section:Int) -> Bool{

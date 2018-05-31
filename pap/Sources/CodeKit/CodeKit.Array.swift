@@ -18,3 +18,9 @@ extension Array where Element: Hashable { // not ordered set
         return Array(Set<Element>(self))
     }
 }
+
+extension Collection {
+    subscript (safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}
