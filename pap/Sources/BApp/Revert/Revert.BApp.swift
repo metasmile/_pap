@@ -90,7 +90,7 @@ private class _RevertAppTask: TaskPrototype, Taskable {
             throw TaskError.invalidParam
         }
 
-        let cachedAdjusted = (AppLifecycleManager.shared.acquire(RevertApp.info) as? RevertApp)?.adjustedCache
+        let cachedAdjusted = AppCenter.default.currentInstanceAs(RevertApp.self)?.adjustedCache
 
         let adjusted = cachedAdjusted == nil ? _param.asset.isAdjusted : cachedAdjusted?[_param.asset.localIdentifier] == true
 

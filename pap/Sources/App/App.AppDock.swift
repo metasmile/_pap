@@ -6,11 +6,11 @@
 import Foundation
 import UIKit
 
-public protocol AppDockControllableApp: App {
+public protocol AppDockApp: class, App {
     var dockContent: AppDockContent? {get}
 }
 
-extension AppDockControllableApp {
+extension AppDockApp {
     public var dockContent: AppDockContent? {
         let label = UILabel()
         label.text = type(of: self).info.displayName + " Control View Area"

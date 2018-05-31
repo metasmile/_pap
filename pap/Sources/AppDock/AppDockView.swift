@@ -201,8 +201,7 @@ class AppDockView: CustomView {
     }
     
     // set an App
-    
-    var app: AppDockControllableApp? {
+    weak var app: AppDockApp? {
         didSet {
             self.controller = app?.dockContent
         }

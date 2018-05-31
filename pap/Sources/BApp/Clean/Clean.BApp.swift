@@ -6,7 +6,7 @@
 import Foundation
 import Photos
 
-public class Clean: BApp, PHAssetFinalizableApp, AppDockControllableApp, PhotoPickerViewControllerDelegatableApp {
+public class Clean: BApp, PHAssetFinalizableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp {
     public static let taskType:Taskable.Type = _CleanTask.self
 
     public static let paramType:TaskParamable.Type = PHAssetItem<ImageEditStateValue>.self

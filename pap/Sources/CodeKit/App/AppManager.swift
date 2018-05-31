@@ -113,6 +113,14 @@ open class AppManager: NSObject, SelectableCollection {
         }
     }
 
+    /*
+        INFO:
+        Avoid directly store as a property if possible.
+        But when must be stored with class or struct, use weak reference.
+
+        TODO:
+        Should return the proxy instance.
+    */
     public func currentInstanceAs<T>(_ type:T.Type) -> T?{
         return getInstance(current, as: type)
     }

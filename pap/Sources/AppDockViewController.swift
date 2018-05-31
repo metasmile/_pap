@@ -53,7 +53,7 @@ extension AppDockNavigationController: AppDockViewDelegate {
         if AppCenter.default.current != item.app {
             AppCenter.default.current = item.app
             
-            appDockView.app = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)
+            appDockView.app = AppCenter.default.currentInstanceAs(AppDockApp.self)
             //INFO: by apps? or globally? hmm at first following imessage policy(global)
             
             if let vc = self.topViewController as? AppDockViewController {
@@ -61,7 +61,7 @@ extension AppDockNavigationController: AppDockViewDelegate {
             }
         }
         else {
-            appDockView.app = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)
+            appDockView.app = AppCenter.default.currentInstanceAs(AppDockApp.self)
 
             var needsToOpenDockViewDrawer = false
 

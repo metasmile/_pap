@@ -17,7 +17,7 @@ private struct PDFactoryPHAssetResult: TaskResultable{
 }
 
 public class PDFactory: BApp, FinalizableApp, PhotoPickerViewControllerDelegatableApp,
-        PhotoPickerCollectionViewDisplayableApp , AppDockControllableApp{
+        PhotoPickerCollectionViewDisplayableApp , AppDockApp {
 
     public static let taskType:Taskable.Type = _PDFactoryTask.self
 

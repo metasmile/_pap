@@ -243,7 +243,7 @@ public class GIFMakerAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttr
 }
 
 public class GIFMaker: BApp, ConfigurableApp, _ConfigurableApp,
-    AppDockControllableApp, PHAssetFinalizableApp, PhotoPickerCollectionViewDisplayableApp,
+        AppDockApp, PHAssetFinalizableApp, PhotoPickerCollectionViewDisplayableApp,
 PhotoPickerViewControllerDelegatableApp, FinalizableApp {
     public static let taskType:Taskable.Type = _GIFMakerAppTask.self
     public static let paramType:TaskParamable.Type = _GIFMakerAppAsset.self
@@ -406,7 +406,6 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
         preferences.preferredHeight = (self.view as! UITableView).rowHeight * 5 + 27
-        preferences.displayMode = .none
         return preferences
     }
     

@@ -44,8 +44,6 @@ public enum AppDockContentLayoutState: Int{
 // AppDockContentPreferable
 public protocol AppDockContentPreferable {
     var preferredHeight: CGFloat {get}
-
-    var displayMode: AppDockContentDisplayMode {get}
 }
 
 public struct AppDockContentPreferences: AppDockContentPreferable {
@@ -60,8 +58,6 @@ public struct AppDockContentPreferences: AppDockContentPreferable {
             return _actualHeight
         }
     }
-
-    public var displayMode: AppDockContentDisplayMode = .none
 
     init(){}
 

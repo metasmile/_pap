@@ -16,7 +16,7 @@ public class ConvertAppConfigValue: NSObject, KeyPathWatchable, AppConfigValuabl
 }
 
 public class ConvertApp: BApp,
-        AppDockControllableApp,
+        AppDockApp,
         ConfigurableApp, _ConfigurableApp,
         FinalizableApp,
         PhotoPickerCollectionViewDisplayableApp,

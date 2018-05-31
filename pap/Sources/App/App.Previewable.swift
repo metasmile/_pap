@@ -15,3 +15,4 @@ public protocol PreviewableApp: App {
 extension PreviewableApp {
     public var currentEditStateValue: ImageEditStateValue? { return nil }
 }
+

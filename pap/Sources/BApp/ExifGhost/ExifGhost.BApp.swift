@@ -10,7 +10,7 @@ import ImageIO
 private typealias ParamType = PHAssetItem<ImageEditStateValue>
 
 public class ExifGhost: BApp, PHAssetFinalizableApp, PhotoPickerViewControllerDelegatableApp,
-        PhotoPickerCollectionViewDisplayableApp, AppDockControllableApp {
+        PhotoPickerCollectionViewDisplayableApp, AppDockApp {
 
     public static let taskType:Taskable.Type = _ExifGhostTask.self
 
@@ -76,7 +76,7 @@ private class _ExifGhostTask: TaskPrototype, Taskable {
                 , let metadata = data.getMetadata(){
 
                     var ghostedData:Data
-                    if let appContentAsExifGhost = AppCenter.default.currentInstanceAs(AppDockControllableApp.self)?.dockContent as? ExifGhostAppDockContent {
+                    if let appContentAsExifGhost = AppCenter.default.currentInstanceAs(AppDockApp.self)?.dockContent as? ExifGhostAppDockContent {
                         if appContentAsExifGhost.shouldGhostAll{
                             ghostedData = data.setMetadata(with: nil)
 

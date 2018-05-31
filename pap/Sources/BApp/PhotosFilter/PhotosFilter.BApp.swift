@@ -49,9 +49,9 @@ public class PhotosFilterAppConfigValue: NSObject, KeyPathWatchable, AppConfigUI
 }
 
 public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _ConfigurableApp,
-        AppDockControllableApp, PHAssetFinalizableApp,
+        PHAssetFinalizableApp, PreviewableApp, AppDockApp,
         PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp,
-        PhotoEditorViewControllerDelegatableApp, PreviewableApp {
+        PhotoEditorViewControllerDelegatableApp {
     public static let taskType:Taskable.Type = _PhotosFilterAppTask.self
     public static let paramType:TaskParamable.Type = _PhotosFilterAppAsset.self
     
@@ -153,7 +153,6 @@ private extension PhotosFilterApp {
         view.cellImageInsets = UIEdgeInsetsMake(0, 0, 4, 0)
         
         var p = AppDockContentPreferences()
-        p.displayMode = .pinned
         p.preferredHeight = 120 // for test. remove this line after fixed app design
         return AppDockContentItem(view: view, preferences: p)
     }

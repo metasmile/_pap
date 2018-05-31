@@ -11,8 +11,8 @@ import UIKit
 class _AutoAdjustmentAppAsset: _PhotosFilterAppAsset {}
 
 public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _ConfigurableApp,
-        AppDockControllableApp, PHAssetFinalizableApp, PhotoPickerCollectionViewDisplayableApp,
-        PhotoPickerViewControllerDelegatableApp, PreviewableApp {
+        PHAssetFinalizableApp, PreviewableApp, AppDockApp,
+        PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp {
 
     public static let taskType:Taskable.Type = _AutoAdjustmentAppTask.self
     public static let paramType:TaskParamable.Type = _AutoAdjustmentAppAsset.self
@@ -247,7 +247,6 @@ class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
         preferences.preferredHeight = (view as! UITableView).rowHeight * CGFloat(autoAdjustmentOptionKeys.count)
-        preferences.displayMode = .pinned
         return preferences
     }
 
