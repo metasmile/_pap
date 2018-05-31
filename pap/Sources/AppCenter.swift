@@ -14,14 +14,21 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
 
         let apps = self.apps(by: AppQuery.default)
 
-        if let configuredAppIdentifier = Defaults.shared.appIdentifier{
-            self.current = apps.first { appType in appType.info.identifier == configuredAppIdentifier }
-        }else{
-            Defaults.shared.appIdentifier = self.currentIdentifier
+        if apps.count == 0{
+            return
         }
 
         self.watch(\.currentIdentifier) { (target, value) in
             Defaults.shared.appIdentifier = target.currentIdentifier
+            print("App has started: \(Defaults.shared.appIdentifier ?? "nil")")
+        }
+
+        if let configuredAppIdentifier = Defaults.shared.appIdentifier
+        , let starterApp = apps.first(where:{ appType in appType.info.identifier == configuredAppIdentifier }){
+            self.current = starterApp
+
+        }else{
+            self.current = apps.first
         }
     }
 
@@ -65,6 +72,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             , PDFactory.self
             , AutoAdjustmentApp.self
             , ExifGhost.self
+
 //            , Clean.self
 //            , Stabilizer.self
         ]

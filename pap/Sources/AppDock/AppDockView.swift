@@ -150,11 +150,13 @@ class AppDockView: CustomView {
         }
         get {
 
+            // app does not provide/support appDockContent
             if controller == nil{
                 _contentLayoutState = .minimized
             }
 
             // POLICY BEGIN:
+            // app supports previewable
             else if conformsPreviewable{
                 if _contentLayoutState == .maximized { //INFO: this is different with "state == .maximized && !hasAppAccessoryAsLayout"
                     if !hasAppAccessoryAsLayout {
@@ -166,7 +168,7 @@ class AppDockView: CustomView {
                 }
             }
             // POLICY END
-
+            // default: apps support appDockContent
             else{
                 _contentLayoutState = AppDockContentLayoutState(rawValue: Defaults.shared.appDockContentLayoutState) ?? _contentLayoutState
             }
@@ -181,12 +183,11 @@ class AppDockView: CustomView {
         return contentLayoutState == .maximized
     }
 
-    private var shouldDrawerEnable: Bool {
-        if hasAppContentAsLayout {
-            let hasMultipleApps = items.count > 1
-            return hasMultipleApps && hasAppControllerAsLayout
+    private var shouldDrawerBarEnable: Bool {
+        if items.count == 0 {
+            return false
         }
-        return false
+        return hasAppControllerAsLayout || (hasAppAccessoryAsLayout && conformsPreviewable)
     }
 
     @IBOutlet private weak var dimmedView: UIView!
@@ -369,7 +370,7 @@ extension AppDockView {
 
     fileprivate var preferredDrawerViewHeight: CGFloat {
         if hasAppControllerAsLayout{
-            return shouldDrawerEnable ? DefaultPreferences.DrawerView.compactHeight : DefaultPreferences.DrawerView.compactDisabledHeight
+            return shouldDrawerBarEnable ? DefaultPreferences.DrawerView.compactHeight : DefaultPreferences.DrawerView.compactDisabledHeight
         }
         return AppDockView.VoidLayoutValue
     }
@@ -414,7 +415,7 @@ extension AppDockView {
     fileprivate func layoutDrawerView() {
         drawerViewHeightLayout.constant = preferredDrawerViewHeight
 
-        drawerView.isBarHidden = !shouldDrawerEnable
+        drawerView.isBarHidden = !shouldDrawerBarEnable
         drawerView.layoutIfNeeded()
         invalidateIntrinsicContentSize()
     }
@@ -448,7 +449,7 @@ extension AppDockView {
             controllerViewHeightLayout.constant = preferredControllerViewHeight
         }
         
-        drawerView.isBarHidden = !shouldDrawerEnable
+        drawerView.isBarHidden = !shouldDrawerBarEnable
         drawerView.layoutIfNeeded()
         
         updateBackgroundColors()
@@ -502,7 +503,7 @@ extension AppDockView: UICollectionViewDelegate {
 
 extension AppDockView: UIGestureRecognizerDelegate {
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return shouldDrawerEnable
+        return shouldDrawerBarEnable
     }
     
     @objc func drawerDidTap(sender: UITapGestureRecognizer) {
@@ -648,7 +649,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
         })
         
         contentLayoutState = .maximized
-        drawerView.isBarHidden = !shouldDrawerEnable
+        drawerView.isBarHidden = !shouldDrawerBarEnable
         drawerViewHeightLayout.constant = DefaultPreferences.DrawerView.prominentHeight
 
         appContentViewHeightLayout.constant = preferredAppContentViewMaximumHeight
@@ -690,7 +691,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
         })
         
         contentLayoutState = .neutralized
-        drawerView.isBarHidden = !shouldDrawerEnable
+        drawerView.isBarHidden = !shouldDrawerBarEnable
         drawerViewHeightLayout.constant = preferredDrawerViewHeight
 
         appContentViewHeightLayout.constant = max(0, preferredControllerViewHeight) + max(0, preferredAccessoryViewHeight)
@@ -727,7 +728,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
         })
         
         contentLayoutState = .minimized
-        drawerView.isBarHidden = !shouldDrawerEnable
+        drawerView.isBarHidden = !shouldDrawerBarEnable
         drawerViewHeightLayout.constant = preferredDrawerViewHeight
         
         appContentViewHeightLayout.constant = preferredAccessoryViewHeight
