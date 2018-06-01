@@ -63,11 +63,12 @@ extension AppUIAssetView {
     }
     
     fileprivate func applyImageFilter(ciFilter: CIFilter?) {
-        if asset?.mediaSubtypes.contains(.photoLive) == true {
-            
-        }
-        else {
-            updateImageContents(image?.applyFilter(ciFilter: ciFilter))
-        }
+        updateImageContents(image?.applyFilter(ciFilter: ciFilter))
+//        if asset?.mediaSubtypes.contains(.photoLive) == true {
+//
+//        }
+//        else {
+//            updateImageContents(image?.applyFilter(ciFilter: ciFilter))
+//        }
     }
 }
