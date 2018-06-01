@@ -31,14 +31,19 @@ class PhotoAlbumViewController: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let smartAlbums = orderedSmartAlbumSubtypes.compactMap {
-            PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: $0, options: nil).firstObject
+        PHPhotoLibraryManager.default.authorizeIfNeeded { authorized in
+            guard authorized else { return }
+            
+            let smartAlbums = self.orderedSmartAlbumSubtypes.compactMap {
+                PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: $0, options: nil).firstObject
+            }
+            
+            let userCollections = PHAssetCollection.fetchTopLevelUserCollections(with: nil)
+            let userAlbums = userCollections.objects(at: IndexSet(integersIn: 0..<userCollections.count)).compactMap { $0 as? PHAssetCollection }
+            
+            self.dataSource = [smartAlbums, userAlbums].compactMap { $0 }
+            self.collectionView.reloadData()
         }
-        
-        let userCollections = PHAssetCollection.fetchTopLevelUserCollections(with: nil)
-        let userAlbums = userCollections.objects(at: IndexSet(integersIn: 0..<userCollections.count)).compactMap { $0 as? PHAssetCollection }
-        
-        dataSource = [smartAlbums, userAlbums].compactMap { $0 }
     }
     
     override func viewWillAppear(_ animated: Bool) {

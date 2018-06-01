@@ -77,6 +77,11 @@ class PhotoPickerViewController: AppDockViewController {
         //check photo library permission
         PHPhotoLibraryManager.default.authorizeIfNeeded { authorized in
             guard authorized else { return }
+            
+            if self.collection == nil {
+                self.collection = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil).firstObject
+                self.title = self.collection?.localizedTitle ?? Bundle.main.displayName
+            }
 
             //QA: attach initial progress activity view + non-mainqueue.async
             if let collection = self.collection {
