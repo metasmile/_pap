@@ -31,9 +31,11 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp, FinalizableApp, AppMan
 
     fileprivate var adjustedCache = [String:Bool]()
 
-    func willSetPrevious(newCurrent: App.Type?) {
+    func willSetCurrent(oldCurrent: App.Type?) {
         adjustedCache.removeAll()
     }
+
+    func didSetCurrent(previous: App.Type?) {}
 
     public func shouldSelect(item: AppAsset) -> Bool {
         let cacheId = item.asset.localIdentifier

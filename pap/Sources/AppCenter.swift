@@ -7,7 +7,7 @@ import Foundation
 import DefaultsKit
 
 public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchable {
-    public static let `default` = AppCenter() //FIXME CRITICAL:  when call AppCenter.default in every each App.init() -> EXC_BAD_INSTRUCTION (code=EXC_I386_INVOP, subcode=0x0)
+    public static let `default` = AppCenter()
 
     override init() {
         super.init()
