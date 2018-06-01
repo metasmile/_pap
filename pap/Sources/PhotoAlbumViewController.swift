@@ -160,7 +160,7 @@ internal class PhotoAlbumCollectionTitleView: UICollectionReusableView {
     }
 }
 
-internal class PhotoAlbumCollectionViewCell: UICollectionViewCell {
+class PhotoAlbumCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var highlightedView: UIView!
     
     @IBOutlet weak var imageView: UIImageView!
