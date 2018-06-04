@@ -778,7 +778,7 @@ extension AppDockView: UIScrollViewDelegate {
             
             if let indexPath = targetIndexPath, let attributes = toLayout.layoutAttributesForItem(at: indexPath) {
                 let offsetX = min(max(0, attributes.center.x - touchRatio * self.appCollectionView.bounds.width), toLayout.collectionViewContentSize.width - self.appContentView.bounds.width)
-                self.appCollectionView.contentOffset.x = offsetX
+                self.appCollectionView.setContentOffset(CGPoint(x: offsetX, y: self.appCollectionView.contentOffset.y), animated: false)
             }
         }, completion: nil)
     }

@@ -23,11 +23,6 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         
         let indexPaths = items.compactMap { PHAssets.fetched.asset(at: $0) }.compactMap { self.batchPreviewView.removeCollectionViewItem(with: $0) }
         
-        self.appDockView?.reloadKeepingDrawerOpened()
-        if appDockView?.accessory?.view != batchPreviewView {
-            batchPreviewView.reloadContent()
-        }
-        
         updateSelectedItemUIs()
         
         if let indexPath = indexPaths.last {

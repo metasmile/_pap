@@ -136,7 +136,8 @@ class PhotoPickerViewController: AppDockViewController {
 
     func redisplayCurrentVisibleCellsWhenUpdateApps() {
         AppAssets.selected.reloadAll()
-        self.redisplayVisibleCellsWhenChangeApp()
+        redisplayVisibleCellsWhenChangeApp()
+        appDockView?.reloadKeepingDrawerOpened()
     }
 
     private func flushQueuedPhotoLibraryChanges(){
@@ -153,8 +154,9 @@ class PhotoPickerViewController: AppDockViewController {
         super.appDidChange()
         
         AppAssets.selected.reloadAll()
-        self.redisplayVisibleCellsWhenChangeApp()
-        self.showAndRevertTitleByCurrentAppIfNeeded()
+        redisplayVisibleCellsWhenChangeApp()
+        showAndRevertTitleByCurrentAppIfNeeded()
+        appDockView?.reloadKeepingDrawerOpened()
     }
     
     override func registerWatchingAppConfig() {
@@ -301,6 +303,7 @@ class PhotoPickerViewController: AppDockViewController {
             
             if appDockView?.accessory != nil {
                 appDockView?.accessory = nil
+                batchPreviewView.reloadContent()
             }
         }
         else {

@@ -57,6 +57,9 @@ internal class PreviewCollectionLayout: UICollectionViewLayout {
     private var minimumSpacing: CGFloat = 1
     private var _contentSize: CGSize = .zero
     
+    public private(set) var paddingLeft: CGFloat = 0
+    public private(set) var paddingRight: CGFloat = 0
+    
     override func prepare() {
         super.prepare()
         
@@ -65,32 +68,30 @@ internal class PreviewCollectionLayout: UICollectionViewLayout {
         var itemPositionX: CGFloat = 0
         _contentSize = .zero
         
-        guard let numberOfItems = collectionView?.numberOfItems(inSection: 0) else { return }
+        guard let collectionView = self.collectionView else { return }
+        let numberOfItems = collectionView.numberOfItems(inSection: 0)
         
         for indexPath in (0 ..< numberOfItems).map({ IndexPath(item: $0, section: 0) }) {
             let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
             let itemSize = sizeForItem(at: indexPath)
+            
+            if indexPath.item == 0 {
+                paddingLeft = (collectionView.bounds.width - itemSize.width) / 2
+                itemPositionX += paddingLeft
+            }
+            
+            if indexPath.item == numberOfItems - 1 {
+                paddingRight = (collectionView.bounds.width - itemSize.width) / 2
+            }
+            
             let itemPosition = CGPoint(x: itemPositionX, y: (previewHeight - itemSize.height) / 2)
             attributes.frame = CGRect(origin: itemPosition, size: itemSize)
             itemPositionX += itemSize.width + minimumSpacing
             
             cache[.item]?[indexPath] = attributes
             
-            _contentSize.width = attributes.frame.maxX
+            _contentSize.width = attributes.frame.maxX + paddingRight
             _contentSize.height = attributes.frame.height
-        }
-        
-        centerAlignment()
-    }
-    
-    public func centerAlignment() {
-        guard let numberOfItems = collectionView?.numberOfItems(inSection: 0), numberOfItems > 0 else { return }
-        if let first = layoutAttributesForItem(at: IndexPath(item: 0, section: 0)), let bounds = collectionView?.bounds.size {
-            collectionView?.contentInset.left = (bounds.width - first.bounds.width) / 2
-        }
-        
-        if let last = layoutAttributesForItem(at: IndexPath(item: numberOfItems - 1, section: 0)), let bounds = collectionView?.bounds.size {
-            collectionView?.contentInset.right = (bounds.width - last.bounds.width) / 2
         }
     }
     
@@ -123,11 +124,11 @@ internal class PreviewCollectionLayout: UICollectionViewLayout {
     }
     
     var contentSize: CGSize {
-        return _contentSize
+        return CGSize(width: _contentSize.width - paddingLeft - paddingRight, height: _contentSize.height)
     }
     
     override var collectionViewContentSize: CGSize {
-        return self.contentSize
+        return _contentSize
     }
 }
 
@@ -151,11 +152,10 @@ class PreviewView: CustomView {
         collectionView.contentInset.top = 1
         collectionView.contentInset.bottom = 1
         collectionView.register(PreviewCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: PreviewCollectionViewCell.self))
-        updateCollectionViewAlignment(animated: false)
     }
 
     public func updatePreviews(animated: Bool = true, completion: (() -> Void)? = nil) {
-        collectionView.setCollectionViewLayout(PreviewCollectionLayout(previewHeight: collectionViewHeightLayout.constant), animated: animated)
+        reloadPreview(with: collectionViewHeightLayout.constant)
 
         let visibleIndexPaths = collectionView.indexPathsForVisibleItems
         for indexPath in visibleIndexPaths {
@@ -166,23 +166,19 @@ class PreviewView: CustomView {
                 cell.setImageEditItem(appAsset.editState, animated: animated)
             }
         }
-
-        updateCollectionViewAlignment(animated: false)
     }
     
     public func reloadPreview(with height: CGFloat) {
-        let offsetXRatio = (collectionView.contentOffset.x + collectionView.contentInset.left) / collectionView.collectionViewLayout.collectionViewContentSize.width
+        guard let fromLayout = collectionView.collectionViewLayout as? PreviewCollectionLayout else { return }
+        let toLayout = PreviewCollectionLayout(previewHeight: height)
+        
+        let offsetXRatio = collectionView.contentOffset.x / fromLayout.contentSize.width
         
         collectionViewHeightLayout.constant = height
         collectionView.layoutIfNeeded()
-        
-        let toLayout = PreviewCollectionLayout(previewHeight: height)
         collectionView.setCollectionViewLayout(toLayout, animated: false)
-        updateCollectionViewAlignment(animated: false)
         
-        if appAssetsSelected.count > 0 {
-            collectionView.contentOffset.x = offsetXRatio * toLayout.collectionViewContentSize.width - collectionView.contentInset.left
-        }
+        collectionView.setContentOffset(CGPoint(x: offsetXRatio * toLayout.contentSize.width, y: collectionView.contentOffset.y), animated: false)
     }
 }
 
@@ -215,7 +211,6 @@ extension PreviewView {
         if appAssetsSelected.count>prevCount{
             self.collectionView.insertItems(at: [insertedIndexPath])
         }
-        self.updateCollectionViewAlignment(animated: false)
         self.collectionView.scrollToItem(at: insertedIndexPath, at: .centeredHorizontally, animated: true)
 
         return insertedIndexPath
@@ -228,7 +223,6 @@ extension PreviewView {
         }
 
         collectionView.deleteItems(at: [indexPath])
-        updateCollectionViewAlignment()
         
         scrollToNeareastItem(at: indexPath)
         
@@ -237,32 +231,7 @@ extension PreviewView {
     
     func scrollToNeareastItem(at indexPath: IndexPath) {
         if appAssetsSelected.count > 0 {
-            let nearestItem = max(min(indexPath.item - 1, appAssetsSelected.count - 2), 0)
-            collectionView.scrollToItem(at: IndexPath(item: nearestItem, section: 0), at: .centeredHorizontally, animated: true)
-        }
-    }
-    
-    func appendCollectionViewItems(with assets: [PHAsset]) {
-        let prevCount = appAssetsSelected.count
-        let indexPaths = assets.compactMap { appAssetsSelected.put(with: $0) }
-        
-        if appAssetsSelected.count>prevCount{
-            self.collectionView.insertItems(at: indexPaths)
-        }
-        self.updateCollectionViewAlignment(animated: false)
-        
-        if let indexPath = indexPaths.last {
-            self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        }
-    }
-    
-    func removeCollectionViewItems(with assets: [PHAsset]) {
-        let indexPaths = assets.compactMap { appAssetsSelected.remove(for: $0) }
-        
-        collectionView.deleteItems(at: indexPaths)
-        
-        if appAssetsSelected.count > 0, let indexPath = indexPaths.last {
-            let nearestItem = max(min(indexPath.item - 1, appAssetsSelected.count - 2), 0)
+            let nearestItem = indexPath.item < appAssetsSelected.count ? indexPath.item : max(min(indexPath.item - 1, appAssetsSelected.count - 1), 0)
             collectionView.scrollToItem(at: IndexPath(item: nearestItem, section: 0), at: .centeredHorizontally, animated: true)
         }
     }
@@ -272,18 +241,6 @@ extension PreviewView {
 
         appAssetsSelected.removeAll()
         collectionView.deleteItems(at: indexPaths)
-        updateCollectionViewAlignment()
-    }
-
-    func updateCollectionViewAlignment(animated: Bool = true) {
-        if animated {
-            UIView.animate(withDuration: 0.2) {
-                (self.collectionView.collectionViewLayout as? PreviewCollectionLayout)?.centerAlignment()
-            }
-        }
-        else {
-            (collectionView.collectionViewLayout as? PreviewCollectionLayout)?.centerAlignment()
-        }
     }
 
     func reloadCollectionViewItems() {
