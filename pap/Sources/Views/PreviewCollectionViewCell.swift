@@ -25,6 +25,10 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
         
+        if let asset = self.asset {
+            self.editItem = AppAssets.selected.by(asset)
+        }
+        
         setNeedsUpdatePreview()
         updatePreviewIfNeeded()
     }
