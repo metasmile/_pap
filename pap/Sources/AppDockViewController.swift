@@ -79,6 +79,8 @@ class AppDockNavigationController: UINavigationController, UINavigationControlle
         UIView.animate(withDuration: 0.35) {
             self.appDockView.superview?.layoutIfNeeded()
         }
+        
+        interactivePopGestureRecognizer?.isEnabled = hidden
     }
 }
 
