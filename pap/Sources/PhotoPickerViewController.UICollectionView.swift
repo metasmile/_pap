@@ -21,16 +21,18 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
             photoCollectionView.deselectItem(at: indexPath, animated: animated)
         }
         
-        self.batchPreviewView.removeCollectionViewItems(with: items.compactMap({ PHAssets.fetched.asset(at: $0) }))
+        let indexPaths = items.compactMap { PHAssets.fetched.asset(at: $0) }.compactMap { self.batchPreviewView.removeCollectionViewItem(with: $0) }
         
         self.appDockView?.reloadKeepingDrawerOpened()
         if appDockView?.accessory?.view != batchPreviewView {
             batchPreviewView.reloadContent()
         }
         
-        batchPreviewView.updateCollectionViewAlignment()
-        
         updateSelectedItemUIs()
+        
+        if let indexPath = indexPaths.last {
+            batchPreviewView.scrollToNeareastItem(at: indexPath)
+        }
     }
 
     // MARK: - UICollectionViewDataSource

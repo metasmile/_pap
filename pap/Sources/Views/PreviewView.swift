@@ -171,7 +171,6 @@ class PreviewView: CustomView {
     }
     
     public func reloadPreview(with height: CGFloat) {
-        let needsToRestoreContentOffset = collectionViewHeightLayout.constant != height
         let offsetXRatio = (collectionView.contentOffset.x + collectionView.contentInset.left) / collectionView.collectionViewLayout.collectionViewContentSize.width
         
         collectionViewHeightLayout.constant = height
@@ -181,7 +180,7 @@ class PreviewView: CustomView {
         collectionView.setCollectionViewLayout(toLayout, animated: false)
         updateCollectionViewAlignment(animated: false)
         
-        if appAssetsSelected.count > 0 && needsToRestoreContentOffset {
+        if appAssetsSelected.count > 0 {
             collectionView.contentOffset.x = offsetXRatio * toLayout.collectionViewContentSize.width - collectionView.contentInset.left
         }
     }
@@ -222,14 +221,21 @@ extension PreviewView {
         return insertedIndexPath
     }
 
-    func removeCollectionViewItem(with asset: PHAsset?) {
+    @discardableResult
+    func removeCollectionViewItem(with asset: PHAsset?) -> IndexPath? {
         guard let _asset = asset, let indexPath = appAssetsSelected.remove(for:_asset) else {
-            return
+            return nil
         }
 
         collectionView.deleteItems(at: [indexPath])
         updateCollectionViewAlignment()
-
+        
+        scrollToNeareastItem(at: indexPath)
+        
+        return indexPath
+    }
+    
+    func scrollToNeareastItem(at indexPath: IndexPath) {
         if appAssetsSelected.count > 0 {
             let nearestItem = max(min(indexPath.item - 1, appAssetsSelected.count - 2), 0)
             collectionView.scrollToItem(at: IndexPath(item: nearestItem, section: 0), at: .centeredHorizontally, animated: true)
@@ -254,7 +260,6 @@ extension PreviewView {
         let indexPaths = assets.compactMap { appAssetsSelected.remove(for: $0) }
         
         collectionView.deleteItems(at: indexPaths)
-        updateCollectionViewAlignment()
         
         if appAssetsSelected.count > 0, let indexPath = indexPaths.last {
             let nearestItem = max(min(indexPath.item - 1, appAssetsSelected.count - 2), 0)
