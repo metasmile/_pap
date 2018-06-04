@@ -24,6 +24,118 @@ protocol PreviewViewDelegate {
     func batchPreviewViewDidEndEdit(_ view: PreviewView)
 }
 
+internal class PreviewCollectionLayout: UICollectionViewLayout {
+    var previewHeight: CGFloat = 0 {
+        didSet {
+            invalidateLayout()
+        }
+    }
+    
+    private enum LayoutItem: String {
+        case item = "Item"
+        case header = "UICollectionElementKindSectionHeader"
+        case footer = "UICollectionElementKindSectionFooter"
+    }
+    private var cache = [LayoutItem: [IndexPath: UICollectionViewLayoutAttributes]]()
+    private func prepareCache() {
+        cache.removeAll()
+        
+        cache[.item] = [IndexPath: UICollectionViewLayoutAttributes]()
+        cache[.header] = [IndexPath: UICollectionViewLayoutAttributes]()
+        cache[.footer] = [IndexPath: UICollectionViewLayoutAttributes]()
+    }
+    
+    init(previewHeight: CGFloat = 0) {
+        super.init()
+        self.previewHeight = previewHeight
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    private var numberOfItems: Int {
+        return collectionView?.numberOfItems(inSection: 0) ?? 0
+    }
+    
+    private var collectionViewSize: CGSize {
+        return collectionView?.frame.size ?? .zero
+    }
+    
+    private var minimumSpacing: CGFloat = 1
+    private var _contentSize: CGSize = .zero
+    
+    override func prepare() {
+        super.prepare()
+        
+        prepareCache()
+        
+        var itemPositionX: CGFloat = 0
+        _contentSize = .zero
+        
+        for indexPath in (0 ..< numberOfItems).map({ IndexPath(item: $0, section: 0) }) {
+            let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+            let itemSize = sizeForItem(at: indexPath)
+            let itemPosition = CGPoint(x: itemPositionX, y: (previewHeight - itemSize.height) / 2)
+            attributes.frame = CGRect(origin: itemPosition, size: itemSize)
+            itemPositionX += itemSize.width + minimumSpacing
+            
+            cache[.item]?[indexPath] = attributes
+            
+            _contentSize.width = attributes.frame.maxX
+            _contentSize.height = attributes.frame.height
+        }
+        
+        centerAlignment()
+    }
+    
+    public func centerAlignment() {
+        if let first = layoutAttributesForItem(at: IndexPath(item: 0, section: 0)) {
+            collectionView?.contentInset.left = (collectionViewSize.width - first.bounds.width) / 2
+        }
+        
+        if let last = layoutAttributesForItem(at: IndexPath(item: numberOfItems - 1, section: 0)) {
+            collectionView?.contentInset.right = (collectionViewSize.width - last.bounds.width) / 2
+        }
+    }
+    
+    private func sizeForItem(at indexPath: IndexPath) -> CGSize {
+        guard let collectionView = self.collectionView else { return .zero }
+        
+        let asset = AppAssets.selected.at(indexPath.item).asset
+        
+        let contentInset = collectionView.contentInset
+        let maximumHeight = min(previewHeight, collectionView.bounds.width)
+        
+        let contentSize = UIEdgeInsetsInsetRect(CGRect(origin: .zero, size: CGSize(width: maximumHeight, height: maximumHeight)), contentInset).size
+        let boundingSize = CGSize(width: contentSize.height, height: contentSize.height)
+        let photoSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight).aspectFit(in: boundingSize)
+        let cellSize = photoSize.applying(AppAssets.selected.at(indexPath.item).editState.transform).magnitude
+        
+        return CGSize(width: cellSize.width, height: floor(contentSize.height))
+    }
+    
+    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        return cache[.item]?[indexPath]
+    }
+    
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        return cache[.item]?.compactMap({ rect.intersects($0.value.frame) ? $0.value : nil })
+    }
+    
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+        return false
+    }
+    
+    var contentSize: CGSize {
+        return _contentSize
+    }
+    
+    override var collectionViewContentSize: CGSize {
+        return self.contentSize
+    }
+}
+
 class PreviewView: CustomView {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewHeightLayout: NSLayoutConstraint!
@@ -39,6 +151,7 @@ class PreviewView: CustomView {
         print("[i] BatchAppCenter.default.task.maxConcurrentCount: ", AppCenter.default.task.maxConcurrentCount)
 
         collectionViewHeightLayout.constant = _preferences.preferredHeight
+        collectionView.collectionViewLayout = PreviewCollectionLayout(previewHeight: collectionViewHeightLayout.constant)
         
         collectionView.contentInset.top = 1
         collectionView.contentInset.bottom = 1
@@ -47,8 +160,7 @@ class PreviewView: CustomView {
     }
 
     public func updatePreviews(animated: Bool = true, completion: (() -> Void)? = nil) {
-        collectionView.collectionViewLayout.invalidateLayout()
-        collectionView.performBatchUpdates(nil) { _ in completion?() }
+        collectionView.setCollectionViewLayout(PreviewCollectionLayout(previewHeight: collectionViewHeightLayout.constant), animated: animated)
 
         let visibleIndexPaths = collectionView.indexPathsForVisibleItems
         for indexPath in visibleIndexPaths {
@@ -64,13 +176,14 @@ class PreviewView: CustomView {
     }
     
     public func reloadPreview(with height: CGFloat) {
+        let offsetXRatio = (collectionView.contentOffset.x + collectionView.contentInset.left) / collectionView.collectionViewLayout.collectionViewContentSize.width
+        
         collectionViewHeightLayout.constant = height
         collectionView.layoutIfNeeded()
         
-        collectionView.reloadData()
-        collectionView.performBatchUpdates(nil) { _ in
-            self.updateCollectionViewAlignment(animated: false)
-        }
+        collectionView.setCollectionViewLayout(PreviewCollectionLayout(previewHeight: height), animated: false)
+        updateCollectionViewAlignment(animated: false)
+        collectionView.contentOffset.x = offsetXRatio * collectionView.collectionViewLayout.collectionViewContentSize.width - collectionView.contentInset.left
     }
 }
 
@@ -132,26 +245,13 @@ extension PreviewView {
     }
 
     func updateCollectionViewAlignment(animated: Bool = true) {
-        collectionView.collectionViewLayout.prepare()
-        let contentWidth = collectionView.collectionViewLayout.collectionViewContentSize.width
-        var contentInset = collectionView.contentInset
-        if contentWidth > collectionView.bounds.width {
-            contentInset.left = 0
-            contentInset.right = 0
-        }
-        else {
-            let inset = (collectionView.bounds.width - contentWidth) / 2
-            contentInset.left = inset
-            contentInset.right = inset
-        }
-
         if animated {
             UIView.animate(withDuration: 0.2) {
-                self.collectionView.contentInset = contentInset
+                (self.collectionView.collectionViewLayout as? PreviewCollectionLayout)?.centerAlignment()
             }
         }
         else {
-            collectionView.contentInset = contentInset
+            (collectionView.collectionViewLayout as? PreviewCollectionLayout)?.centerAlignment()
         }
     }
 
@@ -308,29 +408,5 @@ extension PreviewView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.batchPreviewView(self, didSelectItemAt: indexPath)
-    }
-}
-
-extension PreviewView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let asset = appAssetsSelected.at(indexPath.item).asset
-
-        let contentInset = collectionView.contentInset
-        let maximumHeight = min(collectionViewHeightLayout.constant, bounds.width)
-        
-        let contentSize = UIEdgeInsetsInsetRect(CGRect(origin: .zero, size: CGSize(width: maximumHeight, height: maximumHeight)), contentInset).size
-        let boundingSize = CGSize(width: contentSize.height, height: contentSize.height)
-        let photoSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight).aspectFit(in: boundingSize)
-        let cellSize = photoSize.applying(appAssetsSelected.at(indexPath.item).editState.transform).magnitude
-        
-        return CGSize(width: cellSize.width, height: floor(contentSize.height))
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 1
     }
 }

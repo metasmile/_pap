@@ -14,16 +14,39 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
     
     var indexPath: IndexPath?
     var asset: PHAsset?
+    var editItem: PHAssetItem<ImageEditStateValue>?
     var imageRequestId: PHImageRequestID?
     var imageContentMode = PHImageContentMode.aspectFit
     
     @IBOutlet weak var assetViewWidth: NSLayoutConstraint!
     @IBOutlet weak var assetViewHeight: NSLayoutConstraint!
     
+    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
+        super.apply(layoutAttributes)
+        
+        let indexPath = layoutAttributes.indexPath
+        guard let item = AppAssets.selected.at(unsafeIndex: indexPath.item) else { return }
+        let asset = item.asset
+        
+        let boundingSize = asset.pixelWidth > asset.pixelHeight ? layoutAttributes.size.applying(item.editState.transform).magnitude : layoutAttributes.size
+        let photoSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight).aspectFit(in: boundingSize)
+        
+        assetViewWidth.constant = photoSize.width
+        assetViewHeight.constant = photoSize.height
+        
+        layoutIfNeeded()
+        assetView.setThumbnailAsset(asset, cancelDrawingIfNeeded: { [weak self] in
+            return self?.indexPath != indexPath
+        }, completion: { [weak self] image in
+            self?.setImageEditItem(item.editState)
+        })
+    }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         
         assetView.asset = nil
+        editItem = nil
         indexPath = nil
         
         if let imageRequestId = imageRequestId {
@@ -35,6 +58,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
     func setEditItem(_ item: PHAssetItem<ImageEditStateValue>, at indexPath: IndexPath) {
         let asset = item.asset
 
+        self.editItem = item
         self.asset = asset
         self.indexPath = indexPath
         
@@ -59,6 +83,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
     func setEditItemForPreview(_ item: PHAssetItem<ImageEditStateValue>, at indexPath: IndexPath) {
         let asset = item.asset
         
+        self.editItem = item
         self.asset = asset
         self.indexPath = indexPath
         

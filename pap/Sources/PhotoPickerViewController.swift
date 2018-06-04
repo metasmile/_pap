@@ -80,7 +80,7 @@ class PhotoPickerViewController: AppDockViewController {
             
             if self.collection == nil {
                 self.collection = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil).firstObject
-                self.title = self.collection?.localizedTitle ?? Bundle.main.displayName
+                self.titleFade = self.collection?.localizedTitle ?? Bundle.main.displayName
             }
 
             //QA: attach initial progress activity view + non-mainqueue.async

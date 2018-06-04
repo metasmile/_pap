@@ -108,7 +108,9 @@ class AssetView: UIView {
     
     var asset: PHAsset? {
         didSet {
-            clearDrawing()
+            if oldValue != asset {
+                clearDrawing()
+            }
         }
     }
     
@@ -316,6 +318,7 @@ extension AssetView {
     func setThumbnailAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: ((UIImage?) -> Void)? = nil) {
         previewMode = true
         self.asset = asset
+        
         loadImage(for: asset) { [weak self] image in
             DispatchQueue.main.async { [weak self] in
                 guard !cancellation() else {

@@ -796,17 +796,15 @@ extension AppDockView: UIScrollViewDelegate {
     private func showAppCollectionZoomOutAnimation() {
         let toLayout = AppCollectionViewLayout(layoutMetrics: .compact)
         
-        let visibleItemCount = appCollectionView.indexPathsForVisibleItems.count
-        let targetIndexPath = visibleItemCount > 0 ? appCollectionView.indexPathsForVisibleItems.sorted()[visibleItemCount / 2] : nil
+        let offsetXRatio = (appCollectionView.contentOffset.x + appCollectionView.contentInset.left) / appCollectionView.collectionViewLayout.collectionViewContentSize.width
         
         self.appCollectionViewHeightLayout.constant = AppCollectionViewLayout.LayoutConstants.compactHeight
         UIView.animateAsSpring(0.4, delay: 0, animations: {
             self.appCollectionView.superview?.layoutIfNeeded()
             self.appCollectionView.setCollectionViewLayout(toLayout, animated: false)
             
-            if let indexPath = targetIndexPath {
-                self.appCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
-            }
+            let offsetX = min(max(0, offsetXRatio * toLayout.collectionViewContentSize.width - self.appCollectionView.contentInset.left), toLayout.collectionViewContentSize.width - self.appContentView.bounds.width)
+            self.appCollectionView.contentOffset.x = offsetX
         }, completion: nil)
     }
     
