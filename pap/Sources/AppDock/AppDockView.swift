@@ -766,19 +766,19 @@ extension AppDockView: UIScrollViewDelegate {
         
         let toLayout = AppCollectionViewLayout(layoutMetrics: .prominent)
         
-        let visibleItemCount = appCollectionView.indexPathsForVisibleItems.count
-        let touchRatio = appCollectionView.panGestureRecognizer.location(in: self).x / appCollectionView.bounds.width
-        let index = Int(CGFloat(visibleItemCount - 1) * touchRatio)
-        
-        let targetIndexPath = visibleItemCount > 0 ? appCollectionView.indexPathsForVisibleItems.sorted()[index] : nil
+        let touchLocation = appCollectionView.panGestureRecognizer.location(in: self.appCollectionView)
+        let touchRatio = convert(touchLocation, from: appCollectionView).x / appCollectionView.bounds.width
+        let targetIndexPath = appCollectionView.indexPathForItem(at: touchLocation)
         
         appCollectionViewHeightLayout.constant = AppCollectionViewLayout.LayoutConstants.prominentHeight
+        
         UIView.animate(withDuration: 0.3, delay: 0, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
             self.appCollectionView.superview?.layoutIfNeeded()
             self.appCollectionView.setCollectionViewLayout(toLayout, animated: false)
             
-            if let indexPath = targetIndexPath {
-                self.appCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+            if let indexPath = targetIndexPath, let attributes = toLayout.layoutAttributesForItem(at: indexPath) {
+                let offsetX = min(max(0, attributes.center.x - touchRatio * self.appCollectionView.bounds.width), toLayout.collectionViewContentSize.width - self.appContentView.bounds.width)
+                self.appCollectionView.contentOffset.x = offsetX
             }
         }, completion: nil)
     }
@@ -803,7 +803,7 @@ extension AppDockView: UIScrollViewDelegate {
             self.appCollectionView.superview?.layoutIfNeeded()
             self.appCollectionView.setCollectionViewLayout(toLayout, animated: false)
             
-            let offsetX = min(max(0, offsetXRatio * toLayout.collectionViewContentSize.width - self.appCollectionView.contentInset.left), toLayout.collectionViewContentSize.width - self.appContentView.bounds.width)
+            let offsetX = min(offsetXRatio * toLayout.collectionViewContentSize.width - self.appCollectionView.contentInset.left, toLayout.collectionViewContentSize.width - self.appContentView.bounds.width)
             self.appCollectionView.contentOffset.x = offsetX
         }, completion: nil)
     }
@@ -893,7 +893,7 @@ class AppCollectionViewLayout: UICollectionViewLayout {
         
         prepareCache()
         
-        var itemPosition: CGPoint = CGPoint(x: padding, y: 0)
+        var itemPosition: CGPoint = .zero
         
         for indexPath in (0 ..< numberOfItems).map({ IndexPath(item: $0, section: 0) }) {
             let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
@@ -921,13 +921,9 @@ class AppCollectionViewLayout: UICollectionViewLayout {
         return CGSize(width: contentsWidth, height: itemSize(with: layoutMetrics).height)
     }
     
-    private var padding: CGFloat {
-        return max(0, (collectionViewSize.width - contentSize.width) / 2)
-    }
-    
     override var collectionViewContentSize: CGSize {
         let contentSize = self.contentSize
-        return CGSize(width: contentSize.width + padding * 2, height: contentSize.height)
+        return CGSize(width: contentSize.width, height: contentSize.height)
     }
 }
 

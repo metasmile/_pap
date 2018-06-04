@@ -76,7 +76,7 @@ class AppDockNavigationController: UINavigationController, UINavigationControlle
         navigationBar.layoutIfNeeded()
         viewControllers.forEach { $0.view.layoutIfNeeded() }
         
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.35) {
             self.appDockView.superview?.layoutIfNeeded()
         }
     }

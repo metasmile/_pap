@@ -17,6 +17,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
     var editItem: PHAssetItem<ImageEditStateValue>?
     var imageRequestId: PHImageRequestID?
     var imageContentMode = PHImageContentMode.aspectFit
+    private var needsToUpdatePreview: Bool = false
     
     @IBOutlet weak var assetViewWidth: NSLayoutConstraint!
     @IBOutlet weak var assetViewHeight: NSLayoutConstraint!
@@ -24,22 +25,8 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
         
-        let indexPath = layoutAttributes.indexPath
-        guard let item = AppAssets.selected.at(unsafeIndex: indexPath.item) else { return }
-        let asset = item.asset
-        
-        let boundingSize = asset.pixelWidth > asset.pixelHeight ? layoutAttributes.size.applying(item.editState.transform).magnitude : layoutAttributes.size
-        let photoSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight).aspectFit(in: boundingSize)
-        
-        assetViewWidth.constant = photoSize.width
-        assetViewHeight.constant = photoSize.height
-        
-        layoutIfNeeded()
-        assetView.setThumbnailAsset(asset, cancelDrawingIfNeeded: { [weak self] in
-            return self?.indexPath != indexPath
-        }, completion: { [weak self] image in
-            self?.setImageEditItem(item.editState)
-        })
+        setNeedsUpdatePreview()
+        updatePreviewIfNeeded()
     }
     
     override func prepareForReuse() {
@@ -78,6 +65,20 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         }, completion: { [weak self] in
             self?.setImageEditItem(item.editState)
         })
+    }
+    
+    private func setNeedsUpdatePreview() {
+        self.needsToUpdatePreview = true
+    }
+    
+    private func updatePreviewIfNeeded() {
+        guard self.needsToUpdatePreview else { return }
+        
+        if let editItem = self.editItem, let indexPath = self.indexPath {
+            setEditItemForPreview(editItem, at: indexPath)
+        }
+        
+        needsToUpdatePreview = false
     }
     
     func setEditItemForPreview(_ item: PHAssetItem<ImageEditStateValue>, at indexPath: IndexPath) {
