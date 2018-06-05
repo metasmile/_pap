@@ -217,8 +217,12 @@ class PhotoPickerViewController: AppDockViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        photoCollectionView.contentInset.bottom = appDockInsets.bottom
-        photoCollectionView.scrollIndicatorInsets.bottom = photoCollectionView.contentInset.bottom
+        
+        
+        UIView.animateAsSpring(animations: {
+            self.photoCollectionView.contentInset.bottom = self.appDockInsets.bottom
+            self.photoCollectionView.scrollIndicatorInsets.bottom = self.photoCollectionView.contentInset.bottom
+        })
     }
     
     override func cancelButtonDidTap(sender: Any) {

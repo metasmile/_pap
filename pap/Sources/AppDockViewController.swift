@@ -70,11 +70,16 @@ class AppDockNavigationController: UINavigationController, UINavigationControlle
         viewControllers.forEach({ $0.viewDidLayoutSubviews() })
     }
     
+    var isAppDockHidden: Bool {
+        return appDockViewBottomLayout?.constant == 0
+    }
+    
     func setAppDockHidden(_ hidden: Bool, animated: Bool) {
+        guard isAppDockHidden != hidden else { return }
+        
         appDockViewBottomLayout?.constant = hidden ? appDockView.bounds.height : 0
         
         navigationBar.layoutIfNeeded()
-        viewControllers.forEach { $0.view.layoutIfNeeded() }
         
         UIView.animate(withDuration: 0.35) {
             self.appDockView.superview?.layoutIfNeeded()
@@ -161,7 +166,7 @@ class AppDockViewController: UIViewController {
         }
         
         // prevent unnecessary animation
-        self.appDockView?.layoutIfNeeded()
+        self.appDockView?.superview?.layoutIfNeeded()
         
         selectCurrentAppIfExist(animated: false)
     }
@@ -176,6 +181,12 @@ class AppDockViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         unregisterWatchingAppConfig()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.appDockView?.superview?.layoutIfNeeded()
     }
     
     func registerWatchingAppConfig() {

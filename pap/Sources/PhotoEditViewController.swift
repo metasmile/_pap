@@ -88,6 +88,12 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         return [AppDockItem(app: app)]
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        appDockNavigationController?.setAppDockHidden(false, animated: animated)
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
