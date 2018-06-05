@@ -28,6 +28,8 @@ class PhotoPickerViewController: AppDockViewController {
 
     var collection: PHAssetCollection?
     var queuedPhotoLibraryChanges = ItemQueue<PHChange>()
+    
+    private var _isFirstLayoutView = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -217,12 +219,17 @@ class PhotoPickerViewController: AppDockViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        
-        
-        UIView.animateAsSpring(animations: {
+        if _isFirstLayoutView {
+            _isFirstLayoutView = false
             self.photoCollectionView.contentInset.bottom = self.appDockInsets.bottom
             self.photoCollectionView.scrollIndicatorInsets.bottom = self.photoCollectionView.contentInset.bottom
-        })
+        }
+        else {
+            UIView.animateAsSpring(animations: {
+                self.photoCollectionView.contentInset.bottom = self.appDockInsets.bottom
+                self.photoCollectionView.scrollIndicatorInsets.bottom = self.photoCollectionView.contentInset.bottom
+            })
+        }
     }
     
     override func cancelButtonDidTap(sender: Any) {
