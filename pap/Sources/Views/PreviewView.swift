@@ -178,7 +178,9 @@ class PreviewView: CustomView {
         collectionView.layoutIfNeeded()
         collectionView.setCollectionViewLayout(toLayout, animated: false)
         
-        collectionView.setContentOffset(CGPoint(x: offsetXRatio * toLayout.contentSize.width, y: collectionView.contentOffset.y), animated: false)
+        if appAssetsSelected.count > 0 {
+            collectionView.setContentOffset(CGPoint(x: offsetXRatio * toLayout.contentSize.width, y: collectionView.contentOffset.y), animated: false)
+        }
     }
 }
 
