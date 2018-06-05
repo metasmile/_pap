@@ -70,13 +70,7 @@ class AppDockNavigationController: UINavigationController, UINavigationControlle
         viewControllers.forEach({ $0.viewDidLayoutSubviews() })
     }
     
-    var isAppDockHidden: Bool {
-        return appDockViewBottomLayout?.constant == 0
-    }
-    
     func setAppDockHidden(_ hidden: Bool, animated: Bool) {
-        guard isAppDockHidden != hidden else { return }
-        
         appDockViewBottomLayout?.constant = hidden ? appDockView.bounds.height : 0
         
         navigationBar.layoutIfNeeded()
