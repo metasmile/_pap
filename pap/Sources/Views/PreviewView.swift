@@ -276,6 +276,7 @@ extension PreviewView {
             AppCenter.default.task.append(request: AppTaskRequest(app, appAssetsSelected.at(i)))
         }
         AppCenter.default.task.perform(createTaskReaction())
+        papLog.performFromUser()
 
         return true
     }

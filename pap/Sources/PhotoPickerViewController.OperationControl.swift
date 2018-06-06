@@ -58,6 +58,8 @@ extension PhotoPickerViewController{
     func cancelAllInCurrentContext(){
         if AppCenter.default.task.isRunning {
             batchPreviewView.cancelBatchProcessing()
+
+            papLog.cancelWhilePerforming()
         }
         else {
             if AppAssets.selected.hasChanges {
@@ -71,6 +73,8 @@ extension PhotoPickerViewController{
             else {
                 cancelAllSelection()
             }
+
+            papLog.cancelWhileSelecting()
         }
     }
 
