@@ -248,8 +248,11 @@ class PhotoAlbumCollectionViewCell: UICollectionViewCell {
             
             self?.subtitleLabel.text = numberFormatter.string(from: NSNumber(value:largeNumber))
             
-            if collection.assetCollectionSubtype != .smartAlbumRecentlyDeleted {
-                self?.imageView.image = assets.lastObject?.requestThumbnailImage(targetSize: self?.imageView.bounds.size ?? .zero, contentMode: .aspectFill)
+            if collection.assetCollectionSubtype != .smartAlbumRecentlyDeleted, let asset = assets.lastObject {
+                PHImageManager.default().requestImage(for: asset, targetSize: self?.imageView.bounds.size ?? .zero, contentMode: .aspectFit, options: nil, resultHandler: { (image, info) in
+                    guard self?.indexPath == indexPath else { return }
+                    self?.imageView.image = image
+                })
             }
         }
     }
