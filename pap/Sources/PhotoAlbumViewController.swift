@@ -13,7 +13,7 @@ private extension PHAssetCollectionSubtype {
     static let smartAlbumRecentlyDeleted = PHAssetCollectionSubtype(rawValue: 1000000201)
 }
 
-class PhotoAlbumViewController: UIViewController  {
+class PhotoAlbumViewController: UIViewController, PHPhotoLibraryChangeObserver  {
     @IBOutlet weak var collectionView: UICollectionView!
     fileprivate var dataSource: [[(collection: PHAssetCollection, assets: PHFetchResult<PHAsset>)]]?
     private var orderedSmartAlbumSubtypes: [PHAssetCollectionSubtype] = [
@@ -45,6 +45,8 @@ class PhotoAlbumViewController: UIViewController  {
         PHPhotoLibraryManager.default.authorizeIfNeeded { authorized in
             guard authorized else { return }
             
+            PHPhotoLibrary.shared().register(self)
+            
             let smartAlbums = self.orderedSmartAlbumSubtypes.compactMap { subtype -> (collection: PHAssetCollection, assets: PHFetchResult<PHAsset>)? in
                 guard let collection = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: subtype, options: nil).firstObject else { return nil }
                 return (collection: collection, assets: PHAsset.fetchAssets(in: collection, options: nil))
@@ -59,18 +61,15 @@ class PhotoAlbumViewController: UIViewController  {
             self.dataSource = [smartAlbums, userAlbums]
             self.collectionView.reloadData()
         }
-        
-        //listen PHPhotoLibrary changes
-        PHPhotoLibraryManager.default.watch(\.changes, options: [.new]) {
-            guard let changeInstance = PHPhotoLibraryManager.default.changes else { return }
-            
-            DispatchQueue.main.async {
-                self.photoLibraryDidChange(changeInstance)
-            }
+    }
+    
+    func photoLibraryDidChange(_ changeInstance: PHChange) {
+        DispatchQueue.main.async {
+            self.updateAlbumChanges(changeInstance)
         }
     }
     
-    private func photoLibraryDidChange(_ changeInstance: PHChange) {
+    private func updateAlbumChanges(_ changeInstance: PHChange) {
         var fetchResultChanges = [(indexPath: IndexPath, changeDetails: PHFetchResultChangeDetails<PHAsset>)]()
         dataSource?.enumerated().forEach { sectionData in
             sectionData.element.enumerated().forEach { data in

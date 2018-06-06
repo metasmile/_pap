@@ -29,7 +29,7 @@ class PhotoPickerViewController: AppDockViewController {
     var collection: PHAssetCollection?
     var queuedPhotoLibraryChanges = ItemQueue<PHChange>()
     
-    private var _isFirstLayoutView = true
+    private var animatesUpdatingPhotoCollectionContentInset = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,6 +135,12 @@ class PhotoPickerViewController: AppDockViewController {
         
         appDockNavigationController?.setAppDockHidden(false, animated: animated)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        animatesUpdatingPhotoCollectionContentInset = true
+    }
 
     func redisplayCurrentVisibleCellsWhenUpdateApps() {
         AppAssets.selected.reloadAll()
@@ -219,16 +225,15 @@ class PhotoPickerViewController: AppDockViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        if _isFirstLayoutView {
-            _isFirstLayoutView = false
-            self.photoCollectionView.contentInset.bottom = self.appDockInsets.bottom
-            self.photoCollectionView.scrollIndicatorInsets.bottom = self.photoCollectionView.contentInset.bottom
-        }
-        else {
+        if animatesUpdatingPhotoCollectionContentInset {
             UIView.animateAsSpring(animations: {
                 self.photoCollectionView.contentInset.bottom = self.appDockInsets.bottom
                 self.photoCollectionView.scrollIndicatorInsets.bottom = self.photoCollectionView.contentInset.bottom
             })
+        }
+        else {
+            self.photoCollectionView.contentInset.bottom = self.appDockInsets.bottom
+            self.photoCollectionView.scrollIndicatorInsets.bottom = self.photoCollectionView.contentInset.bottom
         }
     }
     
