@@ -154,7 +154,7 @@ class PreviewView: CustomView {
         collectionView.register(PreviewCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: PreviewCollectionViewCell.self))
     }
 
-    public func updatePreviews(animated: Bool = true, completion: (() -> Void)? = nil) {
+    public func updatePreviews(animated: Bool = true, forced: Bool = false, completion: (() -> Void)? = nil) {
         reloadPreview(with: collectionViewHeightLayout.constant)
 
         let visibleIndexPaths = collectionView.indexPathsForVisibleItems
@@ -162,7 +162,7 @@ class PreviewView: CustomView {
             guard let cell = self.collectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else { continue }
 
             let appAsset = appAssetsSelected.at(indexPath.item)
-            if appAsset.editState.hasChanges{
+            if appAsset.editState.hasChanges || forced {
                 cell.setImageEditItem(appAsset.editState, animated: animated)
             }
         }

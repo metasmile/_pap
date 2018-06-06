@@ -177,6 +177,7 @@ class PhotoPickerViewController: AppDockViewController {
         redisplayVisibleCellsWhenChangeApp()
         showAndRevertTitleByCurrentAppIfNeeded()
         appDockView?.reloadKeepingDrawerOpened()
+        batchPreviewView.updatePreviews(forced: true)
     }
     
     override func registerWatchingAppConfig() {
