@@ -155,7 +155,7 @@ class PreviewView: CustomView {
     }
 
     public func updatePreviews(animated: Bool = true, forced: Bool = false, completion: (() -> Void)? = nil) {
-        reloadPreview(with: collectionViewHeightLayout.constant)
+        setPreviewLayout(with: collectionViewHeightLayout.constant)
 
         let visibleIndexPaths = collectionView.indexPathsForVisibleItems
         for indexPath in visibleIndexPaths {
@@ -168,7 +168,7 @@ class PreviewView: CustomView {
         }
     }
     
-    public func reloadPreview(with height: CGFloat) {
+    public func setPreviewLayout(with height: CGFloat) {
         guard let fromLayout = collectionView.collectionViewLayout as? PreviewCollectionLayout else { return }
         let toLayout = PreviewCollectionLayout(previewHeight: height)
         
@@ -194,11 +194,11 @@ extension PreviewView: AppDockContentView, AppDockContent {
     }
 
     func reloadContent() {
-        reloadPreview(with:_preferences.preferredHeight)
+        setPreviewLayout(with:_preferences.preferredHeight)
     }
 
     func reloadContentThatFits(size:CGSize) {
-        reloadPreview(with:size.height)
+        setPreviewLayout(with:size.height)
     }
 }
 
