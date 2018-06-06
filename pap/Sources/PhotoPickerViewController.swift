@@ -16,7 +16,6 @@ extension PhotoPickerViewController {
 
 class PhotoPickerViewController: AppDockViewController {
     @IBOutlet weak var photoCollectionView: UICollectionView!
-    var initialPhotoCollectionIndexPath: IndexPath?
     
     var batchPreviewView: PreviewView!
     private var appDockContentLayoutStateRestoringAfterProcessing: AppDockContentLayoutState?
@@ -30,6 +29,20 @@ class PhotoPickerViewController: AppDockViewController {
     var queuedPhotoLibraryChanges = ItemQueue<PHChange>()
     
     private var animatesUpdatingPhotoCollectionContentInset = false
+    
+    private var needsScrollToBottom = false
+    
+    func setNeedsScrollToBottom() {
+        needsScrollToBottom = true
+    }
+    
+    func scrollToBottomIfNeeded() {
+        guard needsScrollToBottom else { return }
+        needsScrollToBottom = false
+        
+        let bottomOffsetY = max(-photoCollectionView.adjustedContentInset.top, photoCollectionView.contentSize.height - photoCollectionView.bounds.size.height + photoCollectionView.adjustedContentInset.bottom - collectionView(photoCollectionView, layout: photoCollectionView.collectionViewLayout, referenceSizeForFooterInSection: 0).height)
+        photoCollectionView.setContentOffset(CGPoint(x: 0, y: bottomOffsetY), animated: false)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,8 +109,7 @@ class PhotoPickerViewController: AppDockViewController {
             if let numberOfSection = PHAssets.fetched.results?.count, numberOfSection > 0
                 , let numberOfItemsInSection = PHAssets.fetched.results?[numberOfSection - 1].count
                 , numberOfItemsInSection > 0 {
-
-                self.initialPhotoCollectionIndexPath = IndexPath(item: numberOfItemsInSection - 1, section: numberOfSection - 1)
+                self.setNeedsScrollToBottom()
             }
             self.photoCollectionView.reloadData()
 

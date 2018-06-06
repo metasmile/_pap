@@ -70,10 +70,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     // MARK: - UICollectionViewDelegate
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if let indexPath = initialPhotoCollectionIndexPath {
-            collectionView.scrollToItem(at: indexPath, at: .bottom, animated: false)
-            initialPhotoCollectionIndexPath = nil
-        }
+        scrollToBottomIfNeeded()
         
         (cell as? PhotoCollectionViewCell)?.isEnabled = self.collectionView(collectionView, shouldSelectItemAt: indexPath)
     }
