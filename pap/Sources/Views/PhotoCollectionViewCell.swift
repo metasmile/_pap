@@ -61,11 +61,10 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-
-        isSelected = false
         
         imageView.image = nil
         indexPath = nil
+        decorationView.isHidden = true
         
         if let imageRequestId = imageRequestId {
             PHPhotoLibraryManager.cachingImageManager.cancelImageRequest(imageRequestId)
@@ -87,6 +86,7 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
             DispatchQueue.main.async { [weak self] in
                 guard self?.indexPath == indexPath else { return }
                 self?.imageView.image = image
+                self?.updateDecorationContents(with: asset)
             }
             self?.imageRequestId = nil
         }
@@ -131,7 +131,9 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         let checkmarkSize = selectionCheckView.bounds.size
         let checkmarkmargin:CGFloat = 2.0
         selectionCheckView.frame = CGRect(origin: CGPoint(x: selectionViewSize.height-checkmarkSize.width-checkmarkmargin, y: selectionViewSize.width-checkmarkSize.height-checkmarkmargin), size: checkmarkSize)
-        
+    }
+    
+    private func updateDecorationContents(with asset: PHAsset) {
         //duration label
         cellIconAsLabel.isHidden = asset.mediaType != .video
         if !cellIconAsLabel.isHidden{
@@ -143,7 +145,7 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
             let milliseconds = asset.duration.truncatingRemainder(dividingBy: 60) / 60
             cellIconAsLabel.text = PhotoCollectionViewCell.durationLabelFormat.string(from: asset.duration + ceil(milliseconds))
         }
-
+        
         //badge icon
         var iconAsImage:UIImage? // 46
         if asset.mediaSubtypes.contains(.photoLive){
@@ -155,7 +157,7 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         else if asset.imageType == .burst{
             iconAsImage = BurstIconImage
         }
-
+        
         cellIconAsImageView.isHidden = iconAsImage == nil
         cellIconAsImageView.image = iconAsImage
         
