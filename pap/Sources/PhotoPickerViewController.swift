@@ -146,6 +146,7 @@ class PhotoPickerViewController: AppDockViewController {
         super.viewWillAppear(animated)
         
         appDockNavigationController?.setAppDockHidden(false, animated: animated)
+        selectCurrentAppIfExist(animated: false)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -245,8 +246,8 @@ class PhotoPickerViewController: AppDockViewController {
             })
         }
         else {
-            self.photoCollectionView.contentInset.bottom = self.appDockInsets.bottom
-            self.photoCollectionView.scrollIndicatorInsets.bottom = self.photoCollectionView.contentInset.bottom
+            self.photoCollectionView?.contentInset.bottom = self.appDockInsets.bottom
+            self.photoCollectionView?.scrollIndicatorInsets.bottom = self.photoCollectionView?.contentInset.bottom ?? 0
         }
     }
     
@@ -544,6 +545,7 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
         if let photoEditViewController = R.storyboard.appStoryboard.photoEditViewController(){
             photoEditViewController.preferredEditState = editItem.editState
             photoEditViewController.asset = editItem.asset
+            photoEditViewController.placeholderImage = editItem.asset.requestThumbnailImage(targetSize: CGSize(width: 200, height: 200))
             photoEditViewController.delegate = self
             photoEditViewController.indexPathInPicker = PHAssets.fetched.indexPath(of:editItem.asset)
             photoEditViewController.selectedInPicker = AppAssets.selected.by(editItem.asset) != nil

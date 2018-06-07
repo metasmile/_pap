@@ -159,10 +159,8 @@ class AppDockViewController: UIViewController {
             doneButton?.tintColor = view.tintColor
         }
         
-        // prevent unnecessary animation
+        //INFO: for prevent unnecessary animation
         self.appDockView?.superview?.layoutIfNeeded()
-        
-        selectCurrentAppIfExist(animated: false)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -180,6 +178,7 @@ class AppDockViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
+        //INFO: for update bottom inset
         self.appDockView?.superview?.layoutIfNeeded()
     }
     
@@ -221,7 +220,7 @@ class AppDockViewController: UIViewController {
 }
 
 extension AppDockViewController {
-    fileprivate func selectCurrentAppIfExist(animated: Bool = true) {
+    func selectCurrentAppIfExist(animated: Bool = true) {
         guard let currentApp = AppCenter.default.current, let indexOfCurrentApp = appDockItems.index(where: { $0.app == currentApp }), indexOfCurrentApp != NSNotFound else { return }
         appDockView?.selectItem(at: IndexPath(item: indexOfCurrentApp, section: 0), animated: animated)
     }

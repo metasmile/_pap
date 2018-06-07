@@ -69,6 +69,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
 
         doneButton?.title = "Done".localized
         
+        assetView.asset = asset
         assetView.image = placeholderImage
         assetView.preferredTransform = preferredEditState.transform
         assetView.applyEditState(preferredEditState)
@@ -92,6 +93,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         super.viewWillAppear(animated)
         
         appDockNavigationController?.setAppDockHidden(false, animated: animated)
+        selectCurrentAppIfExist(animated: false)
     }
     
     override func viewDidLayoutSubviews() {

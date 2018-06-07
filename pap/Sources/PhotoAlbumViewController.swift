@@ -211,18 +211,14 @@ class PhotoAlbumViewController: UIViewController, PHPhotoLibraryChangeObserver  
         super.viewWillAppear(animated)
         
         (navigationController as? AppDockNavigationController)?.setAppDockHidden(true, animated: animated)
+        
+        collectionView.visibleCells.forEach { $0.isHighlighted = false }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         self.updateCollectionViewChangesIfNeeded()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        collectionView.visibleCells.forEach { $0.isHighlighted = false }
     }
 }
 
