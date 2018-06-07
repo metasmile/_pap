@@ -15,6 +15,24 @@ private extension PHAssetCollectionSubtype {
 
 struct AlbumItemGroup {
     var items: [AlbumItem]
+    var fetchResults: PHFetchResult<PHAssetCollection>?
+    
+    init(fetchResults: PHFetchResult<PHAssetCollection>?) {
+        self.fetchResults = fetchResults
+        var items = [AlbumItem]()
+        
+        fetchResults?.enumerateObjects { (collection, idx, stop) in
+            let albumItem = AlbumItem(collection: collection, assets: PHAsset.fetchAssets(in: collection, options: nil))
+            items.append(albumItem)
+        }
+        
+        self.items = items
+    }
+    
+    init(items: [AlbumItem], fetchResults: PHFetchResult<PHAssetCollection>? = nil) {
+        self.items = items
+        self.fetchResults = fetchResults
+    }
     
     mutating func updateAssets(_ assets: PHFetchResult<PHAsset>, at index: Int) {
         self.items[index].updateAssets(assets)
@@ -22,8 +40,23 @@ struct AlbumItemGroup {
 }
 
 struct AlbumItem {
-    var collection: PHAssetCollection
-    var assets: PHFetchResult<PHAsset>
+    var fetchResults: PHFetchResult<PHAssetCollection>?
+    var collection: PHAssetCollection?
+    var assets: PHFetchResult<PHAsset>?
+    
+    init(fetchResults: PHFetchResult<PHAssetCollection>) {
+        self.fetchResults = fetchResults
+        self.collection = fetchResults.firstObject
+        if let collection = self.collection {
+            self.assets = PHAsset.fetchAssets(in: collection, options: nil)
+        }
+    }
+    
+    init(collection: PHAssetCollection, assets: PHFetchResult<PHAsset>) {
+        self.collection = collection
+        self.assets = assets
+        self.fetchResults = nil
+    }
     
     mutating func updateAssets(_ assets: PHFetchResult<PHAsset>) {
         self.assets = assets
@@ -33,6 +66,10 @@ struct AlbumItem {
 class PhotoAlbumViewController: UIViewController, PHPhotoLibraryChangeObserver  {
     @IBOutlet weak var collectionView: UICollectionView!
     fileprivate var dataSource: [AlbumItemGroup]?
+    
+    fileprivate var smartAlbums: [AlbumItem]?
+    fileprivate var userAlbums: [AlbumItem]?
+    
     private var orderedSmartAlbumSubtypes: [PHAssetCollectionSubtype] = [
         PHAssetCollectionSubtype.smartAlbumUserLibrary,
         PHAssetCollectionSubtype.smartAlbumFavorites,
@@ -68,19 +105,19 @@ class PhotoAlbumViewController: UIViewController, PHPhotoLibraryChangeObserver  
             
             PHPhotoLibrary.shared().register(self)
             
-            let smartAlbums = self.orderedSmartAlbumSubtypes.compactMap { subtype -> AlbumItem? in
-                guard let collection = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: subtype, options: nil).firstObject else { return nil }
-                return AlbumItem(collection: collection, assets: PHAsset.fetchAssets(in: collection, options: nil))
-            }
-            
-            let userCollections = PHAssetCollection.fetchTopLevelUserCollections(with: nil)
-            let userAlbums = userCollections.objects(at: IndexSet(integersIn: 0..<userCollections.count)).compactMap { collection -> AlbumItem? in
-                guard let collection = collection as? PHAssetCollection else { return nil }
-                return AlbumItem(collection: collection, assets: PHAsset.fetchAssets(in: collection, options: nil))
-            }
-            
-            self.dataSource = [AlbumItemGroup(items: smartAlbums), AlbumItemGroup(items: userAlbums)]
+            self.refetchCollections()
         }
+    }
+    
+    private func refetchCollections() {
+        let smartAlbums = self.orderedSmartAlbumSubtypes.compactMap { subtype -> AlbumItem? in
+            let collection = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: subtype, options: nil)
+            return AlbumItem(fetchResults: collection)
+        }
+        
+        let userCollections = PHAssetCollection.fetchTopLevelUserCollections(with: nil)
+        
+        self.dataSource = [AlbumItemGroup(items: smartAlbums), AlbumItemGroup(fetchResults: userCollections as? PHFetchResult<PHAssetCollection>)]
     }
     
     override func viewDidLoad() {
@@ -100,43 +137,76 @@ class PhotoAlbumViewController: UIViewController, PHPhotoLibraryChangeObserver  
         }
     }
     
-    private var fetchResultChanges: [(indexPath: IndexPath, changeDetails: PHFetchResultChangeDetails<PHAsset>)]?
+    private var fetchResultAssetChanges: [(indexPath: IndexPath, changeDetails: PHFetchResultChangeDetails<PHAsset>)]?
+    private var fetchResultCollectionChanges: [(section: Int, changeDetails: PHFetchResultChangeDetails<PHAssetCollection>)]?
+    
     private func updateAlbumChanges(_ changeInstance: PHChange) {
-        var fetchResultChanges = [(indexPath: IndexPath, changeDetails: PHFetchResultChangeDetails<PHAsset>)]()
+        var assetChanges = [(indexPath: IndexPath, changeDetails: PHFetchResultChangeDetails<PHAsset>)]()
+        var collectionChanges = [(section: Int, changeDetails: PHFetchResultChangeDetails<PHAssetCollection>)]()
+        
         dataSource?.enumerated().forEach { sectionData in
-            sectionData.element.items.enumerated().forEach { data in
-                guard let changes = changeInstance.changeDetails(for: data.element.assets) else { return }
-                let indexPath = IndexPath(item: data.offset, section: sectionData.offset)
-                fetchResultChanges.append((indexPath: indexPath, changeDetails: changes))
+            if let fetchResults = sectionData.element.fetchResults {
+                if let changes = changeInstance.changeDetails(for: fetchResults) {
+                    collectionChanges.append((section: sectionData.offset, changeDetails: changes))
+                }
+            }
+            else {
+                sectionData.element.items.enumerated().forEach { data in
+                    guard let fetchResults = data.element.assets, let changes = changeInstance.changeDetails(for: fetchResults) else { return }
+                    let indexPath = IndexPath(item: data.offset, section: sectionData.offset)
+                    assetChanges.append((indexPath: indexPath, changeDetails: changes))
+                }
             }
         }
         
-        guard fetchResultChanges.isEmpty == false else { return }
-        self.fetchResultChanges = fetchResultChanges
+        self.fetchResultAssetChanges = assetChanges
+        self.fetchResultCollectionChanges = collectionChanges
         
+        self.refetchCollections()
         self.updateCollectionViewChangesIfNeeded()
     }
     
     private func updateCollectionViewChangesIfNeeded() {
         self.collectionView?.performBatchUpdates({
-            self.fetchResultChanges?.forEach { (indexPath, changes) in
-                self.dataSource?[indexPath.section].updateAssets(changes.fetchResultAfterChanges, at: indexPath.item)
-                
+            var removedIndexPaths = [IndexPath]()
+            self.fetchResultCollectionChanges?.forEach { (section, changes) in
                 if let removed = changes.removedIndexes, removed.count > 0 {
-                    self.collectionView.reloadItems(at: [indexPath])
+                    let indexPaths = removed.map { IndexPath(item: $0, section: section) }
+                    self.collectionView.deleteItems(at: indexPaths)
+                    
+                    removedIndexPaths.append(contentsOf: indexPaths)
                 }
                 if let inserted = changes.insertedIndexes, inserted.count > 0 {
-                    self.collectionView.reloadItems(at: [indexPath])
+                    self.collectionView.insertItems(at: inserted.map { IndexPath(item: $0, section: section) })
                 }
                 if let changed = changes.changedIndexes, changed.count > 0 {
-                    self.collectionView.reloadItems(at: [indexPath])
+                    self.collectionView.reloadItems(at: changed.map { IndexPath(item: $0, section: section) })
                 }
                 changes.enumerateMoves { fromIndex, toIndex in
-                    self.collectionView.reloadItems(at: [indexPath])
+                    self.collectionView.moveItem(at: IndexPath(item: fromIndex, section: section), to: IndexPath(item: toIndex, section: section))
                 }
             }
+            
+            let indexPathsToReload = self.fetchResultAssetChanges?.compactMap { (indexPath, changes) -> IndexPath? in
+                if let removed = changes.removedIndexes, removed.count > 0 {
+                    return indexPath
+                }
+                if let inserted = changes.insertedIndexes, inserted.count > 0 {
+                    return indexPath
+                }
+                if let changed = changes.changedIndexes, changed.count > 0 {
+                    return indexPath
+                }
+                return nil
+            }.filter { removedIndexPaths.contains($0) != true}
+            
+            if let indexPaths = indexPathsToReload {
+                self.collectionView.reloadItems(at: indexPaths)
+            }
+            
         }) { _ in
-            self.fetchResultChanges = nil
+            self.fetchResultAssetChanges = nil
+            self.fetchResultCollectionChanges = nil
         }
     }
     
@@ -290,15 +360,15 @@ class PhotoAlbumCollectionViewCell: UICollectionViewCell {
             
             let collection = albumItem.collection
             let assets = albumItem.assets
-            self?.titleLabel.text = collection.localizedTitle
+            self?.titleLabel.text = collection?.localizedTitle
             
-            let largeNumber = assets.count
+            let largeNumber = assets?.count ?? 0
             let numberFormatter = NumberFormatter()
             numberFormatter.numberStyle = NumberFormatter.Style.decimal
             
             self?.subtitleLabel.text = numberFormatter.string(from: NSNumber(value:largeNumber))
             
-            if collection.assetCollectionSubtype != .smartAlbumRecentlyDeleted, let asset = assets.lastObject {
+            if collection?.assetCollectionSubtype != .smartAlbumRecentlyDeleted, let asset = assets?.lastObject {
                 PHImageManager.default().requestImage(for: asset, targetSize: self?.imageView.bounds.size ?? .zero, contentMode: .aspectFit, options: nil, resultHandler: { (image, info) in
                     guard self?.indexPath == indexPath else { return }
                     self?.imageView.image = image
