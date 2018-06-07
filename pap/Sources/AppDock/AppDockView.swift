@@ -75,6 +75,8 @@ class AppDockView: CustomView {
     
     var delegate: AppDockViewDelegate?
     
+    private var reorderAppGesture: UILongPressGestureRecognizer?
+    
     var items: [AppDockItem] = [AppDockItem]() {
         didSet {
             layoutDockView()
@@ -111,6 +113,13 @@ class AppDockView: CustomView {
         let gesture = AppDockGestureRecognizer(target: self, action: #selector(self.gestureDidRecognize))
         gesture.delegate = self
         addGestureRecognizer(gesture)
+        
+        //TODO: save order states
+//        let longPressToDnD = UILongPressGestureRecognizer(target: self, action: #selector(self.longPressDidRecognize))
+//        appCollectionView.addGestureRecognizer(longPressToDnD)
+//
+//        reorderAppGesture = longPressToDnD
+//        reorderAppGesture?.isEnabled = false
 
         let tapDrawerGesture = UITapGestureRecognizer(target: self, action: #selector(self.drawerDidTap))
         drawerView.addGestureRecognizer(tapDrawerGesture)
@@ -469,7 +478,6 @@ extension AppDockView {
 // MARK: -
 
 extension AppDockView: UICollectionViewDataSource {
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
     }
@@ -487,7 +495,6 @@ extension AppDockView: UICollectionViewDataSource {
         
         return cell
     }
-
 }
 
 extension AppDockView: UICollectionViewDelegate {
@@ -499,11 +506,43 @@ extension AppDockView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         return !collectionView.isDecelerating
     }
+    
+    func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+        return reorderAppGesture != nil
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        items.swapAt(sourceIndexPath.item, destinationIndexPath.item)
+    }
+}
+
+extension AppDockView {
+    @objc func longPressDidRecognize(sender: UILongPressGestureRecognizer) {
+        switch(sender.state) {
+            case .began:
+                guard let selectedIndexPath = appCollectionView.indexPathForItem(at: sender.location(in: appCollectionView)) else { break }
+                appCollectionView.beginInteractiveMovementForItem(at: selectedIndexPath)
+            case .changed:
+                appCollectionView.updateInteractiveMovementTargetPosition(sender.location(in: appCollectionView))
+            case .ended:
+                appCollectionView.endInteractiveMovement()
+                zoomOutAppCollectionView(delay: 0.5)
+            default:
+                appCollectionView.cancelInteractiveMovement()
+                zoomOutAppCollectionView(delay: 0.5)
+        }
+    }
 }
 
 extension AppDockView: UIGestureRecognizerDelegate {
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return shouldDrawerBarEnable
+        if gestureRecognizer is AppDockGestureRecognizer {
+            return shouldDrawerBarEnable
+        }
+        else if gestureRecognizer == reorderAppGesture {
+            return true
+        }
+        return true
     }
     
     @objc func drawerDidTap(sender: UITapGestureRecognizer) {
@@ -781,6 +820,8 @@ extension AppDockView: UIScrollViewDelegate {
                 self.appCollectionView.setContentOffset(CGPoint(x: offsetX, y: self.appCollectionView.contentOffset.y), animated: false)
             }
         }, completion: nil)
+        
+        reorderAppGesture?.isEnabled = true
     }
     
     func zoomOutAppCollectionView(delay: Double = 1.5) {
@@ -794,6 +835,8 @@ extension AppDockView: UIScrollViewDelegate {
     }
     
     private func showAppCollectionZoomOutAnimation() {
+        guard reorderAppGesture?.state != .changed || reorderAppGesture?.state != .began else { return }
+        
         let toLayout = AppCollectionViewLayout(layoutMetrics: .compact)
         
         let offsetXRatio = (appCollectionView.contentOffset.x + appCollectionView.contentInset.left) / appCollectionView.collectionViewLayout.collectionViewContentSize.width
@@ -806,6 +849,8 @@ extension AppDockView: UIScrollViewDelegate {
             let offsetX = min(offsetXRatio * toLayout.collectionViewContentSize.width - self.appCollectionView.contentInset.left, toLayout.collectionViewContentSize.width - self.appContentView.bounds.width)
             self.appCollectionView.contentOffset.x = offsetX
         }, completion: nil)
+        
+        reorderAppGesture?.isEnabled = false
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {

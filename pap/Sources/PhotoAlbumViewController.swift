@@ -67,9 +67,6 @@ class PhotoAlbumViewController: UIViewController, PHPhotoLibraryChangeObserver  
     @IBOutlet weak var collectionView: UICollectionView!
     fileprivate var dataSource: [AlbumItemGroup]?
     
-    fileprivate var smartAlbums: [AlbumItem]?
-    fileprivate var userAlbums: [AlbumItem]?
-    
     private var orderedSmartAlbumSubtypes: [PHAssetCollectionSubtype] = [
         PHAssetCollectionSubtype.smartAlbumUserLibrary,
         PHAssetCollectionSubtype.smartAlbumFavorites,
