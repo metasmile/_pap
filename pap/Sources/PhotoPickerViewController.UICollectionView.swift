@@ -59,12 +59,12 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
 
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         let cellSize = self.collectionView(collectionView, layout: collectionView.collectionViewLayout, sizeForItemAt: IndexPath(item: 0, section: 0))
-        PHPhotoLibraryManager.cachingImageManager.startCachingImages(for: indexPaths.compactMap({ PHAssets.fetched.asset(at: $0) }), targetSize: cellSize, contentMode: .aspectFit, options: nil)
+        PHPhotoLibraryManager.cachingImageManager.startCachingImages(for: indexPaths.compactMap({ PHAssets.fetched.asset(at: $0) }), targetSize: cellSize, contentMode: .aspectFill, options: nil)
     }
 
     func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
         let cellSize = self.collectionView(collectionView, layout: collectionView.collectionViewLayout, sizeForItemAt: IndexPath(item: 0, section: 0))
-        PHPhotoLibraryManager.cachingImageManager.stopCachingImages(for: indexPaths.compactMap({ PHAssets.fetched.asset(at: $0) }), targetSize: cellSize, contentMode: .aspectFit, options: nil)
+        PHPhotoLibraryManager.cachingImageManager.stopCachingImages(for: indexPaths.compactMap({ PHAssets.fetched.asset(at: $0) }), targetSize: cellSize, contentMode: .aspectFill, options: nil)
     }
 
     // MARK: - UICollectionViewDelegate

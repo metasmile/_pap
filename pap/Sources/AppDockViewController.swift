@@ -84,9 +84,9 @@ class AppDockNavigationController: UINavigationController, UINavigationControlle
         
         navigationBar.layoutIfNeeded()
         
-        UIView.animate(withDuration: 0.35) {
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
             self.appDockView.superview?.layoutIfNeeded()
-        }
+        }, completion: nil)
         
         interactivePopGestureRecognizer?.isEnabled = hidden
     }
