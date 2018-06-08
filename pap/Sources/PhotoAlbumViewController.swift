@@ -96,6 +96,8 @@ class PhotoAlbumViewController: UIViewController, PHPhotoLibraryChangeObserver  
     }
     
     private func initialize() {
+        title = "Albums".localized
+        
         //TODO: Preload
         PHPhotoLibraryManager.default.authorizeIfNeeded { authorized in
             guard authorized else { return }
@@ -119,8 +121,6 @@ class PhotoAlbumViewController: UIViewController, PHPhotoLibraryChangeObserver  
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        title = "Albums".localized
         
         collectionView.contentInset.left = 16
         collectionView.contentInset.right = 16

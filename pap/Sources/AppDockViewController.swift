@@ -34,16 +34,30 @@ class AppDockNavigationController: UINavigationController, UINavigationControlle
         return view
     }()
     
+    private var appDockViewBottomLayout: NSLayoutConstraint?
+    
+    override init(rootViewController: UIViewController) {
+        super.init(rootViewController: rootViewController)
+    }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        self.setViewControllers([
+            R.storyboard.appStoryboard.photoAlbumViewController(),
+            R.storyboard.appStoryboard.photoPickerViewController()
+        ].compactMap { $0 }, animated: false)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         delegate = self
         
-        initialize()
-    }
-    
-    private var appDockViewBottomLayout: NSLayoutConstraint?
-    func initialize() {
         view.addSubview(dimmedView)
         dimmedView.fitConstraints(to: view)
         
@@ -57,11 +71,6 @@ class AppDockNavigationController: UINavigationController, UINavigationControlle
         appDockView.trailingAnchor.constraint(equalTo: appDockContainerView.trailingAnchor).isActive = true
         appDockViewBottomLayout = appDockView.bottomAnchor.constraint(equalTo: appDockContainerView.bottomAnchor)
         appDockViewBottomLayout?.isActive = true
-        
-        self.viewControllers = [
-            R.storyboard.appStoryboard.photoAlbumViewController(),
-            R.storyboard.appStoryboard.photoPickerViewController()
-        ].compactMap { $0 }
     }
     
     override func viewDidLayoutSubviews() {
@@ -81,9 +90,15 @@ class AppDockNavigationController: UINavigationController, UINavigationControlle
         
         interactivePopGestureRecognizer?.isEnabled = hidden
     }
+    
+    private var needsScrollToBottom = false
 }
 
 extension AppDockNavigationController: AppDockViewDelegate {
+    func appDockView(_ view: AppDockView, needsScrollToBottom: Bool) {
+        self.needsScrollToBottom = needsScrollToBottom
+    }
+    
     func appDockView(_ view: AppDockView, didSelectItemWith item: AppDockItem) {
         if AppCenter.default.current != item.app {
             AppCenter.default.current = item.app
@@ -105,7 +120,9 @@ extension AppDockNavigationController: AppDockViewDelegate {
 
                 if collectionView.contentOffset.y == bottomOffsetY{
                     needsToOpenDockViewDrawer = true
-                }else{
+                }
+                else if needsScrollToBottom {
+                    needsScrollToBottom = false
                     collectionView.setContentOffset(CGPoint(x: 0, y: bottomOffsetY), animated: true)
                 }
 

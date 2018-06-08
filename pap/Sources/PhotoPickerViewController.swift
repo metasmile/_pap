@@ -246,8 +246,8 @@ class PhotoPickerViewController: AppDockViewController {
             })
         }
         else {
-            self.photoCollectionView?.contentInset.bottom = self.appDockInsets.bottom
-            self.photoCollectionView?.scrollIndicatorInsets.bottom = self.photoCollectionView?.contentInset.bottom ?? 0
+            self.photoCollectionView.contentInset.bottom = self.appDockInsets.bottom
+            self.photoCollectionView.scrollIndicatorInsets.bottom = self.photoCollectionView.contentInset.bottom
         }
     }
     
@@ -555,7 +555,6 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
 
             let navigationController = AppDockNavigationController(rootViewController: photoEditViewController)
             present(navigationController,animated: true) {
-
                 AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues( AppConfigUIAttrribute(tintColor: .white))
             }
         }

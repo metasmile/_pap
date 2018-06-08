@@ -22,6 +22,7 @@ struct AppDockItem {
 protocol AppDockViewDelegate {
     func appDockView(_ view: AppDockView, didSelectItemWith item: AppDockItem)
     func appDockView(_ view: AppDockView, didOpenDrawer isOpened: Bool)
+    func appDockView(_ view: AppDockView, needsScrollToBottom: Bool)
 }
 
 class AppDockGestureRecognizer: UIPanGestureRecognizer {
@@ -468,10 +469,15 @@ extension AppDockView {
 }
 
 extension AppDockView {
+    var selectedIndexPath: IndexPath? {
+        return appCollectionView.indexPathsForSelectedItems?.first
+    }
+    
     func selectItem(at indexPath: IndexPath, animated: Bool = false) {
         guard indexPath.item < items.count else { return }
         appCollectionView.selectItem(at: indexPath, animated: animated, scrollPosition: .centeredHorizontally)
-        collectionView(appCollectionView, didSelectItemAt: indexPath)
+        zoomOutAppCollectionView(delay: 0)
+        delegate?.appDockView(self, didSelectItemWith: items[indexPath.item])
     }
 }
 
@@ -500,6 +506,7 @@ extension AppDockView: UICollectionViewDataSource {
 extension AppDockView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         zoomOutAppCollectionView(delay: 0)
+        delegate?.appDockView(self, needsScrollToBottom: true)
         delegate?.appDockView(self, didSelectItemWith: items[indexPath.item])
     }
 
