@@ -61,7 +61,7 @@ extension AVAsset {
 }
 
 extension AVAsset {
-    func stabilize(with mode: ImageAlignment.StabilizationMode = .translation, clamp: CGFloat = 0, cancellation: (() -> Bool)? = nil) -> AVVideoComposition {
+    func stabilize(with mode: ImageAlignment.StabilizationMode = .translation, clamp: CGPoint = .zero, cancellation: (() -> Bool)? = nil) -> AVVideoComposition {
         var referenceImage: CIImage?
         
         return AVVideoComposition(asset: self) { (request) in

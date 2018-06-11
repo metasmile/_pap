@@ -76,7 +76,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             , ExifGhost.self
 
 //            , Clean.self
-//            , Stabilizer.self
+            , Stabilizer.self
         ]
 
         return config

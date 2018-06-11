@@ -53,11 +53,11 @@ extension AppUIAssetView {
             applyImageFilter(ciFilter: editState?.ciFilter)
         }
         else if asset?.mediaType == .video {
-            if let mode = editState?.stabilizationMode {
-                playerItem?.videoComposition = playerItem?.asset.stabilize(with: mode, clamp: editState?.stabilizationClamp ?? 0)
+            if let filter = editState?.ciFilter {
+                playerItem?.videoComposition = playerItem?.asset.applyFilter(filter)
             }
-            else {
-                playerItem?.videoComposition = playerItem?.asset.applyFilter(editState?.ciFilter)
+            else if let mode = editState?.stabilizationMode {
+                playerItem?.videoComposition = playerItem?.asset.stabilize(with: mode)
             }
         }
     }
