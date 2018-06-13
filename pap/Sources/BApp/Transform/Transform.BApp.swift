@@ -101,7 +101,7 @@ private extension TransformApp{
         view.cellImageInsets = UIEdgeInsetsMake(8, 10, 10, 10)
         
         var preferences = AppDockContentPreferences()
-        preferences.preferredHeight = 44
+        preferences.preferredHeight = 52
         return AppDockContentItem(view: view, preferences: preferences)
     }
 

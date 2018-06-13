@@ -49,7 +49,7 @@ class AppDockView: CustomView {
         }
 
         struct DrawerView {
-            static let compactDisabledHeight: CGFloat = DrawerView.compactHeight//14
+            static let compactDisabledHeight: CGFloat = 14
             static let compactHeight: CGFloat = 22
             static let topMargin: CGFloat = 5
             static let prominentHeight: CGFloat = 49

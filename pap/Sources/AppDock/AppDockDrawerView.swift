@@ -98,7 +98,8 @@ internal class AppDockDrawerView: DesignableView {
         ctx?.move(to: CGPoint(x: cornerRadius, y: topMargin))
         ctx?.addLine(to: CGPoint(x: rect.width - cornerRadius, y: topMargin))
         ctx?.move(to: CGPoint(x: 0, y: rect.height))
-        ctx?.addLine(to: CGPoint(x: rect.width, y: rect.height))
+        // TEST: no bottom line
+//        ctx?.addLine(to: CGPoint(x: rect.width, y: rect.height))
         ctx?.strokePath()
     }
 
