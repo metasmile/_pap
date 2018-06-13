@@ -111,7 +111,7 @@
 /*Translated from: image*/
 "cs_keyword_7" = "చిత్రం";
 /*Translated from: smart*/
-"cs_keyword_8" = "స్మార్ట్";
+"cs_keyword_8" = "smart";
 /*Translated from: picture*/
 "cs_keyword_9" = "చిత్రాన్ని";
 /*Translated from: memory*/
@@ -122,3 +122,105 @@
 "cs_keyword_12" = "స్నేహితుడు";
 /*Translated from: lover*/
 "cs_keyword_13" = "ప్రేమికుడు";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizing Selected Items..." = "ఎంచుకున్న అంశాలు స్థిరీకరించడం ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "రివర్స్";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "దిగుమతి";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Purging selected ..." = "ఎంపిక చేసిన ప్రక్షాళన ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "ఫార్వర్డ్";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Direction" = "దర్శకత్వం";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animation" = "యానిమేషన్";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Aspect Ratio" = "కారక నిష్పత్తి";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "ప్రాసెస్ని ప్రారంభిస్తోంది ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "ఫోటోలు";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift */
+"Selection Presets" = "ఎంపిక అమరికలు";
+/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
+"Do Anything, At Once." = "Do Anything, At Once.";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "పరిమాణం";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Repeat" = "రిపీట్";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "సృష్టించు";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Crop" = "పంట";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilize" = "స్థిరీకరించే";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"No loop" = "కాదు లూప్";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "ఎగుమతి";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+"Share" = "Share";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "GIF ని చేయండి";
+/* Generated from genl10n: Convert.AppDockContent.swift */
+"Choose an Option To Convert" = "మార్చడానికి ఒక ఎంపికను ఎంచుకోండి";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Crop to Fit" = "కత్తిరించడానికి కత్తిరించండి";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "ప్రత్యక్ష ఫోటో";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "చిత్రం నాణ్యత";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "వీడియో";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "ఫలితాలను సేవ్ చేస్తోంది ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "లూప్";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"nHD (640×360)" = "nHD (640 × 360)";
+/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+"Original" = "అసలు";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Burst" = "విస్ఫోటనం";
+/* Generated from genl10n: Stabilizer.swift */
+"Strong" = "బలమైన";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "సవరించు";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "ఫ్రేమ్ ఆలస్యం";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "ఆల్బమ్లు";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HD (1280×720)" = "HD (1280 × 720)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"%d times" = "%d సార్లు";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"qHD (960×540)" = "qHD (960 × 540)";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Downloading..." = "డౌన్లోడ్ చేస్తోంది ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "ప్రారంభం";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "నా ఆల్బమ్లు";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "రివైండ్";
+/* Generated from genl10n: Convert.AppDockContent.swift */
+"Export Options" = "ఎగుమతి ఎంపికలు";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"GIF Maker" = "GIF Maker";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"No Crop" = "సంఖ్య పంట";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "స్క్వేర్";
+/* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
+"Quality" = "నాణ్యత";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"QVGA (320×240)" = "QVGA (320 × 240)";
+/* Generated from genl10n: Stabilizer.swift */
+"Normal" = "సాధారణ";

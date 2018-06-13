@@ -20,12 +20,18 @@ struct AlbumItemGroup {
     init(fetchResults: PHFetchResult<PHAssetCollection>?) {
         self.fetchResults = fetchResults
         var items = [AlbumItem]()
-        
+
         fetchResults?.enumerateObjects { (collection, idx, stop) in
+            //INFO: type of collection is "PHCollectionList" in very few cases - Hipstamatic's album
+            //excluding PHCollectionList because -[PHCollectionList assetCollectionType]: unrecognized selector sent to instance 0x1d017b000
+            if type(of: collection) == PHCollectionList.self{
+                return
+            }
+
             let albumItem = AlbumItem(collection: collection, assets: PHAsset.fetchAssets(in: collection, options: nil))
             items.append(albumItem)
         }
-        
+
         self.items = items
     }
     
@@ -115,7 +121,7 @@ class PhotoAlbumViewController: UIViewController, PHPhotoLibraryChangeObserver  
         }
         
         let userCollections = PHAssetCollection.fetchTopLevelUserCollections(with: nil)
-        
+
         self.dataSource = [AlbumItemGroup(items: smartAlbums), AlbumItemGroup(fetchResults: userCollections as? PHFetchResult<PHAssetCollection>)]
     }
     

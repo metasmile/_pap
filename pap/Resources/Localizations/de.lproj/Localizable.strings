@@ -111,7 +111,7 @@
 /*Translated from: image*/
 "cs_keyword_7" = "Bild";
 /*Translated from: smart*/
-"cs_keyword_8" = "Clever";
+"cs_keyword_8" = "smart";
 /*Translated from: picture*/
 "cs_keyword_9" = "Bild";
 /*Translated from: memory*/
@@ -122,3 +122,105 @@
 "cs_keyword_12" = "Freund";
 /*Translated from: lover*/
 "cs_keyword_13" = "Liebhaber";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizing Selected Items..." = "Ausgewählte Artikel stabilisieren ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "Umkehren";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "Einführen";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Purging selected ..." = "Ausgewählte löschen ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "Nach vorne";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Direction" = "Richtung";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animation" = "Animation";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Aspect Ratio" = "Seitenverhältnis";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "Den Prozess starten ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "Fotos";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift */
+"Selection Presets" = "Auswahl Presets";
+/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
+"Do Anything, At Once." = "Do Anything, At Once.";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "Größe";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Repeat" = "Wiederholen";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "Erstellen";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Crop" = "Ernte";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilize" = "Stabilisieren";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"No loop" = "Keine Schleife";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "Export";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+"Share" = "Aktie";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "Mache GIF";
+/* Generated from genl10n: Convert.AppDockContent.swift */
+"Choose an Option To Convert" = "Wählen Sie eine Option zum Konvertieren";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Crop to Fit" = "Zuschneiden auf Anpassen";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "Live-Foto";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "Bildqualität";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "Video";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "Ergebnisse speichern ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "Schleife";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"nHD (640×360)" = "nHD (640×360)";
+/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+"Original" = "Original";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Burst" = "Platzen";
+/* Generated from genl10n: Stabilizer.swift */
+"Strong" = "Stark";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "Ändern";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "Rahmenverzögerung";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "Alben";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HD (1280×720)" = "HD (1280 × 720)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"%d times" = "%d mal";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"qHD (960×540)" = "qHD (960 × 540)";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Downloading..." = "Wird heruntergeladen...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "Anfang";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "Meine Alben";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "Zurückspulen";
+/* Generated from genl10n: Convert.AppDockContent.swift */
+"Export Options" = "Exportoptionen";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"GIF Maker" = "GIF-Maker";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"No Crop" = "Keine Ernte";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "Platz";
+/* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
+"Quality" = "Qualität";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"QVGA (320×240)" = "QVGA (320 × 240)";
+/* Generated from genl10n: Stabilizer.swift */
+"Normal" = "Normal";

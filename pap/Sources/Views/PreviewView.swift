@@ -276,7 +276,7 @@ extension PreviewView {
             AppCenter.default.task.append(request: AppTaskRequest(app, appAssetsSelected.at(i)))
         }
         AppCenter.default.task.perform(createTaskReaction())
-        papLog.performFromUser()
+        papLog.event.performFromUser()
 
         return true
     }
@@ -331,12 +331,11 @@ extension PreviewView {
             self.delegate?.batchPreviewViewDidEndEdit(self)
 
             //log
-            for (app, results) in resultsByApps{
+            for (_, results) in resultsByApps{
                 for r in results{
                     if let e = r.info.error{
-                        Crashlytics.sharedInstance().recordError(e, withAdditionalUserInfo: [
-                            "app.identifier":app.identifier
-                            ,"task.state": "\(r.info.state)"
+                        papLog.error.recordedError(e, parameters:[
+                            "task.state": "\(r.info.state)"
                         ])
                     }
                 }

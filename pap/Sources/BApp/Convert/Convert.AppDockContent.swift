@@ -145,7 +145,7 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
         cellDescribers.append(qualityCell)
         
         cells = [
-            ("Select Formats to Convert".localized, [from_to_cell], ""/*"From ‣ To".localized*/),
+            ("Choose an Option To Convert".localized, [from_to_cell], ""),
             ("Export Options".localized, [qualityCell], "")
         ]
 

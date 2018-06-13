@@ -87,6 +87,8 @@ class PhotoPickerViewController: AppDockViewController {
             DispatchQueue.global(qos: .background).async{
                 FileManager.default.clearTemporaryDirectory()
             }
+
+            papLog.event.allTasksAreFinished()
         }
 
         //check photo library permission
@@ -501,7 +503,7 @@ class PhotoPickerViewController: AppDockViewController {
         }, completion: { _ in
             if tasksWereRanAndRemoved {
                 AppCenter.default.task.perform(self.batchPreviewView.createTaskReaction())
-                papLog.performWhenPhotoLibraryDidChanged()
+                papLog.event.performWhenPhotoLibraryDidChanged()
             }else{
                 self.updateAllPhotosTitle()
                 self.updateSelectedItemUIs()
@@ -599,7 +601,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
     
     func batchPreviewViewWillBeginEdit(_ view: PreviewView) {
-        titleFade = currentDisplayableApp?.titleWillBegin ?? "Start Batch Editing...".localized
+        titleFade = currentDisplayableApp?.titleWillBegin ?? "Starting the Process...".localized
         taskProgress = 0
 
         let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
@@ -661,7 +663,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
 
     func batchPreviewViewWillFinalize(_ view: PreviewView) {
-        titleFade = currentDisplayableApp?.titleWillFinalize ?? "Saving Photos...".localized
+        titleFade = currentDisplayableApp?.titleWillFinalize ?? "Saving Results...".localized
 
         UIView.animate(withDuration: 0.6) {
             self.progressBar.alpha = 0

@@ -205,19 +205,19 @@ struct GIFMakerSettings {
         enum type: Int {
             case forward
             case reverse
-            case forwardAndReverse
+            case rewind
         }
         
         static let labels: [type: String] = [
             .forward: "Forward".localized,
             .reverse: "Reverse".localized,
-            .forwardAndReverse: "Forward & Reverse".localized
+            .rewind: "Rewind".localized
         ]
         
         static let orderedLabels: [String?] = [
             labels[.forward],
             labels[.reverse],
-            labels[.forwardAndReverse]
+            labels[.rewind]
         ]
         
         static func key(with value: String) -> Int {
@@ -311,17 +311,32 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
         
             default: results += resultItems.compactMap({ $0.fileURL })
         }
-        
-        asyncSignal.begin()
-        PHPhotoLibrary.shared().performChanges({
-            for result in results{
-                PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL:result)
+
+        if let rootViewController = UIApplication.shared.keyWindow?.rootViewController {
+            asyncSignal.begin()
+            DispatchQueue.main.async {
+                let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: results, applicationActivities: nil)
+                activityViewController.completionWithItemsHandler = { (activityType:UIActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
+                    asyncSignal.end()
+                }
+                activityViewController.popoverPresentationController?.sourceView=rootViewController.view
+                rootViewController.present(activityViewController, animated: true, completion: nil)
             }
-        }, completionHandler: { (success, info) in
-            asyncSignal.end()
-            print("creatingAndWait", success)
-        })
-        asyncSignal.waitUntilEnd()
+            asyncSignal.waitUntilEnd()
+        }
+
+        //INFO: move or merge this code when add on-demand result collection feature
+
+//        asyncSignal.begin()
+//        PHPhotoLibrary.shared().performChanges({
+//            for result in results{
+//                PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL:result)
+//            }
+//        }, completionHandler: { (success, info) in
+//            asyncSignal.end()
+//            print("creatingAndWait", success)
+//        })
+//        asyncSignal.waitUntilEnd()
         
         return result
     }
@@ -581,7 +596,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
                     return "No loop".localized
                 }
                 else {
-                    return "\(count) \("times".localized)"
+                    return "%d times".localizedFormatted(String(Int(count)))
                 }
             }
             else {

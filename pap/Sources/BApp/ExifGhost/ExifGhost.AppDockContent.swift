@@ -265,9 +265,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0
-                ? 70
-                : 40
+        return 50
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -276,7 +274,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return section == 0
-                ? "👻 Switch on ... any items you want to purge ... The quality of each images will ... completely remain the same ... Grrr ..."
+                ? "👻 " + "Switch on any items you want to purge. The quality will completely remain the same."
                 : metadataCollection[section-1].label
     }
 

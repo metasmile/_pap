@@ -111,7 +111,7 @@
 /*Translated from: image*/
 "cs_keyword_7" = "vaizdas";
 /*Translated from: smart*/
-"cs_keyword_8" = "protingas";
+"cs_keyword_8" = "smart";
 /*Translated from: picture*/
 "cs_keyword_9" = "nuotrauka";
 /*Translated from: memory*/
@@ -122,3 +122,105 @@
 "cs_keyword_12" = "draugas";
 /*Translated from: lover*/
 "cs_keyword_13" = "meilužis";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizing Selected Items..." = "Stabilizuoti pasirinktus elementus ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "Atvirkštinis";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "Importuoti";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Purging selected ..." = "Purging pasirinkta ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "Persiųsti";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Direction" = "Kryptis";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animation" = "Animacija";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Aspect Ratio" = "Aspect Ratio";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "Proceso pradžia ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "Nuotraukos";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift */
+"Selection Presets" = "Pasirinkimo presai";
+/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
+"Do Anything, At Once." = "Do Anything, At Once.";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "Dydis";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Repeat" = "Pakartokite";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "Sukurti";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Crop" = "Apkarpyti";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilize" = "Stabilizuoti";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"No loop" = "Nėra kilpų";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "Eksportas";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+"Share" = "Dalintis";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "Padarykite GIF";
+/* Generated from genl10n: Convert.AppDockContent.swift */
+"Choose an Option To Convert" = "Pasirinkite variantą konvertuoti";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Crop to Fit" = "'Apkarpyti iki'";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "Live Photo";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "Vaizdo kokybė";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "Vaizdo įrašas";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "Išsaugoti rezultatus ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "Loop";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"nHD (640×360)" = "nHD (640 × 360)";
+/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+"Original" = "Originalas";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Burst" = "Sprogo";
+/* Generated from genl10n: Stabilizer.swift */
+"Strong" = "Stiprus";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "Keisti";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "Frame Delay";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "Albumai";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HD (1280×720)" = "HD (1280 × 720)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"%d times" = "%d kartus";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"qHD (960×540)" = "qHD (960 × 540)";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Downloading..." = "Atsisiunčiama ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "Pradėti";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "Mano albumai";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "Atsukti";
+/* Generated from genl10n: Convert.AppDockContent.swift */
+"Export Options" = "Eksporto parinktys";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"GIF Maker" = "GIF kūrėjas";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"No Crop" = "Nr pasėlių";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "Aikštė";
+/* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
+"Quality" = "Kokybė";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"QVGA (320×240)" = "QVGA (320 × 240)";
+/* Generated from genl10n: Stabilizer.swift */
+"Normal" = "Normalus";
