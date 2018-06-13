@@ -66,10 +66,12 @@ wlines = []
 for line in rlines:
     wlines.append(line)
 
-keys_in_l10n_file = map(lambda line: line.split("=")[0], rlines)
+keys_in_l10n_file = map(lambda line: line.split("=")[0].strip(), rlines)
 keys_in_gened_strs = [k for k, v in gened_strs.items()]
 
-for new_key in list(set(keys_in_gened_strs) - set(keys_in_l10n_file)):
+diff_keys = list(set(keys_in_gened_strs) - set(keys_in_l10n_file))
+
+for new_key in diff_keys:
     new_line = u'{0} = {0};'.format(new_key)
     print("Added line: " + new_line.encode('utf8'))
 
@@ -78,8 +80,6 @@ for new_key in list(set(keys_in_gened_strs) - set(keys_in_l10n_file)):
     wlines.append("/* Generated from: {}*/".format(from_files))
     wlines.append('\n')
     wlines.append(new_line)
-
-print(len(keys_in_gened_strs))
 
 wcur = codecs.open(dest_l10n_base_path, "w", "utf-8")
 wcur.writelines(wlines)
