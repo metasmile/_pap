@@ -75,24 +75,24 @@ internal class PreviewCollectionLayout: UICollectionViewLayout {
             let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
             let itemSize = sizeForItem(at: indexPath)
             
-            if indexPath.item == 0 {
-                paddingLeft = (collectionView.bounds.width - itemSize.width) / 2
-                itemPositionX += paddingLeft
-            }
-            
-            if indexPath.item == numberOfItems - 1 {
-                paddingRight = (collectionView.bounds.width - itemSize.width) / 2
-            }
-            
             let itemPosition = CGPoint(x: itemPositionX, y: (previewHeight - itemSize.height) / 2)
             attributes.frame = CGRect(origin: itemPosition, size: itemSize)
             itemPositionX += itemSize.width + minimumSpacing
             
             cache[.item]?[indexPath] = attributes
             
-            _contentSize.width = attributes.frame.maxX + paddingRight
+            _contentSize.width = attributes.frame.maxX
             _contentSize.height = attributes.frame.height
         }
+        
+        paddingLeft = _contentSize.width > collectionView.bounds.width ? minimumSpacing * 2 : (collectionView.bounds.width - _contentSize.width) / 2
+        paddingRight = paddingLeft
+        
+        cache[.item]?.forEach({ (indexPath, attributes) in
+            attributes.frame.origin.x += paddingLeft
+        })
+        
+        _contentSize.width += paddingLeft + paddingRight
     }
     
     private func sizeForItem(at indexPath: IndexPath) -> CGSize {
