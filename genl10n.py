@@ -89,7 +89,9 @@ for new_key in keys_in_gened_strs:
     print("Added line: " + new_line.encode('utf8'))
 
     from_files = ", ".join(map(lambda s: os.path.basename(s), gened_strs[new_key]))
-    wlines.append('\n')
+
+    if wlines[-1] is not '\n':
+        wlines.append('\n')
     wlines.append("/* {}: {} */".format(__GEN_FLAG__, from_files))
     wlines.append('\n')
     wlines.append(new_line)

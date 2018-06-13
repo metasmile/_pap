@@ -89,6 +89,8 @@
 
 
 
+
+
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilizing Selected Items..." = "Stabilizing Selected Items...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -148,8 +150,6 @@
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Saving Results...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"times" = "times";
-/* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640×360)";
@@ -167,6 +167,8 @@
 "Albums" = "Albums";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HD (1280×720)" = "HD (1280×720)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"%d times" = "%d times";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "qHD (960×540)" = "qHD (960×540)";
 /* Generated from genl10n: PhotoPickerViewController.swift */

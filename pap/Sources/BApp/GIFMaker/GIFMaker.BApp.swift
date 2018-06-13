@@ -596,7 +596,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
                     return "No loop".localized
                 }
                 else {
-                    return "\(count) \("times".localized)"
+                    return "%d times".localizedFormatted(String(Int(count)))
                 }
             }
             else {
