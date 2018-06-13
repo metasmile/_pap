@@ -12,6 +12,7 @@ import json
 import glob
 import codecs
 import fnmatch
+import collections
 
 dest_app_path = './pap/'
 dest_l10n_base_path ='./pap/Resources/Localizations/Base.lproj/Localizable.strings'
@@ -32,7 +33,7 @@ for root, dirnames, filenames in os.walk(dest_app_path):
     for filename in fnmatch.filter(filenames, '*.swift'):
         swift_files.append(os.path.join(root, filename))
 
-gened_strs = {}
+gened_strs = collections.OrderedDict()
 for code_file in swift_files:
     rcur = codecs.open(code_file, "r", "utf-8")
     wlines = []
@@ -78,7 +79,8 @@ for line in rlines:
 
 
 keys_in_l10n_file = map(lambda line: line.split("=")[0].strip(), wlines)
-keys_in_gened_strs = [k for k, v in gened_strs.items()]
+keys_in_gened_strs = sorted(gened_strs.keys())#[k for k, v in sorted(gened_strs.items())]
+#FIXME: python2.7 <-> 3 dict key ordering is fucking different  what??
 
 # diff_keys = list(set(keys_in_gened_strs) - set(keys_in_l10n_file))
 if keys_in_gened_strs and len(wlines[-1].strip()) > 0:
@@ -89,8 +91,6 @@ for new_key in keys_in_gened_strs:
         continue
 
     new_line = u'{0} = {0};'.format(new_key)
-    print("Added line: " + new_line.encode('utf8'))
-
     from_files = ", ".join(map(lambda s: os.path.basename(s), gened_strs[new_key]))
     wlines.append("/* {}: {} */".format(__GEN_FLAG__, from_files))
     wlines.append('\n')
