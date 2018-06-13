@@ -96,6 +96,7 @@ for new_key in keys_in_gened_strs:
     wlines.append("/* {}: {} */".format(__GEN_FLAG__, from_files))
     wlines.append('\n')
     wlines.append(new_line)
+    wlines.append('\n')
 
 wcur = codecs.open(dest_l10n_base_path, "w", "utf-8")
 wcur.writelines(wlines)
