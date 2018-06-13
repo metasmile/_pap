@@ -49,7 +49,7 @@ class AppDockView: CustomView {
         }
 
         struct DrawerView {
-            static let compactDisabledHeight: CGFloat = 14
+            static let compactDisabledHeight: CGFloat = DrawerView.compactHeight//14
             static let compactHeight: CGFloat = 22
             static let topMargin: CGFloat = 5
             static let prominentHeight: CGFloat = 49
@@ -194,10 +194,15 @@ class AppDockView: CustomView {
     }
 
     private var shouldDrawerBarEnable: Bool {
-        if items.count == 0 {
+        if !hasAppContentAsLayout || items.count == 0{
             return false
         }
-        return hasAppControllerAsLayout || (hasAppAccessoryAsLayout && conformsPreviewable)
+
+        if conformsPreviewable{
+            return hasAppAccessoryAsLayout
+        }else{
+            return hasAppControllerAsLayout
+        }
     }
 
     @IBOutlet private weak var dimmedView: UIView!
