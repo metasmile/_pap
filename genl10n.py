@@ -81,8 +81,7 @@ keys_in_l10n_file = map(lambda line: line.split("=")[0].strip(), wlines)
 keys_in_gened_strs = [k for k, v in gened_strs.items()]
 
 # diff_keys = list(set(keys_in_gened_strs) - set(keys_in_l10n_file))
-
-if keys_in_gened_strs and wlines[-1] is not '\n':
+if keys_in_gened_strs and len(wlines[-1].strip()) > 0:
     wlines.append('\n')
 
 for new_key in keys_in_gened_strs:

@@ -7,24 +7,47 @@ import Foundation
 import Firebase
 
 public struct papLog{
-    public static func appSelected(){
-        Analytics.logWithCurrentApp()
+    public struct event {
+        public static func appSelected(){
+            Analytics.logWithCurrentApp()
+        }
+
+        public static func cancelWhileSelecting(){
+            Analytics.logWithCurrentApp()
+        }
+
+        public static func cancelWhilePerforming(){
+            Analytics.logWithCurrentApp()
+        }
+
+        public static func performFromUser(){
+            Analytics.logWithCurrentApp()
+        }
+
+        public static func performWhenPhotoLibraryDidChanged(){
+            Analytics.logWithCurrentApp()
+        }
+
+        public static func allTasksAreFinished(){
+            Analytics.logWithCurrentApp()
+        }
     }
 
-    public static func cancelWhileSelecting(){
-        Analytics.logWithCurrentApp()
-    }
+    public struct error {
 
-    public static func cancelWhilePerforming(){
-        Analytics.logWithCurrentApp()
-    }
+        public static func recordedError(_ e:Error, parameters:[String:Any]?=nil){
+            var paramToCommit = [
+                "errorDescription": e.localizedDescription
+            ] as [String:Any]
 
-    public static func performFromUser(){
-        Analytics.logWithCurrentApp()
-    }
+            if let parameters = parameters{
+                for o in parameters{
+                    paramToCommit[o.key] = o.value
+                }
+            }
 
-    public static func performWhenPhotoLibraryDidChanged(){
-        Analytics.logWithCurrentApp()
+            Analytics.logWithCurrentApp(parameters: paramToCommit)
+        }
     }
 }
 
