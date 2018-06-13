@@ -30,6 +30,8 @@ public struct papLog{
 
 fileprivate extension Analytics{
     fileprivate static func logWithCurrentApp(_ name:String=#function, parameters:[String:Any]?=nil){
+        let name = name.replace(")","_").replace("(","_")
+
         DispatchQueue.global(qos: .background).async {
             guard let app = AppCenter.default.current else{
                 return
