@@ -83,3 +83,311 @@
 "cs_keyword_11" = "familiy";
 "cs_keyword_12" = "friend";
 "cs_keyword_13" = "lover";
+/* Generated from: Stabilizer.swift*/
+"Stabilizing Selected Items..." = "Stabilizing Selected Items...";
+/* Generated from: GIFMaker.BApp.swift*/
+"Reverse" = "Reverse";
+/* Generated from: Stabilizer.swift, PhotosFilter.BApp.swift*/
+"Original" = "Original";
+/* Generated from: GIFMaker.BApp.swift*/
+"Import" = "Import";
+/* Generated from: PhotoEditViewController.swift, AppDockViewController.swift*/
+"Done" = "Done";
+/* Generated from: GIFMaker.BApp.swift*/
+"1080p (1920×1080)" = "1080p (1920×1080)";
+/* Generated from: PhotoPickerViewController.swift*/
+"Processing..." = "Processing...";
+/* Generated from: GIFMaker.BApp.swift*/
+"HVGA (480×320)" = "HVGA (480×320)";
+/* Generated from: PhotoPickerDetailViewController.swift*/
+"Detail" = "Detail";
+/* Generated from: GIFMaker.BApp.swift*/
+"Forward" = "Forward";
+/* Generated from: Convert.AppDockContent.swift*/
+"Choose a Direction To Convert" = "Choose a Direction To Convert";
+/* Generated from: GIFMaker.BApp.swift*/
+"Direction" = "Direction";
+/* Generated from: GIFMaker.BApp.swift*/
+"Aspect Ratio" = "Aspect Ratio";
+/* Generated from: PhotoPickerViewController.swift*/
+"%d Photos" = "%d Photos";
+/* Generated from: PhotoPickerViewController.swift*/
+"Starting the Process..." = "Starting the Process...";
+/* Generated from: PhotoEditViewController.swift*/
+"Edit" = "Edit";
+/* Generated from: GIFMaker.BApp.swift*/
+"Photos" = "Photos";
+/* Generated from: Revert.BApp.swift*/
+"Reverting Photos..." = "Reverting Photos...";
+/* Generated from: ExifGhost.AppDockContent.swift*/
+"Selection Presets" = "Selection Presets";
+/* Generated from: PhotoPickerViewController.OperationControl.swift, AppDockViewController.swift, UITableViewCells.swift, PHPhotoLibraryManager.swift*/
+"Cancel" = "Cancel";
+/* Generated from: PDFactory.BApp.swift*/
+"Starting to create PDF..." = "Starting to create PDF...";
+/* Generated from: PHPhotoLibraryManager.swift*/
+"Please open settings and allow access to your photos" = "Please open settings and allow access to your photos";
+/* Generated from: GIFMaker.BApp.swift*/
+"Size" = "Size";
+/* Generated from: ExifGhost.BApp.swift*/
+"Purging selected ..." = "Purging selected ...";
+/* Generated from: App.Finalizable.UIActivity.PHAsset.swift*/
+"Create" = "Create";
+/* Generated from: GIFMaker.BApp.swift*/
+"Crop" = "Crop";
+/* Generated from: PDFactory.BApp.swift*/
+"Create %@" = "Create %@";
+/* Generated from: Stabilizer.swift*/
+"Stabilize" = "Stabilize";
+/* Generated from: GIFMaker.BApp.swift*/
+"No loop" = "No loop";
+/* Generated from: GIFMaker.BApp.swift*/
+"Export" = "Export";
+/* Generated from: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift*/
+"Share" = "Share";
+/* Generated from: GIFMaker.BApp.swift*/
+"Make GIF" = "Make GIF";
+/* Generated from: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, Clean.BApp.swift*/
+"Delete" = "Delete";
+/* Generated from: GIFMaker.BApp.swift*/
+"Crop to Fit" = "Crop to Fit";
+/* Generated from: GIFMaker.BApp.swift*/
+"Live Photo" = "Live Photo";
+/* Generated from: GIFMaker.BApp.swift*/
+"Image Quality" = "Image Quality";
+/* Generated from: GIFMaker.BApp.swift*/
+"Video" = "Video";
+/* Generated from: PhotoPickerViewController.swift*/
+"Saving Results..." = "Saving Results...";
+/* Generated from: GIFMaker.BApp.swift*/
+"Loop" = "Loop";
+/* Generated from: Clean.BApp.swift*/
+"Deleting Photos..." = "Deleting Photos...";
+/* Generated from: GIFMaker.BApp.swift*/
+"Forward & Reverse" = "Forward & Reverse";
+/* Generated from: PhotoPickerViewController.swift*/
+"%d Photo" = "%d Photo";
+/* Generated from: GIFMaker.BApp.swift*/
+"nHD (640×360)" = "nHD (640×360)";
+/* Generated from: AppDelegate.SpotlightSearch.swift*/
+"Do Anything, At Once." = "Do Anything, At Once.";
+/* Generated from: Convert.BApp.swift, Convert.AppDockContent.swift*/
+"Convert" = "Convert";
+/* Generated from: GIFMaker.BApp.swift*/
+"qHD (960×540)" = "qHD (960×540)";
+/* Generated from: GIFMaker.BApp.swift*/
+"Burst" = "Burst";
+/* Generated from: GIFMaker.BApp.swift*/
+"Repeat" = "Repeat";
+/* Generated from: PDFactory.BApp.swift*/
+"Sorry, something went wrong." = "Sorry, something went wrong.";
+/* Generated from: App.Finalizable.UIActivity.PHAsset.swift*/
+"Modify" = "Modify";
+/* Generated from: GIFMaker.BApp.swift*/
+"Frame Delay" = "Frame Delay";
+/* Generated from: PhotoAlbumViewController.swift*/
+"Albums" = "Albums";
+/* Generated from: GIFMaker.BApp.swift*/
+"GIF Maker" = "GIF Maker";
+/* Generated from: PHPhotoLibraryManager.swift*/
+"Open Settings" = "Open Settings";
+/* Generated from: GIFMaker.BApp.swift*/
+"HD (1280×720)" = "HD (1280×720)";
+/* Generated from: PhotoPickerViewController.OperationControl.swift*/
+"Discard Changes" = "Discard Changes";
+/* Generated from: GIFMaker.BApp.swift*/
+"times" = "times";
+/* Generated from: PhotoPickerViewController.swift*/
+"Downloading..." = "Downloading...";
+/* Generated from: Stabilizer.swift*/
+"Strong" = "Strong";
+/* Generated from: PhotoPickerViewController.swift*/
+"%d Videos" = "%d Videos";
+/* Generated from: PhotoAlbumViewController.swift*/
+"My Albums" = "My Albums";
+/* Generated from: Revert.BApp.swift*/
+"Starting to revert..." = "Starting to revert...";
+/* Generated from: Convert.AppDockContent.swift*/
+"Export Options" = "Export Options";
+/* Generated from: ExifGhost.AppDockContent.swift*/
+"Switch on any items you want to purge. The quality will completely remain the same." = "Switch on any items you want to purge. The quality will completely remain the same.";
+/* Generated from: PHPhotoLibraryManager.swift*/
+"Photos Access Disabled" = "Photos Access Disabled";
+/* Generated from: GIFMaker.BApp.swift*/
+"Animation" = "Animation";
+/* Generated from: GIFMaker.BApp.swift*/
+"No Crop" = "No Crop";
+/* Generated from: GIFMaker.BApp.swift*/
+"Square" = "Square";
+/* Generated from: GIFMaker.BApp.swift, Convert.AppDockContent.swift*/
+"Quality" = "Quality";
+/* Generated from: PhotoPickerViewController.swift*/
+"Cancelling..." = "Cancelling...";
+/* Generated from: PhotoPickerViewController.swift*/
+"%d Video" = "%d Video";
+/* Generated from: PDFactory.BApp.swift*/
+"Creating PDF Pages..." = "Creating PDF Pages...";
+/* Generated from: PhotoPickerViewController.swift*/
+"Start" = "Start";
+/* Generated from: AutoAdjustment.BApp.swift, PhotosFilter.BApp.swift*/
+"Apply" = "Apply";
+/* Generated from: Transform.BApp.swift*/
+"Transform" = "Transform";
+/* Generated from: GIFMaker.BApp.swift*/
+"QVGA (320×240)" = "QVGA (320×240)";
+/* Generated from: Stabilizer.swift*/
+"Normal" = "Normal";
+/* Generated from: Stabilizer.swift*/
+"Stabilizing Selected Items..." = "Stabilizing Selected Items...";
+/* Generated from: GIFMaker.BApp.swift*/
+"Reverse" = "Reverse";
+/* Generated from: Stabilizer.swift, PhotosFilter.BApp.swift*/
+"Original" = "Original";
+/* Generated from: GIFMaker.BApp.swift*/
+"Import" = "Import";
+/* Generated from: PhotoEditViewController.swift, AppDockViewController.swift*/
+"Done" = "Done";
+/* Generated from: GIFMaker.BApp.swift*/
+"1080p (1920×1080)" = "1080p (1920×1080)";
+/* Generated from: PhotoPickerViewController.swift*/
+"Processing..." = "Processing...";
+/* Generated from: GIFMaker.BApp.swift*/
+"HVGA (480×320)" = "HVGA (480×320)";
+/* Generated from: PhotoPickerDetailViewController.swift*/
+"Detail" = "Detail";
+/* Generated from: GIFMaker.BApp.swift*/
+"Forward" = "Forward";
+/* Generated from: Convert.AppDockContent.swift*/
+"Choose a Direction To Convert" = "Choose a Direction To Convert";
+/* Generated from: GIFMaker.BApp.swift*/
+"Direction" = "Direction";
+/* Generated from: GIFMaker.BApp.swift*/
+"Aspect Ratio" = "Aspect Ratio";
+/* Generated from: PhotoPickerViewController.swift*/
+"%d Photos" = "%d Photos";
+/* Generated from: PhotoPickerViewController.swift*/
+"Starting the Process..." = "Starting the Process...";
+/* Generated from: PhotoEditViewController.swift*/
+"Edit" = "Edit";
+/* Generated from: GIFMaker.BApp.swift*/
+"Photos" = "Photos";
+/* Generated from: Revert.BApp.swift*/
+"Reverting Photos..." = "Reverting Photos...";
+/* Generated from: ExifGhost.AppDockContent.swift*/
+"Selection Presets" = "Selection Presets";
+/* Generated from: PhotoPickerViewController.OperationControl.swift, AppDockViewController.swift, UITableViewCells.swift, PHPhotoLibraryManager.swift*/
+"Cancel" = "Cancel";
+/* Generated from: PDFactory.BApp.swift*/
+"Starting to create PDF..." = "Starting to create PDF...";
+/* Generated from: PHPhotoLibraryManager.swift*/
+"Please open settings and allow access to your photos" = "Please open settings and allow access to your photos";
+/* Generated from: GIFMaker.BApp.swift*/
+"Size" = "Size";
+/* Generated from: ExifGhost.BApp.swift*/
+"Purging selected ..." = "Purging selected ...";
+/* Generated from: App.Finalizable.UIActivity.PHAsset.swift*/
+"Create" = "Create";
+/* Generated from: GIFMaker.BApp.swift*/
+"Crop" = "Crop";
+/* Generated from: PDFactory.BApp.swift*/
+"Create %@" = "Create %@";
+/* Generated from: Stabilizer.swift*/
+"Stabilize" = "Stabilize";
+/* Generated from: GIFMaker.BApp.swift*/
+"No loop" = "No loop";
+/* Generated from: GIFMaker.BApp.swift*/
+"Export" = "Export";
+/* Generated from: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift*/
+"Share" = "Share";
+/* Generated from: GIFMaker.BApp.swift*/
+"Make GIF" = "Make GIF";
+/* Generated from: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, Clean.BApp.swift*/
+"Delete" = "Delete";
+/* Generated from: GIFMaker.BApp.swift*/
+"Crop to Fit" = "Crop to Fit";
+/* Generated from: GIFMaker.BApp.swift*/
+"Live Photo" = "Live Photo";
+/* Generated from: GIFMaker.BApp.swift*/
+"Image Quality" = "Image Quality";
+/* Generated from: GIFMaker.BApp.swift*/
+"Video" = "Video";
+/* Generated from: PhotoPickerViewController.swift*/
+"Saving Results..." = "Saving Results...";
+/* Generated from: GIFMaker.BApp.swift*/
+"Loop" = "Loop";
+/* Generated from: Clean.BApp.swift*/
+"Deleting Photos..." = "Deleting Photos...";
+/* Generated from: GIFMaker.BApp.swift*/
+"Forward & Reverse" = "Forward & Reverse";
+/* Generated from: PhotoPickerViewController.swift*/
+"%d Photo" = "%d Photo";
+/* Generated from: GIFMaker.BApp.swift*/
+"nHD (640×360)" = "nHD (640×360)";
+/* Generated from: AppDelegate.SpotlightSearch.swift*/
+"Do Anything, At Once." = "Do Anything, At Once.";
+/* Generated from: Convert.BApp.swift, Convert.AppDockContent.swift*/
+"Convert" = "Convert";
+/* Generated from: GIFMaker.BApp.swift*/
+"qHD (960×540)" = "qHD (960×540)";
+/* Generated from: GIFMaker.BApp.swift*/
+"Burst" = "Burst";
+/* Generated from: GIFMaker.BApp.swift*/
+"Repeat" = "Repeat";
+/* Generated from: PDFactory.BApp.swift*/
+"Sorry, something went wrong." = "Sorry, something went wrong.";
+/* Generated from: App.Finalizable.UIActivity.PHAsset.swift*/
+"Modify" = "Modify";
+/* Generated from: GIFMaker.BApp.swift*/
+"Frame Delay" = "Frame Delay";
+/* Generated from: PhotoAlbumViewController.swift*/
+"Albums" = "Albums";
+/* Generated from: GIFMaker.BApp.swift*/
+"GIF Maker" = "GIF Maker";
+/* Generated from: PHPhotoLibraryManager.swift*/
+"Open Settings" = "Open Settings";
+/* Generated from: GIFMaker.BApp.swift*/
+"HD (1280×720)" = "HD (1280×720)";
+/* Generated from: PhotoPickerViewController.OperationControl.swift*/
+"Discard Changes" = "Discard Changes";
+/* Generated from: GIFMaker.BApp.swift*/
+"times" = "times";
+/* Generated from: PhotoPickerViewController.swift*/
+"Downloading..." = "Downloading...";
+/* Generated from: Stabilizer.swift*/
+"Strong" = "Strong";
+/* Generated from: PhotoPickerViewController.swift*/
+"%d Videos" = "%d Videos";
+/* Generated from: PhotoAlbumViewController.swift*/
+"My Albums" = "My Albums";
+/* Generated from: Revert.BApp.swift*/
+"Starting to revert..." = "Starting to revert...";
+/* Generated from: Convert.AppDockContent.swift*/
+"Export Options" = "Export Options";
+/* Generated from: ExifGhost.AppDockContent.swift*/
+"Switch on any items you want to purge. The quality will completely remain the same." = "Switch on any items you want to purge. The quality will completely remain the same.";
+/* Generated from: PHPhotoLibraryManager.swift*/
+"Photos Access Disabled" = "Photos Access Disabled";
+/* Generated from: GIFMaker.BApp.swift*/
+"Animation" = "Animation";
+/* Generated from: GIFMaker.BApp.swift*/
+"No Crop" = "No Crop";
+/* Generated from: GIFMaker.BApp.swift*/
+"Square" = "Square";
+/* Generated from: GIFMaker.BApp.swift, Convert.AppDockContent.swift*/
+"Quality" = "Quality";
+/* Generated from: PhotoPickerViewController.swift*/
+"Cancelling..." = "Cancelling...";
+/* Generated from: PhotoPickerViewController.swift*/
+"%d Video" = "%d Video";
+/* Generated from: PDFactory.BApp.swift*/
+"Creating PDF Pages..." = "Creating PDF Pages...";
+/* Generated from: PhotoPickerViewController.swift*/
+"Start" = "Start";
+/* Generated from: AutoAdjustment.BApp.swift, PhotosFilter.BApp.swift*/
+"Apply" = "Apply";
+/* Generated from: Transform.BApp.swift*/
+"Transform" = "Transform";
+/* Generated from: GIFMaker.BApp.swift*/
+"QVGA (320×240)" = "QVGA (320×240)";
+/* Generated from: Stabilizer.swift*/
+"Normal" = "Normal";
