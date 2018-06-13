@@ -111,7 +111,7 @@
 /*Translated from: image*/
 "cs_keyword_7" = "mynd";
 /*Translated from: smart*/
-"cs_keyword_8" = "klárt";
+"cs_keyword_8" = "smart";
 /*Translated from: picture*/
 "cs_keyword_9" = "mynd";
 /*Translated from: memory*/
@@ -122,3 +122,105 @@
 "cs_keyword_12" = "vinur";
 /*Translated from: lover*/
 "cs_keyword_13" = "elskhugi";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizing Selected Items..." = "Stöðugleiki valinra atriða ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "Aftur";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "Flytja inn";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Purging selected ..." = "Hreinsa valið ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "Áfram";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Direction" = "Stefnu";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animation" = "Hreyfimyndir";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Aspect Ratio" = "Stærðarhlutföll";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "Byrjar að vinna ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "Myndir";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift */
+"Selection Presets" = "Valforstillingar";
+/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
+"Do Anything, At Once." = "Do Anything, At Once.";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "Stærð";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Repeat" = "Endurtaka";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "Búa til";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Crop" = "Skera";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilize" = "Stöðugleiki";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"No loop" = "Engin lykkja";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "Útflutningur";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+"Share" = "Deila";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "Gerðu GIF";
+/* Generated from genl10n: Convert.AppDockContent.swift */
+"Choose an Option To Convert" = "Veldu valkost til að breyta";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Crop to Fit" = "Skera til að passa";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "Lifandi mynd";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "Myndgæði";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "Video";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "Vistar niðurstöður ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "Loop";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"nHD (640×360)" = "nHD (640 × 360)";
+/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+"Original" = "Upprunalega";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Burst" = "Springa";
+/* Generated from genl10n: Stabilizer.swift */
+"Strong" = "Sterk";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "Breyta";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "Framlenging ramma";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "Albúm";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HD (1280×720)" = "HD (1280 × 720)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"%d times" = "%d sinnum";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"qHD (960×540)" = "qHD (960 × 540)";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Downloading..." = "Hleður niður ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "Byrja";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "Albúmið mín";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "Snúa aftur";
+/* Generated from genl10n: Convert.AppDockContent.swift */
+"Export Options" = "Útflutningsvalkostir";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"GIF Maker" = "GIF Maker";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"No Crop" = "Engin uppskera";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "Square";
+/* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
+"Quality" = "Gæði";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"QVGA (320×240)" = "QVGA (320 × 240)";
+/* Generated from genl10n: Stabilizer.swift */
+"Normal" = "Venjulegt";

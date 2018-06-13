@@ -205,19 +205,19 @@ struct GIFMakerSettings {
         enum type: Int {
             case forward
             case reverse
-            case forwardAndReverse
+            case rewind
         }
         
         static let labels: [type: String] = [
             .forward: "Forward".localized,
             .reverse: "Reverse".localized,
-            .forwardAndReverse: "Forward & Reverse".localized
+            .rewind: "Rewind".localized
         ]
         
         static let orderedLabels: [String?] = [
             labels[.forward],
             labels[.reverse],
-            labels[.forwardAndReverse]
+            labels[.rewind]
         ]
         
         static func key(with value: String) -> Int {

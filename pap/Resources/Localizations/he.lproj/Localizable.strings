@@ -111,7 +111,7 @@
 /*Translated from: image*/
 "cs_keyword_7" = "תמונה";
 /*Translated from: smart*/
-"cs_keyword_8" = "לִכאוֹב";
+"cs_keyword_8" = "smart";
 /*Translated from: picture*/
 "cs_keyword_9" = "תְמוּנָה";
 /*Translated from: memory*/
@@ -122,3 +122,105 @@
 "cs_keyword_12" = "חָבֵר";
 /*Translated from: lover*/
 "cs_keyword_13" = "מְאַהֵב";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizing Selected Items..." = "מייצב פריטים שנבחרו ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "לַהֲפוֹך";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "יְבוּא";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Purging selected ..." = "מבטל את הבחירה ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "קָדִימָה";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Direction" = "כיוון";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animation" = "אנימציה";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Aspect Ratio" = "יחס הממדים";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "מתחיל את התהליך ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "תמונות";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift */
+"Selection Presets" = "הגדרות קבועות מראש";
+/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
+"Do Anything, At Once." = "Do Anything, At Once.";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "גודל";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Repeat" = "חזור";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "לִיצוֹר";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Crop" = "יְבוּל";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilize" = "לְיַצֵב";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"No loop" = "ללא לולאה";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "יְצוּא";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+"Share" = "לַחֲלוֹק";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "צור GIF";
+/* Generated from genl10n: Convert.AppDockContent.swift */
+"Choose an Option To Convert" = "בחר אפשרות להמרה";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Crop to Fit" = "חתוך לפיט";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "תמונה חיה";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "איכות תמונה";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "וִידֵאוֹ";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "שומר תוצאות ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "לוּלָאָה";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"nHD (640×360)" = "nHD (640 × 360)";
+/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+"Original" = "מְקוֹרִי";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Burst" = "הִתפָּרְצוּת";
+/* Generated from genl10n: Stabilizer.swift */
+"Strong" = "חָזָק";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "לְשַׁנוֹת";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "עיכוב מסגרת";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "אלבומים";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HD (1280×720)" = "HD (1280 × 720)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"%d times" = "%d פעמים";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"qHD (960×540)" = "qHD (960 × 540)";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Downloading..." = "מוריד ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "הַתחָלָה";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "האלבומים שלי";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "חזור אחורה";
+/* Generated from genl10n: Convert.AppDockContent.swift */
+"Export Options" = "אפשרויות ייצוא";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"GIF Maker" = "GIF Maker";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"No Crop" = "ללא חיתוך";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "כיכר";
+/* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
+"Quality" = "איכות";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"QVGA (320×240)" = "QVGA (320 × 240)";
+/* Generated from genl10n: Stabilizer.swift */
+"Normal" = "נוֹרמָלִי";

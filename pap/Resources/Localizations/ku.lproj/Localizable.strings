@@ -111,7 +111,7 @@
 /*Translated from: image*/
 "cs_keyword_7" = "wêne";
 /*Translated from: smart*/
-"cs_keyword_8" = "baqil";
+"cs_keyword_8" = "smart";
 /*Translated from: picture*/
 "cs_keyword_9" = "sûret";
 /*Translated from: memory*/
@@ -122,3 +122,105 @@
 "cs_keyword_12" = "heval";
 /*Translated from: lover*/
 "cs_keyword_13" = "hezkirinê";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizing Selected Items..." = "Stabilizing Items Selected ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "Gara paşî";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "Malanîn";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Purging selected ..." = "Purging selected ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "Pêşve";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Direction" = "Ber";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animation" = "Jayandarî";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Aspect Ratio" = "Aspect Ratio";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "Destpêkirina pêvajoyê ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "Wêne";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift */
+"Selection Presets" = "Selection Presets";
+/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
+"Do Anything, At Once." = "Do Anything, At Once.";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "Mezinayî";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Repeat" = "Dûbare";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "Xûliqandin";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Crop" = "Zadçinî";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilize" = "Zexmkirin";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"No loop" = "Ne pişk";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "Eksport";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+"Share" = "Par";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "GIF";
+/* Generated from genl10n: Convert.AppDockContent.swift */
+"Choose an Option To Convert" = "Vebijêrk Hilbijêre Hilbijêre";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Crop to Fit" = "Crop to Fit";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "Live Photo";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "Kalîteya Image";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "Video";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "Endamên Hilbijartinê ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "Loop";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"nHD (640×360)" = "nHD (640 × 360)";
+/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+"Original" = "Eslî";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Burst" = "Burst";
+/* Generated from genl10n: Stabilizer.swift */
+"Strong" = "Qewî";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "Gûhertin";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "Frame Delay";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "Albums";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HD (1280×720)" = "HD (1280 × 720)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"%d times" = "%d carî";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"qHD (960×540)" = "qHD (960 × 540)";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Downloading..." = "Daxistin ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "Destpêkirin";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "My Albums";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "Şûndelêgerandin";
+/* Generated from genl10n: Convert.AppDockContent.swift */
+"Export Options" = "Hilbijêre Hilbijêre";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"GIF Maker" = "GIF Maker";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"No Crop" = "Ne Crop";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "Meydan";
+/* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
+"Quality" = "Çêwe";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"QVGA (320×240)" = "QVGA (320 × 240)";
+/* Generated from genl10n: Stabilizer.swift */
+"Normal" = "Normal";

@@ -111,7 +111,7 @@
 /*Translated from: image*/
 "cs_keyword_7" = "ਚਿੱਤਰ";
 /*Translated from: smart*/
-"cs_keyword_8" = "ਸਮਾਰਟ";
+"cs_keyword_8" = "smart";
 /*Translated from: picture*/
 "cs_keyword_9" = "ਤਸਵੀਰ";
 /*Translated from: memory*/
@@ -122,3 +122,105 @@
 "cs_keyword_12" = "ਦੋਸਤ";
 /*Translated from: lover*/
 "cs_keyword_13" = "ਪ੍ਰੇਮੀ";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizing Selected Items..." = "ਚੁਣੀਆਂ ਗਈਆਂ ਚੀਜ਼ਾਂ ਨੂੰ ਸਥਿਰ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "ਉਲਟ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "ਆਯਾਤ ਕਰੋ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Purging selected ..." = "ਚੁਣਨਾ ਚੁਣਿਆ ਗਿਆ ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "ਅੱਗੇ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Direction" = "ਦਿਸ਼ਾ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animation" = "ਐਨੀਮੇਸ਼ਨ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Aspect Ratio" = "ਆਕਾਰ ਅਨੁਪਾਤ";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "ਪ੍ਰਕਿਰਿਆ ਸ਼ੁਰੂ ਕਰ ਰਿਹਾ ਹੈ ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "ਫੋਟੋਆਂ";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift */
+"Selection Presets" = "ਚੋਣ ਪ੍ਰੀਸੈਟਸ";
+/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
+"Do Anything, At Once." = "Do Anything, At Once.";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "ਆਕਾਰ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Repeat" = "ਦੁਹਰਾਓ";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "ਬਣਾਓ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Crop" = "ਫਸਲ";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilize" = "ਸਥਿਰ ਕਰੋ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"No loop" = "ਕੋਈ ਲੂਪ ਨਹੀਂ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "ਨਿਰਯਾਤ ਕਰੋ";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+"Share" = "ਸਾਂਝਾ ਕਰੋ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "GIF ਬਣਾਓ";
+/* Generated from genl10n: Convert.AppDockContent.swift */
+"Choose an Option To Convert" = "ਬਦਲਣ ਦਾ ਵਿਕਲਪ ਚੁਣੋ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Crop to Fit" = "ਫਿੱਟ ਕਰਨ ਲਈ ਕਰੋਪ ਕਰੋ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "ਲਾਈਵ ਫੋਟੋ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "ਚਿੱਤਰ ਕੁਆਲਿਟੀ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "ਵੀਡੀਓ";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "ਨਤੀਜੇ ਸੰਭਾਲੇ ਜਾ ਰਹੇ ਹਨ ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "ਲੂਪ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"nHD (640×360)" = "nHD (640 × 360)";
+/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+"Original" = "ਅਸਲੀ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Burst" = "ਬਰਸਟ";
+/* Generated from genl10n: Stabilizer.swift */
+"Strong" = "ਮਜ਼ਬੂਤ";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "ਸੋਧ ਕਰੋ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "ਫ੍ਰੇਮ ਦੇਰੀ ਕਰੋ";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "ਐਲਬਮਾਂ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HD (1280×720)" = "HD (1280 × 720)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"%d times" = "%d ਵਾਰ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"qHD (960×540)" = "qHD (960 × 540)";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Downloading..." = "ਡਾਊਨਲੋਡ ਕਰ ਰਿਹਾ ਹੈ ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "ਸ਼ੁਰੂ ਕਰੋ";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "ਮੇਰੇ ਐਲਬਮਾਂ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "ਰਿਵਾਈਂਡ";
+/* Generated from genl10n: Convert.AppDockContent.swift */
+"Export Options" = "ਚੋਣ ਐਕਸਪੋਰਟ ਕਰੋ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"GIF Maker" = "GIF ਮੇਕਰ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"No Crop" = "ਕੋਈ ਫਸਲ ਨਹੀਂ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "ਚੌਰਸ";
+/* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
+"Quality" = "ਗੁਣਵੱਤਾ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"QVGA (320×240)" = "QVGA (320 × 240)";
+/* Generated from genl10n: Stabilizer.swift */
+"Normal" = "ਸਧਾਰਣ";

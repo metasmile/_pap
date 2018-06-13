@@ -76,10 +76,14 @@ for line in rlines:
 
     wlines.append(line)
 
+
 keys_in_l10n_file = map(lambda line: line.split("=")[0].strip(), wlines)
 keys_in_gened_strs = [k for k, v in gened_strs.items()]
 
 # diff_keys = list(set(keys_in_gened_strs) - set(keys_in_l10n_file))
+
+if keys_in_gened_strs and wlines[-1] is not '\n':
+    wlines.append('\n')
 
 for new_key in keys_in_gened_strs:
     if new_key in keys_in_l10n_file:
@@ -89,9 +93,6 @@ for new_key in keys_in_gened_strs:
     print("Added line: " + new_line.encode('utf8'))
 
     from_files = ", ".join(map(lambda s: os.path.basename(s), gened_strs[new_key]))
-
-    if wlines[-1] is not '\n':
-        wlines.append('\n')
     wlines.append("/* {}: {} */".format(__GEN_FLAG__, from_files))
     wlines.append('\n')
     wlines.append(new_line)

@@ -111,7 +111,7 @@
 /*Translated from: image*/
 "cs_keyword_7" = "圖片";
 /*Translated from: smart*/
-"cs_keyword_8" = "聰明";
+"cs_keyword_8" = "smart";
 /*Translated from: picture*/
 "cs_keyword_9" = "圖片";
 /*Translated from: memory*/
@@ -122,3 +122,105 @@
 "cs_keyword_12" = "朋友";
 /*Translated from: lover*/
 "cs_keyword_13" = "情人";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizing Selected Items..." = "穩定所選項目...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "相反";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "進口";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"1080p (1920×1080)" = "1080p（1920×1080）";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HVGA (480×320)" = "HVGA（480×320）";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Purging selected ..." = "清除選定的...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "前鋒";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Direction" = "方向";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animation" = "動畫";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Aspect Ratio" = "縱橫比";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "啟動過程...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "相片";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift */
+"Selection Presets" = "選擇預設";
+/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
+"Do Anything, At Once." = "Do Anything, At Once.";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "尺寸";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Repeat" = "重複";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "創建";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Crop" = "作物";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilize" = "穩定";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"No loop" = "沒有循環";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "出口";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+"Share" = "分享";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "製作GIF";
+/* Generated from genl10n: Convert.AppDockContent.swift */
+"Choose an Option To Convert" = "選擇要轉換的選項";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Crop to Fit" = "剪裁適合";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "現場照片";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "畫面質量";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "視頻";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "保存結果...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "循環";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"nHD (640×360)" = "nHD（640×360）";
+/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+"Original" = "原版的";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Burst" = "爆裂";
+/* Generated from genl10n: Stabilizer.swift */
+"Strong" = "強大";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "修改";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "幀延遲";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "相冊";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HD (1280×720)" = "高清（1280×720）";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"%d times" = "%d次";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"qHD (960×540)" = "qHD（960×540）";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Downloading..." = "下載...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "開始";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "我的相冊";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "倒帶";
+/* Generated from genl10n: Convert.AppDockContent.swift */
+"Export Options" = "導出選項";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"GIF Maker" = "GIF Maker";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"No Crop" = "沒有作物";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "廣場";
+/* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
+"Quality" = "質量";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"QVGA (320×240)" = "QVGA（320×240）";
+/* Generated from genl10n: Stabilizer.swift */
+"Normal" = "正常";
