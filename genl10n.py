@@ -16,6 +16,7 @@ import fnmatch
 dest_app_path = './pap/'
 dest_l10n_base_path ='./pap/Resources/Localizations/Base.lproj/Localizable.strings'
 split_key = '.localized'
+__GEN_FLAG__ = "Generated from genl10n"
 
 complied_patterns_by_priority = [
     re.compile(r'((\"\b.*\b\")' + split_key + ')', re.I|re.U|re.MULTILINE|re.X)
@@ -63,21 +64,33 @@ rlines = rcur.readlines()
 rcur.close()
 
 wlines = []
+met_gen_flag = False
 for line in rlines:
+    if __GEN_FLAG__ in line:
+        met_gen_flag = True
+        continue
+
+    if met_gen_flag:
+        met_gen_flag = False
+        continue
+
     wlines.append(line)
 
-keys_in_l10n_file = map(lambda line: line.split("=")[0].strip(), rlines)
+keys_in_l10n_file = map(lambda line: line.split("=")[0].strip(), wlines)
 keys_in_gened_strs = [k for k, v in gened_strs.items()]
 
-diff_keys = list(set(keys_in_gened_strs) - set(keys_in_l10n_file))
+# diff_keys = list(set(keys_in_gened_strs) - set(keys_in_l10n_file))
 
-for new_key in diff_keys:
+for new_key in keys_in_gened_strs:
+    if new_key in keys_in_l10n_file:
+        continue
+
     new_line = u'{0} = {0};'.format(new_key)
     print("Added line: " + new_line.encode('utf8'))
 
     from_files = ", ".join(map(lambda s: os.path.basename(s), gened_strs[new_key]))
     wlines.append('\n')
-    wlines.append("/* Generated from: {}*/".format(from_files))
+    wlines.append("/* {}: {} */".format(__GEN_FLAG__, from_files))
     wlines.append('\n')
     wlines.append(new_line)
 

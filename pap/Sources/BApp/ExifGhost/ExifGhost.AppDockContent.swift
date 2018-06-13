@@ -274,7 +274,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return section == 0
-                ? "👻 " + "Switch on any items you want to purge. The quality will completely remain the same.".localized
+                ? "👻 " + "Switch on any items you want to purge. The quality will completely remain the same."
                 : metadataCollection[section-1].label
     }
 
