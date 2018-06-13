@@ -599,7 +599,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
     
     func batchPreviewViewWillBeginEdit(_ view: PreviewView) {
-        titleFade = currentDisplayableApp?.titleWillBegin ?? "Start Batch Editing...".localized
+        titleFade = currentDisplayableApp?.titleWillBegin ?? "Starting the Process...".localized
         taskProgress = 0
 
         let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
@@ -661,7 +661,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
 
     func batchPreviewViewWillFinalize(_ view: PreviewView) {
-        titleFade = currentDisplayableApp?.titleWillFinalize ?? "Saving Photos...".localized
+        titleFade = currentDisplayableApp?.titleWillFinalize ?? "Saving Results...".localized
 
         UIView.animate(withDuration: 0.6) {
             self.progressBar.alpha = 0
