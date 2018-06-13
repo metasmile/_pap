@@ -76,38 +76,52 @@ public class ConvertApp: BApp,
             return result
         }
 
-        try? PHPhotoLibrary.shared().performChangesAndWait {
-            let urlsItems = items.compactMap { item -> [URL]? in
-                var urls = item as? [URL]
-                if urls == nil, let url = item as? URL{
-                    urls = [url]
+        if let rootViewController = UIApplication.shared.keyWindow?.rootViewController {
+            asyncSignal.begin()
+            DispatchQueue.main.async {
+                let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+                activityViewController.completionWithItemsHandler = { (activityType:UIActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
+                    asyncSignal.end()
                 }
-                return urls
+                activityViewController.popoverPresentationController?.sourceView=rootViewController.view
+                rootViewController.present(activityViewController, animated: true, completion: nil)
             }
-
-            for urls in urlsItems {
-
-                let request = PHAssetCreationRequest.forAsset()
-                let options = PHAssetResourceCreationOptions()
-                options.shouldMoveFile = true
-
-                for url in urls{
-                    let uti = UTI(withURL: url)
-
-                    if uti.conforms(to: UTI.image) {
-                        request.addResource(with: .photo, fileURL: url, options: options)
-                    }
-                    else if uti.conforms(to: UTI.movie) {
-                        if urls.contains(where: { UTI(withURL: $0).conforms(to: UTI.image) }) == true {
-                            request.addResource(with: .pairedVideo, fileURL: url, options: options)
-                        }
-                        else {
-                            request.addResource(with: .video, fileURL: url, options: options)
-                        }
-                    }
-                }
-            }
+            asyncSignal.waitUntilEnd()
         }
+
+        //INFO: move or merge this code when add on-demand result collection feature
+
+//        try? PHPhotoLibrary.shared().performChangesAndWait {
+//        let urlsItems = items.compactMap { item -> [URL]? in
+//            var urls = item as? [URL]
+//            if urls == nil, let url = item as? URL{
+//                urls = [url]
+//            }
+//            return urls
+//        }
+//            for urls in urlsItems {
+//
+//                let request = PHAssetCreationRequest.forAsset()
+//                let options = PHAssetResourceCreationOptions()
+//                options.shouldMoveFile = true
+//
+//                for url in urls{
+//                    let uti = UTI(withURL: url)
+//
+//                    if uti.conforms(to: UTI.image) {
+//                        request.addResource(with: .photo, fileURL: url, options: options)
+//                    }
+//                    else if uti.conforms(to: UTI.movie) {
+//                        if urls.contains(where: { UTI(withURL: $0).conforms(to: UTI.image) }) == true {
+//                            request.addResource(with: .pairedVideo, fileURL: url, options: options)
+//                        }
+//                        else {
+//                            request.addResource(with: .video, fileURL: url, options: options)
+//                        }
+//                    }
+//                }
+//            }
+//        }
 
         return result
     }

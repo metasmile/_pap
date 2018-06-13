@@ -311,17 +311,32 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
         
             default: results += resultItems.compactMap({ $0.fileURL })
         }
-        
-        asyncSignal.begin()
-        PHPhotoLibrary.shared().performChanges({
-            for result in results{
-                PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL:result)
+
+        if let rootViewController = UIApplication.shared.keyWindow?.rootViewController {
+            asyncSignal.begin()
+            DispatchQueue.main.async {
+                let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: results, applicationActivities: nil)
+                activityViewController.completionWithItemsHandler = { (activityType:UIActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
+                    asyncSignal.end()
+                }
+                activityViewController.popoverPresentationController?.sourceView=rootViewController.view
+                rootViewController.present(activityViewController, animated: true, completion: nil)
             }
-        }, completionHandler: { (success, info) in
-            asyncSignal.end()
-            print("creatingAndWait", success)
-        })
-        asyncSignal.waitUntilEnd()
+            asyncSignal.waitUntilEnd()
+        }
+
+        //INFO: move or merge this code when add on-demand result collection feature
+
+//        asyncSignal.begin()
+//        PHPhotoLibrary.shared().performChanges({
+//            for result in results{
+//                PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL:result)
+//            }
+//        }, completionHandler: { (success, info) in
+//            asyncSignal.end()
+//            print("creatingAndWait", success)
+//        })
+//        asyncSignal.waitUntilEnd()
         
         return result
     }
