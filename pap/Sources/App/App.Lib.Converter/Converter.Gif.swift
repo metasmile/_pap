@@ -151,7 +151,7 @@ class GifConverter_Mov: OptionableConverterBase<GifConverterDefaultOption>, GifC
     }
 
     static func canPerformWith(source: AppAsset) -> Bool {
-        return source.asset.mediaType == .video
+        return source.asset.mediaType == .video && source.asset.duration < 15
     }
 }
 

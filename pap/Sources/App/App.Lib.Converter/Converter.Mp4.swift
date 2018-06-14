@@ -54,7 +54,7 @@ class MP4Converter_Mov: OptionableConverterBase<MP4ConverterOption>, MP4Converte
     }
     
     static func canPerformWith(source: AppAsset) -> Bool {
-        return source.asset.mediaType == .video && source.asset.uniformTypeIdentifier != (kUTTypeMPEG4 as String)
+        return source.asset.mediaType == .video && source.asset.duration < 15 && source.asset.uniformTypeIdentifier != (kUTTypeMPEG4 as String)
     }
 }
 
