@@ -32,12 +32,6 @@ extension UIView{
     }
 
     public func animateAsSpringSuperviewLayoutIfNeeded(completion:((Bool) -> Void)? = nil) {
-//        if let navigationBar = self.superview?.subviews.first(where: { (view) -> Bool in
-//            view is UINavigationBar
-//        }) {
-//            navigationBar.layoutIfNeeded()
-//        }
-        
         UIView.animateAsSpring(animations: { [unowned self] in
             self.superview?.layoutIfNeeded()
         }, completion: completion)

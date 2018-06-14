@@ -246,6 +246,7 @@ class AppDockView: CustomView {
                 removeAllControllerViews(animated: false)
             }
             
+            //INFO: no controller animation
             appContentView.layoutIfNeeded()
             
             delegate?.appDockView(self, didOpenDrawer: controller != nil && contentLayoutState == .maximized)
@@ -613,10 +614,6 @@ extension AppDockView: UIGestureRecognizerDelegate {
                 topAccessoryView.transform = CGAffineTransform(scaleX: scale, y: scale)
             }
             
-            if !conformsPreviewable {
-                appContentView.layoutIfNeeded()
-            }
-            
             invalidateIntrinsicContentSize()
             
             if contentLayoutState != .minimized && sender.beginDrawerOffset - translation.y < 0 {
@@ -712,10 +709,6 @@ extension AppDockView: UIGestureRecognizerDelegate {
         let accessoryLayoutConstant = conformsPreviewable ? contentLayoutConstant - max(0, preferredControllerViewHeight) : preferredAccessoryViewHeight
         controllerViewHeightLayout.constant = controllerLayoutConstant
         
-        if !conformsPreviewable {
-            appContentView.layoutIfNeeded()
-        }
-        
         invalidateIntrinsicContentSize()
 
         controller?.delegate?.dockWillExpand(self)
@@ -750,10 +743,6 @@ extension AppDockView: UIGestureRecognizerDelegate {
         appContentViewHeightLayout.constant = max(0, preferredControllerViewHeight) + max(0, preferredAccessoryViewHeight)
         controllerViewHeightLayout.constant = preferredControllerViewHeight
         
-        if !conformsPreviewable {
-            appContentView.layoutIfNeeded()
-        }
-        
         invalidateIntrinsicContentSize()
 
         controller?.delegate?.dockWillContract(self)
@@ -786,10 +775,6 @@ extension AppDockView: UIGestureRecognizerDelegate {
         
         appContentViewHeightLayout.constant = preferredAccessoryViewHeight
         controllerViewHeightLayout.constant = 0
-        
-        if !conformsPreviewable {
-            appContentView.layoutIfNeeded()
-        }
         
         invalidateIntrinsicContentSize()
         
