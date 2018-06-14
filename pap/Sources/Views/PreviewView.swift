@@ -10,6 +10,39 @@ import UIKit
 import Photos
 import Crashlytics
 
+struct PreviewCachingImageManager {
+    private static var cachedImages = [AppAsset: URL]()
+    
+    static func startCachingImage(_ asset: AppAsset, image: UIImage) {
+        let url = FileURL.temp("preview_cached_image_\(asset.editState.hash).jpg")
+        
+        DispatchQueue(label: "preview_caching_queue").async {
+            let data = UIImageJPEGRepresentation(image, 0.7)
+            try? data?.write(to: url)
+            PreviewCachingImageManager.cachedImages[asset] = url
+        }
+    }
+    
+    static func cachedImage(_ asset: AppAsset) -> UIImage? {
+        guard let url = PreviewCachingImageManager.cachedImages[asset] else { return nil }
+        return UIImage(contentsOfFile: url.path)
+    }
+    
+    static func stopCachingImage(_ asset: AppAsset) {
+        if let cachedIndex = PreviewCachingImageManager.cachedImages.index(forKey: asset), let url = PreviewCachingImageManager.cachedImages[asset] {
+            try? FileManager.default.removeItem(at: url)
+            PreviewCachingImageManager.cachedImages.remove(at: cachedIndex)
+        }
+    }
+    
+    static func stopCachingImagesForAllAssets() {
+        PreviewCachingImageManager.cachedImages.forEach { (appAsset, url) in
+            try? FileManager.default.removeItem(at: url)
+        }
+        PreviewCachingImageManager.cachedImages.removeAll()
+    }
+}
+
 protocol PreviewViewDelegate {
     func batchPreviewView(_ view: PreviewView, didSelectItemAt indexPath: IndexPath)
     func batchPreviewViewWillFinalize(_ view: PreviewView)
