@@ -66,13 +66,11 @@ class PhotoPickerViewController: AppDockViewController {
         PHPhotoLibraryManager.default.watch(\.changes) {
             guard let changeInstance = PHPhotoLibraryManager.default.changes else { return }
 
-            DispatchQueue.main.async {
-                if AppCenter.default.task.isRunning{
-                    self.queuedPhotoLibraryChanges.enqueue(changeInstance)
+            self.queuedPhotoLibraryChanges.enqueue(changeInstance)
 
-                }else{
+            DispatchQueue.main.async {
+                if AppCenter.default.task.isRunning == false{
                     self.flushQueuedPhotoLibraryChanges()
-                    self.photoLibraryDidChange(changeInstance)
                 }
             }
         }
