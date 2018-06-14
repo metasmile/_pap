@@ -242,9 +242,13 @@ public class GIFMakerAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttr
     }
 }
 
-public class GIFMaker: BApp, ConfigurableApp, _ConfigurableApp,
-        AppDockApp, PHAssetFinalizableApp, PhotoPickerCollectionViewDisplayableApp,
-PhotoPickerViewControllerDelegatableApp, FinalizableApp {
+public class GIFMaker: BApp,
+        ConfigurableApp, _ConfigurableApp
+        , AppDockApp
+        , PhotoPickerCollectionViewDisplayableApp
+        , PhotoPickerViewControllerDelegatableApp
+        , PHAssetUIAlertControllerFinalizableApp {
+
     public static let taskType:Taskable.Type = _GIFMakerAppTask.self
     public static let paramType:TaskParamable.Type = _GIFMakerAppAsset.self
     
@@ -283,11 +287,7 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
         default: return Int.max
         }
     }
-    
-    public var finalizingActions: [PHAssetFinalizingAction] {
-        return [.create]
-    }
-    
+
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
         self.config?.adoptValues(fromOther: config)
     }
@@ -297,10 +297,10 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
             .filter { respondable in respondable.info.state == .completed }
             .compactMap { ($0.result as? GIFMakerPHAssetResult) }
             .sorted { ($0.orderedIndex ?? 0) < ($1.orderedIndex ?? 0) }
-        
+
         let defaults =  (GIFMaker.defaults as! GIFMakerDefaults)
         var results = [URL]()
-        
+
         switch GIFMakerSettings.sourceType.type(rawValue: (GIFMaker.defaults as! GIFMakerDefaults).sourceType) {
         case .photo?:
             let urls = resultItems.compactMap({ $0.fileURL })
@@ -308,36 +308,12 @@ PhotoPickerViewControllerDelegatableApp, FinalizableApp {
             if let url = UIImageGIFRepresentationURL(with: GifConverterDefaultOption.URLs(urls: urls, with: defaults.direction), loopCount: defaults.loopCount, frameDelay: defaults.frameDelay) {
                 results.append(url)
             }
-        
+
             default: results += resultItems.compactMap({ $0.fileURL })
         }
 
-        if let rootViewController = UIApplication.shared.keyWindow?.rootViewController {
-            asyncSignal.begin()
-            DispatchQueue.main.async {
-                let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: results, applicationActivities: nil)
-                activityViewController.completionWithItemsHandler = { (activityType:UIActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
-                    asyncSignal.end()
-                }
-                activityViewController.popoverPresentationController?.sourceView=rootViewController.view
-                rootViewController.present(activityViewController, animated: true, completion: nil)
-            }
-            asyncSignal.waitUntilEnd()
-        }
+        self.presentFinalizingUIAlertControllerAndWait(items: results, asyncSignal)
 
-        //INFO: move or merge this code when add on-demand result collection feature
-
-//        asyncSignal.begin()
-//        PHPhotoLibrary.shared().performChanges({
-//            for result in results{
-//                PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL:result)
-//            }
-//        }, completionHandler: { (success, info) in
-//            asyncSignal.end()
-//            print("creatingAndWait", success)
-//        })
-//        asyncSignal.waitUntilEnd()
-        
         return result
     }
 }

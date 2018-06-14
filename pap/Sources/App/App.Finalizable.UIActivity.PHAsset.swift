@@ -15,9 +15,7 @@ public struct PHAssetFinalizingOutput {
     var resources: [(resourceType: PHAssetResourceType, url: URL)] = []
 }
 
-protocol PHAssetUIActivityFinalizableApp: PHAssetFinalizableApp{
-
-}
+protocol PHAssetUIActivityFinalizableApp: PHAssetFinalizableApp{}
 
 extension PHAssetUIActivityFinalizableApp{
     public func presentFinalizingActivity(items: [PHAssetFinalizingActivityItem]?, _ asyncSignal: AsyncManualSignalable) {
