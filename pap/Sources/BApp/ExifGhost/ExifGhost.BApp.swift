@@ -32,7 +32,7 @@ public class ExifGhost: BApp, PHAssetFinalizableApp, PhotoPickerViewControllerDe
     public required init() {}
 
     public var finalizingActions: [PHAssetFinalizingAction] {
-        return [.share]
+        return [.showActions]
     }
 
     public func shouldSelect(item: AppAsset) -> Bool {
@@ -44,7 +44,7 @@ public class ExifGhost: BApp, PHAssetFinalizableApp, PhotoPickerViewControllerDe
     }
 
     public var titleWillBegin:String? {
-        return "Purging selected ...".localized
+        return "Purging Selected Items...".localized
     }
 }
 

@@ -12,9 +12,10 @@ public enum PHAssetFinalizingAction: Int{
     case create
     case delete
     case share
+    case showActions
 }
 
-public protocol PHAssetFinalizableApp: FinalizableApp {
+public protocol PHAssetFinalizableApp: FinalizableApp, PHAssetUIAlertControllerSynchronizablePresenter {
     var finalizingActions: [PHAssetFinalizingAction] {get}
 }
 
@@ -66,6 +67,12 @@ extension PHAssetFinalizableApp {
 
                 if exclusiveOption{ return result }
             }
+
+            if option == .showActions {
+                self.showingActionsAndWait(targetResultAssets: targetResultAssets, asyncSignal)
+
+                if exclusiveOption{ return result }
+            }
         }
         assert(asyncSignal.began == false)
         return result
@@ -93,11 +100,6 @@ extension PHAssetFinalizableApp {
         }, completionHandler: { (success, info) in
             asyncSignal.end()
             print("deletingAndWait", success)
-
-            if !success{
-
-
-            }
         })
         asyncSignal.waitUntilEnd()
     }
@@ -122,6 +124,29 @@ extension PHAssetFinalizableApp {
             }
             asyncSignal.waitUntilEnd()
         }
+    }
+
+    private func creatingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncManualSignalable){
+        asyncSignal.begin()
+        PHPhotoLibrary.shared().performChanges({
+            for result in targetResultAssets{
+                if let output = result.contentEditingOutput{
+                    PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL:output.renderedContentURL)
+                }
+            }
+
+        }, completionHandler: { (success, info) in
+            asyncSignal.end()
+            print("creatingAndWait", success)
+        })
+        asyncSignal.waitUntilEnd()
+    }
+
+    private func showingActionsAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncManualSignalable){
+        let urls = targetResultAssets.compactMap { resultable -> URL? in
+            resultable.contentEditingOutput?.renderedContentURL
+        }
+        self.presentUIAlertControllerAndWait(items: urls, asyncSignal)
     }
 
     private func routeUIActivityShareItems(by result:PHAssetResultable) -> Any?{
@@ -185,19 +210,5 @@ extension PHAssetFinalizableApp {
         }
     }
 
-    private func creatingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncManualSignalable){
-        asyncSignal.begin()
-        PHPhotoLibrary.shared().performChanges({
-            for result in targetResultAssets{
-                if let output = result.contentEditingOutput{
-                    PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL:output.renderedContentURL)
-                }
-            }
 
-        }, completionHandler: { (success, info) in
-            asyncSignal.end()
-            print("creatingAndWait", success)
-        })
-        asyncSignal.waitUntilEnd()
-    }
 }

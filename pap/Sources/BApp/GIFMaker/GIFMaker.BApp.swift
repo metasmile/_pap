@@ -245,9 +245,10 @@ public class GIFMakerAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttr
 public class GIFMaker: BApp,
         ConfigurableApp, _ConfigurableApp
         , AppDockApp
+        , FinalizableApp
         , PhotoPickerCollectionViewDisplayableApp
         , PhotoPickerViewControllerDelegatableApp
-        , PHAssetUIAlertControllerFinalizableApp {
+        , PHAssetUIAlertControllerSynchronizablePresenter {
 
     public static let taskType:Taskable.Type = _GIFMakerAppTask.self
     public static let paramType:TaskParamable.Type = _GIFMakerAppAsset.self
@@ -312,7 +313,7 @@ public class GIFMaker: BApp,
             default: results += resultItems.compactMap({ $0.fileURL })
         }
 
-        self.presentFinalizingUIAlertControllerAndWait(items: results, asyncSignal)
+        self.presentUIAlertControllerAndWait(items: results, asyncSignal)
 
         return result
     }

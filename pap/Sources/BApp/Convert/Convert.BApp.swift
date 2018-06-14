@@ -18,7 +18,8 @@ public class ConvertAppConfigValue: NSObject, KeyPathWatchable, AppConfigValuabl
 public class ConvertApp: BApp,
         AppDockApp,
         ConfigurableApp, _ConfigurableApp,
-        PHAssetUIAlertControllerFinalizableApp,
+        FinalizableApp,
+        PHAssetUIAlertControllerSynchronizablePresenter,
         PhotoPickerCollectionViewDisplayableApp,
         PhotoPickerViewControllerDelegatableApp {
 
@@ -76,7 +77,7 @@ public class ConvertApp: BApp,
             return result
         }
 
-        self.presentFinalizingUIAlertControllerAndWait(items: items, asyncSignal)
+        self.presentUIAlertControllerAndWait(items: items, asyncSignal)
 
         return result
     }

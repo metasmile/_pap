@@ -7,11 +7,10 @@ import Foundation
 import Photos
 
 
-//TODO: universal saver.
-
 extension PHPhotoLibrary{
 
-    public func saveAsAny(items:[Any]){
+    //TODO: universal types.
+    public func saveAsAnyAndWait(items:[Any]){
 
         // [[URL]]
         let urlsItems = items.compactMap { item -> [URL]? in

@@ -96,8 +96,8 @@
 "Aspect Ratio" = "Aspect Ratio";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Choose An Option To Export";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Choose An Export Option For %d Items";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Choose an Option To Convert";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -151,7 +151,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Photos";
 /* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Purging selected ...";
+"Purging Selected Items..." = "Purging Selected Items...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320×240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -162,17 +162,15 @@
 "Reverse" = "Reverse";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Rewind";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "Save %d Results";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Save and Share";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Saving Results...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Selection Presets";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "Share %d Results";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, App.Finalizable.UIAlertController.PHAsset.swift */
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Share";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Size";

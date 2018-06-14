@@ -52,10 +52,9 @@ public struct papLog{
 
 fileprivate extension Analytics{
     fileprivate class func _logEvent(_ name: String, parameters: [String : Any]?){
-#if DEBUG
-        return
-#endif
+#if !DEBUG
         self.logEvent(name, parameters: parameters)
+#endif
     }
 
     fileprivate static func logWithCurrentApp(_ name:String=#function, parameters:[String:Any]?=nil){

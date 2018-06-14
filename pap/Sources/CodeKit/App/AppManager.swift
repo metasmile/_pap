@@ -156,8 +156,7 @@ open class AppManager: NSObject, SelectableCollection {
         return _task
     }
 
-    //TODO: make AppTaskLoad, AppTaskLoadBalancer, ordering to dynamically adjust via current system condition.
-    public var _task = AppTaskManager.shared({ () -> UInt in
+    private var _task = AppTaskManager.shared({ () -> UInt in
         //https://en.wikipedia.org/wiki/List_of_iOS_devices
         let remainingMem = ProcessInfo.processInfo.physicalRemainingMemory/(1024*1024)
 
