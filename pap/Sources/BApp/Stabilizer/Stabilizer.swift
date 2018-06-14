@@ -17,8 +17,8 @@ class _StabilizerAppAsset: PHAssetItem<ImageEditStateValue> {
 }
 
 public class StabilizerAppValue: ImageEditStateValue {
-    override var stabilizationMode: ImageAlignment.StabilizationMode {
-        return _stabilizationMode ?? .translation
+    override var stabilizationMode: ImageAlignment.StabilizationMode? {
+        return _stabilizationMode
     }
     
     private var _stabilizationMode: ImageAlignment.StabilizationMode?
@@ -31,8 +31,8 @@ public class StabilizerAppValue: ImageEditStateValue {
 }
 
 public extension StateValueSet where T: ImageEditStateValue {
-    var stabilizationMode: ImageAlignment.StabilizationMode {
-        return self.iterator().reversed().first?.stabilizationMode ?? .translation
+    var stabilizationMode: ImageAlignment.StabilizationMode? {
+        return self.iterator().reversed().first?.stabilizationMode
     }
 }
 
@@ -54,7 +54,7 @@ public class StabilizerAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAt
     }
 }
 
-public class Stabilizer: BApp, PHAssetFinalizableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp, ConfigurableApp, _ConfigurableApp {
+public class Stabilizer: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp, ConfigurableApp, _ConfigurableApp, PreviewableApp {
     public static let taskType:Taskable.Type = StabilizerTask.self
 
     public static let paramType:TaskParamable.Type = _StabilizerAppAsset.self
@@ -76,7 +76,11 @@ public class Stabilizer: BApp, PHAssetFinalizableApp, AppDockApp, PhotoPickerVie
             , minOSVersion: nil
     )
 
-    required public init() {}
+    required public override init() {
+        super.init()
+        
+        self.currentEditStateValue = StabilizerAppValue(.translation)
+    }
     
     public var finalizingActions: [PHAssetFinalizingAction] {
         return [.modify]
@@ -96,6 +100,8 @@ public class Stabilizer: BApp, PHAssetFinalizableApp, AppDockApp, PhotoPickerVie
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
         self.config?.adoptValues(fromOther: config)
     }
+    
+    public private(set) var currentEditStateValue: ImageEditStateValue?
 }
 
 private class StabilizerTask: TaskPrototype, Taskable {
@@ -222,7 +228,7 @@ extension _StabilizerAppAsset: PHAssetVideoEditable {
                 return
             }
             
-            self.exportSession = AVAssetExportSession.export(asset: video, videoComposition: video.stabilize(with: self.editState.stabilizationMode, clamp: maximumClamp), presetName: AVAssetExportPresetHighestQuality, outputURL: item.output.renderedContentURL, progressHandler: progressHandler, completionHandler: { (success) in
+            self.exportSession = AVAssetExportSession.export(asset: video, videoComposition: video.stabilize(with: self.editState.stabilizationMode ?? .translation, clamp: maximumClamp), presetName: AVAssetExportPresetHighestQuality, outputURL: item.output.renderedContentURL, progressHandler: progressHandler, completionHandler: { (success) in
                 if success {
                     completionHandler(asset, item.output)
                 }

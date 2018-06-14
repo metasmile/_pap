@@ -19,8 +19,8 @@ public class ImageEditStateValue: Object {
     var ciFilter: CIFilter? {
         return nil
     }
-    var stabilizationMode: ImageAlignment.StabilizationMode {
-        return .translation
+    var stabilizationMode: ImageAlignment.StabilizationMode? {
+        return nil
     }
 }
 
