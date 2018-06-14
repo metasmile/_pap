@@ -34,7 +34,6 @@ public struct papLog{
     }
 
     public struct error {
-
         public static func recordedError(_ e:Error, parameters:[String:Any]?=nil){
             var paramToCommit = [
                 "errorDescription": e.localizedDescription
@@ -52,6 +51,13 @@ public struct papLog{
 }
 
 fileprivate extension Analytics{
+    fileprivate class func _logEvent(_ name: String, parameters: [String : Any]?){
+#if DEBUG
+        return
+#endif
+        self.logEvent(name, parameters: parameters)
+    }
+
     fileprivate static func logWithCurrentApp(_ name:String=#function, parameters:[String:Any]?=nil){
         let name = name.replace(")","_").replace("(","_")
 
@@ -61,7 +67,7 @@ fileprivate extension Analytics{
             }
 
             var paramToCommit = [
-                "identifier": app.info.identifier
+                "appidentifier": app.info.identifier
             ] as [String:Any]
 
             if let parameters = parameters{
@@ -69,10 +75,7 @@ fileprivate extension Analytics{
                     paramToCommit[o.key] = o.value
                 }
             }
-
-            print(name, paramToCommit)
-
-            self.logEvent(name, parameters: paramToCommit)
+            self._logEvent(name, parameters: paramToCommit)
         }
     }
 }
