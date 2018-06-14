@@ -122,105 +122,119 @@
 "cs_keyword_12" = "saaxiib";
 /*Translated from: lover*/
 "cs_keyword_13" = "lover";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilizing Selected Items..." = "Xasilinta alaabta la soo xulay ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "Dib u noqo";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Import" = "Soo dejinta";
+"%d times" = "%d waqtiyo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 x 1080)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Nadiifinta doorashada ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "Hore";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Direction" = "Jihada";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "Albaabada";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Karinta";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Heerka Kala Duwan";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Starting the Process..." = "Bilaabidda Nidaamka ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Photos" = "Sawirro";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Xulashada Xulashada";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Size" = "Cabbirka";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Repeat" = "Ku celi";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Create" = "Abuuri";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "Dalag";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilize" = "Xasilinta";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"No loop" = "Looma baahna";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Export" = "Dhoofinta";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
-"Share" = "La wadaag";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Make GIF" = "Samee GIF";
+"Burst" = "Dilaaca";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Choose An Option To Export" = "Dooro ikhtiyaarka si aad u dhoofiso";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Dooro Xulasho Si Loo Bedelo";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "Abuuri";
+/* Generated from genl10n: Stabilizer.swift */
+"Crop To Fit" = "Dalagga Cagaarka ah";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Dalag si aad u Xirtid";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Live Photo" = "Live Photo";
+"Crop" = "Dalag";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Image Quality" = "Tayada sawirka";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Video" = "Video";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Saving Results..." = "Natiijooyinka Saving ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Loop" = "Loop";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD (640 × 360)";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
-"Original" = "Asalka";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "Dilaaca";
-/* Generated from genl10n: Stabilizer.swift */
-"Strong" = "Xoog";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "Isbedel";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Frame Delay" = "Frame Delay";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"Albums" = "Albaabada";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"%d times" = "%d waqtiyo";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
+"Direction" = "Jihada";
+/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
+"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Soo dejinta ...";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "Bilow";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"My Albums" = "My Album";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "Rewind";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Xulashada Dhoofinta";
 /* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "Dhoofinta";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "Hore";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "Frame Delay";
+/* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HD (1280×720)" = "HD (1280 × 720)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "Tayada sawirka";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "Soo dejinta";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "Live Photo";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "Loop";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "Samee GIF";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "Isbedel";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "My Album";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "Ma jiro dalag";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Square" = "Square";
+"No loop" = "Looma baahna";
+/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+"Original" = "Asalka";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "Sawirro";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Purging selected ..." = "Nadiifinta doorashada ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Tayada";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
+"Repeat" = "Ku celi";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "Dib u noqo";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "Rewind";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save %d Results" = "Badbaad %d Natiijooyinka";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save" = "Badbaadi";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "Natiijooyinka Saving ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift */
+"Selection Presets" = "Xulashada Xulashada";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Share %d Results" = "Share %d Natiijooyinka";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+"Share" = "La wadaag";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "Cabbirka";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
-"Normal" = "Caadi ah";
+"Stabilization Mode" = "Habka Xasilinta";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilize" = "Xasilinta";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizer" = "Stabilizer";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizing Selected Items..." = "Xasilinta alaabta la soo xulay ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "Bilow";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "Bilaabidda Nidaamka ...";
+/* Generated from genl10n: Stabilizer.swift */
+"Translation" = "Turjubaan";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "Video";
+/* Generated from genl10n: Stabilizer.swift */
+"Warp" = "Warp";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"nHD (640×360)" = "nHD (640 × 360)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"qHD (960×540)" = "qHD (960 × 540)";

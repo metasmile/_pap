@@ -122,105 +122,119 @@
 "cs_keyword_12" = "მეგობარი";
 /*Translated from: lover*/
 "cs_keyword_13" = "შეყვარებული";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilizing Selected Items..." = "შერჩეული ნივთიერების სტაბილიზაცია ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "უკუ";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Import" = "იმპორტი";
+"%d times" = "%d ჯერ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "შერჩეული ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "თავდამსხმელი";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Direction" = "მიმართულება";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "ალბომები";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "ანიმაცია";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "ასპექტის თანაფარდობა";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Starting the Process..." = "დაწყების პროცესი ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Photos" = "ფოტოები";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "შერჩევის საქაღალდეები";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Size" = "ზომა";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Repeat" = "გამეორება";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Create" = "შექმნა";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "მოსავლელი";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilize" = "სტაბილიზაცია";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"No loop" = "არ არის მარყუჟი";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Export" = "ექსპორტი";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
-"Share" = "გაზიარება";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Make GIF" = "ჩადება GIF";
+"Burst" = "ადიდებული";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Choose An Option To Export" = "აირჩიეთ ვარიანტი ექსპორტისთვის";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "აირჩიეთ ვარიანტი კონვერტაციისთვის";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "შექმნა";
+/* Generated from genl10n: Stabilizer.swift */
+"Crop To Fit" = "მოჭრა";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "მოსავლელი შეესაბამება";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Live Photo" = "ცოცხალი სურათი";
+"Crop" = "მოსავლელი";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Image Quality" = "სურათის ხარისხი";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Video" = "ვიდეო";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Saving Results..." = "გადარჩენის შედეგები ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Loop" = "Loop";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD (640 × 360)";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
-"Original" = "ორიგინალური";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "ადიდებული";
-/* Generated from genl10n: Stabilizer.swift */
-"Strong" = "ძლიერი";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "შეცვალეთ";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Frame Delay" = "ჩარჩო გადატვირთვა";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"Albums" = "ალბომები";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"%d times" = "%d ჯერ";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
+"Direction" = "მიმართულება";
+/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
+"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "ჩამოტვირთვის ...";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "დაწყება";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"My Albums" = "ჩემი ალბომები";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "გადახვევა";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "ექსპორტის პარამეტრები";
 /* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "ექსპორტი";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "თავდამსხმელი";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "ჩარჩო გადატვირთვა";
+/* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HD (1280×720)" = "HD (1280 × 720)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "სურათის ხარისხი";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "იმპორტი";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "ცოცხალი სურათი";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "Loop";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "ჩადება GIF";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "შეცვალეთ";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "ჩემი ალბომები";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "არ მოსავალი";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Square" = "მოედანი";
+"No loop" = "არ არის მარყუჟი";
+/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+"Original" = "ორიგინალური";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "ფოტოები";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Purging selected ..." = "შერჩეული ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "ხარისხი";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
+"Repeat" = "გამეორება";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "უკუ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "გადახვევა";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save %d Results" = "შენახვა %d შედეგები";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save" = "გადარჩენა";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "გადარჩენის შედეგები ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift */
+"Selection Presets" = "შერჩევის საქაღალდეები";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Share %d Results" = "შედეგები %d შედეგები";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+"Share" = "გაზიარება";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "ზომა";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "მოედანი";
 /* Generated from genl10n: Stabilizer.swift */
-"Normal" = "ჩვეულებრივი";
+"Stabilization Mode" = "სტაბილიზაციის რეჟიმი";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilize" = "სტაბილიზაცია";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizer" = "სტაბილიზატორი";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizing Selected Items..." = "შერჩეული ნივთიერების სტაბილიზაცია ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "დაწყება";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "დაწყების პროცესი ...";
+/* Generated from genl10n: Stabilizer.swift */
+"Translation" = "თარგმანი";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "ვიდეო";
+/* Generated from genl10n: Stabilizer.swift */
+"Warp" = "Warp";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"nHD (640×360)" = "nHD (640 × 360)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"qHD (960×540)" = "qHD (960 × 540)";

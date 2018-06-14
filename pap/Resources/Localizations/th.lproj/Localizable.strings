@@ -122,105 +122,119 @@
 "cs_keyword_12" = "เพื่อน";
 /*Translated from: lover*/
 "cs_keyword_13" = "คนรัก";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilizing Selected Items..." = "กำลังกำหนดรายการที่เลือก ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "ย้อนกลับ";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Import" = "นำเข้า";
+"%d times" = "%d ครั้ง";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "กำลังล้างข้อมูลที่เลือก ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "ข้างหน้า";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Direction" = "ทิศทาง";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "อัลบัม";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "นิเมชั่น";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "อัตราส่วนภาพ";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Starting the Process..." = "กำลังเริ่มกระบวนการ ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Photos" = "ภาพถ่าย";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "การเลือก Presets";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Size" = "ขนาด";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Repeat" = "ทำซ้ำ";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Create" = "สร้าง";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "พืชผล";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilize" = "ทำให้มีเสถียรภาพ";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"No loop" = "ไม่มีลูป";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Export" = "ส่งออก";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
-"Share" = "หุ้น";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Make GIF" = "ทำ GIF";
+"Burst" = "Burst";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Choose An Option To Export" = "เลือกตัวเลือกในการส่งออก";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "เลือกตัวเลือกในการแปลง";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "สร้าง";
+/* Generated from genl10n: Stabilizer.swift */
+"Crop To Fit" = "ครอบตัดให้พอดี";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "ครอบตัดให้พอดี";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Live Photo" = "ภาพสด";
+"Crop" = "พืชผล";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Image Quality" = "คุณภาพรูปภาพ";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Video" = "วีดีโอ";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Saving Results..." = "กำลังบันทึกผลลัพธ์ ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Loop" = "ห่วง";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD (640 × 360)";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
-"Original" = "เป็นต้นฉบับ";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "Burst";
-/* Generated from genl10n: Stabilizer.swift */
-"Strong" = "แข็งแรง";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "แก้ไข";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Frame Delay" = "ความล่าช้าของเฟรม";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"Albums" = "อัลบัม";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"%d times" = "%d ครั้ง";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
+"Direction" = "ทิศทาง";
+/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
+"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "ดาวน์โหลด ...";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "เริ่มต้น";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"My Albums" = "อัลบั้มของฉัน";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "ม้วนกลับ";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "ตัวเลือกการส่งออก";
 /* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "ส่งออก";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "ข้างหน้า";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "ความล่าช้าของเฟรม";
+/* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "เครื่อง GIF";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HD (1280×720)" = "HD (1280 × 720)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "คุณภาพรูปภาพ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "นำเข้า";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "ภาพสด";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "ห่วง";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "ทำ GIF";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "แก้ไข";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "อัลบั้มของฉัน";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "ไม่มีการเพาะปลูก";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Square" = "สี่เหลี่ยม";
+"No loop" = "ไม่มีลูป";
+/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+"Original" = "เป็นต้นฉบับ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "ภาพถ่าย";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Purging selected ..." = "กำลังล้างข้อมูลที่เลือก ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "คุณภาพ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
+"Repeat" = "ทำซ้ำ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "ย้อนกลับ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "ม้วนกลับ";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save %d Results" = "บันทึก %d ผลลัพธ์";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save" = "บันทึก";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "กำลังบันทึกผลลัพธ์ ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift */
+"Selection Presets" = "การเลือก Presets";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Share %d Results" = "แบ่งปัน %d ผลลัพธ์";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+"Share" = "หุ้น";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "ขนาด";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "สี่เหลี่ยม";
 /* Generated from genl10n: Stabilizer.swift */
-"Normal" = "ปกติ";
+"Stabilization Mode" = "โหมดเสถียรภาพ";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilize" = "ทำให้มีเสถียรภาพ";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizer" = "โคลง";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizing Selected Items..." = "กำลังกำหนดรายการที่เลือก ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "เริ่มต้น";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "กำลังเริ่มกระบวนการ ...";
+/* Generated from genl10n: Stabilizer.swift */
+"Translation" = "การแปล";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "วีดีโอ";
+/* Generated from genl10n: Stabilizer.swift */
+"Warp" = "วิปริต";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"nHD (640×360)" = "nHD (640 × 360)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"qHD (960×540)" = "qHD (960 × 540)";

@@ -122,105 +122,119 @@
 "cs_keyword_12" = "මිතුරිය";
 /*Translated from: lover*/
 "cs_keyword_13" = "පෙම්වතා";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilizing Selected Items..." = "තෝරාගත් අයිතම ස්ථාවර කිරීම ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "ප්රතිවිකුණුම්";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Import" = "ආනයන";
+"%d times" = "%d ටයිම්";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "තෝරාගත් පේෂණය";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "ඉදිරියට";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Direction" = "අධ්යක්ෂණය";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "ඇල්බම්";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "සජීවීකරණය";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "දර්ශක අනුපාතය";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Starting the Process..." = "ක්රියාවලිය ආරම්භ කිරීම ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Photos" = "ඡායාරූප";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "තෝරාගත් සැකසුම්";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Size" = "ප්රමාණය";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Repeat" = "නැවත නැවත කරන්න";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Create" = "නිර්මාණය කරන්න";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "බෝග";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilize" = "ස්ථාවරයි";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"No loop" = "ලූපයක් නැත";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Export" = "අපනයන";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
-"Share" = "බෙදාගන්න";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Make GIF" = "GIF කරන්න";
+"Burst" = "පුපුරා ගියේය";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Choose An Option To Export" = "අපනයනය සඳහා විකල්පයක් තෝරන්න";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "පරිවර්තනය කිරීමට විකල්පයක් තෝරන්න";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "නිර්මාණය කරන්න";
+/* Generated from genl10n: Stabilizer.swift */
+"Crop To Fit" = "යෝග්යය බෝග";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "සුදුසුය";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Live Photo" = "සජීවී ඡායාරූප";
+"Crop" = "බෝග";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Image Quality" = "රූපයේ ගුණාත්මකභාවය";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Video" = "වීඩියෝ";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Saving Results..." = "ප්රතිඵල සුරකින්න ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Loop" = "ලූප්";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD (640 × 360)";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
-"Original" = "මුල්";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "පුපුරා ගියේය";
-/* Generated from genl10n: Stabilizer.swift */
-"Strong" = "ශක්තිමත්";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "වෙනස් කරන්න";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Frame Delay" = "රාමු ප්රමාදය";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"Albums" = "ඇල්බම්";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"%d times" = "%d ටයිම්";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
+"Direction" = "අධ්යක්ෂණය";
+/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
+"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "බාගත කිරීම ...";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "ආරම්භ කරන්න";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"My Albums" = "මගේ ඇල්බම්";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "නැවතත්";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "අපනයන විකල්පයන්";
 /* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "අපනයන";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "ඉදිරියට";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "රාමු ප්රමාදය";
+/* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HD (1280×720)" = "HD (1280 × 720)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "රූපයේ ගුණාත්මකභාවය";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "ආනයන";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "සජීවී ඡායාරූප";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "ලූප්";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "GIF කරන්න";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "වෙනස් කරන්න";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "මගේ ඇල්බම්";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "බෝග නැත";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Square" = "චතුරශ්රය";
+"No loop" = "ලූපයක් නැත";
+/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+"Original" = "මුල්";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "ඡායාරූප";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Purging selected ..." = "තෝරාගත් පේෂණය";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "ගුණාත්මක";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
+"Repeat" = "නැවත නැවත කරන්න";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "ප්රතිවිකුණුම්";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "නැවතත්";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save %d Results" = "%d ප්රතිඵල සුරකින්න";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save" = "සුරකින්න";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "ප්රතිඵල සුරකින්න ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift */
+"Selection Presets" = "තෝරාගත් සැකසුම්";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Share %d Results" = "හුවමාරු %d ප්රතිඵල";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+"Share" = "බෙදාගන්න";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "ප්රමාණය";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "චතුරශ්රය";
 /* Generated from genl10n: Stabilizer.swift */
-"Normal" = "සාමාන්ය";
+"Stabilization Mode" = "ස්ථාවරකරණ ක්රමයකි";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilize" = "ස්ථාවරයි";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizer" = "ස්ථායිසර්";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizing Selected Items..." = "තෝරාගත් අයිතම ස්ථාවර කිරීම ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "ආරම්භ කරන්න";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "ක්රියාවලිය ආරම්භ කිරීම ...";
+/* Generated from genl10n: Stabilizer.swift */
+"Translation" = "පරිවර්තනය";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "වීඩියෝ";
+/* Generated from genl10n: Stabilizer.swift */
+"Warp" = "වාප්";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"nHD (640×360)" = "nHD (640 × 360)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"qHD (960×540)" = "qHD (960 × 540)";

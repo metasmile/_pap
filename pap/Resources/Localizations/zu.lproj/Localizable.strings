@@ -122,105 +122,119 @@
 "cs_keyword_12" = "umngane";
 /*Translated from: lover*/
 "cs_keyword_13" = "umthandi";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilizing Selected Items..." = "Ukuqinisa Izinto Ezikhethiwe ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "Phindela emuva";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Import" = "Ngenisa";
+"%d times" = "%d izikhathi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "I-1080p (1920 × 1080)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "I-HVGA (480 × 320)";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Ukuphenya okukhethiwe ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "Phambili";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Direction" = "Isiqondiso";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "Ama-albhamu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "I-Animation";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Ukulinganisa kokulinganisa";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Starting the Process..." = "Ukuqala Inqubo ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Photos" = "Izithombe";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Izinketho zokukhetha";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Size" = "Usayizi";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Repeat" = "Phinda";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Create" = "Dala";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "Khulisa";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilize" = "Qinisa";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"No loop" = "Ayikho i-loop";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Export" = "Thumela";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
-"Share" = "Yabelana";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Make GIF" = "Yenza i-GIF";
+"Burst" = "Ukushisa";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Choose An Option To Export" = "Khetha Option Ukuthumela";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Khetha Option Ukuguqula";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "Dala";
+/* Generated from genl10n: Stabilizer.swift */
+"Crop To Fit" = "Hlala ukuze ugcwalise";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Nciphisa ukuze ugcwalise";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Live Photo" = "Isithombe esibukhoma";
+"Crop" = "Khulisa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Image Quality" = "Ikhwalithi yesithombe";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Video" = "Ividiyo";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Saving Results..." = "Ilondoloza Imiphumela ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Loop" = "I-Loop";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "i-nHD (640 × 360)";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
-"Original" = "Okokuqala";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "Ukushisa";
-/* Generated from genl10n: Stabilizer.swift */
-"Strong" = "Strong";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "Shintsha";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Frame Delay" = "Uhlaka lokuyeka";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"Albums" = "Ama-albhamu";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "I-HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"%d times" = "%d izikhathi";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "i-qHD (960 × 540)";
+"Direction" = "Isiqondiso";
+/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
+"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Ilanda ...";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "Qala";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"My Albums" = "Ama-albhamu ami";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "Buyisela";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Izinketho zokuthumela";
 /* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "Thumela";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "Phambili";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "Uhlaka lokuyeka";
+/* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "I-GIF Maker";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HD (1280×720)" = "I-HD (1280 × 720)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HVGA (480×320)" = "I-HVGA (480 × 320)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "Ikhwalithi yesithombe";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "Ngenisa";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "Isithombe esibukhoma";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "I-Loop";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "Yenza i-GIF";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "Shintsha";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "Ama-albhamu ami";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "Ayikho i-Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Square" = "Isikwele";
+"No loop" = "Ayikho i-loop";
+/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+"Original" = "Okokuqala";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "Izithombe";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Purging selected ..." = "Ukuphenya okukhethiwe ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"QVGA (320×240)" = "I-QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Ikhwalithi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "I-QVGA (320 × 240)";
+"Repeat" = "Phinda";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "Phindela emuva";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "Buyisela";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save %d Results" = "Londoloza %d Imiphumela";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save" = "Londoloza";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "Ilondoloza Imiphumela ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift */
+"Selection Presets" = "Izinketho zokukhetha";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Share %d Results" = "Yabelana nge- %d Imiphumela";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+"Share" = "Yabelana";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "Usayizi";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "Isikwele";
 /* Generated from genl10n: Stabilizer.swift */
-"Normal" = "Okujwayelekile";
+"Stabilization Mode" = "Imodi yokuqiniswa";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilize" = "Qinisa";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizer" = "Stabilizer";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizing Selected Items..." = "Ukuqinisa Izinto Ezikhethiwe ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "Qala";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "Ukuqala Inqubo ...";
+/* Generated from genl10n: Stabilizer.swift */
+"Translation" = "Ukuhumusha";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "Ividiyo";
+/* Generated from genl10n: Stabilizer.swift */
+"Warp" = "I-Warp";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"nHD (640×360)" = "i-nHD (640 × 360)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"qHD (960×540)" = "i-qHD (960 × 540)";

@@ -122,105 +122,119 @@
 "cs_keyword_12" = "dostum";
 /*Translated from: lover*/
 "cs_keyword_13" = "sevgilisi";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilizing Selected Items..." = "Seçilmiş elementləri sabitləşdirmək ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "Ters";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Import" = "İthalat";
+"%d times" = "%d dəfə";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Seçilmişləri silmək ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "İrəli";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Direction" = "Direction";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "Albomlar";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animasiya";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Aspekt nisbəti";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Starting the Process..." = "Prosesin başlanması ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Photos" = "Fotoşəkillər";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Seçim Öncəkləri";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Size" = "Ölçü";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Repeat" = "Təkrarlamaq";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Create" = "Yaradın";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "Bitki";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilize" = "Stabilləşdirin";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"No loop" = "No loop";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Export" = "İxrac";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
-"Share" = "Paylaş";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Make GIF" = "GIF olun";
+"Burst" = "Burst";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Choose An Option To Export" = "İxrac etmək üçün bir seçim seçin";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Konvertasiya etmək üçün bir seçim seçin";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "Yaradın";
+/* Generated from genl10n: Stabilizer.swift */
+"Crop To Fit" = "Bitirmək üçün meyvə";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Fit üçün əkin";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Live Photo" = "Canlı Şəkil";
+"Crop" = "Bitki";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Image Quality" = "Image keyfiyyəti";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Video" = "Video";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Saving Results..." = "Nəticələri qənaət ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Loop" = "Döngə";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD (640 × 360)";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
-"Original" = "Orijinal";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "Burst";
-/* Generated from genl10n: Stabilizer.swift */
-"Strong" = "Güclü";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "Değiştir";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Frame Delay" = "Frame gecikməsi";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"Albums" = "Albomlar";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"%d times" = "%d dəfə";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
+"Direction" = "Direction";
+/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
+"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Yükləmə ...";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "Başlamaq";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"My Albums" = "Albomlarım";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "Rewind";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "İxrac Seçimləri";
 /* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "İxrac";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "İrəli";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "Frame gecikməsi";
+/* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HD (1280×720)" = "HD (1280 × 720)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "Image keyfiyyəti";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "İthalat";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "Canlı Şəkil";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "Döngə";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "GIF olun";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "Değiştir";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "Albomlarım";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "Məhsul yoxdur";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Square" = "Meydan";
+"No loop" = "No loop";
+/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+"Original" = "Orijinal";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "Fotoşəkillər";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Purging selected ..." = "Seçilmişləri silmək ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Keyfiyyət";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
+"Repeat" = "Təkrarlamaq";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "Ters";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "Rewind";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save %d Results" = "%d Nəticələri saxla";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save" = "Yadda saxla";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "Nəticələri qənaət ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift */
+"Selection Presets" = "Seçim Öncəkləri";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Share %d Results" = "Paylaş %d Nəticələr";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+"Share" = "Paylaş";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "Ölçü";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "Meydan";
 /* Generated from genl10n: Stabilizer.swift */
-"Normal" = "Normal";
+"Stabilization Mode" = "Stabilizasiya rejimi";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilize" = "Stabilləşdirin";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizer" = "Stabilizator";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizing Selected Items..." = "Seçilmiş elementləri sabitləşdirmək ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "Başlamaq";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "Prosesin başlanması ...";
+/* Generated from genl10n: Stabilizer.swift */
+"Translation" = "Tərcümə";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "Video";
+/* Generated from genl10n: Stabilizer.swift */
+"Warp" = "Warp";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"nHD (640×360)" = "nHD (640 × 360)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"qHD (960×540)" = "qHD (960 × 540)";

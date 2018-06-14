@@ -122,105 +122,119 @@
 "cs_keyword_12" = "cara";
 /*Translated from: lover*/
 "cs_keyword_13" = "leannán";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilizing Selected Items..." = "Míreanna Roghnaithe a Chobhsú ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "Droim ar ais";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Import" = "Iompórtáil";
+"%d times" = "%d uaireanta";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Purging roghnaithe ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "Ar Aghaidh";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Direction" = "Treorach";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "Albam";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Beochan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Cóimheas treoaíochta";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Starting the Process..." = "Ag tosú ar an bPróiseas ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Photos" = "Grianghraif";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Réamhshocruithe Roghnúcháin";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Size" = "Méid";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Repeat" = "Déan arís";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Create" = "Cruthaigh";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "Cnoc";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilize" = "Cobhsaíocht";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"No loop" = "Gan lúb";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Export" = "Easpórtáil";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
-"Share" = "Comhroinn";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Make GIF" = "Déan GIF";
+"Burst" = "Pléasctha";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Choose An Option To Export" = "Roghnaigh Rogha Easpórtála";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Roghnaigh Rogha Chun Tiontaigh";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "Cruthaigh";
+/* Generated from genl10n: Stabilizer.swift */
+"Crop To Fit" = "Buail Chun Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Buail chun Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Live Photo" = "Grianghraf Beo";
+"Crop" = "Cnoc";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Image Quality" = "Cáilíocht Íomhá";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Video" = "Video";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Saving Results..." = "Torthaí a Shábháil ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Loop" = "Lúb";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD (640 × 360)";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
-"Original" = "Bunaidh";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "Pléasctha";
-/* Generated from genl10n: Stabilizer.swift */
-"Strong" = "Láidir";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "Athraigh";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Frame Delay" = "Moill Fráma";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"Albums" = "Albam";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"%d times" = "%d uaireanta";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
+"Direction" = "Treorach";
+/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
+"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Íoslódáil ...";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "Tosaigh";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"My Albums" = "Mo Albam";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "Rewind";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Roghanna Easpórtála";
 /* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "Easpórtáil";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "Ar Aghaidh";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "Moill Fráma";
+/* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "Déantóir GIF";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HD (1280×720)" = "HD (1280 × 720)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "Cáilíocht Íomhá";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "Iompórtáil";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "Grianghraf Beo";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "Lúb";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "Déan GIF";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "Athraigh";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "Mo Albam";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "Gan Bairr";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Square" = "Cearnóg";
+"No loop" = "Gan lúb";
+/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+"Original" = "Bunaidh";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "Grianghraif";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Purging selected ..." = "Purging roghnaithe ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Caighdeán";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
+"Repeat" = "Déan arís";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "Droim ar ais";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "Rewind";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save %d Results" = "Sábháil %d Torthaí";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save" = "Sábháil";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "Torthaí a Shábháil ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift */
+"Selection Presets" = "Réamhshocruithe Roghnúcháin";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Share %d Results" = "Comhroinn Torthaí %d";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+"Share" = "Comhroinn";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "Méid";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "Cearnóg";
 /* Generated from genl10n: Stabilizer.swift */
-"Normal" = "Gnáth";
+"Stabilization Mode" = "Mód Cobhsaíochta";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilize" = "Cobhsaíocht";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizer" = "Cobhsaitheoir";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizing Selected Items..." = "Míreanna Roghnaithe a Chobhsú ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "Tosaigh";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "Ag tosú ar an bPróiseas ...";
+/* Generated from genl10n: Stabilizer.swift */
+"Translation" = "Aistriúchán";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "Video";
+/* Generated from genl10n: Stabilizer.swift */
+"Warp" = "Warp";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"nHD (640×360)" = "nHD (640 × 360)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"qHD (960×540)" = "qHD (960 × 540)";

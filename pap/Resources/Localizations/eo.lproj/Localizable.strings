@@ -122,105 +122,119 @@
 "cs_keyword_12" = "amiko";
 /*Translated from: lover*/
 "cs_keyword_13" = "amanto";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilizing Selected Items..." = "Stabiligi Elektitajn Erojn ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "Reverso";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Import" = "Importi";
+"%d times" = "%d fojojn";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Purigado elektita ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "Antaŭen";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Direction" = "Direkto";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "Albumoj";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Kuraĝigo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Aspekto Ratio";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Starting the Process..." = "Komencante la Procezon ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Photos" = "Fotoj";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Selektaj presetoj";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Size" = "Grandeco";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Repeat" = "Ripeti";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Create" = "Krei";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "Kroĉi";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilize" = "Stabiligi";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"No loop" = "Neniu buklo";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Export" = "Eksporti";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
-"Share" = "Kunhavigi";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Make GIF" = "Faru GIF";
+"Burst" = "Eksplodo";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Choose An Option To Export" = "Elektu Elekton Eksporti";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Elektu opcion por konverti";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "Krei";
+/* Generated from genl10n: Stabilizer.swift */
+"Crop To Fit" = "Kroĉi Al Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Kroĉi al Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Live Photo" = "Viva Foto";
+"Crop" = "Kroĉi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Image Quality" = "Bildo Kvalito";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Video" = "Video";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Saving Results..." = "Savi Rezultojn ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Loop" = "Cirklo";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD (640 × 360)";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
-"Original" = "Originala";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "Eksplodo";
-/* Generated from genl10n: Stabilizer.swift */
-"Strong" = "Forta";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "Modifi";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Frame Delay" = "Kadro Malfruo";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"Albums" = "Albumoj";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"%d times" = "%d fojojn";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
+"Direction" = "Direkto";
+/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
+"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Elŝuti ...";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "Komencu";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"My Albums" = "Miaj Albumoj";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "Rekuzi";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Eksportaj opcioj";
 /* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "Eksporti";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "Antaŭen";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "Kadro Malfruo";
+/* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF-fabrikisto";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HD (1280×720)" = "HD (1280 × 720)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "Bildo Kvalito";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "Importi";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "Viva Foto";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "Cirklo";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "Faru GIF";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "Modifi";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "Miaj Albumoj";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "Neniu Kultivaĵo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Square" = "Kvadrato";
+"No loop" = "Neniu buklo";
+/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+"Original" = "Originala";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "Fotoj";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Purging selected ..." = "Purigado elektita ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Kvalito";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
+"Repeat" = "Ripeti";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "Reverso";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "Rekuzi";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save %d Results" = "Konservu %d Rezultoj";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save" = "Savi";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "Savi Rezultojn ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift */
+"Selection Presets" = "Selektaj presetoj";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Share %d Results" = "Kunhavigi %d Rezultoj";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+"Share" = "Kunhavigi";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "Grandeco";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "Kvadrato";
 /* Generated from genl10n: Stabilizer.swift */
-"Normal" = "Normala";
+"Stabilization Mode" = "Stabiligo Modo";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilize" = "Stabiligi";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizer" = "Stabiligilo";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizing Selected Items..." = "Stabiligi Elektitajn Erojn ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "Komencu";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "Komencante la Procezon ...";
+/* Generated from genl10n: Stabilizer.swift */
+"Translation" = "Tradukado";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "Video";
+/* Generated from genl10n: Stabilizer.swift */
+"Warp" = "Warp";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"nHD (640×360)" = "nHD (640 × 360)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"qHD (960×540)" = "qHD (960 × 540)";

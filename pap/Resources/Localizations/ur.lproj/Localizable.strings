@@ -122,105 +122,119 @@
 "cs_keyword_12" = "دوست";
 /*Translated from: lover*/
 "cs_keyword_13" = "عاشق";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilizing Selected Items..." = "منتخب اشیاء کو مستحکم ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "ریورس";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Import" = "درآمد کریں";
+"%d times" = "%d اوقات";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "منتخب کر دیا گیا ہے ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "آگے";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Direction" = "سمت";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "البمز";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "حرکت پذیری";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "پہلو کا تناسب";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Starting the Process..." = "عمل شروع ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Photos" = "فوٹو";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "انتخاب پریسٹس";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Size" = "سائز";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Repeat" = "دہرائیں";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Create" = "بنانا";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "فصل";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilize" = "مستحکم";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"No loop" = "کوئی لوپ نہیں";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Export" = "برآمد کریں";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
-"Share" = "بانٹیں";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Make GIF" = "GIF بنائیں";
+"Burst" = "پھٹ";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Choose An Option To Export" = "برآمد کرنے کا ایک اختیار منتخب کریں";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "تبدیل کرنے کا اختیار منتخب کریں";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "بنانا";
+/* Generated from genl10n: Stabilizer.swift */
+"Crop To Fit" = "فٹ کرنے کے لئے فصل";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "فٹ کرنے کے لئے فصلیں";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Live Photo" = "لائیو تصویر";
+"Crop" = "فصل";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Image Quality" = "تصویری کی کیفیت";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Video" = "ویڈیو";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Saving Results..." = "بچت کے نتائج ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Loop" = "لوپ";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "این ایچ ایچ ڈی (640 × 360)";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
-"Original" = "اصل";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "پھٹ";
-/* Generated from genl10n: Stabilizer.swift */
-"Strong" = "مضبوط";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "ترمیم کریں";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Frame Delay" = "فریم تاخیر";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"Albums" = "البمز";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "ایچ ڈی (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"%d times" = "%d اوقات";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
+"Direction" = "سمت";
+/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
+"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "ڈاؤن لوڈ کر رہا ہے ...";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "شروع کریں";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"My Albums" = "میرا البمز";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "جواب دیں";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "برآمد کے اختیارات";
 /* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "برآمد کریں";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "آگے";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "فریم تاخیر";
+/* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF میکر";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HD (1280×720)" = "ایچ ڈی (1280 × 720)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "تصویری کی کیفیت";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "درآمد کریں";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "لائیو تصویر";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "لوپ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "GIF بنائیں";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "ترمیم کریں";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "میرا البمز";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "نہیں فصل";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Square" = "مربع";
+"No loop" = "کوئی لوپ نہیں";
+/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+"Original" = "اصل";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "فوٹو";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Purging selected ..." = "منتخب کر دیا گیا ہے ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "معیار";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
+"Repeat" = "دہرائیں";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "ریورس";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "جواب دیں";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save %d Results" = "محفوظ کریں %d نتائج";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save" = "محفوظ کریں";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "بچت کے نتائج ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift */
+"Selection Presets" = "انتخاب پریسٹس";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Share %d Results" = "حصوں %d نتائج";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+"Share" = "بانٹیں";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "سائز";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "مربع";
 /* Generated from genl10n: Stabilizer.swift */
-"Normal" = "عمومی";
+"Stabilization Mode" = "استحکام موڈ";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilize" = "مستحکم";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizer" = "Stabilizer";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizing Selected Items..." = "منتخب اشیاء کو مستحکم ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "شروع کریں";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "عمل شروع ...";
+/* Generated from genl10n: Stabilizer.swift */
+"Translation" = "ترجمہ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "ویڈیو";
+/* Generated from genl10n: Stabilizer.swift */
+"Warp" = "وارپ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"nHD (640×360)" = "این ایچ ایچ ڈی (640 × 360)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"qHD (960×540)" = "qHD (960 × 540)";

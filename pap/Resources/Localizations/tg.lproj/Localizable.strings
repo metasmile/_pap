@@ -122,105 +122,119 @@
 "cs_keyword_12" = "дўстон";
 /*Translated from: lover*/
 "cs_keyword_13" = "лев";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilizing Selected Items..." = "Истилоҳотҳои интихобшуда ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "Тафовут";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Import" = "Воридот";
+"%d times" = "%d борҳо";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Интихоби тоза ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "Пештар";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Direction" = "Роҳандозӣ";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "Албомҳо";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Аниматсия";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Нишондиҳандаи асъор";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Starting the Process..." = "Раванди оғоз ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Photos" = "Суратҳо";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Интихоби пешфарз";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Size" = "Андозаи";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Repeat" = "Такрор";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Create" = "Эҷод кунед";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "Зироат";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilize" = "Устувор";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"No loop" = "No loop";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Export" = "Содирот";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
-"Share" = "Share";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Make GIF" = "GIF-ро созед";
+"Burst" = "Бастур";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Choose An Option To Export" = "Интихоби Ҳуруфот барои содирот";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Барои интихоби алтернативӣ интихоб кунед";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "Эҷод кунед";
+/* Generated from genl10n: Stabilizer.swift */
+"Crop To Fit" = "Зироатҳои ғизоӣ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Зироатҳои ғизоӣ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Live Photo" = "Live Photo";
+"Crop" = "Зироат";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Image Quality" = "Сифати тасвир";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Video" = "Видео";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Saving Results..." = "Натиҷаҳои сабт ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Loop" = "Loop";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD (640 × 360)";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
-"Original" = "Original";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "Бастур";
-/* Generated from genl10n: Stabilizer.swift */
-"Strong" = "Қавӣ";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "Тағир диҳед";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Frame Delay" = "Чашм";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"Albums" = "Албомҳо";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"%d times" = "%d борҳо";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
+"Direction" = "Роҳандозӣ";
+/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
+"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Боргирии ...";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "Оғоз кунед";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"My Albums" = "Албомҳои ман";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "Решид";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Имкониятҳои содиротӣ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "Содирот";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "Пештар";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "Чашм";
+/* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HD (1280×720)" = "HD (1280 × 720)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "Сифати тасвир";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "Воридот";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "Live Photo";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "Loop";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "GIF-ро созед";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "Тағир диҳед";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "Албомҳои ман";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "Гандум нест";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Square" = "Square";
+"No loop" = "No loop";
+/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+"Original" = "Original";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "Суратҳо";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Purging selected ..." = "Интихоби тоза ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Сифат";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
+"Repeat" = "Такрор";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "Тафовут";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "Решид";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save %d Results" = "Save %d Results";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save" = "Save";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "Натиҷаҳои сабт ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift */
+"Selection Presets" = "Интихоби пешфарз";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Share %d Results" = "Share %d Results";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+"Share" = "Share";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "Андозаи";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
-"Normal" = "Normal";
+"Stabilization Mode" = "Менеҷментҳои таснифот";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilize" = "Устувор";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizer" = "Стабилизатор";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizing Selected Items..." = "Истилоҳотҳои интихобшуда ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "Оғоз кунед";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "Раванди оғоз ...";
+/* Generated from genl10n: Stabilizer.swift */
+"Translation" = "Тарҷума";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "Видео";
+/* Generated from genl10n: Stabilizer.swift */
+"Warp" = "Варақа";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"nHD (640×360)" = "nHD (640 × 360)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"qHD (960×540)" = "qHD (960 × 540)";

@@ -122,105 +122,119 @@
 "cs_keyword_12" = "draugs";
 /*Translated from: lover*/
 "cs_keyword_13" = "mīļākais";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilizing Selected Items..." = "Atlasīto vienumu stabilizēšana ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "Reverss";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Import" = "Importēt";
+"%d times" = "%d reizes";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920x1080)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Purging izvēlēts ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "Uz priekšu";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Direction" = "Virziens";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "Albums";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animācija";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Aspect Ratio";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Starting the Process..." = "Procesa uzsākšana ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Photos" = "Fotogrāfijas";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Atlases priekšiestatījumi";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Size" = "Izmērs";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Repeat" = "Atkārtojiet";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Create" = "Izveidot";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "Apgriezt";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilize" = "Stabilizēt";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"No loop" = "Nav cilpas";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Export" = "Eksportēt";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
-"Share" = "Kopīgot";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Make GIF" = "Padarīt GIF";
+"Burst" = "Pārsprāgt";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Choose An Option To Export" = "Izvēlieties iespēju eksportēt";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Izvēlieties iespēju konvertēt";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "Izveidot";
+/* Generated from genl10n: Stabilizer.swift */
+"Crop To Fit" = "Apgriezt pēc fitnesa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Apgriezt līdz fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Live Photo" = "Live Photo";
+"Crop" = "Apgriezt";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Image Quality" = "Attēla kvalitāte";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Video" = "Video";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Saving Results..." = "Saglabā rezultātus ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Loop" = "Cilpa";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD (640 x 360)";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
-"Original" = "Oriģināls";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "Pārsprāgt";
-/* Generated from genl10n: Stabilizer.swift */
-"Strong" = "Stiprs";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "Mainīt";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Frame Delay" = "Frame Delay";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"Albums" = "Albums";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"%d times" = "%d reizes";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
+"Direction" = "Virziens";
+/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
+"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Lejupielāde ...";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "Sākt";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"My Albums" = "Mani albumi";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "Attīšana atpakaļ";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Eksporta iespējas";
 /* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "Eksportēt";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "Uz priekšu";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "Frame Delay";
+/* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF veidotājs";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HD (1280×720)" = "HD (1280 × 720)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "Attēla kvalitāte";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "Importēt";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "Live Photo";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "Cilpa";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "Padarīt GIF";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "Mainīt";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "Mani albumi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "Nav kultūru";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Square" = "Kvadrāts";
+"No loop" = "Nav cilpas";
+/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+"Original" = "Oriģināls";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "Fotogrāfijas";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Purging selected ..." = "Purging izvēlēts ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Kvalitāte";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
+"Repeat" = "Atkārtojiet";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "Reverss";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "Attīšana atpakaļ";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save %d Results" = "Saglabājiet %d Rezultātus";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save" = "Saglabājiet";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "Saglabā rezultātus ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift */
+"Selection Presets" = "Atlases priekšiestatījumi";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Share %d Results" = "Kopīgojiet %d rezultātus";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+"Share" = "Kopīgot";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "Izmērs";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "Kvadrāts";
 /* Generated from genl10n: Stabilizer.swift */
-"Normal" = "Normāls";
+"Stabilization Mode" = "Stabilizācijas režīms";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilize" = "Stabilizēt";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizer" = "Stabilizators";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizing Selected Items..." = "Atlasīto vienumu stabilizēšana ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "Sākt";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "Procesa uzsākšana ...";
+/* Generated from genl10n: Stabilizer.swift */
+"Translation" = "Tulkošana";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "Video";
+/* Generated from genl10n: Stabilizer.swift */
+"Warp" = "Šķēru";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"nHD (640×360)" = "nHD (640 x 360)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"qHD (960×540)" = "qHD (960 × 540)";

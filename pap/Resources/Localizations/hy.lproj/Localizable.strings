@@ -122,105 +122,119 @@
 "cs_keyword_12" = "ընկեր";
 /*Translated from: lover*/
 "cs_keyword_13" = "սիրահար";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilizing Selected Items..." = "Կայունացնող ընտրանքները ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "Վերադարձ";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Import" = "Ներմուծում";
+"%d times" = "%d times";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Մաքրել ընտրված ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "Փոխանցել";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Direction" = "Ուղղություն";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "Ալբոմներ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Շարժապատկերներ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Ասպեկտի հարաբերակցությունը";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Starting the Process..." = "Սկսել գործընթացը ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Photos" = "Նկարներ";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Ընտրության նախադրյալներ";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Size" = "Չափը";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Repeat" = "Կրկնել";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Create" = "Ստեղծեք";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "Բուսաբուծություն";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilize" = "Կայունացեք";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"No loop" = "Ոչ մի հանգույց";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Export" = "Արտահանումը";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
-"Share" = "Բաժնետոմս";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Make GIF" = "Դարձնել GIF- ը";
+"Burst" = "Պայթյուն";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Choose An Option To Export" = "Արտահանման համար ընտրեք Ընտրանք";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Ընտրեք Ընտրանք փոխարկելու համար";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "Ստեղծեք";
+/* Generated from genl10n: Stabilizer.swift */
+"Crop To Fit" = "Կտրել կոճակը";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Կերտելու համար բույս";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Live Photo" = "Live Լուսանկարը";
+"Crop" = "Բուսաբուծություն";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Image Quality" = "Պատկերի որակը";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Video" = "Video";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Saving Results..." = "Պահպանելով արդյունքները ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Loop" = "Loop";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD (640 × 360)";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
-"Original" = "Բնօրինակը";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "Պայթյուն";
-/* Generated from genl10n: Stabilizer.swift */
-"Strong" = "Ուժեղ";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "Փոփոխել";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Frame Delay" = "Շրջանակի հետաձգում";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"Albums" = "Ալբոմներ";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"%d times" = "%d times";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
+"Direction" = "Ուղղություն";
+/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
+"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Ներբեռնում ...";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "Սկսեք";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"My Albums" = "Իմ ալբոմները";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "Վերադարձ";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Արտահանման ընտրանքները";
 /* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "Արտահանումը";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "Փոխանցել";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "Շրջանակի հետաձգում";
+/* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF- ի ստեղծող";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HD (1280×720)" = "HD (1280 × 720)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "Պատկերի որակը";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "Ներմուծում";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "Live Լուսանկարը";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "Loop";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "Դարձնել GIF- ը";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "Փոփոխել";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "Իմ ալբոմները";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "Ոչ մի հատված";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Square" = "Հրապարակ";
+"No loop" = "Ոչ մի հանգույց";
+/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+"Original" = "Բնօրինակը";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "Նկարներ";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Purging selected ..." = "Մաքրել ընտրված ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Որակի";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
+"Repeat" = "Կրկնել";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "Վերադարձ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "Վերադարձ";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save %d Results" = "Պահեք %d արդյունքներ";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save" = "Պահել";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "Պահպանելով արդյունքները ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift */
+"Selection Presets" = "Ընտրության նախադրյալներ";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Share %d Results" = "Share %d արդյունքներ";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+"Share" = "Բաժնետոմս";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "Չափը";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "Հրապարակ";
 /* Generated from genl10n: Stabilizer.swift */
-"Normal" = "Նորմալ";
+"Stabilization Mode" = "Կայունացման եղանակը";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilize" = "Կայունացեք";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizer" = "Կայունացուցիչ";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizing Selected Items..." = "Կայունացնող ընտրանքները ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "Սկսեք";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "Սկսել գործընթացը ...";
+/* Generated from genl10n: Stabilizer.swift */
+"Translation" = "Թարգմանություն";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "Video";
+/* Generated from genl10n: Stabilizer.swift */
+"Warp" = "Warp";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"nHD (640×360)" = "nHD (640 × 360)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"qHD (960×540)" = "qHD (960 × 540)";

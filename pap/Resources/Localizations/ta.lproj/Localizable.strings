@@ -122,105 +122,119 @@
 "cs_keyword_12" = "நண்பன்";
 /*Translated from: lover*/
 "cs_keyword_13" = "காதலன்";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilizing Selected Items..." = "தேர்ந்தெடுக்கப்பட்ட உருப்படிகளை உறுதிப்படுத்துகிறது ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "பின்னோக்கு";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Import" = "இறக்குமதி";
+"%d times" = "%d முறை";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080 ப (1920 × 1080)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "தேர்ந்தெடுத்தது ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "முன்னோக்கி";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Direction" = "திசையில்";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "ஆல்பங்கள்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "அனிமேஷன்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "விகிதம்";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Starting the Process..." = "செயல்முறை தொடங்குகிறது ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Photos" = "புகைப்படங்கள்";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "தேர்வு முன்னமைப்புகள்";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Size" = "அளவு";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Repeat" = "மீண்டும் மீண்டும்";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Create" = "உருவாக்கவும்";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "பயிர்";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilize" = "நிலைப்படுத்துதல்";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"No loop" = "இல்லை வளைய";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Export" = "ஏற்றுமதி";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
-"Share" = "பகிர்";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Make GIF" = "GIF ஐ செய்யுங்கள்";
+"Burst" = "பர்ஸ்ட்";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Choose An Option To Export" = "ஏற்றுமதி செய்ய ஒரு விருப்பத்தை தேர்வு செய்யவும்";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "மாற்ற ஒரு விருப்பத்தை தேர்வு";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "உருவாக்கவும்";
+/* Generated from genl10n: Stabilizer.swift */
+"Crop To Fit" = "பொருத்துவதற்கு பயிர்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "பொருத்துவதற்கு பயிர்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Live Photo" = "லைவ் ஃபோட்டோ";
+"Crop" = "பயிர்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Image Quality" = "பட தரம்";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Video" = "காணொளி";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Saving Results..." = "முடிவுகளை சேமிக்கிறது ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Loop" = "லூப்";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD (640 × 360)";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
-"Original" = "அசல்";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "பர்ஸ்ட்";
-/* Generated from genl10n: Stabilizer.swift */
-"Strong" = "வலுவான";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "மாற்று";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Frame Delay" = "ஃப்ரேம் தாமதம்";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"Albums" = "ஆல்பங்கள்";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"%d times" = "%d முறை";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
+"Direction" = "திசையில்";
+/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
+"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "இறக்குகிறது ...";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "தொடக்கம்";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"My Albums" = "எனது ஆல்பங்கள்";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "ரீவைண்ட்";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "ஏற்றுமதி விருப்பங்கள்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "ஏற்றுமதி";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "முன்னோக்கி";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "ஃப்ரேம் தாமதம்";
+/* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF மேக்கர்";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HD (1280×720)" = "HD (1280 × 720)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "பட தரம்";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "இறக்குமதி";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "லைவ் ஃபோட்டோ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "லூப்";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "GIF ஐ செய்யுங்கள்";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "மாற்று";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "எனது ஆல்பங்கள்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "இல்லை பயிர்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Square" = "சதுக்கத்தில்";
+"No loop" = "இல்லை வளைய";
+/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+"Original" = "அசல்";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "புகைப்படங்கள்";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Purging selected ..." = "தேர்ந்தெடுத்தது ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "தர";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
+"Repeat" = "மீண்டும் மீண்டும்";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "பின்னோக்கு";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "ரீவைண்ட்";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save %d Results" = "%d முடிவுகள் சேமிக்கவும்";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save" = "சேமி";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "முடிவுகளை சேமிக்கிறது ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift */
+"Selection Presets" = "தேர்வு முன்னமைப்புகள்";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Share %d Results" = "%d முடிவுகளைப் பகிரவும்";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+"Share" = "பகிர்";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "அளவு";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "சதுக்கத்தில்";
 /* Generated from genl10n: Stabilizer.swift */
-"Normal" = "இயல்பான";
+"Stabilization Mode" = "உறுதிப்படுத்தல் முறை";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilize" = "நிலைப்படுத்துதல்";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizer" = "நிலைப்படுத்தி";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizing Selected Items..." = "தேர்ந்தெடுக்கப்பட்ட உருப்படிகளை உறுதிப்படுத்துகிறது ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "தொடக்கம்";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "செயல்முறை தொடங்குகிறது ...";
+/* Generated from genl10n: Stabilizer.swift */
+"Translation" = "மொழிபெயர்ப்பு";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "காணொளி";
+/* Generated from genl10n: Stabilizer.swift */
+"Warp" = "தொகுப்பை";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"nHD (640×360)" = "nHD (640 × 360)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"qHD (960×540)" = "qHD (960 × 540)";

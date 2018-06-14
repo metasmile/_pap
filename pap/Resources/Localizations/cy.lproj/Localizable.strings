@@ -122,105 +122,119 @@
 "cs_keyword_12" = "ffrind";
 /*Translated from: lover*/
 "cs_keyword_13" = "cariad";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilizing Selected Items..." = "Sefydlogi Eitemau Dethol ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "Yn ôl";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Import" = "Mewnforio";
+"%d times" = "%d gwaith";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Pwyso dethol ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "Ymlaen";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Direction" = "Cyfeiriad";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "Albwm";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animeiddiad";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Cymhareb agwedd";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Starting the Process..." = "Dechrau'r Broses ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Photos" = "Lluniau";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Rhagnodau Dewis";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Size" = "Maint";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Repeat" = "Ailadroddwch";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Create" = "Creu";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "Cnwd";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilize" = "Sefydlogi";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"No loop" = "Dim dolen";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Export" = "Allforio";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
-"Share" = "Rhannu";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Make GIF" = "Gwnewch GIF";
+"Burst" = "Byrstio";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Choose An Option To Export" = "Dewiswch Opsiwn I'w Allforio";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Dewiswch Opsiwn I Trosi";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "Creu";
+/* Generated from genl10n: Stabilizer.swift */
+"Crop To Fit" = "Cnwd I Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Cnwd i Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Live Photo" = "Llun Fyw";
+"Crop" = "Cnwd";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Image Quality" = "Ansawdd Delwedd";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Video" = "Fideo";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Saving Results..." = "Canlyniadau Arbed ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Loop" = "Llwythwch";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD (640 × 360)";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
-"Original" = "Gwreiddiol";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "Byrstio";
-/* Generated from genl10n: Stabilizer.swift */
-"Strong" = "Cryf";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "Addasu";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Frame Delay" = "Oedi Ffrâm";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"Albums" = "Albwm";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"%d times" = "%d gwaith";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
+"Direction" = "Cyfeiriad";
+/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
+"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Lawrlwytho ...";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "Dechrau";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"My Albums" = "Fy Albwm";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "Rewind";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Opsiynau Allforio";
 /* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "Allforio";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "Ymlaen";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "Oedi Ffrâm";
+/* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HD (1280×720)" = "HD (1280 × 720)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "Ansawdd Delwedd";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "Mewnforio";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "Llun Fyw";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "Llwythwch";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "Gwnewch GIF";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "Addasu";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "Fy Albwm";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "Dim Cnwd";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Square" = "Sgwâr";
+"No loop" = "Dim dolen";
+/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+"Original" = "Gwreiddiol";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "Lluniau";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Purging selected ..." = "Pwyso dethol ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Ansawdd";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
+"Repeat" = "Ailadroddwch";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "Yn ôl";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "Rewind";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save %d Results" = "Achub %d Canlyniadau";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save" = "Arbed";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "Canlyniadau Arbed ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift */
+"Selection Presets" = "Rhagnodau Dewis";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Share %d Results" = "Rhannu %d Canlyniadau";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+"Share" = "Rhannu";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "Maint";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "Sgwâr";
 /* Generated from genl10n: Stabilizer.swift */
-"Normal" = "Cyffredin";
+"Stabilization Mode" = "Modd Sefydlogi";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilize" = "Sefydlogi";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizer" = "Sefydlogwr";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizing Selected Items..." = "Sefydlogi Eitemau Dethol ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "Dechrau";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "Dechrau'r Broses ...";
+/* Generated from genl10n: Stabilizer.swift */
+"Translation" = "Cyfieithu";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "Fideo";
+/* Generated from genl10n: Stabilizer.swift */
+"Warp" = "Warp";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"nHD (640×360)" = "nHD (640 × 360)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"qHD (960×540)" = "qHD (960 × 540)";

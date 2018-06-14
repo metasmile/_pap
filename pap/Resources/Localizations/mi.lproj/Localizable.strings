@@ -122,105 +122,119 @@
 "cs_keyword_12" = "hoa";
 /*Translated from: lover*/
 "cs_keyword_13" = "aroha";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilizing Selected Items..." = "Te whakarite i nga Tūemi kua Tīpakohia ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "Hurihia";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Import" = "Kawemai";
+"%d times" = "%d times";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Ko te whakatinana kua tīpakohia ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "Tuhinga";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Direction" = "Whakahaere";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "Ngā Pukaemi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Whakaari";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Whakaaro Ratonga";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Starting the Process..." = "Tīmata i te Tukanga ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Photos" = "Whakaahua";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Ngā Tautuhinga Tīpakonga";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Size" = "Rahi";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Repeat" = "Whakahiti ano";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Create" = "Waihanga";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "Nga tipu";
-/* Generated from genl10n: Stabilizer.swift */
-"Stabilize" = "Whakatika";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"No loop" = "Karekau he papa";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Export" = "Kaweake";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
-"Share" = "Vahevahe";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Make GIF" = "Hanga GIF";
+"Burst" = "Tuhinga o mua";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Choose An Option To Export" = "Kōwhiria he Kōwhiringa ki te Kaweake";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Kōwhiria he Kōwhiringa Hei Tahuri";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "Waihanga";
+/* Generated from genl10n: Stabilizer.swift */
+"Crop To Fit" = "Te tipu hei whakauru";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Te tipu hei Whakauru";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Live Photo" = "Whakaahua Ataata";
+"Crop" = "Nga tipu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Image Quality" = "Kounga Atahanga";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Video" = "Ataata";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Saving Results..." = "Tiaki Hua ...";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Loop" = "Pupuhi";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD (640 × 360)";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
-"Original" = "Tuhinga";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "Tuhinga o mua";
-/* Generated from genl10n: Stabilizer.swift */
-"Strong" = "He kaha";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "Whakakē";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Frame Delay" = "Tautuhi Tautuhi";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"Albums" = "Ngā Pukaemi";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"%d times" = "%d times";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
+"Direction" = "Whakahaere";
+/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
+"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Kei te tikiake ...";
-/* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "Tīmata";
-/* Generated from genl10n: PhotoAlbumViewController.swift */
-"My Albums" = "Aku Pukaemi";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "Whakahokia";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Ngā Kōwhiringa Whakaputa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "Kaweake";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "Tuhinga";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "Tautuhi Tautuhi";
+/* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "Kaihanga GIF";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HD (1280×720)" = "HD (1280 × 720)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "Kounga Atahanga";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "Kawemai";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "Whakaahua Ataata";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "Pupuhi";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "Hanga GIF";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "Whakakē";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "Aku Pukaemi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "Karekau he Tao";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Square" = "Tae";
+"No loop" = "Karekau he papa";
+/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+"Original" = "Tuhinga";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "Whakaahua";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Purging selected ..." = "Ko te whakatinana kua tīpakohia ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Kounga";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
+"Repeat" = "Whakahiti ano";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "Hurihia";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "Whakahokia";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save %d Results" = "Tiakina %d Hua";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Save" = "Tiaki";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "Tiaki Hua ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift */
+"Selection Presets" = "Ngā Tautuhinga Tīpakonga";
+/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Share %d Results" = "Whakawhiti %d Hua";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+"Share" = "Vahevahe";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "Rahi";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "Tae";
 /* Generated from genl10n: Stabilizer.swift */
-"Normal" = "Te tikanga";
+"Stabilization Mode" = "Aratau Whakatika";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilize" = "Whakatika";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizer" = "Tātari";
+/* Generated from genl10n: Stabilizer.swift */
+"Stabilizing Selected Items..." = "Te whakarite i nga Tūemi kua Tīpakohia ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "Tīmata";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "Tīmata i te Tukanga ...";
+/* Generated from genl10n: Stabilizer.swift */
+"Translation" = "Translation";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "Ataata";
+/* Generated from genl10n: Stabilizer.swift */
+"Warp" = "He wera";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"nHD (640×360)" = "nHD (640 × 360)";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"qHD (960×540)" = "qHD (960 × 540)";
