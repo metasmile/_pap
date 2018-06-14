@@ -138,7 +138,7 @@ class AssetView: UIView {
     
     private var defaultImageRequestOptions: PHImageRequestOptions {
         let imageRequestOptions = PHImageRequestOptions()
-        imageRequestOptions.isNetworkAccessAllowed = true
+        imageRequestOptions.isNetworkAccessAllowed = false
         imageRequestOptions.isSynchronous = false
         imageRequestOptions.deliveryMode = .opportunistic
         imageRequestOptions.resizeMode = .exact
@@ -326,15 +326,19 @@ extension AssetView {
                     return
                 }
                 
-                self?.image = image
-                completion?(image)
+                if let completion = completion {
+                    completion(image)
+                }
+                else {
+                    self?.image = image
+                }
             }
         }
     }
 }
 
 extension AssetView {
-    func updateImageContents(_ image: UIImage?) {
+    private func updateImageContents(_ image: UIImage?) {
         imageLayer.contents = image?.cgImage
     }
 }

@@ -53,31 +53,6 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         imageRequestId = nil
     }
     
-    func setEditItem(_ item: PHAssetItem<ImageEditStateValue>, at indexPath: IndexPath) {
-        let asset = item.asset
-
-        self.editItem = item
-        self.asset = asset
-        self.indexPath = indexPath
-        
-        let photoSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight).aspectFit(in: CGSize(width: kEditItemPreviewWidth, height: kEditItemPreviewWidth))
-        
-        assetViewWidth.constant = photoSize.width
-        assetViewHeight.constant = photoSize.height
-        
-        DispatchQueue.main.async { [weak self] in
-            guard self?.indexPath == indexPath else { return }
-            self?.setAssetInfo(asset, editItem: item.editState)
-        }
-        
-        layoutIfNeeded()
-        assetView.setAsset(asset, cancelDrawingIfNeeded: { [weak self] in
-            return self?.indexPath != indexPath
-        }, completion: { [weak self] in
-            self?.setImageEditItem(item.editState)
-        })
-    }
-    
     private func setNeedsUpdatePreview() {
         self.needsToUpdatePreview = true
     }
@@ -109,6 +84,8 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         assetView.setThumbnailAsset(asset, cancelDrawingIfNeeded: { [weak self] in
             return self?.indexPath != indexPath
         }, completion: { [weak self] image in
+            guard self?.indexPath == indexPath else { return }
+            self?.assetView.originalImage = image
             self?.setImageEditItem(item.editState)
         })
     }
