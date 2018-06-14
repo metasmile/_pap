@@ -85,7 +85,6 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
             return self?.indexPath != indexPath
         }, completion: { [weak self] image in
             guard self?.indexPath == indexPath else { return }
-            self?.assetView.originalImage = image
             self?.setImageEditItem(item.editState)
         })
     }

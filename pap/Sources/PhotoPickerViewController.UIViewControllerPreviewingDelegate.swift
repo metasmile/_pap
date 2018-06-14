@@ -20,6 +20,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
             }
 
             let vc = PhotoPickerDetailViewController()
+            vc.placeholderImage = item.asset.requestThumbnailImage(targetSize: CGSize(width: 200, height: 200))?.applyFilter(ciFilter: item.editState.ciFilter)
             vc.assetItem = item
             
             if self.collectionView(photoCollectionView, shouldSelectItemAt: indexPath) {

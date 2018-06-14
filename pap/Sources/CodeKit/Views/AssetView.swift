@@ -124,6 +124,7 @@ class AssetView: UIView {
         pauseVideo()
         
         image = nil
+        fetchedImage = nil
         playerItem = nil
     }
     
@@ -178,6 +179,8 @@ class AssetView: UIView {
             updateImageContents(image)
         }
     }
+    
+    var fetchedImage: UIImage?
     
     var playerItem: AVPlayerItem? {
         didSet {
@@ -348,7 +351,8 @@ extension AssetView {
 extension AssetView {
     fileprivate func loadImage(for asset: PHAsset, completion: @escaping (UIImage?) -> Void) {
         let targetSize = CGSize(width: bounds.width * UIScreen.main.nativeScale, height: bounds.height * UIScreen.main.nativeScale)
-        imageRequestID = AssetView.imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: imageRequestOptions) { (image, info) in
+        imageRequestID = AssetView.imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: imageRequestOptions) { [weak self] (image, info) in
+            self?.fetchedImage = image
             completion(image)
         }
     }

@@ -14,8 +14,6 @@ import PhotosUI
 class AppUIAssetView: AssetView {
     fileprivate var editState: StateValueSet<ImageEditStateValue>?
     
-    var originalImage: UIImage?
-    
     override var playerItem: AVPlayerItem? {
         didSet {
             applyEditState(editState)
@@ -32,7 +30,6 @@ class AppUIAssetView: AssetView {
         super.clearDrawing()
         
         editState = nil
-        originalImage = nil
     }
 }
 
@@ -62,8 +59,8 @@ extension AppUIAssetView {
         }
     }
     
-    fileprivate func applyImageFilter(ciFilter: CIFilter?) {
-        self.image = originalImage?.applyFilter(ciFilter: ciFilter)
+    func applyImageFilter(ciFilter: CIFilter?) {
+        self.image = fetchedImage?.applyFilter(ciFilter: ciFilter)
 //        if asset?.mediaSubtypes.contains(.photoLive) == true {
 //
 //        }

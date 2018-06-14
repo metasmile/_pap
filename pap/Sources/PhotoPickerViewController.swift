@@ -547,7 +547,7 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
         if let photoEditViewController = R.storyboard.appStoryboard.photoEditViewController(){
             photoEditViewController.preferredEditState = editItem.editState
             photoEditViewController.asset = editItem.asset
-            photoEditViewController.placeholderImage = editItem.asset.requestThumbnailImage(targetSize: CGSize(width: 200, height: 200))
+            photoEditViewController.placeholderImage = editItem.asset.requestThumbnailImage(targetSize: CGSize(width: 200, height: 200))?.applyFilter(ciFilter: editItem.editState.ciFilter)
             photoEditViewController.delegate = self
             photoEditViewController.indexPathInPicker = PHAssets.fetched.indexPath(of:editItem.asset)
             photoEditViewController.selectedInPicker = AppAssets.selected.by(editItem.asset) != nil

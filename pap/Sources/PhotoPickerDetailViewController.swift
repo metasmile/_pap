@@ -8,6 +8,7 @@ import Photos
 
 class PhotoPickerDetailViewController: UIViewController {
     var assetItem: PHAssetItem<ImageEditStateValue>?
+    var placeholderImage: UIImage?
     var actionItems:[UIPreviewActionItem]?
     
     private lazy var assetView: AppUIAssetView = {
@@ -38,7 +39,9 @@ class PhotoPickerDetailViewController: UIViewController {
             
             assetView.center = CGPoint(x: actualContentSize.width / 2, y: actualContentSize.height / 2)
             
+            assetView.image = placeholderImage
             assetView.preferredTransform = preferredTransform
+            
             assetView.setAsset(asset, completion: {
                 self.assetView.applyEditState(self.assetItem?.editState)
             })
