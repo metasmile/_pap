@@ -95,6 +95,8 @@ class AppDockView: CustomView {
     private func updateBackgroundColors() {
         let color = hasAnyContentAsLayout ? (barStyle == .black ? UIColor(red:0.11, green:0.11, blue:0.11, alpha:1) : .white) : .clear
         backgroundView.backgroundColor = color
+        topAccessoryView.backgroundColor = color
+        controllerView.backgroundColor = color
         drawerView.tintColor = color
         bottomAccessoryView.backgroundColor = color
     }
