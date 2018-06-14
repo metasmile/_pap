@@ -36,18 +36,18 @@ class AppUIAssetView: AssetView {
 //MARK: - Apply Edit State
 
 extension AppUIAssetView {
-    func applyEditState<T>(_ editState: StateValueSet<T>?) where T: ImageEditStateValue {
+    func applyEditState<T>(_ editState: StateValueSet<T>?, to image: UIImage? = nil) where T: ImageEditStateValue {
         self.editState = editState as? StateValueSet<ImageEditStateValue>
         
         DispatchQueue.main.async { [weak self] in
             guard self?.editState == editState else { return }
-            self?.applyFilter(editState)
+            self?.applyFilter(editState, to: image)
         }
     }
     
-    fileprivate func applyFilter<T>(_ editState: StateValueSet<T>?) where T: ImageEditStateValue {
+    fileprivate func applyFilter<T>(_ editState: StateValueSet<T>?, to image: UIImage?) where T: ImageEditStateValue {
         if asset?.mediaType == .image || previewMode {
-            applyImageFilter(ciFilter: editState?.ciFilter)
+            applyImageFilter(ciFilter: editState?.ciFilter, to: image)
         }
         else if asset?.mediaType == .video {
             if let filter = editState?.ciFilter {
@@ -59,8 +59,8 @@ extension AppUIAssetView {
         }
     }
     
-    func applyImageFilter(ciFilter: CIFilter?) {
-        self.image = fetchedImage?.applyFilter(ciFilter: ciFilter)
+    func applyImageFilter(ciFilter: CIFilter?, to image: UIImage?) {
+        self.image = image?.applyFilter(ciFilter: ciFilter)
 //        if asset?.mediaSubtypes.contains(.photoLive) == true {
 //
 //        }

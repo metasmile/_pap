@@ -23,6 +23,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
     @IBOutlet weak var assetViewHeight: NSLayoutConstraint!
     
     private var previousAttributes: UICollectionViewLayoutAttributes?
+    var originalImage: UIImage?
     
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
@@ -46,6 +47,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         editItem = nil
         indexPath = nil
         previousAttributes = nil
+        originalImage = nil
         
         if let imageRequestId = imageRequestId {
             PHPhotoLibraryManager.cachingImageManager.cancelImageRequest(imageRequestId)
@@ -85,11 +87,12 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
             return self?.indexPath != indexPath
         }, completion: { [weak self] image in
             guard self?.indexPath == indexPath else { return }
-            self?.setImageEditItem(item.editState)
+            self?.originalImage = image
+            self?.setImageEditItem(item.editState, to: image)
         })
     }
     
-    func setImageEditItem<T>(_ editItem: StateValueSet<T>, animated: Bool = false) where T: ImageEditStateValue {
+    func setImageEditItem<T>(_ editItem: StateValueSet<T>, to image: UIImage?, animated: Bool = false) where T: ImageEditStateValue {
         if animated {
             UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: .beginFromCurrentState, animations: { [weak self] in
                 self?.assetView.layer.transform = editItem.transform3d
@@ -100,7 +103,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
             assetView.layer.transform = editItem.transform3d
         }
         
-        assetView.applyEditState(editItem)
+        assetView.applyEditState(editItem, to: image)
     }
     
     private func setAssetInfo<T>(_ asset: PHAsset, editItem: StateValueSet<T>) where T: ImageEditStateValue {
