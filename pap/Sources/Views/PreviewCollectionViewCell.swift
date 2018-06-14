@@ -22,6 +22,8 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
     @IBOutlet weak var assetViewWidth: NSLayoutConstraint!
     @IBOutlet weak var assetViewHeight: NSLayoutConstraint!
     
+    private var previousAttributes: UICollectionViewLayoutAttributes?
+    
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
         
@@ -29,8 +31,12 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
             self.editItem = AppAssets.selected.by(asset)
         }
         
-        setNeedsUpdatePreview()
+        if layoutAttributes.size != previousAttributes?.size {
+            setNeedsUpdatePreview()
+        }
         updatePreviewIfNeeded()
+        
+        previousAttributes = layoutAttributes
     }
     
     override func prepareForReuse() {
@@ -39,6 +45,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         assetView.asset = nil
         editItem = nil
         indexPath = nil
+        previousAttributes = nil
         
         if let imageRequestId = imageRequestId {
             PHPhotoLibraryManager.cachingImageManager.cancelImageRequest(imageRequestId)
