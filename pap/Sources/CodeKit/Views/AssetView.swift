@@ -138,7 +138,7 @@ class AssetView: UIView {
     
     private var defaultImageRequestOptions: PHImageRequestOptions {
         let imageRequestOptions = PHImageRequestOptions()
-        imageRequestOptions.isNetworkAccessAllowed = false
+        imageRequestOptions.isNetworkAccessAllowed = true
         imageRequestOptions.isSynchronous = false
         imageRequestOptions.deliveryMode = .opportunistic
         imageRequestOptions.resizeMode = .exact
