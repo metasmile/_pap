@@ -179,17 +179,23 @@ class AssetView: UIView {
         }
     }
     
+    func imageDidLoad(image: UIImage?) {}
+    
     var playerItem: AVPlayerItem? {
         didSet {
             videoLayer.player?.replaceCurrentItem(with: playerItem)
         }
     }
     
+    func videoDidLoad(video: AVAsset?) {}
+    
     var livePhoto: PHLivePhoto? {
         didSet {
             livePhotoView.livePhoto = livePhoto
         }
     }
+    
+    func livePhotoDidLoad(livePhoto: PHLivePhoto?) {}
     
     var gifImage: UIImage? {
         didSet {
@@ -201,6 +207,8 @@ class AssetView: UIView {
             }
         }
     }
+    
+    func imageDataDidLoad(data: Data?) {}
     
     // MARK: Video
     
@@ -351,13 +359,15 @@ extension AssetView {
 extension AssetView {
     fileprivate func loadImage(for asset: PHAsset, completion: @escaping (UIImage?) -> Void) {
         let targetSize = CGSize(width: bounds.width * UIScreen.main.nativeScale, height: bounds.height * UIScreen.main.nativeScale)
-        imageRequestID = AssetView.imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: imageRequestOptions) { (image, info) in
+        imageRequestID = AssetView.imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: imageRequestOptions) { [weak self] (image, info) in
+            self?.imageDidLoad(image: image)
             completion(image)
         }
     }
     
     fileprivate func loadVideo(for asset: PHAsset, completion: @escaping (AVPlayerItem?) -> Void) {
-        imageRequestID = AssetView.imageManager.requestAVAsset(forVideo: asset, options: videoRequestOptions) { (video, audioMix, info) in
+        imageRequestID = AssetView.imageManager.requestAVAsset(forVideo: asset, options: videoRequestOptions) { [weak self] (video, audioMix, info) in
+            self?.videoDidLoad(video: video)
             if let video = video {
                 let playerItem = AVPlayerItem(asset: video)
                 playerItem.audioMix = audioMix
@@ -371,13 +381,15 @@ extension AssetView {
     
     fileprivate func loadLivePhoto(for asset: PHAsset, completion: @escaping (PHLivePhoto?) -> Void) {
         let targetSize = CGSize(width: bounds.width * UIScreen.main.nativeScale, height: bounds.height * UIScreen.main.nativeScale)
-        imageRequestID = AssetView.imageManager.requestLivePhoto(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: livePhotoRequestOptions, resultHandler: { (livePhoto, info) in
+        imageRequestID = AssetView.imageManager.requestLivePhoto(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: livePhotoRequestOptions, resultHandler: { [weak self] (livePhoto, info) in
+            self?.livePhotoDidLoad(livePhoto: livePhoto)
             completion(livePhoto)
         })
     }
     
     fileprivate func loadImageData(for asset: PHAsset, completion: @escaping (Data?) -> Void) {
-        imageRequestID = AssetView.imageManager.requestImageData(for: asset, options: imageRequestOptions, resultHandler: { (data, uti, orientation, info) in
+        imageRequestID = AssetView.imageManager.requestImageData(for: asset, options: imageRequestOptions, resultHandler: { [weak self] (data, uti, orientation, info) in
+            self?.imageDataDidLoad(data: data)
             completion(data)
         })
     }

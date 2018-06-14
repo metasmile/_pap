@@ -46,6 +46,8 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     let iOSStandardEditorBackgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1)
     var actionItems: [UIPreviewActionItem]?
     
+    var originalImage: UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -78,6 +80,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         
         if let asset = asset {
             assetView.setAsset(asset, completion: {
+                self.originalImage = self.assetView.image
                 self.assetView.applyEditState(self.preferredEditState)
                 self.assetView.playVideoWithLooping()
             })
