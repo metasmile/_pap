@@ -141,7 +141,7 @@ class AssetView: UIView {
         imageRequestOptions.isNetworkAccessAllowed = true
         imageRequestOptions.isSynchronous = false
         imageRequestOptions.deliveryMode = .opportunistic
-        imageRequestOptions.resizeMode = .exact
+        imageRequestOptions.resizeMode = .fast
         imageRequestOptions.progressHandler = { progress, error, stop, info in
             
         }
@@ -358,7 +358,9 @@ extension AssetView {
 
 extension AssetView {
     fileprivate func loadImage(for asset: PHAsset, completion: @escaping (UIImage?) -> Void) {
-        let targetSize = CGSize(width: bounds.width * UIScreen.main.nativeScale, height: bounds.height * UIScreen.main.nativeScale)
+        let targetBounds = AVMakeRect(aspectRatio: asset.pixelSize, insideRect: bounds)
+        let targetScale: CGFloat = UIScreen.main.nativeScale
+        let targetSize = CGSize(width: targetBounds.width * targetScale, height: targetBounds.height * targetScale)
         imageRequestID = AssetView.imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: imageRequestOptions) { [weak self] (image, info) in
             self?.imageDidLoad(image: image)
             completion(image)
