@@ -134,8 +134,8 @@
 "Aspect Ratio" = "Vaaiga Faʻapitoa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Toto";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Filifili se Filifiliga e Faaulufale atu";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Filifili se Faʻataulaga Aiga mo le %d Aitema";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Filifili se Filifiliga e Suiga ai";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Faʻaali";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Sueina o Aitema Filifilia ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Ata o Ata";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "Uluai";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Ata";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Faamamaina filifilia ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "Suʻe";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Toe foʻi";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "Faasaoina %d Iʻuga";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Faasaoina ma Faasoa";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Sefe";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Faʻasaoina o Tali ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Filifiliga Filifilia";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "Faasoa %d Tali";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Fetufaai";
 /* Generated from genl10n: GIFMaker.BApp.swift */

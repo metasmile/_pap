@@ -134,8 +134,8 @@
 "Aspect Ratio" = "Kuvasuhde";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Räjähtää";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Valitse Vie vienti";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Valitse %d Vientivaihtoehto";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Valitse vaihtoehto muunnettavaksi";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Piilottaa";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Valittujen kohteiden piilottaminen ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Kuvanlaatu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "Alkuperäinen";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Valokuvat";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Puhuttu valittu ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "Käänteinen";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Rewind";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "Tallenna %d Tulokset";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Tallenna ja jaa";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Tallentaa";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Tulosten tallentaminen ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Valinta-esiasetukset";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "Jaa %d tuloksia";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Jaa";
 /* Generated from genl10n: GIFMaker.BApp.swift */

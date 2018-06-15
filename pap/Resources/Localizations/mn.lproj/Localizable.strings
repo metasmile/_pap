@@ -134,8 +134,8 @@
 "Aspect Ratio" = "Чадлын харьцаа";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Битт";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Экспортлох хувилбарыг сонгох";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "%d Зүйлүүдийн хувьд экспортын сонголтыг сонгоно уу";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Өөрчлөх сонголтыг сонгоно уу";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Нуух";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Сонгосон зүйлсийг ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Зургийн чанар";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "Эх";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Зургууд";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Сонгосон хулгайлах ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 х 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "Урвуу";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Дахин урагшлах";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "Save %d Үр дүн";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Хадгалах ба хуваалцах";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Хадгалах";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Үр дүнг хадгалж байна ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Сонгох Presets";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "Хуваалцах %d Үр дүн";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Хуваалцах";
 /* Generated from genl10n: GIFMaker.BApp.swift */

@@ -134,8 +134,8 @@
 "Aspect Ratio" = "Boemo ba Ponahalo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Ho phatloha";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Khetha Ntho ea ho Iketsetsa";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Khetha Kgetho ea ho Ikopisa ho ea ka %d Lintho";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Khetha Khetho ho Fetola";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Pata";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Ho pata Lintho Tse Khethiloeng ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Boleng ba Setšoantšo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "Ntho ea pele";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Lifoto";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Purging e khethiloe ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "Khutlela";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Khotsofatsa";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "Boloka %d Sephetho";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Boloka le Share";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Boloka";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "E boloka Litholoana ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Selection Presets";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "Kopanela %d Sephetho";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Kopanela";
 /* Generated from genl10n: GIFMaker.BApp.swift */

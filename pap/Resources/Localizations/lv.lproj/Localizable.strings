@@ -134,8 +134,8 @@
 "Aspect Ratio" = "Aspect Ratio";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Pārsprāgt";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Izvēlieties iespēju eksportēt";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Izvēlieties eksporta opciju %d vienumiem";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Izvēlieties iespēju konvertēt";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Paslēpt";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Atlasīto vienumu slēpšana ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Attēla kvalitāte";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "Oriģināls";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Fotogrāfijas";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Purging izvēlēts ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "Reverss";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Attīšana atpakaļ";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "Saglabājiet %d Rezultātus";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Saglabāt un dalīties";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Saglabājiet";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Saglabā rezultātus ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Atlases priekšiestatījumi";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "Kopīgojiet %d rezultātus";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Kopīgot";
 /* Generated from genl10n: GIFMaker.BApp.swift */

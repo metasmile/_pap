@@ -134,8 +134,8 @@
 "Aspect Ratio" = "Aspect Ratio";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Izbucni";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Alegeți opțiunea de export";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Alegeți o opțiune de export pentru %d Elemente";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Alegeți o opțiune pentru a converti";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Ascunde";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Ascunderea elementelor selectate ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Calitatea imaginii";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "Original";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Fotografii";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Se curăță selectat ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "Verso";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "rewind";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "Salvați %d Rezultate";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Salveaza si distribuie";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Salvați";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Salvează rezultatele ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Selecție Presetări";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "Distribuiți %d Rezultate";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Acțiune";
 /* Generated from genl10n: GIFMaker.BApp.swift */

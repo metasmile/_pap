@@ -134,8 +134,8 @@
 "Aspect Ratio" = "కారక నిష్పత్తి";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "విస్ఫోటనం";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "ఎగుమతి చెయ్యడానికి ఒక ఎంపికను ఎంచుకోండి";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "%d అంశాలు కోసం ఒక ఎగుమతి ఎంపికను ఎంచుకోండి";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "మార్చడానికి ఒక ఎంపికను ఎంచుకోండి";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "దాచు";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "ఎంచుకున్న అంశాలు దాచడం ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "చిత్రం నాణ్యత";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "అసలు";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "ఫోటోలు";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "ఎంపిక చేసిన ప్రక్షాళన ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "రివర్స్";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "రివైండ్";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "%d ఫలితాలను సేవ్ చేయండి";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "సేవ్ మరియు భాగస్వామ్యం చేయండి";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "సేవ్";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "ఫలితాలను సేవ్ చేస్తోంది ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "ఎంపిక అమరికలు";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "%d ఫలితాలను భాగస్వామ్యం చేయండి";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Share";
 /* Generated from genl10n: GIFMaker.BApp.swift */

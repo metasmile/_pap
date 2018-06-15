@@ -134,8 +134,8 @@
 "Aspect Ratio" = "আনুমানিক অনুপাত";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "এক্সপোর্ট করার জন্য একটি বিকল্প চয়ন করুন";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "%d আইটেমগুলির জন্য একটি বিকল্প নির্বাচন করুন চয়ন করুন";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "রূপান্তর একটি বিকল্প চয়ন করুন";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "এইচডি (1২80 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "এইচভিজিএ (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "লুকান";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "নির্বাচিত আইটেম লুকানো হচ্ছে ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "ছবির মান";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "মূল";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "ফটো";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Purging নির্বাচিত ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "বিপরীত";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "ফিরে দেখা";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "%d ফলাফলগুলি সংরক্ষণ করুন";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "সংরক্ষণ করুন এবং শেয়ার করুন";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "সংরক্ষণ করুন";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "ফলাফল সংরক্ষণ করা হচ্ছে ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "নির্বাচন প্রিসেট";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "%d ফলাফলগুলি ভাগ করুন";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "ভাগ";
 /* Generated from genl10n: GIFMaker.BApp.swift */

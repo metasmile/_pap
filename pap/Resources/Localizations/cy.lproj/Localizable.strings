@@ -134,8 +134,8 @@
 "Aspect Ratio" = "Cymhareb agwedd";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Byrstio";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Dewiswch Opsiwn I'w Allforio";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Dewiswch Opsiwn Allforio ar gyfer %d Eitemau";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Dewiswch Opsiwn I Trosi";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Cuddio";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Cuddio Eitemau Dethol ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Ansawdd Delwedd";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "Gwreiddiol";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Lluniau";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Pwyso dethol ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "Yn ôl";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Rewind";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "Achub %d Canlyniadau";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Arbed a Rhannu";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Arbed";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Canlyniadau Arbed ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Rhagnodau Dewis";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "Rhannu %d Canlyniadau";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Rhannu";
 /* Generated from genl10n: GIFMaker.BApp.swift */

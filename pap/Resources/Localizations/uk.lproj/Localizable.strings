@@ -134,8 +134,8 @@
 "Aspect Ratio" = "Співвідношення сторін";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Вибух";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Виберіть варіант для експорту";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Виберіть варіант експорту для %d елементів";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Виберіть варіант для перетворення";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Сховати";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Приховати вибрані елементи ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Якість зображення";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "Оригінал";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Фотографії";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Очищення вибрано ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "Зворотний";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Перемотати";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "Зберегти %d Результати";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Зберегти та поділитися";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Зберегти";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Збереження результатів ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Пресетні виділення";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "Поділитися %d Результатами";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Поділитися";
 /* Generated from genl10n: GIFMaker.BApp.swift */

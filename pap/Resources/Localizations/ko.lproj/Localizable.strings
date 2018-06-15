@@ -134,8 +134,8 @@
 "Aspect Ratio" = "종횡비";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "버스트";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "내보낼 옵션 선택";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "%d 항목에 대한 내보내기 옵션 선택";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "변환 할 옵션 선택";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "숨기기";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "선택한 항목 숨기기 ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "이미지 품질";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "원본";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "사진들";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "선택된 퍼지 중 ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "역방향";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "되감기";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "%d 결과 저장";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "저장 및 공유";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "구하다";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "결과 저장 중 ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "선택 영역 사전 설정";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "%d 결과 공유";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "공유";
 /* Generated from genl10n: GIFMaker.BApp.swift */

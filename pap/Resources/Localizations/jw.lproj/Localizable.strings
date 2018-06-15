@@ -134,8 +134,8 @@
 "Aspect Ratio" = "Rasio aspek";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Mbebayani";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Pilih Pilihan Ekspor";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Pilih Pilihan Ekspor Kanggo %d Item";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Pilih Pilihan Kanggo Ngonversi";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Singidaken";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Nyatane Kapilih Item ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Gambar Quality";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "Asli";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Foto";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Purging dipilih ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "Reverse";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Muter maneh";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "Simpen %d Hasil";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Simpen lan Bagen";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Simpen";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Nyimpen Results ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Prasetel pilihan";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "Nuduhake %d Hasil";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Nuduhake";
 /* Generated from genl10n: GIFMaker.BApp.swift */

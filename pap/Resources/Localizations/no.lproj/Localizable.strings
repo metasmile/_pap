@@ -134,8 +134,8 @@
 "Aspect Ratio" = "Størrelsesforholdet";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Velg et alternativ for å eksportere";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Velg et eksporteringsalternativ for %d elementer";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Velg et alternativ for å konvertere";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Gjemme seg";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Gjemmer valgte elementer ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Bildekvalitet";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "Opprinnelig";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Bilder";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Rensing valgt ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "Omvendt";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Spole";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "Lagre %d Resultater";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Lagre og del";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Lagre";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Lagrer resultater ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Valg forhåndsinnstillinger";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "Del %d Resultater";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Dele";
 /* Generated from genl10n: GIFMaker.BApp.swift */

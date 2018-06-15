@@ -134,8 +134,8 @@
 "Aspect Ratio" = "Αναλογία απεικόνισης";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Εκρηξη";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Επιλέξτε μια επιλογή για εξαγωγή";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Επιλέξτε μια επιλογή εξαγωγής για %d Στοιχεία";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Επιλέξτε μια επιλογή μετατροπής";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Κρύβω";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Απόκρυψη επιλεγμένων στοιχείων ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Ποιότητα εικόνας";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "Πρωτότυπο";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Φωτογραφίες";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Απενεργοποίηση επιλεγμένων ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "ΑΝΤΙΣΤΡΟΦΗ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Αναδίπλωση";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "Αποθηκεύστε %d Αποτελέσματα";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Αποθήκευση και κοινή χρήση";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Αποθηκεύσετε";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Αποθήκευση αποτελεσμάτων ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Προεπιλογές επιλογής";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "Μοιραστείτε %d Αποτελέσματα";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Μερίδιο";
 /* Generated from genl10n: GIFMaker.BApp.swift */

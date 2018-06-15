@@ -134,8 +134,8 @@
 "Aspect Ratio" = "Aspect Ratio";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "praska";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Odaberite opciju za izvoz";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Odaberite opciju izvoza za %d stavke";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Odaberite opciju pretvorbe";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 x 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Sakriti";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Skrivanje odabranih stavki ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Kvaliteta slike";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "Izvornik";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "fotografije";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Čišćenje odabranih ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "obrnuti";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Premotati";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "Spremi %d rezultate";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Spremi i podijeli";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Uštedjeti";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Spremanje rezultata ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Odabir postavki";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "Dijelite %d rezultate";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Udio";
 /* Generated from genl10n: GIFMaker.BApp.swift */

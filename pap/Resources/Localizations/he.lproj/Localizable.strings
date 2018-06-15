@@ -134,8 +134,8 @@
 "Aspect Ratio" = "יחס הממדים";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "הִתפָּרְצוּת";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "בחר אפשרות לייצוא";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "בחר באפשרות ייצוא עבור %d פריטים";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "בחר אפשרות להמרה";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "להתחבא";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "מסתיר פריטים שנבחרו ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "איכות תמונה";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "מְקוֹרִי";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "תמונות";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "מבטל את הבחירה ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "לַהֲפוֹך";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "חזור אחורה";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "שמור %d תוצאות";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "שמור ושתף";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "להציל";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "שומר תוצאות ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "הגדרות קבועות מראש";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "שתף %d תוצאות";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "לַחֲלוֹק";
 /* Generated from genl10n: GIFMaker.BApp.swift */

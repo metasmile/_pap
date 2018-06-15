@@ -134,8 +134,8 @@
 "Aspect Ratio" = "Ասպեկտի հարաբերակցությունը";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Պայթյուն";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Արտահանման համար ընտրեք Ընտրանք";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Ընտրեք արտահանման ընտրանք `%d տարրերի համար";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Ընտրեք Ընտրանք փոխարկելու համար";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Թաքցնել";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Թաքցնելով ընտրված նյութերը ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Պատկերի որակը";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "Բնօրինակը";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Նկարներ";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Մաքրել ընտրված ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "Վերադարձ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Վերադարձ";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "Պահեք %d արդյունքներ";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Պահել եւ կիսվել";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Պահել";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Պահպանելով արդյունքները ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Ընտրության նախադրյալներ";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "Share %d արդյունքներ";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Բաժնետոմս";
 /* Generated from genl10n: GIFMaker.BApp.swift */

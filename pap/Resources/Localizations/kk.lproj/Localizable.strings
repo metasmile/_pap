@@ -134,8 +134,8 @@
 "Aspect Ratio" = "Еңбек арақатынасы";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Жарылыс";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Экспорттауға арналған опцияны таңдаңыз";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "%d Элементтер үшін экспорттау параметрін таңдаңыз";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Түрлендіруге арналған опцияны таңдаңыз";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Жасыру";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Таңдалған элементтерді жасыру ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Кескін сапасы";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "Түпнұсқа";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Суреттер";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Таңдалғанды ​​тазалау ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "Керісінше";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Артқа айналдыру";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "%d Нәтижелерді сақтау";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Сақтау және бөлісу";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Сақтау";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Нәтижелерді сақтау ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Таңдаудың алдын-ала параметрлері";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "%d Нәтижелерін ортақ пайдалану";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Бөлісу";
 /* Generated from genl10n: GIFMaker.BApp.swift */

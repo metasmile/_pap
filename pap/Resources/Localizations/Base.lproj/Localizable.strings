@@ -128,6 +128,10 @@
 "HD (1280×720)" = "HD (1280×720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480×320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Hide";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Hiding Selected Items...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Image Quality";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -150,8 +154,6 @@
 "Original" = "Original";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Photos";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging Selected Items..." = "Purging Selected Items...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320×240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */

@@ -134,8 +134,8 @@
 "Aspect Ratio" = "Seitenverhältnis";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Platzen";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Wählen Sie eine zu exportierende Option";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Wählen Sie eine Exportoption für %d Elemente";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Wählen Sie eine Option zum Konvertieren";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "verbergen";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Ausgewählte Elemente ausblenden ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Bildqualität";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "Original";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Fotos";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Ausgewählte löschen ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "Umkehren";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Zurückspulen";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "Speichern Sie %d Ergebnisse";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Speichern und teilen";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "sparen";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Ergebnisse speichern ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Auswahl Presets";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "Teilen Sie %d Ergebnisse";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Aktie";
 /* Generated from genl10n: GIFMaker.BApp.swift */

@@ -134,8 +134,8 @@
 "Aspect Ratio" = "انسپاس جي شرح";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "ٿي رهيو آهي";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "ٻاھرين کي ھڪ اختيار چونڊيو";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "%d شيون لاء هڪ برآمد جي اختيار جو انتخاب ڪريو";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "ھڪڙو اختيار ٺاھڻ لاء چونڊيو";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "لڪايو";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "لڪايو ويو ٿيل شيون ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "تصوير جي معيار";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "اصل";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "تصويرون";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "منتخب ٿيل جراح ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "ڪلو ويجها (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "موٽڻ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "انجو موٽيو";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "محفوظ ڪريو %d نتيجن";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "محفوظ ڪريو ۽ حصيداري ڪريو";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "محفوظ ڪريو";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "محفوظ ڪرڻ جا نتيجا ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "چونڊ پيشو";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "حصيداري %d نتيجا";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "شيئر ڪريو";
 /* Generated from genl10n: GIFMaker.BApp.swift */

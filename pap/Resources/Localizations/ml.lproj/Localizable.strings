@@ -134,8 +134,8 @@
 "Aspect Ratio" = "അനുപാതം";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "പൊട്ടി";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "കയറ്റുമതി ചെയ്യാൻ ഒരു ഓപ്ഷൻ തിരഞ്ഞെടുക്കുക";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "%d ഇനങ്ങൾക്ക് ഒരു എക്സ്പോർട്ട് ഓപ്ഷൻ തിരഞ്ഞെടുക്കുക";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "പരിവർത്തനം ചെയ്യാൻ ഒരു ഓപ്ഷൻ തിരഞ്ഞെടുക്കുക";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "മറയ്ക്കൂ";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "തിരഞ്ഞെടുത്ത ഇനങ്ങൾ മറയ്ക്കുന്നു ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "ചിത്രത്തിന്റെ നിലവാരം";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "യഥാർത്ഥ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "ഫോട്ടോകൾ";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "തിരഞ്ഞെടുക്കൽ നീക്കംചെയ്യുന്നു ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "പിന്നോട്ട് പോകുക";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "റിവൈൻഡുചെയ്യുക";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "%d ഫലങ്ങൾ സംരക്ഷിക്കുക";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "സംരക്ഷിച്ച് പങ്കിടുക";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "രക്ഷിക്കും";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "ഫലങ്ങൾ സംരക്ഷിക്കുന്നു ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "തിരഞ്ഞെടുക്കൽ പ്രിസെറ്റുകൾ";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "%d ഫലങ്ങൾ പങ്കിടുക";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "പങ്കിടുക";
 /* Generated from genl10n: GIFMaker.BApp.swift */

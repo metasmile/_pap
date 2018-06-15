@@ -134,8 +134,8 @@
 "Aspect Ratio" = "En boy oranı";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Patlamak";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Dışa Aktarmak İçin Bir Seçenek Seçin";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "%d Öğeler İçin Bir Dışa Aktarma Seçeneği Seç";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Dönüştürmek İçin Bir Seçenek Seçin";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280×720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Saklamak";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Seçilen Öğeleri Gizlemek ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Görüntü kalitesi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "orijinal";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Fotoğraflar";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Tasfiye seçildi ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "Ters";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Geri sarma";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "%d Sonuçları Kaydet";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Kaydet ve Paylaş";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Kayıt etmek";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Sonuçları Kaydetme ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Seçim Ön Ayarları";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "%d Sonuçları Paylaş";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Pay";
 /* Generated from genl10n: GIFMaker.BApp.swift */

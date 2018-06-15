@@ -134,8 +134,8 @@
 "Aspect Ratio" = "نسبت ابعاد";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "سر و صدا";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "یک گزینه برای صادرات را انتخاب کنید";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "انتخاب یک گزینه صادرات برای %d آیتم ها";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "یک گزینه برای تبدیل را انتخاب کنید";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1220 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (320 × 480)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "پنهان شدن";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "پنهان کردن موارد انتخاب شده ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "کیفیت تصویر";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "اصلی";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "عکس ها";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "پاک کردن انتخاب شده ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "معکوس";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "باز پیچی";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "%d نتایج را ذخیره کنید";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "ذخیره و اشتراک";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "صرفه جویی";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "صرفه جویی در نتایج ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "ایستگاه از پیش تعیین شده";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "اشتراک %d نتایج";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "اشتراک گذاری";
 /* Generated from genl10n: GIFMaker.BApp.swift */

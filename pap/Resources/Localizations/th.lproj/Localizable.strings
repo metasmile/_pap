@@ -134,8 +134,8 @@
 "Aspect Ratio" = "อัตราส่วนภาพ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "เลือกตัวเลือกในการส่งออก";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "เลือกตัวเลือกการส่งออกสำหรับ %d รายการ";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "เลือกตัวเลือกในการแปลง";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "ปิดบัง";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "กำลังซ่อนรายการที่เลือกไว้ ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "คุณภาพรูปภาพ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "เป็นต้นฉบับ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "ภาพถ่าย";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "กำลังล้างข้อมูลที่เลือก ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "ย้อนกลับ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "ม้วนกลับ";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "บันทึก %d ผลลัพธ์";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "บันทึกและแบ่งปัน";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "บันทึก";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "กำลังบันทึกผลลัพธ์ ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "การเลือก Presets";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "แบ่งปัน %d ผลลัพธ์";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "หุ้น";
 /* Generated from genl10n: GIFMaker.BApp.swift */
