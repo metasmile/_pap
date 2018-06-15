@@ -193,7 +193,6 @@
 		A0885A7120AC71BE00A469C1 /* Transform.App.Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE20A7DE6585F1DB3246 /* Transform.App.Tests.swift */; };
 		A0885A7220AC71BE00A469C1 /* ExifGhost.App.Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D09ACF49BF1FDAE797B4 /* ExifGhost.App.Tests.swift */; };
 		A0885A7320AC71CA00A469C1 /* IMG_0679.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DD4724459BA191CAECC3 /* IMG_0679.JPG */; };
-		A0885A7420AC71CC00A469C1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DC86D21CEF245CBF82A0 /* Info.plist */; };
 		A0956BB72095005200E680B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0956A832095004700E680B9 /* Localizable.strings */; };
 		A0956BB82095005200E680B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0956A862095004700E680B9 /* Localizable.strings */; };
 		A0956BB92095005200E680B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0956A892095004700E680B9 /* Localizable.strings */; };
@@ -2166,7 +2165,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = Stells;
 				TargetAttributes = {
 					0ABFCF771F14B65C0078A583 = {
@@ -2452,7 +2451,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0885A7420AC71CC00A469C1 /* Info.plist in Resources */,
 				A0885A7320AC71CA00A469C1 /* IMG_0679.JPG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
