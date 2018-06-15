@@ -1,9 +1,9 @@
 /*Translated from: Photos Access Disabled*/
 "Photos Access Disabled" = "Foto's Toegang uitgeschakeld";
 /*Translated from: Please open settings and allow access to your photos*/
-"Please open settings and allow access to your photos" = "Please open settings and allow access to your photos";
+"Please open settings and allow access to your photos" = "Open de instellingen en geef toegang tot uw foto's";
 /*Translated from: Open Settings*/
-"Open Settings" = "Open Settings";
+"Open Settings" = "Open instellingen";
 /*Translated from: OK*/
 "OK" = "OK";
 /*Translated from: Done*/
@@ -25,7 +25,7 @@
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Bewerk %d item (s)";
 /*Translated from: Batch Edit*/
-"Batch Edit" = "Batchbewerking";
+"Batch Edit" = "Batch Edit";
 /*Translated from: Edit*/
 "Edit" = "Bewerk";
 /*Translated from: Discard Changes*/
@@ -81,7 +81,7 @@
 /*com.stells.pap.photosfilter*/
 "Apply" = "Van toepassing zijn";
 /*com.stells.pap.revert*/
-"Revert" = "terugkeren";
+"Revert" = "Revert";
 /*Translated from: Starting to revert...*/
 "Starting to revert..." = "Beginnen met terugzetten ...";
 /*Translated from: Reverting Photos...*/
@@ -109,11 +109,11 @@
 /*Translated from: edit*/
 "cs_keyword_6" = "Bewerk";
 /*Translated from: image*/
-"cs_keyword_7" = "beeld";
+"cs_keyword_7" = "image";
 /*Translated from: smart*/
 "cs_keyword_8" = "smart";
 /*Translated from: picture*/
-"cs_keyword_9" = "afbeelding";
+"cs_keyword_9" = "picture";
 /*Translated from: memory*/
 "cs_keyword_10" = "geheugen";
 /*Translated from: familiy*/
@@ -133,7 +133,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Beeldverhouding";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "Uitbarsting";
+"Burst" = "Burst";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Kies een exportoptie voor %d items";
 /* Generated from genl10n: Convert.AppDockContent.swift */
@@ -144,12 +144,12 @@
 "Crop To Fit" = "Bijsnijden";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Bijsnijden";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Gewas";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Richting";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
+"Do Anything, At Once." = "Alles doen, tegelijk.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Downloaden ...";
 /* Generated from genl10n: Convert.AppDockContent.swift */
@@ -184,11 +184,11 @@
 "Modify" = "Wijzigen";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Mijn albums";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "Geen gewas";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Geen lus";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+/* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "origineel";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "foto's";
@@ -204,18 +204,18 @@
 "Rewind" = "Rewind";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "Sla op en deel";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save" = "Opslaan";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Resultaten opslaan ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Selectie Voorinstellingen";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
-"Share" = "Delen";
+"Selection Presets" = "Selection Presets";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Share" = "Share";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Grootte";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Square" = "Plein";
+"Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilization Mode" = "Stabilisatiemodus";
 /* Generated from genl10n: Stabilizer.swift */
@@ -225,7 +225,7 @@
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilizing Selected Items..." = "Geselecteerde items stabiliseren ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "Begin";
+"Start" = "Start";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Het proces starten ...";
 /* Generated from genl10n: Stabilizer.swift */
@@ -233,7 +233,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
 /* Generated from genl10n: Stabilizer.swift */
-"Warp" = "schering";
+"Warp" = "Warp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */

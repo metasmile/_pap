@@ -15,7 +15,7 @@
 /*Translated from: Detail*/
 "Detail" = "подробность";
 /*Translated from: Delete*/
-"Delete" = "Удалить";
+"Delete" = "Delete";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "Извините, что-то пошло не так.";
 /*Translated from: Edit %d photo(s)*/
@@ -25,7 +25,7 @@
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Изменить %d элемент (ы)";
 /*Translated from: Batch Edit*/
-"Batch Edit" = "Редактирование партии";
+"Batch Edit" = "Batch Edit";
 /*Translated from: Edit*/
 "Edit" = "редактировать";
 /*Translated from: Discard Changes*/
@@ -33,7 +33,7 @@
 /*Translated from: Start Batch Editing...*/
 "Start Batch Editing..." = "Начало пакетного редактирования ...";
 /*Translated from: Processing...*/
-"Processing..." = "Обработка ...";
+"Processing..." = "Processing...";
 /*Translated from: Cancelling...*/
 "Cancelling..." = "Отмена ...";
 /*Translated from: Saving Photos...*/
@@ -47,7 +47,7 @@
 /*Translated from: Select this video*/
 "Select this video" = "Выберите это видео";
 /*Translated from: Deselect this photo*/
-"Deselect this photo" = "Снять выделение";
+"Deselect this photo" = "Deselect this photo";
 /*Translated from: Deselect this video*/
 "Deselect this video" = "Отменить выбор этого видео";
 /*Translated from: Edit this photo*/
@@ -77,11 +77,11 @@
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "Изменить %@ Элементы";
 /*com.stells.pap.transform*/
-"Transform" = "Nреобразить";
+"Transform" = "преобразование";
 /*com.stells.pap.photosfilter*/
 "Apply" = "Подать заявление";
 /*com.stells.pap.revert*/
-"Revert" = "возвращаться";
+"Revert" = "Revert";
 /*Translated from: Starting to revert...*/
 "Starting to revert..." = "Начиная возвращаться ...";
 /*Translated from: Reverting Photos...*/
@@ -109,7 +109,7 @@
 /*Translated from: edit*/
 "cs_keyword_6" = "редактировать";
 /*Translated from: image*/
-"cs_keyword_7" = "образ";
+"cs_keyword_7" = "image";
 /*Translated from: smart*/
 "cs_keyword_8" = "smart";
 /*Translated from: picture*/
@@ -117,7 +117,7 @@
 /*Translated from: memory*/
 "cs_keyword_10" = "Память";
 /*Translated from: familiy*/
-"cs_keyword_11" = "фамилии";
+"cs_keyword_11" = "familiy";
 /*Translated from: friend*/
 "cs_keyword_12" = "друг";
 /*Translated from: lover*/
@@ -133,7 +133,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Соотношение сторон";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "Выброс";
+"Burst" = "Burst";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Выберите вариант экспорта для элементов %d";
 /* Generated from genl10n: Convert.AppDockContent.swift */
@@ -141,15 +141,15 @@
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Создайте";
 /* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Урожайность";
+"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop to Fit" = "Урожайность";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+"Crop to Fit" = "Crop to Fit";
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "урожай";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "направление";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
+"Do Anything, At Once." = "Делайте все, сразу.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Загрузка ...";
 /* Generated from genl10n: Convert.AppDockContent.swift */
@@ -181,14 +181,14 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Сделать GIF";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "изменять";
+"Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Мои альбомы";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"No Crop" = "Без урожая";
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+"No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Нет петли";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+/* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "оригинал";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Фото";
@@ -197,20 +197,20 @@
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Качественный";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Repeat" = "Повторение";
+"Repeat" = "Repeat";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Задний ход";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "перемотка";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "Сохранить и поделиться";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save" = "Сохранить";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Сохранение результатов ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Выбор пресетов";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Поделиться";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Размер";
@@ -225,7 +225,7 @@
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilizing Selected Items..." = "Стабилизация выбранных элементов ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "Начало";
+"Start" = "Start";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Запуск процесса ...";
 /* Generated from genl10n: Stabilizer.swift */
@@ -233,7 +233,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Видео";
 /* Generated from genl10n: Stabilizer.swift */
-"Warp" = "деформироваться";
+"Warp" = "Warp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */

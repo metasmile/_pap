@@ -1,5 +1,5 @@
 /*Translated from: Photos Access Disabled*/
-"Photos Access Disabled" = "Fotky jsou zakázány";
+"Photos Access Disabled" = "Photos Access Disabled";
 /*Translated from: Please open settings and allow access to your photos*/
 "Please open settings and allow access to your photos" = "Otevřete prosím nastavení a povolte přístup k vašim fotografiím";
 /*Translated from: Open Settings*/
@@ -11,7 +11,7 @@
 /*Translated from: Confirm*/
 "Confirm" = "Potvrdit";
 /*Translated from: Cancel*/
-"Cancel" = "zrušení";
+"Cancel" = "Cancel";
 /*Translated from: Detail*/
 "Detail" = "Detail";
 /*Translated from: Delete*/
@@ -19,11 +19,11 @@
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "Promiň, něco se pokazilo.";
 /*Translated from: Edit %d photo(s)*/
-"Edit %d photo(s)" = "Upravit %d fotografie";
+"Edit %d photo(s)" = "Edit %d photo(s)";
 /*Translated from: Edit %d video(s)*/
-"Edit %d video(s)" = "Upravit %d videa";
+"Edit %d video(s)" = "Edit %d video(s)";
 /*Translated from: Edit %d item(s)*/
-"Edit %d item(s)" = "Upravit položky %d";
+"Edit %d item(s)" = "Edit %d item(s)";
 /*Translated from: Batch Edit*/
 "Batch Edit" = "Editace šarže";
 /*Translated from: Edit*/
@@ -81,9 +81,9 @@
 /*com.stells.pap.photosfilter*/
 "Apply" = "Aplikovat";
 /*com.stells.pap.revert*/
-"Revert" = "Vrátit se";
+"Revert" = "Revert";
 /*Translated from: Starting to revert...*/
-"Starting to revert..." = "Začal se vrátit ...";
+"Starting to revert..." = "Starting to revert...";
 /*Translated from: Reverting Photos...*/
 "Reverting Photos..." = "Vrácení fotografií ...";
 /*com.stells.pap.pdfactory*/
@@ -103,7 +103,7 @@
 /*Translated from: editor*/
 "cs_keyword_3" = "editor";
 /*Translated from: messenger*/
-"cs_keyword_4" = "posel";
+"cs_keyword_4" = "messenger";
 /*Translated from: filter*/
 "cs_keyword_5" = "filtr";
 /*Translated from: edit*/
@@ -111,7 +111,7 @@
 /*Translated from: image*/
 "cs_keyword_7" = "obraz";
 /*Translated from: smart*/
-"cs_keyword_8" = "smart";
+"cs_keyword_8" = "chytrý";
 /*Translated from: picture*/
 "cs_keyword_9" = "obrázek";
 /*Translated from: memory*/
@@ -141,15 +141,15 @@
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Vytvořit";
 /* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Oříznout, aby se přizpůsobil";
+"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Oříznout a přizpůsobit";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Oříznutí";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Směr";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
+"Do Anything, At Once." = "Dělat něco, najednou.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Stahování ...";
 /* Generated from genl10n: Convert.AppDockContent.swift */
@@ -159,7 +159,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Vpřed";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Frame Delay" = "Delay Frame";
+"Frame Delay" = "Frame Delay";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -184,11 +184,11 @@
 "Modify" = "Modifikovat";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Moje alba";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "Žádné oříznutí";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Žádná smyčka";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+/* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "Originál";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Fotky";
@@ -204,13 +204,13 @@
 "Rewind" = "Přetočit";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "Ulož a ​​sdílej";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save" = "Uložit";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Uložení výsledků ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Předvolby výběru";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Podíl";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Velikost";

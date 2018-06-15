@@ -7,7 +7,7 @@
 /*Translated from: OK*/
 "OK" = "승인";
 /*Translated from: Done*/
-"Done" = "종료";
+"Done" = "끝난";
 /*Translated from: Confirm*/
 "Confirm" = "확인";
 /*Translated from: Cancel*/
@@ -15,7 +15,7 @@
 /*Translated from: Detail*/
 "Detail" = "세부 묘사";
 /*Translated from: Delete*/
-"Delete" = "지우다";
+"Delete" = "Delete";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "죄송합니다. 무엇인가 잘못되었습니다.";
 /*Translated from: Edit %d photo(s)*/
@@ -25,11 +25,11 @@
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "%d 항목 수정";
 /*Translated from: Batch Edit*/
-"Batch Edit" = "배치 편집";
+"Batch Edit" = "Batch Edit";
 /*Translated from: Edit*/
-"Edit" = "편집";
+"Edit" = "편집하다";
 /*Translated from: Discard Changes*/
-"Discard Changes" = "변경 사항 취소";
+"Discard Changes" = "변경 사항을 취소";
 /*Translated from: Start Batch Editing...*/
 "Start Batch Editing..." = "일괄 수정 시작 ...";
 /*Translated from: Processing...*/
@@ -79,9 +79,9 @@
 /*com.stells.pap.transform*/
 "Transform" = "Transform";
 /*com.stells.pap.photosfilter*/
-"Apply" = "Apply";
+"Apply" = "대다";
 /*com.stells.pap.revert*/
-"Revert" = "복원";
+"Revert" = "Revert";
 /*Translated from: Starting to revert...*/
 "Starting to revert..." = "되 돌리는 중 ...";
 /*Translated from: Reverting Photos...*/
@@ -93,13 +93,13 @@
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "PDF 페이지 만들기 ...";
 /*com.stells.pap.converter*/
-"Convert" = "변환";
+"Convert" = "변하게 하다";
 /*CoreSpotligth keywords - localizable - marketing*/
 "cs_keyword_0" = "앨범";
 /*Translated from: camera*/
 "cs_keyword_1" = "카메라";
 /*Translated from: photos*/
-"cs_keyword_2" = "사진";
+"cs_keyword_2" = "photos";
 /*Translated from: editor*/
 "cs_keyword_3" = "편집자";
 /*Translated from: messenger*/
@@ -107,13 +107,13 @@
 /*Translated from: filter*/
 "cs_keyword_5" = "필터";
 /*Translated from: edit*/
-"cs_keyword_6" = "편집";
+"cs_keyword_6" = "편집하다";
 /*Translated from: image*/
-"cs_keyword_7" = "영상";
+"cs_keyword_7" = "image";
 /*Translated from: smart*/
-"cs_keyword_8" = "스마트";
+"cs_keyword_8" = "똑똑한";
 /*Translated from: picture*/
-"cs_keyword_9" = "그림";
+"cs_keyword_9" = "picture";
 /*Translated from: memory*/
 "cs_keyword_10" = "기억";
 /*Translated from: familiy*/
@@ -121,7 +121,7 @@
 /*Translated from: friend*/
 "cs_keyword_12" = "친구";
 /*Translated from: lover*/
-"cs_keyword_13" = "연인";
+"cs_keyword_13" = "lover";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d 회";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -129,69 +129,69 @@
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "앨범";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Animation" = "에니메이션";
+"Animation" = "Animation";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "종횡비";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "버스트";
+"Burst" = "Burst";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "%d 항목에 대한 내보내기 옵션 선택";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "변환 할 옵션 선택";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Create" = "생성";
+"Create" = "Create";
 /* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "자르기";
+"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop to Fit" = "자르기";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "자르기";
+"Crop to Fit" = "Crop to Fit";
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+"Crop" = "수확고";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "방향";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
+"Do Anything, At Once." = "한 번에 아무거나하십시오.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "다운로드 중 ...";
 /* Generated from genl10n: Convert.AppDockContent.swift */
-"Export Options" = "내보내기 옵션";
+"Export Options" = "수출 옵션";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "수출";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "앞으로";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Frame Delay" = "프레임 딜레이";
+"Frame Delay" = "프레임 지연";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"GIF Maker" = "GIF 만들기";
+"GIF Maker" = "GIF 제작기";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
 /* Generated from genl10n: ExifGhost.BApp.swift */
-"Hide" = "숨기기";
+"Hide" = "숨는 장소";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "선택한 항목 숨기기 ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "이미지 품질";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Import" = "가져오기";
+"Import" = "Import";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "라이브 사진";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Loop" = "고리";
+"Loop" = "Loop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "GIF 만들기";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "수정";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "내 앨범";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"No Crop" = "자르지 않음";
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+"No Crop" = "자르기 없음";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "루프 없음";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
-"Original" = "원본";
+/* Generated from genl10n: PhotosFilter.BApp.swift */
+"Original" = "Original";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Photos" = "사진들";
+"Photos" = "Photos";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -199,33 +199,33 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "반복";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "역방향";
+"Reverse" = "Reverse";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "되감기";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "저장 및 공유";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save" = "구하다";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "결과 저장 중 ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "선택 영역 사전 설정";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
-"Share" = "공유";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Share" = "몫";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "크기";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Square" = "광장";
+"Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilization Mode" = "안정화 모드";
 /* Generated from genl10n: Stabilizer.swift */
-"Stabilize" = "안정화";
+"Stabilize" = "안정화시키다";
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilizer" = "안정제";
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilizing Selected Items..." = "선택한 항목 안정화 중 ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "시작";
+"Start" = "스타트";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "프로세스 시작 중 ...";
 /* Generated from genl10n: Stabilizer.swift */
@@ -233,7 +233,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "비디오";
 /* Generated from genl10n: Stabilizer.swift */
-"Warp" = "경사";
+"Warp" = "Warp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */

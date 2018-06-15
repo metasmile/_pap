@@ -1,15 +1,15 @@
 /*Translated from: Photos Access Disabled*/
-"Photos Access Disabled" = "تم تعطيل الوصول إلى الصور";
+"Photos Access Disabled" = "صور الوصول معطل";
 /*Translated from: Please open settings and allow access to your photos*/
-"Please open settings and allow access to your photos" = "الرجاء فتح الإعدادات والسماح بالوصول إلى صورك";
+"Please open settings and allow access to your photos" = "يرجى فتح الإعدادات والسماح بالوصول إلى صورك";
 /*Translated from: Open Settings*/
 "Open Settings" = "أفتح الإعدادات";
 /*Translated from: OK*/
 "OK" = "حسنا";
 /*Translated from: Done*/
-"Done" = "فعله";
+"Done" = "Done";
 /*Translated from: Confirm*/
-"Confirm" = "تؤكد";
+"Confirm" = "Confirm";
 /*Translated from: Cancel*/
 "Cancel" = "إلغاء";
 /*Translated from: Detail*/
@@ -19,45 +19,45 @@
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "عذرا، هناك خطأ ما.";
 /*Translated from: Edit %d photo(s)*/
-"Edit %d photo(s)" = "تعديل %d صورة (صور)";
+"Edit %d photo(s)" = "تحرير %d صورة (صور)";
 /*Translated from: Edit %d video(s)*/
-"Edit %d video(s)" = "تعديل %d مقطع (مقاطع) فيديو";
+"Edit %d video(s)" = "تحرير %d فيديو (مقاطع)";
 /*Translated from: Edit %d item(s)*/
-"Edit %d item(s)" = "تعديل %d عنصر (عناصر)";
+"Edit %d item(s)" = "تحرير %d عنصر (عناصر)";
 /*Translated from: Batch Edit*/
 "Batch Edit" = "دفعة تحرير";
 /*Translated from: Edit*/
-"Edit" = "تصحيح";
+"Edit" = "Edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "تجاهل التغييرات";
 /*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "بدء تعديل الدفعة ...";
+"Start Batch Editing..." = "بدء تحرير الدفعة ...";
 /*Translated from: Processing...*/
 "Processing..." = "معالجة...";
 /*Translated from: Cancelling...*/
 "Cancelling..." = "إلغاء ...";
 /*Translated from: Saving Photos...*/
-"Saving Photos..." = "جار حفظ الصور ...";
+"Saving Photos..." = "حفظ الصور ...";
 /*Translated from: Deleting Photos...*/
 "Deleting Photos..." = "جارٍ حذف الصور ...";
 /*Translated from: Reverting Photos...*/
 "Reverting Photos..." = "جارٍ إرجاع الصور ...";
 /*Translated from: Select this photo*/
-"Select this photo" = "حدد هذه الصورة";
+"Select this photo" = "اختر هذه الصورة";
 /*Translated from: Select this video*/
-"Select this video" = "حدد هذا الفيديو";
+"Select this video" = "اختر هذا الفيديو";
 /*Translated from: Deselect this photo*/
-"Deselect this photo" = "ألغ تحديد هذه الصورة";
+"Deselect this photo" = "Deselect this photo";
 /*Translated from: Deselect this video*/
-"Deselect this video" = "ألغ تحديد هذا الفيديو";
+"Deselect this video" = "قم بإلغاء تحديد هذا الفيديو";
 /*Translated from: Edit this photo*/
-"Edit this photo" = "عدل هذه الصورة";
+"Edit this photo" = "تحرير هذه الصورة";
 /*Translated from: Edit this video*/
-"Edit this video" = "تعديل هذا الفيديو";
+"Edit this video" = "تحرير هذا الفيديو";
 /*Translated from: %@ Photo*/
-"%d Photo" = "%@ صورة";
+"%d Photo" = "%@ Photo";
 /*Translated from: %@ Video*/
-"%d Video" = "%@ الفيديو";
+"%d Video" = "%@ فيديو";
 /*Translated from: %@ Item*/
 "%d Item" = "%@ العنصر";
 /*Translated from: %@ Photos*/
@@ -71,19 +71,19 @@
 /*Translated from: Edit %@ Video*/
 "Edit %d Video" = "تحرير %@ فيديو";
 /*Translated from: Edit %@ Photos*/
-"Edit %d Photos" = "تحرير %@ صور";
+"Edit %d Photos" = "تحرير %@ الصور";
 /*Translated from: Edit %@ Videos*/
 "Edit %d Videos" = "تحرير %@ مقاطع الفيديو";
 /*Translated from: Edit %@ Items*/
-"Edit %d Items" = "تحرير %@ عناصر";
+"Edit %d Items" = "تحرير %@ العناصر";
 /*com.stells.pap.transform*/
 "Transform" = "تحول";
 /*com.stells.pap.photosfilter*/
-"Apply" = "Apply";
+"Apply" = "تطبيق";
 /*com.stells.pap.revert*/
 "Revert" = "Revert";
 /*Translated from: Starting to revert...*/
-"Starting to revert..." = "البدء في العودة ...";
+"Starting to revert..." = "Starting to revert...";
 /*Translated from: Reverting Photos...*/
 "Reverting Photos..." = "جارٍ إرجاع الصور ...";
 /*com.stells.pap.pdfactory*/
@@ -93,13 +93,13 @@
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "إنشاء صفحات PDF ...";
 /*com.stells.pap.converter*/
-"Convert" = "تحول";
+"Convert" = "Convert";
 /*CoreSpotligth keywords - localizable - marketing*/
 "cs_keyword_0" = "الألبوم";
 /*Translated from: camera*/
 "cs_keyword_1" = "الة تصوير";
 /*Translated from: photos*/
-"cs_keyword_2" = "الصور";
+"cs_keyword_2" = "photos";
 /*Translated from: editor*/
 "cs_keyword_3" = "محرر";
 /*Translated from: messenger*/
@@ -107,9 +107,9 @@
 /*Translated from: filter*/
 "cs_keyword_5" = "منقي";
 /*Translated from: edit*/
-"cs_keyword_6" = "تصحيح";
+"cs_keyword_6" = "edit";
 /*Translated from: image*/
-"cs_keyword_7" = "صورة";
+"cs_keyword_7" = "image";
 /*Translated from: smart*/
 "cs_keyword_8" = "smart";
 /*Translated from: picture*/
@@ -131,9 +131,9 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "الرسوم المتحركة";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Aspect Ratio" = "ابعاد متزنة";
+"Aspect Ratio" = "Aspect Ratio";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "انفجار";
+"Burst" = "Burst";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "اختر خيار تصدير للعناصر %d";
 /* Generated from genl10n: Convert.AppDockContent.swift */
@@ -144,12 +144,12 @@
 "Crop To Fit" = "المحاصيل لتناسب";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "المحاصيل لتناسب";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "ا & قتصاص";
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+"Crop" = "Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "اتجاه";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
+"Do Anything, At Once." = "افعل أي شيء ، في وقت واحد.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "جارى التحميل...";
 /* Generated from genl10n: Convert.AppDockContent.swift */
@@ -157,7 +157,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "تصدير";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "إلى الأمام";
+"Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "تأجيل الإطار";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -175,23 +175,23 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "استيراد";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Live Photo" = "صورة حية";
+"Live Photo" = "Live Photo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Loop" = "عقدة";
+"Loop" = "Loop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "اجعل GIF";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "تعديل";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "ألبوماتى";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "لا المحاصيل";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "لا حلقة";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
-"Original" = "أصلي";
+/* Generated from genl10n: PhotosFilter.BApp.swift */
+"Original" = "Original";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Photos" = "الصور";
+"Photos" = "Photos";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -199,29 +199,29 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "كرر";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "عكسي";
+"Reverse" = "Reverse";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "الترجيع";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "احفظ وشارك";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save" = "حفظ";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "حفظ النتائج ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "الاختيار المسبق";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
-"Share" = "شارك";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Share" = "Share";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "بحجم";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Square" = "ميدان";
+"Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilization Mode" = "وضع الاستقرار";
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilize" = "استقرار";
 /* Generated from genl10n: Stabilizer.swift */
-"Stabilizer" = "موازن";
+"Stabilizer" = "Stabilizer";
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilizing Selected Items..." = "استقرار العناصر المحددة ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -233,7 +233,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "فيديو";
 /* Generated from genl10n: Stabilizer.swift */
-"Warp" = "اعوجاج";
+"Warp" = "Warp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */

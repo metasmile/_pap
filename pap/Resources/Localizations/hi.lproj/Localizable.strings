@@ -1,7 +1,7 @@
 /*Translated from: Photos Access Disabled*/
-"Photos Access Disabled" = "फोटो पहुंच अक्षम";
+"Photos Access Disabled" = "फोटो एक्सेस अक्षम";
 /*Translated from: Please open settings and allow access to your photos*/
-"Please open settings and allow access to your photos" = "कृपया सेटिंग खोलें और अपनी तस्वीरों तक पहुंच की अनुमति दें";
+"Please open settings and allow access to your photos" = "कृपया सेटिंग्स खोलें और अपनी तस्वीरों तक पहुंच की अनुमति दें";
 /*Translated from: Open Settings*/
 "Open Settings" = "सेटिंग्स खोलें";
 /*Translated from: OK*/
@@ -13,49 +13,49 @@
 /*Translated from: Cancel*/
 "Cancel" = "रद्द करना";
 /*Translated from: Detail*/
-"Detail" = "विस्तार";
+"Detail" = "Detail";
 /*Translated from: Delete*/
-"Delete" = "हटाना";
+"Delete" = "Delete";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "क्षमा करें, कुछ गलत हो गया।";
 /*Translated from: Edit %d photo(s)*/
-"Edit %d photo(s)" = "%d फोटो संपादित करें";
+"Edit %d photo(s)" = "Edit %d photo(s)";
 /*Translated from: Edit %d video(s)*/
-"Edit %d video(s)" = "%d वीडियो संपादित करें";
+"Edit %d video(s)" = "Edit %d video(s)";
 /*Translated from: Edit %d item(s)*/
-"Edit %d item(s)" = "%d वस्तुएं संपादित करें";
+"Edit %d item(s)" = "Edit %d item(s)";
 /*Translated from: Batch Edit*/
-"Batch Edit" = "बैच संपादित करें";
+"Batch Edit" = "Batch Edit";
 /*Translated from: Edit*/
 "Edit" = "संपादित करें";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "परिवर्तनों को निरस्त करें";
 /*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "बैच संपादन प्रारंभ करें ...";
+"Start Batch Editing..." = "बैच संपादन शुरू करें ...";
 /*Translated from: Processing...*/
 "Processing..." = "प्रसंस्करण ...";
 /*Translated from: Cancelling...*/
 "Cancelling..." = "रोक रहा है ...";
 /*Translated from: Saving Photos...*/
-"Saving Photos..." = "फ़ोटो सहेज रहे हैं ...";
+"Saving Photos..." = "फोटो सहेजा जा रहा है ...";
 /*Translated from: Deleting Photos...*/
-"Deleting Photos..." = "फ़ोटो हटाना ...";
+"Deleting Photos..." = "तस्वीरें हटाना ...";
 /*Translated from: Reverting Photos...*/
-"Reverting Photos..." = "फ़ोटो वापस ला रहा है ...";
+"Reverting Photos..." = "तस्वीरों को वापस कर रहा है ...";
 /*Translated from: Select this photo*/
-"Select this photo" = "इस फ़ोटो का चयन करें";
+"Select this photo" = "इस तस्वीर का चयन करें";
 /*Translated from: Select this video*/
 "Select this video" = "इस वीडियो का चयन करें";
 /*Translated from: Deselect this photo*/
-"Deselect this photo" = "इस फ़ोटो को अचयनित करें";
+"Deselect this photo" = "इस तस्वीर को अचयनित करें";
 /*Translated from: Deselect this video*/
 "Deselect this video" = "इस वीडियो को अचयनित करें";
 /*Translated from: Edit this photo*/
-"Edit this photo" = "इस फ़ोटो को संपादित करें";
+"Edit this photo" = "इस तस्वीर को संपादित करें";
 /*Translated from: Edit this video*/
 "Edit this video" = "इस वीडियो को संपादित करें";
 /*Translated from: %@ Photo*/
-"%d Photo" = "%@ Photo";
+"%d Photo" = "%@ फोटो";
 /*Translated from: %@ Video*/
 "%d Video" = "%@ वीडियो";
 /*Translated from: %@ Item*/
@@ -69,31 +69,31 @@
 /*Translated from: Edit %@ Photo*/
 "Edit %d Photo" = "Edit %@ Photo";
 /*Translated from: Edit %@ Video*/
-"Edit %d Video" = "%@ वीडियो संपादित करें";
+"Edit %d Video" = "Edit %@ Video";
 /*Translated from: Edit %@ Photos*/
 "Edit %d Photos" = "%@ तस्वीरें संपादित करें";
 /*Translated from: Edit %@ Videos*/
-"Edit %d Videos" = "%@ वीडियो संपादित करें";
+"Edit %d Videos" = "Edit %@ Videos";
 /*Translated from: Edit %@ Items*/
-"Edit %d Items" = "%@ आइटम संपादित करें";
+"Edit %d Items" = "Edit %@ Items";
 /*com.stells.pap.transform*/
 "Transform" = "Transform";
 /*com.stells.pap.photosfilter*/
-"Apply" = "Apply";
+"Apply" = "लागू करें";
 /*com.stells.pap.revert*/
-"Revert" = "लौट आना";
+"Revert" = "Revert";
 /*Translated from: Starting to revert...*/
-"Starting to revert..." = "वापस लाने के लिए शुरू ...";
+"Starting to revert..." = "वापस करने के लिए शुरू कर रहा है ...";
 /*Translated from: Reverting Photos...*/
-"Reverting Photos..." = "फ़ोटो वापस ला रहा है ...";
+"Reverting Photos..." = "तस्वीरों को वापस कर रहा है ...";
 /*com.stells.pap.pdfactory*/
 "Create %@" = "%@ बनाएं";
 /*Translated from: Starting to create PDF...*/
-"Starting to create PDF..." = "पीडीएफ बनाने के लिए शुरू ...";
+"Starting to create PDF..." = "पीडीएफ बनाने के लिए शुरू कर रहा है ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "पीडीएफ पेज बनाना ...";
 /*com.stells.pap.converter*/
-"Convert" = "बदलना";
+"Convert" = "Convert";
 /*CoreSpotligth keywords - localizable - marketing*/
 "cs_keyword_0" = "एल्बम";
 /*Translated from: camera*/
@@ -111,7 +111,7 @@
 /*Translated from: image*/
 "cs_keyword_7" = "छवि";
 /*Translated from: smart*/
-"cs_keyword_8" = "smart";
+"cs_keyword_8" = "होशियार";
 /*Translated from: picture*/
 "cs_keyword_9" = "चित्र";
 /*Translated from: memory*/
@@ -139,13 +139,13 @@
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "कनवर्ट करने के लिए एक विकल्प चुनें";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Create" = "सर्जन करना";
+"Create" = "Create";
 /* Generated from genl10n: Stabilizer.swift */
 "Crop To Fit" = "फिट करने के लिए फसल";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "फिट करने के लिए फसल";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "फ़सल";
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+"Crop" = "Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "दिशा";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
@@ -157,7 +157,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "निर्यात";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "आगे";
+"Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "फ़्रेम विलंब";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -167,7 +167,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "एचवीजीए (480 × 320)";
 /* Generated from genl10n: ExifGhost.BApp.swift */
-"Hide" = "छिपाना";
+"Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "चयनित आइटम छिपाना ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -184,11 +184,11 @@
 "Modify" = "संशोधित करें";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "मेरे एल्बम";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "कोई फसल नहीं";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "कोई लूप नहीं";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+/* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "मूल";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "तस्वीरें";
@@ -204,18 +204,18 @@
 "Rewind" = "रिवाइंड";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "सहेजें और साझा करें";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save" = "बचाना";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "परिणाम सहेजा जा रहा है ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "चयन प्रीसेट";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "शेयर";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Size" = "आकार";
+"Size" = "Size";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Square" = "वर्ग";
+"Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilization Mode" = "स्थिरीकरण मोड";
 /* Generated from genl10n: Stabilizer.swift */

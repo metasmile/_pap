@@ -27,7 +27,7 @@
 /*Translated from: Batch Edit*/
 "Batch Edit" = "Επεξεργασία παρτίδας";
 /*Translated from: Edit*/
-"Edit" = "Επεξεργασία";
+"Edit" = "Edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Απορρίψετε τις αλλαγές";
 /*Translated from: Start Batch Editing...*/
@@ -101,19 +101,19 @@
 /*Translated from: photos*/
 "cs_keyword_2" = "φωτογραφίες";
 /*Translated from: editor*/
-"cs_keyword_3" = "συντάκτης";
+"cs_keyword_3" = "editor";
 /*Translated from: messenger*/
 "cs_keyword_4" = "αγγελιαφόρος";
 /*Translated from: filter*/
 "cs_keyword_5" = "φίλτρο";
 /*Translated from: edit*/
-"cs_keyword_6" = "επεξεργασία";
+"cs_keyword_6" = "edit";
 /*Translated from: image*/
 "cs_keyword_7" = "εικόνα";
 /*Translated from: smart*/
-"cs_keyword_8" = "smart";
+"cs_keyword_8" = "έξυπνος";
 /*Translated from: picture*/
-"cs_keyword_9" = "εικόνα";
+"cs_keyword_9" = "picture";
 /*Translated from: memory*/
 "cs_keyword_10" = "μνήμη";
 /*Translated from: familiy*/
@@ -123,7 +123,7 @@
 /*Translated from: lover*/
 "cs_keyword_13" = "εραστής";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"%d times" = "%d τιμές";
+"%d times" = "%d times";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
@@ -133,23 +133,23 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Αναλογία απεικόνισης";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "Εκρηξη";
+"Burst" = "Burst";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Επιλέξτε μια επιλογή εξαγωγής για %d Στοιχεία";
 /* Generated from genl10n: Convert.AppDockContent.swift */
-"Choose an Option To Convert" = "Επιλέξτε μια επιλογή μετατροπής";
+"Choose an Option To Convert" = "Choose an Option To Convert";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Δημιουργώ";
 /* Generated from genl10n: Stabilizer.swift */
 "Crop To Fit" = "Περικοπή για προσαρμογή";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Περικοπή για προσαρμογή";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "Καλλιέργεια";
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+"Crop" = "Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Κατεύθυνση";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
+"Do Anything, At Once." = "Κάνε οτιδήποτε, ταυτόχρονα.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Λήψη ...";
 /* Generated from genl10n: Convert.AppDockContent.swift */
@@ -159,7 +159,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Προς τα εμπρός";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Frame Delay" = "Καθυστέρηση καρέ";
+"Frame Delay" = "Frame Delay";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -184,12 +184,12 @@
 "Modify" = "Τροποποιώ";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Τα λευκώματά μου";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"No Crop" = "Δεν Πεθαίνει";
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+"No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Δεν υπάρχει βρόχος";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
-"Original" = "Πρωτότυπο";
+/* Generated from genl10n: PhotosFilter.BApp.swift */
+"Original" = "Original";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Φωτογραφίες";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -199,18 +199,18 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Επαναλαμβάνω";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "ΑΝΤΙΣΤΡΟΦΗ";
+"Reverse" = "Reverse";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "Αναδίπλωση";
+"Rewind" = "Rewind";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "Αποθήκευση και κοινή χρήση";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save" = "Αποθηκεύσετε";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Αποθήκευση αποτελεσμάτων ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Προεπιλογές επιλογής";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Μερίδιο";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Μέγεθος";
@@ -225,7 +225,7 @@
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilizing Selected Items..." = "Σταθεροποίηση επιλεγμένων στοιχείων ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "Αρχή";
+"Start" = "Start";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Ξεκινώντας τη διαδικασία ...";
 /* Generated from genl10n: Stabilizer.swift */

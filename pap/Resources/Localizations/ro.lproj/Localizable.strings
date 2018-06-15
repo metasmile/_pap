@@ -7,7 +7,7 @@
 /*Translated from: OK*/
 "OK" = "O.K";
 /*Translated from: Done*/
-"Done" = "Terminat";
+"Done" = "Done";
 /*Translated from: Confirm*/
 "Confirm" = "A confirma";
 /*Translated from: Cancel*/
@@ -15,7 +15,7 @@
 /*Translated from: Detail*/
 "Detail" = "Detaliu";
 /*Translated from: Delete*/
-"Delete" = "Șterge";
+"Delete" = "Delete";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "Scuze, ceva a mers greșit.";
 /*Translated from: Edit %d photo(s)*/
@@ -29,7 +29,7 @@
 /*Translated from: Edit*/
 "Edit" = "Editați | ×";
 /*Translated from: Discard Changes*/
-"Discard Changes" = "Renunțați la modificări";
+"Discard Changes" = "Discard Changes";
 /*Translated from: Start Batch Editing...*/
 "Start Batch Editing..." = "Începeți editarea lotului ...";
 /*Translated from: Processing...*/
@@ -79,9 +79,9 @@
 /*com.stells.pap.transform*/
 "Transform" = "Transforma";
 /*com.stells.pap.photosfilter*/
-"Apply" = "Apply";
+"Apply" = "aplica";
 /*com.stells.pap.revert*/
-"Revert" = "Reveni";
+"Revert" = "Revert";
 /*Translated from: Starting to revert...*/
 "Starting to revert..." = "Începând să revină ...";
 /*Translated from: Reverting Photos...*/
@@ -113,7 +113,7 @@
 /*Translated from: smart*/
 "cs_keyword_8" = "smart";
 /*Translated from: picture*/
-"cs_keyword_9" = "imagine";
+"cs_keyword_9" = "picture";
 /*Translated from: memory*/
 "cs_keyword_10" = "memorie";
 /*Translated from: familiy*/
@@ -141,15 +141,15 @@
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Crea";
 /* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Decupați pentru a se potrivi";
+"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Crop to Fit";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "A decupa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direcţie";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
+"Do Anything, At Once." = "Faceți ceva, odată.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Descărcarea...";
 /* Generated from genl10n: Convert.AppDockContent.swift */
@@ -157,7 +157,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Export";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "Redirecţiona";
+"Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Întârziere cadru";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -181,14 +181,14 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Faceți GIF";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "Modifica";
+"Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Albumele mele";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"No Crop" = "Fără tăiere";
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+"No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Nicio buclă";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+/* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "Original";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Fotografii";
@@ -199,19 +199,19 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeta";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "Verso";
+"Reverse" = "Reverse";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "rewind";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "Salveaza si distribuie";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save" = "Salvați";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Salvează rezultatele ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Selecție Presetări";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
-"Share" = "Acțiune";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Share" = "Share";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "mărimea";
 /* Generated from genl10n: GIFMaker.BApp.swift */

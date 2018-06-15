@@ -35,13 +35,13 @@
 /*Translated from: Processing...*/
 "Processing..." = "Bearbetning ...";
 /*Translated from: Cancelling...*/
-"Cancelling..." = "Inställande...";
+"Cancelling..." = "Cancelling...";
 /*Translated from: Saving Photos...*/
 "Saving Photos..." = "Spara foton ...";
 /*Translated from: Deleting Photos...*/
 "Deleting Photos..." = "Raderar foton ...";
 /*Translated from: Reverting Photos...*/
-"Reverting Photos..." = "Återgår bilder ...";
+"Reverting Photos..." = "Reverting Photos...";
 /*Translated from: Select this photo*/
 "Select this photo" = "Välj det här fotot";
 /*Translated from: Select this video*/
@@ -65,7 +65,7 @@
 /*Translated from: %@ Videos*/
 "%d Videos" = "%@ Videor";
 /*Translated from: %@ Items*/
-"%d Items" = "%@ Objekt";
+"%d Items" = "%@ Items";
 /*Translated from: Edit %@ Photo*/
 "Edit %d Photo" = "Redigera %@ Foto";
 /*Translated from: Edit %@ Video*/
@@ -85,7 +85,7 @@
 /*Translated from: Starting to revert...*/
 "Starting to revert..." = "Börjar återställa ...";
 /*Translated from: Reverting Photos...*/
-"Reverting Photos..." = "Återgår bilder ...";
+"Reverting Photos..." = "Reverting Photos...";
 /*com.stells.pap.pdfactory*/
 "Create %@" = "Skapa %@";
 /*Translated from: Starting to create PDF...*/
@@ -113,7 +113,7 @@
 /*Translated from: smart*/
 "cs_keyword_8" = "smart";
 /*Translated from: picture*/
-"cs_keyword_9" = "bild";
+"cs_keyword_9" = "picture";
 /*Translated from: memory*/
 "cs_keyword_10" = "minne";
 /*Translated from: familiy*/
@@ -144,12 +144,12 @@
 "Crop To Fit" = "Beskära för att passa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Skörda att passa";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Beskära";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Riktning";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
+"Do Anything, At Once." = "Gör någonting på en gång";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Hämtar ...";
 /* Generated from genl10n: Convert.AppDockContent.swift */
@@ -157,7 +157,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Exportera";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "Fram";
+"Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -167,7 +167,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
 /* Generated from genl10n: ExifGhost.BApp.swift */
-"Hide" = "Dölj";
+"Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "Dölja utvalda objekt ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -181,14 +181,14 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Gör GIF";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "Ändra";
+"Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Mina album";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "Ingen beskärning";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Ingen slinga";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+/* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "Original";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "foton";
@@ -204,13 +204,13 @@
 "Rewind" = "Spola tillbaka";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "Spara och dela";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save" = "Spara";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Spara resultat ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Urvalsinställningar";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Dela med sig";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Storlek";
@@ -233,7 +233,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
 /* Generated from genl10n: Stabilizer.swift */
-"Warp" = "Varp";
+"Warp" = "Warp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */

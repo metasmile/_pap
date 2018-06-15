@@ -1,5 +1,5 @@
 /*Translated from: Photos Access Disabled*/
-"Photos Access Disabled" = "Fotoğraflar Erişim Engellendi";
+"Photos Access Disabled" = "Fotoğraf Erişimi Devre Dışı";
 /*Translated from: Please open settings and allow access to your photos*/
 "Please open settings and allow access to your photos" = "Lütfen ayarları açın ve fotoğraflarınıza erişime izin verin";
 /*Translated from: Open Settings*/
@@ -7,7 +7,7 @@
 /*Translated from: OK*/
 "OK" = "tamam";
 /*Translated from: Done*/
-"Done" = "tamam";
+"Done" = "Done";
 /*Translated from: Confirm*/
 "Confirm" = "Onaylamak";
 /*Translated from: Cancel*/
@@ -19,37 +19,37 @@
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "Üzgünüm, bir şeyler ters gitti.";
 /*Translated from: Edit %d photo(s)*/
-"Edit %d photo(s)" = "%d Fotoğraflarını düzenle";
+"Edit %d photo(s)" = "%d Fotoğrafı düzenleyin";
 /*Translated from: Edit %d video(s)*/
-"Edit %d video(s)" = "%d Videoları düzenle";
+"Edit %d video(s)" = "%d Videoyu düzenle";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "%d Öğeyi düzenle";
 /*Translated from: Batch Edit*/
-"Batch Edit" = "Toplu Düzenle";
+"Batch Edit" = "Toplu Düzenleme";
 /*Translated from: Edit*/
 "Edit" = "Düzenle";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Değişiklikleri gözardı et";
 /*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Toplu Düzenlemeye Başla ...";
+"Start Batch Editing..." = "Start Batch Editing...";
 /*Translated from: Processing...*/
 "Processing..." = "İşleme...";
 /*Translated from: Cancelling...*/
 "Cancelling..." = "İptal...";
 /*Translated from: Saving Photos...*/
-"Saving Photos..." = "Fotoğraf Tasarrufu ...";
+"Saving Photos..." = "Fotoğrafları Kaydetme ...";
 /*Translated from: Deleting Photos...*/
 "Deleting Photos..." = "Fotoğraflar siliniyor ...";
 /*Translated from: Reverting Photos...*/
-"Reverting Photos..." = "Fotoğraflar Geri Döndü ...";
+"Reverting Photos..." = "Reverting Photos...";
 /*Translated from: Select this photo*/
 "Select this photo" = "Bu fotoğrafı seç";
 /*Translated from: Select this video*/
-"Select this video" = "Bu videoyu seçin";
+"Select this video" = "Bu videoyu seç";
 /*Translated from: Deselect this photo*/
 "Deselect this photo" = "Bu fotoğrafın seçimini kaldır";
 /*Translated from: Deselect this video*/
-"Deselect this video" = "Bu videonun seçimini kaldır";
+"Deselect this video" = "Bu videonun seçimini kaldırın";
 /*Translated from: Edit this photo*/
 "Edit this photo" = "Bu fotoğrafı düzenle";
 /*Translated from: Edit this video*/
@@ -67,13 +67,13 @@
 /*Translated from: %@ Items*/
 "%d Items" = "%@ Öğeler";
 /*Translated from: Edit %@ Photo*/
-"Edit %d Photo" = "%@ Fotoğraf düzenle";
+"Edit %d Photo" = "Fotoğrafı Düzenle %@";
 /*Translated from: Edit %@ Video*/
-"Edit %d Video" = "%@ Videoyu düzenle";
+"Edit %d Video" = "%@ Videoyu Düzenle";
 /*Translated from: Edit %@ Photos*/
-"Edit %d Photos" = "%@ Fotoğraflar düzenleyin";
+"Edit %d Photos" = "Fotoğrafları Düzenle %@";
 /*Translated from: Edit %@ Videos*/
-"Edit %d Videos" = "%@ Videoları düzenle";
+"Edit %d Videos" = "%@ Videoları Düzenle";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "%@ Öğeleri Düzenle";
 /*com.stells.pap.transform*/
@@ -81,11 +81,11 @@
 /*com.stells.pap.photosfilter*/
 "Apply" = "Uygulamak";
 /*com.stells.pap.revert*/
-"Revert" = "dönmek";
+"Revert" = "Revert";
 /*Translated from: Starting to revert...*/
 "Starting to revert..." = "Geri almaya başlıyor ...";
 /*Translated from: Reverting Photos...*/
-"Reverting Photos..." = "Fotoğraflar Geri Döndü ...";
+"Reverting Photos..." = "Reverting Photos...";
 /*com.stells.pap.pdfactory*/
 "Create %@" = "%@ Oluştur";
 /*Translated from: Starting to create PDF...*/
@@ -103,7 +103,7 @@
 /*Translated from: editor*/
 "cs_keyword_3" = "editör";
 /*Translated from: messenger*/
-"cs_keyword_4" = "haberci";
+"cs_keyword_4" = "messenger";
 /*Translated from: filter*/
 "cs_keyword_5" = "filtre";
 /*Translated from: edit*/
@@ -111,7 +111,7 @@
 /*Translated from: image*/
 "cs_keyword_7" = "görüntü";
 /*Translated from: smart*/
-"cs_keyword_8" = "smart";
+"cs_keyword_8" = "akıllı";
 /*Translated from: picture*/
 "cs_keyword_9" = "resim";
 /*Translated from: memory*/
@@ -121,7 +121,7 @@
 /*Translated from: friend*/
 "cs_keyword_12" = "arkadaş";
 /*Translated from: lover*/
-"cs_keyword_13" = "sevgili";
+"cs_keyword_13" = "lover";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d kez";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -141,13 +141,13 @@
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "yaratmak";
 /* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Sığacak Şekilde Kırp";
+"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Sığacak şekilde kırp";
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+"Crop" = "Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "ekin";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Direction" = "yön";
+"Direction" = "Direction";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -157,7 +157,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "İhracat";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "ileri";
+"Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Çerçeve Gecikmesi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -181,14 +181,14 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "GIF yap";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "değiştirmek";
+"Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Albümlerim";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "Kırpma Yok";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Döngü yok";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+/* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "orijinal";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Fotoğraflar";
@@ -204,22 +204,22 @@
 "Rewind" = "Geri sarma";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "Kaydet ve Paylaş";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save" = "Kayıt etmek";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Sonuçları Kaydetme ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Seçim Ön Ayarları";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
-"Share" = "Pay";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Share" = "Share";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Size";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Square" = "Kare";
+"Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilization Mode" = "Stabilizasyon modu";
 /* Generated from genl10n: Stabilizer.swift */
-"Stabilize" = "dengelemek";
+"Stabilize" = "Stabilize";
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilizer" = "stabilizatör";
 /* Generated from genl10n: Stabilizer.swift */
@@ -233,7 +233,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
 /* Generated from genl10n: Stabilizer.swift */
-"Warp" = "eğrilik";
+"Warp" = "Warp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
