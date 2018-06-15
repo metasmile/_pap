@@ -13,6 +13,8 @@ import PhotosUI
 private let LivePhotoIconImage = PHLivePhotoView.livePhotoBadgeImage(options: .overContent)
 private let BurstIconImage = R.image.cell_icon_burst()
 private let GIFIconImage = R.image.cell_icon_gif()
+private let PanoramaIconImage = R.image.cell_icon_pano()
+private let DepthIconImage = R.image.cell_icon_depth()
 
 class PhotoCollectionViewCell: CustomCollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
@@ -157,7 +159,13 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         else if asset.imageType == .burst{
             iconAsImage = BurstIconImage
         }
-        
+        else if asset.mediaSubtypes.contains(.photoDepthEffect){
+            iconAsImage = DepthIconImage
+        }
+        else if asset.mediaSubtypes.contains(.photoPanorama){
+            iconAsImage = PanoramaIconImage
+        }
+
         cellIconAsImageView.isHidden = iconAsImage == nil
         cellIconAsImageView.image = iconAsImage
         
