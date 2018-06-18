@@ -54,7 +54,8 @@ public class StabilizerAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAt
     }
 }
 
-public class Stabilizer: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp, ConfigurableApp, _ConfigurableApp, PreviewableApp {
+public class Stabilizer: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp
+        , PhotoPickerCollectionViewDisplayableApp, ConfigurableApp, _ConfigurableApp, PreviewableApp{
     public static let taskType:Taskable.Type = StabilizerTask.self
 
     public static let paramType:TaskParamable.Type = _StabilizerAppAsset.self

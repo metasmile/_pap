@@ -56,6 +56,9 @@ private class _TextractorTask: TaskPrototype, Taskable {
             let result = runTextRecognition(with: image, async)
             processResult(from:result, async)
 
+//            let result = runCloudTextRecognition(with: image, async)
+//            processCloudResult(from: result, async)
+
             return PHAssetResultItem(asset: asset, contentEditingOutput: nil)
         }
         return nil
@@ -89,7 +92,6 @@ private class _TextractorTask: TaskPrototype, Taskable {
         cloudTextDetector?.detect(in: visionImage) { features, error in
             if let error = error {
                 print("Received error: \(error)")
-                return
             }
             result = features
             async.end()
@@ -128,19 +130,29 @@ private class _TextractorTask: TaskPrototype, Taskable {
         guard let features = text, let pages = features.pages else {
             return
         }
+
+        var testResults:String = ""
+
         for page in pages {
             for block in page.blocks ?? []  {
                 for paragraph in block.paragraphs ?? [] {
                     for word in paragraph.words ?? [] {
                         if let symbols = word.symbols{
                             for symbol in symbols {
-                                print(symbol.text)
+                                testResults += symbol.text ?? "" + "|"
                             }
                         }
                     }
                 }
             }
         }
+        async?.begin()
+        DispatchQueue.main.async {
+            UIAlertController.alert(testResults != "" ? testResults : "Not found any text", completion:{ _ in
+                async?.end()
+            })
+        }
+        async?.waitUntilEnd()
     }
 
     func detectorOrientation(in image: UIImage) -> VisionDetectorImageOrientation {
