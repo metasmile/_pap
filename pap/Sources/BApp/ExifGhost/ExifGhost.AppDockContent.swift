@@ -152,7 +152,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
         let cell0 = UITableViewSegmentControlCellDescriber()
         cell0.itemIdentifier = Cells.presets.hashValue
-        cell0.label = "Selection Presets".localized
+        cell0.label = "Presets".localized
         cell0.valueGetter = { self.defaults.selectionPreset }
         cell0.valueCollection = [
             (label:"All",value:SelectionPresets.all.rawValue),

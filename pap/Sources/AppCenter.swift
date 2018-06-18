@@ -74,6 +74,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             , PDFactory.self
             , AutoAdjustmentApp.self
             , ExifGhost.self
+            , Textractor.self
 
 //            , Clean.self
 //            , Stabilizer.self

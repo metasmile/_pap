@@ -118,6 +118,8 @@
 "Export Options" = "Export Options";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Export";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Extract" = "Extract";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -154,10 +156,14 @@
 "Original" = "Original";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Photos";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift */
+"Presets" = "Presets";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320×240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Quality";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Recognizing Text in Photos..." = "Recognizing Text in Photos...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeat";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,8 +176,6 @@
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Saving Results...";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Selection Presets";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Share";
 /* Generated from genl10n: GIFMaker.BApp.swift */

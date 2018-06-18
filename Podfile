@@ -19,6 +19,10 @@ target 'pap' do
   # com.stells.pap.pdfactory
   pod 'TPPDF'
 
+  # for test - com.stells.pap.textractor
+  pod 'Firebase/MLVision'
+  pod 'Firebase/MLVisionTextModel'
+
   pod 'Armchair', '>= 0.3'
   # https://github.com/UrbanApps/Armchair
   #Add the following in order to automatically set debug flags for armchair in debug builds
