@@ -79,12 +79,20 @@ public class MutableItemList<Element>: ItemList<Element>, _MutableItemList{
 
 public class ItemQueue<Element>: MutableItemList<Element>{
 
+    public func enqueued(where predicate: (Element) throws -> Bool) rethrows -> Bool {
+        return try items.contains(where: predicate)
+    }
+
     public func peek(reverse:Bool=false) -> Element? {
         return isEmpty ? nil : (reverse ? items.last : items.first)
     }
 
     public func enqueue(_ item:Element, reverse:Bool=false) {
         reverse ? items.insert(item, at: 0) : items.append(item)
+    }
+
+    public func enqueue(contentOf:[Element], reverse:Bool=false) {
+        reverse ? items.insert(contentsOf: contentOf, at: 0) : items.append(contentsOf: contentOf)
     }
 
     @discardableResult

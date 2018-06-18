@@ -13,8 +13,11 @@ private struct RevertAppResult: TaskResultable{
     fileprivate let isAdjusted:Bool
 }
 
-public class RevertApp: NSObject, KeyPathWatchable, BApp, FinalizableApp, AppManagerDelegatableApp
-        , PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp {
+public class RevertApp: NSObject, KeyPathWatchable, BApp
+        , FinalizableApp, AppManagerDelegatableApp
+        , PhotoPickerViewControllerDelegatableApp
+        , PhotoPickerCollectionViewDisplayableApp
+        , PhotoPickerCollectionViewAsyncDisplayableApp {
     public static let taskType:Taskable.Type = _RevertAppTask.self
 
     public static let paramType:TaskParamable.Type = RevertAppParam.self
@@ -52,6 +55,10 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp, FinalizableApp, AppMan
 
     public func shouldSelect(item: AppAsset) -> Bool {
         return true
+    }
+
+    public func selectAsynchronously(item: AppAsset, _ async: AsyncSignal) -> PhotoPickerCollectionViewAsyncSelection {
+        return item.asset.isAdjusted == true ? .visible : .none
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {

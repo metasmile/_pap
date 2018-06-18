@@ -29,7 +29,6 @@ extension PhotoPickerViewController{
         return true
     }
 
-
     @discardableResult
     func deselectCollectionViewItem(at indexPath: IndexPath, animated:Bool=false) -> Bool {
         if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == true {
@@ -89,3 +88,4 @@ extension PhotoPickerViewController{
         updateVisiblePhotoCollectionCellsEnabled()
     }
 }
+
