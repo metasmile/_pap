@@ -560,7 +560,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         loopCell.maximumValue = 100
         loopCell.stepValue = 1
         loopCell.valuePresenter = { value in
-            var count = 0
+            var count:Int = 0
             if let val = value as? Int {
                 count = val
             }
@@ -573,7 +573,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
                     return "No loop".localized
                 }
                 else {
-                    return "%d times".localizedFormatted(String(Int(count)))
+                    return "%d times".localizedFormatted(Int(count))
                 }
             }
             else {

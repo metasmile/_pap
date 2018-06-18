@@ -208,22 +208,22 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         let defaultsCollection = self.defaults.ghostedImageMetadataCollection
 
         //sort ascending for handling exif properties
-        self.metadataCollection = self.metadataCollection.map { dictionary -> MetadataDictionary in
-            if let handledItems = defaultsCollection[dictionary.key]{
-                var dict = dictionary
-                dict.items = dict.items.sorted { item0, item1 in
-                    if let i0 = handledItems.index(of:item0.key){
-                        if let i1 = handledItems.index(of:item1.key){
-                            return i0 < i1
-                        }
-                        return true
-                    }
-                    return false
-                }
-                return dict
-            }
-            return dictionary
-        }
+//        self.metadataCollection = self.metadataCollection.map { dictionary -> MetadataDictionary in
+//            if let handledItems = defaultsCollection[dictionary.key]{
+//                var dict = dictionary
+//                dict.items = dict.items.sorted { item0, item1 in
+//                    if let i0 = handledItems.index(of:item0.key){
+//                        if let i1 = handledItems.index(of:item1.key){
+//                            return i0 < i1
+//                        }
+//                        return true
+//                    }
+//                    return false
+//                }
+//                return dict
+//            }
+//            return dictionary
+//        }
 
         //get indexes
         let sections = self.metadataCollection.enumerated().compactMap { (section, dictionary) -> [IndexPath]? in
