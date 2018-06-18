@@ -8,8 +8,13 @@ import Photos
 import DefaultsKit
 
 private typealias RevertAppParam = PHAssetItem<ImageEditStateValue>
+private struct RevertAppResult: TaskResultable{
+    fileprivate let asset:PHAsset
+    fileprivate let isAdjusted:Bool
+}
 
-public class RevertApp: NSObject, KeyPathWatchable, BApp, FinalizableApp, AppManagerDelegatableApp, PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp {
+public class RevertApp: NSObject, KeyPathWatchable, BApp, FinalizableApp, AppManagerDelegatableApp
+        , PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp {
     public static let taskType:Taskable.Type = _RevertAppTask.self
 
     public static let paramType:TaskParamable.Type = RevertAppParam.self
@@ -37,30 +42,46 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp, FinalizableApp, AppMan
 
     func didSetCurrent(previous: App.Type?) {}
 
+//    public func shouldSelect(item: AppAsset) -> Bool {
+//        let cacheId = item.asset.localIdentifier
+//        if adjustedCache[cacheId] == nil{
+//            adjustedCache[cacheId] = item.asset.isAdjusted //TODO: find more fast way
+//        }
+//        return adjustedCache[cacheId] ?? true
+//    }
+
     public func shouldSelect(item: AppAsset) -> Bool {
-        let cacheId = item.asset.localIdentifier
-        if adjustedCache[cacheId] == nil{
-            adjustedCache[cacheId] = item.asset.isAdjusted //TODO: find more fast way
-        }
-        return adjustedCache[cacheId] ?? true
+        return true
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
-        let resultAssets = result.compactMap { ($0.result as? PHAssetResultable)?.asset }
+        let adjustedAssets = result.compactMap { r -> PHAsset? in
+            let result = r.result as? RevertAppResult
+            return result?.isAdjusted == true ? result?.asset : nil
+        }
 
-        guard resultAssets.count > 0 else {
+        guard adjustedAssets.count > 0 else {
+
+            asyncSignal.begin()
+            DispatchQueue.main.async {
+                UIAlertController.alert("Cannot revert. All selected items have not edited.".localized, completion:{ _ in
+                    asyncSignal.end()
+                })
+            }
+            asyncSignal.waitUntilEnd()
+
             return result
         }
 
         asyncSignal.begin()
 
         PHPhotoLibrary.shared().performChanges({
-            for asset in resultAssets{
+            for asset in adjustedAssets {
                 PHAssetChangeRequest(for: asset).revertAssetContentToOriginal()
             }
         }, completionHandler: { success, error in
             if success {
-                for asset in resultAssets{
+                for asset in adjustedAssets {
                     self.adjustedCache[asset.localIdentifier] = false
                 }
             }else{
@@ -74,7 +95,7 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp, FinalizableApp, AppMan
     }
 
     public var titleWillBegin: String? {
-        return "Starting to revert...".localized
+        return "Starting to check edited photos...".localized
     }
 
     public var titleWillFinalize: String? {
@@ -92,15 +113,15 @@ private class _RevertAppTask: TaskPrototype, Taskable {
             throw TaskError.invalidParam
         }
 
-        let cachedAdjusted = AppCenter.default.currentInstanceAs(RevertApp.self)?.adjustedCache
+//        let cachedAdjusted = AppCenter.default.currentInstanceAs(RevertApp.self)?.adjustedCache
+//
+//        let adjusted = cachedAdjusted == nil ? _param.asset.isAdjusted : cachedAdjusted?[_param.asset.localIdentifier] == true
+//
+//        guard adjusted else{
+//            throw TaskError.rejectedParam
+//        }
 
-        let adjusted = cachedAdjusted == nil ? _param.asset.isAdjusted : cachedAdjusted?[_param.asset.localIdentifier] == true
-
-        guard adjusted else{
-            throw TaskError.rejectedParam
-        }
-
-        return PHAssetResultItem(asset:_param.asset, contentEditingOutput: nil)
+        return RevertAppResult(asset: _param.asset, isAdjusted: _param.asset.isAdjusted)
     }
 }
 
