@@ -13,14 +13,14 @@ private struct IndexPathsForVisibleItems {
 
 extension PhotoPickerViewController{
 
-    public func enqueueVisibleItemsToAsynchronouslySelect(){
+    public func enqueueVisibleItemsToAsyncSelect(){
         IndexPathsForVisibleItems.dispatchQueue.async{
-            self._enqueueVisibleItemsToAsynchronouslySelect()
+            self._enqueueVisibleItemsToAsyncSelect()
         }
     }
 
-    private func _enqueueVisibleItemsToAsynchronouslySelect(){
-        guard let _ = AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewAsyncDisplayableApp.self) else {
+    private func _enqueueVisibleItemsToAsyncSelect(){
+        guard let _ = AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewAsyncAutoDisplayableApp.self) else {
             IndexPathsForVisibleItems.queue.dequeueAll()
             return
         }
@@ -36,15 +36,15 @@ extension PhotoPickerViewController{
     }
 
 
-    public func selectAsynchronouslyQueuedVisibleItems(includingCurrentVisibleItems:Bool=false){
+    public func selectAsyncQueuedVisibleItems(includingCurrentVisibleItems:Bool=false){
         IndexPathsForVisibleItems.dispatchQueue.async{
-            guard let interactableApp = AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewAsyncDisplayableApp.self) else {
+            guard let interactableApp = AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewAsyncAutoDisplayableApp.self) else {
                 IndexPathsForVisibleItems.queue.dequeueAll()
                 return
             }
 
             if includingCurrentVisibleItems {
-                self._enqueueVisibleItemsToAsynchronouslySelect()
+                self._enqueueVisibleItemsToAsyncSelect()
             }
 
             let signal = AsyncSignal()
@@ -52,7 +52,7 @@ extension PhotoPickerViewController{
             while let indexPath = IndexPathsForVisibleItems.queue.dequeue(){
                 if let asset = PHAssets.fetched.asset(at: indexPath){
                     if let item = AppAssets.selected.at(unsafeIndex:indexPath.item) ?? AppAsset.create(for:asset) {
-                        if .visible == interactableApp.selectAsynchronously(item:item, signal){
+                        if .visible == interactableApp.shouldAutoSelectAsynchronously(item:item, signal){
                             DispatchQueue.main.async{
                                 self.selectCollectionViewItem(at: indexPath, animated: false)
                             }

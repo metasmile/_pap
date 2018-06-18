@@ -160,27 +160,27 @@ extension PhotoPickerViewController: UIScrollViewDelegate {
     }
 
     public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        enqueueVisibleItemsToAsynchronouslySelect()
+        enqueueVisibleItemsToAsyncSelect()
     }
 
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        enqueueVisibleItemsToAsynchronouslySelect()
+        enqueueVisibleItemsToAsyncSelect()
     }
 
     public func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
-        enqueueVisibleItemsToAsynchronouslySelect()
+        enqueueVisibleItemsToAsyncSelect()
     }
 
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        selectAsynchronouslyQueuedVisibleItems(includingCurrentVisibleItems: true)
+        selectAsyncQueuedVisibleItems(includingCurrentVisibleItems: true)
     }
 
     public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        selectAsynchronouslyQueuedVisibleItems(includingCurrentVisibleItems: true)
+        selectAsyncQueuedVisibleItems(includingCurrentVisibleItems: true)
     }
 
     public func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
-        selectAsynchronouslyQueuedVisibleItems(includingCurrentVisibleItems: true)
+        selectAsyncQueuedVisibleItems(includingCurrentVisibleItems: true)
     }
 }
 

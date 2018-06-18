@@ -17,7 +17,7 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp
         , FinalizableApp, AppManagerDelegatableApp
         , PhotoPickerViewControllerDelegatableApp
         , PhotoPickerCollectionViewDisplayableApp
-        , PhotoPickerCollectionViewAsyncDisplayableApp {
+        , PhotoPickerCollectionViewAsyncAutoDisplayableApp {
     public static let taskType:Taskable.Type = _RevertAppTask.self
 
     public static let paramType:TaskParamable.Type = RevertAppParam.self
@@ -57,7 +57,7 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp
         return true
     }
 
-    public func selectAsynchronously(item: AppAsset, _ async: AsyncSignal) -> PhotoPickerCollectionViewAsyncSelection {
+    public func shouldAutoSelectAsynchronously(item: AppAsset, _ async: AsyncSignal) -> PhotoPickerCollectionViewAsyncSelection {
         return item.asset.isAdjusted == true ? .visible : .none
     }
 

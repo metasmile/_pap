@@ -113,7 +113,7 @@ class PhotoPickerViewController: AppDockViewController {
             }
             self.photoCollectionView.reloadData()
             self.photoCollectionView.performBatchUpdates(nil, completion: { result in
-                self.selectAsynchronouslyQueuedVisibleItems(includingCurrentVisibleItems: true)
+                self.selectAsyncQueuedVisibleItems(includingCurrentVisibleItems: true)
             })
          }
 
@@ -186,7 +186,7 @@ class PhotoPickerViewController: AppDockViewController {
         AppCenter.default.watch(\.currentIdentifier, options:[.new, .old, .initial]) { (appCenter, dict) in
             self.updateDoneButtonState()
 
-            self.selectAsynchronouslyQueuedVisibleItems(includingCurrentVisibleItems: true)
+            self.selectAsyncQueuedVisibleItems(includingCurrentVisibleItems: true)
 
             AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform, id:"picker\(TransformApp.info.identifier)") { (config, changed) in
                 if let value = config.transform, !AppCenter.default.task.isRunning{
