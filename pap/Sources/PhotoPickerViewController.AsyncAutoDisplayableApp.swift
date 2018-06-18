@@ -13,15 +13,16 @@ private struct IndexPathsForVisibleItems {
 
 extension PhotoPickerViewController{
 
-    public func enqueueVisibleItemsToAsyncSelect(){
-        IndexPathsForVisibleItems.dispatchQueue.async{
-            self._enqueueVisibleItemsToAsyncSelect()
-        }
+    public func enqueueVisibleItemsToAsyncSelectIfCurrentAppNeeded(){
+        self._enqueueVisibleItemsToAsyncSelect()
+
     }
 
     private func _enqueueVisibleItemsToAsyncSelect(){
         guard let _ = AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewAsyncAutoDisplayableApp.self) else {
-            IndexPathsForVisibleItems.queue.dequeueAll()
+            IndexPathsForVisibleItems.dispatchQueue.async{
+                IndexPathsForVisibleItems.queue.dequeueAll()
+            }
             return
         }
 
@@ -29,24 +30,28 @@ extension PhotoPickerViewController{
             where self.collectionView(self.photoCollectionView, shouldSelectItemAt: indexPath)
                     && self.photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == false{
 
-            if false == IndexPathsForVisibleItems.queue.enqueued(where:{ $0 == indexPath }){
-                IndexPathsForVisibleItems.queue.enqueue(indexPath)
+            IndexPathsForVisibleItems.dispatchQueue.async{
+                if false == IndexPathsForVisibleItems.queue.enqueued(where:{ $0 == indexPath }){
+                    IndexPathsForVisibleItems.queue.enqueue(indexPath)
+                }
             }
         }
     }
 
 
-    public func selectAsyncQueuedVisibleItems(includingCurrentVisibleItems:Bool=false){
-        IndexPathsForVisibleItems.dispatchQueue.async{
-            guard let interactableApp = AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewAsyncAutoDisplayableApp.self) else {
+    public func selectAsyncQueuedVisibleItemsIfCurrentAppNeeded(includingCurrentVisibleItems:Bool=false){
+        guard let interactableApp = AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewAsyncAutoDisplayableApp.self) else {
+            IndexPathsForVisibleItems.dispatchQueue.async{
                 IndexPathsForVisibleItems.queue.dequeueAll()
-                return
             }
+            return
+        }
 
-            if includingCurrentVisibleItems {
-                self._enqueueVisibleItemsToAsyncSelect()
-            }
+        if includingCurrentVisibleItems {
+            self._enqueueVisibleItemsToAsyncSelect()
+        }
 
+        IndexPathsForVisibleItems.dispatchQueue.async{
             let signal = AsyncSignal()
 
             while let indexPath = IndexPathsForVisibleItems.queue.dequeue(){

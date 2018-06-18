@@ -113,7 +113,7 @@ class PhotoPickerViewController: AppDockViewController {
             }
             self.photoCollectionView.reloadData()
             self.photoCollectionView.performBatchUpdates(nil, completion: { result in
-                self.selectAsyncQueuedVisibleItems(includingCurrentVisibleItems: true)
+                self.selectAsyncQueuedVisibleItemsIfCurrentAppNeeded(includingCurrentVisibleItems: true)
             })
          }
 
@@ -186,26 +186,26 @@ class PhotoPickerViewController: AppDockViewController {
         AppCenter.default.watch(\.currentIdentifier, options:[.new, .old, .initial]) { (appCenter, dict) in
             self.updateDoneButtonState()
 
-            self.selectAsyncQueuedVisibleItems(includingCurrentVisibleItems: true)
+            self.selectAsyncQueuedVisibleItemsIfCurrentAppNeeded(includingCurrentVisibleItems: true)
 
             AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform, id:"picker\(TransformApp.info.identifier)") { (config, changed) in
                 if let value = config.transform, !AppCenter.default.task.isRunning{
                     self.setAppValue(value)
                 }
             }
-            
+
             AppCenter.default.currentInstanceAs(PhotosFilterApp.self)?.config?.watch(\.filter, id:"picker\(PhotosFilterApp.info.identifier)") { (config, changed) in
                 if let value = config.filter, !AppCenter.default.task.isRunning{
                     self.setAppValue(value)
                 }
             }
-            
+
             AppCenter.default.currentInstanceAs(AutoAdjustmentApp.self)?.config?.watch(\.filter, id:"picker\(AutoAdjustmentApp.info.identifier)") { (config, changed) in
                 if let value = config.filter, !AppCenter.default.task.isRunning{
                     self.setAppValue(value)
                 }
             }
-            
+
             AppCenter.default.currentInstanceAs(Stabilizer.self)?.config?.watch(\.stabilizationMode, id:"picker\(Stabilizer.info.identifier)") { (config, changed) in
                 if let value = config.stabilizationMode, !AppCenter.default.task.isRunning{
                     self.setAppValue(value)
@@ -218,6 +218,12 @@ class PhotoPickerViewController: AppDockViewController {
 
             AppCenter.default.currentInstanceAs(ConvertApp.self)?.config?.watch(\.convertingDirectionIdentifier, id:"picker\(ConvertApp.info.identifier)") { (config, changed) in
                 self.redisplayCurrentVisibleCellsWhenUpdateApps()
+            }
+
+            AppCenter.default.currentInstanceAs(RevertApp.self)?.watch(\.autoSelect, id:"picker\(RevertApp.info.identifier)") { (app, changed) in
+                if app.autoSelect && !AppCenter.default.task.isRunning{
+                    self.selectAsyncQueuedVisibleItemsIfCurrentAppNeeded(includingCurrentVisibleItems: true)
+                }
             }
         }
     }
@@ -235,6 +241,7 @@ class PhotoPickerViewController: AppDockViewController {
         AppCenter.default.currentInstanceAs(Stabilizer.self)?.config?.unwatch(\.stabilizationMode, forIds:["picker\(Stabilizer.info.identifier)"])
         AppCenter.default.currentInstanceAs(GIFMaker.self)?.config?.unwatch(\.sourceType, forIds:["picker\(GIFMaker.info.identifier)"])
         AppCenter.default.currentInstanceAs(ConvertApp.self)?.config?.unwatch(\.convertingDirectionIdentifier, forIds:["picker\(ConvertApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(RevertApp.self)?.unwatch(\.autoSelect, forIds:["picker\(RevertApp.info.identifier)"])
 
         AppCenter.default.unwatchAllFilePrivate(\.currentIdentifier)
     }

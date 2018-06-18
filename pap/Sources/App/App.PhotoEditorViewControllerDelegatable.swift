@@ -5,10 +5,5 @@
 
 import Foundation
 
-public protocol PhotoEditorViewControllerDelegatableApp: App {
+public protocol PhotoEditorViewControllerDelegatableApp: App {}
 
-}
-
-extension PhotoEditorViewControllerDelegatableApp {
-
-}

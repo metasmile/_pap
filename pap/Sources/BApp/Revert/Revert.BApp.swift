@@ -13,7 +13,20 @@ private struct RevertAppResult: TaskResultable{
     fileprivate let isAdjusted:Bool
 }
 
+
+private protocol RevertAppDefaults: AppDefaults{
+    var autoSelect: Bool {get set}
+}
+
+extension Defaults: RevertAppDefaults {
+    fileprivate var autoSelect: Bool {
+        set{ set(newValue) }
+        get{ return get(or: false) }
+    }
+}
+
 public class RevertApp: NSObject, KeyPathWatchable, BApp
+        , AppDockApp
         , FinalizableApp, AppManagerDelegatableApp
         , PhotoPickerViewControllerDelegatableApp
         , PhotoPickerCollectionViewDisplayableApp
@@ -33,6 +46,13 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp
             , minOSVersion: nil
     )
 
+    public private(set) lazy var dockContent: AppDockContent? = RevertAppDockContent()
+
+    private let appDefaults = RevertApp.defaults as! RevertAppDefaults
+
+    @objc dynamic
+    public fileprivate (set) lazy var autoSelect: Bool = appDefaults.autoSelect
+
     required public override init(){
         super.init()
     }
@@ -45,20 +65,12 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp
 
     func didSetCurrent(previous: App.Type?) {}
 
-//    public func shouldSelect(item: AppAsset) -> Bool {
-//        let cacheId = item.asset.localIdentifier
-//        if adjustedCache[cacheId] == nil{
-//            adjustedCache[cacheId] = item.asset.isAdjusted //TODO: find more fast way
-//        }
-//        return adjustedCache[cacheId] ?? true
-//    }
-
     public func shouldSelect(item: AppAsset) -> Bool {
         return true
     }
 
     public func shouldAutoSelectAsynchronously(item: AppAsset, _ async: AsyncSignal) -> PhotoPickerCollectionViewAsyncSelection {
-        return item.asset.isAdjusted == true ? .visible : .none
+        return appDefaults.autoSelect && item.asset.isAdjusted == true ? .visible : .none
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
@@ -120,15 +132,126 @@ private class _RevertAppTask: TaskPrototype, Taskable {
             throw TaskError.invalidParam
         }
 
-//        let cachedAdjusted = AppCenter.default.currentInstanceAs(RevertApp.self)?.adjustedCache
-//
-//        let adjusted = cachedAdjusted == nil ? _param.asset.isAdjusted : cachedAdjusted?[_param.asset.localIdentifier] == true
-//
-//        guard adjusted else{
-//            throw TaskError.rejectedParam
-//        }
-
         return RevertAppResult(asset: _param.asset, isAdjusted: _param.asset.isAdjusted)
+    }
+}
+
+
+/*
+RevertAppDockContent
+*/
+
+fileprivate class RevertAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
+    private lazy var defaults = RevertApp.defaults as! RevertAppDefaults
+
+    private let primaryColor = UIColor(red:0.6, green:0.6, blue:0.6, alpha:1)
+
+    lazy var view: UIView = UITableView()
+
+    var preferences: AppDockContentPreferable? {
+        var preferences = AppDockContentPreferences()
+        preferences.preferredHeight = (view as! UITableView).rowHeight * CGFloat(1)
+        return preferences
+    }
+
+    func willSetContentView(_ view: UIView, dock: AppDock) {
+        if let view = view as? UITableView{
+            view.dataSource = self
+            view.delegate = self
+            view.rowHeight = 52
+            view.allowsSelection = false
+            view.register(Cell.self, forCellReuseIdentifier: RevertApp.info.identifier)
+//            view.backgroundColor = UIColor(red: 31 / 255.0, green: 31 / 255.0, blue: 31 / 255.0, alpha: 1)
+            view.tintColor = self.primaryColor
+//            view.separatorInset.left = view.rowHeight
+        }
+    }
+
+    func didSetContentView(_ view:UIView, dock:AppDock) {
+        if options != nil{
+            (view as! UITableView).reloadData()
+        }
+    }
+
+    @objc dynamic
+    var options:[String: Any]? // Bool may be other custom Codable type instead of Any
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: RevertApp.info.identifier) as! Cell
+
+//        cell.imageView?.image = nil
+        cell.imageView?.tintColor = primaryColor
+        cell.imageView?.contentMode = .scaleAspectFit
+
+        cell.textLabel?.text = "Auto Select Edited Items".localized
+        cell.textLabel?.textColor = primaryColor
+        cell.optionSwitch.setOn(defaults.autoSelect, animated: false)
+        cell.switchDidChange = { on in
+            self.defaults.autoSelect = on
+            AppCenter.default.currentInstanceAs(RevertApp.self)?.autoSelect = on
+        }
+
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+
+    private class Cell: UITableViewCell {
+        lazy var optionSwitch: UISwitch = {
+            let view = UISwitch()
+            view.addTarget(self, action: #selector(self.cellSwitchDidChange), for: .valueChanged)
+            return view
+        }()
+
+        var switchDidChange: ((Bool) -> Void)?
+
+        override func prepareForReuse() {
+            super.prepareForReuse()
+
+            switchDidChange = nil
+        }
+
+        override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+            super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+            accessoryView = optionSwitch
+//            backgroundColor = .clear
+            textLabel?.font = UIFont.systemFont(ofSize: 14)
+//            textLabel?.textColor = UIColor.white
+        }
+
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+
+        @objc func cellSwitchDidChange(sender: UISwitch) {
+            switchDidChange?(sender.isOn)
+        }
+
+        override func layoutSubviews() {
+            super.layoutSubviews()
+
+//            imageView?.frame.size = CGSize(width: 30, height: 30)
+//            imageView?.frame.origin = CGPoint(x: 10, y: (contentView.bounds.height - 30) / 2)
+
+//            textLabel?.frame.origin.x = (imageView?.frame.maxX ?? 0) + 10
+        }
+
+        override func tintColorDidChange() {
+            super.tintColorDidChange()
+
+            optionSwitch.onTintColor = tintColor
+        }
     }
 }
 
