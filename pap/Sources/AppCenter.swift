@@ -74,10 +74,11 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             , PDFactory.self
             , AutoAdjustmentApp.self
             , ExifGhost.self
-            , Textractor.self
 
-//            , Clean.self
-//            , Stabilizer.self
+            //phase: .develop | .beta - They will automatically exclude in Release build.
+            , Textractor.self
+            , Clean.self
+            , Stabilizer.self
         ]
 
         return config
