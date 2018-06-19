@@ -13,9 +13,8 @@ import DefaultsKit
 private typealias TextractorParam = PHAssetItem<ImageEditStateValue>
 private struct TextractorResult: TaskResultable{
     fileprivate let asset:PHAsset
-    fileprivate let isAdjusted:Bool
+    fileprivate let text:String
 }
-
 
 private protocol TextractorDefaults: AppDefaults{
     var autoSelect: Bool {get set}
@@ -29,7 +28,8 @@ extension Defaults: TextractorDefaults {
 }
 
 
-public class Textractor: NSObject, KeyPathWatchable, BApp, PHAssetFinalizableApp
+public class Textractor: NSObject, KeyPathWatchable, BApp
+        , FinalizableApp
         , AppDockApp
         , PhotoPickerViewControllerDelegatableApp
         , PhotoPickerCollectionViewAsyncAutoDisplayableApp {
@@ -62,14 +62,26 @@ public class Textractor: NSObject, KeyPathWatchable, BApp, PHAssetFinalizableApp
         return [.showActions]
     }
 
-    //TODO: remove this block
-    public func shouldFinalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> Bool {
-        return false
-    }
-    //TODO: remove this block
-
     public func shouldSelect(item: AppAsset) -> Bool {
-        return true
+        return item.asset.mediaType == .image
+    }
+
+    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
+        let items = result
+                .filter { respondable in respondable.info.state == .completed }
+                .compactMap { ($0.result as? TextractorResult)?.text }
+
+
+        asyncSignal.begin()
+        DispatchQueue.main.async{
+            UIActivityViewController.presentAsDefault(activityItems: items, excludedActivityTypes: nil) { type, b, anies, error in
+                asyncSignal.end()
+            }
+        }
+
+        asyncSignal.waitUntilEnd()
+
+        return result
     }
 
     public func shouldAutoSelectAsynchronously(item: AppAsset, _ async: AsyncSignal) -> PhotoPickerCollectionViewAsyncSelection {
@@ -101,7 +113,7 @@ public class Textractor: NSObject, KeyPathWatchable, BApp, PHAssetFinalizableApp
                         if let block = text as? VisionTextBlock {
                             for line in block.lines {
                                 for element in line.elements {
-                                    testResults += element.text + "|"
+                                    testResults += element.text + " "
                                 }
                             }
                         }
@@ -123,8 +135,13 @@ public class Textractor: NSObject, KeyPathWatchable, BApp, PHAssetFinalizableApp
     }
 
     public var titleWillFinalize: String? {
-        return "Grabbing Texts in Photos...".localized
+        return "Saving Texts ...".localized
     }
+
+    public func titleDidUpdate(progress: Float) -> String? {
+        return "Recognizing ... %@ ".localizedFormatted("\(Int(progress * 100))%")
+    }
+
     public var doneButtonTitle: String? {
         return "Grab".localized
     }
@@ -140,12 +157,19 @@ private class _TextractorTask: TaskPrototype, Taskable {
     public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
         if let asset = (param as? PHAssetItem<ImageEditStateValue>)?.asset, let image = asset.asUIImage{
             let result = runTextRecognition(with: image, async)
-            processResult(from:result, async)
 
-//            let result = runCloudTextRecognition(with: image, async)
-//            processCloudResult(from: result, async)
+            if let text = processResult(from:result, async){
 
-            return PHAssetResultItem(asset: asset, contentEditingOutput: nil)
+//                let url = FileURL.temp(UUID().uuidString + ".txt", UTI.utf8PlainText, group:FileURL.fileAndQueuePrivateGroup())
+//
+//                print(text)
+//
+//                print(url.path)
+//
+//                try? text.write(to: url, atomically: true, encoding: .utf8)
+
+                return TextractorResult(asset: asset, text: text)
+            }
         }
         return nil
     }
@@ -186,9 +210,9 @@ private class _TextractorTask: TaskPrototype, Taskable {
         return result
     }
 
-    func processResult(from text: [VisionText]?, _ async: AsyncManualSignalable?=nil) {
+    func processResult(from text: [VisionText]?, _ async: AsyncManualSignalable?=nil) -> String? {
         guard let features = text else {
-            return
+            return nil
         }
 
         var testResults:String = ""
@@ -197,19 +221,23 @@ private class _TextractorTask: TaskPrototype, Taskable {
             if let block = text as? VisionTextBlock {
                 for line in block.lines {
                     for element in line.elements {
-                        testResults += element.text + "|"
+                        testResults += element.text + " "
                     }
                 }
             }
         }
 
-        async?.begin()
-        DispatchQueue.main.async {
-            UIAlertController.alert(testResults != "" ? testResults : "Not found any text", completion:{ _ in
-                async?.end()
-            })
-        }
-        async?.waitUntilEnd()
+        //INFO: DEBUG
+
+//        async?.begin()
+//        DispatchQueue.main.async {
+//            UIAlertController.alert(testResults != "" ? testResults : "Not found any text", completion:{ _ in
+//                async?.end()
+//            })
+//        }
+//        async?.waitUntilEnd()
+
+        return testResults
     }
 
     func processCloudResult(from text: VisionCloudText?, _ async: AsyncManualSignalable?=nil) {
