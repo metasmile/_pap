@@ -21,13 +21,9 @@ private struct AsyncAutoSelectionQueue {
 
 extension PhotoPickerViewController{
 
-    public func enqueueAutoSelectionForVisibleItemsIfAppNeeds(){
-        self.enqueueAutoSelectionForVisibleItems()
-    }
-
-    private func enqueueAutoSelectionForVisibleItems(){
+    public func enqueueAutoSelectionIfNeeded(){
         guard let _ = AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewAsyncAutoDisplayableApp.self) else {
-            cancelPendingAutoSelectionForVisibleItems()
+            cancelPendingAutoSelectionIfNeeded()
             return
         }
 
@@ -43,7 +39,7 @@ extension PhotoPickerViewController{
         }
     }
 
-    public func cancelPendingAutoSelectionForVisibleItems(){
+    public func cancelPendingAutoSelectionIfNeeded(){
         DispatchQueue.global(qos: .default).async(flags:.barrier){
             if AsyncAutoSelectionQueue.indexPathQueue.count == 0{
                 return
@@ -52,14 +48,14 @@ extension PhotoPickerViewController{
         }
     }
 
-    public func performAutoSelectionForVisibleItemsIfAppNeeds(includingCurrentVisibleItems:Bool=false){
+    public func performAutoSelectionIfNeeded(includingCurrentVisibleItems:Bool=false){
         guard let interactableApp = AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewAsyncAutoDisplayableApp.self) else {
-            cancelPendingAutoSelectionForVisibleItems()
+            cancelPendingAutoSelectionIfNeeded()
             return
         }
 
         if includingCurrentVisibleItems {
-            self.enqueueAutoSelectionForVisibleItems()
+            self.enqueueAutoSelectionIfNeeded()
         }
 
         func performNext() {

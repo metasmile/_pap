@@ -68,6 +68,8 @@ class PhotoPickerViewController: AppDockViewController {
 
             self.queuedPhotoLibraryChanges.enqueue(changeInstance)
 
+            self.cancelPendingAutoSelectionIfNeeded()
+
             DispatchQueue.main.async {
                 if AppCenter.default.task.isRunning == false{
                     self.flushQueuedPhotoLibraryChanges()
@@ -113,7 +115,7 @@ class PhotoPickerViewController: AppDockViewController {
             }
             self.photoCollectionView.reloadData()
             self.photoCollectionView.performBatchUpdates(nil, completion: { result in
-                self.performAutoSelectionForVisibleItemsIfAppNeeds(includingCurrentVisibleItems: true)
+                self.performAutoSelectionIfNeeded(includingCurrentVisibleItems: true)
             })
          }
 
@@ -180,14 +182,14 @@ class PhotoPickerViewController: AppDockViewController {
         showAndRevertTitleByCurrentAppIfNeeded()
         appDockView?.reloadKeepingDrawerOpened()
         batchPreviewView.updatePreviews(forced: true)
+
+        updateDoneButtonState()
+        cancelPendingAutoSelectionIfNeeded()
+        performAutoSelectionIfNeeded(includingCurrentVisibleItems: true)
     }
     
     override func registerWatchingAppConfig() {
         AppCenter.default.watch(\.currentIdentifier, options:[.new, .old, .initial]) { (appCenter, dict) in
-            self.updateDoneButtonState()
-
-            self.cancelPendingAutoSelectionForVisibleItems()
-            self.performAutoSelectionForVisibleItemsIfAppNeeds(includingCurrentVisibleItems: true)
 
             AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform, id:"picker\(TransformApp.info.identifier)") { (config, changed) in
                 if let value = config.transform, !AppCenter.default.task.isRunning{
@@ -223,7 +225,8 @@ class PhotoPickerViewController: AppDockViewController {
 
             AppCenter.default.currentInstanceAs(RevertApp.self)?.watch(\.autoSelect, id:"picker\(RevertApp.info.identifier)") { (app, changed) in
                 if app.autoSelect && !AppCenter.default.task.isRunning{
-                    self.performAutoSelectionForVisibleItemsIfAppNeeds(includingCurrentVisibleItems: true)
+                    self.cancelPendingAutoSelectionIfNeeded()
+                    self.performAutoSelectionIfNeeded(includingCurrentVisibleItems: true)
                 }
             }
         }
@@ -269,6 +272,8 @@ class PhotoPickerViewController: AppDockViewController {
         generator.impactOccurred()
 
         cancelAllInCurrentContext()
+
+        cancelPendingAutoSelectionIfNeeded()
     }
     
     override func doneButtonDidTap(sender: Any) {
@@ -277,6 +282,8 @@ class PhotoPickerViewController: AppDockViewController {
         batchPreviewView.runBatchProcessing()
         
         updateVisiblePhotoCollectionCellsEnabled()
+
+        cancelPendingAutoSelectionIfNeeded()
     }
 
     private func showAndRevertTitleByCurrentAppIfNeeded(){
