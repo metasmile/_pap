@@ -136,7 +136,6 @@
 		4F71DB6DFA22872615C35AB0 /* warp.metal in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5D63852192CF4147FD5 /* warp.metal */; };
 		4F71DBB61D645367E3ED362A /* ImageIO.Metadata.Properties.Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF2BA1EF2662C299D170 /* ImageIO.Metadata.Properties.Label.swift */; };
 		4F71DBCB2A884DD7DB4E77C5 /* AssetIO.TimelapsVideoBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D528E12644D0332ECCAF /* AssetIO.TimelapsVideoBuilder.swift */; };
-		4F71DBCC91B31FC6ECC13EB0 /* Revert.AppDockContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7F43107F86AD71C626C /* Revert.AppDockContent.swift */; };
 		4F71DC000A1FD35E151226BB /* cell_icon_depth.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DDE929B4653604C65996 /* cell_icon_depth.png */; };
 		4F71DC16226B8D70AE6BE82F /* Transform.BApp.Public.Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D590D9C96E96C3ED6669 /* Transform.BApp.Public.Contents.swift */; };
 		4F71DC6066F5DE652D19626D /* ImageIO.Metadata.VoidValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2A052463FFF3B331002 /* ImageIO.Metadata.VoidValues.swift */; };
@@ -415,7 +414,6 @@
 		4F71D7C7C2C6686F86A92277 /* PhotosFilter.BApp.Contents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosFilter.BApp.Contents.swift; sourceTree = "<group>"; };
 		4F71D7D5C4AEA9D67FB0FFFD /* AppDockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDockView.swift; sourceTree = "<group>"; };
 		4F71D7E3C18F3D98C13E34A1 /* App.Finalizable.UIActivity.PHAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Finalizable.UIActivity.PHAsset.swift; sourceTree = "<group>"; };
-		4F71D7F43107F86AD71C626C /* Revert.AppDockContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Revert.AppDockContent.swift; sourceTree = "<group>"; };
 		4F71D7F57559839F5372E741 /* PreviewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		4F71D8033E59EAB278D35495 /* CodeKit.UIAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIAlertController.swift; sourceTree = "<group>"; };
 		4F71D8059F302538FAFF84BD /* AppLifecycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLifecycle.swift; sourceTree = "<group>"; };
@@ -965,7 +963,6 @@
 			children = (
 				4F71D34F0E97063C79A5B851 /* Revert.BApp.swift */,
 				A0453C5F20A33E9A00F9BA29 /* Revert.BApp.Assets.xcassets */,
-				4F71D7F43107F86AD71C626C /* Revert.AppDockContent.swift */,
 			);
 			path = Revert;
 			sourceTree = "<group>";
@@ -2817,7 +2814,6 @@
 				4F71DCF50EF5E6EA610DA259 /* Textractor.BApp.swift in Sources */,
 				4F71DA2EB6DC566D7F73D631 /* App.PhotoPickerCollectionViewAutoDisplayable.swift in Sources */,
 				4F71DF7293BD071AEF5A1B93 /* PhotoPickerViewController.Operations.AsyncAutoDisplayableApp.swift in Sources */,
-				4F71DBCC91B31FC6ECC13EB0 /* Revert.AppDockContent.swift in Sources */,
 				4F71D4003B4748D3C122CD8A /* PhotoPickerViewController.UICollectionView.Selection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -229,6 +229,13 @@ class PhotoPickerViewController: AppDockViewController {
                     self.performAutoSelectionIfNeeded(includingCurrentVisibleItems: true)
                 }
             }
+
+            AppCenter.default.currentInstanceAs(Textractor.self)?.watch(\.autoSelect, id: "picker\(Textractor.info.identifier)") { (app, changed) in
+                if app.autoSelect && !AppCenter.default.task.isRunning {
+                    self.cancelPendingAutoSelectionIfNeeded()
+                    self.performAutoSelectionIfNeeded(includingCurrentVisibleItems: true)
+                }
+            }
         }
     }
     
@@ -246,6 +253,7 @@ class PhotoPickerViewController: AppDockViewController {
         AppCenter.default.currentInstanceAs(GIFMaker.self)?.config?.unwatch(\.sourceType, forIds:["picker\(GIFMaker.info.identifier)"])
         AppCenter.default.currentInstanceAs(ConvertApp.self)?.config?.unwatch(\.convertingDirectionIdentifier, forIds:["picker\(ConvertApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(RevertApp.self)?.unwatch(\.autoSelect, forIds:["picker\(RevertApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(Textractor.self)?.unwatch(\.autoSelect, forIds:["picker\(Textractor.info.identifier)"])
 
         AppCenter.default.unwatchAllFilePrivate(\.currentIdentifier)
     }
