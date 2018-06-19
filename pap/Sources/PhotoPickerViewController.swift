@@ -113,7 +113,7 @@ class PhotoPickerViewController: AppDockViewController {
             }
             self.photoCollectionView.reloadData()
             self.photoCollectionView.performBatchUpdates(nil, completion: { result in
-                self.selectAsyncQueuedVisibleItemsIfCurrentAppNeeded(includingCurrentVisibleItems: true)
+                self.performAutoSelectionForVisibleItemsIfAppNeeds(includingCurrentVisibleItems: true)
             })
          }
 
@@ -186,7 +186,8 @@ class PhotoPickerViewController: AppDockViewController {
         AppCenter.default.watch(\.currentIdentifier, options:[.new, .old, .initial]) { (appCenter, dict) in
             self.updateDoneButtonState()
 
-            self.selectAsyncQueuedVisibleItemsIfCurrentAppNeeded(includingCurrentVisibleItems: true)
+            self.cancelPendingAutoSelectionForVisibleItems()
+            self.performAutoSelectionForVisibleItemsIfAppNeeds(includingCurrentVisibleItems: true)
 
             AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform, id:"picker\(TransformApp.info.identifier)") { (config, changed) in
                 if let value = config.transform, !AppCenter.default.task.isRunning{
@@ -222,7 +223,7 @@ class PhotoPickerViewController: AppDockViewController {
 
             AppCenter.default.currentInstanceAs(RevertApp.self)?.watch(\.autoSelect, id:"picker\(RevertApp.info.identifier)") { (app, changed) in
                 if app.autoSelect && !AppCenter.default.task.isRunning{
-                    self.selectAsyncQueuedVisibleItemsIfCurrentAppNeeded(includingCurrentVisibleItems: true)
+                    self.performAutoSelectionForVisibleItemsIfAppNeeds(includingCurrentVisibleItems: true)
                 }
             }
         }

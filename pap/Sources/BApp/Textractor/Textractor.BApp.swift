@@ -47,13 +47,14 @@ public class Textractor: BApp, PHAssetFinalizableApp, AppDockApp
     public func shouldAutoSelectAsynchronously(item: AppAsset, _ async: AsyncSignal) -> PhotoPickerCollectionViewAsyncSelection {
         var foundText = false
 
+        async.begin()
+
         if let image = item.asset.asUIImage{
             let visionImage = VisionImage(image: image)
             let textDetector = self.textDetector
 
             var result:[VisionText]?
 
-            async.begin()
             textDetector.detect(in: visionImage) { features, error in
                 if let error = error {
                     print("Received error: \(error)")
@@ -80,8 +81,11 @@ public class Textractor: BApp, PHAssetFinalizableApp, AppDockApp
 
                 async.end()
             }
-            async.waitUntilEnd()
+        }else{
+            async.end()
         }
+
+        async.waitUntilEnd()
 
         return foundText ? .visible : .none
     }
