@@ -12,8 +12,6 @@ extension DispatchQueue {
     public class var current:DispatchQueue {
         return DispatchQueue(label: self.currentLabel)
     }
-
-
 }
 
 public protocol Signalable {}
@@ -70,9 +68,7 @@ extension AsyncSignal: AsyncManualSignalable, AsyncControllableSignable {
 
     @discardableResult
     public func end() -> Self{
-        print("end")
         if setOffset(false) {
-            print("leave")
             dispatchGroup.leave()
         }
         return self
@@ -105,7 +101,6 @@ extension AsyncSignal: AsyncManualSignalable, AsyncControllableSignable {
     }
 
     public func done() {
-        print("--------- done")
         while end().began { }
     }
 

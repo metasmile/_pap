@@ -1,5 +1,5 @@
 //
-// Created by BLACKGENE on 26/03/2018.
+// Created by BLACKGENE on 19.06.18.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
@@ -8,7 +8,6 @@ import UIKit
 import Photos
 
 extension PhotoPickerViewController{
-
     @discardableResult
     func selectCollectionViewItem(by asset: PHAsset) -> Bool {
         guard let indexPath = PHAssets.fetched.indexPath(of: asset) else { return false }
@@ -29,6 +28,23 @@ extension PhotoPickerViewController{
         return true
     }
 
+    public func restoreSelectionByUser(_ assetLocalIdentifiers: [String]?) {
+        guard let localIdentifiers = assetLocalIdentifiers else { return }
+        PHAsset.fetchAssets(withLocalIdentifiers: localIdentifiers, options: nil).enumerateObjects { (asset, idx, stop) in
+            self.updateCollectionViewSelection(by: asset)
+        }
+    }
+
+    public func deselectCollectionViewItems(by assetLocalIdentifiers: [String]?) {
+        guard let localIdentifiers = assetLocalIdentifiers else { return }
+        var indexPaths = [IndexPath]()
+        PHAsset.fetchAssets(withLocalIdentifiers: localIdentifiers, options: nil).enumerateObjects { (asset, idx, stop) in
+            guard let indexPath = PHAssets.fetched.indexPath(of: asset) else { return }
+            indexPaths.append(indexPath)
+        }
+        self.deselectCollectionViewItems(indexPaths)
+    }
+
     @discardableResult
     func deselectCollectionViewItem(at indexPath: IndexPath, animated:Bool=false) -> Bool {
         if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == true {
@@ -38,10 +54,24 @@ extension PhotoPickerViewController{
 
         return true
     }
-    
+
+    func deselectCollectionViewItems(_ items: [IndexPath], animated:Bool=false) {
+        for indexPath in items {
+            deselectCollectionViewItem(at: indexPath, animated: animated)
+        }
+
+        let indexPaths = items.compactMap { PHAssets.fetched.asset(at: $0) }.compactMap { self.batchPreviewView.removeCollectionViewItem(with: $0) }
+
+        updateSelectedItemUIs()
+
+        if let indexPath = indexPaths.last {
+            batchPreviewView.scrollToNeareastItem(at: indexPath)
+        }
+    }
+
     func updateCollectionViewSelection(by asset: PHAsset, animated:Bool = false) {
         guard let indexPath = PHAssets.fetched.indexPath(of: asset) else { return }
-        
+
         if photoCollectionView.delegate?.collectionView!(photoCollectionView, shouldSelectItemAt: indexPath) == false {
             deselectCollectionViewItem(at: indexPath)
         }
@@ -53,39 +83,4 @@ extension PhotoPickerViewController{
     var selectedAssetsInCollectionView:[PHAsset]?{
         return photoCollectionView.indexPathsForSelectedItems?.compactMap({ PHAssets.fetched.asset(at: $0) })
     }
-
-    func cancelAllInCurrentContext(){
-        if AppCenter.default.task.isRunning {
-            batchPreviewView.cancelBatchProcessing()
-
-            papLog.event.cancelWhilePerforming()
-        }
-        else {
-            if AppAssets.selected.hasChanges {
-                let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-                alert.addAction(UIAlertAction(title: "Discard Changes".localized, style: .destructive, handler: { (action) in
-                    self.cancelAllSelection()
-                }))
-                alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
-                present(alert, animated: true, completion: nil)
-            }
-            else {
-                cancelAllSelection()
-            }
-
-            papLog.event.cancelWhileSelecting()
-        }
-    }
-
-    @objc func cancelAllSelection() {
-        guard let indexPaths = photoCollectionView.indexPathsForSelectedItems else { return }
-        for indexPath in indexPaths {
-            photoCollectionView.deselectItem(at: indexPath, animated: true)
-        }
-
-        batchPreviewView.removeAllCollectionViewItems()
-        updateSelectedItemUIs()
-        updateVisiblePhotoCollectionCellsEnabled()
-    }
 }
-

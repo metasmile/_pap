@@ -40,7 +40,7 @@ extension PhotoPickerViewController{
     }
 
     public func cancelPendingAutoSelectionIfNeeded(){
-        DispatchQueue.global(qos: .default).async(flags:.barrier){
+        DispatchQueue.main.async(flags:.barrier){
             if AsyncAutoSelectionQueue.indexPathQueue.count == 0{
                 return
             }
@@ -60,6 +60,7 @@ extension PhotoPickerViewController{
 
         func performNext() {
             AsyncAutoSelectionQueue.dispatchQueue.async {
+
                 if let indexPath = AsyncAutoSelectionQueue.indexPathQueue.dequeue() {
                     let signal = AsyncSignal()
                     AsyncAutoSelectionQueue.signalQueue.enqueue(signal)
@@ -67,8 +68,11 @@ extension PhotoPickerViewController{
                     if let asset = PHAssets.fetched.asset(at: indexPath){
                         if let item = AppAssets.selected.at(unsafeIndex:indexPath.item) ?? AppAsset.create(for:asset) {
                             if .visible == interactableApp.shouldAutoSelectAsynchronously(item:item, signal){
-                                DispatchQueue.main.async{
-                                    self.selectCollectionViewItem(at: indexPath, animated: false)
+
+                                if false == AsyncAutoSelectionQueue.canceled{
+                                    DispatchQueue.main.async{
+                                        self.selectCollectionViewItem(at: indexPath, animated: false)
+                                    }
                                 }
                             }
                         }

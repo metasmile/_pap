@@ -158,6 +158,13 @@ class PhotoPickerViewController: AppDockViewController {
         animatesUpdatingPhotoCollectionContentInset = true
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        print("cancelPendingAutoSelectionIfNeeded")
+        cancelPendingAutoSelectionIfNeeded()
+    }
+
     func redisplayCurrentVisibleCellsWhenUpdateApps() {
         AppAssets.selected.reloadAll()
         redisplayVisibleCellsWhenChangeApp()
@@ -272,8 +279,6 @@ class PhotoPickerViewController: AppDockViewController {
         generator.impactOccurred()
 
         cancelAllInCurrentContext()
-
-        cancelPendingAutoSelectionIfNeeded()
     }
     
     override func doneButtonDidTap(sender: Any) {
@@ -536,23 +541,6 @@ class PhotoPickerViewController: AppDockViewController {
             
             self.appDockView?.reloadKeepingDrawerOpened()
         })
-    }
-    
-    private func restoreSelectionByUser(_ assetLocalIdentifiers: [String]?) {
-        guard let localIdentifiers = assetLocalIdentifiers else { return }
-        PHAsset.fetchAssets(withLocalIdentifiers: localIdentifiers, options: nil).enumerateObjects { (asset, idx, stop) in
-            self.updateCollectionViewSelection(by: asset)
-        }
-    }
-    
-    private func deselectCollectionViewItems(with assetLocalIdentifiers: [String]?) {
-        guard let localIdentifiers = assetLocalIdentifiers else { return }
-        var indexPaths = [IndexPath]()
-        PHAsset.fetchAssets(withLocalIdentifiers: localIdentifiers, options: nil).enumerateObjects { (asset, idx, stop) in
-            guard let indexPath = PHAssets.fetched.indexPath(of: asset) else { return }
-            indexPaths.append(indexPath)
-        }
-        self.deselectCollectionViewItems(indexPaths)
     }
 }
 
