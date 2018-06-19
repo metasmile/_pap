@@ -7,7 +7,12 @@ import Foundation
 import Photos
 import FirebaseMLVision
 
-public class Textractor: BApp, PHAssetFinalizableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp {
+//TODO: Memo/Keep/Notes lineup
+
+public class Textractor: BApp, PHAssetFinalizableApp, AppDockApp
+        , PhotoPickerViewControllerDelegatableApp
+        , PhotoPickerCollectionViewAsyncAutoDisplayableApp {
+
     public static let taskType:Taskable.Type = _TextractorTask.self
 
     public static let paramType:TaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
@@ -35,13 +40,58 @@ public class Textractor: BApp, PHAssetFinalizableApp, AppDockApp, PhotoPickerVie
     }
     //TODO: remove this block
 
-    public var titleWillFinalize: String? {
-        return "Recognizing Text in Photos...".localized
-    }
-    public var doneButtonTitle: String? {
-        return "Extract".localized
+    public func shouldSelect(item: AppAsset) -> Bool {
+        return true
     }
 
+    public func shouldAutoSelectAsynchronously(item: AppAsset, _ async: AsyncSignal) -> PhotoPickerCollectionViewAsyncSelection {
+        var foundText = false
+
+        if let image = item.asset.asUIImage{
+            let visionImage = VisionImage(image: image)
+            let textDetector = self.textDetector
+
+            var result:[VisionText]?
+
+            async.begin()
+            textDetector.detect(in: visionImage) { features, error in
+                if let error = error {
+                    print("Received error: \(error)")
+                }
+
+                //TODO: store result text by id
+                result = features
+
+                var testResults:String = ""
+                if let features = features{
+                    for text in features {
+                        if let block = text as? VisionTextBlock {
+                            for line in block.lines {
+                                for element in line.elements {
+                                    testResults += element.text + "|"
+                                }
+                            }
+                        }
+                    }
+                }
+
+                foundText = testResults.count > 0
+                print("testResults", testResults.count)
+
+                async.end()
+            }
+            async.waitUntilEnd()
+        }
+
+        return foundText ? .visible : .none
+    }
+
+    public var titleWillFinalize: String? {
+        return "Grabbing Texts in Photos...".localized
+    }
+    public var doneButtonTitle: String? {
+        return "Grab".localized
+    }
 
     fileprivate var textDetector = Vision().textDetector()
     fileprivate var cloudTextDetector = Vision().cloudTextDetector()

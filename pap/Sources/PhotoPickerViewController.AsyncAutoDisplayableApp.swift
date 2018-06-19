@@ -8,7 +8,7 @@ import Foundation
 
 private struct IndexPathsForVisibleItems {
     fileprivate static var queue = ItemQueue<IndexPath>()
-    fileprivate static var dispatchQueue = DispatchQueue(label: "com.stells.IndexPathsForVisibleItems")
+    fileprivate static var dispatchQueue = DispatchQueue(label: "com.stells.internal."+#file)
 }
 
 extension PhotoPickerViewController{
