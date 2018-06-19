@@ -69,6 +69,10 @@ extension PhotoPickerViewController{
         }
     }
 
+    func deselectAllCollectionViewItems(){
+        deselectCollectionViewItems(self.photoCollectionView.indexPathsForSelectedItems ?? [])
+    }
+
     func updateCollectionViewSelection(by asset: PHAsset, animated:Bool = false) {
         guard let indexPath = PHAssets.fetched.indexPath(of: asset) else { return }
 

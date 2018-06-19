@@ -10,6 +10,8 @@ import Photos
 extension PhotoPickerViewController{
 
     func cancelAllInCurrentContext(){
+        cancelPendingAutoSelectionIfNeeded()
+
         if AppCenter.default.task.isRunning {
             batchPreviewView.cancelBatchProcessing()
 
@@ -30,8 +32,6 @@ extension PhotoPickerViewController{
 
             papLog.event.cancelWhileSelecting()
         }
-
-        cancelPendingAutoSelectionIfNeeded()
     }
 
     @objc func cancelAllSelection() {
@@ -42,7 +42,7 @@ extension PhotoPickerViewController{
 
         batchPreviewView.removeAllCollectionViewItems()
         updateSelectedItemUIs()
-        updateVisiblePhotoCollectionCellsEnabled()
+        updateVisibleCellsEnabled()
     }
 }
 

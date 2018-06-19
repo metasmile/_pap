@@ -165,12 +165,6 @@ class PhotoPickerViewController: AppDockViewController {
         cancelPendingAutoSelectionIfNeeded()
     }
 
-    func redisplayCurrentVisibleCellsWhenUpdateApps() {
-        AppAssets.selected.reloadAll()
-        redisplayVisibleCellsWhenChangeApp()
-        appDockView?.reloadKeepingDrawerOpened()
-    }
-
     private func flushQueuedPhotoLibraryChanges(){
         while let changeInstance = self.queuedPhotoLibraryChanges.dequeue() {
             self.photoLibraryDidChange(changeInstance)
@@ -185,7 +179,7 @@ class PhotoPickerViewController: AppDockViewController {
         super.appDidChange()
         
         AppAssets.selected.reloadAll()
-        redisplayVisibleCellsWhenChangeApp()
+        redisplayVisibleCellsEnabled()
         showAndRevertTitleByCurrentAppIfNeeded()
         appDockView?.reloadKeepingDrawerOpened()
         batchPreviewView.updatePreviews(forced: true)
@@ -196,42 +190,42 @@ class PhotoPickerViewController: AppDockViewController {
     }
     
     override func registerWatchingAppConfig() {
-        AppCenter.default.watch(\.currentIdentifier, options:[.new, .old, .initial]) { (appCenter, dict) in
+        AppCenter.default.watch(\.currentIdentifier, options: [.new, .old, .initial]) { (appCenter, dict) in
 
-            AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform, id:"picker\(TransformApp.info.identifier)") { (config, changed) in
-                if let value = config.transform, !AppCenter.default.task.isRunning{
+            AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform, id: "picker\(TransformApp.info.identifier)") { (config, changed) in
+                if let value = config.transform, !AppCenter.default.task.isRunning {
                     self.setAppValue(value)
                 }
             }
 
-            AppCenter.default.currentInstanceAs(PhotosFilterApp.self)?.config?.watch(\.filter, id:"picker\(PhotosFilterApp.info.identifier)") { (config, changed) in
-                if let value = config.filter, !AppCenter.default.task.isRunning{
+            AppCenter.default.currentInstanceAs(PhotosFilterApp.self)?.config?.watch(\.filter, id: "picker\(PhotosFilterApp.info.identifier)") { (config, changed) in
+                if let value = config.filter, !AppCenter.default.task.isRunning {
                     self.setAppValue(value)
                 }
             }
 
-            AppCenter.default.currentInstanceAs(AutoAdjustmentApp.self)?.config?.watch(\.filter, id:"picker\(AutoAdjustmentApp.info.identifier)") { (config, changed) in
-                if let value = config.filter, !AppCenter.default.task.isRunning{
+            AppCenter.default.currentInstanceAs(AutoAdjustmentApp.self)?.config?.watch(\.filter, id: "picker\(AutoAdjustmentApp.info.identifier)") { (config, changed) in
+                if let value = config.filter, !AppCenter.default.task.isRunning {
                     self.setAppValue(value)
                 }
             }
 
-            AppCenter.default.currentInstanceAs(Stabilizer.self)?.config?.watch(\.stabilizationMode, id:"picker\(Stabilizer.info.identifier)") { (config, changed) in
-                if let value = config.stabilizationMode, !AppCenter.default.task.isRunning{
+            AppCenter.default.currentInstanceAs(Stabilizer.self)?.config?.watch(\.stabilizationMode, id: "picker\(Stabilizer.info.identifier)") { (config, changed) in
+                if let value = config.stabilizationMode, !AppCenter.default.task.isRunning {
                     self.setAppValue(value)
                 }
             }
 
-            AppCenter.default.currentInstanceAs(GIFMaker.self)?.config?.watch(\.sourceType, id:"picker\(GIFMaker.info.identifier)") { (config, changed) in
-                self.redisplayCurrentVisibleCellsWhenUpdateApps()
+            AppCenter.default.currentInstanceAs(GIFMaker.self)?.config?.watch(\.sourceType, id: "picker\(GIFMaker.info.identifier)") { (config, changed) in
+                self.redisplayVisibleCells()
             }
 
-            AppCenter.default.currentInstanceAs(ConvertApp.self)?.config?.watch(\.convertingDirectionIdentifier, id:"picker\(ConvertApp.info.identifier)") { (config, changed) in
-                self.redisplayCurrentVisibleCellsWhenUpdateApps()
+            AppCenter.default.currentInstanceAs(ConvertApp.self)?.config?.watch(\.convertingDirectionIdentifier, id: "picker\(ConvertApp.info.identifier)") { (config, changed) in
+                self.redisplayVisibleCells()
             }
 
-            AppCenter.default.currentInstanceAs(RevertApp.self)?.watch(\.autoSelect, id:"picker\(RevertApp.info.identifier)") { (app, changed) in
-                if app.autoSelect && !AppCenter.default.task.isRunning{
+            AppCenter.default.currentInstanceAs(RevertApp.self)?.watch(\.autoSelect, id: "picker\(RevertApp.info.identifier)") { (app, changed) in
+                if app.autoSelect && !AppCenter.default.task.isRunning {
                     self.cancelPendingAutoSelectionIfNeeded()
                     self.performAutoSelectionIfNeeded(includingCurrentVisibleItems: true)
                 }
@@ -286,7 +280,7 @@ class PhotoPickerViewController: AppDockViewController {
         
         batchPreviewView.runBatchProcessing()
         
-        updateVisiblePhotoCollectionCellsEnabled()
+        updateVisibleCellsEnabled()
 
         cancelPendingAutoSelectionIfNeeded()
     }
@@ -307,9 +301,15 @@ class PhotoPickerViewController: AppDockViewController {
         }
     }
 
-    func redisplayVisibleCellsWhenChangeApp(){
+    func redisplayVisibleCells() {
+        AppAssets.selected.reloadAll()
+        redisplayVisibleCellsEnabled()
+        appDockView?.reloadKeepingDrawerOpened()
+    }
+
+    func redisplayVisibleCellsEnabled(){
         deselectCollectionViewItems(self.photoCollectionView.indexPathsForSelectedItems?.filter({ !collectionView(self.photoCollectionView, shouldSelectItemAt: $0) }) ?? [])
-        updateVisiblePhotoCollectionCellsEnabled()
+        updateVisibleCellsEnabled()
     }
 
     func updateSelectedItemUIs() {
@@ -426,7 +426,7 @@ class PhotoPickerViewController: AppDockViewController {
         }
     }
 
-    func updateVisiblePhotoCollectionCellsEnabled() {
+    func updateVisibleCellsEnabled() {
         for indexPath in photoCollectionView.indexPathsForVisibleItems{
             let cell = photoCollectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell
             cell?.isEnabled = collectionView(photoCollectionView, shouldSelectItemAt: indexPath)
@@ -678,12 +678,12 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         progressBar.isHidden = true
         
         //POLICY: no keeps selected items
-        deselectCollectionViewItems(self.photoCollectionView.indexPathsForSelectedItems ?? [])
+        deselectAllCollectionViewItems()
 
         updateAllPhotosTitle()
         updateSelectedItemUIs()
-        updateVisiblePhotoCollectionCellsEnabled()
-        
+        updateVisibleCellsEnabled()
+
         updateAppDockViewProcessingEnd()
     }
     

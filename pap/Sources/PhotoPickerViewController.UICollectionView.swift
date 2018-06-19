@@ -102,7 +102,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         }
 
         if let _ = collectionViewDisplayableApp?.numberOfItemsShouldSelect{
-            updateVisiblePhotoCollectionCellsEnabled()
+            updateVisibleCellsEnabled()
         }
     }
 
@@ -112,7 +112,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         updateSelectedItemUIs()
 
         if let _ = collectionViewDisplayableApp?.numberOfItemsShouldSelect{
-            updateVisiblePhotoCollectionCellsEnabled()
+            updateVisibleCellsEnabled()
         }
     }
 
