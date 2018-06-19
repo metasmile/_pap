@@ -10,9 +10,11 @@ private struct AsyncAutoSelectionQueue {
 
     fileprivate static let dispatchQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
 
+    //INFO: controlQueue must be higher than dispatchQueue for its priority
+    fileprivate static let controlQueue =  DispatchQueue.main
+
     //INFO: Access all following properties only with dispatchQueue when write
     fileprivate static let indexPathQueue = ItemQueue<IndexPath>()
-    fileprivate static let signalQueue = ItemQueue<AsyncSignal>()
 
     //INFO: Write 'canceled' must be a dispatchqueue that has earlier QoS than .utility
     fileprivate static var canceled = false
@@ -40,7 +42,7 @@ extension PhotoPickerViewController{
     }
 
     public func cancelPendingAutoSelectionIfNeeded(){
-        DispatchQueue.main.async(flags:.barrier){
+        AsyncAutoSelectionQueue.controlQueue.async{
             if AsyncAutoSelectionQueue.indexPathQueue.count == 0{
                 return
             }
@@ -58,38 +60,40 @@ extension PhotoPickerViewController{
             self.enqueueAutoSelectionIfNeeded()
         }
 
+        let signal = AsyncSignal()
+
         func performNext() {
             AsyncAutoSelectionQueue.dispatchQueue.async {
+                guard let indexPath = AsyncAutoSelectionQueue.indexPathQueue.dequeue() else {
+                    return
+                }
 
-                if let indexPath = AsyncAutoSelectionQueue.indexPathQueue.dequeue() {
-                    let signal = AsyncSignal()
-                    AsyncAutoSelectionQueue.signalQueue.enqueue(signal)
+                var autoSelect = false
 
-                    if let asset = PHAssets.fetched.asset(at: indexPath){
-                        if let item = AppAssets.selected.at(unsafeIndex:indexPath.item) ?? AppAsset.create(for:asset) {
-                            if .visible == interactableApp.shouldAutoSelectAsynchronously(item:item, signal){
+                if let asset = PHAssets.fetched.asset(at: indexPath)
+                , let item = AppAssets.selected.at(unsafeIndex:indexPath.item) ?? AppAsset.create(for:asset) {
 
-                                if false == AsyncAutoSelectionQueue.canceled{
-                                    DispatchQueue.main.async{
-                                        self.selectCollectionViewItem(at: indexPath, animated: false)
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    autoSelect = .visible == interactableApp.shouldAutoSelectAsynchronously(item: item, signal)
                 }
 
                 if AsyncAutoSelectionQueue.canceled{
-                    AsyncAutoSelectionQueue.canceled = false
-                    AsyncAutoSelectionQueue.signalQueue.dequeueAll()
                     AsyncAutoSelectionQueue.indexPathQueue.dequeueAll()
                     return
+                }
+
+                if autoSelect{
+                    DispatchQueue.main.async{
+                        self.selectCollectionViewItem(at: indexPath, animated: false)
+                    }
                 }
 
                 performNext()
             }
         }
 
-        performNext()
+        AsyncAutoSelectionQueue.controlQueue.async {
+            AsyncAutoSelectionQueue.canceled = false
+            performNext()
+        }
     }
 }

@@ -161,7 +161,6 @@ class PhotoPickerViewController: AppDockViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        print("cancelPendingAutoSelectionIfNeeded")
         cancelPendingAutoSelectionIfNeeded()
     }
 
