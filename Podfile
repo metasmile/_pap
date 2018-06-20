@@ -22,6 +22,7 @@ target 'pap' do
   # for test - com.stells.pap.textractor
   pod 'Firebase/MLVision'
   pod 'Firebase/MLVisionTextModel'
+  pod 'PhoneNumberKit', '~> 2.1'
 
   pod 'Armchair', '>= 0.3'
   # https://github.com/UrbanApps/Armchair

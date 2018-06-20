@@ -46,6 +46,17 @@ open class VisionTextStringParser: VisionTextParser, StringParser {
     }
 }
 
+protocol _VisionTextStringElementsParser: VisionTextParser where Self.OutputType==[String]{}
+open class VisionTextStringElementsParser: _VisionTextStringElementsParser {
+    static let shared = VisionTextTextBlockParser()
+
+    func parse(input: VisionText) -> [String]? {
+        return VisionTextTextBlockParser.shared.parse(input: input)?.compactMap { strings -> String? in
+            return strings.joined()
+        }
+    }
+}
+
 open class VisionTextTextBlockParser: VisionTextParser, TextBlockParser {
     static let shared = VisionTextTextBlockParser()
 

@@ -38,8 +38,4 @@ extension VisionTextDetector{
     func detect<ParserType:VisionTextStringParser>(with image: UIImage, parser: ParserType?=nil, _ async: AsyncManualSignalable) -> [ParserType.OutputType]? {
         return self.detect(with: image, parser: parser ?? ParserType.shared, async)
     }
-
-    func detect<ParserType:VisionTextTextBlockParser>(with image: UIImage, parser: ParserType?=nil, _ async: AsyncManualSignalable) -> [ParserType.OutputType]? {
-        return self.detect(with: image, parser: parser ?? ParserType.shared, async)
-    }
 }

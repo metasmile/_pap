@@ -6,18 +6,39 @@
 import Foundation
 import FirebaseMLVision
 import Contacts
+import PhoneNumberKit
 
-public final class VisionTextPhoneNumberParser: VisionTextStringParser{
-    override func parse(input: FirebaseMLVision.VisionText) -> String? {
-        return nil
+//TODO: parse with ContactsKit Object
+public final class VisionTextPhoneNumberParser: VisionTextStringElementsParser{
+
+    private let phoneNumberKit = PhoneNumberKit()
+
+    override func parse(input: FirebaseMLVision.VisionText) -> VisionTextStringElementsParser.OutputType? {
+        guard let lines = VisionTextTextBlockParser.shared.parse(input: input) else{
+            return nil
+        }
+
+        var phoneNumbers = [String]()
+
+        for line in lines{
+            for word in line{
+                if let phoneNumber = try? phoneNumberKit.parse(word){
+                    phoneNumbers.append(phoneNumber.numberString)
+                }
+            }
+        }
+
+        return phoneNumbers
     }
 }
 
-public final class VisionTextEmailAddressParser: VisionTextStringParser{
-    override func parse(input: FirebaseMLVision.VisionText) -> String? {
-        let rawText = super.parse(input: input)
-//        rawText.emailAddresses()
-        return nil
+public final class VisionTextEmailAddressParser: VisionTextStringElementsParser{
+    override func parse(input: FirebaseMLVision.VisionText) -> VisionTextStringElementsParser.OutputType? {
+        guard let rawText = VisionTextStringParser.shared.parse(input: input) else{
+            return nil
+        }
+
+        return rawText.emailAddresses()
     }
 }
 

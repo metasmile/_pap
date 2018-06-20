@@ -115,6 +115,9 @@ public class Textractor: NSObject, KeyPathWatchable, BApp
 
 private class _TextractorTask: TaskPrototype, Taskable {
 
+    private let emailParser = VisionTextEmailAddressParser()
+    private let phoneNumberParser = VisionTextPhoneNumberParser()
+
     public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){}
 
     public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
@@ -130,6 +133,16 @@ private class _TextractorTask: TaskPrototype, Taskable {
 
             return nil
         }
+
+        //TODO: remove after test
+        if let phoneNumbersByBlocks:[[String]]? = detector.detect(with: image, parser: phoneNumberParser, async){
+            print(phoneNumbersByBlocks)
+        }
+
+        if let addressesByBlocks:[[String]]? = detector.detect(with: image, parser: emailParser, async){
+            print(addressesByBlocks)
+        }
+        //TODO: remove after test
 
         if detectedString.count == 0{
             return nil
