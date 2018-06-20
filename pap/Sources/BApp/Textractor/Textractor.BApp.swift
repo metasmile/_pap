@@ -89,49 +89,17 @@ public class Textractor: NSObject, KeyPathWatchable, BApp
             return .none
         }
 
-        var foundText = false
-
-        async.begin()
-
-        if let image = item.asset.asUIImage{
-            let visionImage = VisionImage(image: image)
-            let textDetector = self.textDetector
-
-            var result:[VisionText]?
-
-            textDetector.detect(in: visionImage) { features, error in
-                if let error = error {
-                    print("Received error: \(error)")
+        if let image = item.asset.asUIImage, let detectResults = self.textDetector.detect(with: image, async) {
+            var resultString = ""
+            for visionText in detectResults {
+                if let string = visionText.parseToString() {
+                    resultString += string
                 }
-
-                //TODO: store result text by id
-                result = features
-
-                var testResults:String = ""
-                if let features = features{
-                    for text in features {
-                        if let block = text as? VisionTextBlock {
-                            for line in block.lines {
-                                for element in line.elements {
-                                    testResults += element.text + " "
-                                }
-                            }
-                        }
-                    }
-                }
-
-                foundText = testResults.count > 0
-                print("testResults", testResults.count)
-
-                async.end()
             }
-        }else{
-            async.end()
+            return resultString.count>0 ? .visible : .none
         }
 
-        async.waitUntilEnd()
-
-        return foundText ? .visible : .none
+        return .none
     }
 
     public var titleWillFinalize: String? {
@@ -155,139 +123,31 @@ private class _TextractorTask: TaskPrototype, Taskable {
     public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){}
 
     public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
-        if let asset = (param as? PHAssetItem<ImageEditStateValue>)?.asset, let image = asset.asUIImage{
-            let result = runTextRecognition(with: image, async)
 
-            if let text = processResult(from:result, async){
+        guard let asset = (param as? PHAssetItem<ImageEditStateValue>)?.asset
+            , let image = asset.asUIImage else {
 
-//                let url = FileURL.temp(UUID().uuidString + ".txt", UTI.utf8PlainText, group:FileURL.fileAndQueuePrivateGroup())
-//
-//                print(text)
-//
-//                print(url.path)
-//
-//                try? text.write(to: url, atomically: true, encoding: .utf8)
-
-                return TextractorResult(asset: asset, text: text)
-            }
-        }
-        return nil
-    }
-
-    func runTextRecognition(with image: UIImage,_ async: AsyncManualSignalable) -> [VisionText]? {
-        let visionImage = VisionImage(image: image)
-        let textDetector = AppCenter.default.currentInstanceAs(Textractor.self)?.textDetector
-
-        var result:[VisionText]?
-
-        async.begin()
-        textDetector?.detect(in: visionImage) { features, error in
-            if let error = error {
-                print("Received error: \(error)")
-            }
-            result = features
-            async.end()
-        }
-        async.waitUntilEnd()
-        return result
-    }
-
-    func runCloudTextRecognition(with image: UIImage,_ async: AsyncManualSignalable) -> VisionCloudText? {
-        let visionImage = VisionImage(image: image)
-        let cloudTextDetector = AppCenter.default.currentInstanceAs(Textractor.self)?.cloudTextDetector
-
-        var result:VisionCloudText?
-
-        async.begin()
-        cloudTextDetector?.detect(in: visionImage) { features, error in
-            if let error = error {
-                print("Received error: \(error)")
-            }
-            result = features
-            async.end()
-        }
-        async.waitUntilEnd()
-        return result
-    }
-
-    func processResult(from text: [VisionText]?, _ async: AsyncManualSignalable?=nil) -> String? {
-        guard let features = text else {
             return nil
         }
 
-        var testResults:String = ""
+        guard let detector = AppCenter.default.currentInstanceAs(Textractor.self)?.textDetector
+            ,let detectResults = detector.detect(with: image, async) else{
 
-        for text in features {
-            if let block = text as? VisionTextBlock {
-                for line in block.lines {
-                    for element in line.elements {
-                        testResults += element.text + " "
-                    }
-                }
+            return nil
+        }
+
+        var resultString = ""
+        for visionText in detectResults {
+            if let string = visionText.parseToString() {
+                resultString += string
             }
         }
 
-        //INFO: DEBUG
-
-//        async?.begin()
-//        DispatchQueue.main.async {
-//            UIAlertController.alert(testResults != "" ? testResults : "Not found any text", completion:{ _ in
-//                async?.end()
-//            })
-//        }
-//        async?.waitUntilEnd()
-
-        return testResults
-    }
-
-    func processCloudResult(from text: VisionCloudText?, _ async: AsyncManualSignalable?=nil) {
-        guard let features = text, let pages = features.pages else {
-            return
+        if resultString.count == 0{
+            return nil
         }
 
-        var testResults:String = ""
-
-        for page in pages {
-            for block in page.blocks ?? []  {
-                for paragraph in block.paragraphs ?? [] {
-                    for word in paragraph.words ?? [] {
-                        if let symbols = word.symbols{
-                            for symbol in symbols {
-                                testResults += symbol.text ?? "" + "|"
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        async?.begin()
-        DispatchQueue.main.async {
-            UIAlertController.alert(testResults != "" ? testResults : "Not found any text", completion:{ _ in
-                async?.end()
-            })
-        }
-        async?.waitUntilEnd()
-    }
-
-    func detectorOrientation(in image: UIImage) -> VisionDetectorImageOrientation {
-        switch image.imageOrientation {
-        case .up:
-            return .topLeft
-        case .down:
-            return .bottomRight
-        case .left:
-            return .leftBottom
-        case .right:
-            return .rightTop
-        case .upMirrored:
-            return .topRight
-        case .downMirrored:
-            return .bottomLeft
-        case .leftMirrored:
-            return .leftTop
-        case .rightMirrored:
-            return .rightBottom
-        }
+        return TextractorResult(asset: asset, text: resultString)
     }
 }
 
