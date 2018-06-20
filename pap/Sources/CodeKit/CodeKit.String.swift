@@ -32,4 +32,30 @@ extension String {
     public func remove(_ with:String) -> String{
         return replace(with, "")
     }
+
+    public func urls() -> [URL] {
+        var urls : [URL] = []
+
+        guard let detector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue) else {
+            return urls
+        }
+        for match in detector.matches(in: self, options: [], range: NSMakeRange(0, self.count)){
+            if let url = match.url {
+                urls.append(url)
+            }
+        }
+        return urls
+    }
+
+    public func emailAddresses() -> [String] {
+        var emailAddresses = [String]()
+        for url in self.urls() {
+            if let component = URLComponents(url: url, resolvingAgainstBaseURL: false){
+                if component.scheme == "mailto"{
+                    emailAddresses.append(component.path)
+                }
+            }
+        }
+        return emailAddresses
+    }
 }

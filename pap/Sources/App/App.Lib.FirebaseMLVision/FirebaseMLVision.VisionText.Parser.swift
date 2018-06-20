@@ -6,20 +6,19 @@
 import Foundation
 import FirebaseMLVision
 
-protocol _VisionTextParser: Parser where Self.InputType:VisionText {}
-protocol _VisionTextStringParser: StringParser, _VisionTextParser {}
-
-open class VisionTextStringParser: _VisionTextStringParser {
-    static let `default` = VisionTextStringParser()
-}
-
 extension VisionText{
-    func parseAsString(parser:VisionTextStringParser?=nil) -> String?{
-        return (parser ?? VisionTextStringParser.default).parse(input: self)
+    func parse<ParserType:VisionTextParser>(parser:ParserType) -> ParserType.OutputType?{
+        return parser.parse(input: self)
     }
 }
 
-extension _VisionTextStringParser {
+protocol VisionTextParser: Parser where Self.InputType:VisionText {
+    func parse(input:VisionText) -> OutputType?
+}
+
+open class VisionTextStringParser: VisionTextParser, StringParser {
+    static let shared = VisionTextStringParser()
+
     func parse(input: VisionText) -> String? {
         var results:String = ""
 
@@ -46,3 +45,34 @@ extension _VisionTextStringParser {
     }
 }
 
+open class VisionTextTextBlockParser: VisionTextParser, TextBlockParser {
+    static let shared = VisionTextTextBlockParser()
+
+    func parse(input: VisionText) -> [[String]]? {
+        var lines = [[String]]()
+
+        if let block = input as? VisionTextBlock {
+            //block
+            var linesInBlock = [[String]]()
+
+            for line in block.lines {
+                //line
+                var wordsInLine = [String]()
+                for element in line.elements where element.text.count > 0 {
+                    //word
+                    wordsInLine.append(element.text)
+                }
+
+                if wordsInLine.count > 0{
+                    linesInBlock.append(wordsInLine)
+                }
+            }
+
+            if linesInBlock.count > 0{
+                lines += linesInBlock
+            }
+        }
+
+        return lines
+    }
+}

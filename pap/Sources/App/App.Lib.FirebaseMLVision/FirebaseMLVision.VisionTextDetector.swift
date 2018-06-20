@@ -26,12 +26,20 @@ extension VisionTextDetector{
         return result
     }
 
-    func detectStrings(with image: UIImage, parser: VisionTextStringParser?=nil, _ async: AsyncManualSignalable) -> [String]? {
+    func detect<ParserType:VisionTextParser>(with image: UIImage, parser: ParserType, _ async: AsyncManualSignalable) -> [ParserType.OutputType]? {
         if let detectResults:[VisionText] = self.detect(with: image, async) {
-            return detectResults.compactMap { visionText -> String? in
-                return visionText.parseAsString(parser: parser)
+            return detectResults.compactMap { visionText -> ParserType.OutputType? in
+                return parser.parse(input: visionText)
             }
         }
         return nil
+    }
+
+    func detect<ParserType:VisionTextStringParser>(with image: UIImage, parser: ParserType?=nil, _ async: AsyncManualSignalable) -> [ParserType.OutputType]? {
+        return self.detect(with: image, parser: parser ?? ParserType.shared, async)
+    }
+
+    func detect<ParserType:VisionTextTextBlockParser>(with image: UIImage, parser: ParserType?=nil, _ async: AsyncManualSignalable) -> [ParserType.OutputType]? {
+        return self.detect(with: image, parser: parser ?? ParserType.shared, async)
     }
 }

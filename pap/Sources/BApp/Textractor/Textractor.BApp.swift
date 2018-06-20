@@ -90,7 +90,7 @@ public class Textractor: NSObject, KeyPathWatchable, BApp
         }
 
         if let image = item.asset.asUIImage
-            , let detectedString = self.textDetector.detectStrings(with: image, async)?.joined() {
+            , let detectedString = self.textDetector.detect(with: image, async)?.joined() {
 
             return detectedString.count>0 ? .visible : .none
         }
@@ -126,7 +126,7 @@ private class _TextractorTask: TaskPrototype, Taskable {
         }
 
         guard let detector = AppCenter.default.currentInstanceAs(Textractor.self)?.textDetector
-            ,let detectedString = detector.detectStrings(with: image, async)?.joined() else{
+            ,let detectedString = detector.detect(with: image, async)?.joined() else{
 
             return nil
         }
