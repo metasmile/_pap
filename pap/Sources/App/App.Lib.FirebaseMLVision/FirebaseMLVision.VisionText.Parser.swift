@@ -20,28 +20,29 @@ open class VisionTextStringParser: VisionTextParser, StringParser {
     static let shared = VisionTextStringParser()
 
     func parse(input: VisionText) -> String? {
+        guard let lines = VisionTextTextBlockParser.shared.parse(input: input) else {
+            return nil
+        }
+
         var results:String = ""
 
-        if let block = input as? VisionTextBlock {
-            //block
+        for line in lines{
             var wordsInLine = ""
-            for line in block.lines {
-                //line
-                for element in line.elements where element.text.count > 0 {
-                    //word
-                    wordsInLine += element.text + " "
-                }
 
-                if wordsInLine.count > 0{
-                    wordsInLine += "\n"
-                }
+            for word in line {
+                wordsInLine += word + " "
             }
+
             if wordsInLine.count > 0{
-                results += wordsInLine + "\n"
+                results += "\n" + wordsInLine
             }
         }
 
-        return results
+        if results.count > 0{
+            return results + "\n"
+        }
+
+        return nil
     }
 }
 
@@ -49,12 +50,11 @@ open class VisionTextTextBlockParser: VisionTextParser, TextBlockParser {
     static let shared = VisionTextTextBlockParser()
 
     func parse(input: VisionText) -> [[String]]? {
-        var lines = [[String]]()
 
         if let block = input as? VisionTextBlock {
-            //block
             var linesInBlock = [[String]]()
 
+            //block
             for line in block.lines {
                 //line
                 var wordsInLine = [String]()
@@ -68,11 +68,9 @@ open class VisionTextTextBlockParser: VisionTextParser, TextBlockParser {
                 }
             }
 
-            if linesInBlock.count > 0{
-                lines += linesInBlock
-            }
+            return linesInBlock
         }
 
-        return lines
+        return nil
     }
 }
