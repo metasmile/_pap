@@ -89,14 +89,10 @@ public class Textractor: NSObject, KeyPathWatchable, BApp
             return .none
         }
 
-        if let image = item.asset.asUIImage, let detectResults = self.textDetector.detect(with: image, async) {
-            var resultString = ""
-            for visionText in detectResults {
-                if let string = visionText.parseToString() {
-                    resultString += string
-                }
-            }
-            return resultString.count>0 ? .visible : .none
+        if let image = item.asset.asUIImage
+            , let detectedString = self.textDetector.detectStrings(with: image, async)?.joined() {
+
+            return detectedString.count>0 ? .visible : .none
         }
 
         return .none
@@ -115,7 +111,6 @@ public class Textractor: NSObject, KeyPathWatchable, BApp
     }
 
     fileprivate var textDetector = Vision().textDetector()
-    fileprivate var cloudTextDetector = Vision().cloudTextDetector()
 }
 
 private class _TextractorTask: TaskPrototype, Taskable {
@@ -131,23 +126,16 @@ private class _TextractorTask: TaskPrototype, Taskable {
         }
 
         guard let detector = AppCenter.default.currentInstanceAs(Textractor.self)?.textDetector
-            ,let detectResults = detector.detect(with: image, async) else{
+            ,let detectedString = detector.detectStrings(with: image, async)?.joined() else{
 
             return nil
         }
 
-        var resultString = ""
-        for visionText in detectResults {
-            if let string = visionText.parseToString() {
-                resultString += string
-            }
-        }
-
-        if resultString.count == 0{
+        if detectedString.count == 0{
             return nil
         }
 
-        return TextractorResult(asset: asset, text: resultString)
+        return TextractorResult(asset: asset, text: detectedString)
     }
 }
 

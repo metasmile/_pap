@@ -25,4 +25,13 @@ extension VisionTextDetector{
         async.waitUntilEnd()
         return result
     }
+
+    func detectStrings(with image: UIImage, parser: VisionTextStringParser?=nil, _ async: AsyncManualSignalable) -> [String]? {
+        if let detectResults:[VisionText] = self.detect(with: image, async) {
+            return detectResults.compactMap { visionText -> String? in
+                return visionText.parseAsString(parser: parser)
+            }
+        }
+        return nil
+    }
 }

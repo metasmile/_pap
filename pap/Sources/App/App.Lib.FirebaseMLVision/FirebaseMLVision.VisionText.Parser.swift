@@ -6,20 +6,21 @@
 import Foundation
 import FirebaseMLVision
 
+protocol _VisionTextParser: Parser where Self.InputType:VisionText {}
+protocol _VisionTextStringParser: StringParser, _VisionTextParser {}
+
+open class VisionTextStringParser: _VisionTextStringParser {
+    static let `default` = VisionTextStringParser()
+}
+
 extension VisionText{
-    func parseToString() -> String?{
-        return VisionTextParser.default.parse(input: self)
+    func parseAsString(parser:VisionTextStringParser?=nil) -> String?{
+        return (parser ?? VisionTextStringParser.default).parse(input: self)
     }
 }
 
-struct VisionTextParser: Parser{
-    static let `default` = VisionTextParser()
-
-    typealias InputType = VisionText
-    typealias OutputType = String
-
+extension _VisionTextStringParser {
     func parse(input: VisionText) -> String? {
-
         var results:String = ""
 
         if let block = input as? VisionTextBlock {
@@ -44,3 +45,4 @@ struct VisionTextParser: Parser{
         return results
     }
 }
+

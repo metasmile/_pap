@@ -11,3 +11,7 @@ protocol Parser {
 
     func parse(input:InputType) -> OutputType?
 }
+
+protocol StringParser: Parser where Self.OutputType==String {
+    func parse(input:InputType) -> OutputType?
+}
