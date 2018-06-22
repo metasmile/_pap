@@ -76,6 +76,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             , ExifGhost.self
 
             //phase: .develop | .beta - They will automatically exclude in Release build.
+            , CallApp.self
             , Textractor.self
             , Clean.self
             , Stabilizer.self

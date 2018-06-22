@@ -9,10 +9,11 @@ import Contacts
 import PhoneNumberKit
 
 public struct VisionTextPhoneNumberParser: VisionTextParser{
-    typealias OutputType = VisionTextStringElementsParser.OutputType
+    typealias OutputType = [String]
 
     static let shared = VisionTextPhoneNumberParser()
-    private let phoneNumberKit = PhoneNumberKit()
+
+    private static let phoneNumberKit = PhoneNumberKit()
 
     func parse(input: FirebaseMLVision.VisionText) -> VisionTextStringElementsParser.OutputType? {
         guard let lines = VisionTextTextBlockParser.shared.parse(input: input) else{
@@ -23,7 +24,7 @@ public struct VisionTextPhoneNumberParser: VisionTextParser{
 
         for line in lines{
             for word in line{
-                if let phoneNumber = try? phoneNumberKit.parse(word){
+                if let phoneNumber = try? VisionTextPhoneNumberParser.phoneNumberKit.parse(word){
                     phoneNumbers.append(phoneNumber.numberString)
                 }
             }
@@ -34,7 +35,7 @@ public struct VisionTextPhoneNumberParser: VisionTextParser{
 }
 
 public struct VisionTextEmailAddressParser: VisionTextParser{
-    typealias OutputType = VisionTextStringElementsParser.OutputType
+    typealias OutputType = [String]
 
     static let shared = VisionTextEmailAddressParser()
 
@@ -46,6 +47,23 @@ public struct VisionTextEmailAddressParser: VisionTextParser{
         return rawText.emailAddresses()
     }
 }
+
+public typealias VisionTextAddressParserResult = [NSTextCheckingKey : String]
+public struct VisionTextAddressParser: VisionTextParser{
+    typealias OutputType = [VisionTextAddressParserResult]
+
+    static let shared = VisionTextAddressParser()
+
+    func parse(input: FirebaseMLVision.VisionText) -> OutputType? {
+        guard let rawText = VisionTextStringParser.shared.parse(input: input) else{
+            return nil
+        }
+        return rawText.detectAll(types: NSTextCheckingResult.CheckingType.address.rawValue).compactMap { result -> VisionTextAddressParserResult? in
+            return result.addressComponents
+        }
+    }
+}
+
 
 
 // NSDataDetector
