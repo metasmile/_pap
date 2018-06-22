@@ -8,12 +8,13 @@ import FirebaseMLVision
 import Contacts
 import PhoneNumberKit
 
-//TODO: parse with ContactsKit Object
-public final class VisionTextPhoneNumberParser: VisionTextStringElementsParser{
+public struct VisionTextPhoneNumberParser: VisionTextParser{
+    typealias OutputType = VisionTextStringElementsParser.OutputType
 
+    static let shared = VisionTextPhoneNumberParser()
     private let phoneNumberKit = PhoneNumberKit()
 
-    override func parse(input: FirebaseMLVision.VisionText) -> VisionTextStringElementsParser.OutputType? {
+    func parse(input: FirebaseMLVision.VisionText) -> VisionTextStringElementsParser.OutputType? {
         guard let lines = VisionTextTextBlockParser.shared.parse(input: input) else{
             return nil
         }
@@ -32,8 +33,12 @@ public final class VisionTextPhoneNumberParser: VisionTextStringElementsParser{
     }
 }
 
-public final class VisionTextEmailAddressParser: VisionTextStringElementsParser{
-    override func parse(input: FirebaseMLVision.VisionText) -> VisionTextStringElementsParser.OutputType? {
+public struct VisionTextEmailAddressParser: VisionTextParser{
+    typealias OutputType = VisionTextStringElementsParser.OutputType
+
+    static let shared = VisionTextEmailAddressParser()
+
+    func parse(input: FirebaseMLVision.VisionText) -> OutputType? {
         guard let rawText = VisionTextStringParser.shared.parse(input: input) else{
             return nil
         }
@@ -42,13 +47,16 @@ public final class VisionTextEmailAddressParser: VisionTextStringElementsParser{
     }
 }
 
+
 // NSDataDetector
 // https://github.com/marmelroy/PhoneNumberKit/blob/master/examples/PhoneBook/Sample/ViewController.swift
 // https://developer.apple.com/documentation/contacts
-public class VisionTextContractParser: VisionTextStringParser{}
+public struct VisionTextContractParser: VisionTextParser{
+    typealias OutputType = [Any]
 
-extension VisionTextContractParser{
-    func parse(input: FirebaseMLVision.VisionText) -> CNContact? {
+    static let shared = VisionTextContractParser()
+
+    func parse(input: FirebaseMLVision.VisionText) -> OutputType? {
         return nil
     }
 }

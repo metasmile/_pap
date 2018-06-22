@@ -1,5 +1,5 @@
 //
-// Created by BLACKGENE on 20.06.18.
+// Created by BLACKGENE on 2?0.06.18.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
@@ -24,18 +24,5 @@ extension VisionTextDetector{
         }
         async.waitUntilEnd()
         return result
-    }
-
-    func detect<ParserType:VisionTextParser>(with image: UIImage, parser: ParserType, _ async: AsyncManualSignalable) -> [ParserType.OutputType]? {
-        if let detectResults:[VisionText] = self.detect(with: image, async) {
-            return detectResults.compactMap { visionText -> ParserType.OutputType? in
-                return parser.parse(input: visionText)
-            }
-        }
-        return nil
-    }
-
-    func detect<ParserType:VisionTextStringParser>(with image: UIImage, parser: ParserType?=nil, _ async: AsyncManualSignalable) -> [ParserType.OutputType]? {
-        return self.detect(with: image, parser: parser ?? ParserType.shared, async)
     }
 }

@@ -6,20 +6,17 @@
 import Foundation
 import FirebaseMLVision
 
-extension VisionText{
-    func parse<ParserType:VisionTextParser>(parser:ParserType) -> ParserType.OutputType?{
-        return parser.parse(input: self)
-    }
-}
-
 protocol VisionTextParser: Parser where Self.InputType:VisionText {
+    static var shared:Self {get}
     func parse(input:VisionText) -> OutputType?
 }
 
-open class VisionTextStringParser: VisionTextParser, StringParser {
+struct VisionTextStringParser: VisionTextParser {
+    typealias OutputType = String
+
     static let shared = VisionTextStringParser()
 
-    func parse(input: VisionText) -> String? {
+    func parse(input: VisionText) -> OutputType? {
         guard let lines = VisionTextTextBlockParser.shared.parse(input: input) else {
             return nil
         }
@@ -46,21 +43,24 @@ open class VisionTextStringParser: VisionTextParser, StringParser {
     }
 }
 
-protocol _VisionTextStringElementsParser: VisionTextParser where Self.OutputType==[String]{}
-open class VisionTextStringElementsParser: _VisionTextStringElementsParser {
-    static let shared = VisionTextTextBlockParser()
+public struct VisionTextStringElementsParser: VisionTextParser {
+    typealias OutputType = [String]
 
-    func parse(input: VisionText) -> [String]? {
+    static let shared = VisionTextStringElementsParser()
+
+    func parse(input: VisionText) -> OutputType? {
         return VisionTextTextBlockParser.shared.parse(input: input)?.compactMap { strings -> String? in
             return strings.joined()
         }
     }
 }
 
-open class VisionTextTextBlockParser: VisionTextParser, TextBlockParser {
+public struct VisionTextTextBlockParser: VisionTextParser {
+    typealias OutputType = [[String]]
+
     static let shared = VisionTextTextBlockParser()
 
-    func parse(input: VisionText) -> [[String]]? {
+    func parse(input: VisionText) -> OutputType? {
 
         if let block = input as? VisionTextBlock {
             var linesInBlock = [[String]]()

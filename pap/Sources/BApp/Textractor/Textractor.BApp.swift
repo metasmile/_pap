@@ -90,7 +90,7 @@ public class Textractor: NSObject, KeyPathWatchable, BApp
         }
 
         if let image = item.asset.asUIImage
-            , let detectedString = self.textDetector.detect(with: image, async)?.joined() {
+            , let detectedString = self.textDetector.detect(with: image, async)?.parse(type: VisionTextStringParser.self, async)?.joined() {
 
             return detectedString.count>0 ? .visible : .none
         }
@@ -129,26 +129,20 @@ private class _TextractorTask: TaskPrototype, Taskable {
         }
 
         guard let detector = AppCenter.default.currentInstanceAs(Textractor.self)?.textDetector
-            ,let detectedString = detector.detect(with: image, async)?.joined() else{
+            ,let visionTexts = detector.detect(with: image, async) else {
 
             return nil
         }
 
-        //TODO: remove after test
-        if let phoneNumbersByBlocks:[[String]]? = detector.detect(with: image, parser: phoneNumberParser, async){
-            print(phoneNumbersByBlocks)
-        }
 
-        if let addressesByBlocks:[[String]]? = detector.detect(with: image, parser: emailParser, async){
-            print(addressesByBlocks)
-        }
-        //TODO: remove after test
+        //String
+        let rawString = visionTexts.parse(type: VisionTextStringParser.self, async)?.joined()
 
-        if detectedString.count == 0{
-            return nil
-        }
+        let phoneNumbers = visionTexts.parse(type: VisionTextPhoneNumberParser.self, async)
 
-        return TextractorResult(asset: asset, text: detectedString)
+        let emailAddresses = visionTexts.parse(type: VisionTextEmailAddressParser.self, async)
+
+        return TextractorResult(asset: asset, text: rawString ?? "")
     }
 }
 
