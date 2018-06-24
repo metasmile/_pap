@@ -9,13 +9,13 @@
 /*Translated from: Done*/
 "Done" = "בוצע";
 /*Translated from: Confirm*/
-"Confirm" = "לְאַשֵׁר";
+"Confirm" = "Confirm";
 /*Translated from: Cancel*/
-"Cancel" = "לְבַטֵל";
+"Cancel" = "Cancel";
 /*Translated from: Detail*/
-"Detail" = "פרט";
+"Detail" = "Detail";
 /*Translated from: Delete*/
-"Delete" = "לִמְחוֹק";
+"Delete" = "Delete";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "מצטערים, משהו השתבש.";
 /*Translated from: Edit %d photo(s)*/
@@ -27,7 +27,7 @@
 /*Translated from: Batch Edit*/
 "Batch Edit" = "עריכת אצווה";
 /*Translated from: Edit*/
-"Edit" = "לַעֲרוֹך";
+"Edit" = "Edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "בטל שינויים";
 /*Translated from: Start Batch Editing...*/
@@ -55,7 +55,7 @@
 /*Translated from: Edit this video*/
 "Edit this video" = "ערוך סרטון זה";
 /*Translated from: %@ Photo*/
-"%d Photo" = "%@ תמונה";
+"%d Photo" = "%@ Photo";
 /*Translated from: %@ Video*/
 "%d Video" = "%@ סרטון";
 /*Translated from: %@ Item*/
@@ -79,7 +79,7 @@
 /*com.stells.pap.transform*/
 "Transform" = "Transform";
 /*com.stells.pap.photosfilter*/
-"Apply" = "Apply";
+"Apply" = "להגיש מועמדות";
 /*com.stells.pap.revert*/
 "Revert" = "Revert";
 /*Translated from: Starting to revert...*/
@@ -103,21 +103,21 @@
 /*Translated from: editor*/
 "cs_keyword_3" = "עוֹרֵך";
 /*Translated from: messenger*/
-"cs_keyword_4" = "שָׁלִיחַ";
+"cs_keyword_4" = "messenger";
 /*Translated from: filter*/
-"cs_keyword_5" = "לְסַנֵן";
+"cs_keyword_5" = "filter";
 /*Translated from: edit*/
-"cs_keyword_6" = "לַעֲרוֹך";
+"cs_keyword_6" = "edit";
 /*Translated from: image*/
 "cs_keyword_7" = "תמונה";
 /*Translated from: smart*/
 "cs_keyword_8" = "smart";
 /*Translated from: picture*/
-"cs_keyword_9" = "תְמוּנָה";
+"cs_keyword_9" = "picture";
 /*Translated from: memory*/
 "cs_keyword_10" = "זיכרון";
 /*Translated from: familiy*/
-"cs_keyword_11" = "מִשׁפָּחָה";
+"cs_keyword_11" = "familiy";
 /*Translated from: friend*/
 "cs_keyword_12" = "חָבֵר";
 /*Translated from: lover*/
@@ -134,22 +134,22 @@
 "Aspect Ratio" = "יחס הממדים";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "הִתפָּרְצוּת";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "בחר אפשרות לייצוא";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "בחר באפשרות ייצוא עבור %d פריטים";
 /* Generated from genl10n: Convert.AppDockContent.swift */
-"Choose an Option To Convert" = "בחר אפשרות להמרה";
+"Choose an Option To Convert" = "Choose an Option To Convert";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "לִיצוֹר";
 /* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "לחתוך כדי להתאים";
+"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "חתוך לפיט";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "יְבוּל";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Direction" = "כיוון";
+"Direction" = "Direction";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
+"Do Anything, At Once." = "לעשות הכל, בבת אחת.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "מוריד ...";
 /* Generated from genl10n: Convert.AppDockContent.swift */
@@ -157,7 +157,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "יְצוּא";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "קָדִימָה";
+"Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "עיכוב מסגרת";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -166,52 +166,52 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "להתחבא";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "מסתיר פריטים שנבחרו ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "איכות תמונה";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Import" = "יְבוּא";
+"Import" = "Import";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Live Photo" = "תמונה חיה";
+"Live Photo" = "Live Photo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "לוּלָאָה";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "צור GIF";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "לְשַׁנוֹת";
+"Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "האלבומים שלי";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"No Crop" = "ללא חיתוך";
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+"No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "ללא לולאה";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+/* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "מְקוֹרִי";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "תמונות";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "מבטל את הבחירה ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "איכות";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Repeat" = "חזור";
+"Repeat" = "Repeat";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "לַהֲפוֹך";
+"Reverse" = "Reverse";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "חזור אחורה";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "שמור %d תוצאות";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save" = "להציל";
+"Rewind" = "Rewind";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "שמור ושתף";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "שומר תוצאות ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "הגדרות קבועות מראש";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "שתף %d תוצאות";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
-"Share" = "לַחֲלוֹק";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Share" = "Share";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "גודל";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -219,13 +219,13 @@
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilization Mode" = "מצב ייצוב";
 /* Generated from genl10n: Stabilizer.swift */
-"Stabilize" = "לְיַצֵב";
+"Stabilize" = "Stabilize";
 /* Generated from genl10n: Stabilizer.swift */
-"Stabilizer" = "מְיַצֵב";
+"Stabilizer" = "Stabilizer";
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilizing Selected Items..." = "מייצב פריטים שנבחרו ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "הַתחָלָה";
+"Start" = "Start";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "מתחיל את התהליך ...";
 /* Generated from genl10n: Stabilizer.swift */
@@ -233,7 +233,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "וִידֵאוֹ";
 /* Generated from genl10n: Stabilizer.swift */
-"Warp" = "לְעַקֵם";
+"Warp" = "Warp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */

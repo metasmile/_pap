@@ -134,8 +134,8 @@
 "Aspect Ratio" = "ಆಕಾರ ಅನುಪಾತ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "ಬರ್ಸ್ಟ್";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "ರಫ್ತು ಮಾಡಲು ಆಯ್ಕೆ ಆರಿಸಿ";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "%d ಐಟಂಗಳಿಗಾಗಿ ರಫ್ತು ಆಯ್ಕೆ ಆರಿಸಿ";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "ಪರಿವರ್ತಿಸಲು ಒಂದು ಆಯ್ಕೆಯನ್ನು ಆರಿಸಿ";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "ಎಚ್ಡಿ (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "ಮರೆಮಾಡಿ";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "ಆಯ್ದ ಐಟಂಗಳನ್ನು ಮರೆಮಾಡಲಾಗುತ್ತಿದೆ ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "ಚಿತ್ರದ ಗುಣಮಟ್ಟ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "ಮೂಲ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "ಫೋಟೋಗಳು";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "ಆಯ್ಕೆಮಾಡುವುದನ್ನು ಶುದ್ಧೀಕರಿಸಲಾಗುತ್ತಿದೆ ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "ರಿವರ್ಸ್";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "ರಿವೈಂಡ್";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "ಫಲಿತಾಂಶಗಳನ್ನು %d ಉಳಿಸಿ";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "ಉಳಿಸಿ ಮತ್ತು ಹಂಚಿಕೊಳ್ಳಿ";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "ಉಳಿಸಿ";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "ಫಲಿತಾಂಶಗಳನ್ನು ಉಳಿಸಲಾಗುತ್ತಿದೆ ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "ಆಯ್ಕೆ ಪೂರ್ವನಿಗದಿಗಳು";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "%d ಫಲಿತಾಂಶಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಿ";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "ಹಂಚಿಕೊಳ್ಳಿ";
 /* Generated from genl10n: GIFMaker.BApp.swift */

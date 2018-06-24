@@ -134,8 +134,8 @@
 "Aspect Ratio" = "விகிதம்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "பர்ஸ்ட்";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "ஏற்றுமதி செய்ய ஒரு விருப்பத்தை தேர்வு செய்யவும்";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "%d உருப்படிகளுக்கான ஏற்றுமதி விருப்பத்தைத் தேர்வுசெய்க";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "மாற்ற ஒரு விருப்பத்தை தேர்வு";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "மறை";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "தேர்ந்தெடுக்கப்பட்ட உருப்படிகளை மறைத்து ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "பட தரம்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "அசல்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "புகைப்படங்கள்";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "தேர்ந்தெடுத்தது ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "பின்னோக்கு";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "ரீவைண்ட்";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "%d முடிவுகள் சேமிக்கவும்";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "சேமிக்கவும் மற்றும் பகிர்ந்து";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "சேமி";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "முடிவுகளை சேமிக்கிறது ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "தேர்வு முன்னமைப்புகள்";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "%d முடிவுகளைப் பகிரவும்";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "பகிர்";
 /* Generated from genl10n: GIFMaker.BApp.swift */

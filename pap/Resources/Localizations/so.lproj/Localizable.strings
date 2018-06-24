@@ -134,8 +134,8 @@
 "Aspect Ratio" = "Heerka Kala Duwan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Dilaaca";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Dooro ikhtiyaarka si aad u dhoofiso";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Dooro Ikhtiyaarka Dhoofinta ee %d Qalabka";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Dooro Xulasho Si Loo Bedelo";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Qari";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Qaadashada alaabada la soo xulay ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Tayada sawirka";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "Asalka";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Sawirro";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Nadiifinta doorashada ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "Dib u noqo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Rewind";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "Badbaad %d Natiijooyinka";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Badbaadi oo wadaag";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Badbaadi";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Natiijooyinka Saving ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Xulashada Xulashada";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "Share %d Natiijooyinka";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "La wadaag";
 /* Generated from genl10n: GIFMaker.BApp.swift */

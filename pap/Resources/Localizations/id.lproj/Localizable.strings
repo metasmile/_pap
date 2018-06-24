@@ -1,7 +1,7 @@
 /*Translated from: Photos Access Disabled*/
 "Photos Access Disabled" = "Akses Foto Dinonaktifkan";
 /*Translated from: Please open settings and allow access to your photos*/
-"Please open settings and allow access to your photos" = "Harap buka pengaturan dan izinkan akses ke foto Anda";
+"Please open settings and allow access to your photos" = "Silakan buka pengaturan dan izinkan akses ke foto Anda";
 /*Translated from: Open Settings*/
 "Open Settings" = "Buka Pengaturan";
 /*Translated from: OK*/
@@ -9,21 +9,21 @@
 /*Translated from: Done*/
 "Done" = "Selesai";
 /*Translated from: Confirm*/
-"Confirm" = "Memastikan";
+"Confirm" = "Confirm";
 /*Translated from: Cancel*/
 "Cancel" = "Membatalkan";
 /*Translated from: Detail*/
 "Detail" = "Detail";
 /*Translated from: Delete*/
-"Delete" = "Menghapus";
+"Delete" = "Delete";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "Maaf, ada yang salah.";
 /*Translated from: Edit %d photo(s)*/
-"Edit %d photo(s)" = "Edit foto %d";
+"Edit %d photo(s)" = "Edit %d foto (s)";
 /*Translated from: Edit %d video(s)*/
-"Edit %d video(s)" = "Edit %d video";
+"Edit %d video(s)" = "Edit %d video(s)";
 /*Translated from: Edit %d item(s)*/
-"Edit %d item(s)" = "Edit %d item";
+"Edit %d item(s)" = "Edit %d item(s)";
 /*Translated from: Batch Edit*/
 "Batch Edit" = "Batch Edit";
 /*Translated from: Edit*/
@@ -31,7 +31,7 @@
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Membuang perubahan";
 /*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Mulai Batch Editing ...";
+"Start Batch Editing..." = "Mulai Pengeditan Batch ...";
 /*Translated from: Processing...*/
 "Processing..." = "Pengolahan...";
 /*Translated from: Cancelling...*/
@@ -49,9 +49,9 @@
 /*Translated from: Deselect this photo*/
 "Deselect this photo" = "Hapus pilihan foto ini";
 /*Translated from: Deselect this video*/
-"Deselect this video" = "Hapus pilihan video ini";
+"Deselect this video" = "Batalkan pilihan video ini";
 /*Translated from: Edit this photo*/
-"Edit this photo" = "Edit foto ini";
+"Edit this photo" = "Sunting foto ini";
 /*Translated from: Edit this video*/
 "Edit this video" = "Edit video ini";
 /*Translated from: %@ Photo*/
@@ -73,9 +73,9 @@
 /*Translated from: Edit %@ Photos*/
 "Edit %d Photos" = "Edit %@ Foto";
 /*Translated from: Edit %@ Videos*/
-"Edit %d Videos" = "Edit %@ Video";
+"Edit %d Videos" = "Edit %@ Videos";
 /*Translated from: Edit %@ Items*/
-"Edit %d Items" = "Edit %@ Item";
+"Edit %d Items" = "Edit %@ Items";
 /*com.stells.pap.transform*/
 "Transform" = "Transform";
 /*com.stells.pap.photosfilter*/
@@ -93,7 +93,7 @@
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "Membuat Halaman PDF ...";
 /*com.stells.pap.converter*/
-"Convert" = "Mengubah";
+"Convert" = "Convert";
 /*CoreSpotligth keywords - localizable - marketing*/
 "cs_keyword_0" = "album";
 /*Translated from: camera*/
@@ -109,7 +109,7 @@
 /*Translated from: edit*/
 "cs_keyword_6" = "sunting";
 /*Translated from: image*/
-"cs_keyword_7" = "gambar";
+"cs_keyword_7" = "image";
 /*Translated from: smart*/
 "cs_keyword_8" = "smart";
 /*Translated from: picture*/
@@ -133,23 +133,23 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Rasio Aspek";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "Ledakan";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Pilih Sebuah Opsi Untuk Mengekspor";
+"Burst" = "Burst";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Choose An Export Option For %d Items";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Pilih Opsi Untuk Mengkonversi";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Create" = "Membuat";
+"Create" = "Create";
 /* Generated from genl10n: Stabilizer.swift */
 "Crop To Fit" = "Pangkas Agar Sesuai";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Pangkas agar Sesuai";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "Tanaman";
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+"Crop" = "Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Arah";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
+"Do Anything, At Once." = "Lakukan Apa Saja, Sekaligus.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Mengunduh ...";
 /* Generated from genl10n: Convert.AppDockContent.swift */
@@ -166,12 +166,16 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Menyembunyikan";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Menyembunyikan Item yang Dipilih ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Kualitas gambar";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Impor";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Live Photo" = "Foto Hidup";
+"Live Photo" = "Live Photo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -180,16 +184,14 @@
 "Modify" = "Memodifikasi";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Album Saya";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "Tanpa Pangkas";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"No loop" = "Tidak ada lingkaran";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+"No loop" = "No loop";
+/* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "Asli";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Foto";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Pembersihan dipilih ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,22 +202,20 @@
 "Reverse" = "Membalikkan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Putar ulang";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "Save %d Results";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Simpan dan Bagikan";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save" = "Menyimpan";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Menyimpan Hasil ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Presets Seleksi";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "Share %d Results";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Bagikan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Ukuran";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Square" = "Kotak";
+"Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilization Mode" = "Mode Stabilisasi";
 /* Generated from genl10n: Stabilizer.swift */
@@ -233,7 +233,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
 /* Generated from genl10n: Stabilizer.swift */
-"Warp" = "Melengkung";
+"Warp" = "Warp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */

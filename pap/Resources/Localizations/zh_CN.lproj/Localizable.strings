@@ -7,7 +7,7 @@
 /*Translated from: OK*/
 "OK" = "好";
 /*Translated from: Done*/
-"Done" = "完成";
+"Done" = "Done";
 /*Translated from: Confirm*/
 "Confirm" = "确认";
 /*Translated from: Cancel*/
@@ -21,7 +21,7 @@
 /*Translated from: Edit %d photo(s)*/
 "Edit %d photo(s)" = "编辑%d照片";
 /*Translated from: Edit %d video(s)*/
-"Edit %d video(s)" = "编辑%d个视频";
+"Edit %d video(s)" = "编辑%d视频";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "编辑%d项目";
 /*Translated from: Batch Edit*/
@@ -33,7 +33,7 @@
 /*Translated from: Start Batch Editing...*/
 "Start Batch Editing..." = "开始批量编辑...";
 /*Translated from: Processing...*/
-"Processing..." = "处理...";
+"Processing..." = "Processing...";
 /*Translated from: Cancelling...*/
 "Cancelling..." = "取消...";
 /*Translated from: Saving Photos...*/
@@ -45,7 +45,7 @@
 /*Translated from: Select this photo*/
 "Select this photo" = "选择这张照片";
 /*Translated from: Select this video*/
-"Select this video" = "选择这个视频";
+"Select this video" = "选择此视频";
 /*Translated from: Deselect this photo*/
 "Deselect this photo" = "取消选择此照片";
 /*Translated from: Deselect this video*/
@@ -53,17 +53,17 @@
 /*Translated from: Edit this photo*/
 "Edit this photo" = "编辑这张照片";
 /*Translated from: Edit this video*/
-"Edit this video" = "编辑这个视频";
+"Edit this video" = "编辑此视频";
 /*Translated from: %@ Photo*/
 "%d Photo" = "%@照片";
 /*Translated from: %@ Video*/
-"%d Video" = "%@ Video";
+"%d Video" = "%@视频";
 /*Translated from: %@ Item*/
 "%d Item" = "%@物品";
 /*Translated from: %@ Photos*/
 "%d Photos" = "%@照片";
 /*Translated from: %@ Videos*/
-"%d Videos" = "%@影片";
+"%d Videos" = "%@视频";
 /*Translated from: %@ Items*/
 "%d Items" = "%@项目";
 /*Translated from: Edit %@ Photo*/
@@ -73,17 +73,17 @@
 /*Translated from: Edit %@ Photos*/
 "Edit %d Photos" = "编辑%@照片";
 /*Translated from: Edit %@ Videos*/
-"Edit %d Videos" = "编辑%@个视频";
+"Edit %d Videos" = "编辑%@视频";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "编辑%@项目";
 /*com.stells.pap.transform*/
 "Transform" = "Transform";
 /*com.stells.pap.photosfilter*/
-"Apply" = "Apply";
+"Apply" = "应用";
 /*com.stells.pap.revert*/
-"Revert" = "还原";
+"Revert" = "Revert";
 /*Translated from: Starting to revert...*/
-"Starting to revert..." = "开始回复...";
+"Starting to revert..." = "Starting to revert...";
 /*Translated from: Reverting Photos...*/
 "Reverting Photos..." = "还原照片...";
 /*com.stells.pap.pdfactory*/
@@ -93,7 +93,7 @@
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "创建PDF页面...";
 /*com.stells.pap.converter*/
-"Convert" = "兑换";
+"Convert" = "Convert";
 /*CoreSpotligth keywords - localizable - marketing*/
 "cs_keyword_0" = "专辑";
 /*Translated from: camera*/
@@ -113,7 +113,7 @@
 /*Translated from: smart*/
 "cs_keyword_8" = "smart";
 /*Translated from: picture*/
-"cs_keyword_9" = "图片";
+"cs_keyword_9" = "picture";
 /*Translated from: memory*/
 "cs_keyword_10" = "记忆";
 /*Translated from: familiy*/
@@ -134,22 +134,22 @@
 "Aspect Ratio" = "纵横比";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "爆裂";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "选择要导出的选项";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "为%d项目选择导出选项";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "选择要转换的选项";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "创建";
 /* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "裁剪适合";
+"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop to Fit" = "剪裁适合";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+"Crop to Fit" = "Crop to Fit";
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "作物";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "方向";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
+"Do Anything, At Once." = "一次做任何事。";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "下载...";
 /* Generated from genl10n: Convert.AppDockContent.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "高清（1280×720）";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA（480×320）";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "隐藏";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "隐藏所选项目...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "画面质量";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -173,23 +177,21 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "现场照片";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Loop" = "循环";
+"Loop" = "Loop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "制作GIF";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "修改";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "我的相册";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "没有作物";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "没有循环";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+/* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "原版的";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "相片";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "清除选定的...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA（320×240）";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -197,27 +199,25 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "重复";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "相反";
+"Reverse" = "Reverse";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "倒带";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "保存%d结果";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "保存并分享";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save" = "保存";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "保存结果...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "选择预设";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "分享%d结果";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "分享";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "尺寸";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "广场";
 /* Generated from genl10n: Stabilizer.swift */
-"Stabilization Mode" = "稳定模式";
+"Stabilization Mode" = "Stabilization Mode";
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilize" = "稳定";
 /* Generated from genl10n: Stabilizer.swift */
@@ -233,7 +233,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "视频";
 /* Generated from genl10n: Stabilizer.swift */
-"Warp" = "经";
+"Warp" = "Warp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD（640×360）";
 /* Generated from genl10n: GIFMaker.BApp.swift */

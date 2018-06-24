@@ -71,7 +71,7 @@ class CodeKitTests: XCTestCase {
                 XCTAssertNotNil(data.getMetadata())
 
                 let collectingPurgedData = data.purgeMetadata(with: metadata, for: ImageMetadata.Collection.DefaultSensitivity)
-                print("collectingPurgedData")
+                print("collectingHidedData")
                 print(collectingPurgedData.getMetadata())
 
                 let dictionary = ImageMetadata.Dictionary.Exif
@@ -89,15 +89,15 @@ class CodeKitTests: XCTestCase {
                             let purged = ImageMetadata.isValueVoid(purgedValue)
 
                             if purged{
-                                print(property, "purged")
+                                print(property, "hided")
                             }else{
-                                print(property, sampleValue, "->", purgedValue, "->", ImageMetadata.getVoidValue(sampleValue))
+                                print(property, sampleValue, "->", hidedValue, "->", ImageMetadata.getVoidValue(sampleValue))
                             }
 
-//                            print("purged ", purged, property, sampleValue, "->", purgedValue)
+//                            print("purged ", hided, property, sampleValue, "->", purgedValue)
 //
 //                            if !purged{
-//                                print("purged failed ----")
+//                                print("hided failed ----")
 //                                print(purgedValue is String)
 //                                print(purgedValue is Int)
 //                                print(purgedValue is Double)

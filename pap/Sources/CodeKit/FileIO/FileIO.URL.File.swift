@@ -72,9 +72,11 @@ public struct FileURL {
 
         var url = dirURL.appendingPathComponent(pathComponents)
         if let uti = uti{
-            assert(uti.fileExtension != nil, "Not found file extension for UTI \(uti.rawValue)")
-            if let ext = uti.fileExtension{
-                url = url.appendingPathExtension(ext)
+            if let utiExtension = uti.fileExtension {
+                url = url.appendingPathExtension(utiExtension)
+            }else{
+                print("WARNING: Not found file extension for UTI '\(uti.rawValue)'. Using manually provided file extension '\(url.pathExtension)'.")
+                assert(url.pathExtension.count>0, "Path extension is empty.")
             }
         }
 

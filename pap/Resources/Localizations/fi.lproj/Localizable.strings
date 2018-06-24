@@ -7,15 +7,15 @@
 /*Translated from: OK*/
 "OK" = "kunnossa";
 /*Translated from: Done*/
-"Done" = "Tehty";
+"Done" = "Done";
 /*Translated from: Confirm*/
 "Confirm" = "Vahvistaa";
 /*Translated from: Cancel*/
-"Cancel" = "Peruuttaa";
+"Cancel" = "Cancel";
 /*Translated from: Detail*/
 "Detail" = "Yksityiskohta";
 /*Translated from: Delete*/
-"Delete" = "Poistaa";
+"Delete" = "Delete";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "Pahoittelut, jotain meni pieleen.";
 /*Translated from: Edit %d photo(s)*/
@@ -25,7 +25,7 @@
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Muokkaa %d tuotetta";
 /*Translated from: Batch Edit*/
-"Batch Edit" = "Erän muokkaus";
+"Batch Edit" = "Batch Edit";
 /*Translated from: Edit*/
 "Edit" = "Muokata";
 /*Translated from: Discard Changes*/
@@ -55,7 +55,7 @@
 /*Translated from: Edit this video*/
 "Edit this video" = "Muokkaa tätä videota";
 /*Translated from: %@ Photo*/
-"%d Photo" = "%@ Kuva";
+"%d Photo" = "%@ Photo";
 /*Translated from: %@ Video*/
 "%d Video" = "%@ Video";
 /*Translated from: %@ Item*/
@@ -101,7 +101,7 @@
 /*Translated from: photos*/
 "cs_keyword_2" = "Valokuvat";
 /*Translated from: editor*/
-"cs_keyword_3" = "toimittaja";
+"cs_keyword_3" = "editor";
 /*Translated from: messenger*/
 "cs_keyword_4" = "sanansaattaja";
 /*Translated from: filter*/
@@ -109,9 +109,9 @@
 /*Translated from: edit*/
 "cs_keyword_6" = "muokata";
 /*Translated from: image*/
-"cs_keyword_7" = "kuva";
+"cs_keyword_7" = "image";
 /*Translated from: smart*/
-"cs_keyword_8" = "smart";
+"cs_keyword_8" = "fiksu";
 /*Translated from: picture*/
 "cs_keyword_9" = "kuva";
 /*Translated from: memory*/
@@ -133,31 +133,31 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Kuvasuhde";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "Räjähtää";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Valitse Vie vienti";
+"Burst" = "Burst";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Valitse %d Vientivaihtoehto";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Valitse vaihtoehto muunnettavaksi";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Luoda";
 /* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Rajaa sopivaksi";
+"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Rajaa sopivaksi";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "sato";
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+"Crop" = "Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Suunta";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
+"Do Anything, At Once." = "Tee mitään, kerralla.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Lataamista ...";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Vientiasetukset";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Export" = "Viedä";
+"Export" = "Export";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "Eteenpäin";
+"Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Kehyksen viive";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Piilottaa";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Valittujen kohteiden piilottaminen ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Kuvanlaatu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -177,19 +181,17 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Tee GIF";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "Muuttaa";
+"Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Omat albumit";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"No Crop" = "Ei rajaa";
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+"No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Ei silmukkaa";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+/* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "Alkuperäinen";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Valokuvat";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Puhuttu valittu ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,18 +202,16 @@
 "Reverse" = "Käänteinen";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Rewind";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "Tallenna %d Tulokset";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Tallenna ja jaa";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save" = "Tallentaa";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Tulosten tallentaminen ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Valinta-esiasetukset";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "Jaa %d tuloksia";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
-"Share" = "Jaa";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Share" = "Share";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Koko";
 /* Generated from genl10n: GIFMaker.BApp.swift */

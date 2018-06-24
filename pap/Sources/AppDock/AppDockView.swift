@@ -1041,7 +1041,7 @@ internal class AppDockViewCell: CustomCollectionViewCell {
     private static var persistedStatusDict = [String:AppPersistedStatus]()
 
     func setAppInfo(_ app: App.Type, at indexPath: IndexPath) {
-        iconImage = app.info.iconBundleName?.asUIImage ?? R.image.blankAppIcon()
+        iconImage = app.info.iconBundleName?.asUIImage
         appTitleLabel.text = app.info.displayName.localized
 
         var status = AppDockViewCell.persistedStatusDict[app.info.identifier]

@@ -15,20 +15,6 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         }
         return AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDisplayableApp.self)
     }
-    
-    func deselectCollectionViewItems(_ items: [IndexPath], animated:Bool=false) {
-        for indexPath in items {
-            photoCollectionView.deselectItem(at: indexPath, animated: animated)
-        }
-        
-        let indexPaths = items.compactMap { PHAssets.fetched.asset(at: $0) }.compactMap { self.batchPreviewView.removeCollectionViewItem(with: $0) }
-        
-        updateSelectedItemUIs()
-        
-        if let indexPath = indexPaths.last {
-            batchPreviewView.scrollToNeareastItem(at: indexPath)
-        }
-    }
 
     // MARK: - UICollectionViewDataSource
 
@@ -109,14 +95,14 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
 
         if let asset = PHAssets.fetched.asset(at: indexPath){
             batchPreviewView.appendCollectionViewItem(with:asset)
-            
+
             if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self), let value = app.currentEditStateValue {
                 AppAssets.selected.appendValue(value)
             }
         }
 
         if let _ = collectionViewDisplayableApp?.numberOfItemsShouldSelect{
-            updateVisiblePhotoCollectionCellsEnabled()
+            updateVisibleCellsEnabled()
         }
     }
 
@@ -126,7 +112,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         updateSelectedItemUIs()
 
         if let _ = collectionViewDisplayableApp?.numberOfItemsShouldSelect{
-            updateVisiblePhotoCollectionCellsEnabled()
+            updateVisibleCellsEnabled()
         }
     }
 
@@ -157,6 +143,30 @@ extension PhotoPickerViewController: UIScrollViewDelegate {
     
     func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
         return appDockView?.isContentLayoutMaximized == false
+    }
+
+    public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        enqueueAutoSelectionIfNeeded()
+    }
+
+    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        enqueueAutoSelectionIfNeeded()
+    }
+
+    public func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        enqueueAutoSelectionIfNeeded()
+    }
+
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        performAutoSelectionIfNeeded(includingCurrentVisibleItems: true)
+    }
+
+    public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        performAutoSelectionIfNeeded(includingCurrentVisibleItems: true)
+    }
+
+    public func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
+        performAutoSelectionIfNeeded(includingCurrentVisibleItems: true)
     }
 }
 

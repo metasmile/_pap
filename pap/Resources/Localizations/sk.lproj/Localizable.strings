@@ -15,7 +15,7 @@
 /*Translated from: Detail*/
 "Detail" = "detail";
 /*Translated from: Delete*/
-"Delete" = "vymazať";
+"Delete" = "Delete";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "Prepáčte, niečo sa pokazilo.";
 /*Translated from: Edit %d photo(s)*/
@@ -25,13 +25,13 @@
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Upraviť položky %d";
 /*Translated from: Batch Edit*/
-"Batch Edit" = "Úprava dávky";
+"Batch Edit" = "Batch Edit";
 /*Translated from: Edit*/
 "Edit" = "editovať";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Zrušiť zmeny";
 /*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Začať úpravy dávky ...";
+"Start Batch Editing..." = "Start Batch Editing...";
 /*Translated from: Processing...*/
 "Processing..." = "Spracovanie ...";
 /*Translated from: Cancelling...*/
@@ -79,7 +79,7 @@
 /*com.stells.pap.transform*/
 "Transform" = "premeniť";
 /*com.stells.pap.photosfilter*/
-"Apply" = "Apply";
+"Apply" = "platiť";
 /*com.stells.pap.revert*/
 "Revert" = "Revert";
 /*Translated from: Starting to revert...*/
@@ -93,7 +93,7 @@
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "Vytváranie stránok PDF ...";
 /*com.stells.pap.converter*/
-"Convert" = "premeniť";
+"Convert" = "Convert";
 /*CoreSpotligth keywords - localizable - marketing*/
 "cs_keyword_0" = "album";
 /*Translated from: camera*/
@@ -131,25 +131,25 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "animácie";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Aspect Ratio" = "Pomer strán";
+"Aspect Ratio" = "Aspect Ratio";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "Výbuch";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Vyberte možnosť Exportovať";
+"Burst" = "Burst";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Vyberte voľbu exportu pre položky %d Položky";
 /* Generated from genl10n: Convert.AppDockContent.swift */
-"Choose an Option To Convert" = "Vyberte možnosť Konverzia";
+"Choose an Option To Convert" = "Choose an Option To Convert";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "vytvoriť";
 /* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Orezať";
+"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop to Fit" = "Orezanie na prispôsobenie";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+"Crop to Fit" = "Crop to Fit";
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Plodina";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "smer";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
+"Do Anything, At Once." = "Robiť niečo, naraz.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Sťahovanie ...";
 /* Generated from genl10n: Convert.AppDockContent.swift */
@@ -159,13 +159,17 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "vpred";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Frame Delay" = "Odloženie rámca";
+"Frame Delay" = "Frame Delay";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "skryť";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Skryť vybrané položky ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Kvalita obrazu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -177,19 +181,17 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Vytvorte GIF";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "pozmeniť";
+"Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Moje albumy";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "Žiadne orezanie";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Žiadna slučka";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+/* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "originál";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "fotografie";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Vyčistenie vybratých ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,17 +202,15 @@
 "Reverse" = "reverse";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Rewind";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "Uložte %d Výsledky";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Uložiť a zdieľať";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save" = "Uložiť";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Ukladanie výsledkov ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Predvoľby výberu";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "Zdieľajte výsledky %d";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "zdieľam";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "veľkosť";
@@ -233,7 +233,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "video";
 /* Generated from genl10n: Stabilizer.swift */
-"Warp" = "osnova";
+"Warp" = "Warp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */

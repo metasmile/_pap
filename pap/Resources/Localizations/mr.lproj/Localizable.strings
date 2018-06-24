@@ -134,8 +134,8 @@
 "Aspect Ratio" = "प्रसर गुणोत्तर";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "फट";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "निर्यात करण्यासाठी एक पर्याय निवडा";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "%d आयटमसाठी एक निर्यात पर्याय निवडा";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "रूपांतरित करण्याचे पर्याय निवडा";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "एचव्हीजीए (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "लपवा";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "निवडलेले आयटम लपवत आहे ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "प्रतिमा गुणवत्ता";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "मूळ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "फोटो";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Purging निवडले ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "उलट करा";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "रिवाइंड";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "%d परिणाम रिझल्ट करा";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "जतन करा आणि सामायिक करा";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "जतन करा";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "परिणाम जतन करीत आहे ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "निवड प्रीसेट्स";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "%d परिणाम शेअर करा";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "सामायिक करा";
 /* Generated from genl10n: GIFMaker.BApp.swift */

@@ -245,8 +245,8 @@ extension PreviewView {
 
         if appAssetsSelected.count>prevCount{
             self.collectionView.insertItems(at: [insertedIndexPath])
+            self.collectionView.scrollToItem(at: insertedIndexPath, at: .centeredHorizontally, animated: true)
         }
-        self.collectionView.scrollToItem(at: insertedIndexPath, at: .centeredHorizontally, animated: true)
 
         return insertedIndexPath
     }

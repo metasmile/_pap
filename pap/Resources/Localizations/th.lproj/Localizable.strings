@@ -7,13 +7,13 @@
 /*Translated from: OK*/
 "OK" = "ตกลง";
 /*Translated from: Done*/
-"Done" = "เสร็จสิ้น";
+"Done" = "Done";
 /*Translated from: Confirm*/
 "Confirm" = "ยืนยัน";
 /*Translated from: Cancel*/
 "Cancel" = "ยกเลิก";
 /*Translated from: Detail*/
-"Detail" = "รายละเอียด";
+"Detail" = "Detail";
 /*Translated from: Delete*/
 "Delete" = "ลบ";
 /*Translated from: Sorry, something went wrong.*/
@@ -25,9 +25,9 @@
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "แก้ไข %d รายการ";
 /*Translated from: Batch Edit*/
-"Batch Edit" = "แก้ไขเป็นกลุ่ม";
+"Batch Edit" = "Batch Edit";
 /*Translated from: Edit*/
-"Edit" = "แก้ไข";
+"Edit" = "Edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "ยกเลิกการเปลี่ยนแปลง";
 /*Translated from: Start Batch Editing...*/
@@ -41,7 +41,7 @@
 /*Translated from: Deleting Photos...*/
 "Deleting Photos..." = "กำลังลบรูปภาพ ...";
 /*Translated from: Reverting Photos...*/
-"Reverting Photos..." = "กำลังเปลี่ยนรูปภาพ ...";
+"Reverting Photos..." = "Reverting Photos...";
 /*Translated from: Select this photo*/
 "Select this photo" = "เลือกรูปภาพนี้";
 /*Translated from: Select this video*/
@@ -81,11 +81,11 @@
 /*com.stells.pap.photosfilter*/
 "Apply" = "Apply";
 /*com.stells.pap.revert*/
-"Revert" = "คืนกลับ";
+"Revert" = "Revert";
 /*Translated from: Starting to revert...*/
 "Starting to revert..." = "กำลังเริ่มทำย้อนกลับ ...";
 /*Translated from: Reverting Photos...*/
-"Reverting Photos..." = "กำลังเปลี่ยนรูปภาพ ...";
+"Reverting Photos..." = "Reverting Photos...";
 /*com.stells.pap.pdfactory*/
 "Create %@" = "สร้าง %@";
 /*Translated from: Starting to create PDF...*/
@@ -103,17 +103,17 @@
 /*Translated from: editor*/
 "cs_keyword_3" = "บรรณาธิการ";
 /*Translated from: messenger*/
-"cs_keyword_4" = "ผู้สื่อสาร";
+"cs_keyword_4" = "messenger";
 /*Translated from: filter*/
 "cs_keyword_5" = "กรอง";
 /*Translated from: edit*/
-"cs_keyword_6" = "แก้ไข";
+"cs_keyword_6" = "edit";
 /*Translated from: image*/
 "cs_keyword_7" = "ภาพ";
 /*Translated from: smart*/
 "cs_keyword_8" = "smart";
 /*Translated from: picture*/
-"cs_keyword_9" = "ภาพ";
+"cs_keyword_9" = "picture";
 /*Translated from: memory*/
 "cs_keyword_10" = "หน่วยความจำ";
 /*Translated from: familiy*/
@@ -134,22 +134,22 @@
 "Aspect Ratio" = "อัตราส่วนภาพ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "เลือกตัวเลือกในการส่งออก";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "เลือกตัวเลือกการส่งออกสำหรับ %d รายการ";
 /* Generated from genl10n: Convert.AppDockContent.swift */
-"Choose an Option To Convert" = "เลือกตัวเลือกในการแปลง";
+"Choose an Option To Convert" = "Choose an Option To Convert";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Create" = "สร้าง";
+"Create" = "Create";
 /* Generated from genl10n: Stabilizer.swift */
 "Crop To Fit" = "ครอบตัดให้พอดี";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "ครอบตัดให้พอดี";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "พืชผล";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "ทิศทาง";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
+"Do Anything, At Once." = "ทำทุกอย่างพร้อมกัน";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "ดาวน์โหลด ...";
 /* Generated from genl10n: Convert.AppDockContent.swift */
@@ -157,7 +157,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "ส่งออก";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "ข้างหน้า";
+"Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "ความล่าช้าของเฟรม";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -166,12 +166,16 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Hide";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "กำลังซ่อนรายการที่เลือกไว้ ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "คุณภาพรูปภาพ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "นำเข้า";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Live Photo" = "ภาพสด";
+"Live Photo" = "Live Photo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "ห่วง";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -180,16 +184,14 @@
 "Modify" = "แก้ไข";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "อัลบั้มของฉัน";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"No Crop" = "ไม่มีการเพาะปลูก";
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+"No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "ไม่มีลูป";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+/* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "เป็นต้นฉบับ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "ภาพถ่าย";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "กำลังล้างข้อมูลที่เลือก ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -197,20 +199,18 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "ทำซ้ำ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "ย้อนกลับ";
+"Reverse" = "Reverse";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "ม้วนกลับ";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "บันทึก %d ผลลัพธ์";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save" = "บันทึก";
+"Rewind" = "Rewind";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "บันทึกและแบ่งปัน";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "กำลังบันทึกผลลัพธ์ ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "การเลือก Presets";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "แบ่งปัน %d ผลลัพธ์";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "หุ้น";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "ขนาด";
@@ -221,11 +221,11 @@
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilize" = "ทำให้มีเสถียรภาพ";
 /* Generated from genl10n: Stabilizer.swift */
-"Stabilizer" = "โคลง";
+"Stabilizer" = "Stabilizer";
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilizing Selected Items..." = "กำลังกำหนดรายการที่เลือก ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "เริ่มต้น";
+"Start" = "Start";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "กำลังเริ่มกระบวนการ ...";
 /* Generated from genl10n: Stabilizer.swift */

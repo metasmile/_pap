@@ -134,8 +134,8 @@
 "Aspect Ratio" = "Aspect Ratio";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Sprogo";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Pasirinkite variantą, kurį norite eksportuoti";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Pasirinkite eksporto parinktį %d elementams";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Pasirinkite variantą konvertuoti";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Paslėpti";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Paslėpti pasirinktus elementus ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Vaizdo kokybė";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "Originalas";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Nuotraukos";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Purging pasirinkta ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "Atvirkštinis";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Atsukti";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "Išsaugoti %d rezultatus";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Išsaugoti ir dalintis";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Sutaupyti";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Išsaugoti rezultatus ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Pasirinkimo presai";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "Pasidalykite %d rezultatais";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Dalintis";
 /* Generated from genl10n: GIFMaker.BApp.swift */

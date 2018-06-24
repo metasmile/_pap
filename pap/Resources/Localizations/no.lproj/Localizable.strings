@@ -33,7 +33,7 @@
 /*Translated from: Start Batch Editing...*/
 "Start Batch Editing..." = "Start batchredigering ...";
 /*Translated from: Processing...*/
-"Processing..." = "Behandling...";
+"Processing..." = "Processing...";
 /*Translated from: Cancelling...*/
 "Cancelling..." = "Avbryter ...";
 /*Translated from: Saving Photos...*/
@@ -41,13 +41,13 @@
 /*Translated from: Deleting Photos...*/
 "Deleting Photos..." = "Slette bilder ...";
 /*Translated from: Reverting Photos...*/
-"Reverting Photos..." = "Gjenoppretter bilder ...";
+"Reverting Photos..." = "Reverting Photos...";
 /*Translated from: Select this photo*/
 "Select this photo" = "Velg dette bildet";
 /*Translated from: Select this video*/
 "Select this video" = "Velg denne videoen";
 /*Translated from: Deselect this photo*/
-"Deselect this photo" = "Fjern merket for dette bildet";
+"Deselect this photo" = "Deselect this photo";
 /*Translated from: Deselect this video*/
 "Deselect this video" = "Fjern avmarkeringen av denne videoen";
 /*Translated from: Edit this photo*/
@@ -85,7 +85,7 @@
 /*Translated from: Starting to revert...*/
 "Starting to revert..." = "Begynner å returnere ...";
 /*Translated from: Reverting Photos...*/
-"Reverting Photos..." = "Gjenoppretter bilder ...";
+"Reverting Photos..." = "Reverting Photos...";
 /*com.stells.pap.pdfactory*/
 "Create %@" = "Opprett %@";
 /*Translated from: Starting to create PDF...*/
@@ -99,7 +99,7 @@
 /*Translated from: camera*/
 "cs_keyword_1" = "kamera";
 /*Translated from: photos*/
-"cs_keyword_2" = "bilder";
+"cs_keyword_2" = "photos";
 /*Translated from: editor*/
 "cs_keyword_3" = "redaktør";
 /*Translated from: messenger*/
@@ -109,7 +109,7 @@
 /*Translated from: edit*/
 "cs_keyword_6" = "redigere";
 /*Translated from: image*/
-"cs_keyword_7" = "bilde";
+"cs_keyword_7" = "image";
 /*Translated from: smart*/
 "cs_keyword_8" = "smart";
 /*Translated from: picture*/
@@ -134,8 +134,8 @@
 "Aspect Ratio" = "Størrelsesforholdet";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Velg et alternativ for å eksportere";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Velg et eksporteringsalternativ for %d elementer";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Velg et alternativ for å konvertere";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -144,12 +144,12 @@
 "Crop To Fit" = "Beskjære for å passe";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Beskjær å passe";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Avling";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Retning";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
+"Do Anything, At Once." = "Gjør noe, til en gang.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Nedlasting av ...";
 /* Generated from genl10n: Convert.AppDockContent.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Gjemme seg";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Gjemmer valgte elementer ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Bildekvalitet";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -177,19 +181,17 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Lag GIF";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "endre";
+"Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Mine album";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "Ingen avling";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Ingen sløyfe";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+/* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "Opprinnelig";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Photos" = "Bilder";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Rensing valgt ...";
+"Photos" = "Photos";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -199,19 +201,17 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Omvendt";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "Spole";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "Lagre %d Resultater";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+"Rewind" = "Rewind";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Lagre og del";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save" = "Lagre";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Lagrer resultater ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Valg forhåndsinnstillinger";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "Del %d Resultater";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
-"Share" = "Dele";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Share" = "Share";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Størrelse";
 /* Generated from genl10n: GIFMaker.BApp.swift */

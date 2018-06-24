@@ -7,11 +7,11 @@
 /*Translated from: OK*/
 "OK" = "OK";
 /*Translated from: Done*/
-"Done" = "Kész";
+"Done" = "Done";
 /*Translated from: Confirm*/
 "Confirm" = "megerősít";
 /*Translated from: Cancel*/
-"Cancel" = "Megszünteti";
+"Cancel" = "Cancel";
 /*Translated from: Detail*/
 "Detail" = "Részlet";
 /*Translated from: Delete*/
@@ -19,9 +19,9 @@
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "Elnézést, valami nem ment jól.";
 /*Translated from: Edit %d photo(s)*/
-"Edit %d photo(s)" = "%d Kép szerkesztése";
+"Edit %d photo(s)" = "Edit %d photo(s)";
 /*Translated from: Edit %d video(s)*/
-"Edit %d video(s)" = "%d Videók szerkesztése";
+"Edit %d video(s)" = "Edit %d video(s)";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "%d Elemek szerkesztése";
 /*Translated from: Batch Edit*/
@@ -35,7 +35,7 @@
 /*Translated from: Processing...*/
 "Processing..." = "Feldolgozás...";
 /*Translated from: Cancelling...*/
-"Cancelling..." = "Visszavonás ...";
+"Cancelling..." = "Cancelling...";
 /*Translated from: Saving Photos...*/
 "Saving Photos..." = "Fotók mentése ...";
 /*Translated from: Deleting Photos...*/
@@ -69,21 +69,21 @@
 /*Translated from: Edit %@ Photo*/
 "Edit %d Photo" = "Szerkesztés: %@ Fotó";
 /*Translated from: Edit %@ Video*/
-"Edit %d Video" = "%@ Videó szerkesztése";
+"Edit %d Video" = "Edit %@ Video";
 /*Translated from: Edit %@ Photos*/
 "Edit %d Photos" = "%@ Fotók szerkesztése";
 /*Translated from: Edit %@ Videos*/
-"Edit %d Videos" = "%@ Videók szerkesztése";
+"Edit %d Videos" = "Edit %@ Videos";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "%@ Elemek szerkesztése";
 /*com.stells.pap.transform*/
 "Transform" = "Transform";
 /*com.stells.pap.photosfilter*/
-"Apply" = "Apply";
+"Apply" = "Alkalmaz";
 /*com.stells.pap.revert*/
 "Revert" = "Visszaszáll";
 /*Translated from: Starting to revert...*/
-"Starting to revert..." = "A visszaállítás ...";
+"Starting to revert..." = "Starting to revert...";
 /*Translated from: Reverting Photos...*/
 "Reverting Photos..." = "Fotók visszavétele ...";
 /*com.stells.pap.pdfactory*/
@@ -93,7 +93,7 @@
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "PDF-oldalak létrehozása ...";
 /*com.stells.pap.converter*/
-"Convert" = "Alakítani";
+"Convert" = "Convert";
 /*CoreSpotligth keywords - localizable - marketing*/
 "cs_keyword_0" = "album";
 /*Translated from: camera*/
@@ -109,7 +109,7 @@
 /*Translated from: edit*/
 "cs_keyword_6" = "szerkesztés";
 /*Translated from: image*/
-"cs_keyword_7" = "kép";
+"cs_keyword_7" = "image";
 /*Translated from: smart*/
 "cs_keyword_8" = "smart";
 /*Translated from: picture*/
@@ -121,7 +121,7 @@
 /*Translated from: friend*/
 "cs_keyword_12" = "barát";
 /*Translated from: lover*/
-"cs_keyword_13" = "szerető";
+"cs_keyword_13" = "lover";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d alkalommal";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -133,9 +133,9 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Képarány";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "Robbanás";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Válasszon ki egy exportálási lehetőséget";
+"Burst" = "Burst";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Válassza ki az export opciót az %d elemekhez";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Válasszon egy opciót konvertálni";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -144,12 +144,12 @@
 "Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Vágás a fithez";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "Vág";
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+"Crop" = "Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Irány";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
+"Do Anything, At Once." = "Csinálj valamit, egyszerre.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Letöltés ...";
 /* Generated from genl10n: Convert.AppDockContent.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Elrejt";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "A kijelölt elemek elrejtése ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Képminőség";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -180,16 +184,14 @@
 "Modify" = "Módosít";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Az én albumaim";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "Nem Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Nincs hurok";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+/* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "Eredeti";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "fotók";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Purging kiválasztott ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,17 +202,15 @@
 "Reverse" = "Fordított";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Visszatekerés";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "%d Eredmény mentése";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save" = "Mentés";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Mentés és megosztás";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Eredmények mentése ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Kiválasztási beállítások";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "Share %d eredmények";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Ossza meg";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Méret";
@@ -233,7 +233,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Videó";
 /* Generated from genl10n: Stabilizer.swift */
-"Warp" = "vetemedés";
+"Warp" = "Warp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */

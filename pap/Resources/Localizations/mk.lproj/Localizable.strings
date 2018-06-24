@@ -134,8 +134,8 @@
 "Aspect Ratio" = "Сооднос на слика";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Рафал";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Изберете опција за извоз";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Изберете опција за извоз за %d Предмети";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Изберете опција за претворање";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Крие";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Криење на избраните предмети ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Квалитет на сликата";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "Оригинал";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Слики";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Чистењето избрано ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "Обратно";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Премотајте повторно";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "Зачувај %d Резултати";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Зачувај и Сподели";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Зачувај";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Зачувување на резултатите ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Избор на меморија";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "Споделете %d Резултати";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Сподели";
 /* Generated from genl10n: GIFMaker.BApp.swift */

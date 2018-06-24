@@ -1,7 +1,7 @@
 /*Translated from: Photos Access Disabled*/
-"Photos Access Disabled" = "Acesso a fotos desativado";
+"Photos Access Disabled" = "Fotos de acesso desativado";
 /*Translated from: Please open settings and allow access to your photos*/
-"Please open settings and allow access to your photos" = "Abra as configurações e permita o acesso às suas fotos";
+"Please open settings and allow access to your photos" = "Por favor, abra as configurações e permita o acesso às suas fotos";
 /*Translated from: Open Settings*/
 "Open Settings" = "Abrir configurações";
 /*Translated from: OK*/
@@ -19,25 +19,25 @@
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "Desculpe, algo deu errado.";
 /*Translated from: Edit %d photo(s)*/
-"Edit %d photo(s)" = "Editar %d fotografia (s)";
+"Edit %d photo(s)" = "Editar %d foto (s)";
 /*Translated from: Edit %d video(s)*/
-"Edit %d video(s)" = "Edite %d video (s)";
+"Edit %d video(s)" = "Editar %d vídeo (s)";
 /*Translated from: Edit %d item(s)*/
-"Edit %d item(s)" = "Edite %d item (s)";
+"Edit %d item(s)" = "Editar %d item (s)";
 /*Translated from: Batch Edit*/
-"Batch Edit" = "Editar em lote";
+"Batch Edit" = "Edição em lote";
 /*Translated from: Edit*/
 "Edit" = "Editar";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Descartar mudanças";
 /*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Comece a edição em lote ...";
+"Start Batch Editing..." = "Iniciar edição em lote ...";
 /*Translated from: Processing...*/
 "Processing..." = "Em processamento...";
 /*Translated from: Cancelling...*/
 "Cancelling..." = "Cancelando ...";
 /*Translated from: Saving Photos...*/
-"Saving Photos..." = "Salvando fotos ...";
+"Saving Photos..." = "Salvando Fotos ...";
 /*Translated from: Deleting Photos...*/
 "Deleting Photos..." = "Excluindo fotos ...";
 /*Translated from: Reverting Photos...*/
@@ -45,11 +45,11 @@
 /*Translated from: Select this photo*/
 "Select this photo" = "Selecione esta foto";
 /*Translated from: Select this video*/
-"Select this video" = "Selecione este video";
+"Select this video" = "Selecione este vídeo";
 /*Translated from: Deselect this photo*/
 "Deselect this photo" = "Desmarque esta foto";
 /*Translated from: Deselect this video*/
-"Deselect this video" = "Desmarcar este vídeo";
+"Deselect this video" = "Desmarque este vídeo";
 /*Translated from: Edit this photo*/
 "Edit this photo" = "Edite esta foto";
 /*Translated from: Edit this video*/
@@ -67,15 +67,15 @@
 /*Translated from: %@ Items*/
 "%d Items" = "%@ Itens";
 /*Translated from: Edit %@ Photo*/
-"Edit %d Photo" = "Editar %@ Foto";
+"Edit %d Photo" = "Editar %@ foto";
 /*Translated from: Edit %@ Video*/
-"Edit %d Video" = "Editar %@ Vídeo";
+"Edit %d Video" = "Editar %@ vídeo";
 /*Translated from: Edit %@ Photos*/
-"Edit %d Photos" = "Editar %@ Fotos";
+"Edit %d Photos" = "Editar %@ fotos";
 /*Translated from: Edit %@ Videos*/
-"Edit %d Videos" = "Editar %@ Vídeos";
+"Edit %d Videos" = "Editar %@ vídeos";
 /*Translated from: Edit %@ Items*/
-"Edit %d Items" = "Editar %@ Itens";
+"Edit %d Items" = "Editar %@ itens";
 /*com.stells.pap.transform*/
 "Transform" = "Transformar";
 /*com.stells.pap.photosfilter*/
@@ -93,7 +93,7 @@
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "Criando Páginas PDF ...";
 /*com.stells.pap.converter*/
-"Convert" = "Convert";
+"Convert" = "Converter";
 /*CoreSpotligth keywords - localizable - marketing*/
 "cs_keyword_0" = "álbum";
 /*Translated from: camera*/
@@ -113,7 +113,7 @@
 /*Translated from: smart*/
 "cs_keyword_8" = "smart";
 /*Translated from: picture*/
-"cs_keyword_9" = "cenário";
+"cs_keyword_9" = "picture";
 /*Translated from: memory*/
 "cs_keyword_10" = "memória";
 /*Translated from: familiy*/
@@ -127,29 +127,29 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
-"Albums" = "Álbuns";
+"Albums" = "Albums";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animação";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Aspect Ratio" = "Proporção da tela";
+"Aspect Ratio" = "Aspect Ratio";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Estourar";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Escolha uma opção para exportar";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Escolha uma opção de exportação para %d itens";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Escolha uma opção para converter";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Create" = "Crio";
+"Create" = "Create";
 /* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Cortar para caber";
+"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Cortar para caber";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "Colheita";
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+"Crop" = "Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direção";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
+"Do Anything, At Once." = "Faça qualquer coisa, de uma vez.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Baixando ...";
 /* Generated from genl10n: Convert.AppDockContent.swift */
@@ -157,7 +157,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Exportar";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "frente";
+"Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "ocultar";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Ocultar itens selecionados ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Qualidade da imagem";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -180,16 +184,14 @@
 "Modify" = "Modificar";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Meus álbuns";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "Nenhuma colheita";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Sem loop";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+/* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "Original";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Fotos";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Purgando selecionado ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -197,20 +199,18 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repetir";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "Marcha ré";
+"Reverse" = "Reverse";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Rebobinar";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "Salvar %d Resultados";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save" = "Salve ";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Salvar e compartilhar";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save" = "Salve";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Salvando Resultados ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Predefinições de seleção";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "Compartilhar %d Resultados";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Compartilhar";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Tamanho";
@@ -225,7 +225,7 @@
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilizing Selected Items..." = "Estabilizando Itens Selecionados ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "Começar";
+"Start" = "Start";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Começando o processo ...";
 /* Generated from genl10n: Stabilizer.swift */

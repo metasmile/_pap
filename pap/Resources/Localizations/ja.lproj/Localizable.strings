@@ -19,7 +19,7 @@
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "申し訳ありませんが、何かが間違っていた";
 /*Translated from: Edit %d photo(s)*/
-"Edit %d photo(s)" = "%d写真を編集する";
+"Edit %d photo(s)" = "%d写真を編集";
 /*Translated from: Edit %d video(s)*/
 "Edit %d video(s)" = "%d動画を編集";
 /*Translated from: Edit %d item(s)*/
@@ -41,7 +41,7 @@
 /*Translated from: Deleting Photos...*/
 "Deleting Photos..." = "写真を削除しています...";
 /*Translated from: Reverting Photos...*/
-"Reverting Photos..." = "写真を元に戻す...";
+"Reverting Photos..." = "Reverting Photos...";
 /*Translated from: Select this photo*/
 "Select this photo" = "この写真を選択";
 /*Translated from: Select this video*/
@@ -79,13 +79,13 @@
 /*com.stells.pap.transform*/
 "Transform" = "Transform";
 /*com.stells.pap.photosfilter*/
-"Apply" = "Apply";
+"Apply" = "適用";
 /*com.stells.pap.revert*/
-"Revert" = "元に戻す";
+"Revert" = "Revert";
 /*Translated from: Starting to revert...*/
-"Starting to revert..." = "元に戻す...";
+"Starting to revert..." = "Starting to revert...";
 /*Translated from: Reverting Photos...*/
-"Reverting Photos..." = "写真を元に戻す...";
+"Reverting Photos..." = "Reverting Photos...";
 /*com.stells.pap.pdfactory*/
 "Create %@" = "%@を作成する";
 /*Translated from: Starting to create PDF...*/
@@ -111,9 +111,9 @@
 /*Translated from: image*/
 "cs_keyword_7" = "画像";
 /*Translated from: smart*/
-"cs_keyword_8" = "smart";
+"cs_keyword_8" = "スマート";
 /*Translated from: picture*/
-"cs_keyword_9" = "画像";
+"cs_keyword_9" = "picture";
 /*Translated from: memory*/
 "cs_keyword_10" = "記憶";
 /*Translated from: familiy*/
@@ -134,22 +134,22 @@
 "Aspect Ratio" = "アスペクト比";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "バースト";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "エクスポートするオプションを選択";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "%dアイテムのエクスポートオプションを選択する";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "変換するオプションを選択する";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "作成する";
 /* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "作物に合わせる";
+"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop to Fit" = "作物に合わせる";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+"Crop to Fit" = "Crop to Fit";
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "作物";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "方向";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
+"Do Anything, At Once." = "一度に何でもやってください。";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "ダウンロード中...";
 /* Generated from genl10n: Convert.AppDockContent.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD（1280×720）";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA（480×320）";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "隠す";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "選択項目を非表示にする...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "画質";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -177,19 +181,17 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "GIFを作る";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "変更";
+"Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "私のアルバム";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "作物なし";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "ループなし";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+/* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "元の";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "写真";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "選択したパージを...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA（320×240）";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,17 +202,15 @@
 "Reverse" = "逆";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "巻き戻し";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "%d結果を保存";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "保存と共有";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save" = "セーブ";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "結果を保存中...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "選択プリセット";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "%d結果を共有";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "シェア";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "サイズ";

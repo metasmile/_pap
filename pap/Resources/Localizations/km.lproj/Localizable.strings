@@ -134,8 +134,8 @@
 "Aspect Ratio" = "សមាមាត្រ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "ផ្ទុះ";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "ជ្រើសជម្រើសមួយដើម្បីនាំចេញ";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "ជ្រើសជម្រើសនាំចេញសម្រាប់ %d ធាតុ";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "ជ្រើសជម្រើសដើម្បីបម្លែង";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "លាក់";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "លាក់ធាតុដែលបានជ្រើស ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "គុណភាព​រូប";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "ដើម";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "រូបថត";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "កំពុងលុបចោល ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "បញ្ច្រាស";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "បងវិលថយក្រោយ";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "រក្សាទុក %d លទ្ធផល";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "រក្សាទុកនិងចែករំលែក";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "រក្សាទុក";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "កំពុងរក្សាទុកលទ្ធផល ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "ជម្រើសកំណត់ជាមុន";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "ចែករំលែក %d លទ្ធផល";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "ចែករំលែក";
 /* Generated from genl10n: GIFMaker.BApp.swift */

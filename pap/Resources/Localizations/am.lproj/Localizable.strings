@@ -134,8 +134,8 @@
 "Aspect Ratio" = "ምጥጥነ ገፅታ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "ቡር";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "ወደ ውጪ ለመላክ አማራጭ ይምረጡ";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "ለ %d ንጥሎች የማስጭ አማራጭን ይምረጡ";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "ለመለወጥ አማራጭን ይምረጡ";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "ከፍተኛ ጥራት (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "ደብቅ";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "የተመረጡ ንጥሎችን በመደበቅ ላይ ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "የምስል ጥራት";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "የመጀመሪያው";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "ፎቶዎች";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "በማጥፋት ላይ ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 x 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "ተቃራኒ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "ወደኋላ መልስ";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "%d ውጤቶችን አስቀምጥ";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "አስቀምጥ እና አጋራ";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "አስቀምጥ";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "ውጤቶችን በማስቀመጥ ላይ ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "የምርጫዎች ቅድመ-ቅምጦች";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "%d ውጤቶችን ያጋሩ";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "አጋራ";
 /* Generated from genl10n: GIFMaker.BApp.swift */

@@ -40,11 +40,11 @@ public class ExifGhost: BApp, PHAssetFinalizableApp, PhotoPickerViewControllerDe
     }
 
     public var doneButtonTitle: String?{
-        return "Purge"
+        return "Hide".localized
     }
 
     public var titleWillBegin:String? {
-        return "Purging Selected Items...".localized
+        return "Hiding Selected Items...".localized
     }
 }
 

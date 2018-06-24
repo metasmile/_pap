@@ -75,8 +75,11 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             , AutoAdjustmentApp.self
             , ExifGhost.self
 
-//            , Clean.self
-//            , Stabilizer.self
+            //phase: .develop | .beta - They will automatically exclude in Release build.
+            , CallApp.self
+            , Textractor.self
+            , Clean.self
+            , Stabilizer.self
         ]
 
         return config

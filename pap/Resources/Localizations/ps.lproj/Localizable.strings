@@ -134,8 +134,8 @@
 "Aspect Ratio" = "د اړخ اندازه";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "انځور";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "د صادرولو لپاره یو اختیار غوره کړئ";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "د صادراتو اختیار غوره کړئ %d توکي";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "د اختیار کولو لپاره یو اختیار غوره کړئ";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "پټ کړئ";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "پټ شوي غوره توکي ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "د انځور کیفیت";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "اصلي";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "انځورونه";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "غوره کول ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "بیرته راوړل";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "ریزورډ";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "د %d پایلې خوندي کړئ";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "خوندي او شریک کړئ";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "ساتل";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "د خوندي کولو پایلې ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "انتخاب پریټس";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "ونډې %d پایلې";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "شریک کړئ";
 /* Generated from genl10n: GIFMaker.BApp.swift */

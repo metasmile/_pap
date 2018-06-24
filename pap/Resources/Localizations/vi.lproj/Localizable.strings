@@ -1,5 +1,5 @@
 /*Translated from: Photos Access Disabled*/
-"Photos Access Disabled" = "Ảnh bị vô hiệu hóa";
+"Photos Access Disabled" = "Đã tắt quyền truy cập ảnh";
 /*Translated from: Please open settings and allow access to your photos*/
 "Please open settings and allow access to your photos" = "Vui lòng mở cài đặt và cho phép truy cập vào ảnh của bạn";
 /*Translated from: Open Settings*/
@@ -11,13 +11,13 @@
 /*Translated from: Confirm*/
 "Confirm" = "Xác nhận";
 /*Translated from: Cancel*/
-"Cancel" = "Hủy";
+"Cancel" = "Hủy bỏ";
 /*Translated from: Detail*/
 "Detail" = "Chi tiết";
 /*Translated from: Delete*/
 "Delete" = "Xóa bỏ";
 /*Translated from: Sorry, something went wrong.*/
-"Sorry, something went wrong." = "Xin lỗi, có lỗi xảy ra.";
+"Sorry, something went wrong." = "Sorry, something went wrong.";
 /*Translated from: Edit %d photo(s)*/
 "Edit %d photo(s)" = "Chỉnh sửa %d ảnh";
 /*Translated from: Edit %d video(s)*/
@@ -25,23 +25,23 @@
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Chỉnh sửa %d mục";
 /*Translated from: Batch Edit*/
-"Batch Edit" = "Batch Chỉnh sửa";
+"Batch Edit" = "Batch Edit";
 /*Translated from: Edit*/
 "Edit" = "Chỉnh sửa";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Loại bỏ những thay đổi";
 /*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Bắt đầu Chỉnh sửa Hàng loạt ...";
+"Start Batch Editing..." = "Bắt đầu chỉnh sửa hàng loạt ...";
 /*Translated from: Processing...*/
 "Processing..." = "Chế biến...";
 /*Translated from: Cancelling...*/
-"Cancelling..." = "Hủy ...";
+"Cancelling..." = "Đang hủy ...";
 /*Translated from: Saving Photos...*/
 "Saving Photos..." = "Đang lưu ảnh ...";
 /*Translated from: Deleting Photos...*/
-"Deleting Photos..." = "Xóa ảnh ...";
+"Deleting Photos..." = "Đang xóa ảnh ...";
 /*Translated from: Reverting Photos...*/
-"Reverting Photos..." = "Hoàn nguyên ảnh ...";
+"Reverting Photos..." = "Đang hoàn nguyên ảnh ...";
 /*Translated from: Select this photo*/
 "Select this photo" = "Chọn ảnh này";
 /*Translated from: Select this video*/
@@ -61,49 +61,49 @@
 /*Translated from: %@ Item*/
 "%d Item" = "%@ Mục";
 /*Translated from: %@ Photos*/
-"%d Photos" = "%@ Hình ảnh";
+"%d Photos" = "%@ Ảnh";
 /*Translated from: %@ Videos*/
 "%d Videos" = "%@ Video";
 /*Translated from: %@ Items*/
-"%d Items" = "%@ Mục";
+"%d Items" = "%@ Items";
 /*Translated from: Edit %@ Photo*/
-"Edit %d Photo" = "Chỉnh sửa %@ Ảnh";
+"Edit %d Photo" = "Chỉnh sửa %@ ảnh";
 /*Translated from: Edit %@ Video*/
-"Edit %d Video" = "Chỉnh sửa %@ Video";
+"Edit %d Video" = "Chỉnh sửa %@ video";
 /*Translated from: Edit %@ Photos*/
-"Edit %d Photos" = "Chỉnh sửa %@ Hình ảnh";
+"Edit %d Photos" = "Chỉnh sửa %@ Ảnh";
 /*Translated from: Edit %@ Videos*/
-"Edit %d Videos" = "Chỉnh sửa %@ Video";
+"Edit %d Videos" = "Chỉnh sửa %@ video";
 /*Translated from: Edit %@ Items*/
-"Edit %d Items" = "Chỉnh sửa %@ Mục";
+"Edit %d Items" = "Chỉnh sửa %@ mục";
 /*com.stells.pap.transform*/
 "Transform" = "Transform";
 /*com.stells.pap.photosfilter*/
-"Apply" = "Apply";
+"Apply" = "Ứng dụng";
 /*com.stells.pap.revert*/
 "Revert" = "Hoàn nguyên";
 /*Translated from: Starting to revert...*/
-"Starting to revert..." = "Bắt đầu phục hồi ...";
+"Starting to revert..." = "Đang bắt đầu hoàn nguyên ...";
 /*Translated from: Reverting Photos...*/
-"Reverting Photos..." = "Hoàn nguyên ảnh ...";
+"Reverting Photos..." = "Đang hoàn nguyên ảnh ...";
 /*com.stells.pap.pdfactory*/
 "Create %@" = "Tạo %@";
 /*Translated from: Starting to create PDF...*/
 "Starting to create PDF..." = "Bắt đầu tạo PDF ...";
 /*Translated from: Creating PDF Pages...*/
-"Creating PDF Pages..." = "Tạo trang PDF ...";
+"Creating PDF Pages..." = "Đang tạo trang PDF ...";
 /*com.stells.pap.converter*/
-"Convert" = "Đổi";
+"Convert" = "Convert";
 /*CoreSpotligth keywords - localizable - marketing*/
 "cs_keyword_0" = "album";
 /*Translated from: camera*/
 "cs_keyword_1" = "camera";
 /*Translated from: photos*/
-"cs_keyword_2" = "ảnh";
+"cs_keyword_2" = "photos";
 /*Translated from: editor*/
 "cs_keyword_3" = "biên tập viên";
 /*Translated from: messenger*/
-"cs_keyword_4" = "người đưa tin";
+"cs_keyword_4" = "messenger";
 /*Translated from: filter*/
 "cs_keyword_5" = "bộ lọc";
 /*Translated from: edit*/
@@ -113,7 +113,7 @@
 /*Translated from: smart*/
 "cs_keyword_8" = "smart";
 /*Translated from: picture*/
-"cs_keyword_9" = "hình ảnh";
+"cs_keyword_9" = "picture";
 /*Translated from: memory*/
 "cs_keyword_10" = "ký ức";
 /*Translated from: familiy*/
@@ -123,7 +123,7 @@
 /*Translated from: lover*/
 "cs_keyword_13" = "người yêu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"%d times" = "%d lần";
+"%d times" = "%d times";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
@@ -131,21 +131,21 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Hoạt ảnh";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Aspect Ratio" = "Tỷ lệ khung hình";
+"Aspect Ratio" = "Aspect Ratio";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "Nổ";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Chọn một tùy chọn để xuất";
+"Burst" = "Burst";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Chọn tùy chọn xuất cho %d mục";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Chọn một tùy chọn để chuyển đổi";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Tạo nên";
 /* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Cắt để phù hợp";
+"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Cắt để phù hợp";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "Mùa vụ";
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+"Crop" = "Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Phương hướng";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
@@ -157,7 +157,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Xuất khẩu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "Phía trước";
+"Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280×720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Ẩn giấu";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Đang ẩn các mục đã chọn ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Chất lượng hình ảnh";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -180,44 +184,40 @@
 "Modify" = "Sửa đổi";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Album của tôi";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"No Crop" = "Không cắt";
+/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+"No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Không có vòng lặp";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+/* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "Nguyên";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Photos" = "Ảnh";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Đang xóa ...";
+"Photos" = "Photos";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Phẩm chất";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Repeat" = "Nói lại";
+"Repeat" = "Repeat";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Đảo ngược";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Tua lại";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "Lưu %d kết quả";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Lưu và chia sẻ";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save" = "Tiết kiệm";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Đang lưu kết quả ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Cài đặt lựa chọn";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "Chia sẻ %d kết quả";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
+"Selection Presets" = "Selection Presets";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Chia sẻ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Kích thước";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Quảng trường";
 /* Generated from genl10n: Stabilizer.swift */
-"Stabilization Mode" = "Chế độ ổn định";
+"Stabilization Mode" = "Stabilization Mode";
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilize" = "Ổn định";
 /* Generated from genl10n: Stabilizer.swift */

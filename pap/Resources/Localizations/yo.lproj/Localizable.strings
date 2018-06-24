@@ -134,8 +134,8 @@
 "Aspect Ratio" = "Iwoye ifojusi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Bọ";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Choose An Option To Export" = "Yan Aṣayan Lati Jade";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Yan Aṣayan Iyanwo Aṣayan Fun %d Awọn ohun kan";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Yan Aṣayan Lati Yiyipada";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -166,6 +166,10 @@
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HVGA (480×320)" = "HVGA (480 × 320)";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Tọju";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Ṣiṣe awọn ohun ti a yan ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Didara aworan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -188,8 +192,6 @@
 "Original" = "Atilẹkọ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Awọn fọto";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Purging selected ..." = "Ti o yan ti a yan ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 x 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
@@ -200,16 +202,14 @@
 "Reverse" = "Yiyipada";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Pada sẹhin";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save %d Results" = "Fipamọ %d Awọn esi";
+/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+"Save and Share" = "Fipamọ ati Pin";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Fipamọ";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Awọn esi ti o nbọ ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Selection Presets" = "Awọn tito tẹlẹ";
-/* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Share %d Results" = "Pin %d Awọn esi";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Pinpin";
 /* Generated from genl10n: GIFMaker.BApp.swift */

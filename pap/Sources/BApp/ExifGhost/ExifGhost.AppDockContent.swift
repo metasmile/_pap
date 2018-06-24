@@ -152,7 +152,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
         let cell0 = UITableViewSegmentControlCellDescriber()
         cell0.itemIdentifier = Cells.presets.hashValue
-        cell0.label = "Selection Presets".localized
+        cell0.label = "Presets".localized
         cell0.valueGetter = { self.defaults.selectionPreset }
         cell0.valueCollection = [
             (label:"All",value:SelectionPresets.all.rawValue),
@@ -208,22 +208,22 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         let defaultsCollection = self.defaults.ghostedImageMetadataCollection
 
         //sort ascending for handling exif properties
-        self.metadataCollection = self.metadataCollection.map { dictionary -> MetadataDictionary in
-            if let handledItems = defaultsCollection[dictionary.key]{
-                var dict = dictionary
-                dict.items = dict.items.sorted { item0, item1 in
-                    if let i0 = handledItems.index(of:item0.key){
-                        if let i1 = handledItems.index(of:item1.key){
-                            return i0 < i1
-                        }
-                        return true
-                    }
-                    return false
-                }
-                return dict
-            }
-            return dictionary
-        }
+//        self.metadataCollection = self.metadataCollection.map { dictionary -> MetadataDictionary in
+//            if let handledItems = defaultsCollection[dictionary.key]{
+//                var dict = dictionary
+//                dict.items = dict.items.sorted { item0, item1 in
+//                    if let i0 = handledItems.index(of:item0.key){
+//                        if let i1 = handledItems.index(of:item1.key){
+//                            return i0 < i1
+//                        }
+//                        return true
+//                    }
+//                    return false
+//                }
+//                return dict
+//            }
+//            return dictionary
+//        }
 
         //get indexes
         let sections = self.metadataCollection.enumerated().compactMap { (section, dictionary) -> [IndexPath]? in
@@ -274,7 +274,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return section == 0
-                ? "👻 " + "Switch on any items you want to purge. The quality will completely remain the same."
+                ? "👻 " + "Switch on any items you want to hide. The quality will completely remain the same."
                 : metadataCollection[section-1].label
     }
 
@@ -386,7 +386,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
         let cell = tableView.dequeueReusableCell(withIdentifier: ExifGhost.info.identifier) as! Cell
         cell.textLabel?.text = dict.items[indexPath.item].label
-        cell.detailTextLabel?.text = selected ? "will be purged" : nil
+        cell.detailTextLabel?.text = selected ? "will be hided" : nil
 //        cell.imageView?.image = selected ? R.image.pdFactoryAppIcon() : nil //selected ? UIImageView(image: R.image.pdFactoryAppIcon()) : nil
         cell.detailTextLabel?.textColor = UIColor.gray
         cell.optionSwitch.setOn(selected, animated: false)
