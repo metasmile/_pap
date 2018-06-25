@@ -89,13 +89,16 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
             //TODO: wrap with something VO
             //TODO: if numbers and emails are in same block, maybe it is data of a person.
 
+            var phoneNumberPool = Set<String>()
+
             let alert = UIAlertController(title: "Choose A Phone Number To Call".localized, message: nil, preferredStyle: .actionSheet)
 
             for item in items {
 
                 for phoneNumberSetInBlock in item.phoneNumbers{
 
-                    for phoneNumber in phoneNumberSetInBlock{
+                    for phoneNumber in phoneNumberSetInBlock where false == phoneNumberPool.contains(phoneNumber){
+                        phoneNumberPool.insert(phoneNumber)
 
                         alert.addAction(UIAlertAction(title: phoneNumber, style: . default, handler: { action in
 
