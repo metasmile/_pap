@@ -107,7 +107,7 @@ private struct MetadataDictionary{
     fileprivate var items:[MetadataItem]
 }
 
-class ExifGhostAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
+class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
     fileprivate var cellDescribers = [UITableViewCellDefaultDescribable]()
 
     private var metadataCollection:[MetadataDictionary] = [
@@ -151,16 +151,6 @@ class ExifGhostAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITab
 
     fileprivate var defaults:ExifGhostAppDefaults = ExifGhost.defaults as! ExifGhostAppDefaults
 
-    @objc
-    var autoSelect:Bool{
-        set{
-            defaults.autoSelect = newValue
-        }
-        get{
-            return defaults.autoSelect
-        }
-    }
-
     func willSetContentView(_ view: UIView, dock: AppDock) {
 
         if cellDescribers.count>0{
@@ -170,9 +160,10 @@ class ExifGhostAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITab
         let cell1 = UITableViewSwitchCellDescriber()
         cell1.itemIdentifier = Cells.autoSelect.hashValue
         cell1.label = "Enable Auto Selection".localized
-        cell1.valueGetter = { self.autoSelect }
+        cell1.valueGetter = { self.defaults.autoSelect }
         cell1.valueHandler = {
-            self.autoSelect = $0 as! Bool
+            self.defaults.autoSelect = $0 as! Bool
+            AppCenter.default.currentInstanceAs(ExifGhost.self)?.autoSelect = self.defaults.autoSelect
         }
         cellDescribers.append(cell1)
 
@@ -215,6 +206,7 @@ class ExifGhostAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITab
             }, completion:nil)
         }
         cellDescribers.append(cell0)
+
 
 
         if let tableView = view as? UITableView{
@@ -321,7 +313,6 @@ class ExifGhostAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITab
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = indexPath.section == 0 ? settings_tableView(tableView, cellForRowAt: indexPath) : metadataCollection_tableView(tableView, cellForRowAt: IndexPath(item: indexPath.item, section: indexPath.section))
-        cell.tintColor = view.tintColor
         return cell
     }
 
@@ -349,6 +340,7 @@ class ExifGhostAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITab
 
             cell.textLabel?.text = item.label
             cell.switcher.setOn(value, animated: false)
+            cell.switcher.onTintColor = self.view.tintColor
             cell.imageView?.image = item.iconImage?.asUIImage
             cell.switchDidChange = item.valueHandler
             return cell

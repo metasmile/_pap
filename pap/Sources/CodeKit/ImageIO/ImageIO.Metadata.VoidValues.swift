@@ -85,7 +85,7 @@ extension ImageMetadata{
             return [VoidAnyString:VoidAnyString]
         }
 
-        print("[i] Void value is not defined yet: ")
+        print("[i] Void value is not defined yet for following type: \(String(describing: type(of: value)))")
         return nil
     }
 

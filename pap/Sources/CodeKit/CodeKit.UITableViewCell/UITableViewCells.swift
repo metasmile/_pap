@@ -23,12 +23,12 @@ class UITableViewCellWithInclusiveHitTestSubview:UITableViewCell {
 }
 
 
-class UITableViewSwitchCell: UITableViewCellWithInclusiveHitTestSubview {
+class UITableViewSwitchCell: UITableViewCell /*UITableViewCellWithInclusiveHitTestSubview*/ {
 
     private(set) lazy var switcher: UISwitch = {
         let view = UISwitch()
-        self.setSubviewInclusiveHitTestTarget(view)
         view.addTarget(self, action: #selector(self.cellSwitchDidChange), for: .valueChanged)
+//        self.setSubviewInclusiveHitTestTarget(view)
         return view
     }()
 

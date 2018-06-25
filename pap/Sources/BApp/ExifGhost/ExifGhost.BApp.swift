@@ -33,11 +33,11 @@ public class ExifGhost: NSObject, KeyPathWatchable,BApp,
 
     public private(set) lazy var dockContent: AppDockContent? = ExifGhostAppDockContent()
 
-    @objc
-    public fileprivate (set) lazy var autoSelect: Bool = false
+    @objc dynamic
+    public var autoSelect: Bool = false
 
     public required override init() {
-
+        super.init()
     }
 
     public var finalizingActions: [PHAssetFinalizingAction] {
@@ -50,17 +50,15 @@ public class ExifGhost: NSObject, KeyPathWatchable,BApp,
 
     public func shouldAutoSelectAsynchronously(item: AppAsset, _ async: AsyncSignal) -> PhotoPickerCollectionViewAsyncSelection {
 
-        if item.asset.mediaType == .image, let autoSelection = (AppCenter.default.currentInstanceAs(AppDockApp.self)?.dockContent as? ExifGhostAppDockContent)?.autoSelect{
-            if autoSelection{
-                var purged = false
-                async.begin()
-                PHImageManager.default().requestImageData(for: item.asset, options: nil) { data, s, orientation, dictionary in
-                    purged = true == data?.getMetadata()?.isPurgedMetadata(for: ImageMetadata.Collection.DefaultSensitivity)
-                    async.end()
-                }
-                async.waitUntilEnd()
-                return purged ? .none : .visible
+        if autoSelect && item.asset.mediaType == .image{
+            var purged = false
+            async.begin()
+            PHImageManager.default().requestImageData(for: item.asset, options: nil) { data, s, orientation, dictionary in
+                purged = true == data?.getMetadata()?.isPurgedMetadata(for: ImageMetadata.Collection.DefaultSensitivity)
+                async.end()
             }
+            async.waitUntilEnd()
+            return purged ? .none : .visible
         }
 
         return .none
