@@ -15,6 +15,7 @@ private enum SelectionPresets:Int{
 
 private enum Cells {
     case presets
+    case autoSelect
     case delete
 }
 
@@ -32,6 +33,7 @@ private protocol ExifGhostAppDefaults: AppDefaults{
     var ghostedImageMetadataCollection: ImageMetadataPropertyCollection {get set}
     var selectionPreset: Int {get set}
     var removeOriginal: Bool {get set}
+    var autoSelect: Bool {get set}
 }
 
 extension Defaults: ExifGhostAppDefaults {
@@ -46,6 +48,11 @@ extension Defaults: ExifGhostAppDefaults {
     }
 
     fileprivate var removeOriginal: Bool {
+        set{ set(newValue) }
+        get{ return get(or: false ) }
+    }
+
+    fileprivate var autoSelect: Bool {
         set{ set(newValue) }
         get{ return get(or: false ) }
     }
@@ -100,7 +107,7 @@ private struct MetadataDictionary{
     fileprivate var items:[MetadataItem]
 }
 
-class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
+class ExifGhostAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
     fileprivate var cellDescribers = [UITableViewCellDefaultDescribable]()
 
     private var metadataCollection:[MetadataDictionary] = [
@@ -144,11 +151,31 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
     fileprivate var defaults:ExifGhostAppDefaults = ExifGhost.defaults as! ExifGhostAppDefaults
 
+    @objc
+    var autoSelect:Bool{
+        set{
+            defaults.autoSelect = newValue
+        }
+        get{
+            return defaults.autoSelect
+        }
+    }
+
     func willSetContentView(_ view: UIView, dock: AppDock) {
 
         if cellDescribers.count>0{
             return
         }
+
+        let cell1 = UITableViewSwitchCellDescriber()
+        cell1.itemIdentifier = Cells.autoSelect.hashValue
+        cell1.label = "Enable Auto Selection".localized
+        cell1.valueGetter = { self.autoSelect }
+        cell1.valueHandler = {
+            self.autoSelect = $0 as! Bool
+        }
+        cellDescribers.append(cell1)
+
 
         let cell0 = UITableViewSegmentControlCellDescriber()
         cell0.itemIdentifier = Cells.presets.hashValue
@@ -188,6 +215,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
             }, completion:nil)
         }
         cellDescribers.append(cell0)
+
 
         if let tableView = view as? UITableView{
             tableView.dataSource = self
@@ -292,9 +320,9 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return indexPath.section == 0
-                ? settings_tableView(tableView, cellForRowAt: indexPath)
-                : metadataCollection_tableView(tableView, cellForRowAt: IndexPath(item: indexPath.item, section: indexPath.section))
+        let cell = indexPath.section == 0 ? settings_tableView(tableView, cellForRowAt: indexPath) : metadataCollection_tableView(tableView, cellForRowAt: IndexPath(item: indexPath.item, section: indexPath.section))
+        cell.tintColor = view.tintColor
+        return cell
     }
 
     func settings_tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

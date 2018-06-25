@@ -14,4 +14,5 @@ public protocol PhotoPickerCollectionViewAsyncAutoDisplayableApp: App{
     func shouldAutoSelectAsynchronously(item:AppAsset, _ async:AsyncSignal) -> PhotoPickerCollectionViewAsyncSelection
 }
 
+
 //TODO: add PhotoPickerCollectionViewAutoDisplayableApp - simple sync version

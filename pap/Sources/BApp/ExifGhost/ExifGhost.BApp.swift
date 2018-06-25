@@ -9,8 +9,12 @@ import ImageIO
 
 private typealias ParamType = PHAssetItem<ImageEditStateValue>
 
-public class ExifGhost: BApp, PHAssetFinalizableApp, PhotoPickerViewControllerDelegatableApp,
-        PhotoPickerCollectionViewDisplayableApp, AppDockApp {
+public class ExifGhost: NSObject, KeyPathWatchable,BApp,
+        PHAssetFinalizableApp,
+        PhotoPickerViewControllerDelegatableApp,
+        PhotoPickerCollectionViewDisplayableApp,
+        AppDockApp,
+        PhotoPickerCollectionViewAsyncAutoDisplayableApp {
 
     public static let taskType:Taskable.Type = _ExifGhostTask.self
 
@@ -29,7 +33,12 @@ public class ExifGhost: BApp, PHAssetFinalizableApp, PhotoPickerViewControllerDe
 
     public private(set) lazy var dockContent: AppDockContent? = ExifGhostAppDockContent()
 
-    public required init() {}
+    @objc
+    public fileprivate (set) lazy var autoSelect: Bool = false
+
+    public required override init() {
+
+    }
 
     public var finalizingActions: [PHAssetFinalizingAction] {
         return [.showActions]
@@ -37,6 +46,24 @@ public class ExifGhost: BApp, PHAssetFinalizableApp, PhotoPickerViewControllerDe
 
     public func shouldSelect(item: AppAsset) -> Bool {
         return item.asset.mediaType == .image
+    }
+
+    public func shouldAutoSelectAsynchronously(item: AppAsset, _ async: AsyncSignal) -> PhotoPickerCollectionViewAsyncSelection {
+
+        if item.asset.mediaType == .image, let autoSelection = (AppCenter.default.currentInstanceAs(AppDockApp.self)?.dockContent as? ExifGhostAppDockContent)?.autoSelect{
+            if autoSelection{
+                var purged = false
+                async.begin()
+                PHImageManager.default().requestImageData(for: item.asset, options: nil) { data, s, orientation, dictionary in
+                    purged = true == data?.getMetadata()?.isPurgedMetadata(for: ImageMetadata.Collection.DefaultSensitivity)
+                    async.end()
+                }
+                async.waitUntilEnd()
+                return purged ? .none : .visible
+            }
+        }
+
+        return .none
     }
 
     public var doneButtonTitle: String?{

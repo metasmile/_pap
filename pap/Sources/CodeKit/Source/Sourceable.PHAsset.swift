@@ -97,7 +97,6 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
             // Live Photo
             if self.mediaSubtypes.contains(.photoLive){
                 //TODO: import from https://github.com/metasmile/AnimatedAssetIO
-                assert(false, "Not implemented yet.\(self.mediaType), \(self.mediaSubtypes)")
             }
 
             signal.begin()
