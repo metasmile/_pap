@@ -94,7 +94,7 @@
 "Animation" = "Animation";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Aspect Ratio";
-/* Generated from genl10n: Revert.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, Textractor.BApp.swift */
 "Auto Selection In the Current Area" = "Auto Selection In the Current Area";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
@@ -120,6 +120,8 @@
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Downloading...";
+/* Generated from genl10n: CallApp.BApp.swift */
+"Enable Auto Selection" = "Enable Auto Selection";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Export Options";
 /* Generated from genl10n: GIFMaker.BApp.swift */

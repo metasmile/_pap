@@ -52,7 +52,7 @@ public class Textractor: NSObject, KeyPathWatchable, BApp
             , appType: Textractor.self
             , displayName: "Textractor", description:nil, keywords:nil
             , iconBundleName: nil
-            , policy: AppPolicy.default
+            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy.default, task: TaskPolicy(cancellation: .shallow, priority: .normal, estimatedConcurrencyCount: 1))
             , minOSVersion: nil
     )
 

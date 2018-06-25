@@ -53,7 +53,7 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
             , appType: CallApp.self
             , displayName: "Call", description:nil, keywords:nil
             , iconBundleName: R.image.callBAppIcon.name
-            , policy: AppPolicy.default
+            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy.default, task: TaskPolicy(cancellation: .shallow, priority: .normal, estimatedConcurrencyCount: 1))
             , minOSVersion: nil
     )
 
@@ -169,12 +169,12 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
     }
 
 
-    private var textDetector = Vision().textDetector()
+    private var textDetector = Vision().textDetector() //TODO: decide 1-1 or 1-N ?
 
     fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncManualSignalable) -> CallAppResult? {
+        let detector = textDetector
 
-        guard let detector = AppCenter.default.currentInstanceAs(CallApp.self)?.textDetector
-        ,let visionTexts = detector.detect(with: image, async) else {
+        guard let visionTexts = detector.detect(with: image, async) else {
             return nil
         }
 
@@ -206,8 +206,6 @@ private class _CallAppTask: TaskPrototype, Taskable {
 
         return AppCenter.default.currentInstanceAs(CallApp.self)?.detectResult(asset: asset, image: image, async)
     }
-
-
 }
 
 
@@ -261,7 +259,7 @@ fileprivate class CallAppDockContent: NSObject, KeyPathWatchable, AppDockContent
         cell.imageView?.tintColor = primaryColor
         cell.imageView?.contentMode = .scaleAspectFit
 
-        cell.textLabel?.text = "Auto Selection In the Current Area".localized
+        cell.textLabel?.text = "Enable Auto Selection".localized
         cell.textLabel?.textColor = primaryColor
         cell.optionSwitch.setOn(defaults.autoSelect, animated: false)
         cell.switchDidChange = { on in
