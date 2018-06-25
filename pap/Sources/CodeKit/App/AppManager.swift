@@ -14,9 +14,15 @@ protocol AppManagerConfigurable where Self:AppManager {
     func configure() -> AppManagerConfig?
 }
 
-protocol AppManagerDelegatableApp where Self:App {
+protocol AppManagerDelegate where Self:App {
+    static func didConfigurate(with manager:AppManager)
+
     func willSetCurrent(oldCurrent:App.Type?)
     func didSetCurrent(previous:App.Type?)
+}
+
+extension AppManagerDelegate{
+    static func didConfigurate(with manager: AppManager) {}
 }
 
 open class AppManager: NSObject, SelectableCollection {
@@ -47,6 +53,13 @@ open class AppManager: NSObject, SelectableCollection {
             return true
         }
 
+        //boot with appManager
+        for appManagedApp in _apps.compactMap ({ app -> AppManagerDelegate? in
+            return app as? AppManagerDelegate
+        }){
+            type(of: appManagedApp).didConfigurate(with: self)
+        }
+
         //finally select default app if possible
         assert(_apps.count > 0, "[!] Undefined any apps")
         if current == nil && _apps.count > 0 {
@@ -70,7 +83,7 @@ open class AppManager: NSObject, SelectableCollection {
             assert(newValue == nil || _apps.contains { appType in appType == newValue },"Given current app \(String(describing:newValue)) is not contained in app collection")
             guard newValue != previous else{ return }
 
-            self.getInstance(newValue, as:AppManagerDelegatableApp.self)?.willSetCurrent(oldCurrent:self.current)
+            self.getInstance(newValue, as: AppManagerDelegate.self)?.willSetCurrent(oldCurrent:self.current)
         }
         didSet {
             guard previous == nil || oldValue != current else { return }
@@ -86,7 +99,7 @@ open class AppManager: NSObject, SelectableCollection {
             }
 
             DispatchQueue.main.async{
-                self.getInstance(self.current, as:AppManagerDelegatableApp.self)?.didSetCurrent(previous:self.previous)
+                self.getInstance(self.current, as: AppManagerDelegate.self)?.didSetCurrent(previous:self.previous)
             }
         }
     }

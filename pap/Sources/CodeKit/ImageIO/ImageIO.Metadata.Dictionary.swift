@@ -73,6 +73,57 @@ extension Dictionary{
         return purgedMetadata
     }
 
+    func isPurgedMetadata(dictionary:String?=nil, property:String) -> Bool {
+        let metadata = self as! [String:Any]
+
+        if let dictionary = dictionary, let dictionarydata = metadata[dictionary] as? [String:Any]{
+            if let value = dictionarydata[property]{
+                if ImageMetadata.isValueVoid(value) == false{
+                    return false
+                }
+            }
+        }else if let rootValue = metadata[property]{
+            if ImageMetadata.isValueVoid(rootValue) == false{
+                return false
+            }
+        }
+
+        return true
+    }
+
+    func isPurgedMetadata(for properties: ImageMetadataPropertyCollection?) -> Bool {
+        let gotMetadata = self as! [String:Any]
+
+        for (rootProperty, _) in gotMetadata {
+            // purge for keys in specific collection
+            if let collection = properties{
+                if let colllection_p = collection[rootProperty]{
+                    for p in colllection_p {
+                        if gotMetadata.isPurgedMetadata(dictionary: rootProperty, property: p) == false{
+                            return false
+                        }
+                    }
+                }
+            }else{
+                // undefined specific collection -> purge all if possible
+                if let properties = gotMetadata[rootProperty] as? [String:Any]{
+                    for (p, _) in properties{
+                        if gotMetadata.isPurgedMetadata(dictionary: rootProperty, property: p) == false{
+                            return false
+                        }
+                    }
+                }
+                else if let _ = gotMetadata[rootProperty]{
+                    if gotMetadata.isPurgedMetadata(dictionary: nil, property: rootProperty) == false{
+                        return false
+                    }
+                }
+            }
+        }
+
+        return true
+    }
+
     func changeMetadata(with imageSize: CGSize?, comment: String?, software: String?, exifOrientation: CGImagePropertyOrientation?) -> [String: Any] {
         var newMetadata = self as! [String:Any]
         var exifdata = newMetadata[ImageMetadata.Dictionary.Exif] as? [String:Any]

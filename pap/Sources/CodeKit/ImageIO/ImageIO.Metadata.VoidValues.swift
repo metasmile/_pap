@@ -12,11 +12,8 @@ extension ImageMetadata{
         "yyyy:MM:dd": "0000:00:00",
         "hh:mm:ss":"00:00:00"
     ]
-    private static let VoidDirectionValues = [
-        "W":"E", "E":"W", "N":"S", "S":"N"
-    ]
     private static let VoidTimeStamp = "00:00:00"
-    private static let VoidSingleUpperCaseString = "X"
+    private static let VoidSingleUpperCaseString = "N"
     private static let VoidAnyString = "-"
 
     static func getVoidValue(_ value:Any) -> Any?{
@@ -47,11 +44,7 @@ extension ImageMetadata{
 
             // check uppercase and single
             if val.count==1 && val != val.lowercased(){
-                if VoidDirectionValues[val] == nil{
-                    return VoidSingleUpperCaseString
-                }else{
-                    return VoidDirectionValues[val]
-                }
+                return VoidSingleUpperCaseString
             }
 
             return VoidAnyString
@@ -92,7 +85,7 @@ extension ImageMetadata{
             return [VoidAnyString:VoidAnyString]
         }
 
-        print("[i] Void value is not defined yet: ")
+        print("[i] Void value is not defined yet for following type: \(String(describing: type(of: value)))")
         return nil
     }
 
@@ -101,7 +94,10 @@ extension ImageMetadata{
             if isEqualAny(type: Double.self, value1: voidValue, value2: value){}
             else if isEqualAny(type: Float.self, value1: voidValue, value2: value){}
             else if isEqualAny(type: Int.self, value1: voidValue, value2: value){}
+
             else if isEqualAny(type: String.self, value1: voidValue, value2: value){}
+            else if isEqualAny(type: String.self, value1: "", value2: value){}
+
             else if isEqualAny(type: Date.self, value1: voidValue, value2: value){}
             else if isEqualAny(type: NSArray.self, value1: voidValue, value2: value){}
             else if isEqualAny(type: NSDictionary.self, value1: voidValue, value2: value){}

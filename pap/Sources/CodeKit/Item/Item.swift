@@ -77,27 +77,61 @@ public class MutableItemList<Element>: ItemList<Element>, _MutableItemList{
     }
 }
 
+
+public enum ItemQueueComplexityPriority{
+    /*
+    enqueue fast :appendLast - O(1) on average
+    dequeue slow :removeFirst - O(n) or O(n+a)
+    */
+    case enqueue
+
+    // reversed.
+    case dequeue
+}
+
+/*
+    INFO:
+    Default performance policy of this queue is enqueue > dequeue.
+*/
 public class ItemQueue<Element>: MutableItemList<Element>{
+
+    private var complexityPriority = ItemQueueComplexityPriority.enqueue
+
+    public convenience init(items:[Element], complexityPriority:ItemQueueComplexityPriority){
+        self.init(items: items)
+        self.complexityPriority = complexityPriority
+    }
+
+    public convenience init(complexityPriority:ItemQueueComplexityPriority){
+        self.init(items: [], complexityPriority: complexityPriority)
+    }
+
+    private func shouldReverse(_ reverse:Bool=false) -> Bool{
+        if complexityPriority == .dequeue{
+            return !reverse
+        }
+        return reverse
+    }
 
     public func enqueued(where predicate: (Element) throws -> Bool) rethrows -> Bool {
         return try items.contains(where: predicate)
     }
 
     public func peek(reverse:Bool=false) -> Element? {
-        return isEmpty ? nil : (reverse ? items.last : items.first)
+        return isEmpty ? nil : (shouldReverse(reverse) ? items.last : items.first)
     }
 
     public func enqueue(_ item:Element, reverse:Bool=false) {
-        reverse ? items.insert(item, at: 0) : items.append(item)
+        shouldReverse(reverse) ? items.insert(item, at: 0) : items.append(item)
     }
 
     public func enqueue(contentOf:[Element], reverse:Bool=false) {
-        reverse ? items.insert(contentsOf: contentOf, at: 0) : items.append(contentsOf: contentOf)
+        shouldReverse(reverse) ? items.insert(contentsOf: contentOf, at: 0) : items.append(contentsOf: contentOf)
     }
 
     @discardableResult
     public func dequeue(reverse:Bool=false) -> Element? {
-        return isEmpty ? nil : (reverse ? items.removeLast() : items.removeFirst())
+        return isEmpty ? nil : (shouldReverse(reverse) ? items.removeLast() : items.removeFirst())
     }
 
     @discardableResult

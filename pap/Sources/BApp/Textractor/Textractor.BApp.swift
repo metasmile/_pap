@@ -17,14 +17,9 @@ private struct TextractorResult: TaskResultable{
 }
 
 private protocol TextractorDefaults: AppDefaults{
-    var autoSelect: Bool {get set}
 }
 
 extension Defaults: TextractorDefaults {
-    fileprivate var autoSelect: Bool {
-        set{ set(newValue) }
-        get{ return get(or: false) }
-    }
 }
 
 
@@ -43,7 +38,7 @@ public class Textractor: NSObject, KeyPathWatchable, BApp
     private let appDefaults = Textractor.defaults as! TextractorDefaults
 
     @objc dynamic
-    public fileprivate (set) lazy var autoSelect: Bool = appDefaults.autoSelect
+    public fileprivate (set) lazy var autoSelect: Bool = false
     
     public static let info = AppInfo(
             identifier: "com.stells.pap.textractor"
@@ -52,11 +47,13 @@ public class Textractor: NSObject, KeyPathWatchable, BApp
             , appType: Textractor.self
             , displayName: "Textractor", description:nil, keywords:nil
             , iconBundleName: nil
-            , policy: AppPolicy.default
+            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy.default, task: TaskPolicy(cancellation: .shallow, priority: .normal, estimatedConcurrencyCount: 1))
             , minOSVersion: nil
     )
 
-    public required override init() {}
+    public required override init() {
+
+    }
 
     public var finalizingActions: [PHAssetFinalizingAction] {
         return [.showActions]
@@ -85,7 +82,7 @@ public class Textractor: NSObject, KeyPathWatchable, BApp
     }
 
     public func shouldAutoSelectAsynchronously(item: AppAsset, _ async: AsyncSignal) -> PhotoPickerCollectionViewAsyncSelection {
-        if appDefaults.autoSelect == false{
+        if self.autoSelect == false{
             return .none
         }
 
@@ -160,6 +157,8 @@ fileprivate class TextractorDockContent: NSObject, KeyPathWatchable, AppDockCont
         return preferences
     }
 
+    private var autoSelect:Bool = false
+
     func willSetContentView(_ view: UIView, dock: AppDock) {
         if let view = view as? UITableView{
             view.dataSource = self
@@ -197,11 +196,11 @@ fileprivate class TextractorDockContent: NSObject, KeyPathWatchable, AppDockCont
         cell.imageView?.tintColor = primaryColor
         cell.imageView?.contentMode = .scaleAspectFit
 
-        cell.textLabel?.text = "Auto Selection In the Current Area".localized
+        cell.textLabel?.text = "Enable Auto Selection".localized
         cell.textLabel?.textColor = primaryColor
-        cell.optionSwitch.setOn(defaults.autoSelect, animated: false)
+        cell.optionSwitch.setOn(self.autoSelect, animated: false)
         cell.switchDidChange = { on in
-            self.defaults.autoSelect = on
+            self.autoSelect = on
             AppCenter.default.currentInstanceAs(Textractor.self)?.autoSelect = on
         }
 

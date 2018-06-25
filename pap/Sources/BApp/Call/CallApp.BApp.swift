@@ -19,21 +19,19 @@ private struct CallAppResult: TaskResultable{
 }
 
 private protocol CallAppDefaults: AppDefaults{
-    var autoSelect: Bool {get set}
+
 }
 
 extension Defaults: CallAppDefaults {
-    fileprivate var autoSelect: Bool {
-        set{ set(newValue) }
-        get{ return get(or: false) }
-    }
+
 }
 
 public class CallApp: NSObject, KeyPathWatchable, BApp
         , FinalizableApp
         , AppDockApp
         , PhotoPickerViewControllerDelegatableApp
-        , PhotoPickerCollectionViewAsyncAutoDisplayableApp {
+        , PhotoPickerCollectionViewAsyncAutoDisplayableApp
+        , AppManagerDelegate {
 
     public static let taskType:Taskable.Type = _CallAppTask.self
 
@@ -44,7 +42,7 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
     private let appDefaults = CallApp.defaults as! CallAppDefaults
 
     @objc dynamic
-    public fileprivate (set) lazy var autoSelect: Bool = appDefaults.autoSelect
+    public fileprivate (set) lazy var autoSelect: Bool = false
 
     public static let info = AppInfo(
             identifier: "com.stells.pap.call"
@@ -53,11 +51,23 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
             , appType: CallApp.self
             , displayName: "Call", description:nil, keywords:nil
             , iconBundleName: R.image.callBAppIcon.name
-            , policy: AppPolicy.default
+            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy.default, task: TaskPolicy(cancellation: .shallow, priority: .normal, estimatedConcurrencyCount: 1))
             , minOSVersion: nil
     )
 
-    public required override init() {}
+    public required override init() {
+    }
+
+//    static var callProviderDelegate:CallProviderDelegate?
+    class func didConfigurate(with manager: AppManager) {
+//        callProviderDelegate = CallProviderDelegate(callManager: CallManager.shared)
+    }
+
+    func willSetCurrent(oldCurrent: App.Type?) {
+    }
+
+    func didSetCurrent(previous: App.Type?) {
+    }
 
     public var finalizingActions: [PHAssetFinalizingAction] {
         return [.showActions]
@@ -91,29 +101,33 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
             //TODO: wrap with something VO
             //TODO: if numbers and emails are in same block, maybe it is data of a person.
 
+            var phoneNumberPool = Set<String>()
+
             let alert = UIAlertController(title: "Choose A Phone Number To Call".localized, message: nil, preferredStyle: .actionSheet)
 
             for item in items {
 
                 for phoneNumberSetInBlock in item.phoneNumbers{
 
-                    for phoneNumber in phoneNumberSetInBlock{
+                    for phoneNumber in phoneNumberSetInBlock where false == phoneNumberPool.contains(phoneNumber){
+                        phoneNumberPool.insert(phoneNumber)
 
                         alert.addAction(UIAlertAction(title: phoneNumber, style: . default, handler: { action in
 
                             DispatchQueue.main.async {
-                                CallManager.shared.startCall(handle: phoneNumber, videoEnabled: false) { s in
 
-                                    if s {
-                                        asyncSignal.end()
-
-                                    }else{
-                                        DispatchQueue.main.async {
-                                            UIAlertController.alert("Sorry can't connect to selected contact.".localized, completion:{ _ in
-                                                asyncSignal.end()
-                                            })
-                                        }
+                                if let url = URL(string: "tel://\(phoneNumber)"), UIApplication.shared.canOpenURL(url) {
+                                    asyncSignal.end()
+                                    
+                                    if #available(iOS 10, *) {
+                                        UIApplication.shared.open(url)
+                                    } else {
+                                        UIApplication.shared.openURL(url)
                                     }
+                                }else{
+                                    UIAlertController.alert("Sorry can't call to selected contact.".localized, completion:{ _ in
+                                        asyncSignal.end()
+                                    })
                                 }
                             }
                         }))
@@ -142,7 +156,7 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
     }
 
     public func shouldAutoSelectAsynchronously(item: AppAsset, _ async: AsyncSignal) -> PhotoPickerCollectionViewAsyncSelection {
-        if appDefaults.autoSelect == false{
+        if self.autoSelect == false{
             return .none
         }
 
@@ -169,12 +183,12 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
     }
 
 
-    private var textDetector = Vision().textDetector()
+    private var textDetector = Vision().textDetector() //TODO: decide 1-1 or 1-N ?
 
     fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncManualSignalable) -> CallAppResult? {
+        let detector = textDetector
 
-        guard let detector = AppCenter.default.currentInstanceAs(CallApp.self)?.textDetector
-        ,let visionTexts = detector.detect(with: image, async) else {
+        guard let visionTexts = detector.detect(with: image, async) else {
             return nil
         }
 
@@ -206,8 +220,6 @@ private class _CallAppTask: TaskPrototype, Taskable {
 
         return AppCenter.default.currentInstanceAs(CallApp.self)?.detectResult(asset: asset, image: image, async)
     }
-
-
 }
 
 
@@ -217,6 +229,8 @@ fileprivate class CallAppDockContent: NSObject, KeyPathWatchable, AppDockContent
     private let primaryColor = UIColor(red:0.6, green:0.6, blue:0.6, alpha:1)
 
     lazy var view: UIView = UITableView()
+
+    private var autoSelect:Bool = false
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
@@ -261,11 +275,11 @@ fileprivate class CallAppDockContent: NSObject, KeyPathWatchable, AppDockContent
         cell.imageView?.tintColor = primaryColor
         cell.imageView?.contentMode = .scaleAspectFit
 
-        cell.textLabel?.text = "Auto Selection In the Current Area".localized
+        cell.textLabel?.text = "Enable Auto Selection".localized
         cell.textLabel?.textColor = primaryColor
-        cell.optionSwitch.setOn(defaults.autoSelect, animated: false)
+        cell.optionSwitch.setOn(self.autoSelect, animated: false)
         cell.switchDidChange = { on in
-            self.defaults.autoSelect = on
+            self.autoSelect = on
             AppCenter.default.currentInstanceAs(CallApp.self)?.autoSelect = on
         }
 

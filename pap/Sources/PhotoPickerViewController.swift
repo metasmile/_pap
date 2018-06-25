@@ -236,6 +236,20 @@ class PhotoPickerViewController: AppDockViewController {
                     self.performAutoSelectionIfNeeded(includingCurrentVisibleItems: true)
                 }
             }
+
+            AppCenter.default.currentInstanceAs(CallApp.self)?.watch(\.autoSelect, id: "picker\(CallApp.info.identifier)") { (app, changed) in
+                if app.autoSelect && !AppCenter.default.task.isRunning {
+                    self.cancelPendingAutoSelectionIfNeeded()
+                    self.performAutoSelectionIfNeeded(includingCurrentVisibleItems: true)
+                }
+            }
+
+            AppCenter.default.currentInstanceAs(ExifGhost.self)?.watch(\.autoSelect, id: "picker\(ExifGhost.info.identifier)") { (app, changed) in
+                if app.autoSelect && !AppCenter.default.task.isRunning {
+                    self.cancelPendingAutoSelectionIfNeeded()
+                    self.performAutoSelectionIfNeeded(includingCurrentVisibleItems: true)
+                }
+            }
         }
     }
     
@@ -254,6 +268,8 @@ class PhotoPickerViewController: AppDockViewController {
         AppCenter.default.currentInstanceAs(ConvertApp.self)?.config?.unwatch(\.convertingDirectionIdentifier, forIds:["picker\(ConvertApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(RevertApp.self)?.unwatch(\.autoSelect, forIds:["picker\(RevertApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(Textractor.self)?.unwatch(\.autoSelect, forIds:["picker\(Textractor.info.identifier)"])
+        AppCenter.default.currentInstanceAs(CallApp.self)?.unwatch(\.autoSelect, forIds:["picker\(CallApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(ExifGhost.self)?.unwatch(\.autoSelect, forIds:["picker\(ExifGhost.info.identifier)"])
 
         AppCenter.default.unwatchAllFilePrivate(\.currentIdentifier)
     }
@@ -272,7 +288,7 @@ class PhotoPickerViewController: AppDockViewController {
             self.photoCollectionView.scrollIndicatorInsets.bottom = self.photoCollectionView.contentInset.bottom
         }
     }
-    
+
     override func cancelButtonDidTap(sender: Any) {
         super.cancelButtonDidTap(sender: sender)
         

@@ -1,5 +1,5 @@
 //
-// Created by BLACKGENE on 30/03/2018.
+// Created by BLACKGENE on 30/0??3/2018.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
@@ -63,22 +63,47 @@ class CodeKitTests: XCTestCase {
         }
     }
 
+
+    func test_ImageIO_Metadata_isPurged() {
+
+        if let data = Bundle(for: type(of: self)).bundleURL.appendingPathComponent("IMG_0679.JPG").asData {
+
+            XCTAssertNotNil(data.getMetadata())
+
+            if let metadata = data.getMetadata() {
+
+                XCTAssertFalse(metadata.isPurgedMetadata(for: ImageMetadata.Collection.DefaultSensitivity))
+
+                let collectingPurgedData = data.purgeMetadata(with: metadata, for: ImageMetadata.Collection.DefaultSensitivity)
+
+                if let exitedData = collectingPurgedData.getMetadata() {
+                    XCTAssertTrue(exitedData.isPurgedMetadata(for: ImageMetadata.Collection.DefaultSensitivity))
+                }
+            }
+
+        } else {
+            XCTFail()
+        }
+    }
+
+
     func test_ImageIO_Metadata_purge(){
 
         if let data = Bundle(for: type(of: self)).bundleURL.appendingPathComponent("IMG_0679.JPG").asData{
 
+            XCTAssertNotNil(data.getMetadata())
+
             if let metadata = data.getMetadata(){
-                XCTAssertNotNil(data.getMetadata())
+
+                XCTAssertFalse(metadata.isPurgedMetadata(for: ImageMetadata.Collection.DefaultSensitivity))
 
                 let collectingPurgedData = data.purgeMetadata(with: metadata, for: ImageMetadata.Collection.DefaultSensitivity)
-                print("collectingHidedData")
-                print(collectingPurgedData.getMetadata())
 
                 let dictionary = ImageMetadata.Dictionary.Exif
 //                print(metadata[ImageMetadata.Dictionary.GPS])
 //                print(metadata[ImageMetadata.Dictionary.Exif])
 //                print(metadata[ImageMetadata.Dictionary.TIFF])
-                for property in ImageMetadata.PropertyApple.Exif{
+                for property in ImageMetadata.PropertyApple.GPS{
 
                     if let sampleValue = data.getMetadataValue(dictionary: dictionary, property: property){
                         let sampleVoidValue = ImageMetadata.getVoidValue(sampleValue) ?? sampleValue
@@ -91,7 +116,7 @@ class CodeKitTests: XCTestCase {
                             if purged{
                                 print(property, "hided")
                             }else{
-                                print(property, sampleValue, "->", hidedValue, "->", ImageMetadata.getVoidValue(sampleValue))
+                                print(property, sampleValue, "->", ImageMetadata.getVoidValue(sampleValue))
                             }
 
 //                            print("purged ", hided, property, sampleValue, "->", purgedValue)
@@ -111,7 +136,7 @@ class CodeKitTests: XCTestCase {
                         }
 
                     }else{
-//                        print("sampleValue of \(property) is nil")
+                        print("sampleValue of \(property) is nil")
                     }
                 }
 
@@ -224,19 +249,19 @@ class CodeKitTests: XCTestCase {
         XCTAssertTrue(UTI(withExtension: "jpg") == UTI.jpeg)
         XCTAssertTrue(UTI(withExtension: "jpeg") == UTI.jpeg)
 
-        XCTAssertTrue(FileURL.matchedInTemp("identifier", nil, group: "groupname").count == 0)
+        XCTAssertTrue(FileCollectableURL.matchedInTemp("identifier", nil, group: "groupname").count == 0)
 
-        XCTAssertTrue(FileURL.matchedInTemp("identifier.jpg", nil, group: "groupname").count==1)
+        XCTAssertTrue(FileCollectableURL.matchedInTemp("identifier.jpg", nil, group: "groupname").count==1)
 
-        XCTAssertTrue(FileURL.matchedInTemp("identifier.jpg", nil, group: "groupname2").count==1)
+        XCTAssertTrue(FileCollectableURL.matchedInTemp("identifier.jpg", nil, group: "groupname2").count==1)
 
-        XCTAssertTrue(FileURL.matchedInTemp("identifier.jpg", nil, group: nil).count==2)
+        XCTAssertTrue(FileCollectableURL.matchedInTemp("identifier.jpg", nil, group: nil).count==2)
 
-        XCTAssertTrue(FileURL.matchedInTemp(nil, nil, group: "groupname").count==3)
+        XCTAssertTrue(FileCollectableURL.matchedInTemp(nil, nil, group: "groupname").count==3)
 
-        XCTAssertTrue(FileURL.matchedInTemp("identifier", nil).count==1)
+        XCTAssertTrue(FileCollectableURL.matchedInTemp("identifier", nil).count==1)
 
-        XCTAssertTrue(FileURL.matchedInTemp("identifier.jpg", nil).count==2)
+        XCTAssertTrue(FileCollectableURL.matchedInTemp("identifier.jpg", nil).count==2)
 
         FileURL.temp("file.png", nil) // -> file.png
         FileURL.temp("file.png", UTI.png) // -> file.png.png
@@ -247,33 +272,33 @@ class CodeKitTests: XCTestCase {
         FileURL.temp("file.png", nil, group:"ggg") // -> ggg/file.png
         FileURL.temp("file", nil, group:"ggg") // -> ggg/file
 
-        XCTAssertTrue(FileURL.matchedInTemp("file.png", nil).count==4)
-        XCTAssertTrue(FileURL.matchedInTemp("file.png",  UTI.png).count==1)
+        XCTAssertTrue(FileCollectableURL.matchedInTemp("file.png", nil).count==4)
+        XCTAssertTrue(FileCollectableURL.matchedInTemp("file.png",  UTI.png).count==1)
 
-        XCTAssertTrue(FileURL.matchedInTemp("file",  UTI.png, group:"ggg").count==2)
-        XCTAssertTrue(FileURL.matchedInTemp("file.png",  nil, group:"ggg").count==2)
-        XCTAssertTrue(FileURL.matchedInTemp(nil,  nil, group:"ggg").count==3)
+        XCTAssertTrue(FileCollectableURL.matchedInTemp("file",  UTI.png, group:"ggg").count==2)
+        XCTAssertTrue(FileCollectableURL.matchedInTemp("file.png",  nil, group:"ggg").count==2)
+        XCTAssertTrue(FileCollectableURL.matchedInTemp(nil,  nil, group:"ggg").count==3)
 
-        XCTAssertTrue(FileURL.matchedInTemp(nil,  UTI.png).count==5)
-        XCTAssertTrue(FileURL.matchedInTemp("file",  UTI.png).count==4)
-        XCTAssertTrue(FileURL.matchedInTemp("file",  nil).count==2)
+        XCTAssertTrue(FileCollectableURL.matchedInTemp(nil,  UTI.png).count==5)
+        XCTAssertTrue(FileCollectableURL.matchedInTemp("file",  UTI.png).count==4)
+        XCTAssertTrue(FileCollectableURL.matchedInTemp("file",  nil).count==2)
 
         FileURL.temp("AssetIO.LivePhoto", group:CodeFileName())
-        XCTAssertTrue(FileURL.matchedInTemp("AssetIO.LivePhoto", group:CodeFileName()).count==1)
+        XCTAssertTrue(FileCollectableURL.matchedInTemp("AssetIO.LivePhoto", group:CodeFileName()).count==1)
 
 
         let groupname = "sd<>*fdf!:=?.@34ㄹㅎsd.fds.gif"
         FileURL.temp("file", UTI.gif, group: groupname)
-        XCTAssertTrue(FileURL.matchedInTemp("file.gif", group:groupname).count==1)
-        XCTAssertTrue(FileURL.matchedInTemp("file", UTI.gif, group:groupname).count==1)
-        XCTAssertTrue(FileURL.matchedInTemp("file", UTI.gif).count==1)
-        XCTAssertTrue(FileURL.matchedInTemp("file", UTI.gif, group:"BBBB").count==0)
-        XCTAssertTrue(FileURL.matchedInTemp(nil, group:groupname).count==1)
+        XCTAssertTrue(FileCollectableURL.matchedInTemp("file.gif", group:groupname).count==1)
+        XCTAssertTrue(FileCollectableURL.matchedInTemp("file", UTI.gif, group:groupname).count==1)
+        XCTAssertTrue(FileCollectableURL.matchedInTemp("file", UTI.gif).count==1)
+        XCTAssertTrue(FileCollectableURL.matchedInTemp("file", UTI.gif, group:"BBBB").count==0)
+        XCTAssertTrue(FileCollectableURL.matchedInTemp(nil, group:groupname).count==1)
 
 
 //          FileURL.discardMatchedTemporaryURLs(nil)
-        FileURL.discardAll()
-        XCTAssertTrue(FileURL.matchedInTemp(nil).count == 0)
+        FileCollectableURL.discardAll()
+        XCTAssertTrue(FileCollectableURL.matchedInTemp(nil).count == 0)
 
         XCTAssertTrue(FileURL.fileAndQueuePrivateGroup()=="CodeKitTests_com.apple.main-thread")
         XCTAssertTrue(FileURL.filePrivateGroup()=="CodeKitTests")

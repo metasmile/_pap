@@ -63,11 +63,8 @@ White Balance: Auto white balance
                 ImageMetadata.Property.GPSDateStamp
                 , ImageMetadata.Property.GPSTimeStamp
                 , ImageMetadata.Property.GPSAltitude
-                , ImageMetadata.Property.GPSAltitudeRef
                 , ImageMetadata.Property.GPSLatitude
-                , ImageMetadata.Property.GPSLatitudeRef
                 , ImageMetadata.Property.GPSLongitude
-                , ImageMetadata.Property.GPSLongitudeRef
                 , ImageMetadata.Property.GPSImgDirection
                 , ImageMetadata.Property.GPSImgDirectionRef
             ],

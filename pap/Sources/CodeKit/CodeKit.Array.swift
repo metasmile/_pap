@@ -11,6 +11,23 @@ extension Array {
             Array(self[$0 ..< Swift.min($0 + size, count)])
         }
     }
+
+    //bin search
+    func insertionIndexOf(_ element: Element, isOrderedBefore: (Element, Element) -> Bool) -> Int {
+        var lo = 0
+        var hi = self.count - 1
+        while lo <= hi {
+            let mid = (lo + hi)/2
+            if isOrderedBefore(self[mid], element) {
+                lo = mid + 1
+            } else if isOrderedBefore(element, self[mid]) {
+                hi = mid - 1
+            } else {
+                return mid
+            }
+        }
+        return lo
+    }
 }
 
 extension Array where Element: Hashable { // not ordered set 
