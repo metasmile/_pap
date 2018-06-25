@@ -23,7 +23,7 @@
 import CallKit
 import AVFoundation
 
-class ProviderDelegate: NSObject {
+class CallProviderDelegate: NSObject {
 
     fileprivate let callManager: CallManager
     fileprivate let provider: CXProvider
@@ -65,7 +65,7 @@ class ProviderDelegate: NSObject {
 
 // MARK: - CXProviderDelegate
 
-extension ProviderDelegate: CXProviderDelegate {
+extension CallProviderDelegate: CXProviderDelegate {
     func providerDidReset(_ provider: CXProvider) {
         stopAudio()
 

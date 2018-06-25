@@ -30,7 +30,8 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
         , FinalizableApp
         , AppDockApp
         , PhotoPickerViewControllerDelegatableApp
-        , PhotoPickerCollectionViewAsyncAutoDisplayableApp {
+        , PhotoPickerCollectionViewAsyncAutoDisplayableApp
+        , AppManagerDelegate {
 
     public static let taskType:Taskable.Type = _CallAppTask.self
 
@@ -55,6 +56,17 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
     )
 
     public required override init() {
+    }
+
+//    static var callProviderDelegate:CallProviderDelegate?
+    class func didConfigurate(with manager: AppManager) {
+//        callProviderDelegate = CallProviderDelegate(callManager: CallManager.shared)
+    }
+
+    func willSetCurrent(oldCurrent: App.Type?) {
+    }
+
+    func didSetCurrent(previous: App.Type?) {
     }
 
     public var finalizingActions: [PHAssetFinalizingAction] {
@@ -103,18 +115,19 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
                         alert.addAction(UIAlertAction(title: phoneNumber, style: . default, handler: { action in
 
                             DispatchQueue.main.async {
-                                CallManager.shared.startCall(handle: phoneNumber, videoEnabled: false) { s in
 
-                                    if s {
-                                        asyncSignal.end()
-
-                                    }else{
-                                        DispatchQueue.main.async {
-                                            UIAlertController.alert("Sorry can't connect to selected contact.".localized, completion:{ _ in
-                                                asyncSignal.end()
-                                            })
-                                        }
+                                if let url = URL(string: "tel://\(phoneNumber)"), UIApplication.shared.canOpenURL(url) {
+                                    asyncSignal.end()
+                                    
+                                    if #available(iOS 10, *) {
+                                        UIApplication.shared.open(url)
+                                    } else {
+                                        UIApplication.shared.openURL(url)
                                     }
+                                }else{
+                                    UIAlertController.alert("Sorry can't call to selected contact.".localized, completion:{ _ in
+                                        asyncSignal.end()
+                                    })
                                 }
                             }
                         }))

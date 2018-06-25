@@ -288,7 +288,7 @@ class PhotoPickerViewController: AppDockViewController {
             self.photoCollectionView.scrollIndicatorInsets.bottom = self.photoCollectionView.contentInset.bottom
         }
     }
-    
+
     override func cancelButtonDidTap(sender: Any) {
         super.cancelButtonDidTap(sender: sender)
         

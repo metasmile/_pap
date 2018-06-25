@@ -22,7 +22,7 @@ extension Defaults: RevertAppDefaults {
 
 public class RevertApp: NSObject, KeyPathWatchable, BApp
         , AppDockApp
-        , FinalizableApp, AppManagerDelegatableApp
+        , FinalizableApp, AppManagerDelegate
         , PhotoPickerViewControllerDelegatableApp
         , PhotoPickerCollectionViewDisplayableApp
         , PhotoPickerCollectionViewAsyncAutoDisplayableApp {

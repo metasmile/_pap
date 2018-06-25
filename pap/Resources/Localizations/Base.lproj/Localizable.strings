@@ -195,7 +195,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Size";
 /* Generated from genl10n: CallApp.BApp.swift */
-"Sorry can't connect to selected contact." = "Sorry can't connect to selected contact.";
+"Sorry can't call to selected contact." = "Sorry can't call to selected contact.";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Sorry not found any contact data." = "Sorry not found any contact data.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
