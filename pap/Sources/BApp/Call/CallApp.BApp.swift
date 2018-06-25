@@ -19,14 +19,11 @@ private struct CallAppResult: TaskResultable{
 }
 
 private protocol CallAppDefaults: AppDefaults{
-    var autoSelect: Bool {get set}
+
 }
 
 extension Defaults: CallAppDefaults {
-    fileprivate var autoSelect: Bool {
-        set{ set(newValue) }
-        get{ return get(or: false) }
-    }
+
 }
 
 public class CallApp: NSObject, KeyPathWatchable, BApp
@@ -44,7 +41,7 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
     private let appDefaults = CallApp.defaults as! CallAppDefaults
 
     @objc dynamic
-    public fileprivate (set) lazy var autoSelect: Bool = appDefaults.autoSelect
+    public fileprivate (set) lazy var autoSelect: Bool = false
 
     public static let info = AppInfo(
             identifier: "com.stells.pap.call"
@@ -57,7 +54,8 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
             , minOSVersion: nil
     )
 
-    public required override init() {}
+    public required override init() {
+    }
 
     public var finalizingActions: [PHAssetFinalizingAction] {
         return [.showActions]
@@ -142,7 +140,7 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
     }
 
     public func shouldAutoSelectAsynchronously(item: AppAsset, _ async: AsyncSignal) -> PhotoPickerCollectionViewAsyncSelection {
-        if appDefaults.autoSelect == false{
+        if self.autoSelect == false{
             return .none
         }
 
@@ -216,6 +214,8 @@ fileprivate class CallAppDockContent: NSObject, KeyPathWatchable, AppDockContent
 
     lazy var view: UIView = UITableView()
 
+    private var autoSelect:Bool = false
+
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
         preferences.preferredHeight = (view as! UITableView).rowHeight * CGFloat(1)
@@ -261,9 +261,9 @@ fileprivate class CallAppDockContent: NSObject, KeyPathWatchable, AppDockContent
 
         cell.textLabel?.text = "Enable Auto Selection".localized
         cell.textLabel?.textColor = primaryColor
-        cell.optionSwitch.setOn(defaults.autoSelect, animated: false)
+        cell.optionSwitch.setOn(self.autoSelect, animated: false)
         cell.switchDidChange = { on in
-            self.defaults.autoSelect = on
+            self.autoSelect = on
             AppCenter.default.currentInstanceAs(CallApp.self)?.autoSelect = on
         }
 

@@ -33,7 +33,6 @@ private protocol ExifGhostAppDefaults: AppDefaults{
     var ghostedImageMetadataCollection: ImageMetadataPropertyCollection {get set}
     var selectionPreset: Int {get set}
     var removeOriginal: Bool {get set}
-    var autoSelect: Bool {get set}
 }
 
 extension Defaults: ExifGhostAppDefaults {
@@ -48,11 +47,6 @@ extension Defaults: ExifGhostAppDefaults {
     }
 
     fileprivate var removeOriginal: Bool {
-        set{ set(newValue) }
-        get{ return get(or: false ) }
-    }
-
-    fileprivate var autoSelect: Bool {
         set{ set(newValue) }
         get{ return get(or: false ) }
     }
@@ -127,6 +121,10 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
                 })
     ]
 
+    required public override init() {
+        super.init()
+    }
+
     private var initialSelectedIndexPaths:[IndexPath]?
 
     lazy var view: UIView = {
@@ -149,6 +147,8 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         return defaults.selectionPreset == SelectionPresets.all.rawValue
     }
 
+    private var autoSelect:Bool = false
+
     fileprivate var defaults:ExifGhostAppDefaults = ExifGhost.defaults as! ExifGhostAppDefaults
 
     func willSetContentView(_ view: UIView, dock: AppDock) {
@@ -160,10 +160,10 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         let cell1 = UITableViewSwitchCellDescriber()
         cell1.itemIdentifier = Cells.autoSelect.hashValue
         cell1.label = "Enable Auto Selection".localized
-        cell1.valueGetter = { self.defaults.autoSelect }
+        cell1.valueGetter = { self.autoSelect }
         cell1.valueHandler = {
-            self.defaults.autoSelect = $0 as! Bool
-            AppCenter.default.currentInstanceAs(ExifGhost.self)?.autoSelect = self.defaults.autoSelect
+            self.autoSelect = $0 as! Bool
+            AppCenter.default.currentInstanceAs(ExifGhost.self)?.autoSelect = self.autoSelect
         }
         cellDescribers.append(cell1)
 
