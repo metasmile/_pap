@@ -228,7 +228,7 @@ fileprivate class TextractorDockContent: NSObject, KeyPathWatchable, AppDockCont
 
             accessoryView = optionSwitch
 //            backgroundColor = .clear
-            textLabel?.font = UIFont.systemFont(ofSize: 14)
+//            textLabel?.font = UIFont.systemFont(ofSize: 14)
 //            textLabel?.textColor = UIColor.white
         }
 

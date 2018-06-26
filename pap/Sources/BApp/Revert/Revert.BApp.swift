@@ -223,7 +223,7 @@ fileprivate class RevertAppDockContent: NSObject, KeyPathWatchable, AppDockConte
 
             accessoryView = optionSwitch
 //            backgroundColor = .clear
-            textLabel?.font = UIFont.systemFont(ofSize: 14)
+//            textLabel?.font = UIFont.systemFont(ofSize: 14)
 //            textLabel?.textColor = UIColor.white
         }
 

@@ -70,13 +70,14 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             , PhotosFilterApp.self
             , RevertApp.self
             , ConvertApp.self
+            , CallApp.self
             , GIFMaker.self
             , PDFactory.self
             , AutoAdjustmentApp.self
             , ExifGhost.self
 
             //phase: .develop | .beta - They will automatically exclude in Release build.
-            , CallApp.self
+            , PixNote.self
             , Textractor.self
             , Clean.self
             , Stabilizer.self

@@ -8,8 +8,8 @@ import Photos
 import FirebaseMLVision
 import DefaultsKit
 
-private typealias CallAppParam = PHAssetItem<ImageEditStateValue>
-private struct CallAppResult: TaskResultable{
+private typealias PixNoteParam = PHAssetItem<ImageEditStateValue>
+private struct PixNoteResult: TaskResultable{
     fileprivate let asset:PHAsset
 
     init(asset:PHAsset){
@@ -22,37 +22,37 @@ private struct CallAppResult: TaskResultable{
     fileprivate var addresses:[VisionTextAddressParser.OutputType]?
 }
 
-private protocol CallAppDefaults: AppDefaults{
+private protocol PixNoteDefaults: AppDefaults{
 
 }
 
-extension Defaults: CallAppDefaults {
+extension Defaults: PixNoteDefaults {
 
 }
 
-public class CallApp: NSObject, KeyPathWatchable, BApp
+public class PixNote: NSObject, KeyPathWatchable, BApp
         , FinalizableApp
         , AppDockApp
         , PhotoPickerViewControllerDelegatableApp
         , PreheatableApp
         , AppManagerDelegatedApp {
 
-    public static let taskType:Taskable.Type = _CallAppTask.self
+    public static let taskType:Taskable.Type = _PixNoteTask.self
 
     public static let paramType:TaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
 
-    public private(set) lazy var dockContent: AppDockContent? = CallAppDockContent()
+    public private(set) lazy var dockContent: AppDockContent? = PixNoteDockContent()
 
-    private let appDefaults = CallApp.defaults as! CallAppDefaults
+    private let appDefaults = PixNote.defaults as! PixNoteDefaults
 
     @objc dynamic
     public fileprivate (set) lazy var autoSelect: Bool = false
 
     public static let info = AppInfo(
             identifier: "com.stells.pap.call"
-            , version: "1.0"
-            , phase: .release
-            , appType: CallApp.self
+            , version: "0.1"
+            , phase: .develop
+            , appType: PixNote.self
             , displayName: "Call", description:nil, keywords:nil
             , iconBundleName: R.image.callBAppIcon.name
             , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: TaskPolicy(cancellation: .shallow, priority: .normal, estimatedConcurrencyCount: 1))
@@ -81,15 +81,15 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
         return item.asset.mediaType == .image
     }
 
-    fileprivate var preheatedResults = [String:CallAppResult]()
+    fileprivate var preheatedResults = [String:PixNoteResult]()
     public func performPreheating(item: AppAsset, _ async: AsyncSignal) -> PreheatingFinishAction? {
         if self.autoSelect == false{
             return nil
         }
 
-        var preheatedResult:CallAppResult? = preheatedResults[item.asset.localIdentifierWithoutSplitter]
+        var preheatedResult:PixNoteResult? = preheatedResults[item.asset.localIdentifierWithoutSplitter]
         if preheatedResult == nil, let image = item.asset.asUIImage{
-            preheatedResult = self.detector.detectResult(asset: item.asset, image: image, async) ?? CallAppResult(asset: item.asset)
+            preheatedResult = self.detector.detectResult(asset: item.asset, image: image, async) ?? PixNoteResult(asset: item.asset)
             preheatedResults[item.asset.localIdentifierWithoutSplitter] = preheatedResult
         }
 
@@ -105,7 +105,7 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
         let items = result
                 .filter { respondable in respondable.info.state == .completed }
                 .compactMap {
-                    $0.result as? CallAppResult
+                    $0.result as? PixNoteResult
                 }
                 .filter { result in
                     result.phoneNumbers?.count ?? 0 > 0
@@ -194,19 +194,19 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
         return "Find".localized
     }
 
-    fileprivate var detector = CallAppDetector()
+    fileprivate var detector = PixNoteDetector()
 }
 
-private struct CallAppDetector{
+private struct PixNoteDetector{
 
     private let vision = Vision.vision()
 
-    fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncManualSignalable) -> CallAppResult? {
+    fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncManualSignalable) -> PixNoteResult? {
         guard let visionTexts = vision.textDetector().detect(with: image, async) else {
             return nil
         }
 
-        var result = CallAppResult(asset: asset)
+        var result = PixNoteResult(asset: asset)
         result.phoneNumbers = visionTexts.parse(type: VisionTextPhoneNumberParser.self, async)
 //        result.emails = visionTexts.parse(type: VisionTextEmailAddressParser.self, async)
 //        result.addresses = visionTexts.parse(type: VisionTextAddressParser.self, async)
@@ -214,7 +214,7 @@ private struct CallAppDetector{
     }
 }
 
-private class _CallAppTask: TaskPrototype, Taskable {
+private class _PixNoteTask: TaskPrototype, Taskable {
 
     private let emailParser = VisionTextEmailAddressParser()
     private let phoneNumberParser = VisionTextPhoneNumberParser()
@@ -227,13 +227,13 @@ private class _CallAppTask: TaskPrototype, Taskable {
             return nil
         }
 
-        if let preheatedResults = AppCenter.default.currentInstanceAs(CallApp.self)?.preheatedResults
+        if let preheatedResults = AppCenter.default.currentInstanceAs(PixNote.self)?.preheatedResults
         , let result = preheatedResults[asset.localIdentifierWithoutSplitter] {
             return result
 
         }else if let image = asset.asUIImage{
 
-            let detector = AppCenter.default.currentInstanceAs(CallApp.self)?.detector
+            let detector = AppCenter.default.currentInstanceAs(PixNote.self)?.detector
             return detector?.detectResult(asset: asset, image: image, async)
         }
 
@@ -242,8 +242,8 @@ private class _CallAppTask: TaskPrototype, Taskable {
 }
 
 
-fileprivate class CallAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
-    private lazy var defaults = CallApp.defaults as! CallAppDefaults
+fileprivate class PixNoteDockContent: NSObject, KeyPathWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
+    private lazy var defaults = PixNote.defaults as! PixNoteDefaults
 
     private let primaryColor = UIColor(red:0.6, green:0.6, blue:0.6, alpha:1)
 
@@ -263,7 +263,7 @@ fileprivate class CallAppDockContent: NSObject, KeyPathWatchable, AppDockContent
             view.delegate = self
             view.rowHeight = 52
             view.allowsSelection = false
-            view.register(Cell.self, forCellReuseIdentifier: CallApp.info.identifier)
+            view.register(Cell.self, forCellReuseIdentifier: PixNote.info.identifier)
 //            view.backgroundColor = UIColor(red: 31 / 255.0, green: 31 / 255.0, blue: 31 / 255.0, alpha: 1)
             view.tintColor = self.primaryColor
 //            view.separatorInset.left = view.rowHeight
@@ -288,7 +288,7 @@ fileprivate class CallAppDockContent: NSObject, KeyPathWatchable, AppDockContent
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CallApp.info.identifier) as! Cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: PixNote.info.identifier) as! Cell
 
         cell.imageView?.tintColor = primaryColor
         cell.imageView?.contentMode = .scaleAspectFit
@@ -297,7 +297,7 @@ fileprivate class CallAppDockContent: NSObject, KeyPathWatchable, AppDockContent
         cell.optionSwitch.setOn(self.autoSelect, animated: false)
         cell.switchDidChange = { on in
             self.autoSelect = on
-            AppCenter.default.currentInstanceAs(CallApp.self)?.autoSelect = on
+            AppCenter.default.currentInstanceAs(PixNote.self)?.autoSelect = on
         }
 
         return cell
