@@ -12,8 +12,12 @@ private typealias CallAppParam = PHAssetItem<ImageEditStateValue>
 private struct CallAppResult: TaskResultable{
     fileprivate let asset:PHAsset
 
+    init(asset:PHAsset){
+        self.asset = asset
+    }
+
     //INFO: Array means "Blocks"
-    fileprivate let phoneNumbers:[VisionTextPhoneNumberParser.OutputType]
+    fileprivate var phoneNumbers:[VisionTextPhoneNumberParser.OutputType]?
     fileprivate var emails:[VisionTextEmailAddressParser.OutputType]?
     fileprivate var addresses:[VisionTextAddressParser.OutputType]?
 }
@@ -77,13 +81,34 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
         return item.asset.mediaType == .image
     }
 
+    fileprivate var preheatedResults = [String:CallAppResult]()
+    public func performPreheating(item: AppAsset, _ async: AsyncSignal) -> PreheatingFinishAction? {
+        if self.autoSelect == false{
+            return nil
+        }
+
+        var preheatedResult:CallAppResult? = preheatedResults[item.asset.localIdentifierWithoutSplitter]
+        if preheatedResult == nil, let image = item.asset.asUIImage{
+            preheatedResult = self.detector.detectResult(asset: item.asset, image: image, async) ?? CallAppResult(asset: item.asset)
+            preheatedResults[item.asset.localIdentifierWithoutSplitter] = preheatedResult
+        }
+
+        if preheatedResult?.phoneNumbers?.count ?? 0 > 0{
+            return UICollectionViewPreheatableAppFinishAction.selectItem
+        }
+
+        return nil
+    }
+
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
 
         let items = result
                 .filter { respondable in respondable.info.state == .completed }
-                .compactMap { $0.result as? CallAppResult }
+                .compactMap {
+                    $0.result as? CallAppResult
+                }
                 .filter { result in
-                    result.phoneNumbers.count>0
+                    result.phoneNumbers?.count ?? 0 > 0
                 }
 
 
@@ -96,7 +121,7 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
 
         for item in items {
 
-            for phoneNumberSetInBlock in item.phoneNumbers{
+            for phoneNumberSetInBlock in item.phoneNumbers ?? []{
 
                 for phoneNumber in phoneNumberSetInBlock where false == phoneNumberPool.contains(phoneNumber) && phoneNumber.count>0 {
                     phoneNumberPool.insert(phoneNumber)
@@ -153,18 +178,6 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
         return result
     }
 
-    public func performPreheating(item: AppAsset, _ async: AsyncSignal) -> PreheatingFinishAction? {
-
-        if self.autoSelect
-        , let image = item.asset.asUIImage
-        , let result = self.detector.detectResult(asset: item.asset, image: image, async){
-
-            return result.phoneNumbers.count > 0 ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
-        }
-
-        return nil
-    }
-
     public var titleWillBegin: String? {
         return "Starting To Find ...".localized
     }
@@ -181,7 +194,7 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
         return "Find".localized
     }
 
-    fileprivate lazy var detector = CallAppDetector()
+    fileprivate var detector = CallAppDetector()
 }
 
 private struct CallAppDetector{
@@ -193,15 +206,11 @@ private struct CallAppDetector{
             return nil
         }
 
-        guard let phoneNumbers = visionTexts.parse(type: VisionTextPhoneNumberParser.self, async) else{
-            return nil
-        }
-
-        let emailAddresses = visionTexts.parse(type: VisionTextEmailAddressParser.self, async)
-
-        let addresses = visionTexts.parse(type: VisionTextAddressParser.self, async)
-
-        return CallAppResult(asset: asset, phoneNumbers: phoneNumbers, emails: emailAddresses, addresses: addresses)
+        var result = CallAppResult(asset: asset)
+        result.phoneNumbers = visionTexts.parse(type: VisionTextPhoneNumberParser.self, async)
+        result.emails = visionTexts.parse(type: VisionTextEmailAddressParser.self, async)
+        result.addresses = visionTexts.parse(type: VisionTextAddressParser.self, async)
+        return result
     }
 }
 
@@ -214,13 +223,21 @@ private class _CallAppTask: TaskPrototype, Taskable {
 
     public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
 
-        guard let asset = (param as? PHAssetItem<ImageEditStateValue>)?.asset
-        , let image = asset.asUIImage else {
+        guard let asset = (param as? PHAssetItem<ImageEditStateValue>)?.asset else{
             return nil
         }
 
-        let detector = AppCenter.default.currentInstanceAs(CallApp.self)?.detector
-        return detector?.detectResult(asset: asset, image: image, async)
+        if let preheatedResults = AppCenter.default.currentInstanceAs(CallApp.self)?.preheatedResults
+        , let result = preheatedResults[asset.localIdentifierWithoutSplitter] {
+            return result
+
+        }else if let image = asset.asUIImage{
+
+            let detector = AppCenter.default.currentInstanceAs(CallApp.self)?.detector
+            return detector?.detectResult(asset: asset, image: image, async)
+        }
+
+        return nil
     }
 }
 
