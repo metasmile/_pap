@@ -15,6 +15,10 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         }
         return AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDisplayableApp.self)
     }
+    
+    private var assetContentMode: PHImageContentMode {
+        return traitCollection.userInterfaceIdiom == .phone ? .aspectFill : .aspectFit
+    }
 
     // MARK: - UICollectionViewDataSource
 
@@ -29,7 +33,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.nib.photoCollectionViewCell.name, for: indexPath) as! PhotoCollectionViewCell
         if let asset = PHAssets.fetched.asset(at: indexPath) {
-            cell.imageContentMode = .aspectFill
+            cell.imageContentMode = assetContentMode
             cell.setAsset(asset, at: indexPath)
         }
         return cell
@@ -45,12 +49,12 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
 
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         let cellSize = self.collectionView(collectionView, layout: collectionView.collectionViewLayout, sizeForItemAt: IndexPath(item: 0, section: 0))
-        PHPhotoLibraryManager.cachingImageManager.startCachingImages(for: indexPaths.compactMap({ PHAssets.fetched.asset(at: $0) }), targetSize: cellSize, contentMode: .aspectFill, options: nil)
+        PHPhotoLibraryManager.cachingImageManager.startCachingImages(for: indexPaths.compactMap({ PHAssets.fetched.asset(at: $0) }), targetSize: cellSize, contentMode: assetContentMode, options: nil)
     }
 
     func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
         let cellSize = self.collectionView(collectionView, layout: collectionView.collectionViewLayout, sizeForItemAt: IndexPath(item: 0, section: 0))
-        PHPhotoLibraryManager.cachingImageManager.stopCachingImages(for: indexPaths.compactMap({ PHAssets.fetched.asset(at: $0) }), targetSize: cellSize, contentMode: .aspectFill, options: nil)
+        PHPhotoLibraryManager.cachingImageManager.stopCachingImages(for: indexPaths.compactMap({ PHAssets.fetched.asset(at: $0) }), targetSize: cellSize, contentMode: assetContentMode, options: nil)
     }
 
     // MARK: - UICollectionViewDelegate
@@ -117,11 +121,24 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     }
 
     // MARK: - UICollectionViewDelegateFlowLayout
+    
+    var numberOfItemsInRow: CGFloat {
+        let numberOfItemsInRow: CGFloat
+        
+        switch traitCollection.userInterfaceIdiom {
+        case .pad:
+            numberOfItemsInRow = 5
+        default:
+            numberOfItemsInRow = 4
+        }
+        
+        return numberOfItemsInRow
+    }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let interitemSpacing = self.collectionView(collectionView, layout: collectionViewLayout, minimumInteritemSpacingForSectionAt: indexPath.item)
-
-        let gridWidth = (UIEdgeInsetsInsetRect(collectionView.bounds, collectionView.contentInset).width - interitemSpacing * (kPhotoPickerNumberOfItemsInRow - 1)) / kPhotoPickerNumberOfItemsInRow
+        
+        let gridWidth = (UIEdgeInsetsInsetRect(collectionView.bounds, collectionView.contentInset).width - interitemSpacing * (numberOfItemsInRow - 1)) / numberOfItemsInRow
         return CGSize(width: gridWidth, height: gridWidth)
     }
 

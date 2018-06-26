@@ -134,6 +134,12 @@ class PhotoAlbumViewController: UIViewController, PHPhotoLibraryChangeObserver  
         collectionView.register(PhotoAlbumCollectionTitleView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "PhotoAlbumCollectionTitleView")
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
     func photoLibraryDidChange(_ changeInstance: PHChange) {
         DispatchQueue.main.async {
             self.updateAlbumChanges(changeInstance)
@@ -268,8 +274,23 @@ extension PhotoAlbumViewController: UICollectionViewDelegate {
 }
 
 extension PhotoAlbumViewController: UICollectionViewDelegateFlowLayout {
+    var numberOfItemsInRow: CGFloat {
+        let numberOfItemsInRow: CGFloat
+        
+        switch traitCollection.userInterfaceIdiom {
+        case .pad:
+            numberOfItemsInRow = 4
+        default:
+            numberOfItemsInRow = 2
+        }
+        
+        return numberOfItemsInRow
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (UIEdgeInsetsInsetRect(collectionView.bounds, collectionView.contentInset).width - 16) / 2
+        let interitemSpacing = self.collectionView(collectionView, layout: collectionViewLayout, minimumInteritemSpacingForSectionAt: indexPath.item)
+        
+        let width = (UIEdgeInsetsInsetRect(collectionView.bounds, collectionView.contentInset).width - interitemSpacing * (numberOfItemsInRow - 1)) / numberOfItemsInRow
         return CGSize(width: width, height: width + 50)
     }
     

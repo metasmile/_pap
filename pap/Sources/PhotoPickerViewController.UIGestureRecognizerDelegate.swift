@@ -69,8 +69,8 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
 
         var groupDirection = DragSelectionGestureRecognizer.AutoPanningDirection.none
         if let currentIndexPath = photoCollectionView.indexPathForItem(at: location) {
-            let beginRow = beginIndexPath.item / Int(kPhotoPickerNumberOfItemsInRow)
-            let currentRow = currentIndexPath.item / Int(kPhotoPickerNumberOfItemsInRow)
+            let beginRow = beginIndexPath.item / Int(numberOfItemsInRow)
+            let currentRow = currentIndexPath.item / Int(numberOfItemsInRow)
 
             let diffRow = currentRow - beginRow
             if diffRow > 0 {

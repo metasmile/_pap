@@ -21,8 +21,8 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
     //TODO: wrap a view as a decorationrenderview later
     @IBOutlet weak var selectionView: UIView!
 
-    @IBOutlet weak var selectionViewWidth: NSLayoutConstraint!
-    @IBOutlet weak var selectionViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var imageViewWidth: NSLayoutConstraint!
+    @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
     
     @IBOutlet weak var decorationView: UIView!
 
@@ -31,10 +31,12 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
     
     var selectionCheckView: CheckMark!
 
-    private var selectionViewSize: CGSize = .zero {
+    private var imageViewSize: CGSize = .zero {
         didSet {
-            selectionViewWidth.constant = selectionViewSize.width
-            selectionViewHeight.constant = selectionViewSize.height
+            imageViewWidth.constant = imageViewSize.width
+            imageViewHeight.constant = imageViewSize.height
+            
+            layoutIfNeeded()
         }
     }
     
@@ -59,6 +61,15 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         
         selectionView.addSubview(selectionCheckView)
         selectionView.backgroundColor = UIColor(white: 1, alpha: 0.25)
+        
+        let checkmarkSize = selectionCheckView.bounds.size
+        let checkmarkmargin:CGFloat = 2.0
+        
+        selectionCheckView.translatesAutoresizingMaskIntoConstraints = false
+        selectionCheckView.widthAnchor.constraint(equalToConstant: checkmarkSize.width).isActive = true
+        selectionCheckView.heightAnchor.constraint(equalToConstant: checkmarkSize.height).isActive = true
+        selectionCheckView.bottomAnchor.constraint(equalTo: selectionView.bottomAnchor, constant: -checkmarkmargin).isActive = true
+        selectionCheckView.trailingAnchor.constraint(equalTo: selectionView.trailingAnchor, constant: -checkmarkmargin).isActive = true
     }
     
     override func prepareForReuse() {
@@ -128,11 +139,7 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         updateImageViewContentMode()
         
         let imageSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight)
-        selectionViewSize = (imageContentMode == .aspectFit ? AVMakeRect(aspectRatio: imageSize, insideRect: imageView.bounds) : imageView.bounds).size
-        
-        let checkmarkSize = selectionCheckView.bounds.size
-        let checkmarkmargin:CGFloat = 2.0
-        selectionCheckView.frame = CGRect(origin: CGPoint(x: selectionViewSize.height-checkmarkSize.width-checkmarkmargin, y: selectionViewSize.width-checkmarkSize.height-checkmarkmargin), size: checkmarkSize)
+        imageViewSize = (imageContentMode == .aspectFit ? AVMakeRect(aspectRatio: imageSize, insideRect: UIEdgeInsetsInsetRect(bounds, UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))) : bounds).size
     }
     
     private func updateDecorationContents(with asset: PHAsset) {

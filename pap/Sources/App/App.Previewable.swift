@@ -14,15 +14,15 @@ public protocol PreviewableApp: App {
     func previewAsync(_ appAsset: AppAsset, at indexPath: IndexPath, completion: @escaping ((UIImage?) -> Void))
 }
 
-public protocol PreviewCachableApp: App {
-    func removeAllCachedPreviewImages()
-    func cachedPreviewImage(_ appAsset: AppAsset, at indexPath: IndexPath) -> UIImage?
-}
-
 extension PreviewableApp {
     public var currentEditStateValue: ImageEditStateValue? { return nil }
     public var previewAsynchronously: Bool { return false }
     public func previewAsync(_ appAsset: AppAsset, at indexPath: IndexPath, completion: @escaping ((UIImage?) -> Void)) {}
+}
+
+public protocol PreviewCachableApp: App {
+    func removeAllCachedPreviewImages()
+    func cachedPreviewImage(_ appAsset: AppAsset, at indexPath: IndexPath) -> UIImage?
 }
 
 extension PreviewCachableApp {

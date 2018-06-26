@@ -10,10 +10,6 @@ import UIKit
 import Photos
 import PhotosUI
 
-extension PhotoPickerViewController {
-    var kPhotoPickerNumberOfItemsInRow: CGFloat { return 4 }
-}
-
 class PhotoPickerViewController: AppDockViewController {
     @IBOutlet weak var photoCollectionView: UICollectionView!
     
@@ -162,6 +158,12 @@ class PhotoPickerViewController: AppDockViewController {
         super.viewWillDisappear(animated)
 
         cancelPendingAutoSelectionIfNeeded()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        photoCollectionView.collectionViewLayout.invalidateLayout()
     }
 
     private func flushQueuedPhotoLibraryChanges(){
