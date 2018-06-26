@@ -35,6 +35,7 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
         , AppDockApp
         , PhotoPickerViewControllerDelegatableApp
         , PreheatableApp
+//        , PreviewableApp
         , AppManagerDelegatedApp {
 
     public static let taskType:Taskable.Type = _CallAppTask.self
@@ -242,18 +243,22 @@ private class _CallAppTask: TaskPrototype, Taskable {
 }
 
 
-fileprivate class CallAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
+fileprivate class CallAppDockContent: NSObject, KeyPathWatchable,
+        AppDockContent, UITableViewDelegate, UITableViewDataSource{
     private lazy var defaults = CallApp.defaults as! CallAppDefaults
 
     private let primaryColor = UIColor(red:0.6, green:0.6, blue:0.6, alpha:1)
 
-    lazy var view: UIView = UITableView()
+    lazy var view: UIView = {
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        return tableView
+    }()
 
     private var autoSelect:Bool = false
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
-        preferences.preferredHeight = (view as! UITableView).rowHeight * CGFloat(1)
+        preferences.preferredHeight = (view as! UITableView).rowHeight + 48
         return preferences
     }
 
@@ -281,6 +286,22 @@ fileprivate class CallAppDockContent: NSObject, KeyPathWatchable, AppDockContent
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return section == 0 ? "🖼️ ‣ 🔍 ‣ ☎️ " + "Select Photos You Want To Grab Phone Numbers!".localized : nil
+    }
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return nil
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -54,7 +54,7 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
             , phase: .develop
             , appType: PixNote.self
             , displayName: "Call", description:nil, keywords:nil
-            , iconBundleName: R.image.callBAppIcon.name
+            , iconBundleName: R.image.pixNoteBAppIcon.name
             , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: TaskPolicy(cancellation: .shallow, priority: .normal, estimatedConcurrencyCount: 1))
             , minOSVersion: nil
     )

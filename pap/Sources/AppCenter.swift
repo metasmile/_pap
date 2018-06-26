@@ -67,11 +67,11 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
 
         config.appCollection = [
             TransformApp.self
-            , PhotosFilterApp.self
+            , GIFMaker.self
             , RevertApp.self
             , ConvertApp.self
+            , PhotosFilterApp.self
             , CallApp.self
-            , GIFMaker.self
             , PDFactory.self
             , AutoAdjustmentApp.self
             , ExifGhost.self
