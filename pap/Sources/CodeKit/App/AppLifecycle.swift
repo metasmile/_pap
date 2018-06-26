@@ -55,22 +55,24 @@ final class AppLifecycleManager {
     }
 
     private func _acquire(_ info: AppInfo) -> App?{
-        let appIdentifier = info.identifier
-        let appType = info.appType
+        return _instancesAccessQueue.sync {
+            let appIdentifier = info.identifier
+            let appType = info.appType
 
-        guard let appInstance = _instancesAccessQueue.sync(execute:{ _instances[appIdentifier] }) else{
-            let _appInstance = appType.init()
+            guard let appInstance = _instances[appIdentifier] else{
+                let _appInstance = appType.init()
 
-            if let delegation = _appInstance as? AppLifecycleManagerDelegatableApp, delegation.willAcquire() == false{
-                return nil
+                if let delegation = _appInstance as? AppLifecycleManagerDelegatableApp, delegation.willAcquire() == false{
+                    return nil
+                }
+
+                _instancesAccessQueue.async(flags:.barrier){
+                    self._instances[appIdentifier] = _appInstance
+                }
+                return _appInstance
             }
-
-            _instancesAccessQueue.async(flags:.barrier){
-                self._instances[appIdentifier] = _appInstance
-            }
-            return _appInstance
+            return appInstance
         }
-        return appInstance
     }
 
     @discardableResult
@@ -79,20 +81,22 @@ final class AppLifecycleManager {
     }
 
     private func _discard(_ info: AppInfo) -> Bool{
-        let identifier = info.identifier
-        guard let appInstance = _instancesAccessQueue.sync(execute:{ _instances[identifier] }) else { return false }
+        return _instancesAccessQueue.sync{
+            let identifier = info.identifier
+            guard let appInstance = _instances[identifier] else { return false }
 
-        if info.policy.lifeCycle.instance == .permanent{
-            return false
-        }
+            if info.policy.lifeCycle.instance == .permanent{
+                return false
+            }
 
-        if let delegation = appInstance as? AppLifecycleManagerDelegatableApp, delegation.willDiscard() == false{
-            return false
-        }
+            if let delegation = appInstance as? AppLifecycleManagerDelegatableApp, delegation.willDiscard() == false{
+                return false
+            }
 
-        _instancesAccessQueue.async(flags:.barrier){
-            self._instances.removeValue(forKey: identifier)
+            _instancesAccessQueue.async(flags:.barrier){
+                self._instances.removeValue(forKey: identifier)
+            }
+            return true
         }
-        return true
     }
 }

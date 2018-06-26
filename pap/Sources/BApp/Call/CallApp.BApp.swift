@@ -51,7 +51,7 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
             , appType: CallApp.self
             , displayName: "Call", description:nil, keywords:nil
             , iconBundleName: R.image.callBAppIcon.name
-            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy.default, task: TaskPolicy(cancellation: .shallow, priority: .normal, estimatedConcurrencyCount: 1))
+            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: TaskPolicy(cancellation: .shallow, priority: .normal, estimatedConcurrencyCount: 1))
             , minOSVersion: nil
     )
 
@@ -161,8 +161,7 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
         }
 
         if let image = item.asset.asUIImage {
-
-            if let result = AppCenter.default.currentInstanceAs(CallApp.self)?.detectResult(asset: item.asset, image: image, async) {
+            if let result = self.detector.detectResult(asset: item.asset, image: image, async) {
                 return result.phoneNumbers.count > 0 ? .visible : .none
             }
         }
@@ -182,21 +181,15 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
         return "Find".localized
     }
 
-    private lazy var firebaseVision = [String:Vision]()
+    fileprivate lazy var detector = CallAppDetector()
+}
+
+private struct CallAppDetector{
+//    private let vision = Vision.vision()
 
     fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncManualSignalable) -> CallAppResult? {
 
-        var visionInstance:Vision
-        if let vision = firebaseVision[DispatchQueue.currentLabel]{
-            visionInstance = vision
-        }else{
-            visionInstance = Vision.vision()
-            firebaseVision[DispatchQueue.currentLabel] = visionInstance
-        }
-
-        let detector = visionInstance.textDetector()
-
-        guard let visionTexts = detector.detect(with: image, async) else {
+        guard let visionTexts = Vision.vision().textDetector().detect(with: image, async) else {
             return nil
         }
 
@@ -226,7 +219,8 @@ private class _CallAppTask: TaskPrototype, Taskable {
             return nil
         }
 
-        return AppCenter.default.currentInstanceAs(CallApp.self)?.detectResult(asset: asset, image: image, async)
+        let detector = AppCenter.default.currentInstanceAs(CallApp.self)?.detector
+        return detector?.detectResult(asset: asset, image: image, async)
     }
 }
 
