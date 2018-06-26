@@ -134,15 +134,16 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         assetView.setThumbnailAsset(asset, cancelDrawingIfNeeded: { [weak self] in
             return self?.indexPath != indexPath
         }, completion: { [weak self] image in
-            self?.setAssetItem(item, at: indexPath)
+            if let app = AppCenter.default.currentInstanceAs(PreviewCachableApp.self), let cached = app.cachedPreviewImage(item, at: indexPath) {
+                self?.assetView.image = cached
+            }
+            else {
+                self?.setAssetItem(item, at: indexPath)
+            }
         })
     }
     
-    public func setAssetItem(_ item: PHAssetItem<ImageEditStateValue>, at indexPath: IndexPath, forced: Bool = false, animated: Bool = false) {
-        if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self), forced {
-            app.removeAllCachedPreviewImages()
-        }
-        
+    public func setAssetItem(_ item: PHAssetItem<ImageEditStateValue>, at indexPath: IndexPath, animated: Bool = false) {
         guard self.indexPath == indexPath else { return }
         if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self), app.previewAsynchronously {
             self.isProcessing = true

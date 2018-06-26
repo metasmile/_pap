@@ -11,7 +11,7 @@ import UIKit
 class _AutoAdjustmentAppAsset: _PhotosFilterAppAsset {}
 
 public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _ConfigurableApp,
-        PHAssetFinalizableApp, PreviewableApp, AppDockApp,
+        PHAssetFinalizableApp, PreviewableApp, PreviewCachableApp, AppDockApp,
         PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp {
 
     public static let taskType:Taskable.Type = _AutoAdjustmentAppTask.self
@@ -97,15 +97,10 @@ public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableAp
         let identifier = "\(appAsset.asset.localIdentifierWithoutSplitter)_\(indexPath)_\(appAsset.editState.hash)"
         let previewIdentifier = identifier
         
-        if let cached = cachedPreviewImage(appAsset, at: indexPath) {
-            completion(cached)
-            return
-        }
-        
         let image = appAsset.asset.requestImage(targetSize: UIScreen.main.bounds.size, options: nil).image?.applyFilter(ciFilter: appAsset.editState.ciFilter)
         
         let url = FileURL.temp(identifier, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
-        if let image = image, let data = UIImageJPEGRepresentation(image, 0.7), (try? data.write(to: url)) != nil {
+        if cachedImages[identifier] == nil, let image = image, let data = UIImageJPEGRepresentation(image, 0.7), (try? data.write(to: url)) != nil {
             cachedImages[identifier] = url
         }
         
