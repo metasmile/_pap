@@ -78,7 +78,7 @@ internal class AppDockDrawerView: DesignableView {
 
         let cornerRadius: CGFloat = 8
 
-        let roundedRectPath = UIBezierPath(roundedRect: CGRect(x: 0, y: topMargin, width: rect.width, height: rect.height - topMargin), byRoundingCorners: [UIRectCorner.topLeft, UIRectCorner.topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+        let roundedRectPath = UIBezierPath(roundedRect: CGRect(x: 0, y: topMargin, width: rect.width, height: max(cornerRadius * 2, rect.height - topMargin)), byRoundingCorners: [UIRectCorner.topLeft, UIRectCorner.topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
 
         let ctx = UIGraphicsGetCurrentContext()
         ctx?.saveGState()
