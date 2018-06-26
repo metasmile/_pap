@@ -172,7 +172,7 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
         cell1.valueGetter = { self.autoSelect }
         cell1.valueHandler = {
             self.autoSelect = $0 as! Bool
-//            AppCenter.default.currentInstanceAs(PixNote.self)?.autoSelect = self.autoSelect
+            AppCenter.default.currentInstanceAs(PixNote.self)?.autoSelect = self.autoSelect
         }
         cellDescribers.append(cell1)
 

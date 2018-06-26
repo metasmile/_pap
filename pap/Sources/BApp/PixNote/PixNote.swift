@@ -179,7 +179,7 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
     }
 
     public var titleWillBegin: String? {
-        return "Starting To Find ...".localized
+        return "Starting To Grab ...".localized
     }
 
     public var titleWillFinalize: String? {
@@ -187,11 +187,11 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
     }
 
     public func titleDidUpdate(progress: Float) -> String? {
-        return "Finding Contacts ... %@ ".localizedFormatted("\(Int(progress * 100))%")
+        return "Grabbing Text Contents ... %@ ".localizedFormatted("\(Int(progress * 100))%")
     }
 
     public var doneButtonTitle: String? {
-        return "Find".localized
+        return "Grab".localized
     }
 
     fileprivate var detector = PixNoteDetector()
