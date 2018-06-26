@@ -180,7 +180,7 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
     }
 
     public var titleWillBegin: String? {
-        return "Starting To Find ...".localized
+        return "🔍 Starting To Find ...".localized
     }
 
     public var titleWillFinalize: String? {
@@ -297,7 +297,7 @@ fileprivate class CallAppDockContent: NSObject, KeyPathWatchable,
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 0 ? "🖼️ ‣ 🔍 ‣ ☎️ " + "Select Photos You Want To Grab Phone Numbers!".localized : nil
+        return section == 0 ? "🖼️ ‣ 🤖 ‣ ☎️" + "Select Photos You Want To Grab Phone Numbers!".localized : nil
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

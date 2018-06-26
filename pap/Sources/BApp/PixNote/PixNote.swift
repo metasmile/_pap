@@ -49,12 +49,12 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
     public fileprivate (set) lazy var autoSelect: Bool = false
 
     public static let info = AppInfo(
-            identifier: "com.stells.pap.call"
+            identifier: "com.stells.pap.pixnote"
             , version: "0.1"
             , phase: .develop
             , appType: PixNote.self
-            , displayName: "Call", description:nil, keywords:nil
-            , iconBundleName: R.image.pixNoteBAppIcon.name
+            , displayName: "Pix Note", description:nil, keywords:nil
+            , iconBundleName: nil//R.image.pixNoteBAppIcon.name
             , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: TaskPolicy(cancellation: .shallow, priority: .normal, estimatedConcurrencyCount: 1))
             , minOSVersion: nil
     )
