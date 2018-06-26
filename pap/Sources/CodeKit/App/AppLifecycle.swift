@@ -35,39 +35,39 @@ protocol AppLifecycleManagerDelegatableApp where Self:App {
 final class AppLifecycleManager {
     static let shared = AppLifecycleManager()
 
-    private var _instanceCreationQueue:DispatchQueue
+    private var _instancesAccessQueue:DispatchQueue
     private var _instances:[String: App]
 
     private init() {
         _instances = [:]
         //THINK: semaphore vs current_queue?
-        _instanceCreationQueue = DispatchQueue(label: "com.stells.internal__\(type(of: self))", attributes: .concurrent)
+        _instancesAccessQueue = DispatchQueue(label: "com.stells.internal__\(type(of: self))",qos: .userInteractive)
     }
 
     var acquired:[String]{
-        return _instanceCreationQueue.sync(flags: .barrier) {
+        return _instancesAccessQueue.sync {
             _instances.map { e -> String in e.0 }
         }
     }
 
     func acquire(_ info: AppInfo) -> App?{
-        return _instanceCreationQueue.sync(flags: .barrier) {
-            _acquire(info)
-        }
+        return _acquire(info)
     }
 
     private func _acquire(_ info: AppInfo) -> App?{
         let appIdentifier = info.identifier
         let appType = info.appType
 
-        guard let appInstance = _instances[appIdentifier] else{
+        guard let appInstance = _instancesAccessQueue.sync(execute:{ _instances[appIdentifier] }) else{
             let _appInstance = appType.init()
 
             if let delegation = _appInstance as? AppLifecycleManagerDelegatableApp, delegation.willAcquire() == false{
                 return nil
             }
 
-            _instances[appIdentifier] = _appInstance
+            _instancesAccessQueue.async(flags:.barrier){
+                self._instances[appIdentifier] = _appInstance
+            }
             return _appInstance
         }
         return appInstance
@@ -75,24 +75,12 @@ final class AppLifecycleManager {
 
     @discardableResult
     func discard(_ info: AppInfo) -> Bool{
-        return _instanceCreationQueue.sync(flags: .barrier) {
-            _discard(info)
-        }
-    }
-
-    func discardAll() -> [Bool]{
-        return _instanceCreationQueue.sync(flags: .barrier) {
-            _instances.map { e -> Bool in
-                let _appInstance = e.1
-                let info = type(of: _appInstance).info
-                return _discard(info)
-            }
-        }
+        return _discard(info)
     }
 
     private func _discard(_ info: AppInfo) -> Bool{
         let identifier = info.identifier
-        guard let appInstance = _instances[identifier] else { return false }
+        guard let appInstance = _instancesAccessQueue.sync(execute:{ _instances[identifier] }) else { return false }
 
         if info.policy.lifeCycle.instance == .permanent{
             return false
@@ -102,7 +90,9 @@ final class AppLifecycleManager {
             return false
         }
 
-        _instances.removeValue(forKey: identifier)
+        _instancesAccessQueue.async(flags:.barrier){
+            self._instances.removeValue(forKey: identifier)
+        }
         return true
     }
 }

@@ -182,12 +182,19 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
         return "Find".localized
     }
 
-
-    private let firebaseVision = Vision.vision()
+    private lazy var firebaseVision = [String:Vision]()
 
     fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncManualSignalable) -> CallAppResult? {
 
-        let detector = firebaseVision.textDetector()
+        var visionInstance:Vision
+        if let vision = firebaseVision[DispatchQueue.currentLabel]{
+            visionInstance = vision
+        }else{
+            visionInstance = Vision.vision()
+            firebaseVision[DispatchQueue.currentLabel] = visionInstance
+        }
+
+        let detector = visionInstance.textDetector()
 
         guard let visionTexts = detector.detect(with: image, async) else {
             return nil

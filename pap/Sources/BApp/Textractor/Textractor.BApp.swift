@@ -107,7 +107,7 @@ public class Textractor: NSObject, KeyPathWatchable, BApp
         return "Grab".localized
     }
 
-    fileprivate let firebaseVision = Vision.vision() //TODO: decide 1-1 or 1-N ?
+    fileprivate lazy var firebaseVision = Vision.vision() //TODO: decide 1-1 or 1-N ?
 }
 
 private class _TextractorTask: TaskPrototype, Taskable {
