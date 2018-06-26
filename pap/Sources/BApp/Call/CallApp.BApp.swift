@@ -31,7 +31,7 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
         , AppDockApp
         , PhotoPickerViewControllerDelegatableApp
         , PhotoPickerCollectionViewAsyncAutoDisplayableApp
-        , AppManagerDelegate {
+        , AppManagerDelegatedApp {
 
     public static let taskType:Taskable.Type = _CallAppTask.self
 
@@ -86,69 +86,67 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
                     result.phoneNumbers.count>0
                 }
 
-        if items.count==0{
+
+        //TODO: wrap with something VO
+        //TODO: if numbers and emails are in same block, maybe it is data of a person.
+
+        var phoneNumberPool = Set<String>()
+
+        let alert = UIAlertController(title: "Choose A Phone Number To Call".localized, message: nil, preferredStyle: .actionSheet)
+
+        for item in items {
+
+            for phoneNumberSetInBlock in item.phoneNumbers{
+
+                for phoneNumber in phoneNumberSetInBlock where false == phoneNumberPool.contains(phoneNumber){
+                    phoneNumberPool.insert(phoneNumber)
+
+                    alert.addAction(UIAlertAction(title: phoneNumber, style: . default, handler: { action in
+
+                        DispatchQueue.main.async {
+
+                            if let url = URL(string: "tel://\(phoneNumber)"), UIApplication.shared.canOpenURL(url) {
+                                asyncSignal.end()
+
+                                if #available(iOS 10, *) {
+                                    UIApplication.shared.open(url)
+                                } else {
+                                    UIApplication.shared.openURL(url)
+                                }
+                            }else{
+                                UIAlertController.alert("Sorry can't call to selected contact.".localized, completion:{ _ in
+                                    asyncSignal.end()
+                                })
+                            }
+                        }
+                    }))
+
+                }
+            }
+        }
+
+        if alert.actions.count > 0{
+            alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
+                asyncSignal.end()
+            }))
 
             asyncSignal.begin()
-            DispatchQueue.main.async {
-                UIAlertController.alert("Sorry not found any contact data.".localized, completion:{ _ in
-                    asyncSignal.end()
-                })
+
+            DispatchQueue.main.async{
+                UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true)
             }
+
             asyncSignal.waitUntilEnd()
 
         }else{
 
-            //TODO: wrap with something VO
-            //TODO: if numbers and emails are in same block, maybe it is data of a person.
-
-            var phoneNumberPool = Set<String>()
-
-            let alert = UIAlertController(title: "Choose A Phone Number To Call".localized, message: nil, preferredStyle: .actionSheet)
-
-            for item in items {
-
-                for phoneNumberSetInBlock in item.phoneNumbers{
-
-                    for phoneNumber in phoneNumberSetInBlock where false == phoneNumberPool.contains(phoneNumber){
-                        phoneNumberPool.insert(phoneNumber)
-
-                        alert.addAction(UIAlertAction(title: phoneNumber, style: . default, handler: { action in
-
-                            DispatchQueue.main.async {
-
-                                if let url = URL(string: "tel://\(phoneNumber)"), UIApplication.shared.canOpenURL(url) {
-                                    asyncSignal.end()
-                                    
-                                    if #available(iOS 10, *) {
-                                        UIApplication.shared.open(url)
-                                    } else {
-                                        UIApplication.shared.openURL(url)
-                                    }
-                                }else{
-                                    UIAlertController.alert("Sorry can't call to selected contact.".localized, completion:{ _ in
-                                        asyncSignal.end()
-                                    })
-                                }
-                            }
-                        }))
-
-                    }
-                }
-            }
-
-            if alert.actions.count > 0{
-                alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
+            asyncSignal.begin()
+            DispatchQueue.main.async {
+                UIAlertController.alert("Sorry not found any contact information.".localized, completion:{ _ in
                     asyncSignal.end()
-                }))
-
-                asyncSignal.begin()
-
-                DispatchQueue.main.async{
-                    UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true)
-                }
-
-                asyncSignal.waitUntilEnd()
+                })
             }
+            asyncSignal.waitUntilEnd()
 
         }
 
@@ -169,12 +167,16 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
         return .none
     }
 
+    public var titleWillBegin: String? {
+        return "Starting To Find ...".localized
+    }
+
     public var titleWillFinalize: String? {
-        return "Pending To Connect ...".localized
+        return "Waiting To Select ...".localized
     }
 
     public func titleDidUpdate(progress: Float) -> String? {
-        return "Finding Contact Points ... %@ ".localizedFormatted("\(Int(progress * 100))%")
+        return "Finding Contacts ... %@ ".localizedFormatted("\(Int(progress * 100))%")
     }
 
     public var doneButtonTitle: String? {

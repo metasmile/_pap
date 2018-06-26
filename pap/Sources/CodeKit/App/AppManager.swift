@@ -14,14 +14,14 @@ protocol AppManagerConfigurable where Self:AppManager {
     func configure() -> AppManagerConfig?
 }
 
-protocol AppManagerDelegate where Self:App {
+protocol AppManagerDelegatedApp where Self:App {
     static func didConfigurate(with manager:AppManager)
 
     func willSetCurrent(oldCurrent:App.Type?)
     func didSetCurrent(previous:App.Type?)
 }
 
-extension AppManagerDelegate{
+extension AppManagerDelegatedApp {
     static func didConfigurate(with manager: AppManager) {}
 }
 
@@ -54,8 +54,8 @@ open class AppManager: NSObject, SelectableCollection {
         }
 
         //boot with appManager
-        for appManagedApp in _apps.compactMap ({ app -> AppManagerDelegate? in
-            return app as? AppManagerDelegate
+        for appManagedApp in _apps.compactMap ({ app -> AppManagerDelegatedApp? in
+            return app as? AppManagerDelegatedApp
         }){
             type(of: appManagedApp).didConfigurate(with: self)
         }
@@ -83,7 +83,7 @@ open class AppManager: NSObject, SelectableCollection {
             assert(newValue == nil || _apps.contains { appType in appType == newValue },"Given current app \(String(describing:newValue)) is not contained in app collection")
             guard newValue != previous else{ return }
 
-            self.getInstance(newValue, as: AppManagerDelegate.self)?.willSetCurrent(oldCurrent:self.current)
+            self.getInstance(newValue, as: AppManagerDelegatedApp.self)?.willSetCurrent(oldCurrent:self.current)
         }
         didSet {
             guard previous == nil || oldValue != current else { return }
@@ -99,7 +99,7 @@ open class AppManager: NSObject, SelectableCollection {
             }
 
             DispatchQueue.main.async{
-                self.getInstance(self.current, as: AppManagerDelegate.self)?.didSetCurrent(previous:self.previous)
+                self.getInstance(self.current, as: AppManagerDelegatedApp.self)?.didSetCurrent(previous:self.previous)
             }
         }
     }

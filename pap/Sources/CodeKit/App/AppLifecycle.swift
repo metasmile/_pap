@@ -27,7 +27,7 @@ public enum AppProductPhase: UInt {
     case release
 }
 
-protocol AppLifecycleManagerDelegatableApp where Self:App {
+protocol AppLifecycleManagerDelegatedApp where Self:App {
     func willAcquire() -> Bool
     func willDiscard() -> Bool
 }
@@ -62,7 +62,7 @@ final class AppLifecycleManager {
             guard let appInstance = _instances[appIdentifier] else{
                 let _appInstance = appType.init()
 
-                if let delegation = _appInstance as? AppLifecycleManagerDelegatableApp, delegation.willAcquire() == false{
+                if let delegation = _appInstance as? AppLifecycleManagerDelegatedApp, delegation.willAcquire() == false{
                     return nil
                 }
 
@@ -89,7 +89,7 @@ final class AppLifecycleManager {
                 return false
             }
 
-            if let delegation = appInstance as? AppLifecycleManagerDelegatableApp, delegation.willDiscard() == false{
+            if let delegation = appInstance as? AppLifecycleManagerDelegatedApp, delegation.willDiscard() == false{
                 return false
             }
 

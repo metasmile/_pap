@@ -129,7 +129,7 @@
 /* Generated from genl10n: CallApp.BApp.swift */
 "Find" = "Find";
 /* Generated from genl10n: CallApp.BApp.swift */
-"Finding Contact Points ... %@ " = "Finding Contact Points ... %@ ";
+"Finding Contacts ... %@ " = "Finding Contacts ... %@ ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -166,8 +166,6 @@
 "No loop" = "No loop";
 /* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "Original";
-/* Generated from genl10n: CallApp.BApp.swift */
-"Pending To Connect ..." = "Pending To Connect ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Photos";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
@@ -199,7 +197,7 @@
 /* Generated from genl10n: CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Sorry can't call to selected contact.";
 /* Generated from genl10n: CallApp.BApp.swift */
-"Sorry not found any contact data." = "Sorry not found any contact data.";
+"Sorry not found any contact information." = "Sorry not found any contact information.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -212,6 +210,8 @@
 "Stabilizing Selected Items..." = "Stabilizing Selected Items...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Start";
+/* Generated from genl10n: CallApp.BApp.swift */
+"Starting To Find ..." = "Starting To Find ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Starting the Process...";
 /* Generated from genl10n: Revert.BApp.swift */
@@ -220,6 +220,8 @@
 "Translation" = "Translation";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
+/* Generated from genl10n: CallApp.BApp.swift */
+"Waiting To Select ..." = "Waiting To Select ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
