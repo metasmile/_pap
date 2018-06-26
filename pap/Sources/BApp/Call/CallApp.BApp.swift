@@ -183,10 +183,11 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
     }
 
 
-    private var textDetector = Vision().textDetector() //TODO: decide 1-1 or 1-N ?
+    private let firebaseVision = Vision.vision()
 
     fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncManualSignalable) -> CallAppResult? {
-        let detector = textDetector
+
+        let detector = firebaseVision.textDetector()
 
         guard let visionTexts = detector.detect(with: image, async) else {
             return nil

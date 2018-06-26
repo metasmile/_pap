@@ -87,7 +87,7 @@ public class Textractor: NSObject, KeyPathWatchable, BApp
         }
 
         if let image = item.asset.asUIImage
-            , let detectedString = self.textDetector.detect(with: image, async)?.parse(type: VisionTextStringParser.self, async)?.joined() {
+            , let detectedString = self.firebaseVision.textDetector().detect(with: image, async)?.parse(type: VisionTextStringParser.self, async)?.joined() {
 
             return detectedString.count>0 ? .visible : .none
         }
@@ -107,7 +107,7 @@ public class Textractor: NSObject, KeyPathWatchable, BApp
         return "Grab".localized
     }
 
-    fileprivate var textDetector = Vision().textDetector()
+    fileprivate let firebaseVision = Vision.vision() //TODO: decide 1-1 or 1-N ?
 }
 
 private class _TextractorTask: TaskPrototype, Taskable {
@@ -125,7 +125,7 @@ private class _TextractorTask: TaskPrototype, Taskable {
             return nil
         }
 
-        guard let detector = AppCenter.default.currentInstanceAs(Textractor.self)?.textDetector
+        guard let detector = AppCenter.default.currentInstanceAs(Textractor.self)?.firebaseVision.textDetector()
             ,let visionTexts = detector.detect(with: image, async) else {
 
             return nil
