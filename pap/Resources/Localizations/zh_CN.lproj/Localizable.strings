@@ -126,18 +126,28 @@
 "%d times" = "%d次";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p（1920×1080）";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Address" = "地址";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "相册";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animated GIF" = "动画GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "动画";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "纵横比";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "爆裂";
+/* Generated from genl10n: Revert.BApp.swift */
+"Cannot revert. All selected items have not edited." = "无法恢复。所有选择的项目都没有编辑。";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Choose A Phone Number To Call" = "选择要拨打的电话号码";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "为%d项目选择导出选项";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "选择要转换的选项";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Contract" = "合同";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "创建";
 /* Generated from genl10n: Stabilizer.swift */
@@ -146,22 +156,34 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "作物";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Date" = "日期";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "方向";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
 "Do Anything, At Once." = "一次做任何事。";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "下载...";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"E-mail Address" = "电子邮件地址";
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+"Enable Auto Selection" = "启用自动选择";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "导出选项";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "出口";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Find" = "找";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Finding Contacts ... %@ " = "查找联系人... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "前锋";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "帧延迟";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Grab" = "抓";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HD (1280×720)" = "高清（1280×720）";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -190,12 +212,18 @@
 "No loop" = "没有循环";
 /* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "原版的";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Phone Number" = "电话号码";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "相片";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+"Presets" = "预置";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA（320×240）";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "质量";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Recognizing ... %@ " = "认识... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "重复";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -208,12 +236,20 @@
 "Save" = "保存";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "保存结果...";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "选择预设";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Saving Texts ..." = "正在保存文本...";
+/* Generated from genl10n: CallApp.BApp.swift */
+"Select Photos You Want To Grab Phone Numbers!" = "选择您想要获取电话号码的照片！";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Select Photos You Want To Grab!" = "选择你想抓取的照片！";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "分享";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "尺寸";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry can't call to selected contact." = "抱歉，不能拨打所选联系人。";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry not found any contact information." = "抱歉没有找到任何联系信息。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "广场";
 /* Generated from genl10n: Stabilizer.swift */
@@ -226,15 +262,23 @@
 "Stabilizing Selected Items..." = "稳定所选项目...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "开始";
+/* Generated from genl10n: PixNote.swift */
+"Starting To Find ..." = "开始查找...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "启动过程...";
+/* Generated from genl10n: Revert.BApp.swift */
+"Starting to check edited photos..." = "开始检查编辑的照片...";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "翻译";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "视频";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Waiting To Select ..." = "等待选择...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD（640×360）";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "qHD (960×540)" = "qHD（960×540）";
+/* Generated from genl10n: CallApp.BApp.swift */
+"🔍 Starting To Find ..." = "开始查找...";

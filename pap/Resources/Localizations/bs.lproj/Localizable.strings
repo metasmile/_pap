@@ -126,18 +126,28 @@
 "%d times" = "%d puta";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Address" = "Adresa";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albumi";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animated GIF" = "Animirani GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animacija";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Omjer";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
+/* Generated from genl10n: Revert.BApp.swift */
+"Cannot revert. All selected items have not edited." = "Ne mogu se vratiti. Sve izabrane stavke nisu uređene.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Choose A Phone Number To Call" = "Izaberite telefonski broj za pozivanje";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Izaberite opciju izvoza za %d stavke";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Izaberite opciju pretvaranja";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Contract" = "Ugovor";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Stvoriti";
 /* Generated from genl10n: Stabilizer.swift */
@@ -146,22 +156,34 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Rezati";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Date" = "Datum";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direkcija";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Preuzimanje ...";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"E-mail Address" = "E-mail adresa";
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+"Enable Auto Selection" = "Omogućite automatsko odabiranje";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Izvozne opcije";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Izvoz";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Find" = "Nađi";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Finding Contacts ... %@ " = "Pronalaženje kontakata ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Napred";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Odlaganje kadra";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Grab" = "Grab";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -190,12 +212,18 @@
 "No loop" = "Nema petlje";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "Original";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Phone Number" = "Telefonski broj";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Fotografije";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+"Presets" = "Presets";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Kvalitet";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Recognizing ... %@ " = "Prepoznajući ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Ponavljam";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -208,12 +236,20 @@
 "Save" = "Spremi";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Čuvanje rezultata ...";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Izbor preset";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Saving Texts ..." = "Čuvanje tekstova ...";
+/* Generated from genl10n: CallApp.BApp.swift */
+"Select Photos You Want To Grab Phone Numbers!" = "Izaberite fotografije koje želite da grabujete telefonske brojeve!";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Select Photos You Want To Grab!" = "Izaberite fotografije koje želite da zgrabite!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Podeli";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Veličina";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry can't call to selected contact." = "Žao mi je što ne mogu da pozovem odabrani kontakt.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry not found any contact information." = "Žao mi je što nismo našli nikakve kontakt informacije.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -226,15 +262,23 @@
 "Stabilizing Selected Items..." = "Stabilizacija izabranih stavki ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Počni";
+/* Generated from genl10n: PixNote.swift */
+"Starting To Find ..." = "Počinje pronaći ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Započinjanje procesa ...";
+/* Generated from genl10n: Revert.BApp.swift */
+"Starting to check edited photos..." = "Počinje provjeriti uređene fotografije ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Translation";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Waiting To Select ..." = "Čekajući da izaberete ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "qHD (960×540)" = "qHD (960 × 540)";
+/* Generated from genl10n: CallApp.BApp.swift */
+"🔍 Starting To Find ..." = "Počinje pronaći ...";

@@ -126,18 +126,28 @@
 "%d times" = "%d gwaith";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Address" = "Cyfeiriad";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albwm";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animated GIF" = "GIF animeiddiedig";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animeiddiad";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Cymhareb agwedd";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Byrstio";
+/* Generated from genl10n: Revert.BApp.swift */
+"Cannot revert. All selected items have not edited." = "Methu â dychwelyd. Nid yw'r holl eitemau a ddewiswyd wedi golygu.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Choose A Phone Number To Call" = "Dewiswch Rhif Ffôn A I Alw";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Dewiswch Opsiwn Allforio ar gyfer %d Eitemau";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Dewiswch Opsiwn I Trosi";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Contract" = "Contract";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Creu";
 /* Generated from genl10n: Stabilizer.swift */
@@ -146,22 +156,34 @@
 "Crop to Fit" = "Cnwd i Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Cnwd";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Date" = "Dyddiad";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Cyfeiriad";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Lawrlwytho ...";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"E-mail Address" = "Cyfeiriad ebost";
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+"Enable Auto Selection" = "Galluogi Detholiad Auto";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Opsiynau Allforio";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Allforio";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Find" = "Dod o hyd";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Finding Contacts ... %@ " = "Dod o hyd i Gysylltiadau ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Ymlaen";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Oedi Ffrâm";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Grab" = "Grab";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -190,12 +212,18 @@
 "No loop" = "Dim dolen";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "Gwreiddiol";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Phone Number" = "Rhif ffôn";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Lluniau";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+"Presets" = "Rhagnodau";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Ansawdd";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Recognizing ... %@ " = "Gan gydnabod ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Ailadroddwch";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -208,12 +236,20 @@
 "Save" = "Arbed";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Canlyniadau Arbed ...";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Rhagnodau Dewis";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Saving Texts ..." = "Arbed Testunau ...";
+/* Generated from genl10n: CallApp.BApp.swift */
+"Select Photos You Want To Grab Phone Numbers!" = "Dewis Lluniau Hoffech Chi Eidio Rhifau Ffôn!";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Select Photos You Want To Grab!" = "Dewiswch luniau yr ydych am eu tynnu!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Rhannu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Maint";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry can't call to selected contact." = "Mae'n ddrwg gennym ni allwn alw i gyswllt dethol.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry not found any contact information." = "Mae'n ddrwg gennym na chafwyd unrhyw wybodaeth gyswllt.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Sgwâr";
 /* Generated from genl10n: Stabilizer.swift */
@@ -226,15 +262,23 @@
 "Stabilizing Selected Items..." = "Sefydlogi Eitemau Dethol ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Dechrau";
+/* Generated from genl10n: PixNote.swift */
+"Starting To Find ..." = "Dechrau I Dod o hyd ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Dechrau'r Broses ...";
+/* Generated from genl10n: Revert.BApp.swift */
+"Starting to check edited photos..." = "Dechrau edrych ar y lluniau a olygwyd ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Cyfieithu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Fideo";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Waiting To Select ..." = "Aros i Ddewis ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "qHD (960×540)" = "qHD (960 × 540)";
+/* Generated from genl10n: CallApp.BApp.swift */
+"🔍 Starting To Find ..." = "Dechrau I Dod o hyd ...";

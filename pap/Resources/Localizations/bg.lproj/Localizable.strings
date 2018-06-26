@@ -126,18 +126,28 @@
 "%d times" = "%d пъти";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Address" = "адрес";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Албуми";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animated GIF" = "Анимиран GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Анимация";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Съотношение";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Избухвам";
+/* Generated from genl10n: Revert.BApp.swift */
+"Cannot revert. All selected items have not edited." = "Не може да се върне. Всички избрани елементи не са редактирани.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Choose A Phone Number To Call" = "Изберете телефонен номер, на който да се обадите";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Изберете опция за експорт за %d Елементи";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Изберете опция за конвертиране";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Contract" = "Договор";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "създавам";
 /* Generated from genl10n: Stabilizer.swift */
@@ -146,22 +156,34 @@
 "Crop to Fit" = "Изрязване за подреждане";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "реколта";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Date" = "Дата";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Посока";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Изтегля се ...";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"E-mail Address" = "Имейл адрес";
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+"Enable Auto Selection" = "Активиране на автоматичния избор";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Опции за експортиране";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "износ";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Find" = "намирам";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Finding Contacts ... %@ " = "Намиране на контакти ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "напред";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Закъснение на рамката";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Grab" = "заграбване";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -190,12 +212,18 @@
 "No loop" = "Няма цикъл";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "оригинал";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Phone Number" = "Телефонен номер";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Снимки";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+"Presets" = "пресети";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "качество";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Recognizing ... %@ " = "Разпознавайки ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "повторение";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -208,12 +236,20 @@
 "Save" = "Запази";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Запазване на резултатите ...";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Предварителни настройки за избор";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Saving Texts ..." = "Записване на текстове ...";
+/* Generated from genl10n: CallApp.BApp.swift */
+"Select Photos You Want To Grab Phone Numbers!" = "Изберете снимки, които искате да вземете телефонни номера!";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Select Photos You Want To Grab!" = "Изберете снимки, които искате да вземете!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Дял";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "размер";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry can't call to selected contact." = "За съжаление не може да се обади на избрания контакт.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry not found any contact information." = "За съжаление не е намерена никаква информация за връзка.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Квадрат";
 /* Generated from genl10n: Stabilizer.swift */
@@ -226,15 +262,23 @@
 "Stabilizing Selected Items..." = "Стабилизиране на избраните елементи ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "начало";
+/* Generated from genl10n: PixNote.swift */
+"Starting To Find ..." = "Започва да намира ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Стартиране на процеса ...";
+/* Generated from genl10n: Revert.BApp.swift */
+"Starting to check edited photos..." = "Започва да проверява редактираните снимки ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "превод";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Видео";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Waiting To Select ..." = "Изчакване за избор ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "основа";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "qHD (960×540)" = "qHD (960 × 540)";
+/* Generated from genl10n: CallApp.BApp.swift */
+"🔍 Starting To Find ..." = "Започва да намира ...";

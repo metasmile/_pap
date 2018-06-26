@@ -126,18 +126,28 @@
 "%d times" = "%d פעמים";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Address" = "כתובת";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "אלבומים";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animated GIF" = "GIF מונפש";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "אנימציה";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "יחס הממדים";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "הִתפָּרְצוּת";
+/* Generated from genl10n: Revert.BApp.swift */
+"Cannot revert. All selected items have not edited." = "לא ניתן לחזור. כל הפריטים שנבחרו לא נערכו.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Choose A Phone Number To Call" = "בחר מספר טלפון להתקשרות";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "בחר באפשרות ייצוא עבור %d פריטים";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Choose an Option To Convert";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Contract" = "חוֹזֶה";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "לִיצוֹר";
 /* Generated from genl10n: Stabilizer.swift */
@@ -146,22 +156,34 @@
 "Crop to Fit" = "חתוך לפיט";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "יְבוּל";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Date" = "תַאֲרִיך";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
 "Do Anything, At Once." = "לעשות הכל, בבת אחת.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "מוריד ...";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"E-mail Address" = "כתובת דוא'ל";
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+"Enable Auto Selection" = "אפשר בחירה אוטומטית";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "אפשרויות ייצוא";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "יְצוּא";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Find" = "למצוא";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Finding Contacts ... %@ " = "מציאת אנשי קשר ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "עיכוב מסגרת";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Grab" = "לִתְפּוֹס";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -190,12 +212,18 @@
 "No loop" = "ללא לולאה";
 /* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "מְקוֹרִי";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Phone Number" = "מספר טלפון";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "תמונות";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+"Presets" = "הגדרות קבועות מראש";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "איכות";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Recognizing ... %@ " = "מכיר ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeat";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -208,12 +236,20 @@
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "שומר תוצאות ...";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "הגדרות קבועות מראש";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Saving Texts ..." = "שומר טקסטים ...";
+/* Generated from genl10n: CallApp.BApp.swift */
+"Select Photos You Want To Grab Phone Numbers!" = "בחר תמונות אתה רוצה לתפוס מספרי טלפון!";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Select Photos You Want To Grab!" = "בחר תמונות שברצונך לתפוס!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Share";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "גודל";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry can't call to selected contact." = "מצטערים, לא ניתן להתקשר לאיש הקשר שנבחר.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry not found any contact information." = "מצטערים, לא נמצאו פרטים ליצירת קשר.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "כיכר";
 /* Generated from genl10n: Stabilizer.swift */
@@ -226,15 +262,23 @@
 "Stabilizing Selected Items..." = "מייצב פריטים שנבחרו ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Start";
+/* Generated from genl10n: PixNote.swift */
+"Starting To Find ..." = "מתחיל למצוא ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "מתחיל את התהליך ...";
+/* Generated from genl10n: Revert.BApp.swift */
+"Starting to check edited photos..." = "מתחיל לבדוק תמונות שנערכו ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "תִרגוּם";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "וִידֵאוֹ";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Waiting To Select ..." = "ממתין לבחירה ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "qHD (960×540)" = "qHD (960 × 540)";
+/* Generated from genl10n: CallApp.BApp.swift */
+"🔍 Starting To Find ..." = "מתחיל למצוא ...";

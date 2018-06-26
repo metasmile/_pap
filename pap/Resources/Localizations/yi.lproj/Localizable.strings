@@ -126,18 +126,28 @@
 "%d times" = "%d מאל";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080 פּ (1920 × 1080)";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Address" = "אַדרעס";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "אַלבומס";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animated GIF" = "Animated GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animation";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Aspect Ratio";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "בורסט";
+/* Generated from genl10n: Revert.BApp.swift */
+"Cannot revert. All selected items have not edited." = "קענען נישט צוריקקומען. אַלע אויסגעקליבן זאכן האָבן נישט עדיטיד.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Choose A Phone Number To Call" = "קלייַבן אַ פאָון נומער צו רופן";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "קלייַבן אַן עקספּאָרט אָפּציע פֿאַר %d זאכן";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "קלייַבן אַן אָפּציע צו קאָנווערט";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Contract" = "אָפּמאַך";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "שאַפֿן";
 /* Generated from genl10n: Stabilizer.swift */
@@ -146,22 +156,34 @@
 "Crop to Fit" = "קראָפּ צו פּאַסיק";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "שניידן";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Date" = "דאַטע";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Downloading ...";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"E-mail Address" = "אימעיל אדרעס";
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+"Enable Auto Selection" = "געבן אַוטאָ סעלעקציע";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "אַרויספירן אָפּציעס";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "עקספּאָרט";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Find" = "געפֿינען";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Finding Contacts ... %@ " = "Finding Contacts ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "פֿאָרווערטס";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Grab" = "כאַפּן";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HD (1280×720)" = "הד (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -190,12 +212,18 @@
 "No loop" = "קיין שלייף";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "אָריגינעל";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Phone Number" = "טעלעפאָנירן נומער";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "פאָטאָס";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+"Presets" = "Presets";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "קווווגאַ (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "קוואַליטי";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Recognizing ... %@ " = "רעקאָגניזינג ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "איבערחזרן";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -208,12 +236,20 @@
 "Save" = "היט";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "שפּאָרן רעזולטאַטן ...";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "סעלעקציע פּרעסעץ";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Saving Texts ..." = "שפּאָרן טעקסטן ...";
+/* Generated from genl10n: CallApp.BApp.swift */
+"Select Photos You Want To Grab Phone Numbers!" = "אויסקלייַבן פאָטאָס איר ווילן צו כאַפּן טעלעפאָנירן נומערן!";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Select Photos You Want To Grab!" = "אויסקלייַבן פאָטאָס איר ווילן צו כאַפּן!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "ייַנטיילן";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Size";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry can't call to selected contact." = "אנטשולדיגט, קען נישט רופן צו אויסגעקליבן קאָנטאַקט";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry not found any contact information." = "אנטשולדיגט נישט געפונען קיין קאָנטאַקט אינפֿאָרמאַציע.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "קוואדראט";
 /* Generated from genl10n: Stabilizer.swift */
@@ -226,15 +262,23 @@
 "Stabilizing Selected Items..." = "סטאַביליזינג סעלעקטעד ייטאַמז ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "אָנהייב";
+/* Generated from genl10n: PixNote.swift */
+"Starting To Find ..." = "סטאַרטינג צו געפֿינען ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "סטאַרטינג די פּראָסעס ...";
+/* Generated from genl10n: Revert.BApp.swift */
+"Starting to check edited photos..." = "סטאַרטינג צו קאָנטראָלירן עדיטיד פאָטאָס ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "איבערזעצונג";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "ווידעא";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Waiting To Select ..." = "ווארטן צו אויסקלייַבן ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "נהד (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "qHD (960×540)" = "קהד (960 × 540)";
+/* Generated from genl10n: CallApp.BApp.swift */
+"🔍 Starting To Find ..." = "סטאַרטינג צו געפֿינען ...";

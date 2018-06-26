@@ -126,18 +126,28 @@
 "%d times" = "%d alkalommal";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Address" = "Cím";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albumok";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animated GIF" = "Animált GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Élénkség";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Képarány";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
+/* Generated from genl10n: Revert.BApp.swift */
+"Cannot revert. All selected items have not edited." = "Nem térhet vissza. Az összes kiválasztott elem nem szerkesztett.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Choose A Phone Number To Call" = "Válasszon telefonszámot a híváshoz";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Válassza ki az export opciót az %d elemekhez";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Válasszon egy opciót konvertálni";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Contract" = "Szerződés";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Teremt";
 /* Generated from genl10n: Stabilizer.swift */
@@ -146,22 +156,34 @@
 "Crop to Fit" = "Vágás a fithez";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Date" = "Dátum";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Irány";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
 "Do Anything, At Once." = "Csinálj valamit, egyszerre.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Letöltés ...";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"E-mail Address" = "Email cím";
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+"Enable Auto Selection" = "Engedélyezze az automatikus választást";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Export opciók";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Export";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Find" = "megtalálja";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Finding Contacts ... %@ " = "Kapcsolatok keresése ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Előre";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Keret késleltetés";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF készítő";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Grab" = "Megragad";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -190,12 +212,18 @@
 "No loop" = "Nincs hurok";
 /* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "Eredeti";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Phone Number" = "Telefonszám";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "fotók";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+"Presets" = "Presets";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Minőség";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Recognizing ... %@ " = "Felismerve ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Ismétlés";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -208,12 +236,20 @@
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Eredmények mentése ...";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Kiválasztási beállítások";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Saving Texts ..." = "Szövegek mentése ...";
+/* Generated from genl10n: CallApp.BApp.swift */
+"Select Photos You Want To Grab Phone Numbers!" = "Válassza ki a fotókat, amelyekkel meg akarja fogni a telefonszámokat!";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Select Photos You Want To Grab!" = "Válassza ki a fotókat, amelyeket meg akar fogni!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Ossza meg";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Méret";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry can't call to selected contact." = "Sajnálom, hogy nem lehet felhívni a kiválasztott kapcsolatot.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry not found any contact information." = "Sajnáljuk, hogy nem találtunk elérhetőségi adatot.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Négyzet";
 /* Generated from genl10n: Stabilizer.swift */
@@ -226,15 +262,23 @@
 "Stabilizing Selected Items..." = "A kijelölt elemek stabilizálása ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Rajt";
+/* Generated from genl10n: PixNote.swift */
+"Starting To Find ..." = "A keresés megkezdése ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "A folyamat indítása ...";
+/* Generated from genl10n: Revert.BApp.swift */
+"Starting to check edited photos..." = "A szerkesztett fotók ellenőrzése ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Fordítás";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Videó";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Waiting To Select ..." = "Várakozás kiválasztása ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "qHD (960×540)" = "qHD (960 × 540)";
+/* Generated from genl10n: CallApp.BApp.swift */
+"🔍 Starting To Find ..." = "A keresés megkezdése ...";

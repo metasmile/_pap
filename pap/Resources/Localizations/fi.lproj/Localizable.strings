@@ -126,18 +126,28 @@
 "%d times" = "%d kertaa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Address" = "Osoite";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "albumit";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animated GIF" = "Animoitu GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "animaatio";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Kuvasuhde";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
+/* Generated from genl10n: Revert.BApp.swift */
+"Cannot revert. All selected items have not edited." = "Ei voi palata. Kaikki valitut kohteet eivät ole muokattuja.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Choose A Phone Number To Call" = "Valitse puhelinnumero puheluun";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Valitse %d Vientivaihtoehto";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Valitse vaihtoehto muunnettavaksi";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Contract" = "sopimus";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Luoda";
 /* Generated from genl10n: Stabilizer.swift */
@@ -146,22 +156,34 @@
 "Crop to Fit" = "Rajaa sopivaksi";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Date" = "Treffi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Suunta";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
 "Do Anything, At Once." = "Tee mitään, kerralla.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Lataamista ...";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"E-mail Address" = "Sähköpostiosoite";
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+"Enable Auto Selection" = "Ota automaattinen valinta käyttöön";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Vientiasetukset";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Export";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Find" = "löytö";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Finding Contacts ... %@ " = "Yhteystietojen etsiminen ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Kehyksen viive";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF-valmistaja";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Grab" = "Napata";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -190,12 +212,18 @@
 "No loop" = "Ei silmukkaa";
 /* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "Alkuperäinen";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Phone Number" = "Puhelinnumero";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Valokuvat";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+"Presets" = "esiasetukset";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Laatu";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Recognizing ... %@ " = "Tunnistamalla ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Toistaa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -208,12 +236,20 @@
 "Save" = "Tallentaa";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Tulosten tallentaminen ...";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Valinta-esiasetukset";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Saving Texts ..." = "Tekstien tallentaminen ...";
+/* Generated from genl10n: CallApp.BApp.swift */
+"Select Photos You Want To Grab Phone Numbers!" = "Valitse valokuvat, jotka haluat napata puhelinnumerot!";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Select Photos You Want To Grab!" = "Valitse valokuvat, jotka haluat tarttua!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Share";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Koko";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry can't call to selected contact." = "Valitulle kontaktille ei voi soittaa.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry not found any contact information." = "Valitettavasti yhteystietoja ei löytynyt.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Neliö";
 /* Generated from genl10n: Stabilizer.swift */
@@ -226,15 +262,23 @@
 "Stabilizing Selected Items..." = "Valittujen kohteiden vakauttaminen ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "alkaa";
+/* Generated from genl10n: PixNote.swift */
+"Starting To Find ..." = "Aloittaminen löytää ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Prosessin käynnistäminen ...";
+/* Generated from genl10n: Revert.BApp.swift */
+"Starting to check edited photos..." = "Muokatut valokuvat tarkistetaan ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Käännös";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Waiting To Select ..." = "Odotetaan valitsemaan ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Loimi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "qHD (960×540)" = "QHD (960 × 540)";
+/* Generated from genl10n: CallApp.BApp.swift */
+"🔍 Starting To Find ..." = "Aloittaminen löytää ...";

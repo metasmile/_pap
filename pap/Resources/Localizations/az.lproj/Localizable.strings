@@ -126,18 +126,28 @@
 "%d times" = "%d dəfə";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Address" = "Ünvanı";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albomlar";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animated GIF" = "Animated GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animasiya";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Aspekt nisbəti";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
+/* Generated from genl10n: Revert.BApp.swift */
+"Cannot revert. All selected items have not edited." = "Geri ala bilmir. Bütün seçilmiş elementlər redaktə edilmədi.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Choose A Phone Number To Call" = "Zəng etmək üçün telefon nömrəsini seçin";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "%d Məhsullara İxrac Seçimi Seçin";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Konvertasiya etmək üçün bir seçim seçin";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Contract" = "Müqavilə";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Yaradın";
 /* Generated from genl10n: Stabilizer.swift */
@@ -146,22 +156,34 @@
 "Crop to Fit" = "Fit üçün əkin";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Bitki";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Date" = "Tarix";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Yükləmə ...";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"E-mail Address" = "E-poçt ünvanı";
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+"Enable Auto Selection" = "Avtomatik Seçimi aktiv edin";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "İxrac Seçimləri";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "İxrac";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Find" = "Tapın";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Finding Contacts ... %@ " = "Əlaqə axtarma ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "İrəli";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame gecikməsi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Grab" = "Grab";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -190,12 +212,18 @@
 "No loop" = "No loop";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "Orijinal";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Phone Number" = "Telefon nömrəsi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Fotoşəkillər";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+"Presets" = "Önayarlar";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Keyfiyyət";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Recognizing ... %@ " = "Tanınma ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Təkrarlamaq";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -208,12 +236,20 @@
 "Save" = "Yadda saxla";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Nəticələri qənaət ...";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Seçim Öncəkləri";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Saving Texts ..." = "Mətnlərin saxlanması ...";
+/* Generated from genl10n: CallApp.BApp.swift */
+"Select Photos You Want To Grab Phone Numbers!" = "Telefon nömrələrini tutmaq istəsəniz Fotoları seçin!";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Select Photos You Want To Grab!" = "Qaldırmaq istəyirsəniz Şəkillər seçin!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Paylaş";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Ölçü";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry can't call to selected contact." = "Bağışlayın seçilmiş əlaqə üçün zəng.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry not found any contact information." = "Heç bir əlaqə məlumatı tapılmadı.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Meydan";
 /* Generated from genl10n: Stabilizer.swift */
@@ -226,15 +262,23 @@
 "Stabilizing Selected Items..." = "Seçilmiş elementləri sabitləşdirmək ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Başlamaq";
+/* Generated from genl10n: PixNote.swift */
+"Starting To Find ..." = "Bulmağa başlayan ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Prosesin başlanması ...";
+/* Generated from genl10n: Revert.BApp.swift */
+"Starting to check edited photos..." = "Edilən şəkilləri yoxlamaq üçün başlayan ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Tərcümə";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Waiting To Select ..." = "Seçimi gözləyirəm ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "qHD (960×540)" = "qHD (960 × 540)";
+/* Generated from genl10n: CallApp.BApp.swift */
+"🔍 Starting To Find ..." = "Bulmağa başlayan ...";

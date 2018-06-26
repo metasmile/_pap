@@ -126,18 +126,28 @@
 "%d times" = "%d kali";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Address" = "Alamat";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Album";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animated GIF" = "GIF animasi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animasi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Nisbah aspek";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
+/* Generated from genl10n: Revert.BApp.swift */
+"Cannot revert. All selected items have not edited." = "Tidak boleh kembali. Semua item yang dipilih tidak diedit.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Choose A Phone Number To Call" = "Pilih Nombor Telefon Untuk Panggilan";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Pilih Pilihan Eksport Untuk %d Item";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Pilih Pilihan Untuk Tukar";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Contract" = "Kontrak";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Buat";
 /* Generated from genl10n: Stabilizer.swift */
@@ -146,22 +156,34 @@
 "Crop to Fit" = "Tanam untuk Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Date" = "Tarikh";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Arah";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
 "Do Anything, At Once." = "Adakah Apa-apa, Sekali.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Memuat turun ...";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"E-mail Address" = "Alamat emel";
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+"Enable Auto Selection" = "Dayakan Pemilihan Automatik";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Pilihan Eksport";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Eksport";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Find" = "Cari";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Finding Contacts ... %@ " = "Mencari Kenalan ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Kelewatan Frame";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "Pembuat GIF";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Grab" = "Dapatkan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -190,12 +212,18 @@
 "No loop" = "Tiada gelung";
 /* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "Asal";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Phone Number" = "Nombor telefon";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Foto";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+"Presets" = "Pratetap";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Kualiti";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Recognizing ... %@ " = "Menyedari ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Ulang";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -208,12 +236,20 @@
 "Save" = "Simpan";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Menyimpan Keputusan ...";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Selection Presets";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Saving Texts ..." = "Menyimpan Teks ...";
+/* Generated from genl10n: CallApp.BApp.swift */
+"Select Photos You Want To Grab Phone Numbers!" = "Pilih Gambar yang Anda Mahu Dapatkan Nombor Telefon!";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Select Photos You Want To Grab!" = "Pilih Foto yang Anda Mahu Dapatkan!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Kongsi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Saiz";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry can't call to selected contact." = "Maaf tidak boleh memanggil kenalan terpilih.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry not found any contact information." = "Maaf, tidak terdapat sebarang maklumat hubungan.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -226,15 +262,23 @@
 "Stabilizing Selected Items..." = "Menstabilkan Item Dipilih ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Mulakan";
+/* Generated from genl10n: PixNote.swift */
+"Starting To Find ..." = "Bermula Untuk Menemukan ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Memulakan Proses ...";
+/* Generated from genl10n: Revert.BApp.swift */
+"Starting to check edited photos..." = "Bermula untuk menyemak foto yang diedit ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Terjemahan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Waiting To Select ..." = "Menunggu Untuk Pilih ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "qHD (960×540)" = "qHD (960 × 540)";
+/* Generated from genl10n: CallApp.BApp.swift */
+"🔍 Starting To Find ..." = "Bermula Untuk Menemukan ...";

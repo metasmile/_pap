@@ -126,18 +126,28 @@
 "%d times" = "%d igba";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Address" = "Adirẹsi";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Awọn awo-orin";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animated GIF" = "Ti ere GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Idanilaraya";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Iwoye ifojusi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Bọ";
+/* Generated from genl10n: Revert.BApp.swift */
+"Cannot revert. All selected items have not edited." = "Ko le tun pada. Gbogbo awọn ohun ti a yan ko ti ṣatunkọ.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Choose A Phone Number To Call" = "Yan nọmba foonu kan lati pe";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Yan Aṣayan Iyanwo Aṣayan Fun %d Awọn ohun kan";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Yan Aṣayan Lati Yiyipada";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Contract" = "Ilana";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Ṣẹda";
 /* Generated from genl10n: Stabilizer.swift */
@@ -146,22 +156,34 @@
 "Crop to Fit" = "Irugbin lati dara";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Irugbin";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Date" = "Ọjọ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Itọsọna";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Gbigba ...";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"E-mail Address" = "Adirẹsi imeeli";
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+"Enable Auto Selection" = "Ṣiṣe Aṣayan Iyanilẹṣe";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Awọn aṣayan Ifiranṣẹ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Si ilẹ okeere";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Find" = "Wa";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Finding Contacts ... %@ " = "Wiwa Awọn olubasọrọ ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Siwaju";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Fireemu duro";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Ẹlẹda";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Grab" = "Gbamu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -190,12 +212,18 @@
 "No loop" = "Ko si kosi";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "Atilẹkọ";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Phone Number" = "Nomba fonu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Awọn fọto";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+"Presets" = "Awọn tito tẹlẹ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 x 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Didara";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Recognizing ... %@ " = "Imọ ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Tun ṣe";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -208,12 +236,20 @@
 "Save" = "Fipamọ";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Awọn esi ti o nbọ ...";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Awọn tito tẹlẹ";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Saving Texts ..." = "Awọn ọrọ ti n fipamọ ...";
+/* Generated from genl10n: CallApp.BApp.swift */
+"Select Photos You Want To Grab Phone Numbers!" = "Yan Awọn fọto Ti O Fẹ Lati Gba Awọn nọmba foonu!";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Select Photos You Want To Grab!" = "Yan Awọn fọto O Fẹ Lati Gba!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Pinpin";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Iwọn";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry can't call to selected contact." = "Binu ko le pe si olubasọrọ ti a yan.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry not found any contact information." = "Ma binu ko ri alaye olubasọrọ kan.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -226,15 +262,23 @@
 "Stabilizing Selected Items..." = "Ṣiṣe Awọn ohun ti a yan yan ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Bẹrẹ";
+/* Generated from genl10n: PixNote.swift */
+"Starting To Find ..." = "Bẹrẹ Lati Wa ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Bibẹrẹ ilana ...";
+/* Generated from genl10n: Revert.BApp.swift */
+"Starting to check edited photos..." = "Bẹrẹ lati ṣayẹwo awọn aworan ṣatunkọ ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Translation";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Fidio";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Waiting To Select ..." = "Nduro Lati Yan ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Agbara";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "qHD (960×540)" = "qHD (960 × 540)";
+/* Generated from genl10n: CallApp.BApp.swift */
+"🔍 Starting To Find ..." = "Bẹrẹ Lati Wa ...";

@@ -126,18 +126,28 @@
 "%d times" = "%d times";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Address" = "Հասցե";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Ալբոմներ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animated GIF" = "Անիմացիոն GIF- ը";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Շարժապատկերներ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Ասպեկտի հարաբերակցությունը";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Պայթյուն";
+/* Generated from genl10n: Revert.BApp.swift */
+"Cannot revert. All selected items have not edited." = "Հնարավոր չէ վերադառնալ: Բոլոր ընտրված տարրերը չեն խմբագրվել:";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Choose A Phone Number To Call" = "Ընտրեք Հեռախոսահամար `զանգահարելու համար";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Ընտրեք արտահանման ընտրանք `%d տարրերի համար";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Ընտրեք Ընտրանք փոխարկելու համար";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Contract" = "Պայմանագիր";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Ստեղծեք";
 /* Generated from genl10n: Stabilizer.swift */
@@ -146,22 +156,34 @@
 "Crop to Fit" = "Կերտելու համար բույս";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Բուսաբուծություն";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Date" = "Ամսաթիվ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Ուղղություն";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Ներբեռնում ...";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"E-mail Address" = "Էլեկտրոնային հասցե";
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+"Enable Auto Selection" = "Միացնել ավտո ընտրությունը";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Արտահանման ընտրանքները";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Արտահանումը";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Find" = "Գտնել";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Finding Contacts ... %@ " = "Կապ գտնելու ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Փոխանցել";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Շրջանակի հետաձգում";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF- ի ստեղծող";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Grab" = "Գռփում";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -190,12 +212,18 @@
 "No loop" = "Ոչ մի հանգույց";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "Բնօրինակը";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Phone Number" = "Հեռախոսահամար";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Նկարներ";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+"Presets" = "Նախապատմությունները";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Որակի";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Recognizing ... %@ " = "Ճանաչելով ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Կրկնել";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -208,12 +236,20 @@
 "Save" = "Պահել";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Պահպանելով արդյունքները ...";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Ընտրության նախադրյալներ";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Saving Texts ..." = "Խնայողական տեքստեր ...";
+/* Generated from genl10n: CallApp.BApp.swift */
+"Select Photos You Want To Grab Phone Numbers!" = "Ընտրեք Լուսանկարներ, որոնք ուզում եք գրել հեռախոսահամարները:";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Select Photos You Want To Grab!" = "Ընտրեք Լուսանկարներ, որոնք ցանկանում եք կողոպտել:";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Բաժնետոմս";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Չափը";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry can't call to selected contact." = "Ներեցեք չօգտագործված կոնտակտին զանգահարել:";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry not found any contact information." = "Կապի մասին տեղեկություն չի հայտնաբերվել:";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Հրապարակ";
 /* Generated from genl10n: Stabilizer.swift */
@@ -226,15 +262,23 @@
 "Stabilizing Selected Items..." = "Կայունացնող ընտրանքները ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Սկսեք";
+/* Generated from genl10n: PixNote.swift */
+"Starting To Find ..." = "Սկսելով գտնել ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Սկսել գործընթացը ...";
+/* Generated from genl10n: Revert.BApp.swift */
+"Starting to check edited photos..." = "Սկսած ստուգել լուսանկարները ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Թարգմանություն";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Waiting To Select ..." = "Սպասում է ընտրել ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "qHD (960×540)" = "qHD (960 × 540)";
+/* Generated from genl10n: CallApp.BApp.swift */
+"🔍 Starting To Find ..." = "Սկսելով գտնել ...";

@@ -126,18 +126,28 @@
 "%d times" = "%d sinnum";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Address" = "Heimilisfang";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albúm";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animated GIF" = "Hreyfimyndir";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Hreyfimyndir";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Stærðarhlutföll";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Springa";
+/* Generated from genl10n: Revert.BApp.swift */
+"Cannot revert. All selected items have not edited." = "Ekki hægt að snúa aftur. Öll valin atriði hafa ekki verið breytt.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Choose A Phone Number To Call" = "Veldu símanúmer til að hringja";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Veldu útflutningsvalkost fyrir %d atriði";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Veldu valkost til að breyta";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Contract" = "Samningur";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Búa til";
 /* Generated from genl10n: Stabilizer.swift */
@@ -146,22 +156,34 @@
 "Crop to Fit" = "Skera til að passa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Skera";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Date" = "Dagsetning";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Stefnu";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Hleður niður ...";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"E-mail Address" = "Netfang";
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+"Enable Auto Selection" = "Virkja sjálfvalið val";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Útflutningsvalkostir";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Útflutningur";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Find" = "Finna";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Finding Contacts ... %@ " = "Finndu tengiliði ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Áfram";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Framlenging ramma";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Grab" = "Grípa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -190,12 +212,18 @@
 "No loop" = "Engin lykkja";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "Upprunalega";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Phone Number" = "Símanúmer";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Myndir";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+"Presets" = "Forstillingar";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Gæði";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Recognizing ... %@ " = "Viðurkenna ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Endurtaka";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -208,12 +236,20 @@
 "Save" = "Vista";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Vistar niðurstöður ...";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Valforstillingar";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Saving Texts ..." = "Vistar texta ...";
+/* Generated from genl10n: CallApp.BApp.swift */
+"Select Photos You Want To Grab Phone Numbers!" = "Veldu myndir sem þú vilt grípa símanúmer!";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Select Photos You Want To Grab!" = "Veldu myndir sem þú vilt grípa!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Deila";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Stærð";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry can't call to selected contact." = "Því miður er ekki hægt að hringja í valda tengilið.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry not found any contact information." = "Því miður fannst engar upplýsingar um tengiliði.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -226,15 +262,23 @@
 "Stabilizing Selected Items..." = "Stöðugleiki valinra atriða ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Byrja";
+/* Generated from genl10n: PixNote.swift */
+"Starting To Find ..." = "Byrjar að finna ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Byrjar að vinna ...";
+/* Generated from genl10n: Revert.BApp.swift */
+"Starting to check edited photos..." = "Byrjar að athuga breyttar myndir ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Þýðing";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Waiting To Select ..." = "Bíð eftir að velja ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "qHD (960×540)" = "qHD (960 × 540)";
+/* Generated from genl10n: CallApp.BApp.swift */
+"🔍 Starting To Find ..." = "Byrjar að finna ...";

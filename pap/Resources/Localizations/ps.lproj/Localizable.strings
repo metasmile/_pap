@@ -126,18 +126,28 @@
 "%d times" = "%d وختونه";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Address" = "پته";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "البمزونه";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animated GIF" = "متحرک GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "حرکت کول";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "د اړخ اندازه";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "انځور";
+/* Generated from genl10n: Revert.BApp.swift */
+"Cannot revert. All selected items have not edited." = "بیرته نشي راوستلی. ټول ټاکل شوي توکي په سمون کې نه دي راغلي.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Choose A Phone Number To Call" = "د تلیفون لپاره د A تلیفون شمیره غوره کړئ";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "د صادراتو اختیار غوره کړئ %d توکي";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "د اختیار کولو لپاره یو اختیار غوره کړئ";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Contract" = "قرارداد";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "جوړ کړئ";
 /* Generated from genl10n: Stabilizer.swift */
@@ -146,22 +156,34 @@
 "Crop to Fit" = "فصل ته فصل";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "فصل";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Date" = "نیټه";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "لارښوونه";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "کښته کول ...";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"E-mail Address" = "بریښنالیک";
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+"Enable Auto Selection" = "د اتوم غوره کولو فعالول";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "د صادرولو اختیارونه";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "صادرات";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Find" = "ومومئ";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Finding Contacts ... %@ " = "د اړیکو موندلو ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "مخکښ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "د چوکاټ ځنډ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "د GIF میکر";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Grab" = "ګراب";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -190,12 +212,18 @@
 "No loop" = "نسکوره";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "اصلي";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Phone Number" = "د تلیفون شمیره";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "انځورونه";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+"Presets" = "پریټونه";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "کیفیت";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Recognizing ... %@ " = "پیژندنه ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "تکرار کړئ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -208,12 +236,20 @@
 "Save" = "ساتل";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "د خوندي کولو پایلې ...";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "انتخاب پریټس";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Saving Texts ..." = "د خوندي کولو متنونه ...";
+/* Generated from genl10n: CallApp.BApp.swift */
+"Select Photos You Want To Grab Phone Numbers!" = "انځورونه وټاکئ تاسو غواړئ د تلیفون شمېره واخلئ!";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Select Photos You Want To Grab!" = "انځورونه غوره کړئ تاسو غواړئ چې ګروب وکړئ!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "شریک کړئ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "اندازه";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry can't call to selected contact." = "بخښنه نشی کولی ټاکل شوی اړیکې ته بلنه ورکړئ.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry not found any contact information." = "بخښنه هیڅکله د اړیکو معلومات ونه موندل.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "مربع";
 /* Generated from genl10n: Stabilizer.swift */
@@ -226,15 +262,23 @@
 "Stabilizing Selected Items..." = "غوره شوي توکي غوره کول ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "پیل";
+/* Generated from genl10n: PixNote.swift */
+"Starting To Find ..." = "د موندلو پیل ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "د پروسې پیل کول ...";
+/* Generated from genl10n: Revert.BApp.swift */
+"Starting to check edited photos..." = "د تایید شویو عکسونو چک کولو پیل کول ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "ژباړه";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "ویډیو";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Waiting To Select ..." = "غوره کولو لپاره انتظار ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "وارپ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "qHD (960×540)" = "qHD (960 × 540)";
+/* Generated from genl10n: CallApp.BApp.swift */
+"🔍 Starting To Find ..." = "د موندلو پیل ...";

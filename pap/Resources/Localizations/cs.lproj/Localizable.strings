@@ -126,18 +126,28 @@
 "%d times" = "%d krát";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Address" = "Adresa";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albumy";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animated GIF" = "Animovaný GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animace";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Poměr stran";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
+/* Generated from genl10n: Revert.BApp.swift */
+"Cannot revert. All selected items have not edited." = "Nelze vrátit zpět. Všechny vybrané položky nebyly upraveny.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Choose A Phone Number To Call" = "Zvolte telefonní číslo, které chcete zavolat";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Zvolte možnost exportu pro %d Položky";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Zvolte možnost Převést";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Contract" = "Smlouva";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Vytvořit";
 /* Generated from genl10n: Stabilizer.swift */
@@ -146,22 +156,34 @@
 "Crop to Fit" = "Oříznout a přizpůsobit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Oříznutí";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Date" = "datum";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Směr";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
 "Do Anything, At Once." = "Dělat něco, najednou.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Stahování ...";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"E-mail Address" = "Emailová adresa";
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+"Enable Auto Selection" = "Povolit automatický výběr";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Možnosti exportu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Vývozní";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Find" = "Nalézt";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Finding Contacts ... %@ " = "Hledání kontaktů ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Vpřed";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Grab" = "Urvat";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -190,12 +212,18 @@
 "No loop" = "Žádná smyčka";
 /* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "Originál";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Phone Number" = "Telefonní číslo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Fotky";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+"Presets" = "Předvolby";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Kvalitní";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Recognizing ... %@ " = "Rozpoznává ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Opakovat";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -208,12 +236,20 @@
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Uložení výsledků ...";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Předvolby výběru";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Saving Texts ..." = "Ukládání textů ...";
+/* Generated from genl10n: CallApp.BApp.swift */
+"Select Photos You Want To Grab Phone Numbers!" = "Vyberte fotky, které chcete chytit telefonní čísla!";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Select Photos You Want To Grab!" = "Vyberte fotky, které chcete chytit!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Podíl";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Velikost";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry can't call to selected contact." = "Omlouváme se, nemůžete kontaktovat vybraný kontakt.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry not found any contact information." = "Je nám líto, ale nenašli žádné kontaktní údaje.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Náměstí";
 /* Generated from genl10n: Stabilizer.swift */
@@ -226,15 +262,23 @@
 "Stabilizing Selected Items..." = "Stabilizace vybraných položek ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Start";
+/* Generated from genl10n: PixNote.swift */
+"Starting To Find ..." = "Začínáme najít ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Spuštění procesu ...";
+/* Generated from genl10n: Revert.BApp.swift */
+"Starting to check edited photos..." = "Začátek prohlížení upravovaných fotografií ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Překlad";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Waiting To Select ..." = "Čekání na výběr ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "qHD (960×540)" = "qHD (960 × 540)";
+/* Generated from genl10n: CallApp.BApp.swift */
+"🔍 Starting To Find ..." = "Začínáme najít ...";

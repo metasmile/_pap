@@ -126,18 +126,28 @@
 "%d times" = "%d ጊዜዎች";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Address" = "አድራሻ";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "አልበሞች";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animated GIF" = "እነማ GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "እነማ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "ምጥጥነ ገፅታ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "ቡር";
+/* Generated from genl10n: Revert.BApp.swift */
+"Cannot revert. All selected items have not edited." = "ማድህር አልተቻለም. ሁሉም የተመረጡ ንጥሎች አርትዖት አልደረጉም.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Choose A Phone Number To Call" = "ለመደወል የስልክ ቁጥር ይምረጡ";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "ለ %d ንጥሎች የማስጭ አማራጭን ይምረጡ";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "ለመለወጥ አማራጭን ይምረጡ";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Contract" = "ኮንትራት";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "ይፍጠሩ";
 /* Generated from genl10n: Stabilizer.swift */
@@ -146,22 +156,34 @@
 "Crop to Fit" = "የተገጠመውን ወደ መከርከም";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "ከርክም";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Date" = "ቀን";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "አቅጣጫ";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "በማውረድ ላይ ...";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"E-mail Address" = "የ ኢሜል አድራሻ";
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+"Enable Auto Selection" = "ራስ-ሰር ምርጫን ያንቁ";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "ወደ ውጪ መላኪያ አማራጮች";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "ወደውጪ ላክ";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Find" = "አግኝ";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Finding Contacts ... %@ " = "እውቂያዎችን በማግኘት ላይ ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "አስተላልፍ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "የክፈፍ መዘግየት";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF ፈጣሪ";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Grab" = "Grab";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HD (1280×720)" = "ከፍተኛ ጥራት (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -190,12 +212,18 @@
 "No loop" = "ምንም አኳኋን የለም";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "የመጀመሪያው";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Phone Number" = "ስልክ ቁጥር";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "ፎቶዎች";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+"Presets" = "ቅድመ-ቅምጦች";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 x 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "ጥራት";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Recognizing ... %@ " = "በማወቅ ላይ ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "ድገም";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -208,12 +236,20 @@
 "Save" = "አስቀምጥ";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "ውጤቶችን በማስቀመጥ ላይ ...";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "የምርጫዎች ቅድመ-ቅምጦች";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Saving Texts ..." = "ጽሁፎችን በማስቀመጥ ላይ ...";
+/* Generated from genl10n: CallApp.BApp.swift */
+"Select Photos You Want To Grab Phone Numbers!" = "ስልክ ቁጥሮች ለመሰብሰብ የሚፈልጉት ፎቶዎችን ይምረጡ!";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Select Photos You Want To Grab!" = "ለማስገባት የሚፈልጉት ፎቶዎችን ይምረጡ!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "አጋራ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "መጠን";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry can't call to selected contact." = "ይቅርታ ለተመረጠው ዕውቂያ መደወል አይቻልም.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry not found any contact information." = "ይቅርታ ማንኛውም የእውቂያ መረጃ አላገኘም.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "ካሬ";
 /* Generated from genl10n: Stabilizer.swift */
@@ -226,15 +262,23 @@
 "Stabilizing Selected Items..." = "የተመረጡ ንጥሎችን በማረጋጋት ላይ ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "ይጀምሩ";
+/* Generated from genl10n: PixNote.swift */
+"Starting To Find ..." = "ለማግኘት መጀመር ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "ሂደቱን በመጀመር ላይ ...";
+/* Generated from genl10n: Revert.BApp.swift */
+"Starting to check edited photos..." = "አርትዖት የተደረጉ ፎቶዎችን መመልከት ላይ ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "ትርጉም";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "ቪድዮ";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Waiting To Select ..." = "ለመምረጥ በመጠበቅ ላይ ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "ጦርነት";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "qHD (960×540)" = "qHD (960 × 540)";
+/* Generated from genl10n: CallApp.BApp.swift */
+"🔍 Starting To Find ..." = "ለማግኘት መጀመር ...";

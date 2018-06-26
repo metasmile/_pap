@@ -126,18 +126,28 @@
 "%d times" = "%d amaxesha";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Address" = "Idilesi";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "IAlbums";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animated GIF" = "I-GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Imifanekiso";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Umgangatho wento";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Ukuqhuma";
+/* Generated from genl10n: Revert.BApp.swift */
+"Cannot revert. All selected items have not edited." = "Ayikwazi ukubuyisela. Zonke izinto ezikhethiweyo azizange zihlelwe.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Choose A Phone Number To Call" = "Khetha Inombolo yefowuni yokufowuna";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Choose An Export Option For %d Items";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Khetha Option Ukuguqula";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Contract" = "I khontrakthi";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Yakha";
 /* Generated from genl10n: Stabilizer.swift */
@@ -146,22 +156,34 @@
 "Crop to Fit" = "Ukuhluma ukuFumana";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Ulimo";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Date" = "Umhla";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Isikhokelo";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Ukulanda ...";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"E-mail Address" = "Idilesi yemeyile";
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+"Enable Auto Selection" = "Nika amandla ukukhethwa kwe-Auto";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Izinketho zokuthumela ngaphandle";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Ukuthumela ngaphandle";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Find" = "Fumana";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Finding Contacts ... %@ " = "Ukufumana oonxibelelwano ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Ngaphambili";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Isikhokelo sokulahla";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Umenzi";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Grab" = "Ukubamba";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -190,12 +212,18 @@
 "No loop" = "Akukho nyilo";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "Okwangempela";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Phone Number" = "Inombolo yomnxeba";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Iifoto";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+"Presets" = "Preset";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "I-QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Umgangatho";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Recognizing ... %@ " = "Ukuqaphela ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Phinda kwakhona";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -208,12 +236,20 @@
 "Save" = "Gcina";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Ukugcina iziphumo ...";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Ukukhethwa kweefowuni";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Saving Texts ..." = "Ukugcina iMibhalo ...";
+/* Generated from genl10n: CallApp.BApp.swift */
+"Select Photos You Want To Grab Phone Numbers!" = "Khetha iifoto ofuna ukuzobamba iinombolo zefowuni!";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Select Photos You Want To Grab!" = "Khetha iifoto ofuna ukuzenza!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Yabelana";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Size";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry can't call to selected contact." = "Uxolo awukwazi ukubiza umnxeba okhethiweyo.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry not found any contact information." = "Uxolo akafumanekanga nayiphi na ingcaciso yoqhagamshelwano.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -226,15 +262,23 @@
 "Stabilizing Selected Items..." = "Ukuzinzisa Izinto Ezikhethiweyo ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Qala";
+/* Generated from genl10n: PixNote.swift */
+"Starting To Find ..." = "Ukuqala Ukufumana ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Ukuqalisa iNkqubo ...";
+/* Generated from genl10n: Revert.BApp.swift */
+"Starting to check edited photos..." = "Ukuqala ukujonga izithombe ezihleliweyo ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Ukuguqulelwa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Ividiyo";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Waiting To Select ..." = "Ukulinda Ukukhetha ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "qHD (960×540)" = "qHD (960 × 540)";
+/* Generated from genl10n: CallApp.BApp.swift */
+"🔍 Starting To Find ..." = "Ukuqala Ukufumana ...";

@@ -126,18 +126,28 @@
 "%d times" = "%d बार";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080 पी (1920 × 1080)";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Address" = "पता";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "एल्बम";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animated GIF" = "एनिमेटेड GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "एनीमेशन";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "आस्पेक्ट अनुपात";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "फट";
+/* Generated from genl10n: Revert.BApp.swift */
+"Cannot revert. All selected items have not edited." = "वापस नहीं जा सकता सभी चयनित आइटम संपादित नहीं किए गए हैं।";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Choose A Phone Number To Call" = "कॉल करने के लिए एक फोन नंबर चुनें";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "%d आइटम के लिए एक निर्यात विकल्प चुनें";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "कनवर्ट करने के लिए एक विकल्प चुनें";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Contract" = "अनुबंध";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Create";
 /* Generated from genl10n: Stabilizer.swift */
@@ -146,22 +156,34 @@
 "Crop to Fit" = "फिट करने के लिए फसल";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Date" = "तारीख";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "दिशा";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "डाउनलोड कर रहा है ...";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"E-mail Address" = "ईमेल पता";
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+"Enable Auto Selection" = "ऑटो चयन सक्षम करें";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "निर्यात विकल्प";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "निर्यात";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Find" = "खोज";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Finding Contacts ... %@ " = "संपर्क ढूंढ रहा है ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "फ़्रेम विलंब";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "जीआईएफ निर्माता";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Grab" = "लपकना";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HD (1280×720)" = "एचडी (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -190,12 +212,18 @@
 "No loop" = "कोई लूप नहीं";
 /* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "मूल";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Phone Number" = "फ़ोन नंबर";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "तस्वीरें";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+"Presets" = "प्रीसेट";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "क्यूवीजीए (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "गुणवत्ता";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Recognizing ... %@ " = "पहचान रहा है ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "दोहराना";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -208,12 +236,20 @@
 "Save" = "बचाना";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "परिणाम सहेजा जा रहा है ...";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "चयन प्रीसेट";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Saving Texts ..." = "टेक्स्ट सहेजा जा रहा है ...";
+/* Generated from genl10n: CallApp.BApp.swift */
+"Select Photos You Want To Grab Phone Numbers!" = "उन फ़ोनों का चयन करें जिन्हें आप फोन नंबर प्राप्त करना चाहते हैं!";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Select Photos You Want To Grab!" = "उन तस्वीरों का चयन करें जिन्हें आप पकड़ना चाहते हैं!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "शेयर";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Size";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry can't call to selected contact." = "क्षमा करें चयनित संपर्क पर कॉल नहीं कर सकते हैं।";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry not found any contact information." = "क्षमा करें कोई संपर्क जानकारी नहीं मिली।";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -226,15 +262,23 @@
 "Stabilizing Selected Items..." = "चयनित वस्तुओं को स्थिर करना ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "प्रारंभ";
+/* Generated from genl10n: PixNote.swift */
+"Starting To Find ..." = "ढूंढना शुरू हो रहा है ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "प्रक्रिया शुरू कर रहा है ...";
+/* Generated from genl10n: Revert.BApp.swift */
+"Starting to check edited photos..." = "संपादित फोटो जांचना शुरू कर रहा है ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "अनुवाद";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "वीडियो";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Waiting To Select ..." = "चुनने की प्रतीक्षा कर रहा है ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "ताना";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "एनएचडी (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "qHD (960×540)" = "क्यूएचडी (960 × 540)";
+/* Generated from genl10n: CallApp.BApp.swift */
+"🔍 Starting To Find ..." = "ढूंढना शुरू हो रहा है ...";

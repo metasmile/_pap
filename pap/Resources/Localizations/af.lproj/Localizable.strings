@@ -126,18 +126,28 @@
 "%d times" = "%d keer";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Address" = "adres";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "albums";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animated GIF" = "Animated GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "animasie";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Aspect Ratio";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "bars";
+/* Generated from genl10n: Revert.BApp.swift */
+"Cannot revert. All selected items have not edited." = "Kan nie terugkeer nie. Alle geselekteerde items is nie geredigeer nie.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Choose A Phone Number To Call" = "Kies 'n telefoonnommer om te bel";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Kies 'n Uitvoeropsie vir %d Items";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Kies 'n opsie om te omskep";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Contract" = "kontrak";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Skep";
 /* Generated from genl10n: Stabilizer.swift */
@@ -146,22 +156,34 @@
 "Crop to Fit" = "Gewas om te pas";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "oes";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Date" = "datum";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "rigting";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Aflaai ...";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"E-mail Address" = "E-pos adres";
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+"Enable Auto Selection" = "Aktiveer outomatiese seleksie";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Uitvoeropsies";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "uitvoer";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Find" = "Vind";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Finding Contacts ... %@ " = "Kontakte vind ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "vorentoe";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Raam vertraging";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Grab" = "gryp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -190,12 +212,18 @@
 "No loop" = "Geen lus nie";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "oorspronklike";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Phone Number" = "Telefoon nommer";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Fotos";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+"Presets" = "presets";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Gehalte";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Recognizing ... %@ " = "Erkenning ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Herhaal";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -208,12 +236,20 @@
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Stoor resultate ...";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Keuzevoorkeure";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Saving Texts ..." = "Stoor tans tekste ...";
+/* Generated from genl10n: CallApp.BApp.swift */
+"Select Photos You Want To Grab Phone Numbers!" = "Kies foto's wat jy wil hê om telefoonnommers te gryp!";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Select Photos You Want To Grab!" = "Kies foto's wat jy wil gryp!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Deel";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "grootte";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry can't call to selected contact." = "Jammer kan nie na geselekteerde kontak gebel word nie.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry not found any contact information." = "Jammer geen kontakinligting gevind nie.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -226,15 +262,23 @@
 "Stabilizing Selected Items..." = "Stabilisering van geselekteerde items ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "begin";
+/* Generated from genl10n: PixNote.swift */
+"Starting To Find ..." = "Begin om te vind ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Begin die proses ...";
+/* Generated from genl10n: Revert.BApp.swift */
+"Starting to check edited photos..." = "Begin om geredigeerde foto's te kyk ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "vertaling";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "video";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Waiting To Select ..." = "Wag om te kies ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "warp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "qHD (960×540)" = "qHD (960 × 540)";
+/* Generated from genl10n: CallApp.BApp.swift */
+"🔍 Starting To Find ..." = "Begin om te vind ...";

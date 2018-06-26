@@ -126,18 +126,28 @@
 "%d times" = "%d uaireanta";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Address" = "Seoladh";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albam";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animated GIF" = "GIF beoite";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Beochan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Cóimheas treoaíochta";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Pléasctha";
+/* Generated from genl10n: Revert.BApp.swift */
+"Cannot revert. All selected items have not edited." = "Ní féidir dul ar ais. Níor eagraíodh gach mír roghnaithe.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Choose A Phone Number To Call" = "Roghnaigh Uimhir Fón Chun Glaoigh";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Roghnaigh Rogha Easpórtála Do %d Míreanna";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Roghnaigh Rogha Chun Tiontaigh";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Contract" = "Conradh";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Cruthaigh";
 /* Generated from genl10n: Stabilizer.swift */
@@ -146,22 +156,34 @@
 "Crop to Fit" = "Buail chun Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Cnoc";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Date" = "Dáta";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Treorach";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Íoslódáil ...";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"E-mail Address" = "Seoladh ríomhphoist";
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+"Enable Auto Selection" = "Cumasaigh Auto Roghnú";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Roghanna Easpórtála";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Easpórtáil";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Find" = "Aimsigh";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Finding Contacts ... %@ " = "Ag Lorg Teagmhálacha ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Ar Aghaidh";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Moill Fráma";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "Déantóir GIF";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Grab" = "Grab";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HD (1280×720)" = "HD (1280 × 720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -190,12 +212,18 @@
 "No loop" = "Gan lúb";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "Bunaidh";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Phone Number" = "Uimhir teileafón";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Grianghraif";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+"Presets" = "Réamhshocruithe";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Caighdeán";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Recognizing ... %@ " = "Ag aithint ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Déan arís";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -208,12 +236,20 @@
 "Save" = "Sábháil";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Torthaí a Shábháil ...";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
-"Selection Presets" = "Réamhshocruithe Roghnúcháin";
+/* Generated from genl10n: Textractor.BApp.swift */
+"Saving Texts ..." = "Téacsanna a Shábháil ...";
+/* Generated from genl10n: CallApp.BApp.swift */
+"Select Photos You Want To Grab Phone Numbers!" = "Roghnaigh Grianghrafanna Ar mhaith leat Grab Uimhreacha Fón!";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Select Photos You Want To Grab!" = "Roghnaigh Grianghraif Ba mhaith leat Grab!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Comhroinn";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Méid";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry can't call to selected contact." = "Is brón orm nach féidir teagmháil teagmhála a roghnú.";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Sorry not found any contact information." = "Níor aimsigh aon fhaisnéis teagmhála.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Cearnóg";
 /* Generated from genl10n: Stabilizer.swift */
@@ -226,15 +262,23 @@
 "Stabilizing Selected Items..." = "Míreanna Roghnaithe a Chobhsú ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Tosaigh";
+/* Generated from genl10n: PixNote.swift */
+"Starting To Find ..." = "Ag tosú ag Lorg ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Ag tosú ar an bPróiseas ...";
+/* Generated from genl10n: Revert.BApp.swift */
+"Starting to check edited photos..." = "Ag tosú le seiceáil grianghraif eagraithe ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Aistriúchán";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
+/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+"Waiting To Select ..." = "Ag Feitheamh Chun Roghnaigh ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "nHD (640×360)" = "nHD (640 × 360)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "qHD (960×540)" = "qHD (960 × 540)";
+/* Generated from genl10n: CallApp.BApp.swift */
+"🔍 Starting To Find ..." = "Ag tosú ag Lorg ...";
