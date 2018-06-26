@@ -88,6 +88,8 @@
 "%d times" = "%d times";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920×1080)";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Address" = "Address";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albums";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -106,6 +108,8 @@
 "Choose An Export Option For %d Items" = "Choose An Export Option For %d Items";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Choose an Option To Convert";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Contract" = "Contract";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Create";
 /* Generated from genl10n: Stabilizer.swift */
@@ -114,12 +118,16 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Date" = "Date";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Downloading...";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"E-mail Address" = "E-mail Address";
 /* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Enable Auto Selection";
 /* Generated from genl10n: Convert.AppDockContent.swift */
@@ -166,6 +174,8 @@
 "No loop" = "No loop";
 /* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "Original";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Phone Number" = "Phone Number";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Photos";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
@@ -192,6 +202,8 @@
 "Saving Texts ..." = "Saving Texts ...";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Select Photos You Want To Grab Phone Numbers!";
+/* Generated from genl10n: PixNote.AppDockContent.swift */
+"Select Photos You Want To Grab!" = "Select Photos You Want To Grab!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Share";
 /* Generated from genl10n: GIFMaker.BApp.swift */

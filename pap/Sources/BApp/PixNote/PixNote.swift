@@ -41,12 +41,12 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
 
     public static let paramType:TaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
 
-    public private(set) lazy var dockContent: AppDockContent? = PixNoteDockContent()
+    public private(set) lazy var dockContent: AppDockContent? = PixNoteAppDockContent()
 
     private let appDefaults = PixNote.defaults as! PixNoteDefaults
 
     @objc dynamic
-    public fileprivate (set) lazy var autoSelect: Bool = false
+    public lazy var autoSelect: Bool = false
 
     public static let info = AppInfo(
             identifier: "com.stells.pap.pixnote"

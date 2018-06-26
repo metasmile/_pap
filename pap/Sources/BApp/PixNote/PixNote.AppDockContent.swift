@@ -8,8 +8,8 @@ import UIKit
 import DefaultsKit
 
 private enum SelectionPresets:Int{
-    case all
-    case privacy
+    case raw
+    case contacts
     case custom
 }
 
@@ -30,95 +30,104 @@ private struct SettingsItem {
 }
 
 private protocol PixNoteAppDefaults: AppDefaults{
-    var ghostedImageMetadataCollection: ImageMetadataPropertyCollection {get set}
+    var selectedParserCollection: ParserCollection {get set}
     var selectionPreset: Int {get set}
-    var removeOriginal: Bool {get set}
 }
 
 extension Defaults: PixNoteAppDefaults {
-    fileprivate var ghostedImageMetadataCollection: ImageMetadataPropertyCollection {
+    fileprivate var selectedParserCollection: ParserCollection {
         set{ set(newValue) }
-        get{ return get(or: ImageMetadata.Collection.DefaultSensitivity) }
+        get{ return get(or: Parsers.Collection.Default) }
     }
 
     fileprivate var selectionPreset: Int {
         set{ set(newValue) }
-        get{ return get(or: SelectionPresets.privacy.rawValue ) }
-    }
-
-    fileprivate var removeOriginal: Bool {
-        set{ set(newValue) }
-        get{ return get(or: false ) }
+        get{ return get(or: SelectionPresets.contacts.rawValue ) }
     }
 }
 
 
 extension PixNoteAppDefaults{
     fileprivate func addHandledProperty(_ dictionary:String, _ property:String){
-        guard ImageMetadata.PropertyApple.supportedDictionaries.contains(dictionary) else{
-            assert(false, "\(dictionary) is not supported dictionary")
-            return
-        }
 
         var immutableSelf = self
-        if immutableSelf.ghostedImageMetadataCollection[dictionary] == nil{
-            immutableSelf.ghostedImageMetadataCollection = ImageMetadataPropertyCollection()
-            var p = immutableSelf.ghostedImageMetadataCollection
+        if immutableSelf.selectedParserCollection[dictionary] == nil{
+            immutableSelf.selectedParserCollection = ParserCollection()
+            var p = immutableSelf.selectedParserCollection
             p[dictionary] = [property]
-            immutableSelf.ghostedImageMetadataCollection = p
+            immutableSelf.selectedParserCollection = p
         }else{
-            if ghostedImageMetadataCollection[dictionary]?.contains(property) == false{
-                var p = immutableSelf.ghostedImageMetadataCollection
+            if selectedParserCollection[dictionary]?.contains(property) == false{
+                var p = immutableSelf.selectedParserCollection
                 p[dictionary]?.append(property)
-                immutableSelf.ghostedImageMetadataCollection = p
+                immutableSelf.selectedParserCollection = p
             }
         }
     }
 
     fileprivate func removeHandledProperty(_ dictionary:String, _ property:String){
-        guard ImageMetadata.PropertyApple.supportedDictionaries.contains(dictionary) else{
-            assert(false, "\(dictionary) is not supported dictionary")
-            return
-        }
 
-        if let index = ghostedImageMetadataCollection[dictionary]?.index(of: property){
+        if let index = selectedParserCollection[dictionary]?.index(of: property){
             var immutableSelf = self
-            var p = immutableSelf.ghostedImageMetadataCollection
+            var p = immutableSelf.selectedParserCollection
             p[dictionary]?.remove(at: index)
-            immutableSelf.ghostedImageMetadataCollection = p
+            immutableSelf.selectedParserCollection = p
         }
     }
 }
 
-private struct MetadataItem{
+public typealias ParserCollection = [String: [String]]
+
+private struct Parsers {
+
+    public struct Collection {
+
+        public static let Default: ParserCollection = [
+            Parsers.Dictionary.Contract: [
+                Parsers.Property.PhoneNumber
+                ,Parsers.Property.EmailAddress
+                ,Parsers.Property.Address
+                ,Parsers.Property.Date
+            ]
+        ]
+    }
+
+
+    public struct Dictionary {
+        static var Contract:String { return "Contract" }
+    }
+
+    public struct Property {
+        static let PhoneNumber: String = "PhoneNumber"
+        static let EmailAddress: String = "EmailAddress"
+        static let Address: String = "Address"
+        static let Date: String = "Date"
+    }
+}
+
+private struct ParserItem {
     fileprivate var key:String
     fileprivate var label:String
 }
 
-private struct MetadataDictionary{
+private struct ParserDictionary {
     fileprivate var key:String
     fileprivate var label:String
-    fileprivate var items:[MetadataItem]
+    fileprivate var items:[ParserItem]
 }
 
 class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
     fileprivate var cellDescribers = [UITableViewCellDefaultDescribable]()
 
-    private var metadataCollection:[MetadataDictionary] = [
-        MetadataDictionary(key:ImageMetadata.Dictionary.GPS, label: "GPS",
-                items: ImageMetadata.PropertyApple.GPS.map { key -> MetadataItem in
-                    return MetadataItem(key:key, label: ImageMetadata.Labels.GPS[key] ?? key)
-                }),
+    private var parserCollection:[ParserDictionary] = [
 
-        MetadataDictionary(key:ImageMetadata.Dictionary.Exif, label: "EXIF",
-                items: ImageMetadata.PropertyApple.Exif.map { key -> MetadataItem in
-                    return MetadataItem(key:key, label: ImageMetadata.Labels.Exif[key] ?? key)
-                }),
-
-        MetadataDictionary(key:ImageMetadata.Dictionary.TIFF, label: "TIFF",
-                items: ImageMetadata.PropertyApple.TIFF.map { key -> MetadataItem in
-                    return MetadataItem(key:key, label: ImageMetadata.Labels.TIFF[key] ?? key)
-                })
+        ParserDictionary(key: Parsers.Dictionary.Contract, label: "Contract".localized,
+                items: [
+                    ParserItem(key: Parsers.Property.PhoneNumber, label:"Phone Number".localized)
+                    ,ParserItem(key: Parsers.Property.EmailAddress, label:"E-mail Address".localized)
+                    ,ParserItem(key: Parsers.Property.Address, label:"Address".localized)
+                    ,ParserItem(key: Parsers.Property.Date, label:"Date".localized)
+                ])
     ]
 
     required public override init() {
@@ -139,12 +148,12 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
         return preferences
     }
 
-    var ghostedImageMetadataCollection: ImageMetadataPropertyCollection{
-        return defaults.ghostedImageMetadataCollection
+    var selectedParserCollection: ParserCollection{
+        return defaults.selectedParserCollection
     }
 
     var shouldGhostAll:Bool{
-        return defaults.selectionPreset == SelectionPresets.all.rawValue
+        return defaults.selectionPreset == SelectionPresets.raw.rawValue
     }
 
     private var autoSelect:Bool = false
@@ -173,8 +182,8 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
         cell0.label = "Presets".localized
         cell0.valueGetter = { self.defaults.selectionPreset }
         cell0.valueCollection = [
-            (label:"All",value:SelectionPresets.all.rawValue),
-            (label:"Privacy",value:SelectionPresets.privacy.rawValue),
+            (label:"Raw Text",value:SelectionPresets.raw.rawValue),
+            (label:"All Contracts",value:SelectionPresets.contacts.rawValue),
             (label:"Custom", value:SelectionPresets.custom.rawValue)
         ]
         cell0.valueHandler = {
@@ -183,19 +192,19 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
             self.defaults.selectionPreset = preset
 
             (view as? UITableView)?.performBatchUpdates({
-                if preset == SelectionPresets.all.rawValue{
-                    for m in self.metadataCollection{
+                if preset == SelectionPresets.raw.rawValue{
+                    for m in self.parserCollection {
                         for i in m.items{
                             self.defaults.addHandledProperty(m.key, i.key)
                         }
                     }
-                }else if preset == SelectionPresets.privacy.rawValue{
-                    for m in self.metadataCollection{
+                }else if preset == SelectionPresets.contacts.rawValue{
+                    for m in self.parserCollection {
                         for i in m.items{
                             self.defaults.removeHandledProperty(m.key, i.key)
                         }
                     }
-                    for m in ImageMetadata.Collection.DefaultSensitivity{
+                    for m in Parsers.Collection.Default{
                         for i in m.value{
                             self.defaults.addHandledProperty(m.key, i)
                         }
@@ -225,28 +234,10 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
 
-        let defaultsCollection = self.defaults.ghostedImageMetadataCollection
-
-        //sort ascending for handling exif properties
-//        self.metadataCollection = self.metadataCollection.map { dictionary -> MetadataDictionary in
-//            if let handledItems = defaultsCollection[dictionary.key]{
-//                var dict = dictionary
-//                dict.items = dict.items.sorted { item0, item1 in
-//                    if let i0 = handledItems.index(of:item0.key){
-//                        if let i1 = handledItems.index(of:item1.key){
-//                            return i0 < i1
-//                        }
-//                        return true
-//                    }
-//                    return false
-//                }
-//                return dict
-//            }
-//            return dictionary
-//        }
+        let defaultsCollection = self.defaults.selectedParserCollection
 
         //get indexes
-        let sections = self.metadataCollection.enumerated().compactMap { (section, dictionary) -> [IndexPath]? in
+        let sections = self.parserCollection.enumerated().compactMap { (section, dictionary) -> [IndexPath]? in
             if let handledItems = defaultsCollection[dictionary.key]{
 
                 return handledItems.compactMap { key -> IndexPath? in
@@ -281,7 +272,7 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1 + metadataCollection.count
+        return 1 + parserCollection.count
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -293,9 +284,9 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 0
-                ? "👻 " + "Switch on any items you want to hide. The quality will completely remain the same."
-                : metadataCollection[section-1].label
+
+        let label_section0 = "🖼️ ‣ 🤖 ‣ 😸 " + "Select Photos You Want To Grab!".localized
+        return section == 0 ? label_section0 : parserCollection[section-1].label
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -303,7 +294,7 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? cellDescribers.count : metadataCollection[section-1].items.count
+        return section == 0 ? cellDescribers.count : parserCollection[section-1].items.count
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -312,7 +303,7 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
 
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = indexPath.section == 0 ? settings_tableView(tableView, cellForRowAt: indexPath) : metadataCollection_tableView(tableView, cellForRowAt: IndexPath(item: indexPath.item, section: indexPath.section))
+        let cell = indexPath.section == 0 ? settings_tableView(tableView, cellForRowAt: indexPath) : parserCollection_tableView(tableView, cellForRowAt: IndexPath(item: indexPath.item, section: indexPath.section))
         return cell
     }
 
@@ -392,15 +383,15 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
         return cell
     }
 
-    func metadataCollection_tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func parserCollection_tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let dict = self.metadataCollection[indexPath.section-1]
+        let dict = self.parserCollection[indexPath.section-1]
 
         var selected = false
         if let _ = initialSelectedIndexPaths?.index(of: indexPath) {
             selected = true
         }
-        if let _ = defaults.ghostedImageMetadataCollection[dict.key]?.index(of: dict.items[indexPath.item].key){
+        if let _ = defaults.selectedParserCollection[dict.key]?.index(of: dict.items[indexPath.item].key){
             selected = true
         }
 
@@ -421,7 +412,7 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
 
             let selectedPreset = self.defaults.selectionPreset
 
-            if selectedPreset == SelectionPresets.all.rawValue || selectedPreset == SelectionPresets.privacy.rawValue{
+            if selectedPreset == SelectionPresets.raw.rawValue || selectedPreset == SelectionPresets.contacts.rawValue{
                 self.defaults.selectionPreset = SelectionPresets.custom.rawValue
 
                 tableView.reloadSections(IndexSet(integer: 0), with: .none)
