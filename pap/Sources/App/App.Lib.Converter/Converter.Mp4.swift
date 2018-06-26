@@ -9,7 +9,7 @@ import ImageIO
 import MobileCoreServices
 
 struct MP4ConverterOption {
-    var avAssetPreset:String = AVAssetExportPreset3840x2160
+    var avAssetPreset:String = AVAssetExportPresetPassthrough
 
     static func optionBy(_ quality: ConverterQualityPreset, with asset: PHAsset) -> MP4ConverterOption {
         switch quality{
