@@ -20,17 +20,21 @@ public struct VisionTextPhoneNumberParser: VisionTextParser{
             return nil
         }
 
-        var phoneNumbers = [String]()
+        var phoneNumbers = Set<String>()
 
         for line in lines{
             for word in line{
-                if let phoneNumber = try? VisionTextPhoneNumberParser.phoneNumberKit.parse(word){
-                    phoneNumbers.append(phoneNumber.numberString)
+                if let phoneNumber = try? VisionTextPhoneNumberParser.phoneNumberKit.parse(word)
+                    , phoneNumber.type != .notParsed && phoneNumber.type != .unknown
+                    , phoneNumber.numberString.count>0
+                    , !phoneNumbers.contains(phoneNumber.numberString) {
+
+                    phoneNumbers.insert(phoneNumber.numberString)
                 }
             }
         }
 
-        return phoneNumbers
+        return Array(phoneNumbers)
     }
 }
 

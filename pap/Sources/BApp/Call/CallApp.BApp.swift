@@ -98,7 +98,7 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
 
             for phoneNumberSetInBlock in item.phoneNumbers{
 
-                for phoneNumber in phoneNumberSetInBlock where false == phoneNumberPool.contains(phoneNumber){
+                for phoneNumber in phoneNumberSetInBlock where false == phoneNumberPool.contains(phoneNumber) && phoneNumber.count>0 {
                     phoneNumberPool.insert(phoneNumber)
 
                     alert.addAction(UIAlertAction(title: phoneNumber, style: . default, handler: { action in
@@ -154,14 +154,12 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
     }
 
     public func shouldAutoSelectAsynchronously(item: AppAsset, _ async: AsyncSignal) -> PhotoPickerCollectionViewAsyncSelection {
-        if self.autoSelect == false{
-            return .none
-        }
 
-        if let image = item.asset.asUIImage {
-            if let result = self.detector.detectResult(asset: item.asset, image: image, async) {
-                return result.phoneNumbers.count > 0 ? .visible : .none
-            }
+        if self.autoSelect
+        , let image = item.asset.asUIImage
+        , let result = self.detector.detectResult(asset: item.asset, image: image, async){
+
+            return result.phoneNumbers.count > 0 ? .visible : .none
         }
 
         return .none
