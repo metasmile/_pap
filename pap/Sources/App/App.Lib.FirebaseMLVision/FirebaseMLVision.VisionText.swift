@@ -10,7 +10,7 @@ extension Array where Element==VisionText {
     func parse<ParserType: VisionTextParser>(parser: ParserType, _ async: AsyncManualSignalable) -> [ParserType.OutputType]? {
         return self.compactMap { visionText -> ParserType.OutputType? in
             return parser.parse(input: visionText)
-        }
+        }.nilEmpty
     }
 
     func parse<ParserType:VisionTextParser>(type: ParserType.Type, _ async: AsyncManualSignalable) -> [ParserType.OutputType]? {

@@ -25,9 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         #if !DEBUG
         Fabric.with([Crashlytics.self])
-        #endif
-
         FirebaseApp.configure()
+        #endif
 
         Armchair.appID("1309539102")
 

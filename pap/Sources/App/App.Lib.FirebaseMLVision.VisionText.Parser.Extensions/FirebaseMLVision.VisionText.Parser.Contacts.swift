@@ -34,7 +34,7 @@ public struct VisionTextPhoneNumberParser: VisionTextParser{
             }
         }
 
-        return Array(phoneNumbers)
+        return Array<String>(phoneNumbers).nilEmpty
     }
 }
 
@@ -48,7 +48,7 @@ public struct VisionTextEmailAddressParser: VisionTextParser{
             return nil
         }
 
-        return rawText.emailAddresses()
+        return rawText.emailAddresses().nilEmpty
     }
 }
 
@@ -62,9 +62,11 @@ public struct VisionTextAddressParser: VisionTextParser{
         guard let rawText = VisionTextStringParser.shared.parse(input: input) else{
             return nil
         }
-        return rawText.detectAll(types: NSTextCheckingResult.CheckingType.address.rawValue).compactMap { result -> VisionTextAddressParserResult? in
+        let results = rawText.detectAll(types: NSTextCheckingResult.CheckingType.address.rawValue).compactMap { result -> VisionTextAddressParserResult? in
             return result.addressComponents
         }
+
+        return results.nilEmpty
     }
 }
 
