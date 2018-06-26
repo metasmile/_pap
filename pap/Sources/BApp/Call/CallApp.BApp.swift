@@ -185,11 +185,11 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
 }
 
 private struct CallAppDetector{
-//    private let vision = Vision.vision()
+
+    private let vision = Vision.vision()
 
     fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncManualSignalable) -> CallAppResult? {
-
-        guard let visionTexts = Vision.vision().textDetector().detect(with: image, async) else {
+        guard let visionTexts = vision.textDetector().detect(with: image, async) else {
             return nil
         }
 

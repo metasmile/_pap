@@ -4,15 +4,15 @@ PODS:
     - Fabric (~> 1.7.7)
   - DefaultsKit (0.0.9)
   - Fabric (1.7.7)
-  - Firebase/Core (5.1.0):
+  - Firebase/Core (5.2.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.0.1)
-  - Firebase/CoreOnly (5.1.0):
-    - FirebaseCore (= 5.0.2)
-  - Firebase/MLVision (5.1.0):
+  - Firebase/CoreOnly (5.2.0):
+    - FirebaseCore (= 5.0.3)
+  - Firebase/MLVision (5.2.0):
     - Firebase/CoreOnly
     - FirebaseMLVision (= 0.9.0)
-  - Firebase/MLVisionTextModel (5.1.0):
+  - Firebase/MLVisionTextModel (5.2.0):
     - Firebase/CoreOnly
     - FirebaseMLVisionTextModel (= 0.9.0)
   - FirebaseAnalytics (5.0.1):
@@ -20,7 +20,7 @@ PODS:
     - FirebaseInstanceID (~> 3.0)
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
     - nanopb (~> 0.3)
-  - FirebaseCore (5.0.2):
+  - FirebaseCore (5.0.3):
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
   - FirebaseInstanceID (3.1.1):
     - FirebaseCore (~> 5.0)
@@ -81,7 +81,7 @@ DEPENDENCIES:
   - Crashlytics
   - DefaultsKit (from `https://github.com/metasmile/DefaultsKit`)
   - Fabric
-  - Firebase/Core (= 5.1.0)
+  - Firebase/Core (= 5.2.0)
   - Firebase/MLVision
   - Firebase/MLVisionTextModel
   - PhoneNumberKit (~> 2.1)
@@ -128,9 +128,9 @@ SPEC CHECKSUMS:
   Crashlytics: 0360624eea1c978a743feddb2fb1ef8b37fb7a0d
   DefaultsKit: e47d11c54a53c66f9e5c65a1992dead90bc7144f
   Fabric: bda89e242bce1b7b8ab264248cf3407774ce0095
-  Firebase: e08fb0795f35707aeb1d8a715c731c45bdf6fd56
+  Firebase: 25ed0412036d7d008568d1fb4d2e9d81ea8a0a2c
   FirebaseAnalytics: b3628aea54c50464c32c393fb2ea032566e7ecc2
-  FirebaseCore: b81044df1044c0857a0737c6324678b72d4f7f00
+  FirebaseCore: a3c87242451633fff8490183898075ce77d168d2
   FirebaseInstanceID: f3f0657372592ecdfdfe2cac604a5a75758376a6
   FirebaseMLCommon: 88ffed2dbb54ecb7dbcf8080a7654b6ea938e15b
   FirebaseMLVision: f9756d8376dd150fb17629eaa7bdc6baa8965677
@@ -148,6 +148,6 @@ SPEC CHECKSUMS:
   SwiftyGif: d36c6dfb52e2ca1e48fe349d225f50ec4123ec85
   TPPDF: 3d631ce0356f3ea25f87266ce74199bb7e81936e
 
-PODFILE CHECKSUM: a7b596ebb84205199ceb4703f263ff59bc666acb
+PODFILE CHECKSUM: 06cbb7eedcdd42de17fcd9475297525e2421be53
 
 COCOAPODS: 1.5.3

@@ -4,7 +4,7 @@ target 'pap' do
   use_frameworks!
 
   # pod 'RealmSwift'
-  pod 'Firebase/Core', '5.1.0' #when it disappears memory leak issue since 5.3+0.10 version set, use latest version
+  pod 'Firebase/Core', '5.2.0' #when it disappears memory leak issue since 5.3+0.10 version set, use latest version
   pod 'Firebase/MLVision'
   pod 'Firebase/MLVisionTextModel'
 
