@@ -87,6 +87,46 @@ public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableAp
         self.config?.adoptValues(fromOther: config)
         self.updateControllerView()
     }
+    
+    public var previewAsynchronously: Bool {
+        return true
+    }
+    
+    private var cachedImages = [String: URL]()
+    public func previewAsync(_ appAsset: AppAsset, at indexPath: IndexPath, completion: @escaping ((UIImage?) -> Void)) {
+        let identifier = "\(appAsset.asset.localIdentifierWithoutSplitter)_\(indexPath)_\(appAsset.editState.hash)"
+        let previewIdentifier = identifier
+        
+        if let cached = cachedPreviewImage(appAsset, at: indexPath) {
+            completion(cached)
+            return
+        }
+        
+        let image = appAsset.asset.requestImage(targetSize: UIScreen.main.bounds.size, options: nil).image?.applyFilter(ciFilter: appAsset.editState.ciFilter)
+        
+        let url = FileURL.temp(identifier, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
+        if let image = image, let data = UIImageJPEGRepresentation(image, 0.7), (try? data.write(to: url)) != nil {
+            cachedImages[identifier] = url
+        }
+        
+        DispatchQueue.main.async {
+            guard previewIdentifier == identifier else { return }
+            completion(image)
+        }
+    }
+    
+    public func removeAllCachedPreviewImages() {
+        for cachedImage in cachedImages {
+            try? FileManager.default.removeItem(at: cachedImage.value)
+        }
+        cachedImages.removeAll()
+    }
+    
+    public func cachedPreviewImage(_ appAsset: AppAsset, at indexPath: IndexPath) -> UIImage? {
+        let identifier = "\(appAsset.asset.localIdentifierWithoutSplitter)_\(indexPath)_\(appAsset.editState.hash)"
+        guard let url = cachedImages[identifier] else { return nil }
+        return UIImage(contentsOfFile: url.path)
+    }
 }
 
 class CIAutoAdjustmentFilter: CIFilter {
@@ -322,7 +362,7 @@ class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, 
             
             accessoryView = optionSwitch
             backgroundColor = .clear
-            textLabel?.font = UIFont.systemFont(ofSize: 14)
+//            textLabel?.font = UIFont.systemFont(ofSize: 14)
             textLabel?.textColor = UIColor.white
         }
         

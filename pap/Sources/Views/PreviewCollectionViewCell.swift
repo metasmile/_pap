@@ -22,6 +22,25 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
     @IBOutlet weak var assetViewWidth: NSLayoutConstraint!
     @IBOutlet weak var assetViewHeight: NSLayoutConstraint!
     
+    var isProcessing: Bool = false {
+        didSet {
+            processingView.isHidden = !isProcessing
+        }
+    }
+    
+    func isProcessing(_ processing: Bool, animated: Bool) {
+        guard animated else {
+            isProcessing = processing
+            return
+        }
+        
+        UIView.transition(with: processingView, duration: 0.3, options: .transitionCrossDissolve, animations: { [weak self] in
+            self?.isProcessing = processing
+        }, completion: nil)
+    }
+    
+    @IBOutlet private weak var processingView: UIView!
+    
     private var previousAttributes: UICollectionViewLayoutAttributes?
     
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
@@ -46,6 +65,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         editItem = nil
         indexPath = nil
         previousAttributes = nil
+        isProcessing = false
         
         if let imageRequestId = imageRequestId {
             PHPhotoLibraryManager.cachingImageManager.cancelImageRequest(imageRequestId)
@@ -67,7 +87,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         needsToUpdatePreview = false
     }
     
-    func setEditItemForPreview(_ item: PHAssetItem<ImageEditStateValue>, at indexPath: IndexPath) {
+    func setEditItemForPreview(_ item: PHAssetItem<ImageEditStateValue>, at indexPath: IndexPath, completion: (() -> Void)?) {
         let asset = item.asset
         
         self.editItem = item
@@ -85,11 +105,69 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
             return self?.indexPath != indexPath
         }, completion: { [weak self] image in
             guard self?.indexPath == indexPath else { return }
-            self?.setImageEditItem(item.editState)
+            completion?()
         })
     }
     
-    func setImageEditItem<T>(_ editItem: StateValueSet<T>, animated: Bool = false) where T: ImageEditStateValue {
+    static private var previewOperationQueue: OperationQueue = {
+        let queue = OperationQueue()
+        queue.qualityOfService = .background
+        queue.maxConcurrentOperationCount = 2
+        return queue
+    }()
+    
+    func setEditItemForPreview(_ item: PHAssetItem<ImageEditStateValue>, at indexPath: IndexPath) {
+        let asset = item.asset
+        
+        self.editItem = item
+        self.asset = asset
+        self.indexPath = indexPath
+        
+        let boundingSize = asset.pixelWidth > asset.pixelHeight ? bounds.size.applying(item.editState.transform).magnitude : bounds.size
+        let photoSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight).aspectFit(in: boundingSize)
+        
+        assetViewWidth.constant = photoSize.width
+        assetViewHeight.constant = photoSize.height
+        
+        layoutIfNeeded()
+        
+        assetView.setThumbnailAsset(asset, cancelDrawingIfNeeded: { [weak self] in
+            return self?.indexPath != indexPath
+        }, completion: { [weak self] image in
+            self?.setAssetItem(item, at: indexPath)
+        })
+    }
+    
+    public func setAssetItem(_ item: PHAssetItem<ImageEditStateValue>, at indexPath: IndexPath, forced: Bool = false, animated: Bool = false) {
+        if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self), forced {
+            app.removeAllCachedPreviewImages()
+        }
+        
+        guard self.indexPath == indexPath else { return }
+        if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self), app.previewAsynchronously {
+            self.isProcessing = true
+            
+            PreviewCollectionViewCell.previewOperationQueue.addOperation { [weak self] in
+                guard self?.indexPath == indexPath else { return }
+                
+                app.previewAsync(item, at: indexPath) { [weak self] (image) in
+                    DispatchQueue.main.async {
+                        self?.isProcessing(false, animated: true)
+                        guard self?.indexPath == indexPath else { return }
+                        
+                        if let image = image {
+                            self?.assetView.image = image
+                        }
+                    }
+                }
+            }
+        }
+        else {
+            self.setImageEditItem(item.editState, animated: animated)
+        }
+    }
+    
+    private func setImageEditItem<T>(_ editItem: StateValueSet<T>, animated: Bool = false) where T: ImageEditStateValue {
         if animated {
             UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: .beginFromCurrentState, animations: { [weak self] in
                 self?.assetView.layer.transform = editItem.transform3d

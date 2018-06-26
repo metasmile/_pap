@@ -457,8 +457,8 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         let exportCell = UITableViewSegmentControlCellDescriber()
         exportCell.itemIdentifier = Cells.export.hashValue
         exportCell.label = "Export".localized
-        exportCell.valueGetter = { "Animated GIF" }
-        exportCell.valueCollection = ["Animated GIF"]
+        exportCell.valueGetter = { "Animated GIF".localized }
+        exportCell.valueCollection = ["Animated GIF".localized]
         cellDescribers.append(exportCell)
         
         let cell0 = UITableViewActionSheetCellDescriber()

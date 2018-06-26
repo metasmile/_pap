@@ -196,7 +196,7 @@ class PreviewView: CustomView {
 
             let appAsset = appAssetsSelected.at(indexPath.item)
             if appAsset.editState.hasChanges || forced {
-                cell.setImageEditItem(appAsset.editState, animated: animated)
+                cell.setAssetItem(appAsset, at: indexPath, forced: true, animated: animated)
             }
         }
     }

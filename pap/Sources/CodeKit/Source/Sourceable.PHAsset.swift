@@ -33,7 +33,7 @@ extension PHAsset {
         return result
     }
     
-    func requestImage(targetSize: CGSize = PHImageManagerMaximumSize, contentMode: PHImageContentMode = .aspectFit, options: PHImageRequestOptions? = PHAsset.highQualityImageRequestOptions, _ async: AsyncManualSignalable = AsyncSignal()) -> (PHImageRequestID, UIImage?) {
+    func requestImage(targetSize: CGSize = PHImageManagerMaximumSize, contentMode: PHImageContentMode = .aspectFit, options: PHImageRequestOptions? = PHAsset.highQualityImageRequestOptions, _ async: AsyncManualSignalable = AsyncSignal()) -> (requestID: PHImageRequestID, image: UIImage?) {
         async.begin()
         
         var result: UIImage? = nil
