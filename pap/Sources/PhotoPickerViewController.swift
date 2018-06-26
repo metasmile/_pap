@@ -64,7 +64,7 @@ class PhotoPickerViewController: AppDockViewController {
 
             self.queuedPhotoLibraryChanges.enqueue(changeInstance)
 
-            self.cancelPendingAutoSelectionIfNeeded()
+            self.cancelPreheatingIfNeeded()
 
             DispatchQueue.main.async {
                 if AppCenter.default.task.isRunning == false{
@@ -111,7 +111,7 @@ class PhotoPickerViewController: AppDockViewController {
             }
             self.photoCollectionView.reloadData()
             self.photoCollectionView.performBatchUpdates(nil, completion: { result in
-                self.performAutoSelectionIfNeeded(includingCurrentVisibleItems: true)
+                self.performPrefetchIfNeeded(includingCurrentVisibleItems: true)
             })
          }
 
@@ -157,7 +157,7 @@ class PhotoPickerViewController: AppDockViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        cancelPendingAutoSelectionIfNeeded()
+        cancelPreheatingIfNeeded()
     }
     
     override func viewWillLayoutSubviews() {
@@ -186,8 +186,8 @@ class PhotoPickerViewController: AppDockViewController {
         batchPreviewView.updatePreviews(forced: true)
 
         updateDoneButtonState()
-        cancelPendingAutoSelectionIfNeeded()
-        performAutoSelectionIfNeeded(includingCurrentVisibleItems: true)
+        cancelPreheatingIfNeeded()
+        performPrefetchIfNeeded(includingCurrentVisibleItems: true)
     }
     
     override func registerWatchingAppConfig() {
@@ -227,29 +227,29 @@ class PhotoPickerViewController: AppDockViewController {
 
             AppCenter.default.currentInstanceAs(RevertApp.self)?.watch(\.autoSelect, id: "picker\(RevertApp.info.identifier)") { (app, changed) in
                 if app.autoSelect && !AppCenter.default.task.isRunning {
-                    self.cancelPendingAutoSelectionIfNeeded()
-                    self.performAutoSelectionIfNeeded(includingCurrentVisibleItems: true)
+                    self.cancelPreheatingIfNeeded()
+                    self.performPrefetchIfNeeded(includingCurrentVisibleItems: true)
                 }
             }
 
             AppCenter.default.currentInstanceAs(Textractor.self)?.watch(\.autoSelect, id: "picker\(Textractor.info.identifier)") { (app, changed) in
                 if app.autoSelect && !AppCenter.default.task.isRunning {
-                    self.cancelPendingAutoSelectionIfNeeded()
-                    self.performAutoSelectionIfNeeded(includingCurrentVisibleItems: true)
+                    self.cancelPreheatingIfNeeded()
+                    self.performPrefetchIfNeeded(includingCurrentVisibleItems: true)
                 }
             }
 
             AppCenter.default.currentInstanceAs(CallApp.self)?.watch(\.autoSelect, id: "picker\(CallApp.info.identifier)") { (app, changed) in
                 if app.autoSelect && !AppCenter.default.task.isRunning {
-                    self.cancelPendingAutoSelectionIfNeeded()
-                    self.performAutoSelectionIfNeeded(includingCurrentVisibleItems: true)
+                    self.cancelPreheatingIfNeeded()
+                    self.performPrefetchIfNeeded(includingCurrentVisibleItems: true)
                 }
             }
 
             AppCenter.default.currentInstanceAs(ExifGhost.self)?.watch(\.autoSelect, id: "picker\(ExifGhost.info.identifier)") { (app, changed) in
                 if app.autoSelect && !AppCenter.default.task.isRunning {
-                    self.cancelPendingAutoSelectionIfNeeded()
-                    self.performAutoSelectionIfNeeded(includingCurrentVisibleItems: true)
+                    self.cancelPreheatingIfNeeded()
+                    self.performPrefetchIfNeeded(includingCurrentVisibleItems: true)
                 }
             }
         }
@@ -307,7 +307,7 @@ class PhotoPickerViewController: AppDockViewController {
         
         updateVisibleCellsEnabled()
 
-        cancelPendingAutoSelectionIfNeeded()
+        cancelPreheatingIfNeeded()
     }
 
     private func showAndRevertTitleByCurrentAppIfNeeded(){

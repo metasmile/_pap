@@ -25,7 +25,7 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp
         , FinalizableApp, AppManagerDelegatedApp
         , PhotoPickerViewControllerDelegatableApp
         , PhotoPickerCollectionViewDisplayableApp
-        , PhotoPickerCollectionViewAsyncAutoDisplayableApp {
+        , PreheatableApp {
     public static let taskType:Taskable.Type = _RevertAppTask.self
 
     public static let paramType:TaskParamable.Type = RevertAppParam.self
@@ -64,8 +64,8 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp
         return true
     }
 
-    public func shouldAutoSelectAsynchronously(item: AppAsset, _ async: AsyncSignal) -> PhotoPickerCollectionViewAsyncSelection {
-        return self.autoSelect && item.asset.isAdjusted == true ? .visible : .none
+    public func performPreheating(item: AppAsset, _ async: AsyncSignal) -> PreheatingFinishAction? {
+        return self.autoSelect && item.asset.isAdjusted == true ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {

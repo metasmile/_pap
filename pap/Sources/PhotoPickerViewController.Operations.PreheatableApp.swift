@@ -6,7 +6,7 @@
 import Foundation
 
 
-private struct AsyncAutoSelectionQueue {
+private struct PreheatingQueue {
 
     fileprivate static let dispatchQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
 
@@ -23,9 +23,9 @@ private struct AsyncAutoSelectionQueue {
 
 extension PhotoPickerViewController{
 
-    public func enqueueAutoSelectionIfNeeded(){
-        guard let _ = AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewAsyncAutoDisplayableApp.self) else {
-            cancelPendingAutoSelectionIfNeeded()
+    public func enqueuePreheatingIfNeeded(){
+        guard let _ = AppCenter.default.currentInstanceAs(PreheatableApp.self) else {
+            cancelPreheatingIfNeeded()
             return
         }
 
@@ -33,38 +33,38 @@ extension PhotoPickerViewController{
             where self.collectionView(self.photoCollectionView, shouldSelectItemAt: indexPath)
                     && self.photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == false{
 
-            AsyncAutoSelectionQueue.dispatchQueue.async{
-                if false == AsyncAutoSelectionQueue.indexPathQueue.enqueued(where:{ $0 == indexPath }){
-                    AsyncAutoSelectionQueue.indexPathQueue.enqueue(indexPath)
+            PreheatingQueue.dispatchQueue.async{
+                if false == PreheatingQueue.indexPathQueue.enqueued(where:{ $0 == indexPath }){
+                    PreheatingQueue.indexPathQueue.enqueue(indexPath)
                 }
             }
         }
     }
 
-    public func cancelPendingAutoSelectionIfNeeded(){
-        AsyncAutoSelectionQueue.controlQueue.async{
-            if AsyncAutoSelectionQueue.indexPathQueue.count == 0{
+    public func cancelPreheatingIfNeeded(){
+        PreheatingQueue.controlQueue.async{
+            if PreheatingQueue.indexPathQueue.count == 0{
                 return
             }
-            AsyncAutoSelectionQueue.canceled = true
+            PreheatingQueue.canceled = true
         }
     }
 
-    public func performAutoSelectionIfNeeded(includingCurrentVisibleItems:Bool=false){
-        guard let interactableApp = AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewAsyncAutoDisplayableApp.self) else {
-            cancelPendingAutoSelectionIfNeeded()
+    public func performPrefetchIfNeeded(includingCurrentVisibleItems:Bool=false){
+        guard let interactableApp = AppCenter.default.currentInstanceAs(PreheatableApp.self) else {
+            cancelPreheatingIfNeeded()
             return
         }
 
         if includingCurrentVisibleItems {
-            self.enqueueAutoSelectionIfNeeded()
+            self.enqueuePreheatingIfNeeded()
         }
 
         let signal = AsyncSignal()
 
         func performNext() {
-            AsyncAutoSelectionQueue.dispatchQueue.async {
-                guard let indexPath = AsyncAutoSelectionQueue.indexPathQueue.dequeue() else {
+            PreheatingQueue.dispatchQueue.async {
+                guard let indexPath = PreheatingQueue.indexPathQueue.dequeue() else {
                     return
                 }
 
@@ -73,11 +73,14 @@ extension PhotoPickerViewController{
                 if let asset = PHAssets.fetched.asset(at: indexPath)
                 , let item = AppAssets.selected.at(unsafeIndex:indexPath.item) ?? AppAsset.create(for:asset) {
 
-                    autoSelect = .visible == interactableApp.shouldAutoSelectAsynchronously(item: item, signal)
+                    if let finishAction = interactableApp.performPreheating(item: item, signal) as? UICollectionViewPreheatableAppFinishAction {
+                        autoSelect = finishAction == .selectItem
+                    }
+
                 }
 
-                if AsyncAutoSelectionQueue.canceled{
-                    AsyncAutoSelectionQueue.indexPathQueue.dequeueAll()
+                if PreheatingQueue.canceled{
+                    PreheatingQueue.indexPathQueue.dequeueAll()
                     return
                 }
 
@@ -91,8 +94,8 @@ extension PhotoPickerViewController{
             }
         }
 
-        AsyncAutoSelectionQueue.controlQueue.async {
-            AsyncAutoSelectionQueue.canceled = false
+        PreheatingQueue.controlQueue.async {
+            PreheatingQueue.canceled = false
             performNext()
         }
     }

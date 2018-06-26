@@ -14,7 +14,7 @@ public class ExifGhost: NSObject, KeyPathWatchable,BApp,
         PhotoPickerViewControllerDelegatableApp,
         PhotoPickerCollectionViewDisplayableApp,
         AppDockApp,
-        PhotoPickerCollectionViewAsyncAutoDisplayableApp {
+        PreheatableApp {
 
     public static let taskType:Taskable.Type = _ExifGhostTask.self
 
@@ -48,7 +48,7 @@ public class ExifGhost: NSObject, KeyPathWatchable,BApp,
         return item.asset.mediaType == .image
     }
 
-    public func shouldAutoSelectAsynchronously(item: AppAsset, _ async: AsyncSignal) -> PhotoPickerCollectionViewAsyncSelection {
+    public func performPreheating(item: AppAsset, _ async: AsyncSignal) -> PreheatingFinishAction? {
 
         if autoSelect && item.asset.mediaType == .image{
             var purged = false
@@ -58,10 +58,11 @@ public class ExifGhost: NSObject, KeyPathWatchable,BApp,
                 async.end()
             }
             async.waitUntilEnd()
-            return purged ? .none : .visible
+
+            return purged ? nil : UICollectionViewPreheatableAppFinishAction.selectItem
         }
 
-        return .none
+        return nil
     }
 
     public var doneButtonTitle: String?{

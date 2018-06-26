@@ -30,7 +30,7 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
         , FinalizableApp
         , AppDockApp
         , PhotoPickerViewControllerDelegatableApp
-        , PhotoPickerCollectionViewAsyncAutoDisplayableApp
+        , PreheatableApp
         , AppManagerDelegatedApp {
 
     public static let taskType:Taskable.Type = _CallAppTask.self
@@ -153,16 +153,16 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
         return result
     }
 
-    public func shouldAutoSelectAsynchronously(item: AppAsset, _ async: AsyncSignal) -> PhotoPickerCollectionViewAsyncSelection {
+    public func performPreheating(item: AppAsset, _ async: AsyncSignal) -> PreheatingFinishAction? {
 
         if self.autoSelect
         , let image = item.asset.asUIImage
         , let result = self.detector.detectResult(asset: item.asset, image: image, async){
 
-            return result.phoneNumbers.count > 0 ? .visible : .none
+            return result.phoneNumbers.count > 0 ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
         }
 
-        return .none
+        return nil
     }
 
     public var titleWillBegin: String? {

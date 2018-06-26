@@ -248,7 +248,7 @@ public class GIFMaker: BApp,
         , FinalizableApp
         , PhotoPickerCollectionViewDisplayableApp
         , PhotoPickerViewControllerDelegatableApp
-        , PhotoPickerCollectionViewAsyncAutoDisplayableApp
+        , PreheatableApp
         , PHAssetUIAlertControllerSynchronizablePresenter {
 
     public static let taskType:Taskable.Type = _GIFMakerAppTask.self
@@ -281,8 +281,8 @@ public class GIFMaker: BApp,
         return (dockContent as? GIFMakerAppDockContent)?.shouldImport(asset: item.asset) ?? false
     }
 
-    public func shouldAutoSelectAsynchronously(item: AppAsset, _ async: AsyncSignal) -> PhotoPickerCollectionViewAsyncSelection {
-        return .none //TESTING: set to .visible to automatically select
+    public func performPreheating(item: AppAsset, _ async: AsyncSignal) -> PreheatingFinishAction? {
+        return nil
     }
 
     public var numberOfItemsShouldSelect: Int? {

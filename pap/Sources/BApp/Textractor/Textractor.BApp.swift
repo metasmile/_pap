@@ -27,7 +27,7 @@ public class Textractor: NSObject, KeyPathWatchable, BApp
         , FinalizableApp
         , AppDockApp
         , PhotoPickerViewControllerDelegatableApp
-        , PhotoPickerCollectionViewAsyncAutoDisplayableApp {
+        , PreheatableApp {
 
     public static let taskType:Taskable.Type = _TextractorTask.self
 
@@ -81,18 +81,15 @@ public class Textractor: NSObject, KeyPathWatchable, BApp
         return result
     }
 
-    public func shouldAutoSelectAsynchronously(item: AppAsset, _ async: AsyncSignal) -> PhotoPickerCollectionViewAsyncSelection {
-        if self.autoSelect == false{
-            return .none
+    public func performPreheating(item: AppAsset, _ async: AsyncSignal) -> PreheatingFinishAction? {
+        if self.autoSelect
+        , let image = item.asset.asUIImage
+        , let detectedString = self.firebaseVision.textDetector().detect(with: image, async)?.parse(type: VisionTextStringParser.self, async)?.joined() {
+
+            return detectedString.count>0 ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
         }
 
-        if let image = item.asset.asUIImage
-            , let detectedString = self.firebaseVision.textDetector().detect(with: image, async)?.parse(type: VisionTextStringParser.self, async)?.joined() {
-
-            return detectedString.count>0 ? .visible : .none
-        }
-
-        return .none
+        return nil
     }
 
     public var titleWillFinalize: String? {

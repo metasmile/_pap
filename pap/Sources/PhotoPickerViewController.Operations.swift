@@ -10,7 +10,7 @@ import Photos
 extension PhotoPickerViewController{
 
     func cancelAllInCurrentContext(){
-        cancelPendingAutoSelectionIfNeeded()
+        cancelPreheatingIfNeeded()
 
         if AppCenter.default.task.isRunning {
             batchPreviewView.cancelBatchProcessing()
