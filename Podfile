@@ -4,7 +4,7 @@ target 'pap' do
   use_frameworks!
 
   # pod 'RealmSwift'
-  pod 'Firebase/Core'
+  pod 'Firebase/Core', '5.1.0'
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'R.swift'
@@ -20,8 +20,8 @@ target 'pap' do
   pod 'TPPDF'
 
   # for test - com.stells.pap.textractor
-  pod 'Firebase/MLVision'
-  pod 'Firebase/MLVisionTextModel'
+  pod 'Firebase/MLVision', '5.1.0'
+  pod 'Firebase/MLVisionTextModel', '5.1.0'
   pod 'PhoneNumberKit', '~> 2.1'
 
   pod 'Armchair', '>= 0.3'

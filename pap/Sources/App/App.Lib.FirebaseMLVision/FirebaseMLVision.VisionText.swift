@@ -6,7 +6,7 @@
 import Foundation
 import FirebaseMLVision
 
-extension Array where Element==VisionText {
+extension Array where Element:VisionText {
     func parse<ParserType: VisionTextParser>(parser: ParserType, _ async: AsyncManualSignalable) -> [ParserType.OutputType]? {
         return self.compactMap { visionText -> ParserType.OutputType? in
             return parser.parse(input: visionText)
