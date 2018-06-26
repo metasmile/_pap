@@ -183,7 +183,7 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
     }
 
 
-    private var textDetector = Vision().textDetector() //TODO: decide 1-1 or 1-N ?
+    private lazy var textDetector = Vision.vision().textDetector() //TODO: decide 1-1 or 1-N ?
 
     fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncManualSignalable) -> CallAppResult? {
         let detector = textDetector

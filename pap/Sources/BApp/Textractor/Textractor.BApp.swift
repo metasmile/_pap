@@ -107,7 +107,7 @@ public class Textractor: NSObject, KeyPathWatchable, BApp
         return "Grab".localized
     }
 
-    fileprivate var textDetector = Vision().textDetector()
+    fileprivate lazy var textDetector = Vision.vision().textDetector()
 }
 
 private class _TextractorTask: TaskPrototype, Taskable {
