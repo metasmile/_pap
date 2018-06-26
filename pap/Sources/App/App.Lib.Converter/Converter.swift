@@ -79,7 +79,7 @@ enum ConverterQualityPreset: String, Decodable {
     }
 
     static var originalExcluded:[ConverterQualityPreset]{
-        return [.low, .medium, .high, .original]
+        return [.low, .medium, .high]
     }
 
     static var originalOnly:[ConverterQualityPreset]{
