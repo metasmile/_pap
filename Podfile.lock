@@ -2,7 +2,7 @@ PODS:
   - Armchair (0.3.5)
   - Crashlytics (3.10.2):
     - Fabric (~> 1.7.7)
-  - DefaultsKit (0.0.8)
+  - DefaultsKit (0.0.9)
   - Fabric (1.7.7)
   - Firebase/Core (5.1.0):
     - Firebase/CoreOnly
@@ -120,13 +120,13 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   DefaultsKit:
-    :commit: ffb3ab879a9a4a9ef7abc65a20b037d31e992dc0
+    :commit: 2c2d4effb9b620eb91ba15a20e74fcc2f9d017dc
     :git: https://github.com/metasmile/DefaultsKit
 
 SPEC CHECKSUMS:
   Armchair: 0ab9237bc373e26245c7651acf193d85fb9c033a
   Crashlytics: 0360624eea1c978a743feddb2fb1ef8b37fb7a0d
-  DefaultsKit: 626a70a6cbcef36b503b9961c77798094b6bfa5c
+  DefaultsKit: e47d11c54a53c66f9e5c65a1992dead90bc7144f
   Fabric: bda89e242bce1b7b8ab264248cf3407774ce0095
   Firebase: e08fb0795f35707aeb1d8a715c731c45bdf6fd56
   FirebaseAnalytics: b3628aea54c50464c32c393fb2ea032566e7ecc2
@@ -148,6 +148,6 @@ SPEC CHECKSUMS:
   SwiftyGif: d36c6dfb52e2ca1e48fe349d225f50ec4123ec85
   TPPDF: 3d631ce0356f3ea25f87266ce74199bb7e81936e
 
-PODFILE CHECKSUM: ba91c3f1a86aa62f1ea2ea072d418cf270b4d268
+PODFILE CHECKSUM: 6acdf48a06f0c7cf0243a875b2458087277db35b
 
 COCOAPODS: 1.5.3

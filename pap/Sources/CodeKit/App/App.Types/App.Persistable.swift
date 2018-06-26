@@ -6,7 +6,7 @@
 import Foundation
 import DefaultsKit
 
-public protocol AppDefaults: DefaultsAutoProperty{
+public protocol AppDefaults: DefaultsProperty{
     var touchedVersion:String? {set get}
 }
 

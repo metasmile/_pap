@@ -6,7 +6,7 @@
 import Foundation
 import DefaultsKit
 
-extension Defaults: DefaultsAutoProperty {
+extension Defaults: DefaultsProperty {
     public var appIdentifier: String? {
         set{ set(newValue) } get{ return get() }
     }
