@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let spotlightSearchAppDelegate = SpotlightSearchAppDelegate()
+
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         return false
     }
@@ -32,10 +34,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Armchair.appID("1309539102")
 
         DispatchQueue.global(qos: .background).async{
-            self.indexDefaultSearchableItems()
+            self.spotlightSearchAppDelegate.indexDefaultSearchableItems()
+            self.spotlightSearchAppDelegate.application(application, didFinishLaunchingWithOptions: launchOptions)
         }
 
+
+        if let url = launchOptions?[UIApplicationLaunchOptionsKey.url] as? URL { //Deeplink
+            // process url here
+        }
         return true
+    }
+
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+
+        spotlightSearchAppDelegate.application(application, continue: userActivity, restorationHandler: restorationHandler)
+        return false
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

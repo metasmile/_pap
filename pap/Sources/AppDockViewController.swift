@@ -188,6 +188,8 @@ class AppDockViewController: UIViewController {
         super.viewDidAppear(animated)
         
         registerWatchingAppConfig()
+
+        SpotlightSearchAppDelegate.launchAppIfNeededWithSearchable()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
