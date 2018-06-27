@@ -656,6 +656,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
     
     private func updateProgress(_ progress: Float, title: String, animated: Bool = true) {
+        let progress = progress.clamped(to: 0...1)
         let progressText = currentDisplayableApp?.titleDidUpdate(progress: progress)
             ?? title + " \(Int(progress * 100))%"
         
