@@ -334,10 +334,6 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
         return try _perform(appAsset, async)
     }
     
-    var taskProgressCancelled: Bool {
-        return info.state == .cancelled
-    }
-    
     private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable) throws -> GIFMakerPHAssetResult?  {
         var result: GIFMakerPHAssetResult?
         
@@ -359,14 +355,14 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
             let converter = GifConverter_Burst()
             converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount)
             
-            if let url = converter.convert(source: assetItem, cancellation: { self.taskProgressCancelled }, progressHandler: { progress in PHAssetItemProgressNotification.update(item: assetItem, progress: progress) }, async) as? URL {
+            if let url = converter.convert(source: assetItem, cancellation: { self.info.state == .cancelled }, progressHandler: { progress in PHAssetItemProgressNotification.update(item: assetItem, progress: progress) }, async) as? URL {
                 result = GIFMakerPHAssetResult(fileURL: url, orderedIndex: AppAssets.selected.index(of: assetItem))
             }
         case .livePhoto?:
             let converter = GifConverter_LivePhoto()
             converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount)
             
-            if let url = converter.convert(source: assetItem, cancellation: { self.taskProgressCancelled }, progressHandler: { progress in PHAssetItemProgressNotification.update(item: assetItem, progress: progress) }, async) as? URL {
+            if let url = converter.convert(source: assetItem, cancellation: { self.info.state == .cancelled }, progressHandler: { progress in PHAssetItemProgressNotification.update(item: assetItem, progress: progress) }, async) as? URL {
                 result = GIFMakerPHAssetResult(fileURL: url, orderedIndex: AppAssets.selected.index(of: assetItem))
             }
         default: break

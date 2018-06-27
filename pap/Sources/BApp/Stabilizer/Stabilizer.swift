@@ -127,7 +127,7 @@ private class StabilizerTask: TaskPrototype, Taskable {
         
         async.begin()
         
-        assetItem.runEditing({ [weak self] (progress) in
+        assetItem.runEditing({ (progress) in
             PHAssetItemProgressNotification.update(item: assetItem, progress: progress)
         }) { (asset, contentEditingOutput) in
             if let asset = asset, let contentEditingOutput = contentEditingOutput {

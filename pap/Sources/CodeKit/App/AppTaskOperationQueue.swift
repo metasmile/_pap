@@ -137,7 +137,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
 
         } catch let e as TaskError {
             async.done()
-            item.response(.failed, e)
+            _ = self.cancelled ? item.response(.cancelled) : item.response(.failed, e)
 
         } catch {
             async.done()
