@@ -8,8 +8,8 @@ import UIKit
 import ImageIO
 import MobileCoreServices
 
-public func UIImageGIFRepresentation(with imageFiles: [URL], loopCount: Int = 0, frameDelay: Double, removesImageFilePaths: Bool = true) -> Data? {
-    guard let url = UIImageGIFRepresentationURL(with: imageFiles, loopCount: loopCount, frameDelay: frameDelay, removesImageFilePaths: removesImageFilePaths) else { return nil }
+public func UIImageGIFRepresentation(with imageFiles: [URL], loopCount: Int = 0, frameDelay: Double, cancellation: (() -> Bool)? = nil, progressHandler: ((Progress) -> Void)? = nil, removesImageFilePaths: Bool = true) -> Data? {
+    guard let url = UIImageGIFRepresentationURL(with: imageFiles, loopCount: loopCount, frameDelay: frameDelay, cancellation: cancellation, progressHandler: progressHandler, removesImageFilePaths: removesImageFilePaths) else { return nil }
     let gifData = try? Data(contentsOf: url)
     
     if removesImageFilePaths {
@@ -19,7 +19,7 @@ public func UIImageGIFRepresentation(with imageFiles: [URL], loopCount: Int = 0,
     return gifData
 }
 
-public func UIImageGIFRepresentationURL(with imageFiles: [URL], loopCount: Int = 0, frameDelay: Double, removesImageFilePaths: Bool = true) -> URL? {
+public func UIImageGIFRepresentationURL(with imageFiles: [URL], loopCount: Int = 0, frameDelay: Double, cancellation: (() -> Bool)? = nil, progressHandler: ((Progress) -> Void)? = nil, removesImageFilePaths: Bool = true) -> URL? {
     let fileProperties = [
         ImageMetadata.Dictionary.GIF: [
             ImageMetadata.Property.GIFLoopCount: loopCount
@@ -36,10 +36,17 @@ public func UIImageGIFRepresentationURL(with imageFiles: [URL], loopCount: Int =
     guard let destination = CGImageDestinationCreateWithURL(url as CFURL, kUTTypeGIF, imageFiles.count, nil) else { return nil }
     CGImageDestinationSetProperties(destination, fileProperties as CFDictionary)
     
+    let progress = Progress(totalUnitCount: Int64(imageFiles.count))
+    
     for imageFile in imageFiles {
+        guard cancellation?() != true else { return nil }
+        
         autoreleasepool {
             guard let cgImage = UIImage(contentsOfFile: imageFile.path)?.cgImage else { return }
             CGImageDestinationAddImage(destination, cgImage, frameProperties as CFDictionary)
+            
+            progress.completedUnitCount += 1
+            progressHandler?(progress)
         }
     }
     
@@ -52,7 +59,7 @@ public func UIImageGIFRepresentationURL(with imageFiles: [URL], loopCount: Int =
     return success ? url : nil
 }
 
-public func UIImageGIFRepresentationURL(with imageFilesWithFrameDelay: [(URL, Double)], loopCount: Int = 0, removesImageFilePaths: Bool = true) -> URL? {
+public func UIImageGIFRepresentationURL(with imageFilesWithFrameDelay: [(URL, Double)], loopCount: Int = 0, cancellation: (() -> Bool)? = nil, progressHandler: ((Progress) -> Void)? = nil, removesImageFilePaths: Bool = true) -> URL? {
     let fileProperties = [
         ImageMetadata.Dictionary.GIF: [
             ImageMetadata.Property.GIFLoopCount: loopCount
@@ -63,7 +70,11 @@ public func UIImageGIFRepresentationURL(with imageFilesWithFrameDelay: [(URL, Do
     guard let destination = CGImageDestinationCreateWithURL(url as CFURL, kUTTypeGIF, imageFilesWithFrameDelay.count, nil) else { return nil }
     CGImageDestinationSetProperties(destination, fileProperties as CFDictionary)
     
+    let progress = Progress(totalUnitCount: Int64(imageFilesWithFrameDelay.count))
+    
     for (imageFile, frameDelay) in imageFilesWithFrameDelay {
+        guard cancellation?() != true else { return nil }
+        
         autoreleasepool {
             guard let cgImage = UIImage(contentsOfFile: imageFile.path)?.cgImage else { return }
             
@@ -75,6 +86,9 @@ public func UIImageGIFRepresentationURL(with imageFilesWithFrameDelay: [(URL, Do
             ]
             
             CGImageDestinationAddImage(destination, cgImage, frameProperties as CFDictionary)
+            
+            progress.completedUnitCount += 1
+            progressHandler?(progress)
         }
     }
     

@@ -95,7 +95,7 @@ protocol Converter {
 
     static func canPerformWith(source:AppAsset) -> Bool
 
-    func convert(source:AppAsset, _ async: AsyncManualSignalable) -> Any?
+    func convert(source:AppAsset, cancellation: (() -> Bool)?, progressHandler: ((Progress) -> Void)?, _ async: AsyncManualSignalable) -> Any?
 }
 
 protocol ConverterCapability{
@@ -133,7 +133,6 @@ class OptionableConverterBase<T>: OptionableConverter {
 
     required init(){}
 }
-
 
 /*
     Create Video with a URL

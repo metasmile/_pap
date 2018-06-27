@@ -187,10 +187,13 @@ private class ConvertAppTask: TaskPrototype, Taskable {
         return info
 
     }
+    
+    private var needsCancelConverting = false
 
     public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){
 
         (param as? AppAsset)?.cancelAllRequestIDs()
+        needsCancelConverting = true
     }
 
     public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
@@ -205,6 +208,8 @@ private class ConvertAppTask: TaskPrototype, Taskable {
         guard let converter = needsConverter else {
             throw TaskError.rejectedParam
         }
+        
+        needsCancelConverting = false
 
         //TODO: integrate someday remove IFs
         if let converter = converter as? OptionableConverterBase<GifConverterDefaultOption> {
@@ -219,8 +224,10 @@ private class ConvertAppTask: TaskPrototype, Taskable {
         else if let converter = converter as? OptionableConverterBase<MP4ConverterOption> {
             converter.options = MP4ConverterOption.optionBy(defaults.convertingQuality.qualityType, with: assetItem.asset)
         }
-
-        let result = converter.convert(source: assetItem, async)
+        
+        let result = converter.convert(source: assetItem, cancellation: { self.needsCancelConverting }, progressHandler: { progress in
+            print(progress)
+        }, async)
         let index = AppAssets.selected.index(of: assetItem)
 
         return ConvertAppResult(result: result, orderedIndex: index)

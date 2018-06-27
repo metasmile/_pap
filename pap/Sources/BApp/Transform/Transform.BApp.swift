@@ -44,6 +44,7 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
     public private(set) lazy var config: TransformAppConfigValue? = TransformApp.configure?()
 
     public private(set) lazy var dockContent: AppDockContent? = createController()
+    public private(set) lazy var singleDockContent: AppDockContent? = createController()
 
     public static let info = AppInfo(
             identifier: "com.stells.pap.transform"

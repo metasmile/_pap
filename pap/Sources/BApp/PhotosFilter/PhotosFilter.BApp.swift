@@ -60,6 +60,7 @@ public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp,
     @objc dynamic
     public private(set) lazy var config: PhotosFilterAppConfigValue? = PhotosFilterApp.configure?()
     public private(set) lazy var dockContent: AppDockContent? = createController()
+    public private(set) lazy var singleDockContent: AppDockContent? = createController()
     
     public private(set) var currentEditStateValue: ImageEditStateValue?
 

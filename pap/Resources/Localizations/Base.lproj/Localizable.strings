@@ -134,9 +134,9 @@
 "Export Options" = "Export Options";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Export";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: CallApp.BApp.swift */
 "Find" = "Find";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Finding Contacts ... %@ ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Forward";
@@ -144,8 +144,10 @@
 "Frame Delay" = "Frame Delay";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: Textractor.BApp.swift */
+/* Generated from genl10n: PixNote.swift, Textractor.BApp.swift */
 "Grab" = "Grab";
+/* Generated from genl10n: PixNote.swift */
+"Grabbing Text Contents ... %@ " = "Grabbing Text Contents ... %@ ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "HD (1280×720)" = "HD (1280×720)";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -225,7 +227,7 @@
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Start";
 /* Generated from genl10n: PixNote.swift */
-"Starting To Find ..." = "Starting To Find ...";
+"Starting To Grab ..." = "Starting To Grab ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Starting the Process...";
 /* Generated from genl10n: Revert.BApp.swift */

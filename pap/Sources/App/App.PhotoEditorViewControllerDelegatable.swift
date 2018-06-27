@@ -5,5 +5,10 @@
 
 import Foundation
 
-public protocol PhotoEditorViewControllerDelegatableApp: App {}
+public protocol PhotoEditorViewControllerDelegatableApp: App {
+    var singleDockContent: AppDockContent? {get}
+}
 
+extension PhotoEditorViewControllerDelegatableApp {
+    var singleDockContent: AppDockContent? { return nil }
+}
