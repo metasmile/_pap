@@ -34,18 +34,18 @@ class VideoProcessor: VideoProcessable {}
 
 protocol LivePhotoProcessable: PHAssetProcessable {}
 class LivePhotoProcessor: LivePhotoProcessable {}
-class LivePhotoAdvancedProcessor: LivePhotoProcessor {}
+class LivePhotoAdvancedProcessor: LivePhotoProcessable {}
 
 protocol PHAssetImageEditable {
-    func edit<T:ImageProcessable>(processor:T, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
+    func edit<T:ImageProcessable>(processor:T.Type, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
 }
 
 protocol PHAssetVideoEditable{
-    func edit<T:VideoProcessable>(processor:T, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
+    func edit<T:VideoProcessable>(processor:T.Type, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
 }
 
 protocol PHAssetLivePhotoEditable{
-    func edit<T:LivePhotoProcessable>(processor:T, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
+    func edit<T:LivePhotoProcessable>(processor:T.Type, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
 }
 
 struct PHAssetContentEditingItem {
@@ -95,11 +95,11 @@ extension PHAssetItem {
 
             switch (asset.mediaType){
                 case .image where asset.mediaSubtypes.contains(.photoLive):
-                    return (self as? PHAssetLivePhotoEditable)?.edit(processor: LivePhotoProcessor(), progress: progressHandler, completion: completionHandler)
+                    return (self as? PHAssetLivePhotoEditable)?.edit(processor: LivePhotoProcessor.self, progress: progressHandler, completion: completionHandler)
                 case .image:
-                    return (self as? PHAssetImageEditable)?.edit(processor: ImageProcessor(), progress: progressHandler, completion: completionHandler)
+                    return (self as? PHAssetImageEditable)?.edit(processor: ImageProcessor.self, progress: progressHandler, completion: completionHandler)
                 case .video:
-                    return (self as? PHAssetVideoEditable)?.edit(processor: VideoProcessor(), progress: progressHandler, completion: completionHandler)
+                    return (self as? PHAssetVideoEditable)?.edit(processor: VideoProcessor.self, progress: progressHandler, completion: completionHandler)
                 default:
                     return nil
             }

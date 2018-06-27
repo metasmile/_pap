@@ -26,7 +26,7 @@ class _TransformAppAsset: PHAssetItem<ImageEditStateValue> {
 //TODO: Uncommonize all, remove DispatchQueue.global().async
 extension _TransformAppAsset: PHAssetImageEditable {
 
-    func edit<T: ImageProcessable>(processor: T, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
+    func edit<T: ImageProcessable>(processor: T.Type, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
         let asset = self.asset
 
         //TODO: apply iOS new api - CIImage.transform and CIContext().writeJPEGRepre....
@@ -61,7 +61,7 @@ extension _TransformAppAsset: PHAssetImageEditable {
 
 extension _TransformAppAsset: PHAssetLivePhotoEditable {
 
-    func edit<T:LivePhotoProcessable>(processor:T, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
+    func edit<T:LivePhotoProcessable>(processor:T.Type, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
 
         let r = self.requestContentEditing { _item in
             guard let item = _item else{
@@ -101,7 +101,7 @@ extension _TransformAppAsset: PHAssetLivePhotoEditable {
         return [PHAssetRequestID(forEditingInput: r)]
     }
 
-    func edit<T:LivePhotoAdvancedProcessor>(processor:T, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
+    func edit<T:LivePhotoAdvancedProcessor>(processor:T.Type, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
 
         guard let livePhoto = self.asset.asPHLivePhoto else {
             completionHandler(nil, nil)
@@ -168,7 +168,7 @@ extension _TransformAppAsset: PHAssetLivePhotoEditable {
 }
 
 extension _TransformAppAsset: PHAssetVideoEditable {
-    func edit<T>(processor:T /*audioMix: AVAudioMix? = nil,*/, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
+    func edit<T>(processor:T.Type /*audioMix: AVAudioMix? = nil,*/, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
             where T:VideoProcessable {
 
         let asset = self.asset

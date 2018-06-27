@@ -144,7 +144,7 @@ private class StabilizerTask: TaskPrototype, Taskable, TaskProgressable {
 }
 
 extension _StabilizerAppAsset: PHAssetVideoEditable {
-    func edit<T>(processor: T, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? where T : VideoProcessable {
+    func edit<T>(processor: T.Type, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? where T : VideoProcessable {
         let asset = self.asset
         
         guard
