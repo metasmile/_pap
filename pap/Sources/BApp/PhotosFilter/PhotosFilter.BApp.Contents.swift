@@ -71,11 +71,12 @@ extension _PhotosFilterAppAsset: PHAssetLivePhotoEditable {
             }
             
             self.editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: item.input)
-            let duration = self.editingContext?.duration.seconds
+            guard let duration = self.editingContext?.duration.seconds else { return }
+            let progress = Progress(totalUnitCount: Int64(duration * 1000))
             self.editingContext?.frameProcessor = { frame, error in
                 progressHandler?({
-                    guard let duration = duration else { return nil }
-                    return Float(frame.time.seconds / duration)
+                    progress.completedUnitCount = Int64(frame.time.seconds * 1000)
+                    return progress
                     }())
                 return frame.image.applyFilter(ciFilter: self.editState.ciFilter)
             }

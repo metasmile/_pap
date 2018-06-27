@@ -8,7 +8,7 @@ import Photos
 
 
 typealias PHAssetContentEditingHandler = (PHAssetContentEditingItem?) -> Void
-typealias PHAssetEditableProgressHandler = (Float?) -> Void
+typealias PHAssetEditableProgressHandler = (Progress) -> Void
 typealias PHAssetEditableCompletionHandler = (PHAsset?, PHContentEditingOutput?) -> Void
 
 public struct PHAssetProcessableNotification {

@@ -167,3 +167,16 @@ public class TaskInfo: Item<String> {
     }
 
 }
+
+public protocol TaskProgressable {
+    func taskProgressDidUpdate(param: TaskParamable, progress: Progress)
+}
+
+extension TaskProgressable {
+    func taskProgressDidUpdate(param: TaskParamable, progress: Progress) {
+        NotificationCenter.default.post(name: PHAssetProcessableNotification.Name.progressChanged, object: self, userInfo: [
+            PHAssetProcessableNotification.UserInfo.Key.progress: Float(progress.fractionCompleted),
+            PHAssetProcessableNotification.UserInfo.Key.assetItem: param
+        ])
+    }
+}

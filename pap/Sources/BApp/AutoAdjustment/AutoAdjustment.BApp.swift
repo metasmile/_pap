@@ -193,7 +193,7 @@ private extension AutoAdjustmentApp {
     }
 }
 
-private class _AutoAdjustmentAppTask: TaskPrototype, Taskable {
+private class _AutoAdjustmentAppTask: TaskPrototype, Taskable, TaskProgressable {
     public typealias ParamType = _AutoAdjustmentAppAsset
     public typealias ResultType = PHAssetResultItem
 
@@ -240,11 +240,7 @@ private class _AutoAdjustmentAppTask: TaskPrototype, Taskable {
         async.begin()
         
         assetItem.runEditing({ (progress) in
-            guard let progress = progress else { return }
-            NotificationCenter.default.post(name: PHAssetProcessableNotification.Name.progressChanged, object: self, userInfo: [
-                PHAssetProcessableNotification.UserInfo.Key.progress: progress,
-                PHAssetProcessableNotification.UserInfo.Key.assetItem: assetItem
-                ])
+            self.taskProgressDidUpdate(param: assetItem, progress: progress)
         }) { (asset, contentEditingOutput) in
             if let asset = asset, let contentEditingOutput = contentEditingOutput {
                 result = PHAssetResultItem(

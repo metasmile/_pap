@@ -95,7 +95,7 @@ protocol Converter {
 
     static func canPerformWith(source:AppAsset) -> Bool
 
-    func convert(source:AppAsset, cancellation: (() -> Bool)?, progressHandler: ((Progress) -> Void)?, _ async: AsyncManualSignalable) -> Any?
+    func convert(source:AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncManualSignalable) -> Any?
 }
 
 protocol ConverterCapability{
@@ -170,7 +170,7 @@ extension Converter{
         return videoUrl
     }
     
-    func buildVideo(urls:[(url: URL, frameDelay: Double)], outputSize: CGSize? = nil, _ async: AsyncManualSignalable) -> URL?{
+    func buildVideo(urls:[(url: URL, frameDelay: Double)], outputSize: CGSize? = nil, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncManualSignalable) -> URL?{
         var videoUrl:URL?
         
         if urls.count > 0{
@@ -185,7 +185,7 @@ extension Converter{
                 var dict = result
                 dict[value.url.path] = Int32(1 / value.frameDelay)
             }
-            builder.build({ _ in  }, success: { url in
+            builder.build(progressHandler ?? { _ in }, success: { url in
                 
                 videoUrl = url
                 async.end()

@@ -38,14 +38,14 @@ class MP4Converter_Mov: OptionableConverterBase<MP4ConverterOption>, MP4Converte
 
     static let supportedPresets = ConverterQualityPreset.all
     
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: ((Progress) -> Void)?, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncManualSignalable) -> Any? {
         guard let video = source.asset.asAVAsset else { return nil }
 
         let url = FileURL.temp(source.asset.localIdentifierWithoutSplitter, UTI.mpeg4, group: FileURL.fileAndQueuePrivateGroup())
         async.begin()
 
         let preset = (self.options ?? MP4ConverterOption()).avAssetPreset
-        AVAssetExportSession.export(asset: video, presetName:preset, outputFileType: .mp4, outputURL: url, shouldOptimizeForNetworkUse: true) { (success) in
+        AVAssetExportSession.export(asset: video, presetName:preset, outputFileType: .mp4, outputURL: url, shouldOptimizeForNetworkUse: true, progressHandler: progressHandler) { (success) in
             async.end()
         }
 
@@ -63,7 +63,7 @@ class MP4Converter_Timelapse: OptionableConverterBase<MP4ConverterOption>, MP4Co
 
     static let supportedPresets = ConverterQualityPreset.all
 
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: ((Progress) -> Void)?, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncManualSignalable) -> Any? {
         let converter = MP4Converter_Mov()
         converter.options = self.options
         return converter.convert(source: source, cancellation: cancellation, progressHandler: progressHandler, async)

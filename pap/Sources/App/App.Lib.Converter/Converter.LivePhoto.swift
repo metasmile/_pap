@@ -20,7 +20,7 @@ struct LivePhotoConverter_Gif: LivePhotoConverter {
 
     init() {}
 
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: ((Progress) -> Void)?, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncManualSignalable) -> Any? {
 
         if let urls = extractImageURLsFromGIFData(asset:source.asset, async), urls.count > 0{
 
@@ -29,7 +29,7 @@ struct LivePhotoConverter_Gif: LivePhotoConverter {
 
             var succeed = false
             async.begin()
-            LivePhotoWriter().saveLivePhotoFromImages(paths: urls.map { $0.url.path }, indexOfTitle: 0, progress: nil, fps: defaultFps, saved:  { success, s, error in
+            LivePhotoWriter().saveLivePhotoFromImages(paths: urls.map { $0.url.path }, indexOfTitle: 0, progress: progressHandler, fps: defaultFps, saved:  { success, s, error in
                 succeed = success
                 async.end()
             }, andFetched: nil)
@@ -55,13 +55,13 @@ struct LivePhotoConverter_Burst: LivePhotoConverter {
 
     init() {}
 
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: ((Progress) -> Void)?, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncManualSignalable) -> Any? {
         let targetSize = AVMakeRect(aspectRatio: source.asset.pixelSize, insideRect: CGRect(origin: .zero, size: LivePhotoWritableMaximumStandardSize)).size
         //TODO: quality
         let param = ConverterBurstImageExtractParam(targetSize: targetSize, imageQuality: 0.8, contentMode: PHImageContentMode.aspectFit)
         
         if let urls = self.extractBurstImageURLs(source: source, param: param, async){
-            if let videoURL = buildVideo(urls: urls, outputSize: targetSize, async) {
+            if let videoURL = buildVideo(urls: urls, outputSize: targetSize, progressHandler: progressHandler, async) {
 
                 async.begin()
 
@@ -94,7 +94,7 @@ struct LivePhotoConverter_Mov: LivePhotoConverter {
 
     init() {}
 
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: ((Progress) -> Void)?, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncManualSignalable) -> Any? {
         var succeed = false
 
         if let videoURL = self.extractVideoFileURL(source: source, async){
@@ -124,7 +124,7 @@ struct LivePhotoConverter_Timelapse: LivePhotoConverter {
 
     static let supportedPresets = [ConverterQualityPreset.high]
 
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: ((Progress) -> Void)?, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncManualSignalable) -> Any? {
         let converter = LivePhotoConverter_Mov()
         return converter.convert(source: source, cancellation: cancellation, progressHandler: progressHandler, async)
     }

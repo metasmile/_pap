@@ -105,7 +105,7 @@ public class Stabilizer: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, Phot
     public private(set) var currentEditStateValue: ImageEditStateValue?
 }
 
-private class StabilizerTask: TaskPrototype, Taskable {
+private class StabilizerTask: TaskPrototype, Taskable, TaskProgressable {
     private var isCancelled: Bool = false
     
     public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable) {
@@ -127,12 +127,8 @@ private class StabilizerTask: TaskPrototype, Taskable {
         
         async.begin()
         
-        assetItem.runEditing({ (progress) in
-            guard let progress = progress else { return }
-            NotificationCenter.default.post(name: PHAssetProcessableNotification.Name.progressChanged, object: self, userInfo: [
-                PHAssetProcessableNotification.UserInfo.Key.progress: progress,
-                PHAssetProcessableNotification.UserInfo.Key.assetItem: assetItem
-                ])
+        assetItem.runEditing({ [weak self] (progress) in
+            self?.taskProgressDidUpdate(param: assetItem, progress: progress)
         }) { (asset, contentEditingOutput) in
             if let asset = asset, let contentEditingOutput = contentEditingOutput {
                 result = PHAssetResultItem(

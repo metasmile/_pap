@@ -163,7 +163,7 @@ public final class LivePhotoWriter {
     // MARK: Core Utils
     func writeLivePhotoFromImages(photoPaths: [String]
             , indexOfTitle: Int
-            , progress: ((Progress) -> Void)?
+            , progress: PHAssetEditableProgressHandler?
             , fps: Int32 = 30
             , completion: LivePhotoWriterResultHandler?
     ) {

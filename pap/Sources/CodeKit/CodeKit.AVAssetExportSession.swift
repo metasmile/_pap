@@ -17,7 +17,7 @@ extension AVAssetExportSession {
             , outputFileType: AVFileType = AVFileType.mov
             , outputURL: URL
             , shouldOptimizeForNetworkUse: Bool = false
-            , progressHandler: ((Float) -> Void)? = nil
+            , progressHandler: PHAssetEditableProgressHandler? = nil
             , completionHandler: @escaping (Bool) -> Void) -> AVAssetExportSession? {
 
         guard let exportSession = AVAssetExportSession(asset: asset, presetName: presetName) else {
@@ -46,11 +46,14 @@ extension AVAssetExportSession {
                 break
             }
         }
+        
+        let exportProgress = Progress(totalUnitCount: 100)
 
         if let progress = progressHandler {
             DispatchQueue.global().async {
                 while exportSession.status == .waiting || exportSession.status == .exporting {
-                    progress(exportSession.progress)
+                    exportProgress.completedUnitCount = Int64(exportSession.progress * 100)
+                    progress(exportProgress)
                     _ = exportingVideo.wait(timeout: DispatchTime.now() + 0.5)
                 }
             }

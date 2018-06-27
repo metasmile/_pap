@@ -60,7 +60,7 @@ class MovConverter_Gif: OptionableConverterBase<MovConverterOption>, MovConverte
 
     static let supportedPresets = ConverterQualityPreset.all
 
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: ((Progress) -> Void)?, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncManualSignalable) -> Any? {
 
         var urls:[(URL, Double)]?
 
@@ -72,7 +72,7 @@ class MovConverter_Gif: OptionableConverterBase<MovConverterOption>, MovConverte
         async.waitUntilEnd()
 
         if let urls = urls {
-            return self.buildVideo(urls: urls, outputSize: options?.exportSize, async)
+            return self.buildVideo(urls: urls, outputSize: options?.exportSize, progressHandler: progressHandler, async)
         }
 
         return nil
@@ -88,10 +88,10 @@ class MovConverter_Burst: OptionableConverterBase<MovConverterOption>, MovConver
 
     static let supportedPresets = ConverterQualityPreset.all
     
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: ((Progress) -> Void)?, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncManualSignalable) -> Any? {
 
         if let urls = self.extractBurstImageURLs(source: source, async){
-            return self.buildVideo(urls: urls, outputSize: options?.exportSize, async)
+            return self.buildVideo(urls: urls, outputSize: options?.exportSize, progressHandler: progressHandler, async)
         }
 
         return nil
@@ -107,7 +107,7 @@ struct MovConverter_LivePhoto: MovConverter {
 
     static let supportedPresets = ConverterQualityPreset.originalOnly
 
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: ((Progress) -> Void)?, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncManualSignalable) -> Any? {
 
         var exportedlivePhoto: PHLivePhoto?
 

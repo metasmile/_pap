@@ -162,7 +162,7 @@ private struct ConvertAppResult: TaskResultable{
     var orderedIndex: Int?
 }
 
-private class ConvertAppTask: TaskPrototype, Taskable {
+private class ConvertAppTask: TaskPrototype, Taskable, TaskProgressable {
     public typealias ParamType = AppAsset
     public typealias ResultType = ConvertAppResult
 
@@ -226,10 +226,7 @@ private class ConvertAppTask: TaskPrototype, Taskable {
         }
         
         let result = converter.convert(source: assetItem, cancellation: { self.needsCancelConverting }, progressHandler: { progress in
-            NotificationCenter.default.post(name: PHAssetProcessableNotification.Name.progressChanged, object: self, userInfo: [
-                PHAssetProcessableNotification.UserInfo.Key.progress: Float(progress.fractionCompleted),
-                PHAssetProcessableNotification.UserInfo.Key.assetItem: assetItem
-            ])
+            self.taskProgressDidUpdate(param: assetItem, progress: progress)
         }, async)
         let index = AppAssets.selected.index(of: assetItem)
 
