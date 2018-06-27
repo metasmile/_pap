@@ -5,7 +5,10 @@
 
 import Foundation
 
-public protocol PreheatingFinishAction{}
+public protocol PreheatingFinishAction: Codable{}
+
+extension String: PreheatingFinishAction{}
+extension Int: PreheatingFinishAction{}
 
 public protocol PreheatableApp: App{
     func performPreheating(item:AppAsset, _ async:AsyncSignal) -> PreheatingFinishAction?
