@@ -677,6 +677,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
     
     func batchPreviewView(_ view: PreviewView, didUpdateRemoteFetchingProgress progress: Float) {
+        guard AppAssets.selected.count > 0 else { return }
         let fetchingProgressPerTask = progress / Float(AppAssets.selected.count)
         let currentProgress = taskProgress + fetchingProgressPerTask / 2 // for split progress into fetching and processing
         if progressBar.progress < currentProgress {
@@ -685,6 +686,8 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
     
     func batchPreviewView(_ view: PreviewView, didUpdateInternalProgress progress: Float) {
+        guard AppAssets.selected.count > 0 else { return }
+        
         let fetchingProgressPerTask = progress / Float(AppAssets.selected.count)
         let currentProgress = taskProgress + fetchingProgressPerTask / 2 // for split progress into fetching and processing
         if progressBar.progress < currentProgress {

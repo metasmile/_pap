@@ -13,11 +13,7 @@ import MobileCoreServices
 
 //INFO: feature reference: https://ezgif.com
 
-class _GIFMakerAppAsset: PHAssetItem<ImageEditStateValue> {
-    func cancelProcessing() {
-
-    }
-}
+class _GIFMakerAppAsset: PHAssetItem<ImageEditStateValue> {}
 
 private struct GIFMakerPHAssetResult: TaskResultable{
     public var fileURL: URL?
@@ -249,7 +245,8 @@ public class GIFMaker: BApp,
         , PhotoPickerCollectionViewDisplayableApp
         , PhotoPickerViewControllerDelegatableApp
         , PreheatableApp
-        , PHAssetUIAlertControllerSynchronizablePresenter {
+        , PHAssetUIAlertControllerSynchronizablePresenter
+        , TaskProgressable {
 
     public static let taskType:Taskable.Type = _GIFMakerAppTask.self
     public static let paramType:TaskParamable.Type = _GIFMakerAppAsset.self
@@ -311,7 +308,9 @@ public class GIFMaker: BApp,
         case .photo?:
             let urls = resultItems.compactMap({ $0.fileURL })
 
-            if let url = UIImageGIFRepresentationURL(with: GifConverterDefaultOption.URLs(urls: urls, with: defaults.direction), loopCount: defaults.loopCount, frameDelay: defaults.frameDelay) {
+            if let url = UIImageGIFRepresentationURL(with: GifConverterDefaultOption.URLs(urls: urls, with: defaults.direction), loopCount: defaults.loopCount, frameDelay: defaults.frameDelay, cancellation: {
+                return result.contains(where: { $0.info.state == .cancelled }) == true
+            }, progressHandler: { progress in self.taskProgressDidUpdate(param: nil, progress: progress) }) {
                 results.append(url)
             }
 
@@ -324,19 +323,21 @@ public class GIFMaker: BApp,
     }
 }
 
-private class _GIFMakerAppTask: TaskPrototype, Taskable {
+private class _GIFMakerAppTask: TaskPrototype, Taskable, TaskProgressable {
     public typealias ParamType = _GIFMakerAppAsset
     public typealias ResultType = PHAssetResultItem
     
     public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){
-        
         (param as? _GIFMakerAppAsset)?.cancelAllRequestIDs()
-        (param as? _GIFMakerAppAsset)?.cancelProcessing()
     }
     
     public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
         guard let appAsset = param as? AppAsset else { return nil }
         return try _perform(appAsset, async)
+    }
+    
+    var cancellation: Bool {
+        return info.state == .cancelled
     }
     
     private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable) throws -> GIFMakerPHAssetResult?  {
@@ -360,14 +361,14 @@ private class _GIFMakerAppTask: TaskPrototype, Taskable {
             let converter = GifConverter_Burst()
             converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount)
             
-            if let url = converter.convert(source: assetItem, cancellation: nil, progressHandler: nil, async) as? URL {
+            if let url = converter.convert(source: assetItem, cancellation: { self.cancellation }, progressHandler: { progress in self.taskProgressDidUpdate(param: assetItem, progress: progress) }, async) as? URL {
                 result = GIFMakerPHAssetResult(fileURL: url, orderedIndex: AppAssets.selected.index(of: assetItem))
             }
         case .livePhoto?:
             let converter = GifConverter_LivePhoto()
             converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount)
             
-            if let url = converter.convert(source: assetItem, cancellation: nil, progressHandler: nil, async) as? URL {
+            if let url = converter.convert(source: assetItem, cancellation: { self.cancellation }, progressHandler: { progress in self.taskProgressDidUpdate(param: assetItem, progress: progress) }, async) as? URL {
                 result = GIFMakerPHAssetResult(fileURL: url, orderedIndex: AppAssets.selected.index(of: assetItem))
             }
         default: break

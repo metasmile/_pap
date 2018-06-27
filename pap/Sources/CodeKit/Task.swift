@@ -169,14 +169,22 @@ public class TaskInfo: Item<String> {
 }
 
 public protocol TaskProgressable {
-    func taskProgressDidUpdate(param: TaskParamable, progress: Progress)
+    func taskProgressDidUpdate(param: TaskParamable?, progress: Progress)
+    var cancellation: Bool { get }
 }
 
 extension TaskProgressable {
-    func taskProgressDidUpdate(param: TaskParamable, progress: Progress) {
-        NotificationCenter.default.post(name: PHAssetProcessableNotification.Name.progressChanged, object: self, userInfo: [
-            PHAssetProcessableNotification.UserInfo.Key.progress: Float(progress.fractionCompleted),
-            PHAssetProcessableNotification.UserInfo.Key.assetItem: param
-        ])
+    public func taskProgressDidUpdate(param: TaskParamable?, progress: Progress) {
+        var userInfo: [String: Any] = [
+            PHAssetProcessableNotification.UserInfo.Key.progress: Float(progress.fractionCompleted)
+        ]
+        
+        if let assetItem = param {
+            userInfo[PHAssetProcessableNotification.UserInfo.Key.assetItem] = assetItem
+        }
+        
+        NotificationCenter.default.post(name: PHAssetProcessableNotification.Name.progressChanged, object: self, userInfo: userInfo)
     }
+    
+    public var cancellation: Bool { return false }
 }
