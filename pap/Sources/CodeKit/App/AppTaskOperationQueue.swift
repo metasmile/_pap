@@ -18,7 +18,7 @@ protocol AppTaskOperationQueueDelegate: class {
 
 class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
 
-    private var finshedQueue = ItemQueue<AppTaskItem>()
+    private var finshedItemQueue = ItemQueue<AppTaskItem>()
     private weak var delegate: AppTaskOperationQueueDelegate?
 
     private(set) public var currentTaskInfo: TaskInfo?
@@ -33,7 +33,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
             , target: nil
     )
     
-    private let cancellationQueue:DispatchQueue = DispatchQueue(
+    private let stateOperationQueue:DispatchQueue = DispatchQueue(
         label: "com.stells_internal_\(UUID().uuidString)"
         , qos: DispatchQoS(qosClass: .userInteractive, relativePriority: 0)
         , attributes: []
@@ -105,10 +105,10 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
 
     private func dispatchFinishedAll(){
         assert(self.count==0)
-        assert(self.finshedQueue.count>0)
-        print("dispatchFinishedResults", self.count, self.finshedQueue.count)
+        assert(self.finshedItemQueue.count>0)
+        print("dispatchFinishedResults", self.count, self.finshedItemQueue.count)
 
-        let queueResult = self.finshedQueue.dequeueAll()
+        let queueResult = self.finshedItemQueue.dequeueAll()
         self.callbackQueue.async {
             self.delegate?.didFinishAllTasksInQueue(self, queueResult)
         }
@@ -186,7 +186,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
                     assert(false,"dequeued item must not be nil at here.")
                     return
                 }
-                self.finshedQueue.enqueue(finishedItem)
+                self.finshedItemQueue.enqueue(finishedItem)
                 self.dispatchFinishedForEach(item:finishedItem)
 
 
@@ -213,7 +213,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
 
         //cancel currently progressing item
         if let currentItem = self.peek() {
-            cancellationQueue.async { [unowned self] in
+            stateOperationQueue.async { [unowned self] in
                 self.cancelItem(currentItem, self.asyncSignal)
             }
         }
