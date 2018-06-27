@@ -170,7 +170,7 @@ public class TaskInfo: Item<String> {
 
 public protocol TaskProgressable {
     func taskProgressDidUpdate(param: TaskParamable?, progress: Progress)
-    var cancellation: Bool { get }
+    var taskProgressCancelled: Bool { get }
 }
 
 extension TaskProgressable {
@@ -186,5 +186,5 @@ extension TaskProgressable {
         NotificationCenter.default.post(name: PHAssetProcessableNotification.Name.progressChanged, object: self, userInfo: userInfo)
     }
     
-    public var cancellation: Bool { return false }
+    public var taskProgressCancelled: Bool { return false }
 }

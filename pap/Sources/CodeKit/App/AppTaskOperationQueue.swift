@@ -32,6 +32,14 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
             , autoreleaseFrequency: .workItem
             , target: nil
     )
+    
+    private let cancellationQueue:DispatchQueue = DispatchQueue(
+        label: "com.stells_internal_\(UUID().uuidString)"
+        , qos: DispatchQoS(qosClass: .userInteractive, relativePriority: 0)
+        , attributes: []
+        , autoreleaseFrequency: .workItem
+        , target: nil
+    )
 
     private let asyncSignal = AsyncSignal()
 
@@ -205,7 +213,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
 
         //cancel currently progressing item
         if let currentItem = self.peek() {
-            queue.async { [unowned self] in
+            cancellationQueue.async { [unowned self] in
                 self.cancelItem(currentItem, self.asyncSignal)
             }
         }

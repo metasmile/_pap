@@ -188,7 +188,7 @@ private class ConvertAppTask: TaskPrototype, Taskable, TaskProgressable {
 
     }
     
-    var cancellation: Bool {
+    var taskProgressCancelled: Bool {
         return info.state == .cancelled
     }
 
@@ -224,7 +224,7 @@ private class ConvertAppTask: TaskPrototype, Taskable, TaskProgressable {
             converter.options = MP4ConverterOption.optionBy(defaults.convertingQuality.qualityType, with: assetItem.asset)
         }
         
-        let result = converter.convert(source: assetItem, cancellation: { self.cancellation }, progressHandler: { progress in
+        let result = converter.convert(source: assetItem, cancellation: { self.taskProgressCancelled }, progressHandler: { progress in
             self.taskProgressDidUpdate(param: assetItem, progress: progress)
         }, async)
         let index = AppAssets.selected.index(of: assetItem)

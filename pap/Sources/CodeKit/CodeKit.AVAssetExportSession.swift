@@ -23,9 +23,9 @@ extension AVAssetExportSession {
         guard let exportSession = AVAssetExportSession(asset: asset, presetName: presetName) else {
             return nil
         }
-
-        let exportingVideo = DispatchGroup()
-        exportingVideo.enter()
+        
+        let async = AsyncSignal()
+        async.begin()
 
         //TODO: apply TEMP_FILE_GC (in some case outputURL may be a cause of queue hanging)
         try? FileManager.default.removeItem(at: outputURL)
@@ -35,7 +35,7 @@ extension AVAssetExportSession {
         exportSession.videoComposition = videoComposition
         exportSession.shouldOptimizeForNetworkUse = shouldOptimizeForNetworkUse
         exportSession.exportAsynchronously {
-            exportingVideo.leave()
+            async.end()
 
             switch exportSession.status {
             case .completed:
@@ -54,7 +54,7 @@ extension AVAssetExportSession {
                 while exportSession.status == .waiting || exportSession.status == .exporting {
                     exportProgress.completedUnitCount = Int64(exportSession.progress * 100)
                     progress(exportProgress)
-                    _ = exportingVideo.wait(timeout: DispatchTime.now() + 0.5)
+                    _ = async.waitUntilEnd(timeout: DispatchTime.now() + 0.5)
                 }
             }
         }
