@@ -11,7 +11,7 @@ typealias PHAssetContentEditingHandler = (PHAssetContentEditingItem?) -> Void
 typealias PHAssetEditableProgressHandler = (Progress) -> Void
 typealias PHAssetEditableCompletionHandler = (PHAsset?, PHContentEditingOutput?) -> Void
 
-public struct PHAssetProcessableNotification {
+public struct PHAssetProgressNotification {
     enum Name {
         static let progressChanged = Notification.Name("PHAssetProcessableNotificationProgressChanged")
     }

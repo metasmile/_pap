@@ -30,6 +30,21 @@ public struct PHAssetResultItem: PHAssetResultable {
     }
 }
 
+
+public struct PHAssetItemProgressNotification {
+    static func update(item: PHAssetItem<ImageEditStateValue>?=nil, progress: Progress) {
+        var userInfo: [String: Any] = [
+            PHAssetProgressNotification.UserInfo.Key.progress: Float(progress.fractionCompleted)
+        ]
+
+        if let assetItem = item {
+            userInfo[PHAssetProgressNotification.UserInfo.Key.assetItem] = assetItem
+        }
+
+        NotificationCenter.default.post(name: PHAssetProgressNotification.Name.progressChanged, object: self, userInfo: userInfo)
+    }
+}
+
 //TODO: Minifiy 2-depth generic type/protocolize
 public class PHAssetItem<EditStateValueType:Hashable>: ItemObject, PHAssetParamable {
     public var asset: PHAsset

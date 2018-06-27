@@ -162,7 +162,7 @@ private struct ConvertAppResult: TaskResultable{
     var orderedIndex: Int?
 }
 
-private class ConvertAppTask: TaskPrototype, Taskable, TaskProgressable {
+private class ConvertAppTask: TaskPrototype, Taskable {
     public typealias ParamType = AppAsset
     public typealias ResultType = ConvertAppResult
 
@@ -225,7 +225,7 @@ private class ConvertAppTask: TaskPrototype, Taskable, TaskProgressable {
         }
         
         let result = converter.convert(source: assetItem, cancellation: { self.taskProgressCancelled }, progressHandler: { progress in
-            self.taskProgressDidUpdate(param: assetItem, progress: progress)
+            PHAssetItemProgressNotification.update(item: assetItem, progress: progress)
         }, async)
         let index = AppAssets.selected.index(of: assetItem)
 

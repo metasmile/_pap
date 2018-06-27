@@ -301,7 +301,7 @@ extension PreviewView {
         collectionView.scrollToItem(at: IndexPath(item: 0, section: targetSection), at: .centeredHorizontally, animated: true)
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.fetchProgressChanged), name: RemoteSourceFetchNotification.Name.progressChanged, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.processingProgressChanged), name: PHAssetProcessableNotification.Name.progressChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.processingProgressChanged), name: PHAssetProgressNotification.Name.progressChanged, object: nil)
 
         //TODO: BatchAppCenter.default.task.append immediatly from UI action instead of using "EditItems"
 
@@ -387,7 +387,7 @@ extension PreviewView {
     }
     
     @objc func processingProgressChanged(sender: NSNotification) {
-        if let progress = sender.userInfo?[PHAssetProcessableNotification.UserInfo.Key.progress] as? Float {
+        if let progress = sender.userInfo?[PHAssetProgressNotification.UserInfo.Key.progress] as? Float {
             DispatchQueue.main.async {
                 self.delegate?.batchPreviewView(self, didUpdateInternalProgress: progress)
             }
@@ -398,7 +398,7 @@ extension PreviewView {
         assert(AppCenter.default.task.isRunning)
 
         NotificationCenter.default.removeObserver(self, name: RemoteSourceFetchNotification.Name.progressChanged, object: nil)
-        NotificationCenter.default.removeObserver(self, name: PHAssetProcessableNotification.Name.progressChanged, object: nil)
+        NotificationCenter.default.removeObserver(self, name: PHAssetProgressNotification.Name.progressChanged, object: nil)
 
 
         self.delegate?.batchPreviewViewWillCancelProgress(self)

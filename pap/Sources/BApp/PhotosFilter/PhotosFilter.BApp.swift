@@ -163,7 +163,7 @@ private extension PhotosFilterApp {
     }
 }
 
-private class _PhotosFilterAppTask: TaskPrototype, Taskable, TaskProgressable {
+private class _PhotosFilterAppTask: TaskPrototype, Taskable {
     public typealias ParamType = _PhotosFilterAppAsset
     public typealias ResultType = PHAssetResultItem
 
@@ -210,7 +210,7 @@ private class _PhotosFilterAppTask: TaskPrototype, Taskable, TaskProgressable {
         async.begin()
         
         assetItem.runEditing({ [weak self] (progress) in
-            self?.taskProgressDidUpdate(param: assetItem, progress: progress)
+            PHAssetItemProgressNotification.update(item: assetItem, progress: progress)
         }) { (asset, contentEditingOutput) in
             if let asset = asset, let contentEditingOutput = contentEditingOutput {
                 result = PHAssetResultItem(
