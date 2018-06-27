@@ -89,7 +89,6 @@ open class AppManager: NSObject, SelectableCollection {
             guard previous == nil || oldValue != current else { return }
 
             self.previous = oldValue
-            self.currentIdentifier = current?.info.identifier
 
             var defaultsOfCurrent = self.currentDefaults
             defaultsOfCurrent?.touchedVersion = current?.info.version
@@ -99,6 +98,8 @@ open class AppManager: NSObject, SelectableCollection {
             }
 
             DispatchQueue.main.async{
+                self.currentIdentifier = self.current?.info.identifier
+
                 self.getInstance(self.current, as: AppManagerDelegatedApp.self)?.didSetCurrent(previous:self.previous)
             }
         }
