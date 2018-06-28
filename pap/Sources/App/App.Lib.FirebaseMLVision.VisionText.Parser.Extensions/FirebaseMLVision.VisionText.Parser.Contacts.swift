@@ -3,20 +3,38 @@
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
+/*
+INFO:
+
+Must be maintained atomic process. Do not use class, and additional parsing logic.
+*/
+
 import Foundation
 import FirebaseMLVision
 import Contacts
 import PhoneNumberKit
 
+
+private struct VisionTextNSTextCheckingResults {
+    static func detect(_ visionText: FirebaseMLVision.VisionText, _ types:NSTextCheckingResult.CheckingType) -> [NSTextCheckingResult]? {
+        let stringParser = VisionTextStringParser()
+        guard let rawText = stringParser.parse(input: visionText) else{
+            return nil
+        }
+        return rawText.detectAll(types: types).nilEmpty
+    }
+}
+
+
 public struct VisionTextPhoneNumberParser: VisionTextParser{
     typealias OutputType = [String]
 
-    static let shared = VisionTextPhoneNumberParser()
-
     private static let phoneNumberKit = PhoneNumberKit()
 
+    private let blockParser = VisionTextTextBlockParser()
+
     func parse(input: FirebaseMLVision.VisionText) -> VisionTextStringElementsParser.OutputType? {
-        guard let lines = VisionTextTextBlockParser.shared.parse(input: input) else{
+        guard let lines = blockParser.parse(input: input) else{
             return nil
         }
 
@@ -41,46 +59,54 @@ public struct VisionTextPhoneNumberParser: VisionTextParser{
 public struct VisionTextEmailAddressParser: VisionTextParser{
     typealias OutputType = [String]
 
-    static let shared = VisionTextEmailAddressParser()
+    private let stringParser = VisionTextStringParser()
 
     func parse(input: FirebaseMLVision.VisionText) -> OutputType? {
-        guard let rawText = VisionTextStringParser.shared.parse(input: input) else{
+        guard let rawText = stringParser.parse(input: input) else{
             return nil
         }
-
         return rawText.emailAddresses().nilEmpty
     }
 }
 
-public typealias VisionTextAddressParserResult = [NSTextCheckingKey : String]
+public struct VisionTextDateParser: VisionTextParser{
+    typealias OutputType = [Date]
+
+    func parse(input: FirebaseMLVision.VisionText) -> OutputType? {
+        return VisionTextNSTextCheckingResults.detect(input, NSTextCheckingResult.CheckingType.date)?.compactMap { result -> Date? in
+            return result.date
+        }.nilEmpty
+    }
+}
+
+public struct VisionTextURLParser: VisionTextParser{
+    typealias OutputType = [URL]
+
+    func parse(input: FirebaseMLVision.VisionText) -> OutputType? {
+        return VisionTextNSTextCheckingResults.detect(input, NSTextCheckingResult.CheckingType.link)?.compactMap { result -> URL? in
+            return result.url
+        }.nilEmpty
+    }
+}
+
 public struct VisionTextAddressParser: VisionTextParser{
-    typealias OutputType = [VisionTextAddressParserResult]
-
-    static let shared = VisionTextAddressParser()
+    typealias OutputType = [NSTextCheckingAddressComponent]
 
     func parse(input: FirebaseMLVision.VisionText) -> OutputType? {
-        guard let rawText = VisionTextStringParser.shared.parse(input: input) else{
-            return nil
-        }
-        let results = rawText.detectAll(types: NSTextCheckingResult.CheckingType.address.rawValue).compactMap { result -> VisionTextAddressParserResult? in
-            return result.addressComponents
-        }
-
-        return results.nilEmpty
+        return VisionTextNSTextCheckingResults.detect(input, NSTextCheckingResult.CheckingType.address)?.compactMap { result -> NSTextCheckingAddressComponent? in
+            return result.address
+        }.nilEmpty
     }
 }
 
-
-
-// NSDataDetector
-// https://github.com/marmelroy/PhoneNumberKit/blob/master/examples/PhoneBook/Sample/ViewController.swift
-// https://developer.apple.com/documentation/contacts
-public struct VisionTextContractParser: VisionTextParser{
-    typealias OutputType = [Any]
-
-    static let shared = VisionTextContractParser()
+//https://flightaware.com/live/findflight?origin=EDDF&destination=KLAX
+public struct VisionTextFlightInformationParser: VisionTextParser{
+    typealias OutputType = [NSTextCheckingFlightComponent]
 
     func parse(input: FirebaseMLVision.VisionText) -> OutputType? {
-        return nil
+        return VisionTextNSTextCheckingResults.detect(input, NSTextCheckingResult.CheckingType.transitInformation)?.compactMap { result -> NSTextCheckingFlightComponent? in
+            return result.flight
+        }.nilEmpty
     }
 }
+

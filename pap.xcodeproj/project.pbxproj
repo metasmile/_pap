@@ -78,7 +78,6 @@
 		4F71D4AAB06F4948D2CCEA29 /* cell_icon_gif.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D92382932E62756DD454 /* cell_icon_gif.png */; };
 		4F71D4CC682057C620653382 /* UITableViewCellDescribable.UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA4D5DD50E9D0383BBA0 /* UITableViewCellDescribable.UITableView.swift */; };
 		4F71D4FDDE4A6207CADC0C8E /* Revert.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D34F0E97063C79A5B851 /* Revert.BApp.swift */; };
-		4F71D50ED00527BD8EF1736B /* PixNote.AppDockContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF6098A92898E4BE8740 /* PixNote.AppDockContent.swift */; };
 		4F71D515FC2A5004283B8875 /* Converter.Mp4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D605DE80A5FB8CD97923 /* Converter.Mp4.swift */; };
 		4F71D556F3C4B15099434B20 /* PDFactory.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D30FD7125061A538BA37 /* PDFactory.BApp.swift */; };
 		4F71D5BE8B0401C15C9DFB28 /* FirebaseMLVision.VisionText.Parser.Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7D15E0EC1A44D1664AE /* FirebaseMLVision.VisionText.Parser.Contacts.swift */; };
@@ -527,7 +526,6 @@
 		4F71DEF14527034010D8943D /* App.Preheatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Preheatable.swift; sourceTree = "<group>"; };
 		4F71DF2BA1EF2662C299D170 /* ImageIO.Metadata.Properties.Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.Metadata.Properties.Label.swift; sourceTree = "<group>"; };
 		4F71DF3CAA29CFF0CFE4F837 /* batchTests.App.Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = batchTests.App.Tests.swift; sourceTree = "<group>"; };
-		4F71DF6098A92898E4BE8740 /* PixNote.AppDockContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixNote.AppDockContent.swift; sourceTree = "<group>"; };
 		4F71DF928C2BD1911803D81E /* AppTaskManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTaskManager.swift; sourceTree = "<group>"; };
 		4F71DFD3037800CDAD53A49A /* Textractor.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Textractor.BApp.swift; sourceTree = "<group>"; };
 		4F71DFF7812558760C61E112 /* PDFactory.TPPDF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFactory.TPPDF.swift; sourceTree = "<group>"; };
@@ -950,7 +948,6 @@
 			children = (
 				A01EF6A320E29717004A6CCC /* PixNote.BApp.Assets.xcassets */,
 				4F71DA798A1F355C8A84BA85 /* PixNote.swift */,
-				4F71DF6098A92898E4BE8740 /* PixNote.AppDockContent.swift */,
 			);
 			path = PixNote;
 			sourceTree = "<group>";
@@ -2929,7 +2926,6 @@
 				4F71DE695A164DF95980274B /* App.Preheatable.swift in Sources */,
 				4F71D341A19E0B6BD30A10AC /* App.UICollectionViewPreheatable.swift in Sources */,
 				4F71D817D4AF06DD50ED1685 /* PixNote.swift in Sources */,
-				4F71D50ED00527BD8EF1736B /* PixNote.AppDockContent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

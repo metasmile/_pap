@@ -5,17 +5,18 @@
 
 import Foundation
 
+
 extension String{
 
-    public func detectAll(types:NSTextCheckingTypes, options:NSRegularExpression.MatchingOptions=[], range:NSRange?=nil) -> [NSTextCheckingResult] {
-        guard let detector = try? NSDataDetector(types: types) else {
+    public func detectAll(types: NSTextCheckingResult.CheckingType, options:NSRegularExpression.MatchingOptions=[], range:NSRange?=nil) -> [NSTextCheckingResult] {
+        guard let detector = try? NSDataDetector(types: types.rawValue) else {
             return [NSTextCheckingResult]()
         }
         return detector.matches(in: self, options: options, range: range ?? NSMakeRange(0, self.count))
     }
 
     public func urls() -> [URL] {
-        return self.detectAll(types: NSTextCheckingResult.CheckingType.link.rawValue).compactMap { result -> URL? in
+        return self.detectAll(types: [NSTextCheckingResult.CheckingType.link]).compactMap { result -> URL? in
             return result.url
         }
     }
@@ -30,5 +31,88 @@ extension String{
             }
         }
         return emailAddresses
+    }
+}
+
+
+public protocol NSTextCheckingPersonComponent {
+    var name: String? {get set}
+    var jobTitle: String? {get set}
+    var organization: String? {get set}
+}
+
+public protocol NSTextCheckingTelephoneNumberComponent {
+    var phone: String? {get set}
+}
+
+public protocol NSTextCheckingAddressComponent {
+    var street: String? {get set}
+    var city: String? {get set}
+    var state: String? {get set}
+    var zip: String? {get set}
+    var country: String? {get set}
+}
+
+public protocol NSTextCheckingFlightComponent {
+    var airline: String? {get set}
+    var flight: String? {get set}
+}
+
+public typealias NSTextCheckingComponent = NSTextCheckingPersonComponent & NSTextCheckingTelephoneNumberComponent & NSTextCheckingAddressComponent & NSTextCheckingFlightComponent
+public typealias NSTextCheckingContactComponent = NSTextCheckingPersonComponent & NSTextCheckingTelephoneNumberComponent & NSTextCheckingAddressComponent
+
+private struct _NSTextCheckingComponent: NSTextCheckingComponent {
+    public var name: String?
+    public var jobTitle: String?
+    public var organization: String?
+    public var street: String?
+    public var city: String?
+    public var state: String?
+    public var zip: String?
+    public var country: String?
+    public var phone: String?
+    public var airline: String?
+    public var flight: String?
+}
+
+extension NSTextCheckingResult{
+    open var componentObject: NSTextCheckingComponent? {
+
+        if let c = self.components, c.count > 0{
+            return _NSTextCheckingComponent(
+                    name: c[NSTextCheckingKey.name],
+                    jobTitle: c[NSTextCheckingKey.jobTitle],
+                    organization: c[NSTextCheckingKey.organization],
+                    street: c[NSTextCheckingKey.street],
+                    city: c[NSTextCheckingKey.city],
+                    state: c[NSTextCheckingKey.state],
+                    zip: c[NSTextCheckingKey.zip],
+                    country: c[NSTextCheckingKey.country],
+                    phone: c[NSTextCheckingKey.phone],
+                    airline: c[NSTextCheckingKey.airline],
+                    flight: c[NSTextCheckingKey.flight]
+            )
+        }
+        return nil
+    }
+
+    open var flight: NSTextCheckingFlightComponent? {
+        return componentObject
+    }
+
+    open var address: NSTextCheckingAddressComponent? {
+        return componentObject
+    }
+
+    open var telephoneNumber: NSTextCheckingTelephoneNumberComponent? {
+        return componentObject
+    }
+
+    open var contact: NSTextCheckingContactComponent? {
+        return componentObject
+    }
+
+    open var person: NSTextCheckingPersonComponent? {
+        return componentObject
     }
 }

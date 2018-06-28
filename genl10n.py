@@ -37,7 +37,7 @@ gened_strs = collections.OrderedDict()
 for code_file in swift_files:
     rcur = codecs.open(code_file, "r", "utf-8")
     wlines = []
-    for line in rcur.readlines():
+    for i, line in enumerate(rcur.readlines()):
         for line_sp in line.split(split_key):
 
             for p in complied_patterns_by_priority:
@@ -57,7 +57,7 @@ for code_file in swift_files:
                         gened_strs[str] = []
 
                     if not code_file in gened_strs[str]:
-                        gened_strs[str].append(code_file)
+                        gened_strs[str].append((code_file, i+1))
 
 
 rcur = codecs.open(dest_l10n_base_path, "r", "utf-8")
@@ -91,7 +91,10 @@ for new_key in keys_in_gened_strs:
         continue
 
     new_line = u'{0} = {0};'.format(new_key)
-    from_files = ", ".join(map(lambda s: os.path.basename(s), gened_strs[new_key]))
+
+    # gened_strs[new_key][0] : code file path as string
+    # gened_strs[new_key][1] : line as int
+    from_files = ", ".join(map(lambda s: "{}#{}".format(os.path.basename(s[0]), s[1]), gened_strs[new_key]))
     wlines.append("/* {}: {} */".format(__GEN_FLAG__, from_files))
     wlines.append('\n')
     wlines.append(new_line)
