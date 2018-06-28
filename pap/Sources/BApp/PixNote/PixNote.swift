@@ -20,7 +20,10 @@ private struct PixNoteResult: TaskResultable{
     fileprivate var phoneNumbers:[VisionTextPhoneNumberParser.OutputType]?
     fileprivate var emails:[VisionTextEmailAddressParser.OutputType]?
     fileprivate var addresses:[VisionTextAddressParser.OutputType]?
+
     fileprivate var dates:[VisionTextDateParser.OutputType]?
+    fileprivate var urls:[VisionTextURLParser.OutputType]?
+    fileprivate var flights:[VisionTextFlightInformationParser.OutputType]?
 }
 
 public class PixNote: NSObject, KeyPathWatchable, BApp
@@ -212,16 +215,17 @@ private struct PixNoteDetector{
             result.phoneNumbers = visionTexts.parse(type: VisionTextPhoneNumberParser.self, async)
         }
 
-        if items.contains(ParserItem.Key.Date){
+        if items.contains(ParserItem.Key.URL){
+            result.urls = visionTexts.parse(type: VisionTextURLParser.self, async)
+        }
+
+        if items.contains(ParserItem.Key.Address){
             result.addresses = visionTexts.parse(type: VisionTextAddressParser.self, async)
         }
 
-        if items.contains(ParserItem.Key.Date){
-            result.addresses = visionTexts.parse(type: VisionTextAddressParser.self, async)
+        if items.contains(ParserItem.Key.FlightInformation){
+            result.flights = visionTexts.parse(type: VisionTextFlightInformationParser.self, async)
         }
-
-
-
 
 
         return result
@@ -399,7 +403,7 @@ private protocol PixNoteAppDefaults: AppDefaults{
 extension Defaults: PixNoteAppDefaults {
     fileprivate var selectedParserCollection: ParserCollection {
         set{ set(newValue) }
-        get{ return get(or: Parsers.Collection.Default) }
+        get{ return get(or: ParserDictionary.DefaultCollection) }
     }
 
     fileprivate var selectionPreset: Int {
@@ -440,26 +444,15 @@ extension PixNoteAppDefaults{
 
 private typealias ParserCollection = [ParserDictionary.Key: [ParserItem.Key]]
 
-private struct Parsers {
-
-    struct Collection {
-        static let Default: ParserCollection = [
-            ParserDictionary.Key.Contract: [
-                ParserItem.Key.PhoneNumber
-                ,ParserItem.Key.EmailAddress
-                ,ParserItem.Key.Address
-                ,ParserItem.Key.Date
-            ]
-        ]
-    }
-}
-
 private struct ParserItem {
-    enum Key: String, Codable {
-        case PhoneNumber = "PhoneNumber"
-        case EmailAddress = "EmailAddress"
-        case Address = "Address"
-        case Date = "Date"
+    enum Key: Int, Codable {
+        case PhoneNumber
+        case EmailAddress
+        case Address
+
+        case Date
+        case URL
+        case FlightInformation
     }
 
     fileprivate var key:Key
@@ -467,8 +460,21 @@ private struct ParserItem {
 }
 
 private struct ParserDictionary {
-    enum Key: String, Codable {
-        case Contract = "Contract"
+
+    static let DefaultCollection: ParserCollection = [
+        ParserDictionary.Key.Contract: [
+            ParserItem.Key.PhoneNumber
+            ,ParserItem.Key.EmailAddress
+            ,ParserItem.Key.Address
+
+            ,ParserItem.Key.Date
+            ,ParserItem.Key.URL
+            ,ParserItem.Key.FlightInformation
+        ]
+    ]
+
+    enum Key: Int, Codable {
+        case Contract
     }
 
     fileprivate var key:Key
@@ -500,6 +506,8 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
                     ,ParserItem(key: ParserItem.Key.EmailAddress, label:"E-mail Address".localized)
                     ,ParserItem(key: ParserItem.Key.Address, label:"Address".localized)
                     ,ParserItem(key: ParserItem.Key.Date, label:"Date".localized)
+                    ,ParserItem(key: ParserItem.Key.FlightInformation, label:"Flight Information".localized)
+                    ,ParserItem(key: ParserItem.Key.URL, label:"URL".localized)
                 ])
     ]
 
@@ -573,7 +581,7 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
                             self.defaults.removeHandledProperty(m.key, i.key)
                         }
                     }
-                    for m in Parsers.Collection.Default{
+                    for m in ParserDictionary.DefaultCollection {
                         for i in m.value{
                             self.defaults.addHandledProperty(m.key, i)
                         }

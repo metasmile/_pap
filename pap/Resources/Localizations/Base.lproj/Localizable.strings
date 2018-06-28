@@ -88,7 +88,7 @@
 "%d times" = "%d times";
 /* Generated from genl10n: GIFMaker.BApp.swift#161 */
 "1080p (1920×1080)" = "1080p (1920×1080)";
-/* Generated from genl10n: PixNote.swift#501, PixNote.swift#501 */
+/* Generated from genl10n: PixNote.swift#507, PixNote.swift#507 */
 "Address" = "Address";
 /* Generated from genl10n: PhotoAlbumViewController.swift#105, PhotoAlbumViewController.swift#105 */
 "Albums" = "Albums";
@@ -104,13 +104,13 @@
 "Burst" = "Burst";
 /* Generated from genl10n: Revert.BApp.swift#81 */
 "Cannot revert. All selected items have not edited." = "Cannot revert. All selected items have not edited.";
-/* Generated from genl10n: PixNote.swift#113, PixNote.swift#113, CallApp.BApp.swift#121, CallApp.BApp.swift#121 */
+/* Generated from genl10n: PixNote.swift#116, PixNote.swift#116, CallApp.BApp.swift#121, CallApp.BApp.swift#121 */
 "Choose A Phone Number To Call" = "Choose A Phone Number To Call";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift#46, PHAssetUIAlertControllerSynchronizablePresenter.swift#46 */
 "Choose An Export Option For %d Items" = "Choose An Export Option For %d Items";
 /* Generated from genl10n: Convert.AppDockContent.swift#148, Convert.AppDockContent.swift#148 */
 "Choose an Option To Convert" = "Choose an Option To Convert";
-/* Generated from genl10n: PixNote.swift#497, PixNote.swift#497 */
+/* Generated from genl10n: PixNote.swift#503, PixNote.swift#503 */
 "Contract" = "Contract";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift#57, App.Finalizable.UIActivity.PHAsset.swift#57 */
 "Create" = "Create";
@@ -120,7 +120,7 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift#277, Stabilizer.swift#277, GIFMaker.BApp.swift#142, GIFMaker.BApp.swift#142 */
 "Crop" = "Crop";
-/* Generated from genl10n: PixNote.swift#502, PixNote.swift#502 */
+/* Generated from genl10n: PixNote.swift#508, PixNote.swift#508 */
 "Date" = "Date";
 /* Generated from genl10n: GIFMaker.BApp.swift#542, GIFMaker.BApp.swift#542 */
 "Direction" = "Direction";
@@ -128,9 +128,9 @@
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift#698 */
 "Downloading..." = "Downloading...";
-/* Generated from genl10n: PixNote.swift#500, PixNote.swift#500 */
+/* Generated from genl10n: PixNote.swift#506, PixNote.swift#506 */
 "E-mail Address" = "E-mail Address";
-/* Generated from genl10n: Revert.BApp.swift#191, Revert.BApp.swift#191, ExifGhost.AppDockContent.swift#162, ExifGhost.AppDockContent.swift#162, PixNote.swift#310, PixNote.swift#310, PixNote.swift#540, PixNote.swift#540, Clean.BApp.swift#184, Clean.BApp.swift#184, CallApp.BApp.swift#317, CallApp.BApp.swift#317, Textractor.BApp.swift#196, Textractor.BApp.swift#196 */
+/* Generated from genl10n: Revert.BApp.swift#191, Revert.BApp.swift#191, ExifGhost.AppDockContent.swift#162, ExifGhost.AppDockContent.swift#162, PixNote.swift#314, PixNote.swift#314, PixNote.swift#548, PixNote.swift#548, Clean.BApp.swift#184, Clean.BApp.swift#184, CallApp.BApp.swift#317, CallApp.BApp.swift#317, Textractor.BApp.swift#196, Textractor.BApp.swift#196 */
 "Enable Auto Selection" = "Enable Auto Selection";
 /* Generated from genl10n: Convert.AppDockContent.swift#149, Convert.AppDockContent.swift#149 */
 "Export Options" = "Export Options";
@@ -140,15 +140,17 @@
 "Find" = "Find";
 /* Generated from genl10n: CallApp.BApp.swift#191 */
 "Finding Contacts ... %@ " = "Finding Contacts ... %@ ";
+/* Generated from genl10n: PixNote.swift#509, PixNote.swift#509 */
+"Flight Information" = "Flight Information";
 /* Generated from genl10n: GIFMaker.BApp.swift#208, GIFMaker.BApp.swift#208 */
 "Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift#505, GIFMaker.BApp.swift#505 */
 "Frame Delay" = "Frame Delay";
 /* Generated from genl10n: GIFMaker.BApp.swift#265, GIFMaker.BApp.swift#265, GIFMaker.BApp.swift#585, GIFMaker.BApp.swift#585 */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: PixNote.swift#187, PixNote.swift#187, Textractor.BApp.swift#104, Textractor.BApp.swift#104 */
+/* Generated from genl10n: PixNote.swift#190, PixNote.swift#190, Textractor.BApp.swift#104, Textractor.BApp.swift#104 */
 "Grab" = "Grab";
-/* Generated from genl10n: PixNote.swift#183 */
+/* Generated from genl10n: PixNote.swift#186 */
 "Grabbing Text Contents ... %@ " = "Grabbing Text Contents ... %@ ";
 /* Generated from genl10n: GIFMaker.BApp.swift#160 */
 "HD (1280×720)" = "HD (1280×720)";
@@ -178,11 +180,11 @@
 "No loop" = "No loop";
 /* Generated from genl10n: AppUIAssetView.swift#45, AppUIAssetView.swift#45, PhotosFilter.BApp.swift#149, PhotosFilter.BApp.swift#149 */
 "Original" = "Original";
-/* Generated from genl10n: PixNote.swift#499, PixNote.swift#499 */
+/* Generated from genl10n: PixNote.swift#505, PixNote.swift#505 */
 "Phone Number" = "Phone Number";
 /* Generated from genl10n: GIFMaker.BApp.swift#88, GIFMaker.BApp.swift#88 */
 "Photos" = "Photos";
-/* Generated from genl10n: PixNote.swift#551, PixNote.swift#551 */
+/* Generated from genl10n: PixNote.swift#559, PixNote.swift#559 */
 "Preset" = "Preset";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#173, ExifGhost.AppDockContent.swift#173 */
 "Presets" = "Presets";
@@ -210,15 +212,15 @@
 "Select Photos You Want To Clean!" = "Select Photos You Want To Clean!";
 /* Generated from genl10n: CallApp.BApp.swift#300 */
 "Select Photos You Want To Grab Phone Numbers!" = "Select Photos You Want To Grab Phone Numbers!";
-/* Generated from genl10n: PixNote.swift#657 */
+/* Generated from genl10n: PixNote.swift#665 */
 "Select Photos You Want To Grab!" = "Select Photos You Want To Grab!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#92, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#92, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#105, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#105, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#131, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#131, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#145, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#145, App.Finalizable.UIActivity.PHAsset.swift#60, App.Finalizable.UIActivity.PHAsset.swift#60, PHAssetUIAlertControllerSynchronizablePresenter.swift#58, PHAssetUIAlertControllerSynchronizablePresenter.swift#58 */
 "Share" = "Share";
 /* Generated from genl10n: GIFMaker.BApp.swift#461, GIFMaker.BApp.swift#461, GIFMaker.BApp.swift#664, GIFMaker.BApp.swift#664, GIFMaker.BApp.swift#676, GIFMaker.BApp.swift#676, GIFMaker.BApp.swift#813, GIFMaker.BApp.swift#813 */
 "Size" = "Size";
-/* Generated from genl10n: PixNote.swift#135, CallApp.BApp.swift#143 */
+/* Generated from genl10n: PixNote.swift#138, CallApp.BApp.swift#143 */
 "Sorry can't call to selected contact." = "Sorry can't call to selected contact.";
-/* Generated from genl10n: PixNote.swift#163, CallApp.BApp.swift#171 */
+/* Generated from genl10n: PixNote.swift#166, CallApp.BApp.swift#171 */
 "Sorry not found any contact information." = "Sorry not found any contact information.";
 /* Generated from genl10n: GIFMaker.BApp.swift#108, GIFMaker.BApp.swift#108 */
 "Square" = "Square";
@@ -232,7 +234,7 @@
 "Stabilizing Selected Items..." = "Stabilizing Selected Items...";
 /* Generated from genl10n: PhotoPickerViewController.swift#428, PhotoPickerViewController.swift#428 */
 "Start" = "Start";
-/* Generated from genl10n: PixNote.swift#175 */
+/* Generated from genl10n: PixNote.swift#178 */
 "Starting To Grab ..." = "Starting To Grab ...";
 /* Generated from genl10n: PhotoPickerViewController.swift#655 */
 "Starting the Process..." = "Starting the Process...";
@@ -240,9 +242,11 @@
 "Starting to check edited photos..." = "Starting to check edited photos...";
 /* Generated from genl10n: Stabilizer.swift#270, Stabilizer.swift#270 */
 "Translation" = "Translation";
+/* Generated from genl10n: PixNote.swift#510, PixNote.swift#510 */
+"URL" = "URL";
 /* Generated from genl10n: GIFMaker.BApp.swift#91, GIFMaker.BApp.swift#91 */
 "Video" = "Video";
-/* Generated from genl10n: PixNote.swift#179, CallApp.BApp.swift#187 */
+/* Generated from genl10n: PixNote.swift#182, CallApp.BApp.swift#187 */
 "Waiting To Select ..." = "Waiting To Select ...";
 /* Generated from genl10n: Stabilizer.swift#271, Stabilizer.swift#271 */
 "Warp" = "Warp";
