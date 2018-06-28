@@ -49,7 +49,7 @@ extension Defaults: PixNoteAppDefaults {
 
 
 extension PixNoteAppDefaults{
-    fileprivate func addHandledProperty(_ dictionary:String, _ property:String){
+    fileprivate func addHandledProperty(_ dictionary:ParserDictionary.Key, _ property:ParserItem.Key){
 
         var immutableSelf = self
         if immutableSelf.selectedParserCollection[dictionary] == nil{
@@ -66,7 +66,7 @@ extension PixNoteAppDefaults{
         }
     }
 
-    fileprivate func removeHandledProperty(_ dictionary:String, _ property:String){
+    fileprivate func removeHandledProperty(_ dictionary:ParserDictionary.Key, _ property:ParserItem.Key){
 
         if let index = selectedParserCollection[dictionary]?.index(of: property){
             var immutableSelf = self
@@ -77,42 +77,40 @@ extension PixNoteAppDefaults{
     }
 }
 
-public typealias ParserCollection = [String: [String]]
+private typealias ParserCollection = [ParserDictionary.Key: [ParserItem.Key]]
 
 private struct Parsers {
 
-    public struct Collection {
-
-        public static let Default: ParserCollection = [
-            Parsers.Dictionary.Contract: [
-                Parsers.Property.PhoneNumber
-                ,Parsers.Property.EmailAddress
-                ,Parsers.Property.Address
-                ,Parsers.Property.Date
+    struct Collection {
+        static let Default: ParserCollection = [
+            ParserDictionary.Key.Contract: [
+                ParserItem.Key.PhoneNumber
+                ,ParserItem.Key.EmailAddress
+                ,ParserItem.Key.Address
+                ,ParserItem.Key.Date
             ]
         ]
-    }
-
-
-    public struct Dictionary {
-        static var Contract:String { return "Contract" }
-    }
-
-    public struct Property {
-        static let PhoneNumber: String = "PhoneNumber"
-        static let EmailAddress: String = "EmailAddress"
-        static let Address: String = "Address"
-        static let Date: String = "Date"
     }
 }
 
 private struct ParserItem {
-    fileprivate var key:String
+    enum Key: String, Codable {
+        case PhoneNumber = "PhoneNumber"
+        case EmailAddress = "EmailAddress"
+        case Address = "Address"
+        case Date = "Date"
+    }
+
+    fileprivate var key:Key
     fileprivate var label:String
 }
 
 private struct ParserDictionary {
-    fileprivate var key:String
+    enum Key: String, Codable {
+        case Contract = "Contract"
+    }
+
+    fileprivate var key:Key
     fileprivate var label:String
     fileprivate var items:[ParserItem]
 }
@@ -121,10 +119,9 @@ private class PixNoteParserResult{
 
 }
 
-private class PixNoteHostParser: VisionTextParser{
-    typealias OutputType = PixNoteParserResult
+private class PixNoteHostParser{
 
-    func parse(input: FirebaseMLVision.VisionText) -> OutputType? {
+    func parse(visionTexts: [FirebaseMLVision.VisionText]) -> PixNoteParserResult? {
         return nil
     }
 
@@ -136,12 +133,12 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
 
     private var parserCollection:[ParserDictionary] = [
 
-        ParserDictionary(key: Parsers.Dictionary.Contract, label: "Contract".localized,
+        ParserDictionary(key: ParserDictionary.Key.Contract, label: "Contract".localized,
                 items: [
-                    ParserItem(key: Parsers.Property.PhoneNumber, label:"Phone Number".localized)
-                    ,ParserItem(key: Parsers.Property.EmailAddress, label:"E-mail Address".localized)
-                    ,ParserItem(key: Parsers.Property.Address, label:"Address".localized)
-                    ,ParserItem(key: Parsers.Property.Date, label:"Date".localized)
+                    ParserItem(key: ParserItem.Key.PhoneNumber, label:"Phone Number".localized)
+                    ,ParserItem(key: ParserItem.Key.EmailAddress, label:"E-mail Address".localized)
+                    ,ParserItem(key: ParserItem.Key.Address, label:"Address".localized)
+                    ,ParserItem(key: ParserItem.Key.Date, label:"Date".localized)
                 ])
     ]
 
@@ -163,12 +160,8 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
         return preferences
     }
 
-    var selectedParserCollection: ParserCollection{
+    private var selectedParserCollection: ParserCollection{
         return defaults.selectedParserCollection
-    }
-
-    var shouldGhostAll:Bool{
-        return defaults.selectionPreset == SelectionPresets.raw.rawValue
     }
 
     private var autoSelect:Bool = false
@@ -194,11 +187,11 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
 
         let cell0 = UITableViewSegmentControlCellDescriber()
         cell0.itemIdentifier = Cells.presets.hashValue
-        cell0.label = "Presets".localized
+        cell0.label = "Preset".localized
         cell0.valueGetter = { self.defaults.selectionPreset }
         cell0.valueCollection = [
-            (label:"Raw Text",value:SelectionPresets.raw.rawValue),
-            (label:"All Contracts",value:SelectionPresets.contacts.rawValue),
+            (label:"Plain",value:SelectionPresets.raw.rawValue),
+            (label:"Formatted",value:SelectionPresets.contacts.rawValue),
             (label:"Custom", value:SelectionPresets.custom.rawValue)
         ]
         cell0.valueHandler = {
@@ -300,7 +293,7 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
-        let label_section0 = "🖼️ ‣ 🤖 ‣ 😸 " + "Select Photos You Want To Grab!".localized
+        let label_section0 = "🖼️ ‣ 🤖 ‣ 📝 " + "Select Photos You Want To Grab!".localized
         return section == 0 ? label_section0 : parserCollection[section-1].label
     }
 
