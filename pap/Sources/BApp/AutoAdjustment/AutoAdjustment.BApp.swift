@@ -66,6 +66,7 @@ public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableAp
                 controllerContent?.options = defaults.autoAdjustmentOptions
                 
                 let filter = CIAutoAdjustmentFilter(options: defaults.autoAdjustmentOptions)
+                self.config?.filter = CIFilterItem(filter)
                 self.currentEditStateValue = CIFilterItem(filter)
             }
         }
@@ -105,15 +106,13 @@ public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableAp
         }
         
         DispatchQueue.main.async {
+            let identifier = "\(appAsset.asset.localIdentifierWithoutSplitter)_\(indexPath)_\(appAsset.editState.hash)"
             guard previewIdentifier == identifier else { return }
             completion(image)
         }
     }
     
     public func removeAllCachedPreviewImages() {
-        for cachedImage in cachedImages {
-            try? FileManager.default.removeItem(at: cachedImage.value)
-        }
         cachedImages.removeAll()
     }
     

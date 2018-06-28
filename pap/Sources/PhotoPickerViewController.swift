@@ -180,6 +180,11 @@ class PhotoPickerViewController: AppDockViewController {
         super.appDidChange()
         
         AppAssets.selected.reloadAll()
+        
+        if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self), let value = app.currentEditStateValue {
+            AppAssets.selected.appendValue(value)
+        }
+        
         redisplayVisibleCellsEnabled()
         showAndRevertTitleByCurrentAppIfNeeded()
         appDockView?.reloadKeepingDrawerOpened()

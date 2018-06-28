@@ -46,13 +46,14 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
         
-        if let asset = self.asset {
-            self.editItem = AppAssets.selected.by(asset)
-        }
+        guard let asset = self.asset else { return }
         
-        if layoutAttributes.size != previousAttributes?.size {
+        if layoutAttributes.size != previousAttributes?.size || self.editItem != AppAssets.selected.by(asset) {
             setNeedsUpdatePreview()
         }
+        
+        self.editItem = AppAssets.selected.by(asset)
+        
         updatePreviewIfNeeded()
         
         previousAttributes = layoutAttributes
@@ -155,10 +156,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
                     DispatchQueue.main.async {
                         self?.isProcessing(false, animated: true)
                         guard self?.indexPath == indexPath else { return }
-                        
-                        if let image = image {
-                            self?.assetView.filteredImage = image
-                        }
+                        self?.assetView.filteredImage = image
                     }
                 }
             }

@@ -48,7 +48,7 @@ extension _PhotosFilterAppAsset: PHAssetImageEditable {
                 // renderedContentURL supports only JPEG and MOV ...
                 // so... always export JPEG
                 //TODO: investigate PHAssetChangeRequest.creationRequestForAssetFromImage(url)
-                let outputData = UIImageJPEGRepresentation(image, 1)
+                let outputData = UIImageJPEGRepresentation(image ?? uiImage, 1)
                 
                 guard (try? outputData?.write(to: item.output.renderedContentURL, options: .atomic)) != nil else {
                     completionHandler(nil, nil)

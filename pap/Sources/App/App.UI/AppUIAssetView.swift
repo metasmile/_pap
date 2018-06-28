@@ -15,7 +15,7 @@ internal class AppUIAssetOriginalBadgeLabel: RoundedView {
     lazy private var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = UIColor.white.withAlphaComponent(0.5)
+        label.textColor = UIColor.white.withAlphaComponent(0.6)
         return label
     }()
     
@@ -47,11 +47,7 @@ class AppUIAssetView: AssetView {
     }()
     
     fileprivate var editState: StateValueSet<ImageEditStateValue>?
-    var originalImage: UIImage? {
-        didSet {
-            self.image = originalImage
-        }
-    }
+    var originalImage: UIImage?
     var filteredImage: UIImage? {
         didSet {
             self.image = filteredImage ?? originalImage
@@ -89,12 +85,12 @@ class AppUIAssetView: AssetView {
     }
     
     override func clearDrawing() {
-        super.clearDrawing()
-        
         editState = nil
         originalImage = nil
         filteredImage = nil
         originalBadgeLabel.isHidden = true
+        
+        super.clearDrawing()
     }
     
     override func imageDidLoad(image: UIImage?) {
@@ -149,7 +145,7 @@ extension AppUIAssetView {
     }
     
     func applyImageFilter(ciFilter: CIFilter?) {
-        self.filteredImage = ciFilter != nil ? originalImage?.applyFilter(ciFilter: ciFilter) : nil
+        self.filteredImage = originalImage?.applyFilter(ciFilter: ciFilter)
         
 //        if asset?.mediaSubtypes.contains(.photoLive) == true {
 //
