@@ -8,6 +8,7 @@ import FirebaseMLVision
 
 protocol VisionTextParser: Parser where Self.InputType==VisionText {
     static var shared:Self {get}
+
     func parse(input:VisionText) -> OutputType?
 }
 
@@ -16,8 +17,10 @@ struct VisionTextStringParser: VisionTextParser {
 
     static let shared = VisionTextStringParser()
 
+    private let blockParser = VisionTextTextBlockParser()
+
     func parse(input: VisionText) -> OutputType? {
-        guard let lines = VisionTextTextBlockParser.shared.parse(input: input) else {
+        guard let lines = blockParser.parse(input: input) else {
             return nil
         }
 
@@ -48,8 +51,10 @@ public struct VisionTextStringElementsParser: VisionTextParser {
 
     static let shared = VisionTextStringElementsParser()
 
+    private let blockParser = VisionTextTextBlockParser()
+
     func parse(input: VisionText) -> OutputType? {
-        return VisionTextTextBlockParser.shared.parse(input: input)?.compactMap { strings -> String? in
+        return blockParser.parse(input: input)?.compactMap { strings -> String? in
             return strings.joined()
         }
     }

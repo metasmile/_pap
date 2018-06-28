@@ -10,6 +10,8 @@ protocol Parser {
     associatedtype OutputType
 
     func parse(input:InputType) -> OutputType?
+
+    init()
 }
 
 protocol StringParser: Parser where Self.OutputType==String {

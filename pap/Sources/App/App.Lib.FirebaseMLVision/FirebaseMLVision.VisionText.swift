@@ -14,7 +14,7 @@ extension Array where Element==VisionText {
     }
 
     func parse<ParserType:VisionTextParser>(type: ParserType.Type, _ async: AsyncManualSignalable) -> [ParserType.OutputType]? {
-        return self.parse(parser: type.shared, async)
+        return self.parse(parser: type.init(), async)
     }
 }
 extension VisionText{

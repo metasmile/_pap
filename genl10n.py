@@ -57,7 +57,7 @@ for code_file in swift_files:
                         gened_strs[str] = []
 
                     if not code_file in gened_strs[str]:
-                        gened_strs[str].append((code_file, i))
+                        gened_strs[str].append((code_file, i+1))
 
 
 rcur = codecs.open(dest_l10n_base_path, "r", "utf-8")

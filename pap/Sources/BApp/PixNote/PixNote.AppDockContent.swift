@@ -108,6 +108,7 @@ private struct Parsers {
 private struct ParserItem {
     fileprivate var key:String
     fileprivate var label:String
+//    fileprivate var parser:
 }
 
 private struct ParserDictionary {

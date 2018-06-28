@@ -15,8 +15,10 @@ public struct VisionTextPhoneNumberParser: VisionTextParser{
 
     private static let phoneNumberKit = PhoneNumberKit()
 
+    private let blockParser = VisionTextTextBlockParser()
+
     func parse(input: FirebaseMLVision.VisionText) -> VisionTextStringElementsParser.OutputType? {
-        guard let lines = VisionTextTextBlockParser.shared.parse(input: input) else{
+        guard let lines = blockParser.parse(input: input) else{
             return nil
         }
 
@@ -43,8 +45,10 @@ public struct VisionTextEmailAddressParser: VisionTextParser{
 
     static let shared = VisionTextEmailAddressParser()
 
+    private let stringParser = VisionTextStringParser()
+
     func parse(input: FirebaseMLVision.VisionText) -> OutputType? {
-        guard let rawText = VisionTextStringParser.shared.parse(input: input) else{
+        guard let rawText = stringParser.parse(input: input) else{
             return nil
         }
 
@@ -58,8 +62,10 @@ public struct VisionTextAddressParser: VisionTextParser{
 
     static let shared = VisionTextAddressParser()
 
+    private let stringParser = VisionTextStringParser()
+
     func parse(input: FirebaseMLVision.VisionText) -> OutputType? {
-        guard let rawText = VisionTextStringParser.shared.parse(input: input) else{
+        guard let rawText = stringParser.parse(input: input) else{
             return nil
         }
         let results = rawText.detectAll(types: NSTextCheckingResult.CheckingType.address.rawValue).compactMap { result -> VisionTextAddressParserResult? in
