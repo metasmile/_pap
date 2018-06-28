@@ -27,9 +27,6 @@ extension AVAssetExportSession {
         let async = AsyncSignal()
         async.begin()
 
-        //TODO: apply TEMP_FILE_GC (in some case outputURL may be a cause of queue hanging)
-        try? FileManager.default.removeItem(at: outputURL)
-
         exportSession.outputFileType = outputFileType
         exportSession.outputURL = outputURL
         exportSession.videoComposition = videoComposition

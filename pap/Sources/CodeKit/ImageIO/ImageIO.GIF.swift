@@ -8,18 +8,14 @@ import UIKit
 import ImageIO
 import MobileCoreServices
 
-public func UIImageGIFRepresentation(with imageFiles: [URL], loopCount: Int = 0, frameDelay: Double, cancellation: (() -> Bool)? = nil, progressHandler: ((Progress) -> Void)? = nil, removesImageFilePaths: Bool = true) -> Data? {
-    guard let url = UIImageGIFRepresentationURL(with: imageFiles, loopCount: loopCount, frameDelay: frameDelay, cancellation: cancellation, progressHandler: progressHandler, removesImageFilePaths: removesImageFilePaths) else { return nil }
+public func UIImageGIFRepresentation(with imageFiles: [URL], loopCount: Int = 0, frameDelay: Double, cancellation: (() -> Bool)? = nil, progressHandler: ((Progress) -> Void)? = nil) -> Data? {
+    guard let url = UIImageGIFRepresentationURL(with: imageFiles, loopCount: loopCount, frameDelay: frameDelay, cancellation: cancellation, progressHandler: progressHandler) else { return nil }
     let gifData = try? Data(contentsOf: url)
-    
-    if removesImageFilePaths {
-        try? FileManager.default.removeItem(at: url)
-    }
 
     return gifData
 }
 
-public func UIImageGIFRepresentationURL(with imageFiles: [URL], loopCount: Int = 0, frameDelay: Double, cancellation: (() -> Bool)? = nil, progressHandler: ((Progress) -> Void)? = nil, removesImageFilePaths: Bool = true) -> URL? {
+public func UIImageGIFRepresentationURL(with imageFiles: [URL], loopCount: Int = 0, frameDelay: Double, cancellation: (() -> Bool)? = nil, progressHandler: ((Progress) -> Void)? = nil) -> URL? {
     let fileProperties = [
         ImageMetadata.Dictionary.GIF: [
             ImageMetadata.Property.GIFLoopCount: loopCount
@@ -51,15 +47,11 @@ public func UIImageGIFRepresentationURL(with imageFiles: [URL], loopCount: Int =
     }
     
     let success = CGImageDestinationFinalize(destination)
-
-    if removesImageFilePaths {
-        imageFiles.forEach({ try? FileManager.default.removeItem(at: $0) })
-    }
     
     return success ? url : nil
 }
 
-public func UIImageGIFRepresentationURL(with imageFilesWithFrameDelay: [(URL, Double)], loopCount: Int = 0, cancellation: (() -> Bool)? = nil, progressHandler: ((Progress) -> Void)? = nil, removesImageFilePaths: Bool = true) -> URL? {
+public func UIImageGIFRepresentationURL(with imageFilesWithFrameDelay: [(URL, Double)], loopCount: Int = 0, cancellation: (() -> Bool)? = nil, progressHandler: ((Progress) -> Void)? = nil) -> URL? {
     let fileProperties = [
         ImageMetadata.Dictionary.GIF: [
             ImageMetadata.Property.GIFLoopCount: loopCount
@@ -93,10 +85,6 @@ public func UIImageGIFRepresentationURL(with imageFilesWithFrameDelay: [(URL, Do
     }
     
     let success = CGImageDestinationFinalize(destination)
-    
-    if removesImageFilePaths {
-        imageFilesWithFrameDelay.forEach({ try? FileManager.default.removeItem(at: $0.0) })
-    }
     
     return success ? url : nil
 }

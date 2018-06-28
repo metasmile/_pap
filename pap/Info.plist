@@ -27,7 +27,7 @@
 			<string>com.stells.pap</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>batch</string>
+				<string>pa</string>
 			</array>
 		</dict>
 	</array>

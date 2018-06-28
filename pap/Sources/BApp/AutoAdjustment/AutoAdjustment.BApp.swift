@@ -96,7 +96,6 @@ public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableAp
     private var cachedImages = [String: URL]()
     public func previewAsync(_ appAsset: AppAsset, at indexPath: IndexPath, completion: @escaping ((UIImage?) -> Void)) {
         let identifier = "\(appAsset.asset.localIdentifierWithoutSplitter)_\(indexPath)_\(appAsset.editState.hash)"
-        let previewIdentifier = identifier
         
         let image = appAsset.asset.requestImage(targetSize: UIScreen.main.bounds.size, options: nil).image?.applyFilter(ciFilter: appAsset.editState.ciFilter)
         
@@ -106,8 +105,6 @@ public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableAp
         }
         
         DispatchQueue.main.async {
-            let identifier = "\(appAsset.asset.localIdentifierWithoutSplitter)_\(indexPath)_\(appAsset.editState.hash)"
-            guard previewIdentifier == identifier else { return }
             completion(image)
         }
     }
