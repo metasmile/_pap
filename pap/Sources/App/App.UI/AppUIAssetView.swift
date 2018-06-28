@@ -54,7 +54,7 @@ class AppUIAssetView: AssetView {
     }
     var filteredImage: UIImage? {
         didSet {
-            self.image = filteredImage
+            self.image = filteredImage ?? originalImage
         }
     }
     
