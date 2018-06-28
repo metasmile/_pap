@@ -265,6 +265,13 @@ class PhotoPickerViewController: AppDockViewController {
                     self.performPrefetchIfNeeded(includingCurrentVisibleItems: true)
                 }
             }
+            
+            AppCenter.default.currentInstanceAs(Clean.self)?.watch(\.autoSelect, id: "picker\(Clean.info.identifier)") { (app, changed) in
+                if app.autoSelect && !AppCenter.default.task.isRunning {
+                    self.cancelPreheatingIfNeeded()
+                    self.performPrefetchIfNeeded(includingCurrentVisibleItems: true)
+                }
+            }
         }
     }
     
@@ -286,6 +293,7 @@ class PhotoPickerViewController: AppDockViewController {
         AppCenter.default.currentInstanceAs(CallApp.self)?.unwatch(\.autoSelect, forIds:["picker\(CallApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(ExifGhost.self)?.unwatch(\.autoSelect, forIds:["picker\(ExifGhost.info.identifier)"])
         AppCenter.default.currentInstanceAs(PixNote.self)?.unwatch(\.autoSelect, forIds:["picker\(PixNote.info.identifier)"])
+        AppCenter.default.currentInstanceAs(Clean.self)?.unwatch(\.autoSelect, forIds:["picker\(Clean.info.identifier)"])
 
         AppCenter.default.unwatchAllFilePrivate(\.currentIdentifier)
     }

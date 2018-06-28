@@ -5,11 +5,33 @@
 
 import Foundation
 import Photos
+import DefaultsKit
 
-public class Clean: BApp, PHAssetFinalizableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp {
+private typealias CleanAppParam = PHAssetItem<ImageEditStateValue>
+private struct CleanAppResult: TaskResultable{
+    fileprivate let asset:PHAsset
+    
+    init(asset:PHAsset){
+        self.asset = asset
+    }
+    
+    fileprivate var lockscreen:Bool?
+}
+
+private protocol CleanAppDefaults: AppDefaults{
+    
+}
+
+extension Defaults: CleanAppDefaults {
+    
+}
+
+public class Clean: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp, PreheatableApp {
     public static let taskType:Taskable.Type = _CleanTask.self
 
     public static let paramType:TaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
+    
+    public private(set) lazy var dockContent: AppDockContent? = CleanAppDockContent()
 
     public static let info = AppInfo(
             identifier: "com.stells.pap.clean"
@@ -22,7 +44,7 @@ public class Clean: BApp, PHAssetFinalizableApp, AppDockApp, PhotoPickerViewCont
             , minOSVersion: nil
     )
 
-    public required init() {}
+    public required override init() {}
 
     public var finalizingActions: [PHAssetFinalizingAction] {
         return [.delete]
@@ -34,6 +56,48 @@ public class Clean: BApp, PHAssetFinalizableApp, AppDockApp, PhotoPickerViewCont
     public var doneButtonTitle: String? {
         return "Delete".localized
     }
+    
+    public func titleDidUpdate(progress: Float) -> String? {
+        return "Analyzing Photos ... %@ ".localizedFormatted("\(Int(progress * 100))%")
+    }
+    
+    @objc dynamic
+    public fileprivate (set) lazy var autoSelect: Bool = false
+    
+    fileprivate var detector = CleanAppDetector()
+    
+    fileprivate var preheatedResults = [String:CleanAppResult]()
+    public func performPreheating(item: AppAsset, _ async: AsyncSignal) -> PreheatingFinishAction? {
+        guard self.autoSelect else { return nil }
+        
+        var preheatedResult:CleanAppResult? = preheatedResults[item.asset.localIdentifierWithoutSplitter]
+        if preheatedResult == nil, let image = item.asset.asUIImage{
+            preheatedResult = self.detector.detectResult(asset: item.asset, image: image, async) ?? CleanAppResult(asset: item.asset)
+            preheatedResults[item.asset.localIdentifierWithoutSplitter] = preheatedResult
+        }
+        
+        if preheatedResult?.lockscreen == true {
+            return UICollectionViewPreheatableAppFinishAction.selectItem
+        }
+        
+        return nil
+    }
+}
+
+private struct CleanAppDetector{
+    fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncManualSignalable) -> CleanAppResult? {
+        var result = CleanAppResult(asset: asset)
+        
+        async.begin()
+        DispatchQueue(label: "\(Clean.info.identifier).analyzing", attributes: [DispatchQueue.Attributes.concurrent]).async {
+            if asset.mediaSubtypes.contains(.photoScreenshot) {
+                result.lockscreen = true
+            }
+            async.end()
+        }
+        async.waitUntilEnd()
+        return result
+    }
 }
 
 private class _CleanTask: TaskPrototype, Taskable {
@@ -44,6 +108,131 @@ private class _CleanTask: TaskPrototype, Taskable {
             return PHAssetResultItem(asset: asset, contentEditingOutput: nil)
         }
         return nil
+    }
+}
+
+fileprivate class CleanAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
+    private lazy var defaults = Clean.defaults as! CleanAppDefaults
+    
+    private let primaryColor = UIColor(red:0.6, green:0.6, blue:0.6, alpha:1)
+    
+    lazy var view: UIView = {
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        return tableView
+    }()
+    
+    private var autoSelect:Bool = false
+    
+    var preferences: AppDockContentPreferable? {
+        var preferences = AppDockContentPreferences()
+        preferences.preferredHeight = (view as! UITableView).rowHeight + 48
+        return preferences
+    }
+    
+    func willSetContentView(_ view: UIView, dock: AppDock) {
+        if let view = view as? UITableView{
+            view.dataSource = self
+            view.delegate = self
+            view.rowHeight = 52
+            view.allowsSelection = false
+            view.register(Cell.self, forCellReuseIdentifier: Clean.info.identifier)
+            //            view.backgroundColor = UIColor(red: 31 / 255.0, green: 31 / 255.0, blue: 31 / 255.0, alpha: 1)
+            view.tintColor = self.primaryColor
+            //            view.separatorInset.left = view.rowHeight
+        }
+    }
+    
+    func didSetContentView(_ view:UIView, dock:AppDock) {
+        if options != nil{
+            (view as! UITableView).reloadData()
+        }
+    }
+    
+    @objc dynamic
+    var options:[String: Any]? // Bool may be other custom Codable type instead of Any
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return section == 0 ? "🖼️ ‣ 🤖 ‣ ❌" + "Select Photos You Want To Clean!".localized : nil
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Clean.info.identifier) as! Cell
+        
+        cell.imageView?.tintColor = primaryColor
+        cell.imageView?.contentMode = .scaleAspectFit
+        
+        cell.textLabel?.text = "Enable Auto Selection".localized
+        cell.optionSwitch.setOn(self.autoSelect, animated: false)
+        cell.switchDidChange = { on in
+            self.autoSelect = on
+            AppCenter.default.currentInstanceAs(Clean.self)?.autoSelect = on
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    private class Cell: UITableViewCell {
+        lazy var optionSwitch: UISwitch = {
+            let view = UISwitch()
+            view.addTarget(self, action: #selector(self.cellSwitchDidChange), for: .valueChanged)
+            return view
+        }()
+        
+        var switchDidChange: ((Bool) -> Void)?
+        
+        override func prepareForReuse() {
+            super.prepareForReuse()
+            
+            switchDidChange = nil
+        }
+        
+        override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+            super.init(style: style, reuseIdentifier: reuseIdentifier)
+            
+            accessoryView = optionSwitch
+        }
+        
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+        
+        @objc func cellSwitchDidChange(sender: UISwitch) {
+            switchDidChange?(sender.isOn)
+        }
+        
+        override func layoutSubviews() {
+            super.layoutSubviews()
+        }
+        
+        override func tintColorDidChange() {
+            super.tintColorDidChange()
+            
+            optionSwitch.onTintColor = tintColor
+        }
     }
 }
 

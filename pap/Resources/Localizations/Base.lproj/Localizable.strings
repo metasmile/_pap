@@ -92,6 +92,8 @@
 "Address" = "Address";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albums";
+/* Generated from genl10n: Clean.BApp.swift */
+"Analyzing Photos ... %@ " = "Analyzing Photos ... %@ ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Animated GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -128,7 +130,7 @@
 "Downloading..." = "Downloading...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "E-mail Address";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, Clean.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Enable Auto Selection";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Export Options";
@@ -202,6 +204,8 @@
 "Saving Results..." = "Saving Results...";
 /* Generated from genl10n: Textractor.BApp.swift */
 "Saving Texts ..." = "Saving Texts ...";
+/* Generated from genl10n: Clean.BApp.swift */
+"Select Photos You Want To Clean!" = "Select Photos You Want To Clean!";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Select Photos You Want To Grab Phone Numbers!";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
