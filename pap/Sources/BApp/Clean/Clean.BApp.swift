@@ -57,10 +57,6 @@ public class Clean: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp, App
         return "Delete".localized
     }
     
-    public func titleDidUpdate(progress: Float) -> String? {
-        return "Analyzing Photos ... %@ ".localizedFormatted("\(Int(progress * 100))%")
-    }
-    
     @objc dynamic
     public fileprivate (set) lazy var autoSelect: Bool = false
     
@@ -164,7 +160,7 @@ fileprivate class CleanAppDockContent: NSObject, KeyPathWatchable, AppDockConten
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 0 ? "🖼️ ‣ 🤖 ‣ ❌" + "Select Photos You Want To Clean!".localized : nil
+        return section == 0 ? "🖼️ ‣ 🤖 ‣ ❌ " + "Select Photos You Want To Clean!".localized : nil
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
