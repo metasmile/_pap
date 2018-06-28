@@ -6,6 +6,7 @@
 import Foundation
 import UIKit
 import DefaultsKit
+import FirebaseMLVision
 
 private enum SelectionPresets:Int{
     case raw
@@ -108,13 +109,26 @@ private struct Parsers {
 private struct ParserItem {
     fileprivate var key:String
     fileprivate var label:String
-//    fileprivate var parser:
 }
 
 private struct ParserDictionary {
     fileprivate var key:String
     fileprivate var label:String
     fileprivate var items:[ParserItem]
+}
+
+private class PixNoteParserResult{
+
+}
+
+private class PixNoteHostParser: VisionTextParser{
+    typealias OutputType = PixNoteParserResult
+
+    func parse(input: FirebaseMLVision.VisionText) -> OutputType? {
+        return nil
+    }
+
+    required init() {}
 }
 
 class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{

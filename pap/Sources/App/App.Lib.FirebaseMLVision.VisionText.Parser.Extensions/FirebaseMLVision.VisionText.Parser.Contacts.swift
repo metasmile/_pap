@@ -3,6 +3,12 @@
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
+/*
+INFO:
+
+Must be maintained atomic process. Do not use class, and additional parsing logic.
+*/
+
 import Foundation
 import FirebaseMLVision
 import Contacts

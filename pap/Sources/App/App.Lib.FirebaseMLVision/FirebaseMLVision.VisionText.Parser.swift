@@ -6,9 +6,14 @@
 import Foundation
 import FirebaseMLVision
 
-protocol VisionTextParser: Parser where Self.InputType==VisionText {
-    static var shared:Self {get}
+/*
+INFO:
 
+'OutputType' must be Foundation supported type in this swift file.
+For other ones, use App.Lib.FirebaseMLVision.VisionText.Parser.Extensions
+*/
+
+protocol VisionTextParser: Parser where Self.InputType==VisionText {
     func parse(input:VisionText) -> OutputType?
 }
 
