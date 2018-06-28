@@ -18,6 +18,10 @@ import PhotosUI
 import SwiftyGif
 
 class AssetView: UIView {
+    lazy var accessoryView: UIView = {
+        return UIView(frame: CGRect(origin: .zero, size: frame.size))
+    }()
+    
     lazy fileprivate var imageLayer: CALayer = {
         return CALayer()
     }()
@@ -53,11 +57,14 @@ class AssetView: UIView {
         initialize()
     }
     
-    fileprivate func initialize() {
+    func initialize() {
         layer.addSublayer(imageLayer)
         layer.addSublayer(videoLayer)
         addSubview(livePhotoView)
         addSubview(gifImageView)
+        
+        addSubview(accessoryView)
+        accessoryView.fitConstraints(to: self)
         
         videoLayer.player = AVPlayer()
         

@@ -135,7 +135,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
             return self?.indexPath != indexPath
         }, completion: { [weak self] image in
             if let app = AppCenter.default.currentInstanceAs(PreviewCachableApp.self), let cached = app.cachedPreviewImage(item, at: indexPath) {
-                self?.assetView.image = cached
+                self?.assetView.filteredImage = cached
             }
             else {
                 self?.setAssetItem(item, at: indexPath)
@@ -157,7 +157,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
                         guard self?.indexPath == indexPath else { return }
                         
                         if let image = image {
-                            self?.assetView.image = image
+                            self?.assetView.filteredImage = image
                         }
                     }
                 }

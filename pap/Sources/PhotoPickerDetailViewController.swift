@@ -14,7 +14,7 @@ class PhotoPickerDetailViewController: UIViewController {
     private lazy var assetView: AppUIAssetView = {
         let assetView = AppUIAssetView()
         assetView.contentMode = .scaleAspectFit
-        assetView.translatesAutoresizingMaskIntoConstraints = false
+//        assetView.translatesAutoresizingMaskIntoConstraints = false
         return assetView
     }()
 
