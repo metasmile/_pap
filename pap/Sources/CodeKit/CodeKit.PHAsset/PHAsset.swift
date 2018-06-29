@@ -175,3 +175,9 @@ extension PHAsset {
         }
     }
 }
+
+extension PHAsset {
+    static func fetchAsset(withLocalIdentifier localIdentifier: String, options: PHFetchOptions? = nil) -> PHAsset? {
+        return PHAsset.fetchAssets(withLocalIdentifiers: [localIdentifier], options: options).firstObject
+    }
+}

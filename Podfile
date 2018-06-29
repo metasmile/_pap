@@ -24,6 +24,9 @@ target 'pap' do
 
   # for test - com.stells.pap.textractor
   pod 'PhoneNumberKit', '~> 2.1'
+  
+  # com.stells.pap.clean
+  pod 'CocoaImageHashing'
 
   pod 'Armchair', '>= 0.3'
 end

@@ -1,5 +1,6 @@
 PODS:
   - Armchair (0.3.5)
+  - CocoaImageHashing (1.1.0)
   - Crashlytics (3.10.2):
     - Fabric (~> 1.7.7)
   - DefaultsKit (0.0.9)
@@ -78,6 +79,7 @@ PODS:
 
 DEPENDENCIES:
   - Armchair (>= 0.3)
+  - CocoaImageHashing
   - Crashlytics
   - DefaultsKit (from `https://github.com/metasmile/DefaultsKit`)
   - Fabric
@@ -92,6 +94,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Armchair
+    - CocoaImageHashing
     - Crashlytics
     - Fabric
     - Firebase
@@ -125,6 +128,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Armchair: 0ab9237bc373e26245c7651acf193d85fb9c033a
+  CocoaImageHashing: 5909bd6081bdf86035fa2d39526212e13f26331b
   Crashlytics: 0360624eea1c978a743feddb2fb1ef8b37fb7a0d
   DefaultsKit: e47d11c54a53c66f9e5c65a1992dead90bc7144f
   Fabric: bda89e242bce1b7b8ab264248cf3407774ce0095
@@ -148,6 +152,6 @@ SPEC CHECKSUMS:
   SwiftyGif: d36c6dfb52e2ca1e48fe349d225f50ec4123ec85
   TPPDF: 3d631ce0356f3ea25f87266ce74199bb7e81936e
 
-PODFILE CHECKSUM: 06cbb7eedcdd42de17fcd9475297525e2421be53
+PODFILE CHECKSUM: 53e0247c0fe2fea88cc6dc09bfdffced46b19e2a
 
 COCOAPODS: 1.5.3

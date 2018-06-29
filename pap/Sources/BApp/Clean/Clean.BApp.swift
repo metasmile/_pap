@@ -6,6 +6,7 @@
 import Foundation
 import Photos
 import DefaultsKit
+import CocoaImageHashing
 
 private typealias CleanAppParam = PHAssetItem<ImageEditStateValue>
 private struct CleanAppResult: TaskResultable{
@@ -16,6 +17,7 @@ private struct CleanAppResult: TaskResultable{
     }
     
     fileprivate var lockscreen:Bool?
+    fileprivate var hasSimilarAsset:Bool?
 }
 
 private protocol CleanAppDefaults: AppDefaults{
@@ -25,6 +27,8 @@ private protocol CleanAppDefaults: AppDefaults{
 extension Defaults: CleanAppDefaults {
     
 }
+
+private typealias PHAssetID = String
 
 public class Clean: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp, PreheatableApp {
     public static let taskType:Taskable.Type = _CleanTask.self
@@ -62,17 +66,19 @@ public class Clean: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp, App
     
     fileprivate var detector = CleanAppDetector()
     
-    fileprivate var preheatedResults = [String:CleanAppResult]()
+    fileprivate var preheatedResults = [PHAssetID: CleanAppResult]()
+    fileprivate var preheatedSimilarities = [PHAssetID: [PHAssetID]]()
+    
     public func performPreheating(item: AppAsset, _ async: AsyncSignal) -> PreheatingFinishAction? {
         guard self.autoSelect else { return nil }
         
         var preheatedResult:CleanAppResult? = preheatedResults[item.asset.localIdentifierWithoutSplitter]
-        if preheatedResult == nil, let image = item.asset.asUIImage{
-            preheatedResult = self.detector.detectResult(asset: item.asset, image: image, async) ?? CleanAppResult(asset: item.asset)
+        if preheatedResult == nil {
+            preheatedResult = self.detector.detectResult(asset: item.asset, async) ?? CleanAppResult(asset: item.asset)
             preheatedResults[item.asset.localIdentifierWithoutSplitter] = preheatedResult
         }
         
-        if preheatedResult?.lockscreen == true {
+        if preheatedResult?.lockscreen == true || preheatedResult?.hasSimilarAsset == true {
             return UICollectionViewPreheatableAppFinishAction.selectItem
         }
         
@@ -80,19 +86,67 @@ public class Clean: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp, App
     }
 }
 
-private struct CleanAppDetector{
-    fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncManualSignalable) -> CleanAppResult? {
+private struct CleanAppDetector {
+    struct SimilarAsset {
+        var id: PHAssetID
+        var distance: OSHashDistanceType
+    }
+    fileprivate var similarAssets = [PHAssetID: [SimilarAsset]]()
+    fileprivate let imageHashing = OSImageHashing<AnyObject>.sharedInstance()
+    
+    fileprivate mutating func detectResult(asset:PHAsset, _ async: AsyncManualSignalable) -> CleanAppResult? {
         var result = CleanAppResult(asset: asset)
         
-        async.begin()
-        DispatchQueue(label: "\(Clean.info.identifier).analyzing", attributes: [DispatchQueue.Attributes.concurrent]).async {
-            if asset.mediaSubtypes.contains(.photoScreenshot) {
-                result.lockscreen = true
-            }
-            async.end()
-        }
-        async.waitUntilEnd()
+        
+//        DispatchQueue(label: "\(Clean.info.identifier).analyzing", qos: .utility).async { [self] in
+//            if asset.mediaSubtypes.contains(.photoScreenshot) {
+//                result.lockscreen = true
+//            }
+        
+        result.hasSimilarAsset = detectSimilarAsset(asset.localIdentifierWithoutSplitter)
+        
         return result
+    }
+    
+    private mutating func detectSimilarAsset(_ assetID: PHAssetID) -> Bool {
+        // https://github.com/ameingast/cocoaimagehashing/
+        
+        let timeClustering: TimeInterval = 3600 / 2 // half hour
+        
+        var hasSimilar = false
+        for fromAssetID in similarAssets.keys {
+            guard let fromAsset = PHAsset.fetchAsset(withLocalIdentifier: fromAssetID), let toAsset = PHAsset.fetchAsset(withLocalIdentifier: assetID) else { continue }
+            
+            guard let fromDate = fromAsset.creationDate, let toDate = toAsset.creationDate, fromDate.timeIntervalSince(toDate).magnitude < timeClustering else {
+                continue
+            }
+            
+            var hashDistance: OSHashDistanceType = 0
+            if let similarAsset = similarAssets[fromAssetID]?.filter({ $0.id == assetID }).first {
+                hashDistance = similarAsset.distance
+            }
+            else if let fromData = fromAsset.asData, let toData = toAsset.asData {
+                let fromHash = imageHashing.hashImageData(fromData)
+                let toHash = imageHashing.hashImageData(toData)
+                let distance = imageHashing.hashDistance(fromHash, to: toHash)
+                
+                let similarAsset = SimilarAsset(id: assetID, distance: distance)
+                similarAssets[fromAssetID]?.append(similarAsset)
+                
+                hashDistance = distance
+            }
+            
+            if hashDistance < imageHashing.hashDistanceSimilarityThreshold(withProvider: .dHash) {
+                hasSimilar = true
+                break
+            }
+        }
+        
+        if similarAssets[assetID] == nil {
+            similarAssets[assetID] = []
+        }
+        
+        return hasSimilar
     }
 }
 

@@ -56,6 +56,28 @@ extension PHAsset {
     }
 }
 
+extension PHAsset {
+    func requestImageData(options: PHImageRequestOptions? = PHAsset.highQualityImageRequestOptions, _ async: AsyncManualSignalable = AsyncSignal()) -> (requestID: PHImageRequestID, data: Data?) {
+        async.begin()
+        
+        var result: Data? = nil
+        let imageRequestID = PHImageManager.default().requestImageData(for: self, options: options) { (data, uti, imageOrientation, info) in
+            result = data
+            
+            async.end()
+        }
+        
+        let userInfo: [String: Any] = [
+            RemoteSourceFetchNotification.UserInfo.Key.imageRequestID: imageRequestID,
+            RemoteSourceFetchNotification.UserInfo.Key.asset: self
+        ]
+        NotificationCenter.default.post(name: RemoteSourceFetchNotification.Name.fetchBagan, object: self, userInfo: userInfo)
+        
+        async.waitUntilEnd()
+        return (imageRequestID, result)
+    }
+}
+
 extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSourceable, VideoSourceable, LivePhotoSourceable {
     public var asUIImage:UIImage? {
         get {
@@ -65,10 +87,9 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
 
     //TODO: standardize all
     public var asData:Data? {
-        if let url = self.asURL {
-            return try? Data(contentsOf: url)
+        get {
+            return self.requestImageData().data
         }
-        return nil
     }
 
     public var asURL:URL? {
