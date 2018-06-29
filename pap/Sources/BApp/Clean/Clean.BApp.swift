@@ -7,6 +7,8 @@ import Foundation
 import Photos
 import DefaultsKit
 import CocoaImageHashing
+import MetalPerformanceShaders
+import MetalKit
 
 private typealias CleanAppParam = PHAssetItem<ImageEditStateValue>
 private struct CleanAppResult: TaskResultable{
@@ -18,6 +20,7 @@ private struct CleanAppResult: TaskResultable{
     
     fileprivate var lockscreen:Bool?
     fileprivate var hasSimilarAsset:Bool?
+    fileprivate var isTooBlurry:Bool?
 }
 
 private protocol CleanAppDefaults: AppDefaults{
@@ -97,15 +100,83 @@ private struct CleanAppDetector {
     fileprivate mutating func detectResult(asset:PHAsset, _ async: AsyncManualSignalable) -> CleanAppResult? {
         var result = CleanAppResult(asset: asset)
         
-        
-//        DispatchQueue(label: "\(Clean.info.identifier).analyzing", qos: .utility).async { [self] in
 //            if asset.mediaSubtypes.contains(.photoScreenshot) {
 //                result.lockscreen = true
 //            }
         
         result.hasSimilarAsset = detectSimilarAsset(asset.localIdentifierWithoutSplitter)
+        result.isTooBlurry = detectBlurryAsset(asset)
         
         return result
+    }
+    
+    struct MTKTextureBuilder {
+        static func texture(cgImage: CGImage) -> MTLTexture? {
+            guard let device = MTLCreateSystemDefaultDevice() else { return nil }
+            let loader = MTKTextureLoader(device: device)
+            
+            let textureUsage: MTLTextureUsage = MTLTextureUsage.shaderRead
+            
+            let options = [
+                MTKTextureLoader.Option.textureUsage: textureUsage.rawValue,
+                //            MTKTextureLoader.Option.origin: MTKTextureLoader.Origin.flippedVertically.rawValue,
+                ] as [MTKTextureLoader.Option : Any]
+            
+            return try? loader.newTexture(cgImage: cgImage, options: options)
+        }
+    }
+    
+    private func detectBlurryAsset(_ asset: PHAsset) -> Bool {
+        // https://www.pyimagesearch.com/2015/09/07/blur-detection-with-opencv/
+        // https://stackoverflow.com/questions/46893198/detecting-if-image-is-blurred-using-opencv
+        //
+        guard
+            let device = MTLCreateSystemDefaultDevice(),
+            let commandQueue = device.makeCommandQueue(),
+            let commandBuffer = commandQueue.makeCommandBuffer(),
+            let ciImage = asset.asCIImage
+        else { return false }
+        
+        let textureDescriptor = MTLTextureDescriptor.texture2DDescriptor(pixelFormat: .rgba8Unorm, width: Int(ciImage.extent.width), height: Int(ciImage.extent.height), mipmapped: true)
+        textureDescriptor.usage = [MTLTextureUsage.shaderRead, MTLTextureUsage.shaderWrite]
+        
+        guard
+            let sourceTexture = device.makeTexture(descriptor: textureDescriptor),
+            let binaryTexture = device.makeTexture(descriptor: textureDescriptor),
+            let laplacianTexture = device.makeTexture(descriptor: textureDescriptor)
+        else { return false }
+        
+        ImageAlignment.sharedCIContext.render(ciImage, to: sourceTexture, commandBuffer: commandBuffer, bounds: ciImage.extent, colorSpace: CGColorSpaceCreateDeviceRGB())
+        
+        //TODO: binary
+        MPSImageThresholdBinary(device: device, thresholdValue: 0, maximumValue: 1, linearGrayColorTransform: nil).encode(commandBuffer: commandBuffer, sourceTexture: sourceTexture, destinationTexture: binaryTexture)
+        
+        //TODO: laplacian
+        MPSImageLaplacian(device: device).encode(commandBuffer: commandBuffer, sourceTexture: binaryTexture, destinationTexture: laplacianTexture)
+        
+        //TODO: threshold
+        // blurry or not
+        
+//        var histogramInfo = MPSImageHistogramInfo(
+//            numberOfHistogramEntries: 256,
+//            histogramForAlpha: false,
+//            minPixelValue: vector_float4(0,0,0,0),
+//            maxPixelValue: vector_float4(1,1,1,1))
+//        
+//        let histogram = MPSImageHistogram(device: device, histogramInfo: &histogramInfo)
+//        let bufferLength = histogram.histogramSize(forSourceFormat: sourceTexture.pixelFormat)
+//        guard let histogramInfoBuffer = device.makeBuffer(length: bufferLength, options: [.cpuCacheModeWriteCombined]) else { return false }
+//        
+//        histogram.encode(to: commandBuffer, sourceTexture: laplacianTexture, histogram: histogramInfoBuffer, histogramOffset: 0)
+        
+        commandBuffer.commit()
+        
+//        var histogramData = [Float](repeating: 0, count: 256)
+//        histogramInfoBuffer.contents().copyMemory(from: &histogramData, byteCount: 256 * MemoryLayout<Float>.stride)
+//
+//        print(histogramData)
+        
+        return false
     }
     
     private mutating func detectSimilarAsset(_ assetID: PHAssetID) -> Bool {
