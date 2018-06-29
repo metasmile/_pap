@@ -234,10 +234,14 @@ public struct ContactManager{
 /// - parameter mutContact: A mutable value object for the contact properties, such as the first name and the phone number of a contact.
 /// - parameter completionHandler: Returns Either Bool or Error.
 #if os(iOS) || os(OSX)
-    public func addContact(Contact mutContact: CNMutableContact, completionHandler: @escaping (_ result: ContactOperationResult) -> ()) {
+    public func addContacts(Contact mutContacts: [CNMutableContact], completionHandler: @escaping (_ result: ContactOperationResult) -> ()) {
         let store: CNContactStore = CNContactStore()
         let request: CNSaveRequest = CNSaveRequest()
-        request.add(mutContact, toContainerWithIdentifier: nil)
+
+        for contact in mutContacts{
+            request.add(contact, toContainerWithIdentifier: nil)
+        }
+
         do {
             try store.execute(request)
             completionHandler(ContactOperationResult.Success(response: true))

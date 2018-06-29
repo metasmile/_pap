@@ -53,6 +53,8 @@
 	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>$(PRODUCT_NAME) will access your photos library to edit them.</string>
+	<key>NSContactsUsageDescription</key>
+	<string>We would like to access your contacts to save new contact entry.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch Screen</string>
 	<key>UIMainStoryboardFile</key>

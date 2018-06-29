@@ -21,7 +21,14 @@ private struct UIAlertControllerPool{
 public extension UIAlertController{
 
     @discardableResult
-    public static func alert(_ message:String, title:String?=nil, buttonTitle:String=NSLocalizedString("OK", comment:""), autoDismiss:TimeInterval?=nil, willDismiss:(() -> Void)?=nil, completion:((UIAlertAction) -> Swift.Void)? = nil) -> Bool{
+    public static func alert(_ message:String
+            , title:String?=nil
+            , buttonTitle:String=NSLocalizedString("OK", comment:"")
+            , actions:[UIAlertAction]?=nil
+            , autoDismiss:TimeInterval?=nil
+            , willDismiss:(() -> Void)?=nil
+            , completion:((UIAlertAction) -> Swift.Void)? = nil) -> Bool{
+
         if let existedAlertVC = UIAlertControllerPool.shared.presentingAlertViewController
         , existedAlertVC.isBeingPresented{
             UIAlertControllerPool.shared.clear()

@@ -19,14 +19,18 @@ private struct PixNoteResult: TaskResultable{
 
     fileprivate var plainText:String?
 
-    //INFO: Array means "Blocks"
-    fileprivate var phoneNumbers:[VisionTextPhoneNumberParser.OutputType]?
-    fileprivate var emails:[VisionTextEmailAddressParser.OutputType]?
-    fileprivate var addresses:[VisionTextAddressParser.OutputType]?
+    fileprivate var contacts:[VisionTextContactParser.OutputType]?
 
-    fileprivate var dates:[VisionTextDateParser.OutputType]?
-    fileprivate var urls:[VisionTextURLParser.OutputType]?
-    fileprivate var flights:[VisionTextFlightInformationParser.OutputType]?
+    fileprivate var resultGroup: VisionTextResultGroup?
+
+//    //INFO: Array means "Blocks"
+//    fileprivate var phoneNumbers:[VisionTextPhoneNumberParser.OutputType]?
+//    fileprivate var emails:[VisionTextEmailAddressParser.OutputType]?
+//    fileprivate var addresses:[VisionTextAddressParser.OutputType]?
+//
+//    fileprivate var dates:[VisionTextDateParser.OutputType]?
+//    fileprivate var urls:[VisionTextURLParser.OutputType]?
+//    fileprivate var flights:[VisionTextFlightInformationParser.OutputType]?
 }
 
 public class PixNote: NSObject, KeyPathWatchable, BApp
@@ -158,7 +162,74 @@ extension PixNote{
     }
 
     fileprivate func finalize_contact(items: [PixNoteResult], _ asyncSignal: AsyncManualSignalable) {
+        var contacts = [CNMutableContact]()
+        for item in items {
+            guard let _contacts = item.contacts, _contacts.count > 0 else{
+                continue
+            }
+            for c in _contacts{
+                contacts.append(contentsOf: c)
+            }
+        }
 
+        var canSaveContract = false
+
+        asyncSignal.begin()
+        ContactManager.default.authorizationStatus { status in
+            /*
+            /*! The user has not yet made a choice regarding whether the application may access contact data. */
+            case notDetermined
+
+            /*! The application is not authorized to access contact data.
+             *  The user cannot change this application’s status, possibly due to active restrictions such as parental controls being in place. */
+            case restricted
+
+            /*! The user explicitly denied access to contact data for the application. */
+            case denied
+
+            /*! The application is authorized to access contact data. */
+            case authorized
+            */
+
+            if status == CNAuthorizationStatus.notDetermined{
+                ContactManager.default.requestAccess { granted in
+                    canSaveContract = granted
+                    asyncSignal.end()
+                }
+            }
+            else if status == CNAuthorizationStatus.authorized{
+                canSaveContract = true
+                asyncSignal.end()
+
+            }else{
+                DispatchQueue.main.async{
+                    UIAlertController.alert("It requires a permission to access your contacts. Please allow Contacts on iOS Settings.".localized, completion: { action in
+                        asyncSignal.end()
+                    })
+                }
+            }
+
+        }
+        asyncSignal.waitUntilEnd()
+
+        if canSaveContract{
+
+            asyncSignal.begin()
+            ContactManager.default.addContacts(Contact: contacts) { result in
+                asyncSignal.end()
+            }
+            asyncSignal.waitUntilEnd()
+
+        }else{
+
+            asyncSignal.begin()
+            DispatchQueue.main.async {
+                UIAlertController.alert("Sorry, it is not possible to save the contract.".localized, completion:{ _ in
+                    asyncSignal.end()
+                })
+            }
+            asyncSignal.waitUntilEnd()
+        }
     }
 
     fileprivate func finalize_action(items: [PixNoteResult], _ asyncSignal: AsyncManualSignalable) {
@@ -166,8 +237,12 @@ extension PixNote{
 
         for item in items {
 
+            guard let resultGroup = item.resultGroup else{
+                continue
+            }
+
             // Phone Number
-            for phoneNumberSetInBlock in item.phoneNumbers ?? []{
+            for phoneNumberSetInBlock in resultGroup.phoneNumbers ?? []{
 
                 var phoneNumberPool = Set<String>()
                 for phoneNumber in phoneNumberSetInBlock where false == phoneNumberPool.contains(phoneNumber) && phoneNumber.count>0 {
@@ -238,16 +313,12 @@ private struct PixNoteDetector{
             return result?.plainText?.count ?? 0 > 0
         }
 
-        if preset == SelectionPreset.contact.rawValue
-                   || preset == SelectionPreset.action.rawValue {
+        if preset == SelectionPreset.action.rawValue{
+            return result?.resultGroup?.isFilled == true
+        }
 
-            return result?.phoneNumbers?.count ?? 0 > 0
-                    || result?.emails?.count ?? 0 > 0
-                    || result?.addresses?.count ?? 0 > 0
-
-                    || result?.dates?.count ?? 0 > 0
-                    || result?.urls?.count ?? 0 > 0
-                    || result?.flights?.count ?? 0 > 0
+        if preset == SelectionPreset.contact.rawValue{
+            return result?.contacts?.count ?? 0 > 0
         }
 
         return false
@@ -260,49 +331,54 @@ private struct PixNoteDetector{
         }
 
         let preset = PixNote.privateDefaults.selectionPreset
-
+        var result = PixNoteResult(asset: asset)
 
         // SelectionPreset.plaintext
         if preset == SelectionPreset.plaintext.rawValue{
-            var result = PixNoteResult(asset: asset)
             result.plainText = visionTexts.parse(type: VisionTextStringParser.self, async)?.joined()
-
-            return result
         }
 
         // SelectionPreset.contact,  SelectionPreset.action
-        if preset == SelectionPreset.contact.rawValue
-                   || preset == SelectionPreset.action.rawValue {
+        else if preset == SelectionPreset.contact.rawValue {
+            result.contacts = visionTexts.parse(type: VisionTextContactParser.self, async)
+        }
+
+        else if preset == SelectionPreset.action.rawValue{
 
             var result = PixNoteResult(asset: asset)
             var defaults = PixNote.privateDefaults
             let items = Set((defaults.selectedParserCollection.values).reduce([],+))
 
+            var resultGroup = VisionTextResultGroup()
+
             if items.contains(ParserItem.Key.EmailAddress){
-                result.emails = visionTexts.parse(type: VisionTextEmailAddressParser.self, async)
+                resultGroup.emails = visionTexts.parse(type: VisionTextEmailAddressParser.self, async)
             }
 
             if items.contains(ParserItem.Key.PhoneNumber){
-                result.phoneNumbers = visionTexts.parse(type: VisionTextPhoneNumberParser.self, async)
+                resultGroup.phoneNumbers = visionTexts.parse(type: VisionTextPhoneNumberParser.self, async)
             }
 
             if items.contains(ParserItem.Key.URL){
-                result.urls = visionTexts.parse(type: VisionTextURLParser.self, async)
+                resultGroup.urls = visionTexts.parse(type: VisionTextURLParser.self, async)
             }
 
             if items.contains(ParserItem.Key.Address){
-                result.addresses = visionTexts.parse(type: VisionTextAddressParser.self, async)
+                resultGroup.addresses = visionTexts.parse(type: VisionTextAddressParser.self, async)
             }
 
             if items.contains(ParserItem.Key.FlightInformation){
-                result.flights = visionTexts.parse(type: VisionTextFlightInformationParser.self, async)
+                resultGroup.flights = visionTexts.parse(type: VisionTextFlightInformationParser.self, async)
             }
 
-            return result
+            result.resultGroup = resultGroup
+
+        }else{
+            assert(false, "current preset mode is not supported. \(String(describing: preset))")
+            return nil
         }
 
-        assert(false, "current preset mode is not supported. \(String(describing: preset))")
-        return nil
+        return result
     }
 }
 

@@ -14,8 +14,29 @@ import FirebaseMLVision
 import Contacts
 import PhoneNumberKit
 
+public struct VisionTextResultGroup {
+    init(){}
 
-private struct VisionTextNSTextCheckingResults {
+    var phoneNumbers:[VisionTextPhoneNumberParser.OutputType]?
+    var emails:[VisionTextEmailAddressParser.OutputType]?
+    var addresses:[VisionTextAddressParser.OutputType]?
+
+    var dates:[VisionTextDateParser.OutputType]?
+    var urls:[VisionTextURLParser.OutputType]?
+    var flights:[VisionTextFlightInformationParser.OutputType]?
+
+    var isFilled:Bool{
+        return self.phoneNumbers?.count ?? 0 > 0
+                || self.emails?.count ?? 0 > 0
+                || self.addresses?.count ?? 0 > 0
+
+                || self.dates?.count ?? 0 > 0
+                || self.urls?.count ?? 0 > 0
+                || self.flights?.count ?? 0 > 0
+    }
+}
+
+private struct VisionTextNSTextCheckingResult {
     static func detect(_ visionText: FirebaseMLVision.VisionText, _ types:NSTextCheckingResult.CheckingType) -> [NSTextCheckingResult]? {
         let stringParser = VisionTextStringParser()
         guard let rawText = stringParser.parse(input: visionText) else{
@@ -77,7 +98,7 @@ public struct VisionTextDateParser: VisionTextParser{
     typealias OutputType = [Date]
 
     func parse(input: FirebaseMLVision.VisionText) -> OutputType? {
-        return VisionTextNSTextCheckingResults.detect(input, NSTextCheckingResult.CheckingType.date)?.compactMap { result -> Date? in
+        return VisionTextNSTextCheckingResult.detect(input, NSTextCheckingResult.CheckingType.date)?.compactMap { result -> Date? in
             return result.date
         }.nilEmpty
     }
@@ -87,7 +108,7 @@ public struct VisionTextURLParser: VisionTextParser{
     typealias OutputType = [URL]
 
     func parse(input: FirebaseMLVision.VisionText) -> OutputType? {
-        return VisionTextNSTextCheckingResults.detect(input, NSTextCheckingResult.CheckingType.link)?.compactMap { result -> URL? in
+        return VisionTextNSTextCheckingResult.detect(input, NSTextCheckingResult.CheckingType.link)?.compactMap { result -> URL? in
             return result.url
         }.nilEmpty
     }
@@ -97,7 +118,7 @@ public struct VisionTextAddressParser: VisionTextParser{
     typealias OutputType = [NSTextCheckingAddressComponent]
 
     func parse(input: FirebaseMLVision.VisionText) -> OutputType? {
-        return VisionTextNSTextCheckingResults.detect(input, NSTextCheckingResult.CheckingType.address)?.compactMap { result -> NSTextCheckingAddressComponent? in
+        return VisionTextNSTextCheckingResult.detect(input, NSTextCheckingResult.CheckingType.address)?.compactMap { result -> NSTextCheckingAddressComponent? in
             return result.address
         }.nilEmpty
     }
@@ -108,7 +129,7 @@ public struct VisionTextFlightInformationParser: VisionTextParser{
     typealias OutputType = [NSTextCheckingFlightComponent]
 
     func parse(input: FirebaseMLVision.VisionText) -> OutputType? {
-        return VisionTextNSTextCheckingResults.detect(input, NSTextCheckingResult.CheckingType.transitInformation)?.compactMap { result -> NSTextCheckingFlightComponent? in
+        return VisionTextNSTextCheckingResult.detect(input, NSTextCheckingResult.CheckingType.transitInformation)?.compactMap { result -> NSTextCheckingFlightComponent? in
             return result.flight
         }.nilEmpty
     }
