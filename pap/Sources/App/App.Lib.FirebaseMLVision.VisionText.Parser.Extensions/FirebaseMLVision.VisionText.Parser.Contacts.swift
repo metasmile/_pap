@@ -110,6 +110,21 @@ public struct VisionTextFlightInformationParser: VisionTextParser{
     }
 }
 
+public struct VisionTextContactParser: VisionTextParser{
+    typealias OutputType = [CNMutableContact]
+
+    func parse(input: FirebaseMLVision.VisionText) -> OutputType? {
+        let types:NSTextCheckingResult.CheckingType = [.transitInformation]
+
+        return VisionTextNSTextCheckingResults.detect(input, types)?.compactMap { result -> CNMutableContact? in
+            var contact = CNMutableContact()
+
+            return contact
+
+        }.nilEmpty
+    }
+}
+
 //https://github.com/danthorpe/Money
 
 public struct VisionTextCurrencyParser: VisionTextParser{

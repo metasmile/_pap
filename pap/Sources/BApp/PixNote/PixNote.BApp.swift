@@ -232,12 +232,14 @@ private struct PixNoteDetector{
     private let vision = Vision.vision()
 
     fileprivate static func isResultFilled(result:PixNoteResult?) -> Bool{
+        let preset = PixNote.privateDefaults.selectionPreset
 
-        if PixNote.privateDefaults.selectionPreset == SelectionPreset.plaintext.rawValue{
-
+        if preset == SelectionPreset.plaintext.rawValue{
             return result?.plainText?.count ?? 0 > 0
+        }
 
-        }else{
+        if preset == SelectionPreset.contact.rawValue
+                   || preset == SelectionPreset.action.rawValue {
 
             return result?.phoneNumbers?.count ?? 0 > 0
                     || result?.emails?.count ?? 0 > 0
@@ -248,6 +250,7 @@ private struct PixNoteDetector{
                     || result?.flights?.count ?? 0 > 0
         }
 
+        return false
     }
 
 
@@ -256,18 +259,23 @@ private struct PixNoteDetector{
             return nil
         }
 
-        var defaults = PixNote.privateDefaults
+        let preset = PixNote.privateDefaults.selectionPreset
 
-        if defaults.selectionPreset == SelectionPreset.plaintext.rawValue{
 
+        // SelectionPreset.plaintext
+        if preset == SelectionPreset.plaintext.rawValue{
             var result = PixNoteResult(asset: asset)
             result.plainText = visionTexts.parse(type: VisionTextStringParser.self, async)?.joined()
 
             return result
+        }
 
-        }else{
+        // SelectionPreset.contact,  SelectionPreset.action
+        if preset == SelectionPreset.contact.rawValue
+                   || preset == SelectionPreset.action.rawValue {
 
             var result = PixNoteResult(asset: asset)
+            var defaults = PixNote.privateDefaults
             let items = Set((defaults.selectedParserCollection.values).reduce([],+))
 
             if items.contains(ParserItem.Key.EmailAddress){
@@ -293,7 +301,7 @@ private struct PixNoteDetector{
             return result
         }
 
-        assert(false, "current preset mode is not supported. \(String(describing: defaults.selectionPreset))")
+        assert(false, "current preset mode is not supported. \(String(describing: preset))")
         return nil
     }
 }
