@@ -7,6 +7,7 @@ import Foundation
 import Photos
 import FirebaseMLVision
 import DefaultsKit
+import Contacts
 
 private typealias PixNoteParam = PHAssetItem<ImageEditStateValue>
 private struct PixNoteResult: TaskResultable{
@@ -108,23 +109,58 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
-
         let items = result
                 .filter { respondable in respondable.info.state == .completed }
                 .compactMap {
                     $0.result as? PixNoteResult
                 }
 
-        //TODO: if numbers and emails are in same block, maybe it is data of a person.
+        switch (appDefaults.selectionPreset){
+            case SelectionPreset.plaintext.rawValue:
+                self.finalize_plaintext(items: items, asyncSignal)
+            case SelectionPreset.contact.rawValue:
+                self.finalize_contact(items: items, asyncSignal)
+            case SelectionPreset.action.rawValue:
+                self.finalize_action(items: items, asyncSignal)
+            default:
+                assert(false, "not supported preset \(String(describing: appDefaults.selectionPreset))")
+        }
+        return result
 
-        var phoneNumberPool = Set<String>()
+    }
+
+    public var titleWillBegin: String? {
+        return "Starting To Grab ...".localized
+    }
+
+    public var titleWillFinalize: String? {
+        return "Waiting To Select ...".localized
+    }
+
+    public func titleDidUpdate(progress: Float) -> String? {
+        return "Grabbing Text Contents ... %@ ".localizedFormatted("\(Int(progress * 100))%")
+    }
+
+    public var doneButtonTitle: String? {
+        return "Grab".localized
+    }
+
+    fileprivate var detector = PixNoteDetector()
+}
+
+extension PixNote{
+
+    fileprivate func finalize_plaintext(items: [PixNoteResult], _ asyncSignal: AsyncManualSignalable) {
 
         let alert = UIAlertController(title: "Choose A Phone Number To Call".localized, message: nil, preferredStyle: .actionSheet)
 
+
         for item in items {
 
+            // PhoneNumber
             for phoneNumberSetInBlock in item.phoneNumbers ?? []{
 
+                var phoneNumberPool = Set<String>()
                 for phoneNumber in phoneNumberSetInBlock where false == phoneNumberPool.contains(phoneNumber) && phoneNumber.count>0 {
                     phoneNumberPool.insert(phoneNumber)
 
@@ -179,27 +215,16 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
             asyncSignal.waitUntilEnd()
 
         }
-
-        return result
     }
 
-    public var titleWillBegin: String? {
-        return "Starting To Grab ...".localized
+    fileprivate func finalize_contact(items: [PixNoteResult], _ asyncSignal: AsyncManualSignalable) {
+
     }
 
-    public var titleWillFinalize: String? {
-        return "Waiting To Select ...".localized
+    fileprivate func finalize_action(items: [PixNoteResult], _ asyncSignal: AsyncManualSignalable) {
+
     }
 
-    public func titleDidUpdate(progress: Float) -> String? {
-        return "Grabbing Text Contents ... %@ ".localizedFormatted("\(Int(progress * 100))%")
-    }
-
-    public var doneButtonTitle: String? {
-        return "Grab".localized
-    }
-
-    fileprivate var detector = PixNoteDetector()
 }
 
 private struct PixNoteDetector{
@@ -382,10 +407,10 @@ AppContent
 
 */
 
-private enum SelectionPresets:Int{
-    case raw
-    case information
-    case custom
+private enum SelectionPreset:Int{
+    case plaintext
+    case contact
+    case action
 }
 
 private enum Cells {
@@ -417,7 +442,7 @@ extension Defaults: PixNoteAppDefaults {
 
     fileprivate var selectionPreset: Int {
         set{ set(newValue) }
-        get{ return get(or: SelectionPresets.information.rawValue ) }
+        get{ return get(or: SelectionPreset.contact.rawValue ) }
     }
 }
 
@@ -565,40 +590,40 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
 
         let cell0 = UITableViewSegmentControlCellDescriber()
         cell0.itemIdentifier = Cells.presets.hashValue
-        cell0.label = "Preset".localized
+        cell0.label = "Grab As".localized
         cell0.valueGetter = { self.defaults.selectionPreset }
         cell0.valueCollection = [
-            (label:"Plain",value:SelectionPresets.raw.rawValue),
-            (label:"Formatted",value:SelectionPresets.information.rawValue),
-            (label:"Custom", value:SelectionPresets.custom.rawValue)
+            (label:"Plain Text",value: SelectionPreset.plaintext.rawValue),
+            (label:"Contact",value: SelectionPreset.contact.rawValue),
+            (label:"Action",value: SelectionPreset.action.rawValue)
         ]
         cell0.valueHandler = {
             let preset = $0 as! Int
 
             self.defaults.selectionPreset = preset
 
-            (view as? UITableView)?.performBatchUpdates({
-                if preset == SelectionPresets.raw.rawValue{
-                    for m in self.parserCollection {
-                        for i in m.items{
-                            self.defaults.addHandledProperty(m.key, i.key)
-                        }
-                    }
-                }else if preset == SelectionPresets.information.rawValue{
-                    for m in self.parserCollection {
-                        for i in m.items{
-                            self.defaults.removeHandledProperty(m.key, i.key)
-                        }
-                    }
-                    for m in ParserDictionary.DefaultCollection {
-                        for i in m.value{
-                            self.defaults.addHandledProperty(m.key, i)
-                        }
-                    }
-                }
+//            (view as? UITableView)?.performBatchUpdates({
+//                if preset == GrabAs.plaintext.rawValue{
+//                    for m in self.parserCollection {
+//                        for i in m.items{
+//                            self.defaults.addHandledProperty(m.key, i.key)
+//                        }
+//                    }
+//                }else if preset == GrabAs.contact.rawValue{
+//                    for m in self.parserCollection {
+//                        for i in m.items{
+//                            self.defaults.removeHandledProperty(m.key, i.key)
+//                        }
+//                    }
+//                    for m in ParserDictionary.DefaultCollection {
+//                        for i in m.value{
+//                            self.defaults.addHandledProperty(m.key, i)
+//                        }
+//                    }
+//                }
+//                (view as? UITableView)?.reloadData()
+//            }, completion:nil)
 
-                (view as? UITableView)?.reloadData()
-            }, completion:nil)
         }
         cellDescribers.append(cell0)
 
@@ -796,13 +821,13 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
 
             tableView.reloadRows(at: [indexPath], with: .fade)
 
-            let selectedPreset = self.defaults.selectionPreset
-
-            if selectedPreset == SelectionPresets.raw.rawValue || selectedPreset == SelectionPresets.information.rawValue{
-                self.defaults.selectionPreset = SelectionPresets.custom.rawValue
-
-                tableView.reloadSections(IndexSet(integer: 0), with: .none)
-            }
+//            let selectedPreset = self.defaults.selectionPreset
+//
+//            if selectedPreset == GrabAs.plaintext.rawValue || selectedPreset == GrabAs.contact.rawValue{
+//                self.defaults.selectionPreset = GrabAs.action.rawValue
+//
+//                tableView.reloadSections(IndexSet(integer: 0), with: .none)
+//            }
 
         }
         return cell
