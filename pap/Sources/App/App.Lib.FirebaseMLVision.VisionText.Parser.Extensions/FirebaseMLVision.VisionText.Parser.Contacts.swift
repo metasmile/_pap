@@ -110,3 +110,12 @@ public struct VisionTextFlightInformationParser: VisionTextParser{
     }
 }
 
+//https://github.com/danthorpe/Money
+
+public struct VisionTextCurrencyParser: VisionTextParser{
+    typealias OutputType = [Any]
+
+    func parse(input: FirebaseMLVision.VisionText) -> OutputType? {
+        return nil
+    }
+}

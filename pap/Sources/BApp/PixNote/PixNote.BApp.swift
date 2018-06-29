@@ -24,6 +24,16 @@ private struct PixNoteResult: TaskResultable{
     fileprivate var dates:[VisionTextDateParser.OutputType]?
     fileprivate var urls:[VisionTextURLParser.OutputType]?
     fileprivate var flights:[VisionTextFlightInformationParser.OutputType]?
+
+    var isFilled:Bool{
+        return self.phoneNumbers?.count ?? 0 > 0
+                || self.emails?.count ?? 0 > 0
+                || self.addresses?.count ?? 0 > 0
+
+                || self.dates?.count ?? 0 > 0
+                || self.urls?.count ?? 0 > 0
+                || self.flights?.count ?? 0 > 0
+    }
 }
 
 public class PixNote: NSObject, KeyPathWatchable, BApp
@@ -83,17 +93,18 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
             return nil
         }
 
-        var preheatedResult:PixNoteResult? = preheatedResults[item.asset.localIdentifierWithoutSplitter]
-        if preheatedResult == nil, let image = item.asset.asUIImage{
-            preheatedResult = self.detector.detectResult(asset: item.asset, image: image, async) ?? PixNoteResult(asset: item.asset)
-            preheatedResults[item.asset.localIdentifierWithoutSplitter] = preheatedResult
+        var preheatedResult:PixNoteResult?
+
+        if let result = preheatedResults[item.asset.localIdentifierWithoutSplitter]{
+            preheatedResult = result
+        }else{
+            if let image = item.asset.asUIImage{
+                preheatedResult = self.detector.detectResult(asset: item.asset, image: image, async) ?? PixNoteResult(asset: item.asset)
+                preheatedResults[item.asset.localIdentifierWithoutSplitter] = preheatedResult
+            }
         }
 
-        if preheatedResult?.phoneNumbers?.count ?? 0 > 0{
-            return UICollectionViewPreheatableAppFinishAction.selectItem
-        }
-
-        return nil
+        return preheatedResult?.isFilled == true ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
@@ -103,12 +114,7 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
                 .compactMap {
                     $0.result as? PixNoteResult
                 }
-                .filter { result in
-                    result.phoneNumbers?.count ?? 0 > 0
-                }
 
-
-        //TODO: wrap with something VO
         //TODO: if numbers and emails are in same block, maybe it is data of a person.
 
         var phoneNumberPool = Set<String>()
@@ -122,7 +128,7 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
                 for phoneNumber in phoneNumberSetInBlock where false == phoneNumberPool.contains(phoneNumber) && phoneNumber.count>0 {
                     phoneNumberPool.insert(phoneNumber)
 
-                    alert.addAction(UIAlertAction(title: phoneNumber, style: . default, handler: { action in
+                    let action = UIAlertAction(title: phoneNumber, style: . default, handler: { action in
 
                         DispatchQueue.main.async {
 
@@ -140,7 +146,10 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
                                 })
                             }
                         }
-                    }))
+                    })
+                    action.accessoryImage = R.image.exifGhostBAppIcon()
+
+                    alert.addAction(action)
 
                 }
             }
@@ -375,7 +384,7 @@ AppContent
 
 private enum SelectionPresets:Int{
     case raw
-    case contacts
+    case information
     case custom
 }
 
@@ -408,7 +417,7 @@ extension Defaults: PixNoteAppDefaults {
 
     fileprivate var selectionPreset: Int {
         set{ set(newValue) }
-        get{ return get(or: SelectionPresets.contacts.rawValue ) }
+        get{ return get(or: SelectionPresets.information.rawValue ) }
     }
 }
 
@@ -462,7 +471,7 @@ private struct ParserItem {
 private struct ParserDictionary {
 
     static let DefaultCollection: ParserCollection = [
-        ParserDictionary.Key.Contract: [
+        ParserDictionary.Key.Information: [
             ParserItem.Key.PhoneNumber
             ,ParserItem.Key.EmailAddress
             ,ParserItem.Key.Address
@@ -474,7 +483,7 @@ private struct ParserDictionary {
     ]
 
     enum Key: Int, Codable {
-        case Contract
+        case Information
     }
 
     fileprivate var key:Key
@@ -500,7 +509,7 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
 
     private var parserCollection:[ParserDictionary] = [
 
-        ParserDictionary(key: ParserDictionary.Key.Contract, label: "Contract".localized,
+        ParserDictionary(key: ParserDictionary.Key.Information, label: "Information".localized,
                 items: [
                     ParserItem(key: ParserItem.Key.PhoneNumber, label:"Phone Number".localized)
                     ,ParserItem(key: ParserItem.Key.EmailAddress, label:"E-mail Address".localized)
@@ -560,7 +569,7 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
         cell0.valueGetter = { self.defaults.selectionPreset }
         cell0.valueCollection = [
             (label:"Plain",value:SelectionPresets.raw.rawValue),
-            (label:"Formatted",value:SelectionPresets.contacts.rawValue),
+            (label:"Formatted",value:SelectionPresets.information.rawValue),
             (label:"Custom", value:SelectionPresets.custom.rawValue)
         ]
         cell0.valueHandler = {
@@ -575,7 +584,7 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
                             self.defaults.addHandledProperty(m.key, i.key)
                         }
                     }
-                }else if preset == SelectionPresets.contacts.rawValue{
+                }else if preset == SelectionPresets.information.rawValue{
                     for m in self.parserCollection {
                         for i in m.items{
                             self.defaults.removeHandledProperty(m.key, i.key)
@@ -774,7 +783,7 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
 
         let cell = tableView.dequeueReusableCell(withIdentifier: PixNote.info.identifier) as! Cell
         cell.textLabel?.text = dict.items[indexPath.item].label
-        cell.detailTextLabel?.text = selected ? "will be hided" : nil
+        cell.detailTextLabel?.text = selected ? "may be found" : nil
 //        cell.imageView?.image = selected ? R.image.pdFactoryAppIcon() : nil //selected ? UIImageView(image: R.image.pdFactoryAppIcon()) : nil
         cell.detailTextLabel?.textColor = UIColor.gray
         cell.optionSwitch.setOn(selected, animated: false)
@@ -789,7 +798,7 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
 
             let selectedPreset = self.defaults.selectionPreset
 
-            if selectedPreset == SelectionPresets.raw.rawValue || selectedPreset == SelectionPresets.contacts.rawValue{
+            if selectedPreset == SelectionPresets.raw.rawValue || selectedPreset == SelectionPresets.information.rawValue{
                 self.defaults.selectionPreset = SelectionPresets.custom.rawValue
 
                 tableView.reloadSections(IndexSet(integer: 0), with: .none)
@@ -839,3 +848,25 @@ private class Cell: UITableViewCell {
         optionSwitch.onTintColor = tintColor
     }
 }
+
+fileprivate extension UIAlertAction {
+
+    var accessoryImage: UIImage? {
+        get {
+            if self.responds(to: Selector(Constants.imageKey)) {
+                return self.value(forKey: Constants.imageKey) as? UIImage
+            }
+            return nil
+        }
+        set {
+            if self.responds(to: Selector(Constants.imageKey)) {
+                self.setValue(newValue, forKey: Constants.imageKey)
+            }
+        }
+    }
+
+    private struct Constants {
+        static var imageKey = "image"
+    }
+}
+
