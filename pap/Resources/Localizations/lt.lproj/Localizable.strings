@@ -140,7 +140,7 @@
 "Burst" = "Sprogo";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Negalima grąžinti. Visi pasirinkti elementai nepakeitė.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Pasirinkite telefono numerį, į kurį norite skambinti";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Pasirinkite eksporto parinktį %d elementams";
@@ -166,15 +166,15 @@
 "Downloading..." = "Atsisiunčiama ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "Elektroninio pašto adresas";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Įgalinti automatinį pasirinkimą";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Eksporto parinktys";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Eksportas";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "Rasti";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Ieškoti kontaktų ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Persiųsti";
@@ -246,9 +246,9 @@
 "Share" = "Dalintis";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Dydis";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Atsiprašome, negalima skambinti pasirinktam kontaktiniam asmeniui.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Atsiprašome neradome jokios kontaktinės informacijos.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Aikštė";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Stabilizuoti pasirinktus elementus ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Pradėti";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "Pradedant rasti ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Proceso pradžia ...";
@@ -272,7 +272,7 @@
 "Translation" = "Vertimas";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Vaizdo įrašas";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Laukiama pasirinkti ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

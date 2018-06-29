@@ -140,7 +140,7 @@
 "Burst" = "Burst";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Nikare venegerin. Hemû tiştên bijartî nehatiye guherandin.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Hejmara Telefonê Telefonê hilbijêre";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Vebijêrkek Export Export Hilbijêre Ji bo %d Şîfre";
@@ -166,15 +166,15 @@
 "Downloading..." = "Daxistin ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "Navnîşana emailê";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Hilbijêre Auto Auto";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Hilbijêre Hilbijêre";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Eksport";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "Dîtin";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Finding contacts ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Pêşve";
@@ -246,9 +246,9 @@
 "Share" = "Par";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Mezinayî";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Xwe nikarî têkilî bi têkilî bijartin.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Ji kerema xwe agahî agahdarî peywendî nekir.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Meydan";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Stabilizing Items Selected ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Destpêkirin";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "Destpêk To Find ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Destpêkirina pêvajoyê ...";
@@ -272,7 +272,7 @@
 "Translation" = "Werger";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Hêvîdar Hilbijêre ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

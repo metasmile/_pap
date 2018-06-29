@@ -140,7 +140,7 @@
 "Burst" = "Избухвам";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Не може да се върне. Всички избрани елементи не са редактирани.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Изберете телефонен номер, на който да се обадите";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Изберете опция за експорт за %d Елементи";
@@ -166,15 +166,15 @@
 "Downloading..." = "Изтегля се ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "Имейл адрес";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Активиране на автоматичния избор";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Опции за експортиране";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "износ";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "намирам";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Намиране на контакти ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "напред";
@@ -246,9 +246,9 @@
 "Share" = "Дял";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "размер";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "За съжаление не може да се обади на избрания контакт.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "За съжаление не е намерена никаква информация за връзка.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Квадрат";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Стабилизиране на избраните елементи ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "начало";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "Започва да намира ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Стартиране на процеса ...";
@@ -272,7 +272,7 @@
 "Translation" = "превод";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Видео";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Изчакване за избор ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "основа";

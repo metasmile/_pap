@@ -140,7 +140,7 @@
 "Burst" = "Rozerwanie";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Nie można się cofnąć. Wszystkie wybrane elementy nie zostały edytowane.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Wybierz numer telefonu do połączenia";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Wybierz opcję eksportu dla %d elementów";
@@ -166,15 +166,15 @@
 "Downloading..." = "Ściąganie...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "Adres e-mail";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Włącz wybór automatyczny";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Opcje eksportu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Eksport";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "Odnaleźć";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Znajdowanie kontaktów ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Naprzód";
@@ -246,9 +246,9 @@
 "Share" = "Dzielić";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Rozmiar";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Niestety nie można zadzwonić do wybranego kontaktu.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Niestety nie znaleziono żadnych informacji kontaktowych.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Stabilizowanie wybranych pozycji ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Start";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "Zaczyna szukać ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Rozpoczynanie procesu ...";
@@ -272,7 +272,7 @@
 "Translation" = "Tłumaczenie";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Wideo";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Oczekiwanie na wybór ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Osnowa";

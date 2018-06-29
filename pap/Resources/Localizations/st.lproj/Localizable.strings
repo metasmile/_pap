@@ -140,7 +140,7 @@
 "Burst" = "Ho phatloha";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Ha e khone ho khutlisa. Lintho tsohle tse khethiloeng ha lia fetoha.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Khetha Nomoro ea Fono Ho Bitsa";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Khetha Kgetho ea ho Ikopisa ho ea ka %d Lintho";
@@ -166,15 +166,15 @@
 "Downloading..." = "Ho lata ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "Aterese ea imeile";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Enable Auto Selection";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Khetho ea ho rekisa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Export";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "Fumana";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Ho Fumana Boitsebiso ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Tsoela pele";
@@ -246,9 +246,9 @@
 "Share" = "Kopanela";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Boholo";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Tšoarelo e ke ke ea letsetsa motho ea khethiloeng.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Tšoarelo ha u fumane lintlha tsa tlhahlobo.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Ho Tiisa Lintho Tse Khethiloeng ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Qala";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "Ho qala ho Fumana ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Ho qala mokhoa ...";
@@ -272,7 +272,7 @@
 "Translation" = "Phetolelo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "E emetse ho khetha ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

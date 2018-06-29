@@ -140,7 +140,7 @@
 "Burst" = "Explosió";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "No es pot tornar. No s'han editat tots els elements seleccionats.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Trieu un número de telèfon per trucar";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Trieu una opció d'exportació per a %d elements";
@@ -166,15 +166,15 @@
 "Downloading..." = "S'està baixant ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "Correu electrònic";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Activa la selecció automàtica";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Opcions d'exportació";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Exportació";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "Cerca";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Trobar contactes ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Forward";
@@ -246,9 +246,9 @@
 "Share" = "Compartir";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Size";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "No podeu trucar al contacte seleccionat.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "No s'ha trobat cap informació de contacte.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Quadrat";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Estabilització d'elements seleccionats ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Començar";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "S'està iniciant la cerca ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "S'està iniciant el procés ...";
@@ -272,7 +272,7 @@
 "Translation" = "Traducció";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Vídeo";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "S'està esperant per seleccionar ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

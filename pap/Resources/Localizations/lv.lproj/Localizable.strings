@@ -140,7 +140,7 @@
 "Burst" = "Pārsprāgt";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Nevar atgriezties. Visi atlasītie vienumi nav rediģēti.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Izvēlieties tālruņa numuru, uz kuru zvanīt";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Izvēlieties eksporta opciju %d vienumiem";
@@ -166,15 +166,15 @@
 "Downloading..." = "Lejupielāde ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "Epasta adrese";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Iespējot automātisko atlasi";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Eksporta iespējas";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Eksportēt";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "Atrast";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Kontaktu meklēšana ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Uz priekšu";
@@ -246,9 +246,9 @@
 "Share" = "Kopīgot";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Izmērs";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Atvainojiet nevar izsaukt izvēlēto kontaktpersonu.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Atvainojiet, nav atrasta nekāda kontaktinformācija.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Kvadrāts";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Atlasīto vienumu stabilizēšana ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Sākt";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "Sākot atrast ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Procesa uzsākšana ...";
@@ -272,7 +272,7 @@
 "Translation" = "Tulkošana";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Gaida, lai izvēlētos ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Šķēru";

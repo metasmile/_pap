@@ -140,7 +140,7 @@
 "Burst" = "leherketa";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Ezin da itzuli. Hautatutako elementu guztiak ez dira editatu.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Aukeratu telefono zenbaki bat deitzeko";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Aukeratu esportatzeko aukera bat %d Elementuetarako";
@@ -166,15 +166,15 @@
 "Downloading..." = "Deskargatzen ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "Posta elektroniko helbidea";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Gaitu hautespen automatikoa";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Esportatu aukerak";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Export";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "Aurki";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Kontaktuak aurkitzea ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Aurrera";
@@ -246,9 +246,9 @@
 "Share" = "Share";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Tamaina";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Ezin duzu hautatutako kontaktura deitu.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Ez da inongo kontaktu-informazioa aurkitu.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Karratu";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Hautatutako elementuak egonkortzea ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "start";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "Bilatzen hasteko ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Prozesua abiarazten ...";
@@ -272,7 +272,7 @@
 "Translation" = "Itzulpena";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Itxaron hautatzeko ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

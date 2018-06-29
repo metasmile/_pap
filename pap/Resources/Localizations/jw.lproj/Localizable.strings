@@ -140,7 +140,7 @@
 "Burst" = "Mbebayani";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Ora bisa mbaleni. Kabeh item sing dipilih durung diowahi.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Pilih Nomer Telpon Kanggo Telpon";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Pilih Pilihan Ekspor Kanggo %d Item";
@@ -166,15 +166,15 @@
 "Downloading..." = "Ngunduh ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "Alamat email";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Ngaktifake Pilihan Otomatis";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Pilihan Ekspor";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Ekspor";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "Golek";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Nemokake Kontak ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Terusake";
@@ -246,9 +246,9 @@
 "Share" = "Nuduhake";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Ukuran";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Ngapunten ora bisa nelpon menyang kontak sing dipilih.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Ngapunten, ora ana informasi kontak.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Stabilizing Selected Selected ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Mulai";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "Miwiti Kanggo Golek ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Miwiti Proses ...";
@@ -272,7 +272,7 @@
 "Translation" = "Ngartekne";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Nunggu Kanggo Pilih ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

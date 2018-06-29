@@ -140,7 +140,7 @@
 "Burst" = "Burst";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Δεν είναι δυνατή η επαναφορά. Όλα τα επιλεγμένα στοιχεία δεν έχουν επεξεργαστεί.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Επιλέξτε έναν αριθμό τηλεφώνου για κλήση";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Επιλέξτε μια επιλογή εξαγωγής για %d Στοιχεία";
@@ -166,15 +166,15 @@
 "Downloading..." = "Λήψη ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "Διεύθυνση ηλεκτρονικού ταχυδρομείου";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Ενεργοποίηση αυτόματης επιλογής";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Επιλογές εξαγωγής";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Εξαγωγή";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "Εύρημα";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Εύρεση επαφών ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Προς τα εμπρός";
@@ -246,9 +246,9 @@
 "Share" = "Μερίδιο";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Μέγεθος";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Λυπούμαστε που δεν μπορείτε να καλέσετε την επιλεγμένη επαφή.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Λυπούμαστε που δεν βρέθηκαν στοιχεία επικοινωνίας.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "τετράγωνο";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Σταθεροποίηση επιλεγμένων στοιχείων ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Start";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "Ξεκινώντας να βρούμε ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Ξεκινώντας τη διαδικασία ...";
@@ -272,7 +272,7 @@
 "Translation" = "Μετάφραση";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "βίντεο";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Αναμονή για επιλογή ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Στημόνι";

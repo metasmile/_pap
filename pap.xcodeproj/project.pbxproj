@@ -110,7 +110,7 @@
 		4F71D7EC467C4954754DAFDF /* FirebaseMLVision.VisionCloudText.Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4F43AFA7CFB00749370 /* FirebaseMLVision.VisionCloudText.Parser.swift */; };
 		4F71D7EEBE343A0437955522 /* FloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D754C14C46B92ED9E664 /* FloatingView.swift */; };
 		4F71D807BB06FA9489D34086 /* Transform.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D9FA96D3866E152A9B2B /* Transform.BApp.swift */; };
-		4F71D817D4AF06DD50ED1685 /* PixNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA798A1F355C8A84BA85 /* PixNote.swift */; };
+		4F71D817D4AF06DD50ED1685 /* PixNote.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA798A1F355C8A84BA85 /* PixNote.BApp.swift */; };
 		4F71D863880D161FF681C642 /* CodeKit.UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5BC4E62AAE070D85B69 /* CodeKit.UIViewController.swift */; };
 		4F71D86FB1073AC3D8405B9C /* CodeKit.FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D755AF5A2605FB683A5E /* CodeKit.FileManager.swift */; };
 		4F71D87185DBD1B878C1F91A /* AppTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D85980FE87C2FB5A2398 /* AppTask.swift */; };
@@ -466,7 +466,7 @@
 		4F71DA3C273565A6E320B6AF /* PhotoPickerFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerFooterView.swift; sourceTree = "<group>"; };
 		4F71DA4D5DD50E9D0383BBA0 /* UITableViewCellDescribable.UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellDescribable.UITableView.swift; sourceTree = "<group>"; };
 		4F71DA4EAE4DF6B4FF6A583D /* BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BApp.swift; sourceTree = "<group>"; };
-		4F71DA798A1F355C8A84BA85 /* PixNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixNote.swift; sourceTree = "<group>"; };
+		4F71DA798A1F355C8A84BA85 /* PixNote.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixNote.BApp.swift; sourceTree = "<group>"; };
 		4F71DA862E45A6C3A07BFC8C /* AssetIO.LivePhotoResource.Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetIO.LivePhotoResource.Image.swift; sourceTree = "<group>"; };
 		4F71DA8A996DE6E8643C88F5 /* PhotoPickerViewController.UIGestureRecognizerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.UIGestureRecognizerDelegate.swift; sourceTree = "<group>"; };
 		4F71DA8CA1E7F06DD108FFBB /* GIFMaker.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFMaker.BApp.swift; sourceTree = "<group>"; };
@@ -947,7 +947,7 @@
 			isa = PBXGroup;
 			children = (
 				A01EF6A320E29717004A6CCC /* PixNote.BApp.Assets.xcassets */,
-				4F71DA798A1F355C8A84BA85 /* PixNote.swift */,
+				4F71DA798A1F355C8A84BA85 /* PixNote.BApp.swift */,
 			);
 			path = PixNote;
 			sourceTree = "<group>";
@@ -2929,7 +2929,7 @@
 				4F71D047CB6B038B633CE59A /* CodeKit.String.NSDataDetector.swift in Sources */,
 				4F71DE695A164DF95980274B /* App.Preheatable.swift in Sources */,
 				4F71D341A19E0B6BD30A10AC /* App.UICollectionViewPreheatable.swift in Sources */,
-				4F71D817D4AF06DD50ED1685 /* PixNote.swift in Sources */,
+				4F71D817D4AF06DD50ED1685 /* PixNote.BApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

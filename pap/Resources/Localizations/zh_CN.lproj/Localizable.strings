@@ -140,7 +140,7 @@
 "Burst" = "爆裂";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "无法恢复。所有选择的项目都没有编辑。";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "选择要拨打的电话号码";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "为%d项目选择导出选项";
@@ -166,15 +166,15 @@
 "Downloading..." = "下载...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "电子邮件地址";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "启用自动选择";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "导出选项";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "出口";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "找";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "查找联系人... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "前锋";
@@ -246,9 +246,9 @@
 "Share" = "分享";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "尺寸";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "抱歉，不能拨打所选联系人。";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "抱歉没有找到任何联系信息。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "广场";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "稳定所选项目...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "开始";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "开始查找...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "启动过程...";
@@ -272,7 +272,7 @@
 "Translation" = "翻译";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "视频";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "等待选择...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

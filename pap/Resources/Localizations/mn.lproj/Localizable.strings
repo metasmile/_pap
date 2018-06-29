@@ -140,7 +140,7 @@
 "Burst" = "Битт";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Буцааж чадахгүй байна. Бүх сонгосон зүйлсийг засварлахгүй байна.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Дуудлага хийх утасны дугаарыг сонгоно уу";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "%d Зүйлүүдийн хувьд экспортын сонголтыг сонгоно уу";
@@ -166,15 +166,15 @@
 "Downloading..." = "Татаж авах ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "Имэйл хаяг";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Авто сонголтыг идэвхжүүлэх";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Экспортын сонголтууд";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Экспорт";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "Хайх";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Холбоо хайх ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Форвард";
@@ -246,9 +246,9 @@
 "Share" = "Хуваалцах";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Хэмжээ";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Уучлаарай, сонгосон харилцагч руу залгаж чадахгүй.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Холбоо барих мэдээлэл олдсонгүй байна уу?";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Талбай";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Сонгосон зүйлсийг тогтворжуулах ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Эхлээд";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "Туршлагаас эхлээд ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Процессийг эхлүүлэх ...";
@@ -272,7 +272,7 @@
 "Translation" = "Орчуулга";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Видео";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Сонгохыг хүлээж байна ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

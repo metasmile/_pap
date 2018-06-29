@@ -140,7 +140,7 @@
 "Burst" = "Brista";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Kan inte återgå. Alla valda objekt har inte redigerats.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Välj ett telefonnummer att ringa";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Välj en exportalternativ för %d objekt";
@@ -166,15 +166,15 @@
 "Downloading..." = "Hämtar ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "E-postadress";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Aktivera automatiskt val";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Exportera alternativ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Exportera";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "Hitta";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Hitta kontakter ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Forward";
@@ -246,9 +246,9 @@
 "Share" = "Dela med sig";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Storlek";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Ledsen kan inte ringa till vald kontakt.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Tyvärr hittade du inte någon kontaktinformation.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Fyrkant";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Stabilisering av valda artiklar ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Start";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "Börjar hitta ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Startar processen ...";
@@ -272,7 +272,7 @@
 "Translation" = "Översättning";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Väntar på att välja ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

@@ -140,7 +140,7 @@
 "Burst" = "הִתפָּרְצוּת";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "לא ניתן לחזור. כל הפריטים שנבחרו לא נערכו.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "בחר מספר טלפון להתקשרות";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "בחר באפשרות ייצוא עבור %d פריטים";
@@ -166,15 +166,15 @@
 "Downloading..." = "מוריד ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "כתובת דוא'ל";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "אפשר בחירה אוטומטית";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "אפשרויות ייצוא";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "יְצוּא";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "למצוא";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "מציאת אנשי קשר ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Forward";
@@ -246,9 +246,9 @@
 "Share" = "Share";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "גודל";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "מצטערים, לא ניתן להתקשר לאיש הקשר שנבחר.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "מצטערים, לא נמצאו פרטים ליצירת קשר.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "כיכר";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "מייצב פריטים שנבחרו ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Start";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "מתחיל למצוא ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "מתחיל את התהליך ...";
@@ -272,7 +272,7 @@
 "Translation" = "תִרגוּם";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "וִידֵאוֹ";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "ממתין לבחירה ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

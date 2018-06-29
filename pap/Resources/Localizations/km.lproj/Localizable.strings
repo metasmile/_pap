@@ -140,7 +140,7 @@
 "Burst" = "ផ្ទុះ";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "មិនអាចត្រឡប់ទៅវិញ។ ធាតុដែលបានជ្រើសទាំងអស់មិនបានកែសម្រួលទេ។";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "ជ្រើសលេខទូរស័ព្ទដើម្បីហៅ";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "ជ្រើសជម្រើសនាំចេញសម្រាប់ %d ធាតុ";
@@ -166,15 +166,15 @@
 "Downloading..." = "កំពុងទាញយក ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "អាស័យ​ដ្ឋាន​អ៊ី​ម៉េ​ល";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "បើកការជ្រើសរើសដោយស្វ័យប្រវត្តិ";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "ជម្រើសនាំចេញ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "នាំចេញ";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "ស្វែងរក";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "ស្វែងរកទំនាក់ទំនង ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "បន្ត";
@@ -246,9 +246,9 @@
 "Share" = "ចែករំលែក";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "ទំហំ";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "សូមទោសមិនអាចហៅទៅទំនាក់ទំនងដែលបានជ្រើស។";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "សុំទោសមិនត្រូវបានរកឃើញព័ត៌មានទំនាក់ទំនងទេ។";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "ការ៉េ";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "រក្សាស្ថេរភាពធាតុដែលបានជ្រើស ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "ចាប់ផ្តើម";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "ចាប់ផ្តើមរក ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "កំពុងចាប់ផ្ដើមដំណើរការ ...";
@@ -272,7 +272,7 @@
 "Translation" = "ការបកប្រែ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "វីដេអូ";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "កំពុងរង់ចាំ ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

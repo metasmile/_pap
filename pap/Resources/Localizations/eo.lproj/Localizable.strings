@@ -140,7 +140,7 @@
 "Burst" = "Eksplodo";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Ne povas reverti. Ĉiuj elektitaj eroj ne redaktis.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Elektu Telefonan Nombro Al Voki";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Elektu Eksportan Eblon Por %d Eroj";
@@ -166,15 +166,15 @@
 "Downloading..." = "Elŝuti ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "Retpoŝta adreso";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Ebligu Aŭtoman Selektadon";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Eksportaj opcioj";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Eksporti";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "Trovu";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Trovantaj Kontaktojn ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Antaŭen";
@@ -246,9 +246,9 @@
 "Share" = "Kunhavigi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Grandeco";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Pardonu ne povas voki al elektita kontakto.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Ni bedaŭrinde ne trovis kontaktan informon.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Kvadrato";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Stabiligi Elektitajn Erojn ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Komencu";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "Komencante Trovi ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Komencante la Procezon ...";
@@ -272,7 +272,7 @@
 "Translation" = "Tradukado";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Atendante Elekti ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

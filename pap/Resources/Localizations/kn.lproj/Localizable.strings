@@ -140,7 +140,7 @@
 "Burst" = "ಬರ್ಸ್ಟ್";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "ಹಿಂತಿರುಗಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ಎಲ್ಲಾ ಆಯ್ಕೆಮಾಡಿದ ಐಟಂಗಳನ್ನು ಸಂಪಾದಿಸಿಲ್ಲ.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "ಕಾಲ್ ಮಾಡಲು ಫೋನ್ ಸಂಖ್ಯೆಯನ್ನು ಆರಿಸಿ";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "%d ಐಟಂಗಳಿಗಾಗಿ ರಫ್ತು ಆಯ್ಕೆ ಆರಿಸಿ";
@@ -166,15 +166,15 @@
 "Downloading..." = "ಡೌನ್ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "ಇಮೇಲ್ ವಿಳಾಸ";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "ಆಟೋ ಆಯ್ಕೆ ಸಕ್ರಿಯಗೊಳಿಸಿ";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "ರಫ್ತು ಆಯ್ಕೆಗಳು";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "ರಫ್ತು";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "ಹುಡುಕಿ";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "ಸಂಪರ್ಕಗಳನ್ನು ಹುಡುಕಲಾಗುತ್ತಿದೆ ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "ಮುಂದೆ";
@@ -246,9 +246,9 @@
 "Share" = "ಹಂಚಿಕೊಳ್ಳಿ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "ಗಾತ್ರ";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "ಕ್ಷಮಿಸಿ ಆಯ್ಕೆಮಾಡಿದ ಸಂಪರ್ಕಕ್ಕೆ ಕರೆ ಮಾಡಲು ಸಾಧ್ಯವಿಲ್ಲ.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "ಕ್ಷಮಿಸಿ ಯಾವುದೇ ಸಂಪರ್ಕ ಮಾಹಿತಿ ಕಂಡುಬಂದಿಲ್ಲ.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "ಸ್ಕ್ವೇರ್";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "ಆಯ್ದ ಐಟಂಗಳನ್ನು ಸ್ಥಿರೀಕರಿಸಲಾಗುತ್ತಿದೆ ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "ಪ್ರಾರಂಭಿಸಿ";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "ಕಂಡುಹಿಡಿಯಲು ಪ್ರಾರಂಭಿಸಲಾಗುತ್ತಿದೆ ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "ಪ್ರಕ್ರಿಯೆಯನ್ನು ಪ್ರಾರಂಭಿಸಲಾಗುತ್ತಿದೆ ...";
@@ -272,7 +272,7 @@
 "Translation" = "ಅನುವಾದ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "ವೀಡಿಯೊ";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "ಆಯ್ಕೆ ಮಾಡಲು ನಿರೀಕ್ಷಿಸಲಾಗುತ್ತಿದೆ ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "ವಾರ್ಪ್";

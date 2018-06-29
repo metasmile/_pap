@@ -140,7 +140,7 @@
 "Burst" = "Kutentha";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Sangathe kubwereranso. Zosankhidwa zonse sizinasinthe.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Sankhani Nambala ya Foni Kuti Mudandaule";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Choose An Export Option For %d Items";
@@ -166,15 +166,15 @@
 "Downloading..." = "Kusaka ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "Imelo adilesi";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Thandizani Kusankha kwa Auto";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Zosankha Zotsatsa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Tumizani";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "Pezani";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Kupeza Othandizira ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Pita patsogolo";
@@ -246,9 +246,9 @@
 "Share" = "Gawani";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Kukula";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Pepani sitingayitane ndi ocheza nawo.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Pepani simunapezepo zambiri.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Kulimbitsa Zinthu Zosankhidwa ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Yambani";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "Kuyambira Kuti Upeze ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Kuyambitsa Njira ...";
@@ -272,7 +272,7 @@
 "Translation" = "Kutembenuzidwa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Kudikirira Kusankha ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
