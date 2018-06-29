@@ -126,8 +126,6 @@
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift#698 */
 "Downloading..." = "Downloading...";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#160 */
-"E-mail Address %@" = "E-mail Address %@";
 /* Generated from genl10n: PixNote.BApp.swift#642, PixNote.BApp.swift#642 */
 "E-mail Address" = "E-mail Address";
 /* Generated from genl10n: Revert.BApp.swift#191, Revert.BApp.swift#191, ExifGhost.AppDockContent.swift#162, ExifGhost.AppDockContent.swift#162, PixNote.BApp.swift#463, PixNote.BApp.swift#463, PixNote.BApp.swift#683, PixNote.BApp.swift#683, Clean.BApp.swift#305, Clean.BApp.swift#305, CallApp.BApp.swift#317, CallApp.BApp.swift#317, Textractor.BApp.swift#196, Textractor.BApp.swift#196 */
@@ -186,8 +184,6 @@
 "No loop" = "No loop";
 /* Generated from genl10n: AppUIAssetView.swift#45, AppUIAssetView.swift#45, PhotosFilter.BApp.swift#149, PhotosFilter.BApp.swift#149 */
 "Original" = "Original";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#175 */
-"Phone Number %@" = "Phone Number %@";
 /* Generated from genl10n: PixNote.BApp.swift#641, PixNote.BApp.swift#641 */
 "Phone Number" = "Phone Number";
 /* Generated from genl10n: GIFMaker.BApp.swift#88, GIFMaker.BApp.swift#88 */

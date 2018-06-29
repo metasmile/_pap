@@ -157,7 +157,7 @@ public struct VisionTextContactParser: VisionTextParser{
 
             if let emails = emails{
                 contact.emailAddresses = emails.enumerated().compactMap { (e) -> CNLabeledValue<NSString>? in
-                    return CNLabeledValue(label: "E-mail Address %@".localizedFormatted(e.0), value: e.1 as NSString)
+                    return CNLabeledValue(label: "E-mail Address \(e.0)", value: e.1 as NSString)
                 }
             }
             
@@ -172,7 +172,7 @@ public struct VisionTextContactParser: VisionTextParser{
                 }
 
                 contact.phoneNumbers = Array(Set<String>(appendingPhoneNumbers)).enumerated().compactMap({ (e) -> CNLabeledValue<CNPhoneNumber>? in
-                    CNLabeledValue(label: "Phone Number %@".localizedFormatted(e.0), value: CNPhoneNumber(stringValue: e.1))
+                    CNLabeledValue(label: "Phone Number \(e.0)", value: CNPhoneNumber(stringValue: e.1))
                 })
             }
 
