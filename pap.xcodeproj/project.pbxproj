@@ -130,6 +130,7 @@
 		4F71DA179B296DA438DF7F6D /* ImageIO.Metadata.Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D88756315BEB67DAEDB2 /* ImageIO.Metadata.Dictionary.swift */; };
 		4F71DA17D09B551E38D1364A /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8B7895317B10D661C54 /* Object.swift */; };
 		4F71DA266388F7C0E58F0159 /* App.PhotoPickerCollectionViewDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA10E97AC3BD6F9BEB5F /* App.PhotoPickerCollectionViewDisplayable.swift */; };
+		4F71DA5480AC74A3BA4AD50F /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DCD74ACB292BC917C668 /* CalendarManager.swift */; };
 		4F71DA55751D3743CE82BFB5 /* CodeKit.URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D23CA70B4177B7B400CD /* CodeKit.URL.swift */; };
 		4F71DA7390C0C2D6D4D06849 /* BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA4EAE4DF6B4FF6A583D /* BApp.swift */; };
 		4F71DA867580DB35978AC9CD /* CodeKit.Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6EE03CBABA678F99AF1 /* CodeKit.Sequence.swift */; };
@@ -500,6 +501,7 @@
 		4F71DCB56E67336E523EAA6D /* PHAssetUIAlertControllerSynchronizablePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAssetUIAlertControllerSynchronizablePresenter.swift; sourceTree = "<group>"; };
 		4F71DCC6064610129707F675 /* Converter.Jpeg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.Jpeg.swift; sourceTree = "<group>"; };
 		4F71DCD6CE77B2E12B423FDF /* PHPhotoLibraryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHPhotoLibraryManager.swift; sourceTree = "<group>"; };
+		4F71DCD74ACB292BC917C668 /* CalendarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		4F71DCF49BB6EB7CCC7FBF86 /* CodeKit.UIView.Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIView.Property.swift; sourceTree = "<group>"; };
 		4F71DD0573CFB93A8F794768 /* App.Finalizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Finalizable.swift; sourceTree = "<group>"; };
 		4F71DD137A224271338EC3FC /* gifmaker_preview_frame_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gifmaker_preview_frame_5.png; sourceTree = "<group>"; };
@@ -731,6 +733,14 @@
 				4F71DECC15288F8063AE21B3 /* StaticImages */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		4F71D02B95047E1B3E179C8A /* App.Lib.Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				4F71DCD74ACB292BC917C668 /* CalendarManager.swift */,
+			);
+			path = App.Lib.Calendar;
 			sourceTree = "<group>";
 		};
 		4F71D05F09C93BB574D16CC3 /* GIFMaker.BApp.Assets */ = {
@@ -1107,6 +1117,7 @@
 				4F71DEB93AC64362D74F6A31 /* App.Lib.FirebaseMLVision.VisionText.Parser.Extensions */,
 				4F71D1FFEDB90792654FC9A6 /* App.UICollectionViewPreheatable.swift */,
 				4F71D5024C66C88BDE4DA345 /* App.Lib.Contact */,
+				4F71D02B95047E1B3E179C8A /* App.Lib.Calendar */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -2942,6 +2953,7 @@
 				4F71D341A19E0B6BD30A10AC /* App.UICollectionViewPreheatable.swift in Sources */,
 				4F71D817D4AF06DD50ED1685 /* PixNote.BApp.swift in Sources */,
 				4F71D5E92AB5D39320CCB21D /* Contact.swift in Sources */,
+				4F71DA5480AC74A3BA4AD50F /* CalendarManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

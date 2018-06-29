@@ -54,7 +54,9 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>$(PRODUCT_NAME) will access your photos library to edit them.</string>
 	<key>NSContactsUsageDescription</key>
-	<string>We would like to access your contacts to save new contact entry.</string>
+	<string>We would like to access your contacts to save the new contact entry.</string>
+    <key>NSCalendarsUsageDescription</key>
+    <string>We would like to access your calendar to save the new event.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch Screen</string>
 	<key>UIMainStoryboardFile</key>
