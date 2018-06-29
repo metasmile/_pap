@@ -144,8 +144,17 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
 extension PixNote{
 
     fileprivate func finalize_plaintext(items: [PixNoteResult], _ asyncSignal: AsyncManualSignalable) {
+        let strings = items.compactMap{ $0.plainText }
 
-
+        if strings.count > 0 {
+            asyncSignal.begin()
+            DispatchQueue.main.async{
+                UIActivityViewController.presentAsDefault(activityItems: strings, excludedActivityTypes: nil) { _,_,_,_ in
+                    asyncSignal.end()
+                }
+            }
+            asyncSignal.waitUntilEnd()
+        }
     }
 
     fileprivate func finalize_contact(items: [PixNoteResult], _ asyncSignal: AsyncManualSignalable) {
@@ -247,15 +256,18 @@ private struct PixNoteDetector{
             return nil
         }
 
-        var result = PixNoteResult(asset: asset)
-
         var defaults = PixNote.privateDefaults
 
         if defaults.selectionPreset == SelectionPreset.plaintext.rawValue{
+
+            var result = PixNoteResult(asset: asset)
             result.plainText = visionTexts.parse(type: VisionTextStringParser.self, async)?.joined()
+
+            return result
 
         }else{
 
+            var result = PixNoteResult(asset: asset)
             let items = Set((defaults.selectedParserCollection.values).reduce([],+))
 
             if items.contains(ParserItem.Key.EmailAddress){
@@ -278,9 +290,11 @@ private struct PixNoteDetector{
                 result.flights = visionTexts.parse(type: VisionTextFlightInformationParser.self, async)
             }
 
+            return result
         }
 
-        return result
+        assert(false, "current preset mode is not supported. \(String(describing: defaults.selectionPreset))")
+        return nil
     }
 }
 
@@ -588,7 +602,6 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
             AppCenter.default.currentInstanceAs(PixNote.self)?.autoSelect = self.autoSelect
         }
         cellDescribers.append(cell1)
-
 
         let cell0 = UITableViewSegmentControlCellDescriber()
         cell0.itemIdentifier = Cells.presets.hashValue
