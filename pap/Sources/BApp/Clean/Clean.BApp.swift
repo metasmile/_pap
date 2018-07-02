@@ -198,7 +198,7 @@ private struct CleanAppDetector {
     private mutating func detectSimilarAsset(_ assetID: PHAssetID) -> Bool {
         // https://github.com/ameingast/cocoaimagehashing/
         
-        let timeClustering: TimeInterval = 600 // ten minutes
+        let timeClustering: TimeInterval = 60 // 1 minute
         
         var hasSimilar = false
         for fromAssetID in similarAssets.keys {
