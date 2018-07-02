@@ -9,6 +9,7 @@ import DefaultsKit
 import CocoaImageHashing
 import MetalPerformanceShaders
 import MetalKit
+import Vision
 
 private typealias CleanAppParam = PHAssetItem<ImageEditStateValue>
 private struct CleanAppResult: TaskResultable{
@@ -115,6 +116,28 @@ private struct CleanAppDetector {
         return result
     }
     
+    private func croppedFaceGroup(_ image: CIImage) -> CIImage? {
+        let dispatchGroup = DispatchGroup()
+        
+        var faceBounds: CGRect?
+        
+        let faceDetectRequest = VNDetectFaceRectanglesRequest { (request, error) in
+            dispatchGroup.leave()
+            
+            if let faces = (request.results as? [VNFaceObservation])?.compactMap({ $0.boundingBox }), !faces.isEmpty, let bounds = faces[1...].reduce(faces.first, { $0?.union($1) }), bounds.width * bounds.height > 0.2 {
+                let transform = CGAffineTransform(scaleX: image.extent.width, y: image.extent.height)
+                faceBounds = bounds.applying(transform)
+            }
+        }
+        
+        dispatchGroup.enter()
+        try? VNImageRequestHandler(ciImage: image, options: [:]).perform([faceDetectRequest])
+        dispatchGroup.wait()
+        
+        guard let rect = faceBounds else { return nil }
+        return image.cropped(to: rect)
+    }
+    
     private func detectBlurryImage(_ asset: PHAsset) -> Bool {
         // https://www.pyimagesearch.com/2015/09/07/blur-detection-with-opencv/
         // https://stackoverflow.com/questions/46893198/detecting-if-image-is-blurred-using-opencv
@@ -124,8 +147,12 @@ private struct CleanAppDetector {
             let device = MTLCreateSystemDefaultDevice(),
             let commandQueue = device.makeCommandQueue(),
             let commandBuffer = commandQueue.makeCommandBuffer(),
-            let ciImage = asset.asCIImage
+            var ciImage = asset.asCIImage
             else { return false }
+        
+        if let face = croppedFaceGroup(ciImage) {
+            ciImage = face
+        }
         
         let textureDescriptor = MTLTextureDescriptor.texture2DDescriptor(pixelFormat: .rgba8Unorm, width: Int(ciImage.extent.width), height: Int(ciImage.extent.height), mipmapped: false)
         textureDescriptor.usage = [MTLTextureUsage.shaderRead, MTLTextureUsage.shaderWrite]
@@ -138,14 +165,8 @@ private struct CleanAppDetector {
         
         ImageAlignment.sharedCIContext.render(ciImage, to: sourceTexture, commandBuffer: commandBuffer, bounds: ciImage.extent, colorSpace: CGColorSpaceCreateDeviceRGB())
         
-        //TODO: laplacian
         MPSImageLaplacian(device: device).encode(commandBuffer: commandBuffer, sourceTexture: sourceTexture, destinationTexture: laplacianTexture)
-        
-        //TODO: binary
         MPSImageThresholdBinary(device: device, thresholdValue: 0.4, maximumValue: 1, linearGrayColorTransform: nil).encode(commandBuffer: commandBuffer, sourceTexture: laplacianTexture, destinationTexture: binaryTexture)
-        
-        //TODO: threshold
-        // blurry or not
         
         let numberOfHistogramEntries = 256
         
@@ -169,9 +190,7 @@ private struct CleanAppDetector {
         let threshold: Float = 0.00000000000000000000000000000000000000000031 //TODO: this is a manual threshold
         let numberOfWhitePixels = histogramContents[numberOfHistogramEntries - 1]
         
-//        if asset.localIdentifier == "715125E2-9810-4767-B552-87A18E8E8F1B/L0/001" {
-//            print(numberOfWhitePixels)//0.000000000000000000000000000000000000000000308285662
-//        }
+        //TODO: detect face area only on portrait
         
         return numberOfWhitePixels < threshold
     }
