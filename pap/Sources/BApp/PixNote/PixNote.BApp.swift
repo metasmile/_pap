@@ -246,7 +246,9 @@ extension PixNote{
 
             let actionMessage = "Choose An Sub Action.".localized
 
-            // Phone Number
+            /*
+                Phone Number
+            */
             for phoneNumberSetInBlock in resultGroup.phoneNumbers ?? []{
 
                 var phoneNumberPool = Set<String>()
@@ -308,7 +310,9 @@ extension PixNote{
             }
 
 
-            // Phone Number
+            /*
+                URL
+            */
             for urls in resultGroup.urls ?? []{
 
                 var urlPool = Set<URL>()
@@ -378,8 +382,89 @@ extension PixNote{
                     alert.addAction(action)
                 }
             }
-        }
 
+            /*
+                Address -> Map
+            */
+            //comgooglemaps://?saddr=Google+Inc,+8th+Avenue,+New+York,+NY&daddr=John+F.+Kennedy+International+Airport,+Van+Wyck+Expressway,+Jamaica,+New+York&directionsmode=transit
+            // https://developers.google.com/maps/documentation/urls/ios-urlscheme
+            // https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html#//apple_ref/doc/uid/TP40007899-CH5-SW1
+
+            for addrs in resultGroup.addresses ?? []{
+
+                for addr in addrs{
+
+                    let action = UIAlertAction(title: addr.formattedAddress, style: . default, handler: { action in
+
+                        //sub actions
+                        let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+
+                        let _actions = [
+//                            "http://maps.apple.com/?q=Mexican+Restaurant"
+
+//                            UIAlertAction(title: "Open".localized, style: .default, handler: { action in
+//                                asyncSignal.end()
+//                                if UIApplication.shared.canOpenURL(addr) {
+//                                    if #available(iOS 10, *) {
+//                                        UIApplication.shared.open(addr)
+//                                    } else {
+//                                        UIApplication.shared.openURL(addr)
+//                                    }
+//                                }
+//                            }),
+//                            UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
+//                                UIPasteboard.general.string = addr
+//                                asyncSignal.end()
+//                            }),
+//                            UIAlertAction(title: "Share".localized, style: .default, handler: { action in
+//                                UIActivityViewController.share(activityItems: [addr], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
+//                                    asyncSignal.end()
+//                                }
+//                            }),
+//                            UIAlertAction(title: "Save A Contact".localized, style: .default, handler: { action in
+//                                if ContactManager.default.authorizeAndWait(asyncSignal){
+//                                    let contact = CNMutableContact()
+//                                    contact.contactType = .person
+//                                    contact.fillNameIfBlanked()
+//
+//                                    let components = NSCalendar.current.dateComponents([.year, .month, .day], from: Date())
+//                                    contact.dates.append(CNLabeledValue(label: "Date".localized, value: components as NSDateComponents))
+//
+//                                    contact.urlAddresses.append(CNLabeledValue(label: "URL", value: addr.absoluteString as NSString))
+//
+//                                    CNContactViewController.presentCreationDialog(contact: contact, onViewController: _alert, didDismissHandler:{
+//                                        asyncSignal.end()
+//                                    })
+//
+//                                }else{
+//                                    asyncSignal.end()
+//                                }
+//                            }),
+                            UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
+                                asyncSignal.end()
+                            })
+                        ]
+                        for _action in _actions{
+                            _alert.addAction(_action)
+                        }
+
+                        DispatchQueue.main.async{
+                            UIApplication.shared.keyWindow?.rootViewController?.present(_alert, animated: true)
+                        }
+
+                    })
+
+                    action.accessoryImage = R.image.exifGhostBAppIcon()
+
+                    alert.addAction(action)
+                }
+            }// END OF AN ACTION
+
+
+        }// END OF ITEMS
+
+
+        //ACTION START
         if alert.actions.count > 0{
             alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
                 asyncSignal.end()

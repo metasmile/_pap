@@ -4,7 +4,7 @@
 //
 
 import Foundation
-
+import Contacts
 
 extension String{
 
@@ -48,10 +48,27 @@ public protocol NSTextCheckingTelephoneNumberComponent {
 public protocol NSTextCheckingAddressComponent {
     var street: String? {get set}
     var city: String? {get set}
-    var state: String? {get set}
     var zip: String? {get set}
+    var state: String? {get set}
     var country: String? {get set}
 }
+
+extension NSTextCheckingAddressComponent{
+
+    public var formattedAddress:String{
+        let address = CNMutablePostalAddress()
+        address.state = state ?? ""
+        address.city = city ?? ""
+        address.country = country ?? ""
+        address.street = street ?? ""
+        address.postalCode = zip ?? ""
+        if let isoCode = Locale.current.regionCode ?? Locale.current.languageCode{
+            address.isoCountryCode =  isoCode
+        }
+        return CNPostalAddressFormatter.string(from: address, style: .mailingAddress)
+    }
+}
+
 
 public protocol NSTextCheckingFlightComponent {
     var airline: String? {get set}
