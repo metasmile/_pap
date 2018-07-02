@@ -8,7 +8,7 @@ import Photos
 import FirebaseMLVision
 import DefaultsKit
 import Contacts
-
+import ContactsUI
 
 private typealias PixNoteParam = PHAssetItem<ImageEditStateValue>
 private struct PixNoteResult: TaskResultable{
@@ -146,6 +146,7 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
     fileprivate var detector = PixNoteDetector()
 }
 
+
 extension PixNote{
 
     fileprivate func finalize_plaintext(items: [PixNoteResult], _ asyncSignal: AsyncManualSignalable) {
@@ -211,29 +212,62 @@ extension PixNote{
         }
         asyncSignal.waitUntilEnd()
 
-        var message:String = "Sorry, it is not possible to save the contract.".localized
 
+        var completionMessage:String = "Sorry, it is not possible to save the contract.".localized
         if canSaveContract{
 
-            asyncSignal.begin()
-            ContactManager.default.addContacts(Contact: contacts) { r in
-                if case ContactManager.ContactOperationResult.Success(response: true) = r {
-                    message = "A contract was successfully saved.".localized
+            // manual review
+            for contact in contacts{
+
+                let contactViewController = CNContactViewController(forNewContact: contact)
+                let navigationController = UINavigationController(rootViewController: contactViewController)
+
+                let delegator = CNContactViewControllerDelegator()
+                delegator.watch(\.completedContact) {
+                    let currentQueue = DispatchQueue.current
+                    print(delegator.completedContact)
+                    DispatchQueue.main.async {
+                        navigationController.popViewController(animated: true)
+
+                        DispatchQueue.main.async {
+                            currentQueue.async{
+                                asyncSignal.end()
+                            }
+                        }
+                    }
                 }
 
+                contactViewController.contactStore = CNContactStore()
+                contactViewController.delegate = delegator
+
+                asyncSignal.begin()
                 DispatchQueue.main.async {
-                    UIAlertController.alert(message, completion:{ _ in
-                        asyncSignal.end()
-                    })
+                    UIApplication.shared.keyWindow?.rootViewController?.present(navigationController, animated: true) {
+
+                    }
                 }
+                asyncSignal.waitUntilEnd()
             }
-            asyncSignal.waitUntilEnd()
+
+//            asyncSignal.begin()
+//            ContactManager.default.addContacts(Contact: contacts) { r in
+//                if case ContactManager.ContactOperationResult.Success(response: true) = r {
+//                    completionMessage = "All contracts was successfully saved.".localized
+//                }
+//
+//                DispatchQueue.main.async {
+//                    UIAlertController.alert(message, completion:{ _ in
+//                        asyncSignal.end()
+//                    })
+//                }
+//            }
+//            asyncSignal.waitUntilEnd()
 
         }else{
 
             asyncSignal.begin()
             DispatchQueue.main.async {
-                UIAlertController.alert(message.localized, completion:{ _ in
+                UIAlertController.alert(completionMessage, completion:{ _ in
                     asyncSignal.end()
                 })
             }
