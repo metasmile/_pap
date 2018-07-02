@@ -136,7 +136,7 @@ private struct CleanAppDetector {
         // https://stackoverflow.com/questions/46893198/detecting-if-image-is-blurred-using-opencv
         //
         guard
-            asset.mediaType == .image,
+            asset.imageType == .stillImage,
             let device = MTLCreateSystemDefaultDevice(),
             let commandQueue = device.makeCommandQueue(),
             let commandBuffer = commandQueue.makeCommandBuffer(),
@@ -195,7 +195,7 @@ private struct CleanAppDetector {
         let timeClustering: TimeInterval = 60 // 1 minute
         
         var hasSimilar = false
-        for targetAsset in targetAssets {
+        for targetAsset in targetAssets[..<min(targetAssets.count, 20)] {
             guard let fromDate = targetAsset.creationDate, let toDate = asset.creationDate, fromDate.timeIntervalSince(toDate).magnitude < timeClustering else {
                 continue
             }
@@ -212,7 +212,7 @@ private struct CleanAppDetector {
             }
         }
         
-        targetAssets.append(asset)
+        targetAssets.insert(asset, at: 0)
         
         return hasSimilar
     }

@@ -138,7 +138,7 @@
 "Downloading..." = "Downloading...";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#156, FirebaseMLVision.VisionText.Parser.Contacts.swift#156, PixNote.BApp.swift#890, PixNote.BApp.swift#890 */
 "E-mail Address" = "E-mail Address";
-/* Generated from genl10n: Revert.BApp.swift#191, Revert.BApp.swift#191, ExifGhost.AppDockContent.swift#162, ExifGhost.AppDockContent.swift#162, PixNote.BApp.swift#702, PixNote.BApp.swift#702, PixNote.BApp.swift#943, PixNote.BApp.swift#943, Clean.BApp.swift#306, Clean.BApp.swift#306, CallApp.BApp.swift#317, CallApp.BApp.swift#317, Textractor.BApp.swift#196, Textractor.BApp.swift#196 */
+/* Generated from genl10n: Revert.BApp.swift#191, Revert.BApp.swift#191, ExifGhost.AppDockContent.swift#162, ExifGhost.AppDockContent.swift#162, PixNote.BApp.swift#702, PixNote.BApp.swift#702, PixNote.BApp.swift#943, PixNote.BApp.swift#943, Clean.BApp.swift#302, Clean.BApp.swift#302, CallApp.BApp.swift#317, CallApp.BApp.swift#317, Textractor.BApp.swift#196, Textractor.BApp.swift#196 */
 "Enable Auto Selection" = "Enable Auto Selection";
 /* Generated from genl10n: Convert.AppDockContent.swift#149, Convert.AppDockContent.swift#149 */
 "Export Options" = "Export Options";
@@ -230,7 +230,7 @@
 "Saving Results..." = "Saving Results...";
 /* Generated from genl10n: Textractor.BApp.swift#96 */
 "Saving Texts ..." = "Saving Texts ...";
-/* Generated from genl10n: Clean.BApp.swift#289 */
+/* Generated from genl10n: Clean.BApp.swift#285 */
 "Select Photos You Want To Clean!" = "Select Photos You Want To Clean!";
 /* Generated from genl10n: CallApp.BApp.swift#300 */
 "Select Photos You Want To Grab Phone Numbers!" = "Select Photos You Want To Grab Phone Numbers!";
