@@ -13,13 +13,57 @@ public final class CNContactViewControllerDelegator : NSObject, KeyPathWatchable
 
     public func contactViewController(_ viewController: CNContactViewController, didCompleteWith contact: CNContact?){
         completedContact = contact
-
-        if contact == nil{
-            viewController.navigationController?.popViewController(animated: true)
-        }
     }
 
     public func contactViewController(_ viewController: CNContactViewController, shouldPerformDefaultActionFor property: CNContactProperty) -> Bool {
         return true
+    }
+}
+
+
+extension CNContactViewController{
+
+    public static func presentCreationDialog(contact:CNContact
+            , onViewController:UIViewController?=nil
+            , willPresentHandler:(() -> ())?=nil
+            , didPresentHandler:(() -> ())?=nil
+            , willDismissHandler:(() -> ())?=nil
+            , didDismissHandler:(() -> ())?=nil
+            , _ asyncSignal:AsyncManualSignalable?=nil){
+
+        let contactViewController = CNContactViewController(forNewContact: contact)
+        let navigationController = UINavigationController(rootViewController: contactViewController)
+
+        let delegator = CNContactViewControllerDelegator()
+        let currentQueue = DispatchQueue.current
+
+        delegator.watch(\.completedContact) {
+            DispatchQueue.main.async {
+                willDismissHandler?()
+
+                navigationController.dismiss(animated: true) {
+
+                    if let signal = asyncSignal{
+                        currentQueue.async{
+                            signal.end()
+                        }
+                    }
+
+                    didDismissHandler?()
+                }
+            }
+        }
+
+        contactViewController.contactStore = CNContactStore()
+        contactViewController.delegate = delegator
+
+        asyncSignal?.begin()
+        DispatchQueue.main.async {
+            willPresentHandler?()
+            (onViewController ?? UIApplication.shared.keyWindow?.rootViewController)?.present(navigationController, animated: true) {
+                didPresentHandler?()
+            }
+        }
+        asyncSignal?.waitUntilEnd()
     }
 }

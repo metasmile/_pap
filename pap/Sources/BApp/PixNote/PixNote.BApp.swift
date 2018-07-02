@@ -214,54 +214,31 @@ extension PixNote{
 
 
         var completionMessage:String = "Sorry, it is not possible to save the contract.".localized
+
         if canSaveContract{
 
-            // manual review
-            for contact in contacts{
+            let enableContactEditor = true
 
-                let contactViewController = CNContactViewController(forNewContact: contact)
-                let navigationController = UINavigationController(rootViewController: contactViewController)
-
-                let delegator = CNContactViewControllerDelegator()
-                delegator.watch(\.completedContact) {
-                    let currentQueue = DispatchQueue.current
-                    print(delegator.completedContact)
-                    DispatchQueue.main.async {
-                        navigationController.popViewController(animated: true)
-
-                        DispatchQueue.main.async {
-                            currentQueue.async{
-                                asyncSignal.end()
-                            }
-                        }
-                    }
+            if enableContactEditor{
+                for contact in contacts{
+                    CNContactViewController.presentCreationDialog(contact: contact, asyncSignal)
                 }
 
-                contactViewController.contactStore = CNContactStore()
-                contactViewController.delegate = delegator
-
+            }else{
                 asyncSignal.begin()
-                DispatchQueue.main.async {
-                    UIApplication.shared.keyWindow?.rootViewController?.present(navigationController, animated: true) {
+                ContactManager.default.addContacts(Contact: contacts) { r in
+                    if case ContactManager.ContactOperationResult.Success(response: true) = r {
+                        completionMessage = "All contracts was successfully saved.".localized
+                    }
 
+                    DispatchQueue.main.async {
+                        UIAlertController.alert(completionMessage, completion:{ _ in
+                            asyncSignal.end()
+                        })
                     }
                 }
                 asyncSignal.waitUntilEnd()
             }
-
-//            asyncSignal.begin()
-//            ContactManager.default.addContacts(Contact: contacts) { r in
-//                if case ContactManager.ContactOperationResult.Success(response: true) = r {
-//                    completionMessage = "All contracts was successfully saved.".localized
-//                }
-//
-//                DispatchQueue.main.async {
-//                    UIAlertController.alert(message, completion:{ _ in
-//                        asyncSignal.end()
-//                    })
-//                }
-//            }
-//            asyncSignal.waitUntilEnd()
 
         }else{
 
