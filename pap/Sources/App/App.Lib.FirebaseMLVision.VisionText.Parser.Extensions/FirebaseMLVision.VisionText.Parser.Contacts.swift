@@ -151,14 +151,18 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
         let contact = mergingOutput
 
         if let emails = VisionTextEmailAddressParser.parse(string: rawText){
+            let label:String = "E-mail Address".localized
             for email in emails{
-                contact.emailAddresses.append(CNLabeledValue(label: "E-mail Address \(contact.emailAddresses.count+1)", value: email as NSString))
+                let value = CNLabeledValue(label: contact.emailAddresses.count==0 ? label : "\(label) (\(contact.emailAddresses.count+1))", value: email as NSString)
+                contact.emailAddresses.append(value)
             }
         }
 
         if let phoneNumbers = VisionTextPhoneNumberParser().parse(input: input){
+            let label:String = "Phone Number".localized
             for number in phoneNumbers{
-                contact.phoneNumbers.append(CNLabeledValue(label: "Phone Number \(contact.phoneNumbers.count+1)", value: CNPhoneNumber(stringValue: number)))
+                let value = CNLabeledValue(label: contact.phoneNumbers.count==0 ? label : "\(label) (\(contact.phoneNumbers.count+1))", value: CNPhoneNumber(stringValue: number))
+                contact.phoneNumbers.append(value)
             }
         }
 
@@ -174,13 +178,17 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
                 let unitFlags = Set<Calendar.Component>([.year, .month, .day])
                 let components = calendar.dateComponents(unitFlags, from: date as Date)
 
-                contact.dates.append(CNLabeledValue(label: "Date".localized, value: components as NSDateComponents))
+                let label = "Date".localized
+                let value = CNLabeledValue(label: contact.dates.count==0 ? label : "\(label) (\(contact.dates.count+1))", value: components as NSDateComponents)
+                contact.dates.append(value)
             }
 
             if let url = result.url{
                 let addingValue = url.absoluteString as NSString
                 if contact.urlAddresses.contains(where:{ $0.value != addingValue}) == false{
-                    contact.urlAddresses.append(CNLabeledValue(label: "URL \(contact.urlAddresses.count+1)", value: addingValue))
+                    let label:String = "URL"
+                    let value = CNLabeledValue(label: contact.urlAddresses.count == 0 ? label : "\(label) (\(contact.urlAddresses.count+1))", value: addingValue)
+                    contact.urlAddresses.append(value)
                 }
             }
 
@@ -196,7 +204,9 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
                 address.street = result.address?.street ?? ""
                 address.postalCode = result.address?.zip ?? ""
 
-                contact.postalAddresses.append(CNLabeledValue(label: "Address".localized, value: address))
+                let label = "Address".localized
+                let value = CNLabeledValue(label: contact.postalAddresses.count == 0 ? label : "\(label) (\(contact.postalAddresses.count+1))", value: address as CNPostalAddress)
+                contact.postalAddresses.append(value)
             }
 
             if contact.note.count > 0{
