@@ -65,7 +65,7 @@ extension PHAsset {
 
             PHImageManager.default().requestAVAsset(forVideo: self, options: videoRequestOptions, resultHandler: {(asset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
                 if let urlAsset = asset as? AVURLAsset {
-                    UIActivityViewController.presentAsDefault(activityItems: [urlAsset.url as URL], excludedActivityTypes:[UIActivityType.saveToCameraRoll])
+                    UIActivityViewController.share(activityItems: [urlAsset.url as URL], excludedActivityTypes:[UIActivityType.saveToCameraRoll])
                 }
             })
         } else if self.imageType == .livePhoto{
@@ -76,7 +76,7 @@ extension PHAsset {
 
             PHImageManager.default().requestLivePhoto(for: self, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: livePhotoRequestOptions, resultHandler: { (livePhoto, info) in
                 if let livePhoto = livePhoto{
-                    UIActivityViewController.presentAsDefault(activityItems: [livePhoto])
+                    UIActivityViewController.share(activityItems: [livePhoto])
                 }
             })
 
@@ -89,7 +89,7 @@ extension PHAsset {
 
             PHImageManager.default().requestImageData(for: self, options: defaultImageRequestOptions) { data, s, orientation, dictionary in
                 if let data = data{
-                    UIActivityViewController.presentAsDefault(activityItems: [data], excludedActivityTypes:[UIActivityType.saveToCameraRoll])
+                    UIActivityViewController.share(activityItems: [data], excludedActivityTypes:[UIActivityType.saveToCameraRoll])
                 }
             }
         }

@@ -225,14 +225,7 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
             }
         }
 
-        let isNameEmpty = contact.familyName.count == 0
-                && contact.givenName.count == 0
-                && contact.nickname.count == 0
-                && contact.middleName.count == 0
-
-        if isNameEmpty{
-            contact.givenName = "Extracted Contact \(UUID().uuidString.remove("-").prefix(6))"
-        }
+        contact.fillNameIfBlanked()
 
         return contact
     }

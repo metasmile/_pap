@@ -71,7 +71,7 @@ public class Textractor: NSObject, KeyPathWatchable, BApp
 
         asyncSignal.begin()
         DispatchQueue.main.async{
-            UIActivityViewController.presentAsDefault(activityItems: items, excludedActivityTypes: nil) { type, b, anies, error in
+            UIActivityViewController.share(activityItems: items, excludedActivityTypes: nil) { type, b, anies, error in
                 asyncSignal.end()
             }
         }

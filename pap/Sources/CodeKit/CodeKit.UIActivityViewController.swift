@@ -10,7 +10,7 @@ import Photos
 
 extension UIActivityViewController{
 
-    public static func presentAsDefault(activityItems:[Any], excludedActivityTypes: [UIActivityType]?=nil, completionHandler:UIKit.UIActivityViewControllerCompletionWithItemsHandler?=nil){
+    public static func share(activityItems:[Any], excludedActivityTypes: [UIActivityType]?=nil, completionHandler:UIKit.UIActivityViewControllerCompletionWithItemsHandler?=nil){
         let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
         activityViewController.completionWithItemsHandler = completionHandler
         activityViewController.popoverPresentationController?.sourceView = UIApplication.shared.keyWindow?.rootViewController?.view

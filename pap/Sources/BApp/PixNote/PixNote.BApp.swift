@@ -147,7 +147,7 @@ extension PixNote{
         if strings.count > 0 {
             asyncSignal.begin()
             DispatchQueue.main.async{
-                UIActivityViewController.presentAsDefault(activityItems: strings, excludedActivityTypes: nil) { _,_,_,_ in
+                UIActivityViewController.share(activityItems: strings, excludedActivityTypes: nil) { _, _, _, _ in
                     asyncSignal.end()
                 }
             }
@@ -280,6 +280,9 @@ extension PixNote{
                 continue
             }
 
+
+            let actionMessage = "Choose An Action.".localized
+
             // Phone Number
             for phoneNumberSetInBlock in resultGroup.phoneNumbers ?? []{
 
@@ -289,23 +292,40 @@ extension PixNote{
 
                     let action = UIAlertAction(title: phoneNumber, style: . default, handler: { action in
 
-                        DispatchQueue.main.async {
+                        //sub actions
+                        let _alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
-                            if let url = URL(string: "tel://\(phoneNumber)"), UIApplication.shared.canOpenURL(url) {
+                        let _actions = [
+                            UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
+                                UIPasteboard.general.string = phoneNumber
                                 asyncSignal.end()
-
-                                if #available(iOS 10, *) {
-                                    UIApplication.shared.open(url)
-                                } else {
-                                    UIApplication.shared.openURL(url)
-                                }
-                            }else{
-                                UIAlertController.alert("Sorry can't call to selected contact.".localized, completion:{ _ in
+                            }),
+                            UIAlertAction(title: "Share".localized, style: .default, handler: { action in
+                                UIActivityViewController.share(activityItems: [phoneNumber], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
                                     asyncSignal.end()
-                                })
-                            }
+                                }
+                            }),
+                            UIAlertAction(title: "Save A Contact".localized, style: .default, handler: { action in
+                                let contact = CNMutableContact()
+                                contact.fillNameIfBlanked()
+                                contact.phoneNumbers.append(CNLabeledValue(label: "Phone Number".localized, value: CNPhoneNumber(stringValue: phoneNumber)))
+
+                                CNContactViewController.presentCreationDialog(contact: contact, asyncSignal)
+                            }),
+                            UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
+                                asyncSignal.end()
+                            })
+                        ]
+                        for _action in _actions{
+                            _alert.addAction(_action)
                         }
+
+                        DispatchQueue.main.async{
+                            UIApplication.shared.keyWindow?.rootViewController?.present(_alert, animated: true)
+                        }
+
                     })
+
                     action.accessoryImage = R.image.exifGhostBAppIcon()
 
                     alert.addAction(action)
