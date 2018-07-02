@@ -380,6 +380,8 @@ private struct PixNoteDetector{
 
         let preset = PixNote.privateDefaults.selectionPreset
         var result = PixNoteResult(asset: asset)
+        var defaults = PixNote.privateDefaults
+        let selectedParserTypes = Set((defaults.selectedParserCollection.values).reduce([],+))
 
         // SelectionPreset.plaintext
         if preset == SelectionPreset.plaintext.rawValue{
@@ -388,7 +390,32 @@ private struct PixNoteDetector{
 
         // SelectionPreset.contact,  SelectionPreset.action
         else if preset == SelectionPreset.contact.rawValue {
-            let parser = VisionTextContactParser()
+            var parser = VisionTextContactParser()
+            var parserTypes:NSTextCheckingResult.CheckingType = []
+
+            parser.parseLinkAsEmailAddress = selectedParserTypes.contains(ParserItem.Key.EmailAddress)
+
+            if selectedParserTypes.contains(ParserItem.Key.PhoneNumber){
+                parserTypes.insert(.phoneNumber)
+            }
+
+            if selectedParserTypes.contains(ParserItem.Key.URL){
+                parserTypes.insert(.link)
+            }
+
+            if selectedParserTypes.contains(ParserItem.Key.Address){
+                parserTypes.insert(.address)
+            }
+
+            if selectedParserTypes.contains(ParserItem.Key.Date){
+                parserTypes.insert(.date)
+            }
+
+            if selectedParserTypes.contains(ParserItem.Key.FlightInformation){
+                parserTypes.insert(.transitInformation)
+            }
+
+            parser.types = parserTypes
 
             var stackedParsedContacts = [CNMutableContact]()
 
@@ -415,30 +442,30 @@ private struct PixNoteDetector{
 
         else if preset == SelectionPreset.action.rawValue{
 
-            var result = PixNoteResult(asset: asset)
-            var defaults = PixNote.privateDefaults
-            let items = Set((defaults.selectedParserCollection.values).reduce([],+))
-
             var resultGroup = VisionTextResultGroup()
 
-            if items.contains(ParserItem.Key.EmailAddress){
+            if selectedParserTypes.contains(ParserItem.Key.EmailAddress){
                 resultGroup.emails = visionTexts.parse(type: VisionTextEmailAddressParser.self, async)
             }
 
-            if items.contains(ParserItem.Key.PhoneNumber){
+            if selectedParserTypes.contains(ParserItem.Key.PhoneNumber){
                 resultGroup.phoneNumbers = visionTexts.parse(type: VisionTextPhoneNumberParser.self, async)
             }
 
-            if items.contains(ParserItem.Key.URL){
+            if selectedParserTypes.contains(ParserItem.Key.URL){
                 resultGroup.urls = visionTexts.parse(type: VisionTextURLParser.self, async)
             }
 
-            if items.contains(ParserItem.Key.Address){
+            if selectedParserTypes.contains(ParserItem.Key.Address){
                 resultGroup.addresses = visionTexts.parse(type: VisionTextAddressParser.self, async)
             }
 
-            if items.contains(ParserItem.Key.FlightInformation){
+            if selectedParserTypes.contains(ParserItem.Key.FlightInformation){
                 resultGroup.flights = visionTexts.parse(type: VisionTextFlightInformationParser.self, async)
+            }
+
+            if selectedParserTypes.contains(ParserItem.Key.Date){
+                resultGroup.dates = visionTexts.parse(type: VisionTextDateParser.self, async)
             }
 
             result.resultGroup = resultGroup
@@ -751,7 +778,7 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
     private func createCellDescriber_saveContactWithoutEdit() -> UITableViewSwitchCellDescriber{
         let celld = UITableViewSwitchCellDescriber()
         celld.itemIdentifier = PixNoteSettingCells.saveContactWithoutEdit.hashValue
-        celld.label = "Save Found Contacts Without Edit".localized
+        celld.label = "Save Found Contacts Directly".localized
         celld.valueGetter = { PixNote.privateDefaults.saveContactWithoutEdit }
         celld.valueHandler = {
             var defaults = PixNote.privateDefaults

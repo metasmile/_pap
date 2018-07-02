@@ -142,6 +142,8 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
 
     public var types:NSTextCheckingResult.CheckingType?
 
+    public var parseLinkAsEmailAddress = true
+
     func parse(input: FirebaseMLVision.VisionText, mergingOutput: CNMutableContact) -> CNMutableContact? {
         let stringParser = VisionTextStringParser()
         guard let rawText = stringParser.parse(input: input) else{
