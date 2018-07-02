@@ -91,13 +91,6 @@ public class Clean: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp, App
 }
 
 private struct CleanAppDetector {
-    struct SimilarAsset {
-        var asset: PHAsset
-        var distance: OSHashDistanceType
-    }
-    fileprivate var similarAssets = [PHAsset: [SimilarAsset]]()
-    fileprivate let imageHashing = OSImageHashing.sharedInstance()
-    
     fileprivate mutating func detectResult(asset:PHAsset, _ async: AsyncManualSignalable) -> CleanAppResult? {
         var result = CleanAppResult(asset: asset)
         
@@ -193,41 +186,33 @@ private struct CleanAppDetector {
         return numberOfWhitePixels < threshold
     }
     
+    fileprivate var targetAssets = [PHAsset]()
+    fileprivate let imageHashing = OSImageHashing.sharedInstance()
+    
     private mutating func detectSimilarAsset(_ asset: PHAsset) -> Bool {
         // https://github.com/ameingast/cocoaimagehashing/
         
         let timeClustering: TimeInterval = 60 // 1 minute
         
         var hasSimilar = false
-        for fromAsset in similarAssets.keys {
-            guard let fromDate = fromAsset.creationDate, let toDate = asset.creationDate, fromDate.timeIntervalSince(toDate).magnitude < timeClustering else {
+        for targetAsset in targetAssets {
+            guard let fromDate = targetAsset.creationDate, let toDate = asset.creationDate, fromDate.timeIntervalSince(toDate).magnitude < timeClustering else {
                 continue
             }
             
-            var hashDistance: OSHashDistanceType = 0
-            if let similarAsset = similarAssets[fromAsset]?.filter({ $0.asset == asset }).first {
-                hashDistance = similarAsset.distance
-            }
-            else if let fromData = fromAsset.requestThumbnailImage(targetSize: CGSize(width: 100, height: 100))?.asData, let toData = asset.requestThumbnailImage(targetSize: CGSize(width: 100, height: 100))?.asData {
-                let fromHash = imageHashing.hashImageData(fromData)
-                let toHash = imageHashing.hashImageData(toData)
-                let distance = imageHashing.hashDistance(fromHash, to: toHash)
-                
-                let similarAsset = SimilarAsset(asset: asset, distance: distance)
-                similarAssets[fromAsset]?.append(similarAsset)
-                
-                hashDistance = distance
-            }
+            guard let fromData = targetAsset.requestThumbnailImage(targetSize: CGSize(width: 100, height: 100))?.asData, let toData = asset.requestThumbnailImage(targetSize: CGSize(width: 100, height: 100))?.asData else { continue }
             
-            if hashDistance < imageHashing.hashDistanceSimilarityThreshold(withProvider: .dHash) {
+            let fromHash = imageHashing.hashImageData(fromData)
+            let toHash = imageHashing.hashImageData(toData)
+            let distance = imageHashing.hashDistance(fromHash, to: toHash)
+            
+            if distance < imageHashing.hashDistanceSimilarityThreshold(withProvider: .dHash) {
                 hasSimilar = true
                 break
             }
         }
         
-        if similarAssets[asset] == nil {
-            similarAssets[asset] = []
-        }
+        targetAssets.append(asset)
         
         return hasSimilar
     }
