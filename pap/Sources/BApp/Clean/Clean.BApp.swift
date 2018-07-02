@@ -92,10 +92,10 @@ public class Clean: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp, App
 
 private struct CleanAppDetector {
     struct SimilarAsset {
-        var id: PHAssetID
+        var asset: PHAsset
         var distance: OSHashDistanceType
     }
-    fileprivate var similarAssets = [PHAssetID: [SimilarAsset]]()
+    fileprivate var similarAssets = [PHAsset: [SimilarAsset]]()
     fileprivate let imageHashing = OSImageHashing.sharedInstance()
     
     fileprivate mutating func detectResult(asset:PHAsset, _ async: AsyncManualSignalable) -> CleanAppResult? {
@@ -109,7 +109,7 @@ private struct CleanAppDetector {
             result.isTooBlurry = detectBlurryImage(asset)
             guard result.isTooBlurry != true else { return }
             
-            result.hasSimilarAsset = detectSimilarAsset(asset.localIdentifierWithoutSplitter)
+            result.hasSimilarAsset = detectSimilarAsset(asset)
             guard result.hasSimilarAsset != true else { return }
         }
         
@@ -190,35 +190,31 @@ private struct CleanAppDetector {
         let threshold: Float = 0.00000000000000000000000000000000000000000031 //TODO: this is a manual threshold
         let numberOfWhitePixels = histogramContents[numberOfHistogramEntries - 1]
         
-        //TODO: detect face area only on portrait
-        
         return numberOfWhitePixels < threshold
     }
     
-    private mutating func detectSimilarAsset(_ assetID: PHAssetID) -> Bool {
+    private mutating func detectSimilarAsset(_ asset: PHAsset) -> Bool {
         // https://github.com/ameingast/cocoaimagehashing/
         
         let timeClustering: TimeInterval = 60 // 1 minute
         
         var hasSimilar = false
-        for fromAssetID in similarAssets.keys {
-            guard let fromAsset = PHAsset.fetchAsset(withLocalIdentifier: fromAssetID), let toAsset = PHAsset.fetchAsset(withLocalIdentifier: assetID) else { continue }
-            
-            guard let fromDate = fromAsset.creationDate, let toDate = toAsset.creationDate, fromDate.timeIntervalSince(toDate).magnitude < timeClustering else {
+        for fromAsset in similarAssets.keys {
+            guard let fromDate = fromAsset.creationDate, let toDate = asset.creationDate, fromDate.timeIntervalSince(toDate).magnitude < timeClustering else {
                 continue
             }
             
             var hashDistance: OSHashDistanceType = 0
-            if let similarAsset = similarAssets[fromAssetID]?.filter({ $0.id == assetID }).first {
+            if let similarAsset = similarAssets[fromAsset]?.filter({ $0.asset == asset }).first {
                 hashDistance = similarAsset.distance
             }
-            else if let fromData = fromAsset.requestThumbnailImage(targetSize: CGSize(width: 100, height: 100))?.asData, let toData = toAsset.requestThumbnailImage(targetSize: CGSize(width: 100, height: 100))?.asData {
+            else if let fromData = fromAsset.requestThumbnailImage(targetSize: CGSize(width: 100, height: 100))?.asData, let toData = asset.requestThumbnailImage(targetSize: CGSize(width: 100, height: 100))?.asData {
                 let fromHash = imageHashing.hashImageData(fromData)
                 let toHash = imageHashing.hashImageData(toData)
                 let distance = imageHashing.hashDistance(fromHash, to: toHash)
                 
-                let similarAsset = SimilarAsset(id: assetID, distance: distance)
-                similarAssets[fromAssetID]?.append(similarAsset)
+                let similarAsset = SimilarAsset(asset: asset, distance: distance)
+                similarAssets[fromAsset]?.append(similarAsset)
                 
                 hashDistance = distance
             }
@@ -229,8 +225,8 @@ private struct CleanAppDetector {
             }
         }
         
-        if similarAssets[assetID] == nil {
-            similarAssets[assetID] = []
+        if similarAssets[asset] == nil {
+            similarAssets[asset] = []
         }
         
         return hasSimilar
