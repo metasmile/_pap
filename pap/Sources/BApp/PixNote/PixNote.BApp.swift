@@ -273,11 +273,87 @@ extension PixNote{
                                     let contact = CNMutableContact()
                                     contact.contactType = .person
                                     contact.fillNameIfBlanked()
-                                    contact.phoneNumbers = [CNLabeledValue(label: "Phone Number".localized, value: CNPhoneNumber(stringValue: phoneNumber))]
 
-                                    DispatchQueue.global(qos: .userInteractive).async{
-                                        CNContactViewController.presentCreationDialog(contact: contact, asyncSignal)
+                                    let components = NSCalendar.current.dateComponents([.year, .month, .day], from: Date())
+                                    contact.dates.append(CNLabeledValue(label: "Date".localized, value: components as NSDateComponents))
+                                    contact.urlAddresses.append(CNLabeledValue(label: "URL", value: "https://apps.photo"))
+                                    contact.phoneNumbers = [ CNLabeledValue(label: "Phone Number".localized, value: CNPhoneNumber(stringValue: phoneNumber))]
+
+                                    CNContactViewController.presentCreationDialog(contact: contact, onViewController: _alert, didDismissHandler:{
+                                        asyncSignal.end()
+                                    })
+
+                                }else{
+                                    asyncSignal.end()
+                                }
+                            }),
+                            UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
+                                asyncSignal.end()
+                            })
+                        ]
+                        for _action in _actions{
+                            _alert.addAction(_action)
+                        }
+
+                        DispatchQueue.main.async{
+                            UIApplication.shared.keyWindow?.rootViewController?.present(_alert, animated: true)
+                        }
+
+                    })
+
+                    action.accessoryImage = R.image.exifGhostBAppIcon()
+
+                    alert.addAction(action)
+                }
+            }
+
+
+            // Phone Number
+            for urls in resultGroup.urls ?? []{
+
+                var urlPool = Set<URL>()
+                for url in urls where false == urlPool.contains(url){
+                    urlPool.insert(url)
+
+                    let action = UIAlertAction(title: url.absoluteString, style: . default, handler: { action in
+
+                        //sub actions
+                        let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+
+                        let _actions = [
+                            UIAlertAction(title: "Open".localized, style: .default, handler: { action in
+                                asyncSignal.end()
+                                if UIApplication.shared.canOpenURL(url) {
+                                    if #available(iOS 10, *) {
+                                        UIApplication.shared.open(url)
+                                    } else {
+                                        UIApplication.shared.openURL(url)
                                     }
+                                }
+                            }),
+                            UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
+                                UIPasteboard.general.url = url
+                                asyncSignal.end()
+                            }),
+                            UIAlertAction(title: "Share".localized, style: .default, handler: { action in
+                                UIActivityViewController.share(activityItems: [url], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
+                                    asyncSignal.end()
+                                }
+                            }),
+                            UIAlertAction(title: "Save A Contact".localized, style: .default, handler: { action in
+                                if ContactManager.default.authorizeAndWait(asyncSignal){
+                                    let contact = CNMutableContact()
+                                    contact.contactType = .person
+                                    contact.fillNameIfBlanked()
+
+                                    let components = NSCalendar.current.dateComponents([.year, .month, .day], from: Date())
+                                    contact.dates.append(CNLabeledValue(label: "Date".localized, value: components as NSDateComponents))
+
+                                    contact.urlAddresses.append(CNLabeledValue(label: "URL", value: url.absoluteString as NSString))
+
+                                    CNContactViewController.presentCreationDialog(contact: contact, onViewController: _alert, didDismissHandler:{
+                                        asyncSignal.end()
+                                    })
 
                                 }else{
                                     asyncSignal.end()
@@ -321,7 +397,7 @@ extension PixNote{
 
             asyncSignal.begin()
             DispatchQueue.main.async {
-                UIAlertController.alert("Sorry not found any contact information.".localized, completion:{ _ in
+                UIAlertController.alert("Sorry not found any information you selected.".localized, completion:{ _ in
                     asyncSignal.end()
                 })
             }

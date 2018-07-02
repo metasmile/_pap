@@ -168,7 +168,7 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
 
             asyncSignal.begin()
             DispatchQueue.main.async {
-                UIAlertController.alert("Sorry not found any contact information.".localized, completion:{ _ in
+                UIAlertController.alert("Sorry not found any information you selected.".localized, completion:{ _ in
                     asyncSignal.end()
                 })
             }
