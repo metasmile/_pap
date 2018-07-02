@@ -24,15 +24,6 @@ private struct PixNoteResult: TaskResultable{
     fileprivate var contacts:[VisionTextContactParser.OutputType]?
 
     fileprivate var resultGroup: VisionTextResultGroup?
-
-//    //INFO: Array means "Blocks"
-//    fileprivate var phoneNumbers:[VisionTextPhoneNumberParser.OutputType]?
-//    fileprivate var emails:[VisionTextEmailAddressParser.OutputType]?
-//    fileprivate var addresses:[VisionTextAddressParser.OutputType]?
-//
-//    fileprivate var dates:[VisionTextDateParser.OutputType]?
-//    fileprivate var urls:[VisionTextURLParser.OutputType]?
-//    fileprivate var flights:[VisionTextFlightInformationParser.OutputType]?
 }
 
 public class PixNote: NSObject, KeyPathWatchable, BApp
@@ -737,7 +728,9 @@ private struct ParserDictionary {
 class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
     fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
 
-    private var parserCollection:[ParserDictionary] = [
+    private var parserCollection = PixNoteAppDockContent.defaultParserCollection
+
+    fileprivate static let defaultParserCollection:[ParserDictionary] = [
 
         ParserDictionary(key: ParserDictionary.Key.Information, label: "Information".localized,
                 items: [
@@ -818,6 +811,18 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
             var defaults = PixNote.privateDefaults
             defaults.selectionPreset = preset
 
+            //plaintext
+            if preset == SelectionPreset.plaintext.rawValue{
+                if self.parserCollection.count > 0{
+                    self.parserCollection = [ParserDictionary]()
+                    (view as? UITableView)?.reloadData()
+                }
+            }else{
+                if self.parserCollection.count==0{
+                    self.parserCollection = type(of: self).defaultParserCollection
+                    (view as? UITableView)?.reloadData()
+                }
+            }
 
             //saveContactWithoutEdit
             let index = self.settingCellDescribers.index(where:{ describable in
