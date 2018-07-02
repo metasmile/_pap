@@ -640,3 +640,49 @@ public struct ContactManager{
 
 #endif
 }
+
+
+extension ContactManager{
+    public func authorizeAndWait(_ asyncSignal:AsyncManualSignalable) -> Bool{
+        var canSaveContract = false
+
+        asyncSignal.begin()
+        ContactManager.default.authorizationStatus { status in
+            /*
+            /*! The user has not yet made a choice regarding whether the application may access contact data. */
+            case notDetermined
+
+            /*! The application is not authorized` to access contact data.
+             *  The user cannot change this application’s status, possibly due to active restrictions such as parental controls being in place. */
+            case restricted
+
+            /*! The user explicitly denied access to contact data for the application. */
+            case denied
+
+            /*! The application is authorized to access contact data. */
+            case authorized
+            */
+
+            if status == CNAuthorizationStatus.notDetermined{
+                ContactManager.default.requestAccess { granted in
+                    canSaveContract = granted
+                    asyncSignal.end()
+                }
+            }
+            else if status == CNAuthorizationStatus.authorized{
+                canSaveContract = true
+                asyncSignal.end()
+
+            }else{
+                DispatchQueue.main.async{
+                    UIAlertController.alert("It requires a permission to access your contacts. Please allow Contacts on iOS Settings.".localized, completion: { action in
+                        asyncSignal.end()
+                    })
+                }
+            }
+
+        }
+        asyncSignal.waitUntilEnd()
+        return canSaveContract
+    }
+}

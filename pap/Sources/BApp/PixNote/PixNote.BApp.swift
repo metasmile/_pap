@@ -164,44 +164,7 @@ extension PixNote{
             return
         }
 
-        asyncSignal.begin()
-        ContactManager.default.authorizationStatus { status in
-            /*
-            /*! The user has not yet made a choice regarding whether the application may access contact data. */
-            case notDetermined
-
-            /*! The application is not authorized` to access contact data.
-             *  The user cannot change this application’s status, possibly due to active restrictions such as parental controls being in place. */
-            case restricted
-
-            /*! The user explicitly denied access to contact data for the application. */
-            case denied
-
-            /*! The application is authorized to access contact data. */
-            case authorized
-            */
-
-            if status == CNAuthorizationStatus.notDetermined{
-                ContactManager.default.requestAccess { granted in
-                    canSaveContract = granted
-                    asyncSignal.end()
-                }
-            }
-            else if status == CNAuthorizationStatus.authorized{
-                canSaveContract = true
-                asyncSignal.end()
-
-            }else{
-                DispatchQueue.main.async{
-                    UIAlertController.alert("It requires a permission to access your contacts. Please allow Contacts on iOS Settings.".localized, completion: { action in
-                        asyncSignal.end()
-                    })
-                }
-            }
-
-        }
-        asyncSignal.waitUntilEnd()
-
+        canSaveContract = ContactManager.default.authorizeAndWait(asyncSignal)
 
         let errorMessage:String = "Sorry, it is not possible to save the contract.".localized
 
@@ -281,7 +244,7 @@ extension PixNote{
             }
 
 
-            let actionMessage = "Choose An Action.".localized
+            let actionMessage = "Choose An Sub Action.".localized
 
             // Phone Number
             for phoneNumberSetInBlock in resultGroup.phoneNumbers ?? []{
@@ -293,7 +256,7 @@ extension PixNote{
                     let action = UIAlertAction(title: phoneNumber, style: . default, handler: { action in
 
                         //sub actions
-                        let _alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                        let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
 
                         let _actions = [
                             UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
@@ -306,11 +269,19 @@ extension PixNote{
                                 }
                             }),
                             UIAlertAction(title: "Save A Contact".localized, style: .default, handler: { action in
-                                let contact = CNMutableContact()
-                                contact.fillNameIfBlanked()
-                                contact.phoneNumbers.append(CNLabeledValue(label: "Phone Number".localized, value: CNPhoneNumber(stringValue: phoneNumber)))
+                                if ContactManager.default.authorizeAndWait(asyncSignal){
+                                    let contact = CNMutableContact()
+                                    contact.contactType = .person
+                                    contact.fillNameIfBlanked()
+                                    contact.phoneNumbers = [CNLabeledValue(label: "Phone Number".localized, value: CNPhoneNumber(stringValue: phoneNumber))]
 
-                                CNContactViewController.presentCreationDialog(contact: contact, asyncSignal)
+                                    DispatchQueue.global(qos: .userInteractive).async{
+                                        CNContactViewController.presentCreationDialog(contact: contact, asyncSignal)
+                                    }
+
+                                }else{
+                                    asyncSignal.end()
+                                }
                             }),
                             UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
                                 asyncSignal.end()
@@ -818,12 +789,12 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
 
         let cell0 = UITableViewSegmentControlCellDescriber()
         cell0.itemIdentifier = PixNoteSettingCells.presets.hashValue
-        cell0.label = "Grab As".localized
+        cell0.label = "Extract As".localized
         cell0.valueGetter = { PixNote.privateDefaults.selectionPreset }
         cell0.valueCollection = [
-            (label:"Plain Text",value: SelectionPreset.plaintext.rawValue),
-            (label:"Contact",value: SelectionPreset.contact.rawValue),
-            (label:"Action",value: SelectionPreset.action.rawValue)
+            (label:"Plain Text".localized,value: SelectionPreset.plaintext.rawValue),
+            (label:"Contacts".localized,value: SelectionPreset.contact.rawValue),
+            (label:"Actions".localized,value: SelectionPreset.action.rawValue)
         ]
         cell0.valueHandler = {
             let preset = $0 as! Int
