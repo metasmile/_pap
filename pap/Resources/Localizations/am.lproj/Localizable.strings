@@ -140,7 +140,7 @@
 "Burst" = "ቡር";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "ማድህር አልተቻለም. ሁሉም የተመረጡ ንጥሎች አርትዖት አልደረጉም.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "ለመደወል የስልክ ቁጥር ይምረጡ";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "ለ %d ንጥሎች የማስጭ አማራጭን ይምረጡ";
@@ -166,15 +166,15 @@
 "Downloading..." = "በማውረድ ላይ ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "የ ኢሜል አድራሻ";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "ራስ-ሰር ምርጫን ያንቁ";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "ወደ ውጪ መላኪያ አማራጮች";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "ወደውጪ ላክ";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "አግኝ";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "እውቂያዎችን በማግኘት ላይ ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "አስተላልፍ";
@@ -246,9 +246,9 @@
 "Share" = "አጋራ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "መጠን";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "ይቅርታ ለተመረጠው ዕውቂያ መደወል አይቻልም.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "ይቅርታ ማንኛውም የእውቂያ መረጃ አላገኘም.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "ካሬ";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "የተመረጡ ንጥሎችን በማረጋጋት ላይ ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "ይጀምሩ";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "ለማግኘት መጀመር ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "ሂደቱን በመጀመር ላይ ...";
@@ -272,7 +272,7 @@
 "Translation" = "ትርጉም";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "ቪድዮ";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "ለመምረጥ በመጠበቅ ላይ ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "ጦርነት";

@@ -37,11 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.spotlightSearchAppDelegate.indexDefaultSearchableItems()
             self.spotlightSearchAppDelegate.application(application, didFinishLaunchingWithOptions: launchOptions)
         }
-
-
-        if let url = launchOptions?[UIApplicationLaunchOptionsKey.url] as? URL { //Deeplink
-            // process url here
-        }
         return true
     }
 

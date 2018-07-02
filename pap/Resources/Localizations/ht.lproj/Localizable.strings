@@ -140,7 +140,7 @@
 "Burst" = "Pete";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Pa ka retounen. Tout bagay ki chwazi yo pa te modifye.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Chwazi yon Nimewo Telefòn Pou Rele";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Chwazi yon opsyon ekspòtasyon pou %d atik yo";
@@ -166,15 +166,15 @@
 "Downloading..." = "Rale dosye ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "Adrès imèl";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Pèmèt Seleksyon Auto";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Opsyon Export";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Export";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "Jwenn";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Jwenn kontak ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Forward";
@@ -246,9 +246,9 @@
 "Share" = "Pataje";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Gwosè";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Padon pa ka rele nan kontak chwazi.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Padon pa jwenn okenn enfòmasyon kontak.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Kare";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Estabilize Atik chwazi ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Kòmanse";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "Kòmanse jwenn ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Kòmanse pwosesis la ...";
@@ -272,7 +272,7 @@
 "Translation" = "Tradiksyon";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Videyo";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Ap tann Pou Chwazi ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Chape";

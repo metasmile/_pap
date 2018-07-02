@@ -140,7 +140,7 @@
 "Burst" = "בורסט";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "קענען נישט צוריקקומען. אַלע אויסגעקליבן זאכן האָבן נישט עדיטיד.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "קלייַבן אַ פאָון נומער צו רופן";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "קלייַבן אַן עקספּאָרט אָפּציע פֿאַר %d זאכן";
@@ -166,15 +166,15 @@
 "Downloading..." = "Downloading ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "אימעיל אדרעס";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "געבן אַוטאָ סעלעקציע";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "אַרויספירן אָפּציעס";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "עקספּאָרט";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "געפֿינען";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Finding Contacts ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "פֿאָרווערטס";
@@ -246,9 +246,9 @@
 "Share" = "ייַנטיילן";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Size";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "אנטשולדיגט, קען נישט רופן צו אויסגעקליבן קאָנטאַקט";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "אנטשולדיגט נישט געפונען קיין קאָנטאַקט אינפֿאָרמאַציע.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "קוואדראט";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "סטאַביליזינג סעלעקטעד ייטאַמז ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "אָנהייב";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "סטאַרטינג צו געפֿינען ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "סטאַרטינג די פּראָסעס ...";
@@ -272,7 +272,7 @@
 "Translation" = "איבערזעצונג";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "ווידעא";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "ווארטן צו אויסקלייַבן ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

@@ -140,7 +140,7 @@
 "Burst" = "バースト";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "元に戻すことはできません。選択したすべてのアイテムは編集されていません。";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "電話する電話番号を選択";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "%dアイテムのエクスポートオプションを選択する";
@@ -166,15 +166,15 @@
 "Downloading..." = "ダウンロード中...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "電子メールアドレス";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "自動選択を有効にする";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "エクスポートオプション";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "輸出する";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "検索";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "連絡先の検索... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "フォワード";
@@ -246,9 +246,9 @@
 "Share" = "シェア";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "サイズ";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "申し訳ありません選択した連絡先に電話できません。";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "申し訳ありません連絡先情報が見つかりませんでした。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "平方";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "選択項目の安定化...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "開始";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "検索開始...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "プロセスの開始...";
@@ -272,7 +272,7 @@
 "Translation" = "翻訳";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "ビデオ";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "選択するのを待っています...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "ワープ";

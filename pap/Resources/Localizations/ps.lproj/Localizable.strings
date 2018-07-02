@@ -140,7 +140,7 @@
 "Burst" = "انځور";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "بیرته نشي راوستلی. ټول ټاکل شوي توکي په سمون کې نه دي راغلي.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "د تلیفون لپاره د A تلیفون شمیره غوره کړئ";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "د صادراتو اختیار غوره کړئ %d توکي";
@@ -166,15 +166,15 @@
 "Downloading..." = "کښته کول ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "بریښنالیک";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "د اتوم غوره کولو فعالول";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "د صادرولو اختیارونه";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "صادرات";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "ومومئ";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "د اړیکو موندلو ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "مخکښ";
@@ -246,9 +246,9 @@
 "Share" = "شریک کړئ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "اندازه";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "بخښنه نشی کولی ټاکل شوی اړیکې ته بلنه ورکړئ.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "بخښنه هیڅکله د اړیکو معلومات ونه موندل.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "مربع";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "غوره شوي توکي غوره کول ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "پیل";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "د موندلو پیل ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "د پروسې پیل کول ...";
@@ -272,7 +272,7 @@
 "Translation" = "ژباړه";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "ویډیو";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "غوره کولو لپاره انتظار ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "وارپ";

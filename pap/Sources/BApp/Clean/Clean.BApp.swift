@@ -95,7 +95,7 @@ private struct CleanAppDetector {
         var distance: OSHashDistanceType
     }
     fileprivate var similarAssets = [PHAssetID: [SimilarAsset]]()
-    fileprivate let imageHashing = OSImageHashing<AnyObject>.sharedInstance()
+    fileprivate let imageHashing = OSImageHashing.sharedInstance()
     
     fileprivate mutating func detectResult(asset:PHAsset, _ async: AsyncManualSignalable) -> CleanAppResult? {
         var result = CleanAppResult(asset: asset)

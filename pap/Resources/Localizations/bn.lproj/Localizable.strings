@@ -140,7 +140,7 @@
 "Burst" = "Burst";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "ফিরিয়ে আনা যাবে না সমস্ত নির্বাচিত আইটেম সম্পাদনা করা হয়নি।";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "কল করার জন্য একটি ফোন নম্বর চয়ন করুন";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "%d আইটেমগুলির জন্য একটি বিকল্প নির্বাচন করুন চয়ন করুন";
@@ -166,15 +166,15 @@
 "Downloading..." = "ডাউনলোড করা হচ্ছে ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "ই-মেইল ঠিকানা";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "স্বয়ংক্রিয় নির্বাচন সক্ষম করুন";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "বিকল্পগুলি রপ্তানি করুন";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "রপ্তানি";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "আবিষ্কার";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "পরিচিতিগুলি খোঁজা হচ্ছে ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "অগ্রবর্তী";
@@ -246,9 +246,9 @@
 "Share" = "ভাগ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "আয়তন";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "দুঃখিত নির্বাচিত পরিচিতিতে কল করতে পারবেন না";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "দুঃখিত কোনো যোগাযোগের তথ্য পাওয়া যায়নি।";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "বর্গক্ষেত্র";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "নির্বাচিত আইটেম স্থির করা ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "শুরু";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "খুঁজে পেতে শুরু হচ্ছে ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "প্রক্রিয়া শুরু হচ্ছে ...";
@@ -272,7 +272,7 @@
 "Translation" = "অনুবাদ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "ভিডিও";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "নির্বাচন করার জন্য অপেক্ষা করা হচ্ছে ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "টানা";

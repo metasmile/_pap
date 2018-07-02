@@ -140,7 +140,7 @@
 "Burst" = "Жарылыс";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Қайтару мүмкін емес. Барлық таңдалған элементтер өңделмеген.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Қоңырау шалу үшін телефон нөмірін таңдаңыз";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "%d Элементтер үшін экспорттау параметрін таңдаңыз";
@@ -166,15 +166,15 @@
 "Downloading..." = "Жүктелуде ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "Электрондық пошта";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Авто таңдауды қосу";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Экспорт параметрлері";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Экспорт";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "Табу";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Контактілерді табу ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Алға";
@@ -246,9 +246,9 @@
 "Share" = "Бөлісу";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Өлшемі";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Кешіріңіз, таңдалған контактіге қоңырау шалу мүмкін емес.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Байланыс ақпараты жоқ.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Алаңы";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Таңдалған элементтерді тұрақтандыру ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Бастау";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "Іздеуге кірісу ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Процесті бастау ...";
@@ -272,7 +272,7 @@
 "Translation" = "Аударма";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Бейне";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Таңдауды күтуде ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

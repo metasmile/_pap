@@ -140,7 +140,7 @@
 "Burst" = "Burst";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Nelze vrátit zpět. Všechny vybrané položky nebyly upraveny.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Zvolte telefonní číslo, které chcete zavolat";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Zvolte možnost exportu pro %d Položky";
@@ -166,15 +166,15 @@
 "Downloading..." = "Stahování ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "Emailová adresa";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Povolit automatický výběr";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Možnosti exportu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Vývozní";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "Nalézt";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Hledání kontaktů ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Vpřed";
@@ -246,9 +246,9 @@
 "Share" = "Podíl";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Velikost";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Omlouváme se, nemůžete kontaktovat vybraný kontakt.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Je nám líto, ale nenašli žádné kontaktní údaje.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Náměstí";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Stabilizace vybraných položek ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Start";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "Začínáme najít ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Spuštění procesu ...";
@@ -272,7 +272,7 @@
 "Translation" = "Překlad";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Čekání na výběr ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

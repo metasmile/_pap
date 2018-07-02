@@ -7,6 +7,8 @@ import Foundation
 import Photos
 import FirebaseMLVision
 import DefaultsKit
+import Contacts
+
 
 private typealias PixNoteParam = PHAssetItem<ImageEditStateValue>
 private struct PixNoteResult: TaskResultable{
@@ -16,14 +18,20 @@ private struct PixNoteResult: TaskResultable{
         self.asset = asset
     }
 
-    //INFO: Array means "Blocks"
-    fileprivate var phoneNumbers:[VisionTextPhoneNumberParser.OutputType]?
-    fileprivate var emails:[VisionTextEmailAddressParser.OutputType]?
-    fileprivate var addresses:[VisionTextAddressParser.OutputType]?
+    fileprivate var plainText:String?
 
-    fileprivate var dates:[VisionTextDateParser.OutputType]?
-    fileprivate var urls:[VisionTextURLParser.OutputType]?
-    fileprivate var flights:[VisionTextFlightInformationParser.OutputType]?
+    fileprivate var contacts:[VisionTextContactParser.OutputType]?
+
+    fileprivate var resultGroup: VisionTextResultGroup?
+
+//    //INFO: Array means "Blocks"
+//    fileprivate var phoneNumbers:[VisionTextPhoneNumberParser.OutputType]?
+//    fileprivate var emails:[VisionTextEmailAddressParser.OutputType]?
+//    fileprivate var addresses:[VisionTextAddressParser.OutputType]?
+//
+//    fileprivate var dates:[VisionTextDateParser.OutputType]?
+//    fileprivate var urls:[VisionTextURLParser.OutputType]?
+//    fileprivate var flights:[VisionTextFlightInformationParser.OutputType]?
 }
 
 public class PixNote: NSObject, KeyPathWatchable, BApp
@@ -39,7 +47,7 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
 
     public private(set) lazy var dockContent: AppDockContent? = PixNoteAppDockContent()
 
-    private let appDefaults = PixNote.defaults as! PixNoteAppDefaults
+    fileprivate static let privateDefaults = PixNote.defaults as! PixNoteAppDefaults
 
     @objc dynamic
     public lazy var autoSelect: Bool = false
@@ -83,46 +91,165 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
             return nil
         }
 
-        var preheatedResult:PixNoteResult? = preheatedResults[item.asset.localIdentifierWithoutSplitter]
-        if preheatedResult == nil, let image = item.asset.asUIImage{
-            preheatedResult = self.detector.detectResult(asset: item.asset, image: image, async) ?? PixNoteResult(asset: item.asset)
-            preheatedResults[item.asset.localIdentifierWithoutSplitter] = preheatedResult
+        var preheatedResult:PixNoteResult?
+
+        if let result = preheatedResults[item.asset.localIdentifierWithoutSplitter]{
+            preheatedResult = result
+        }else{
+            if let image = item.asset.asUIImage{
+                preheatedResult = self.detector.detectResult(asset: item.asset, image: image, async) ?? PixNoteResult(asset: item.asset)
+                preheatedResults[item.asset.localIdentifierWithoutSplitter] = preheatedResult
+            }
         }
 
-        if preheatedResult?.phoneNumbers?.count ?? 0 > 0{
-            return UICollectionViewPreheatableAppFinishAction.selectItem
-        }
-
-        return nil
+        return PixNoteDetector.isResultFilled(result: preheatedResult)
+                ? UICollectionViewPreheatableAppFinishAction.selectItem
+                : nil
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
-
         let items = result
-                .filter { respondable in respondable.info.state == .completed }
-                .compactMap {
-                    $0.result as? PixNoteResult
+                .filter { $0.info.state == .completed }
+                .compactMap { $0.result as? PixNoteResult }
+
+        switch (PixNote.privateDefaults.selectionPreset){
+            case SelectionPreset.plaintext.rawValue:
+                self.finalize_plaintext(items: items, asyncSignal)
+            case SelectionPreset.contact.rawValue:
+                self.finalize_contact(items: items, asyncSignal)
+            case SelectionPreset.action.rawValue:
+                self.finalize_action(items: items, asyncSignal)
+            default:
+                assert(false, "not supported preset \(String(describing: PixNote.privateDefaults.selectionPreset))")
+        }
+
+        return result
+
+    }
+
+    public var titleWillBegin: String? {
+        return "Starting To Grab ...".localized
+    }
+
+    public var titleWillFinalize: String? {
+        return "Waiting To Select ...".localized
+    }
+
+    public func titleDidUpdate(progress: Float) -> String? {
+        return "Grabbing Text Contents ... %@ ".localizedFormatted("\(Int(progress * 100))%")
+    }
+
+    public var doneButtonTitle: String? {
+        return "Grab".localized
+    }
+
+    fileprivate var detector = PixNoteDetector()
+}
+
+extension PixNote{
+
+    fileprivate func finalize_plaintext(items: [PixNoteResult], _ asyncSignal: AsyncManualSignalable) {
+        let strings = items.compactMap{ $0.plainText }
+
+        if strings.count > 0 {
+            asyncSignal.begin()
+            DispatchQueue.main.async{
+                UIActivityViewController.presentAsDefault(activityItems: strings, excludedActivityTypes: nil) { _,_,_,_ in
+                    asyncSignal.end()
                 }
-                .filter { result in
-                    result.phoneNumbers?.count ?? 0 > 0
+            }
+            asyncSignal.waitUntilEnd()
+        }
+    }
+
+    fileprivate func finalize_contact(items: [PixNoteResult], _ asyncSignal: AsyncManualSignalable) {
+        var contacts = [CNMutableContact]()
+        for item in items {
+            guard let _contacts = item.contacts, _contacts.count > 0 else{
+                continue
+            }
+            for c in _contacts{
+                contacts.append(contentsOf: c)
+            }
+        }
+
+        var canSaveContract = false
+
+        asyncSignal.begin()
+        ContactManager.default.authorizationStatus { status in
+            /*
+            /*! The user has not yet made a choice regarding whether the application may access contact data. */
+            case notDetermined
+
+            /*! The application is not authorized to access contact data.
+             *  The user cannot change this application’s status, possibly due to active restrictions such as parental controls being in place. */
+            case restricted
+
+            /*! The user explicitly denied access to contact data for the application. */
+            case denied
+
+            /*! The application is authorized to access contact data. */
+            case authorized
+            */
+
+            if status == CNAuthorizationStatus.notDetermined{
+                ContactManager.default.requestAccess { granted in
+                    canSaveContract = granted
+                    asyncSignal.end()
                 }
+            }
+            else if status == CNAuthorizationStatus.authorized{
+                canSaveContract = true
+                asyncSignal.end()
 
+            }else{
+                DispatchQueue.main.async{
+                    UIAlertController.alert("It requires a permission to access your contacts. Please allow Contacts on iOS Settings.".localized, completion: { action in
+                        asyncSignal.end()
+                    })
+                }
+            }
 
-        //TODO: wrap with something VO
-        //TODO: if numbers and emails are in same block, maybe it is data of a person.
+        }
+        asyncSignal.waitUntilEnd()
 
-        var phoneNumberPool = Set<String>()
+        if canSaveContract{
 
-        let alert = UIAlertController(title: "Choose A Phone Number To Call".localized, message: nil, preferredStyle: .actionSheet)
+            asyncSignal.begin()
+            ContactManager.default.addContacts(Contact: contacts) { result in
+                asyncSignal.end()
+            }
+            asyncSignal.waitUntilEnd()
+
+        }else{
+
+            asyncSignal.begin()
+            DispatchQueue.main.async {
+                UIAlertController.alert("Sorry, it is not possible to save the contract.".localized, completion:{ _ in
+                    asyncSignal.end()
+                })
+            }
+            asyncSignal.waitUntilEnd()
+        }
+    }
+
+    fileprivate func finalize_action(items: [PixNoteResult], _ asyncSignal: AsyncManualSignalable) {
+        let alert = UIAlertController(title: "Choose An Action".localized, message: nil, preferredStyle: .actionSheet)
 
         for item in items {
 
-            for phoneNumberSetInBlock in item.phoneNumbers ?? []{
+            guard let resultGroup = item.resultGroup else{
+                continue
+            }
 
+            // Phone Number
+            for phoneNumberSetInBlock in resultGroup.phoneNumbers ?? []{
+
+                var phoneNumberPool = Set<String>()
                 for phoneNumber in phoneNumberSetInBlock where false == phoneNumberPool.contains(phoneNumber) && phoneNumber.count>0 {
                     phoneNumberPool.insert(phoneNumber)
 
-                    alert.addAction(UIAlertAction(title: phoneNumber, style: . default, handler: { action in
+                    let action = UIAlertAction(title: phoneNumber, style: . default, handler: { action in
 
                         DispatchQueue.main.async {
 
@@ -140,8 +267,10 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
                                 })
                             }
                         }
-                    }))
+                    })
+                    action.accessoryImage = R.image.exifGhostBAppIcon()
 
+                    alert.addAction(action)
                 }
             }
         }
@@ -170,63 +299,85 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
             asyncSignal.waitUntilEnd()
 
         }
-
-        return result
     }
 
-    public var titleWillBegin: String? {
-        return "Starting To Grab ...".localized
-    }
-
-    public var titleWillFinalize: String? {
-        return "Waiting To Select ...".localized
-    }
-
-    public func titleDidUpdate(progress: Float) -> String? {
-        return "Grabbing Text Contents ... %@ ".localizedFormatted("\(Int(progress * 100))%")
-    }
-
-    public var doneButtonTitle: String? {
-        return "Grab".localized
-    }
-
-    fileprivate var detector = PixNoteDetector()
 }
 
 private struct PixNoteDetector{
 
     private let vision = Vision.vision()
 
+    fileprivate static func isResultFilled(result:PixNoteResult?) -> Bool{
+        let preset = PixNote.privateDefaults.selectionPreset
+
+        if preset == SelectionPreset.plaintext.rawValue{
+            return result?.plainText?.count ?? 0 > 0
+        }
+
+        if preset == SelectionPreset.action.rawValue{
+            return result?.resultGroup?.isFilled == true
+        }
+
+        if preset == SelectionPreset.contact.rawValue{
+            return result?.contacts?.count ?? 0 > 0
+        }
+
+        return false
+    }
+
+
     fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncManualSignalable) -> PixNoteResult? {
         guard let visionTexts = vision.textDetector().detect(with: image, async) else {
             return nil
         }
 
+        let preset = PixNote.privateDefaults.selectionPreset
         var result = PixNoteResult(asset: asset)
 
-        var defaults = PixNote.defaults as! PixNoteAppDefaults
-        let items = Set((defaults.selectedParserCollection.values).reduce([],+))
-
-        if items.contains(ParserItem.Key.EmailAddress){
-            result.emails = visionTexts.parse(type: VisionTextEmailAddressParser.self, async)
+        // SelectionPreset.plaintext
+        if preset == SelectionPreset.plaintext.rawValue{
+            result.plainText = visionTexts.parse(type: VisionTextStringParser.self, async)?.joined()
         }
 
-        if items.contains(ParserItem.Key.PhoneNumber){
-            result.phoneNumbers = visionTexts.parse(type: VisionTextPhoneNumberParser.self, async)
+        // SelectionPreset.contact,  SelectionPreset.action
+        else if preset == SelectionPreset.contact.rawValue {
+            result.contacts = visionTexts.parse(type: VisionTextContactParser.self, async)
         }
 
-        if items.contains(ParserItem.Key.URL){
-            result.urls = visionTexts.parse(type: VisionTextURLParser.self, async)
-        }
+        else if preset == SelectionPreset.action.rawValue{
 
-        if items.contains(ParserItem.Key.Address){
-            result.addresses = visionTexts.parse(type: VisionTextAddressParser.self, async)
-        }
+            var result = PixNoteResult(asset: asset)
+            var defaults = PixNote.privateDefaults
+            let items = Set((defaults.selectedParserCollection.values).reduce([],+))
 
-        if items.contains(ParserItem.Key.FlightInformation){
-            result.flights = visionTexts.parse(type: VisionTextFlightInformationParser.self, async)
-        }
+            var resultGroup = VisionTextResultGroup()
 
+            if items.contains(ParserItem.Key.EmailAddress){
+                resultGroup.emails = visionTexts.parse(type: VisionTextEmailAddressParser.self, async)
+            }
+
+            if items.contains(ParserItem.Key.PhoneNumber){
+                resultGroup.phoneNumbers = visionTexts.parse(type: VisionTextPhoneNumberParser.self, async)
+            }
+
+            if items.contains(ParserItem.Key.URL){
+                resultGroup.urls = visionTexts.parse(type: VisionTextURLParser.self, async)
+            }
+
+            if items.contains(ParserItem.Key.Address){
+                resultGroup.addresses = visionTexts.parse(type: VisionTextAddressParser.self, async)
+            }
+
+            if items.contains(ParserItem.Key.FlightInformation){
+                resultGroup.flights = visionTexts.parse(type: VisionTextFlightInformationParser.self, async)
+            }
+
+            result.resultGroup = resultGroup
+
+        }else{
+            assert(false, "current preset mode is not supported. \(String(describing: preset))")
+            return nil
+        }
 
         return result
     }
@@ -261,8 +412,6 @@ private class _PixNoteTask: TaskPrototype, Taskable {
 
 
 fileprivate class PixNoteDockContent: NSObject, KeyPathWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
-    private lazy var defaults = PixNote.defaults as! PixNoteAppDefaults
-
     private let primaryColor = UIColor(red:0.6, green:0.6, blue:0.6, alpha:1)
 
     lazy var view: UIView = UITableView()
@@ -373,10 +522,10 @@ AppContent
 
 */
 
-private enum SelectionPresets:Int{
-    case raw
-    case contacts
-    case custom
+private enum SelectionPreset:Int{
+    case plaintext
+    case contact
+    case action
 }
 
 private enum Cells {
@@ -408,7 +557,7 @@ extension Defaults: PixNoteAppDefaults {
 
     fileprivate var selectionPreset: Int {
         set{ set(newValue) }
-        get{ return get(or: SelectionPresets.contacts.rawValue ) }
+        get{ return get(or: SelectionPreset.contact.rawValue ) }
     }
 }
 
@@ -462,7 +611,7 @@ private struct ParserItem {
 private struct ParserDictionary {
 
     static let DefaultCollection: ParserCollection = [
-        ParserDictionary.Key.Contract: [
+        ParserDictionary.Key.Information: [
             ParserItem.Key.PhoneNumber
             ,ParserItem.Key.EmailAddress
             ,ParserItem.Key.Address
@@ -474,7 +623,7 @@ private struct ParserDictionary {
     ]
 
     enum Key: Int, Codable {
-        case Contract
+        case Information
     }
 
     fileprivate var key:Key
@@ -482,25 +631,12 @@ private struct ParserDictionary {
     fileprivate var items:[ParserItem]
 }
 
-private class PixNoteParserResult{
-
-}
-
-private class PixNoteHostParser{
-
-    func parse(visionTexts: [FirebaseMLVision.VisionText]) -> PixNoteParserResult? {
-        return nil
-    }
-
-    required init() {}
-}
-
 class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
     fileprivate var cellDescribers = [UITableViewCellDefaultDescribable]()
 
     private var parserCollection:[ParserDictionary] = [
 
-        ParserDictionary(key: ParserDictionary.Key.Contract, label: "Contract".localized,
+        ParserDictionary(key: ParserDictionary.Key.Information, label: "Information".localized,
                 items: [
                     ParserItem(key: ParserItem.Key.PhoneNumber, label:"Phone Number".localized)
                     ,ParserItem(key: ParserItem.Key.EmailAddress, label:"E-mail Address".localized)
@@ -530,12 +666,11 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
     }
 
     private var selectedParserCollection: ParserCollection{
-        return defaults.selectedParserCollection
+        return PixNote.privateDefaults.selectedParserCollection
     }
 
     private var autoSelect:Bool = false
 
-    fileprivate var defaults:PixNoteAppDefaults = PixNote.defaults as! PixNoteAppDefaults
 
     func willSetContentView(_ view: UIView, dock: AppDock) {
 
@@ -553,47 +688,45 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
         }
         cellDescribers.append(cell1)
 
-
         let cell0 = UITableViewSegmentControlCellDescriber()
         cell0.itemIdentifier = Cells.presets.hashValue
-        cell0.label = "Preset".localized
-        cell0.valueGetter = { self.defaults.selectionPreset }
+        cell0.label = "Grab As".localized
+        cell0.valueGetter = { PixNote.privateDefaults.selectionPreset }
         cell0.valueCollection = [
-            (label:"Plain",value:SelectionPresets.raw.rawValue),
-            (label:"Formatted",value:SelectionPresets.contacts.rawValue),
-            (label:"Custom", value:SelectionPresets.custom.rawValue)
+            (label:"Plain Text",value: SelectionPreset.plaintext.rawValue),
+            (label:"Contact",value: SelectionPreset.contact.rawValue),
+            (label:"Action",value: SelectionPreset.action.rawValue)
         ]
         cell0.valueHandler = {
             let preset = $0 as! Int
 
-            self.defaults.selectionPreset = preset
+            var defaults = PixNote.privateDefaults
+            defaults.selectionPreset = preset
 
-            (view as? UITableView)?.performBatchUpdates({
-                if preset == SelectionPresets.raw.rawValue{
-                    for m in self.parserCollection {
-                        for i in m.items{
-                            self.defaults.addHandledProperty(m.key, i.key)
-                        }
-                    }
-                }else if preset == SelectionPresets.contacts.rawValue{
-                    for m in self.parserCollection {
-                        for i in m.items{
-                            self.defaults.removeHandledProperty(m.key, i.key)
-                        }
-                    }
-                    for m in ParserDictionary.DefaultCollection {
-                        for i in m.value{
-                            self.defaults.addHandledProperty(m.key, i)
-                        }
-                    }
-                }
+//            (view as? UITableView)?.performBatchUpdates({
+//                if preset == GrabAs.plaintext.rawValue{
+//                    for m in self.parserCollection {
+//                        for i in m.items{
+//                            PixNote.privateDefaults.addHandledProperty(m.key, i.key)
+//                        }
+//                    }
+//                }else if preset == GrabAs.contact.rawValue{
+//                    for m in self.parserCollection {
+//                        for i in m.items{
+//                            PixNote.privateDefaults.removeHandledProperty(m.key, i.key)
+//                        }
+//                    }
+//                    for m in ParserDictionary.DefaultCollection {
+//                        for i in m.value{
+//                            PixNote.privateDefaults.addHandledProperty(m.key, i)
+//                        }
+//                    }
+//                }
+//                (view as? UITableView)?.reloadData()
+//            }, completion:nil)
 
-                (view as? UITableView)?.reloadData()
-            }, completion:nil)
         }
         cellDescribers.append(cell0)
-
-
 
         if let tableView = view as? UITableView{
             tableView.dataSource = self
@@ -611,7 +744,7 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
 
-        let defaultsCollection = self.defaults.selectedParserCollection
+        let defaultsCollection = PixNote.privateDefaults.selectedParserCollection
 
         //get indexes
         let sections = self.parserCollection.enumerated().compactMap { (section, dictionary) -> [IndexPath]? in
@@ -768,32 +901,32 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
         if let _ = initialSelectedIndexPaths?.index(of: indexPath) {
             selected = true
         }
-        if let _ = defaults.selectedParserCollection[dict.key]?.index(of: dict.items[indexPath.item].key){
+        if let _ = PixNote.privateDefaults.selectedParserCollection[dict.key]?.index(of: dict.items[indexPath.item].key){
             selected = true
         }
 
         let cell = tableView.dequeueReusableCell(withIdentifier: PixNote.info.identifier) as! Cell
         cell.textLabel?.text = dict.items[indexPath.item].label
-        cell.detailTextLabel?.text = selected ? "will be hided" : nil
+        cell.detailTextLabel?.text = selected ? "may be found" : nil
 //        cell.imageView?.image = selected ? R.image.pdFactoryAppIcon() : nil //selected ? UIImageView(image: R.image.pdFactoryAppIcon()) : nil
         cell.detailTextLabel?.textColor = UIColor.gray
         cell.optionSwitch.setOn(selected, animated: false)
         cell.switchDidChange = { on in
             if on{
-                self.defaults.addHandledProperty(dict.key, dict.items[indexPath.item].key)
+                PixNote.privateDefaults.addHandledProperty(dict.key, dict.items[indexPath.item].key)
             }else{
-                self.defaults.removeHandledProperty(dict.key, dict.items[indexPath.item].key)
+                PixNote.privateDefaults.removeHandledProperty(dict.key, dict.items[indexPath.item].key)
             }
 
             tableView.reloadRows(at: [indexPath], with: .fade)
 
-            let selectedPreset = self.defaults.selectionPreset
-
-            if selectedPreset == SelectionPresets.raw.rawValue || selectedPreset == SelectionPresets.contacts.rawValue{
-                self.defaults.selectionPreset = SelectionPresets.custom.rawValue
-
-                tableView.reloadSections(IndexSet(integer: 0), with: .none)
-            }
+//            let selectedPreset = PixNote.privateDefaults.selectionPreset
+//
+//            if selectedPreset == GrabAs.plaintext.rawValue || selectedPreset == GrabAs.contact.rawValue{
+//                PixNote.privateDefaults.selectionPreset = GrabAs.action.rawValue
+//
+//                tableView.reloadSections(IndexSet(integer: 0), with: .none)
+//            }
 
         }
         return cell
@@ -839,3 +972,25 @@ private class Cell: UITableViewCell {
         optionSwitch.onTintColor = tintColor
     }
 }
+
+fileprivate extension UIAlertAction {
+
+    var accessoryImage: UIImage? {
+        get {
+            if self.responds(to: Selector(Constants.imageKey)) {
+                return self.value(forKey: Constants.imageKey) as? UIImage
+            }
+            return nil
+        }
+        set {
+            if self.responds(to: Selector(Constants.imageKey)) {
+                self.setValue(newValue, forKey: Constants.imageKey)
+            }
+        }
+    }
+
+    private struct Constants {
+        static var imageKey = "image"
+    }
+}
+

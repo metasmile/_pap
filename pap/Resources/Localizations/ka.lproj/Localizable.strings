@@ -140,7 +140,7 @@
 "Burst" = "ადიდებული";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "ვერ ხერხდება. ყველა არჩეული ელემენტი არ არის რედაქტირებული.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "აირჩიეთ ტელეფონის ნომერი დარეკეთ";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "აირჩიეთ ექსპორტის ვარიანტი %d Items";
@@ -166,15 +166,15 @@
 "Downloading..." = "ჩამოტვირთვის ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "ელექტრონული მისამართი";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "ავტომატური შერჩევის ჩართვა";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "ექსპორტის პარამეტრები";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "ექსპორტი";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "მოძებნა";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "კონტაქტების მოძიება ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "თავდამსხმელი";
@@ -246,9 +246,9 @@
 "Share" = "გაზიარება";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "ზომა";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "უკაცრავად ვერ დაუკავშირდება შერჩეულ კონტაქტს.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "უკაცრავად ვერ მოიძებნა საკონტაქტო ინფორმაცია.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "მოედანი";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "შერჩეული ნივთიერების სტაბილიზაცია ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "დაწყება";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "დასაძებნად ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "დაწყების პროცესი ...";
@@ -272,7 +272,7 @@
 "Translation" = "თარგმანი";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "ვიდეო";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "ველოდები ველოდოთ ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

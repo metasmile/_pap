@@ -140,7 +140,7 @@
 "Burst" = "പൊട്ടി";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "പഴയപടിയാക്കാൻ കഴിയില്ല. തിരഞ്ഞെടുത്ത എല്ലാ ഇനങ്ങളും എഡിറ്റുചെയ്തില്ല.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "വിളിക്കാൻ ഒരു ഫോൺ നമ്പർ തിരഞ്ഞെടുക്കുക";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "%d ഇനങ്ങൾക്ക് ഒരു എക്സ്പോർട്ട് ഓപ്ഷൻ തിരഞ്ഞെടുക്കുക";
@@ -166,15 +166,15 @@
 "Downloading..." = "ഡൗൺലോഡുചെയ്യുന്നു ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "ഈ - മെയില് വിലാസം";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "സ്വയം തിരഞ്ഞെടുക്കൽ പ്രവർത്തനക്ഷമമാക്കുക";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "കയറ്റുമതി ഓപ്ഷനുകൾ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "കയറ്റുമതി ചെയ്യുക";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "കണ്ടെത്തുക";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "കോൺടാക്റ്റുകൾ കണ്ടെത്തുന്നു ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "മുന്നോട്ട്";
@@ -246,9 +246,9 @@
 "Share" = "പങ്കിടുക";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "വലുപ്പം";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "തിരഞ്ഞെടുത്ത കോൺടാക്റ്റിനോട് ക്ഷണിക്കാനാകില്ല.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "ക്ഷമിക്കണം, ബന്ധപ്പെടാനുള്ള വിവരങ്ങളൊന്നും കണ്ടെത്തിയില്ല.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "ചതുരം";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "തിരഞ്ഞെടുത്ത ഇനങ്ങൾ സ്ഥിരപ്പെടുത്തുന്നു ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "ആരംഭിക്കുക";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "കണ്ടെത്താനാരംഭിക്കുന്നു ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "പ്രക്രിയ ആരംഭിക്കുന്നു ...";
@@ -272,7 +272,7 @@
 "Translation" = "വിവർത്തനം";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "വീഡിയോ";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "തിരഞ്ഞെടുക്കുന്നതിന് കാത്തിരിക്കുന്നു ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "വാർപ്പ്";

@@ -140,7 +140,7 @@
 "Burst" = "Burst";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Kin net weromhelje. Alle selekteare items binne net bewurke.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Kies in telefoannûmer te neamen";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Kies in Eksportaksje foar %d items";
@@ -166,15 +166,15 @@
 "Downloading..." = "Downloade ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "E-postadres";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Selektearje Auto Seleksje";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Export Opsjes";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Eksportearje";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "Fine";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Sykje kontakten ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Foarút";
@@ -246,9 +246,9 @@
 "Share" = "Diele";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Grutte";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Sorry, kin net rjochtsje op selekteare kontakt.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Sorry, gjin kontakt ynformaasje fûn.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Fjouwerkant";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Stabieljen fan selekteare items ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Start";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "Begjin te finen ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Begjin de proseduere ...";
@@ -272,7 +272,7 @@
 "Translation" = "Oersetting";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Wachtsje op selektearje ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

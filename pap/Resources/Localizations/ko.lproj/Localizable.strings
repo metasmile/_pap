@@ -140,7 +140,7 @@
 "Burst" = "버스트";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "되돌릴 수 없습니다. 선택한 모든 항목이 편집되지 않았습니다.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "전화 할 전화 번호 선택";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "%d 항목에 대한 내보내기 옵션 선택";
@@ -166,15 +166,15 @@
 "Downloading..." = "다운로드 중 ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "이메일 주소";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "자동 선택 사용";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "내보내기 옵션";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "내보내기";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "발견";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "연락처 찾기 ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "앞으로";
@@ -246,9 +246,9 @@
 "Share" = "공유";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "크기";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "죄송합니다. 선택한 연락처로 전화를 걸 수 없습니다.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "죄송합니다. 연락처 정보를 찾을 수 없습니다.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "1:1";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "선택한 항목 안정화 중 ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "시작";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "찾기 시작 ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "프로세스 시작 중 ...";
@@ -272,7 +272,7 @@
 "Translation" = "번역";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "비디오";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "선택 대기 중 ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

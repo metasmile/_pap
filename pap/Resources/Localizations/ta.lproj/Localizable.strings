@@ -140,7 +140,7 @@
 "Burst" = "பர்ஸ்ட்";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "மாற்றியமைக்க முடியவில்லை. தேர்ந்தெடுக்கப்பட்ட அனைத்து உருப்படிகளும் திருத்தப்படவில்லை.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "அழைக்க ஒரு தொலைபேசி எண் தேர்வு";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "%d உருப்படிகளுக்கான ஏற்றுமதி விருப்பத்தைத் தேர்வுசெய்க";
@@ -166,15 +166,15 @@
 "Downloading..." = "இறக்குகிறது ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "மின்னஞ்சல் முகவரி";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "தானியங்கு தேர்வு இயக்கு";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "ஏற்றுமதி விருப்பங்கள்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "ஏற்றுமதி";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "கண்டுபிடிக்க";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "தொடர்புகள் கண்டுபிடி ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "முன்னோக்கி";
@@ -246,9 +246,9 @@
 "Share" = "பகிர்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "அளவு";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "தேர்ந்தெடுக்கப்பட்ட தொடர்புக்கு மன்னிக்க முடியாது.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "மன்னிக்கவும் எந்த தொடர்பு தகவலும் இல்லை.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "சதுக்கத்தில்";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "தேர்ந்தெடுக்கப்பட்ட உருப்படிகளை உறுதிப்படுத்துகிறது ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "தொடக்கம்";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "கண்டுபிடிக்க தொடங்குகிறது ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "செயல்முறை தொடங்குகிறது ...";
@@ -272,7 +272,7 @@
 "Translation" = "மொழிபெயர்ப்பு";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "காணொளி";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "தேர்ந்தெடுக்க காத்திருக்கிறது ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "தொகுப்பை";

@@ -140,7 +140,7 @@
 "Burst" = "విస్ఫోటనం";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "తిరిగి రాలేరు. ఎంచుకున్న అన్ని అంశాలను సవరించలేదు.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "కాల్ చేయడానికి ఫోన్ నంబర్ను ఎంచుకోండి";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "%d అంశాలు కోసం ఒక ఎగుమతి ఎంపికను ఎంచుకోండి";
@@ -166,15 +166,15 @@
 "Downloading..." = "డౌన్లోడ్ చేస్తోంది ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "ఇ-మెయిల్ చిరునామా";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "స్వీయ ఎన్నిక ప్రారంభించు";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "ఎగుమతి ఎంపికలు";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "ఎగుమతి";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "కనుగొనండి";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "సంపర్కాలను కనుగొనడం ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "ఫార్వర్డ్";
@@ -246,9 +246,9 @@
 "Share" = "Share";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "పరిమాణం";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "క్షమించాలి ఎంచుకున్న పరిచయానికి కాల్ చేయలేరు.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "క్షమించండి ఏ సంప్రదింపు సమాచారం కనుగొనబడలేదు.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "స్క్వేర్";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "ఎంచుకున్న అంశాలు స్థిరీకరించడం ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "ప్రారంభం";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "కనుగొనుటకు ప్రారంభిస్తోంది ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "ప్రాసెస్ని ప్రారంభిస్తోంది ...";
@@ -272,7 +272,7 @@
 "Translation" = "అనువాద";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "వీడియో";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "ఎంచుకోవడానికి వేచి ఉంది ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "వార్ప్";

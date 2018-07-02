@@ -58,6 +58,13 @@ public protocol NSTextCheckingFlightComponent {
     var flight: String? {get set}
 }
 
+extension NSTextCheckingFlightComponent{
+    var stringExpression:String?{
+        let string = ((airline ?? "") + " " + (flight ?? "")).trim()
+        return string.count > 0 ? string : nil
+    }
+}
+
 public typealias NSTextCheckingComponent = NSTextCheckingPersonComponent & NSTextCheckingTelephoneNumberComponent & NSTextCheckingAddressComponent & NSTextCheckingFlightComponent
 public typealias NSTextCheckingContactComponent = NSTextCheckingPersonComponent & NSTextCheckingTelephoneNumberComponent & NSTextCheckingAddressComponent
 

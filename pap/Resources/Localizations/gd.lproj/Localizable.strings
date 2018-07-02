@@ -140,7 +140,7 @@
 "Burst" = "Air adhart";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Chan urrainn dhomh tilleadh. Chan eil a h-uile nì roghnaichte air a dheasachadh.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Tagh Àireamh Fòn gu Call";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Tagh Roghainnean As-mhalairt airson %d Earrannan";
@@ -166,15 +166,15 @@
 "Downloading..." = "Luchdachadh a-nuas ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "Seòladh puist-d";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Dèan comas air roghainn uidheamachd";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Roghainnean Export";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Export";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "Lorg";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "A 'lorg caraidean ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Air adhart";
@@ -246,9 +246,9 @@
 "Share" = "Share";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Meud";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Tha sinn duilich nach urrainn dhuinn fios a chuir gu conaltradh taghte.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Duilich nach d'fhuair sinn fiosrachadh conaltraidh sam bith.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Ceàrnag";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "A 'socrachadh nithean taghte ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Tòisich";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "A 'tòiseachadh ri lorg ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "A 'tòiseachadh a' phròiseis ...";
@@ -272,7 +272,7 @@
 "Translation" = "Eadar-theangachadh";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Bhidio";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "A 'Feitheamh ri Tagh ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

@@ -140,7 +140,7 @@
 "Burst" = "Springa";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Ekki hægt að snúa aftur. Öll valin atriði hafa ekki verið breytt.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Veldu símanúmer til að hringja";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Veldu útflutningsvalkost fyrir %d atriði";
@@ -166,15 +166,15 @@
 "Downloading..." = "Hleður niður ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "Netfang";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Virkja sjálfvalið val";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Útflutningsvalkostir";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Útflutningur";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "Finna";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Finndu tengiliði ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Áfram";
@@ -246,9 +246,9 @@
 "Share" = "Deila";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Stærð";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Því miður er ekki hægt að hringja í valda tengilið.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Því miður fannst engar upplýsingar um tengiliði.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Stöðugleiki valinra atriða ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Byrja";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "Byrjar að finna ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Byrjar að vinna ...";
@@ -272,7 +272,7 @@
 "Translation" = "Þýðing";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Bíð eftir að velja ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

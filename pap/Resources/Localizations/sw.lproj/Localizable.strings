@@ -140,7 +140,7 @@
 "Burst" = "Kupasuka";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Haiwezi kurejea. Vipengee vyote vilivyochaguliwa havijahaririwa.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Chagua Nambari ya Simu Ili Kuita";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Chagua chaguo la kupeleka kwa %d Items";
@@ -166,15 +166,15 @@
 "Downloading..." = "Inapakua ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "Barua pepe";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Wezesha Uchaguzi wa Auto";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Chaguo la Nje";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Tuma nje";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "Pata";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Kutafuta Mawasiliano ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Mbele";
@@ -246,9 +246,9 @@
 "Share" = "Shiriki";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Ukubwa";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Samahani hawezi kupiga simu kuwasiliana na watu waliochaguliwa.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Samahani haipatikani maelezo yoyote ya mawasiliano.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Mraba";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Kuimarisha vitu vichaguliwa ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Anza";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "Kuanza Kupata ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Kuanzia Mchakato ...";
@@ -272,7 +272,7 @@
 "Translation" = "Tafsiri";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Inasubiri Ili Chagua ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Vurugu";

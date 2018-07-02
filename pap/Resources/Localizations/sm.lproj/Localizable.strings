@@ -140,7 +140,7 @@
 "Burst" = "Toto";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "E le mafai ona toe foʻi. O mea uma filifilia na le faʻamaonia.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Filifili se Numera Telefoni Ina ia Valaau";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Filifili se Faʻataulaga Aiga mo le %d Aitema";
@@ -166,15 +166,15 @@
 "Downloading..." = "Faʻalogoina ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "Imeli tuatusi";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Faʻamaonia le Filifiliga Faʻatasi";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Filifiliga o Faʻataulaga";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Faʻataulaga";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "Saili";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Mauaina o Fesootaiga ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Agaʻi i luma";
@@ -246,9 +246,9 @@
 "Share" = "Fetufaai";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Tele";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Faʻamolemole e le mafai ona valaʻau i se fesoʻotaʻiga filifilia.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Aua nei maua se faʻamatalaga faʻamatalaga.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Lotoa";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Faatulagaina o Aitema Filifilia ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Amata";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "Amataina e Saili ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Amataina o le Faʻasagaga ...";
@@ -272,7 +272,7 @@
 "Translation" = "Faʻaliliuga";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Vitio";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Faatali e Filifili ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Filifili";

@@ -140,7 +140,7 @@
 "Burst" = "Burst";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Enweghị ike ịlaghachi. Ihe niile ahọpụtara edeghi edezi.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Họrọ nọmba ekwentị iji kpọọ oku";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Họrọ otu nhọrọ mbupụ maka %d Ihe";
@@ -166,15 +166,15 @@
 "Downloading..." = "Nbudata ...";
 /* Generated from genl10n: PixNote.AppDockContent.swift */
 "E-mail Address" = "Adreesị ozi ịntanetị";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Kwado Nhọrọ Nhọrọ";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Nhọrọ Nhọrọ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Mbupụ";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Find" = "Chọta";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Ịchọta Ndi ana-akpo ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Aga n'ihu";
@@ -246,9 +246,9 @@
 "Share" = "Kwuo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Size";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Ndo enweghị ike ịkpọ na kọntaktị ahọpụtara.";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Biko, achọtala ozi kọntaktị ọ bụla.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Ogwe";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Ịkwado ihe a họọrọ ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Malite";
-/* Generated from genl10n: PixNote.swift */
+/* Generated from genl10n: PixNote.BApp.swift */
 "Starting To Find ..." = "Ịmalite Ịchọta ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Malite Usoro ...";
@@ -272,7 +272,7 @@
 "Translation" = "Translation";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
-/* Generated from genl10n: PixNote.swift, CallApp.BApp.swift */
+/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Ichere Ịhọrọ ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Kpoo";
