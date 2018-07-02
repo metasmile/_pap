@@ -129,7 +129,7 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
     }
 
     public var titleWillBegin: String? {
-        return "Starting To Grab ...".localized
+        return "Starting To Extract ...".localized
     }
 
     public var titleWillFinalize: String? {
@@ -137,11 +137,11 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
     }
 
     public func titleDidUpdate(progress: Float) -> String? {
-        return "Grabbing Text Contents ... %@ ".localizedFormatted("\(Int(progress * 100))%")
+        return "Extracting Contents ... %@ ".localizedFormatted("\(Int(progress * 100))%")
     }
 
     public var doneButtonTitle: String? {
-        return "Grab".localized
+        return "Extract".localized
     }
 
     fileprivate var detector = PixNoteDetector()
@@ -225,23 +225,9 @@ extension PixNote{
             return
         }
 
-        let enableContactEditor = true
+        let saveContactWithoutEdit = PixNote.privateDefaults.saveContactWithoutEdit
 
-        if enableContactEditor{
-
-            for item in items {
-                guard let _contacts = item.contacts, _contacts.count > 0 else{
-                   continue
-                }
-                for contact in _contacts{
-                    contact.imageData = item.asset.asData
-                    CNContactViewController.presentCreationDialog(contact: contact, asyncSignal)
-                }
-            }
-
-
-        }else{
-
+        if saveContactWithoutEdit {
             var savedCount = 0
             for item in items {
                 guard let _contacts = item.contacts, _contacts.count > 0 else{
@@ -280,6 +266,17 @@ extension PixNote{
                 })
             }
             asyncSignal.waitUntilEnd()
+
+        }else{
+            for item in items {
+                guard let _contacts = item.contacts, _contacts.count > 0 else{
+                    continue
+                }
+                for contact in _contacts{
+                    contact.imageData = item.asset.asData
+                    CNContactViewController.presentCreationDialog(contact: contact, asyncSignal)
+                }
+            }
         }
     }
 
@@ -600,14 +597,15 @@ private enum SelectionPreset:Int{
     case action
 }
 
-private enum Cells {
+private enum PixNoteSettingCells {
     case presets
     case autoSelect
-    case delete
+    case saveContactWithoutEdit
+//    case delete
 }
 
 private struct SettingsItem {
-    fileprivate var key: Cells
+    fileprivate var key: PixNoteSettingCells
     fileprivate var label:String
     fileprivate var valueGetter:() -> Any
     fileprivate var valueCollection:Any?
@@ -619,6 +617,7 @@ private struct SettingsItem {
 private protocol PixNoteAppDefaults: AppDefaults{
     var selectedParserCollection: ParserCollection {get set}
     var selectionPreset: Int {get set}
+    var saveContactWithoutEdit:Bool {get set}
 }
 
 extension Defaults: PixNoteAppDefaults {
@@ -630,6 +629,11 @@ extension Defaults: PixNoteAppDefaults {
     fileprivate var selectionPreset: Int {
         set{ set(newValue) }
         get{ return get(or: SelectionPreset.contact.rawValue ) }
+    }
+
+    fileprivate var saveContactWithoutEdit: Bool {
+        set{ set(newValue) }
+        get{ return get(or: false ) }
     }
 }
 
@@ -704,7 +708,7 @@ private struct ParserDictionary {
 }
 
 class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
-    fileprivate var cellDescribers = [UITableViewCellDefaultDescribable]()
+    fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
 
     private var parserCollection:[ParserDictionary] = [
 
@@ -744,24 +748,36 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
     private var autoSelect:Bool = false
 
 
+    private func createCellDescriber_saveContactWithoutEdit() -> UITableViewSwitchCellDescriber{
+        let celld = UITableViewSwitchCellDescriber()
+        celld.itemIdentifier = PixNoteSettingCells.saveContactWithoutEdit.hashValue
+        celld.label = "Save Found Contacts Without Edit".localized
+        celld.valueGetter = { PixNote.privateDefaults.saveContactWithoutEdit }
+        celld.valueHandler = {
+            var defaults = PixNote.privateDefaults
+            defaults.saveContactWithoutEdit = $0 as! Bool
+        }
+        return celld
+    }
+
     func willSetContentView(_ view: UIView, dock: AppDock) {
 
-        if cellDescribers.count>0{
+        if settingCellDescribers.count>0{
             return
         }
 
         let cell1 = UITableViewSwitchCellDescriber()
-        cell1.itemIdentifier = Cells.autoSelect.hashValue
+        cell1.itemIdentifier = PixNoteSettingCells.autoSelect.hashValue
         cell1.label = "Enable Auto Selection".localized
         cell1.valueGetter = { self.autoSelect }
         cell1.valueHandler = {
             self.autoSelect = $0 as! Bool
             AppCenter.default.currentInstanceAs(PixNote.self)?.autoSelect = self.autoSelect
         }
-        cellDescribers.append(cell1)
+        settingCellDescribers.append(cell1)
 
         let cell0 = UITableViewSegmentControlCellDescriber()
-        cell0.itemIdentifier = Cells.presets.hashValue
+        cell0.itemIdentifier = PixNoteSettingCells.presets.hashValue
         cell0.label = "Grab As".localized
         cell0.valueGetter = { PixNote.privateDefaults.selectionPreset }
         cell0.valueCollection = [
@@ -775,30 +791,31 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
             var defaults = PixNote.privateDefaults
             defaults.selectionPreset = preset
 
-//            (view as? UITableView)?.performBatchUpdates({
-//                if preset == GrabAs.plaintext.rawValue{
-//                    for m in self.parserCollection {
-//                        for i in m.items{
-//                            PixNote.privateDefaults.addHandledProperty(m.key, i.key)
-//                        }
-//                    }
-//                }else if preset == GrabAs.contact.rawValue{
-//                    for m in self.parserCollection {
-//                        for i in m.items{
-//                            PixNote.privateDefaults.removeHandledProperty(m.key, i.key)
-//                        }
-//                    }
-//                    for m in ParserDictionary.DefaultCollection {
-//                        for i in m.value{
-//                            PixNote.privateDefaults.addHandledProperty(m.key, i)
-//                        }
-//                    }
-//                }
-//                (view as? UITableView)?.reloadData()
-//            }, completion:nil)
+
+            //saveContactWithoutEdit
+            let index = self.settingCellDescribers.index(where:{ describable in
+                return describable.itemIdentifier == PixNoteSettingCells.saveContactWithoutEdit.hashValue
+            })
+
+            if preset == SelectionPreset.contact.rawValue{
+                if index == nil{
+                    self.settingCellDescribers.append(self.createCellDescriber_saveContactWithoutEdit())
+                    (view as? UITableView)?.reloadData()
+                }
+            }else{
+                if let index = index {
+                    self.settingCellDescribers.remove(at: index)
+                    (view as? UITableView)?.reloadData()
+                }
+            }
 
         }
-        cellDescribers.append(cell0)
+        settingCellDescribers.append(cell0)
+
+        //auto save
+        if PixNote.privateDefaults.selectionPreset == SelectionPreset.contact.rawValue{
+            settingCellDescribers.append(createCellDescriber_saveContactWithoutEdit())
+        }
 
         if let tableView = view as? UITableView{
             tableView.dataSource = self
@@ -808,7 +825,7 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
             tableView.allowsMultipleSelection = false
             tableView.register(Cell.self, forCellReuseIdentifier: PixNote.info.identifier)
 
-            for desc in cellDescribers {
+            for desc in settingCellDescribers {
                 tableView.register(describer: desc)
             }
         }
@@ -876,7 +893,7 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? cellDescribers.count : parserCollection[section-1].items.count
+        return section == 0 ? settingCellDescribers.count : parserCollection[section-1].items.count
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -890,7 +907,7 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
     }
 
     func settings_tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = self.cellDescribers[indexPath.item]
+        let item = self.settingCellDescribers[indexPath.item]
 
         if let cellDescriber = item as? UITableViewPickerCellDescriber
         , let valueCollection = cellDescriber.valueCollection as? [String]
