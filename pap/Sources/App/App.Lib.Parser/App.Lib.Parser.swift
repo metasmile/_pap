@@ -14,6 +14,10 @@ protocol Parser {
     init()
 }
 
+protocol MergingParser: Parser {
+    func parse(input:InputType, mergingOutput:OutputType) -> OutputType?
+}
+
 protocol StringParser: Parser where Self.OutputType==String {
     func parse(input:InputType) -> OutputType?
 }

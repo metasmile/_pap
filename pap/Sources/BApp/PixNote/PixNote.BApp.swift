@@ -168,9 +168,7 @@ extension PixNote{
             guard let _contacts = item.contacts, _contacts.count > 0 else{
                 continue
             }
-            for c in _contacts{
-                contacts.append(contentsOf: c)
-            }
+            contacts.append(contentsOf: _contacts)
         }
 
         var canSaveContract = false
@@ -216,8 +214,18 @@ extension PixNote{
         if canSaveContract{
 
             asyncSignal.begin()
-            ContactManager.default.addContacts(Contact: contacts) { result in
-                asyncSignal.end()
+            ContactManager.default.addContacts(Contact: contacts) { r in
+                var message:String
+                if case ContactManager.ContactOperationResult.Success(response: true) = r {
+                    message = "A contract was successfully saved.".localized
+                }else{
+                    message = "Sorry, it is not possible to save the contract.".localized
+                }
+                DispatchQueue.main.async {
+                    UIAlertController.alert(message, completion:{ _ in
+                        asyncSignal.end()
+                    })
+                }
             }
             asyncSignal.waitUntilEnd()
 
@@ -341,7 +349,29 @@ private struct PixNoteDetector{
 
         // SelectionPreset.contact,  SelectionPreset.action
         else if preset == SelectionPreset.contact.rawValue {
-            result.contacts = visionTexts.parse(type: VisionTextContactParser.self, async)
+            let parser = VisionTextContactParser()
+
+            var stackedParsedContacts = [CNMutableContact]()
+
+            for visionText in visionTexts{
+
+                var mergingContract:CNMutableContact?
+                if stackedParsedContacts.count == 0{
+                    mergingContract = CNMutableContact()
+                }else{
+                    mergingContract = stackedParsedContacts.last
+                }
+
+                if let mergingContract = mergingContract
+                , let parsedContract = parser.parse(input: visionText, mergingOutput: mergingContract){
+                        stackedParsedContacts.append(parsedContract)
+                }
+            }
+
+            if let lastParsedContact = stackedParsedContacts.last{
+                lastParsedContact.imageData = asset.asData
+                result.contacts = [lastParsedContact]
+            }
         }
 
         else if preset == SelectionPreset.action.rawValue{

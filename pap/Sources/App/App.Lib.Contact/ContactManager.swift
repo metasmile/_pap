@@ -246,6 +246,7 @@ public struct ContactManager{
             try store.execute(request)
             completionHandler(ContactOperationResult.Success(response: true))
         } catch {
+            print(error)
             completionHandler(ContactOperationResult.Error(error: error))
         }
     }

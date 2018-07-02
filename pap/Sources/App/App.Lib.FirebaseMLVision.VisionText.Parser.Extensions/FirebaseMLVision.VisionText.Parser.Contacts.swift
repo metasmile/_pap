@@ -135,66 +135,62 @@ public struct VisionTextFlightInformationParser: VisionTextParser{
     }
 }
 
-public struct VisionTextContactParser: VisionTextParser{
-    typealias OutputType = [CNMutableContact]
+public struct VisionTextContactParser: VisionTextParser, MergingParser{
+    typealias OutputType = CNMutableContact
 
     private static let types:NSTextCheckingResult.CheckingType = [.link, .address, .phoneNumber, .date, .dash, .quote, .transitInformation]
 
-    func parse(input: FirebaseMLVision.VisionText) -> OutputType? {
-
+    func parse(input: FirebaseMLVision.VisionText, mergingOutput: CNMutableContact) -> CNMutableContact? {
         let stringParser = VisionTextStringParser()
         guard let rawText = stringParser.parse(input: input) else{
             return nil
         }
 
-        let emails = VisionTextEmailAddressParser.parse(string: rawText)
-        let phoneNumbers = VisionTextPhoneNumberParser().parse(input: input)
+        let contact = mergingOutput
 
-        return rawText.detectAll(types: type(of: self).types).nilEmpty?.compactMap { result -> CNMutableContact? in
-
-            let contact = CNMutableContact()
-            contact.contactType = .person
-
-            if let emails = emails{
-                contact.emailAddresses = emails.enumerated().compactMap { (e) -> CNLabeledValue<NSString>? in
-                    return CNLabeledValue(label: "E-mail Address \(e.0)", value: e.1 as NSString)
-                }
+        if let emails = VisionTextEmailAddressParser.parse(string: rawText){
+            let values = emails.enumerated().compactMap { (e) -> CNLabeledValue<NSString>? in
+                return CNLabeledValue(label: "E-mail Address \(e.0)", value: e.1 as NSString)
             }
-            
-            if let phoneNumbers = phoneNumbers{
+            contact.emailAddresses.append(contentsOf: values)
+        }
 
-                var appendingPhoneNumbers = phoneNumbers
-                if let p = result.phoneNumber{
-                    appendingPhoneNumbers.append(p)
-                }
-                if let p = result.telephoneNumber?.phone{
-                    appendingPhoneNumbers.append(p)
-                }
+        if let phoneNumbers = VisionTextPhoneNumberParser().parse(input: input){
+            let values = phoneNumbers.enumerated().compactMap({ (e) -> CNLabeledValue<CNPhoneNumber>? in
+                CNLabeledValue(label: "Phone Number \(e.0)", value: CNPhoneNumber(stringValue: e.1))
+            })
 
-                contact.phoneNumbers = Array(Set<String>(appendingPhoneNumbers)).enumerated().compactMap({ (e) -> CNLabeledValue<CNPhoneNumber>? in
-                    CNLabeledValue(label: "Phone Number \(e.0)", value: CNPhoneNumber(stringValue: e.1))
-                })
-            }
+            contact.phoneNumbers.append(contentsOf: values)
+        }
+
+        let detectedResults = rawText.detectAll(types: type(of: self).types).nilEmpty ?? []
+
+        for result in detectedResults{
 
             if let date = result.date{
                 var calendar = NSCalendar.current
                 if let timezone = result.timeZone{
                     calendar.timeZone = timezone
                 }
-                let unitFlags = Set<Calendar.Component>([.year, .month, .day, .hour, .minute])
+                let unitFlags = Set<Calendar.Component>([.year, .month, .day])
                 let components = calendar.dateComponents(unitFlags, from: date as Date)
-                contact.dates = [CNLabeledValue(label: "Date".localized, value: components as NSDateComponents)]
+
+                contact.dates.append(CNLabeledValue(label: "Date".localized, value: components as NSDateComponents))
                 //TODO: result.duration
             }
 
             if let url = result.url{
-                contact.urlAddresses = [CNLabeledValue(label: "URL", value: url.absoluteString as NSString)]
+                let addingValue = CNLabeledValue(label: "URL", value: url.absoluteString as NSString)
+
+                if contact.urlAddresses.contains(where:{ $0.value != addingValue.value}) == false{
+                    contact.urlAddresses.append(addingValue)
+                }
             }
 
             if let comp = result.componentObject{
-                contact.jobTitle = comp.jobTitle ?? ""
-                contact.middleName = comp.name ?? ""
-                contact.organizationName = comp.organization ?? ""
+                contact.jobTitle = comp.jobTitle ?? mergingOutput.jobTitle
+                contact.middleName = comp.name ?? mergingOutput.middleName
+                contact.organizationName = comp.organization ?? mergingOutput.organizationName
 
                 let address = CNMutablePostalAddress()
                 address.state = result.address?.state ?? ""
@@ -203,19 +199,33 @@ public struct VisionTextContactParser: VisionTextParser{
                 address.street = result.address?.street ?? ""
                 address.postalCode = result.address?.zip ?? ""
 
-                contact.postalAddresses = [CNLabeledValue(label: "Address".localized, value: address)]
+                contact.postalAddresses.append(CNLabeledValue(label: "Address".localized, value: address))
+            }
+
+            if contact.note.count > 0{
+                contact.note += "\n\n"
             }
 
             if let flightText = result.flight?.stringExpression{
                 contact.note += "Flight Information".localized + " : " + flightText
-                contact.note += "\n\n"
+                contact.note += "\n"
+            }
+
+            if contact.note.count > 0{
+                contact.note += "\n"
             }
 
             contact.note += rawText
+        }
 
-            return contact
+        return contact
+    }
 
-        }.nilEmpty
+    func parse(input: FirebaseMLVision.VisionText) -> CNMutableContact? {
+        let contact = CNMutableContact()
+        contact.contactType = .person
+
+        return self.parse(input: input, mergingOutput: contact)
     }
 }
 
