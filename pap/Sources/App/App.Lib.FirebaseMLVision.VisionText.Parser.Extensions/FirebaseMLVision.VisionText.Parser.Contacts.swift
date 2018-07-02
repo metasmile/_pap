@@ -153,7 +153,7 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
         if let emails = VisionTextEmailAddressParser.parse(string: rawText){
             let label:String = "E-mail Address".localized
             for email in emails{
-                let value = CNLabeledValue(label: contact.emailAddresses.count==0 ? label : "\(label) (\(contact.emailAddresses.count+1))", value: email as NSString)
+                let value = CNLabeledValue(label: contact.emailAddresses.count==0 ? label : "\(label) (\(contact.emailAddresses.count))", value: email as NSString)
                 contact.emailAddresses.append(value)
             }
         }
@@ -161,7 +161,7 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
         if let phoneNumbers = VisionTextPhoneNumberParser().parse(input: input){
             let label:String = "Phone Number".localized
             for number in phoneNumbers{
-                let value = CNLabeledValue(label: contact.phoneNumbers.count==0 ? label : "\(label) (\(contact.phoneNumbers.count+1))", value: CNPhoneNumber(stringValue: number))
+                let value = CNLabeledValue(label: contact.phoneNumbers.count==0 ? label : "\(label) (\(contact.phoneNumbers.count))", value: CNPhoneNumber(stringValue: number))
                 contact.phoneNumbers.append(value)
             }
         }
@@ -179,7 +179,7 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
                 let components = calendar.dateComponents(unitFlags, from: date as Date)
 
                 let label = "Date".localized
-                let value = CNLabeledValue(label: contact.dates.count==0 ? label : "\(label) (\(contact.dates.count+1))", value: components as NSDateComponents)
+                let value = CNLabeledValue(label: contact.dates.count==0 ? label : "\(label) (\(contact.dates.count))", value: components as NSDateComponents)
                 contact.dates.append(value)
             }
 
@@ -187,14 +187,14 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
                 let addingValue = url.absoluteString as NSString
                 if contact.urlAddresses.contains(where:{ $0.value != addingValue}) == false{
                     let label:String = "URL"
-                    let value = CNLabeledValue(label: contact.urlAddresses.count == 0 ? label : "\(label) (\(contact.urlAddresses.count+1))", value: addingValue)
+                    let value = CNLabeledValue(label: contact.urlAddresses.count == 0 ? label : "\(label) (\(contact.urlAddresses.count))", value: addingValue)
                     contact.urlAddresses.append(value)
                 }
             }
 
             if let comp = result.componentObject{
                 contact.jobTitle = comp.jobTitle ?? mergingOutput.jobTitle
-                contact.middleName = comp.name ?? mergingOutput.middleName
+                contact.givenName = comp.name ?? mergingOutput.givenName
                 contact.organizationName = comp.organization ?? mergingOutput.organizationName
 
                 let address = CNMutablePostalAddress()
@@ -205,7 +205,7 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
                 address.postalCode = result.address?.zip ?? ""
 
                 let label = "Address".localized
-                let value = CNLabeledValue(label: contact.postalAddresses.count == 0 ? label : "\(label) (\(contact.postalAddresses.count+1))", value: address as CNPostalAddress)
+                let value = CNLabeledValue(label: contact.postalAddresses.count == 0 ? label : "\(label) (\(contact.postalAddresses.count))", value: address as CNPostalAddress)
                 contact.postalAddresses.append(value)
             }
 
@@ -221,6 +221,15 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
             if !contact.note.contains(rawText){
                 contact.note += rawText
             }
+        }
+
+        let isNameEmpty = contact.familyName.count == 0
+                && contact.givenName.count == 0
+                && contact.nickname.count == 0
+                && contact.middleName.count == 0
+
+        if isNameEmpty{
+            contact.givenName = "Extracted Contact \(UUID().uuidString.remove("-").prefix(6))"
         }
 
         return contact

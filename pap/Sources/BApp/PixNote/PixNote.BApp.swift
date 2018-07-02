@@ -11,6 +11,7 @@ import Contacts
 import ContactsUI
 
 private typealias PixNoteParam = PHAssetItem<ImageEditStateValue>
+
 private struct PixNoteResult: TaskResultable{
     fileprivate let asset:PHAsset
 
@@ -164,15 +165,13 @@ extension PixNote{
     }
 
     fileprivate func finalize_contact(items: [PixNoteResult], _ asyncSignal: AsyncManualSignalable) {
-        var contacts = [CNMutableContact]()
-        for item in items {
-            guard let _contacts = item.contacts, _contacts.count > 0 else{
-                continue
-            }
-            contacts.append(contentsOf: _contacts)
-        }
+        var canSaveContract = items.compactMap { result -> [CNMutableContact]? in
+            return result.contacts?.nilEmpty
+        }.count > 0
 
-        var canSaveContract = false
+        if false == canSaveContract{
+            return
+        }
 
         asyncSignal.begin()
         ContactManager.default.authorizationStatus { status in
@@ -213,38 +212,70 @@ extension PixNote{
         asyncSignal.waitUntilEnd()
 
 
-        var completionMessage:String = "Sorry, it is not possible to save the contract.".localized
+        let errorMessage:String = "Sorry, it is not possible to save the contract.".localized
 
-        if canSaveContract{
+        if false == canSaveContract{
+            asyncSignal.begin()
+            DispatchQueue.main.async {
+                UIAlertController.alert(errorMessage, completion:{ _ in
+                    asyncSignal.end()
+                })
+            }
+            asyncSignal.waitUntilEnd()
+            return
+        }
 
-            let enableContactEditor = true
+        let enableContactEditor = true
 
-            if enableContactEditor{
-                for contact in contacts{
+        if enableContactEditor{
+
+            for item in items {
+                guard let _contacts = item.contacts, _contacts.count > 0 else{
+                   continue
+                }
+                for contact in _contacts{
+                    contact.imageData = item.asset.asData
                     CNContactViewController.presentCreationDialog(contact: contact, asyncSignal)
                 }
-
-            }else{
-                asyncSignal.begin()
-                ContactManager.default.addContacts(Contact: contacts) { r in
-                    if case ContactManager.ContactOperationResult.Success(response: true) = r {
-                        completionMessage = "All contracts was successfully saved.".localized
-                    }
-
-                    DispatchQueue.main.async {
-                        UIAlertController.alert(completionMessage, completion:{ _ in
-                            asyncSignal.end()
-                        })
-                    }
-                }
-                asyncSignal.waitUntilEnd()
             }
+
 
         }else{
 
+            var savedCount = 0
+            for item in items {
+                guard let _contacts = item.contacts, _contacts.count > 0 else{
+                    continue
+                }
+
+                let imageData = item.asset.asData
+
+                for contact in _contacts{
+                    asyncSignal.begin()
+
+                    contact.imageData = imageData
+                    ContactManager.default.addContacts(Contact: [contact]) { r in
+                        if case ContactManager.ContactOperationResult.Success(response: true) = r {
+                            savedCount += 1
+                            asyncSignal.end()
+                        }
+                    }
+                    asyncSignal.waitUntilEnd()
+                }
+            }
+
             asyncSignal.begin()
+
+            var message = errorMessage
+            if savedCount > 0{
+                if savedCount == items.count {
+                    message = "All contacts were successfully saved.".localized
+                }else if savedCount < items.count {
+                    message = "Some contacts were saved, but someones were not.".localized
+                }
+            }
             DispatchQueue.main.async {
-                UIAlertController.alert(completionMessage, completion:{ _ in
+                UIAlertController.alert(message, completion:{ _ in
                     asyncSignal.end()
                 })
             }
