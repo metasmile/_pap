@@ -138,7 +138,9 @@ public struct VisionTextFlightInformationParser: VisionTextParser{
 public struct VisionTextContactParser: VisionTextParser, MergingParser{
     typealias OutputType = CNMutableContact
 
-    private static let types:NSTextCheckingResult.CheckingType = [.link, .address, .phoneNumber, .date, .dash, .quote, .transitInformation]
+    private static let defaultTypes:NSTextCheckingResult.CheckingType = [.link, .address, .phoneNumber, .date, .quote, .transitInformation]
+
+    public var types:NSTextCheckingResult.CheckingType?
 
     func parse(input: FirebaseMLVision.VisionText, mergingOutput: CNMutableContact) -> CNMutableContact? {
         let stringParser = VisionTextStringParser()
@@ -149,21 +151,18 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
         let contact = mergingOutput
 
         if let emails = VisionTextEmailAddressParser.parse(string: rawText){
-            let values = emails.enumerated().compactMap { (e) -> CNLabeledValue<NSString>? in
-                return CNLabeledValue(label: "E-mail Address \(e.0)", value: e.1 as NSString)
+            for email in emails{
+                contact.emailAddresses.append(CNLabeledValue(label: "E-mail Address \(contact.emailAddresses.count+1)", value: email as NSString))
             }
-            contact.emailAddresses.append(contentsOf: values)
         }
 
         if let phoneNumbers = VisionTextPhoneNumberParser().parse(input: input){
-            let values = phoneNumbers.enumerated().compactMap({ (e) -> CNLabeledValue<CNPhoneNumber>? in
-                CNLabeledValue(label: "Phone Number \(e.0)", value: CNPhoneNumber(stringValue: e.1))
-            })
-
-            contact.phoneNumbers.append(contentsOf: values)
+            for number in phoneNumbers{
+                contact.phoneNumbers.append(CNLabeledValue(label: "Phone Number \(contact.phoneNumbers.count+1)", value: CNPhoneNumber(stringValue: number)))
+            }
         }
 
-        let detectedResults = rawText.detectAll(types: type(of: self).types).nilEmpty ?? []
+        let detectedResults = rawText.detectAll(types: types ?? type(of: self).defaultTypes).nilEmpty ?? []
 
         for result in detectedResults{
 
@@ -176,14 +175,12 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
                 let components = calendar.dateComponents(unitFlags, from: date as Date)
 
                 contact.dates.append(CNLabeledValue(label: "Date".localized, value: components as NSDateComponents))
-                //TODO: result.duration
             }
 
             if let url = result.url{
-                let addingValue = CNLabeledValue(label: "URL", value: url.absoluteString as NSString)
-
-                if contact.urlAddresses.contains(where:{ $0.value != addingValue.value}) == false{
-                    contact.urlAddresses.append(addingValue)
+                let addingValue = url.absoluteString as NSString
+                if contact.urlAddresses.contains(where:{ $0.value != addingValue}) == false{
+                    contact.urlAddresses.append(CNLabeledValue(label: "URL \(contact.urlAddresses.count+1)", value: addingValue))
                 }
             }
 
@@ -203,19 +200,17 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
             }
 
             if contact.note.count > 0{
-                contact.note += "\n\n"
+                contact.note += "\n"
             }
 
             if let flightText = result.flight?.stringExpression{
                 contact.note += "Flight Information".localized + " : " + flightText
-                contact.note += "\n"
+                contact.note += "\n\n"
             }
 
-            if contact.note.count > 0{
-                contact.note += "\n"
+            if !contact.note.contains(rawText){
+                contact.note += rawText
             }
-
-            contact.note += rawText
         }
 
         return contact

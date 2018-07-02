@@ -88,9 +88,9 @@
 "%d times" = "%d times";
 /* Generated from genl10n: GIFMaker.BApp.swift#161 */
 "1080p (1920×1080)" = "1080p (1920×1080)";
-/* Generated from genl10n: PixNote.BApp.swift#220 */
+/* Generated from genl10n: PixNote.BApp.swift#221 */
 "A contract was successfully saved." = "A contract was successfully saved.";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#202, FirebaseMLVision.VisionText.Parser.Contacts.swift#202, PixNote.BApp.swift#673, PixNote.BApp.swift#673 */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#197, FirebaseMLVision.VisionText.Parser.Contacts.swift#197, PixNote.BApp.swift#673, PixNote.BApp.swift#673 */
 "Address" = "Address";
 /* Generated from genl10n: PhotoAlbumViewController.swift#105, PhotoAlbumViewController.swift#105 */
 "Albums" = "Albums";
@@ -120,7 +120,7 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift#277, Stabilizer.swift#277, GIFMaker.BApp.swift#142, GIFMaker.BApp.swift#142 */
 "Crop" = "Crop";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#178, FirebaseMLVision.VisionText.Parser.Contacts.swift#178, PixNote.BApp.swift#674, PixNote.BApp.swift#674 */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#175, FirebaseMLVision.VisionText.Parser.Contacts.swift#175, PixNote.BApp.swift#674, PixNote.BApp.swift#674 */
 "Date" = "Date";
 /* Generated from genl10n: GIFMaker.BApp.swift#542, GIFMaker.BApp.swift#542 */
 "Direction" = "Direction";
@@ -140,7 +140,7 @@
 "Find" = "Find";
 /* Generated from genl10n: CallApp.BApp.swift#191 */
 "Finding Contacts ... %@ " = "Finding Contacts ... %@ ";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#210, FirebaseMLVision.VisionText.Parser.Contacts.swift#210, PixNote.BApp.swift#675, PixNote.BApp.swift#675 */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#205, FirebaseMLVision.VisionText.Parser.Contacts.swift#205, PixNote.BApp.swift#675, PixNote.BApp.swift#675 */
 "Flight Information" = "Flight Information";
 /* Generated from genl10n: GIFMaker.BApp.swift#208, GIFMaker.BApp.swift#208 */
 "Forward" = "Forward";
@@ -226,7 +226,7 @@
 "Sorry can't call to selected contact." = "Sorry can't call to selected contact.";
 /* Generated from genl10n: PixNote.BApp.swift#303, CallApp.BApp.swift#171 */
 "Sorry not found any contact information." = "Sorry not found any contact information.";
-/* Generated from genl10n: PixNote.BApp.swift#222, PixNote.BApp.swift#236 */
+/* Generated from genl10n: PixNote.BApp.swift#214 */
 "Sorry, it is not possible to save the contract." = "Sorry, it is not possible to save the contract.";
 /* Generated from genl10n: GIFMaker.BApp.swift#108, GIFMaker.BApp.swift#108 */
 "Square" = "Square";

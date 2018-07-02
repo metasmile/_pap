@@ -179,7 +179,7 @@ extension PixNote{
             /*! The user has not yet made a choice regarding whether the application may access contact data. */
             case notDetermined
 
-            /*! The application is not authorized to access contact data.
+            /*! The application is not authorized` to access contact data.
              *  The user cannot change this application’s status, possibly due to active restrictions such as parental controls being in place. */
             case restricted
 
@@ -211,16 +211,16 @@ extension PixNote{
         }
         asyncSignal.waitUntilEnd()
 
+        var message:String = "Sorry, it is not possible to save the contract.".localized
+
         if canSaveContract{
 
             asyncSignal.begin()
             ContactManager.default.addContacts(Contact: contacts) { r in
-                var message:String
                 if case ContactManager.ContactOperationResult.Success(response: true) = r {
                     message = "A contract was successfully saved.".localized
-                }else{
-                    message = "Sorry, it is not possible to save the contract.".localized
                 }
+
                 DispatchQueue.main.async {
                     UIAlertController.alert(message, completion:{ _ in
                         asyncSignal.end()
@@ -233,7 +233,7 @@ extension PixNote{
 
             asyncSignal.begin()
             DispatchQueue.main.async {
-                UIAlertController.alert("Sorry, it is not possible to save the contract.".localized, completion:{ _ in
+                UIAlertController.alert(message.localized, completion:{ _ in
                     asyncSignal.end()
                 })
             }
