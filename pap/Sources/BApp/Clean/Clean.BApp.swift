@@ -212,7 +212,7 @@ private struct CleanAppDetector {
             if let similarAsset = similarAssets[fromAssetID]?.filter({ $0.id == assetID }).first {
                 hashDistance = similarAsset.distance
             }
-            else if let fromData = fromAsset.asData, let toData = toAsset.asData {
+            else if let fromData = fromAsset.requestThumbnailImage(targetSize: CGSize(width: 100, height: 100))?.asData, let toData = toAsset.requestThumbnailImage(targetSize: CGSize(width: 100, height: 100))?.asData {
                 let fromHash = imageHashing.hashImageData(fromData)
                 let toHash = imageHashing.hashImageData(toData)
                 let distance = imageHashing.hashDistance(fromHash, to: toHash)
