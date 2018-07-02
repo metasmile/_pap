@@ -110,7 +110,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         }
     }
 
-    func collectionView(_ collectu8uionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         batchPreviewView.removeCollectionViewItem(with: PHAssets.fetched.asset(at: indexPath))
 
         updateSelectedItemUIs()
