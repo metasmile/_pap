@@ -50,11 +50,13 @@
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>comgooglemaps-x-callback</string>
-		<string>comgooglemaps</string>
-		<string>comgooglemapsurl</string>
-	</array>
+    <array>
+        <string>comgooglemaps-x-callback</string>
+        <string>comgooglemaps</string>
+        <string>comgooglemapsurl</string>
+        <string>googlegmail</string>
+        <string>inbox-gmail</string>
+    </array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>
