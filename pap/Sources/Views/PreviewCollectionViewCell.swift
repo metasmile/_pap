@@ -47,7 +47,6 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         editItem = nil
         indexPath = nil
         previousAttributes = nil
-        assetView.isProcessing = false
         
         if let imageRequestId = imageRequestId {
             PHPhotoLibraryManager.cachingImageManager.cancelImageRequest(imageRequestId)
@@ -120,7 +119,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
                 self?.assetView.filteredImage = cached
             }
             else {
-                self?.setAssetItem(item, at: indexPath)
+                self?.setAssetItem(item, at: indexPath, animated: true)
             }
         })
     }
@@ -135,7 +134,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
                 
                 app.previewAsync(item, at: indexPath) { [weak self] (image) in
                     DispatchQueue.main.async {
-                        self?.assetView.isProcessing(false, animated: true)
+                        self?.assetView.isProcessing(false, animated: animated)
                         guard self?.indexPath == indexPath else { return }
                         self?.assetView.filteredImage = image
                     }

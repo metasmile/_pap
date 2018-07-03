@@ -345,12 +345,8 @@ extension AssetView {
                     return
                 }
                 
-                if let completion = completion {
-                    completion(image)
-                }
-                else {
-                    self?.image = image
-                }
+                self?.image = image
+                completion?(image)
             }
         }
     }
