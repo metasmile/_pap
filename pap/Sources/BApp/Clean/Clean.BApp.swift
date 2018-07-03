@@ -99,11 +99,11 @@ private struct CleanAppDetector {
 //            }
         
         autoreleasepool {
-            result.isTooBlurry = detectBlurryImage(asset)
-            guard result.isTooBlurry != true else { return }
-            
             result.hasSimilarAsset = detectSimilarAsset(asset)
             guard result.hasSimilarAsset != true else { return }
+            
+            result.isTooBlurry = detectBlurryImage(asset)
+            guard result.isTooBlurry != true else { return }
         }
         
         return result

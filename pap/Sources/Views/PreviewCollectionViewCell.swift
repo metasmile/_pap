@@ -22,25 +22,6 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
     @IBOutlet weak var assetViewWidth: NSLayoutConstraint!
     @IBOutlet weak var assetViewHeight: NSLayoutConstraint!
     
-    var isProcessing: Bool = false {
-        didSet {
-            processingView.isHidden = !isProcessing
-        }
-    }
-    
-    func isProcessing(_ processing: Bool, animated: Bool) {
-        guard animated else {
-            isProcessing = processing
-            return
-        }
-        
-        UIView.transition(with: processingView, duration: 0.3, options: .transitionCrossDissolve, animations: { [weak self] in
-            self?.isProcessing = processing
-        }, completion: nil)
-    }
-    
-    @IBOutlet private weak var processingView: UIView!
-    
     private var previousAttributes: UICollectionViewLayoutAttributes?
     
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
@@ -66,7 +47,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         editItem = nil
         indexPath = nil
         previousAttributes = nil
-        isProcessing = false
+        assetView.isProcessing = false
         
         if let imageRequestId = imageRequestId {
             PHPhotoLibraryManager.cachingImageManager.cancelImageRequest(imageRequestId)
@@ -147,14 +128,14 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
     public func setAssetItem(_ item: PHAssetItem<ImageEditStateValue>, at indexPath: IndexPath, animated: Bool = false) {
         guard self.indexPath == indexPath else { return }
         if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self), app.previewAsynchronously {
-            self.isProcessing = true
+            self.assetView.isProcessing = true
             
             PreviewCollectionViewCell.previewOperationQueue.addOperation { [weak self] in
                 guard self?.indexPath == indexPath else { return }
                 
                 app.previewAsync(item, at: indexPath) { [weak self] (image) in
                     DispatchQueue.main.async {
-                        self?.isProcessing(false, animated: true)
+                        self?.assetView.isProcessing(false, animated: true)
                         guard self?.indexPath == indexPath else { return }
                         self?.assetView.filteredImage = image
                     }

@@ -15,7 +15,7 @@ internal class AppUIAssetOriginalBadgeLabel: RoundedView {
     lazy private var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = UIColor.white.withAlphaComponent(0.6)
+        label.textColor = UIColor.white.withAlphaComponent(0.9)
         return label
     }()
     
@@ -46,6 +46,33 @@ class AppUIAssetView: AssetView {
         return label
     }()
     
+    private lazy var processingView: UIView = {
+        let view = UIView(frame: bounds)
+        
+        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.light))
+        view.addSubview(blurView)
+        blurView.fitConstraints(to: view)
+        
+        return view
+    }()
+    
+    var isProcessing: Bool = false {
+        didSet {
+            processingView.isHidden = !isProcessing
+        }
+    }
+    
+    func isProcessing(_ processing: Bool, animated: Bool) {
+        guard animated else {
+            isProcessing = processing
+            return
+        }
+        
+        UIView.transition(with: processingView, duration: 0.3, options: .transitionCrossDissolve, animations: { [weak self] in
+            self?.isProcessing = processing
+        }, completion: nil)
+    }
+    
     fileprivate var editState: StateValueSet<ImageEditStateValue>?
     var originalImage: UIImage?
     var filteredImage: UIImage? {
@@ -54,17 +81,7 @@ class AppUIAssetView: AssetView {
         }
     }
     
-    override var playerItem: AVPlayerItem? {
-        didSet {
-            applyEditState(editState)
-        }
-    }
-    
-    override var livePhoto: PHLivePhoto? {
-        didSet {
-            applyEditState(editState)
-        }
-    }
+    var originalLivePhoto: PHLivePhoto?
     
     override func initialize() {
         super.initialize()
@@ -78,6 +95,10 @@ class AppUIAssetView: AssetView {
         
         originalBadgeLabel.isHidden = true
         
+        addSubview(processingView)
+        processingView.fitConstraints(to: self)
+        processingView.isHidden = true
+        
         let compareOriginalGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.compareOriginalGestureDidChange))
         compareOriginalGesture.minimumPressDuration = 0.3
         compareOriginalGesture.delegate = self
@@ -86,15 +107,24 @@ class AppUIAssetView: AssetView {
     
     override func clearDrawing() {
         editState = nil
+        
         originalImage = nil
         filteredImage = nil
+        
+        originalLivePhoto = nil
+        
         originalBadgeLabel.isHidden = true
+        isProcessing = false
         
         super.clearDrawing()
     }
     
     override func imageDidLoad(image: UIImage?) {
         originalImage = image
+    }
+    
+    override func livePhotoDidLoad(livePhoto: PHLivePhoto?) {
+        originalLivePhoto = livePhoto
     }
 }
 
@@ -131,10 +161,36 @@ extension AppUIAssetView {
     }
     
     fileprivate func applyFilter<T>(_ editState: StateValueSet<T>?) where T: ImageEditStateValue {
-        if asset?.mediaType == .image || previewMode {
-            applyImageFilter(ciFilter: editState?.ciFilter)
+        guard let asset = asset else { return }
+        if asset.imageType == .stillImage || previewMode {
+            self.filteredImage = originalImage?.applyFilter(ciFilter: editState?.ciFilter)
         }
-        else if asset?.mediaType == .video {
+        else if asset.imageType == .livePhoto {
+            if let filter = editState?.ciFilter {
+                self.isProcessing(true, animated: false)
+                self.stopAny()
+                
+                asset.requestContentEditingInput(with: nil, completionHandler: { (input, info) in
+                    guard let input = input else { return }
+                    let editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: input)
+                    editingContext?.frameProcessor = { frame, error in
+                        return frame.image.applyFilter(ciFilter: filter)
+                    }
+                    
+                    editingContext?.prepareLivePhotoForPlayback(withTargetSize: asset.pixelSize, options: nil, completionHandler: { (livePhoto, error) in
+                        self.isProcessing(false, animated: true)
+                        
+                        self.livePhoto = livePhoto
+                        self.playAny()
+                    })
+                })
+            }
+            else if self.livePhoto != originalLivePhoto {
+                self.livePhoto = originalLivePhoto
+                self.playAny()
+            }
+        }
+        else if asset.mediaType == .video {
             if let filter = editState?.ciFilter {
                 playerItem?.videoComposition = playerItem?.asset.applyFilter(filter)
             }
@@ -142,16 +198,5 @@ extension AppUIAssetView {
                 playerItem?.videoComposition = playerItem?.asset.stabilize(with: mode)
             }
         }
-    }
-    
-    func applyImageFilter(ciFilter: CIFilter?) {
-        self.filteredImage = originalImage?.applyFilter(ciFilter: ciFilter)
-        
-//        if asset?.mediaSubtypes.contains(.photoLive) == true {
-//
-//        }
-//        else {
-//            updateImageContents(image?.applyFilter(ciFilter: ciFilter))
-//        }
     }
 }

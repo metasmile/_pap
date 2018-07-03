@@ -391,6 +391,7 @@ extension AssetView {
     fileprivate func loadLivePhoto(for asset: PHAsset, completion: @escaping (PHLivePhoto?) -> Void) {
         let targetSize = CGSize(width: bounds.width * UIScreen.main.nativeScale, height: bounds.height * UIScreen.main.nativeScale)
         imageRequestID = AssetView.imageManager.requestLivePhoto(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: livePhotoRequestOptions, resultHandler: { [weak self] (livePhoto, info) in
+            guard (info?[PHImageResultIsDegradedKey] as? Bool) != true else { return }
             self?.livePhotoDidLoad(livePhoto: livePhoto)
             completion(livePhoto)
         })
@@ -421,17 +422,16 @@ extension AssetView {
         guard let asset = asset else { return }
 
         if asset.mediaSubtypes.contains(.photoLive) {
-            self.stopVideo()
-
-        } else if asset.mediaType == .video {
             self.stopLivePhoto()
+        }
+        else if asset.mediaType == .video {
+            self.stopVideo()
         }
     }
 
     //Live PHAsset
     func playLivePhoto() {
         guard !isLivePhotoPlaying else { return }
-
         livePhotoView.startPlayback(with: .full)
     }
 
@@ -498,5 +498,9 @@ extension AssetView: PHLivePhotoViewDelegate {
     
     func livePhotoView(_ livePhotoView: PHLivePhotoView, didEndPlaybackWith playbackStyle: PHLivePhotoViewPlaybackStyle) {
         isLivePhotoPlaying = false
+        
+        if livePhotoView.livePhoto != nil {
+            livePhotoView.startPlayback(with: playbackStyle)
+        }
     }
 }
