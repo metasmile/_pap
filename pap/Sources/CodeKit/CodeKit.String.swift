@@ -37,4 +37,7 @@ extension String {
         return self.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
+    public func encodeAsURLQuery() -> String{
+        return self.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+    }
 }

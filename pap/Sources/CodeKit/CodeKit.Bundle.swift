@@ -9,4 +9,13 @@ extension Bundle {
     var displayName: String? {
         return object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
     }
+
+    var schemes:[String]? {
+        guard let urlTypes = Bundle.main.infoDictionary?["CFBundleURLTypes"] as? [[String: AnyObject]] else {
+            return [String]()
+        }
+
+        return urlTypes.compactMap { $0["CFBundleURLSchemes"] as? [String] }.reduce([], +).nilEmpty
+    }
 }
+

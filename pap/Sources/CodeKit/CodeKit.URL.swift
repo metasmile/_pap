@@ -33,3 +33,12 @@ extension Array where Element == String {
         }
     }
 }
+
+extension Dictionary where Key==String, Value==String{
+    public var urlQueryString:String{
+        return compactMap { return [
+            String(describing: $0.0).encodeAsURLQuery(),
+            String(describing: $0.1).encodeAsURLQuery()].joined(separator: "=")
+        }.joined(separator: "&")
+    }
+}

@@ -385,57 +385,86 @@ extension PixNote{
             for addrs in resultGroup.addresses ?? []{
 
                 for addr in addrs{
+                    let addressString = addr.formattedAddress
+                    if addressString.count == 0{
+                        continue
+                    }
 
-                    let action = UIAlertAction(title: addr.formattedAddress, style: . default, handler: { action in
+
+                    let action = UIAlertAction(title: addressString, style: . default, handler: { action in
 
                         //sub actions
                         let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
 
-                        let _actions = [
-//                            "http://maps.apple.com/?q=Mexican+Restaurant"
+                        var _actions = [UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
+                            asyncSignal.end()
+                        })]
 
-//                            UIAlertAction(title: "Open".localized, style: .default, handler: { action in
-//                                asyncSignal.end()
-//                                if UIApplication.shared.canOpenURL(addr) {
-//                                    if #available(iOS 10, *) {
-//                                        UIApplication.shared.open(addr)
-//                                    } else {
-//                                        UIApplication.shared.openURL(addr)
-//                                    }
-//                                }
-//                            }),
-//                            UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
-//                                UIPasteboard.general.string = addr
-//                                asyncSignal.end()
-//                            }),
-//                            UIAlertAction(title: "Share".localized, style: .default, handler: { action in
-//                                UIActivityViewController.share(activityItems: [addr], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
-//                                    asyncSignal.end()
-//                                }
-//                            }),
-//                            UIAlertAction(title: "Save A Contact".localized, style: .default, handler: { action in
-//                                if ContactManager.default.authorizeAndWait(asyncSignal){
-//                                    let contact = CNMutableContact()
-//                                    contact.contactType = .person
-//                                    contact.fillNameIfBlanked()
-//
-//                                    let components = NSCalendar.current.dateComponents([.year, .month, .day], from: Date())
-//                                    contact.dates.append(CNLabeledValue(label: "Date".localized, value: components as NSDateComponents))
-//
-//                                    contact.urlAddresses.append(CNLabeledValue(label: "URL", value: addr.absoluteString as NSString))
-//
-//                                    CNContactViewController.presentCreationDialog(contact: contact, onViewController: _alert, didDismissHandler:{
-//                                        asyncSignal.end()
-//                                    })
-//
-//                                }else{
-//                                    asyncSignal.end()
-//                                }
-//                            }),
-                            UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
-                                asyncSignal.end()
-                            })
-                        ]
+                        if let url = URL(string: "http://maps.apple.com/?\(["q":addressString].urlQueryString))")
+                        , UIApplication.shared.canOpenURL(url){
+                            _actions.append(
+                                    UIAlertAction(title: "Open Apple Maps".localized, style: .default, handler: { action in
+                                        asyncSignal.end()
+                                        UIApplication.shared.open(url)
+                                    })
+                            )
+                        }
+
+                        let param_googlemap = [
+                            "q":addressString
+                            , "x-success": Bundle.main.schemes?.first ?? ""
+                            , "x-source":Bundle.main.displayName ?? ""
+                        ].urlQueryString
+
+                        let url_googlemap = URL(string: "comgooglemaps-x-callback://?\(param_googlemap)")
+
+                        if let url = url_googlemap, UIApplication.shared.canOpenURL(url){
+                            _actions.append(
+                                    UIAlertAction(title: "Open Google Maps".localized, style: .default, handler: { action in
+                                        asyncSignal.end()
+                                        UIApplication.shared.open(url)
+                                    })
+                            )
+                        }
+
+                        _actions.append(
+                                UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
+                                    UIPasteboard.general.string = addressString
+                                    asyncSignal.end()
+                                })
+                        )
+
+                        _actions.append(
+                                UIAlertAction(title: "Share".localized, style: .default, handler: { action in
+                                    UIActivityViewController.share(activityItems: [addr], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
+                                        asyncSignal.end()
+                                    }
+                                })
+                        )
+
+                        _actions.append(
+                                UIAlertAction(title: "Save A Contact".localized, style: .default, handler: { action in
+
+                                    if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal){
+                                        let contact = CNMutableContact()
+                                        contact.contactType = .person
+                                        contact.fillNameIfBlanked()
+
+                                        let components = NSCalendar.current.dateComponents([.year, .month, .day], from: Date())
+                                        contact.dates.append(CNLabeledValue(label: "Date".localized, value: components as NSDateComponents))
+                                        
+                                        contact.postalAddresses = [CNLabeledValue(label: "Address", value: addr.postalAddress)]
+                                        
+                                        CNContactViewController.presentCreationDialog(contact: contact, onViewController: _alert, didDismissHandler:{
+                                            asyncSignal.end()
+                                        })
+
+                                    }else{
+                                        asyncSignal.end()
+                                    }
+                                })
+                        )
+
                         for _action in _actions{
                             _alert.addAction(_action)
                         }

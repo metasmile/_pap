@@ -54,8 +54,8 @@ public protocol NSTextCheckingAddressComponent {
 }
 
 extension NSTextCheckingAddressComponent{
-
-    public var formattedAddress:String{
+    
+    public var postalAddress:CNMutablePostalAddress{
         let address = CNMutablePostalAddress()
         address.state = state ?? ""
         address.city = city ?? ""
@@ -65,8 +65,13 @@ extension NSTextCheckingAddressComponent{
         if let isoCode = Locale.current.regionCode ?? Locale.current.languageCode{
             address.isoCountryCode =  isoCode
         }
-        return CNPostalAddressFormatter.string(from: address, style: .mailingAddress)
+        return address
     }
+
+    public var formattedAddress:String{
+        return CNPostalAddressFormatter.string(from: postalAddress, style: .mailingAddress)
+    }
+
 }
 
 
