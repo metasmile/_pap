@@ -160,7 +160,7 @@ extension PixNote{
             return
         }
 
-        canSaveContract = ContactsUtil.shared.authorizeAndWait(asyncSignal)
+        canSaveContract = ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal)
 
         let errorMessage:String = "Sorry, it is not possible to save the contract.".localized
 
@@ -263,7 +263,7 @@ extension PixNote{
                                 }
                             }),
                             UIAlertAction(title: "Save A Contact".localized, style: .default, handler: { action in
-                                if ContactsUtil.shared.authorizeAndWait(asyncSignal){
+                                if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal){
                                     let contact = CNMutableContact()
                                     contact.contactType = .person
                                     contact.fillNameIfBlanked()
@@ -337,7 +337,7 @@ extension PixNote{
                                 }
                             }),
                             UIAlertAction(title: "Save A Contact".localized, style: .default, handler: { action in
-                                if ContactsUtil.shared.authorizeAndWait(asyncSignal){
+                                if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal){
                                     let contact = CNMutableContact()
                                     contact.contactType = .person
                                     contact.fillNameIfBlanked()
