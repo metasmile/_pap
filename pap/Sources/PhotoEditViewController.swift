@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import Photos
+import Hero
 
 protocol EditViewControllerDelegate {
     func editViewController(_ photoEditor: PhotoEditViewController, didFinishWith editItem: StateValueSet<ImageEditStateValue>?, at indexPath: IndexPath?)
@@ -27,13 +28,6 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         return AppUIAssetView(frame: zoomingContentView.bounds)
     }()
     
-    var placeholderImage: UIImage? {
-        didSet {
-            guard isViewLoaded else { return }
-            assetView.image = placeholderImage
-            layoutAssetView()
-        }
-    }
     fileprivate var editItem = StateValueSet<ImageEditStateValue>()
 
     var indexPathInPicker: IndexPath?
@@ -71,8 +65,9 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
 
         doneButton?.title = "Done".localized
         
+        assetView.hero.id = "TransitionToPhotoEditViewController"
+        
         assetView.asset = asset
-        assetView.image = placeholderImage
         assetView.preferredTransform = preferredEditState.transform
         assetView.applyEditState(preferredEditState)
         
@@ -195,7 +190,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     override func cancelButtonDidTap(sender: Any) {
         super.cancelButtonDidTap(sender: sender)
         
-        editItem.reset()
+        editItem = preferredEditState
         
         updatePreview { [unowned self] in
             self.delegate?.editViewController(self, didFinishWith: nil, at: self.indexPathInPicker)

@@ -134,7 +134,7 @@
 "Direction" = "Direction";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift#147 */
 "Do Anything, At Once." = "Do Anything, At Once.";
-/* Generated from genl10n: PhotoPickerViewController.swift#698 */
+/* Generated from genl10n: PhotoPickerViewController.swift#717 */
 "Downloading..." = "Downloading...";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#156, FirebaseMLVision.VisionText.Parser.Contacts.swift#156, PixNote.BApp.swift#890, PixNote.BApp.swift#890 */
 "E-mail Address" = "E-mail Address";
@@ -226,7 +226,7 @@
 "Save and Share" = "Save and Share";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift#52, PHAssetUIAlertControllerSynchronizablePresenter.swift#52 */
 "Save" = "Save";
-/* Generated from genl10n: PhotoPickerViewController.swift#721 */
+/* Generated from genl10n: PhotoPickerViewController.swift#740 */
 "Saving Results..." = "Saving Results...";
 /* Generated from genl10n: Textractor.BApp.swift#96 */
 "Saving Texts ..." = "Saving Texts ...";
@@ -258,11 +258,11 @@
 "Stabilizer" = "Stabilizer";
 /* Generated from genl10n: Stabilizer.swift#91 */
 "Stabilizing Selected Items..." = "Stabilizing Selected Items...";
-/* Generated from genl10n: PhotoPickerViewController.swift#428, PhotoPickerViewController.swift#428 */
+/* Generated from genl10n: PhotoPickerViewController.swift#429, PhotoPickerViewController.swift#429 */
 "Start" = "Start";
 /* Generated from genl10n: PixNote.BApp.swift#123 */
 "Starting To Extract ..." = "Starting To Extract ...";
-/* Generated from genl10n: PhotoPickerViewController.swift#655 */
+/* Generated from genl10n: PhotoPickerViewController.swift#674 */
 "Starting the Process..." = "Starting the Process...";
 /* Generated from genl10n: Revert.BApp.swift#112 */
 "Starting to check edited photos..." = "Starting to check edited photos...";

@@ -9,6 +9,7 @@
 import UIKit
 import Photos
 import PhotosUI
+import Hero
 
 class PhotoPickerViewController: AppDockViewController {
     @IBOutlet weak var photoCollectionView: UICollectionView!
@@ -598,15 +599,24 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
         if let photoEditViewController = R.storyboard.appStoryboard.photoEditViewController(){
             photoEditViewController.preferredEditState = editItem.editState
             photoEditViewController.asset = editItem.asset
-            photoEditViewController.placeholderImage = editItem.asset.requestThumbnailImage(targetSize: CGSize(width: 200, height: 200))?.applyFilter(ciFilter: editItem.editState.ciFilter)
             photoEditViewController.delegate = self
             photoEditViewController.indexPathInPicker = PHAssets.fetched.indexPath(of:editItem.asset)
             photoEditViewController.selectedInPicker = AppAssets.selected.by(editItem.asset) != nil
             
+            batchPreviewView.collectionView.visibleCells.forEach { ($0 as? PreviewCollectionViewCell)?.assetView.hero.id = nil }
+            
+            if let index = AppAssets.selected.index(of: editItem), let cell = batchPreviewView.collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as? PreviewCollectionViewCell {
+                cell.assetView.hero.id = "TransitionToPhotoEditViewController"
+            }
+            
             appDockContentLayoutStateRestoringAfterProcessing = appDockView?.contentLayoutState
-            appDockView?.setDrawerDisplay(forState: .neutralized, reloadDockContentViews: true)
+//            appDockView?.setDrawerDisplay(forState: .neutralized, reloadDockContentViews: true)
 
             let navigationController = AppDockNavigationController(rootViewController: photoEditViewController)
+            navigationController.hero.isEnabled = true
+            navigationController.hero.modalAnimationType = .fade
+            navigationController.hero.navigationAnimationType = .fade
+            
             present(navigationController,animated: true) {
                 AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues( AppConfigUIAttrribute(tintColor: .white))
             }
@@ -646,9 +656,15 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
 
     func batchPreviewView(_ view: PreviewView, didSelectItemAt indexPath: IndexPath) {
-        let selectedAsset = AppAssets.selected.at(indexPath.item).asset
-        guard let indexPathInPhotoPicker = PHAssets.fetched.indexPath(of: selectedAsset) else { return }
-        photoCollectionView.scrollToItem(at: indexPathInPhotoPicker, at: .centeredVertically, animated: true)
+        let selectedAssetItem = AppAssets.selected.at(indexPath.item)
+        
+        if let _ = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self), appDockView?.contentLayoutState == .maximized {
+            showPhotoEditor(with: selectedAssetItem)
+        }
+        else {
+            guard let indexPathInPhotoPicker = PHAssets.fetched.indexPath(of: selectedAssetItem.asset) else { return }
+            photoCollectionView.scrollToItem(at: indexPathInPhotoPicker, at: .centeredVertically, animated: true)
+        }
     }
     
     func batchPreviewViewWillBeginEdit(_ view: PreviewView) {

@@ -15,6 +15,7 @@ target 'pap' do
   pod 'DefaultsKit', :git => "https://github.com/metasmile/DefaultsKit" #TODO: consider to get into CodeKit with Subfile
   pod 'SwiftyGif'
   pod 'Armchair', '>= 0.3' #FIXME: deprecation warning.
+  pod 'Hero'
   # pod 'SwipeCellKit'
 
   # com.stells.pap.pdfactory

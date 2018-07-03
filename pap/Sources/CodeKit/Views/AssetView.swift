@@ -78,7 +78,7 @@ class AssetView: UIView {
         livePhotoRequestOptions = defaultLivePhotoRequestOptions
         
         let tapToPlayGesture = UITapGestureRecognizer(target: self, action: #selector(self.playAny))
-        self.addGestureRecognizer(tapToPlayGesture)
+        livePhotoView.addGestureRecognizer(tapToPlayGesture)
     }
     
     override func layoutSubviews() {
