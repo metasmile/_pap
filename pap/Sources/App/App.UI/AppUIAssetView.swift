@@ -143,31 +143,35 @@ extension AppUIAssetView: UIGestureRecognizerDelegate {
         switch sender.state {
         case .began:
             showOriginal()
-            if height > originalBadgeLabel.height * 3 {
-                originalBadgeLabel.isHidden = false
-            }
         case .ended, .cancelled:
             showFiltered()
-            originalBadgeLabel.isHidden = true
         default: break
         }
     }
     
     private func showOriginal() {
+        if height > originalBadgeLabel.height * 3 {
+            originalBadgeLabel.isHidden = false
+        }
+        
         if asset?.imageType == .stillImage || previewMode {
             self.image = originalImage
         }
         else if asset?.imageType == .livePhoto {
             self.livePhoto = originalLivePhoto
+            playAny()
         }
     }
     
     private func showFiltered() {
+        originalBadgeLabel.isHidden = true
+        
         if asset?.imageType == .stillImage || previewMode {
             self.image = filteredImage
         }
         else if asset?.imageType == .livePhoto {
             self.livePhoto = filteredLivePhoto
+            playAny()
         }
     }
 }

@@ -76,6 +76,9 @@ class AssetView: UIView {
         imageRequestOptions = defaultImageRequestOptions
         videoRequestOptions = defaultVideoRequestOptions
         livePhotoRequestOptions = defaultLivePhotoRequestOptions
+        
+        let tapToPlayGesture = UITapGestureRecognizer(target: self, action: #selector(self.playAny))
+        self.addGestureRecognizer(tapToPlayGesture)
     }
     
     override func layoutSubviews() {
@@ -132,6 +135,7 @@ class AssetView: UIView {
         
         image = nil
         playerItem = nil
+        livePhoto = nil
     }
     
     fileprivate func cancelCurrentImageRequest() {
@@ -407,13 +411,13 @@ extension AssetView {
 
 extension AssetView {
     // Abs
-    func playAny() {
+    @objc func playAny() {
         guard let asset = asset else { return }
 
         if asset.mediaSubtypes.contains(.photoLive) {
             self.playLivePhoto()
-
-        } else if asset.mediaType == .video {
+        }
+        else if asset.mediaType == .video {
             self.playVideo()
         }
     }
@@ -498,9 +502,5 @@ extension AssetView: PHLivePhotoViewDelegate {
     
     func livePhotoView(_ livePhotoView: PHLivePhotoView, didEndPlaybackWith playbackStyle: PHLivePhotoViewPlaybackStyle) {
         isLivePhotoPlaying = false
-        
-        if livePhotoView.livePhoto != nil {
-            livePhotoView.startPlayback(with: playbackStyle)
-        }
     }
 }
