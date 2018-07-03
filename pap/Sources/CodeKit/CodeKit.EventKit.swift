@@ -1,6 +1,6 @@
 //
 // Created by BLACKGENE on 29.06.18.
-// Copyright (c) 2018 Stells. All rights reserved.
+// C?opyright (c) 2018 Stells. All rights reserved.
 //
 
 //
@@ -15,18 +15,26 @@
 import EventKit
 
 public class EventKitUtil {
-    public var eventStore = EKEventStore()
+
+    public static let shared = EventKitUtil()
+
+    public let defaultEventStore = EKEventStore()
+    public var defaultCalendarForNewEvents:EKCalendar{
+        return self.defaultEventStore.defaultCalendarForNewEvents
+                ?? self.defaultEventStore.calendars(for: .event).first
+                ?? EKCalendar(for: .event, eventStore: self.defaultEventStore)
+    }
+
+
     public var calendarName: String
 
     public var calendar: EKCalendar? {
         get {
-            return eventStore.calendars(for: .event).filter { (element) in
+            return defaultEventStore.calendars(for: .event).filter { (element) in
                 return element.title == calendarName
             }.first
         }
     }
-
-    public static let shared = EventKitUtil()
 
     public init(calendarName: String = Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String){
         self.calendarName = calendarName
@@ -45,7 +53,7 @@ public class EventKitUtil {
             completion(false)
         case .notDetermined:
             var userAllowed = false
-            eventStore.requestAccess(to: .event, completion: { (allowed, error) -> Void in
+            defaultEventStore.requestAccess(to: .event, completion: { (allowed, error) -> Void in
                 userAllowed = !allowed
                 if userAllowed {
                     self.reset()
@@ -85,7 +93,7 @@ public class EventKitUtil {
             }
             if let cal = weakSelf.calendar, EKEventStore.authorizationStatus(for: EKEntityType.event) == .authorized {
                 do {
-                    try weakSelf.eventStore.removeCalendar(cal, commit: true)
+                    try weakSelf.defaultEventStore.removeCalendar(cal, commit: true)
                     completion?(nil)
                 } catch let error as NSError {
                     completion?(error)
@@ -107,7 +115,7 @@ public class EventKitUtil {
             }
 
             if let c = weakSelf.calendar {
-                let event = EKEvent(eventStore: weakSelf.eventStore)
+                let event = EKEvent(eventStore: weakSelf.defaultEventStore)
                 event.calendar = c
                 completion?(event)
                 return
@@ -205,8 +213,8 @@ public class EventKitUtil {
                     currentFinish = Date(timeInterval: 0, since: endDate)
                 }
 
-                let pred = weakSelf.eventStore.predicateForEvents(withStart: startDate, end: endDate, calendars: [c])
-                events.append(contentsOf: weakSelf.eventStore.events(matching: pred))
+                let pred = weakSelf.defaultEventStore.predicateForEvents(withStart: startDate, end: endDate, calendars: [c])
+                events.append(contentsOf: weakSelf.defaultEventStore.events(matching: pred))
 
                 startDate = Date(timeInterval: four_years + 1, since: startDate)
             }
@@ -223,8 +231,8 @@ public class EventKitUtil {
                 return
             }
             if let c = weakSelf.calendar {
-                let pred = weakSelf.eventStore.predicateForEvents(withStart: startDate, end: endDate, calendars: [c])
-                completion?(nil, weakSelf.eventStore.events(matching: pred))
+                let pred = weakSelf.defaultEventStore.predicateForEvents(withStart: startDate, end: endDate, calendars: [c])
+                completion?(nil, weakSelf.defaultEventStore.events(matching: pred))
             } else {
 
                 completion?(weakSelf.getGeneralError(),nil)
@@ -241,7 +249,7 @@ public class EventKitUtil {
                 completion?(weakSelf.getDeniedAccessToCalendarError(), nil)
                 return
             }
-            let event = weakSelf.eventStore.event(withIdentifier: eventId)
+            let event = weakSelf.defaultEventStore.event(withIdentifier: eventId)
             completion?(nil,event)
         }
     }
@@ -249,24 +257,24 @@ public class EventKitUtil {
     //MARK: - Privates
 
     private func createCalendar(commit: Bool = true, source: EKSource? = nil) -> NSError? {
-        let newCalendar = EKCalendar(for: .event, eventStore: self.eventStore)
+        let newCalendar = EKCalendar(for: .event, eventStore: self.defaultEventStore)
         newCalendar.title = self.calendarName
 
         // defaultCalendarForNewEvents will always return a writtable source, even when there is no iCloud support.
-        if let calendar = self.eventStore.defaultCalendarForNewEvents{
+        if let calendar = self.defaultEventStore.defaultCalendarForNewEvents{
             newCalendar.source = source ?? calendar.source
         }else{
             return NSError(domain: #file, code: 0)
         }
 
         do {
-            try self.eventStore.saveCalendar(newCalendar, commit: commit)
+            try self.defaultEventStore.saveCalendar(newCalendar, commit: commit)
             return nil
         } catch let error as NSError {
             if source != nil {
                 return error
             } else {
-                for source in self.eventStore.sources {
+                for source in self.defaultEventStore.sources {
                     if source.sourceType == .birthdays {
                         continue
                     }
@@ -275,7 +283,7 @@ public class EventKitUtil {
                         return nil
                     }
                 }
-                if let calendar = self.eventStore.defaultCalendarForNewEvents{
+                if let calendar = self.defaultEventStore.defaultCalendarForNewEvents{
                     self.calendarName = calendar.title
                 }
                 return error
@@ -285,7 +293,7 @@ public class EventKitUtil {
 
     private func insertEvent(event: EKEvent, span: EKSpan = .thisEvent, commit: Bool = true) -> Bool {
         do {
-            try eventStore.save(event, span: .thisEvent, commit: commit)
+            try defaultEventStore.save(event, span: .thisEvent, commit: commit)
             return true
         } catch {
             return false
@@ -294,7 +302,7 @@ public class EventKitUtil {
 
     private func deleteEvent(event: EKEvent, commit: Bool = true) -> Bool {
         do {
-            try eventStore.remove(event, span: .futureEvents, commit: commit)
+            try defaultEventStore.remove(event, span: .futureEvents, commit: commit)
             return true
         } catch {
             return false
@@ -305,7 +313,7 @@ public class EventKitUtil {
 
     public func commit() -> Bool {
         do {
-            try eventStore.commit()
+            try defaultEventStore.commit()
             return true
         } catch {
             return false
@@ -313,7 +321,7 @@ public class EventKitUtil {
     }
 
     public func reset(){
-        eventStore.reset()
+        defaultEventStore.reset()
     }
 }
 

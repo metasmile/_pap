@@ -220,7 +220,12 @@ extension PixNote{
                 }
                 for contact in _contacts{
                     contact.imageData = item.asset.asData
-                    CNContactViewController.presentCreationDialog(contact: contact, asyncSignal)
+
+                    asyncSignal.begin()
+                    CNContactViewController.presentDialog(contact: contact, didDismissHandler:{
+                        asyncSignal.end()
+                    })
+                    asyncSignal.waitUntilEnd()
                 }
             }
         }
@@ -273,7 +278,7 @@ extension PixNote{
                                     contact.urlAddresses.append(CNLabeledValue(label: "URL", value: "https://apps.photo"))
                                     contact.phoneNumbers = [ CNLabeledValue(label: "Phone Number".localized, value: CNPhoneNumber(stringValue: phoneNumber))]
 
-                                    CNContactViewController.presentCreationDialog(contact: contact, onViewController: _alert, didDismissHandler:{
+                                    CNContactViewController.presentDialog(contact: contact, onViewController: _alert, didDismissHandler:{
                                         asyncSignal.end()
                                     })
 
@@ -347,7 +352,7 @@ extension PixNote{
 
                                     contact.urlAddresses.append(CNLabeledValue(label: "URL", value: url.absoluteString as NSString))
 
-                                    CNContactViewController.presentCreationDialog(contact: contact, onViewController: _alert, didDismissHandler:{
+                                    CNContactViewController.presentDialog(contact: contact, onViewController: _alert, didDismissHandler:{
                                         asyncSignal.end()
                                     })
 
@@ -392,6 +397,8 @@ extension PixNote{
                     var _actions = [UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
                         asyncSignal.end()
                     })]
+
+
 
                     if let url = URL(string: "calshow:\(date.timeIntervalSinceReferenceDate)".remove(".0"))
                     , UIApplication.shared.canOpenURL(url){
@@ -533,7 +540,7 @@ extension PixNote{
 
                                     contact.emailAddresses = [CNLabeledValue(label: "E-mail Address".localized, value: email as NSString)]
 
-                                    CNContactViewController.presentCreationDialog(contact: contact, onViewController: _alert, didDismissHandler:{
+                                    CNContactViewController.presentDialog(contact: contact, onViewController: _alert, didDismissHandler:{
                                         asyncSignal.end()
                                     })
 
@@ -636,7 +643,7 @@ extension PixNote{
 
                                     contact.postalAddresses = [CNLabeledValue(label: "Address", value: addr.postalAddress)]
 
-                                    CNContactViewController.presentCreationDialog(contact: contact, onViewController: _alert, didDismissHandler:{
+                                    CNContactViewController.presentDialog(contact: contact, onViewController: _alert, didDismissHandler:{
                                         asyncSignal.end()
                                     })
 
