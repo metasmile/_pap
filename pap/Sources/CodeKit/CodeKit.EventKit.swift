@@ -4,7 +4,7 @@
 //
 
 //
-//  CalendarManager.swift
+//  CodeKit.EventKit.swift
 //
 //  Created by Albert Montserrat on 16/02/17.
 //  Copyright (c) 2015 Albert Montserrat. All rights reserved.
@@ -14,7 +14,7 @@
 
 import EventKit
 
-public class CalendarManager {
+public class EventKitUtil {
     public var eventStore = EKEventStore()
     public var calendarName: String
 
@@ -26,7 +26,7 @@ public class CalendarManager {
         }
     }
 
-    public static let shared = CalendarManager()
+    public static let shared = EventKitUtil()
 
     public init(calendarName: String = Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String){
         self.calendarName = calendarName
@@ -317,7 +317,7 @@ public class CalendarManager {
     }
 }
 
-extension CalendarManager {
+extension EventKitUtil {
     fileprivate func getErrorForDomain(domain: String, description: String, reason: String, code: Int = 999) -> NSError {
         let userInfo = [
             NSLocalizedDescriptionKey: description,

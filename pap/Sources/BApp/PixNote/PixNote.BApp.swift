@@ -376,6 +376,89 @@ extension PixNote{
             }
 
             /*
+                Date -> Calendar, Reminder
+            */
+            for date in (resultGroup.dates ?? []).reduce([],+){
+                let formatter = DateFormatter()
+                formatter.dateStyle = .long
+                formatter.timeStyle = .medium
+                let dateString = formatter.string(from: date)
+                
+                let action = UIAlertAction(title: dateString, style: .default, handler: { action in
+
+                    //sub actions
+                    let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+
+                    var _actions = [UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
+                        asyncSignal.end()
+                    })]
+
+                    if let url = URL(string: "calshow:\(date.timeIntervalSinceReferenceDate)".remove(".0"))
+                    , UIApplication.shared.canOpenURL(url){
+                        print(url)
+                        _actions.append(
+                                UIAlertAction(title: "Add an Event".localized, style: .default, handler: { action in
+                                    asyncSignal.end()
+                                    UIApplication.shared.open(url)
+                                })
+                        )
+                    }
+
+                    let param = [
+                        "to": dateString
+                    ]
+
+                    let url_gmail = URL(string: "googlegmail://co?\(param)")
+                    if let url = url_gmail, UIApplication.shared.canOpenURL(url){
+                        _actions.append(
+                                UIAlertAction(title: "Send an Email".localized + " (Gmail)", style: .default, handler: { action in
+                                    asyncSignal.end()
+                                    UIApplication.shared.open(url)
+                                })
+                        )
+                    }
+
+                    let url_inbox = URL(string: "inbox-gmail://co?\(param)")
+                    if let url = url_inbox, UIApplication.shared.canOpenURL(url){
+                        _actions.append(
+                                UIAlertAction(title: "Send an Email".localized + " (Google Inbox)", style: .default, handler: { action in
+                                    asyncSignal.end()
+                                    UIApplication.shared.open(url)
+                                })
+                        )
+                    }
+
+                    _actions.append(
+                            UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
+                                UIPasteboard.general.string = dateString
+                                asyncSignal.end()
+                            })
+                    )
+
+                    _actions.append(
+                            UIAlertAction(title: "Share".localized, style: .default, handler: { action in
+                                UIActivityViewController.share(activityItems: [date], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
+                                    asyncSignal.end()
+                                }
+                            })
+                    )
+
+                    for _action in _actions{
+                        _alert.addAction(_action)
+                    }
+
+                    DispatchQueue.main.async{
+                        UIApplication.shared.keyWindow?.rootViewController?.present(_alert, animated: true)
+                    }
+
+                })
+
+                action.accessoryImage = R.image.exifGhostBAppIcon()
+
+                alert.addAction(action)
+            }
+
+            /*
                 Email Address -> Email Map app
             */
             for email in (resultGroup.emails ?? []).reduce([],+) where email.count>0{
@@ -415,7 +498,7 @@ extension PixNote{
                     let url_inbox = URL(string: "inbox-gmail://co?\(param)")
                     if let url = url_inbox, UIApplication.shared.canOpenURL(url){
                         _actions.append(
-                                UIAlertAction(title: "Send an Email".localized + " (Google Inbox)".localized, style: .default, handler: { action in
+                                UIAlertAction(title: "Send an Email".localized + " (Google Inbox)", style: .default, handler: { action in
                                     asyncSignal.end()
                                     UIApplication.shared.open(url)
                                 })
@@ -431,7 +514,7 @@ extension PixNote{
 
                     _actions.append(
                             UIAlertAction(title: "Share".localized, style: .default, handler: { action in
-                                UIActivityViewController.share(activityItems: [URL(string: "mailto://\(email)")], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
+                                UIActivityViewController.share(activityItems: [email], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
                                     asyncSignal.end()
                                 }
                             })
