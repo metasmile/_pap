@@ -106,7 +106,7 @@
 "Burst" = "Burst";
 /* Generated from genl10n: Revert.BApp.swift#81 */
 "Cannot revert. All selected items have not edited." = "Cannot revert. All selected items have not edited.";
-/* Generated from genl10n: CallApp.BApp.swift#121, CallApp.BApp.swift#121 */
+/* Generated from genl10n: CallApp.BApp.swift#122, CallApp.BApp.swift#122 */
 "Choose A Phone Number To Call" = "Choose A Phone Number To Call";
 /* Generated from genl10n: PixNote.BApp.swift#230, PixNote.BApp.swift#230 */
 "Choose An Action" = "Choose An Action";
@@ -138,7 +138,7 @@
 "Downloading..." = "Downloading...";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#156, FirebaseMLVision.VisionText.Parser.Contacts.swift#156, PixNote.BApp.swift#882, PixNote.BApp.swift#882 */
 "E-mail Address" = "E-mail Address";
-/* Generated from genl10n: Revert.BApp.swift#191, Revert.BApp.swift#191, ExifGhost.AppDockContent.swift#162, ExifGhost.AppDockContent.swift#162, PixNote.BApp.swift#694, PixNote.BApp.swift#694, PixNote.BApp.swift#935, PixNote.BApp.swift#935, Clean.BApp.swift#302, Clean.BApp.swift#302, CallApp.BApp.swift#317, CallApp.BApp.swift#317 */
+/* Generated from genl10n: Revert.BApp.swift#191, Revert.BApp.swift#191, ExifGhost.AppDockContent.swift#162, ExifGhost.AppDockContent.swift#162, PixNote.BApp.swift#694, PixNote.BApp.swift#694, PixNote.BApp.swift#935, PixNote.BApp.swift#935, Clean.BApp.swift#302, Clean.BApp.swift#302, CallApp.BApp.swift#318, CallApp.BApp.swift#318 */
 "Enable Auto Selection" = "Enable Auto Selection";
 /* Generated from genl10n: Convert.AppDockContent.swift#149, Convert.AppDockContent.swift#149 */
 "Export Options" = "Export Options";
@@ -150,9 +150,9 @@
 "Extract" = "Extract";
 /* Generated from genl10n: PixNote.BApp.swift#127 */
 "Extracting Contents ... %@ " = "Extracting Contents ... %@ ";
-/* Generated from genl10n: CallApp.BApp.swift#195, CallApp.BApp.swift#195 */
+/* Generated from genl10n: CallApp.BApp.swift#196, CallApp.BApp.swift#196 */
 "Find" = "Find";
-/* Generated from genl10n: CallApp.BApp.swift#191 */
+/* Generated from genl10n: CallApp.BApp.swift#192 */
 "Finding Contacts ... %@ " = "Finding Contacts ... %@ ";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#219, FirebaseMLVision.VisionText.Parser.Contacts.swift#219, PixNote.BApp.swift#885, PixNote.BApp.swift#885 */
 "Flight Information" = "Flight Information";
@@ -226,7 +226,7 @@
 "Saving Results..." = "Saving Results...";
 /* Generated from genl10n: Clean.BApp.swift#285 */
 "Select Photos You Want To Clean!" = "Select Photos You Want To Clean!";
-/* Generated from genl10n: CallApp.BApp.swift#300 */
+/* Generated from genl10n: CallApp.BApp.swift#301 */
 "Select Photos You Want To Grab Phone Numbers!" = "Select Photos You Want To Grab Phone Numbers!";
 /* Generated from genl10n: PixNote.BApp.swift#1063 */
 "Select Photos You Want To Grab!" = "Select Photos You Want To Grab!";
@@ -236,9 +236,7 @@
 "Size" = "Size";
 /* Generated from genl10n: PixNote.BApp.swift#206 */
 "Some contacts were saved, but someones were not." = "Some contacts were saved, but someones were not.";
-/* Generated from genl10n: CallApp.BApp.swift#143 */
-"Sorry can't call to selected contact." = "Sorry can't call to selected contact.";
-/* Generated from genl10n: PixNote.BApp.swift#477, CallApp.BApp.swift#171 */
+/* Generated from genl10n: PixNote.BApp.swift#477, CallApp.BApp.swift#172 */
 "Sorry not found any information you selected." = "Sorry not found any information you selected.";
 /* Generated from genl10n: PixNote.BApp.swift#165 */
 "Sorry, it is not possible to save the contract." = "Sorry, it is not possible to save the contract.";
@@ -266,7 +264,7 @@
 "URL" = "URL";
 /* Generated from genl10n: GIFMaker.BApp.swift#91, GIFMaker.BApp.swift#91 */
 "Video" = "Video";
-/* Generated from genl10n: PixNote.BApp.swift#123, CallApp.BApp.swift#187 */
+/* Generated from genl10n: PixNote.BApp.swift#123, CallApp.BApp.swift#188 */
 "Waiting To Select ..." = "Waiting To Select ...";
 /* Generated from genl10n: Stabilizer.swift#271, Stabilizer.swift#271 */
 "Warp" = "Warp";
@@ -274,5 +272,5 @@
 "nHD (640×360)" = "nHD (640×360)";
 /* Generated from genl10n: GIFMaker.BApp.swift#159 */
 "qHD (960×540)" = "qHD (960×540)";
-/* Generated from genl10n: CallApp.BApp.swift#183 */
+/* Generated from genl10n: CallApp.BApp.swift#184 */
 "🔍 Starting To Find ..." = "🔍 Starting To Find ...";

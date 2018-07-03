@@ -61,6 +61,7 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
     )
 
     public required override init() {
+
     }
 
 //    static var callProviderDelegate:CallProviderDelegate?
@@ -131,7 +132,7 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
 
                         DispatchQueue.main.async {
 
-                            if let url = URL(string: "tel://\(phoneNumber)"), UIApplication.shared.canOpenURL(url) {
+                            if ContactsUtil.shared.isCapableToCall, let url = URL(string: "tel://\(phoneNumber)") {
                                 asyncSignal.end()
 
                                 if #available(iOS 10, *) {
@@ -140,9 +141,9 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
                                     UIApplication.shared.openURL(url)
                                 }
                             }else{
-                                UIAlertController.alert("Sorry can't call to selected contact.".localized, completion:{ _ in
+                                UIActivityViewController.share(activityItems: [phoneNumber]) { type, b, anies, error in
                                     asyncSignal.end()
-                                })
+                                }
                             }
                         }
                     }))
