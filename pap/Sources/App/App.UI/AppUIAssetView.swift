@@ -82,6 +82,11 @@ class AppUIAssetView: AssetView {
     }
     
     var originalLivePhoto: PHLivePhoto?
+    var filteredLivePhoto: PHLivePhoto? {
+        didSet {
+            self.livePhoto = filteredLivePhoto ?? originalLivePhoto
+        }
+    }
     
     override func initialize() {
         super.initialize()
@@ -112,6 +117,7 @@ class AppUIAssetView: AssetView {
         filteredImage = nil
         
         originalLivePhoto = nil
+        filteredLivePhoto = nil
         
         originalBadgeLabel.isHidden = true
         isProcessing = false
@@ -130,20 +136,38 @@ class AppUIAssetView: AssetView {
 
 extension AppUIAssetView: UIGestureRecognizerDelegate {
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return filteredImage != nil
+        return filteredImage != nil || filteredLivePhoto != nil
     }
     
     @objc func compareOriginalGestureDidChange(sender: UILongPressGestureRecognizer) {
         switch sender.state {
         case .began:
-            self.image = originalImage
+            showOriginal()
             if height > originalBadgeLabel.height * 3 {
                 originalBadgeLabel.isHidden = false
             }
         case .ended, .cancelled:
-            self.image = filteredImage
+            showFiltered()
             originalBadgeLabel.isHidden = true
         default: break
+        }
+    }
+    
+    private func showOriginal() {
+        if asset?.imageType == .stillImage || previewMode {
+            self.image = originalImage
+        }
+        else if asset?.imageType == .livePhoto {
+            self.livePhoto = originalLivePhoto
+        }
+    }
+    
+    private func showFiltered() {
+        if asset?.imageType == .stillImage || previewMode {
+            self.image = filteredImage
+        }
+        else if asset?.imageType == .livePhoto {
+            self.livePhoto = filteredLivePhoto
         }
     }
 }
@@ -180,13 +204,13 @@ extension AppUIAssetView {
                     editingContext?.prepareLivePhotoForPlayback(withTargetSize: asset.pixelSize, options: nil, completionHandler: { (livePhoto, error) in
                         self.isProcessing(false, animated: true)
                         
-                        self.livePhoto = livePhoto
+                        self.filteredLivePhoto = livePhoto
                         self.playAny()
                     })
                 })
             }
             else if self.livePhoto != originalLivePhoto {
-                self.livePhoto = originalLivePhoto
+                self.filteredLivePhoto = nil
                 self.playAny()
             }
         }
