@@ -79,7 +79,7 @@ PODS:
     - SwiftLint
 
 DEPENDENCIES:
-  - Armchair (>= 0.3)
+  - Armchair (from `https://github.com/UrbanApps/Armchair`)
   - CocoaImageHashing (from `https://github.com/ameingast/cocoaimagehashing`)
   - Crashlytics
   - DefaultsKit (from `https://github.com/metasmile/DefaultsKit`)
@@ -95,7 +95,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Armchair
     - Crashlytics
     - Fabric
     - Firebase
@@ -120,12 +119,17 @@ SPEC REPOS:
     - TPPDF
 
 EXTERNAL SOURCES:
+  Armchair:
+    :git: https://github.com/UrbanApps/Armchair
   CocoaImageHashing:
     :git: https://github.com/ameingast/cocoaimagehashing
   DefaultsKit:
     :git: https://github.com/metasmile/DefaultsKit
 
 CHECKOUT OPTIONS:
+  Armchair:
+    :commit: f7ed2b2063ef40028e3916c43db9b0df7b15ad55
+    :git: https://github.com/UrbanApps/Armchair
   CocoaImageHashing:
     :commit: a8aaf38b6b05e9dc8d4352da87bc69c6d6914de6
     :git: https://github.com/ameingast/cocoaimagehashing
@@ -134,7 +138,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/metasmile/DefaultsKit
 
 SPEC CHECKSUMS:
-  Armchair: 0ab9237bc373e26245c7651acf193d85fb9c033a
+  Armchair: 962c54518594a940022e0327b1570f8e61ab7bed
   CocoaImageHashing: c52d3f8901b3d09f6347203f404d82802af1b3b6
   Crashlytics: 2aea305161a2122492698c75af27f2b98aa49a25
   DefaultsKit: e47d11c54a53c66f9e5c65a1992dead90bc7144f
@@ -160,6 +164,6 @@ SPEC CHECKSUMS:
   SwiftyGif: d36c6dfb52e2ca1e48fe349d225f50ec4123ec85
   TPPDF: 063e70828229cc12425ee172c93741f720e10c12
 
-PODFILE CHECKSUM: 947d4b41587f896c57196cb294dc5372d105770f
+PODFILE CHECKSUM: 1072d0a214d5571f4dd70b29ee2a94bbb2a99241
 
 COCOAPODS: 1.5.3

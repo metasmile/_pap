@@ -14,7 +14,7 @@ target 'pap' do
   pod 'R.swift', '4.0.0' #INFO: R.swift will major update soon : 5.0.0
   pod 'DefaultsKit', :git => "https://github.com/metasmile/DefaultsKit" #TODO: consider to get into CodeKit with Subfile
   pod 'SwiftyGif'
-  pod 'Armchair', '>= 0.3' #FIXME: deprecation warning.
+  pod 'Armchair', :git => "https://github.com/UrbanApps/Armchair"
   pod 'Hero'
   # pod 'SwipeCellKit'
 
