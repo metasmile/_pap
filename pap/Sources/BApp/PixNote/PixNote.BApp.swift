@@ -160,7 +160,7 @@ extension PixNote{
             return
         }
 
-        canSaveContract = ContactManager.default.authorizeAndWait(asyncSignal)
+        canSaveContract = ContactsUtil.shared.authorizeAndWait(asyncSignal)
 
         let errorMessage:String = "Sorry, it is not possible to save the contract.".localized
 
@@ -187,16 +187,12 @@ extension PixNote{
                 let imageData = item.asset.asData
 
                 for contact in _contacts{
-                    asyncSignal.begin()
-
                     contact.imageData = imageData
-                    ContactManager.default.addContacts(Contact: [contact]) { r in
-                        if case ContactManager.ContactOperationResult.Success(response: true) = r {
-                            savedCount += 1
-                            asyncSignal.end()
-                        }
+
+                    let result = ContactsUtil.shared.addContacts(Contact: [contact])
+                    if case ContactsUtil.ContactOperationResult.Success(response: true) = result {
+                        savedCount += 1
                     }
-                    asyncSignal.waitUntilEnd()
                 }
             }
 
@@ -267,7 +263,7 @@ extension PixNote{
                                 }
                             }),
                             UIAlertAction(title: "Save A Contact".localized, style: .default, handler: { action in
-                                if ContactManager.default.authorizeAndWait(asyncSignal){
+                                if ContactsUtil.shared.authorizeAndWait(asyncSignal){
                                     let contact = CNMutableContact()
                                     contact.contactType = .person
                                     contact.fillNameIfBlanked()
@@ -341,7 +337,7 @@ extension PixNote{
                                 }
                             }),
                             UIAlertAction(title: "Save A Contact".localized, style: .default, handler: { action in
-                                if ContactManager.default.authorizeAndWait(asyncSignal){
+                                if ContactsUtil.shared.authorizeAndWait(asyncSignal){
                                     let contact = CNMutableContact()
                                     contact.contactType = .person
                                     contact.fillNameIfBlanked()
