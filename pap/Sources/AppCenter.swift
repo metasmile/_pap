@@ -78,7 +78,6 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
 
             //phase: .develop | .beta - They will automatically exclude in Release build.
             , PixNote.self
-            , Textractor.self
             , Clean.self
             , Stabilizer.self
         ]

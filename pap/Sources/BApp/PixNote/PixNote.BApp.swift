@@ -69,10 +69,6 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
     func didSetCurrent(previous: App.Type?) {
     }
 
-    public var finalizingActions: [PHAssetFinalizingAction] {
-        return [.showActions]
-    }
-
     public func shouldSelect(item: AppAsset) -> Bool {
         return item.asset.mediaType == .image
     }
