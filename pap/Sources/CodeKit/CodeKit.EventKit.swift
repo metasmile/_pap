@@ -105,7 +105,7 @@ public class EventKitUtil {
 
     //MARK: - New and update events
 
-    public func createEvent(completion: ((_ event:EKEvent?) -> Void)?) {
+    public func newEvent(completion: ((_ event:EKEvent?) -> Void)?) {
 
         requestAuthorization() { [weak self] (allowed) in
             guard let weakSelf = self else { return }

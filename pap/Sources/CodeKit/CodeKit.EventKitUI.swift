@@ -10,6 +10,7 @@ import EventKitUI
 
 extension EKEventEditViewController{
 
+    @discardableResult
     public static func presentDialog(event:EKEvent
             , onViewController:UIViewController?=nil
             , willPresentHandler:(() -> ())?=nil

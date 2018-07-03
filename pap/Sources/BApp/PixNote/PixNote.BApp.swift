@@ -9,6 +9,8 @@ import FirebaseMLVision
 import DefaultsKit
 import Contacts
 import ContactsUI
+import EventKit
+import EventKitUI
 
 private typealias PixNoteParam = PHAssetItem<ImageEditStateValue>
 
@@ -18,6 +20,8 @@ private struct PixNoteResult: TaskResultable{
     init(asset:PHAsset){
         self.asset = asset
     }
+
+    fileprivate var sourceVisionTexts:[VisionText]?
 
     fileprivate var plainText:String?
 
@@ -398,42 +402,28 @@ extension PixNote{
                         asyncSignal.end()
                     })]
 
+                    _actions.append(
+                            UIAlertAction(title: "Add an Event".localized, style: .default, handler: { action in
 
+                                EventKitUtil.shared.newEvent { event in
+                                    if let event = event{
+                                        event.startDate = date
 
-                    if let url = URL(string: "calshow:\(date.timeIntervalSinceReferenceDate)".remove(".0"))
-                    , UIApplication.shared.canOpenURL(url){
-                        print(url)
-                        _actions.append(
-                                UIAlertAction(title: "Add an Event".localized, style: .default, handler: { action in
-                                    asyncSignal.end()
-                                    UIApplication.shared.open(url)
-                                })
-                        )
-                    }
+                                        //insert Note with original plain text
+                                        if let visionTexts = item.sourceVisionTexts{
+                                            event.notes = visionTexts.parse(type: VisionTextStringParser.self, asyncSignal)?.joined()
+                                        }
 
-                    let param = [
-                        "to": dateString
-                    ]
+                                        EKEventEditViewController.presentDialog(event: event, didDismissHandler: { action in
+                                            asyncSignal.end()
+                                        })
 
-                    let url_gmail = URL(string: "googlegmail://co?\(param)")
-                    if let url = url_gmail, UIApplication.shared.canOpenURL(url){
-                        _actions.append(
-                                UIAlertAction(title: "Send an Email".localized + " (Gmail)", style: .default, handler: { action in
-                                    asyncSignal.end()
-                                    UIApplication.shared.open(url)
-                                })
-                        )
-                    }
-
-                    let url_inbox = URL(string: "inbox-gmail://co?\(param)")
-                    if let url = url_inbox, UIApplication.shared.canOpenURL(url){
-                        _actions.append(
-                                UIAlertAction(title: "Send an Email".localized + " (Google Inbox)", style: .default, handler: { action in
-                                    asyncSignal.end()
-                                    UIApplication.shared.open(url)
-                                })
-                        )
-                    }
+                                    }else{
+                                        asyncSignal.end()
+                                    }
+                                }
+                            })
+                    )
 
                     _actions.append(
                             UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
@@ -730,9 +720,12 @@ private struct PixNoteDetector{
         }
 
         let preset = PixNote.privateDefaults.selectionPreset
-        var result = PixNoteResult(asset: asset)
         var defaults = PixNote.privateDefaults
         let selectedParserTypes = Set((defaults.selectedParserCollection.values).reduce([],+))
+
+        var result = PixNoteResult(asset: asset)
+
+        result.sourceVisionTexts = visionTexts
 
         // SelectionPreset.plaintext
         if preset == SelectionPreset.plaintext.rawValue{
