@@ -658,11 +658,7 @@ extension PixNote{
             /*
                 Flight Information
             */
-            for flight in (resultGroup.flights ?? []).reduce([],+).compactMap({ $0.flight==nil && $0.airline == nil ? nil : $0 })
-            {
-                guard let flightString = flight.formattedString else{
-                    continue
-                }
+            for flightString in (resultGroup.flights ?? []).reduce([],+) where flightString.count>0{
                 
                 let action = UIAlertAction(title: flightString, style: . default, handler: { action in
 

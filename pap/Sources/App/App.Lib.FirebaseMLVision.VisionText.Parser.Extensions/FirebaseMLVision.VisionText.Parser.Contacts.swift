@@ -126,13 +126,25 @@ public struct VisionTextAddressParser: VisionTextParser{
 
 //https://flightaware.com/live/findflight?origin=EDDF&destination=KLAX
 public struct VisionTextFlightInformationParser: VisionTextParser{
-    typealias OutputType = [NSTextCheckingFlightComponent]
+    typealias OutputType = [String]
 
-    func parse(input: FirebaseMLVision.VisionText) -> OutputType? {
-        return VisionTextNSTextCheckingResult.detect(input, NSTextCheckingResult.CheckingType.transitInformation)?.compactMap { result -> NSTextCheckingFlightComponent? in
-            return result.flight
-        }.nilEmpty
+    private let blockParser = VisionTextTextBlockParser()
+    private var regexPattern = "^([A-Z]{2}|[A-Z]\\d|\\d[A-Z])[1-9](\\d{1,3})?$"
+
+    func parse(input: VisionText) -> OutputType? {
+        guard let lines = blockParser.parse(input: input) else {
+            return nil
+        }
+
+        var flightNumbers = [String]()
+        for word in lines.reduce([],+){
+            let matchedStrings = word.remove(" ").regexStrings(with: regexPattern).reduce([],+)
+            flightNumbers.append(contentsOf: matchedStrings)
+        }
+
+        return flightNumbers
     }
+
 }
 
 public struct VisionTextContactParser: VisionTextParser, MergingParser{
@@ -247,3 +259,5 @@ public struct VisionTextCurrencyParser: VisionTextParser{
         return nil
     }
 }
+
+//IBAN: http://ht5ifv.serprest.pt/extensions/tools/IBAN/
