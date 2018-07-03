@@ -68,7 +68,7 @@ extension NSTextCheckingAddressComponent{
         return address
     }
 
-    public var formattedAddress:String{
+    public var formattedString:String{
         return CNPostalAddressFormatter.string(from: postalAddress, style: .mailingAddress)
     }
 
@@ -81,8 +81,8 @@ public protocol NSTextCheckingFlightComponent {
 }
 
 extension NSTextCheckingFlightComponent{
-    var stringExpression:String?{
-        let string = ((airline ?? "") + " " + (flight ?? "")).trim()
+    var formattedString:String?{
+        let string = ((airline ?? "") + (flight ?? "")).trim()
         return string.count > 0 ? string : nil
     }
 }

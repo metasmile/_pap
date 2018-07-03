@@ -30,7 +30,7 @@ extension Array {
     }
 }
 
-extension Array where Element: Hashable { // not ordered set 
+extension Array where Element:Hashable{
     var setable: Array {
         return Array(Set<Element>(self))
     }
@@ -45,3 +45,4 @@ extension Collection {
         return self.isEmpty ? nil : self
     }
 }
+

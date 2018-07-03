@@ -238,6 +238,12 @@ extension PixNote{
     fileprivate func finalize_action(items: [PixNoteResult], _ asyncSignal: AsyncManualSignalable) {
         let alert = UIAlertController(title: "Choose An Action".localized, message: nil, preferredStyle: .actionSheet)
 
+        let defaultCancelSubAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
+            asyncSignal.end()
+
+//            self.finalize_action(items: items, asyncSignal)
+        })
+
         for item in items {
 
             guard let resultGroup = item.resultGroup else{
@@ -250,70 +256,66 @@ extension PixNote{
             /*
                 Phone Number
             */
-            for phoneNumberSetInBlock in resultGroup.phoneNumbers ?? []{
+            for phoneNumber in Array(Set<String>((resultGroup.phoneNumbers ?? []).reduce([],+).compactMap({ $0.nilEmpty }))) {
 
-                var phoneNumberPool = Set<String>()
-                for phoneNumber in phoneNumberSetInBlock where false == phoneNumberPool.contains(phoneNumber) && phoneNumber.count>0 {
-                    phoneNumberPool.insert(phoneNumber)
+                let action = UIAlertAction(title: phoneNumber, style: . default, handler: { action in
 
-                    let action = UIAlertAction(title: phoneNumber, style: . default, handler: { action in
+                    //sub actions
+                    let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
 
-                        //sub actions
-                        let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+                    let _actions = [
+                        defaultCancelSubAction,
 
-                        let _actions = [
-                            UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
-                                UIPasteboard.general.string = phoneNumber
+                        UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
+                            UIPasteboard.general.string = phoneNumber
+                            asyncSignal.end()
+                        }),
+                        UIAlertAction(title: "Share".localized, style: .default, handler: { action in
+                            UIActivityViewController.share(activityItems: [phoneNumber], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
                                 asyncSignal.end()
-                            }),
-                            UIAlertAction(title: "Share".localized, style: .default, handler: { action in
-                                UIActivityViewController.share(activityItems: [phoneNumber], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
+                            }
+                        }),
+                        UIAlertAction(title: "Save A Contact".localized, style: .default, handler: { action in
+                            if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal){
+                                let contact = CNMutableContact()
+                                contact.contactType = .person
+                                contact.fillNameIfBlanked()
+
+                                let components = NSCalendar.current.dateComponents([.year, .month, .day], from: Date())
+                                contact.dates.append(CNLabeledValue(label: "Date".localized, value: components as NSDateComponents))
+                                contact.urlAddresses.append(CNLabeledValue(label: "URL", value: "https://apps.photo"))
+                                contact.phoneNumbers = [ CNLabeledValue(label: "Phone Number".localized, value: CNPhoneNumber(stringValue: phoneNumber))]
+
+                                CNContactViewController.presentDialog(contact: contact, onViewController: _alert, didDismissHandler:{
                                     asyncSignal.end()
-                                }
-                            }),
-                            UIAlertAction(title: "Save A Contact".localized, style: .default, handler: { action in
-                                if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal){
-                                    let contact = CNMutableContact()
-                                    contact.contactType = .person
-                                    contact.fillNameIfBlanked()
+                                })
 
-                                    let components = NSCalendar.current.dateComponents([.year, .month, .day], from: Date())
-                                    contact.dates.append(CNLabeledValue(label: "Date".localized, value: components as NSDateComponents))
-                                    contact.urlAddresses.append(CNLabeledValue(label: "URL", value: "https://apps.photo"))
-                                    contact.phoneNumbers = [ CNLabeledValue(label: "Phone Number".localized, value: CNPhoneNumber(stringValue: phoneNumber))]
-
-                                    CNContactViewController.presentDialog(contact: contact, onViewController: _alert, didDismissHandler:{
-                                        asyncSignal.end()
-                                    })
-
-                                }else{
-                                    asyncSignal.end()
-                                }
-                            }),
-                            UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
+                            }else{
                                 asyncSignal.end()
-                            })
-                        ]
-                        for _action in _actions{
-                            _alert.addAction(_action)
-                        }
+                            }
+                        })
+                    ]
+                    for _action in _actions{
+                        _alert.addAction(_action)
+                    }
 
-                        DispatchQueue.main.async{
-                            UIApplication.shared.keyWindow?.rootViewController?.present(_alert, animated: true)
-                        }
+                    DispatchQueue.main.async{
+                        UIApplication.shared.keyWindow?.rootViewController?.present(_alert, animated: true)
+                    }
 
-                    })
+                })
 
-                    action.accessoryImage = R.image.exifGhostBAppIcon()
+                action.accessoryImage = R.image.exifGhostBAppIcon()
 
-                    alert.addAction(action)
-                }
+                alert.addAction(action)
+
             }
 
 
             /*
                 URL
             */
+
             for urls in resultGroup.urls ?? []{
 
                 var urlPool = Set<URL>()
@@ -326,6 +328,8 @@ extension PixNote{
                         let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
 
                         let _actions = [
+                            defaultCancelSubAction,
+
                             UIAlertAction(title: "Open".localized, style: .default, handler: { action in
                                 asyncSignal.end()
                                 if UIApplication.shared.canOpenURL(url) {
@@ -363,9 +367,6 @@ extension PixNote{
                                 }else{
                                     asyncSignal.end()
                                 }
-                            }),
-                            UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
-                                asyncSignal.end()
                             })
                         ]
                         for _action in _actions{
@@ -398,15 +399,14 @@ extension PixNote{
                     //sub actions
                     let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
 
-                    var _actions = [UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
-                        asyncSignal.end()
-                    })]
+                    var _actions = [defaultCancelSubAction]
 
                     _actions.append(
                             UIAlertAction(title: "Add an Event".localized, style: .default, handler: { action in
 
                                 EventKitUtil.shared.newEvent { event in
                                     if let event = event{
+                                        event.title = "New Event".localized
                                         event.startDate = date
 
                                         //insert Note with original plain text
@@ -434,7 +434,7 @@ extension PixNote{
 
                     _actions.append(
                             UIAlertAction(title: "Share".localized, style: .default, handler: { action in
-                                UIActivityViewController.share(activityItems: [date], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
+                                UIActivityViewController.share(activityItems: [dateString], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
                                     asyncSignal.end()
                                 }
                             })
@@ -464,9 +464,7 @@ extension PixNote{
                     //sub actions
                     let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
 
-                    var _actions = [UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
-                        asyncSignal.end()
-                    })]
+                    var _actions = [defaultCancelSubAction]
 
                     if let url = URL(string: "mailto://\(email)")
                     , UIApplication.shared.canOpenURL(url){
@@ -563,7 +561,7 @@ extension PixNote{
             // https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html#//apple_ref/doc/uid/TP40007899-CH5-SW1
 
             for addr in (resultGroup.addresses ?? []).reduce([],+){
-                let addressString = addr.formattedAddress
+                let addressString = addr.formattedString
                 if addressString.count == 0{
                     continue
                 }
@@ -574,9 +572,7 @@ extension PixNote{
                     //sub actions
                     let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
 
-                    var _actions = [UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
-                        asyncSignal.end()
-                    })]
+                    var _actions = [defaultCancelSubAction]
 
                     if let url = URL(string: "http://maps.apple.com/?\(["q":addressString].urlQueryString))")
                     , UIApplication.shared.canOpenURL(url){
@@ -657,6 +653,65 @@ extension PixNote{
 
                 alert.addAction(action)
             }// END OF AN ACTION
+
+
+            /*
+                Flight Information
+            */
+            for flight in (resultGroup.flights ?? []).reduce([],+).compactMap({ $0.flight==nil && $0.airline == nil ? nil : $0 })
+            {
+                guard let flightString = flight.formattedString else{
+                    continue
+                }
+                
+                let action = UIAlertAction(title: flightString, style: . default, handler: { action in
+
+                    //sub actions
+                    let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+
+                    var _actions = [defaultCancelSubAction]
+
+                    let url_to_flight = URL(string: "https://flightaware.com/live/flight/"+flightString.encodeAsURLQuery())
+
+                    if let url = url_to_flight, UIApplication.shared.canOpenURL(url){
+                        _actions.append(
+                                UIAlertAction(title: "Search Flights".localized, style: .default, handler: { action in
+                                    asyncSignal.end()
+                                    UIApplication.shared.open(url)
+                                })
+                        )
+                    }
+
+                    _actions.append(
+                            UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
+                                UIPasteboard.general.string = flightString
+                                asyncSignal.end()
+                            })
+                    )
+
+                    _actions.append(
+                            UIAlertAction(title: "Share".localized, style: .default, handler: { action in
+                                UIActivityViewController.share(activityItems: [flightString], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
+                                    asyncSignal.end()
+                                }
+                            })
+                    )
+
+                    for _action in _actions{
+                        _alert.addAction(_action)
+                    }
+
+                    DispatchQueue.main.async{
+                        UIApplication.shared.keyWindow?.rootViewController?.present(_alert, animated: true)
+                    }
+
+                })
+
+                action.accessoryImage = R.image.exifGhostBAppIcon()
+
+                alert.addAction(action)
+            }// END OF AN ACTION
+
 
 
         }// END OF ITEMS

@@ -215,7 +215,7 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
                 contact.note += "\n"
             }
 
-            if let flightText = result.flight?.stringExpression{
+            if let flightText = result.flight?.formattedString{
                 contact.note += "Flight Information".localized + " : " + flightText
                 contact.note += "\n\n"
             }
