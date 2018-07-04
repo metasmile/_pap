@@ -216,7 +216,7 @@ private struct CallAppDetector{
     }
 }
 
-private class _CallAppTask: AppTaskPrototype, AppTaskable {
+private class _CallAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, AppTaskable {
 
     private let emailParser = VisionTextEmailAddressParser()
     private let phoneNumberParser = VisionTextPhoneNumberParser()

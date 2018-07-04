@@ -12,24 +12,6 @@ import ContactsUI
 import EventKit
 import EventKitUI
 
-private typealias PixNoteParam = PHAssetItem<ImageEditStateValue>
-
-private struct PixNoteResult: AppTaskResultable {
-    fileprivate let asset:PHAsset
-
-    init(asset:PHAsset){
-        self.asset = asset
-    }
-
-    fileprivate var sourceVisionTexts:[VisionText]?
-
-    fileprivate var plainText:String?
-
-    fileprivate var contacts:[VisionTextContactParser.OutputType]?
-
-    fileprivate var resultGroup: VisionTextResultGroup?
-}
-
 public class PixNote: NSObject, KeyPathWatchable, BApp
         , FinalizableApp
         , AppDockApp
@@ -137,6 +119,26 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
 
     fileprivate var detector = PixNoteDetector()
 }
+
+
+private typealias PixNoteParam = PHAssetItem<ImageEditStateValue>
+
+private struct PixNoteResult: AppTaskResultable {
+    fileprivate let asset:PHAsset
+
+    init(asset:PHAsset){
+        self.asset = asset
+    }
+
+    fileprivate var sourceVisionTexts:[VisionText]?
+
+    fileprivate var plainText:String?
+
+    fileprivate var contacts:[VisionTextContactParser.OutputType]?
+
+    fileprivate var resultGroup: VisionTextResultGroup?
+}
+
 
 
 extension PixNote{
@@ -879,7 +881,7 @@ private struct PixNoteDetector{
     }
 }
 
-private class _PixNoteTask: AppTaskPrototype, AppTaskable {
+private class _PixNoteTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, AppTaskable {
 
     private let emailParser = VisionTextEmailAddressParser()
     private let phoneNumberParser = VisionTextPhoneNumberParser()

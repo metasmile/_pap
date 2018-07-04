@@ -121,6 +121,7 @@
 		4F71D94AB40E4823F540E025 /* Convert.AppDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1FF1A96D99209FFCF5D /* Convert.AppDefaults.swift */; };
 		4F71D9517538EDF39287054E /* ImageAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0E98B4DD272B9BAA3CF /* ImageAlignment.swift */; };
 		4F71D95D6387B6BEA989F5EE /* ImageIO.Metadata.Properties.Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8AD81A7900470EF8D1E /* ImageIO.Metadata.Properties.Collection.swift */; };
+		4F71D95F393063F1D620196C /* AppTaskPrototype.DefaultConcurrenyCountPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5E3248E9FE7836799D0 /* AppTaskPrototype.DefaultConcurrenyCountPolicy.swift */; };
 		4F71D977BEC450768BF59183 /* CodeKit.CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DBCD5F4393C1B49479A2 /* CodeKit.CoreGraphics.swift */; };
 		4F71D9820AE66A8CBC6B9535 /* CodeKit.UIView.GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC428EEA88994C64FF8F /* CodeKit.UIView.GestureRecognizer.swift */; };
 		4F71D994A3ECDB2185DF45EF /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D767B17EDED1C363D81D /* Numeric.swift */; };
@@ -413,6 +414,7 @@
 		4F71D5D63852192CF4147FD5 /* warp.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = warp.metal; sourceTree = "<group>"; };
 		4F71D5D74325BC077BBABF30 /* FileIO.URL.File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileIO.URL.File.swift; sourceTree = "<group>"; };
 		4F71D5DA389ADAB0369E3CE7 /* CodeKit.Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Contacts.swift; sourceTree = "<group>"; };
+		4F71D5E3248E9FE7836799D0 /* AppTaskPrototype.DefaultConcurrenyCountPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTaskPrototype.DefaultConcurrenyCountPolicy.swift; sourceTree = "<group>"; };
 		4F71D5EB7E04805175C35F17 /* PDFactory.AppDockContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFactory.AppDockContent.swift; sourceTree = "<group>"; };
 		4F71D5EEA43ED3B362B03E4D /* CodeKit.UIActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIActivityViewController.swift; sourceTree = "<group>"; };
 		4F71D5FD660E93628AFA9F99 /* AssetIO.LivePhotoResource.Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetIO.LivePhotoResource.Video.swift; sourceTree = "<group>"; };
@@ -1108,6 +1110,7 @@
 				4F71D69883B03E5A096B63FF /* App.Lib.Parser */,
 				4F71DEB93AC64362D74F6A31 /* App.Lib.FirebaseMLVision.VisionText.Parser.Extensions */,
 				4F71D1FFEDB90792654FC9A6 /* App.UICollectionViewPreheatable.swift */,
+				4F71D5E3248E9FE7836799D0 /* AppTaskPrototype.DefaultConcurrenyCountPolicy.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -2942,6 +2945,7 @@
 				4F71D14BA74E2819ACA59849 /* CodeKit.EventKitUI.swift in Sources */,
 				4F71DEB2DE070285F8B97D61 /* CodeKit.String.NSRegularExpression.swift in Sources */,
 				4F71D60FB0179151280A754E /* AppTask.swift in Sources */,
+				4F71D95F393063F1D620196C /* AppTaskPrototype.DefaultConcurrenyCountPolicy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

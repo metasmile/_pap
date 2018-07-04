@@ -15,9 +15,14 @@ private struct RevertAppResult: AppTaskResultable {
 
 
 private protocol RevertAppDefaults: AppDefaults{
+    var autoSelect: Bool {get set}
 }
 
 extension Defaults: RevertAppDefaults {
+    fileprivate var autoSelect: Bool {
+        set{ set(newValue) }
+        get{ return get(or: false) }
+    }
 }
 
 public class RevertApp: NSObject, KeyPathWatchable, BApp
@@ -46,7 +51,7 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp
     private let appDefaults = RevertApp.defaults as! RevertAppDefaults
 
     @objc dynamic
-    public fileprivate (set) lazy var autoSelect: Bool = false
+    public fileprivate (set) lazy var autoSelect: Bool = appDefaults.autoSelect
 
     required public override init(){
         super.init()
@@ -65,7 +70,7 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp
     }
 
     public func performPreheating(item: AppAsset, _ async: AsyncSignal) -> PreheatingFinishAction? {
-        return self.autoSelect && item.asset.isAdjusted == true ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
+        return appDefaults.autoSelect && item.asset.isAdjusted == true ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
@@ -179,8 +184,6 @@ fileprivate class RevertAppDockContent: NSObject, KeyPathWatchable, AppDockConte
         return 1
     }
 
-    private var autoSelect:Bool = false
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: RevertApp.info.identifier) as! Cell
 
@@ -190,9 +193,9 @@ fileprivate class RevertAppDockContent: NSObject, KeyPathWatchable, AppDockConte
 
         cell.textLabel?.text = "Enable Auto Selection".localized
         cell.textLabel?.textColor = primaryColor
-        cell.optionSwitch.setOn(self.autoSelect, animated: false)
+        cell.optionSwitch.setOn(defaults.autoSelect, animated: false)
         cell.switchDidChange = { on in
-            self.autoSelect = on
+            self.defaults.autoSelect = on
             AppCenter.default.currentInstanceAs(RevertApp.self)?.autoSelect = on
         }
 
