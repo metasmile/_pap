@@ -128,7 +128,7 @@ class AssetView: UIView {
         livePhotoView.isHidden = true
         gifImageView.isHidden = true
         imageLayer.contents = nil
-        pauseVideo()
+        stopAny()
         
         image = nil
         playerItem = nil
