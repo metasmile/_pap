@@ -27,4 +27,16 @@ extension UIViewController{
             return UIEdgeInsets(top: topLayoutGuide.length, left: 0, bottom: bottomLayoutGuide.length, right: 0)
         }
     }
+
+    public class var root:UIViewController?{
+        return UIApplication.shared.keyWindow?.rootViewController
+    }
+
+    public class var presented:UIViewController?{
+        var vc = root
+        while let pvc = vc?.presentedViewController{
+            vc = pvc
+        }
+        return vc
+    }
 }

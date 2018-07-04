@@ -418,7 +418,7 @@ extension AppDockView {
     private var ConstAppContentViewMaximumHeight: CGFloat{
         let TopMarginConstRatio:CGFloat = 0.84
 
-        if let rvc = UIApplication.shared.keyWindow?.rootViewController{
+        if let rvc = UIViewController.root{
             return (rvc.view.bounds.height - rvc.safeAreaInsets.top) * TopMarginConstRatio
         }
 

@@ -11,6 +11,8 @@ import Contacts
 import ContactsUI
 import EventKit
 import EventKitUI
+import UIKit
+import SafariServices
 
 public class FinderApp: NSObject, KeyPathWatchable, BApp
         , FinalizableApp
@@ -42,6 +44,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
     )
 
     public required override init() {
+        
     }
 
 //    static var callProviderDelegate:CallProviderDelegate?
@@ -231,7 +234,7 @@ extension FinderApp{
                         contact.imageData = item.asset.asData
 
                         asyncSignal.begin()
-                        CNContactViewController.presentDialog(newContact: contact, didDismissHandler: {
+                        CNContactViewController.presentDialog(newContact: contact, didDismiss: {
                             asyncSignal.end()
                         })
                         asyncSignal.waitUntilEnd()
@@ -291,7 +294,7 @@ extension FinderApp{
                                 contact.urlAddresses.append(CNLabeledValue(label: "URL", value: "https://apps.photo"))
                                 contact.phoneNumbers = [ CNLabeledValue(label: "Phone Number".localized, value: CNPhoneNumber(stringValue: phoneNumber))]
 
-                                CNContactViewController.presentDialog(newContact: contact, didDismissHandler: {
+                                CNContactViewController.presentDialog(newContact: contact, didDismiss: {
                                     asyncSignal.end()
                                 })
 
@@ -305,7 +308,7 @@ extension FinderApp{
                     }
 
                     DispatchQueue.main.async{
-                        UIApplication.shared.keyWindow?.rootViewController?.present(_alert, animated: true)
+                        UIViewController.root?.present(_alert, animated: true)
                     }
 
                 })
@@ -336,13 +339,8 @@ extension FinderApp{
                             defaultCancelSubAction,
 
                             UIAlertAction(title: "Open".localized, style: .default, handler: { action in
-                                asyncSignal.end()
-                                if UIApplication.shared.canOpenURL(url) {
-                                    if #available(iOS 10, *) {
-                                        UIApplication.shared.open(url)
-                                    } else {
-                                        UIApplication.shared.openURL(url)
-                                    }
+                                UIApplication.openSafari(with:url) {
+                                    asyncSignal.end()
                                 }
                             }),
                             UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
@@ -365,7 +363,7 @@ extension FinderApp{
 
                                     contact.urlAddresses.append(CNLabeledValue(label: "URL", value: url.absoluteString as NSString))
 
-                                    CNContactViewController.presentDialog(newContact: contact, didDismissHandler: {
+                                    CNContactViewController.presentDialog(newContact: contact, didDismiss: {
                                         asyncSignal.end()
                                     })
 
@@ -379,7 +377,7 @@ extension FinderApp{
                         }
 
                         DispatchQueue.main.async{
-                            UIApplication.shared.keyWindow?.rootViewController?.present(_alert, animated: true)
+                            UIViewController.root?.present(_alert, animated: true)
                         }
 
                     })
@@ -420,7 +418,7 @@ extension FinderApp{
                                             event.notes = visionTexts.parse(type: VisionTextStringParser.self, asyncSignal)?.joined()
                                         }
 
-                                        EKEventEditViewController.presentDialog(newEvent: event, didDismissHandler: { action in
+                                        EKEventEditViewController.presentDialog(newEvent: event, didDismiss: { action in
                                             asyncSignal.end()
                                         })
 
@@ -451,7 +449,7 @@ extension FinderApp{
                     }
 
                     DispatchQueue.main.async{
-                        UIApplication.shared.keyWindow?.rootViewController?.present(_alert, animated: true)
+                        UIViewController.root?.present(_alert, animated: true)
                     }
 
                 })
@@ -533,7 +531,7 @@ extension FinderApp{
                                     contact.dates.append(CNLabeledValue(label: "Date".localized, value: components as NSDateComponents))
                                     contact.emailAddresses = [CNLabeledValue(label: "E-mail Address".localized, value: email as NSString)]
 
-                                    CNContactViewController.presentDialog(newContact: contact, didDismissHandler: {
+                                    CNContactViewController.presentDialog(newContact: contact, didDismiss: {
                                         asyncSignal.end()
                                     })
 
@@ -548,7 +546,7 @@ extension FinderApp{
                     }
 
                     DispatchQueue.main.async{
-                        UIApplication.shared.keyWindow?.rootViewController?.present(_alert, animated: true)
+                        UIViewController.root?.present(_alert, animated: true)
                     }
 
                 })
@@ -634,7 +632,7 @@ extension FinderApp{
 
                                     contact.postalAddresses = [CNLabeledValue(label: "Address", value: addr.postalAddress)]
 
-                                    CNContactViewController.presentDialog(newContact: contact, didDismissHandler: {
+                                    CNContactViewController.presentDialog(newContact: contact, didDismiss: {
                                         asyncSignal.end()
                                     })
 
@@ -649,7 +647,7 @@ extension FinderApp{
                     }
 
                     DispatchQueue.main.async{
-                        UIApplication.shared.keyWindow?.rootViewController?.present(_alert, animated: true)
+                        UIViewController.root?.present(_alert, animated: true)
                     }
 
                 })
@@ -677,8 +675,9 @@ extension FinderApp{
                     if let url = url_to_flight, UIApplication.shared.canOpenURL(url){
                         _actions.append(
                                 UIAlertAction(title: "Search Flights".localized, style: .default, handler: { action in
-                                    asyncSignal.end()
-                                    UIApplication.shared.open(url)
+                                    UIApplication.openSafari(with:url) {
+                                        asyncSignal.end()
+                                    }
                                 })
                         )
                     }
@@ -703,7 +702,7 @@ extension FinderApp{
                     }
 
                     DispatchQueue.main.async{
-                        UIApplication.shared.keyWindow?.rootViewController?.present(_alert, animated: true)
+                        UIViewController.root?.present(_alert, animated: true)
                     }
 
                 })
@@ -727,7 +726,7 @@ extension FinderApp{
             asyncSignal.begin()
 
             DispatchQueue.main.async{
-                UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true)
+                UIViewController.root?.present(alert, animated: true)
             }
 
             asyncSignal.waitUntilEnd()
@@ -1240,7 +1239,6 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = indexPath.section == 0 ? settings_tableView(tableView, cellForRowAt: indexPath) : parserCollection_tableView(tableView, cellForRowAt: IndexPath(item: indexPath.item, section: indexPath.section))

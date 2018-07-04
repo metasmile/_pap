@@ -14,10 +14,10 @@ extension EKEventEditViewController{
 
     public static func presentDialog(newEvent:EKEvent
             , onViewController:UIViewController?=nil
-            , willPresentHandler:(() -> ())?=nil
-            , didPresentHandler:(() -> ())?=nil
-            , willDismissHandler:((EKEventEditViewAction) -> ())?=nil
-            , didDismissHandler:((EKEventEditViewAction) -> ())?=nil
+            , willPresent:(() -> ())?=nil
+            , didPresent:(() -> ())?=nil
+            , willDismiss:((EKEventEditViewAction) -> ())?=nil
+            , didDismiss:((EKEventEditViewAction) -> ())?=nil
     ){
 
         let presetingViewController = EKEventEditViewController()
@@ -32,16 +32,14 @@ extension EKEventEditViewController{
 
         if let delegator = delegator{
             delegator.watch(\.completedEKEventEditViewAction) {
-                DispatchQueue.main.async {
-                    let completedAction = delegator.completedEKEventEditViewAction.action
-                    willDismissHandler?(completedAction)
+                let completedAction = delegator.completedEKEventEditViewAction.action
+                willDismiss?(completedAction)
 
-                    presetingViewController.dismiss(animated: true) {
-                        didDismissHandler?(completedAction)
+                presetingViewController.dismiss(animated: true) {
+                    didDismiss?(completedAction)
 
-                        currentQueue.async {
-                            self.delegator = nil
-                        }
+                    currentQueue.async {
+                        self.delegator = nil
                     }
                 }
             }
@@ -50,9 +48,9 @@ extension EKEventEditViewController{
         presetingViewController.editViewDelegate = delegator
 
         DispatchQueue.main.async {
-            willPresentHandler?()
-            (onViewController ?? UIApplication.shared.keyWindow?.rootViewController)?.present(presetingViewController, animated: true) {
-                didPresentHandler?()
+            willPresent?()
+            (onViewController ?? UIViewController.root)?.present(presetingViewController, animated: true) {
+                didPresent?()
             }
         }
     }

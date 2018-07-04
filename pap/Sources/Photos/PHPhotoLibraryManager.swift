@@ -66,6 +66,6 @@ final class PHPhotoLibraryManager: NSObject, KeyPathWatchable, PHPhotoLibraryCha
         }))
         alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
 
-        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+        UIViewController.root?.present(alert, animated: true, completion: nil)
     }
 }

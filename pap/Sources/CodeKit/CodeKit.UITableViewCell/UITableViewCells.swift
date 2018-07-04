@@ -124,7 +124,7 @@ class UITableViewActionSheetCell: UITableViewSimpleValueCell {
 
         alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: cancelled))
 
-        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true) {
+        UIViewController.root?.present(alert, animated: true) {
             self.actionSheetPresented?(alert)
         }
     }

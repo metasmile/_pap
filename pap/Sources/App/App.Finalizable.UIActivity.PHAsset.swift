@@ -21,7 +21,7 @@ extension PHAssetUIActivityFinalizableApp{
     public func presentFinalizingActivity(items: [PHAssetFinalizingActivityItem]?, _ asyncSignal: AsyncManualSignalable) {
         asyncSignal.begin()
         DispatchQueue.main.async {
-            if let shareItems = items, shareItems.count > 0, let rootViewController = UIApplication.shared.keyWindow?.rootViewController {
+            if let shareItems = items, shareItems.count > 0, let rootViewController = UIViewController.root {
                 let activities = self.finalizingActions.map { PHAssetFinalizingActivity($0, finalizingActivityItems: shareItems) }
 
                 let activityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: activities)
@@ -143,8 +143,8 @@ extension PHAssetFinalizingActivity {
 //                asyncSignal.end()
             }
 
-            activityViewController.popoverPresentationController?.sourceView = UIApplication.shared.keyWindow?.rootViewController?.view
-            UIApplication.shared.keyWindow?.rootViewController?.present(activityViewController, animated: true, completion: nil)
+            activityViewController.popoverPresentationController?.sourceView = UIViewController.root?.view
+            UIViewController.root?.present(activityViewController, animated: true, completion: nil)
         }
 //        asyncSignal.waitUntilEnd()
     }

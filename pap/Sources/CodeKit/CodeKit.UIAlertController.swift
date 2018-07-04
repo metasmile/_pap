@@ -49,7 +49,7 @@ public extension UIAlertController{
 
         UIAlertControllerPool.shared.presentingAlertViewController = alert
 
-        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true) {
+        UIViewController.root?.present(alert, animated: true) {
             if let dismissInterval = autoDismiss{
                 UIAlertControllerPool.shared.dismissingTimer = Timer.scheduledTimer(withTimeInterval: dismissInterval, repeats: false) { timer in
 

@@ -160,7 +160,7 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
             asyncSignal.begin()
 
             DispatchQueue.main.async{
-                UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true)
+                UIViewController.root?.present(alert, animated: true)
             }
 
             asyncSignal.waitUntilEnd()

@@ -63,7 +63,7 @@ public class PDFactory: BApp, FinalizableApp, PhotoPickerViewControllerDelegatab
                 .filter { respondable in respondable.info.state == .completed }
                 .compactMap { $0.result as? PDFactoryPHAssetResult }
 
-        guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController else{
+        guard let rootViewController = UIViewController.root else{
             return result
         }
 

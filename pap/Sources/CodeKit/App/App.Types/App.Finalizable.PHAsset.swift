@@ -105,7 +105,7 @@ extension PHAssetFinalizableApp {
     }
 
     private func sharingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncManualSignalable){
-        if let rootVC = UIApplication.shared.keyWindow?.rootViewController {
+        if let rootVC = UIViewController.root {
             asyncSignal.begin()
             DispatchQueue.global().async {
 

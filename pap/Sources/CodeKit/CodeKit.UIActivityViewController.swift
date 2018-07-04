@@ -13,10 +13,10 @@ extension UIActivityViewController{
     public static func share(activityItems:[Any], excludedActivityTypes: [UIActivityType]?=nil, completionHandler:UIKit.UIActivityViewControllerCompletionWithItemsHandler?=nil){
         let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
         activityViewController.completionWithItemsHandler = completionHandler
-        activityViewController.popoverPresentationController?.sourceView = UIApplication.shared.keyWindow?.rootViewController?.view
+        activityViewController.popoverPresentationController?.sourceView = UIViewController.root?.view
 
         DispatchQueue.main.async {
-            UIApplication.shared.keyWindow?.rootViewController?.present(activityViewController, animated: true, completion: nil)
+            UIViewController.root?.present(activityViewController, animated: true, completion: nil)
         }
     }
 }

@@ -27,10 +27,10 @@ extension CNContactViewController{
 
     public static func presentDialog(newContact:CNContact
             , onViewController:UIViewController?=nil
-            , willPresentHandler:(() -> ())?=nil
-            , didPresentHandler:(() -> ())?=nil
-            , willDismissHandler:(() -> ())?=nil
-            , didDismissHandler:(() -> ())?=nil){
+            , willPresent:(() -> ())?=nil
+            , didPresent:(() -> ())?=nil
+            , willDismiss:(() -> ())?=nil
+            , didDismiss:(() -> ())?=nil){
 
         let contactViewController = CNContactViewController(forNewContact: newContact)
         let navigationController = UINavigationController(rootViewController: contactViewController)
@@ -41,16 +41,13 @@ extension CNContactViewController{
             delegator = CNContactViewControllerDelegator()
         }
         delegator?.watch(\.contact) {
+            willDismiss?()
 
-            DispatchQueue.main.async {
-                willDismissHandler?()
+            navigationController.dismiss(animated: true) {
+                didDismiss?()
 
-                navigationController.dismiss(animated: true) {
-                    didDismissHandler?()
-
-                    currentQueue.async{
-                        delegator = nil
-                    }
+                currentQueue.async{
+                    delegator = nil
                 }
             }
         }
@@ -59,9 +56,9 @@ extension CNContactViewController{
         contactViewController.delegate = delegator
 
         DispatchQueue.main.async {
-            willPresentHandler?()
-            (onViewController ?? UIApplication.shared.keyWindow?.rootViewController)?.present(navigationController, animated: true) {
-                didPresentHandler?()
+            willPresent?()
+            (onViewController ?? UIViewController.root)?.present(navigationController, animated: true) {
+                didPresent?()
             }
         }
     }
