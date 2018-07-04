@@ -88,11 +88,11 @@
 "%d times" = "%d times";
 /* Generated from genl10n: GIFMaker.BApp.swift#161 */
 "1080p (1920×1080)" = "1080p (1920×1080)";
-/* Generated from genl10n: PixNote.BApp.swift#1220 */
+/* Generated from genl10n: PixNote.BApp.swift#1203 */
 "Actions" = "Actions";
-/* Generated from genl10n: PixNote.BApp.swift#410 */
+/* Generated from genl10n: PixNote.BApp.swift#396 */
 "Add an Event" = "Add an Event";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#244, PixNote.BApp.swift#1153 */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#244, PixNote.BApp.swift#1136 */
 "Address" = "Address";
 /* Generated from genl10n: PhotoAlbumViewController.swift#105 */
 "Albums" = "Albums";
@@ -110,17 +110,17 @@
 "Cannot revert. All selected items have not edited." = "Cannot revert. All selected items have not edited.";
 /* Generated from genl10n: CallApp.BApp.swift#122 */
 "Choose A Phone Number To Call" = "Choose A Phone Number To Call";
-/* Generated from genl10n: PixNote.BApp.swift#245 */
+/* Generated from genl10n: PixNote.BApp.swift#235 */
 "Choose An Action" = "Choose An Action";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift#46 */
 "Choose An Export Option For %d Items" = "Choose An Export Option For %d Items";
-/* Generated from genl10n: PixNote.BApp.swift#259 */
+/* Generated from genl10n: PixNote.BApp.swift#249 */
 "Choose An Sub Action." = "Choose An Sub Action.";
 /* Generated from genl10n: Convert.AppDockContent.swift#148 */
 "Choose an Option To Convert" = "Choose an Option To Convert";
-/* Generated from genl10n: PixNote.BApp.swift#1219 */
+/* Generated from genl10n: PixNote.BApp.swift#1202 */
 "Contacts" = "Contacts";
-/* Generated from genl10n: PixNote.BApp.swift#274, PixNote.BApp.swift#348, PixNote.BApp.swift#434, PixNote.BApp.swift#509, PixNote.BApp.swift#610, PixNote.BApp.swift#687 */
+/* Generated from genl10n: PixNote.BApp.swift#264, PixNote.BApp.swift#336, PixNote.BApp.swift#421, PixNote.BApp.swift#496, PixNote.BApp.swift#595, PixNote.BApp.swift#670 */
 "Copy" = "Copy";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift#57 */
 "Create" = "Create";
@@ -130,7 +130,7 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift#277, GIFMaker.BApp.swift#142 */
 "Crop" = "Crop";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#218, PixNote.BApp.swift#290, PixNote.BApp.swift#364, PixNote.BApp.swift#532, PixNote.BApp.swift#633, PixNote.BApp.swift#1154 */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#218, PixNote.BApp.swift#280, PixNote.BApp.swift#352, PixNote.BApp.swift#519, PixNote.BApp.swift#618, PixNote.BApp.swift#1137 */
 "Date" = "Date";
 /* Generated from genl10n: GIFMaker.BApp.swift#542 */
 "Direction" = "Direction";
@@ -138,15 +138,15 @@
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift#748 */
 "Downloading..." = "Downloading...";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#191, PixNote.BApp.swift#534, PixNote.BApp.swift#1152 */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#191, PixNote.BApp.swift#521, PixNote.BApp.swift#1135 */
 "E-mail Address" = "E-mail Address";
-/* Generated from genl10n: Revert.BApp.swift#191, ExifGhost.AppDockContent.swift#162, PixNote.BApp.swift#962, PixNote.BApp.swift#1205, Clean.BApp.swift#302, CallApp.BApp.swift#318 */
+/* Generated from genl10n: Revert.BApp.swift#191, ExifGhost.AppDockContent.swift#162, PixNote.BApp.swift#945, PixNote.BApp.swift#1188, Clean.BApp.swift#302, CallApp.BApp.swift#318 */
 "Enable Auto Selection" = "Enable Auto Selection";
 /* Generated from genl10n: Convert.AppDockContent.swift#149 */
 "Export Options" = "Export Options";
 /* Generated from genl10n: GIFMaker.BApp.swift#454 */
 "Export" = "Export";
-/* Generated from genl10n: PixNote.BApp.swift#1215 */
+/* Generated from genl10n: PixNote.BApp.swift#1198 */
 "Extract As" = "Extract As";
 /* Generated from genl10n: PixNote.BApp.swift#135 */
 "Extract" = "Extract";
@@ -156,7 +156,7 @@
 "Find" = "Find";
 /* Generated from genl10n: CallApp.BApp.swift#192 */
 "Finding Contacts ... %@ " = "Finding Contacts ... %@ ";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, PixNote.BApp.swift#1156 */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, PixNote.BApp.swift#1139 */
 "Flight Number" = "Flight Number";
 /* Generated from genl10n: GIFMaker.BApp.swift#208 */
 "Forward" = "Forward";
@@ -176,9 +176,9 @@
 "Image Quality" = "Image Quality";
 /* Generated from genl10n: GIFMaker.BApp.swift#440 */
 "Import" = "Import";
-/* Generated from genl10n: PixNote.BApp.swift#1149 */
+/* Generated from genl10n: PixNote.BApp.swift#1132 */
 "Information" = "Information";
-/* Generated from genl10n: CodeKit.Contacts.swift#62 */
+/* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "It requires a permission to access your contacts. Please allow Contacts on iOS Settings.";
 /* Generated from genl10n: GIFMaker.BApp.swift#90 */
 "Live Photo" = "Live Photo";
@@ -190,25 +190,25 @@
 "Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift#258 */
 "My Albums" = "My Albums";
-/* Generated from genl10n: PixNote.BApp.swift#414 */
+/* Generated from genl10n: PixNote.BApp.swift#401 */
 "New Event" = "New Event";
 /* Generated from genl10n: Stabilizer.swift#278, GIFMaker.BApp.swift#141 */
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift#573 */
 "No loop" = "No loop";
-/* Generated from genl10n: PixNote.BApp.swift#585 */
+/* Generated from genl10n: PixNote.BApp.swift#570 */
 "Open Apple Maps" = "Open Apple Maps";
-/* Generated from genl10n: PixNote.BApp.swift#602 */
+/* Generated from genl10n: PixNote.BApp.swift#587 */
 "Open Google Maps" = "Open Google Maps";
-/* Generated from genl10n: PixNote.BApp.swift#338 */
+/* Generated from genl10n: PixNote.BApp.swift#326 */
 "Open" = "Open";
 /* Generated from genl10n: AppUIAssetView.swift#45, PhotosFilter.BApp.swift#149 */
 "Original" = "Original";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#199, PixNote.BApp.swift#292, PixNote.BApp.swift#1151 */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#199, PixNote.BApp.swift#282, PixNote.BApp.swift#1134 */
 "Phone Number" = "Phone Number";
 /* Generated from genl10n: GIFMaker.BApp.swift#88 */
 "Photos" = "Photos";
-/* Generated from genl10n: PixNote.BApp.swift#1218 */
+/* Generated from genl10n: PixNote.BApp.swift#1201 */
 "Plain Text" = "Plain Text";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#173 */
 "Presets" = "Presets";
@@ -222,9 +222,9 @@
 "Reverse" = "Reverse";
 /* Generated from genl10n: GIFMaker.BApp.swift#210 */
 "Rewind" = "Rewind";
-/* Generated from genl10n: PixNote.BApp.swift#283, PixNote.BApp.swift#357, PixNote.BApp.swift#524, PixNote.BApp.swift#625 */
+/* Generated from genl10n: PixNote.BApp.swift#273, PixNote.BApp.swift#345, PixNote.BApp.swift#511, PixNote.BApp.swift#610 */
 "Save A Contact" = "Save A Contact";
-/* Generated from genl10n: PixNote.BApp.swift#1188 */
+/* Generated from genl10n: PixNote.BApp.swift#1171 */
 "Save Found Contacts Directly" = "Save Found Contacts Directly";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift#63 */
 "Save and Share" = "Save and Share";
@@ -232,23 +232,23 @@
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift#771 */
 "Saving Results..." = "Saving Results...";
-/* Generated from genl10n: PixNote.BApp.swift#679 */
+/* Generated from genl10n: PixNote.BApp.swift#662 */
 "Search Flights" = "Search Flights";
 /* Generated from genl10n: Clean.BApp.swift#285 */
 "Select Photos You Want To Clean!" = "Select Photos You Want To Clean!";
 /* Generated from genl10n: CallApp.BApp.swift#301 */
 "Select Photos You Want To Grab Phone Numbers!" = "Select Photos You Want To Grab Phone Numbers!";
-/* Generated from genl10n: PixNote.BApp.swift#1333 */
+/* Generated from genl10n: PixNote.BApp.swift#1316 */
 "Select Photos You Want To Grab!" = "Select Photos You Want To Grab!";
-/* Generated from genl10n: PixNote.BApp.swift#477, PixNote.BApp.swift#491, PixNote.BApp.swift#501 */
+/* Generated from genl10n: PixNote.BApp.swift#464, PixNote.BApp.swift#478, PixNote.BApp.swift#488 */
 "Send an Email" = "Send an Email";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#92, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#105, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#131, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#145, App.Finalizable.UIActivity.PHAsset.swift#60, PHAssetUIAlertControllerSynchronizablePresenter.swift#58, PixNote.BApp.swift#278, PixNote.BApp.swift#352, PixNote.BApp.swift#441, PixNote.BApp.swift#516, PixNote.BApp.swift#617, PixNote.BApp.swift#694 */
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#92, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#105, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#131, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#145, App.Finalizable.UIActivity.PHAsset.swift#60, PHAssetUIAlertControllerSynchronizablePresenter.swift#58, PixNote.BApp.swift#268, PixNote.BApp.swift#340, PixNote.BApp.swift#428, PixNote.BApp.swift#503, PixNote.BApp.swift#602, PixNote.BApp.swift#677 */
 "Share" = "Share";
 /* Generated from genl10n: GIFMaker.BApp.swift#461, GIFMaker.BApp.swift#664, GIFMaker.BApp.swift#676, GIFMaker.BApp.swift#813 */
 "Size" = "Size";
 /* Generated from genl10n: PixNote.BApp.swift#210 */
 "Some contacts were saved, but someones were not." = "Some contacts were saved, but someones were not.";
-/* Generated from genl10n: PixNote.BApp.swift#739, CallApp.BApp.swift#172 */
+/* Generated from genl10n: PixNote.BApp.swift#722, CallApp.BApp.swift#172 */
 "Sorry not found any information you selected." = "Sorry not found any information you selected.";
 /* Generated from genl10n: PixNote.BApp.swift#169 */
 "Sorry, it is not possible to save the contract." = "Sorry, it is not possible to save the contract.";

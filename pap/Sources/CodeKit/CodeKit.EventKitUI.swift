@@ -11,21 +11,22 @@ import EventKitUI
 extension EKEventEditViewController{
 
     @discardableResult
-    public static func presentDialog(event:EKEvent
+    public static func presentDialog(newEvent:EKEvent
             , onViewController:UIViewController?=nil
             , willPresentHandler:(() -> ())?=nil
             , didPresentHandler:(() -> ())?=nil
             , willDismissHandler:((EKEventEditViewAction) -> ())?=nil
-            , didDismissHandler:((EKEventEditViewAction) -> ())?=nil) -> EKEventEditViewController{
+            , didDismissHandler:((EKEventEditViewAction) -> ())?=nil
+            , _ asyncSignal:AsyncManualSignalable?=nil
+    ) -> EKEventEditViewController{
 
         let presetingViewController = EKEventEditViewController()
-        presetingViewController.event = event
+        presetingViewController.event = newEvent
         presetingViewController.eventStore = EventKitUtil.shared.defaultEventStore
 
-
-//        let navigationController = UINavigationController(rootViewController: presetingViewController)
-
         let delegator = EKEventEditViewDelegator()
+
+        let currentQueue = DispatchQueue.current
 
         delegator.watch(\.completedEKEventEditViewAction) {
             DispatchQueue.main.async {
@@ -33,6 +34,10 @@ extension EKEventEditViewController{
                 willDismissHandler?(completedAction)
 
                 presetingViewController.dismiss(animated: true) {
+                    currentQueue.async{
+                        asyncSignal?.end()
+                    }
+
                     didDismissHandler?(completedAction)
                 }
             }
@@ -40,12 +45,15 @@ extension EKEventEditViewController{
 
         presetingViewController.editViewDelegate = delegator
 
+        asyncSignal?.begin()
         DispatchQueue.main.async {
             willPresentHandler?()
             (onViewController ?? UIApplication.shared.keyWindow?.rootViewController)?.present(presetingViewController, animated: true) {
                 didPresentHandler?()
             }
         }
+        asyncSignal?.waitUntilEnd()
+
         return presetingViewController
     }
 }

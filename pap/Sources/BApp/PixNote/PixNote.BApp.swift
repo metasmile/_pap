@@ -225,17 +225,7 @@ extension PixNote{
                 for contact in _contacts{
                     contact.imageData = item.asset.asData
 
-                    asyncSignal.begin()
-
-                    let currentQueue = DispatchQueue.current
-                    DispatchQueue.main.async {
-                        CNContactViewController.presentDialog(contact: contact, didDismissHandler:{
-                            currentQueue.async{
-                                asyncSignal.end()
-                            }
-                        })
-                    }
-                    asyncSignal.waitUntilEnd()
+                    CNContactViewController.presentDialog(newContact: contact, asyncSignal)
                 }
             }
         }
@@ -291,9 +281,7 @@ extension PixNote{
                                 contact.urlAddresses.append(CNLabeledValue(label: "URL", value: "https://apps.photo"))
                                 contact.phoneNumbers = [ CNLabeledValue(label: "Phone Number".localized, value: CNPhoneNumber(stringValue: phoneNumber))]
 
-                                CNContactViewController.presentDialog(contact: contact, onViewController: _alert, didDismissHandler:{
-                                    asyncSignal.end()
-                                })
+                                CNContactViewController.presentDialog(newContact: contact, asyncSignal)
 
                             }else{
                                 asyncSignal.end()
@@ -365,9 +353,7 @@ extension PixNote{
 
                                     contact.urlAddresses.append(CNLabeledValue(label: "URL", value: url.absoluteString as NSString))
 
-                                    CNContactViewController.presentDialog(contact: contact, onViewController: _alert, didDismissHandler:{
-                                        asyncSignal.end()
-                                    })
+                                    CNContactViewController.presentDialog(newContact: contact, asyncSignal)
 
                                 }else{
                                     asyncSignal.end()
@@ -409,6 +395,7 @@ extension PixNote{
                     _actions.append(
                             UIAlertAction(title: "Add an Event".localized, style: .default, handler: { action in
 
+                                //FIXME: when initially create event, event == nil
                                 EventKitUtil.shared.newEvent { event in
                                     if let event = event{
                                         event.title = "New Event".localized
@@ -419,7 +406,7 @@ extension PixNote{
                                             event.notes = visionTexts.parse(type: VisionTextStringParser.self, asyncSignal)?.joined()
                                         }
 
-                                        EKEventEditViewController.presentDialog(event: event, didDismissHandler: { action in
+                                        EKEventEditViewController.presentDialog(newEvent: event, didDismissHandler: { action in
                                             asyncSignal.end()
                                         })
 
@@ -533,9 +520,7 @@ extension PixNote{
 
                                     contact.emailAddresses = [CNLabeledValue(label: "E-mail Address".localized, value: email as NSString)]
 
-                                    CNContactViewController.presentDialog(contact: contact, onViewController: _alert, didDismissHandler:{
-                                        asyncSignal.end()
-                                    })
+                                    CNContactViewController.presentDialog(newContact: contact, asyncSignal)
 
                                 }else{
                                     asyncSignal.end()
@@ -634,9 +619,7 @@ extension PixNote{
 
                                     contact.postalAddresses = [CNLabeledValue(label: "Address", value: addr.postalAddress)]
 
-                                    CNContactViewController.presentDialog(contact: contact, onViewController: _alert, didDismissHandler:{
-                                        asyncSignal.end()
-                                    })
+                                    CNContactViewController.presentDialog(newContact: contact, asyncSignal)
 
                                 }else{
                                     asyncSignal.end()

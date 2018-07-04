@@ -7,51 +7,66 @@ import Foundation
 import Contacts
 import ContactsUI
 
+public final class CNContactViewControllerDelegator : NSObject, KeyPathWatchable, CNContactViewControllerDelegate{
+    @objc dynamic
+    var contact:CNContact?
+
+    public func contactViewController(_ viewController: CNContactViewController, didCompleteWith contact: CNContact?){
+        self.contact = contact
+    }
+
+    public func contactViewController(_ viewController: CNContactViewController, shouldPerformDefaultActionFor property: CNContactProperty) -> Bool {
+        return true
+    }
+}
+
+
 extension CNContactViewController{
 
     @discardableResult
-    public static func presentDialog(contact:CNContact
+    public static func presentDialog(newContact:CNContact
             , onViewController:UIViewController?=nil
             , willPresentHandler:(() -> ())?=nil
             , didPresentHandler:(() -> ())?=nil
             , willDismissHandler:(() -> ())?=nil
-            , didDismissHandler:(() -> ())?=nil) -> CNContactViewController{
+            , didDismissHandler:(() -> ())?=nil
+            , _ asyncSignal:AsyncManualSignalable?=nil
 
-        let contactViewController = CNContactViewController(forNewContact: contact)
+    ) -> CNContactViewController{
+
+        let contactViewController = CNContactViewController(forNewContact: newContact)
         let navigationController = UINavigationController(rootViewController: contactViewController)
 
+        let currentQueue = DispatchQueue.current
+
         let delegator = CNContactViewControllerDelegator()
+        delegator.watch(\.contact) {
 
-        delegator.watch(\.completedContact) {
-            willDismissHandler?()
+            DispatchQueue.main.async {
+                willDismissHandler?()
 
-            navigationController.dismiss(animated: true) {
-                didDismissHandler?()
+                navigationController.dismiss(animated: true) {
+                    currentQueue.async{
+                        asyncSignal?.end()
+                    }
+
+                    didDismissHandler?()
+                }
             }
         }
 
         contactViewController.contactStore = CNContactStore()
         contactViewController.delegate = delegator
 
-        willPresentHandler?()
-        (onViewController ?? UIApplication.shared.keyWindow?.rootViewController)?.present(navigationController, animated: true) {
-            didPresentHandler?()
+        asyncSignal?.begin()
+        DispatchQueue.main.async {
+            willPresentHandler?()
+            (onViewController ?? UIApplication.shared.keyWindow?.rootViewController)?.present(navigationController, animated: true) {
+                didPresentHandler?()
+            }
         }
+        asyncSignal?.waitUntilEnd()
 
         return contactViewController
-    }
-}
-
-
-private final class CNContactViewControllerDelegator : NSObject, KeyPathWatchable, CNContactViewControllerDelegate{
-    @objc dynamic
-    var completedContact:CNContact?
-
-    func contactViewController(_ viewController: CNContactViewController, didCompleteWith contact: CNContact?){
-        completedContact = contact
-    }
-
-    func contactViewController(_ viewController: CNContactViewController, shouldPerformDefaultActionFor property: CNContactProperty) -> Bool {
-        return true
     }
 }
