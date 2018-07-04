@@ -34,6 +34,7 @@ class AppTests: PHAssetsXCTestCase {
             ,"  BA2491A"
             ,"  BA2491A    "
             ,"BA 2491A"
+            ,"1ca000"
             ,"AAL1"
             ,"AA L1"
             ,"4BA2491A"

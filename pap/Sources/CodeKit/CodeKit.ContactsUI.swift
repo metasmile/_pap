@@ -23,23 +23,19 @@ extension CNContactViewController{
         let delegator = CNContactViewControllerDelegator()
 
         delegator.watch(\.completedContact) {
-            DispatchQueue.main.async {
-                willDismissHandler?()
+            willDismissHandler?()
 
-                navigationController.dismiss(animated: true) {
-                    didDismissHandler?()
-                }
+            navigationController.dismiss(animated: true) {
+                didDismissHandler?()
             }
         }
 
         contactViewController.contactStore = CNContactStore()
         contactViewController.delegate = delegator
 
-        DispatchQueue.main.async {
-            willPresentHandler?()
-            (onViewController ?? UIApplication.shared.keyWindow?.rootViewController)?.present(navigationController, animated: true) {
-                didPresentHandler?()
-            }
+        willPresentHandler?()
+        (onViewController ?? UIApplication.shared.keyWindow?.rootViewController)?.present(navigationController, animated: true) {
+            didPresentHandler?()
         }
 
         return contactViewController

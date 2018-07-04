@@ -226,9 +226,15 @@ extension PixNote{
                     contact.imageData = item.asset.asData
 
                     asyncSignal.begin()
-                    CNContactViewController.presentDialog(contact: contact, didDismissHandler:{
-                        asyncSignal.end()
-                    })
+
+                    let currentQueue = DispatchQueue.current
+                    DispatchQueue.main.async {
+                        CNContactViewController.presentDialog(contact: contact, didDismissHandler:{
+                            currentQueue.async{
+                                asyncSignal.end()
+                            }
+                        })
+                    }
                     asyncSignal.waitUntilEnd()
                 }
             }
