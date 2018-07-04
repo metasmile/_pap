@@ -123,6 +123,9 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
                 self?.assetView.filteredImage = cached
             }
             else {
+                if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self), app.previewAsynchronously {
+                    self?.assetView.image = image
+                }
                 self?.setAssetItem(item, at: indexPath, animated: true)
             }
         })
