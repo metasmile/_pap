@@ -93,7 +93,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
                 self.placeholderView.isHidden = true
                 self.originalImage = self.assetView.image
                 self.assetView.applyEditState(self.preferredEditState)
-                self.assetView.playVideoWithLooping()
+                self.assetView.playAny()
             })
         }
     }
