@@ -14,7 +14,7 @@ extension EKEventEditViewController{
 
     public static func presentDialog(newEvent:EKEvent
             , onViewController:UIViewController?=nil
-            , willPresent:(() -> ())?=nil
+            , willPresent:((EKEventEditViewController) -> Bool)?=nil
             , didPresent:(() -> ())?=nil
             , willDismiss:((EKEventEditViewAction) -> ())?=nil
             , didDismiss:((EKEventEditViewAction) -> ())?=nil
@@ -45,13 +45,15 @@ extension EKEventEditViewController{
             }
         }
 
+        if let willPresent = willPresent, willPresent(presetingViewController) == false{
+            return
+        }
+        assert(presetingViewController.delegate==nil, "Do not define delegate object at \(String(describing: willPresent))")
+
         presetingViewController.editViewDelegate = delegator
 
-        DispatchQueue.main.async {
-            willPresent?()
-            (onViewController ?? UIViewController.root)?.present(presetingViewController, animated: true) {
-                didPresent?()
-            }
+        (onViewController ?? UIViewController.root)?.present(presetingViewController, animated: true) {
+            didPresent?()
         }
     }
 }

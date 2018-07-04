@@ -234,9 +234,11 @@ extension FinderApp{
                         contact.imageData = item.asset.asData
 
                         asyncSignal.begin()
-                        CNContactViewController.presentDialog(newContact: contact, didDismiss: {
-                            asyncSignal.end()
-                        })
+                        DispatchQueue.main.async{
+                            CNContactViewController.presentDialog(newContact: contact, didDismiss: {
+                                asyncSignal.end()
+                            })
+                        }
                         asyncSignal.waitUntilEnd()
                     }
                 }

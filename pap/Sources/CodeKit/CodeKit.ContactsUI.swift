@@ -27,12 +27,13 @@ extension CNContactViewController{
 
     public static func presentDialog(newContact:CNContact
             , onViewController:UIViewController?=nil
-            , willPresent:(() -> ())?=nil
+            , willPresent:((CNContactViewController) -> Bool)?=nil
             , didPresent:(() -> ())?=nil
             , willDismiss:(() -> ())?=nil
             , didDismiss:(() -> ())?=nil){
 
         let contactViewController = CNContactViewController(forNewContact: newContact)
+
         let navigationController = UINavigationController(rootViewController: contactViewController)
 
         let currentQueue = DispatchQueue.current
@@ -53,13 +54,16 @@ extension CNContactViewController{
         }
 
         contactViewController.contactStore = CNContactStore()
-        contactViewController.delegate = delegator
 
-        DispatchQueue.main.async {
-            willPresent?()
-            (onViewController ?? UIViewController.root)?.present(navigationController, animated: true) {
-                didPresent?()
-            }
+        if let willPresent = willPresent, willPresent(contactViewController) == false{
+            return
+        }
+
+        assert(contactViewController.delegate==nil, "Do not define delegate object at \(String(describing: willPresent))")
+
+        contactViewController.delegate = delegator
+        (onViewController ?? UIViewController.root)?.present(navigationController, animated: true) {
+            didPresent?()
         }
     }
 }
