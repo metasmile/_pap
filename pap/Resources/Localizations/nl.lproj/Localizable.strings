@@ -126,7 +126,7 @@
 "%d times" = "%d keer";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920×1080)";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Adres";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "albums";
@@ -140,13 +140,13 @@
 "Burst" = "Burst";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Kan niet terugkeren. Alle geselecteerde items zijn niet bewerkt.";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Kies een telefoonnummer dat u wilt bellen";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Kies een exportoptie voor %d items";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Kies een optie om te converteren";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Contract" = "Contract";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "creëren";
@@ -156,7 +156,7 @@
 "Crop to Fit" = "Bijsnijden";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Gewas";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Datum";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Richting";
@@ -164,17 +164,17 @@
 "Do Anything, At Once." = "Alles doen, tegelijk.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Downloaden ...";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "E-mail Address";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Schakel Automatische selectie in";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Export opties";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Exporteren";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Find" = "Vind";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Contactpersonen zoeken ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Vooruit";
@@ -212,11 +212,11 @@
 "No loop" = "Geen lus";
 /* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "origineel";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Telefoonnummer";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "foto's";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "presets";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
@@ -240,15 +240,15 @@
 "Saving Texts ..." = "Teksten opslaan ...";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Selecteer Foto's die u wilt gebruiken Telefoonnummers!";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Select Photos You Want To Grab!" = "Selecteer foto's die u wilt grijpen!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Share";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Grootte";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Sorry kan niet bellen naar geselecteerde contactpersoon.";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Sorry, geen contactinformatie gevonden.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Geselecteerde items stabiliseren ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Start";
-/* Generated from genl10n: PixNote.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift */
 "Starting To Find ..." = "Beginnen met zoeken ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Het proces starten ...";
@@ -272,7 +272,7 @@
 "Translation" = "Vertaling";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Waiting To Select ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

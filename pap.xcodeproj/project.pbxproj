@@ -111,7 +111,7 @@
 		4F71D7EC467C4954754DAFDF /* FirebaseMLVision.VisionCloudText.Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4F43AFA7CFB00749370 /* FirebaseMLVision.VisionCloudText.Parser.swift */; };
 		4F71D7EEBE343A0437955522 /* FloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D754C14C46B92ED9E664 /* FloatingView.swift */; };
 		4F71D807BB06FA9489D34086 /* Transform.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D9FA96D3866E152A9B2B /* Transform.BApp.swift */; };
-		4F71D817D4AF06DD50ED1685 /* PixNote.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA798A1F355C8A84BA85 /* PixNote.BApp.swift */; };
+		4F71D817D4AF06DD50ED1685 /* Finder.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA798A1F355C8A84BA85 /* Finder.BApp.swift */; };
 		4F71D863880D161FF681C642 /* CodeKit.UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5BC4E62AAE070D85B69 /* CodeKit.UIViewController.swift */; };
 		4F71D86FB1073AC3D8405B9C /* CodeKit.FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D755AF5A2605FB683A5E /* CodeKit.FileManager.swift */; };
 		4F71D87185DBD1B878C1F91A /* AppTaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D85980FE87C2FB5A2398 /* AppTaskItem.swift */; };
@@ -201,7 +201,7 @@
 		4F71DF9EC1EE3B0A88CDC1BE /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8D05F3DB92CF73E92C3 /* Converter.swift */; };
 		4F71DFA9D2EB40B350CB4E5B /* GIFMaker.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA8CA1E7F06DD108FFBB /* GIFMaker.BApp.swift */; };
 		511A1AAC20BF698800EFC81F /* App.Previewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511A1AAB20BF698800EFC81F /* App.Previewable.swift */; };
-		A01EF6A420E29717004A6CCC /* PixNote.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A01EF6A320E29717004A6CCC /* PixNote.BApp.Assets.xcassets */; };
+		A01EF6A420E29717004A6CCC /* Finder.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A01EF6A320E29717004A6CCC /* Finder.BApp.Assets.xcassets */; };
 		A0453C5620A33E4700F9BA29 /* AutoAdjustment.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0453C5520A33E4700F9BA29 /* AutoAdjustment.BApp.Assets.xcassets */; };
 		A0453C5820A33E7D00F9BA29 /* ExifGhost.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0453C5720A33E7D00F9BA29 /* ExifGhost.BApp.Assets.xcassets */; };
 		A0453C5A20A33E8700F9BA29 /* GIFMaker.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0453C5920A33E8700F9BA29 /* GIFMaker.BApp.Assets.xcassets */; };
@@ -476,7 +476,7 @@
 		4F71DA3C273565A6E320B6AF /* PhotoPickerFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerFooterView.swift; sourceTree = "<group>"; };
 		4F71DA4D5DD50E9D0383BBA0 /* UITableViewCellDescribable.UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellDescribable.UITableView.swift; sourceTree = "<group>"; };
 		4F71DA4EAE4DF6B4FF6A583D /* BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BApp.swift; sourceTree = "<group>"; };
-		4F71DA798A1F355C8A84BA85 /* PixNote.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixNote.BApp.swift; sourceTree = "<group>"; };
+		4F71DA798A1F355C8A84BA85 /* Finder.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Finder.BApp.swift; sourceTree = "<group>"; };
 		4F71DA862E45A6C3A07BFC8C /* AssetIO.LivePhotoResource.Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetIO.LivePhotoResource.Image.swift; sourceTree = "<group>"; };
 		4F71DA8A996DE6E8643C88F5 /* PhotoPickerViewController.UIGestureRecognizerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.UIGestureRecognizerDelegate.swift; sourceTree = "<group>"; };
 		4F71DA8CA1E7F06DD108FFBB /* GIFMaker.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFMaker.BApp.swift; sourceTree = "<group>"; };
@@ -544,7 +544,7 @@
 		5FA8D6CA125AC9C3DF819BA2 /* Pods_pap_papTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pap_papTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6089B37E3E1620CEDA68858B /* Pods_pap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		725400A349048E8B66FD7B40 /* Pods-pap-papTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pap-papTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pap-papTests/Pods-pap-papTests.debug.xcconfig"; sourceTree = "<group>"; };
-		A01EF6A320E29717004A6CCC /* PixNote.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PixNote.BApp.Assets.xcassets; sourceTree = "<group>"; };
+		A01EF6A320E29717004A6CCC /* Finder.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Finder.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		A01EF6A520E3BE27004A6CCC /* pap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pap.entitlements; sourceTree = "<group>"; };
 		A0453C5520A33E4700F9BA29 /* AutoAdjustment.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AutoAdjustment.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		A0453C5720A33E7D00F9BA29 /* ExifGhost.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ExifGhost.BApp.Assets.xcassets; sourceTree = "<group>"; };
@@ -957,13 +957,13 @@
 			path = App.Lib.Converter;
 			sourceTree = "<group>";
 		};
-		4F71D3542D21ED43CC73917E /* PixNote */ = {
+		4F71D3542D21ED43CC73917E /* Finder */ = {
 			isa = PBXGroup;
 			children = (
-				A01EF6A320E29717004A6CCC /* PixNote.BApp.Assets.xcassets */,
-				4F71DA798A1F355C8A84BA85 /* PixNote.BApp.swift */,
+				A01EF6A320E29717004A6CCC /* Finder.BApp.Assets.xcassets */,
+				4F71DA798A1F355C8A84BA85 /* Finder.BApp.swift */,
 			);
-			path = PixNote;
+			path = Finder;
 			sourceTree = "<group>";
 		};
 		4F71D3F5D3B5E2ED32E78751 /* ImageIO */ = {
@@ -2208,7 +2208,7 @@
 				4F71DA397222630EB455DE7A /* Stabilizer */,
 				4F71DE18AFE979783CAF2294 /* Transform */,
 				4F71D80ED7E61EF04AA8C835 /* Call */,
-				4F71D3542D21ED43CC73917E /* PixNote */,
+				4F71D3542D21ED43CC73917E /* Finder */,
 			);
 			path = BApp;
 			sourceTree = "<group>";
@@ -2504,7 +2504,7 @@
 				A0956BDA2095005200E680B9 /* Localizable.strings in Resources */,
 				A0956C0E2095005200E680B9 /* Localizable.strings in Resources */,
 				A0956C082095005200E680B9 /* Localizable.strings in Resources */,
-				A01EF6A420E29717004A6CCC /* PixNote.BApp.Assets.xcassets in Resources */,
+				A01EF6A420E29717004A6CCC /* Finder.BApp.Assets.xcassets in Resources */,
 				A0956BBD2095005200E680B9 /* Localizable.strings in Resources */,
 				A0956BE72095005200E680B9 /* Localizable.strings in Resources */,
 				A0956BD92095005200E680B9 /* Localizable.strings in Resources */,
@@ -2938,7 +2938,7 @@
 				4F71D047CB6B038B633CE59A /* CodeKit.String.NSDataDetector.swift in Sources */,
 				4F71DE695A164DF95980274B /* App.Preheatable.swift in Sources */,
 				4F71D341A19E0B6BD30A10AC /* App.UICollectionViewPreheatable.swift in Sources */,
-				4F71D817D4AF06DD50ED1685 /* PixNote.BApp.swift in Sources */,
+				4F71D817D4AF06DD50ED1685 /* Finder.BApp.swift in Sources */,
 				4F71DECBF37FCB4192D0F124 /* CodeKit.ContactsUI.swift in Sources */,
 				4F71D8FE45FB5DF84DAFA370 /* CodeKit.Contacts.swift in Sources */,
 				4F71DE2299D86100C8D5AD13 /* CodeKit.EventKit.swift in Sources */,

@@ -126,7 +126,7 @@
 "%d times" = "%d回";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p（1920×1080）";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "住所";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "アルバム";
@@ -140,13 +140,13 @@
 "Burst" = "バースト";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "元に戻すことはできません。選択したすべてのアイテムは編集されていません。";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "電話する電話番号を選択";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "%dアイテムのエクスポートオプションを選択する";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "変換するオプションを選択する";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Contract" = "契約する";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "作成する";
@@ -156,7 +156,7 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "作物";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "日付";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "方向";
@@ -164,17 +164,17 @@
 "Do Anything, At Once." = "一度に何でもやってください。";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "ダウンロード中...";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "電子メールアドレス";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "自動選択を有効にする";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "エクスポートオプション";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "輸出する";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Find" = "検索";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "連絡先の検索... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "フォワード";
@@ -212,11 +212,11 @@
 "No loop" = "ループなし";
 /* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "元の";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "電話番号";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "写真";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "プリセット";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA（320×240）";
@@ -240,15 +240,15 @@
 "Saving Texts ..." = "テキストを保存中...";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "写真を選択して電話番号を手に入れよう！";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Select Photos You Want To Grab!" = "あなたがグラブしたい写真を選択してください！";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "シェア";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "サイズ";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "申し訳ありません選択した連絡先に電話できません。";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "申し訳ありません連絡先情報が見つかりませんでした。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "平方";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "選択項目の安定化...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "開始";
-/* Generated from genl10n: PixNote.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift */
 "Starting To Find ..." = "検索開始...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "プロセスの開始...";
@@ -272,7 +272,7 @@
 "Translation" = "翻訳";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "ビデオ";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "選択するのを待っています...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "ワープ";

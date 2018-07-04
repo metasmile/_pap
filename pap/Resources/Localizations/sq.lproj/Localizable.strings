@@ -126,7 +126,7 @@
 "%d times" = "%d herë";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Adresë";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albumet";
@@ -140,13 +140,13 @@
 "Burst" = "Burst";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Nuk mund të kthehet. Të gjitha artikujt e zgjedhur nuk janë redaktuar.";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Zgjidhni një numër telefoni për të thirrur";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Zgjidhni një opsion eksportimi për %d artikujt";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Zgjidhni një mundësi për të konvertuar";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Contract" = "kontratë";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "krijoj";
@@ -156,7 +156,7 @@
 "Crop to Fit" = "Pri për tu përshtatur";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "prodhim";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "data";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "drejtim";
@@ -164,17 +164,17 @@
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Downloading ...";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Adresa E-mail";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Aktivizo përzgjedhjen automatike";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Opsionet e eksportit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "eksport";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Find" = "Gjej";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Gjetja e kontakteve ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "përpara";
@@ -212,11 +212,11 @@
 "No loop" = "Nuk ka loop";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "origjinal";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Numri i telefonit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Fotografitë";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "presets";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
@@ -240,15 +240,15 @@
 "Saving Texts ..." = "Ruajtja e teksteve ...";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Zgjidhni fotot që dëshironi të kapni numrat e telefonit!";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Select Photos You Want To Grab!" = "Zgjidhni fotot që dëshironi të kapni!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "pjesë";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "madhësi";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Na vjen keq nuk mund të telefononi në kontakt të zgjedhur.";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Na vjen keq që nuk gjetëm asnjë informacion për kontakt.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "katror";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Stabilizimi i artikujve të zgjedhur ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "fillim";
-/* Generated from genl10n: PixNote.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift */
 "Starting To Find ..." = "Fillimi për të gjetur ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Fillimi i procesit ...";
@@ -272,7 +272,7 @@
 "Translation" = "përkthim";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "video";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Duke pritur zgjedhjen ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "prish";

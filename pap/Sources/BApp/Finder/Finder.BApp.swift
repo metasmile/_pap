@@ -12,30 +12,30 @@ import ContactsUI
 import EventKit
 import EventKitUI
 
-public class PixNote: NSObject, KeyPathWatchable, BApp
+public class FinderApp: NSObject, KeyPathWatchable, BApp
         , FinalizableApp
         , AppDockApp
         , PhotoPickerViewControllerDelegatableApp
         , PreheatableApp
         , AppManagerDelegatedApp {
 
-    public static let taskType: AppTaskable.Type = _PixNoteTask.self
+    public static let taskType: AppTaskable.Type = _FinderAppTask.self
 
     public static let paramType: AppTaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
 
-    public private(set) lazy var dockContent: AppDockContent? = PixNoteAppDockContent()
+    public private(set) lazy var dockContent: AppDockContent? = FinderAppDockContent()
 
-    fileprivate static let privateDefaults = PixNote.defaults as! PixNoteAppDefaults
+    fileprivate static let privateDefaults = FinderApp.defaults as! FinderAppDefaults
 
     @objc dynamic
     public lazy var autoSelect: Bool = false
 
     public static let info = AppInfo(
-            identifier: "com.stells.pap.pixnote"
-            , version: "0.1"
-            , phase: .develop
-            , appType: PixNote.self
-            , displayName: "Pix Note", description:nil, keywords:nil
+            identifier: "com.stells.pap.finder"
+            , version: "1.0"
+            , phase: .beta
+            , appType: FinderApp.self
+            , displayName: "Finder", description:nil, keywords:nil
             , iconBundleName: nil//R.image.pixNoteBAppIcon.name
             , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy(cancellation: .shallow, priority: .normal, estimatedConcurrencyCount: 1))
             , minOSVersion: nil
@@ -59,24 +59,24 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
         return item.asset.mediaType == .image
     }
 
-    fileprivate var preheatedResults = [String:PixNoteResult]()
+    fileprivate var preheatedResults = [String:FinderAppResult]()
     public func performPreheating(item: AppAsset, _ async: AsyncSignal) -> PreheatingFinishAction? {
         if self.autoSelect == false{
             return nil
         }
 
-        var preheatedResult:PixNoteResult?
+        var preheatedResult:FinderAppResult?
 
         if let result = preheatedResults[item.asset.localIdentifierWithoutSplitter]{
             preheatedResult = result
         }else{
             if let image = item.asset.asUIImage{
-                preheatedResult = self.detector.detectResult(asset: item.asset, image: image, async) ?? PixNoteResult(asset: item.asset)
+                preheatedResult = self.detector.detectResult(asset: item.asset, image: image, async) ?? FinderAppResult(asset: item.asset)
                 preheatedResults[item.asset.localIdentifierWithoutSplitter] = preheatedResult
             }
         }
 
-        return PixNoteDetector.isResultFilled(result: preheatedResult)
+        return FinderAppDetector.isResultFilled(result: preheatedResult)
                 ? UICollectionViewPreheatableAppFinishAction.selectItem
                 : nil
     }
@@ -84,9 +84,9 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
         let items = result
                 .filter { $0.info.state == .completed }
-                .compactMap { $0.result as? PixNoteResult }
+                .compactMap { $0.result as? FinderAppResult }
 
-        switch (PixNote.privateDefaults.selectionPreset){
+        switch (FinderApp.privateDefaults.selectionPreset){
             case SelectionPreset.plaintext.rawValue:
                 self.finalize_plaintext(items: items, asyncSignal)
             case SelectionPreset.contact.rawValue:
@@ -94,7 +94,7 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
             case SelectionPreset.action.rawValue:
                 self.finalize_action(items: items, asyncSignal)
             default:
-                assert(false, "not supported preset \(String(describing: PixNote.privateDefaults.selectionPreset))")
+                assert(false, "not supported preset \(String(describing: FinderApp.privateDefaults.selectionPreset))")
         }
 
         return result
@@ -117,13 +117,13 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
         return "Extract".localized
     }
 
-    fileprivate var detector = PixNoteDetector()
+    fileprivate var detector = FinderAppDetector()
 }
 
 
-private typealias PixNoteParam = PHAssetItem<ImageEditStateValue>
+private typealias FinderAppParam = PHAssetItem<ImageEditStateValue>
 
-private struct PixNoteResult: AppTaskResultable {
+private struct FinderAppResult: AppTaskResultable {
     fileprivate let asset:PHAsset
 
     init(asset:PHAsset){
@@ -141,9 +141,9 @@ private struct PixNoteResult: AppTaskResultable {
 
 
 
-extension PixNote{
+extension FinderApp{
 
-    fileprivate func finalize_plaintext(items: [PixNoteResult], _ asyncSignal: AsyncManualSignalable) {
+    fileprivate func finalize_plaintext(items: [FinderAppResult], _ asyncSignal: AsyncManualSignalable) {
         let strings = items.compactMap{ $0.plainText }
 
         if strings.count > 0 {
@@ -157,7 +157,7 @@ extension PixNote{
         }
     }
 
-    fileprivate func finalize_contact(items: [PixNoteResult], _ asyncSignal: AsyncManualSignalable) {
+    fileprivate func finalize_contact(items: [FinderAppResult], _ asyncSignal: AsyncManualSignalable) {
         var canSaveContract = items.compactMap { result -> [CNMutableContact]? in
             return result.contacts?.nilEmpty
         }.count > 0
@@ -181,7 +181,7 @@ extension PixNote{
             return
         }
 
-        let saveContactWithoutEdit = PixNote.privateDefaults.saveContactWithoutEdit
+        let saveContactWithoutEdit = FinderApp.privateDefaults.saveContactWithoutEdit
 
         if saveContactWithoutEdit {
             var savedCount = 0
@@ -241,7 +241,7 @@ extension PixNote{
         }
     }
 
-    fileprivate func finalize_action(items: [PixNoteResult], _ asyncSignal: AsyncManualSignalable) {
+    fileprivate func finalize_action(items: [FinderAppResult], _ asyncSignal: AsyncManualSignalable) {
         let alert = UIAlertController(title: "Choose An Action".localized, message: nil, preferredStyle: .actionSheet)
 
         let defaultCancelSubAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
@@ -747,12 +747,12 @@ extension PixNote{
 
 }
 
-private struct PixNoteDetector{
+private struct FinderAppDetector{
 
     private let vision = Vision.vision()
 
-    fileprivate static func isResultFilled(result:PixNoteResult?) -> Bool{
-        let preset = PixNote.privateDefaults.selectionPreset
+    fileprivate static func isResultFilled(result:FinderAppResult?) -> Bool{
+        let preset = FinderApp.privateDefaults.selectionPreset
 
         if preset == SelectionPreset.plaintext.rawValue{
             return result?.plainText?.count ?? 0 > 0
@@ -770,16 +770,16 @@ private struct PixNoteDetector{
     }
 
 
-    fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncManualSignalable) -> PixNoteResult? {
+    fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncManualSignalable) -> FinderAppResult? {
         guard let visionTexts = vision.textDetector().detect(with: image, async) else {
             return nil
         }
 
-        let preset = PixNote.privateDefaults.selectionPreset
-        var defaults = PixNote.privateDefaults
+        let preset = FinderApp.privateDefaults.selectionPreset
+        var defaults = FinderApp.privateDefaults
         let selectedParserTypes = Set((defaults.selectedParserCollection.values).reduce([],+))
 
-        var result = PixNoteResult(asset: asset)
+        var result = FinderAppResult(asset: asset)
 
         result.sourceVisionTexts = visionTexts
 
@@ -881,7 +881,7 @@ private struct PixNoteDetector{
     }
 }
 
-private class _PixNoteTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, AppTaskable {
+private class _FinderAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, AppTaskable {
 
     private let emailParser = VisionTextEmailAddressParser()
     private let phoneNumberParser = VisionTextPhoneNumberParser()
@@ -894,122 +894,17 @@ private class _PixNoteTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, AppTa
             return nil
         }
 
-        if let preheatedResults = AppCenter.default.currentInstanceAs(PixNote.self)?.preheatedResults
+        if let preheatedResults = AppCenter.default.currentInstanceAs(FinderApp.self)?.preheatedResults
         , let result = preheatedResults[asset.localIdentifierWithoutSplitter] {
             return result
 
         }else if let image = asset.asUIImage{
 
-            let detector = AppCenter.default.currentInstanceAs(PixNote.self)?.detector
+            let detector = AppCenter.default.currentInstanceAs(FinderApp.self)?.detector
             return detector?.detectResult(asset: asset, image: image, async)
         }
 
         return nil
-    }
-}
-
-
-fileprivate class PixNoteDockContent: NSObject, KeyPathWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
-    private let primaryColor = UIColor(red:0.6, green:0.6, blue:0.6, alpha:1)
-
-    lazy var view: UIView = UITableView()
-
-    private var autoSelect:Bool = false
-
-    var preferences: AppDockContentPreferable? {
-        var preferences = AppDockContentPreferences()
-        preferences.preferredHeight = (view as! UITableView).rowHeight * CGFloat(1)
-        return preferences
-    }
-
-    func willSetContentView(_ view: UIView, dock: AppDock) {
-        if let view = view as? UITableView{
-            view.dataSource = self
-            view.delegate = self
-            view.rowHeight = 52
-            view.allowsSelection = false
-            view.register(Cell.self, forCellReuseIdentifier: PixNote.info.identifier)
-//            view.backgroundColor = UIColor(red: 31 / 255.0, green: 31 / 255.0, blue: 31 / 255.0, alpha: 1)
-            view.tintColor = self.primaryColor
-//            view.separatorInset.left = view.rowHeight
-        }
-    }
-
-    func didSetContentView(_ view:UIView, dock:AppDock) {
-        if options != nil{
-            (view as! UITableView).reloadData()
-        }
-    }
-
-    @objc dynamic
-    var options:[String: Any]? // Bool may be other custom Codable type instead of Any
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: PixNote.info.identifier) as! Cell
-
-        cell.imageView?.tintColor = primaryColor
-        cell.imageView?.contentMode = .scaleAspectFit
-
-        cell.textLabel?.text = "Enable Auto Selection".localized
-        cell.optionSwitch.setOn(self.autoSelect, animated: false)
-        cell.switchDidChange = { on in
-            self.autoSelect = on
-            AppCenter.default.currentInstanceAs(PixNote.self)?.autoSelect = on
-        }
-
-        return cell
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-
-    private class Cell: UITableViewCell {
-        lazy var optionSwitch: UISwitch = {
-            let view = UISwitch()
-            view.addTarget(self, action: #selector(self.cellSwitchDidChange), for: .valueChanged)
-            return view
-        }()
-
-        var switchDidChange: ((Bool) -> Void)?
-
-        override func prepareForReuse() {
-            super.prepareForReuse()
-
-            switchDidChange = nil
-        }
-
-        override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-            super.init(style: style, reuseIdentifier: reuseIdentifier)
-
-            accessoryView = optionSwitch
-        }
-
-        required init?(coder aDecoder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-
-        @objc func cellSwitchDidChange(sender: UISwitch) {
-            switchDidChange?(sender.isOn)
-        }
-
-        override func layoutSubviews() {
-            super.layoutSubviews()
-        }
-
-        override func tintColorDidChange() {
-            super.tintColorDidChange()
-
-            optionSwitch.onTintColor = tintColor
-        }
     }
 }
 
@@ -1026,7 +921,7 @@ private enum SelectionPreset:Int{
     case action
 }
 
-private enum PixNoteSettingCells {
+private enum FinderAppSettingCells {
     case presets
     case autoSelect
     case saveContactWithoutEdit
@@ -1034,7 +929,7 @@ private enum PixNoteSettingCells {
 }
 
 private struct SettingsItem {
-    fileprivate var key: PixNoteSettingCells
+    fileprivate var key: FinderAppSettingCells
     fileprivate var label:String
     fileprivate var valueGetter:() -> Any
     fileprivate var valueCollection:Any?
@@ -1043,13 +938,13 @@ private struct SettingsItem {
     fileprivate var iconImageName:String?
 }
 
-private protocol PixNoteAppDefaults: AppDefaults{
+private protocol FinderAppDefaults: AppDefaults{
     var selectedParserCollection: ParserCollection {get set}
     var selectionPreset: Int {get set}
     var saveContactWithoutEdit:Bool {get set}
 }
 
-extension Defaults: PixNoteAppDefaults {
+extension Defaults: FinderAppDefaults {
     fileprivate var selectedParserCollection: ParserCollection {
         set{ set(newValue) }
         get{ return get(or: ParserDictionary.DefaultCollection) }
@@ -1067,7 +962,7 @@ extension Defaults: PixNoteAppDefaults {
 }
 
 
-extension PixNoteAppDefaults{
+extension FinderAppDefaults{
     fileprivate func addHandledProperty(_ dictionary:ParserDictionary.Key, _ property:ParserItem.Key){
 
         var immutableSelf = self
@@ -1138,12 +1033,12 @@ private struct ParserDictionary {
     fileprivate var items:[ParserItem]
 }
 
-class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
+fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
     fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
 
     private var parserCollection:[ParserDictionary] {
         get{
-            if PixNote.privateDefaults.selectionPreset == SelectionPreset.plaintext.rawValue{
+            if FinderApp.privateDefaults.selectionPreset == SelectionPreset.plaintext.rawValue{
                 return []
             }
 
@@ -1183,7 +1078,7 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
     }
 
     private var selectedParserCollection: ParserCollection{
-        return PixNote.privateDefaults.selectedParserCollection
+        return FinderApp.privateDefaults.selectedParserCollection
     }
 
     private var autoSelect:Bool = false
@@ -1191,11 +1086,11 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
 
     private func createCellDescriber_saveContactWithoutEdit() -> UITableViewSwitchCellDescriber{
         let celld = UITableViewSwitchCellDescriber()
-        celld.itemIdentifier = PixNoteSettingCells.saveContactWithoutEdit.hashValue
+        celld.itemIdentifier = FinderAppSettingCells.saveContactWithoutEdit.hashValue
         celld.label = "Save Found Contacts Directly".localized
-        celld.valueGetter = { PixNote.privateDefaults.saveContactWithoutEdit }
+        celld.valueGetter = { FinderApp.privateDefaults.saveContactWithoutEdit }
         celld.valueHandler = {
-            var defaults = PixNote.privateDefaults
+            var defaults = FinderApp.privateDefaults
             defaults.saveContactWithoutEdit = $0 as! Bool
         }
         return celld
@@ -1208,19 +1103,19 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
         }
 
         let cell1 = UITableViewSwitchCellDescriber()
-        cell1.itemIdentifier = PixNoteSettingCells.autoSelect.hashValue
+        cell1.itemIdentifier = FinderAppSettingCells.autoSelect.hashValue
         cell1.label = "Enable Auto Selection".localized
         cell1.valueGetter = { self.autoSelect }
         cell1.valueHandler = {
             self.autoSelect = $0 as! Bool
-            AppCenter.default.currentInstanceAs(PixNote.self)?.autoSelect = self.autoSelect
+            AppCenter.default.currentInstanceAs(FinderApp.self)?.autoSelect = self.autoSelect
         }
         settingCellDescribers.append(cell1)
 
         let cell0 = UITableViewSegmentControlCellDescriber()
-        cell0.itemIdentifier = PixNoteSettingCells.presets.hashValue
+        cell0.itemIdentifier = FinderAppSettingCells.presets.hashValue
         cell0.label = "Extract As".localized
-        cell0.valueGetter = { PixNote.privateDefaults.selectionPreset }
+        cell0.valueGetter = { FinderApp.privateDefaults.selectionPreset }
         cell0.valueCollection = [
             (label:"Plain Text".localized,value: SelectionPreset.plaintext.rawValue),
             (label:"Contacts".localized,value: SelectionPreset.contact.rawValue),
@@ -1229,7 +1124,7 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
         cell0.valueHandler = {
             let preset = $0 as! Int
 
-            var defaults = PixNote.privateDefaults
+            var defaults = FinderApp.privateDefaults
             defaults.selectionPreset = preset
 
             // selectionPreset changed -> other self.parserCollection getter will be returned.
@@ -1237,7 +1132,7 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
 
             //saveContactWithoutEdit
             let index = self.settingCellDescribers.index(where:{ describable in
-                return describable.itemIdentifier == PixNoteSettingCells.saveContactWithoutEdit.hashValue
+                return describable.itemIdentifier == FinderAppSettingCells.saveContactWithoutEdit.hashValue
             })
 
             if preset == SelectionPreset.contact.rawValue{
@@ -1259,7 +1154,7 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
         settingCellDescribers.append(cell0)
 
         //auto save
-        if PixNote.privateDefaults.selectionPreset == SelectionPreset.contact.rawValue{
+        if FinderApp.privateDefaults.selectionPreset == SelectionPreset.contact.rawValue{
             settingCellDescribers.append(createCellDescriber_saveContactWithoutEdit())
         }
 
@@ -1269,7 +1164,7 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
             tableView.rowHeight = 44
             tableView.allowsSelection = false
             tableView.allowsMultipleSelection = false
-            tableView.register(Cell.self, forCellReuseIdentifier: PixNote.info.identifier)
+            tableView.register(Cell.self, forCellReuseIdentifier: FinderApp.info.identifier)
 
             for desc in settingCellDescribers {
                 tableView.register(describer: desc)
@@ -1279,7 +1174,7 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
 
-        let defaultsCollection = PixNote.privateDefaults.selectedParserCollection
+        let defaultsCollection = FinderApp.privateDefaults.selectedParserCollection
 
         //get indexes
         let sections = self.parserCollection.enumerated().compactMap { (section, dictionary) -> [IndexPath]? in
@@ -1436,11 +1331,11 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
         if let _ = initialSelectedIndexPaths?.index(of: indexPath) {
             selected = true
         }
-        if let _ = PixNote.privateDefaults.selectedParserCollection[dict.key]?.index(of: dict.items[indexPath.item].key){
+        if let _ = FinderApp.privateDefaults.selectedParserCollection[dict.key]?.index(of: dict.items[indexPath.item].key){
             selected = true
         }
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: PixNote.info.identifier) as! Cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: FinderApp.info.identifier) as! Cell
         cell.textLabel?.text = dict.items[indexPath.item].label
         cell.detailTextLabel?.text = selected ? "may be found" : nil
 //        cell.imageView?.image = selected ? R.image.pdFactoryAppIcon() : nil //selected ? UIImageView(image: R.image.pdFactoryAppIcon()) : nil
@@ -1448,17 +1343,17 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
         cell.optionSwitch.setOn(selected, animated: false)
         cell.switchDidChange = { on in
             if on{
-                PixNote.privateDefaults.addHandledProperty(dict.key, dict.items[indexPath.item].key)
+                FinderApp.privateDefaults.addHandledProperty(dict.key, dict.items[indexPath.item].key)
             }else{
-                PixNote.privateDefaults.removeHandledProperty(dict.key, dict.items[indexPath.item].key)
+                FinderApp.privateDefaults.removeHandledProperty(dict.key, dict.items[indexPath.item].key)
             }
 
             tableView.reloadRows(at: [indexPath], with: .fade)
 
-//            let selectedPreset = PixNote.privateDefaults.selectionPreset
+//            let selectedPreset = FinderApp.privateDefaults.selectionPreset
 //
 //            if selectedPreset == GrabAs.plaintext.rawValue || selectedPreset == GrabAs.contact.rawValue{
-//                PixNote.privateDefaults.selectionPreset = GrabAs.action.rawValue
+//                FinderApp.privateDefaults.selectionPreset = GrabAs.action.rawValue
 //
 //                tableView.reloadSections(IndexSet(integer: 0), with: .none)
 //            }

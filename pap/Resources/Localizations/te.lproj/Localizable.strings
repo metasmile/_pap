@@ -126,7 +126,7 @@
 "%d times" = "%d సార్లు";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "చిరునామా";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "ఆల్బమ్లు";
@@ -140,13 +140,13 @@
 "Burst" = "విస్ఫోటనం";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "తిరిగి రాలేరు. ఎంచుకున్న అన్ని అంశాలను సవరించలేదు.";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "కాల్ చేయడానికి ఫోన్ నంబర్ను ఎంచుకోండి";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "%d అంశాలు కోసం ఒక ఎగుమతి ఎంపికను ఎంచుకోండి";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "మార్చడానికి ఒక ఎంపికను ఎంచుకోండి";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Contract" = "కాంట్రాక్ట్";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "సృష్టించు";
@@ -156,7 +156,7 @@
 "Crop to Fit" = "కత్తిరించడానికి కత్తిరించండి";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "పంట";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "తేదీ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "దర్శకత్వం";
@@ -164,17 +164,17 @@
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "డౌన్లోడ్ చేస్తోంది ...";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "ఇ-మెయిల్ చిరునామా";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "స్వీయ ఎన్నిక ప్రారంభించు";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "ఎగుమతి ఎంపికలు";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "ఎగుమతి";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Find" = "కనుగొనండి";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "సంపర్కాలను కనుగొనడం ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "ఫార్వర్డ్";
@@ -212,11 +212,11 @@
 "No loop" = "కాదు లూప్";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "అసలు";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "ఫోను నంబరు";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "ఫోటోలు";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "అమరికలు";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
@@ -240,15 +240,15 @@
 "Saving Texts ..." = "సేవ్ చేయబడిన పాఠం ...";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "మీరు ఫోన్ నంబర్లను పట్టుకోడానికి కావలసిన ఫోటోలను ఎంచుకోండి!";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Select Photos You Want To Grab!" = "మీరు ఎంచుకున్న ఫోటోలను ఎంచుకోండి!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Share";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "పరిమాణం";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "క్షమించాలి ఎంచుకున్న పరిచయానికి కాల్ చేయలేరు.";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "క్షమించండి ఏ సంప్రదింపు సమాచారం కనుగొనబడలేదు.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "స్క్వేర్";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "ఎంచుకున్న అంశాలు స్థిరీకరించడం ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "ప్రారంభం";
-/* Generated from genl10n: PixNote.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift */
 "Starting To Find ..." = "కనుగొనుటకు ప్రారంభిస్తోంది ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "ప్రాసెస్ని ప్రారంభిస్తోంది ...";
@@ -272,7 +272,7 @@
 "Translation" = "అనువాద";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "వీడియో";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "ఎంచుకోవడానికి వేచి ఉంది ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "వార్ప్";

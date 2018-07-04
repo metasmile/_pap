@@ -126,7 +126,7 @@
 "%d times" = "%d carî";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Navnîşan";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albums";
@@ -140,13 +140,13 @@
 "Burst" = "Burst";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Nikare venegerin. Hemû tiştên bijartî nehatiye guherandin.";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Hejmara Telefonê Telefonê hilbijêre";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Vebijêrkek Export Export Hilbijêre Ji bo %d Şîfre";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Vebijêrk Hilbijêre Hilbijêre";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Contract" = "Peyman";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Xûliqandin";
@@ -156,7 +156,7 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Zadçinî";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Rojek";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Ber";
@@ -164,17 +164,17 @@
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Daxistin ...";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Navnîşana emailê";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Hilbijêre Auto Auto";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Hilbijêre Hilbijêre";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Eksport";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Find" = "Dîtin";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Finding contacts ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Pêşve";
@@ -212,11 +212,11 @@
 "No loop" = "Ne pişk";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "Eslî";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Jimare telefon";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Wêne";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
@@ -240,15 +240,15 @@
 "Saving Texts ..." = "Çîrokên Parastinê ...";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Wêneyên Hilbijêrin Tu Dixwazin Telefon Numbers Grab!";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Select Photos You Want To Grab!" = "Wêneyên Hilbijêre Tu Dixwazin Grab!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Par";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Mezinayî";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Xwe nikarî têkilî bi têkilî bijartin.";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Ji kerema xwe agahî agahdarî peywendî nekir.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Meydan";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Stabilizing Items Selected ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Destpêkirin";
-/* Generated from genl10n: PixNote.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift */
 "Starting To Find ..." = "Destpêk To Find ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Destpêkirina pêvajoyê ...";
@@ -272,7 +272,7 @@
 "Translation" = "Werger";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Hêvîdar Hilbijêre ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

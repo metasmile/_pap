@@ -126,7 +126,7 @@
 "%d times" = "%d aldiz";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Helbidea";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albums";
@@ -140,13 +140,13 @@
 "Burst" = "leherketa";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Ezin da itzuli. Hautatutako elementu guztiak ez dira editatu.";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Aukeratu telefono zenbaki bat deitzeko";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Aukeratu esportatzeko aukera bat %d Elementuetarako";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Aukeratu Bihurtu Aukera";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Contract" = "Kontratua";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Sortu";
@@ -156,7 +156,7 @@
 "Crop to Fit" = "Moztu fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Mozketa";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "data";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Zuzendaritza";
@@ -164,17 +164,17 @@
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Deskargatzen ...";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Posta elektroniko helbidea";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Gaitu hautespen automatikoa";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Esportatu aukerak";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Export";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Find" = "Aurki";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Kontaktuak aurkitzea ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Aurrera";
@@ -212,11 +212,11 @@
 "No loop" = "No loop";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "Original";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Telefono zenbakia";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Argazkiak";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
@@ -240,15 +240,15 @@
 "Saving Texts ..." = "Testuak gordetzen ...";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Hautatu argazkiak nahi dituzun telefono zenbakiak!";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Select Photos You Want To Grab!" = "Aukeratu nahi dituzun argazkiak aukeratu!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Share";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Tamaina";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Ezin duzu hautatutako kontaktura deitu.";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Ez da inongo kontaktu-informazioa aurkitu.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Karratu";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Hautatutako elementuak egonkortzea ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "start";
-/* Generated from genl10n: PixNote.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift */
 "Starting To Find ..." = "Bilatzen hasteko ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Prozesua abiarazten ...";
@@ -272,7 +272,7 @@
 "Translation" = "Itzulpena";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Itxaron hautatzeko ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

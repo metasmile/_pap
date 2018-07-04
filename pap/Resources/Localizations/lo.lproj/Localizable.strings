@@ -126,7 +126,7 @@
 "%d times" = "%d times";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 1080)";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "ທີ່ຢູ່";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albums";
@@ -140,13 +140,13 @@
 "Burst" = "Burst";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "ບໍ່ສາມາດກັບຄືນໄດ້. ລາຍການທີ່ເລືອກທັງຫມົດບໍ່ໄດ້ຖືກດັດແກ້.";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "ເລືອກຫມາຍເລກໂທລະສັບເພື່ອໂທ";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Choose An Export Option For %d Items";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "ເລືອກເອົາທາງເລືອກເພື່ອແປງ";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Contract" = "ສັນຍາ";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "ສ້າງ";
@@ -156,7 +156,7 @@
 "Crop to Fit" = "ການປູກພືດທີ່ເຫມາະສົມ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "ການປູກພືດ";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Date";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
@@ -164,17 +164,17 @@
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "ດາວໂຫລດ ...";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "ທີ່​ຢູ່​ອີ​ເມວ";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "ເປີດຕົວເລືອກອັດຕະໂນມັດ";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Export Options";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "ສົ່ງອອກ";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Find" = "ຊອກຫາ";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Finding Contacts ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Forward";
@@ -212,11 +212,11 @@
 "No loop" = "No loop";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "ຕົ້ນສະບັບ";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "ເບີ​ໂທລະ​ສັບ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "ຮູບພາບ";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 240)";
@@ -240,15 +240,15 @@
 "Saving Texts ..." = "Saving Texts";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "ເລືອກຮູບພາບທີ່ທ່ານຕ້ອງການທີ່ຈະຈັບຕົວເລກໂທລະສັບ!";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Select Photos You Want To Grab!" = "ເລືອກຮູບພາບທີ່ທ່ານຕ້ອງການເອົາ!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "ແບ່ງປັນ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "ຂະຫນາດ";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "ຂໍອະໄພບໍ່ສາມາດໂທຫາຜູ້ຕິດຕໍ່ເລືອກໄດ້.";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "ຂໍອະໄພບໍ່ພົບຂໍ້ມູນຕິດຕໍ່ໃດໆ.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Stabilizing Selected Items";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "ເລີ່ມຕົ້ນ";
-/* Generated from genl10n: PixNote.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift */
 "Starting To Find ..." = "ເລີ່ມຄົ້ນຫາ";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "ການເລີ່ມຕົ້ນຂະບວນການ ...";
@@ -272,7 +272,7 @@
 "Translation" = "ການແປພາສາ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "ວິດີໂອ";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "ລໍຖ້າເພື່ອເລືອກ ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

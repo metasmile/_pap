@@ -126,7 +126,7 @@
 "%d times" = "%d times";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Wāhitau";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Ngā Pukaemi";
@@ -140,13 +140,13 @@
 "Burst" = "Tuhinga o mua";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Kāore e taea te hoki. Kāore i te whakatika nga mea kua tohua.";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Whiriwhiria tetahi Waea Waea hei Karanga";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Kōwhiria he Kōwhiringa Kaweake mō Ngā %d Ngā Tūemi";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Kōwhiria he Kōwhiringa Hei Tahuri";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Contract" = "Komihana";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Waihanga";
@@ -156,7 +156,7 @@
 "Crop to Fit" = "Te tipu hei Whakauru";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Nga tipu";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Rā";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Whakahaere";
@@ -164,17 +164,17 @@
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Kei te tikiake ...";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Wāhitau ī-mēra";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Whakahohea te Tīpakonga Aunoa";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Ngā Kōwhiringa Whakaputa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Kaweake";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Find" = "Kimihia";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Rapu Hoahoa ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Tuhinga";
@@ -212,11 +212,11 @@
 "No loop" = "Karekau he papa";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "Tuhinga";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Tau Waea";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Whakaahua";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Tautuhinga";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
@@ -240,15 +240,15 @@
 "Saving Texts ..." = "Nga Kupu Tiaki ...";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Tīpakohia nga Whakaahua e hiahia ana koe kia mauhia nga Tau Waea!";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Select Photos You Want To Grab!" = "Tīpako Pikitia e hiahia ana koe ki te hopu!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Vahevahe";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Rahi";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Aroha e kore e taea te karanga ki te whakapiri i tohua.";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Kaua e kitea etahi korero whakapiri.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Tae";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Te whakarite i nga Tūemi kua Tīpakohia ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Tīmata";
-/* Generated from genl10n: PixNote.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift */
 "Starting To Find ..." = "Tīmata ki te Kimi ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Tīmata i te Tukanga ...";
@@ -272,7 +272,7 @@
 "Translation" = "Translation";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Ataata";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "E tatari ana ki te whiriwhiri ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "He wera";

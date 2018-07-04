@@ -260,7 +260,7 @@ class PhotoPickerViewController: AppDockViewController {
                 }
             }
 
-            AppCenter.default.currentInstanceAs(PixNote.self)?.watch(\.autoSelect, id: "picker\(PixNote.info.identifier)") { (app, changed) in
+            AppCenter.default.currentInstanceAs(FinderApp.self)?.watch(\.autoSelect, id: "picker\(FinderApp.info.identifier)") { (app, changed) in
                 if app.autoSelect && !AppCenter.default.task.isRunning {
                     self.cancelPreheatingIfNeeded()
                     self.performPrefetchIfNeeded(includingCurrentVisibleItems: true)
@@ -292,7 +292,7 @@ class PhotoPickerViewController: AppDockViewController {
         AppCenter.default.currentInstanceAs(RevertApp.self)?.unwatch(\.autoSelect, forIds:["picker\(RevertApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(CallApp.self)?.unwatch(\.autoSelect, forIds:["picker\(CallApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(ExifGhost.self)?.unwatch(\.autoSelect, forIds:["picker\(ExifGhost.info.identifier)"])
-        AppCenter.default.currentInstanceAs(PixNote.self)?.unwatch(\.autoSelect, forIds:["picker\(PixNote.info.identifier)"])
+        AppCenter.default.currentInstanceAs(FinderApp.self)?.unwatch(\.autoSelect, forIds:["picker\(FinderApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(Clean.self)?.unwatch(\.autoSelect, forIds:["picker\(Clean.info.identifier)"])
 
         AppCenter.default.unwatchAllFilePrivate(\.currentIdentifier)

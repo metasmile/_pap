@@ -126,7 +126,7 @@
 "%d times" = "%d beses";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Address";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Album";
@@ -140,13 +140,13 @@
 "Burst" = "Pagputok";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Hindi mababalik. Hindi na-edit ang lahat ng mga napiling item.";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Pumili ng Numero ng Telepono Upang Tumawag";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Pumili ng Pagpipilian sa I-export Para sa Mga Item ng %d";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Pumili ng Pagpipilian Upang I-convert";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Contract" = "Kontrata";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Lumikha";
@@ -156,7 +156,7 @@
 "Crop to Fit" = "I-crop upang Pagkasyahin";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "I-crop";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Petsa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direksyon";
@@ -164,17 +164,17 @@
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Nagda-download ...";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Address ng E-mail";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Paganahin ang Auto Selection";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "I-export ang Opsyon";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "I-export";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Find" = "Hanapin";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Paghahanap ng Mga Contact ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Ipasa";
@@ -212,11 +212,11 @@
 "No loop" = "Walang loop";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "Orihinal";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Numero ng telepono";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Mga larawan";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Mga Preset";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
@@ -240,15 +240,15 @@
 "Saving Texts ..." = "Pag-save ng Mga Teksto ...";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Piliin ang Mga Larawan na Gusto Mong Kunin ang Mga Numero ng Telepono!";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Select Photos You Want To Grab!" = "Piliin ang Mga Larawan na Gusto mong Kunin!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Ibahagi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Sukat";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Paumanhin ay hindi maaaring tumawag sa napiling contact.";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Paumanhin ay hindi nakita ang anumang impormasyon sa pakikipag-ugnay.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Pagpapanatili ng Mga Piniling Item ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Magsimula";
-/* Generated from genl10n: PixNote.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift */
 "Starting To Find ..." = "Simula Upang Maghanap ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Pagsisimula ng Proseso ...";
@@ -272,7 +272,7 @@
 "Translation" = "Pagsasalin";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Naghihintay na Pumili ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

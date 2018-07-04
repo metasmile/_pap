@@ -126,7 +126,7 @@
 "%d times" = "%d пута";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080п (1920 × 1080)";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Адреса";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Албуми";
@@ -140,13 +140,13 @@
 "Burst" = "Бурст";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Не могу се вратити. Сви изабрани ставци нису уређени.";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Изаберите телефонски број за позивање";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Изаберите опцију извоза за %d ставке";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Изаберите опцију претварања";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Contract" = "Уговор";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Креирај";
@@ -156,7 +156,7 @@
 "Crop to Fit" = "Цроп то Фит";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Усев";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Датум";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Правац";
@@ -164,17 +164,17 @@
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Преузимање ...";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Адреса Е-поште";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Омогућите аутоматско селекцију";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Извозне опције";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Извоз";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Find" = "Нађи";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Проналажење контаката ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Напријед";
@@ -212,11 +212,11 @@
 "No loop" = "Нема петље";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "Оригинал";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Број телефона";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Фотографије";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Пресетс";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "КВГА (320 × 240)";
@@ -240,15 +240,15 @@
 "Saving Texts ..." = "Чување текстова ...";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Изаберите фотографије које желите да грабујете телефонске бројеве!";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Select Photos You Want To Grab!" = "Изаберите фотографије које желите да зграбите!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Објави";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Величина";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Жао ми је што не могу да позовем одабрани контакт.";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Жао ми је што нисмо нашли никакве контакт информације.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Квадрат";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Стабилизација изабраних ставки ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Почетак";
-/* Generated from genl10n: PixNote.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift */
 "Starting To Find ..." = "Почиње пронаћи ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Започињање процеса ...";
@@ -272,7 +272,7 @@
 "Translation" = "Превод";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Видео";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Чекајући да изаберете ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Варп";

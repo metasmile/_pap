@@ -126,7 +126,7 @@
 "%d times" = "%d борҳо";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Суроға";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Албомҳо";
@@ -140,13 +140,13 @@
 "Burst" = "Бастур";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Метавонед баргардед. Ҳамаи намудҳои интихобшуда таҳрир нашудаанд.";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Рақами телефонро барои занг интихоб кунед";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Choose An Export Option For %d Items";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Барои интихоби алтернативӣ интихоб кунед";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Contract" = "Шартнома";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Эҷод кунед";
@@ -156,7 +156,7 @@
 "Crop to Fit" = "Зироатҳои ғизоӣ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Зироат";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Сана";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Роҳандозӣ";
@@ -164,17 +164,17 @@
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Боргирии ...";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Суроғаи электронӣ";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Интихобро интихоб кунед";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Имкониятҳои содиротӣ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Содирот";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Find" = "Ҷустуҷӯ";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Ҷустуҷӯи мухотибон ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Пештар";
@@ -212,11 +212,11 @@
 "No loop" = "No loop";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "Original";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Рақами мобилӣ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Суратҳо";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
@@ -240,15 +240,15 @@
 "Saving Texts ..." = "Тақсими матн ...";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Суратҳоеро интихоб кунед, ки мехоҳед Рақамҳои телефонро гиред!";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Select Photos You Want To Grab!" = "Суратҳоеро, ки шумо мехоҳед!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Share";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Андозаи";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Мутаассифона, ба мухотиб интихоб карда наметавонед.";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Мутаассифона, иттилооти алоқа пайдо нашуд.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Истилоҳотҳои интихобшуда ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Оғоз кунед";
-/* Generated from genl10n: PixNote.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift */
 "Starting To Find ..." = "Оғоз барои дарёфти ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Раванди оғоз ...";
@@ -272,7 +272,7 @@
 "Translation" = "Тарҷума";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Видео";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Интизорӣ барои интихоби ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Варақа";

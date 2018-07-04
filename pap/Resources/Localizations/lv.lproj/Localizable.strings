@@ -126,7 +126,7 @@
 "%d times" = "%d reizes";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920x1080)";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Adrese";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albums";
@@ -140,13 +140,13 @@
 "Burst" = "Pārsprāgt";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Nevar atgriezties. Visi atlasītie vienumi nav rediģēti.";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Izvēlieties tālruņa numuru, uz kuru zvanīt";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Izvēlieties eksporta opciju %d vienumiem";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Izvēlieties iespēju konvertēt";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Contract" = "Līgums";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Izveidot";
@@ -156,7 +156,7 @@
 "Crop to Fit" = "Apgriezt līdz fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Apgriezt";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Datums";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Virziens";
@@ -164,17 +164,17 @@
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Lejupielāde ...";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Epasta adrese";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Iespējot automātisko atlasi";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Eksporta iespējas";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Eksportēt";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Find" = "Atrast";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Kontaktu meklēšana ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Uz priekšu";
@@ -212,11 +212,11 @@
 "No loop" = "Nav cilpas";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "Oriģināls";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Telefona numurs";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Fotogrāfijas";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
@@ -240,15 +240,15 @@
 "Saving Texts ..." = "Tekstu saglabāšana ...";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Atlasiet Fotogrāfijas, kuras vēlaties piesaistīt tālruņu numuriem!";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Select Photos You Want To Grab!" = "Atlasiet Fotogrāfijas, kuras vēlaties paķert!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Kopīgot";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Izmērs";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Atvainojiet nevar izsaukt izvēlēto kontaktpersonu.";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Atvainojiet, nav atrasta nekāda kontaktinformācija.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Kvadrāts";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Atlasīto vienumu stabilizēšana ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Sākt";
-/* Generated from genl10n: PixNote.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift */
 "Starting To Find ..." = "Sākot atrast ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Procesa uzsākšana ...";
@@ -272,7 +272,7 @@
 "Translation" = "Tulkošana";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Gaida, lai izvēlētos ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Šķēru";

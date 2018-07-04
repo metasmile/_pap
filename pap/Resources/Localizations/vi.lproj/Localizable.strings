@@ -126,7 +126,7 @@
 "%d times" = "%d times";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Địa chỉ nhà";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Album";
@@ -140,13 +140,13 @@
 "Burst" = "Burst";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Không thể hoàn nguyên. Tất cả các mục đã chọn chưa được chỉnh sửa.";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Chọn số điện thoại để gọi";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Chọn tùy chọn xuất cho %d mục";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Chọn một tùy chọn để chuyển đổi";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Contract" = "Hợp đồng";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Tạo nên";
@@ -156,7 +156,7 @@
 "Crop to Fit" = "Cắt để phù hợp";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Ngày";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Phương hướng";
@@ -164,17 +164,17 @@
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Đang tải xuống ...";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Địa chỉ email";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Bật lựa chọn tự động";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "Tùy chọn xuất";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Xuất khẩu";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Find" = "Tìm thấy";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Đang tìm Danh bạ ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Forward";
@@ -212,11 +212,11 @@
 "No loop" = "Không có vòng lặp";
 /* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "Nguyên";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Số điện thoại";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Photos";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Cài đặt trước";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
@@ -240,15 +240,15 @@
 "Saving Texts ..." = "Đang lưu nội dung ...";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Chọn hình ảnh bạn muốn để lấy số điện thoại!";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Select Photos You Want To Grab!" = "Chọn ảnh bạn muốn chụp!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Chia sẻ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Kích thước";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "Rất tiếc, không thể gọi cho người liên hệ đã chọn.";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "Rất tiếc, không tìm thấy bất kỳ thông tin liên hệ nào.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Quảng trường";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "Đang ổn định các mục đã chọn ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Khởi đầu";
-/* Generated from genl10n: PixNote.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift */
 "Starting To Find ..." = "Bắt đầu tìm ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Đang bắt đầu quá trình ...";
@@ -272,7 +272,7 @@
 "Translation" = "Dịch";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "Đang chờ chọn ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Làm cong";

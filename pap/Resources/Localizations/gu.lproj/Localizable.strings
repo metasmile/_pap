@@ -126,7 +126,7 @@
 "%d times" = "%d વખત";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "1080p (1920×1080)" = "1080p (1920 × 1080)";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "સરનામું";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "આલ્બમ્સ";
@@ -140,13 +140,13 @@
 "Burst" = "વિસ્ફોટ";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "પાછા ફરવા નહીં બધી પસંદ કરેલી આઇટમ્સ સંપાદિત નથી.";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "કૉલ કરવા માટે ફોન નંબર પસંદ કરો";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "%d આઇટમ્સ માટે એક નિકાસ વિકલ્પ પસંદ કરો";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "કન્વર્ટ કરવા માટે એક વિકલ્પ પસંદ કરો";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Contract" = "કરાર";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "બનાવો";
@@ -156,7 +156,7 @@
 "Crop to Fit" = "ફિટ ટુ ક્રોપ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "પાક";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "તારીખ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "દિશા";
@@ -164,17 +164,17 @@
 "Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "ડાઉનલોડ કરી રહ્યું છે ...";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "ઈ - મેઈલ સરનામું";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift, PixNote.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "સ્વતઃ પસંદગી સક્ષમ કરો";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Export Options" = "નિકાસ વિકલ્પો";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "નિકાસ";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Find" = "શોધવા";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "સંપર્કો શોધી રહ્યાં છે ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "ફોરવર્ડ";
@@ -212,11 +212,11 @@
 "No loop" = "કોઈ લૂપ નથી";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "મૂળ";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "ફોન નંબર";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "ફોટાઓ";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift, PixNote.AppDockContent.swift */
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "પ્રીસેટ્સ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "QVGA (320×240)" = "QVGA (320 × 240)";
@@ -240,15 +240,15 @@
 "Saving Texts ..." = "ટેક્સ્ટ્સ સાચવી રહ્યું છે ...";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "તમે ફોન નંબરો પડાવી લેવું કરવા માંગો છો તે ફોટા પસંદ કરો!";
-/* Generated from genl10n: PixNote.AppDockContent.swift */
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Select Photos You Want To Grab!" = "તમે ગેટ કરવા માંગો છો તે ફોટા પસંદ કરો!";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "શેર કરો";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "કદ";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry can't call to selected contact." = "માફ કરશો પસંદ કરેલા સંપર્ક પર કૉલ કરી શકાતો નથી.";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Sorry not found any contact information." = "માફ કરશો કોઈ સંપર્ક માહિતી મળી નથી";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "સ્ક્વેર";
@@ -262,7 +262,7 @@
 "Stabilizing Selected Items..." = "પસંદ કરેલ વસ્તુઓને સ્થિર કરી રહ્યું છે ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "શરૂઆત";
-/* Generated from genl10n: PixNote.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift */
 "Starting To Find ..." = "શોધો શરૂ કરી રહ્યા છીએ ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "પ્રક્રિયા શરૂ કરી રહ્યાં છે ...";
@@ -272,7 +272,7 @@
 "Translation" = "અનુવાદ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "વિડિઓ";
-/* Generated from genl10n: PixNote.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Waiting To Select ..." = "પસંદ કરવા માટે રાહ જુએ છે ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "વાર્પ";
