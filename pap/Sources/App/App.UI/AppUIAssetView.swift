@@ -122,7 +122,7 @@ class AppUIAssetView: AssetView {
     override func clearDrawing() {
         editState = nil
         
-        originalImage = nil
+//        originalImage = nil
         filteredImage = nil
         
         originalLivePhoto = nil
@@ -193,11 +193,7 @@ extension AppUIAssetView {
 extension AppUIAssetView {
     func applyEditState<T>(_ editState: StateValueSet<T>?) where T: ImageEditStateValue {
         self.editState = editState as? StateValueSet<ImageEditStateValue>
-        
-        DispatchQueue.main.async { [weak self] in
-            guard self?.editState == editState else { return }
-            self?.applyFilter(editState)
-        }
+        applyFilter(editState)
     }
     
     fileprivate func applyFilter<T>(_ editState: StateValueSet<T>?) where T: ImageEditStateValue {
@@ -212,7 +208,11 @@ extension AppUIAssetView {
                 asset.requestContentEditingInput(with: nil, completionHandler: { (input, info) in
                     guard let input = input else { return }
                     let editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: input)
-                    editingContext?.frameProcessor = { frame, error in
+                    editingContext?.frameProcessor = { [weak self] frame, error in
+                        guard self?.editState == editState else {
+                            editingContext?.cancel()
+                            return nil
+                        }
                         return frame.image.applyFilter(ciFilter: filter)
                     }
                     

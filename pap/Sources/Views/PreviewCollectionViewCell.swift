@@ -27,13 +27,15 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
         
-        guard let asset = self.asset else { return }
+        let assetItem = AppAssets.selected.at(unsafeIndex: layoutAttributes.indexPath.item)
         
-        if layoutAttributes.size != previousAttributes?.size || self.editItem != AppAssets.selected.by(asset) {
+        if layoutAttributes.size != previousAttributes?.size || self.editItem != assetItem || self.indexPath != layoutAttributes.indexPath || self.asset != assetItem?.asset {
             setNeedsUpdatePreview()
         }
         
-        self.editItem = AppAssets.selected.by(asset)
+        self.editItem = assetItem
+        self.asset = self.editItem?.asset
+        self.indexPath = layoutAttributes.indexPath
         
         updatePreviewIfNeeded()
         
@@ -115,6 +117,8 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         assetView.setThumbnailAsset(asset, cancelDrawingIfNeeded: { [weak self] in
             return self?.indexPath != indexPath
         }, completion: { [weak self] image in
+            guard self?.indexPath == indexPath else { return }
+            
             if let app = AppCenter.default.currentInstanceAs(PreviewCachableApp.self), let cached = app.cachedPreviewImage(item, at: indexPath) {
                 self?.assetView.filteredImage = cached
             }

@@ -80,6 +80,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
 
         doneButton?.title = "Done".localized
         
+        assetView.isHidden = true
         assetView.asset = asset
         assetView.preferredTransform = preferredEditState.transform
         assetView.applyEditState(preferredEditState)
@@ -90,6 +91,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         
         if let asset = asset {
             assetView.setAsset(asset, completion: {
+                self.assetView.isHidden = false
                 self.placeholderView.isHidden = true
                 self.originalImage = self.assetView.image
                 self.assetView.applyEditState(self.preferredEditState)
