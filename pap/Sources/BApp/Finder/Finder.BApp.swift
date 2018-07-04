@@ -102,7 +102,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
     }
 
     public var titleWillBegin: String? {
-        return "Starting To Extract ...".localized
+        return "Starting To Find ...".localized
     }
 
     public var titleWillFinalize: String? {
@@ -110,11 +110,11 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
     }
 
     public func titleDidUpdate(progress: Float) -> String? {
-        return "Extracting Contents ... %@ ".localizedFormatted("\(Int(progress * 100))%")
+        return "Detecting Data ... %@ ".localizedFormatted("\(Int(progress * 100))%")
     }
 
     public var doneButtonTitle: String? {
-        return "Extract".localized
+        return "Find".localized
     }
 
     fileprivate var detector = FinderAppDetector()
@@ -1114,7 +1114,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
         let cell0 = UITableViewSegmentControlCellDescriber()
         cell0.itemIdentifier = FinderAppSettingCells.presets.hashValue
-        cell0.label = "Extract As".localized
+        cell0.label = "Find As".localized
         cell0.valueGetter = { FinderApp.privateDefaults.selectionPreset }
         cell0.valueCollection = [
             (label:"Plain Text".localized,value: SelectionPreset.plaintext.rawValue),
@@ -1225,7 +1225,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
-        let label_section0 = "🖼️ ‣ 🤖 ‣ 📝 " + "Select Photos You Want To Grab!".localized
+        let label_section0 = "🖼️ ‣ 🔍 ‣ ⚙️ " + "Select Photos To Find Everything.".localized
         return section == 0 ? label_section0 : parserCollection[section-1].label
     }
 
