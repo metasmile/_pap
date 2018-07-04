@@ -433,7 +433,11 @@ extension CNMutableContact{
                 && self.middleName.count == 0
 
         if isNameEmpty{
-            self.givenName = "Contact \(UUID().uuidString.remove("-").prefix(6))"
+            let formatter = DateFormatter()
+            formatter.dateStyle = .long
+            formatter.timeStyle = .medium
+
+            self.givenName = "New Contact - \(formatter.string(from: Date()))"
         }
         return isNameEmpty
     }

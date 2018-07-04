@@ -23,34 +23,34 @@ public final class CNContactViewControllerDelegator : NSObject, KeyPathWatchable
 
 extension CNContactViewController{
 
-    @discardableResult
+    private static var delegator:CNContactViewControllerDelegator?
+
     public static func presentDialog(newContact:CNContact
             , onViewController:UIViewController?=nil
             , willPresentHandler:(() -> ())?=nil
             , didPresentHandler:(() -> ())?=nil
             , willDismissHandler:(() -> ())?=nil
-            , didDismissHandler:(() -> ())?=nil
-            , _ asyncSignal:AsyncManualSignalable?=nil
-
-    ) -> CNContactViewController{
+            , didDismissHandler:(() -> ())?=nil){
 
         let contactViewController = CNContactViewController(forNewContact: newContact)
         let navigationController = UINavigationController(rootViewController: contactViewController)
 
         let currentQueue = DispatchQueue.current
 
-        let delegator = CNContactViewControllerDelegator()
-        delegator.watch(\.contact) {
+        if delegator == nil{
+            delegator = CNContactViewControllerDelegator()
+        }
+        delegator?.watch(\.contact) {
 
             DispatchQueue.main.async {
                 willDismissHandler?()
 
                 navigationController.dismiss(animated: true) {
-                    currentQueue.async{
-                        asyncSignal?.end()
-                    }
-
                     didDismissHandler?()
+
+                    currentQueue.async{
+                        delegator = nil
+                    }
                 }
             }
         }
@@ -58,15 +58,11 @@ extension CNContactViewController{
         contactViewController.contactStore = CNContactStore()
         contactViewController.delegate = delegator
 
-        asyncSignal?.begin()
         DispatchQueue.main.async {
             willPresentHandler?()
             (onViewController ?? UIApplication.shared.keyWindow?.rootViewController)?.present(navigationController, animated: true) {
                 didPresentHandler?()
             }
         }
-        asyncSignal?.waitUntilEnd()
-
-        return contactViewController
     }
 }

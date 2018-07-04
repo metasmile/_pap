@@ -228,7 +228,11 @@ extension PixNote{
                     autoreleasepool{
                         contact.imageData = item.asset.asData
 
-                        CNContactViewController.presentDialog(newContact: contact, asyncSignal)
+                        asyncSignal.begin()
+                        CNContactViewController.presentDialog(newContact: contact, didDismissHandler: {
+                            asyncSignal.end()
+                        })
+                        asyncSignal.waitUntilEnd()
                     }
                 }
             }
@@ -285,8 +289,9 @@ extension PixNote{
                                 contact.urlAddresses.append(CNLabeledValue(label: "URL", value: "https://apps.photo"))
                                 contact.phoneNumbers = [ CNLabeledValue(label: "Phone Number".localized, value: CNPhoneNumber(stringValue: phoneNumber))]
 
-
-                                CNContactViewController.presentDialog(newContact: contact, asyncSignal)
+                                CNContactViewController.presentDialog(newContact: contact, didDismissHandler: {
+                                    asyncSignal.end()
+                                })
 
                             }else{
                                 asyncSignal.end()
@@ -358,7 +363,9 @@ extension PixNote{
 
                                     contact.urlAddresses.append(CNLabeledValue(label: "URL", value: url.absoluteString as NSString))
 
-                                    CNContactViewController.presentDialog(newContact: contact, asyncSignal)
+                                    CNContactViewController.presentDialog(newContact: contact, didDismissHandler: {
+                                        asyncSignal.end()
+                                    })
 
                                 }else{
                                     asyncSignal.end()
@@ -525,7 +532,9 @@ extension PixNote{
 
                                     contact.emailAddresses = [CNLabeledValue(label: "E-mail Address".localized, value: email as NSString)]
 
-                                    CNContactViewController.presentDialog(newContact: contact, asyncSignal)
+                                    CNContactViewController.presentDialog(newContact: contact, didDismissHandler: {
+                                        asyncSignal.end()
+                                    })
 
                                 }else{
                                     asyncSignal.end()
@@ -624,7 +633,9 @@ extension PixNote{
 
                                     contact.postalAddresses = [CNLabeledValue(label: "Address", value: addr.postalAddress)]
 
-                                    CNContactViewController.presentDialog(newContact: contact, asyncSignal)
+                                    CNContactViewController.presentDialog(newContact: contact, didDismissHandler: {
+                                        asyncSignal.end()
+                                    })
 
                                 }else{
                                     asyncSignal.end()

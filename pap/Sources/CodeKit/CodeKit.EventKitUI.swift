@@ -10,51 +10,51 @@ import EventKitUI
 
 extension EKEventEditViewController{
 
-    @discardableResult
+    private static var delegator:EKEventEditViewDelegator?
+
     public static func presentDialog(newEvent:EKEvent
             , onViewController:UIViewController?=nil
             , willPresentHandler:(() -> ())?=nil
             , didPresentHandler:(() -> ())?=nil
             , willDismissHandler:((EKEventEditViewAction) -> ())?=nil
             , didDismissHandler:((EKEventEditViewAction) -> ())?=nil
-            , _ asyncSignal:AsyncManualSignalable?=nil
-    ) -> EKEventEditViewController{
+    ){
 
         let presetingViewController = EKEventEditViewController()
         presetingViewController.event = newEvent
         presetingViewController.eventStore = EventKitUtil.shared.defaultEventStore
 
-        let delegator = EKEventEditViewDelegator()
-
         let currentQueue = DispatchQueue.current
 
-        delegator.watch(\.completedEKEventEditViewAction) {
-            DispatchQueue.main.async {
-                let completedAction = delegator.completedEKEventEditViewAction.action
-                willDismissHandler?(completedAction)
+        if delegator == nil{
+            delegator = EKEventEditViewDelegator()
+        }
 
-                presetingViewController.dismiss(animated: true) {
-                    currentQueue.async{
-                        asyncSignal?.end()
+        if let delegator = delegator{
+            delegator.watch(\.completedEKEventEditViewAction) {
+                DispatchQueue.main.async {
+                    let completedAction = delegator.completedEKEventEditViewAction.action
+                    willDismissHandler?(completedAction)
+
+                    presetingViewController.dismiss(animated: true) {
+                        didDismissHandler?(completedAction)
+
+                        currentQueue.async {
+                            self.delegator = nil
+                        }
                     }
-
-                    didDismissHandler?(completedAction)
                 }
             }
         }
 
         presetingViewController.editViewDelegate = delegator
 
-        asyncSignal?.begin()
         DispatchQueue.main.async {
             willPresentHandler?()
             (onViewController ?? UIApplication.shared.keyWindow?.rootViewController)?.present(presetingViewController, animated: true) {
                 didPresentHandler?()
             }
         }
-        asyncSignal?.waitUntilEnd()
-
-        return presetingViewController
     }
 }
 
