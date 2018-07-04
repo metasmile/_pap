@@ -1141,7 +1141,15 @@ private struct ParserDictionary {
 class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
     fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
 
-    private var parserCollection = PixNoteAppDockContent.defaultParserCollection
+    private var parserCollection:[ParserDictionary] {
+        get{
+            if PixNote.privateDefaults.selectionPreset == SelectionPreset.plaintext.rawValue{
+                return []
+            }
+
+            return type(of: self).defaultParserCollection
+        }
+    }
 
     fileprivate static let defaultParserCollection:[ParserDictionary] = [
 
@@ -1224,18 +1232,8 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
             var defaults = PixNote.privateDefaults
             defaults.selectionPreset = preset
 
-            //plaintext
-            if preset == SelectionPreset.plaintext.rawValue{
-                if self.parserCollection.count > 0{
-                    self.parserCollection = [ParserDictionary]()
-                    (view as? UITableView)?.reloadData()
-                }
-            }else{
-                if self.parserCollection.count==0{
-                    self.parserCollection = type(of: self).defaultParserCollection
-                    (view as? UITableView)?.reloadData()
-                }
-            }
+            // selectionPreset changed -> other self.parserCollection getter will be returned.
+            (view as? UITableView)?.reloadData()
 
             //saveContactWithoutEdit
             let index = self.settingCellDescribers.index(where:{ describable in
@@ -1253,6 +1251,9 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
                     (view as? UITableView)?.reloadData()
                 }
             }
+
+            // autoSelect turn off and restore
+            cell1.valueHandler?(false)
 
         }
         settingCellDescribers.append(cell0)
