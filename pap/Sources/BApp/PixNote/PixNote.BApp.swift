@@ -250,7 +250,6 @@ extension PixNote{
                 continue
             }
 
-
             let actionMessage = "Choose An Sub Action.".localized
 
             /*
@@ -806,7 +805,7 @@ private struct PixNoteDetector{
                 parserTypes.insert(.date)
             }
 
-            if selectedParserTypes.contains(ParserItem.Key.FlightInformation){
+            if selectedParserTypes.contains(ParserItem.Key.FlightNumber){
                 parserTypes.insert(.transitInformation)
             }
 
@@ -858,8 +857,8 @@ private struct PixNoteDetector{
                 resultGroup.addresses = visionTexts.parse(type: VisionTextAddressParser.self, async)
             }
 
-            if selectedParserTypes.contains(ParserItem.Key.FlightInformation){
-                resultGroup.flights = visionTexts.parse(type: VisionTextFlightInformationParser.self, async)
+            if selectedParserTypes.contains(ParserItem.Key.FlightNumber){
+                resultGroup.flights = visionTexts.parse(type: VisionTextFlightNumberParser.self, async)
             }
 
             if selectedParserTypes.contains(ParserItem.Key.Date){
@@ -1102,7 +1101,9 @@ private struct ParserItem {
 
         case Date
         case URL
-        case FlightInformation
+
+        case FlightNumber
+        case GPSCoordinates
     }
 
     fileprivate var key:Key
@@ -1119,7 +1120,7 @@ private struct ParserDictionary {
 
             ,ParserItem.Key.Date
             ,ParserItem.Key.URL
-            ,ParserItem.Key.FlightInformation
+            ,ParserItem.Key.FlightNumber
         ]
     ]
 
@@ -1145,8 +1146,8 @@ class PixNoteAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITa
                     ,ParserItem(key: ParserItem.Key.EmailAddress, label:"E-mail Address".localized)
                     ,ParserItem(key: ParserItem.Key.Address, label:"Address".localized)
                     ,ParserItem(key: ParserItem.Key.Date, label:"Date".localized)
-                    ,ParserItem(key: ParserItem.Key.FlightInformation, label:"Flight Information".localized)
-                    ,ParserItem(key: ParserItem.Key.URL, label:"URL".localized)
+                    ,ParserItem(key: ParserItem.Key.URL, label:"URL")
+                    ,ParserItem(key: ParserItem.Key.FlightNumber, label:"Flight Number".localized)
                 ])
     ]
 

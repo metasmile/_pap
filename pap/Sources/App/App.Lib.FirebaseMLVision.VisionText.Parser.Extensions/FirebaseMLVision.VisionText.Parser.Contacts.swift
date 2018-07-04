@@ -23,7 +23,7 @@ public struct VisionTextResultGroup {
 
     var dates:[VisionTextDateParser.OutputType]?
     var urls:[VisionTextURLParser.OutputType]?
-    var flights:[VisionTextFlightInformationParser.OutputType]?
+    var flights:[VisionTextFlightNumberParser.OutputType]?
 
     var isFilled:Bool{
         return self.phoneNumbers?.count ?? 0 > 0
@@ -125,11 +125,25 @@ public struct VisionTextAddressParser: VisionTextParser{
 }
 
 //https://flightaware.com/live/findflight?origin=EDDF&destination=KLAX
-public struct VisionTextFlightInformationParser: VisionTextParser{
+public struct VisionTextFlightNumberParser: VisionTextParser{
     typealias OutputType = [String]
 
     private let blockParser = VisionTextTextBlockParser()
-    private var regexPattern = "^([A-Z]{2}|[A-Z]\\d|\\d[A-Z])[1-9](\\d{1,3})?$"
+
+    //https://en.wikipedia.org/wiki/Flight_number
+    // Flight number - IATA (marketing) flight number - /^[A-Z0-9]{3,}$/ BA026
+    //Callsign - ICAO (operational) flight number - /^[A-Z]{3}[A-Z0-9]{1,}$/ BAW319K
+
+    private static let regexPattern = "(^|\\s)[A-Z0-9]{2,3}\\s*[0-9]{1,4}"
+
+    public static func matchesInText(text:String) -> [String]?{
+        return text.trim()
+                .nilEmpty?
+                .regexStrings(with: regexPattern)
+                .reduce([],+)
+                .compactMap { $0.trim().nilEmpty }
+                .nilEmpty
+    }
 
     func parse(input: VisionText) -> OutputType? {
         guard let lines = blockParser.parse(input: input) else {
@@ -138,8 +152,9 @@ public struct VisionTextFlightInformationParser: VisionTextParser{
 
         var flightNumbers = [String]()
         for word in lines.reduce([],+){
-            let matchedStrings = word.remove(" ").regexStrings(with: regexPattern).reduce([],+)
-            flightNumbers.append(contentsOf: matchedStrings)
+            if let matches = type(of: self).matchesInText(text:word){
+                flightNumbers.append(contentsOf: matches)
+            }
         }
 
         return flightNumbers
@@ -228,7 +243,7 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
             }
 
             if let flightText = result.flight?.formattedString{
-                contact.note += "Flight Information".localized + " : " + flightText
+                contact.note += "Flight Number".localized + " : " + flightText
                 contact.note += "\n\n"
             }
 
@@ -250,6 +265,7 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
     }
 }
 
+// Currency
 //https://github.com/danthorpe/Money
 
 public struct VisionTextCurrencyParser: VisionTextParser{
@@ -260,4 +276,15 @@ public struct VisionTextCurrencyParser: VisionTextParser{
     }
 }
 
-//IBAN: http://ht5ifv.serprest.pt/extensions/tools/IBAN/
+// Bank Account
+//IBAN - EU: http://ht5ifv.serprest.pt/extensions/tools/IBAN/
+//US Bank accout - https://amcbanking.com/kb/12113/
+
+//GPS Coordination
+/*
+40° 26' 46" N 79° 58' 56" W
+48°51'12.28" 2°20'55.68"
+40° 26.767' N 79° 58.933' W
+40.446° N 79.982° W
+48.85341, 2.3488
+*/
