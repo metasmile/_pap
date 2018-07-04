@@ -21,7 +21,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
     private var finshedItemQueue = ItemQueue<AppTaskItem>()
     private weak var delegate: AppTaskOperationQueueDelegate?
 
-    private(set) public var currentTaskInfo: TaskInfo?
+    private(set) public var currentTaskInfo: AppTaskInfo?
     private(set) public var cancelled:Bool = false
     private(set) public var suspended = false
 
@@ -133,15 +133,15 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
                 return
             }
 
-            throw TaskError.invalidResult
+            throw AppTaskError.invalidResult
 
-        } catch let e as TaskError {
+        } catch let e as AppTaskError {
             async.done()
             _ = self.cancelled ? item.response(.cancelled) : item.response(.failed, e)
 
         } catch {
             async.done()
-            item.response(.failed, TaskError.unknown)
+            item.response(.failed, AppTaskError.unknown)
         }
     }
 

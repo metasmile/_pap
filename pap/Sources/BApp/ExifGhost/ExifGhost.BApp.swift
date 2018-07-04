@@ -16,9 +16,9 @@ public class ExifGhost: NSObject, KeyPathWatchable,BApp,
         AppDockApp,
         PreheatableApp {
 
-    public static let taskType:Taskable.Type = _ExifGhostTask.self
+    public static let taskType: AppTaskable.Type = _ExifGhostTask.self
 
-    public static let paramType:TaskParamable.Type = ParamType.self
+    public static let paramType: AppTaskParamable.Type = ParamType.self
 
     public static let info = AppInfo(
             identifier: "com.stells.pap.exifghost"
@@ -74,14 +74,14 @@ public class ExifGhost: NSObject, KeyPathWatchable,BApp,
     }
 }
 
-private class _ExifGhostTask: TaskPrototype, Taskable {
-    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){
+private class _ExifGhostTask: AppTaskPrototype, AppTaskable {
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){
         (param as? ParamType)?.cancelAllRequestIDs()
     }
 
-    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
+    public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
         guard let param = param as? ParamType else{
-            throw TaskError.invalidParam
+            throw AppTaskError.invalidParam
         }
 
         var result: PHAssetResultItem?

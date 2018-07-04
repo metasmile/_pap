@@ -52,8 +52,8 @@ public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp,
         PHAssetFinalizableApp, PreviewableApp, AppDockApp,
         PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp,
         PhotoEditorViewControllerDelegatableApp {
-    public static let taskType:Taskable.Type = _PhotosFilterAppTask.self
-    public static let paramType:TaskParamable.Type = _PhotosFilterAppAsset.self
+    public static let taskType: AppTaskable.Type = _PhotosFilterAppTask.self
+    public static let paramType: AppTaskParamable.Type = _PhotosFilterAppAsset.self
     
     public static var configure:(() -> PhotosFilterAppConfigValue)?
     
@@ -71,7 +71,7 @@ public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp,
         , appType: PhotosFilterApp.self
         , displayName: "Filters", description:nil, keywords:nil
         , iconBundleName: R.image.photosFilterBAppIcon.name
-        , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: TaskPolicy.default)
+        , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
         , minOSVersion: nil
     )
     
@@ -166,11 +166,11 @@ private extension PhotosFilterApp {
     }
 }
 
-private class _PhotosFilterAppTask: TaskPrototype, Taskable {
+private class _PhotosFilterAppTask: AppTaskPrototype, AppTaskable {
     public typealias ParamType = _PhotosFilterAppAsset
     public typealias ResultType = PHAssetResultItem
 
-    override var info: TaskInfo {
+    override var info: AppTaskInfo {
         let info = super.info
 
         if let param = info.requestParam as? _PhotosFilterAppAsset{
@@ -193,16 +193,16 @@ private class _PhotosFilterAppTask: TaskPrototype, Taskable {
 
     }
 
-    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){
         
         (param as? _PhotosFilterAppAsset)?.cancelAllRequestIDs()
         (param as? _PhotosFilterAppAsset)?.cancelProcessing()
     }
     
-    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
+    public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
         assert(param is _PhotosFilterAppAsset, "TaskParamable type of this app is \(_PhotosFilterAppAsset.self)")
         guard let _param = param as? _PhotosFilterAppAsset else{
-            throw TaskError.invalidParam
+            throw AppTaskError.invalidParam
         }
         return try self._perform(_param, async)
     }

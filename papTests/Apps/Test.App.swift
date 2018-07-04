@@ -6,17 +6,17 @@
 import Foundation
 @testable import pap
 
-public struct TestTaskParam:TaskParamable{
+public struct TestTaskParam: AppTaskParamable {
     var id:Int
 }
-public  struct TestTaskResult:TaskResultable{
+public  struct TestTaskResult: AppTaskResultable {
     var id:Int
 }
 
 public class TestApp: App {
-    public static let taskType:Taskable.Type = _TestAppTask.self
+    public static let taskType: AppTaskable.Type = _TestAppTask.self
 
-    public static let paramType:TaskParamable.Type = TestTaskParam.self
+    public static let paramType: AppTaskParamable.Type = TestTaskParam.self
 
     public static let info = AppInfo(
             identifier: "com.stells.pap.test"
@@ -31,10 +31,10 @@ public class TestApp: App {
     public required init() {}
 }
 
-private class _TestAppTask: TaskPrototype, Taskable {
-    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){}
+private class _TestAppTask: AppTaskPrototype, AppTaskable {
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){}
 
-    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
+    public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
         async.begin()
         DispatchQueue.global().async{
             sleep(UInt32(arc4random_uniform(2)))

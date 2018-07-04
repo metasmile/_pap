@@ -9,7 +9,7 @@ import FirebaseMLVision
 import DefaultsKit
 
 private typealias CallAppParam = PHAssetItem<ImageEditStateValue>
-private struct CallAppResult: TaskResultable{
+private struct CallAppResult: AppTaskResultable {
     fileprivate let asset:PHAsset
 
     init(asset:PHAsset){
@@ -38,9 +38,9 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
 //        , PreviewableApp
         , AppManagerDelegatedApp {
 
-    public static let taskType:Taskable.Type = _CallAppTask.self
+    public static let taskType: AppTaskable.Type = _CallAppTask.self
 
-    public static let paramType:TaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
+    public static let paramType: AppTaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
 
     public private(set) lazy var dockContent: AppDockContent? = CallAppDockContent()
 
@@ -56,7 +56,7 @@ public class CallApp: NSObject, KeyPathWatchable, BApp
             , appType: CallApp.self
             , displayName: "Call", description:nil, keywords:nil
             , iconBundleName: R.image.callBAppIcon.name
-            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: TaskPolicy(cancellation: .shallow, priority: .normal, estimatedConcurrencyCount: 1))
+            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy(cancellation: .shallow, priority: .normal, estimatedConcurrencyCount: 1))
             , minOSVersion: nil
     )
 
@@ -216,14 +216,14 @@ private struct CallAppDetector{
     }
 }
 
-private class _CallAppTask: TaskPrototype, Taskable {
+private class _CallAppTask: AppTaskPrototype, AppTaskable {
 
     private let emailParser = VisionTextEmailAddressParser()
     private let phoneNumberParser = VisionTextPhoneNumberParser()
 
-    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){}
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){}
 
-    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
+    public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
 
         guard let asset = (param as? PHAssetItem<ImageEditStateValue>)?.asset else{
             return nil

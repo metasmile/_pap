@@ -4,143 +4,168 @@
 //
 
 import Foundation
-import Dispatch
 
-public protocol AppTaskRespondable {
-    var request: AppTaskRequest { get }
-    var result: TaskResultable? { get }
-    var info: TaskInfo { get }
+public enum AppTaskState: UInt{
+    case unqueued
+    case idling
+    case performing
+    case cancelled
+    case failed
+    case completed
 }
 
-extension AppTaskRespondable {
-    public var appInfo:AppInfo{
-        return self.request.appType.info
+public enum AppTaskLoad: UInt{
+    case light
+    case normal
+    case heavy
+    case exclusive
+}
+
+public enum AppTaskError: Error {
+    case rejectedParam
+    case invalidParam
+    case invalidResult
+    case internalException
+    case timeout
+    case unknown
+}
+
+
+/*
+    The priority of TaskPolicy
+
+    AppTaskRequest > App > Task
+*/
+
+public struct AppTaskPolicy {
+    static let `default` = AppTaskPolicy(
+            cancellation: .shallow,
+            priority: .normal,
+            estimatedConcurrencyCount: nil
+    )
+
+    public enum Cancellation {
+        case verbose
+        case shallow
+    }
+    public let cancellation: Cancellation
+
+    /*
+     when priority == .high if concurrencyCount == 1 -> highest priority will be guaranteed
+     when priority == .high if concurrencyCount > 1 -> highest priority will not be guaranteed
+    */
+    public enum Priority {
+        case normal
+        case high
+    }
+
+    public var priority: Priority = .normal
+
+    /*
+        estimatedConcurrencyCount means "preferred" concurrencyCount.
+        if estimatedConcurrencyCount == 1, the task always assign to specific queue.
+        if concurrencyCount was 0 or bigger than AppManager.maxConcurrentCount, ignored.
+    */
+    public var estimatedConcurrencyCount: Int? {
+        didSet {
+            assert(estimatedConcurrencyCount == nil || estimatedConcurrencyCount! > 0, "preferredConcurrencyCount must be undefined(nil) or bigger than 0")
+            if estimatedConcurrencyCount == 0{
+                estimatedConcurrencyCount = 1
+            }
+        }
     }
 }
 
-class AppTaskItem: AppTaskRespondable {
-    let request:AppTaskRequest
-    let info: TaskInfo
-    let task: Taskable
+public protocol _AppTaskable {
+    init(_ info: AppTaskInfo)
 
-    internal(set) public var result: TaskResultable?
+    func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable?
 
-    init(request:AppTaskRequest, info:TaskInfo, task:Taskable){
-        self.request=request
-        self.info=info
-        self.task=task
+    func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable)
+}
+
+public protocol AppTaskable: _AppTaskable {
+    var info: AppTaskInfo {  get }
+}
+
+public class AppTaskPrototype: Item<AppTaskInfo> {
+    private(set) public var info: AppTaskInfo
+
+    required public init(_ info: AppTaskInfo){
+        self.info = info
+        super.init()
     }
 }
 
-extension AppTaskItem {
+public typealias AppTaskRequest = AppTaskRequestable<App.Type, AppTaskParamable, AppTaskRespondable>
 
-    // if canceled by requester, return false, passed, return true
-    @discardableResult
-    func response(_ state: TaskState, _ error:TaskError?=nil) -> Bool{
-        task.info.state = state
-        task.info.error = error
+public final class AppTaskRequestable<AppType, ParameterType, ResponseType>: ItemObject {
+    public typealias ResponseHandler = (ResponseType, _ cancel:inout Bool) -> Void
 
-        var canceled = false
-        request.responseHandler?(self, &canceled)
-        return !canceled
+    private(set) public var appType: AppType
+    private(set) public var taskPolicy: AppTaskPolicy?
+    private(set) var responseHandler:ResponseHandler?
+    private(set) public var param:ParameterType
+    private(set) public var token:String
+
+    required public init(_ appType: AppType, _ param:ParameterType){
+        self.appType = appType
+        self.param = param
+        self.token = UUID().uuidString
     }
 
-    static func ==(lhs: AppTaskItem, rhs: AppTaskItem) -> Bool {
-        let lhsInfo = lhs.info, rhsInfo = rhs.info
-        return lhsInfo.token == rhsInfo.token
-                && lhsInfo.requestToken == rhsInfo.requestToken
-                && lhsInfo.taskType == rhs.info.taskType
-                && lhsInfo.state == rhsInfo.state
+    convenience public init(_ appType: AppType,
+                            _ param:ParameterType,
+                            _ responseHandler:@escaping ResponseHandler) {
+
+        self.init(appType,param)
+        self.responseHandler = responseHandler
+    }
+
+    convenience public init(_ appType: AppType,
+                            _ taskPolicy: AppTaskPolicy,
+                            _ param:ParameterType,
+                            _ responseHandler:@escaping ResponseHandler) {
+
+        self.init(appType,param,responseHandler)
+        self.taskPolicy = taskPolicy
     }
 }
 
 /*
-    Reactable
-*/
+ app task parameter
+ */
 
-// Appable
-public typealias AppTaskReactableProgressHanlder = (
-        _ progressedResult: AppTaskRespondable
-        , _ progress:Float
-        , _ remainedResponses:[AppTaskRespondable]
-        , _ completedResponses:[AppTaskRespondable]
-) -> Void
+public protocol AppTaskParamable {}
 
-public typealias AppTaskReactableFinishHandler = (
-        _ byApps:[AppInfo: [AppTaskRespondable]]
-        , _ forAllResponses:[AppTaskRespondable]
-) -> Void
 
-public typealias AppTaskReactableWillFinishHandler = (
-        _ byApps:[AppInfo: [AppTaskRespondable]]
-        , _ forAllResponses:[AppTaskRespondable]
-) -> Void
+//internal
+public protocol AppTaskResultable {}
 
-public class AppTaskCancellationReaction: ItemObject {
-    //progress
-    private(set) public var cancellationHandler: (() -> ())?
+/*
+ app task
+ */
 
-    @discardableResult
-    public func did(cancel:@escaping (() -> ())) -> Self {
-        self.cancellationHandler = cancel
-        return self
-    }
+//TaskLoad
+public class AppTaskInfo: Item<String> {
+    private(set) public var token:String
+    private(set) public var requestToken:String
+    private(set) public var requestParam: AppTaskParamable
+    private(set) public var taskType: AppTaskable.Type
+    private(set) public var appType: App.Type
 
-    //finalize
-    private(set) public var willCancelHandler: (() -> ())?
+    internal(set) public var state: AppTaskState = .unqueued
+    internal(set) public var policy: AppTaskPolicy = AppTaskPolicy.default
+    internal(set) public var queueLabel:String?
+    internal(set) var error: AppTaskError?
 
-    @discardableResult
-    public func will(cancel:@escaping (() -> ())) -> Self {
-        self.willCancelHandler = cancel
-        return self
-    }
-
-    public init(didCancel: (() -> ())?=nil){
+    required public init(_ requestToken: String, _ requestParam: AppTaskParamable, _ taskType: AppTaskable.Type, _ appType: App.Type){
+        self.requestToken = requestToken
+        self.requestParam = requestParam
+        self.taskType = taskType
+        self.token = UUID().uuidString
+        self.appType = appType
         super.init()
-
-        if let cancel = didCancel {
-            self.did(cancel: cancel)
-        }
     }
+
 }
-
-public class AppTaskReaction: ItemObject {
-    internal(set) public var targetQueue:DispatchQueue?
-
-    //progress
-    private(set) public var progressHandler: AppTaskReactableProgressHanlder?
-
-    @discardableResult
-    public func when(progress:@escaping AppTaskReactableProgressHanlder) -> Self {
-        self.progressHandler = progress
-        return self
-    }
-
-    //finalize
-    private(set) public var willFinishHandler: AppTaskReactableWillFinishHandler?
-
-    @discardableResult
-    public func will(finish:@escaping AppTaskReactableWillFinishHandler) -> Self {
-        self.willFinishHandler = finish
-        return self
-    }
-
-    //finish
-    private(set) public var didFinishHandler: AppTaskReactableFinishHandler?
-
-    @discardableResult
-    public func did(finish:@escaping AppTaskReactableFinishHandler) -> Self {
-        self.didFinishHandler = finish
-        return self
-    }
-
-    public init(finish: AppTaskReactableFinishHandler?=nil){
-        super.init()
-
-        if let finish = finish{
-            self.did(finish: finish)
-        }
-    }
-}
-
-

@@ -6,8 +6,6 @@
 import Foundation
 import Dispatch
 
-public typealias AppTaskRequest = TaskRequest<App.Type, TaskParamable, AppTaskRespondable>
-
 public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDelegate {
 
     fileprivate static let sharedSyncQueue:DispatchQueue = DispatchQueue(label:"com.stells.pap__shared_AppTaskManager")
@@ -67,7 +65,7 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
         }
     }
 
-    private func createTask(_ request:AppTaskRequest) -> Taskable?{
+    private func createTask(_ request:AppTaskRequest) -> AppTaskable?{
         let appInfo = request.appType.info
 
         guard AppLifecycleManager.shared.acquire(appInfo) != nil else {
@@ -75,7 +73,7 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
             return nil
         }
         let taskType = appInfo.appType.taskType
-        let taskInfo = TaskInfo(request.token, request.param, taskType.self, request.appType)
+        let taskInfo = AppTaskInfo(request.token, request.param, taskType.self, request.appType)
 
         if let taskPolicy = request.taskPolicy{
             //if request exactly has taskPolicy, that will have first priority.
@@ -93,14 +91,14 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
     }
 
     //TODO: query by all of each request's properties.
-    public func query(by requestTokens:[String]) -> [TaskInfo] {
-        return requestTokens.compactMap { token -> TaskInfo? in
+    public func query(by requestTokens:[String]) -> [AppTaskInfo] {
+        return requestTokens.compactMap { token -> AppTaskInfo? in
             staticRequestedWorkItems[token]?.info
         }
     }
 
     @discardableResult
-    public func request(_ request:AppTaskRequest) -> TaskInfo?{
+    public func request(_ request:AppTaskRequest) -> AppTaskInfo?{
         let info = append(request:request)
         perform(ignoreIfSuspended:true)
         return info
@@ -134,7 +132,7 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
     //TODO: improve item append performance.
     //TODO: check conforms TaskParamable type.
     @discardableResult
-    public func append(request:AppTaskRequest) -> TaskInfo?{
+    public func append(request:AppTaskRequest) -> AppTaskInfo?{
         return syncQueue.sync(flags:.barrier){
 
             if let queued = self.query(by:[request.token]).first {
@@ -142,7 +140,7 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
                 return queued
             }
 
-            guard let task: Taskable = createTask(request) else {
+            guard let task: AppTaskable = createTask(request) else {
                 return nil
             }
 

@@ -14,7 +14,7 @@ import EventKitUI
 
 private typealias PixNoteParam = PHAssetItem<ImageEditStateValue>
 
-private struct PixNoteResult: TaskResultable{
+private struct PixNoteResult: AppTaskResultable {
     fileprivate let asset:PHAsset
 
     init(asset:PHAsset){
@@ -37,9 +37,9 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
         , PreheatableApp
         , AppManagerDelegatedApp {
 
-    public static let taskType:Taskable.Type = _PixNoteTask.self
+    public static let taskType: AppTaskable.Type = _PixNoteTask.self
 
-    public static let paramType:TaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
+    public static let paramType: AppTaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
 
     public private(set) lazy var dockContent: AppDockContent? = PixNoteAppDockContent()
 
@@ -55,7 +55,7 @@ public class PixNote: NSObject, KeyPathWatchable, BApp
             , appType: PixNote.self
             , displayName: "Pix Note", description:nil, keywords:nil
             , iconBundleName: nil//R.image.pixNoteBAppIcon.name
-            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: TaskPolicy(cancellation: .shallow, priority: .normal, estimatedConcurrencyCount: 1))
+            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy(cancellation: .shallow, priority: .normal, estimatedConcurrencyCount: 1))
             , minOSVersion: nil
     )
 
@@ -278,7 +278,7 @@ extension PixNote{
                                 asyncSignal.end()
                             }
                         }),
-                        UIAlertAction(title: "Save A Contact".localized, style: .default, handler: { action in
+                        UIAlertAction(title: "Add New Contact".localized, style: .default, handler: { action in
                             if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal){
                                 let contact = CNMutableContact()
                                 contact.contactType = .person
@@ -352,7 +352,7 @@ extension PixNote{
                                     asyncSignal.end()
                                 }
                             }),
-                            UIAlertAction(title: "Save A Contact".localized, style: .default, handler: { action in
+                            UIAlertAction(title: "Add New Contact".localized, style: .default, handler: { action in
                                 if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal){
                                     let contact = CNMutableContact()
                                     contact.contactType = .person
@@ -520,7 +520,7 @@ extension PixNote{
                     )
 
                     _actions.append(
-                            UIAlertAction(title: "Save A Contact".localized, style: .default, handler: { action in
+                            UIAlertAction(title: "Add New Contact".localized, style: .default, handler: { action in
 
                                 if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal){
                                     let contact = CNMutableContact()
@@ -529,7 +529,6 @@ extension PixNote{
 
                                     let components = NSCalendar.current.dateComponents([.year, .month, .day], from: Date())
                                     contact.dates.append(CNLabeledValue(label: "Date".localized, value: components as NSDateComponents))
-
                                     contact.emailAddresses = [CNLabeledValue(label: "E-mail Address".localized, value: email as NSString)]
 
                                     CNContactViewController.presentDialog(newContact: contact, didDismissHandler: {
@@ -621,7 +620,7 @@ extension PixNote{
                     )
 
                     _actions.append(
-                            UIAlertAction(title: "Save A Contact".localized, style: .default, handler: { action in
+                            UIAlertAction(title: "Add New Contact".localized, style: .default, handler: { action in
 
                                 if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal){
                                     let contact = CNMutableContact()
@@ -880,14 +879,14 @@ private struct PixNoteDetector{
     }
 }
 
-private class _PixNoteTask: TaskPrototype, Taskable {
+private class _PixNoteTask: AppTaskPrototype, AppTaskable {
 
     private let emailParser = VisionTextEmailAddressParser()
     private let phoneNumberParser = VisionTextPhoneNumberParser()
 
-    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){}
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){}
 
-    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
+    public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
 
         guard let asset = (param as? PHAssetItem<ImageEditStateValue>)?.asset else{
             return nil

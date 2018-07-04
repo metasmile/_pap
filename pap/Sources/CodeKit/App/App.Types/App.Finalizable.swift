@@ -26,7 +26,7 @@ public protocol FinalizableApp: App {
 
 extension FinalizableApp{
     public func shouldFinalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> Bool {
-        let shouldPreventFinalize = type(of: self).info.policy.task.cancellation == TaskPolicy.Cancellation.shallow
+        let shouldPreventFinalize = type(of: self).info.policy.task.cancellation == AppTaskPolicy.Cancellation.shallow
             && result.isAnyTask(inState: .cancelled)
         
         return shouldPreventFinalize == false
@@ -34,7 +34,7 @@ extension FinalizableApp{
 }
 
 extension Array where Element == AppTaskRespondable{
-    func isAnyTask(inState:TaskState) -> Bool{
+    func isAnyTask(inState: AppTaskState) -> Bool{
         for e in self{
             if e.info.state == inState{
                 return true
@@ -43,7 +43,7 @@ extension Array where Element == AppTaskRespondable{
         return false
     }
 
-    var defaultTaskPolicy: TaskPolicy{
-        return self.first?.appInfo.policy.task ?? TaskPolicy.default
+    var defaultTaskPolicy: AppTaskPolicy {
+        return self.first?.appInfo.policy.task ?? AppTaskPolicy.default
     }
 }

@@ -56,9 +56,9 @@ public class StabilizerAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAt
 
 public class Stabilizer: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp
         , PhotoPickerCollectionViewDisplayableApp, ConfigurableApp, _ConfigurableApp, PreviewableApp{
-    public static let taskType:Taskable.Type = StabilizerTask.self
+    public static let taskType: AppTaskable.Type = StabilizerTask.self
 
-    public static let paramType:TaskParamable.Type = _StabilizerAppAsset.self
+    public static let paramType: AppTaskParamable.Type = _StabilizerAppAsset.self
     
     public static var configure:(() -> StabilizerAppConfigValue)?
     
@@ -105,19 +105,19 @@ public class Stabilizer: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, Phot
     public private(set) var currentEditStateValue: ImageEditStateValue?
 }
 
-private class StabilizerTask: TaskPrototype, Taskable {
+private class StabilizerTask: AppTaskPrototype, AppTaskable {
     private var isCancelled: Bool = false
     
-    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable) {
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable) {
         
         (param as? _StabilizerAppAsset)?.cancelAllRequestIDs()
         (param as? _StabilizerAppAsset)?.cancelProcessing()
     }
 
-    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
+    public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
         assert(param is _StabilizerAppAsset, "TaskParamable type of this app is \(_StabilizerAppAsset.self)")
         guard let _param = param as? _StabilizerAppAsset else{
-            throw TaskError.invalidParam
+            throw AppTaskError.invalidParam
         }
         return try self._perform(_param, async)
     }

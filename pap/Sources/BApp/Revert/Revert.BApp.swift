@@ -8,7 +8,7 @@ import Photos
 import DefaultsKit
 
 private typealias RevertAppParam = PHAssetItem<ImageEditStateValue>
-private struct RevertAppResult: TaskResultable{
+private struct RevertAppResult: AppTaskResultable {
     fileprivate let asset:PHAsset
     fileprivate let isAdjusted:Bool
 }
@@ -26,9 +26,9 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp
         , PhotoPickerViewControllerDelegatableApp
         , PhotoPickerCollectionViewDisplayableApp
         , PreheatableApp {
-    public static let taskType:Taskable.Type = _RevertAppTask.self
+    public static let taskType: AppTaskable.Type = _RevertAppTask.self
 
-    public static let paramType:TaskParamable.Type = RevertAppParam.self
+    public static let paramType: AppTaskParamable.Type = RevertAppParam.self
 
     public static let info = AppInfo(
             identifier: "com.stells.pap.revert"
@@ -117,14 +117,14 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp
     }
 }
 
-private class _RevertAppTask: TaskPrototype, Taskable {
-    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){}
+private class _RevertAppTask: AppTaskPrototype, AppTaskable {
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){}
 
-    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
+    public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
         assert(param is RevertAppParam, "TaskParamable type of this app is \(RevertAppParam.self)")
 
         guard let _param = param as? RevertAppParam else{
-            throw TaskError.invalidParam
+            throw AppTaskError.invalidParam
         }
 
         return RevertAppResult(asset: _param.asset, isAdjusted: _param.asset.isAdjusted)

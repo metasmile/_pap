@@ -15,7 +15,7 @@ import MobileCoreServices
 
 class _GIFMakerAppAsset: PHAssetItem<ImageEditStateValue> {}
 
-private struct GIFMakerPHAssetResult: TaskResultable{
+private struct GIFMakerPHAssetResult: AppTaskResultable {
     public var fileURL: URL?
     public var orderedIndex: Int?
 }
@@ -248,8 +248,8 @@ public class GIFMaker: BApp,
         , PHAssetUIAlertControllerSynchronizablePresenter
          {
 
-    public static let taskType:Taskable.Type = _GIFMakerAppTask.self
-    public static let paramType:TaskParamable.Type = _GIFMakerAppAsset.self
+    public static let taskType: AppTaskable.Type = _GIFMakerAppTask.self
+    public static let paramType: AppTaskParamable.Type = _GIFMakerAppAsset.self
     
     public static var configure:(() -> GIFMakerAppConfigValue)?
     
@@ -321,15 +321,15 @@ public class GIFMaker: BApp,
     }
 }
 
-private class _GIFMakerAppTask: TaskPrototype, Taskable {
+private class _GIFMakerAppTask: AppTaskPrototype, AppTaskable {
     public typealias ParamType = _GIFMakerAppAsset
     public typealias ResultType = PHAssetResultItem
     
-    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){
         (param as? _GIFMakerAppAsset)?.cancelAllRequestIDs()
     }
     
-    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
+    public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
         guard let appAsset = param as? AppAsset else { return nil }
         return try _perform(appAsset, async)
     }

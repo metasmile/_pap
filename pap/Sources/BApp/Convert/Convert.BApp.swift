@@ -23,8 +23,8 @@ public class ConvertApp: BApp,
         PhotoPickerCollectionViewDisplayableApp,
         PhotoPickerViewControllerDelegatableApp {
 
-    public static let taskType:Taskable.Type = ConvertAppTask.self
-    public static let paramType:TaskParamable.Type = AppAsset.self
+    public static let taskType: AppTaskable.Type = ConvertAppTask.self
+    public static let paramType: AppTaskParamable.Type = AppAsset.self
 
     public static var configure:(() -> ConvertAppConfigValue)?
 
@@ -40,7 +40,7 @@ public class ConvertApp: BApp,
             , appType: ConvertApp.self
             , displayName: "Convert", description:nil, keywords:nil
             , iconBundleName: R.image.convertBAppIcon.name
-            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: TaskPolicy.default)
+            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
             , minOSVersion: nil
     )
 
@@ -157,18 +157,18 @@ extension ConvertApp{
 }
 
 
-private struct ConvertAppResult: TaskResultable{
+private struct ConvertAppResult: AppTaskResultable {
     var result:Any?
     var orderedIndex: Int?
 }
 
-private class ConvertAppTask: TaskPrototype, Taskable {
+private class ConvertAppTask: AppTaskPrototype, AppTaskable {
     public typealias ParamType = AppAsset
     public typealias ResultType = ConvertAppResult
 
     let defaults = ConvertApp.defaults as! ConvertAppDefaults
 
-    override var info: TaskInfo {
+    override var info: AppTaskInfo {
         let info = super.info
 
         //default is undefined.
@@ -188,12 +188,12 @@ private class ConvertAppTask: TaskPrototype, Taskable {
 
     }
 
-    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){
 
         (param as? AppAsset)?.cancelAllRequestIDs()
     }
 
-    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
+    public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
         guard let appAsset = param as? AppAsset else { return nil }
         return try _perform(appAsset, async)
     }
@@ -203,7 +203,7 @@ private class ConvertAppTask: TaskPrototype, Taskable {
         let needsConverter = ConverterSpec.acquireInstance(collection: ConvertApp.availableConverters, direction: direction, asset: assetItem)
 
         guard let converter = needsConverter else {
-            throw TaskError.rejectedParam
+            throw AppTaskError.rejectedParam
         }
 
         //TODO: integrate someday remove IFs

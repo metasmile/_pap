@@ -43,7 +43,6 @@
 		4F71D1CEFF929A07E3AB0C00 /* Clean.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D964680143F9237CA854 /* Clean.BApp.swift */; };
 		4F71D1EEBA7ED8C1BFC21EC0 /* App.Lib.Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2588E42F7B00E16E945 /* App.Lib.Parser.swift */; };
 		4F71D1FF041181D0AD2BE1AE /* CodeKit.DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D333058F5CDA9A8C83D0 /* CodeKit.DispatchQueue.swift */; };
-		4F71D200740118625B043C4C /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7583B797AB5D814D759 /* Task.swift */; };
 		4F71D214A63A9E26D6B5F25B /* UITableViewPickerCell.UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D254F1BF1DA092025DEA /* UITableViewPickerCell.UITableView.swift */; };
 		4F71D220E9F7C918354C3722 /* PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB2D2A8777C95C0EE407 /* PHAsset.swift */; };
 		4F71D22321E67D59611079CC /* CodeKit.UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8033E59EAB278D35495 /* CodeKit.UIAlertController.swift */; };
@@ -88,6 +87,7 @@
 		4F71D5EEC984FAED85297905 /* AppDockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DB9A2D6C0695C47433B7 /* AppDockView.xib */; };
 		4F71D5F0A0E3A9E4B322FCBA /* CodeKit.Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDADBA3628FE8356C6EB /* CodeKit.Array.swift */; };
 		4F71D5F73B696FE813AD2E79 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD84BB4BCEA896661F14 /* PhotoCollectionViewCell.swift */; };
+		4F71D60FB0179151280A754E /* AppTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DFEDA5A22CEADE72D78D /* AppTask.swift */; };
 		4F71D6144CC058D3A9309E96 /* CodeKit.UIView.Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DCF49BB6EB7CCC7FBF86 /* CodeKit.UIView.Property.swift */; };
 		4F71D615732AB957EA406477 /* CodeKit.CIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D61975F96BAE2FA0BC93 /* CodeKit.CIImage.swift */; };
 		4F71D63D52977EA265390EC7 /* AppDockDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2BECCF1365F71189DAC /* AppDockDrawerView.swift */; };
@@ -114,7 +114,7 @@
 		4F71D817D4AF06DD50ED1685 /* PixNote.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA798A1F355C8A84BA85 /* PixNote.BApp.swift */; };
 		4F71D863880D161FF681C642 /* CodeKit.UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5BC4E62AAE070D85B69 /* CodeKit.UIViewController.swift */; };
 		4F71D86FB1073AC3D8405B9C /* CodeKit.FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D755AF5A2605FB683A5E /* CodeKit.FileManager.swift */; };
-		4F71D87185DBD1B878C1F91A /* AppTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D85980FE87C2FB5A2398 /* AppTask.swift */; };
+		4F71D87185DBD1B878C1F91A /* AppTaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D85980FE87C2FB5A2398 /* AppTaskItem.swift */; };
 		4F71D89E45DC410C14B06DFD /* PhotoPickerViewController.Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE2155C124D630681B16 /* PhotoPickerViewController.Operations.swift */; };
 		4F71D8FE45FB5DF84DAFA370 /* CodeKit.Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5DA389ADAB0369E3CE7 /* CodeKit.Contacts.swift */; };
 		4F71D90BF0D739892B5EFB04 /* CodeKit.UUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D27A76BAB8CD67CEFCD6 /* CodeKit.UUID.swift */; };
@@ -432,7 +432,6 @@
 		4F71D754C14C46B92ED9E664 /* FloatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingView.swift; sourceTree = "<group>"; };
 		4F71D755AF5A2605FB683A5E /* CodeKit.FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.FileManager.swift; sourceTree = "<group>"; };
 		4F71D756451C76841F34DEF7 /* App.PhotoPickerViewControllerDelegatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.PhotoPickerViewControllerDelegatable.swift; sourceTree = "<group>"; };
-		4F71D7583B797AB5D814D759 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		4F71D767B17EDED1C363D81D /* Numeric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Numeric.swift; sourceTree = "<group>"; };
 		4F71D773FC46EC6E276E5D44 /* CodeKit.Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Collection.swift; sourceTree = "<group>"; };
 		4F71D7856058B185FB79A489 /* App.Lib.EditStateValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Lib.EditStateValue.swift; sourceTree = "<group>"; };
@@ -449,7 +448,7 @@
 		4F71D83EB584CA987350B0CA /* CodeKit.NSKeyValueObservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.NSKeyValueObservation.swift; sourceTree = "<group>"; };
 		4F71D842AC616FE4F150ABBE /* Converter.Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.Gif.swift; sourceTree = "<group>"; };
 		4F71D8432FF35FE7D9C633CC /* CodeKit.UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIImage.swift; sourceTree = "<group>"; };
-		4F71D85980FE87C2FB5A2398 /* AppTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTask.swift; sourceTree = "<group>"; };
+		4F71D85980FE87C2FB5A2398 /* AppTaskItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTaskItem.swift; sourceTree = "<group>"; };
 		4F71D8698EAC3EA68C658ECE /* CodeKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKitTests.swift; sourceTree = "<group>"; };
 		4F71D88756315BEB67DAEDB2 /* ImageIO.Metadata.Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.Metadata.Dictionary.swift; sourceTree = "<group>"; };
 		4F71D89C31B1B675AF430B77 /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
@@ -536,6 +535,7 @@
 		4F71DF2BA1EF2662C299D170 /* ImageIO.Metadata.Properties.Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.Metadata.Properties.Label.swift; sourceTree = "<group>"; };
 		4F71DF3CAA29CFF0CFE4F837 /* App.Lib.Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Lib.Tests.swift; sourceTree = "<group>"; };
 		4F71DF928C2BD1911803D81E /* AppTaskManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTaskManager.swift; sourceTree = "<group>"; };
+		4F71DFEDA5A22CEADE72D78D /* AppTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTask.swift; sourceTree = "<group>"; };
 		4F71DFF7812558760C61E112 /* PDFactory.TPPDF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFactory.TPPDF.swift; sourceTree = "<group>"; };
 		511A1AAB20BF698800EFC81F /* App.Previewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Previewable.swift; sourceTree = "<group>"; };
 		514CEBFA20E1A31D00098DFA /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
@@ -776,7 +776,6 @@
 				4F71D4E47D5460ED84924F1D /* AssetIO */,
 				4F71D3F5D3B5E2ED32E78751 /* ImageIO */,
 				4F71D71F0CE3E63BA505F9D2 /* Selection */,
-				4F71D7583B797AB5D814D759 /* Task.swift */,
 				4F71D8B7895317B10D661C54 /* Object.swift */,
 				4F71D1DAE58BB8D95F99E248 /* System.swift */,
 				4F71D767B17EDED1C363D81D /* Numeric.swift */,
@@ -1299,11 +1298,12 @@
 			children = (
 				4F71D7B9B61BD2BA1F16758D /* App.swift */,
 				4F71DCCD65D4AC0CB3DB76BD /* App.Types */,
-				4F71D85980FE87C2FB5A2398 /* AppTask.swift */,
+				4F71D85980FE87C2FB5A2398 /* AppTaskItem.swift */,
 				4F71D89C31B1B675AF430B77 /* AppManager.swift */,
 				4F71D8059F302538FAFF84BD /* AppLifecycle.swift */,
 				4F71DF928C2BD1911803D81E /* AppTaskManager.swift */,
 				4F71DEC69AB8A6AD6EF11C5E /* AppTaskOperationQueue.swift */,
+				4F71DFEDA5A22CEADE72D78D /* AppTask.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -2802,7 +2802,7 @@
 				4F71DE6DDDD0BC4FB5B79F6D /* App.Finalizable.swift in Sources */,
 				4F71DC8D1CEEE0B33AC27C42 /* App.Persistable.swift in Sources */,
 				4F71DC985CDF9D119856EDAC /* App.Configurable.swift in Sources */,
-				4F71D87185DBD1B878C1F91A /* AppTask.swift in Sources */,
+				4F71D87185DBD1B878C1F91A /* AppTaskItem.swift in Sources */,
 				4F71D14E23286B026B778B05 /* AppManager.swift in Sources */,
 				4F71D25F83F348BF793853EF /* AppLifecycle.swift in Sources */,
 				4F71D0A75A503CDEC4540DCD /* AppTaskManager.swift in Sources */,
@@ -2831,7 +2831,6 @@
 				4F71DBB61D645367E3ED362A /* ImageIO.Metadata.Properties.Label.swift in Sources */,
 				4F71D95D6387B6BEA989F5EE /* ImageIO.Metadata.Properties.Collection.swift in Sources */,
 				4F71D7188829B440276F4A55 /* Selectable.swift in Sources */,
-				4F71D200740118625B043C4C /* Task.swift in Sources */,
 				4F71DA17D09B551E38D1364A /* Object.swift in Sources */,
 				4F71DEE96E50E58F9FFAAC01 /* System.swift in Sources */,
 				4F71D994A3ECDB2185DF45EF /* Numeric.swift in Sources */,
@@ -2942,6 +2941,7 @@
 				4F71DE2299D86100C8D5AD13 /* CodeKit.EventKit.swift in Sources */,
 				4F71D14BA74E2819ACA59849 /* CodeKit.EventKitUI.swift in Sources */,
 				4F71DEB2DE070285F8B97D61 /* CodeKit.String.NSRegularExpression.swift in Sources */,
+				4F71D60FB0179151280A754E /* AppTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

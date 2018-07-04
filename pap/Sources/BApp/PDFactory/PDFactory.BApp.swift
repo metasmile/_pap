@@ -9,7 +9,7 @@ import TPPDF
 import UIKit
 import DefaultsKit
 
-private struct PDFactoryPHAssetResult: TaskResultable{
+private struct PDFactoryPHAssetResult: AppTaskResultable {
     public var asset: PHAsset
     public var renderImageBoundSize: CGSize // maximum size of image + paper size
     public var renderImage: UIImage
@@ -19,9 +19,9 @@ private struct PDFactoryPHAssetResult: TaskResultable{
 public class PDFactory: BApp, FinalizableApp, PhotoPickerViewControllerDelegatableApp,
         PhotoPickerCollectionViewDisplayableApp , AppDockApp {
 
-    public static let taskType:Taskable.Type = _PDFactoryTask.self
+    public static let taskType: AppTaskable.Type = _PDFactoryTask.self
 
-    public static let paramType:TaskParamable.Type = AppAsset.self
+    public static let paramType: AppTaskParamable.Type = AppAsset.self
 
     public static let info = AppInfo(
             identifier: "com.stells.pap.pdfactory"
@@ -153,7 +153,7 @@ public class PDFactory: BApp, FinalizableApp, PhotoPickerViewControllerDelegatab
     }
 }
 
-private class _PDFactoryTask: TaskPrototype, Taskable {
+private class _PDFactoryTask: AppTaskPrototype, AppTaskable {
 
     private var _pdfImageRequestOptions: PHImageRequestOptions {
         let options = PHImageRequestOptions()
@@ -164,11 +164,11 @@ private class _PDFactoryTask: TaskPrototype, Taskable {
         return options
     }
 
-    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){
         (param as? AppAsset)?.cancelAllRequestIDs()
     }
 
-    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
+    public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
         if let appAsset = param as? AppAsset{
             let asset = appAsset.asset
 

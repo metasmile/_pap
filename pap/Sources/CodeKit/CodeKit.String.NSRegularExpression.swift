@@ -8,7 +8,7 @@ import Foundation
 private extension String {
     func regexp(_ pattern: String) -> NSRegularExpression {
         do {
-            let regexp: NSRegularExpression = try NSRegularExpression(pattern: pattern, options: [NSRegularExpression.Options.caseInsensitive])
+            let regexp: NSRegularExpression = try NSRegularExpression(pattern: pattern, options: [])
             return regexp
         } catch {
             fatalError("regular expression pattern is invalid.")

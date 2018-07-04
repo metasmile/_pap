@@ -95,9 +95,9 @@ class AppTaskTests: XCTestCase {
     func test_AppTaskManager_concurrentCount(){
 
         class TestPreferredConcurrentCountApp: App {
-            public static let taskType:Taskable.Type = _TestConcurrentCountAppTask.self
+            public static let taskType: AppTaskable.Type = _TestConcurrentCountAppTask.self
 
-            public static let paramType:TaskParamable.Type = TestTaskParam.self
+            public static let paramType: AppTaskParamable.Type = TestTaskParam.self
 
             public static let info = AppInfo(
                     identifier: "com.stells.pap.TestPreferredConcurrentCountApp"
@@ -112,8 +112,8 @@ class AppTaskTests: XCTestCase {
             public required init() {}
         }
 
-        class _TestConcurrentCountAppTask: TaskPrototype, Taskable {
-            override var info: TaskInfo {
+        class _TestConcurrentCountAppTask: AppTaskPrototype, AppTaskable {
+            override var info: AppTaskInfo {
                 let info = super.info
 
                 info.policy.estimatedConcurrencyCount = 2
@@ -121,9 +121,9 @@ class AppTaskTests: XCTestCase {
                 return info
             }
 
-            public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){}
+            public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){}
 
-            public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
+            public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
                 async.begin()
                 DispatchQueue.global().async{
                     sleep(UInt32(arc4random_uniform(2)))

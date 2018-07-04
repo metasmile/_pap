@@ -6,7 +6,7 @@
 import Foundation
 import Photos
 
-public protocol PHAssetParamable: TaskParamable{
+public protocol PHAssetParamable: AppTaskParamable {
     var asset: PHAsset { get }
     var indexPath:IndexPath? { set get }
     var requestIDs:[PHAssetRequestID] { get }
@@ -15,7 +15,7 @@ public protocol PHAssetParamable: TaskParamable{
     init(_ asset: PHAsset, indexPath:IndexPath?)
 }
 
-public protocol PHAssetResultable: TaskResultable{
+public protocol PHAssetResultable: AppTaskResultable {
     var asset: PHAsset { get }
     var contentEditingOutput: PHContentEditingOutput?  { get }
 }

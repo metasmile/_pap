@@ -34,9 +34,9 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
         , PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp
         , PhotoEditorViewControllerDelegatableApp {
 
-    public static let taskType:Taskable.Type = _TransfromAppTask.self
+    public static let taskType: AppTaskable.Type = _TransfromAppTask.self
 
-    public static let paramType:TaskParamable.Type = _TransformAppAsset.self
+    public static let paramType: AppTaskParamable.Type = _TransformAppAsset.self
 
     public static var configure:(() -> TransformAppConfigValue)?
 
@@ -112,20 +112,20 @@ private extension TransformApp{
 }
 
 //TODO: retrictful conforms param type
-private class _TransfromAppTask: TaskPrototype, Taskable {
+private class _TransfromAppTask: AppTaskPrototype, AppTaskable {
 
     public typealias ParamType = _TransformAppAsset
     public typealias ResultType = PHAssetResultItem
 
-    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){
 
         (param as? _TransformAppAsset)?.cancelAllRequestIDs()
     }
 
-    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
+    public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
         assert(param is _TransformAppAsset, "TaskParamable type of this app is \(_TransformAppAsset.self)")
         guard let _param = param as? _TransformAppAsset else{
-            throw TaskError.invalidParam
+            throw AppTaskError.invalidParam
         }
         return try self._perform(_param, async)
     }

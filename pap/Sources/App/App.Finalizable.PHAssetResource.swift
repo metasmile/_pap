@@ -11,7 +11,7 @@ import UIKit
 import Foundation
 import Photos
 
-public struct PHAssetResourceFinalizingOutput: TaskResultable {
+public struct PHAssetResourceFinalizingOutput: AppTaskResultable {
     var orderedIndex: Int?
     var resources: [(resourceType: PHAssetResourceType, url: URL)]
     
@@ -23,8 +23,8 @@ public struct PHAssetResourceFinalizingOutput: TaskResultable {
 
 public struct PHAssetResourceFinalizingTaskRespondable: AppTaskRespondable {
     public var request: AppTaskRequest
-    public var result: TaskResultable?
-    public var info: TaskInfo
+    public var result: AppTaskResultable?
+    public var info: AppTaskInfo
     
     public var assetLocalIdentifier: String? = nil
 }

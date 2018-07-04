@@ -14,8 +14,8 @@ public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableAp
         PHAssetFinalizableApp, PreviewableApp, PreviewCachableApp, AppDockApp,
         PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp {
 
-    public static let taskType:Taskable.Type = _AutoAdjustmentAppTask.self
-    public static let paramType:TaskParamable.Type = _AutoAdjustmentAppAsset.self
+    public static let taskType: AppTaskable.Type = _AutoAdjustmentAppTask.self
+    public static let paramType: AppTaskParamable.Type = _AutoAdjustmentAppAsset.self
     
     public static var configure:(() -> PhotosFilterAppConfigValue)?
     
@@ -189,11 +189,11 @@ private extension AutoAdjustmentApp {
     }
 }
 
-private class _AutoAdjustmentAppTask: TaskPrototype, Taskable {
+private class _AutoAdjustmentAppTask: AppTaskPrototype, AppTaskable {
     public typealias ParamType = _AutoAdjustmentAppAsset
     public typealias ResultType = PHAssetResultItem
 
-    override var info: TaskInfo {
+    override var info: AppTaskInfo {
         let info = super.info
 
         if let param = info.requestParam as? _AutoAdjustmentAppAsset{
@@ -216,16 +216,16 @@ private class _AutoAdjustmentAppTask: TaskPrototype, Taskable {
 
     }
     
-    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){
         
         (param as? _PhotosFilterAppAsset)?.cancelAllRequestIDs()
         (param as? _PhotosFilterAppAsset)?.cancelProcessing()
     }
     
-    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
+    public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
         assert(param is _AutoAdjustmentAppAsset, "TaskParamable type of this app is \(_PhotosFilterAppAsset.self)")
         guard let _param = param as? _AutoAdjustmentAppAsset else{
-            throw TaskError.invalidParam
+            throw AppTaskError.invalidParam
         }
         return try self._perform(_param, async)
     }

@@ -12,9 +12,9 @@ public protocol App {
     static var info: AppInfo { get }
 
     //taskType can be changed by config
-    static var taskType: Taskable.Type { get }
+    static var taskType: AppTaskable.Type { get }
 
-    static var paramType: TaskParamable.Type { get }
+    static var paramType: AppTaskParamable.Type { get }
 }
 
 public protocol AppInfoSchemeKey {
@@ -86,10 +86,10 @@ public struct AppInfo: Hashable, AppInfoScheme, AppInfoPresentableSchemeValues {
 }
 
 public struct AppPolicy {
-    static let `default` = AppPolicy(lifeCycle: AppLifecyclePolicy.default, task: TaskPolicy.default)
+    static let `default` = AppPolicy(lifeCycle: AppLifecyclePolicy.default, task: AppTaskPolicy.default)
 
     public let lifeCycle: AppLifecyclePolicy
-    public let task: TaskPolicy
+    public let task: AppTaskPolicy
 }
 
 

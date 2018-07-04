@@ -12,7 +12,7 @@ import MetalKit
 import Vision
 
 private typealias CleanAppParam = PHAssetItem<ImageEditStateValue>
-private struct CleanAppResult: TaskResultable{
+private struct CleanAppResult: AppTaskResultable {
     fileprivate let asset:PHAsset
     
     init(asset:PHAsset){
@@ -35,9 +35,9 @@ extension Defaults: CleanAppDefaults {
 private typealias PHAssetID = String
 
 public class Clean: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp, PreheatableApp {
-    public static let taskType:Taskable.Type = _CleanTask.self
+    public static let taskType: AppTaskable.Type = _CleanTask.self
 
-    public static let paramType:TaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
+    public static let paramType: AppTaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
     
     public private(set) lazy var dockContent: AppDockContent? = CleanAppDockContent()
 
@@ -218,10 +218,10 @@ private struct CleanAppDetector {
     }
 }
 
-private class _CleanTask: TaskPrototype, Taskable {
-    public func cancel(_ param:TaskParamable, _ async: AsyncManualSignalable){}
+private class _CleanTask: AppTaskPrototype, AppTaskable {
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){}
 
-    public func perform(_ param: TaskParamable, _ async: AsyncManualSignalable) throws -> TaskResultable? {
+    public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
         if let asset = (param as? PHAssetItem<ImageEditStateValue>)?.asset{
             return PHAssetResultItem(asset: asset, contentEditingOutput: nil)
         }
