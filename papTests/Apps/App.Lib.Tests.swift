@@ -26,6 +26,8 @@ class AppTests: PHAssetsXCTestCase {
             ,"FD2324 JBU524"
             ,"FD2324 BAX JB 5424"
             ,"JB 5424"
+            ,"RYB 4067"
+            ,"4067"
             ,"DL1"
             ," DL1"
             ,"BA2491A"

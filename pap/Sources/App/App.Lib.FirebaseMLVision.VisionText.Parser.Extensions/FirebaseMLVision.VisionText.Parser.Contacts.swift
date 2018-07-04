@@ -134,15 +134,23 @@ public struct VisionTextFlightNumberParser: VisionTextParser{
     // Flight number - IATA (marketing) flight number - /^[A-Z0-9]{3,}$/ BA026
     //Callsign - ICAO (operational) flight number - /^[A-Z]{3}[A-Z0-9]{1,}$/ BAW319K
 
-    private static let regexPattern = "(^|\\s)[A-Z0-9]{2,3}\\s*[0-9]{1,4}"
+    private static let regexPatternType1 = "[A-Z]{3}\\s*[0-9]{1,4}"
+    private static let regexPatternType2 = "[0-9]{1}[A-Z]{2}\\s*[0-9]{1,4}"
+    private static let regexPatternType3 = "[A-Z]{2}\\s*[0-9]{1,4}"
+
+    private static let regexPattern = "(^|\\s)(\(regexPatternType1))|(\(regexPatternType2))|(\(regexPatternType3))"
 
     public static func matchesInText(text:String) -> [String]?{
-        return text.trim()
-                .nilEmpty?
+        if text.count==0{
+            return nil
+        }
+
+        return Array(Set(
+                text.trim()
                 .regexStrings(with: regexPattern)
                 .reduce([],+)
                 .compactMap { $0.trim().nilEmpty }
-                .nilEmpty
+        )).nilEmpty
     }
 
     func parse(input: VisionText) -> OutputType? {
