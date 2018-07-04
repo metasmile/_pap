@@ -30,7 +30,6 @@ public struct ContactsUtil {
     public func requestAuthorizationAndWait(_ asyncSignal:AsyncManualSignalable) -> Bool{
         var canSaveContract = false
 
-        asyncSignal.begin()
         let status = ContactsUtil.shared.authorizationStatus
         /*
             /*! The user has not yet made a choice regarding whether the application may access contact data. */
@@ -48,24 +47,26 @@ public struct ContactsUtil {
             */
 
         if status == CNAuthorizationStatus.notDetermined{
+            asyncSignal.begin()
             ContactsUtil.shared.requestAccess { granted in
                 canSaveContract = granted
                 asyncSignal.end()
             }
+            asyncSignal.waitUntilEnd()
         }
         else if status == CNAuthorizationStatus.authorized{
             canSaveContract = true
-            asyncSignal.end()
 
         }else{
+            asyncSignal.begin()
             DispatchQueue.main.async{
                 UIAlertController.alert("It requires a permission to access your contacts. Please allow Contacts on iOS Settings.".localized, completion: { action in
                     asyncSignal.end()
                 })
             }
+            asyncSignal.waitUntilEnd()
         }
 
-        asyncSignal.waitUntilEnd()
         return canSaveContract
     }
 
