@@ -173,7 +173,7 @@ public struct VisionTextFlightNumberParser: VisionTextParser{
 public struct VisionTextContactParser: VisionTextParser, MergingParser{
     typealias OutputType = CNMutableContact
 
-    private static let defaultTypes:NSTextCheckingResult.CheckingType = [.link, .address, .phoneNumber, .date, .quote, .transitInformation]
+    public static let defaultTypes:NSTextCheckingResult.CheckingType = [.link, .address, .phoneNumber, .date, .quote, .transitInformation]
 
     public var types:NSTextCheckingResult.CheckingType?
 

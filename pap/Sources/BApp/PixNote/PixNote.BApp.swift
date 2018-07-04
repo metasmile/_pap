@@ -191,11 +191,13 @@ extension PixNote{
                 let imageData = item.asset.asData
 
                 for contact in _contacts{
-                    contact.imageData = imageData
+                    autoreleasepool{
+                        contact.imageData = imageData
 
-                    let result = ContactsUtil.shared.addContacts(Contact: [contact])
-                    if case ContactsUtil.ContactOperationResult.Success(response: true) = result {
-                        savedCount += 1
+                        let result = ContactsUtil.shared.addContacts(Contact: [contact])
+                        if case ContactsUtil.ContactOperationResult.Success(response: true) = result {
+                            savedCount += 1
+                        }
                     }
                 }
             }
@@ -223,9 +225,11 @@ extension PixNote{
                     continue
                 }
                 for contact in _contacts{
-                    contact.imageData = item.asset.asData
+                    autoreleasepool{
+                        contact.imageData = item.asset.asData
 
-                    CNContactViewController.presentDialog(newContact: contact, asyncSignal)
+                        CNContactViewController.presentDialog(newContact: contact, asyncSignal)
+                    }
                 }
             }
         }
@@ -280,6 +284,7 @@ extension PixNote{
                                 contact.dates.append(CNLabeledValue(label: "Date".localized, value: components as NSDateComponents))
                                 contact.urlAddresses.append(CNLabeledValue(label: "URL", value: "https://apps.photo"))
                                 contact.phoneNumbers = [ CNLabeledValue(label: "Phone Number".localized, value: CNPhoneNumber(stringValue: phoneNumber))]
+
 
                                 CNContactViewController.presentDialog(newContact: contact, asyncSignal)
 
@@ -818,7 +823,6 @@ private struct PixNoteDetector{
             }
 
             if let lastParsedContact = stackedParsedContacts.last{
-                lastParsedContact.imageData = asset.asData
                 result.contacts = [lastParsedContact]
             }
         }
