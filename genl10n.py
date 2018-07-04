@@ -57,6 +57,7 @@ for code_file in swift_files:
                         gened_strs[str] = []
 
                     gened_strs[str].append((code_file, i+1))
+                    break # if pattern was found by one of them, exit loop
 
 rcur = codecs.open(dest_l10n_base_path, "r", "utf-8")
 rlines = rcur.readlines()
@@ -92,8 +93,7 @@ for new_key in keys_in_gened_strs:
 
     # gened_strs[new_key][0] : code file path as string
     # gened_strs[new_key][1] : line as int
-    files_indexes_tup = set(gened_strs[new_key]) # remove duplication
-    from_files = ", ".join(map(lambda s: "{}#{}".format(os.path.basename(s[0]), s[1]), files_indexes_tup))
+    from_files = ", ".join(map(lambda s: "{}#{}".format(os.path.basename(s[0]), s[1]), gened_strs[new_key]))
     wlines.append("/* {}: {} */".format(__GEN_FLAG__, from_files))
     wlines.append('\n')
     wlines.append(new_line)
