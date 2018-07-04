@@ -11,6 +11,11 @@ import Photos
 import PhotosUI
 import Hero
 
+fileprivate struct PhotoEditorTransitionContext {
+    var sourceView: UIView
+    var placeholderView: UIImageView
+}
+
 class PhotoPickerViewController: AppDockViewController {
     @IBOutlet weak var photoCollectionView: UICollectionView!
     
@@ -24,6 +29,8 @@ class PhotoPickerViewController: AppDockViewController {
 
     var collection: PHAssetCollection?
     var queuedPhotoLibraryChanges = ItemQueue<PHChange>()
+    
+    fileprivate var photoEditorTransitionContext: PhotoEditorTransitionContext?
     
     private var animatesUpdatingPhotoCollectionContentInset = false
     
@@ -584,6 +591,14 @@ class PhotoPickerViewController: AppDockViewController {
     }
 }
 
+extension UIView {
+    func asImage() -> UIImage? {
+        return UIGraphicsImageRenderer(bounds: bounds).imageWithCurrentContext { [weak self] (ctx) in
+            self?.layer.render(in: ctx)
+        }
+    }
+}
+
 extension PhotoPickerViewController: EditViewControllerDelegate {
     func showPhotoEditor(with editItem: PHAssetItem<ImageEditStateValue>?) {
         guard let editItem = editItem else { return }
@@ -595,31 +610,41 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
             photoEditViewController.indexPathInPicker = PHAssets.fetched.indexPath(of:editItem.asset)
             photoEditViewController.selectedInPicker = AppAssets.selected.by(editItem.asset) != nil
             
-            batchPreviewView.collectionView.visibleCells.forEach { ($0 as? PreviewCollectionViewCell)?.assetView.hero.id = nil }
-            
             if let index = AppAssets.selected.index(of: editItem), let cell = batchPreviewView.collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as? PreviewCollectionViewCell {
-                cell.assetView.hero.id = "TransitionToPhotoEditViewController"
+                let snapshot = cell.assetView.asImage()?.applyTransform(editItem.editState.transform)
+                photoEditViewController.placeholderImage = snapshot
+                
+                let placeholderView = UIImageView(frame: cell.assetView.frame)
+                placeholderView.image = snapshot
+                placeholderView.contentMode = .scaleAspectFit
+                placeholderView.hero.id = "TransitionToPhotoEditViewController"
+                cell.assetView.superview?.addSubview(placeholderView)
+                
+                photoEditorTransitionContext = PhotoEditorTransitionContext(sourceView: cell.assetView, placeholderView: placeholderView)
+                photoEditorTransitionContext?.sourceView.isHidden = true
             }
             
             appDockContentLayoutStateRestoringAfterProcessing = appDockView?.contentLayoutState
-//            appDockView?.setDrawerDisplay(forState: .neutralized, reloadDockContentViews: true)
 
             let navigationController = AppDockNavigationController(rootViewController: photoEditViewController)
             navigationController.hero.isEnabled = true
             navigationController.hero.modalAnimationType = .fade
             navigationController.hero.navigationAnimationType = .fade
             
-            present(navigationController,animated: true) {
-                AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues( AppConfigUIAttrribute(tintColor: .white))
+            present(navigationController, animated: true) {
+                self.photoEditorTransitionContext?.sourceView.isHidden = false
+                
+                AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttrribute(tintColor: .white))
             }
         }
     }
 
     func editViewController(_ photoEditor: PhotoEditViewController, didFinishWith editItem: StateValueSet<ImageEditStateValue>?, at indexPath: IndexPath?) {
         assert(photoEditor.asset != nil, "photoEditor.asset!=nil")
+        
+        guard let asset = photoEditor.asset else { return }
 
-        if let indexPath = indexPath, let asset = photoEditor.asset {
-
+        if let indexPath = indexPath {
             if let editItem = editItem, editItem.hasChanges {
                 if AppAssets.selected.by(asset) == nil{
                     self.selectCollectionViewItem(at: indexPath, animated: false)
@@ -629,12 +654,29 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
             }
         }
 
-        AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues( AppConfigUIAttrribute(tintColor: .black))
+        AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttrribute(tintColor: .black))
         
         appDockView?.setDrawerDisplay(forState: appDockContentLayoutStateRestoringAfterProcessing ?? .neutralized, reloadDockContentViews: true)
-
+        
+        if let transitionContext = photoEditorTransitionContext {
+            transitionContext.placeholderView.frame.origin = transitionContext.sourceView.frame.origin
+            
+            if let editItem = editItem {
+                if let filter = editItem.ciFilter {
+                    transitionContext.placeholderView.image = photoEditor.originalImage?.applyFilter(ciFilter: filter)
+                }
+                
+                transitionContext.placeholderView.transform = editItem.transform
+            }
+        }
+        
+        photoEditorTransitionContext?.sourceView.isHidden = true
+        batchPreviewView.reloadCollectionViewItems(animated: false)
+        
         photoEditor.dismiss(animated: true, completion: {
-            self.batchPreviewView.reloadCollectionViewItems()
+            self.photoEditorTransitionContext?.sourceView.isHidden = false
+            self.photoEditorTransitionContext?.placeholderView.removeFromSuperview()
+            self.photoEditorTransitionContext = nil
         })
     }
 }

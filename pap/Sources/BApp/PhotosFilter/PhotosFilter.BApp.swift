@@ -147,8 +147,8 @@ private extension PhotosFilterApp {
             })
         })
         items.insert(AppUICollectionView.CollectionItem(title: "Original".localized, image: image, action: {
-            self.config?.filter = CIFilterItem()
-            self.currentEditStateValue = CIFilterItem()
+            self.config?.filter = CIFilterItem(CIFilter())
+            self.currentEditStateValue = CIFilterItem(CIFilter())
         }), at: 0)
         
         let view = AppUICollectionView(items: items)

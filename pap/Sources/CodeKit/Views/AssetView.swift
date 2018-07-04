@@ -76,9 +76,6 @@ class AssetView: UIView {
         imageRequestOptions = defaultImageRequestOptions
         videoRequestOptions = defaultVideoRequestOptions
         livePhotoRequestOptions = defaultLivePhotoRequestOptions
-        
-        let tapToPlayGesture = UITapGestureRecognizer(target: self, action: #selector(self.playAny))
-        livePhotoView.addGestureRecognizer(tapToPlayGesture)
     }
     
     override func layoutSubviews() {
@@ -238,6 +235,8 @@ class AssetView: UIView {
     open var isLivePhotoPlaying: Bool = false
 }
 
+extension AssetView: UIGestureRecognizerDelegate {}
+
 //MARK: - Draw asset
 
 extension AssetView {
@@ -345,8 +344,12 @@ extension AssetView {
                     return
                 }
                 
-                self?.image = image
-                completion?(image)
+                if let completion = completion {
+                    completion(image)
+                }
+                else {
+                    self?.image = image
+                }
             }
         }
     }

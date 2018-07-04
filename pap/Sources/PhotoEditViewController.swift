@@ -28,6 +28,11 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         return AppUIAssetView(frame: zoomingContentView.bounds)
     }()
     
+    var placeholderImage: UIImage?
+    lazy var placeholderView: UIImageView = {
+        return UIImageView(frame: zoomingContentView.bounds)
+    }()
+    
     fileprivate var editItem = StateValueSet<ImageEditStateValue>()
 
     var indexPathInPicker: IndexPath?
@@ -42,6 +47,10 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     
     var originalImage: UIImage?
     
+    lazy var tapToPlayGesture: UITapGestureRecognizer = {
+        return UITapGestureRecognizer(target: self.assetView, action: #selector(self.assetView.playAny))
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -53,7 +62,13 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.barTintColor = iOSStandardEditorBackgroundColor
         
+        photoZoomingView.canCancelContentTouches = false
         photoZoomingView.addSubview(zoomingContentView)
+        
+        placeholderView.image = placeholderImage
+        placeholderView.contentMode = .scaleAspectFit
+        placeholderView.hero.id = "TransitionToPhotoEditViewController"
+        zoomingContentView.addSubview(placeholderView)
         
         assetView.contentMode = .scaleAspectFit
         zoomingContentView.addSubview(assetView)
@@ -65,16 +80,17 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
 
         doneButton?.title = "Done".localized
         
-        assetView.hero.id = "TransitionToPhotoEditViewController"
-        
         assetView.asset = asset
         assetView.preferredTransform = preferredEditState.transform
         assetView.applyEditState(preferredEditState)
+        
+        assetView.addGestureRecognizer(tapToPlayGesture)
         
         layoutAssetView()
         
         if let asset = asset {
             assetView.setAsset(asset, completion: {
+                self.placeholderView.isHidden = true
                 self.originalImage = self.assetView.image
                 self.assetView.applyEditState(self.preferredEditState)
                 self.assetView.playVideoWithLooping()
@@ -163,6 +179,8 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         
         zoomingContentView.center = CGPoint(x: boundingBox.width / 2, y: boundingBox.height / 2)
         assetView.center = CGPoint(x: contentSize.width / 2, y: contentSize.height / 2)
+        
+        placeholderView.frame = assetView.frame
     }
     
     // MARK: - Navigation Bar Actions
@@ -192,17 +210,20 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         
         editItem = preferredEditState
         
-        updatePreview { [unowned self] in
+//        updatePreview { [unowned self] in
             self.delegate?.editViewController(self, didFinishWith: nil, at: self.indexPathInPicker)
-        }
+//        }
     }
     
     override func doneButtonDidTap(sender: Any) {
         super.doneButtonDidTap(sender: sender)
         
-        assetView.layer.transform = CATransform3DIdentity
-        assetView.transform = editItem.transform
-
+        if let filter = editItem.ciFilter {
+            placeholderView.image = originalImage?.applyFilter(ciFilter: filter)
+        }
+        
+        placeholderView.transform = editItem.transform
+        
         delegate?.editViewController(self, didFinishWith: self.editItem, at: self.indexPathInPicker)
     }
     

@@ -245,8 +245,8 @@ extension PreviewView {
         collectionView.deleteItems(at: indexPaths)
     }
 
-    func reloadCollectionViewItems() {
-        updatePreviews()
+    func reloadCollectionViewItems(animated: Bool = true) {
+        updatePreviews(animated: animated)
     }
 }
 

@@ -88,6 +88,16 @@ class AppUIAssetView: AssetView {
         }
     }
     
+    override var playerItem: AVPlayerItem? {
+        didSet {
+            applyEditState(editState)
+        }
+    }
+    
+    lazy var compareOriginalGesture: UILongPressGestureRecognizer = {
+        return UILongPressGestureRecognizer(target: self, action: #selector(self.compareOriginalGestureDidChange))
+    }()
+    
     override func initialize() {
         super.initialize()
         
@@ -104,7 +114,6 @@ class AppUIAssetView: AssetView {
         processingView.fitConstraints(to: self)
         processingView.isHidden = true
         
-        let compareOriginalGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.compareOriginalGestureDidChange))
         compareOriginalGesture.minimumPressDuration = 0.3
         compareOriginalGesture.delegate = self
         self.addGestureRecognizer(compareOriginalGesture)
@@ -134,9 +143,14 @@ class AppUIAssetView: AssetView {
     }
 }
 
-extension AppUIAssetView: UIGestureRecognizerDelegate {
+extension AppUIAssetView {
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return filteredImage != nil || filteredLivePhoto != nil
+        if gestureRecognizer == compareOriginalGesture {
+            return filteredImage != nil || filteredLivePhoto != nil
+        }
+        else {
+            return true
+        }
     }
     
     @objc func compareOriginalGestureDidChange(sender: UILongPressGestureRecognizer) {
@@ -159,7 +173,6 @@ extension AppUIAssetView: UIGestureRecognizerDelegate {
         }
         else if asset?.imageType == .livePhoto {
             self.livePhoto = originalLivePhoto
-            playAny()
         }
     }
     
@@ -171,7 +184,6 @@ extension AppUIAssetView: UIGestureRecognizerDelegate {
         }
         else if asset?.imageType == .livePhoto {
             self.livePhoto = filteredLivePhoto
-            playAny()
         }
     }
 }
@@ -196,7 +208,6 @@ extension AppUIAssetView {
         else if asset.imageType == .livePhoto {
             if let filter = editState?.ciFilter {
                 self.isProcessing(true, animated: false)
-                self.stopAny()
                 
                 asset.requestContentEditingInput(with: nil, completionHandler: { (input, info) in
                     guard let input = input else { return }
@@ -209,13 +220,11 @@ extension AppUIAssetView {
                         self.isProcessing(false, animated: true)
                         
                         self.filteredLivePhoto = livePhoto
-                        self.playAny()
                     })
                 })
             }
             else if self.livePhoto != originalLivePhoto {
                 self.filteredLivePhoto = nil
-                self.playAny()
             }
         }
         else if asset.mediaType == .video {
