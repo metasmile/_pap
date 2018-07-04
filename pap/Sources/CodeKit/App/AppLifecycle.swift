@@ -9,7 +9,7 @@ public struct AppLifecyclePolicy{
     public let instance: AppInstanceLifecycleUnit
 
     public static var `default`:AppLifecyclePolicy{
-        return AppLifecyclePolicy(instance: .systemMemoryUsage)
+        return AppLifecyclePolicy(instance: .memoryWarning)
     }
 }
 
@@ -17,7 +17,7 @@ public enum AppInstanceLifecycleUnit:UInt {
     case singleTask
     case allTasks
     case availability
-    case systemMemoryUsage //INFO: Not implemented yet
+    case memoryWarning
     case permanent
 }
 
