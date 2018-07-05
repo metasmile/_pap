@@ -173,6 +173,7 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
             iconAsImage = PanoramaIconImage
         }
 
+
         cellIconAsImageView.isHidden = iconAsImage == nil
         cellIconAsImageView.image = iconAsImage
         

@@ -709,7 +709,7 @@ extension FinderApp{
 
                 })
 
-                action.accessoryImage = R.image.exifGhostBAppIcon()
+                action.accessoryImage = R.image.ico_action_flightnumber()
 
                 alert.addAction(action)
             }// END OF AN ACTION
@@ -1338,7 +1338,8 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         let cell = tableView.dequeueReusableCell(withIdentifier: FinderApp.info.identifier) as! Cell
         cell.textLabel?.text = dict.items[indexPath.item].label
         cell.detailTextLabel?.text = selected ? "may be found" : nil
-//        cell.imageView?.image = selected ? R.image.pdFactoryAppIcon() : nil //selected ? UIImageView(image: R.image.pdFactoryAppIcon()) : nil
+
+        cell.imageView?.image = R.image.ico_action_flightnumber()
         cell.detailTextLabel?.textColor = UIColor.gray
         cell.optionSwitch.setOn(selected, animated: false)
         cell.switchDidChange = { on in

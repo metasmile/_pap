@@ -47,7 +47,7 @@ public class Clean: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp, App
             , phase: .develop
             , appType: Clean.self
             , displayName: "Clean", description:nil, keywords:nil
-            , iconBundleName: nil
+            , iconBundleName: R.image.cleanBAppIcon.name
             , policy: AppPolicy.default
             , minOSVersion: nil
     )

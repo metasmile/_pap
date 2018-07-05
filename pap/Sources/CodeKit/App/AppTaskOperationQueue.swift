@@ -128,9 +128,8 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
         do {
 
             if let result = try item.task.perform(param, async){
-                var mutableResponse = item
-                mutableResponse.result = result
-                mutableResponse.response(.completed)
+                item.result = result
+                item.response(.completed)
                 return
             }
 
@@ -227,7 +226,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
 }
 
 
-struct AppTaskItem: AppTaskRespondable {
+class AppTaskItem: AppTaskRespondable {
     let request:AppTaskRequest
     let info: AppTaskInfo
     let task: AppTaskable
