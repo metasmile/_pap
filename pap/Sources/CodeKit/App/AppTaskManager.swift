@@ -6,22 +6,7 @@
 import Foundation
 import Dispatch
 
-public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDelegate {
-
-    fileprivate static let sharedSyncQueue:DispatchQueue = DispatchQueue(label:"com.stells.pap__shared_AppTaskManager")
-
-    private static var sharedManagers = [UInt:AppTaskManager]()
-
-    public static func shared(_ maxConcurrentCount:UInt) -> AppTaskManager{
-        guard let manager = sharedManagers[maxConcurrentCount] else{
-            return sharedSyncQueue.sync(flags:.barrier){
-                let _manager = AppTaskManager(maxConcurrentCount)
-                sharedManagers[maxConcurrentCount] = _manager
-                return _manager
-            }
-        }
-        return manager
-    }
+public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDelegate, AppLifecycleManagerAllowingInstanceAccessor {
 
     private let syncQueue:DispatchQueue = DispatchQueue(label:"com.stells.pap__internal_AppTaskManager"+UUID().uuidString)
     private var queuePool = [String: AppTaskOperationQueue]()
@@ -38,6 +23,15 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
     private var staticResponsesForEachApps = [AppInfo: [AppTaskRespondable]]()
     private var staticRequestedWorkItems = [String: AppTaskItem]()
     private var staticFinishedWorkItems = [AppTaskItem]()
+
+    init(_ maxConcurrentCount:UInt=1) {
+        assert(maxConcurrentCount>0, "concurrentCount must be 1 or higher.")
+        super.init()
+        for _ in 0 ..< maxConcurrentCount{
+            let q = AppTaskOperationQueue(delegate:self)
+            queuePool[q.label] = q
+        }
+    }
 
     public final var maxConcurrentCount:Int{
         return self.queuePool.count
@@ -56,22 +50,15 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
         return c
     }
 
-    private init(_ maxConcurrentCount:UInt=1) {
-        assert(maxConcurrentCount>0, "concurrentCount must be 1 or higher.")
-        super.init()
-        for _ in 0 ..< maxConcurrentCount{
-            let q = AppTaskOperationQueue(delegate:self)
-            queuePool[q.label] = q
-        }
-    }
-
     private func createTask(_ request:AppTaskRequest) -> AppTaskable?{
-        let appInfo = request.appType.info
+        let appType = request.appType
+        let appInfo = appType.info
 
-        guard AppLifecycleManager.shared.acquire(appInfo) != nil else {
+        if false == appType.isInstanceAcquired{
             assert(false, "Task Creation was failed for an App \(request.appType)")
             return nil
         }
+
         let taskType = appInfo.appType.taskType
         let taskInfo = AppTaskInfo(request.token, request.param, taskType.self, request.appType)
 
@@ -335,20 +322,16 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
         var finalizedResults = [AppInfo: [AppTaskRespondable]]()
 
         for (appInfo, reses) in resForEachApps{
-            guard let appInstance = AppLifecycleManager.shared.acquire(appInfo) else{
+
+            if false == appInfo.appType.isInstanceAcquired{
                 assert(false,"App doest not exist any longer. Check it on lifecycle manager.")
                 continue
             }
 
-            if let appInstanceAsFinalizable = appInstance as? FinalizableApp, appInstanceAsFinalizable.shouldFinalize(result: reses, asyncSignal) {
+            if let appInstanceAsFinalizable = appInfo.appType.getInstance(user:type(of: self)) as? FinalizableApp, appInstanceAsFinalizable.shouldFinalize(result: reses, asyncSignal) {
                 finalizedResults[appInfo] = appInstanceAsFinalizable.finalize(result: reses, asyncSignal)
             }else{
                 finalizedResults[appInfo] = reses
-            }
-
-            if appInfo.policy.lifeCycle.instance == .allTasks {
-                AppLifecycleManager.shared.discard(appInfo)
-                assert(!AppLifecycleManager.shared.acquired.contains(appInfo.identifier))
             }
         }
 

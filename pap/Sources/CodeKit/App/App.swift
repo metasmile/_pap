@@ -18,11 +18,11 @@ public protocol App {
 }
 
 public protocol AppInfoSchemeKey {
+    var appType: App.Type {get}
     var identifier:String {get}
 }
 
 public protocol AppInfoSchemeValues {
-    var appType: App.Type {get}
     var version:String {get}
     var phase: AppProductPhase {get}
     var displayName:String {get}

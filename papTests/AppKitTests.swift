@@ -8,7 +8,7 @@ import XCTest
 @testable import pap
 
 class AppTaskTests: XCTestCase {
-    let taskMan = AppTaskManager.shared(4)
+    let taskMan = AppTaskManager(4)
 
     override func setUp() {
 

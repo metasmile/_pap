@@ -179,7 +179,7 @@ open class AppManager: NSObject, SelectableCollection {
         return _task
     }
 
-    private var _task = AppTaskManager.shared({ () -> UInt in
+    private lazy var _task = AppTaskManager({ () -> UInt in
         //https://en.wikipedia.org/wiki/List_of_iOS_devices
         let remainingMem = ProcessInfo.processInfo.physicalRemainingMemory/(1024*1024)
 
@@ -215,3 +215,104 @@ open class AppManager: NSObject, SelectableCollection {
     }())
 }
 
+
+/*
+    Lifecycle
+*/
+public protocol AppLifecycleManagerAllowingInstanceAccessor {}
+
+public extension App{
+    public static var isInstanceAcquired:Bool{
+        return AppLifecycleManager.shared.acquiredTypes.contains { appType in
+            return appType == self.info.appType
+        }
+    }
+
+    public static func getInstance(user: AppLifecycleManagerAllowingInstanceAccessor.Type) -> App?{
+        return AppLifecycleManager.shared.instancesAccessQueue.sync{
+            return AppLifecycleManager.shared.instances[self.info.identifier]
+        }
+    }
+}
+
+public struct AppLifecyclePolicy{
+    public let instance: AppInstanceLifecycleUnit
+
+    public static var `default`:AppLifecyclePolicy{
+        return AppLifecyclePolicy(instance: .memoryWarning)
+    }
+}
+
+public enum AppInstanceLifecycleUnit:UInt {
+    case availability
+    case memoryWarning
+    case permanent
+}
+
+private final class AppLifecycleManager {
+    static let shared = AppLifecycleManager()
+    var instancesAccessQueue:DispatchQueue
+    var instances:[String: App]
+
+    private init() {
+        instances = [:]
+        //THINK: semaphore vs current_queue?
+        instancesAccessQueue = DispatchQueue(label: "com.stells.internal__\(type(of: self))",qos: .userInteractive)
+    }
+
+    var acquiredTypes:[App.Type]{
+        return instancesAccessQueue.sync {
+            instances.map { type(of: $0.1) }
+        }
+    }
+
+    func acquire(_ info: AppInfo) -> App?{
+        return _acquire(info)
+    }
+
+    private func _acquire(_ info: AppInfo) -> App?{
+        return instancesAccessQueue.sync {
+            let appIdentifier = info.identifier
+            let appType = info.appType
+
+            guard let appInstance = instances[appIdentifier] else{
+                let _appInstance = appType.init()
+
+                if let delegation = _appInstance as? LifecycleManageableApp, delegation.willAcquire() == false{
+                    return nil
+                }
+
+                instancesAccessQueue.async(flags:.barrier){
+                    self.instances[appIdentifier] = _appInstance
+                }
+                return _appInstance
+            }
+            return appInstance
+        }
+    }
+
+    @discardableResult
+    func discard(_ info: AppInfo) -> Bool{
+        return _discard(info)
+    }
+
+    private func _discard(_ info: AppInfo) -> Bool{
+        return instancesAccessQueue.sync{
+            let identifier = info.identifier
+            guard let appInstance = instances[identifier] else { return false }
+
+            if info.policy.lifeCycle.instance == .permanent{
+                return false
+            }
+
+            if let delegation = appInstance as? LifecycleManageableApp, delegation.willDiscard() == false{
+                return false
+            }
+
+            instancesAccessQueue.async(flags:.barrier){
+                self.instances.removeValue(forKey: identifier)
+            }
+            return true
+        }
+    }
+}
