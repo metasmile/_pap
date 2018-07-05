@@ -49,7 +49,7 @@ public class PhotosFilterAppConfigValue: NSObject, KeyPathWatchable, AppConfigUI
 }
 
 public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _ConfigurableApp,
-        PHAssetFinalizableApp, PreviewableApp, AppDockApp,
+        PHAssetFinalizableApp, PreviewableApp, PreviewProcessableApp, AppDockApp,
         PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp,
         PhotoEditorViewControllerDelegatableApp {
     public static let taskType: AppTaskable.Type = _PhotosFilterAppTask.self
@@ -98,6 +98,11 @@ public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp,
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
         self.config?.adoptValues(fromOther: config)
         self.updateControllerView()
+    }
+    
+    public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((UIImage?) -> Void)) {
+        let image = appAsset.asset.requestThumbnailImage(targetSize: targetSize)?.applyFilter(ciFilter: appAsset.editState.ciFilter)
+        completion(image)
     }
 }
 

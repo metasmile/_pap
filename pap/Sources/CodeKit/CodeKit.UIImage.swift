@@ -11,11 +11,10 @@ import UIKit
 public extension UIImage {
     private static let sharedCIContextForFilter = CIContext()
     
-    func applyFilter(ciFilter: CIFilter?) -> UIImage? {
-        guard let filter = ciFilter else { return nil }
-        guard filter.name != "CIFilter" else { return self }
+    func applyFilter(ciFilter: CIFilter?) -> UIImage {
+        guard let filter = ciFilter, filter.inputKeys.contains(kCIInputImageKey) else { return self }
         filter.setValue(CIImage(image: self), forKey: kCIInputImageKey)
-        guard let outputImage = filter.outputImage, let cgImage = UIImage.sharedCIContextForFilter.createCGImage(outputImage, from: outputImage.extent) else { return nil }
+        guard let outputImage = filter.outputImage, let cgImage = UIImage.sharedCIContextForFilter.createCGImage(outputImage, from: outputImage.extent) else { return self }
         return UIImage(cgImage: cgImage, scale: self.scale, orientation: self.imageOrientation)
     }
 

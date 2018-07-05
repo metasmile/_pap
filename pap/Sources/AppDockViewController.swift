@@ -101,8 +101,8 @@ extension AppDockNavigationController: AppDockViewDelegate {
     
     func appDockView(_ view: AppDockView, didSelectItemWith item: AppDockItem) {
         if AppCenter.default.current != item.app {
-            if let app = AppCenter.default.currentInstanceAs(PreviewCachableApp.self) {
-                app.removeAllCachedPreviewImages()
+            if let _ = AppCenter.default.currentInstanceAs(PreviewProcessableApp.self) {
+                PreviewProcessingQueue.cancel()
             }
             
             AppCenter.default.current = item.app

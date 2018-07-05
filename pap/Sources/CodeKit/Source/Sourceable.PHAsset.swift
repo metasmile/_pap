@@ -22,12 +22,12 @@ public struct RemoteSourceFetchNotification {
 }
 
 extension PHAsset {
-    func requestThumbnailImage(targetSize: CGSize, contentMode: PHImageContentMode = .aspectFit) -> UIImage? {
+    func requestThumbnailImage(targetSize: CGSize, targetScale: CGFloat = UIScreen.main.scale, contentMode: PHImageContentMode = .aspectFit) -> UIImage? {
         let options = PHImageRequestOptions()
         options.isSynchronous = true
         
         var result: UIImage?
-        PHImageManager.default().requestImage(for: self, targetSize: targetSize, contentMode: contentMode, options: options) { (image, info) in
+        PHImageManager.default().requestImage(for: self, targetSize: CGSize(width: targetSize.width * targetScale, height: targetSize.height * targetScale), contentMode: contentMode, options: options) { (image, info) in
             result = image
         }
         return result

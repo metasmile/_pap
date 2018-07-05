@@ -11,7 +11,7 @@ import UIKit
 class _AutoAdjustmentAppAsset: _PhotosFilterAppAsset {}
 
 public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _ConfigurableApp,
-        PHAssetFinalizableApp, PreviewableApp, PreviewCachableApp, AppDockApp,
+        PHAssetFinalizableApp, PreviewableApp, PreviewProcessableApp, AppDockApp,
         PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp {
 
     public static let taskType: AppTaskable.Type = _AutoAdjustmentAppTask.self
@@ -89,34 +89,9 @@ public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableAp
         self.updateControllerView()
     }
     
-    public var previewAsynchronously: Bool {
-        return true
-    }
-    
-    private var cachedImages = [String: URL]()
-    public func previewAsync(_ appAsset: AppAsset, at indexPath: IndexPath, completion: @escaping ((UIImage?) -> Void)) {
-        let identifier = "\(appAsset.asset.localIdentifierWithoutSplitter)_\(indexPath)_\(appAsset.editState.hash)"
-        
-        let image = appAsset.asset.requestImage(targetSize: UIScreen.main.bounds.size, options: nil).image?.applyFilter(ciFilter: appAsset.editState.ciFilter)
-        
-        let url = FileURL.temp(identifier, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
-        if cachedImages[identifier] == nil, let image = image, let data = UIImageJPEGRepresentation(image, 0.7), (try? data.write(to: url)) != nil {
-            cachedImages[identifier] = url
-        }
-        
-        DispatchQueue.main.async {
-            completion(image)
-        }
-    }
-    
-    public func removeAllCachedPreviewImages() {
-        cachedImages.removeAll()
-    }
-    
-    public func cachedPreviewImage(_ appAsset: AppAsset, at indexPath: IndexPath) -> UIImage? {
-        let identifier = "\(appAsset.asset.localIdentifierWithoutSplitter)_\(indexPath)_\(appAsset.editState.hash)"
-        guard let url = cachedImages[identifier] else { return nil }
-        return UIImage(contentsOfFile: url.path)
+    public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((UIImage?) -> Void)) {
+        let image = appAsset.asset.requestThumbnailImage(targetSize: targetSize)?.applyFilter(ciFilter: appAsset.editState.ciFilter)
+        completion(image)
     }
 }
 

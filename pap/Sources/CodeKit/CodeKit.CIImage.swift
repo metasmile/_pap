@@ -20,7 +20,7 @@ extension CIImage{
 
 public extension CIImage {
     func applyFilter(ciFilter: CIFilter?) -> CIImage {
-        guard let filter = ciFilter else { return self }
+        guard let filter = ciFilter, filter.inputKeys.contains(kCIInputImageKey) else { return self }
         filter.setValue(self, forKey: kCIInputImageKey)
         return filter.outputImage ?? self
     }

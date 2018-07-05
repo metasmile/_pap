@@ -262,10 +262,7 @@ extension AssetView {
             }
             
             loadLivePhoto(for: asset) { [weak self] livePhoto in
-                guard !cancellation() else {
-                    self?.clearDrawing()
-                    return
-                }
+                guard !cancellation() else { return }
                 
                 DispatchQueue.main.async { [weak self] in
                     self?.livePhoto = livePhoto
@@ -296,10 +293,7 @@ extension AssetView {
         }
         else {
             loadImage(for: asset) { [weak self] image in
-                guard !cancellation() else {
-                    self?.clearDrawing()
-                    return
-                }
+                guard !cancellation() else { return }
                 
                 DispatchQueue.main.async { [weak self] in
                     self?.image = image
@@ -333,16 +327,13 @@ extension AssetView {
 }
 
 extension AssetView {
-    func setThumbnailAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: ((UIImage?) -> Void)? = nil) {
+    func setThumbnailAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { false }, completion: ((UIImage?) -> Void)? = nil) {
         previewMode = true
         self.asset = asset
         
         loadImage(for: asset) { [weak self] image in
             DispatchQueue.main.async { [weak self] in
-                guard !cancellation() else {
-                    self?.clearDrawing()
-                    return
-                }
+                guard !cancellation() else { return }
                 
                 if let completion = completion {
                     completion(image)
@@ -372,6 +363,7 @@ extension AssetView {
         let targetScale: CGFloat = UIScreen.main.nativeScale
         let targetSize = CGSize(width: targetBounds.width * targetScale, height: targetBounds.height * targetScale)
         imageRequestID = AssetView.imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: imageRequestOptions) { [weak self] (image, info) in
+            guard (info?[PHImageResultIsDegradedKey] as? Bool) != true else { return }
             self?.imageDidLoad(image: image)
             completion(image)
         }
@@ -379,6 +371,7 @@ extension AssetView {
     
     fileprivate func loadVideo(for asset: PHAsset, completion: @escaping (AVPlayerItem?) -> Void) {
         imageRequestID = AssetView.imageManager.requestAVAsset(forVideo: asset, options: videoRequestOptions) { [weak self] (video, audioMix, info) in
+            guard (info?[PHImageResultIsDegradedKey] as? Bool) != true else { return }
             self?.videoDidLoad(video: video)
             if let video = video {
                 let playerItem = AVPlayerItem(asset: video)
@@ -402,6 +395,7 @@ extension AssetView {
     
     fileprivate func loadImageData(for asset: PHAsset, completion: @escaping (Data?) -> Void) {
         imageRequestID = AssetView.imageManager.requestImageData(for: asset, options: imageRequestOptions, resultHandler: { [weak self] (data, uti, orientation, info) in
+            guard (info?[PHImageResultIsDegradedKey] as? Bool) != true else { return }
             self?.imageDataDidLoad(data: data)
             completion(data)
         })

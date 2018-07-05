@@ -122,7 +122,7 @@ class AppUIAssetView: AssetView {
     override func clearDrawing() {
         editState = nil
         
-//        originalImage = nil
+        originalImage = nil
         filteredImage = nil
         
         originalLivePhoto = nil
