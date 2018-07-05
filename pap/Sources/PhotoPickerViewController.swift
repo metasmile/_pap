@@ -604,7 +604,7 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
         guard let editItem = editItem else { return }
         
         if let photoEditViewController = R.storyboard.appStoryboard.photoEditViewController(){
-            photoEditViewController.preferredEditState = editItem.editState
+            photoEditViewController.preferredEditState.concat(with: editItem.editState)
             photoEditViewController.asset = editItem.asset
             photoEditViewController.delegate = self
             photoEditViewController.indexPathInPicker = PHAssets.fetched.indexPath(of:editItem.asset)
@@ -631,6 +631,10 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
             navigationController.hero.modalAnimationType = .fade
             navigationController.hero.navigationAnimationType = .fade
             
+            if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self) {
+                app.setEditStateValue(editItem.editState)
+            }
+            
             present(navigationController, animated: true) {
                 self.photoEditorTransitionContext?.sourceView.isHidden = false
                 
@@ -643,7 +647,7 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
         assert(photoEditor.asset != nil, "photoEditor.asset!=nil")
         
         guard let asset = photoEditor.asset else { return }
-
+        
         if let indexPath = indexPath {
             if let editItem = editItem, editItem.hasChanges {
                 if AppAssets.selected.by(asset) == nil{
@@ -653,10 +657,15 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
                 AppAssets.selected.by(asset)?.editState.concat(with: editItem)
             }
         }
+        
+        if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self) {
+            app.setEditStateValue(photoEditor.preferredEditState)
+        }
 
         AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttrribute(tintColor: .black))
         
         appDockView?.setDrawerDisplay(forState: appDockContentLayoutStateRestoringAfterProcessing ?? .neutralized, reloadDockContentViews: true)
+        appDockContentLayoutStateRestoringAfterProcessing = nil
         
         if let transitionContext = photoEditorTransitionContext {
             transitionContext.placeholderView.frame.origin = transitionContext.sourceView.frame.origin

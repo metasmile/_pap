@@ -45,7 +45,8 @@ public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableAp
 
         let controllerContent = self.dockContent as? AutoAdjustmentAppDockContent
         controllerContent?.watch(\.options, options: [.initial, .new]) {
-
+            self.removeAllCachedPreviewImages()
+            
             var defaults = type(of: self).defaults as! AutoAdjustmentAppDefaults
 
             if let options = controllerContent?.options {

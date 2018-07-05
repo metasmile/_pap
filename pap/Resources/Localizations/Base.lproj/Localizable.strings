@@ -140,7 +140,7 @@
 "Direction" = "Direction";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift#147 */
 "Do Anything, At Once." = "Do Anything, At Once.";
-/* Generated from genl10n: PhotoPickerViewController.swift#748 */
+/* Generated from genl10n: PhotoPickerViewController.swift#757 */
 "Downloading..." = "Downloading...";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#191, Finder.BApp.swift#534, Finder.BApp.swift#1055 */
 "E-mail Address" = "E-mail Address";
@@ -202,7 +202,7 @@
 "Open Google Maps" = "Open Google Maps";
 /* Generated from genl10n: Finder.BApp.swift#343 */
 "Open" = "Open";
-/* Generated from genl10n: AppUIAssetView.swift#45, PhotosFilter.BApp.swift#149 */
+/* Generated from genl10n: AppUIAssetView.swift#45, PhotosFilter.BApp.swift#119 */
 "Original" = "Original";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#199, Finder.BApp.swift#297, Finder.BApp.swift#1054 */
 "Phone Number" = "Phone Number";
@@ -228,7 +228,7 @@
 "Save and Share" = "Save and Share";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift#52 */
 "Save" = "Save";
-/* Generated from genl10n: PhotoPickerViewController.swift#771 */
+/* Generated from genl10n: PhotoPickerViewController.swift#780 */
 "Saving Results..." = "Saving Results...";
 /* Generated from genl10n: Finder.BApp.swift#679 */
 "Search Flights" = "Search Flights";
@@ -264,7 +264,7 @@
 "Start" = "Start";
 /* Generated from genl10n: Finder.BApp.swift#108 */
 "Starting To Find ..." = "Starting To Find ...";
-/* Generated from genl10n: PhotoPickerViewController.swift#705 */
+/* Generated from genl10n: PhotoPickerViewController.swift#714 */
 "Starting the Process..." = "Starting the Process...";
 /* Generated from genl10n: Revert.BApp.swift#117 */
 "Starting to check edited photos..." = "Starting to check edited photos...";

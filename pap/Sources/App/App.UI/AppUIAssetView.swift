@@ -81,19 +81,6 @@ class AppUIAssetView: AssetView {
         }
     }
     
-    var originalLivePhoto: PHLivePhoto?
-    var filteredLivePhoto: PHLivePhoto? {
-        didSet {
-            self.livePhoto = filteredLivePhoto ?? originalLivePhoto
-        }
-    }
-    
-    override var playerItem: AVPlayerItem? {
-        didSet {
-            applyEditState(editState)
-        }
-    }
-    
     lazy var compareOriginalGesture: UILongPressGestureRecognizer = {
         return UILongPressGestureRecognizer(target: self, action: #selector(self.compareOriginalGestureDidChange))
     }()
@@ -122,11 +109,8 @@ class AppUIAssetView: AssetView {
     override func clearDrawing() {
         editState = nil
         
-//        originalImage = nil
+        originalImage = nil
         filteredImage = nil
-        
-        originalLivePhoto = nil
-        filteredLivePhoto = nil
         
         originalBadgeLabel.isHidden = true
         isProcessing = false
@@ -134,19 +118,15 @@ class AppUIAssetView: AssetView {
         super.clearDrawing()
     }
     
-    override func imageDidLoad(image: UIImage?) {
+    override func imageDidLoad(image: UIImage) {
         originalImage = image
-    }
-    
-    override func livePhotoDidLoad(livePhoto: PHLivePhoto?) {
-        originalLivePhoto = livePhoto
     }
 }
 
 extension AppUIAssetView {
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if gestureRecognizer == compareOriginalGesture {
-            return filteredImage != nil || filteredLivePhoto != nil
+            return filteredImage != nil
         }
         else {
             return true
@@ -168,22 +148,32 @@ extension AppUIAssetView {
             originalBadgeLabel.isHidden = false
         }
         
-        if asset?.imageType == .stillImage || previewMode {
-            self.image = originalImage
+        self.image = originalImage
+        
+        if asset?.imageType == .livePhoto {
+            self.isHiddenLivePhotoView = true
         }
-        else if asset?.imageType == .livePhoto {
-            self.livePhoto = originalLivePhoto
+        else if asset?.mediaType == .video {
+            self.isHiddenVideoView = true
+        }
+        else if asset?.imageType == .animatedGIF {
+            self.isHiddenAnimatedImageView = true
         }
     }
     
     private func showFiltered() {
         originalBadgeLabel.isHidden = true
         
-        if asset?.imageType == .stillImage || previewMode {
-            self.image = filteredImage
+        self.image = filteredImage
+        
+        if asset?.imageType == .livePhoto {
+            self.isHiddenLivePhotoView = false
         }
-        else if asset?.imageType == .livePhoto {
-            self.livePhoto = filteredLivePhoto
+        else if asset?.mediaType == .video {
+            self.isHiddenVideoView = false
+        }
+        else if asset?.imageType == .animatedGIF {
+            self.isHiddenAnimatedImageView = false
         }
     }
 }
@@ -198,8 +188,10 @@ extension AppUIAssetView {
     
     fileprivate func applyFilter<T>(_ editState: StateValueSet<T>?) where T: ImageEditStateValue {
         guard let asset = asset else { return }
+        self.filteredImage = originalImage?.applyFilter(ciFilter: editState?.ciFilter)
+        
         if asset.imageType == .stillImage || previewMode {
-            self.filteredImage = originalImage?.applyFilter(ciFilter: editState?.ciFilter)
+            
         }
         else if asset.imageType == .livePhoto {
             if let filter = editState?.ciFilter {
@@ -219,12 +211,9 @@ extension AppUIAssetView {
                     editingContext?.prepareLivePhotoForPlayback(withTargetSize: asset.pixelSize, options: nil, completionHandler: { (livePhoto, error) in
                         self.isProcessing(false, animated: true)
                         
-                        self.filteredLivePhoto = livePhoto
+                        self.livePhoto = livePhoto
                     })
                 })
-            }
-            else if self.livePhoto != originalLivePhoto {
-                self.filteredLivePhoto = nil
             }
         }
         else if asset.mediaType == .video {
