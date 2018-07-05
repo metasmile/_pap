@@ -53,6 +53,9 @@ open class AppManager: NSObject, SelectableCollection {
             return true
         }
 
+        //check identifier is unique
+        assert(_apps.count == Set(_apps.map({ $0.info.identifier })).count, "[!] Duplicated App Identifier Found.")
+
         //boot with appManager
         for appManagedApp in _apps.compactMap ({ app -> AppManagerDelegatedApp? in
             return app as? AppManagerDelegatedApp
@@ -219,16 +222,16 @@ open class AppManager: NSObject, SelectableCollection {
 /*
     Lifecycle
 */
-public protocol AppLifecycleManagerAllowingInstanceAccessor {}
+protocol AppLifecycleManagerAllowingInstanceAccessor {}
 
-public extension App{
-    public static var isInstanceAcquired:Bool{
+extension App{
+    static var isInstanceAcquired:Bool{
         return AppLifecycleManager.shared.acquiredTypes.contains { appType in
             return appType == self.info.appType
         }
     }
 
-    public static func getInstance(user: AppLifecycleManagerAllowingInstanceAccessor.Type) -> App?{
+    static func getInstance(user: AppLifecycleManagerAllowingInstanceAccessor.Type) -> App?{
         return AppLifecycleManager.shared.instancesAccessQueue.sync{
             return AppLifecycleManager.shared.instances[self.info.identifier]
         }

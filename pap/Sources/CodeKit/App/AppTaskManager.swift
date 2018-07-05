@@ -6,7 +6,7 @@
 import Foundation
 import Dispatch
 
-public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDelegate, AppLifecycleManagerAllowingInstanceAccessor {
+public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDelegate {
 
     private let syncQueue:DispatchQueue = DispatchQueue(label:"com.stells.pap__internal_AppTaskManager"+UUID().uuidString)
     private var queuePool = [String: AppTaskOperationQueue]()
@@ -316,8 +316,11 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
             self.staticResponsesForEachApps.removeAll()
         }
     }
+}
 
-    private func finializeAllTasks(_ resForEachApps:[AppInfo: [AppTaskRespondable]]) -> [AppInfo: [AppTaskRespondable]] {
+extension AppTaskManager: AppLifecycleManagerAllowingInstanceAccessor{
+
+    fileprivate func finializeAllTasks(_ resForEachApps:[AppInfo: [AppTaskRespondable]]) -> [AppInfo: [AppTaskRespondable]] {
         let asyncSignal = AsyncSignal()
         var finalizedResults = [AppInfo: [AppTaskRespondable]]()
 
