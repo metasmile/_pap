@@ -189,13 +189,6 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
                 self.finshedItemQueue.enqueue(finishedItem)
                 self.dispatchFinishedForEach(item:finishedItem)
 
-
-                // discard app if configured
-                if finishedItem.appInfo.policy.lifeCycle.instance == .singleTask {
-                    AppLifecycleManager.shared.discard(finishedItem.appInfo)
-                    assert(!AppLifecycleManager.shared.acquired.contains(finishedItem.appInfo.identifier))
-                }
-
                 // perform next task
                 self.perform()
             }

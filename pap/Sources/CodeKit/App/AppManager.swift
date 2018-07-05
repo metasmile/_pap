@@ -67,7 +67,7 @@ open class AppManager: NSObject, SelectableCollection {
         }
 
         //add nofitication for memory warning
-        NotificationCenter.default.addObserver(forName: Notification.Name.UIApplicationDidReceiveMemoryWarning, object: nil, queue: .main) { [weak self] notification in
+        NotificationCenter.default.addObserver(forName: Notification.Name.UIApplicationDidReceiveMemoryWarning, object: self, queue: .main) { [weak self] notification in
             if let _self = self{
                 for app in _self._apps where app != _self.current && app.info.policy.lifeCycle.instance == .memoryWarning {
                     AppLifecycleManager.shared.discard(app.info)

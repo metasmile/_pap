@@ -14,17 +14,10 @@ public struct AppLifecyclePolicy{
 }
 
 public enum AppInstanceLifecycleUnit:UInt {
-    case singleTask
     case allTasks
     case availability
     case memoryWarning
     case permanent
-}
-
-public enum AppProductPhase: UInt {
-    case develop
-    case beta
-    case release
 }
 
 protocol AppLifecycleManagerDelegatedApp where Self:App {

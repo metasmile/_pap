@@ -85,6 +85,12 @@ public struct AppInfo: Hashable, AppInfoScheme, AppInfoPresentableSchemeValues {
     }
 }
 
+public enum AppProductPhase: UInt {
+    case develop
+    case beta
+    case release
+}
+
 public struct AppPolicy {
     static let `default` = AppPolicy(lifeCycle: AppLifecyclePolicy.default, task: AppTaskPolicy.default)
 
