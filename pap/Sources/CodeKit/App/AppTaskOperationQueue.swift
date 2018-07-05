@@ -128,8 +128,9 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
         do {
 
             if let result = try item.task.perform(param, async){
-                item.result = result
-                item.response(.completed)
+                var mutableResponse = item
+                mutableResponse.result = result
+                mutableResponse.response(.completed)
                 return
             }
 
@@ -222,5 +223,42 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
         }
 
         suspended = true
+    }
+}
+
+
+struct AppTaskItem: AppTaskRespondable {
+    let request:AppTaskRequest
+    let info: AppTaskInfo
+    let task: AppTaskable
+
+    public fileprivate(set) var result: AppTaskResultable?
+
+    init(request:AppTaskRequest, info: AppTaskInfo, task: AppTaskable){
+        self.request=request
+        self.info=info
+        self.task=task
+    }
+}
+
+extension AppTaskItem {
+
+    // if canceled by requester, return false, passed, return true
+    @discardableResult
+    func response(_ state: AppTaskState, _ error: AppTaskError?=nil) -> Bool{
+        task.info.state = state
+        task.info.error = error
+
+        var canceled = false
+        request.responseHandler?(self, &canceled)
+        return !canceled
+    }
+
+    static func ==(lhs: AppTaskItem, rhs: AppTaskItem) -> Bool {
+        let lhsInfo = lhs.info, rhsInfo = rhs.info
+        return lhsInfo.token == rhsInfo.token
+                && lhsInfo.requestToken == rhsInfo.requestToken
+                && lhsInfo.taskType == rhs.info.taskType
+                && lhsInfo.state == rhsInfo.state
     }
 }
