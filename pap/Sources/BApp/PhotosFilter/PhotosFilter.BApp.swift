@@ -63,10 +63,6 @@ public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp,
     public private(set) lazy var singleDockContent: AppDockContent? = createController()
     
     public private(set) var currentEditStateValue: ImageEditStateValue?
-    public func setEditStateValue(_ editStateValue: StateValueSet<ImageEditStateValue>?) {
-        self.config?.filter = CIFilterItem(editStateValue?.ciFilter)
-        self.currentEditStateValue = self.config?.filter
-    }
 
     public static let info = AppInfo(
         identifier: "com.stells.pap.photosfilter"
@@ -116,7 +112,6 @@ private extension PhotosFilterApp {
         static let CIPhotoEffectTransfer = "CIPhotoEffectTransfer"
         
         static func aliasName(_ filterName: String) -> String? {
-            guard filterName != "CIFilter" else { return "Original".localized }
             return CIFilter.localizedName(forFilterName: filterName)?.remove("Photo Effect")
         }
     }
@@ -131,7 +126,6 @@ private extension PhotosFilterApp {
         static let CIPhotoEffectTransfer = CIFilter(name: PhotosFilterNames.CIPhotoEffectTransfer)
         static var filters: [CIFilter] {
             return [
-                CIFilter(),
                 CIPhotoEffectChrome,
                 CIPhotoEffectFade,
                 CIPhotoEffectInstant,
@@ -146,12 +140,16 @@ private extension PhotosFilterApp {
     private func createController() -> AppDockContent {
         let image = R.image.photoFilterSampleJpg()
 
-        let items = CIFilters.filters.map({ (filter) -> AppUICollectionView.CollectionItem in
+        var items = CIFilters.filters.map({ (filter) -> AppUICollectionView.CollectionItem in
             return AppUICollectionView.CollectionItem(title: PhotosFilterNames.aliasName(filter.name), image: image?.applyFilter(ciFilter: filter), action: {
                 self.config?.filter = CIFilterItem(filter)
                 self.currentEditStateValue = CIFilterItem(filter)
             })
         })
+        items.insert(AppUICollectionView.CollectionItem(title: "Original".localized, image: image, action: {
+            self.config?.filter = CIFilterItem(CIFilter())
+            self.currentEditStateValue = CIFilterItem(CIFilter())
+        }), at: 0)
         
         let view = AppUICollectionView(items: items)
         view.cellSize = CGSize(width: 80, height: 120)
@@ -165,9 +163,6 @@ private extension PhotosFilterApp {
     
     private func updateControllerView(){
         self.dockContent?.view.tintColor = config?.tintColor
-        
-        let index = CIFilters.filters.index(where: { $0.name == config?.filter?.ciFilter?.name }) ?? 0
-        (self.dockContent?.view as? AppUICollectionView)?.selectItem(at: IndexPath(item: index, section: 0))
     }
 }
 

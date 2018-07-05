@@ -67,7 +67,11 @@ extension AVAsset {
         return AVVideoComposition(asset: self) { (request) in
             let result: CIImage
             if let image = referenceImage {
-                result = request.sourceImage.stabilize(with: image, mode: mode, clamp: clamp)
+                if #available(iOS 11.0, *) {
+                    result = request.sourceImage.stabilize(with: image, mode: mode, clamp: clamp)
+                } else {
+                    result = request.sourceImage
+                }
             }
             else {
                 result = request.sourceImage

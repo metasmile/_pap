@@ -10,14 +10,12 @@ import UIKit
 
 public protocol PreviewableApp: App {
     var currentEditStateValue: ImageEditStateValue? { get }
-    func setEditStateValue(_ editStateValue: StateValueSet<ImageEditStateValue>?)
     var previewAsynchronously: Bool { get }
     func previewAsync(_ appAsset: AppAsset, at indexPath: IndexPath, completion: @escaping ((UIImage?) -> Void))
 }
 
 extension PreviewableApp {
     public var currentEditStateValue: ImageEditStateValue? { return nil }
-    public func setEditStateValue(_ editStateValue: StateValueSet<ImageEditStateValue>?) {}
     public var previewAsynchronously: Bool { return false }
     public func previewAsync(_ appAsset: AppAsset, at indexPath: IndexPath, completion: @escaping ((UIImage?) -> Void)) {}
 }

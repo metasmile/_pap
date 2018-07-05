@@ -17,27 +17,6 @@ import AVFoundation
 import PhotosUI
 import SwiftyGif
 
-private class AssetVideoView: UIView {
-    class override var layerClass: AnyClass { return AVPlayerLayer.self }
-    
-    var videoLayer: AVPlayerLayer {
-        return layer as! AVPlayerLayer
-    }
-    
-    override var contentMode: UIViewContentMode {
-        didSet {
-            switch contentMode {
-            case .scaleAspectFill:
-                videoLayer.contentsGravity = kCAGravityResizeAspectFill
-                videoLayer.videoGravity = .resizeAspectFill
-            default:
-                videoLayer.contentsGravity = kCAGravityResizeAspect
-                videoLayer.videoGravity = .resizeAspect
-            }
-        }
-    }
-}
-
 class AssetView: UIView {
     lazy var accessoryView: UIView = {
         return UIView(frame: CGRect(origin: .zero, size: frame.size))
@@ -46,8 +25,8 @@ class AssetView: UIView {
     lazy fileprivate var imageLayer: CALayer = {
         return CALayer()
     }()
-    lazy fileprivate var videoView: AssetVideoView = {
-        return AssetVideoView(frame: CGRect(origin: .zero, size: frame.size))
+    lazy fileprivate var videoLayer: AVPlayerLayer = {
+        return AVPlayerLayer()
     }()
     lazy fileprivate var livePhotoView: PHLivePhotoView = {
         return PHLivePhotoView(frame: CGRect(origin: .zero, size: frame.size))
@@ -56,27 +35,11 @@ class AssetView: UIView {
         return UIImageView(frame: CGRect(origin: .zero, size: frame.size))
     }()
     
-    var isHiddenVideoView = false {
-        didSet {
-            videoView.isHidden = isHiddenVideoView
-        }
-    }
-    var isHiddenLivePhotoView = false {
-        didSet {
-            livePhotoView.isHidden = isHiddenLivePhotoView
-        }
-    }
-    var isHiddenAnimatedImageView = false {
-        didSet {
-            gifImageView.isHidden = isHiddenAnimatedImageView
-        }
-    }
-    
     var previewMode: Bool = false
     var preferredTransform: CGAffineTransform = .identity {
         didSet {
             imageLayer.transform = CATransform3DMakeAffineTransform(preferredTransform)
-            videoView.transform = preferredTransform
+            videoLayer.transform = CATransform3DMakeAffineTransform(preferredTransform)
             livePhotoView.transform = preferredTransform
             gifImageView.transform = preferredTransform
         }
@@ -96,20 +59,19 @@ class AssetView: UIView {
     
     func initialize() {
         layer.addSublayer(imageLayer)
-        addSubview(videoView)
+        layer.addSublayer(videoLayer)
         addSubview(livePhotoView)
         addSubview(gifImageView)
         
         addSubview(accessoryView)
         accessoryView.fitConstraints(to: self)
         
-        videoView.videoLayer.player = AVPlayer()
+        videoLayer.player = AVPlayer()
         
-        isHiddenVideoView = true
-        isHiddenLivePhotoView = true
-        isHiddenAnimatedImageView = true
-        
+        livePhotoView.isHidden = true
         livePhotoView.delegate = self
+        
+        gifImageView.isHidden = true
         
         imageRequestOptions = defaultImageRequestOptions
         videoRequestOptions = defaultVideoRequestOptions
@@ -122,7 +84,7 @@ class AssetView: UIView {
         let disableActionsToRestore = CATransaction.disableActions()
         CATransaction.setDisableActions(true)
         imageLayer.frame = bounds
-        videoView.frame = bounds
+        videoLayer.frame = bounds
         livePhotoView.frame = bounds
         gifImageView.frame = bounds
         CATransaction.setDisableActions(disableActionsToRestore)
@@ -132,13 +94,16 @@ class AssetView: UIView {
         didSet {
             livePhotoView.contentMode = contentMode
             gifImageView.contentMode = contentMode
-            videoView.contentMode = contentMode
             
             switch contentMode {
             case .scaleAspectFill:
                 imageLayer.contentsGravity = kCAGravityResizeAspectFill
+                videoLayer.contentsGravity = kCAGravityResizeAspectFill
+                videoLayer.videoGravity = .resizeAspectFill
             default:
                 imageLayer.contentsGravity = kCAGravityResizeAspect
+                videoLayer.contentsGravity = kCAGravityResizeAspect
+                videoLayer.videoGravity = .resizeAspect
             }
         }
     }
@@ -160,9 +125,8 @@ class AssetView: UIView {
         cancelCurrentImageRequest()
         
         isLivePhotoPlaying = false
-        isHiddenLivePhotoView = true
-        isHiddenAnimatedImageView = true
-        isHiddenVideoView = true
+        livePhotoView.isHidden = true
+        gifImageView.isHidden = true
         imageLayer.contents = nil
         stopAny()
         
@@ -223,15 +187,15 @@ class AssetView: UIView {
         }
     }
     
-    func imageDidLoad(image: UIImage) {}
+    func imageDidLoad(image: UIImage?) {}
     
     var playerItem: AVPlayerItem? {
         didSet {
-            videoView.videoLayer.player?.replaceCurrentItem(with: playerItem)
+            videoLayer.player?.replaceCurrentItem(with: playerItem)
         }
     }
     
-    func videoDidLoad(video: AVAsset) {}
+    func videoDidLoad(video: AVAsset?) {}
     
     var livePhoto: PHLivePhoto? {
         didSet {
@@ -239,7 +203,7 @@ class AssetView: UIView {
         }
     }
     
-    func livePhotoDidLoad(livePhoto: PHLivePhoto) {}
+    func livePhotoDidLoad(livePhoto: PHLivePhoto?) {}
     
     var gifImage: UIImage? {
         didSet {
@@ -252,12 +216,12 @@ class AssetView: UIView {
         }
     }
     
-    func imageDataDidLoad(data: Data) {}
+    func imageDataDidLoad(data: Data?) {}
     
     // MARK: Video
     
     var isVideoPlaying: Bool {
-        return videoView.videoLayer.player?.rate != 0
+        return videoLayer.player?.rate != 0
     }
     
     var seekTime: CMTime {
@@ -289,48 +253,44 @@ extension AssetView {
 
     private func setImageAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: (() -> Void)? = nil) {
         if asset.imageType == .livePhoto {
-            isHiddenLivePhotoView = false
+            livePhotoView.isHidden = false
             
-            loadImage(for: asset) { [weak self] (image) in
+            loadImage(for: asset) { (image) in
+                DispatchQueue.main.async { [weak self] in
+                    self?.image = image
+                }
+            }
+            
+            loadLivePhoto(for: asset) { [weak self] livePhoto in
                 guard !cancellation() else {
                     self?.clearDrawing()
                     return
                 }
                 
-                self?.loadLivePhoto(for: asset) { [weak self] livePhoto in
-                    guard !cancellation() else {
-                        self?.clearDrawing()
-                        return
-                    }
-                    
-                    DispatchQueue.main.async { [weak self] in
-                        self?.image = image
-                        self?.livePhoto = livePhoto
-                        completion?()
-                    }
+                DispatchQueue.main.async { [weak self] in
+                    self?.livePhoto = livePhoto
+                    completion?()
                 }
             }
         }
         else if asset.imageType == .animatedGIF {
-            isHiddenAnimatedImageView = false
+            gifImageView.isHidden = false
             
-            loadImage(for: asset) { [weak self] (image) in
-                guard !cancellation() else {
+            loadImage(for: asset) { (image) in
+                DispatchQueue.main.async { [weak self] in
+                    self?.image = image
+                }
+            }
+            
+            loadImageData(for: asset) { [weak self] data in
+                guard !cancellation(), let data = data else {
                     self?.clearDrawing()
                     return
                 }
                 
-                self?.loadImageData(for: asset) { [weak self] data in
-                    guard !cancellation(), let data = data else {
-                        self?.clearDrawing()
-                        return
-                    }
-                    
-                    DispatchQueue.main.async { [weak self] in
-                        self?.image = image
-                        self?.gifImage = UIImage(gifData: data)
-                        completion?()
-                    }
+                DispatchQueue.main.async { [weak self] in
+                    self?.gifImage = UIImage(gifData: data)
+                    completion?()
                 }
             }
         }
@@ -351,25 +311,22 @@ extension AssetView {
     
     private func setVideoAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: (() -> Void)? = nil) {
         self.asset = asset
-        isHiddenVideoView = false
         
-        loadImage(for: asset) { [weak self] (image) in
+        loadImage(for: asset) { (image) in
+            DispatchQueue.main.async { [weak self] in
+                self?.image = image
+            }
+        }
+        
+        loadVideo(for: asset) { [weak self] playerItem in
             guard !cancellation() else {
                 self?.clearDrawing()
                 return
             }
             
-            self?.loadVideo(for: asset) { [weak self] playerItem in
-                guard !cancellation() else {
-                    self?.clearDrawing()
-                    return
-                }
-                
-                DispatchQueue.main.async { [weak self] in
-                    self?.image = image
-                    self?.playerItem = playerItem
-                    completion?()
-                }
+            DispatchQueue.main.async { [weak self] in
+                self?.playerItem = playerItem
+                completion?()
             }
         }
     }
@@ -415,22 +372,15 @@ extension AssetView {
         let targetScale: CGFloat = UIScreen.main.nativeScale
         let targetSize = CGSize(width: targetBounds.width * targetScale, height: targetBounds.height * targetScale)
         imageRequestID = AssetView.imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: imageRequestOptions) { [weak self] (image, info) in
-            guard (info?[PHImageResultIsDegradedKey] as? Bool) != true else { return }
-            
-            if let image = image {
-                self?.imageDidLoad(image: image)
-            }
+            self?.imageDidLoad(image: image)
             completion(image)
         }
     }
     
     fileprivate func loadVideo(for asset: PHAsset, completion: @escaping (AVPlayerItem?) -> Void) {
         imageRequestID = AssetView.imageManager.requestAVAsset(forVideo: asset, options: videoRequestOptions) { [weak self] (video, audioMix, info) in
-            guard (info?[PHImageResultIsDegradedKey] as? Bool) != true else { return }
-            
+            self?.videoDidLoad(video: video)
             if let video = video {
-                self?.videoDidLoad(video: video)
-                
                 let playerItem = AVPlayerItem(asset: video)
                 playerItem.audioMix = audioMix
                 completion(playerItem)
@@ -445,20 +395,14 @@ extension AssetView {
         let targetSize = CGSize(width: bounds.width * UIScreen.main.nativeScale, height: bounds.height * UIScreen.main.nativeScale)
         imageRequestID = AssetView.imageManager.requestLivePhoto(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: livePhotoRequestOptions, resultHandler: { [weak self] (livePhoto, info) in
             guard (info?[PHImageResultIsDegradedKey] as? Bool) != true else { return }
-            if let livePhoto = livePhoto {
-                self?.livePhotoDidLoad(livePhoto: livePhoto)
-            }
+            self?.livePhotoDidLoad(livePhoto: livePhoto)
             completion(livePhoto)
         })
     }
     
     fileprivate func loadImageData(for asset: PHAsset, completion: @escaping (Data?) -> Void) {
         imageRequestID = AssetView.imageManager.requestImageData(for: asset, options: imageRequestOptions, resultHandler: { [weak self] (data, uti, orientation, info) in
-            guard (info?[PHImageResultIsDegradedKey] as? Bool) != true else { return }
-            
-            if let data = data {
-                self?.imageDataDidLoad(data: data)
-            }
+            self?.imageDataDidLoad(data: data)
             completion(data)
         })
     }
@@ -503,7 +447,7 @@ extension AssetView {
 
     func playVideo() {
         guard !isVideoPlaying else { return }
-        startVideo()
+        videoLayer.player?.play()
     }
     
     func playVideoWithLooping() {
@@ -514,12 +458,12 @@ extension AssetView {
     func startVideo(to seekTime: CMTime = kCMTimeZero) {
         guard !isVideoPlaying else { return }
         seekVideo(to: seekTime)
-        videoView.videoLayer.player?.play()
+        videoLayer.player?.play()
     }
     
     func pauseVideo() {
         guard isVideoPlaying else { return }
-        videoView.videoLayer.player?.pause()
+        videoLayer.player?.pause()
         removeVideoLooping()
     }
     

@@ -84,12 +84,6 @@ class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
         collectionView.fitConstraints(to: self)
     }
     
-    func selectItem(at indexPath: IndexPath) {
-        UIView.animate(withDuration: 0.2) {
-            self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)
-        }
-    }
-    
     // MARK: - UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

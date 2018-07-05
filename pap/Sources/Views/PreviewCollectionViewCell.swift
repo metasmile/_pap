@@ -45,9 +45,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-//        assetView.asset = nil
-        
-        asset = nil
+        assetView.asset = nil
         editItem = nil
         indexPath = nil
         previousAttributes = nil
@@ -70,6 +68,28 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         }
         
         needsToUpdatePreview = false
+    }
+    
+    func setEditItemForPreview(_ item: PHAssetItem<ImageEditStateValue>, at indexPath: IndexPath, completion: (() -> Void)?) {
+        let asset = item.asset
+        
+        self.editItem = item
+        self.asset = asset
+        self.indexPath = indexPath
+        
+        let boundingSize = asset.pixelWidth > asset.pixelHeight ? bounds.size.applying(item.editState.transform).magnitude : bounds.size
+        let photoSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight).aspectFit(in: boundingSize)
+        
+        assetViewWidth.constant = photoSize.width
+        assetViewHeight.constant = photoSize.height
+        
+        layoutIfNeeded()
+        assetView.setThumbnailAsset(asset, cancelDrawingIfNeeded: { [weak self] in
+            return self?.indexPath != indexPath
+        }, completion: { [weak self] image in
+            guard self?.indexPath == indexPath else { return }
+            completion?()
+        })
     }
     
     static private var previewOperationQueue: OperationQueue = {
@@ -112,6 +132,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
     }
     
     public func setAssetItem(_ item: PHAssetItem<ImageEditStateValue>, at indexPath: IndexPath, animated: Bool = false) {
+        guard self.indexPath == indexPath else { return }
         if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self), app.previewAsynchronously {
             self.assetView.isProcessing = true
             
