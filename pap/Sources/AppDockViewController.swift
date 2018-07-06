@@ -101,10 +101,6 @@ extension AppDockNavigationController: AppDockViewDelegate {
     
     func appDockView(_ view: AppDockView, didSelectItemWith item: AppDockItem) {
         if AppCenter.default.current != item.app {
-            if let _ = AppCenter.default.currentInstanceAs(PreviewProcessableApp.self) {
-                PreviewProcessingQueue.cancel()
-            }
-            
             AppCenter.default.current = item.app
             
             appDockView.app = AppCenter.default.currentInstanceAs(AppDockApp.self)

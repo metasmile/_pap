@@ -156,16 +156,9 @@ class PreviewView: CustomView {
 
     public func updatePreviews(animated: Bool = true, forced: Bool = false, completion: (() -> Void)? = nil) {
         setPreviewLayout(with: collectionViewHeightLayout.constant)
-
-        let visibleIndexPaths = collectionView.indexPathsForVisibleItems
-        for indexPath in visibleIndexPaths {
-            guard let cell = self.collectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else { continue }
-
-            let appAsset = appAssetsSelected.at(indexPath.item)
-            if appAsset.editState.hasChanges || forced {
-                cell.setAssetItem(appAsset, at: indexPath, animated: animated)
-            }
-        }
+        
+        let reloadIndexPaths = collectionView.indexPathsForVisibleItems.filter { appAssetsSelected.at($0.item).editState.hasChanges || forced }
+        collectionView.reloadItems(at: reloadIndexPaths)
     }
     
     public func setPreviewLayout(with height: CGFloat) {
@@ -379,6 +372,102 @@ extension PreviewView {
     }
 }
 
+public struct PreviewProcessingQueue {
+    fileprivate static let dispatchQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
+    
+    //INFO: controlQueue must be higher than dispatchQueue for its priority
+    fileprivate static let controlQueue =  DispatchQueue.main
+    
+    //INFO: Access all following properties only with dispatchQueue when write
+    fileprivate static let indexPathQueue = ItemQueue<IndexPath>()
+    
+    //INFO: Write 'canceled' must be a dispatchqueue that has earlier QoS than .utility
+    fileprivate static var canceled = false
+    
+    private static var cachedPreviewImages = [String: URL]()
+    
+    private static func cacheIdentifier(with item: AppAsset, targetSize: CGSize) -> String {
+        return "\(item.asset.localIdentifierWithoutSplitter)_\(targetSize)_\(item.editState.iterator().reversed().first?.hash ?? 0))"
+    }
+    
+    fileprivate static func cacheImage(_ image: UIImage, targetSize: CGSize, with item: AppAsset) {
+        let identifier = cacheIdentifier(with: item, targetSize: targetSize)
+        let url = FileURL.temp(identifier, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
+        if cachedPreviewImages[identifier] == nil, let data = UIImageJPEGRepresentation(image, 0.7), (try? data.write(to: url)) != nil {
+            cachedPreviewImages[identifier] = url
+        }
+    }
+    
+    fileprivate static func cachedImage(item: AppAsset, targetSize: CGSize) -> UIImage? {
+        let identifier = cacheIdentifier(with: item, targetSize: targetSize)
+        guard let url = cachedPreviewImages[identifier] else { return nil }
+        return UIImage(contentsOfFile: url.path)
+    }
+}
+
+extension PreviewView {
+    fileprivate func enqueuePreviewProcessing(at indexPath: IndexPath) {
+        PreviewProcessingQueue.dispatchQueue.async{
+            if false == PreviewProcessingQueue.indexPathQueue.enqueued(where:{ $0 == indexPath }){
+                PreviewProcessingQueue.indexPathQueue.enqueue(indexPath)
+            }
+        }
+    }
+    
+    fileprivate func performPreviewProcessing() {
+        guard let app = AppCenter.default.currentInstanceAs(PreviewProcessableApp.self) else {
+            cancelPreviewProcessing()
+            return
+        }
+        
+        let targetSize = CGSize(width: min(self.bounds.width, self.bounds.height), height: min(self.bounds.width, self.bounds.height))
+
+        let signal = AsyncSignal()
+        
+        var performed = false
+        func performNext() {
+            performed = true
+            PreviewProcessingQueue.dispatchQueue.async { [unowned self] in
+                guard let indexPath = PreviewProcessingQueue.indexPathQueue.dequeue() else {
+                    return
+                }
+                
+                if let item = AppAssets.selected.at(unsafeIndex:indexPath.item) {
+                    app.previewProcessing(item, targetSize: targetSize, completion: { (image) in
+                        if let image = image {
+                            PreviewProcessingQueue.cacheImage(image, targetSize: targetSize, with: item)
+                            
+                            DispatchQueue.main.async{
+                                self.collectionView.reloadItems(at: [indexPath])
+                            }
+                        }
+                        performNext()
+                    })
+                }
+                
+                if PreviewProcessingQueue.canceled {
+                    PreviewProcessingQueue.indexPathQueue.dequeueAll()
+                    return
+                }
+            }
+        }
+        
+        PreviewProcessingQueue.controlQueue.async {
+            PreviewProcessingQueue.canceled = false
+            performNext()
+        }
+    }
+    
+    fileprivate func cancelPreviewProcessing(){
+        PreviewProcessingQueue.controlQueue.async{
+            if PreviewProcessingQueue.indexPathQueue.count == 0{
+                return
+            }
+            PreviewProcessingQueue.canceled = true
+        }
+    }
+}
+
 extension PreviewView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return appAssetsSelected.count
@@ -386,7 +475,25 @@ extension PreviewView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.nib.previewCollectionViewCell.name, for: indexPath) as! PreviewCollectionViewCell
-        cell.setEditItemForPreview(appAssetsSelected.at(indexPath.item), at: indexPath)
+        let item = appAssetsSelected.at(indexPath.item)
+        
+        if let _ = AppCenter.default.currentInstanceAs(PreviewProcessableApp.self) {
+            let targetSize = CGSize(width: min(self.bounds.width, self.bounds.height), height: min(self.bounds.width, self.bounds.height))
+            
+            if let cached = PreviewProcessingQueue.cachedImage(item: item, targetSize: targetSize) {
+                cell.assetView.isProcessing(false, animated: true)
+                cell.assetView.filteredImage = cached
+            }
+            else {
+                cell.assetView.isProcessing = true
+                enqueuePreviewProcessing(at: indexPath)
+                
+                performPreviewProcessing()
+            }
+        }
+        else {
+            cell.setEditItemForPreview(appAssetsSelected.at(indexPath.item), at: indexPath)
+        }
         return cell
     }
 }
