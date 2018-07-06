@@ -38,7 +38,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
             , phase: .beta
             , appType: FinderApp.self
             , displayName: "Finder", description:nil, keywords:nil
-            , iconBundleName: nil//R.image.pixNoteBAppIcon.name
+            , iconBundleName: R.image.finderBAppIcon.name
             , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy(cancellation: .shallow, priority: .normal, estimatedConcurrencyCount: 1))
             , minOSVersion: nil
     )
@@ -315,7 +315,7 @@ extension FinderApp{
 
                 })
 
-                action.accessoryImage = R.image.exifGhostBAppIcon()
+                action.accessoryImage = R.image.ico_action_phonenumber()
 
                 alert.addAction(action)
 
@@ -384,7 +384,7 @@ extension FinderApp{
 
                     })
 
-                    action.accessoryImage = R.image.exifGhostBAppIcon()
+                    action.accessoryImage = R.image.ico_action_url()
 
                     alert.addAction(action)
                 }
@@ -456,7 +456,7 @@ extension FinderApp{
 
                 })
 
-                action.accessoryImage = R.image.exifGhostBAppIcon()
+                action.accessoryImage = R.image.ico_action_date()
 
                 alert.addAction(action)
             }
@@ -553,7 +553,7 @@ extension FinderApp{
 
                 })
 
-                action.accessoryImage = R.image.exifGhostBAppIcon()
+                action.accessoryImage = R.image.ico_action_email()
 
                 alert.addAction(action)
             }
@@ -654,7 +654,7 @@ extension FinderApp{
 
                 })
 
-                action.accessoryImage = R.image.exifGhostBAppIcon()
+                action.accessoryImage = R.image.ico_action_address()
 
                 alert.addAction(action)
             }// END OF AN ACTION
@@ -1009,6 +1009,7 @@ private struct ParserItem {
 
     fileprivate var key:Key
     fileprivate var label:String
+    fileprivate var iconImageBundleName:String?
 }
 
 private struct ParserDictionary {
@@ -1051,12 +1052,12 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
         ParserDictionary(key: ParserDictionary.Key.Information, label: "Information".localized,
                 items: [
-                    ParserItem(key: ParserItem.Key.PhoneNumber, label:"Phone Number".localized)
-                    ,ParserItem(key: ParserItem.Key.EmailAddress, label:"E-mail Address".localized)
-                    ,ParserItem(key: ParserItem.Key.Address, label:"Address".localized)
-                    ,ParserItem(key: ParserItem.Key.Date, label:"Date".localized)
-                    ,ParserItem(key: ParserItem.Key.URL, label:"URL")
-                    ,ParserItem(key: ParserItem.Key.FlightNumber, label:"Flight Number".localized)
+                    ParserItem(key: ParserItem.Key.PhoneNumber, label:"Phone Number".localized, iconImageBundleName:R.image.ico_action_phonenumber.name)
+                    ,ParserItem(key: ParserItem.Key.EmailAddress, label:"E-mail Address".localized, iconImageBundleName:R.image.ico_action_email.name)
+                    ,ParserItem(key: ParserItem.Key.Address, label:"Address".localized, iconImageBundleName:R.image.ico_action_address.name)
+                    ,ParserItem(key: ParserItem.Key.Date, label:"Date".localized, iconImageBundleName:R.image.ico_action_date.name)
+                    ,ParserItem(key: ParserItem.Key.URL, label:"URL", iconImageBundleName:R.image.ico_action_url.name)
+                    ,ParserItem(key: ParserItem.Key.FlightNumber, label:"Flight Number".localized, iconImageBundleName:R.image.ico_action_flightnumber.name)
                 ])
     ]
 
@@ -1335,11 +1336,12 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
             selected = true
         }
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: FinderApp.info.identifier) as! Cell
-        cell.textLabel?.text = dict.items[indexPath.item].label
-        cell.detailTextLabel?.text = selected ? "may be found" : nil
+        let dataItem = dict.items[indexPath.item]
 
-        cell.imageView?.image = R.image.ico_action_flightnumber()
+        let cell = tableView.dequeueReusableCell(withIdentifier: FinderApp.info.identifier) as! Cell
+        cell.textLabel?.text = dataItem.label
+        cell.detailTextLabel?.text = selected ? "may be found" : nil
+        cell.imageView?.image = dataItem.iconImageBundleName?.asUIImageNamed
         cell.detailTextLabel?.textColor = UIColor.gray
         cell.optionSwitch.setOn(selected, animated: false)
         cell.switchDidChange = { on in
