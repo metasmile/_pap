@@ -74,11 +74,10 @@ class AppUIAssetView: AssetView {
     }
     
     fileprivate var editState: StateValueSet<ImageEditStateValue>?
-    var originalImage: UIImage? {
-        return asset?.requestThumbnailImage(targetSize: size)
-    }
+    var originalImage: UIImage?
     var filteredImage: UIImage? {
         didSet {
+            isProcessing(false, animated: true)
             self.image = filteredImage ?? originalImage
         }
     }
@@ -124,6 +123,7 @@ class AppUIAssetView: AssetView {
     override func clearDrawing() {
         editState = nil
         
+//        originalImage = nil
         filteredImage = nil
         
         originalLivePhoto = nil

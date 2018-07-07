@@ -157,8 +157,21 @@ class PreviewView: CustomView {
     public func updatePreviews(animated: Bool = true, forced: Bool = false, completion: (() -> Void)? = nil) {
         setPreviewLayout(with: collectionViewHeightLayout.constant)
         
-        let reloadIndexPaths = collectionView.indexPathsForVisibleItems.filter { appAssetsSelected.at($0.item).editState.hasChanges || forced }
-        collectionView.reloadItems(at: reloadIndexPaths)
+        if let _ = AppCenter.default.currentInstanceAs(PreviewProcessableApp.self) {
+            let reloadIndexPaths = collectionView.indexPathsForVisibleItems.filter { appAssetsSelected.at($0.item).editState.hasChanges || forced }
+            collectionView.reloadItems(at: reloadIndexPaths)
+        }
+        else {
+            let visibleIndexPaths = collectionView.indexPathsForVisibleItems
+            for indexPath in visibleIndexPaths {
+                guard let cell = self.collectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else { continue }
+                
+                let appAsset = appAssetsSelected.at(indexPath.item)
+                if appAsset.editState.hasChanges || forced {
+                    cell.setImageEditItem(appAsset.editState, animated: true)
+                }
+            }
+        }
     }
     
     public func setPreviewLayout(with height: CGFloat) {
@@ -373,6 +386,13 @@ extension PreviewView {
 }
 
 public struct PreviewProcessingQueue {
+    fileprivate static var operationQueue: OperationQueue = {
+        let operationQueue = OperationQueue()
+        operationQueue.underlyingQueue = PreviewProcessingQueue.dispatchQueue
+        operationQueue.maxConcurrentOperationCount = 1
+        operationQueue.qualityOfService = .utility
+        return operationQueue
+    }()
     fileprivate static let dispatchQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
     
     //INFO: controlQueue must be higher than dispatchQueue for its priority
@@ -421,33 +441,40 @@ extension PreviewView {
         }
         
         let targetSize = CGSize(width: min(self.bounds.width, self.bounds.height), height: min(self.bounds.width, self.bounds.height))
-
-        let signal = AsyncSignal()
         
-        var performed = false
         func performNext() {
-            performed = true
-            PreviewProcessingQueue.dispatchQueue.async { [unowned self] in
-                guard let indexPath = PreviewProcessingQueue.indexPathQueue.dequeue() else {
-                    return
-                }
-                
-                if let item = AppAssets.selected.at(unsafeIndex:indexPath.item) {
-                    app.previewProcessing(item, targetSize: targetSize, completion: { (image) in
-                        if let image = image {
-                            PreviewProcessingQueue.cacheImage(image, targetSize: targetSize, with: item)
-                            
-                            DispatchQueue.main.async{
-                                self.collectionView.reloadItems(at: [indexPath])
-                            }
+            PreviewProcessingQueue.operationQueue.addOperation { [unowned self] in
+                PreviewProcessingQueue.dispatchQueue.async {
+                    autoreleasepool {
+                        guard let indexPath = PreviewProcessingQueue.indexPathQueue.dequeue() else {
+                            return
                         }
-                        performNext()
-                    })
-                }
-                
-                if PreviewProcessingQueue.canceled {
-                    PreviewProcessingQueue.indexPathQueue.dequeueAll()
-                    return
+                        
+                        if let item = AppAssets.selected.at(unsafeIndex:indexPath.item) {
+                            DispatchQueue.main.async{
+                                guard let cell = self.collectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else { return }
+                                cell.assetView.isProcessing = true
+                            }
+                            
+                            app.previewProcessing(item, targetSize: targetSize, completion: { (image) in
+                                if let image = image {
+                                    PreviewProcessingQueue.cacheImage(image, targetSize: targetSize, with: item)
+                                    
+                                    DispatchQueue.main.async{
+                                        guard let cell = self.collectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else { return }
+                                        cell.setEditItem(item, at: indexPath)
+                                        cell.assetView.filteredImage = image
+                                    }
+                                }
+                                performNext()
+                            })
+                        }
+                        
+                        if PreviewProcessingQueue.canceled {
+                            PreviewProcessingQueue.indexPathQueue.dequeueAll()
+                            return
+                        }
+                    }
                 }
             }
         }
@@ -480,19 +507,20 @@ extension PreviewView: UICollectionViewDataSource {
         if let _ = AppCenter.default.currentInstanceAs(PreviewProcessableApp.self) {
             let targetSize = CGSize(width: min(self.bounds.width, self.bounds.height), height: min(self.bounds.width, self.bounds.height))
             
+            cell.setEditItem(item, at: indexPath)
+            
             if let cached = PreviewProcessingQueue.cachedImage(item: item, targetSize: targetSize) {
-                cell.assetView.isProcessing(false, animated: true)
                 cell.assetView.filteredImage = cached
             }
             else {
                 cell.assetView.isProcessing = true
                 enqueuePreviewProcessing(at: indexPath)
-                
                 performPreviewProcessing()
             }
         }
         else {
-            cell.setEditItemForPreview(appAssetsSelected.at(indexPath.item), at: indexPath)
+            cell.assetView.isProcessing(false, animated: true)
+            cell.setEditItemForPreview(item, at: indexPath)
         }
         return cell
     }
