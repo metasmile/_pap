@@ -17,5 +17,5 @@ extension PreviewableApp {
 }
 
 public protocol PreviewProcessableApp: App {
-    func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((UIImage?) -> Void))
+    func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void))
 }

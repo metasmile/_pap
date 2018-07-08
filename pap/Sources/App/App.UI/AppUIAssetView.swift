@@ -77,7 +77,6 @@ class AppUIAssetView: AssetView {
     var originalImage: UIImage?
     var filteredImage: UIImage? {
         didSet {
-            isProcessing(false, animated: true)
             self.image = filteredImage ?? originalImage
         }
     }
@@ -123,7 +122,7 @@ class AppUIAssetView: AssetView {
     override func clearDrawing() {
         editState = nil
         
-//        originalImage = nil
+        originalImage = nil
         filteredImage = nil
         
         originalLivePhoto = nil

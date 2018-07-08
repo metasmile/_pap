@@ -168,6 +168,7 @@ class PreviewView: CustomView {
                 
                 let appAsset = appAssetsSelected.at(indexPath.item)
                 if appAsset.editState.hasChanges || forced {
+                    cell.setOriginalImage(with: appAsset)
                     cell.setImageEditItem(appAsset.editState, animated: true)
                 }
             }
@@ -454,16 +455,16 @@ extension PreviewView {
                             DispatchQueue.main.async{
                                 guard let cell = self.collectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else { return }
                                 cell.assetView.isProcessing = true
+                                cell.setOriginalImage(with: item)
                             }
                             
-                            app.previewProcessing(item, targetSize: targetSize, completion: { (image) in
-                                if let image = image {
+                            app.previewProcessing(item, targetSize: targetSize, completion: { (original, filtered) in
+                                if let image = filtered {
                                     PreviewProcessingQueue.cacheImage(image, targetSize: targetSize, with: item)
                                     
                                     DispatchQueue.main.async{
                                         guard let cell = self.collectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else { return }
-                                        cell.setEditItem(item, at: indexPath)
-                                        cell.assetView.filteredImage = image
+                                        cell.setFilteredImage(filtered, original: original, with: item)
                                     }
                                 }
                                 performNext()
@@ -507,20 +508,20 @@ extension PreviewView: UICollectionViewDataSource {
         if let _ = AppCenter.default.currentInstanceAs(PreviewProcessableApp.self) {
             let targetSize = CGSize(width: min(self.bounds.width, self.bounds.height), height: min(self.bounds.width, self.bounds.height))
             
-            cell.setEditItem(item, at: indexPath)
-            
             if let cached = PreviewProcessingQueue.cachedImage(item: item, targetSize: targetSize) {
-                cell.assetView.filteredImage = cached
+                cell.setFilteredImage(cached, with: item)
             }
             else {
                 cell.assetView.isProcessing = true
+                cell.setOriginalImage(with: item)
+                
                 enqueuePreviewProcessing(at: indexPath)
                 performPreviewProcessing()
             }
         }
         else {
-            cell.assetView.isProcessing(false, animated: true)
-            cell.setEditItemForPreview(item, at: indexPath)
+            cell.assetView.isProcessing = false
+            cell.setEditItemForPreview(item)
         }
         return cell
     }

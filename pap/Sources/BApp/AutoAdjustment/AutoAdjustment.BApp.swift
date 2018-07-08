@@ -89,9 +89,10 @@ public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableAp
         self.updateControllerView()
     }
     
-    public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((UIImage?) -> Void)) {
-        let image = appAsset.asset.requestThumbnailImage(targetSize: targetSize)?.applyFilter(ciFilter: appAsset.editState.ciFilter)
-        completion(image)
+    public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
+        let original = appAsset.asset.requestThumbnailImage(targetSize: targetSize)
+        let filtered = original?.applyFilter(ciFilter: appAsset.editState.ciFilter)
+        completion(original, filtered)
     }
 }
 
