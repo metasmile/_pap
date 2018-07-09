@@ -42,8 +42,8 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             return config
         }
         
-        PhotosFilterApp.configure = {
-            let config = PhotosFilterAppConfigValue()
+        FiltersApp.configure = {
+            let config = FiltersAppConfigValue()
             config.tintColor = .black
             return config
         }
@@ -54,7 +54,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             return config
         }
         
-        GIFMaker.configure = {
+        GIFMakerApp.configure = {
             let config = GIFMakerAppConfigValue()
             config.tintColor = .black
             return config
@@ -68,17 +68,17 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
         var defaultAppCollection:[App.Type] = [
             FinderApp.self
             , TransformApp.self
-            , PhotosFilterApp.self
+            , FiltersApp.self
             , RevertApp.self
-            , ConvertApp.self
-            , GIFMaker.self
-            , CallApp.self
-            , PDFactory.self
-            , AutoAdjustmentApp.self
-            , ExifGhost.self
+            , ConverterApp.self
+            , GIFMakerApp.self
+            , CallNumbersApp.self
+            , PDFactoryApp.self
+            , AutoEditorApp.self
+            , ExifGhostApp.self
 
             //phase: .develop | .beta - They will automatically exclude in Release build.
-            , Clean.self
+            , CleanerApp.self
             , Stabilizer.self
         ]
 

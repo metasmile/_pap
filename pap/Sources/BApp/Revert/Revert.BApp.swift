@@ -40,7 +40,7 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp
             , version: "1.0"
             , phase: .release
             , appType: RevertApp.self
-            , displayName: "Revert", description:nil, keywords:nil
+            , displayName: "Revert".localized, description:nil, keywords:nil
             , iconBundleName: R.image.revertBAppIcon.name
             , policy: AppPolicy.default
             , minOSVersion: nil

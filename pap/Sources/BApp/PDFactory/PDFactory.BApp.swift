@@ -9,17 +9,17 @@ import TPPDF
 import UIKit
 import DefaultsKit
 
-private struct PDFactoryPHAssetResult: AppTaskResultable {
+private struct PDFactoryAppPHAssetResult: AppTaskResultable {
     public var asset: PHAsset
     public var renderImageBoundSize: CGSize // maximum size of image + paper size
     public var renderImage: UIImage
     public var imageMetadata: [String: Any]?
 }
 
-public class PDFactory: BApp, FinalizableApp, PhotoPickerViewControllerDelegatableApp,
+public class PDFactoryApp: BApp, FinalizableApp, PhotoPickerViewControllerDelegatableApp,
         PhotoPickerCollectionViewDisplayableApp , AppDockApp {
 
-    public static let taskType: AppTaskable.Type = _PDFactoryTask.self
+    public static let taskType: AppTaskable.Type = _PDFactoryAppTask.self
 
     public static let paramType: AppTaskParamable.Type = AppAsset.self
 
@@ -27,7 +27,7 @@ public class PDFactory: BApp, FinalizableApp, PhotoPickerViewControllerDelegatab
             identifier: "com.stells.pap.pdfactory"
             , version: "1.0"
             , phase: .release
-            , appType: PDFactory.self
+            , appType: PDFactoryApp.self
             , displayName: "PDFactory", description:nil, keywords:nil
             , iconBundleName: R.image.pdFactoryBAppIcon.name
             , policy: AppPolicy.default
@@ -55,23 +55,23 @@ public class PDFactory: BApp, FinalizableApp, PhotoPickerViewControllerDelegatab
         return item.asset.mediaType == .image
     }
 
-    public lazy var dockContent: AppDockContent? = PDFactoryAppDockContent()
+    public lazy var dockContent: AppDockContent? = PDFactoryAppAppDockContent()
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
 
         let items = result
                 .filter { respondable in respondable.info.state == .completed }
-                .compactMap { $0.result as? PDFactoryPHAssetResult }
+                .compactMap { $0.result as? PDFactoryAppPHAssetResult }
 
         guard let rootViewController = UIViewController.root else{
             return result
         }
 
-        let defaults = PDFactory.defaults as! PDFactoryDefaults
+        let defaults = PDFactoryApp.defaults as! PDFactoryAppDefaults
 //        let imagesPerPage = defaults.imagesPerPage
 
         do {
-            let document = PDFDocument(layout: PDFactory.defaultsPDFLayout)
+            let document = PDFDocument(layout: PDFactoryApp.defaultsPDFLayout)
             let isLandspace = document.layout.size.width > document.layout.size.height
             let container = PDFContainer.contentCenter
 
@@ -86,7 +86,7 @@ public class PDFactory: BApp, FinalizableApp, PhotoPickerViewControllerDelegatab
 
                 //scale mode
                 var sizeFitMode = PDFImageSizeFit.widthHeight
-                let fillPageMode = defaults.scaleMode == PDFactorySettings.ScaleMode.fillPage.rawValue
+                let fillPageMode = defaults.scaleMode == PDFactoryAppSettings.ScaleMode.fillPage.rawValue
                 if fillPageMode{
                     let isImageLandspace = item.renderImage.size.width > item.renderImage.size.height
 
@@ -153,7 +153,7 @@ public class PDFactory: BApp, FinalizableApp, PhotoPickerViewControllerDelegatab
     }
 }
 
-private class _PDFactoryTask: AppTaskPrototype, AppTaskable {
+private class _PDFactoryAppTask: AppTaskPrototype, AppTaskable {
 
     private var _pdfImageRequestOptions: PHImageRequestOptions {
         let options = PHImageRequestOptions()
@@ -177,7 +177,7 @@ private class _PDFactoryTask: AppTaskPrototype, AppTaskable {
             var renderImage:UIImage?
 
             async.begin()
-            let imageMaxSize:CGSize = PDFactory.defaultsPDFLayout.size
+            let imageMaxSize:CGSize = PDFactoryApp.defaultsPDFLayout.size
             let imagePixelSize = imageMaxSize.applying(CGAffineTransform(scaleX: 2, y: 2))
             let imageRequestID = PHImageManager.default().requestImage(for: asset, targetSize: imagePixelSize, contentMode: .aspectFit, options: _pdfImageRequestOptions) { (image, info) in
                 renderImage = image
@@ -190,7 +190,7 @@ private class _PDFactoryTask: AppTaskPrototype, AppTaskable {
             //read metadata
             var imageMetadata: [String: Any]?
 
-            if (PDFactory.defaults as! PDFactoryDefaults).metadataCaption{
+            if (PDFactoryApp.defaults as! PDFactoryAppDefaults).metadataCaption{
                 async.begin()
 
                 let option = PHContentEditingInputRequestOptions()
@@ -211,7 +211,7 @@ private class _PDFactoryTask: AppTaskPrototype, AppTaskable {
             }
 
             if let image = renderImage{
-                return PDFactoryPHAssetResult(asset: asset, renderImageBoundSize: imagePixelSize, renderImage:image, imageMetadata:imageMetadata)
+                return PDFactoryAppPHAssetResult(asset: asset, renderImageBoundSize: imagePixelSize, renderImage:image, imageMetadata:imageMetadata)
             }
         }
         return nil

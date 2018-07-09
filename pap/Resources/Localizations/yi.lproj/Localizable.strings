@@ -142,11 +142,15 @@
 "Animation" = "Animation";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Aspect Ratio";
+/* Generated from genl10n: AutoEditor.BApp.swift#33 */
+"Auto Editor" = "אַוטאָ עדיטאָר";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "בורסט";
+/* Generated from genl10n: CallNumbers.swift#57 */
+"Call Numbers" = "Call Numbers";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "קענען נישט צוריקקומען. אַלע אויסגעקליבן זאכן האָבן נישט עדיטיד.";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Choose A Phone Number To Call" = "קלייַבן אַ פאָון נומער צו רופן";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "קלייַבן אַ קאַמף";
@@ -154,16 +158,18 @@
 "Choose An Export Option For %d Items" = "קלייַבן אַן עקספּאָרט אָפּציע פֿאַר %d זאכן";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "קלייַבן א סוב קאַמף.";
-/* Generated from genl10n: Convert.AppDockContent.swift */
+/* Generated from genl10n: Converter.AppDockContent.swift */
 "Choose an Option To Convert" = "קלייַבן אַן אָפּציע צו קאָנווערט";
-/* Generated from genl10n: Clean.BApp.swift#96 */
+/* Generated from genl10n: Cleaner.BApp.swift#96 */
 "Clean the selected items" = "ריין די אויסגעקליבן זאכן";
-/* Generated from genl10n: Clean.BApp.swift#66 */
-"Clean" = "ריין";
-/* Generated from genl10n: Clean.BApp.swift#62 */
+/* Generated from genl10n: Cleaner.BApp.swift#49 */
+"Cleaner" = "קלינער";
+/* Generated from genl10n: Cleaner.BApp.swift#62 */
 "Cleaning Photos..." = "רייניקונג פאָטאָס ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "קאָנטאַקטן";
+/* Generated from genl10n: Converter.BApp.swift#41 */
+"Converter" = "קאָנווערטער";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "Copy";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -186,17 +192,21 @@
 "Downloading..." = "Downloading ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "אימעיל אדרעס";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallNumbers.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "געבן אַוטאָ סעלעקציע";
-/* Generated from genl10n: Convert.AppDockContent.swift */
+/* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "אַרויספירן אָפּציעס";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "עקספּאָרט";
+/* Generated from genl10n: Filters.BApp.swift#72 */
+"Filters" = "פילטערס";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
 "Find As" = "געפינען ווי";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "געפֿינען";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift#40 */
+"Finder" = "מעסטער";
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Finding Contacts ... %@ " = "Finding Contacts ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "פלי נומער";
@@ -242,7 +252,7 @@
 "Open Google Maps" = "עפֿן Google Maps";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "עפענען וועב זייַט";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+/* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
 "Original" = "אָריגינעל";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Page Margin" = "Page Margin";
@@ -256,7 +266,7 @@
 "Plain Text" = "בלויזע טעקסט";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
-/* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
+/* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "קוואַליטי";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "שנעל אַקטיאָנס בלויז";
@@ -280,9 +290,9 @@
 "Search Flights" = "זוכן פלייץ";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "אויסקלייַבן פאָטאָס צו געפֿינען אַלץ.";
-/* Generated from genl10n: Clean.BApp.swift#316 */
+/* Generated from genl10n: Cleaner.BApp.swift#316 */
 "Select Photos You Want To Clean!" = "אויסקלייַבן פאָטאָס איר ווילן צו קלין!";
-/* Generated from genl10n: CallApp.BApp.swift */
+/* Generated from genl10n: CallNumbers.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "אויסקלייַבן פאָטאָס איר ווילן צו כאַפּן טעלעפאָנירן נומערן!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "שיקט אַ בליצפּאָסט";
@@ -292,7 +302,7 @@
 "Size" = "Size";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "עטלעכע קאָנטאַקטן זענען געהאלפן, אָבער עטלעכע סאָנעס זענען נישט.";
-/* Generated from genl10n: CallApp.BApp.swift#172, Finder.BApp.swift#824 */
+/* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "אנטשולדיגט נישט געפינען קיין אינפֿאָרמאַציע איר אויסגעקליבן.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
 "Sorry, it is not possible to save the contract." = "אנטשולדיגט, עס איז ניט מעגלעך צו ראַטעווען דעם אָפּמאַך.";
@@ -320,9 +330,9 @@
 "Translation" = "איבערזעצונג";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "ווידעא";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Waiting To Select ..." = "ווארטן צו אויסקלייַבן ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: CallApp.BApp.swift */
+/* Generated from genl10n: CallNumbers.swift */
 "🔍 Starting To Find ..." = "סטאַרטינג צו געפֿינען ...";

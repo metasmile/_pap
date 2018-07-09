@@ -186,8 +186,8 @@ struct GIFMakerSettings {
         }
         
         static func sizeWithAspectRatio() -> CGSize {
-            let size = (GIFMaker.defaults as! GIFMakerDefaults).size
-            let aspectRatio = (GIFMaker.defaults as! GIFMakerDefaults).aspectRatio
+            let size = (GIFMakerApp.defaults as! GIFMakerDefaults).size
+            let aspectRatio = (GIFMakerApp.defaults as! GIFMakerDefaults).aspectRatio
             if aspectRatio < 1 {
                 return CGSize(width: Int(size * aspectRatio), height: Int(size))
             }
@@ -238,7 +238,7 @@ public class GIFMakerAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttr
     }
 }
 
-public class GIFMaker: BApp,
+public class GIFMakerApp: BApp,
         ConfigurableApp, _ConfigurableApp
         , AppDockApp
         , FinalizableApp
@@ -254,14 +254,14 @@ public class GIFMaker: BApp,
     public static var configure:(() -> GIFMakerAppConfigValue)?
     
     @objc dynamic
-    public private(set) lazy var config: GIFMakerAppConfigValue? = GIFMaker.configure?()
+    public private(set) lazy var config: GIFMakerAppConfigValue? = GIFMakerApp.configure?()
     public private(set) lazy var dockContent: AppDockContent? = GIFMakerAppDockContent()
     
     public static let info = AppInfo(
         identifier: "com.stells.pap.gifmaker"
         , version: "1.0"
         , phase: .release
-        , appType: GIFMaker.self
+        , appType: GIFMakerApp.self
         , displayName: "GIF Maker".localized, description:nil, keywords:nil
         , iconBundleName: R.image.gifMakerBAppIcon.name
         , policy: AppPolicy.default
@@ -283,7 +283,7 @@ public class GIFMaker: BApp,
     }
 
     public var numberOfItemsShouldSelect: Int? {
-        switch GIFMakerSettings.sourceType.type(rawValue: (GIFMaker.defaults as! GIFMakerDefaults).sourceType) {
+        switch GIFMakerSettings.sourceType.type(rawValue: (GIFMakerApp.defaults as! GIFMakerDefaults).sourceType) {
         case .photo?: return Int.max
         case .burst?: return Int.max
         case .livePhoto?: return Int.max
@@ -301,10 +301,10 @@ public class GIFMaker: BApp,
             .compactMap { ($0.result as? GIFMakerPHAssetResult) }
             .sorted { ($0.orderedIndex ?? 0) < ($1.orderedIndex ?? 0) }
 
-        let defaults =  (GIFMaker.defaults as! GIFMakerDefaults)
+        let defaults =  (GIFMakerApp.defaults as! GIFMakerDefaults)
         var results = [URL]()
 
-        switch GIFMakerSettings.sourceType.type(rawValue: (GIFMaker.defaults as! GIFMakerDefaults).sourceType) {
+        switch GIFMakerSettings.sourceType.type(rawValue: (GIFMakerApp.defaults as! GIFMakerDefaults).sourceType) {
         case .photo?:
             let urls = resultItems.compactMap({ $0.fileURL })
 
@@ -337,9 +337,9 @@ private class _GIFMakerAppTask: AppTaskPrototype, AppTaskable {
     private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable) throws -> GIFMakerPHAssetResult?  {
         var result: GIFMakerPHAssetResult?
         
-        let defaults = (GIFMaker.defaults as! GIFMakerDefaults)
+        let defaults = (GIFMakerApp.defaults as! GIFMakerDefaults)
         
-        switch GIFMakerSettings.sourceType.type(rawValue: (GIFMaker.defaults as! GIFMakerDefaults).sourceType) {
+        switch GIFMakerSettings.sourceType.type(rawValue: (GIFMakerApp.defaults as! GIFMakerDefaults).sourceType) {
         case .photo?:
             let targetSize = GIFMakerSettings.size.sizeWithAspectRatio()
             let contentMode = PHImageContentMode(rawValue: defaults.contentMode) ?? PHImageContentMode.aspectFit
@@ -387,7 +387,7 @@ private enum Cells {
 class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDockDelegate,
         UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate {
 
-    private var defaults = GIFMaker.defaults as! GIFMakerDefaults
+    private var defaults = GIFMakerApp.defaults as! GIFMakerDefaults
     
     lazy var view: UIView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -444,7 +444,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             if let index = $0 as? Int {
                 let key = GIFMakerSettings.sourceType.key(with: GIFMakerSettings.sourceType.orderedLabels[index] ?? "")
                 self.defaults.sourceType = key
-                AppCenter.default.currentInstanceAs(GIFMaker.self)?.config?.sourceType = key
+                AppCenter.default.currentInstanceAs(GIFMakerApp.self)?.config?.sourceType = key
             }
         }
         cellDescribers.append(sourceTypeCell)

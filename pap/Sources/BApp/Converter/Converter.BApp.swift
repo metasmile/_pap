@@ -10,12 +10,12 @@ import UIKit
 import MobileCoreServices
 import Photos
 
-public class ConvertAppConfigValue: NSObject, KeyPathWatchable, AppConfigValuable {
+public class ConverterAppConfigValue: NSObject, KeyPathWatchable, AppConfigValuable {
     @objc dynamic
-    public var convertingDirectionIdentifier:String = ConvertApp.defaultConverter.direction.identifier
+    public var convertingDirectionIdentifier:String = ConverterApp.defaultConverter.direction.identifier
 }
 
-public class ConvertApp: BApp,
+public class ConverterApp: BApp,
         AppDockApp,
         ConfigurableApp, _ConfigurableApp,
         FinalizableApp,
@@ -23,29 +23,29 @@ public class ConvertApp: BApp,
         PhotoPickerCollectionViewDisplayableApp,
         PhotoPickerViewControllerDelegatableApp {
 
-    public static let taskType: AppTaskable.Type = ConvertAppTask.self
+    public static let taskType: AppTaskable.Type = ConverterAppTask.self
     public static let paramType: AppTaskParamable.Type = AppAsset.self
 
-    public static var configure:(() -> ConvertAppConfigValue)?
+    public static var configure:(() -> ConverterAppConfigValue)?
 
     @objc dynamic
-    public private(set) lazy var config: ConvertAppConfigValue? = ConvertAppConfigValue()
+    public private(set) lazy var config: ConverterAppConfigValue? = ConverterAppConfigValue()
 
     public private(set) var dockContent: AppDockContent?
 
     public static let info = AppInfo(
-            identifier: "com.stells.pap.convert"
+            identifier: "com.stells.pap.converter"
             , version: "1.0"
             , phase: .release
-            , appType: ConvertApp.self
-            , displayName: "Convert", description:nil, keywords:nil
-            , iconBundleName: R.image.convertBAppIcon.name
+            , appType: ConverterApp.self
+            , displayName: "Converter".localized, description:nil, keywords:nil
+            , iconBundleName: R.image.converterBAppIcon.name
             , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
             , minOSVersion: nil
     )
 
     required public init() {
-        dockContent = ConvertAppDockContent(app:self)
+        dockContent = ConverterAppDockContent(app:self)
     }
 
     public var doneButtonTitle: String? {
@@ -67,8 +67,8 @@ public class ConvertApp: BApp,
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
         let resultItems:[Any]? = result
                 .filter { respondable in respondable.info.state == .completed }
-                .compactMap{ $0.result as? ConvertAppResult }
-                .sorted { (result1: ConvertAppResult?, result2: ConvertAppResult?) -> Bool in
+                .compactMap{ $0.result as? ConverterAppResult }
+                .sorted { (result1: ConverterAppResult?, result2: ConverterAppResult?) -> Bool in
                     (result1?.orderedIndex ?? 0) < (result2?.orderedIndex ?? 0)
                 }
                 .compactMap { ($0.result as? ConverterVoidReturnType) == ConverterVoidReturnValue ? nil : $0.result }
@@ -84,13 +84,13 @@ public class ConvertApp: BApp,
 }
 
 
-extension ConvertApp{
-    var defaults:ConvertAppDefaults{
-        return ConvertApp.defaults as! ConvertAppDefaults
+extension ConverterApp{
+    var defaults:ConverterAppDefaults{
+        return ConverterApp.defaults as! ConverterAppDefaults
     }
 
     var currentConverter:Converter.Type?{
-        return ConvertApp.availableConverters.first { converterType in
+        return ConverterApp.availableConverters.first { converterType in
             return converterType.direction==defaults.convertingDirection
         }
     }
@@ -116,7 +116,7 @@ extension ConvertApp{
     ]
 
     static var availableDirections:[ConvertingDirection] {
-        return ConvertApp.availableConverters.map { converterType -> ConvertingDirection in
+        return ConverterApp.availableConverters.map { converterType -> ConvertingDirection in
             return converterType.direction
         }
     }
@@ -157,16 +157,16 @@ extension ConvertApp{
 }
 
 
-private struct ConvertAppResult: AppTaskResultable {
+private struct ConverterAppResult: AppTaskResultable {
     var result:Any?
     var orderedIndex: Int?
 }
 
-private class ConvertAppTask: AppTaskPrototype, AppTaskable {
+private class ConverterAppTask: AppTaskPrototype, AppTaskable {
     public typealias ParamType = AppAsset
-    public typealias ResultType = ConvertAppResult
+    public typealias ResultType = ConverterAppResult
 
-    let defaults = ConvertApp.defaults as! ConvertAppDefaults
+    let defaults = ConverterApp.defaults as! ConverterAppDefaults
 
     override var info: AppTaskInfo {
         let info = super.info
@@ -174,7 +174,7 @@ private class ConvertAppTask: AppTaskPrototype, AppTaskable {
         //default is undefined.
         info.policy.estimatedConcurrencyCount = nil
 
-        if let currentConverterType = ConvertApp.availableConverters.first(where:{
+        if let currentConverterType = ConverterApp.availableConverters.first(where:{
             $0.direction == defaults.convertingDirection
         }) {
 
@@ -198,9 +198,9 @@ private class ConvertAppTask: AppTaskPrototype, AppTaskable {
         return try _perform(appAsset, async)
     }
 
-    private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable) throws -> ConvertAppResult?  {
+    private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable) throws -> ConverterAppResult?  {
         let direction = defaults.convertingDirection
-        let needsConverter = ConverterSpec.acquireInstance(collection: ConvertApp.availableConverters, direction: direction, asset: assetItem)
+        let needsConverter = ConverterSpec.acquireInstance(collection: ConverterApp.availableConverters, direction: direction, asset: assetItem)
 
         guard let converter = needsConverter else {
             throw AppTaskError.rejectedParam
@@ -225,6 +225,6 @@ private class ConvertAppTask: AppTaskPrototype, AppTaskable {
         }, async)
         let index = AppAssets.selected.index(of: assetItem)
 
-        return ConvertAppResult(result: result, orderedIndex: index)
+        return ConverterAppResult(result: result, orderedIndex: index)
     }
 }

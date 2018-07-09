@@ -71,7 +71,7 @@ public class Stabilizer: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, Phot
             , version: "0.1"
             , phase: .develop
             , appType: Stabilizer.self
-            , displayName: "Stabilizer", description:nil, keywords:nil
+            , displayName: "Stabilizer".localized, description:nil, keywords:nil
             , iconBundleName: nil
             , policy: AppPolicy.default
             , minOSVersion: nil

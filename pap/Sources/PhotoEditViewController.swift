@@ -127,13 +127,13 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
                 }
             }
             
-            appCenter.currentInstanceAs(PhotosFilterApp.self)?.config?.watch(\.filter, id:"editor\(PhotosFilterApp.info.identifier)") { (config, changed) in
+            appCenter.currentInstanceAs(FiltersApp.self)?.config?.watch(\.filter, id:"editor\(FiltersApp.info.identifier)") { (config, changed) in
                 if let value = config.filter {
                     self.setAppValue(value)
                 }
             }
             
-            appCenter.currentInstanceAs(AutoAdjustmentApp.self)?.config?.watch(\.filter, id:"editor\(AutoAdjustmentApp.info.identifier)") { (config, changed) in
+            appCenter.currentInstanceAs(AutoEditorApp.self)?.config?.watch(\.filter, id:"editor\(AutoEditorApp.info.identifier)") { (config, changed) in
                 if let value = config.filter {
                     self.setAppValue(value)
                 }
@@ -152,8 +152,8 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     
     override func unregisterWatchingAppConfig() {
         AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.unwatch(\.transform, forIds:["editor\(TransformApp.info.identifier)"])
-        AppCenter.default.currentInstanceAs(PhotosFilterApp.self)?.config?.unwatch(\.filter, forIds:["editor\(PhotosFilterApp.info.identifier)"])
-        AppCenter.default.currentInstanceAs(AutoAdjustmentApp.self)?.config?.unwatch(\.filter, forIds:["editor\(AutoAdjustmentApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(FiltersApp.self)?.config?.unwatch(\.filter, forIds:["editor\(FiltersApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(AutoEditorApp.self)?.config?.unwatch(\.filter, forIds:["editor\(AutoEditorApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(Stabilizer.self)?.config?.unwatch(\.stabilizationMode, forIds:["editor\(Stabilizer.info.identifier)"])
         AppCenter.default.unwatch(\.currentIdentifier, forIds:["editor"])
     }

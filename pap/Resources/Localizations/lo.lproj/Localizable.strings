@@ -142,11 +142,15 @@
 "Animation" = "Animation";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Aspect Ratio";
+/* Generated from genl10n: AutoEditor.BApp.swift#33 */
+"Auto Editor" = "Auto Editor";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
+/* Generated from genl10n: CallNumbers.swift#57 */
+"Call Numbers" = "ໂທຫາຕົວເລກ";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "ບໍ່ສາມາດກັບຄືນໄດ້. ລາຍການທີ່ເລືອກທັງຫມົດບໍ່ໄດ້ຖືກດັດແກ້.";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Choose A Phone Number To Call" = "ເລືອກຫມາຍເລກໂທລະສັບເພື່ອໂທ";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "ເລືອກປະຕິບັດງານ";
@@ -154,16 +158,18 @@
 "Choose An Export Option For %d Items" = "Choose An Export Option For %d Items";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "ເລືອກເອົາການປະຕິບັດຕົວຢ່າງຫນຶ່ງ.";
-/* Generated from genl10n: Convert.AppDockContent.swift */
+/* Generated from genl10n: Converter.AppDockContent.swift */
 "Choose an Option To Convert" = "ເລືອກເອົາທາງເລືອກເພື່ອແປງ";
-/* Generated from genl10n: Clean.BApp.swift#96 */
+/* Generated from genl10n: Cleaner.BApp.swift#96 */
 "Clean the selected items" = "ເຮັດຄວາມສະອາດລາຍການທີ່ເລືອກ";
-/* Generated from genl10n: Clean.BApp.swift#66 */
-"Clean" = "ຄວາມສະອາດ";
-/* Generated from genl10n: Clean.BApp.swift#62 */
+/* Generated from genl10n: Cleaner.BApp.swift#49 */
+"Cleaner" = "ຄວາມສະອາດ";
+/* Generated from genl10n: Cleaner.BApp.swift#62 */
 "Cleaning Photos..." = "ທໍາຄວາມສະອາດຮູບພາບ ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "ຕິດຕໍ່ພົວພັນ";
+/* Generated from genl10n: Converter.BApp.swift#41 */
+"Converter" = "ການປ່ຽນແປງ";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "ຄັດລອກ";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -186,17 +192,21 @@
 "Downloading..." = "ດາວໂຫລດ ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "ທີ່​ຢູ່​ອີ​ເມວ";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallNumbers.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "ເປີດຕົວເລືອກອັດຕະໂນມັດ";
-/* Generated from genl10n: Convert.AppDockContent.swift */
+/* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Export Options";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "ສົ່ງອອກ";
+/* Generated from genl10n: Filters.BApp.swift#72 */
+"Filters" = "ການກັ່ນຕອງ";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
 "Find As" = "ຊອກເອເປັນ";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "ຊອກຫາ";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift#40 */
+"Finder" = "Finder";
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Finding Contacts ... %@ " = "Finding Contacts ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "ຈໍານວນທ່ຽວບິນ";
@@ -242,7 +252,7 @@
 "Open Google Maps" = "ເປີດ Google Maps";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "ເປີດຫນ້າເວັບ";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+/* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
 "Original" = "ຕົ້ນສະບັບ";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Page Margin" = "Page Margin";
@@ -256,7 +266,7 @@
 "Plain Text" = "ຂໍ້ຄວາມທົ່ງພຽງ";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
-/* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
+/* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "ຄຸນະພາບ";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "ການກະທໍາດ່ວນເທົ່ານັ້ນ";
@@ -280,9 +290,9 @@
 "Search Flights" = "ຄົ້ນຫາທ່ຽວບິນ";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "ເລືອກຮູບພາບເພື່ອຊອກທຸກສິ່ງທຸກຢ່າງ.";
-/* Generated from genl10n: Clean.BApp.swift#316 */
+/* Generated from genl10n: Cleaner.BApp.swift#316 */
 "Select Photos You Want To Clean!" = "ເລືອກຮູບພາບທີ່ທ່ານຕ້ອງການຄວາມສະອາດ!";
-/* Generated from genl10n: CallApp.BApp.swift */
+/* Generated from genl10n: CallNumbers.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "ເລືອກຮູບພາບທີ່ທ່ານຕ້ອງການທີ່ຈະຈັບຕົວເລກໂທລະສັບ!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "ສົ່ງອີເມວ";
@@ -292,7 +302,7 @@
 "Size" = "ຂະຫນາດ";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "ບາງຄົນຕິດຕໍ່ພົວພັນໄດ້ຖືກບັນທືກ, ແຕ່ບາງຄົນບໍ່ໄດ້.";
-/* Generated from genl10n: CallApp.BApp.swift#172, Finder.BApp.swift#824 */
+/* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "ຂໍອະໄພບໍ່ພົບຂໍ້ມູນໃດໆທີ່ທ່ານເລືອກ.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
 "Sorry, it is not possible to save the contract." = "ຂໍອະໄພ, ມັນບໍ່ເປັນໄປໄດ້ທີ່ຈະຊ່ວຍປະຢັດສັນຍາ.";
@@ -320,9 +330,9 @@
 "Translation" = "ການແປພາສາ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "ວິດີໂອ";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Waiting To Select ..." = "ລໍຖ້າເພື່ອເລືອກ ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: CallApp.BApp.swift */
+/* Generated from genl10n: CallNumbers.swift */
 "🔍 Starting To Find ..." = "ເລີ່ມຄົ້ນຫາ";

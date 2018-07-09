@@ -21,7 +21,7 @@ private class MetaDataLoader {
 }
 
 
-class ExifGhostAppTests: PHAssetsXCTestCase {
+class ExifGhostAppAppTests: PHAssetsXCTestCase {
 
     override func setUp() {
         super.setUp()

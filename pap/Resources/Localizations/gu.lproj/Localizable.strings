@@ -142,11 +142,15 @@
 "Animation" = "એનિમેશન";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "પાસા ગુણોત્તર";
+/* Generated from genl10n: AutoEditor.BApp.swift#33 */
+"Auto Editor" = "સ્વતઃ સંપાદક";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "વિસ્ફોટ";
+/* Generated from genl10n: CallNumbers.swift#57 */
+"Call Numbers" = "કૉલ નંબર્સ";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "પાછા ફરવા નહીં બધી પસંદ કરેલી આઇટમ્સ સંપાદિત નથી.";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Choose A Phone Number To Call" = "કૉલ કરવા માટે ફોન નંબર પસંદ કરો";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "ઍક્શન પસંદ કરો";
@@ -154,16 +158,18 @@
 "Choose An Export Option For %d Items" = "%d આઇટમ્સ માટે એક નિકાસ વિકલ્પ પસંદ કરો";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "સબ એક્શન પસંદ કરો";
-/* Generated from genl10n: Convert.AppDockContent.swift */
+/* Generated from genl10n: Converter.AppDockContent.swift */
 "Choose an Option To Convert" = "કન્વર્ટ કરવા માટે એક વિકલ્પ પસંદ કરો";
-/* Generated from genl10n: Clean.BApp.swift#96 */
+/* Generated from genl10n: Cleaner.BApp.swift#96 */
 "Clean the selected items" = "પસંદ કરેલ વસ્તુઓને સાફ કરો";
-/* Generated from genl10n: Clean.BApp.swift#66 */
-"Clean" = "સ્વચ્છ";
-/* Generated from genl10n: Clean.BApp.swift#62 */
+/* Generated from genl10n: Cleaner.BApp.swift#49 */
+"Cleaner" = "ક્લીનર";
+/* Generated from genl10n: Cleaner.BApp.swift#62 */
 "Cleaning Photos..." = "ફોટા સફાઇ ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "સંપર્કો";
+/* Generated from genl10n: Converter.BApp.swift#41 */
+"Converter" = "પરિવર્તક";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "નકલ કરો";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -186,17 +192,21 @@
 "Downloading..." = "ડાઉનલોડ કરી રહ્યું છે ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "ઈ - મેઈલ સરનામું";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallNumbers.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "સ્વતઃ પસંદગી સક્ષમ કરો";
-/* Generated from genl10n: Convert.AppDockContent.swift */
+/* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "નિકાસ વિકલ્પો";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "નિકાસ";
+/* Generated from genl10n: Filters.BApp.swift#72 */
+"Filters" = "ફિલ્ટર્સ";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
 "Find As" = "તરીકે શોધો";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "શોધવા";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift#40 */
+"Finder" = "ફાઇન્ડર";
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Finding Contacts ... %@ " = "સંપર્કો શોધી રહ્યાં છે ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "ઉડાન સંખ્યા";
@@ -242,7 +252,7 @@
 "Open Google Maps" = "Google નકશા ખોલો";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "વેબ પૃષ્ઠ ખોલો";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+/* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
 "Original" = "મૂળ";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Page Margin" = "પૃષ્ઠ માર્જિન";
@@ -256,7 +266,7 @@
 "Plain Text" = "સાદો ટેક્સ્ટ";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "પ્રીસેટ્સ";
-/* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
+/* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "જાત";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "ઝડપી ક્રિયાઓ માત્ર";
@@ -280,9 +290,9 @@
 "Search Flights" = "ફ્લાઇટ્સ શોધો";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "બધું શોધવા માટે ફોટાઓ પસંદ કરો";
-/* Generated from genl10n: Clean.BApp.swift#316 */
+/* Generated from genl10n: Cleaner.BApp.swift#316 */
 "Select Photos You Want To Clean!" = "તમે સાફ કરવા માંગો છો તે ફોટા પસંદ કરો!";
-/* Generated from genl10n: CallApp.BApp.swift */
+/* Generated from genl10n: CallNumbers.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "તમે ફોન નંબરો પડાવી લેવું કરવા માંગો છો તે ફોટા પસંદ કરો!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "ઈ - મેઇલ મોકલ";
@@ -292,7 +302,7 @@
 "Size" = "કદ";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "કેટલાક સંપર્કો સાચવવામાં આવ્યા, પરંતુ કોઈની ન હતી.";
-/* Generated from genl10n: CallApp.BApp.swift#172, Finder.BApp.swift#824 */
+/* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "માફ કરશો તમે પસંદ કરેલી કોઈપણ માહિતી મળી નથી.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
 "Sorry, it is not possible to save the contract." = "માફ કરશો, કરાર સાચવવાનું શક્ય નથી.";
@@ -320,9 +330,9 @@
 "Translation" = "અનુવાદ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "વિડિઓ";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Waiting To Select ..." = "પસંદ કરવા માટે રાહ જુએ છે ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "વાર્પ";
-/* Generated from genl10n: CallApp.BApp.swift */
+/* Generated from genl10n: CallNumbers.swift */
 "🔍 Starting To Find ..." = "શોધો શરૂ કરી રહ્યા છીએ ...";

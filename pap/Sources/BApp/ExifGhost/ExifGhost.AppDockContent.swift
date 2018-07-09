@@ -29,13 +29,13 @@ private struct SettingsItem {
     fileprivate var iconImageName:String?
 }
 
-private protocol ExifGhostAppDefaults: AppDefaults{
+private protocol ExifGhostAppAppDefaults: AppDefaults{
     var ghostedImageMetadataCollection: ImageMetadataPropertyCollection {get set}
     var selectionPreset: Int {get set}
     var removeOriginal: Bool {get set}
 }
 
-extension Defaults: ExifGhostAppDefaults {
+extension Defaults: ExifGhostAppAppDefaults {
     fileprivate var ghostedImageMetadataCollection: ImageMetadataPropertyCollection {
         set{ set(newValue) }
         get{ return get(or: ImageMetadata.Collection.DefaultSensitivity) }
@@ -53,7 +53,7 @@ extension Defaults: ExifGhostAppDefaults {
 }
 
 
-extension ExifGhostAppDefaults{
+extension ExifGhostAppAppDefaults{
     fileprivate func addHandledProperty(_ dictionary:String, _ property:String){
         guard ImageMetadata.PropertyApple.supportedDictionaries.contains(dictionary) else{
             assert(false, "\(dictionary) is not supported dictionary")
@@ -101,7 +101,7 @@ private struct MetadataDictionary{
     fileprivate var items:[MetadataItem]
 }
 
-class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
+class ExifGhostAppAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
     fileprivate var cellDescribers = [UITableViewCellDefaultDescribable]()
 
     private var metadataCollection:[MetadataDictionary] = [
@@ -149,7 +149,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
     private var autoSelect:Bool = false
 
-    fileprivate var defaults:ExifGhostAppDefaults = ExifGhost.defaults as! ExifGhostAppDefaults
+    fileprivate var defaults:ExifGhostAppAppDefaults = ExifGhostApp.defaults as! ExifGhostAppAppDefaults
 
     func willSetContentView(_ view: UIView, dock: AppDock) {
 
@@ -163,7 +163,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         cell1.valueGetter = { self.autoSelect }
         cell1.valueHandler = {
             self.autoSelect = $0 as! Bool
-            AppCenter.default.currentInstanceAs(ExifGhost.self)?.autoSelect = self.autoSelect
+            AppCenter.default.currentInstanceAs(ExifGhostApp.self)?.autoSelect = self.autoSelect
         }
         cellDescribers.append(cell1)
 
@@ -215,7 +215,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
             tableView.rowHeight = 44
             tableView.allowsSelection = false
             tableView.allowsMultipleSelection = false
-            tableView.register(Cell.self, forCellReuseIdentifier: ExifGhost.info.identifier)
+            tableView.register(Cell.self, forCellReuseIdentifier: ExifGhostApp.info.identifier)
 
             for desc in cellDescribers {
                 tableView.register(describer: desc)
@@ -404,7 +404,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
             selected = true
         }
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: ExifGhost.info.identifier) as! Cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ExifGhostApp.info.identifier) as! Cell
         cell.textLabel?.text = dict.items[indexPath.item].label
         cell.detailTextLabel?.text = selected ? "will be hidden" : nil
 //        cell.imageView?.image = selected ? R.image.pdFactoryAppIcon() : nil //selected ? UIImageView(image: R.image.pdFactoryAppIcon()) : nil

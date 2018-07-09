@@ -1042,6 +1042,7 @@ internal class AppDockViewCell: CustomCollectionViewCell {
 
     func setAppInfo(_ app: App.Type, at indexPath: IndexPath) {
         iconImage = app.info.iconBundleName?.asUIImage
+        appTitleLabel.adjustsFontSizeToFitWidth = true
         appTitleLabel.text = app.info.displayName.localized
 
         var status = AppDockViewCell.persistedStatusDict[app.info.identifier]

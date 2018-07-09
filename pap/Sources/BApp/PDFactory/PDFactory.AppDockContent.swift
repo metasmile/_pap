@@ -18,10 +18,10 @@ private enum Cells {
     case margin
 }
 
-class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
+class PDFactoryAppAppDockContent: NSObject, AppDockContent, AppDockDelegate
         , UITableViewDelegate, UITableViewDataSource {
 
-    fileprivate var defaults = PDFactory.defaults as! PDFactoryDefaults
+    fileprivate var defaults = PDFactoryApp.defaults as! PDFactoryAppDefaults
 
     fileprivate var cellDescribers = [UITableViewCellDefaultDescribable]()
 
@@ -90,7 +90,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
         cell0.itemIdentifier = Cells.sizePreset.hashValue
         cell0.label = "Page Size Preset".localized
         cell0.valueGetter = { self.defaults.sizePreset }
-        cell0.valueCollection = Array(PDFactorySettings.SizePresets.keys)
+        cell0.valueCollection = Array(PDFactoryAppSettings.SizePresets.keys)
         cell0.valueHandler = {
             print($0)
             if let preset = $0 as? String{
@@ -137,9 +137,9 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
         cell4.itemIdentifier = Cells.scaleMode.hashValue
         cell4.label = "Scale To Fit".localized
         cell4.valueGetter = { self.defaults.scaleMode }
-        cell4.valueCollection = PDFactorySettings.ScaleMode.Labels
+        cell4.valueCollection = PDFactoryAppSettings.ScaleMode.Labels
         cell4.valueHandler = {
-            self.defaults.scaleMode = Array(PDFactorySettings.ScaleMode.Labels.values)[$0 as? Int ?? 0]
+            self.defaults.scaleMode = Array(PDFactoryAppSettings.ScaleMode.Labels.values)[$0 as? Int ?? 0]
 
             if let index = (self.cellDescribers.index { item in item.itemIdentifier == Cells.margin.hashValue }) {
                 (self.view as? UITableView)?.reloadRows(at: [IndexPath(row: index, section: 0)], with: UITableViewRowAnimation.automatic)
@@ -235,7 +235,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
             cell.stepper.value = Double(value)
 
             // margin
-            if item.itemIdentifier == Cells.margin.hashValue && defaults.scaleMode == PDFactorySettings.ScaleMode.fillPage.rawValue{
+            if item.itemIdentifier == Cells.margin.hashValue && defaults.scaleMode == PDFactoryAppSettings.ScaleMode.fillPage.rawValue{
                 cell.textLabel?.isEnabled = false
                 cell.detailTextLabel?.isEnabled = false
                 cell.stepper.isEnabled = false
@@ -270,7 +270,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
                 values.append(k)
             }
 
-            cell.segmentedControl.selectedSegmentIndex = values.map{ $0.1 }.index(of: item.valueGetter() as? Int ?? PDFactorySettings.ScaleMode.fitPage.rawValue) ?? 0
+            cell.segmentedControl.selectedSegmentIndex = values.map{ $0.1 }.index(of: item.valueGetter() as? Int ?? PDFactoryAppSettings.ScaleMode.fitPage.rawValue) ?? 0
             cell.didChangeValue = item.valueHandler
             return cell
         }

@@ -142,11 +142,15 @@
 "Animation" = "Animation";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Чадлын харьцаа";
+/* Generated from genl10n: AutoEditor.BApp.swift#33 */
+"Auto Editor" = "Авто редактор";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Битт";
+/* Generated from genl10n: CallNumbers.swift#57 */
+"Call Numbers" = "Дуудлага хийх тоо";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Буцааж чадахгүй байна. Бүх сонгосон зүйлсийг засварлахгүй байна.";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Choose A Phone Number To Call" = "Дуудлага хийх утасны дугаарыг сонгоно уу";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Үйлдлийг сонгоно уу";
@@ -154,16 +158,18 @@
 "Choose An Export Option For %d Items" = "%d Зүйлүүдийн хувьд экспортын сонголтыг сонгоно уу";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Дэд үйл ажиллагааг сонгох.";
-/* Generated from genl10n: Convert.AppDockContent.swift */
+/* Generated from genl10n: Converter.AppDockContent.swift */
 "Choose an Option To Convert" = "Өөрчлөх сонголтыг сонгоно уу";
-/* Generated from genl10n: Clean.BApp.swift#96 */
+/* Generated from genl10n: Cleaner.BApp.swift#96 */
 "Clean the selected items" = "Сонгогдсон зүйлсийг цэвэрлэ";
-/* Generated from genl10n: Clean.BApp.swift#66 */
-"Clean" = "Цэвэр";
-/* Generated from genl10n: Clean.BApp.swift#62 */
+/* Generated from genl10n: Cleaner.BApp.swift#49 */
+"Cleaner" = "Цэвэр";
+/* Generated from genl10n: Cleaner.BApp.swift#62 */
 "Cleaning Photos..." = "Зураг цэвэрлэх ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Харилцагчид";
+/* Generated from genl10n: Converter.BApp.swift#41 */
+"Converter" = "Хөрвүүлэгч";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "Хуулах";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -186,17 +192,21 @@
 "Downloading..." = "Татаж авах ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Имэйл хаяг";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallNumbers.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Авто сонголтыг идэвхжүүлэх";
-/* Generated from genl10n: Convert.AppDockContent.swift */
+/* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Экспортын сонголтууд";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Экспорт";
+/* Generated from genl10n: Filters.BApp.swift#72 */
+"Filters" = "Шүүлтүүр";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
 "Find As" = "Очихоор нь хай";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "Хайх";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift#40 */
+"Finder" = "Finder";
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Finding Contacts ... %@ " = "Холбоо хайх ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Нислэгийн дугаар";
@@ -242,7 +252,7 @@
 "Open Google Maps" = "Google Газрын зураг нээх";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "Вэб хуудас нээх";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+/* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
 "Original" = "Эх";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Page Margin" = "Хуудасны маржин";
@@ -256,7 +266,7 @@
 "Plain Text" = "Энгийн текст";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
-/* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
+/* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Чанар";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "Зөвхөн түргэн арга хэмжээ";
@@ -280,9 +290,9 @@
 "Search Flights" = "Хайлт";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Бүгдийг олохын тулд Зураг сонго.";
-/* Generated from genl10n: Clean.BApp.swift#316 */
+/* Generated from genl10n: Cleaner.BApp.swift#316 */
 "Select Photos You Want To Clean!" = "Цэвэрлэхийг хүсч буй зургаа сонго!";
-/* Generated from genl10n: CallApp.BApp.swift */
+/* Generated from genl10n: CallNumbers.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Утасны дугаарыг татаж авахыг хүсч буй зургаа сонго!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Имэйл илгээх";
@@ -292,7 +302,7 @@
 "Size" = "Хэмжээ";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Зарим харилцагчид хадгалагдсан боловч зарим нь тийм биш байсан.";
-/* Generated from genl10n: CallApp.BApp.swift#172, Finder.BApp.swift#824 */
+/* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "Уучлаарай, таны сонгосон мэдээлэл олдсонгүй.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
 "Sorry, it is not possible to save the contract." = "Уучлаарай, гэрээгээ хадгалах боломжгүй.";
@@ -320,9 +330,9 @@
 "Translation" = "Орчуулга";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Видео";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Waiting To Select ..." = "Сонгохыг хүлээж байна ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: CallApp.BApp.swift */
+/* Generated from genl10n: CallNumbers.swift */
 "🔍 Starting To Find ..." = "Туршлагаас эхлээд ...";

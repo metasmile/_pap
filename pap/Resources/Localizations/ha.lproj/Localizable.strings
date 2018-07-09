@@ -142,11 +142,15 @@
 "Animation" = "Nishaɗi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Ra'ayin kallo";
+/* Generated from genl10n: AutoEditor.BApp.swift#33 */
+"Auto Editor" = "Auto Edita";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
+/* Generated from genl10n: CallNumbers.swift#57 */
+"Call Numbers" = "Lissafin Kira";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Ba za a iya komawa ba. Duk abubuwan da aka zaɓa basu gyara ba.";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Choose A Phone Number To Call" = "Zaɓi Lambar Kira Don Kira";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Zaɓi Aiki";
@@ -154,16 +158,18 @@
 "Choose An Export Option For %d Items" = "Zaɓi Zaɓin Siyarwa don %d Abubuwan";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Zaɓi Zaɓin Sub Action.";
-/* Generated from genl10n: Convert.AppDockContent.swift */
+/* Generated from genl10n: Converter.AppDockContent.swift */
 "Choose an Option To Convert" = "Zaɓi wani zaɓi Don canzawa";
-/* Generated from genl10n: Clean.BApp.swift#96 */
+/* Generated from genl10n: Cleaner.BApp.swift#96 */
 "Clean the selected items" = "Tsaftace abubuwan da aka zaɓa";
-/* Generated from genl10n: Clean.BApp.swift#66 */
-"Clean" = "Tsaftace";
-/* Generated from genl10n: Clean.BApp.swift#62 */
+/* Generated from genl10n: Cleaner.BApp.swift#49 */
+"Cleaner" = "Mai tsabta";
+/* Generated from genl10n: Cleaner.BApp.swift#62 */
 "Cleaning Photos..." = "Ana Share Hotuna ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Lambobi";
+/* Generated from genl10n: Converter.BApp.swift#41 */
+"Converter" = "Mai juyawa";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "Kwafi";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -186,17 +192,21 @@
 "Downloading..." = "Saukewa ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Adireshin i-mel";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallNumbers.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Kunna Zaɓin Hoto";
-/* Generated from genl10n: Convert.AppDockContent.swift */
+/* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Fitarwa Zɓk";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Fitarwa";
+/* Generated from genl10n: Filters.BApp.swift#72 */
+"Filters" = "Filters";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
 "Find As" = "Nemo As";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "Nemo";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift#40 */
+"Finder" = "Mai nemo";
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Finding Contacts ... %@ " = "Gano Lambobi ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Flight Number";
@@ -242,7 +252,7 @@
 "Open Google Maps" = "Bude Google Maps";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "Bude Shafin yanar gizo";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+/* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
 "Original" = "Asali";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Page Margin" = "Page Shafin";
@@ -256,7 +266,7 @@
 "Plain Text" = "Rubutun Bayyana";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Saiti";
-/* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
+/* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Quality";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "Ayyukan Aiki kawai";
@@ -280,9 +290,9 @@
 "Search Flights" = "Binciken Bincike";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Zaɓi Hotuna Don Nemi Komai.";
-/* Generated from genl10n: Clean.BApp.swift#316 */
+/* Generated from genl10n: Cleaner.BApp.swift#316 */
 "Select Photos You Want To Clean!" = "Zabi Hotunan da kake son Tsaftacewa!";
-/* Generated from genl10n: CallApp.BApp.swift */
+/* Generated from genl10n: CallNumbers.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Zabi Hotunan da kake so ka karba lambobin waya!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Aika Imel";
@@ -292,7 +302,7 @@
 "Size" = "Girma";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "An adana wasu lambobin sadarwa, amma wasu sauti ba.";
-/* Generated from genl10n: CallApp.BApp.swift#172, Finder.BApp.swift#824 */
+/* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "Ba a sami alamar bayani da aka zaɓi ba.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
 "Sorry, it is not possible to save the contract." = "Yi haƙuri, ba zai yiwu a ajiye kwangilar ba.";
@@ -320,9 +330,9 @@
 "Translation" = "Translation";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Waiting To Select ..." = "Ana jira Don Zaɓi ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: CallApp.BApp.swift */
+/* Generated from genl10n: CallNumbers.swift */
 "🔍 Starting To Find ..." = "Fara don ganowa ...";

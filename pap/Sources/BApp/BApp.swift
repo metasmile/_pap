@@ -14,10 +14,11 @@ App class name: {DisplayName}App
                 {DisplayName}AppDefaults
                 {DisplayName}AppTask
                  ...
+File name: {DisplayName(App)!}.BApp.swift
+           {DisplayName(App)!}.BApp.Assets.xcassets
 
-Identifier: "com.stells.pap.{displayname-lowercase}"
-File name: {DisplayName}.BApp.swift
-           {DisplayName}.BApp.Assets.xcassets
+Identifier (Optional): "com.stells.pap.{displayname-lowercase}"
+
 
 */
 
