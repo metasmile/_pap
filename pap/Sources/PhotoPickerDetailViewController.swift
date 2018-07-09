@@ -42,7 +42,6 @@ class PhotoPickerDetailViewController: UIViewController {
             assetView.preferredTransform = preferredTransform
             
             assetView.setAsset(asset, completion: {
-                self.assetView.playAny()
                 self.assetView.applyEditState(self.assetItem?.editState)
             })
             

@@ -237,6 +237,7 @@ extension AppUIAssetView {
                         self?.isProcessing(false, animated: true)
                         
                         self?.livePhoto = livePhoto
+                        self?.playAny()
                     })
                 })
             }
@@ -248,6 +249,7 @@ extension AppUIAssetView {
             else if let mode = editState?.stabilizationMode {
                 playerItem?.videoComposition = playerItem?.asset.stabilize(with: mode)
             }
+            playAny()
         }
     }
 }

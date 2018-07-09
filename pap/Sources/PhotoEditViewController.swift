@@ -96,7 +96,6 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
                 self.assetView.isHidden = false
                 self.placeholderView.isHidden = true
                 self.assetView.applyEditState(self.preferredEditState)
-                self.assetView.playAny()
             })
         }
     }
