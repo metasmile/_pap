@@ -59,8 +59,8 @@ public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp,
     
     @objc dynamic
     public private(set) lazy var config: PhotosFilterAppConfigValue? = PhotosFilterApp.configure?()
-    public private(set) lazy var dockContent: AppDockContent? = createController()
-    public private(set) lazy var singleDockContent: AppDockContent? = createController()
+    public private(set) lazy var dockContent: AppDockContent? = PhotosFilterAppDockContent()
+    public private(set) lazy var singleDockContent: AppDockContent? = PhotosFilterAppDockContent()
     
     public private(set) var currentEditStateValue: ImageEditStateValue?
 
@@ -108,6 +108,13 @@ public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp,
 }
 
 private extension PhotosFilterApp {
+    private func updateControllerView(){
+        self.currentEditStateValue = config?.filter
+        self.dockContent?.view.tintColor = config?.tintColor
+    }
+}
+
+fileprivate class PhotosFilterAppDockContent: NSObject, KeyPathWatchable, AppDockContent {
     private struct PhotosFilterNames {
         static let CIPhotoEffectChrome = "CIPhotoEffectChrome"
         static let CIPhotoEffectFade = "CIPhotoEffectFade"
@@ -139,22 +146,20 @@ private extension PhotosFilterApp {
                 CIPhotoEffectTransfer,
                 CIPhotoEffectTonal,
                 CIPhotoEffectNoir
-            ].compactMap({ $0 })
+                ].compactMap({ $0 })
         }
     }
     
-    private func createController() -> AppDockContent {
+    lazy var view: UIView = {
         let image = R.image.photoFilterSampleJpg()
-
+        
         var items = CIFilters.filters.map({ (filter) -> AppUICollectionView.CollectionItem in
             return AppUICollectionView.CollectionItem(title: PhotosFilterNames.aliasName(filter.name), image: image?.applyFilter(ciFilter: filter), action: {
-                self.config?.filter = CIFilterItem(filter)
-                self.currentEditStateValue = CIFilterItem(filter)
+                AppCenter.default.currentInstanceAs(PhotosFilterApp.self)?.config?.filter = CIFilterItem(filter)
             })
         })
         items.insert(AppUICollectionView.CollectionItem(title: "Original".localized, image: image, action: {
-            self.config?.filter = CIFilterItem(CIFilter())
-            self.currentEditStateValue = CIFilterItem(CIFilter())
+            AppCenter.default.currentInstanceAs(PhotosFilterApp.self)?.config?.filter = CIFilterItem(CIFilter())
         }), at: 0)
         
         let view = AppUICollectionView(items: items)
@@ -162,13 +167,21 @@ private extension PhotosFilterApp {
         view.cellSpacing = 2
         view.cellImageInsets = UIEdgeInsetsMake(0, 0, 4, 0)
         
-        var p = AppDockContentPreferences()
-        p.preferredHeight = 120 // for test. remove this line after fixed app design
-        return AppDockContentItem(view: view, preferences: p)
+        return view
+    }()
+    
+    var preferences: AppDockContentPreferable? {
+        var preferences = AppDockContentPreferences()
+        preferences.preferredHeight = 120
+        return preferences
     }
     
-    private func updateControllerView(){
-        self.dockContent?.view.tintColor = config?.tintColor
+    func willSetContentView(_ view: UIView, dock: AppDock) {
+        
+    }
+    
+    func didSetContentView(_ view:UIView, dock:AppDock) {
+        
     }
 }
 
