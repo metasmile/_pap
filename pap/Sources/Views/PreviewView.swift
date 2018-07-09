@@ -167,6 +167,7 @@ class PreviewView: CustomView {
                     renderPreviewProcessing(with: cell, at: indexPath)
                 }
                 else {
+                    cell.assetView.filteredImage = nil //INFO: clear when app changed
                     cell.setImageEditItem(appAsset.editState, animated: animated)
                 }
             }
