@@ -13,7 +13,7 @@ INFO:
 For other ones, use App.Lib.FirebaseMLVision.VisionText.Parser.Extensions
 */
 
-protocol VisionTextParser: Parser where Self.InputType==VisionText {
+protocol VisionTextParser: Processor where Self.InputType==VisionText {
     func parse(input:VisionText) -> OutputType?
 }
 

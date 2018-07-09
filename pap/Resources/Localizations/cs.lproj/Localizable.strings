@@ -124,30 +124,56 @@
 "cs_keyword_13" = "milenec";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d krát";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: Finder.BApp.swift#1227 */
+"Actions" = "Akce";
+/* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
+"Add New Contact" = "Přidat nový kontakt";
+/* Generated from genl10n: Finder.BApp.swift#466 */
+"Add an Event" = "Přidat událost";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Adresa";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albumy";
+/* Generated from genl10n: Finder.BApp.swift#215 */
+"All contacts were successfully saved." = "Všechny kontakty byly úspěšně uloženy.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "Všechno";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Animovaný GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animace";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Poměr stran";
+/* Generated from genl10n: AutoEditor.BApp.swift#33 */
+"Auto Editor" = "Auto Editor";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
+/* Generated from genl10n: CallNumbers.swift#57 */
+"Call Numbers" = "Čísla volání";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Nelze vrátit zpět. Všechny vybrané položky nebyly upraveny.";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Choose A Phone Number To Call" = "Zvolte telefonní číslo, které chcete zavolat";
+/* Generated from genl10n: Finder.BApp.swift#250 */
+"Choose An Action" = "Zvolte akci";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Zvolte možnost exportu pro %d Položky";
-/* Generated from genl10n: Convert.AppDockContent.swift */
+/* Generated from genl10n: Finder.BApp.swift#264 */
+"Choose An Sub Action." = "Vyberte položku Podřízená akce.";
+/* Generated from genl10n: Converter.AppDockContent.swift */
 "Choose an Option To Convert" = "Zvolte možnost Převést";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Contract" = "Smlouva";
+/* Generated from genl10n: Cleaner.BApp.swift#96 */
+"Clean the selected items" = "Vyčistěte vybrané položky";
+/* Generated from genl10n: Cleaner.BApp.swift#49 */
+"Cleaner" = "Čistič";
+/* Generated from genl10n: Cleaner.BApp.swift#62 */
+"Cleaning Photos..." = "Čištění fotografií ...";
+/* Generated from genl10n: Finder.BApp.swift#1228 */
+"Contacts" = "Kontakty";
+/* Generated from genl10n: Converter.BApp.swift#41 */
+"Converter" = "Konvertor";
+/* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
+"Copy" = "kopírovat";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Vytvořit";
 /* Generated from genl10n: Stabilizer.swift */
@@ -156,8 +182,12 @@
 "Crop to Fit" = "Oříznout a přizpůsobit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Oříznutí";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "Zvyk";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "datum";
+/* Generated from genl10n: Finder.BApp.swift#116 */
+"Detecting ... %@ " = "Zjišťování ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Směr";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
@@ -166,28 +196,30 @@
 "Downloading..." = "Stahování ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Emailová adresa";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallNumbers.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Povolit automatický výběr";
-/* Generated from genl10n: Convert.AppDockContent.swift */
+/* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Možnosti exportu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Vývozní";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Filters.BApp.swift#72 */
+"Filters" = "Filtry";
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "Nalézt";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift#40 */
+"Finder" = "nálezce";
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Finding Contacts ... %@ " = "Hledání kontaktů ... %@";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
+"Flight Number" = "Číslo letu";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "Formáty";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Vpřed";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Grab" = "Urvat";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Skrýt";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -196,6 +228,12 @@
 "Image Quality" = "Kvalita obrazu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Import";
+/* Generated from genl10n: CodeKit.Contacts.swift#63 */
+"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Vyžaduje povolení k přístupu k vašim kontaktům. Povolte kontakty v nastavení iOS.";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "Položky";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+"Layout" = "Rozvržení";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -206,50 +244,76 @@
 "Modify" = "Modifikovat";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Moje alba";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "Nový kontakt";
+/* Generated from genl10n: Finder.BApp.swift#435 */
+"New Event" = "Nová událost";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "Žádné oříznutí";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Žádná smyčka";
-/* Generated from genl10n: PhotosFilter.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift#654 */
+"Open Apple Maps" = "Otevřete Apple Maps";
+/* Generated from genl10n: Finder.BApp.swift#668 */
+"Open Google Maps" = "Otevřete Mapy Google";
+/* Generated from genl10n: Finder.BApp.swift#370 */
+"Open Web Page" = "Otevřete webovou stránku";
+/* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Originál";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+"Page Margin" = "Margin stránky";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+"Page Size Preset" = "Přednastavená velikost stránky";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Telefonní číslo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Fotky";
+/* Generated from genl10n: Finder.BApp.swift#1229 */
+"Plain Text" = "Prostý text";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Předvolby";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
-/* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "Soukromí";
+/* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Kvalitní";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Recognizing ... %@ " = "Rozpoznává ... %@";
+/* Generated from genl10n: Finder.BApp.swift#1197 */
+"Quick Actions Only" = "Pouze rychlé akce";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Opakovat";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Zvrátit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Přetočit";
+/* Generated from genl10n: Finder.BApp.swift#1185 */
+"Save Found Contacts Directly" = "Kontakty uložte přímo";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "Ulož a ​​sdílej";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Uložení výsledků ...";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Saving Texts ..." = "Ukládání textů ...";
-/* Generated from genl10n: CallApp.BApp.swift */
+/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+"Scale To Fit" = "Měřítko pro přizpůsobení";
+/* Generated from genl10n: Finder.BApp.swift#762 */
+"Search Flights" = "Vyhledat lety";
+/* Generated from genl10n: Finder.BApp.swift#1345 */
+"Select Photos To Find Everything." = "Vyberte fotky, chcete-li najít vše.";
+/* Generated from genl10n: Cleaner.BApp.swift#316 */
+"Select Photos You Want To Clean!" = "Vyberte fotky, které chcete vyčistit!";
+/* Generated from genl10n: CallNumbers.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Vyberte fotky, které chcete chytit telefonní čísla!";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Select Photos You Want To Grab!" = "Vyberte fotky, které chcete chytit!";
+/* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
+"Send an Email" = "Poslat email";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Podíl";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Velikost";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry can't call to selected contact." = "Omlouváme se, nemůžete kontaktovat vybraný kontakt.";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry not found any contact information." = "Je nám líto, ale nenašli žádné kontaktní údaje.";
+/* Generated from genl10n: Finder.BApp.swift#217 */
+"Some contacts were saved, but someones were not." = "Některé kontakty byly uloženy, ale někteří nebyli.";
+/* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
+"Sorry not found any information you selected." = "Je nám líto, ale nenalezli žádné informace, které jste vybrali.";
+/* Generated from genl10n: Finder.BApp.swift#174 */
+"Sorry, this contact could not be saved." = "Omlouváme se, tento kontakt nebyl uložen.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Náměstí";
 /* Generated from genl10n: Stabilizer.swift */
@@ -268,17 +332,15 @@
 "Starting the Process..." = "Spuštění procesu ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Začátek prohlížení upravovaných fotografií ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
+"Switch on any items you want to hide. The quality will entirely remain the same." = "Zapněte všechny položky, které chcete skrýt. Kvalita zcela zůstane stejná.";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Překlad";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Waiting To Select ..." = "Čekání na výběr ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD (640 × 360)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
-/* Generated from genl10n: CallApp.BApp.swift */
+/* Generated from genl10n: CallNumbers.swift */
 "🔍 Starting To Find ..." = "Začínáme najít ...";

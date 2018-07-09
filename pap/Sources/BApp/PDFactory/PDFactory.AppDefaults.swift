@@ -9,7 +9,7 @@ import TPPDF
 import Photos
 
 
-protocol PDFactoryDefaults: AppDefaults{
+protocol PDFactoryAppDefaults: AppDefaults{
     var sizePreset: String {get set}
     var landscape: Bool {get set}
     var imagesPerPage: Int {get set}
@@ -19,7 +19,7 @@ protocol PDFactoryDefaults: AppDefaults{
     var margin: Int {get set} // 0 - 100 %
 }
 
-extension Defaults: PDFactoryDefaults {
+extension Defaults: PDFactoryAppDefaults {
     var sizePreset:String {
         set{ set(newValue) }
         get{ return get(or: PDFPageFormat.a4.label ) }
@@ -37,7 +37,7 @@ extension Defaults: PDFactoryDefaults {
 
     var scaleMode:Int {
         set{ set(newValue) }
-        get{ return get(or: PDFactorySettings.ScaleMode.fitPage.rawValue ) }
+        get{ return get(or: PDFactoryAppSettings.ScaleMode.fitPage.rawValue ) }
     }
 
     var metadataCaption:Bool {
@@ -56,14 +56,14 @@ extension Defaults: PDFactoryDefaults {
     }
 }
 
-struct PDFactorySettings{
+struct PDFactoryAppSettings{
     enum ScaleMode:Int {
         case fitPage
         case fillPage
 
         static let Labels = [
-            "Entire Image": PDFactorySettings.ScaleMode.fitPage.rawValue
-            , "Fill Page": PDFactorySettings.ScaleMode.fillPage.rawValue
+            "Entire Image": PDFactoryAppSettings.ScaleMode.fitPage.rawValue
+            , "Fill Page": PDFactoryAppSettings.ScaleMode.fillPage.rawValue
         ]
     }
 
@@ -93,10 +93,10 @@ struct PDFactorySettings{
     ]
 }
 
-extension PDFactory{
+extension PDFactoryApp{
     class var defaultsPDFFormat:PDFPageFormat{
-        let defaults = PDFactory.defaults as! PDFactoryDefaults
-        if let format = PDFactorySettings.SizePresets[defaults.sizePreset] {
+        let defaults = PDFactoryApp.defaults as! PDFactoryAppDefaults
+        if let format = PDFactoryAppSettings.SizePresets[defaults.sizePreset] {
             return format
         }else{
             return PDFPageFormat.a4
@@ -105,7 +105,7 @@ extension PDFactory{
 
     class var defaultsPDFLayout:PDFPageLayout{
         var defaultLayout:PDFPageLayout = defaultsPDFFormat.layout
-        let defaults = PDFactory.defaults as! PDFactoryDefaults
+        let defaults = PDFactoryApp.defaults as! PDFactoryAppDefaults
 
         // swap width and height
         if defaults.landscape{
@@ -113,7 +113,7 @@ extension PDFactory{
         }
 
         // if ScaleMode is fillPage, margin will be ignored.
-        if defaults.scaleMode == PDFactorySettings.ScaleMode.fillPage.rawValue{
+        if defaults.scaleMode == PDFactoryAppSettings.ScaleMode.fillPage.rawValue{
             defaultLayout.margin = .zero
         }else{
             let horizontalMargin = defaultLayout.size.width/2 * CGFloat(defaults.margin)/100

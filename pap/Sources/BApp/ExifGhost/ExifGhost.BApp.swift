@@ -9,14 +9,14 @@ import ImageIO
 
 private typealias ParamType = PHAssetItem<ImageEditStateValue>
 
-public class ExifGhost: NSObject, KeyPathWatchable,BApp,
+public class ExifGhostApp: NSObject, KeyPathWatchable,BApp,
         PHAssetFinalizableApp,
         PhotoPickerViewControllerDelegatableApp,
         PhotoPickerCollectionViewDisplayableApp,
         AppDockApp,
         PreheatableApp {
 
-    public static let taskType: AppTaskable.Type = _ExifGhostTask.self
+    public static let taskType: AppTaskable.Type = _ExifGhostAppTask.self
 
     public static let paramType: AppTaskParamable.Type = ParamType.self
 
@@ -24,14 +24,14 @@ public class ExifGhost: NSObject, KeyPathWatchable,BApp,
             identifier: "com.stells.pap.exifghost"
             , version: "1.0"
             , phase: .release
-            , appType: ExifGhost.self
+            , appType: ExifGhostApp.self
             , displayName: "EXIF Ghost", description:nil, keywords:nil
             , iconBundleName: R.image.exifGhostBAppIcon.name
             , policy: AppPolicy.default
             , minOSVersion: nil
     )
 
-    public private(set) lazy var dockContent: AppDockContent? = ExifGhostAppDockContent()
+    public private(set) lazy var dockContent: AppDockContent? = ExifGhostAppAppDockContent()
 
     @objc dynamic
     public var autoSelect: Bool = false
@@ -74,7 +74,7 @@ public class ExifGhost: NSObject, KeyPathWatchable,BApp,
     }
 }
 
-private class _ExifGhostTask: AppTaskPrototype, AppTaskable {
+private class _ExifGhostAppTask: AppTaskPrototype, AppTaskable {
     public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){
         (param as? ParamType)?.cancelAllRequestIDs()
     }
@@ -102,12 +102,12 @@ private class _ExifGhostTask: AppTaskPrototype, AppTaskable {
                 , let metadata = data.getMetadata(){
 
                     var ghostedData:Data
-                    if let appContentAsExifGhost = AppCenter.default.currentInstanceAs(AppDockApp.self)?.dockContent as? ExifGhostAppDockContent {
-                        if appContentAsExifGhost.shouldGhostAll{
+                    if let appContentAsExifGhostApp = AppCenter.default.currentInstanceAs(AppDockApp.self)?.dockContent as? ExifGhostAppAppDockContent {
+                        if appContentAsExifGhostApp.shouldGhostAll{
                             ghostedData = data.setMetadata(with: nil)
 
                         }else{
-                            ghostedData = data.purgeMetadata(with: metadata, for: appContentAsExifGhost.ghostedImageMetadataCollection)
+                            ghostedData = data.purgeMetadata(with: metadata, for: appContentAsExifGhostApp.ghostedImageMetadataCollection)
                         }
                     }else{
                         ghostedData = data.setMetadata(with: nil)

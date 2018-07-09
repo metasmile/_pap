@@ -1,5 +1,5 @@
 //
-// Created by BLACKGENE on 27/03/2018.
+//? Created by BLACKGENE on 27/03/2018.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
@@ -35,9 +35,9 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
     public static let info = AppInfo(
             identifier: "com.stells.pap.finder"
             , version: "1.0"
-            , phase: .beta
+            , phase: .release
             , appType: FinderApp.self
-            , displayName: "Finder", description:nil, keywords:nil
+            , displayName: "Finder".localized, description:nil, keywords:nil
             , iconBundleName: R.image.finderBAppIcon.name
             , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy(cancellation: .shallow, priority: .normal, estimatedConcurrencyCount: 1))
             , minOSVersion: nil
@@ -113,7 +113,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
     }
 
     public func titleDidUpdate(progress: Float) -> String? {
-        return "Detecting Data ... %@ ".localizedFormatted("\(Int(progress * 100))%")
+        return "Detecting ... %@ ".localizedFormatted("\(Int(progress * 100))%")
     }
 
     public var doneButtonTitle: String? {
@@ -171,7 +171,7 @@ extension FinderApp{
 
         canSaveContract = ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal)
 
-        let errorMessage:String = "Sorry, it is not possible to save the contract.".localized
+        let errorMessage:String = "Sorry, this contact could not be saved.".localized
 
         if false == canSaveContract{
             asyncSignal.begin()
@@ -253,7 +253,7 @@ extension FinderApp{
             asyncSignal.end()
         })
 
-        let quickActionOnly = FinderApp.privateDefaults.quickActionOnly
+        let isQuickActionOnly = FinderApp.privateDefaults.quickActionOnly
 
         for item in items {
 
@@ -268,62 +268,71 @@ extension FinderApp{
             */
             for phoneNumber in Array(Set<String>((resultGroup.phoneNumbers ?? []).reduce([],+).compactMap({ $0.nilEmpty }))) {
 
-                //sub actions
-                let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+                let _quickAction = { (t:String) -> UIAlertAction in
 
-                let _quickAction = UIAlertAction(title: "Add New Contact".localized, style: .default, handler: { action in
-                    if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal){
-                        let contact = CNMutableContact()
-                        contact.contactType = .person
-                        contact.fillNameIfBlanked()
+                    return UIAlertAction(title: t, style: .default, handler: { action in
+                        if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal){
+                            let contact = CNMutableContact()
+                            contact.contactType = .person
+                            contact.fillNameIfBlanked()
 
-                        let components = NSCalendar.current.dateComponents([.year, .month, .day], from: Date())
-                        contact.dates.append(CNLabeledValue(label: "Date".localized, value: components as NSDateComponents))
-                        contact.urlAddresses.append(CNLabeledValue(label: "URL", value: "https://apps.photo"))
-                        contact.phoneNumbers = [ CNLabeledValue(label: "Phone Number".localized, value: CNPhoneNumber(stringValue: phoneNumber))]
+                            let components = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+                            contact.dates.append(CNLabeledValue(label: "Date".localized, value: components as NSDateComponents))
+                            contact.urlAddresses.append(CNLabeledValue(label: "URL", value: "https://apps.photo"))
+                            contact.phoneNumbers = [ CNLabeledValue(label: "Phone Number".localized, value: CNPhoneNumber(stringValue: phoneNumber))]
 
-                        CNContactViewController.presentDialog(newContact: contact, didDismiss: {
-                            asyncSignal.end()
-                        })
+                            CNContactViewController.presentDialog(newContact: contact, didDismiss: {
+                                asyncSignal.end()
+                            })
 
-                    }else{
-                        asyncSignal.end()
-                    }
-                })
-
-                let _actions = [
-                    defaultCancelSubAction,
-
-                    _quickAction,
-
-                    UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
-                        UIPasteboard.general.string = phoneNumber
-                        asyncSignal.end()
-                    }),
-                    UIAlertAction(title: "Share".localized, style: .default, handler: { action in
-                        UIActivityViewController.share(activityItems: [phoneNumber], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
+                        }else{
                             asyncSignal.end()
                         }
                     })
-                ]
-                for _action in _actions{
-                    _alert.addAction(_action)
                 }
 
-                //root action
-                let action = quickActionOnly ? _quickAction : UIAlertAction(title: phoneNumber, style: . default, handler: { action in
-                    DispatchQueue.main.async{
-                        UIViewController.root?.present(_alert, animated: true)
+                var action:UIAlertAction
+
+                if isQuickActionOnly {
+
+                    action = _quickAction(phoneNumber)
+
+                }else{
+                    let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+
+                    let _actions = [
+                        defaultCancelSubAction,
+
+                        _quickAction("Add New Contact".localized),
+
+                        UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
+                            UIPasteboard.general.string = phoneNumber
+                            asyncSignal.end()
+                        }),
+                        UIAlertAction(title: "Share".localized, style: .default, handler: { action in
+                            UIActivityViewController.share(activityItems: [phoneNumber], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
+                                asyncSignal.end()
+                            }
+                        })
+                    ]
+
+                    for _action in _actions{
+                        _alert.addAction(_action)
                     }
 
-                })
+                    action =  UIAlertAction(title: phoneNumber, style: .default, handler: { action in
+                        DispatchQueue.main.async{
+                            UIViewController.root?.present(_alert, animated: true)
+                        }
+
+                    })
+                }
 
                 action.accessoryImage = R.image.ico_action_phonenumber()
 
                 alert.addAction(action)
 
             }
-
 
             /*
                 URL
@@ -336,58 +345,70 @@ extension FinderApp{
                     urlPool.insert(url)
 
                     //sub actions
-                    let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
-
-                    let _quickAction = UIAlertAction(title: "Add New Contact".localized, style: .default, handler: { action in
-                        if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal){
-                            let contact = CNMutableContact()
-                            contact.contactType = .person
-                            contact.fillNameIfBlanked()
-
-                            let components = NSCalendar.current.dateComponents([.year, .month, .day], from: Date())
-                            contact.dates.append(CNLabeledValue(label: "Date".localized, value: components as NSDateComponents))
-
-                            contact.urlAddresses.append(CNLabeledValue(label: "URL", value: url.absoluteString as NSString))
-
-                            CNContactViewController.presentDialog(newContact: contact, didDismiss: {
-                                asyncSignal.end()
-                            })
-
-                        }else{
-                            asyncSignal.end()
-                        }
-                    })
-
-                    let _actions = [
-                        defaultCancelSubAction,
-
-                        UIAlertAction(title: "Open".localized, style: .default, handler: { action in
+                    let _quickAction = { (t: String) -> UIAlertAction in
+                        return UIAlertAction(title: t, style: .default, handler: { action in
                             UIApplication.openSafari(with:url) {
                                 asyncSignal.end()
                             }
-                        }),
-                        UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
-                            UIPasteboard.general.url = url
-                            asyncSignal.end()
-                        }),
-                        UIAlertAction(title: "Share".localized, style: .default, handler: { action in
-                            UIActivityViewController.share(activityItems: [url], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
-                                asyncSignal.end()
-                            }
-                        }),
-                        _quickAction
-                    ]
-                    for _action in _actions{
-                        _alert.addAction(_action)
+                        })
                     }
 
-                    let action = quickActionOnly ? _quickAction : UIAlertAction(title: url.absoluteString, style: . default, handler: { action in
 
-                        DispatchQueue.main.async{
-                            UIViewController.root?.present(_alert, animated: true)
+                    var action:UIAlertAction
+
+                    if isQuickActionOnly{
+
+                        action = _quickAction(url.absoluteString)
+
+                    }else{
+
+
+                        let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+                        let _actions = [
+                            defaultCancelSubAction,
+
+                            _quickAction("Open Web Page".localized),
+
+                            UIAlertAction(title: "Add New Contact".localized, style: .default, handler: { action in
+                                if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal){
+                                    let contact = CNMutableContact()
+                                    contact.contactType = .person
+                                    contact.fillNameIfBlanked()
+
+                                    let components = NSCalendar.current.dateComponents([.year, .month, .day], from: Date())
+                                    contact.dates.append(CNLabeledValue(label: "Date".localized, value: components as NSDateComponents))
+
+                                    contact.urlAddresses.append(CNLabeledValue(label: "URL", value: url.absoluteString as NSString))
+
+                                    CNContactViewController.presentDialog(newContact: contact, didDismiss: {
+                                        asyncSignal.end()
+                                    })
+
+                                }else{
+                                    asyncSignal.end()
+                                }
+                            }),
+
+                            UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
+                                UIPasteboard.general.url = url
+                                asyncSignal.end()
+                            }),
+                            UIAlertAction(title: "Share".localized, style: .default, handler: { action in
+                                UIActivityViewController.share(activityItems: [url], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
+                                    asyncSignal.end()
+                                }
+                            })
+                        ]
+                        for _action in _actions{
+                            _alert.addAction(_action)
                         }
 
-                    })
+                        action = UIAlertAction(title: url.absoluteString, style: . default, handler: { action in
+                            DispatchQueue.main.async{
+                                UIViewController.root?.present(_alert, animated: true)
+                            }
+                        })
+                    }
 
                     action.accessoryImage = R.image.ico_action_url()
 
@@ -405,62 +426,72 @@ extension FinderApp{
                 let dateString = formatter.string(from: date)
 
                 //sub actions
-                let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+                let _quickAction = { (t: String) -> UIAlertAction in
+                    return UIAlertAction(title: t, style: .default, handler: { action in
 
-                var _actions = [defaultCancelSubAction]
+                        //FIXME: when initially create event, event == nil
+                        EventKitUtil.shared.newEvent { event in
+                            if let event = event{
+                                event.title = "New Event".localized
+                                event.startDate = date
 
-                let _quickAction = UIAlertAction(title: "Add an Event".localized, style: .default, handler: { action in
+                                //insert Note with original plain text
+                                if let visionTexts = item.sourceVisionTexts{
+                                    event.notes = visionTexts.parse(type: VisionTextStringParser.self, asyncSignal)?.joined()
+                                }
 
-                    //FIXME: when initially create event, event == nil
-                    EventKitUtil.shared.newEvent { event in
-                        if let event = event{
-                            event.title = "New Event".localized
-                            event.startDate = date
+                                EKEventEditViewController.presentDialog(newEvent: event, didDismiss: { action in
+                                    asyncSignal.end()
+                                })
 
-                            //insert Note with original plain text
-                            if let visionTexts = item.sourceVisionTexts{
-                                event.notes = visionTexts.parse(type: VisionTextStringParser.self, asyncSignal)?.joined()
-                            }
-
-                            EKEventEditViewController.presentDialog(newEvent: event, didDismiss: { action in
+                            }else{
                                 asyncSignal.end()
-                            })
-
-                        }else{
-                            asyncSignal.end()
+                            }
                         }
-                    }
-                })
-
-                _actions.append(
-                        _quickAction
-                )
-
-                _actions.append(
-                        UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
-                            UIPasteboard.general.string = dateString
-                            asyncSignal.end()
-                        })
-                )
-
-                _actions.append(
-                        UIAlertAction(title: "Share".localized, style: .default, handler: { action in
-                            UIActivityViewController.share(activityItems: [dateString], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
-                                asyncSignal.end()
-                            }
-                        })
-                )
-
-                for _action in _actions{
-                    _alert.addAction(_action)
+                    })
                 }
 
-                let action = quickActionOnly ? _quickAction : UIAlertAction(title: dateString, style: .default, handler: { action in
-                    DispatchQueue.main.async{
-                        UIViewController.root?.present(_alert, animated: true)
+
+                var action:UIAlertAction
+
+                if isQuickActionOnly{
+
+                    action  = _quickAction(dateString)
+
+                }else{
+                    let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+                    var _actions = [defaultCancelSubAction]
+
+                    _actions.append(
+                            _quickAction("Add an Event".localized)
+                    )
+
+                    _actions.append(
+                            UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
+                                UIPasteboard.general.string = dateString
+                                asyncSignal.end()
+                            })
+                    )
+
+                    _actions.append(
+                            UIAlertAction(title: "Share".localized, style: .default, handler: { action in
+                                UIActivityViewController.share(activityItems: [dateString], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
+                                    asyncSignal.end()
+                                }
+                            })
+                    )
+
+                    for _action in _actions{
+                        _alert.addAction(_action)
                     }
 
-                })
+                    action = UIAlertAction(title: dateString, style: .default, handler: { action in
+                        DispatchQueue.main.async{
+                            UIViewController.root?.present(_alert, animated: true)
+                        }
+
+                    })
+                }
 
                 action.accessoryImage = R.image.ico_action_date()
 
@@ -473,100 +504,112 @@ extension FinderApp{
             for email in (resultGroup.emails ?? []).reduce([],+) where email.count>0{
 
                 //sub actions
-                let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
 
-                var _actions = [defaultCancelSubAction]
+                let _quickAction = { (t: String) -> UIAlertAction? in
 
-                var _quickAction:UIAlertAction?
-
-                if let url = URL(string: "mailto://\(email)")
-                , UIApplication.shared.canOpenURL(url){
-
-                    _quickAction = UIAlertAction(title: "Send an Email".localized, style: .default, handler: { action in
-                        asyncSignal.end()
-                        UIApplication.shared.open(url)
-                    })
-
-                    _actions.append(_quickAction!)
-                }
-
-                let param = [
-                    "to": email
-                ].urlQueryString
-
-                let url_gmail = URL(string: "googlegmail://co?\(param)")
-                if let url = url_gmail, UIApplication.shared.canOpenURL(url){
-                    _actions.append(
-                            UIAlertAction(title: "Send an Email".localized + " (Gmail)", style: .default, handler: { action in
-                                asyncSignal.end()
-                                UIApplication.shared.open(url)
-                            })
-                    )
-                }
-
-                let url_inbox = URL(string: "inbox-gmail://co?\(param)")
-                if let url = url_inbox, UIApplication.shared.canOpenURL(url){
-                    _actions.append(
-                            UIAlertAction(title: "Send an Email".localized + " (Google Inbox)", style: .default, handler: { action in
-                                asyncSignal.end()
-                                UIApplication.shared.open(url)
-                            })
-                    )
-                }
-
-                _actions.append(
-                        UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
-                            UIPasteboard.general.string = email
+                    if let url = URL(string: "mailto://\(email)")
+                    , UIApplication.shared.canOpenURL(url){
+                        return UIAlertAction(title: t, style: .default, handler: { action in
                             asyncSignal.end()
+                            UIApplication.shared.open(url)
                         })
-                )
-
-                _actions.append(
-                        UIAlertAction(title: "Share".localized, style: .default, handler: { action in
-                            UIActivityViewController.share(activityItems: [email], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
-                                asyncSignal.end()
-                            }
-                        })
-                )
-
-                _actions.append(
-                        UIAlertAction(title: "Add New Contact".localized, style: .default, handler: { action in
-
-                            if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal){
-                                let contact = CNMutableContact()
-                                contact.contactType = .person
-                                contact.fillNameIfBlanked()
-
-                                let components = NSCalendar.current.dateComponents([.year, .month, .day], from: Date())
-                                contact.dates.append(CNLabeledValue(label: "Date".localized, value: components as NSDateComponents))
-                                contact.emailAddresses = [CNLabeledValue(label: "E-mail Address".localized, value: email as NSString)]
-
-                                CNContactViewController.presentDialog(newContact: contact, didDismiss: {
-                                    asyncSignal.end()
-                                })
-
-                            }else{
-                                asyncSignal.end()
-                            }
-                        })
-                )
-
-                for _action in _actions{
-                    _alert.addAction(_action)
-                }
-
-
-                let action = quickActionOnly ? _quickAction! : UIAlertAction(title: email, style: .default, handler: { action in
-
-                    DispatchQueue.main.async{
-                        UIViewController.root?.present(_alert, animated: true)
                     }
 
-                })
+                    return nil
+                }
 
-                action.accessoryImage = R.image.ico_action_email()
+                var action:UIAlertAction?
 
-                alert.addAction(action)
+                if isQuickActionOnly{
+                    action = _quickAction(email)
+
+
+                }else{
+                    let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+
+                    var _actions = [defaultCancelSubAction]
+
+                    if let q = _quickAction("Send an Email".localized){
+                        _actions.append(q)
+                    }
+
+                    let param = [
+                        "to": email
+                    ].urlQueryString
+
+                    let url_gmail = URL(string: "googlegmail://co?\(param)")
+                    if let url = url_gmail, UIApplication.shared.canOpenURL(url){
+                        _actions.append(
+                                UIAlertAction(title: "Send an Email".localized + " (Gmail)", style: .default, handler: { action in
+                                    asyncSignal.end()
+                                    UIApplication.shared.open(url)
+                                })
+                        )
+                    }
+
+                    let url_inbox = URL(string: "inbox-gmail://co?\(param)")
+                    if let url = url_inbox, UIApplication.shared.canOpenURL(url){
+                        _actions.append(
+                                UIAlertAction(title: "Send an Email".localized + " (Google Inbox)", style: .default, handler: { action in
+                                    asyncSignal.end()
+                                    UIApplication.shared.open(url)
+                                })
+                        )
+                    }
+
+                    _actions.append(
+                            UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
+                                UIPasteboard.general.string = email
+                                asyncSignal.end()
+                            })
+                    )
+
+                    _actions.append(
+                            UIAlertAction(title: "Share".localized, style: .default, handler: { action in
+                                UIActivityViewController.share(activityItems: [email], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
+                                    asyncSignal.end()
+                                }
+                            })
+                    )
+
+                    _actions.append(
+                            UIAlertAction(title: "Add New Contact".localized, style: .default, handler: { action in
+
+                                if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal){
+                                    let contact = CNMutableContact()
+                                    contact.contactType = .person
+                                    contact.fillNameIfBlanked()
+
+                                    let components = NSCalendar.current.dateComponents([.year, .month, .day], from: Date())
+                                    contact.dates.append(CNLabeledValue(label: "Date".localized, value: components as NSDateComponents))
+                                    contact.emailAddresses = [CNLabeledValue(label: "E-mail Address".localized, value: email as NSString)]
+
+                                    CNContactViewController.presentDialog(newContact: contact, didDismiss: {
+                                        asyncSignal.end()
+                                    })
+
+                                }else{
+                                    asyncSignal.end()
+                                }
+                            })
+                    )
+
+                    for _action in _actions{
+                        _alert.addAction(_action)
+                    }
+
+                    action = UIAlertAction(title: email, style: .default, handler: { action in
+                        DispatchQueue.main.async{
+                            UIViewController.root?.present(_alert, animated: true)
+                        }
+                    })
+                }
+
+                action?.accessoryImage = R.image.ico_action_email()
+
+                if let action = action{
+                    alert.addAction(action)
+                }
             }
 
             /*
@@ -583,93 +626,108 @@ extension FinderApp{
                 }
 
                 //sub actions
-                let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+                let _quickAction = { (t: String) -> UIAlertAction? in
+                    if let url = URL(string: "http://maps.apple.com/?\(["q":addressString].urlQueryString))")
+                    , UIApplication.shared.canOpenURL(url){
 
-                var _quickAction:UIAlertAction?
-
-                var _actions = [defaultCancelSubAction]
-
-                if let url = URL(string: "http://maps.apple.com/?\(["q":addressString].urlQueryString))")
-                , UIApplication.shared.canOpenURL(url){
-
-                    _quickAction = UIAlertAction(title: "Open Apple Maps".localized, style: .default, handler: { action in
-                        asyncSignal.end()
-                        UIApplication.shared.open(url)
-                    })
-                    _actions.append(_quickAction!)
-                }
-
-                let param_googlemap = [
-                    "q":addressString
-                    , "x-success": Bundle.main.schemes?.first ?? ""
-                    , "x-source":Bundle.main.displayName ?? ""
-                ].urlQueryString
-
-                let url_googlemap = URL(string: "comgooglemaps-x-callback://?\(param_googlemap)")
-
-                if let url = url_googlemap, UIApplication.shared.canOpenURL(url){
-                    _actions.append(
-                            UIAlertAction(title: "Open Google Maps".localized, style: .default, handler: { action in
-                                asyncSignal.end()
-                                UIApplication.shared.open(url)
-                            })
-                    )
-                }
-
-                _actions.append(
-                        UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
-                            UIPasteboard.general.string = addressString
+                        return UIAlertAction(title: t, style: .default, handler: { action in
                             asyncSignal.end()
+                            UIApplication.shared.open(url)
                         })
-                )
-
-                _actions.append(
-                        UIAlertAction(title: "Share".localized, style: .default, handler: { action in
-                            UIActivityViewController.share(activityItems: [addr], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
-                                asyncSignal.end()
-                            }
-                        })
-                )
-
-                _actions.append(
-                        UIAlertAction(title: "Add New Contact".localized, style: .default, handler: { action in
-
-                            if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal){
-                                let contact = CNMutableContact()
-                                contact.contactType = .person
-                                contact.fillNameIfBlanked()
-
-                                let components = NSCalendar.current.dateComponents([.year, .month, .day], from: Date())
-                                contact.dates.append(CNLabeledValue(label: "Date".localized, value: components as NSDateComponents))
-
-                                contact.postalAddresses = [CNLabeledValue(label: "Address", value: addr.postalAddress)]
-
-                                CNContactViewController.presentDialog(newContact: contact, didDismiss: {
-                                    asyncSignal.end()
-                                })
-
-                            }else{
-                                asyncSignal.end()
-                            }
-                        })
-                )
-
-                for _action in _actions{
-                    _alert.addAction(_action)
-                }
-
-
-                let action = quickActionOnly ? _quickAction! : UIAlertAction(title: addressString, style: . default, handler: { action in
-
-                    DispatchQueue.main.async{
-                        UIViewController.root?.present(_alert, animated: true)
                     }
 
-                })
+                    return nil
+                }
 
-                action.accessoryImage = R.image.ico_action_address()
+                var action:UIAlertAction?
 
-                alert.addAction(action)
+                if isQuickActionOnly{
+
+                    action = _quickAction(addressString)
+
+                }else{
+
+                    let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+
+                    var _actions = [defaultCancelSubAction]
+
+                    if let q = _quickAction("Open Apple Maps".localized){
+                        _actions.append(q)
+                    }
+
+                    let param_googlemap = [
+                        "q":addressString
+                        , "x-success": Bundle.main.schemes?.first ?? ""
+                        , "x-source":Bundle.main.displayName ?? ""
+                    ].urlQueryString
+
+                    let url_googlemap = URL(string: "comgooglemaps-x-callback://?\(param_googlemap)")
+
+                    if let url = url_googlemap, UIApplication.shared.canOpenURL(url){
+                        _actions.append(
+                                UIAlertAction(title: "Open Google Maps".localized, style: .default, handler: { action in
+                                    asyncSignal.end()
+                                    UIApplication.shared.open(url)
+                                })
+                        )
+                    }
+
+                    _actions.append(
+                            UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
+                                UIPasteboard.general.string = addressString
+                                asyncSignal.end()
+                            })
+                    )
+
+                    _actions.append(
+                            UIAlertAction(title: "Share".localized, style: .default, handler: { action in
+                                UIActivityViewController.share(activityItems: [addr], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
+                                    asyncSignal.end()
+                                }
+                            })
+                    )
+
+                    _actions.append(
+                            UIAlertAction(title: "Add New Contact".localized, style: .default, handler: { action in
+
+                                if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal){
+                                    let contact = CNMutableContact()
+                                    contact.contactType = .person
+                                    contact.fillNameIfBlanked()
+
+                                    let components = NSCalendar.current.dateComponents([.year, .month, .day], from: Date())
+                                    contact.dates.append(CNLabeledValue(label: "Date".localized, value: components as NSDateComponents))
+
+                                    contact.postalAddresses = [CNLabeledValue(label: "Address", value: addr.postalAddress)]
+
+                                    CNContactViewController.presentDialog(newContact: contact, didDismiss: {
+                                        asyncSignal.end()
+                                    })
+
+                                }else{
+                                    asyncSignal.end()
+                                }
+                            })
+                    )
+
+                    for _action in _actions{
+                        _alert.addAction(_action)
+                    }
+
+                    action = UIAlertAction(title: addressString, style: . default, handler: { action in
+
+                        DispatchQueue.main.async{
+                            UIViewController.root?.present(_alert, animated: true)
+                        }
+                    })
+
+                }
+
+                action?.accessoryImage = R.image.ico_action_address()
+
+                if let action = action{
+                    alert.addAction(action)
+                }
             }// END OF AN ACTION
 
 
@@ -678,53 +736,66 @@ extension FinderApp{
             */
             for flightString in (resultGroup.flights ?? []).reduce([],+) where flightString.count>0{
 
-                //sub actions
-                let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
-
-                var _actions = [defaultCancelSubAction]
-
-                var _quickAction:UIAlertAction!
+                var action:UIAlertAction?
 
                 let url_to_flight = URL(string: "https://flightaware.com/live/flight/"+flightString.encodeAsURLQuery())
 
-                if let url = url_to_flight, UIApplication.shared.canOpenURL(url){
-                    _quickAction = UIAlertAction(title: "Search Flights".localized, style: .default, handler: { action in
-                        UIApplication.openSafari(with:url) {
-                            asyncSignal.end()
-                        }
-                    })
-                    _actions.append(_quickAction!)
-                }
-
-                _actions.append(
-                        UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
-                            UIPasteboard.general.string = flightString
-                            asyncSignal.end()
-                        })
-                )
-
-                _actions.append(
-                        UIAlertAction(title: "Share".localized, style: .default, handler: { action in
-                            UIActivityViewController.share(activityItems: [flightString], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
+                let _quickAction = { (t: String) -> UIAlertAction? in
+                    if let url = url_to_flight, UIApplication.shared.canOpenURL(url){
+                        return UIAlertAction(title: t, style: .default, handler: { action in
+                            UIApplication.openSafari(with:url) {
                                 asyncSignal.end()
                             }
                         })
-                )
-
-                for _action in _actions{
-                    _alert.addAction(_action)
+                    }
+                    return nil
                 }
 
-                //root action
-                let action = quickActionOnly ? _quickAction! : UIAlertAction(title: flightString, style: . default, handler: { action in
-                    DispatchQueue.main.async{
-                        UIViewController.root?.present(_alert, animated: true)
+                if isQuickActionOnly{
+                    action = _quickAction(flightString)
+
+                }else{
+                    let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+
+                    var _actions = [defaultCancelSubAction]
+
+                    if let q = _quickAction("Search Flights".localized){
+                        _actions.append(q)
                     }
-                })
 
-                action.accessoryImage = R.image.ico_action_flightnumber()
+                    _actions.append(
+                            UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
+                                UIPasteboard.general.string = flightString
+                                asyncSignal.end()
+                            })
+                    )
 
-                alert.addAction(action)
+                    _actions.append(
+                            UIAlertAction(title: "Share".localized, style: .default, handler: { action in
+                                UIActivityViewController.share(activityItems: [flightString], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
+                                    asyncSignal.end()
+                                }
+                            })
+                    )
+
+                    for _action in _actions{
+                        _alert.addAction(_action)
+                    }
+
+                    //root action
+                    action = UIAlertAction(title: flightString, style: . default, handler: { action in
+                        DispatchQueue.main.async{
+                            UIViewController.root?.present(_alert, animated: true)
+                        }
+                    })
+                }
+
+                action?.accessoryImage = R.image.ico_action_flightnumber()
+
+                if let action = action{
+                    alert.addAction(action)
+                }
+
             }// END OF AN ACTION
 
 
@@ -1056,6 +1127,8 @@ private struct ParserDictionary {
 }
 
 fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
+    private lazy var tintColor = UIColor(red:0.36, green:0.31, blue:0.71, alpha:1)
+
     fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
 
     private var parserCollection:[ParserDictionary] {
@@ -1070,7 +1143,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
     fileprivate static let defaultParserCollection:[ParserDictionary] = [
 
-        ParserDictionary(key: ParserDictionary.Key.Information, label: "Information".localized,
+        ParserDictionary(key: ParserDictionary.Key.Information, label: "Items".localized,
                 items: [
                     ParserItem(key: ParserItem.Key.PhoneNumber, label:"Phone Number".localized, iconImageBundleName:R.image.ico_action_phonenumber.name)
                     ,ParserItem(key: ParserItem.Key.EmailAddress, label:"E-mail Address".localized, iconImageBundleName:R.image.ico_action_email.name)
@@ -1089,7 +1162,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
     lazy var view: UIView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.tintColor = UIColor(red:0.13, green:0.15, blue:0.16, alpha:1)
+        tableView.tintColor = tintColor
         return tableView
     }()
 
@@ -1121,7 +1194,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
     private func createCellDescriber_SelectionPreset_action_quickActionsOnly() -> UITableViewSwitchCellDescriber{
         let celld = UITableViewSwitchCellDescriber()
         celld.itemIdentifier = FinderAppSettingCells.quickActionOnly.hashValue
-        celld.label = "A Quick Action Only".localized
+        celld.label = "Quick Actions Only".localized
         celld.valueGetter = { FinderApp.privateDefaults.quickActionOnly }
         celld.valueHandler = {
             var defaults = FinderApp.privateDefaults
@@ -1148,7 +1221,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
         let cell0 = UITableViewSegmentControlCellDescriber()
         cell0.itemIdentifier = FinderAppSettingCells.presets.hashValue
-        cell0.label = "Find As".localized
+        cell0.label = "Formats".localized
         cell0.valueGetter = { FinderApp.privateDefaults.selectionPreset }
         cell0.valueCollection = [
             (label:"Actions".localized,value: SelectionPreset.action.rawValue),
@@ -1197,6 +1270,9 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         //auto save
         if FinderApp.privateDefaults.selectionPreset == SelectionPreset.contact.rawValue{
             settingCellDescribers.append(createCellDescriber_SelectionPreset_contact_saveContactWithoutEdit())
+        }
+        else if FinderApp.privateDefaults.selectionPreset == SelectionPreset.action.rawValue{
+            settingCellDescribers.append(createCellDescriber_SelectionPreset_action_quickActionsOnly())
         }
 
         if let tableView = view as? UITableView{
@@ -1380,7 +1456,11 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         let cell = tableView.dequeueReusableCell(withIdentifier: FinderApp.info.identifier) as! Cell
         cell.textLabel?.text = dataItem.label
         cell.detailTextLabel?.text = selected ? "may be found" : nil
-        cell.imageView?.image = dataItem.iconImageBundleName?.asUIImageNamed
+
+        cell.imageView?.tintColor = self.view.tintColor
+        let image = dataItem.iconImageBundleName?.asUIImageNamed
+        cell.imageView?.image = image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+
         cell.detailTextLabel?.textColor = UIColor.gray
         cell.optionSwitch.setOn(selected, animated: false)
         cell.switchDidChange = { on in

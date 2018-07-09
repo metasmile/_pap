@@ -30,7 +30,7 @@ public extension StateValueSet where T: ImageEditStateValue {
     }
 }
 
-public class PhotosFilterAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttrributeValuable, AppConfigAdoptableValuable {
+public class FiltersAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttrributeValuable, AppConfigAdoptableValuable {
     @objc dynamic
     public var tintColor: UIColor?
     
@@ -42,35 +42,35 @@ public class PhotosFilterAppConfigValue: NSObject, KeyPathWatchable, AppConfigUI
             self.tintColor = other.tintColor
         }
         
-        if let other = fromOther as? PhotosFilterAppConfigValue, let filter = other.filter{
+        if let other = fromOther as? FiltersAppConfigValue, let filter = other.filter{
             self.filter = filter
         }
     }
 }
 
-public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _ConfigurableApp,
+public class FiltersApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _ConfigurableApp,
         PHAssetFinalizableApp, PreviewableApp, PreviewProcessableApp, AppDockApp,
         PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp,
         PhotoEditorViewControllerDelegatableApp {
-    public static let taskType: AppTaskable.Type = _PhotosFilterAppTask.self
-    public static let paramType: AppTaskParamable.Type = _PhotosFilterAppAsset.self
+    public static let taskType: AppTaskable.Type = _FiltersAppTask.self
+    public static let paramType: AppTaskParamable.Type = _FiltersAppAsset.self
     
-    public static var configure:(() -> PhotosFilterAppConfigValue)?
+    public static var configure:(() -> FiltersAppConfigValue)?
     
     @objc dynamic
-    public private(set) lazy var config: PhotosFilterAppConfigValue? = PhotosFilterApp.configure?()
-    public private(set) lazy var dockContent: AppDockContent? = PhotosFilterAppDockContent()
-    public private(set) lazy var photoEditorDockContent: AppDockContent? = PhotosFilterAppDockContent()
+    public private(set) lazy var config: FiltersAppConfigValue? = FiltersApp.configure?()
+    public private(set) lazy var dockContent: AppDockContent? = FiltersAppDockContent()
+    public private(set) lazy var photoEditorDockContent: AppDockContent? = FiltersAppDockContent()
     
     public private(set) var defaultEditStateValue: ImageEditStateValue?
 
     public static let info = AppInfo(
-        identifier: "com.stells.pap.photosfilter"
+        identifier: "com.stells.pap.filters"
         , version: "1.0"
         , phase: .release
-        , appType: PhotosFilterApp.self
-        , displayName: "Filters", description:nil, keywords:nil
-        , iconBundleName: R.image.photosFilterBAppIcon.name
+        , appType: FiltersApp.self
+        , displayName: "Filters".localized, description:nil, keywords:nil
+        , iconBundleName: R.image.filtersBAppIcon.name
         , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
         , minOSVersion: nil
     )
@@ -111,14 +111,14 @@ public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp,
     }
 }
 
-private extension PhotosFilterApp {
+private extension FiltersApp {
     private func updateControllerView(){
         self.defaultEditStateValue = config?.filter
         self.dockContent?.view.tintColor = config?.tintColor
     }
 }
 
-fileprivate class PhotosFilterAppDockContent: NSObject, KeyPathWatchable, AppDockContent {
+fileprivate class FiltersAppDockContent: NSObject, KeyPathWatchable, AppDockContent {
     private struct PhotosFilterNames {
         static let CIPhotoEffectChrome = "CIPhotoEffectChrome"
         static let CIPhotoEffectFade = "CIPhotoEffectFade"
@@ -155,15 +155,15 @@ fileprivate class PhotosFilterAppDockContent: NSObject, KeyPathWatchable, AppDoc
     }
     
     lazy var view: UIView = {
-        let image = R.image.photoFilterSampleJpg()
+        let image = R.image.filtersJpg()
         
         var items = CIFilters.filters.map({ (filter) -> AppUICollectionView.CollectionItem in
             return AppUICollectionView.CollectionItem(title: PhotosFilterNames.aliasName(filter.name), image: image?.applyFilter(ciFilter: filter), action: {
-                AppCenter.default.currentInstanceAs(PhotosFilterApp.self)?.config?.filter = CIFilterItem(filter)
+                AppCenter.default.currentInstanceAs(FiltersApp.self)?.config?.filter = CIFilterItem(filter)
             })
         })
         items.insert(AppUICollectionView.CollectionItem(title: "Original".localized, image: image, action: {
-            AppCenter.default.currentInstanceAs(PhotosFilterApp.self)?.config?.filter = CIFilterItem(CIFilter())
+            AppCenter.default.currentInstanceAs(FiltersApp.self)?.config?.filter = CIFilterItem(CIFilter())
         }), at: 0)
         
         let view = AppUICollectionView(items: items)
@@ -189,25 +189,25 @@ fileprivate class PhotosFilterAppDockContent: NSObject, KeyPathWatchable, AppDoc
     }
 }
 
-private class _PhotosFilterAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, AppTaskable {
-    public typealias ParamType = _PhotosFilterAppAsset
+private class _FiltersAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, AppTaskable {
+    public typealias ParamType = _FiltersAppAsset
     public typealias ResultType = PHAssetResultItem
 
     public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){
         
-        (param as? _PhotosFilterAppAsset)?.cancelAllRequestIDs()
-        (param as? _PhotosFilterAppAsset)?.cancelProcessing()
+        (param as? _FiltersAppAsset)?.cancelAllRequestIDs()
+        (param as? _FiltersAppAsset)?.cancelProcessing()
     }
     
     public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
-        assert(param is _PhotosFilterAppAsset, "TaskParamable type of this app is \(_PhotosFilterAppAsset.self)")
-        guard let _param = param as? _PhotosFilterAppAsset else{
+        assert(param is _FiltersAppAsset, "TaskParamable type of this app is \(_FiltersAppAsset.self)")
+        guard let _param = param as? _FiltersAppAsset else{
             throw AppTaskError.invalidParam
         }
         return try self._perform(_param, async)
     }
     
-    private func _perform(_ assetItem: _PhotosFilterAppAsset, _ async: AsyncManualSignalable) throws -> PHAssetResultItem?  {
+    private func _perform(_ assetItem: _FiltersAppAsset, _ async: AsyncManualSignalable) throws -> PHAssetResultItem?  {
         var result: PHAssetResultItem?
         
         async.begin()

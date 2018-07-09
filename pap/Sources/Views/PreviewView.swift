@@ -167,6 +167,7 @@ class PreviewView: CustomView {
                     renderPreviewProcessing(with: cell, at: indexPath)
                 }
                 else {
+                    cell.assetView.filteredImage = nil //INFO: clear when app changed
                     cell.setImageEditItem(appAsset.editState, animated: animated)
                 }
             }
@@ -282,6 +283,8 @@ extension PreviewView {
         }
         AppCenter.default.task.perform(createTaskReaction())
         papLog.event.performFromUser()
+
+        papCounter.app.countToPerform()
 
         return true
     }

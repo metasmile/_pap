@@ -11,8 +11,8 @@ import MetalPerformanceShaders
 import MetalKit
 import Vision
 
-private typealias CleanAppParam = PHAssetItem<ImageEditStateValue>
-private struct CleanAppResult: AppTaskResultable {
+private typealias CleanerAppParam = PHAssetItem<ImageEditStateValue>
+private struct CleanerAppResult: AppTaskResultable {
     fileprivate let asset:PHAsset
     
     init(asset:PHAsset){
@@ -24,30 +24,30 @@ private struct CleanAppResult: AppTaskResultable {
     fileprivate var isTooBlurry:Bool?
 }
 
-private protocol CleanAppDefaults: AppDefaults{
+private protocol CleanerAppDefaults: AppDefaults{
     
 }
 
-extension Defaults: CleanAppDefaults {
+extension Defaults: CleanerAppDefaults {
     
 }
 
 private typealias PHAssetID = String
 
-public class Clean: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp, PreheatableApp {
+public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp, PreheatableApp {
     public static let taskType: AppTaskable.Type = _CleanTask.self
 
     public static let paramType: AppTaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
     
-    public private(set) lazy var dockContent: AppDockContent? = CleanAppDockContent()
+    public private(set) lazy var dockContent: AppDockContent? = CleanerAppDockContent()
 
     public static let info = AppInfo(
-            identifier: "com.stells.pap.clean"
+            identifier: "com.stells.pap.cleaner"
             , version: "0.1"
             , phase: .develop
-            , appType: Clean.self
-            , displayName: "Clean", description:nil, keywords:nil
-            , iconBundleName: R.image.cleanBAppIcon.name
+            , appType: CleanerApp.self
+            , displayName: "Cleaner".localized, description:nil, keywords:nil
+            , iconBundleName: R.image.cleanerBAppIcon.name
             , policy: AppPolicy.default
             , minOSVersion: nil
     )
@@ -63,23 +63,23 @@ public class Clean: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp, App
     }
     
     public var doneButtonTitle: String? {
-        return "Clean".localized
+        return "Start".localized
     }
     
     @objc dynamic
     public fileprivate (set) lazy var autoSelect: Bool = false
     
-    fileprivate var detector = CleanAppDetector()
+    fileprivate var detector = CleanerAppDetector()
     
-    fileprivate var preheatedResults = [PHAssetID: CleanAppResult]()
+    fileprivate var preheatedResults = [PHAssetID: CleanerAppResult]()
     fileprivate var preheatedSimilarities = [PHAssetID: [PHAssetID]]()
     
     public func performPreheating(item: AppAsset, _ async: AsyncSignal) -> PreheatingFinishAction? {
         guard self.autoSelect else { return nil }
         
-        var preheatedResult:CleanAppResult? = preheatedResults[item.asset.localIdentifierWithoutSplitter]
+        var preheatedResult:CleanerAppResult? = preheatedResults[item.asset.localIdentifierWithoutSplitter]
         if preheatedResult == nil {
-            preheatedResult = self.detector.detectResult(asset: item.asset, async) ?? CleanAppResult(asset: item.asset)
+            preheatedResult = self.detector.detectResult(asset: item.asset, async) ?? CleanerAppResult(asset: item.asset)
             preheatedResults[item.asset.localIdentifierWithoutSplitter] = preheatedResult
         }
         
@@ -91,7 +91,7 @@ public class Clean: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp, App
     }
     
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
-        let items = result.filter { respondable in respondable.info.state == .completed }.compactMap { $0.result as? CleanAppResult }
+        let items = result.filter { respondable in respondable.info.state == .completed }.compactMap { $0.result as? CleanerAppResult }
         
         let alert = UIAlertController(title: "Clean the selected items".localized, message: nil, preferredStyle: .actionSheet)
         
@@ -121,9 +121,9 @@ public class Clean: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp, App
     }
 }
 
-private struct CleanAppDetector {
-    fileprivate mutating func detectResult(asset:PHAsset, _ async: AsyncManualSignalable) -> CleanAppResult? {
-        var result = CleanAppResult(asset: asset)
+private struct CleanerAppDetector {
+    fileprivate mutating func detectResult(asset:PHAsset, _ async: AsyncManualSignalable) -> CleanerAppResult? {
+        var result = CleanerAppResult(asset: asset)
         
 //            if asset.mediaSubtypes.contains(.photoScreenshot) {
 //                result.lockscreen = true
@@ -260,8 +260,8 @@ private class _CleanTask: AppTaskPrototype, AppTaskable {
     }
 }
 
-fileprivate class CleanAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
-    private lazy var defaults = Clean.defaults as! CleanAppDefaults
+fileprivate class CleanerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
+    private lazy var defaults = CleanerApp.defaults as! CleanerAppDefaults
     
     private let primaryColor = UIColor(red:0.6, green:0.6, blue:0.6, alpha:1)
     
@@ -284,7 +284,7 @@ fileprivate class CleanAppDockContent: NSObject, KeyPathWatchable, AppDockConten
             view.delegate = self
             view.rowHeight = 52
             view.allowsSelection = false
-            view.register(Cell.self, forCellReuseIdentifier: Clean.info.identifier)
+            view.register(Cell.self, forCellReuseIdentifier: CleanerApp.info.identifier)
             //            view.backgroundColor = UIColor(red: 31 / 255.0, green: 31 / 255.0, blue: 31 / 255.0, alpha: 1)
             view.tintColor = self.primaryColor
             //            view.separatorInset.left = view.rowHeight
@@ -325,7 +325,7 @@ fileprivate class CleanAppDockContent: NSObject, KeyPathWatchable, AppDockConten
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Clean.info.identifier) as! Cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CleanerApp.info.identifier) as! Cell
         
         cell.imageView?.tintColor = primaryColor
         cell.imageView?.contentMode = .scaleAspectFit
@@ -334,7 +334,7 @@ fileprivate class CleanAppDockContent: NSObject, KeyPathWatchable, AppDockConten
         cell.optionSwitch.setOn(self.autoSelect, animated: false)
         cell.switchDidChange = { on in
             self.autoSelect = on
-            AppCenter.default.currentInstanceAs(Clean.self)?.autoSelect = on
+            AppCenter.default.currentInstanceAs(CleanerApp.self)?.autoSelect = on
         }
         
         return cell

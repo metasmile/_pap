@@ -212,13 +212,13 @@ class PhotoPickerViewController: AppDockViewController {
                 }
             }
 
-            AppCenter.default.currentInstanceAs(PhotosFilterApp.self)?.config?.watch(\.filter, id: "picker\(PhotosFilterApp.info.identifier)") { (config, changed) in
+            AppCenter.default.currentInstanceAs(FiltersApp.self)?.config?.watch(\.filter, id: "picker\(FiltersApp.info.identifier)") { (config, changed) in
                 if let value = config.filter, !AppCenter.default.task.isRunning {
                     self.setAppValue(value)
                 }
             }
 
-            AppCenter.default.currentInstanceAs(AutoAdjustmentApp.self)?.config?.watch(\.filter, id: "picker\(AutoAdjustmentApp.info.identifier)") { (config, changed) in
+            AppCenter.default.currentInstanceAs(AutoEditorApp.self)?.config?.watch(\.filter, id: "picker\(AutoEditorApp.info.identifier)") { (config, changed) in
                 if let value = config.filter, !AppCenter.default.task.isRunning {
                     self.setAppValue(value)
                 }
@@ -230,11 +230,11 @@ class PhotoPickerViewController: AppDockViewController {
                 }
             }
 
-            AppCenter.default.currentInstanceAs(GIFMaker.self)?.config?.watch(\.sourceType, id: "picker\(GIFMaker.info.identifier)") { (config, changed) in
+            AppCenter.default.currentInstanceAs(GIFMakerApp.self)?.config?.watch(\.sourceType, id: "picker\(GIFMakerApp.info.identifier)") { (config, changed) in
                 self.redisplayVisibleCells()
             }
 
-            AppCenter.default.currentInstanceAs(ConvertApp.self)?.config?.watch(\.convertingDirectionIdentifier, id: "picker\(ConvertApp.info.identifier)") { (config, changed) in
+            AppCenter.default.currentInstanceAs(ConverterApp.self)?.config?.watch(\.convertingDirectionIdentifier, id: "picker\(ConverterApp.info.identifier)") { (config, changed) in
                 self.redisplayVisibleCells()
             }
 
@@ -246,14 +246,14 @@ class PhotoPickerViewController: AppDockViewController {
                 }
             }
 
-            AppCenter.default.currentInstanceAs(CallApp.self)?.watch(\.autoSelect, id: "picker\(CallApp.info.identifier)") { (app, changed) in
+            AppCenter.default.currentInstanceAs(CallNumbersApp.self)?.watch(\.autoSelect, id: "picker\(CallNumbersApp.info.identifier)") { (app, changed) in
                 if app.autoSelect && !AppCenter.default.task.isRunning {
                     self.cancelPreheatingIfNeeded()
                     self.performPrefetchIfNeeded(includingCurrentVisibleItems: true)
                 }
             }
 
-            AppCenter.default.currentInstanceAs(ExifGhost.self)?.watch(\.autoSelect, id: "picker\(ExifGhost.info.identifier)") { (app, changed) in
+            AppCenter.default.currentInstanceAs(ExifGhostApp.self)?.watch(\.autoSelect, id: "picker\(ExifGhostApp.info.identifier)") { (app, changed) in
                 if app.autoSelect && !AppCenter.default.task.isRunning {
                     self.cancelPreheatingIfNeeded()
                     self.performPrefetchIfNeeded(includingCurrentVisibleItems: true)
@@ -267,7 +267,7 @@ class PhotoPickerViewController: AppDockViewController {
                 }
             }
             
-            AppCenter.default.currentInstanceAs(Clean.self)?.watch(\.autoSelect, id: "picker\(Clean.info.identifier)") { (app, changed) in
+            AppCenter.default.currentInstanceAs(CleanerApp.self)?.watch(\.autoSelect, id: "picker\(CleanerApp.info.identifier)") { (app, changed) in
                 if app.autoSelect && !AppCenter.default.task.isRunning {
                     self.cancelPreheatingIfNeeded()
                     self.performPrefetchIfNeeded(includingCurrentVisibleItems: true)
@@ -284,16 +284,16 @@ class PhotoPickerViewController: AppDockViewController {
     
     override func unregisterWatchingAppConfig() {
         AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.unwatch(\.transform, forIds:["picker\(TransformApp.info.identifier)"])
-        AppCenter.default.currentInstanceAs(PhotosFilterApp.self)?.config?.unwatch(\.filter, forIds:["picker\(PhotosFilterApp.info.identifier)"])
-        AppCenter.default.currentInstanceAs(AutoAdjustmentApp.self)?.config?.unwatch(\.filter, forIds:["picker\(AutoAdjustmentApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(FiltersApp.self)?.config?.unwatch(\.filter, forIds:["picker\(FiltersApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(AutoEditorApp.self)?.config?.unwatch(\.filter, forIds:["picker\(AutoEditorApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(Stabilizer.self)?.config?.unwatch(\.stabilizationMode, forIds:["picker\(Stabilizer.info.identifier)"])
-        AppCenter.default.currentInstanceAs(GIFMaker.self)?.config?.unwatch(\.sourceType, forIds:["picker\(GIFMaker.info.identifier)"])
-        AppCenter.default.currentInstanceAs(ConvertApp.self)?.config?.unwatch(\.convertingDirectionIdentifier, forIds:["picker\(ConvertApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(GIFMakerApp.self)?.config?.unwatch(\.sourceType, forIds:["picker\(GIFMakerApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(ConverterApp.self)?.config?.unwatch(\.convertingDirectionIdentifier, forIds:["picker\(ConverterApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(RevertApp.self)?.unwatch(\.autoSelect, forIds:["picker\(RevertApp.info.identifier)"])
-        AppCenter.default.currentInstanceAs(CallApp.self)?.unwatch(\.autoSelect, forIds:["picker\(CallApp.info.identifier)"])
-        AppCenter.default.currentInstanceAs(ExifGhost.self)?.unwatch(\.autoSelect, forIds:["picker\(ExifGhost.info.identifier)"])
+        AppCenter.default.currentInstanceAs(CallNumbersApp.self)?.unwatch(\.autoSelect, forIds:["picker\(CallNumbersApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(ExifGhostApp.self)?.unwatch(\.autoSelect, forIds:["picker\(ExifGhostApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(FinderApp.self)?.unwatch(\.autoSelect, forIds:["picker\(FinderApp.info.identifier)"])
-        AppCenter.default.currentInstanceAs(Clean.self)?.unwatch(\.autoSelect, forIds:["picker\(Clean.info.identifier)"])
+        AppCenter.default.currentInstanceAs(CleanerApp.self)?.unwatch(\.autoSelect, forIds:["picker\(CleanerApp.info.identifier)"])
 
         AppCenter.default.unwatchAllFilePrivate(\.currentIdentifier)
     }

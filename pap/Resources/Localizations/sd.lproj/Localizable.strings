@@ -124,30 +124,56 @@
 "cs_keyword_13" = "عاشق";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d ڀيرا";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: Finder.BApp.swift#1227 */
+"Actions" = "عمل";
+/* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
+"Add New Contact" = "نئون رابطو شامل ڪريو";
+/* Generated from genl10n: Finder.BApp.swift#466 */
+"Add an Event" = "واقعي شامل ڪريو";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "پتو";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "البم";
+/* Generated from genl10n: Finder.BApp.swift#215 */
+"All contacts were successfully saved." = "سڀ رابطا ڪاميابي سان محفوظ ٿي ويون";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "سڀ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "متحرڪ GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "انيميشن";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "انسپاس جي شرح";
+/* Generated from genl10n: AutoEditor.BApp.swift#33 */
+"Auto Editor" = "خودڪار ايڊيٽر";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "ٿي رهيو آهي";
+/* Generated from genl10n: CallNumbers.swift#57 */
+"Call Numbers" = "ڪال نمبر";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "واپس نه ٿو ڪري سگھجي سڀ منتخب ٿيل شيون تبديل نه ڪيا آھن.";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Choose A Phone Number To Call" = "ڪال ڪرڻ لاء اي فون نمبر چونڊيو";
+/* Generated from genl10n: Finder.BApp.swift#250 */
+"Choose An Action" = "هڪ عمل چونڊيو";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "%d شيون لاء هڪ برآمد جي اختيار جو انتخاب ڪريو";
-/* Generated from genl10n: Convert.AppDockContent.swift */
+/* Generated from genl10n: Finder.BApp.swift#264 */
+"Choose An Sub Action." = "هڪ ذيلي عمل چونڊيو.";
+/* Generated from genl10n: Converter.AppDockContent.swift */
 "Choose an Option To Convert" = "ھڪڙو اختيار ٺاھڻ لاء چونڊيو";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Contract" = "معاهدو";
+/* Generated from genl10n: Cleaner.BApp.swift#96 */
+"Clean the selected items" = "صاف ٿيل شيون صاف ڪريو";
+/* Generated from genl10n: Cleaner.BApp.swift#49 */
+"Cleaner" = "صاف ڪندڙ";
+/* Generated from genl10n: Cleaner.BApp.swift#62 */
+"Cleaning Photos..." = "صفائي جون تصويرون ...";
+/* Generated from genl10n: Finder.BApp.swift#1228 */
+"Contacts" = "رابطا";
+/* Generated from genl10n: Converter.BApp.swift#41 */
+"Converter" = "ڪنٽرول";
+/* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
+"Copy" = "ڪاپي";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "ٺاهيو";
 /* Generated from genl10n: Stabilizer.swift */
@@ -156,8 +182,12 @@
 "Crop to Fit" = "فٽ ڪرڻ لاء";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "زراعت";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "ڪسٽم";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "تاريخ";
+/* Generated from genl10n: Finder.BApp.swift#116 */
+"Detecting ... %@ " = "چڪاس ڪيو ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "طرف";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
@@ -166,28 +196,30 @@
 "Downloading..." = "ڊائون لوڊ ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "اي ميل پتو";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallNumbers.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "خود انتخاب چونڊيو";
-/* Generated from genl10n: Convert.AppDockContent.swift */
+/* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "ٻاھرين جا اختيار";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "ٻاھر موڪليو";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Filters.BApp.swift#72 */
+"Filters" = "فلٽر";
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "ڳولهيو";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift#40 */
+"Finder" = "تلاش ڪندڙ";
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Finding Contacts ... %@ " = "رابطن جي ڳولها ڳولهائيندي ... %@";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
+"Flight Number" = "اڏام نمبر";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "شڪلون";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "اڳتي وڌڻ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "فريم دير ٿي رهيو آهي";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Grab" = "گريجو";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "لڪايو";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -196,6 +228,12 @@
 "Image Quality" = "تصوير جي معيار";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "آمد";
+/* Generated from genl10n: CodeKit.Contacts.swift#63 */
+"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "اهو توهان جي رابطن جي رسائي جي اجازت ڏيڻ جي ضرورت آهي. مهرباني ڪري رابطي کي iOS سيٽنگون تي اجازت ڏيو.";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "شيون";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+"Layout" = "ليٽنگ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "زندگي جو فوٽو";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -206,50 +244,76 @@
 "Modify" = "تبديل ڪريو";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "منهنجا البم";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "نئون رابطو";
+/* Generated from genl10n: Finder.BApp.swift#435 */
+"New Event" = "نئون واقعا";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "نه پوڻ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "نه لوپ";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift#654 */
+"Open Apple Maps" = "ايپل نقشه کوليو";
+/* Generated from genl10n: Finder.BApp.swift#668 */
+"Open Google Maps" = "Google Maps کوليو";
+/* Generated from genl10n: Finder.BApp.swift#370 */
+"Open Web Page" = "کليل ويب پيج";
+/* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
 "Original" = "اصل";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+"Page Margin" = "صفحو مارڻ";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+"Page Size Preset" = "صفحو سائيز جي شروعات";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "فون نمبر";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "تصويرون";
+/* Generated from genl10n: Finder.BApp.swift#1229 */
+"Plain Text" = "ميداني متن";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "ڪلو ويجها (320 × 240)";
-/* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "رازداري";
+/* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "خاصيت";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Recognizing ... %@ " = "تسليم ڪندي ... %@";
+/* Generated from genl10n: Finder.BApp.swift#1197 */
+"Quick Actions Only" = "تڪڙي جون تبديليون رڳو";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "ورجائي ٿو";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "موٽڻ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "انجو موٽيو";
+/* Generated from genl10n: Finder.BApp.swift#1185 */
+"Save Found Contacts Directly" = "محفوظ ڪريو رابطي سان رابطو ڪيو ويو";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "محفوظ ڪريو ۽ حصيداري ڪريو";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "محفوظ ڪريو";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "محفوظ ڪرڻ جا نتيجا ...";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Saving Texts ..." = "محفوظ ڪرڻ جا متن";
-/* Generated from genl10n: CallApp.BApp.swift */
+/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+"Scale To Fit" = "فٽ تائين اسڪيل";
+/* Generated from genl10n: Finder.BApp.swift#762 */
+"Search Flights" = "پرواز ڳولڻ";
+/* Generated from genl10n: Finder.BApp.swift#1345 */
+"Select Photos To Find Everything." = "تصويرون چونڊيو سڀ ڪجهه ڳولڻ لاء.";
+/* Generated from genl10n: Cleaner.BApp.swift#316 */
+"Select Photos You Want To Clean!" = "تصويرون چونڊيو جيڪو توهان صاف ڪرڻ چاهيو!";
+/* Generated from genl10n: CallNumbers.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "تصويرون چونڊيو جيڪو توهان فون نمبر حاصل ڪرڻ چاهيندا آهيو!";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Select Photos You Want To Grab!" = "تصويرون چونڊيو جيڪو توهان گرياب ڪرڻ چاهيو!";
+/* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
+"Send an Email" = "اي ميل موڪليو";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "شيئر ڪريو";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "ماپ";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry can't call to selected contact." = "معاف ڪجو منتخب ٿيل رابطي ۾ نه ٿو اچي سگھن.";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry not found any contact information." = "معافي جي ڪابه ڄاڻ نه ملي.";
+/* Generated from genl10n: Finder.BApp.swift#217 */
+"Some contacts were saved, but someones were not." = "ڪجهه رابطا محفوظ ڪيا ويا، پر ڪجهه به نه هئا.";
+/* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
+"Sorry not found any information you selected." = "معاف ٿيل نه مليو جيڪو توهان چونڊيو آهي";
+/* Generated from genl10n: Finder.BApp.swift#174 */
+"Sorry, this contact could not be saved." = "معاف ڪندا، ھي رابطو محفوظ نه ٿي سگھيو.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "چوڪن";
 /* Generated from genl10n: Stabilizer.swift */
@@ -268,17 +332,15 @@
 "Starting the Process..." = "عمل شروع ڪرڻ ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "تبديل ٿيل تصويرون چڪاس ڪرڻ لاء شروعاتي ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
+"Switch on any items you want to hide. The quality will entirely remain the same." = "ڪنهن به شيء کي لڪائڻ چاهيو. معيار مڪمل طور تي ساڳيا ئي رهندو.";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "ترجمو";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "وڊيو";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Waiting To Select ..." = "منتخب ڪرڻ جو انتظار ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "وار";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "ايڇ (640 × 360)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "ڪڇ (960 × 540)";
-/* Generated from genl10n: CallApp.BApp.swift */
+/* Generated from genl10n: CallNumbers.swift */
 "🔍 Starting To Find ..." = "ڳولڻ شروع ڪرڻ ...";

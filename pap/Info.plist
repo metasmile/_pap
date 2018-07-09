@@ -32,7 +32,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>12</string>
+	<string>14</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -50,61 +50,55 @@
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>comgooglemaps-x-callback</string>
-        <string>comgooglemaps</string>
-        <string>comgooglemapsurl</string>
-        <string>googlegmail</string>
-        <string>inbox-gmail</string>
-    </array>
+	<array>
+		<string>comgooglemaps-x-callback</string>
+		<string>comgooglemaps</string>
+		<string>comgooglemapsurl</string>
+		<string>googlegmail</string>
+		<string>inbox-gmail</string>
+	</array>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>apps.photo</key>
-			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-			</dict>
-		</dict>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>google.com</key>
-			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-			</dict>
-		</dict>
-		<key>NSExceptionDomains</key>
-		<dict>
 			<key>apple.com</key>
 			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-			</dict>
-		</dict>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>flightaware.com</key>
-			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+			<key>apps.photo</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+			<key>flightaware.com</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+			<key>google.com</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
 			</dict>
 		</dict>
-
 	</dict>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>$(PRODUCT_NAME) will access your photos library to edit them.</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>We would like to access your calendar to save the new event.</string>
 	<key>NSContactsUsageDescription</key>
 	<string>We would like to access your contacts to save the new contact entry.</string>
-    <key>NSCalendarsUsageDescription</key>
-    <string>We would like to access your calendar to save the new event.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>$(PRODUCT_NAME) will access your photos library to edit them.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch Screen</string>
 	<key>UIMainStoryboardFile</key>

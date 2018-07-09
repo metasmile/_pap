@@ -42,8 +42,8 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             return config
         }
         
-        PhotosFilterApp.configure = {
-            let config = PhotosFilterAppConfigValue()
+        FiltersApp.configure = {
+            let config = FiltersAppConfigValue()
             config.tintColor = .black
             return config
         }
@@ -54,7 +54,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             return config
         }
         
-        GIFMaker.configure = {
+        GIFMakerApp.configure = {
             let config = GIFMakerAppConfigValue()
             config.tintColor = .black
             return config
@@ -65,22 +65,31 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
         //TODO: Reorder via icon DnD
         //TODO: batchOS essential/settings app (it cannot be removed)
 
-        config.appCollection = [
-            TransformApp.self
-            , GIFMaker.self
+        var defaultAppCollection:[App.Type] = [
+            FinderApp.self
+            , TransformApp.self
+            , FiltersApp.self
             , RevertApp.self
-            , ConvertApp.self
-            , PhotosFilterApp.self
-            , CallApp.self
-            , PDFactory.self
-            , AutoAdjustmentApp.self
-            , ExifGhost.self
+            , ConverterApp.self
+            , GIFMakerApp.self
+            , CallNumbersApp.self
+            , PDFactoryApp.self
+            , AutoEditorApp.self
+            , ExifGhostApp.self
 
             //phase: .develop | .beta - They will automatically exclude in Release build.
-            , FinderApp.self
-            , Clean.self
+            , CleanerApp.self
             , Stabilizer.self
         ]
+
+        if papCounter.app.numberOfCounted > 0{
+            defaultAppCollection.sort { (appType: App.Type, appType2: App.Type) -> Bool in
+                return appType.info.phase == .release
+                        && papCounter.app.countPerformed(app: appType) > papCounter.app.countPerformed(app: appType2)
+            }
+        }
+
+        config.appCollection = defaultAppCollection
 
         return config
     }

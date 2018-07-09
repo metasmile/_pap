@@ -8,30 +8,30 @@
 
 import UIKit
 
-class _AutoAdjustmentAppAsset: _PhotosFilterAppAsset {}
+class _AutoEditorAppAsset: _FiltersAppAsset {}
 
-public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _ConfigurableApp,
+public class AutoEditorApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _ConfigurableApp,
         PHAssetFinalizableApp, PreviewableApp, PreviewProcessableApp, AppDockApp,
         PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp {
 
-    public static let taskType: AppTaskable.Type = _AutoAdjustmentAppTask.self
-    public static let paramType: AppTaskParamable.Type = _AutoAdjustmentAppAsset.self
+    public static let taskType: AppTaskable.Type = _AutoEditorAppTask.self
+    public static let paramType: AppTaskParamable.Type = _AutoEditorAppAsset.self
     
-    public static var configure:(() -> PhotosFilterAppConfigValue)?
+    public static var configure:(() -> FiltersAppConfigValue)?
     
     @objc dynamic
-    public private(set) lazy var config: PhotosFilterAppConfigValue? = PhotosFilterApp.configure?()
-    public private(set) lazy var dockContent: AppDockContent? = AutoAdjustmentAppDockContent()
+    public private(set) lazy var config: FiltersAppConfigValue? = FiltersApp.configure?()
+    public private(set) lazy var dockContent: AppDockContent? = AutoEditorAppDockContent()
     
     public private(set) var defaultEditStateValue: ImageEditStateValue?
     
     public static let info = AppInfo(
-        identifier: "com.stells.pap.autoadjustment"
+        identifier: "com.stells.pap.autoeditor"
         , version: "1.0"
         , phase: .release
-        , appType: AutoAdjustmentApp.self
-        , displayName: "Auto Edit", description:nil, keywords:nil
-        , iconBundleName: R.image.autoAdjustmentBAppIcon.name
+        , appType: AutoEditorApp.self
+        , displayName: "Auto Editor".localized, description:nil, keywords:nil
+        , iconBundleName: R.image.autoEditorBAppIcon.name
         , policy: AppPolicy.default
         , minOSVersion: nil
     )
@@ -43,10 +43,10 @@ public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableAp
             self.updateControllerView()
         }
 
-        let controllerContent = self.dockContent as? AutoAdjustmentAppDockContent
+        let controllerContent = self.dockContent as? AutoEditorAppDockContent
         controllerContent?.watch(\.options, options: [.initial, .new]) {
 
-            var defaults = type(of: self).defaults as! AutoAdjustmentAppDefaults
+            var defaults = type(of: self).defaults as! AutoEditorAppDefaults
 
             if let options = controllerContent?.options {
                 let filter = CIAutoAdjustmentFilter(options: options)
@@ -125,7 +125,7 @@ class CIAutoAdjustmentFilter: CIFilter {
     }
 }
 
-private extension AutoAdjustmentApp {
+private extension AutoEditorApp {
     struct AutoAdjustments {
         static let Enhance = kCIImageAutoAdjustEnhance
         static let RedEye = kCIImageAutoAdjustRedEye
@@ -154,10 +154,10 @@ private extension AutoAdjustmentApp {
     }
 
     static let AutoAdjustmentsKeys = [
-        AutoAdjustmentApp.AutoAdjustments.Enhance,
-        AutoAdjustmentApp.AutoAdjustments.RedEye,
-        AutoAdjustmentApp.AutoAdjustments.Crop,
-        AutoAdjustmentApp.AutoAdjustments.Straighten
+        AutoEditorApp.AutoAdjustments.Enhance,
+        AutoEditorApp.AutoAdjustments.RedEye,
+        AutoEditorApp.AutoAdjustments.Crop,
+        AutoEditorApp.AutoAdjustments.Straighten
     ]
     
     private func updateControllerView(){
@@ -165,25 +165,25 @@ private extension AutoAdjustmentApp {
     }
 }
 
-private class _AutoAdjustmentAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, AppTaskable {
-    public typealias ParamType = _AutoAdjustmentAppAsset
+private class _AutoEditorAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, AppTaskable {
+    public typealias ParamType = _AutoEditorAppAsset
     public typealias ResultType = PHAssetResultItem
 
     public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){
         
-        (param as? _PhotosFilterAppAsset)?.cancelAllRequestIDs()
-        (param as? _PhotosFilterAppAsset)?.cancelProcessing()
+        (param as? _FiltersAppAsset)?.cancelAllRequestIDs()
+        (param as? _FiltersAppAsset)?.cancelProcessing()
     }
     
     public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
-        assert(param is _AutoAdjustmentAppAsset, "TaskParamable type of this app is \(_PhotosFilterAppAsset.self)")
-        guard let _param = param as? _AutoAdjustmentAppAsset else{
+        assert(param is _AutoEditorAppAsset, "TaskParamable type of this app is \(_FiltersAppAsset.self)")
+        guard let _param = param as? _AutoEditorAppAsset else{
             throw AppTaskError.invalidParam
         }
         return try self._perform(_param, async)
     }
     
-    private func _perform(_ assetItem: _AutoAdjustmentAppAsset, _ async: AsyncManualSignalable) throws -> PHAssetResultItem?  {
+    private func _perform(_ assetItem: _AutoEditorAppAsset, _ async: AsyncManualSignalable) throws -> PHAssetResultItem?  {
         var result: PHAssetResultItem?
         
         async.begin()
@@ -207,22 +207,22 @@ private class _AutoAdjustmentAppTask: AppTaskPrototypeDefaultConcurrencyCountPol
 }
 
 /*
-AutoAdjustmentAppDockContent
+AutoEditorAppDockContent
 */
 import DefaultsKit
-private protocol AutoAdjustmentAppDefaults: AppDefaults{
+private protocol AutoEditorAppDefaults: AppDefaults{
     var autoAdjustmentOptions: [String:Bool] {get set}
 }
 
-extension Defaults: AutoAdjustmentAppDefaults {
+extension Defaults: AutoEditorAppDefaults {
     fileprivate var autoAdjustmentOptions: [String:Bool] {
         set{ set(newValue) }
-        get{ return get(or: AutoAdjustmentApp.AutoAdjustmentsKeys.dictionary { ($0, true) } ) }
+        get{ return get(or: AutoEditorApp.AutoAdjustmentsKeys.dictionary { ($0, true) } ) }
     }
 }
 
-class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
-    fileprivate var autoAdjustmentOptionKeys = AutoAdjustmentApp.AutoAdjustmentsKeys
+class AutoEditorAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
+    fileprivate var autoAdjustmentOptionKeys = AutoEditorApp.AutoAdjustmentsKeys
 
     lazy var view: UIView = UITableView()
 
@@ -238,7 +238,7 @@ class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, 
             view.delegate = self
             view.rowHeight = 52
             view.allowsSelection = false
-            view.register(Cell.self, forCellReuseIdentifier: AutoAdjustmentApp.info.identifier)
+            view.register(Cell.self, forCellReuseIdentifier: AutoEditorApp.info.identifier)
             view.backgroundColor = UIColor(red: 31 / 255.0, green: 31 / 255.0, blue: 31 / 255.0, alpha: 1)
             view.tintColor = UIColor(red: 72 / 255.0, green: 168 / 255.0, blue: 247 / 255.0, alpha: 1)
             view.separatorInset.left = view.rowHeight
@@ -263,15 +263,15 @@ class AutoAdjustmentAppDockContent: NSObject, KeyPathWatchable, AppDockContent, 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: AutoAdjustmentApp.info.identifier) as! Cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: AutoEditorApp.info.identifier) as! Cell
         let filterName = autoAdjustmentOptionKeys[indexPath.row]
         
-        cell.imageView?.image = AutoAdjustmentApp.AutoAdjustments.iconImage(filterName)
+        cell.imageView?.image = AutoEditorApp.AutoAdjustments.iconImage(filterName)
         //TODO: apply AppearancableApp.primaryColor
         cell.imageView?.tintColor = UIColor.white
         cell.imageView?.contentMode = .scaleAspectFit
 
-        cell.textLabel?.text = AutoAdjustmentApp.AutoAdjustments.aliasName(filterName)
+        cell.textLabel?.text = AutoEditorApp.AutoAdjustments.aliasName(filterName)
         cell.optionSwitch.setOn((self.options?[self.autoAdjustmentOptionKeys[indexPath.row]] as? Bool) == true, animated: false)
         cell.switchDidChange = { on in
             self.options?[self.autoAdjustmentOptionKeys[indexPath.row]] = on ? true : false

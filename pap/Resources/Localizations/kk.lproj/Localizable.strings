@@ -124,30 +124,56 @@
 "cs_keyword_13" = "любовник";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d times";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: Finder.BApp.swift#1227 */
+"Actions" = "Әрекеттер";
+/* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
+"Add New Contact" = "Жаңа контактіні қосыңыз";
+/* Generated from genl10n: Finder.BApp.swift#466 */
+"Add an Event" = "Оқиғаны қосу";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Мекенжай";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Альбомдар";
+/* Generated from genl10n: Finder.BApp.swift#215 */
+"All contacts were successfully saved." = "Барлық контактілер сәтті сақталды.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "Барлық";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Animated GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Анимация";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Еңбек арақатынасы";
+/* Generated from genl10n: AutoEditor.BApp.swift#33 */
+"Auto Editor" = "Авто редактор";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Жарылыс";
+/* Generated from genl10n: CallNumbers.swift#57 */
+"Call Numbers" = "Сандарға қоңырау шалу";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Қайтару мүмкін емес. Барлық таңдалған элементтер өңделмеген.";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Choose A Phone Number To Call" = "Қоңырау шалу үшін телефон нөмірін таңдаңыз";
+/* Generated from genl10n: Finder.BApp.swift#250 */
+"Choose An Action" = "Әрекетті таңдаңыз";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "%d Элементтер үшін экспорттау параметрін таңдаңыз";
-/* Generated from genl10n: Convert.AppDockContent.swift */
+/* Generated from genl10n: Finder.BApp.swift#264 */
+"Choose An Sub Action." = "Қосымша әрекетті таңдаңыз.";
+/* Generated from genl10n: Converter.AppDockContent.swift */
 "Choose an Option To Convert" = "Түрлендіруге арналған опцияны таңдаңыз";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Contract" = "Шарт";
+/* Generated from genl10n: Cleaner.BApp.swift#96 */
+"Clean the selected items" = "Таңдалған элементтерді тазалаңыз";
+/* Generated from genl10n: Cleaner.BApp.swift#49 */
+"Cleaner" = "Таза";
+/* Generated from genl10n: Cleaner.BApp.swift#62 */
+"Cleaning Photos..." = "Фотосуреттерді тазалау ...";
+/* Generated from genl10n: Finder.BApp.swift#1228 */
+"Contacts" = "Байланыс";
+/* Generated from genl10n: Converter.BApp.swift#41 */
+"Converter" = "Конвертер";
+/* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
+"Copy" = "Көшіру";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Жасау";
 /* Generated from genl10n: Stabilizer.swift */
@@ -156,8 +182,12 @@
 "Crop to Fit" = "Кесуге қию";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Өсімдік";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "Таңдамалы";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Күні";
+/* Generated from genl10n: Finder.BApp.swift#116 */
+"Detecting ... %@ " = "Анықтау ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Бағыт";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
@@ -166,28 +196,30 @@
 "Downloading..." = "Жүктелуде ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Электрондық пошта";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallNumbers.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Авто таңдауды қосу";
-/* Generated from genl10n: Convert.AppDockContent.swift */
+/* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Экспорт параметрлері";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Экспорт";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Filters.BApp.swift#72 */
+"Filters" = "Сүзгілер";
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "Табу";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift#40 */
+"Finder" = "Finder";
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Finding Contacts ... %@ " = "Контактілерді табу ... %@";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
+"Flight Number" = "Ұшу нөмірі";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "Пішіндер";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Алға";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF жасаушы";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Grab" = "Ұстаңыз";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Жасыру";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -196,6 +228,12 @@
 "Image Quality" = "Кескін сапасы";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Импорт";
+/* Generated from genl10n: CodeKit.Contacts.swift#63 */
+"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Бұл контактілерге кіруге рұқсат беруді талап етеді. IOS параметрлері бойынша контактілерге рұқсат беріңіз.";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "Элементтер";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+"Layout" = "Орналасу";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Жанды фото";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -206,50 +244,76 @@
 "Modify" = "Өзгерту";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Менің альбомдарым";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "Жаңа контакт";
+/* Generated from genl10n: Finder.BApp.swift#435 */
+"New Event" = "Жаңа оқиға";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "Жоқ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Цикл жоқ";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift#654 */
+"Open Apple Maps" = "Apple карталарын ашыңыз";
+/* Generated from genl10n: Finder.BApp.swift#668 */
+"Open Google Maps" = "Google Карталарын ашыңыз";
+/* Generated from genl10n: Finder.BApp.swift#370 */
+"Open Web Page" = "Веб-бетті ашыңыз";
+/* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
 "Original" = "Түпнұсқа";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+"Page Margin" = "Бет парағы";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+"Page Size Preset" = "Бет өлшемі алдын-ала орнатылған";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Телефон нөмірі";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Суреттер";
+/* Generated from genl10n: Finder.BApp.swift#1229 */
+"Plain Text" = "Кәдімгі мәтін";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
-/* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "Құпиялылық";
+/* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Сапа";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Recognizing ... %@ " = "Тану ... %@";
+/* Generated from genl10n: Finder.BApp.swift#1197 */
+"Quick Actions Only" = "Тек жылдам әрекеттер";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Қайталау";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Керісінше";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Артқа айналдыру";
+/* Generated from genl10n: Finder.BApp.swift#1185 */
+"Save Found Contacts Directly" = "Сақтау Тікелей байланыстар табылды";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "Сақтау және бөлісу";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Сақтау";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Нәтижелерді сақтау ...";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Saving Texts ..." = "Мәтіндерді сақтау ...";
-/* Generated from genl10n: CallApp.BApp.swift */
+/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+"Scale To Fit" = "Ұзындығы үшін масштабтау";
+/* Generated from genl10n: Finder.BApp.swift#762 */
+"Search Flights" = "Рейстерді іздеу";
+/* Generated from genl10n: Finder.BApp.swift#1345 */
+"Select Photos To Find Everything." = "Барлығын табу үшін фотосуреттерді таңдаңыз.";
+/* Generated from genl10n: Cleaner.BApp.swift#316 */
+"Select Photos You Want To Clean!" = "Тазалауды қалайтын фотосуреттерді таңдаңыз!";
+/* Generated from genl10n: CallNumbers.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Телефон нөмірлерін ұстағыңыз келетін фотосуреттерді таңдаңыз!";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Select Photos You Want To Grab!" = "Сіз қалаған фотосуреттерді таңдаңыз!";
+/* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
+"Send an Email" = "Электрондық поштаны жіберу";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Бөлісу";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Өлшемі";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry can't call to selected contact." = "Кешіріңіз, таңдалған контактіге қоңырау шалу мүмкін емес.";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry not found any contact information." = "Байланыс ақпараты жоқ.";
+/* Generated from genl10n: Finder.BApp.swift#217 */
+"Some contacts were saved, but someones were not." = "Кейбір контактілер сақталды, бірақ кейбір адамдар жоқ.";
+/* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
+"Sorry not found any information you selected." = "Сіз таңдаған қандай да бір ақпарат таппады.";
+/* Generated from genl10n: Finder.BApp.swift#174 */
+"Sorry, this contact could not be saved." = "Кешіріңіз, бұл контакт сақталмады.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Алаңы";
 /* Generated from genl10n: Stabilizer.swift */
@@ -268,17 +332,15 @@
 "Starting the Process..." = "Процесті бастау ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Өңделген фотосуреттерді тексере бастағанда ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
+"Switch on any items you want to hide. The quality will entirely remain the same." = "Жасырғыңыз келетін кез келген элементтерді қосыңыз. Сапасы мүлдем өзгермейді.";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Аударма";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Бейне";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Waiting To Select ..." = "Таңдауды күтуде ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD (640 × 360)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
-/* Generated from genl10n: CallApp.BApp.swift */
+/* Generated from genl10n: CallNumbers.swift */
 "🔍 Starting To Find ..." = "Іздеуге кірісу ...";

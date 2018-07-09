@@ -124,30 +124,56 @@
 "cs_keyword_13" = "காதலன்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d முறை";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"1080p (1920×1080)" = "1080 ப (1920 × 1080)";
+/* Generated from genl10n: Finder.BApp.swift#1227 */
+"Actions" = "செயல்கள்";
+/* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
+"Add New Contact" = "புதிய தொடர்பு சேர்க்கவும்";
+/* Generated from genl10n: Finder.BApp.swift#466 */
+"Add an Event" = "ஒரு நிகழ்வைச் சேர்க்கவும்";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "முகவரி";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "ஆல்பங்கள்";
+/* Generated from genl10n: Finder.BApp.swift#215 */
+"All contacts were successfully saved." = "அனைத்து தொடர்புகளும் வெற்றிகரமாக சேமிக்கப்பட்டன.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "அனைத்து";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "அனிமேஷன் GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "அனிமேஷன்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "விகிதம்";
+/* Generated from genl10n: AutoEditor.BApp.swift#33 */
+"Auto Editor" = "ஆட்டோ எடிட்டர்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "பர்ஸ்ட்";
+/* Generated from genl10n: CallNumbers.swift#57 */
+"Call Numbers" = "அழைப்பு எண்கள்";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "மாற்றியமைக்க முடியவில்லை. தேர்ந்தெடுக்கப்பட்ட அனைத்து உருப்படிகளும் திருத்தப்படவில்லை.";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Choose A Phone Number To Call" = "அழைக்க ஒரு தொலைபேசி எண் தேர்வு";
+/* Generated from genl10n: Finder.BApp.swift#250 */
+"Choose An Action" = "ஒரு அதிரடி தேர்வு";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "%d உருப்படிகளுக்கான ஏற்றுமதி விருப்பத்தைத் தேர்வுசெய்க";
-/* Generated from genl10n: Convert.AppDockContent.swift */
+/* Generated from genl10n: Finder.BApp.swift#264 */
+"Choose An Sub Action." = "ஒரு துணை அதிரடி தேர்வு.";
+/* Generated from genl10n: Converter.AppDockContent.swift */
 "Choose an Option To Convert" = "மாற்ற ஒரு விருப்பத்தை தேர்வு";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Contract" = "ஒப்பந்த";
+/* Generated from genl10n: Cleaner.BApp.swift#96 */
+"Clean the selected items" = "தேர்ந்தெடுத்த உருப்படிகளை சுத்தம் செய்யவும்";
+/* Generated from genl10n: Cleaner.BApp.swift#49 */
+"Cleaner" = "தூய்மையான";
+/* Generated from genl10n: Cleaner.BApp.swift#62 */
+"Cleaning Photos..." = "புகைப்படங்கள் சுத்தம் ...";
+/* Generated from genl10n: Finder.BApp.swift#1228 */
+"Contacts" = "தொடர்புகள்";
+/* Generated from genl10n: Converter.BApp.swift#41 */
+"Converter" = "மாற்றி";
+/* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
+"Copy" = "நகல்";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "உருவாக்கவும்";
 /* Generated from genl10n: Stabilizer.swift */
@@ -156,8 +182,12 @@
 "Crop to Fit" = "பொருத்துவதற்கு பயிர்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "பயிர்";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "விருப்ப";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "தேதி";
+/* Generated from genl10n: Finder.BApp.swift#116 */
+"Detecting ... %@ " = "கண்டறிதல் ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "திசையில்";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
@@ -166,28 +196,30 @@
 "Downloading..." = "இறக்குகிறது ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "மின்னஞ்சல் முகவரி";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallNumbers.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "தானியங்கு தேர்வு இயக்கு";
-/* Generated from genl10n: Convert.AppDockContent.swift */
+/* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "ஏற்றுமதி விருப்பங்கள்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "ஏற்றுமதி";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Filters.BApp.swift#72 */
+"Filters" = "வடிகட்டிகள்";
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "கண்டுபிடிக்க";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift#40 */
+"Finder" = "தேடல்";
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Finding Contacts ... %@ " = "தொடர்புகள் கண்டுபிடி ... %@";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
+"Flight Number" = "விமான எண்";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "வடிவங்கள்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "முன்னோக்கி";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "ஃப்ரேம் தாமதம்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF மேக்கர்";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Grab" = "கிராப்";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "மறை";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -196,6 +228,12 @@
 "Image Quality" = "பட தரம்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "இறக்குமதி";
+/* Generated from genl10n: CodeKit.Contacts.swift#63 */
+"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "உங்கள் தொடர்புகளை அணுகுவதற்கான அனுமதி தேவை. IOS அமைப்புகளில் தொடர்புகளை அனுமதிக்கவும்.";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "பொருட்களை";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+"Layout" = "லேஅவுட்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "லைவ் ஃபோட்டோ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -206,50 +244,76 @@
 "Modify" = "மாற்று";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "எனது ஆல்பங்கள்";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "புதிய தொடர்பு";
+/* Generated from genl10n: Finder.BApp.swift#435 */
+"New Event" = "புதிய நிகழ்வு";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "இல்லை பயிர்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "இல்லை வளைய";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift#654 */
+"Open Apple Maps" = "ஆப்பிள் வரைபடங்களைத் திற";
+/* Generated from genl10n: Finder.BApp.swift#668 */
+"Open Google Maps" = "Google வரைபடத்தைத் திற";
+/* Generated from genl10n: Finder.BApp.swift#370 */
+"Open Web Page" = "வலைப்பக்கத்தை திற";
+/* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
 "Original" = "அசல்";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+"Page Margin" = "பக்க விளிம்பு";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+"Page Size Preset" = "பக்க அளவு முன்னமைவு";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "தொலைபேசி எண்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "புகைப்படங்கள்";
+/* Generated from genl10n: Finder.BApp.swift#1229 */
+"Plain Text" = "சாதாரண எழுத்து";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "முன்னமைப்புகள்";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
-/* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "தனியுரிமை";
+/* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "தர";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Recognizing ... %@ " = "அங்கீகரிக்கிறது ... %@";
+/* Generated from genl10n: Finder.BApp.swift#1197 */
+"Quick Actions Only" = "விரைவான நடவடிக்கைகள் மட்டுமே";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "மீண்டும் மீண்டும்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "பின்னோக்கு";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "ரீவைண்ட்";
+/* Generated from genl10n: Finder.BApp.swift#1185 */
+"Save Found Contacts Directly" = "தொடர்புகளை நேரடியாக சேமிக்கவும்";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "சேமிக்கவும் மற்றும் பகிர்ந்து";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "சேமி";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "முடிவுகளை சேமிக்கிறது ...";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Saving Texts ..." = "உரைகள் சேமிக்கிறது ...";
-/* Generated from genl10n: CallApp.BApp.swift */
+/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+"Scale To Fit" = "பொருத்துவதற்கு அளவுகோல்";
+/* Generated from genl10n: Finder.BApp.swift#762 */
+"Search Flights" = "தேடல் விமானங்கள்";
+/* Generated from genl10n: Finder.BApp.swift#1345 */
+"Select Photos To Find Everything." = "எல்லாவற்றையும் கண்டுபிடிக்க புகைப்படங்களைத் தேர்ந்தெடுக்கவும்.";
+/* Generated from genl10n: Cleaner.BApp.swift#316 */
+"Select Photos You Want To Clean!" = "நீங்கள் தேர்ந்தெடுத்த படங்களைத் தேர்ந்தெடுக்கவும்!";
+/* Generated from genl10n: CallNumbers.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "நீங்கள் எண்களை கைப்பற்ற விரும்புகிறீர்களா?";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Select Photos You Want To Grab!" = "நீங்கள் விரும்பும் படங்களைத் தேர்ந்தெடுங்கள்!";
+/* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
+"Send an Email" = "ஒரு மின்னஞ்சல் அனுப்பவும்";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "பகிர்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "அளவு";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry can't call to selected contact." = "தேர்ந்தெடுக்கப்பட்ட தொடர்புக்கு மன்னிக்க முடியாது.";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry not found any contact information." = "மன்னிக்கவும் எந்த தொடர்பு தகவலும் இல்லை.";
+/* Generated from genl10n: Finder.BApp.swift#217 */
+"Some contacts were saved, but someones were not." = "சில தொடர்புகள் சேமிக்கப்பட்டன, ஆனால் யாரோ ஒருவர் இல்லை.";
+/* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
+"Sorry not found any information you selected." = "நீங்கள் தேர்ந்தெடுத்த எந்த தகவலையும் மன்னிக்கவும்.";
+/* Generated from genl10n: Finder.BApp.swift#174 */
+"Sorry, this contact could not be saved." = "மன்னிக்கவும், இந்த தொடர்பு சேமிக்கப்படவில்லை.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "சதுக்கத்தில்";
 /* Generated from genl10n: Stabilizer.swift */
@@ -268,17 +332,15 @@
 "Starting the Process..." = "செயல்முறை தொடங்குகிறது ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "திருத்தப்பட்ட புகைப்படங்களைச் சரிபார்க்கத் தொடங்குகிறது ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
+"Switch on any items you want to hide. The quality will entirely remain the same." = "நீங்கள் மறைக்க விரும்பும் எந்தப் பொருட்களையும் மாற்றவும். தரம் முற்றிலும் ஒரே மாதிரியாக இருக்கும்.";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "மொழிபெயர்ப்பு";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "காணொளி";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Waiting To Select ..." = "தேர்ந்தெடுக்க காத்திருக்கிறது ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "தொகுப்பை";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD (640 × 360)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
-/* Generated from genl10n: CallApp.BApp.swift */
+/* Generated from genl10n: CallNumbers.swift */
 "🔍 Starting To Find ..." = "கண்டுபிடிக்க தொடங்குகிறது ...";

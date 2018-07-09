@@ -22,17 +22,17 @@ private extension ConvertingDirection {
     }
 }
 
-class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
+class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
         , UITableViewDelegate, UITableViewDataSource {
 
-    fileprivate var defaults = ConvertApp.defaults as! ConvertAppDefaults
+    fileprivate var defaults = ConverterApp.defaults as! ConverterAppDefaults
 
     fileprivate var cellDescribers = [UITableViewCellDefaultDescribable]()
     fileprivate var cells = [(section: String, items: [UITableViewCellDefaultDescribable], description: String)]()
 
-    weak var app:ConvertApp?
+    weak var app:ConverterApp?
 
-    required init(app:ConvertApp){
+    required init(app:ConverterApp){
         self.app = app
     }
 
@@ -76,8 +76,8 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
         
         let valueCollection = {
             return [
-                UIPickerItem(component: "From", values: ConvertApp.availableConverterNames),
-                UIPickerItem(component: "To", values: ConvertApp.getAvailableConvertersNamesTo(fromRawValue:self.defaults.convertingDirection.from.rawValue)),
+                UIPickerItem(component: "From", values: ConverterApp.availableConverterNames),
+                UIPickerItem(component: "To", values: ConverterApp.getAvailableConvertersNamesTo(fromRawValue:self.defaults.convertingDirection.from.rawValue)),
                 ]
         }
         
@@ -93,7 +93,7 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
             let component = value.1
             let convertTypeRawValue = value.2
             
-            if component == 0, let direction = ConvertApp.availableDirections.first(where:{ $0.from.rawValue == convertTypeRawValue }) {
+            if component == 0, let direction = ConverterApp.availableDirections.first(where:{ $0.from.rawValue == convertTypeRawValue }) {
                 self.defaults.convertingDirection = direction
                 self.app?.config?.convertingDirectionIdentifier = direction.identifier
 
@@ -102,7 +102,7 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
                 
                 cell.setSelectedRow(cell.values[1].values.index(of: direction.to.rawValue) ?? 0, inComponent: 1, animated: true)
             }
-            else if component == 1, let direction = ConvertApp.availableDirections.first(where:{ $0.from == self.defaults.convertingDirection.from && $0.to.rawValue == convertTypeRawValue }) {
+            else if component == 1, let direction = ConverterApp.availableDirections.first(where:{ $0.from == self.defaults.convertingDirection.from && $0.to.rawValue == convertTypeRawValue }) {
                 self.defaults.convertingDirection = direction
                 self.app?.config?.convertingDirectionIdentifier = direction.identifier
             }
@@ -337,7 +337,7 @@ class ConvertAppDockContent: NSObject, AppDockContent, AppDockDelegate
                 cell.segmentedControl.insertSegment(withTitle: k.key, at: cell.segmentedControl.numberOfSegments, animated: false)
             }
 
-            cell.segmentedControl.selectedSegmentIndex = Array(valueCollection.values).index(of: item.valueGetter() as? Int ?? PDFactorySettings.ScaleMode.fitPage.rawValue) ?? 0
+            cell.segmentedControl.selectedSegmentIndex = Array(valueCollection.values).index(of: item.valueGetter() as? Int ?? PDFactoryAppSettings.ScaleMode.fitPage.rawValue) ?? 0
             cell.didChangeValue = item.valueHandler
             return cell
         }

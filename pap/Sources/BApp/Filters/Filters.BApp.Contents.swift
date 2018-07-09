@@ -11,7 +11,7 @@ import Photos
 import MobileCoreServices
 import AVFoundation
 
-class _PhotosFilterAppAsset: PHAssetItem<ImageEditStateValue> {
+class _FiltersAppAsset: PHAssetItem<ImageEditStateValue> {
     fileprivate var editingContext: PHLivePhotoEditingContext?
     fileprivate var exportSession: AVAssetExportSession?
     
@@ -24,7 +24,7 @@ class _PhotosFilterAppAsset: PHAssetItem<ImageEditStateValue> {
     }
 }
 
-extension _PhotosFilterAppAsset: PHAssetImageEditable {
+extension _FiltersAppAsset: PHAssetImageEditable {
     func edit<T: ImageProcessable>(processor: T.Type, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
         let asset = self.asset
 
@@ -62,7 +62,7 @@ extension _PhotosFilterAppAsset: PHAssetImageEditable {
     }
 }
 
-extension _PhotosFilterAppAsset: PHAssetLivePhotoEditable {
+extension _FiltersAppAsset: PHAssetLivePhotoEditable {
     func edit<T:LivePhotoProcessable>(processor:T.Type, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
         let r = self.requestContentEditing { _item in
             guard let item = _item else{
@@ -94,7 +94,7 @@ extension _PhotosFilterAppAsset: PHAssetLivePhotoEditable {
     }
 }
 
-extension _PhotosFilterAppAsset: PHAssetVideoEditable {
+extension _FiltersAppAsset: PHAssetVideoEditable {
     func edit<T>(processor:T.Type, /*audioMix: AVAudioMix? = nil,*/ progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
         where T:VideoProcessable {
             

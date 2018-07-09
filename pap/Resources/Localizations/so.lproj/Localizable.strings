@@ -124,30 +124,56 @@
 "cs_keyword_13" = "lover";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d waqtiyo";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"1080p (1920×1080)" = "1080p (1920 x 1080)";
+/* Generated from genl10n: Finder.BApp.swift#1227 */
+"Actions" = "Tallaabooyinka";
+/* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
+"Add New Contact" = "Ku dar Kuubub cusub";
+/* Generated from genl10n: Finder.BApp.swift#466 */
+"Add an Event" = "Ku dar dhacdo";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Cinwaanka";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albaabada";
+/* Generated from genl10n: Finder.BApp.swift#215 */
+"All contacts were successfully saved." = "Xiriirada oo dhan ayaa lagu guuleystay.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "Dhammaan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Gifted GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Karinta";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Heerka Kala Duwan";
+/* Generated from genl10n: AutoEditor.BApp.swift#33 */
+"Auto Editor" = "Tifatiraha Auto";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Dilaaca";
+/* Generated from genl10n: CallNumbers.swift#57 */
+"Call Numbers" = "Wac Numbers";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Dib uma noqon karto. Dhamaan alaabooyinka la soo xulay ma aysan dhajin.";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Choose A Phone Number To Call" = "Xulo Lambarka Telefoonka si aad u wacdid";
+/* Generated from genl10n: Finder.BApp.swift#250 */
+"Choose An Action" = "Dooro Waxqabasho";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Dooro Ikhtiyaarka Dhoofinta ee %d Qalabka";
-/* Generated from genl10n: Convert.AppDockContent.swift */
+/* Generated from genl10n: Finder.BApp.swift#264 */
+"Choose An Sub Action." = "Dooro Waxqabadka Maskaxda.";
+/* Generated from genl10n: Converter.AppDockContent.swift */
 "Choose an Option To Convert" = "Dooro Xulasho Si Loo Bedelo";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Contract" = "Heshiiska";
+/* Generated from genl10n: Cleaner.BApp.swift#96 */
+"Clean the selected items" = "Nadiifi alaabada la soo xulay";
+/* Generated from genl10n: Cleaner.BApp.swift#49 */
+"Cleaner" = "Nadiifiye";
+/* Generated from genl10n: Cleaner.BApp.swift#62 */
+"Cleaning Photos..." = "Nadiifinta Sawirrada ...";
+/* Generated from genl10n: Finder.BApp.swift#1228 */
+"Contacts" = "Xiriirrada";
+/* Generated from genl10n: Converter.BApp.swift#41 */
+"Converter" = "Converter";
+/* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
+"Copy" = "Nuqul";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Abuuri";
 /* Generated from genl10n: Stabilizer.swift */
@@ -156,8 +182,12 @@
 "Crop to Fit" = "Dalag si aad u Xirtid";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Dalag";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "Qaas ahaan";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Taariikhda";
+/* Generated from genl10n: Finder.BApp.swift#116 */
+"Detecting ... %@ " = "Qaadashada ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Jihada";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
@@ -166,28 +196,30 @@
 "Downloading..." = "Soo dejinta ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Cinwaanka emailka";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallNumbers.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Awood oo xulashada Auto";
-/* Generated from genl10n: Convert.AppDockContent.swift */
+/* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Xulashada Dhoofinta";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Dhoofinta";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Filters.BApp.swift#72 */
+"Filters" = "Filters";
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "Soo hel";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift#40 */
+"Finder" = "Finder";
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Finding Contacts ... %@ " = "Raadinta Xiriirrada ... %@";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
+"Flight Number" = "Tirada duulimaadka";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "Foomamka";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Hore";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Grab" = "Qaado";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Qari";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -196,6 +228,12 @@
 "Image Quality" = "Tayada sawirka";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Soo dejinta";
+/* Generated from genl10n: CodeKit.Contacts.swift#63 */
+"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Waxay u baahan tahay ogolaansho si aad u hesho xiriirkaaga. Fadlan u ogolow Xiriirada ku yaala goobaha iOS.";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "Alaabta";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+"Layout" = "Layout";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -206,50 +244,76 @@
 "Modify" = "Isbedel";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "My Album";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "Xiriir cusub";
+/* Generated from genl10n: Finder.BApp.swift#435 */
+"New Event" = "Dhacdada Cusub";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "Ma jiro dalag";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Looma baahna";
-/* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift#654 */
+"Open Apple Maps" = "Furan Khariidadaha Apple";
+/* Generated from genl10n: Finder.BApp.swift#668 */
+"Open Google Maps" = "Furan Khariidadaha Google";
+/* Generated from genl10n: Finder.BApp.swift#370 */
+"Open Web Page" = "Bogga Internetka furan";
+/* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
 "Original" = "Asalka";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+"Page Margin" = "Page Margin";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+"Page Size Preset" = "Xajmiga Bogga Hore";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Lambarka taleefanka";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Sawirro";
+/* Generated from genl10n: Finder.BApp.swift#1229 */
+"Plain Text" = "Qoraalka Qadka";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
-/* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "Asturnaanta";
+/* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Tayada";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Recognizing ... %@ " = "Aqoonsiga ... %@";
+/* Generated from genl10n: Finder.BApp.swift#1197 */
+"Quick Actions Only" = "Hawlaha deg-degga ah oo kaliya";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Ku celi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Dib u noqo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Rewind";
+/* Generated from genl10n: Finder.BApp.swift#1185 */
+"Save Found Contacts Directly" = "Kaydi Goobaha Laga Helay si toos ah";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "Badbaadi oo wadaag";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Badbaadi";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Natiijooyinka Saving ...";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Saving Texts ..." = "Qoraalka Dhawrista ...";
-/* Generated from genl10n: CallApp.BApp.swift */
+/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+"Scale To Fit" = "Miisaanka Si Loo Qaado";
+/* Generated from genl10n: Finder.BApp.swift#762 */
+"Search Flights" = "Raadi Duulimaadyada";
+/* Generated from genl10n: Finder.BApp.swift#1345 */
+"Select Photos To Find Everything." = "Xulo Sawiro si aad u hesho Wax kasta.";
+/* Generated from genl10n: Cleaner.BApp.swift#316 */
+"Select Photos You Want To Clean!" = "Xulo Sawirada Waxaad Nadiifineysaa!";
+/* Generated from genl10n: CallNumbers.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Xulo Sawirada Waxaad Rabto Inaad Naabsato Nambarada Telefoonada!";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Select Photos You Want To Grab!" = "Xulo Sawirada Waxaad rabto inaad qabato!";
+/* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
+"Send an Email" = "Dir email";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "La wadaag";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Cabbirka";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry can't call to selected contact." = "Waan ka xumahay wicitaanada xiriirka la doortay.";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry not found any contact information." = "Waan ka xumahay inaan helin wax macluumaad ah oo xiriir.";
+/* Generated from genl10n: Finder.BApp.swift#217 */
+"Some contacts were saved, but someones were not." = "Qaar ka mid ah xiriirrada ayaa la badbaadiyey, laakiin qaar ka mid ah ma aysan aheyn.";
+/* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
+"Sorry not found any information you selected." = "Waan ka xumahay inaan helin wax macluumaad ah oo aad dooratay.";
+/* Generated from genl10n: Finder.BApp.swift#174 */
+"Sorry, this contact could not be saved." = "Waan ka xunnahay, xidhiidhkan aan la badbaadin karin.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -268,17 +332,15 @@
 "Starting the Process..." = "Bilaabidda Nidaamka ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Laga bilaabo in la eego sawirada la sameeyay ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
+"Switch on any items you want to hide. The quality will entirely remain the same." = "Waxyaabaha aad rabto inaad qariso. Tilmaamku wuxuu ahaanayaa mid isku mid ah.";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Turjubaan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Waiting To Select ..." = "Sugitaanka Xulashada ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD (640 × 360)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
-/* Generated from genl10n: CallApp.BApp.swift */
+/* Generated from genl10n: CallNumbers.swift */
 "🔍 Starting To Find ..." = "Laga bilaabo bilowga inuu helo ...";

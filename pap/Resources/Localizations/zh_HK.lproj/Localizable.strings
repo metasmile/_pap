@@ -124,30 +124,56 @@
 "cs_keyword_13" = "情人";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d次";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"1080p (1920×1080)" = "1080p（1920×1080）";
+/* Generated from genl10n: Finder.BApp.swift#1227 */
+"Actions" = "操作";
+/* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
+"Add New Contact" = "添加新聯繫人";
+/* Generated from genl10n: Finder.BApp.swift#466 */
+"Add an Event" = "添加活動";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "地址";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "相冊";
+/* Generated from genl10n: Finder.BApp.swift#215 */
+"All contacts were successfully saved." = "所有聯繫人都已成功保存。";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "所有";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "動畫GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "動畫";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "縱橫比";
+/* Generated from genl10n: AutoEditor.BApp.swift#33 */
+"Auto Editor" = "自動編輯器";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "爆裂";
+/* Generated from genl10n: CallNumbers.swift#57 */
+"Call Numbers" = "電話號碼";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "無法恢復。所有選擇的項目都沒有編輯。";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Choose A Phone Number To Call" = "選擇要撥打的電話號碼";
+/* Generated from genl10n: Finder.BApp.swift#250 */
+"Choose An Action" = "選擇一個動作";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "為%d項目選擇導出選項";
-/* Generated from genl10n: Convert.AppDockContent.swift */
+/* Generated from genl10n: Finder.BApp.swift#264 */
+"Choose An Sub Action." = "選擇一個子動作。";
+/* Generated from genl10n: Converter.AppDockContent.swift */
 "Choose an Option To Convert" = "選擇要轉換的選項";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Contract" = "合同";
+/* Generated from genl10n: Cleaner.BApp.swift#96 */
+"Clean the selected items" = "清潔所選項目";
+/* Generated from genl10n: Cleaner.BApp.swift#49 */
+"Cleaner" = "清潔器";
+/* Generated from genl10n: Cleaner.BApp.swift#62 */
+"Cleaning Photos..." = "清潔照片......";
+/* Generated from genl10n: Finder.BApp.swift#1228 */
+"Contacts" = "往來";
+/* Generated from genl10n: Converter.BApp.swift#41 */
+"Converter" = "變流器";
+/* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
+"Copy" = "複製";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "創建";
 /* Generated from genl10n: Stabilizer.swift */
@@ -156,8 +182,12 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "作物";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "習慣";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "日期";
+/* Generated from genl10n: Finder.BApp.swift#116 */
+"Detecting ... %@ " = "檢測... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "方向";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
@@ -166,28 +196,30 @@
 "Downloading..." = "下載...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "電子郵件地址";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallNumbers.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "啟用自動選擇";
-/* Generated from genl10n: Convert.AppDockContent.swift */
+/* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "導出選項";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "出口";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Filters.BApp.swift#72 */
+"Filters" = "過濾器";
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "找";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift#40 */
+"Finder" = "發現者";
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Finding Contacts ... %@ " = "查找聯繫人... %@";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
+"Flight Number" = "航班號";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "格式";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "前鋒";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "幀延遲";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Grab" = "抓";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "高清（1280×720）";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA（480×320）";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "隱藏";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -196,6 +228,12 @@
 "Image Quality" = "畫面質量";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "進口";
+/* Generated from genl10n: CodeKit.Contacts.swift#63 */
+"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "它需要獲得訪問您的聯繫人的權限。請允許iOS設置上的聯繫人。";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "項目";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+"Layout" = "佈局";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "現場照片";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -206,50 +244,76 @@
 "Modify" = "修改";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "我的相冊";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "新聯繫人";
+/* Generated from genl10n: Finder.BApp.swift#435 */
+"New Event" = "新事件";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "沒有作物";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "沒有循環";
-/* Generated from genl10n: PhotosFilter.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift#654 */
+"Open Apple Maps" = "打開Apple Maps";
+/* Generated from genl10n: Finder.BApp.swift#668 */
+"Open Google Maps" = "打開Google地圖";
+/* Generated from genl10n: Finder.BApp.swift#370 */
+"Open Web Page" = "打開網頁";
+/* Generated from genl10n: Filters.BApp.swift */
 "Original" = "原版的";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+"Page Margin" = "頁邊距";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+"Page Size Preset" = "頁面大小預設";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "電話號碼";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "相片";
+/* Generated from genl10n: Finder.BApp.swift#1229 */
+"Plain Text" = "純文本";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "預置";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA（320×240）";
-/* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "隱私";
+/* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "質量";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Recognizing ... %@ " = "認識... %@";
+/* Generated from genl10n: Finder.BApp.swift#1197 */
+"Quick Actions Only" = "僅限快速操作";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "重複";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Reverse";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "倒帶";
+/* Generated from genl10n: Finder.BApp.swift#1185 */
+"Save Found Contacts Directly" = "直接保存找到的聯繫人";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "保存並分享";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save" = "保存";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "保存結果...";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Saving Texts ..." = "正在保存文本...";
-/* Generated from genl10n: CallApp.BApp.swift */
+/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+"Scale To Fit" = "縮放以適應";
+/* Generated from genl10n: Finder.BApp.swift#762 */
+"Search Flights" = "搜索航班";
+/* Generated from genl10n: Finder.BApp.swift#1345 */
+"Select Photos To Find Everything." = "選擇照片查找所有內容。";
+/* Generated from genl10n: Cleaner.BApp.swift#316 */
+"Select Photos You Want To Clean!" = "選擇您要清潔的照片！";
+/* Generated from genl10n: CallNumbers.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "選擇您想要獲取電話號碼的照片！";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Select Photos You Want To Grab!" = "選擇你想抓取的照片！";
+/* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
+"Send an Email" = "發送電子郵件";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "分享";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "尺寸";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry can't call to selected contact." = "抱歉，不能撥打所選聯繫人。";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry not found any contact information." = "抱歉沒有找到任何联系信息。";
+/* Generated from genl10n: Finder.BApp.swift#217 */
+"Some contacts were saved, but someones were not." = "有些聯繫人得救，但有些人沒有。";
+/* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
+"Sorry not found any information you selected." = "抱歉，未找到您選擇的任何信息。";
+/* Generated from genl10n: Finder.BApp.swift#174 */
+"Sorry, this contact could not be saved." = "抱歉，無法保存此聯繫人。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "廣場";
 /* Generated from genl10n: Stabilizer.swift */
@@ -268,17 +332,15 @@
 "Starting the Process..." = "啟動過程...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "開始檢查編輯的照片...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
+"Switch on any items you want to hide. The quality will entirely remain the same." = "打開要隱藏的任何項目。質量將完全保持不變。";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "翻譯";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "視頻";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Waiting To Select ..." = "等待選擇...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD（640×360）";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD（960×540）";
-/* Generated from genl10n: CallApp.BApp.swift */
+/* Generated from genl10n: CallNumbers.swift */
 "🔍 Starting To Find ..." = "開始查找...";

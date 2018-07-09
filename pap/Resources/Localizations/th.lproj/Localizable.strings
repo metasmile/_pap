@@ -124,30 +124,56 @@
 "cs_keyword_13" = "คนรัก";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d ครั้ง";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: Finder.BApp.swift#1227 */
+"Actions" = "การปฏิบัติ";
+/* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
+"Add New Contact" = "เพิ่มผู้ติดต่อใหม่";
+/* Generated from genl10n: Finder.BApp.swift#466 */
+"Add an Event" = "เพิ่มเหตุการณ์";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "ที่อยู่";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "อัลบัม";
+/* Generated from genl10n: Finder.BApp.swift#215 */
+"All contacts were successfully saved." = "บันทึกรายชื่อติดต่อทั้งหมดเรียบร้อยแล้ว";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "ทั้งหมด";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "GIF เคลื่อนไหว";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "นิเมชั่น";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "อัตราส่วนภาพ";
+/* Generated from genl10n: AutoEditor.BApp.swift#33 */
+"Auto Editor" = "ตัวแก้ไขอัตโนมัติ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
+/* Generated from genl10n: CallNumbers.swift#57 */
+"Call Numbers" = "โทรเบอร์";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "ไม่สามารถย้อนกลับได้ รายการที่เลือกทั้งหมดยังไม่ได้แก้ไข";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Choose A Phone Number To Call" = "เลือกหมายเลขโทรศัพท์ที่ต้องการโทร";
+/* Generated from genl10n: Finder.BApp.swift#250 */
+"Choose An Action" = "เลือกการกระทำ";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "เลือกตัวเลือกการส่งออกสำหรับ %d รายการ";
-/* Generated from genl10n: Convert.AppDockContent.swift */
+/* Generated from genl10n: Finder.BApp.swift#264 */
+"Choose An Sub Action." = "เลือกการกระทำย่อย";
+/* Generated from genl10n: Converter.AppDockContent.swift */
 "Choose an Option To Convert" = "Choose an Option To Convert";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Contract" = "สัญญา";
+/* Generated from genl10n: Cleaner.BApp.swift#96 */
+"Clean the selected items" = "ทำความสะอาดรายการที่เลือก";
+/* Generated from genl10n: Cleaner.BApp.swift#49 */
+"Cleaner" = "ทำความสะอาด";
+/* Generated from genl10n: Cleaner.BApp.swift#62 */
+"Cleaning Photos..." = "กำลังทำความสะอาดภาพ ...";
+/* Generated from genl10n: Finder.BApp.swift#1228 */
+"Contacts" = "รายชื่อผู้ติดต่อ";
+/* Generated from genl10n: Converter.BApp.swift#41 */
+"Converter" = "แปลง";
+/* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
+"Copy" = "สำเนา";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Create";
 /* Generated from genl10n: Stabilizer.swift */
@@ -156,8 +182,12 @@
 "Crop to Fit" = "ครอบตัดให้พอดี";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "พืชผล";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "กำหนดเอง";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "วันที่";
+/* Generated from genl10n: Finder.BApp.swift#116 */
+"Detecting ... %@ " = "กำลังตรวจจับ ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "ทิศทาง";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
@@ -166,28 +196,30 @@
 "Downloading..." = "ดาวน์โหลด ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "ที่อยู่อีเมล";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallApp.BApp.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallNumbers.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "เปิดใช้งานการเลือกอัตโนมัติ";
-/* Generated from genl10n: Convert.AppDockContent.swift */
+/* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "ตัวเลือกการส่งออก";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "ส่งออก";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Filters.BApp.swift#72 */
+"Filters" = "ฟิลเตอร์";
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "หา";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift#40 */
+"Finder" = "Finder";
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Finding Contacts ... %@ " = "กำลังค้นหาที่อยู่ติดต่อ ... %@";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
+"Flight Number" = "เที่ยวบินหมายเลข";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "รูปแบบ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "ความล่าช้าของเฟรม";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "เครื่อง GIF";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Grab" = "คว้า";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -196,6 +228,12 @@
 "Image Quality" = "คุณภาพรูปภาพ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "นำเข้า";
+/* Generated from genl10n: CodeKit.Contacts.swift#63 */
+"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "ต้องมีสิทธิ์เข้าถึงที่อยู่ติดต่อของคุณ โปรดอนุญาตให้ผู้ติดต่อในการตั้งค่า iOS";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "รายการ";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+"Layout" = "แบบ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -206,50 +244,76 @@
 "Modify" = "แก้ไข";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "อัลบั้มของฉัน";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "ที่ติดต่อใหม่";
+/* Generated from genl10n: Finder.BApp.swift#435 */
+"New Event" = "กิจกรรมใหม่";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "ไม่มีลูป";
-/* Generated from genl10n: PhotosFilter.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift#654 */
+"Open Apple Maps" = "เปิดแอปเปิ้ลแผนที่";
+/* Generated from genl10n: Finder.BApp.swift#668 */
+"Open Google Maps" = "เปิด Google Maps";
+/* Generated from genl10n: Finder.BApp.swift#370 */
+"Open Web Page" = "เปิดเว็บเพจ";
+/* Generated from genl10n: Filters.BApp.swift */
 "Original" = "เป็นต้นฉบับ";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+"Page Margin" = "Margin หน้า";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+"Page Size Preset" = "ตั้งค่าขนาดหน้าเว็บ";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "หมายเลขโทรศัพท์";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "ภาพถ่าย";
+/* Generated from genl10n: Finder.BApp.swift#1229 */
+"Plain Text" = "ข้อความธรรมดา";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "ค่าที่ตั้งไว้";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
-/* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "ความเป็นส่วนตัว";
+/* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "คุณภาพ";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Recognizing ... %@ " = "กำลังจดจำ ... %@";
+/* Generated from genl10n: Finder.BApp.swift#1197 */
+"Quick Actions Only" = "การดำเนินการด่วนเท่านั้น";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "ทำซ้ำ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Reverse";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Rewind";
+/* Generated from genl10n: Finder.BApp.swift#1185 */
+"Save Found Contacts Directly" = "บันทึกรายชื่อติดต่อที่พบโดยตรง";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "บันทึกและแบ่งปัน";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "กำลังบันทึกผลลัพธ์ ...";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Saving Texts ..." = "กำลังบันทึกข้อความ ...";
-/* Generated from genl10n: CallApp.BApp.swift */
+/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+"Scale To Fit" = "ปรับให้พอดี";
+/* Generated from genl10n: Finder.BApp.swift#762 */
+"Search Flights" = "ค้นหาเที่ยวบิน";
+/* Generated from genl10n: Finder.BApp.swift#1345 */
+"Select Photos To Find Everything." = "เลือกรูปภาพเพื่อค้นหาทุกอย่าง";
+/* Generated from genl10n: Cleaner.BApp.swift#316 */
+"Select Photos You Want To Clean!" = "เลือกภาพถ่ายที่คุณต้องการทำความสะอาด!";
+/* Generated from genl10n: CallNumbers.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "เลือกภาพถ่ายที่คุณต้องการหยิบเบอร์โทรศัพท์!";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Select Photos You Want To Grab!" = "เลือกภาพถ่ายที่คุณต้องการคว้า!";
+/* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
+"Send an Email" = "ส่งอีเมล์";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "หุ้น";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "ขนาด";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry can't call to selected contact." = "ขออภัยไม่สามารถติดต่อผู้ติดต่อที่เลือกได้";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry not found any contact information." = "ขออภัยไม่พบข้อมูลการติดต่อใด ๆ";
+/* Generated from genl10n: Finder.BApp.swift#217 */
+"Some contacts were saved, but someones were not." = "ผู้ติดต่อบางรายได้รับการบันทึกไว้ แต่บางคนก็ไม่ได้";
+/* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
+"Sorry not found any information you selected." = "ขออภัยไม่พบข้อมูลที่คุณเลือก";
+/* Generated from genl10n: Finder.BApp.swift#174 */
+"Sorry, this contact could not be saved." = "ขออภัยไม่สามารถบันทึกที่อยู่ติดต่อนี้ได้";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "สี่เหลี่ยม";
 /* Generated from genl10n: Stabilizer.swift */
@@ -268,17 +332,15 @@
 "Starting the Process..." = "กำลังเริ่มกระบวนการ ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "เริ่มตรวจสอบรูปภาพที่แก้ไขแล้ว ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
+"Switch on any items you want to hide. The quality will entirely remain the same." = "เปิดรายการที่คุณต้องการซ่อน คุณภาพจะยังคงเหมือนเดิม";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "การแปล";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "วีดีโอ";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Waiting To Select ..." = "กำลังรอให้เลือก ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "วิปริต";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD (640 × 360)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
-/* Generated from genl10n: CallApp.BApp.swift */
+/* Generated from genl10n: CallNumbers.swift */
 "🔍 Starting To Find ..." = "กำลังเริ่มค้นหา ...";
