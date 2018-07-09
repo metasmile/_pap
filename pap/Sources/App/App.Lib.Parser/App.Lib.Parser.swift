@@ -5,24 +5,15 @@
 
 import Foundation
 
-protocol Parser {
-    associatedtype InputType
-    associatedtype OutputType
-
-    func parse(input:InputType) -> OutputType?
-
-    init()
-}
-
-protocol MergingParser: Parser {
+protocol MergingParser: Processor {
     func parse(input:InputType, mergingOutput:OutputType) -> OutputType?
 }
 
-protocol StringParser: Parser where Self.OutputType==String {
+protocol StringParser: Processor where Self.OutputType==String {
     func parse(input:InputType) -> OutputType?
 }
 
 // INFO line by line [["word","word","word","word"],["word","word","word","word"],["word","word","word","word"]]
-protocol TextBlockParser: Parser where Self.OutputType==[[String]] {
+protocol TextBlockParser: Processor where Self.OutputType==[[String]] {
     func parse(input:InputType) -> OutputType?
 }

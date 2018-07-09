@@ -83,8 +83,9 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
         ]
 
         if papCounter.app.numberOfCounted > 0{
-            defaultAppCollection = defaultAppCollection.sorted { (appType: App.Type, appType2: App.Type) -> Bool in
-                return papCounter.app.countPerformed(app: appType) < papCounter.app.countPerformed(app: appType2)
+            defaultAppCollection.sort { (appType: App.Type, appType2: App.Type) -> Bool in
+                return appType.info.phase == .release
+                        && papCounter.app.countPerformed(app: appType) > papCounter.app.countPerformed(app: appType2)
             }
         }
 

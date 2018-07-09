@@ -28,6 +28,10 @@ public struct papCounter {
         }
 
         static func countToPerform(app:App.Type){
+            if app.info.phase != .release{
+                return
+            }
+
             let id = app.info.identifier
             var counting = Defaults.shared.appCount
             if let count = counting[id]{
@@ -35,6 +39,7 @@ public struct papCounter {
             }else{
                 counting[id] = 1
             }
+            Defaults.shared.appCount = counting
         }
 
         static func countToPerform(){

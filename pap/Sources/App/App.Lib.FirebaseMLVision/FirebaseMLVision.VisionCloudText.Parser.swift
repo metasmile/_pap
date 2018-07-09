@@ -13,7 +13,7 @@ extension VisionCloudText{
     }
 }
 
-struct VisionCloudTextParser: Parser{
+struct VisionCloudTextParser: Processor {
     typealias InputType = VisionCloudText
     typealias OutputType = String
 

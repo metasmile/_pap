@@ -1,5 +1,5 @@
 //
-// Created by BLACKGENE on 27/03/2018.
+//? Created by BLACKGENE on 27/03/2018.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
@@ -35,7 +35,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
     public static let info = AppInfo(
             identifier: "com.stells.pap.finder"
             , version: "1.0"
-            , phase: .beta
+            , phase: .release
             , appType: FinderApp.self
             , displayName: "Finder", description:nil, keywords:nil
             , iconBundleName: R.image.finderBAppIcon.name
@@ -1127,6 +1127,8 @@ private struct ParserDictionary {
 }
 
 fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
+    private lazy var tintColor = UIColor(red:0.36, green:0.31, blue:0.71, alpha:1)
+
     fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
 
     private var parserCollection:[ParserDictionary] {
@@ -1160,7 +1162,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
     lazy var view: UIView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.tintColor = UIColor(red:0.13, green:0.15, blue:0.16, alpha:1)
+        tableView.tintColor = tintColor
         return tableView
     }()
 
@@ -1454,7 +1456,11 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         let cell = tableView.dequeueReusableCell(withIdentifier: FinderApp.info.identifier) as! Cell
         cell.textLabel?.text = dataItem.label
         cell.detailTextLabel?.text = selected ? "may be found" : nil
-        cell.imageView?.image = dataItem.iconImageBundleName?.asUIImageNamed
+
+        cell.imageView?.tintColor = self.view.tintColor
+        let image = dataItem.iconImageBundleName?.asUIImageNamed
+        cell.imageView?.image = image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+
         cell.detailTextLabel?.textColor = UIColor.gray
         cell.optionSwitch.setOn(selected, animated: false)
         cell.switchDidChange = { on in
