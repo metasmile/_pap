@@ -313,7 +313,7 @@
 /* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "מצטערים, לא מצאתי מידע שנבחר.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, it is not possible to save the contract." = "מצטערים, לא ניתן לשמור את החוזה.";
+"Sorry, this contact could not be saved." = "מצטערים, לא ניתן לשמור איש קשר זה.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "כיכר";
 /* Generated from genl10n: Stabilizer.swift */

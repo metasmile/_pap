@@ -313,7 +313,7 @@
 /* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "Rất tiếc, không tìm thấy bất kỳ thông tin nào bạn đã chọn.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, it is not possible to save the contract." = "Rất tiếc, không thể lưu hợp đồng.";
+"Sorry, this contact could not be saved." = "Rất tiếc, không thể lưu liên hệ này.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Quảng trường";
 /* Generated from genl10n: Stabilizer.swift */

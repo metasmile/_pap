@@ -313,7 +313,7 @@
 /* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "Níor aimsíodh aon fhaisnéis a roghnaigh tú.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, it is not possible to save the contract." = "Is brón orainn nach féidir an conradh a shábháil.";
+"Sorry, this contact could not be saved." = "Tá brón orm, níorbh fhéidir an teagmhála seo a shábháil.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Cearnóg";
 /* Generated from genl10n: Stabilizer.swift */

@@ -313,7 +313,7 @@
 /* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "Ez duzu hautatutako edozein informazio aurkitu.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, it is not possible to save the contract." = "Ezin duzu kontratua gorde.";
+"Sorry, this contact could not be saved." = "Ezin izan dugu kontaktu hau gorde.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Karratu";
 /* Generated from genl10n: Stabilizer.swift */

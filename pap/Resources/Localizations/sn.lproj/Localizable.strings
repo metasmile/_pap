@@ -313,7 +313,7 @@
 /* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "Ndine urombo hauna kuwana chero ruzivo rwawakasarudza.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, it is not possible to save the contract." = "Ndine urombo, hazvibviri kuchengetedza kontrakiti.";
+"Sorry, this contact could not be saved." = "Ndine urombo, izvi hazvikwanisi kuponeswa.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */

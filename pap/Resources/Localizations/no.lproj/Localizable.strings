@@ -313,7 +313,7 @@
 /* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "Beklager, ikke funnet noen informasjon du valgte.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, it is not possible to save the contract." = "Beklager, det er ikke mulig å lagre kontrakten.";
+"Sorry, this contact could not be saved." = "Beklager, denne kontakten kunne ikke lagres.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Torget";
 /* Generated from genl10n: Stabilizer.swift */

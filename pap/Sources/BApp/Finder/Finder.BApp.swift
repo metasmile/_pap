@@ -171,7 +171,7 @@ extension FinderApp{
 
         canSaveContract = ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal)
 
-        let errorMessage:String = "Sorry, it is not possible to save the contract.".localized
+        let errorMessage:String = "Sorry, this contact could not be saved.".localized
 
         if false == canSaveContract{
             asyncSignal.begin()

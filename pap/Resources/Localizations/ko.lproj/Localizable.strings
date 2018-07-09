@@ -313,7 +313,7 @@
 /* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "선택한 정보를 찾을 수 없습니다.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, it is not possible to save the contract." = "죄송합니다. 계약을 저장할 수 없습니다.";
+"Sorry, this contact could not be saved." = "죄송합니다.이 연락처를 저장할 수 없습니다.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "1:1";
 /* Generated from genl10n: Stabilizer.swift */

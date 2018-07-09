@@ -313,7 +313,7 @@
 /* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "Því miður fannst þér engar upplýsingar sem þú valdir.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, it is not possible to save the contract." = "Því miður er ekki hægt að vista samninginn.";
+"Sorry, this contact could not be saved." = "Því miður er ekki hægt að vista þessa tengilið.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */

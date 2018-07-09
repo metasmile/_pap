@@ -313,7 +313,7 @@
 /* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "Mae'n ddrwg gennyf na chafwyd hyd i unrhyw wybodaeth a ddewiswyd gennych.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, it is not possible to save the contract." = "Mae'n ddrwg gennym, nid yw'n bosibl achub y contract.";
+"Sorry, this contact could not be saved." = "Mae'n ddrwg gennym, ni ellid cadw'r cyswllt hwn.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Sgwâr";
 /* Generated from genl10n: Stabilizer.swift */

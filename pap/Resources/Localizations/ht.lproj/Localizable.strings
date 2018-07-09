@@ -313,7 +313,7 @@
 /* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "Padon pa jwenn okenn enfòmasyon ou te chwazi.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, it is not possible to save the contract." = "Padon, li pa posib pou konsève pou kontra a.";
+"Sorry, this contact could not be saved." = "Padon, kontak sa a pa ka sove.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Kare";
 /* Generated from genl10n: Stabilizer.swift */

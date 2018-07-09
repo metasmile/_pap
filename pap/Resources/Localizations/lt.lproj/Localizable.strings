@@ -313,7 +313,7 @@
 /* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "Atsiprašome, nerasta jokios jūsų pasirinktos informacijos.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, it is not possible to save the contract." = "Atsiprašome, sutarties neįmanoma išsaugoti.";
+"Sorry, this contact could not be saved." = "Atsiprašome, šis kontaktas negalėjo būti išsaugotas.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Aikštė";
 /* Generated from genl10n: Stabilizer.swift */

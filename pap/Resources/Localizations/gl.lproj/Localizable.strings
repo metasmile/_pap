@@ -313,7 +313,7 @@
 /* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "Non se atopou a información que seleccionaches.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, it is not possible to save the contract." = "Non se pode gardar o contrato.";
+"Sorry, this contact could not be saved." = "Non se puido gardar este contacto.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Praza";
 /* Generated from genl10n: Stabilizer.swift */

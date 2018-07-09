@@ -313,7 +313,7 @@
 /* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "Waan ka xumahay inaan helin wax macluumaad ah oo aad dooratay.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, it is not possible to save the contract." = "Waan ka xunnahay, suurtagal maaha inaad kaydiso qandaraaska.";
+"Sorry, this contact could not be saved." = "Waan ka xunnahay, xidhiidhkan aan la badbaadin karin.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */

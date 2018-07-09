@@ -313,7 +313,7 @@
 /* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "ਮਾਫੀ ਕਿਸੇ ਵੀ ਜਾਣਕਾਰੀ ਨੂੰ ਨਹੀਂ ਮਿਲੀ ਜੋ ਤੁਸੀਂ ਚੁਣੀ ਹੈ";
 /* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, it is not possible to save the contract." = "ਮੁਆਫ ਕਰਨਾ, ਇਕਰਾਰਨਾਮੇ ਨੂੰ ਬਚਾਉਣਾ ਸੰਭਵ ਨਹੀਂ ਹੈ.";
+"Sorry, this contact could not be saved." = "ਮਾਫ਼ ਕਰਨਾ, ਇਹ ਸੰਪਰਕ ਸੁਰੱਖਿਅਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "ਚੌਰਸ";
 /* Generated from genl10n: Stabilizer.swift */

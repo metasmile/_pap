@@ -313,7 +313,7 @@
 /* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "Paumanhin ay hindi nakita ang anumang impormasyon na iyong pinili.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, it is not possible to save the contract." = "Paumanhin, hindi posible na i-save ang kontrata.";
+"Sorry, this contact could not be saved." = "Paumanhin, hindi mai-save ang contact na ito.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */

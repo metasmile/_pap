@@ -313,7 +313,7 @@
 /* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "معاف ٿيل نه مليو جيڪو توهان چونڊيو آهي";
 /* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, it is not possible to save the contract." = "افسوس، اهو معاهدو بچائڻ ممڪن ناهي.";
+"Sorry, this contact could not be saved." = "معاف ڪندا، ھي رابطو محفوظ نه ٿي سگھيو.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "چوڪن";
 /* Generated from genl10n: Stabilizer.swift */

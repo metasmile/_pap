@@ -313,7 +313,7 @@
 /* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "Tha sinn duilich gun lorg sinn fiosrachadh sam bith a thog thu.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, it is not possible to save the contract." = "Duilich, chan eil e comasach an cùmhnant a shàbhaladh.";
+"Sorry, this contact could not be saved." = "Duilich, cha b 'urrainn dhuinn an teachdaireachd seo a shàbhaladh.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Ceàrnag";
 /* Generated from genl10n: Stabilizer.swift */

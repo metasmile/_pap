@@ -313,7 +313,7 @@
 /* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "Faamolemole e leai se faʻamatalaga na e filifilia.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, it is not possible to save the contract." = "Faʻamolemole, e le mafai ona lavea le konekarate.";
+"Sorry, this contact could not be saved." = "Faʻamolemole, e le mafai ona faʻaolaina lenei fesoʻotaʻiga.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Lotoa";
 /* Generated from genl10n: Stabilizer.swift */

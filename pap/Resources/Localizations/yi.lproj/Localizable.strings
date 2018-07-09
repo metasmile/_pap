@@ -313,7 +313,7 @@
 /* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "אנטשולדיגט נישט געפינען קיין אינפֿאָרמאַציע איר אויסגעקליבן.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, it is not possible to save the contract." = "אנטשולדיגט, עס איז ניט מעגלעך צו ראַטעווען דעם אָפּמאַך.";
+"Sorry, this contact could not be saved." = "אנטשולדיגט, דעם קאָנטאַקט קען נישט ווערן געהאלפן.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "קוואדראט";
 /* Generated from genl10n: Stabilizer.swift */

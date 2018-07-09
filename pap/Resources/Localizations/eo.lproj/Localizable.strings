@@ -313,7 +313,7 @@
 /* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "Ni bedaŭrinde ne trovis ajnan informon, kiun vi elektis.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, it is not possible to save the contract." = "Pardonu, ĝi ne eblas savi la kontrakton.";
+"Sorry, this contact could not be saved." = "Pardonu, ĉi tiu kontakto ne povis esti savita.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Kvadrato";
 /* Generated from genl10n: Stabilizer.swift */

@@ -313,7 +313,7 @@
 /* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "Sajnáljuk, hogy nem találtak semmilyen információt.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, it is not possible to save the contract." = "Sajnáljuk, a szerződést nem lehet megmenteni.";
+"Sorry, this contact could not be saved." = "Sajnáljuk, ez a névjegy nem menthető.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Négyzet";
 /* Generated from genl10n: Stabilizer.swift */
