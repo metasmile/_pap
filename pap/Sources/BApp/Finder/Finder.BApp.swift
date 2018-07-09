@@ -1269,6 +1269,9 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         if FinderApp.privateDefaults.selectionPreset == SelectionPreset.contact.rawValue{
             settingCellDescribers.append(createCellDescriber_SelectionPreset_contact_saveContactWithoutEdit())
         }
+        else if FinderApp.privateDefaults.selectionPreset == SelectionPreset.action.rawValue{
+            settingCellDescribers.append(createCellDescriber_SelectionPreset_action_quickActionsOnly())
+        }
 
         if let tableView = view as? UITableView{
             tableView.dataSource = self
