@@ -80,7 +80,7 @@ public class Stabilizer: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, Phot
     required public override init() {
         super.init()
         
-        self.currentEditStateValue = StabilizerAppValue(.translation)
+        self.defaultEditStateValue = StabilizerAppValue(.translation)
     }
     
     public var finalizingActions: [PHAssetFinalizingAction] {
@@ -102,7 +102,7 @@ public class Stabilizer: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, Phot
         self.config?.adoptValues(fromOther: config)
     }
     
-    public private(set) var currentEditStateValue: ImageEditStateValue?
+    public private(set) var defaultEditStateValue: ImageEditStateValue?
 }
 
 private class StabilizerTask: AppTaskPrototype, AppTaskable {

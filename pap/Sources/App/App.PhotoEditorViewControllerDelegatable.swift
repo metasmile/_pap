@@ -6,9 +6,9 @@
 import Foundation
 
 public protocol PhotoEditorViewControllerDelegatableApp: App {
-    var singleDockContent: AppDockContent? {get}
+    var photoEditorDockContent: AppDockContent? {get}
 }
 
 extension PhotoEditorViewControllerDelegatableApp {
-    var singleDockContent: AppDockContent? { return nil }
+    var photoEditorDockContent: AppDockContent? { return nil }
 }

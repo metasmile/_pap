@@ -23,7 +23,7 @@ public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableAp
     public private(set) lazy var config: PhotosFilterAppConfigValue? = PhotosFilterApp.configure?()
     public private(set) lazy var dockContent: AppDockContent? = AutoAdjustmentAppDockContent()
     
-    public private(set) var currentEditStateValue: ImageEditStateValue?
+    public private(set) var defaultEditStateValue: ImageEditStateValue?
     
     public static let info = AppInfo(
         identifier: "com.stells.pap.autoadjustment"
@@ -51,7 +51,7 @@ public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableAp
             if let options = controllerContent?.options {
                 let filter = CIAutoAdjustmentFilter(options: options)
                 self.config?.filter = CIFilterItem(filter)
-                self.currentEditStateValue = CIFilterItem(filter)
+                self.defaultEditStateValue = CIFilterItem(filter)
 
                 var optionsToStore = [String:Bool]()
                 for (k,v) in options{
@@ -67,7 +67,7 @@ public class AutoAdjustmentApp: NSObject, BApp, KeyPathWatchable, ConfigurableAp
                 
                 let filter = CIAutoAdjustmentFilter(options: defaults.autoAdjustmentOptions)
                 self.config?.filter = CIFilterItem(filter)
-                self.currentEditStateValue = CIFilterItem(filter)
+                self.defaultEditStateValue = CIFilterItem(filter)
             }
         }
     }

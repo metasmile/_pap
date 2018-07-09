@@ -189,7 +189,7 @@ class PhotoPickerViewController: AppDockViewController {
         
         AppAssets.selected.reloadAll()
         
-        if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self), let value = app.currentEditStateValue {
+        if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self), let value = app.defaultEditStateValue {
             AppAssets.selected.appendValue(value)
         }
         

@@ -60,9 +60,9 @@ public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp,
     @objc dynamic
     public private(set) lazy var config: PhotosFilterAppConfigValue? = PhotosFilterApp.configure?()
     public private(set) lazy var dockContent: AppDockContent? = PhotosFilterAppDockContent()
-    public private(set) lazy var singleDockContent: AppDockContent? = PhotosFilterAppDockContent()
+    public private(set) lazy var photoEditorDockContent: AppDockContent? = PhotosFilterAppDockContent()
     
-    public private(set) var currentEditStateValue: ImageEditStateValue?
+    public private(set) var defaultEditStateValue: ImageEditStateValue?
 
     public static let info = AppInfo(
         identifier: "com.stells.pap.photosfilter"
@@ -83,7 +83,7 @@ public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp,
         }
         
         config?.watch(\.filter, options: [.initial, .new]) {
-            self.currentEditStateValue = self.config?.filter
+            self.defaultEditStateValue = self.config?.filter
         }
     }
 
@@ -113,7 +113,7 @@ public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp,
 
 private extension PhotosFilterApp {
     private func updateControllerView(){
-        self.currentEditStateValue = config?.filter
+        self.defaultEditStateValue = config?.filter
         self.dockContent?.view.tintColor = config?.tintColor
     }
 }

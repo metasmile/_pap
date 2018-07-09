@@ -100,7 +100,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         if let asset = PHAssets.fetched.asset(at: indexPath){
             batchPreviewView.appendCollectionViewItem(with:asset)
 
-            if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self), let value = app.currentEditStateValue, let item = AppAssets.selected.by(asset) {
+            if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self), let value = app.defaultEditStateValue, let item = AppAssets.selected.by(asset) {
                 AppAssets.selected.appendValue(value, for: [item])
             }
         }

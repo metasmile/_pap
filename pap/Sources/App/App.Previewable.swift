@@ -9,11 +9,13 @@
 import UIKit
 
 public protocol PreviewableApp: App {
-    var currentEditStateValue: ImageEditStateValue? { get }
+    var defaultEditStateValue: ImageEditStateValue? { get }
+    func setSelectedEditStateValue(_ editStateValue: ImageEditStateValue)
 }
 
 extension PreviewableApp {
-    public var currentEditStateValue: ImageEditStateValue? { return nil }
+    public var defaultEditStateValue: ImageEditStateValue? { return nil }
+    public func setSelectedEditStateValue(_ editStateValue: ImageEditStateValue) {}
 }
 
 public protocol PreviewProcessableApp: App {
