@@ -136,6 +136,8 @@
 "Albums" = "ആൽബങ്ങൾ";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "എല്ലാ കോൺടാക്റ്റുകളും വിജയകരമായി സംരക്ഷിച്ചു.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "എല്ലാം";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "ആനിമേറ്റുചെയ്ത GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -180,6 +182,8 @@
 "Crop to Fit" = "വ്യായാമം ചെയ്യാൻ വിളിക്കുക";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "വിള";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "ഇഷ്ടാനുസൃതം";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "തീയതി";
 /* Generated from genl10n: Finder.BApp.swift#116 */
@@ -200,8 +204,6 @@
 "Export" = "കയറ്റുമതി ചെയ്യുക";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "ഫിൽട്ടറുകൾ";
-/* Generated from genl10n: Finder.BApp.swift#1224 */
-"Find As" = "കണ്ടെത്തുക";
 /* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "കണ്ടെത്തുക";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -210,6 +212,8 @@
 "Finding Contacts ... %@ " = "കോൺടാക്റ്റുകൾ കണ്ടെത്തുന്നു ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "ഫ്ലൈറ്റ് നമ്പർ";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "ഫോർമാറ്റുകൾ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "മുന്നോട്ട്";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -224,10 +228,10 @@
 "Image Quality" = "ചിത്രത്തിന്റെ നിലവാരം";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "ഇമ്പോർട്ടുചെയ്യുക";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Information" = "വിവരം";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "നിങ്ങളുടെ കോൺടാക്റ്റുകൾക്ക് ആക്സസ് ചെയ്യാൻ ഇതിന് അനുമതി ആവശ്യമാണ്. IOS ക്രമീകരണങ്ങളിൽ കോൺടാക്റ്റുകൾ അനുവദിക്കുക.";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "ഇനങ്ങൾ";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "ലേഔട്ട്";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -240,6 +244,8 @@
 "Modify" = "പരിഷ്ക്കരിക്കുക";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "എന്റെ ആൽബങ്ങൾ";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "പുതിയ കോൺടാക്റ്റ്";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "പുതിയ ഇവന്റ്";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -266,6 +272,8 @@
 "Plain Text" = "പ്ലെയിൻ ടെക്സ്റ്റ്";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "പ്രീസെറ്റുകൾ";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "സ്വകാര്യത";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "ഗുണമേന്മയുള്ള";
 /* Generated from genl10n: Finder.BApp.swift#1197 */

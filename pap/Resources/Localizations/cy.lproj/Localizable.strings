@@ -136,6 +136,8 @@
 "Albums" = "Albwm";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Cafodd pob cyswllt ei achub yn llwyddiannus.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "I gyd";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "GIF animeiddiedig";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -180,6 +182,8 @@
 "Crop to Fit" = "Cnwd i Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Cnwd";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Dyddiad";
 /* Generated from genl10n: Finder.BApp.swift#116 */
@@ -200,8 +204,6 @@
 "Export" = "Allforio";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Hidlau";
-/* Generated from genl10n: Finder.BApp.swift#1224 */
-"Find As" = "Dod o hyd i";
 /* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "Dod o hyd";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -210,6 +212,8 @@
 "Finding Contacts ... %@ " = "Dod o hyd i Gysylltiadau ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Rhif Hedfan";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "Fformatau";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Ymlaen";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -224,10 +228,10 @@
 "Image Quality" = "Ansawdd Delwedd";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Mewnforio";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Information" = "Gwybodaeth";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Mae'n gofyn am ganiatâd i gael mynediad i'ch cysylltiadau. Rhowch Gyswllt ar Gosodiadau iOS.";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "Eitemau";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Cynllun";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -240,6 +244,8 @@
 "Modify" = "Addasu";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Fy Albwm";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "Cyswllt Newydd";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Digwyddiad Newydd";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -266,6 +272,8 @@
 "Plain Text" = "Testun plaen";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Rhagnodau";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "Preifatrwydd";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Ansawdd";
 /* Generated from genl10n: Finder.BApp.swift#1197 */

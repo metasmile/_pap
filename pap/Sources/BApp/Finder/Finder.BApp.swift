@@ -1143,7 +1143,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
     fileprivate static let defaultParserCollection:[ParserDictionary] = [
 
-        ParserDictionary(key: ParserDictionary.Key.Information, label: "Information".localized,
+        ParserDictionary(key: ParserDictionary.Key.Information, label: "Items".localized,
                 items: [
                     ParserItem(key: ParserItem.Key.PhoneNumber, label:"Phone Number".localized, iconImageBundleName:R.image.ico_action_phonenumber.name)
                     ,ParserItem(key: ParserItem.Key.EmailAddress, label:"E-mail Address".localized, iconImageBundleName:R.image.ico_action_email.name)
@@ -1221,7 +1221,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
         let cell0 = UITableViewSegmentControlCellDescriber()
         cell0.itemIdentifier = FinderAppSettingCells.presets.hashValue
-        cell0.label = "Find As".localized
+        cell0.label = "Formats".localized
         cell0.valueGetter = { FinderApp.privateDefaults.selectionPreset }
         cell0.valueCollection = [
             (label:"Actions".localized,value: SelectionPreset.action.rawValue),

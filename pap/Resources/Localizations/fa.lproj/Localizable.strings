@@ -136,6 +136,8 @@
 "Albums" = "آلبوم ها";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "تمام مخاطبین با موفقیت ذخیره شدند.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "همه";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "GIF متحرک";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -180,6 +182,8 @@
 "Crop to Fit" = "محصول به تناسب";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "محصول";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "سفارشی";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "تاریخ";
 /* Generated from genl10n: Finder.BApp.swift#116 */
@@ -200,8 +204,6 @@
 "Export" = "صادرات";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "فیلترها";
-/* Generated from genl10n: Finder.BApp.swift#1224 */
-"Find As" = "پیدا کردن به عنوان";
 /* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "پیدا کردن";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -210,6 +212,8 @@
 "Finding Contacts ... %@ " = "پیدا کردن مخاطبین ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "شماره پرواز";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "فرمت ها";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "رو به جلو";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -224,10 +228,10 @@
 "Image Quality" = "کیفیت تصویر";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "وارد كردن";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Information" = "اطلاعات";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "برای دسترسی به مخاطبین خود مجوز لازم است. لطفا در تنظیمات iOS اجازه تماس بگیرید";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "موارد";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "طرح";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -240,6 +244,8 @@
 "Modify" = "تغییر";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "آلبوم های من";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "تماس جدید";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "رویداد جدید";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -266,6 +272,8 @@
 "Plain Text" = "متن ساده";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "ایستگاه از پیش تعیین شده";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "حریم خصوصی";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "کیفیت";
 /* Generated from genl10n: Finder.BApp.swift#1197 */

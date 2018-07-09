@@ -437,7 +437,7 @@ extension CNMutableContact{
             formatter.dateStyle = .long
             formatter.timeStyle = .medium
 
-            self.givenName = "New Contact - \(formatter.string(from: Date()))"
+            self.givenName = "\("New Contact".localized): \(formatter.string(from: Date()))"
         }
         return isNameEmpty
     }

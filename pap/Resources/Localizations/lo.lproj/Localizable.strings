@@ -136,6 +136,8 @@
 "Albums" = "Albums";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "ລາຍຊື່ຜູ້ຕິດຕໍ່ທັງຫມົດຖືກບັນທຶກໄວ້ຢ່າງສໍາເລັດ";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "ທັງຫມົດ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "GIF ເຄື່ອນໄຫວ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -180,6 +182,8 @@
 "Crop to Fit" = "ການປູກພືດທີ່ເຫມາະສົມ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "ການປູກພືດ";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Date";
 /* Generated from genl10n: Finder.BApp.swift#116 */
@@ -200,8 +204,6 @@
 "Export" = "ສົ່ງອອກ";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "ການກັ່ນຕອງ";
-/* Generated from genl10n: Finder.BApp.swift#1224 */
-"Find As" = "ຊອກເອເປັນ";
 /* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "ຊອກຫາ";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -210,6 +212,8 @@
 "Finding Contacts ... %@ " = "Finding Contacts ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "ຈໍານວນທ່ຽວບິນ";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "ຮູບແບບ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -224,10 +228,10 @@
 "Image Quality" = "ຄຸນະພາບຂອງພາບ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "ນໍາເຂົ້າ";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Information" = "ຂໍ້ມູນຂ່າວສານ";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "ມັນຮຽກຮ້ອງໃຫ້ມີການອະນຸຍາດໃຫ້ເຂົ້າເຖິງລາຍຊື່ຂອງທ່ານ. ກະລຸນາອະນຸຍາດໃຫ້ Contacts ໃນ iOS Settings.";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "Items";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "ການອອກແບບ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -240,6 +244,8 @@
 "Modify" = "ແກ້ໄຂ";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "My Albums";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "ຕິດຕໍ່ໃຫມ່";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "ເຫດການໃຫມ່";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -266,6 +272,8 @@
 "Plain Text" = "ຂໍ້ຄວາມທົ່ງພຽງ";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "ຄວາມເປັນສ່ວນຕົວ";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "ຄຸນະພາບ";
 /* Generated from genl10n: Finder.BApp.swift#1197 */

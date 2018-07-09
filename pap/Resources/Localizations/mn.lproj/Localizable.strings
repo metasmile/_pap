@@ -136,6 +136,8 @@
 "Albums" = "Цомог";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Бүх харилцагчид амжилттай хадгалагдсан.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "Бүгд";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Хөдөлгөөнтэй GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -180,6 +182,8 @@
 "Crop to Fit" = "Газар тариалан";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Газар тариалан";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Огноо";
 /* Generated from genl10n: Finder.BApp.swift#116 */
@@ -200,8 +204,6 @@
 "Export" = "Экспорт";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Шүүлтүүр";
-/* Generated from genl10n: Finder.BApp.swift#1224 */
-"Find As" = "Очихоор нь хай";
 /* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "Хайх";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -210,6 +212,8 @@
 "Finding Contacts ... %@ " = "Холбоо хайх ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Нислэгийн дугаар";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "Формат";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Форвард";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -224,10 +228,10 @@
 "Image Quality" = "Зургийн чанар";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Импорт";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Information" = "Мэдээлэл";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Энэ нь таны харилцагчид руу нэвтрэх зөвшөөрөл шаардана. IOS Тохиргоонууд дээр харилцахыг зөвшөөрнө үү.";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "Зүйл";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Layout";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -240,6 +244,8 @@
 "Modify" = "Өөрчлөх";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Миний цомгууд";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "Шинэ холбоо барих";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Шинэ арга хэмжээ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -266,6 +272,8 @@
 "Plain Text" = "Энгийн текст";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "Нууцлал";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Чанар";
 /* Generated from genl10n: Finder.BApp.swift#1197 */

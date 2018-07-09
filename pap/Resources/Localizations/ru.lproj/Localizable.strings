@@ -136,6 +136,8 @@
 "Albums" = "Альбомы";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Все контакты были успешно сохранены.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "Все";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Анимированный GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -180,6 +182,8 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "урожай";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "изготовленный на заказ";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Дата";
 /* Generated from genl10n: Finder.BApp.swift#116 */
@@ -200,8 +204,6 @@
 "Export" = "экспорт";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "фильтры";
-/* Generated from genl10n: Finder.BApp.swift#1224 */
-"Find As" = "Найти как";
 /* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "найти";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -210,6 +212,8 @@
 "Finding Contacts ... %@ " = "Поиск контактов ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Номер рейса";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "Форматы";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Вперед";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -224,10 +228,10 @@
 "Image Quality" = "Качество изображения";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Импортировать";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Information" = "Информация";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Для этого требуется разрешение на доступ к вашим контактам. Разрешите Контакты в настройках iOS.";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "Предметы";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "раскладка";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -240,6 +244,8 @@
 "Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Мои альбомы";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "Новый контакт";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Новое событие";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
@@ -266,6 +272,8 @@
 "Plain Text" = "Простой текст";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Пресеты";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "Конфиденциальность";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Качественный";
 /* Generated from genl10n: Finder.BApp.swift#1197 */

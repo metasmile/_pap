@@ -136,6 +136,8 @@
 "Albums" = "ఆల్బమ్లు";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "అన్ని పరిచయాలు విజయవంతంగా సేవ్ చేయబడ్డాయి.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "అన్ని";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "యానిమేటెడ్ GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -180,6 +182,8 @@
 "Crop to Fit" = "కత్తిరించడానికి కత్తిరించండి";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "పంట";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "కస్టమ్";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "తేదీ";
 /* Generated from genl10n: Finder.BApp.swift#116 */
@@ -200,8 +204,6 @@
 "Export" = "ఎగుమతి";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "వడపోతలు";
-/* Generated from genl10n: Finder.BApp.swift#1224 */
-"Find As" = "వెతుకుము";
 /* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "కనుగొనండి";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -210,6 +212,8 @@
 "Finding Contacts ... %@ " = "సంపర్కాలను కనుగొనడం ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "ఫ్లైట్ సంఖ్య";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "ఆకృతులు";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "ఫార్వర్డ్";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -224,10 +228,10 @@
 "Image Quality" = "చిత్రం నాణ్యత";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "దిగుమతి";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Information" = "సమాచారం";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "దీనికి మీ పరిచయాలను ప్రాప్యత చేయడానికి అనుమతి అవసరం. దయచేసి iOS సెట్టింగ్ల్లోని పరిచయాలను అనుమతించండి.";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "అంశాలు";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "లేఅవుట్";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -240,6 +244,8 @@
 "Modify" = "సవరించు";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "నా ఆల్బమ్లు";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "క్రొత్త పరిచయం";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "క్రొత్త ఈవెంట్";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -266,6 +272,8 @@
 "Plain Text" = "సాధారణ అక్షరాల";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "అమరికలు";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "గోప్యతా";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "నాణ్యత";
 /* Generated from genl10n: Finder.BApp.swift#1197 */

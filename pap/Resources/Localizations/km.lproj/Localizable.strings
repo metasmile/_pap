@@ -136,6 +136,8 @@
 "Albums" = "អាល់ប៊ុម";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "ទំនាក់ទំនងទាំងអស់ត្រូវបានរក្សាទុកដោយជោគជ័យ។";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "ទាំងអស់";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "GIF មានចលនា";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -180,6 +182,8 @@
 "Crop to Fit" = "ច្រឹបទៅសម";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "ដំណាំ";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "ផ្ទាល់ខ្លួន";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "កាលបរិច្ឆេទ";
 /* Generated from genl10n: Finder.BApp.swift#116 */
@@ -200,8 +204,6 @@
 "Export" = "នាំចេញ";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "តម្រង";
-/* Generated from genl10n: Finder.BApp.swift#1224 */
-"Find As" = "ស្វែងរកជា";
 /* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "ស្វែងរក";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -210,6 +212,8 @@
 "Finding Contacts ... %@ " = "ស្វែងរកទំនាក់ទំនង ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "លេខហោះហើរ";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "ទ្រង់ទ្រាយ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "បន្ត";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -224,10 +228,10 @@
 "Image Quality" = "គុណភាព​រូប";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "នាំចូល";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Information" = "ពត៌មាន";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "វាតម្រូវឱ្យមានសិទ្ធិចូលប្រើទំនាក់ទំនងរបស់អ្នក។ សូមអនុញ្ញាតឱ្យមានទំនាក់ទំនងនៅលើការកំណត់ iOS ។";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "ធាតុ";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "ប្លង់";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -240,6 +244,8 @@
 "Modify" = "កែប្រែ";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "អាល់ប៊ុមរបស់ខ្ញុំ";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "ទំនាក់ទំនងថ្មី";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "ព្រឹត្តិការណ៍ថ្មី";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -266,6 +272,8 @@
 "Plain Text" = "អត្ថបទ​ធម្មតា";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "កំណត់ជាមុន";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "ភាពឯកជន";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "គុណភាព";
 /* Generated from genl10n: Finder.BApp.swift#1197 */

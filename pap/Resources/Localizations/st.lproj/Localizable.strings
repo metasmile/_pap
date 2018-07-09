@@ -136,6 +136,8 @@
 "Albums" = "Albums";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Litso tsohle li bolokiloe ka katleho.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "Kaofela";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "GIF ea Animated";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -180,6 +182,8 @@
 "Crop to Fit" = "Hōlela ho Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Mohope";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "Tloaelo";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Letsatsi";
 /* Generated from genl10n: Finder.BApp.swift#116 */
@@ -200,8 +204,6 @@
 "Export" = "Export";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Lihlahisoa";
-/* Generated from genl10n: Finder.BApp.swift#1224 */
-"Find As" = "Fumana";
 /* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "Fumana";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -210,6 +212,8 @@
 "Finding Contacts ... %@ " = "Ho Fumana Boitsebiso ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Nomoro ea sefofaneng";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "E hlophisitsoeng";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Tsoela pele";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -224,10 +228,10 @@
 "Image Quality" = "Boleng ba Setšoantšo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Kenya";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Information" = "Boitsebiso";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "E hloka tumello ea ho fihlella batho bao u kopanang le bona. Ka kopo lumella Mecha ea Inthanete maemong a iOS.";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "Lintho";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Lisebelisoa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -240,6 +244,8 @@
 "Modify" = "Fetola";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Li-albhamu tsa ka";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "Tlhahisano e Ncha";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Ketsahalo e ncha";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -266,6 +272,8 @@
 "Plain Text" = "Text e hlakileng";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "Boinotši";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Boleng";
 /* Generated from genl10n: Finder.BApp.swift#1197 */

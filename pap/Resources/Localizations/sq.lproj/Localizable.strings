@@ -136,6 +136,8 @@
 "Albums" = "Albumet";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Të gjitha kontaktet u ruajtën me sukses.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "të gjithë";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Animated GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -180,6 +182,8 @@
 "Crop to Fit" = "Pri për tu përshtatur";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "prodhim";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "me porosi";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "data";
 /* Generated from genl10n: Finder.BApp.swift#116 */
@@ -200,8 +204,6 @@
 "Export" = "eksport";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filters";
-/* Generated from genl10n: Finder.BApp.swift#1224 */
-"Find As" = "Gjeni As";
 /* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "Gjej";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -210,6 +212,8 @@
 "Finding Contacts ... %@ " = "Gjetja e kontakteve ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Numri i fluturimit";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "formate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "përpara";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -224,10 +228,10 @@
 "Image Quality" = "Cilësia e imazhit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "import";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Information" = "informacion";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Kërkon leje për të hyrë në kontaktet tuaja. Lejo Kontaktet në Cilësimet e iOS.";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "artikuj";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "plan urbanistik";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -240,6 +244,8 @@
 "Modify" = "modifikoj";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Albumet e mia";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "Kontakt i ri";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Ngjarje e re";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -266,6 +272,8 @@
 "Plain Text" = "Teksti i thjeshtë";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "presets";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "intimitet";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "cilësi";
 /* Generated from genl10n: Finder.BApp.swift#1197 */

@@ -136,6 +136,8 @@
 "Albums" = "Albums";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Chaidh a h-uile càil a shàbhaladh gu soirbheachail.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "Uile";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "GIF beòthaichte";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -180,6 +182,8 @@
 "Crop to Fit" = "Buail gu Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Bàrr";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Ceann-latha";
 /* Generated from genl10n: Finder.BApp.swift#116 */
@@ -200,8 +204,6 @@
 "Export" = "Export";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Sgileagan";
-/* Generated from genl10n: Finder.BApp.swift#1224 */
-"Find As" = "Lorg mar a tha";
 /* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "Lorg";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -210,6 +212,8 @@
 "Finding Contacts ... %@ " = "A 'lorg caraidean ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Àireamh itealain";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "Cruthan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Air adhart";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -224,10 +228,10 @@
 "Image Quality" = "Càileachd Ìomhaigh";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Import";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Information" = "Fiosrachadh";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Feumaidh e cead faighinn a-steach do na ceanglaichean agad. Leig le luchd-aithne a-steach air roghainnean iOS.";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "Items";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Layout";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -240,6 +244,8 @@
 "Modify" = "Mion-atharrachadh";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Na h-Albagan agam";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "Seòladh ùr";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Tachartas Ùr";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -266,6 +272,8 @@
 "Plain Text" = "Teacsa Gnàthach";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Clàr-innse";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "Prìobhaideachd";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Càileachd";
 /* Generated from genl10n: Finder.BApp.swift#1197 */

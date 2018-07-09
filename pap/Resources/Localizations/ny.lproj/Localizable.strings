@@ -136,6 +136,8 @@
 "Albums" = "Albums";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Othandizira onse adasungidwa bwino.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "Zonse";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "GIF yamafilimu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -180,6 +182,8 @@
 "Crop to Fit" = "Mbewu Yokongola";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Mbewu";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "Mwambo";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Tsiku";
 /* Generated from genl10n: Finder.BApp.swift#116 */
@@ -200,8 +204,6 @@
 "Export" = "Tumizani";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Zosefera";
-/* Generated from genl10n: Finder.BApp.swift#1224 */
-"Find As" = "Pezani Monga";
 /* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "Pezani";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -210,6 +212,8 @@
 "Finding Contacts ... %@ " = "Kupeza Othandizira ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Nambala ya Ndege";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "Zimapanga";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Pita patsogolo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -224,10 +228,10 @@
 "Image Quality" = "Quality Image";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Lowani";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Information" = "Information";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Imafuna chilolezo chofikira ojambula anu. Chonde lolani Makalata pazithunzi za iOS.";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "Zinthu";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Kuyika";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -240,6 +244,8 @@
 "Modify" = "Sinthani";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Nyimbo Zanga";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "Othandizira Chatsopano";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Chochitika Chatsopano";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -266,6 +272,8 @@
 "Plain Text" = "Malemba Oyamba";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Kukonzekera";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "Zachinsinsi";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Makhalidwe";
 /* Generated from genl10n: Finder.BApp.swift#1197 */

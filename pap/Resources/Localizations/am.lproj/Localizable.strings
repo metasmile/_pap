@@ -136,6 +136,8 @@
 "Albums" = "አልበሞች";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "ሁሉም እውቂያዎች በተሳካ ሁኔታ ተቀምጠዋል.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "ሁሉም";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "እነማ GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -180,6 +182,8 @@
 "Crop to Fit" = "የተገጠመውን ወደ መከርከም";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "ከርክም";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "ብጁ";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "ቀን";
 /* Generated from genl10n: Finder.BApp.swift#116 */
@@ -200,8 +204,6 @@
 "Export" = "ወደውጪ ላክ";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "ማጣሪያዎች";
-/* Generated from genl10n: Finder.BApp.swift#1224 */
-"Find As" = "እንደ ፍለጋ አግኝ";
 /* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "አግኝ";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -210,6 +212,8 @@
 "Finding Contacts ... %@ " = "እውቂያዎችን በማግኘት ላይ ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "የበረራ ቁጥር";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "ቅርፀቶች";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "አስተላልፍ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -224,10 +228,10 @@
 "Image Quality" = "የምስል ጥራት";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "አስመጣ";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Information" = "መረጃ";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "የእርስዎን እውቂያዎች ለመድረስ ፍቃድ ያስፈልገዋል. እባክዎ በ iOS ቅንብሮች ላይ እውቂያዎችን ይፍቀዱ.";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "ንጥሎች";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "አቀማመጥ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -240,6 +244,8 @@
 "Modify" = "ያስተካክሉ";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "የእኔ አልበሞች";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "አዲስ እውቂያ";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "አዲስ ክስተት";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -266,6 +272,8 @@
 "Plain Text" = "በሚነበብ መልኩ";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "ቅድመ-ቅምጦች";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "ግላዊነት";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "ጥራት";
 /* Generated from genl10n: Finder.BApp.swift#1197 */

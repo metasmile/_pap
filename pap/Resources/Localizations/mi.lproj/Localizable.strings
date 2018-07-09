@@ -136,6 +136,8 @@
 "Albums" = "Ngā Pukaemi";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Kua ora nga hoapapatanga katoa.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "Katoa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "GIF animated";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -180,6 +182,8 @@
 "Crop to Fit" = "Te tipu hei Whakauru";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Nga tipu";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "Ritenga";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Rā";
 /* Generated from genl10n: Finder.BApp.swift#116 */
@@ -200,8 +204,6 @@
 "Export" = "Kaweake";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Ngā Tātari";
-/* Generated from genl10n: Finder.BApp.swift#1224 */
-"Find As" = "Rapuhia";
 /* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "Kimihia";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -210,6 +212,8 @@
 "Finding Contacts ... %@ " = "Rapu Hoahoa ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Tau Flight";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "Kaupapa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Tuhinga";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -224,10 +228,10 @@
 "Image Quality" = "Kounga Atahanga";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Kawemai";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Information" = "Nga korero";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Me whai whakaaetanga kia uru atu ki o hoapene. Tukuna koa nga Hoapā ki nga tautuhinga iOS.";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "Ngā Tūemi";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Tahora";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -240,6 +244,8 @@
 "Modify" = "Whakakē";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Aku Pukaemi";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "Whakapā Hou";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Takahanga Hou";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -266,6 +272,8 @@
 "Plain Text" = "Kupu Kuputuhi";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Tautuhinga";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "Tūmataiti";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Kounga";
 /* Generated from genl10n: Finder.BApp.swift#1197 */

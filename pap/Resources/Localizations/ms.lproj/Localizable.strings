@@ -136,6 +136,8 @@
 "Albums" = "Album";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Semua kenalan berjaya disimpan.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "Semua";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "GIF animasi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -180,6 +182,8 @@
 "Crop to Fit" = "Tanam untuk Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Tarikh";
 /* Generated from genl10n: Finder.BApp.swift#116 */
@@ -200,8 +204,6 @@
 "Export" = "Eksport";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Penapis";
-/* Generated from genl10n: Finder.BApp.swift#1224 */
-"Find As" = "Cari As";
 /* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "Cari";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -210,6 +212,8 @@
 "Finding Contacts ... %@ " = "Mencari Kenalan ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Nombor penerbangan";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "Format";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -224,10 +228,10 @@
 "Image Quality" = "Kualiti gambar";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Import";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Information" = "Maklumat";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Ia memerlukan kebenaran untuk mengakses kenalan anda. Sila benarkan Kenalan pada Tetapan iOS.";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "Item";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Susun atur";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -240,6 +244,8 @@
 "Modify" = "Ubah suai";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Album saya";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "Kenalan baru";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Acara Baru";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
@@ -266,6 +272,8 @@
 "Plain Text" = "Teks kosong";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Pratetap";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "Privasi";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Kualiti";
 /* Generated from genl10n: Finder.BApp.swift#1197 */

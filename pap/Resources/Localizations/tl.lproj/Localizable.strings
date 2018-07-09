@@ -136,6 +136,8 @@
 "Albums" = "Album";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Matagumpay na na-save ang lahat ng mga contact.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "Lahat";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Animated GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -180,6 +182,8 @@
 "Crop to Fit" = "I-crop upang Pagkasyahin";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "I-crop";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "Pasadya";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Petsa";
 /* Generated from genl10n: Finder.BApp.swift#116 */
@@ -200,8 +204,6 @@
 "Export" = "I-export";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Mga Filter";
-/* Generated from genl10n: Finder.BApp.swift#1224 */
-"Find As" = "Maghanap ng Tulad";
 /* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "Hanapin";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -210,6 +212,8 @@
 "Finding Contacts ... %@ " = "Paghahanap ng Mga Contact ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Flight Number";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "Mga Format";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Ipasa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -224,10 +228,10 @@
 "Image Quality" = "Kalidad ng imahe";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Angkat";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Information" = "Impormasyon";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Nangangailangan ito ng pahintulot na ma-access ang iyong mga contact. Mangyaring payagan ang Mga Contact sa Mga Setting ng iOS.";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "Mga item";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Layout";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -240,6 +244,8 @@
 "Modify" = "Baguhin";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Aking Mga Album";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "Bagong kontak";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Bagong kaganapan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -266,6 +272,8 @@
 "Plain Text" = "Plain Text";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Mga Preset";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "Privacy";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Kalidad";
 /* Generated from genl10n: Finder.BApp.swift#1197 */

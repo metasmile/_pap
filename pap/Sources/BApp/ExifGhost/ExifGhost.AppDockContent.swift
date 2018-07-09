@@ -173,9 +173,9 @@ class ExifGhostAppAppDockContent: NSObject, AppDockContent, UITableViewDelegate,
         cell0.label = "Presets".localized
         cell0.valueGetter = { self.defaults.selectionPreset }
         cell0.valueCollection = [
-            (label:"All",value:SelectionPresets.all.rawValue),
-            (label:"Privacy",value:SelectionPresets.privacy.rawValue),
-            (label:"Custom", value:SelectionPresets.custom.rawValue)
+            (label:"All".localized,value:SelectionPresets.all.rawValue),
+            (label:"Privacy".localized,value:SelectionPresets.privacy.rawValue),
+            (label:"Custom".localized, value:SelectionPresets.custom.rawValue)
         ]
         cell0.valueHandler = {
             let preset = $0 as! Int

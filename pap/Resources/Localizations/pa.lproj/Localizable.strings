@@ -136,6 +136,8 @@
 "Albums" = "ਐਲਬਮਾਂ";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "ਸਾਰੇ ਸੰਪਰਕ ਸਫਲਤਾਪੂਰਵਕ ਸੰਭਾਲੇ ਗਏ ਸਨ";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "ਸਭ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "ਐਨੀਮੇਟਿਡ GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -180,6 +182,8 @@
 "Crop to Fit" = "ਫਿੱਟ ਕਰਨ ਲਈ ਕਰੋਪ ਕਰੋ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "ਫਸਲ";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "ਕਸਟਮ";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "ਤਾਰੀਖ";
 /* Generated from genl10n: Finder.BApp.swift#116 */
@@ -200,8 +204,6 @@
 "Export" = "ਨਿਰਯਾਤ ਕਰੋ";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "ਫਿਲਟਰ";
-/* Generated from genl10n: Finder.BApp.swift#1224 */
-"Find As" = "ਦੇ ਰੂਪ ਵਿੱਚ ਲੱਭੋ";
 /* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "ਲੱਭੋ";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -210,6 +212,8 @@
 "Finding Contacts ... %@ " = "ਸੰਪਰਕ ਲੱਭਣੇ ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "ਫਲਾਈਟ ਨੰਬਰ";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "ਫਾਰਮੈਟ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "ਅੱਗੇ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -224,10 +228,10 @@
 "Image Quality" = "ਚਿੱਤਰ ਕੁਆਲਿਟੀ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "ਆਯਾਤ ਕਰੋ";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Information" = "ਜਾਣਕਾਰੀ";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "ਇਸ ਲਈ ਤੁਹਾਡੇ ਸੰਪਰਕਾਂ ਨੂੰ ਐਕਸੈਸ ਕਰਨ ਦੀ ਅਨੁਮਤੀ ਦੀ ਲੋੜ ਹੈ ਕਿਰਪਾ ਕਰਕੇ iOS ਸੈਟਿੰਗਾਂ ਤੇ ਸੰਪਰਕ ਕਰਨ ਦੀ ਆਗਿਆ ਦਿਓ.";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "ਇਕਾਈ";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "ਲੇਆਉਟ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -240,6 +244,8 @@
 "Modify" = "ਸੋਧ ਕਰੋ";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "ਮੇਰੇ ਐਲਬਮਾਂ";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "ਨਵਾਂ ਸੰਪਰਕ";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "ਨਵਾਂ ਇਵੈਂਟ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -266,6 +272,8 @@
 "Plain Text" = "ਪਲੇਨ ਟੈਕਸਟ";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "ਪ੍ਰੀਸੈਟਸ";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "ਗੋਪਨੀਯਤਾ";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "ਗੁਣਵੱਤਾ";
 /* Generated from genl10n: Finder.BApp.swift#1197 */

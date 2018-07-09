@@ -98,6 +98,8 @@
 "Albums" = "Albums";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "All contacts were successfully saved.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "All";
 /* Generated from genl10n: GIFMaker.BApp.swift#455, GIFMaker.BApp.swift#456 */
 "Animated GIF" = "Animated GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift#587 */
@@ -142,6 +144,8 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift#277, GIFMaker.BApp.swift#142 */
 "Crop" = "Crop";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "Custom";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#218, Finder.BApp.swift#280, Finder.BApp.swift#379, Finder.BApp.swift#584, Finder.BApp.swift#699, Finder.BApp.swift#1151 */
 "Date" = "Date";
 /* Generated from genl10n: Finder.BApp.swift#116 */
@@ -162,8 +166,6 @@
 "Export" = "Export";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filters";
-/* Generated from genl10n: Finder.BApp.swift#1224 */
-"Find As" = "Find As";
 /* Generated from genl10n: Finder.BApp.swift#120, CallNumbers.swift#196 */
 "Find" = "Find";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -172,6 +174,8 @@
 "Finding Contacts ... %@ " = "Finding Contacts ... %@ ";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Flight Number";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "Formats";
 /* Generated from genl10n: GIFMaker.BApp.swift#208 */
 "Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift#505 */
@@ -186,10 +190,10 @@
 "Image Quality" = "Image Quality";
 /* Generated from genl10n: GIFMaker.BApp.swift#440 */
 "Import" = "Import";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Information" = "Information";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "It requires a permission to access your contacts. Please allow Contacts on iOS Settings.";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "Items";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Layout";
 /* Generated from genl10n: GIFMaker.BApp.swift#90 */
@@ -202,6 +206,8 @@
 "Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift#258 */
 "My Albums" = "My Albums";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "New Contact";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "New Event";
 /* Generated from genl10n: Stabilizer.swift#278, GIFMaker.BApp.swift#141 */
@@ -228,6 +234,8 @@
 "Plain Text" = "Plain Text";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#173 */
 "Presets" = "Presets";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "Privacy";
 /* Generated from genl10n: Converter.AppDockContent.swift#133, GIFMaker.BApp.swift#586 */
 "Quality" = "Quality";
 /* Generated from genl10n: Finder.BApp.swift#1197 */

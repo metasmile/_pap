@@ -136,6 +136,8 @@
 "Albums" = "Albumai";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Visi kontaktai buvo sėkmingai išsaugoti.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "Visi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Animuoti GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -180,6 +182,8 @@
 "Crop to Fit" = "'Apkarpyti iki'";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Apkarpyti";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "Tinkintas";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Data";
 /* Generated from genl10n: Finder.BApp.swift#116 */
@@ -200,8 +204,6 @@
 "Export" = "Eksportas";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filtrai";
-/* Generated from genl10n: Finder.BApp.swift#1224 */
-"Find As" = "Ieškoti as";
 /* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "Rasti";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -210,6 +212,8 @@
 "Finding Contacts ... %@ " = "Ieškoti kontaktų ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Skrydžio numeris";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "Formatai";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Persiųsti";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -224,10 +228,10 @@
 "Image Quality" = "Vaizdo kokybė";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Importuoti";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Information" = "Informacija";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Tam reikia leidimo pasiekti jūsų kontaktus. Leiskite 'Contacts' 'iOS' nustatymuose.";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "Elementai";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Maketas";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -240,6 +244,8 @@
 "Modify" = "Keisti";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Mano albumai";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "Naujas kontaktas";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Naujas įvykis";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -266,6 +272,8 @@
 "Plain Text" = "Paprastas tekstas";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "Privatumas";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Kokybė";
 /* Generated from genl10n: Finder.BApp.swift#1197 */

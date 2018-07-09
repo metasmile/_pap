@@ -136,6 +136,8 @@
 "Albums" = "Albums";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Todos os contatos foram salvos com sucesso.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "Todos";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Gif Animado";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -180,6 +182,8 @@
 "Crop to Fit" = "Cortar para caber";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "personalizadas";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Encontro";
 /* Generated from genl10n: Finder.BApp.swift#116 */
@@ -200,8 +204,6 @@
 "Export" = "Exportar";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filtros";
-/* Generated from genl10n: Finder.BApp.swift#1224 */
-"Find As" = "Encontre como";
 /* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
 "Find" = "Encontrar";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -210,6 +212,8 @@
 "Finding Contacts ... %@ " = "Encontrando contatos ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Número do vôo";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "Formatos";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -224,10 +228,10 @@
 "Image Quality" = "Qualidade da imagem";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Importar";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Information" = "Em formação";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Requer permissão para acessar seus contatos. Por favor, permita contatos em configurações do iOS.";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "Unid";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Layout";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -240,6 +244,8 @@
 "Modify" = "Modificar";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Meus álbuns";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "Novo contato";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Novo evento";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
@@ -266,6 +272,8 @@
 "Plain Text" = "Texto simples";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Predefinições";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "Privacidade";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Qualidade";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
