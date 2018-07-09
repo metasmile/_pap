@@ -122,6 +122,12 @@
 "Choose An Sub Action." = "Choose An Sub Action.";
 /* Generated from genl10n: Convert.AppDockContent.swift#148 */
 "Choose an Option To Convert" = "Choose an Option To Convert";
+/* Generated from genl10n: Clean.BApp.swift#96 */
+"Clean the selected items" = "Clean the selected items";
+/* Generated from genl10n: Clean.BApp.swift#66 */
+"Clean" = "Clean";
+/* Generated from genl10n: Clean.BApp.swift#62 */
+"Cleaning Photos..." = "Cleaning Photos...";
 /* Generated from genl10n: Finder.BApp.swift#1155 */
 "Contacts" = "Contacts";
 /* Generated from genl10n: Finder.BApp.swift#299, Finder.BApp.swift#369, Finder.BApp.swift#440, Finder.BApp.swift#518, Finder.BApp.swift#620, Finder.BApp.swift#700 */
@@ -146,7 +152,7 @@
 "Downloading..." = "Downloading...";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#191, Finder.BApp.swift#542, Finder.BApp.swift#1076 */
 "E-mail Address" = "E-mail Address";
-/* Generated from genl10n: Revert.BApp.swift#194, ExifGhost.AppDockContent.swift#162, Clean.BApp.swift#302, CallApp.BApp.swift#318, Finder.BApp.swift#1141 */
+/* Generated from genl10n: Revert.BApp.swift#194, ExifGhost.AppDockContent.swift#162, Clean.BApp.swift#333, CallApp.BApp.swift#318, Finder.BApp.swift#1141 */
 "Enable Auto Selection" = "Enable Auto Selection";
 /* Generated from genl10n: Convert.AppDockContent.swift#149 */
 "Export Options" = "Export Options";
@@ -236,7 +242,7 @@
 "Search Flights" = "Search Flights";
 /* Generated from genl10n: Finder.BApp.swift#1269 */
 "Select Photos To Find Everything." = "Select Photos To Find Everything.";
-/* Generated from genl10n: Clean.BApp.swift#285 */
+/* Generated from genl10n: Clean.BApp.swift#316 */
 "Select Photos You Want To Clean!" = "Select Photos You Want To Clean!";
 /* Generated from genl10n: CallApp.BApp.swift#301 */
 "Select Photos You Want To Grab Phone Numbers!" = "Select Photos You Want To Grab Phone Numbers!";

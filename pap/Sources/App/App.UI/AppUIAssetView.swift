@@ -241,6 +241,9 @@ extension AppUIAssetView {
                     })
                 })
             }
+            else {
+                playAny()
+            }
         }
         else if asset.mediaType == .video {
             if let filter = editState?.ciFilter {

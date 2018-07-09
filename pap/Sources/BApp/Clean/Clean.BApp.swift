@@ -55,14 +55,15 @@ public class Clean: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp, App
     public required override init() {}
 
     public var finalizingActions: [PHAssetFinalizingAction] {
-        return [.delete]
+        return [.showActions]
     }
 
     public var titleWillFinalize: String? {
-        return "Deleting Photos...".localized
+        return "Cleaning Photos...".localized
     }
+    
     public var doneButtonTitle: String? {
-        return "Delete".localized
+        return "Clean".localized
     }
     
     @objc dynamic
@@ -87,6 +88,36 @@ public class Clean: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp, App
         }
         
         return nil
+    }
+    
+    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
+        let items = result.filter { respondable in respondable.info.state == .completed }.compactMap { $0.result as? CleanAppResult }
+        
+        let alert = UIAlertController(title: "Clean the selected items".localized, message: nil, preferredStyle: .actionSheet)
+        
+        let deleteAction = UIAlertAction(title: "Delete".localized, style: .destructive) { action in
+            PHPhotoLibrary.shared().performChanges({
+                PHAssetChangeRequest.deleteAssets(items.map { $0.asset } as NSArray)
+            }, completionHandler: { (success, info) in
+                asyncSignal.end()
+            })
+        }
+        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel) { action in
+            asyncSignal.end()
+        }
+        
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        
+        asyncSignal.begin()
+        
+        DispatchQueue.main.async{
+            UIViewController.root?.present(alert, animated: true)
+        }
+        
+        asyncSignal.waitUntilEnd()
+        
+        return result
     }
 }
 
