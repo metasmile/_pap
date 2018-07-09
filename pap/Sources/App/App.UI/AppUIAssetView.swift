@@ -123,9 +123,6 @@ class AppUIAssetView: AssetView {
         originalImage = nil
         filteredImage = nil
         
-        preferredTransform = .identity
-        layer.transform = CATransform3DIdentity
-        
         prepareProcessing()
         
         originalBadgeLabel.isHidden = true

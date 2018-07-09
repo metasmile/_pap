@@ -79,7 +79,11 @@ public class PhotosFilterApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp,
         super.init()
         
         config?.watch(\.tintColor, options: [.initial, .new]) {
-            self.updateControllerView()
+            self.dockContent?.view.tintColor = self.config?.tintColor
+        }
+        
+        config?.watch(\.filter, options: [.initial, .new]) {
+            self.currentEditStateValue = self.config?.filter
         }
     }
 
