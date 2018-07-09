@@ -14,5 +14,37 @@ extension Defaults: DefaultsProperty {
     public var appDockContentLayoutState: Int {
         set{ set(newValue) } get{ return get(or:AppDockContentLayoutState.neutralized.rawValue) }
     }
+
+    // private
+    fileprivate var appCount:[String:Double]{ // [identifier: performed count]
+        set{ set(newValue) } get{ return get(or:[String:Double]()) }
+    }
 }
 
+public struct papCounter {
+    struct app {
+        static var numberOfCounted:Int{
+            return Defaults.shared.appCount.keys.count
+        }
+
+        static func countToPerform(app:App.Type){
+            let id = app.info.identifier
+            var counting = Defaults.shared.appCount
+            if let count = counting[id]{
+                counting[id] = count+1
+            }else{
+                counting[id] = 1
+            }
+        }
+
+        static func countToPerform(){
+            if let app = AppCenter.default.current{
+                countToPerform(app:app)
+            }
+        }
+
+        static func countPerformed(app:App.Type) -> Double{
+            return Defaults.shared.appCount[app.info.identifier] ?? 0
+        }
+    }
+}

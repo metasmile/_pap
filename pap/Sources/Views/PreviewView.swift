@@ -283,6 +283,8 @@ extension PreviewView {
         AppCenter.default.task.perform(createTaskReaction())
         papLog.event.performFromUser()
 
+        papCounter.app.countToPerform()
+
         return true
     }
 

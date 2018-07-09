@@ -509,7 +509,7 @@ extension FinderApp{
 
                     if let url = URL(string: "mailto://\(email)")
                     , UIApplication.shared.canOpenURL(url){
-                        return UIAlertAction(title: "Send an Email".localized, style: .default, handler: { action in
+                        return UIAlertAction(title: t, style: .default, handler: { action in
                             asyncSignal.end()
                             UIApplication.shared.open(url)
                         })
@@ -742,7 +742,7 @@ extension FinderApp{
 
                 let _quickAction = { (t: String) -> UIAlertAction? in
                     if let url = url_to_flight, UIApplication.shared.canOpenURL(url){
-                        return UIAlertAction(title: "Search Flights".localized, style: .default, handler: { action in
+                        return UIAlertAction(title: t, style: .default, handler: { action in
                             UIApplication.openSafari(with:url) {
                                 asyncSignal.end()
                             }
