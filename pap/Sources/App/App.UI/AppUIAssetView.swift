@@ -88,6 +88,14 @@ class AppUIAssetView: AssetView {
         return UILongPressGestureRecognizer(target: self, action: #selector(self.compareOriginalGestureDidChange))
     }()
     
+    var preferredTransform: CGAffineTransform = .identity {
+        didSet {
+            imageView.transform = preferredTransform
+            videoView.transform = preferredTransform
+            livePhotoView.transform = preferredTransform
+        }
+    }
+    
     override func initialize() {
         super.initialize()
         
@@ -114,6 +122,9 @@ class AppUIAssetView: AssetView {
         
         originalImage = nil
         filteredImage = nil
+        
+        preferredTransform = .identity
+        layer.transform = CATransform3DIdentity
         
         prepareProcessing()
         

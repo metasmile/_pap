@@ -47,8 +47,8 @@ class AssetView: UIView {
         return UIView(frame: CGRect(origin: .zero, size: frame.size))
     }()
     
-    lazy fileprivate var imageLayer: CALayer = {
-        return CALayer()
+    lazy var imageView: UIImageView = {
+        return UIImageView(frame: CGRect(origin: .zero, size: frame.size))
     }()
     lazy var videoView: AssetVideoView = {
         return AssetVideoView(frame: CGRect(origin: .zero, size: frame.size))
@@ -56,19 +56,8 @@ class AssetView: UIView {
     lazy var livePhotoView: PHLivePhotoView = {
         return PHLivePhotoView(frame: CGRect(origin: .zero, size: frame.size))
     }()
-    lazy fileprivate var gifImageView: UIImageView = {
-        return UIImageView(frame: CGRect(origin: .zero, size: frame.size))
-    }()
     
     var previewMode: Bool = false
-    var preferredTransform: CGAffineTransform = .identity {
-        didSet {
-            imageLayer.transform = CATransform3DMakeAffineTransform(preferredTransform)
-            videoView.transform = preferredTransform
-            livePhotoView.transform = preferredTransform
-            gifImageView.transform = preferredTransform
-        }
-    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -83,10 +72,9 @@ class AssetView: UIView {
     }
     
     func initialize() {
-        layer.addSublayer(imageLayer)
+        addSubview(imageView)
         addSubview(videoView)
         addSubview(livePhotoView)
-        addSubview(gifImageView)
         
         addSubview(accessoryView)
         accessoryView.fitConstraints(to: self)
@@ -97,8 +85,6 @@ class AssetView: UIView {
         livePhotoView.isHidden = true
         livePhotoView.delegate = self
         
-        gifImageView.isHidden = true
-        
         imageRequestOptions = defaultImageRequestOptions
         videoRequestOptions = defaultVideoRequestOptions
         livePhotoRequestOptions = defaultLivePhotoRequestOptions
@@ -107,27 +93,16 @@ class AssetView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let disableActionsToRestore = CATransaction.disableActions()
-        CATransaction.setDisableActions(true)
-        imageLayer.frame = bounds
+        imageView.frame = bounds
         videoView.frame = bounds
         livePhotoView.frame = bounds
-        gifImageView.frame = bounds
-        CATransaction.setDisableActions(disableActionsToRestore)
     }
     
     override var contentMode: UIViewContentMode {
         didSet {
+            imageView.contentMode = contentMode
             videoView.contentMode = contentMode
             livePhotoView.contentMode = contentMode
-            gifImageView.contentMode = contentMode
-            
-            switch contentMode {
-            case .scaleAspectFill:
-                imageLayer.contentsGravity = kCAGravityResizeAspectFill
-            default:
-                imageLayer.contentsGravity = kCAGravityResizeAspect
-            }
         }
     }
     
@@ -150,8 +125,6 @@ class AssetView: UIView {
         isLivePhotoPlaying = false
         videoView.isHidden = true
         livePhotoView.isHidden = true
-        gifImageView.isHidden = true
-        imageLayer.contents = nil
         stopAny()
         
         image = nil
@@ -232,10 +205,10 @@ class AssetView: UIView {
     var gifImage: UIImage? {
         didSet {
             if let image = gifImage {
-                gifImageView.setGifImage(image)
+                imageView.setGifImage(image)
             }
             else {
-                gifImageView.clear()
+                imageView.clear()
             }
         }
     }
@@ -304,8 +277,6 @@ extension AssetView {
             }
         }
         else if asset.imageType == .animatedGIF {
-            gifImageView.isHidden = false
-            
             loadImageData(for: asset) { [weak self] data in
                 guard !cancellation(), let data = data else { return }
                 
@@ -353,10 +324,7 @@ extension AssetView {
 
 extension AssetView {
     private func updateImageContents(_ image: UIImage?) {
-        let disabledActions = CATransaction.disableActions()
-        CATransaction.setDisableActions(true)
-        imageLayer.contents = image?.cgImage
-        CATransaction.setDisableActions(disabledActions)
+        imageView.image = image
     }
 }
 
