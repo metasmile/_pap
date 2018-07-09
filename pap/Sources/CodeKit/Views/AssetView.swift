@@ -187,7 +187,7 @@ class AssetView: UIView {
         }
     }
     
-    func imageDidLoad(image: UIImage?) {}
+    func imageDidLoad(image: UIImage) {}
     
     var playerItem: AVPlayerItem? {
         didSet {
@@ -240,9 +240,24 @@ extension AssetView: UIGestureRecognizerDelegate {}
 //MARK: - Draw asset
 
 extension AssetView {
-    func setAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: (() -> Void)? = nil) {
+    func setAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, updatePreview: ((UIImage?) -> Void)? = nil, completion: (() -> Void)? = nil) {
         previewMode = false
         self.asset = asset
+        
+        loadImage(for: asset) { (image) in
+            updatePreview?(image)
+            
+            DispatchQueue.main.async { [weak self] in
+                guard !cancellation() else { return }
+                
+                self?.image = image
+                
+                if asset.imageType == .stillImage {
+                    completion?()
+                }
+            }
+        }
+        
         if asset.mediaType == .image {
             setImageAsset(asset, cancelDrawingIfNeeded: cancellation, completion: completion)
         }
@@ -280,23 +295,10 @@ extension AssetView {
             }
             
             loadImageData(for: asset) { [weak self] data in
-                guard !cancellation(), let data = data else {
-                    self?.clearDrawing()
-                    return
-                }
+                guard !cancellation(), let data = data else { return }
                 
                 DispatchQueue.main.async { [weak self] in
                     self?.gifImage = UIImage(gifData: data)
-                    completion?()
-                }
-            }
-        }
-        else {
-            loadImage(for: asset) { [weak self] image in
-                guard !cancellation() else { return }
-                
-                DispatchQueue.main.async { [weak self] in
-                    self?.image = image
                     completion?()
                 }
             }
@@ -313,10 +315,7 @@ extension AssetView {
         }
         
         loadVideo(for: asset) { [weak self] playerItem in
-            guard !cancellation() else {
-                self?.clearDrawing()
-                return
-            }
+            guard !cancellation() else { return }
             
             DispatchQueue.main.async { [weak self] in
                 self?.playerItem = playerItem
@@ -364,7 +363,9 @@ extension AssetView {
         let targetSize = CGSize(width: targetBounds.width * targetScale, height: targetBounds.height * targetScale)
         imageRequestID = AssetView.imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: imageRequestOptions) { [weak self] (image, info) in
             guard (info?[PHImageResultIsDegradedKey] as? Bool) != true else { return }
-            self?.imageDidLoad(image: image)
+            if let image = image {
+                self?.imageDidLoad(image: image)
+            }
             completion(image)
         }
     }

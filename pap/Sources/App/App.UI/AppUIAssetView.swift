@@ -134,6 +134,12 @@ class AppUIAssetView: AssetView {
         super.clearDrawing()
     }
     
+    func setAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: (() -> Void)?) {
+        super.setAsset(asset, cancelDrawingIfNeeded: cancellation, updatePreview: { (preview) in
+            self.originalImage = preview
+        }, completion: completion)
+    }
+    
     override func livePhotoDidLoad(livePhoto: PHLivePhoto?) {
         originalLivePhoto = livePhoto
     }
@@ -194,8 +200,11 @@ extension AppUIAssetView {
     
     fileprivate func applyFilter<T>(_ editState: StateValueSet<T>?) where T: ImageEditStateValue {
         guard let asset = asset else { return }
+        
+        self.filteredImage = originalImage?.applyFilter(ciFilter: editState?.ciFilter)
+        
         if asset.imageType == .stillImage || previewMode {
-            self.filteredImage = originalImage?.applyFilter(ciFilter: editState?.ciFilter)
+            
         }
         else if asset.imageType == .livePhoto {
             if let filter = editState?.ciFilter {

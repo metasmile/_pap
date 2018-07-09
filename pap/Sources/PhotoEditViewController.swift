@@ -45,7 +45,9 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     let iOSStandardEditorBackgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1)
     var actionItems: [UIPreviewActionItem]?
     
-    var originalImage: UIImage?
+    var originalImage: UIImage? {
+        return assetView.originalImage
+    }
     
     lazy var tapToPlayGesture: UITapGestureRecognizer = {
         return UITapGestureRecognizer(target: self.assetView, action: #selector(self.assetView.playAny))
@@ -93,7 +95,6 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
             assetView.setAsset(asset, completion: {
                 self.assetView.isHidden = false
                 self.placeholderView.isHidden = true
-                self.originalImage = self.assetView.image
                 self.assetView.applyEditState(self.preferredEditState)
                 self.assetView.playAny()
             })

@@ -9,6 +9,10 @@
 import UIKit
 import Photos
 
+protocol PreviewCollectionViewCellDelegate {
+    func previewCollectionViewCellDidChangeLayoutAttributes(_ cell: PreviewCollectionViewCell, at indexPath: IndexPath)
+}
+
 class PreviewCollectionViewCell: CustomCollectionViewCell {
     @IBOutlet weak var assetView: AppUIAssetView!
     
@@ -18,35 +22,28 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
     var imageContentMode = PHImageContentMode.aspectFit
     private var needsToUpdatePreview: Bool = false
     
+    private var assetViewBounds: CGRect?
     @IBOutlet weak var assetViewWidth: NSLayoutConstraint!
     @IBOutlet weak var assetViewHeight: NSLayoutConstraint!
     
-    private var previousAttributes: UICollectionViewLayoutAttributes?
+    var delegate: PreviewCollectionViewCellDelegate?
     
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
         
-        let assetItem = AppAssets.selected.at(unsafeIndex: layoutAttributes.indexPath.item)
-        
-        if layoutAttributes.size != previousAttributes?.size || self.asset != assetItem?.asset {
-            setNeedsUpdatePreview()
+        if assetViewBounds != nil, layoutAttributes.size != assetViewBounds?.size {
+            delegate?.previewCollectionViewCellDidChangeLayoutAttributes(self, at: layoutAttributes.indexPath)
         }
-        
-        self.editItem = assetItem
-        self.asset = self.editItem?.asset
-        
-        updatePreviewIfNeeded()
-        
-        previousAttributes = layoutAttributes
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         
+        delegate = nil
         asset = nil
         editItem = nil
-        previousAttributes = nil
-        assetView.isProcessing = false
+        assetViewBounds = nil
+        assetView.asset = nil
         assetView.layer.transform = CATransform3DIdentity
         
         if let imageRequestId = imageRequestId {
@@ -87,7 +84,6 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         }
         assetView.filteredImage = filtered
         setImageEditItem(item.editState, animated: false)
-        assetView.isProcessing(false, animated: true)
     }
     
     func setOriginalImage(_ original: UIImage? = nil, with item: PHAssetItem<ImageEditStateValue>) {
@@ -125,6 +121,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         let boundingSize = asset.pixelWidth > asset.pixelHeight ? bounds.size.applying(item.editState.transform).magnitude : bounds.size
         let photoSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight).aspectFit(in: boundingSize)
         
+        assetViewBounds = bounds
         assetViewWidth.constant = photoSize.width
         assetViewHeight.constant = photoSize.height
         
@@ -136,6 +133,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         
         setEditItem(item)
         
+        assetView.isProcessing = false
         assetView.setThumbnailAsset(asset, cancelDrawingIfNeeded: { [weak self] in
             return self?.asset != asset
         }, completion: { [weak self] image in
@@ -143,7 +141,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
             
             self?.assetView.originalImage = image
             self?.assetView.image = image
-            self?.setImageEditItem(item.editState, animated: true)
+            self?.setImageEditItem(item.editState, animated: false)
         })
     }
     
