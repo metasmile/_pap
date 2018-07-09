@@ -22,6 +22,7 @@ protocol PreviewViewDelegate {
 
     func batchPreviewViewWillBeginEdit(_ view: PreviewView)
     func batchPreviewViewDidEndEdit(_ view: PreviewView)
+    func batchPreviewViewDidCancelEdit(_ view: PreviewView)
 }
 
 internal class PreviewCollectionLayout: UICollectionViewLayout {
@@ -378,7 +379,8 @@ extension PreviewView {
         AppCenter.default.task.cancel(AppTaskCancellationReaction().will {
             UIApplication.shared.endIgnoringInteractionEvents()
         }.did{
-            self.delegate?.batchPreviewViewDidEndEdit(self)
+//            self.delegate?.batchPreviewViewDidEndEdit(self)
+            self.delegate?.batchPreviewViewDidCancelEdit(self)
         })
     }
 }

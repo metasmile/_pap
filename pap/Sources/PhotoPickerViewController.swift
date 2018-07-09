@@ -775,6 +775,16 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         }
     }
     
+    func batchPreviewViewDidCancelEdit(_ view: PreviewView) {
+        progressBar.isHidden = true
+        
+        updateAllPhotosTitle()
+        updateSelectedItemUIs()
+        updateVisibleCellsEnabled()
+        
+        updateAppDockViewProcessingEnd()
+    }
+    
     func batchPreviewViewDidEndEdit(_ view: PreviewView) {
         progressBar.isHidden = true
         

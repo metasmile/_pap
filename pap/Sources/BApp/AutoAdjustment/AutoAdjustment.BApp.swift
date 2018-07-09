@@ -188,15 +188,17 @@ private class _AutoAdjustmentAppTask: AppTaskPrototypeDefaultConcurrencyCountPol
         
         async.begin()
         
-        assetItem.runEditing({ (progress) in
-            PHAssetItemProgressNotification.update(item: assetItem, progress: progress)
-        }) { (asset, contentEditingOutput) in
-            if let asset = asset, let contentEditingOutput = contentEditingOutput {
-                result = PHAssetResultItem(
-                    asset: asset,
-                    contentEditingOutput: contentEditingOutput)
+        DispatchQueue(label: "com.stells.internal."+#file, qos: .utility).async {
+            assetItem.runEditing({ (progress) in
+                PHAssetItemProgressNotification.update(item: assetItem, progress: progress)
+            }) { (asset, contentEditingOutput) in
+                if let asset = asset, let contentEditingOutput = contentEditingOutput {
+                    result = PHAssetResultItem(
+                        asset: asset,
+                        contentEditingOutput: contentEditingOutput)
+                }
+                async.end()
             }
-            async.end()
         }
         
         async.waitUntilEnd()

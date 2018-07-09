@@ -44,7 +44,7 @@ extension _PhotosFilterAppAsset: PHAssetImageEditable {
                 return
             }
             
-            DispatchQueue.global().async {
+            DispatchQueue(label: "com.stells.internal."+#file, qos: .utility).async {
                 // renderedContentURL supports only JPEG and MOV ...
                 // so... always export JPEG
                 //TODO: investigate PHAssetChangeRequest.creationRequestForAssetFromImage(url)
