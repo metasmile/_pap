@@ -124,12 +124,18 @@
 "cs_keyword_13" = "lover";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d ħinijiet";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"1080p (1920×1080)" = "1080p (1920 x 1080)";
+/* Generated from genl10n: Finder.BApp.swift#1227 */
+"Actions" = "Azzjonijiet";
+/* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
+"Add New Contact" = "Żid Kuntatt Ġdid";
+/* Generated from genl10n: Finder.BApp.swift#466 */
+"Add an Event" = "Żid Avveniment";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Indirizz";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albums";
+/* Generated from genl10n: Finder.BApp.swift#215 */
+"All contacts were successfully saved." = "Il-kuntatti kollha ġew salvati b'suċċess.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "GIF animat";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -142,12 +148,24 @@
 "Cannot revert. All selected items have not edited." = "Ma jistgħux jerġgħu lura. L-oġġetti magħżula kollha ma editjawx.";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Agħżel Numru tat-Telefon għal Sejħa";
+/* Generated from genl10n: Finder.BApp.swift#250 */
+"Choose An Action" = "Agħżel Azzjoni";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Agħżel Għażla ta 'Esportazzjoni Għal %d Oġġetti";
+/* Generated from genl10n: Finder.BApp.swift#264 */
+"Choose An Sub Action." = "Agħżel Azzjoni Sub.";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Agħżel Għażla Biex Ikkonverti";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Contract" = "Kuntratt";
+/* Generated from genl10n: Clean.BApp.swift#96 */
+"Clean the selected items" = "Naddaf il-punti magħżula";
+/* Generated from genl10n: Clean.BApp.swift#66 */
+"Clean" = "Nadif";
+/* Generated from genl10n: Clean.BApp.swift#62 */
+"Cleaning Photos..." = "Ritratti ta 'tindif ...";
+/* Generated from genl10n: Finder.BApp.swift#1228 */
+"Contacts" = "Kuntatti";
+/* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
+"Copy" = "Kopja";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Oħloq";
 /* Generated from genl10n: Stabilizer.swift */
@@ -158,6 +176,8 @@
 "Crop" = "Ħsad";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Data";
+/* Generated from genl10n: Finder.BApp.swift#116 */
+"Detecting ... %@ " = "Jiskopru ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direzzjoni";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
@@ -172,22 +192,20 @@
 "Export Options" = "Għażliet ta 'esportazzjoni";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Esportazzjoni";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Find As" = "Sib Kif";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Find" = "Sib";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Sib Kuntatti ... %@";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
+"Flight Number" = "Numru tat-Titjira";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "'Il quddiem";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Dewmien tal-Qafas";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "Fornitur tal-GIF";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Grab" = "Aqbad";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Aħbi";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -196,6 +214,12 @@
 "Image Quality" = "Kwalità tal-immaġni";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Importa";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Information" = "Informazzjoni";
+/* Generated from genl10n: CodeKit.Contacts.swift#63 */
+"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Hija teħtieġ permess biex ikollok aċċess għall-kuntatti tiegħek. Jekk jogħġbok ħalli Kuntatti fuq Settings ta 'l-iOS.";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+"Layout" = "Layout";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Ritratt Live";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -206,50 +230,72 @@
 "Modify" = "Timmodifika";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Albums tiegħi";
+/* Generated from genl10n: Finder.BApp.swift#435 */
+"New Event" = "Avveniment Ġdid";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "Le Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "No loop";
+/* Generated from genl10n: Finder.BApp.swift#654 */
+"Open Apple Maps" = "Mapep Miftuħa ta 'Apple";
+/* Generated from genl10n: Finder.BApp.swift#668 */
+"Open Google Maps" = "Iftaħ Google Maps";
+/* Generated from genl10n: Finder.BApp.swift#370 */
+"Open Web Page" = "Paġna Web Miftuħa";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "Oriġinali";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+"Page Margin" = "Marġni ta 'Paġna";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+"Page Size Preset" = "Daqs tal-Daqs Preset";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Numru tat-telefon";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Ritratti";
+/* Generated from genl10n: Finder.BApp.swift#1229 */
+"Plain Text" = "Test sempliċi";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Kwalità";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Recognizing ... %@ " = "Rikonoxximent ... %@";
+/* Generated from genl10n: Finder.BApp.swift#1197 */
+"Quick Actions Only" = "Azzjonijiet Quick biss";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Irrepeti";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Reverse";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Rewind";
+/* Generated from genl10n: Finder.BApp.swift#1185 */
+"Save Found Contacts Directly" = "Ħlief Kuntatti Mqaddsa Direttament";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "Ħlief u Aqsam";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Ħlief";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Riżultati Salvati ...";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Saving Texts ..." = "Iffissar ta 'Testi ...";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+"Scale To Fit" = "Scale To Fit";
+/* Generated from genl10n: Finder.BApp.swift#762 */
+"Search Flights" = "Titjiriet ta 'Fittex";
+/* Generated from genl10n: Finder.BApp.swift#1345 */
+"Select Photos To Find Everything." = "Agħżel ritratti biex isibu kollox.";
+/* Generated from genl10n: Clean.BApp.swift#316 */
+"Select Photos You Want To Clean!" = "Agħżel Ritratti Trid Nadif!";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Agħżel Ir-Ritratti Trid Aqbad in-Numri tat-Telefon!";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Select Photos You Want To Grab!" = "Agħżel Ir-Ritratti Trid Tieħu!";
+/* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
+"Send an Email" = "Ibgħat Email";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Aqsam";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Daqs";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry can't call to selected contact." = "Jiddispjacini ma jistax iċempel għall-kuntatt magħżul.";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry not found any contact information." = "Skużana ma sabet l-ebda informazzjoni ta 'kuntatt.";
+/* Generated from genl10n: Finder.BApp.swift#217 */
+"Some contacts were saved, but someones were not." = "Ġew iffrankati xi kuntatti, iżda someones ma kinux.";
+/* Generated from genl10n: CallApp.BApp.swift#172, Finder.BApp.swift#824 */
+"Sorry not found any information you selected." = "Skużana ma nstabet l-ebda informazzjoni li għażilt.";
+/* Generated from genl10n: Finder.BApp.swift#174 */
+"Sorry, it is not possible to save the contract." = "Jiddispjaċina, mhuwiex possibbli li l-kuntratt jiġi salvat.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Kwadra";
 /* Generated from genl10n: Stabilizer.swift */
@@ -268,6 +314,8 @@
 "Starting the Process..." = "Bidu tal-Proċess ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Tibda biex tivverifika r-ritratti editjati ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
+"Switch on any items you want to hide. The quality will entirely remain the same." = "Ixgħel kwalunkwe oġġett li trid taħbi. Il-kwalità tibqa 'għal kollox l-istess.";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Traduzzjoni";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -276,9 +324,5 @@
 "Waiting To Select ..." = "Stennija biex Agħżel ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Medd";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD (640 × 360)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "QHD (960 × 540)";
 /* Generated from genl10n: CallApp.BApp.swift */
 "🔍 Starting To Find ..." = "Nibdew Sib ...";

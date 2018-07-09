@@ -124,12 +124,18 @@
 "cs_keyword_13" = "sevgilisi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d marta";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: Finder.BApp.swift#1227 */
+"Actions" = "Amallar";
+/* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
+"Add New Contact" = "Yangi kontakt qo'shish";
+/* Generated from genl10n: Finder.BApp.swift#466 */
+"Add an Event" = "Voqeani qo'shish";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Manzil";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albomlar";
+/* Generated from genl10n: Finder.BApp.swift#215 */
+"All contacts were successfully saved." = "Barcha kontaktlar muvaffaqiyatli saqlandi.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Animatsiya GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -142,12 +148,24 @@
 "Cannot revert. All selected items have not edited." = "Qaytarib bo'lmadi. Tanlangan barcha elementlar tahrirlanmadi.";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Qo'ng'iroq qilish uchun telefon raqamini tanlang";
+/* Generated from genl10n: Finder.BApp.swift#250 */
+"Choose An Action" = "Amalni tanlang";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "%d Ma'lumotlar uchun eksport parametrini tanlang";
+/* Generated from genl10n: Finder.BApp.swift#264 */
+"Choose An Sub Action." = "Sub Action-ni tanlang.";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Aylantirish uchun variantni tanlang";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Contract" = "Shartnoma";
+/* Generated from genl10n: Clean.BApp.swift#96 */
+"Clean the selected items" = "Tanlangan elementlarni tozalang";
+/* Generated from genl10n: Clean.BApp.swift#66 */
+"Clean" = "Tozalash";
+/* Generated from genl10n: Clean.BApp.swift#62 */
+"Cleaning Photos..." = "Rasmlar tozalanmoqda ...";
+/* Generated from genl10n: Finder.BApp.swift#1228 */
+"Contacts" = "Kontaktlar";
+/* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
+"Copy" = "Nusxalash";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Yaratmoq";
 /* Generated from genl10n: Stabilizer.swift */
@@ -158,6 +176,8 @@
 "Crop" = "O'simliklar";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Sana";
+/* Generated from genl10n: Finder.BApp.swift#116 */
+"Detecting ... %@ " = "Detallashtirish ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Yo'nalish";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
@@ -172,22 +192,20 @@
 "Export Options" = "Eksport imkoniyatiga ega";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Eksport";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Find As" = "As sifatida toping";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Find" = "Toping";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Kontaktlarni topish ... %@";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
+"Flight Number" = "Parvoz raqami";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Oldinga";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame kechiktirilishi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Grab" = "Grab";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -196,6 +214,12 @@
 "Image Quality" = "Rasm sifati";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Import";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Information" = "Ma `lumot";
+/* Generated from genl10n: CodeKit.Contacts.swift#63 */
+"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Kontaktlaringizga kirish uchun ruxsat talab etiladi. IOS sozlamalaridagi kontaktlarga ruxsat bering.";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+"Layout" = "Layout";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Jonli foto";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -206,50 +230,72 @@
 "Modify" = "O'zgartiring";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Mening Albomlarim";
+/* Generated from genl10n: Finder.BApp.swift#435 */
+"New Event" = "Yangi hodisa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "Hech qanday zarracha yo'q";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Yo'qlik yo'q";
+/* Generated from genl10n: Finder.BApp.swift#654 */
+"Open Apple Maps" = "Apple Xaritalarni oching";
+/* Generated from genl10n: Finder.BApp.swift#668 */
+"Open Google Maps" = "Google xaritalarini oching";
+/* Generated from genl10n: Finder.BApp.swift#370 */
+"Open Web Page" = "Veb-sahifani oching";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "Original";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+"Page Margin" = "Sahifa chekkasi";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+"Page Size Preset" = "Sahifa hajmi oldindan belgilash";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Telefon raqami";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Rasmlar";
+/* Generated from genl10n: Finder.BApp.swift#1229 */
+"Plain Text" = "Oddiy matn";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Sozlamalar";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Sifat";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Recognizing ... %@ " = "Qabul qilinmoqda ... %@";
+/* Generated from genl10n: Finder.BApp.swift#1197 */
+"Quick Actions Only" = "Faqat tez harakatlar";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Takrorlang";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Teskari";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Qaytish";
+/* Generated from genl10n: Finder.BApp.swift#1185 */
+"Save Found Contacts Directly" = "Topilgan kontaktlarni bevosita saqlash";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "Saqlash va almashish";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Saqlash";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Natijalarni saqlash ...";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Saving Texts ..." = "Matnlarni saqlash ...";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+"Scale To Fit" = "Moslash uchun o'lchov";
+/* Generated from genl10n: Finder.BApp.swift#762 */
+"Search Flights" = "Parvozlarni qidirish";
+/* Generated from genl10n: Finder.BApp.swift#1345 */
+"Select Photos To Find Everything." = "Har bir narsani topish uchun Rasmlar-ni tanlang.";
+/* Generated from genl10n: Clean.BApp.swift#316 */
+"Select Photos You Want To Clean!" = "Siz tozalashni xohlagan rasmlaringizni tanlang!";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Siz telefon raqamlarini qidirmoqchi bo'lgan fotosuratlarni tanlang!";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Select Photos You Want To Grab!" = "Siz istagan fotosuratlarni tanlang!";
+/* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
+"Send an Email" = "Elektron pochta yuborish";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Ulashish";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Hajmi";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry can't call to selected contact." = "Kechirasiz tanlangan kontaktga qo'ng'iroq qilolmaysiz.";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry not found any contact information." = "Hech qanday kontakt ma'lumoti topilmadi.";
+/* Generated from genl10n: Finder.BApp.swift#217 */
+"Some contacts were saved, but someones were not." = "Ba'zi kontaktlar saqlangan, lekin ba'zi odamlar yo'q edi.";
+/* Generated from genl10n: CallApp.BApp.swift#172, Finder.BApp.swift#824 */
+"Sorry not found any information you selected." = "Siz tanlagan ma'lumot topilmadi.";
+/* Generated from genl10n: Finder.BApp.swift#174 */
+"Sorry, it is not possible to save the contract." = "Kechirasiz, shartnomani saqlab qolish mumkin emas.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Kvadrat";
 /* Generated from genl10n: Stabilizer.swift */
@@ -268,6 +314,8 @@
 "Starting the Process..." = "Jarayonni boshlash ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "O'zgartirilgan rasmlar tekshirilmoqda ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
+"Switch on any items you want to hide. The quality will entirely remain the same." = "Yashirmoqchi bo'lgan narsalarni yoqing. Sifat butunlay bir xil bo'ladi.";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Tarjima";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -276,9 +324,5 @@
 "Waiting To Select ..." = "Tanlov kutilmoqda ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD (640 × 360)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
 /* Generated from genl10n: CallApp.BApp.swift */
 "🔍 Starting To Find ..." = "Boshlash ...";

@@ -124,12 +124,18 @@
 "cs_keyword_13" = "εραστής";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d times";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: Finder.BApp.swift#1227 */
+"Actions" = "Ενέργειες";
+/* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
+"Add New Contact" = "Προσθήκη νέας επαφής";
+/* Generated from genl10n: Finder.BApp.swift#466 */
+"Add an Event" = "Προσθέστε ένα συμβάν";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Διεύθυνση";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Άλμπουμ";
+/* Generated from genl10n: Finder.BApp.swift#215 */
+"All contacts were successfully saved." = "Όλες οι επαφές αποθηκεύτηκαν με επιτυχία.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Κινούμενο GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -142,12 +148,24 @@
 "Cannot revert. All selected items have not edited." = "Δεν είναι δυνατή η επαναφορά. Όλα τα επιλεγμένα στοιχεία δεν έχουν επεξεργαστεί.";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Επιλέξτε έναν αριθμό τηλεφώνου για κλήση";
+/* Generated from genl10n: Finder.BApp.swift#250 */
+"Choose An Action" = "Επιλέξτε μια ενέργεια";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Επιλέξτε μια επιλογή εξαγωγής για %d Στοιχεία";
+/* Generated from genl10n: Finder.BApp.swift#264 */
+"Choose An Sub Action." = "Επιλέξτε μια υπο-ενέργεια.";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Choose an Option To Convert";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Contract" = "Σύμβαση";
+/* Generated from genl10n: Clean.BApp.swift#96 */
+"Clean the selected items" = "Καθαρίστε τα επιλεγμένα στοιχεία";
+/* Generated from genl10n: Clean.BApp.swift#66 */
+"Clean" = "ΚΑΘΑΡΗ";
+/* Generated from genl10n: Clean.BApp.swift#62 */
+"Cleaning Photos..." = "Καθαρισμός φωτογραφιών ...";
+/* Generated from genl10n: Finder.BApp.swift#1228 */
+"Contacts" = "Επαφές";
+/* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
+"Copy" = "αντίγραφο";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Δημιουργώ";
 /* Generated from genl10n: Stabilizer.swift */
@@ -158,6 +176,8 @@
 "Crop" = "Crop";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Ημερομηνία";
+/* Generated from genl10n: Finder.BApp.swift#116 */
+"Detecting ... %@ " = "Ανίχνευση ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Κατεύθυνση";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
@@ -172,22 +192,20 @@
 "Export Options" = "Επιλογές εξαγωγής";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Εξαγωγή";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Find As" = "Βρείτε ως";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Find" = "Εύρημα";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Εύρεση επαφών ... %@";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
+"Flight Number" = "Αριθμός πτήσης";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Προς τα εμπρός";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Grab" = "Αρπάζω";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Κρύβω";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -196,6 +214,12 @@
 "Image Quality" = "Ποιότητα εικόνας";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Εισαγωγή";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Information" = "Πληροφορίες";
+/* Generated from genl10n: CodeKit.Contacts.swift#63 */
+"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Απαιτεί άδεια πρόσβασης στις επαφές σας. Επιτρέψτε στις Επαφές στις Ρυθμίσεις iOS.";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+"Layout" = "Διάταξη";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Ζωντανή φωτογραφία";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -206,50 +230,72 @@
 "Modify" = "Τροποποιώ";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Τα λευκώματά μου";
+/* Generated from genl10n: Finder.BApp.swift#435 */
+"New Event" = "Νέο γεγονός";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Δεν υπάρχει βρόχος";
+/* Generated from genl10n: Finder.BApp.swift#654 */
+"Open Apple Maps" = "Ανοίξτε τους Χάρτες Apple";
+/* Generated from genl10n: Finder.BApp.swift#668 */
+"Open Google Maps" = "Ανοίξτε τους Χάρτες Google";
+/* Generated from genl10n: Finder.BApp.swift#370 */
+"Open Web Page" = "Ανοίξτε την ιστοσελίδα";
 /* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "Original";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+"Page Margin" = "Περιθώριο σελίδας";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+"Page Size Preset" = "Προεπιλογή μεγέθους σελίδας";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Τηλεφωνικό νούμερο";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Φωτογραφίες";
+/* Generated from genl10n: Finder.BApp.swift#1229 */
+"Plain Text" = "Απλό κείμενο";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Προεπιλογές";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Ποιότητα";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Recognizing ... %@ " = "Αναγνωρίζοντας ... %@";
+/* Generated from genl10n: Finder.BApp.swift#1197 */
+"Quick Actions Only" = "Μόνο γρήγορες ενέργειες";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Επαναλαμβάνω";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Reverse";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Rewind";
+/* Generated from genl10n: Finder.BApp.swift#1185 */
+"Save Found Contacts Directly" = "Αποθηκεύστε τις επαφές που βρέθηκαν απευθείας";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "Αποθήκευση και κοινή χρήση";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save" = "Αποθηκεύσετε";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Αποθήκευση αποτελεσμάτων ...";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Saving Texts ..." = "Αποθήκευση κειμένων ...";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+"Scale To Fit" = "Κλίμακα για να ταιριάζει";
+/* Generated from genl10n: Finder.BApp.swift#762 */
+"Search Flights" = "Αναζήτηση Πτήσεων";
+/* Generated from genl10n: Finder.BApp.swift#1345 */
+"Select Photos To Find Everything." = "Επιλέξτε Φωτογραφίες για να βρείτε τα πάντα.";
+/* Generated from genl10n: Clean.BApp.swift#316 */
+"Select Photos You Want To Clean!" = "Επιλέξτε φωτογραφίες που θέλετε να καθαρίσετε!";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Επιλέξτε φωτογραφίες που θέλετε να τραβήξετε τηλεφωνικούς αριθμούς!";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Select Photos You Want To Grab!" = "Επιλέξτε φωτογραφίες που θέλετε να πιάσετε!";
+/* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
+"Send an Email" = "Αποστολή μηνύματος ηλεκτρονικού ταχυδρομείου";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Μερίδιο";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Μέγεθος";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry can't call to selected contact." = "Λυπούμαστε που δεν μπορείτε να καλέσετε την επιλεγμένη επαφή.";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry not found any contact information." = "Λυπούμαστε που δεν βρέθηκαν στοιχεία επικοινωνίας.";
+/* Generated from genl10n: Finder.BApp.swift#217 */
+"Some contacts were saved, but someones were not." = "Κάποιες επαφές σώθηκαν, αλλά κάποιοι δεν ήταν.";
+/* Generated from genl10n: CallApp.BApp.swift#172, Finder.BApp.swift#824 */
+"Sorry not found any information you selected." = "Λυπούμαστε που δεν βρέθηκε καμία πληροφορία που επιλέξατε.";
+/* Generated from genl10n: Finder.BApp.swift#174 */
+"Sorry, it is not possible to save the contract." = "Λυπούμαστε, δεν είναι δυνατό να αποθηκεύσετε τη σύμβαση.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "τετράγωνο";
 /* Generated from genl10n: Stabilizer.swift */
@@ -268,6 +314,8 @@
 "Starting the Process..." = "Ξεκινώντας τη διαδικασία ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Ξεκινώντας να ελέγχετε τις φωτογραφίες που έχετε επεξεργαστεί ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
+"Switch on any items you want to hide. The quality will entirely remain the same." = "Ενεργοποιήστε τα στοιχεία που θέλετε να αποκρύψετε. Η ποιότητα θα παραμείνει εξ ολοκλήρου η ίδια.";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Μετάφραση";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -276,9 +324,5 @@
 "Waiting To Select ..." = "Αναμονή για επιλογή ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Στημόνι";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD (640 × 360)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
 /* Generated from genl10n: CallApp.BApp.swift */
 "🔍 Starting To Find ..." = "Ξεκινώντας να βρούμε ...";

@@ -124,12 +124,18 @@
 "cs_keyword_13" = "hụrụ n'anya";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d times";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: Finder.BApp.swift#1227 */
+"Actions" = "Omume";
+/* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
+"Add New Contact" = "Tinye Kọntaktị ọhụrụ";
+/* Generated from genl10n: Finder.BApp.swift#466 */
+"Add an Event" = "Tinye ihe omume";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Adreesị";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Aza";
+/* Generated from genl10n: Finder.BApp.swift#215 */
+"All contacts were successfully saved." = "A na-echekwa kọntaktị niile nke ọma.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "GIF na-emegharị ahụ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -142,12 +148,24 @@
 "Cannot revert. All selected items have not edited." = "Enweghị ike ịlaghachi. Ihe niile ahọpụtara edeghi edezi.";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Họrọ nọmba ekwentị iji kpọọ oku";
+/* Generated from genl10n: Finder.BApp.swift#250 */
+"Choose An Action" = "Họrọ otu ihe";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Họrọ otu nhọrọ mbupụ maka %d Ihe";
+/* Generated from genl10n: Finder.BApp.swift#264 */
+"Choose An Sub Action." = "Họrọ Sub Action.";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Họrọ otu nhọrọ iji tọghata";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Contract" = "Nkwekọrịta";
+/* Generated from genl10n: Clean.BApp.swift#96 */
+"Clean the selected items" = "Hichaa ihe ahọrọ";
+/* Generated from genl10n: Clean.BApp.swift#66 */
+"Clean" = "Dị ọcha";
+/* Generated from genl10n: Clean.BApp.swift#62 */
+"Cleaning Photos..." = "Nhicha Foto ...";
+/* Generated from genl10n: Finder.BApp.swift#1228 */
+"Contacts" = "Ndi ana-akpo";
+/* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
+"Copy" = "Detuo";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Mepụta";
 /* Generated from genl10n: Stabilizer.swift */
@@ -158,6 +176,8 @@
 "Crop" = "Ubi";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Ụbọchị";
+/* Generated from genl10n: Finder.BApp.swift#116 */
+"Detecting ... %@ " = "Ịchọpụta ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Ntuziaka";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
@@ -172,22 +192,20 @@
 "Export Options" = "Nhọrọ Nhọrọ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Mbupụ";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Find As" = "Chọta Ka";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Find" = "Chọta";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Ịchọta Ndi ana-akpo ... %@";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
+"Flight Number" = "Onu ogugu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Aga n'ihu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Ogologo oge";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "Onye GIF";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Grab" = "Jide";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Zoo";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -196,6 +214,12 @@
 "Image Quality" = "Ogoyo onyonyo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Bubata";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Information" = "Ozi";
+/* Generated from genl10n: CodeKit.Contacts.swift#63 */
+"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Ọ chọrọ ikike ịnweta kọntaktị gị. Biko kwere Ndi ana-akpo na iOS Ntọala.";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+"Layout" = "Nhazi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Foto dị ndụ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -206,50 +230,72 @@
 "Modify" = "Gbanwee";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "My Albums";
+/* Generated from genl10n: Finder.BApp.swift#435 */
+"New Event" = "Omume ọhụrụ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "Ohiaghi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Enweghị ike";
+/* Generated from genl10n: Finder.BApp.swift#654 */
+"Open Apple Maps" = "Mepee Apple Maps";
+/* Generated from genl10n: Finder.BApp.swift#668 */
+"Open Google Maps" = "Mepee Google Maps";
+/* Generated from genl10n: Finder.BApp.swift#370 */
+"Open Web Page" = "Open Web Page";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "Mbụ";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+"Page Margin" = "Obere peeji";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+"Page Size Preset" = "Ụdị Ụdị Ntọala";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Nọmba ekwentị";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Foto";
+/* Generated from genl10n: Finder.BApp.swift#1229 */
+"Plain Text" = "Ederede Ederede";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Ntọala";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Ogo";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Recognizing ... %@ " = "Ịmata ... %@";
+/* Generated from genl10n: Finder.BApp.swift#1197 */
+"Quick Actions Only" = "Omume Nanị Naanị";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Tinyegharịa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Gbanwee";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Weghachi";
+/* Generated from genl10n: Finder.BApp.swift#1185 */
+"Save Found Contacts Directly" = "Chekwaa Nchọta Ndi ana-akpo";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "Chekwa ma keta";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Chekwa";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Ichekwa Nsonaazụ ...";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Saving Texts ..." = "Na-echekwa ederede ...";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+"Scale To Fit" = "Agbanwe Iji Mee";
+/* Generated from genl10n: Finder.BApp.swift#762 */
+"Search Flights" = "Chọọ nlele";
+/* Generated from genl10n: Finder.BApp.swift#1345 */
+"Select Photos To Find Everything." = "Họrọ Foto Ịchọta Ihe niile.";
+/* Generated from genl10n: Clean.BApp.swift#316 */
+"Select Photos You Want To Clean!" = "Họrọ Foto Ị Chọrọ Imecha!";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Họrọ Foto Ị Chọrọ Ịnweta Ọnụ Ọgụgụ Ọnụ Ọgụgụ!";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Select Photos You Want To Grab!" = "Họrọ Foto Ị Chọrọ Ịnara!";
+/* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
+"Send an Email" = "Zipu Email";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Kwuo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Size";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry can't call to selected contact." = "Ndo enweghị ike ịkpọ na kọntaktị ahọpụtara.";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry not found any contact information." = "Biko, achọtala ozi kọntaktị ọ bụla.";
+/* Generated from genl10n: Finder.BApp.swift#217 */
+"Some contacts were saved, but someones were not." = "Echekwara ụfọdụ kọntaktị, ma ụfọdụ ụfọdụ adịghị.";
+/* Generated from genl10n: CallApp.BApp.swift#172, Finder.BApp.swift#824 */
+"Sorry not found any information you selected." = "Edoghi achọta ozi obula i choro.";
+/* Generated from genl10n: Finder.BApp.swift#174 */
+"Sorry, it is not possible to save the contract." = "Biko, ọ gaghị ekwe omume ịchekwa nkwekọrịta ahụ.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Ogwe";
 /* Generated from genl10n: Stabilizer.swift */
@@ -268,6 +314,8 @@
 "Starting the Process..." = "Malite Usoro ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Amalite ịlele foto edetu ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
+"Switch on any items you want to hide. The quality will entirely remain the same." = "Gbanwee ihe ọ bụla ịchọrọ ịzo. Ọdịdị ahụ ga-anọgide na-adị otu.";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Translation";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -276,9 +324,5 @@
 "Waiting To Select ..." = "Ichere Ịhọrọ ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Kpoo";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD (640 × 360)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
 /* Generated from genl10n: CallApp.BApp.swift */
 "🔍 Starting To Find ..." = "Ịmalite Ịchọta ...";

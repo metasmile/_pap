@@ -155,12 +155,12 @@ struct GIFMakerSettings {
     // https://en.wikipedia.org/wiki/Graphics_display_resolution
     struct size {
         struct labels {
-            static let nhd = "nHD (640×360)".localized
-            static let qhd = "qHD (960×540)".localized
-            static let hd = "HD (1280×720)".localized
-            static let fhd = "1080p (1920×1080)".localized
-            static let qvga = "QVGA (320×240)".localized
-            static let hvga = "HVGA (480×320)".localized
+            static let nhd = "nHD (640×360)"
+            static let qhd = "qHD (960×540)"
+            static let hd = "HD (1280×720)"
+            static let fhd = "1080p (1920×1080)"
+            static let qvga = "QVGA (320×240)"
+            static let hvga = "HVGA (480×320)"
         }
         
         static let values: [String: Double] = [

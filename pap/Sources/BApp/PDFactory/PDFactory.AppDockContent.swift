@@ -88,7 +88,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
 
         let cell0 =  UITableViewPickerCellDescriber()
         cell0.itemIdentifier = Cells.sizePreset.hashValue
-        cell0.label = "Page Size Preset"
+        cell0.label = "Page Size Preset".localized
         cell0.valueGetter = { self.defaults.sizePreset }
         cell0.valueCollection = Array(PDFactorySettings.SizePresets.keys)
         cell0.valueHandler = {
@@ -101,7 +101,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
 
         let cell1 =  UITableViewSegmentControlCellDescriber()
         cell1.itemIdentifier = Cells.landscape.hashValue
-        cell1.label = "Layout"
+        cell1.label = "Layout".localized
         cell1.valueGetter = { Int(self.defaults.landscape ? 1 : 0) }
         cell1.valueCollection = ["Portrait": 0, "Landscape":1]
         cell1.valueHandler = {
@@ -111,7 +111,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
 
         let cell2 =  UITableViewStepperCellDescriber()
         cell2.itemIdentifier = Cells.margin.hashValue
-        cell2.label = "Page Margin"
+        cell2.label = "Page Margin".localized
         cell2.valueGetter = { self.defaults.margin }
         cell2.valueHandler = { self.defaults.margin = Int($0 as? Double ?? 10) }
         cell2.minimumValue = 0
@@ -122,7 +122,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
 
         let cell3 =  UITableViewStepperCellDescriber()
         cell3.itemIdentifier = Cells.imageQuality.hashValue
-        cell3.label = "Image Quality"
+        cell3.label = "Image Quality".localized
         cell3.valueGetter = { Int((self.defaults.imageQuality ) * 100) }
         cell3.valueHandler = {
             self.defaults.imageQuality = (($0 as? Double) ?? 1)/100
@@ -135,7 +135,7 @@ class PDFactoryAppDockContent: NSObject, AppDockContent, AppDockDelegate
 
         let cell4 =  UITableViewSegmentControlCellDescriber()
         cell4.itemIdentifier = Cells.scaleMode.hashValue
-        cell4.label = "Scale To Fit"
+        cell4.label = "Scale To Fit".localized
         cell4.valueGetter = { self.defaults.scaleMode }
         cell4.valueCollection = PDFactorySettings.ScaleMode.Labels
         cell4.valueHandler = {

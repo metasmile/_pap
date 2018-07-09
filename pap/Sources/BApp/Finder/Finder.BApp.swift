@@ -113,7 +113,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
     }
 
     public func titleDidUpdate(progress: Float) -> String? {
-        return "Detecting Data ... %@ ".localizedFormatted("\(Int(progress * 100))%")
+        return "Detecting ... %@ ".localizedFormatted("\(Int(progress * 100))%")
     }
 
     public var doneButtonTitle: String? {
@@ -1194,7 +1194,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
     private func createCellDescriber_SelectionPreset_action_quickActionsOnly() -> UITableViewSwitchCellDescriber{
         let celld = UITableViewSwitchCellDescriber()
         celld.itemIdentifier = FinderAppSettingCells.quickActionOnly.hashValue
-        celld.label = "A Quick Action Only".localized
+        celld.label = "Quick Actions Only".localized
         celld.valueGetter = { FinderApp.privateDefaults.quickActionOnly }
         celld.valueHandler = {
             var defaults = FinderApp.privateDefaults

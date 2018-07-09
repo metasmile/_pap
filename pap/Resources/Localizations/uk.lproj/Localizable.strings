@@ -124,12 +124,18 @@
 "cs_keyword_13" = "коханець";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d раз";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: Finder.BApp.swift#1227 */
+"Actions" = "Дії";
+/* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
+"Add New Contact" = "Додати новий контакт";
+/* Generated from genl10n: Finder.BApp.swift#466 */
+"Add an Event" = "Додати подію";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Адреса";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albums";
+/* Generated from genl10n: Finder.BApp.swift#215 */
+"All contacts were successfully saved." = "Усі контакти були успішно збережені.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Анімований GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -142,12 +148,24 @@
 "Cannot revert. All selected items have not edited." = "Не можу повернутися. Усі вибрані елементи не редагуються.";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Виберіть номер телефону, щоб зателефонувати";
+/* Generated from genl10n: Finder.BApp.swift#250 */
+"Choose An Action" = "Виберіть 'Дія'";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Виберіть варіант експорту для %d елементів";
+/* Generated from genl10n: Finder.BApp.swift#264 */
+"Choose An Sub Action." = "Виберіть підхід.";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Виберіть варіант для перетворення";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Contract" = "Контракт";
+/* Generated from genl10n: Clean.BApp.swift#96 */
+"Clean the selected items" = "Очистити вибрані елементи";
+/* Generated from genl10n: Clean.BApp.swift#66 */
+"Clean" = "Чистий";
+/* Generated from genl10n: Clean.BApp.swift#62 */
+"Cleaning Photos..." = "Очищення фотографій ...";
+/* Generated from genl10n: Finder.BApp.swift#1228 */
+"Contacts" = "Контакти";
+/* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
+"Copy" = "Скопіювати";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Створити";
 /* Generated from genl10n: Stabilizer.swift */
@@ -158,6 +176,8 @@
 "Crop" = "Crop";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Дата";
+/* Generated from genl10n: Finder.BApp.swift#116 */
+"Detecting ... %@ " = "Виявлення ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Напрямок";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
@@ -172,22 +192,20 @@
 "Export Options" = "Параметри експорту";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Експорт";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Find As" = "Знайти як";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Find" = "Знайдіть";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Пошук контактів ... %@";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
+"Flight Number" = "Номер рейсу";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Вперед";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Кадрова затримка";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Grab" = "Захопити";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Сховати";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -196,6 +214,12 @@
 "Image Quality" = "Якість зображення";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Імпортувати";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Information" = "Інформація";
+/* Generated from genl10n: CodeKit.Contacts.swift#63 */
+"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Для цього потрібен дозвіл на доступ до ваших контактів. Дозвольте дозволити контактам в налаштуваннях iOS.";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+"Layout" = "Макет";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -206,50 +230,72 @@
 "Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Мої альбоми";
+/* Generated from genl10n: Finder.BApp.swift#435 */
+"New Event" = "Нова подія";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "Немає врожаю";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Немає петлі";
+/* Generated from genl10n: Finder.BApp.swift#654 */
+"Open Apple Maps" = "Відкрийте Apple Maps";
+/* Generated from genl10n: Finder.BApp.swift#668 */
+"Open Google Maps" = "Відкрийте Карти Google";
+/* Generated from genl10n: Finder.BApp.swift#370 */
+"Open Web Page" = "Відкрита веб-сторінка";
 /* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "Оригінал";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+"Page Margin" = "Маржа сторінки";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+"Page Size Preset" = "Попередньо встановлений розмір сторінки";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Номер телефону";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Фотографії";
+/* Generated from genl10n: Finder.BApp.swift#1229 */
+"Plain Text" = "Простий текст";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Пресетів";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Якість";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Recognizing ... %@ " = "Визнаючи ... %@";
+/* Generated from genl10n: Finder.BApp.swift#1197 */
+"Quick Actions Only" = "Тільки швидкі дії";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Повторити";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Зворотний";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Перемотати";
+/* Generated from genl10n: Finder.BApp.swift#1185 */
+"Save Found Contacts Directly" = "Зберегти знайдені контакти безпосередньо";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "Зберегти та поділитися";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save" = "Зберегти";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Збереження результатів ...";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Saving Texts ..." = "Збереження текстів ...";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+"Scale To Fit" = "Масштаб до розміру";
+/* Generated from genl10n: Finder.BApp.swift#762 */
+"Search Flights" = "Пошук авіарейсів";
+/* Generated from genl10n: Finder.BApp.swift#1345 */
+"Select Photos To Find Everything." = "Виберіть 'Фото', щоб знайти все.";
+/* Generated from genl10n: Clean.BApp.swift#316 */
+"Select Photos You Want To Clean!" = "Виберіть фотографії, які потрібно очистити!";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Виберіть фотографії, які потрібно захопити по телефону!";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Select Photos You Want To Grab!" = "Виберіть фотографії, які потрібно захопити!";
+/* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
+"Send an Email" = "Надіслати електронний лист";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Поділитися";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Розмір";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry can't call to selected contact." = "Вибачте, не можете зателефонувати за вибраним контактом.";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry not found any contact information." = "На жаль, не знайдено жодної контактної інформації.";
+/* Generated from genl10n: Finder.BApp.swift#217 */
+"Some contacts were saved, but someones were not." = "Деякі контакти були збережені, але хтось не був.";
+/* Generated from genl10n: CallApp.BApp.swift#172, Finder.BApp.swift#824 */
+"Sorry not found any information you selected." = "На жаль, не знайдено жодної інформації, яку ви вибрали.";
+/* Generated from genl10n: Finder.BApp.swift#174 */
+"Sorry, it is not possible to save the contract." = "На жаль, неможливо зберегти контракт.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -268,6 +314,8 @@
 "Starting the Process..." = "Початок процесу ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Починаючи перевірку відредагованих фотографій ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
+"Switch on any items you want to hide. The quality will entirely remain the same." = "Увімкніть будь-які елементи, які потрібно сховати. Якість буде повністю незмінним.";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Переклад";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -276,9 +324,5 @@
 "Waiting To Select ..." = "Очікування вибрати ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD (640 × 360)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
 /* Generated from genl10n: CallApp.BApp.swift */
 "🔍 Starting To Find ..." = "Починаючи шукати ...";

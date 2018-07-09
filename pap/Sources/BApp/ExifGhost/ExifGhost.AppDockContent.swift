@@ -294,7 +294,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return section == 0
-                ? "👻 " + "Switch on any items you want to hide. The quality will completely remain the same."
+                ? "👻 " + "Switch on any items you want to hide. The quality will entirely remain the same.".localized
                 : metadataCollection[section-1].label
     }
 

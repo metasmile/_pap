@@ -124,12 +124,18 @@
 "cs_keyword_13" = "প্রেমিকা";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d বার";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"1080p (1920×1080)" = "1080 পি (1920 × 1080)";
+/* Generated from genl10n: Finder.BApp.swift#1227 */
+"Actions" = "ক্রিয়াকলাপ";
+/* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
+"Add New Contact" = "নতুন পরিচিতি যোগ করুন";
+/* Generated from genl10n: Finder.BApp.swift#466 */
+"Add an Event" = "একটি ইভেন্ট যোগ করুন";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "ঠিকানা";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "অ্যালবাম";
+/* Generated from genl10n: Finder.BApp.swift#215 */
+"All contacts were successfully saved." = "সমস্ত পরিচিতিগুলি সফলভাবে সংরক্ষিত হয়েছে";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "অ্যানিমেটেড GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -142,12 +148,24 @@
 "Cannot revert. All selected items have not edited." = "ফিরিয়ে আনা যাবে না সমস্ত নির্বাচিত আইটেম সম্পাদনা করা হয়নি।";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "কল করার জন্য একটি ফোন নম্বর চয়ন করুন";
+/* Generated from genl10n: Finder.BApp.swift#250 */
+"Choose An Action" = "একটি কর্ম নির্বাচন করুন";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "%d আইটেমগুলির জন্য একটি বিকল্প নির্বাচন করুন চয়ন করুন";
+/* Generated from genl10n: Finder.BApp.swift#264 */
+"Choose An Sub Action." = "একটি সাব অ্যাকশন নির্বাচন করুন";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "রূপান্তর একটি বিকল্প চয়ন করুন";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Contract" = "চুক্তি";
+/* Generated from genl10n: Clean.BApp.swift#96 */
+"Clean the selected items" = "নির্বাচিত আইটেমগুলি পরিষ্কার করুন";
+/* Generated from genl10n: Clean.BApp.swift#66 */
+"Clean" = "পরিষ্কার";
+/* Generated from genl10n: Clean.BApp.swift#62 */
+"Cleaning Photos..." = "ফটোগুলি পরিষ্কার করা হচ্ছে ...";
+/* Generated from genl10n: Finder.BApp.swift#1228 */
+"Contacts" = "যোগাযোগ";
+/* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
+"Copy" = "কপি";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "সৃষ্টি";
 /* Generated from genl10n: Stabilizer.swift */
@@ -158,6 +176,8 @@
 "Crop" = "ফসল";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "তারিখ";
+/* Generated from genl10n: Finder.BApp.swift#116 */
+"Detecting ... %@ " = "সনাক্ত করা হচ্ছে ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "অভিমুখ";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
@@ -172,22 +192,20 @@
 "Export Options" = "বিকল্পগুলি রপ্তানি করুন";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "রপ্তানি";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Find As" = "হিসাবে হিসাবে খুঁজুন";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Find" = "আবিষ্কার";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "পরিচিতিগুলি খোঁজা হচ্ছে ... %@";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
+"Flight Number" = "ফ্লাইট নাম্বার";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "অগ্রবর্তী";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "ফ্রেম বিলম্ব";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Grab" = "দখল";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "এইচডি (1২80 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "এইচভিজিএ (480 × 320)";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "লুকান";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -196,6 +214,12 @@
 "Image Quality" = "ছবির মান";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "আমদানি";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Information" = "তথ্য";
+/* Generated from genl10n: CodeKit.Contacts.swift#63 */
+"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "এটি আপনার পরিচিতি অ্যাক্সেস করার অনুমতি প্রয়োজন। দয়া করে iOS সেটিংসগুলিতে পরিচিতিগুলি মঞ্জুরি দিন";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+"Layout" = "বিন্যাস";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "লাইভ ফটো";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -206,50 +230,72 @@
 "Modify" = "পরিবর্তন করুন";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "আমার অ্যালবামগুলি";
+/* Generated from genl10n: Finder.BApp.swift#435 */
+"New Event" = "নতুন ঘটনা";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "কোন ফসল";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "কোন লুপ";
+/* Generated from genl10n: Finder.BApp.swift#654 */
+"Open Apple Maps" = "অ্যাপল ম্যাপ খুলুন";
+/* Generated from genl10n: Finder.BApp.swift#668 */
+"Open Google Maps" = "Google মানচিত্র খুলুন";
+/* Generated from genl10n: Finder.BApp.swift#370 */
+"Open Web Page" = "ওয়েব পৃষ্ঠা খুলুন";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "মূল";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+"Page Margin" = "পৃষ্ঠা মার্জিন";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+"Page Size Preset" = "পৃষ্ঠা আকার প্রিসেট";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "ফোন নম্বর";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "ফটো";
+/* Generated from genl10n: Finder.BApp.swift#1229 */
+"Plain Text" = "সাধারণ পাঠ";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "প্রিসেটের";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "গুণ";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Recognizing ... %@ " = "সনাক্তকরণ ... %@";
+/* Generated from genl10n: Finder.BApp.swift#1197 */
+"Quick Actions Only" = "দ্রুত পদক্ষেপগুলি শুধুমাত্র";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "পুনরাবৃত্তি";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "বিপরীত";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "ফিরে দেখা";
+/* Generated from genl10n: Finder.BApp.swift#1185 */
+"Save Found Contacts Directly" = "সরাসরি পরিচিত পরিচিতি সংরক্ষণ করুন";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "সংরক্ষণ করুন এবং শেয়ার করুন";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "সংরক্ষণ করুন";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "ফলাফল সংরক্ষণ করা হচ্ছে ...";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Saving Texts ..." = "পাঠ্য সংরক্ষণ করা হচ্ছে ...";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+"Scale To Fit" = "ফিট করতে স্কেল";
+/* Generated from genl10n: Finder.BApp.swift#762 */
+"Search Flights" = "অনুসন্ধান করুন ফ্লাইট";
+/* Generated from genl10n: Finder.BApp.swift#1345 */
+"Select Photos To Find Everything." = "সবকিছু খুঁজে পেতে ফটোগুলি নির্বাচন করুন";
+/* Generated from genl10n: Clean.BApp.swift#316 */
+"Select Photos You Want To Clean!" = "আপনি পরিষ্কার ফটোগুলি নির্বাচন করুন!";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "ফটোগুলি নির্বাচন করুন আপনি ফোন নম্বর গ্রাফ করতে চান!";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Select Photos You Want To Grab!" = "ফটোগুলি নির্বাচন করুন যা আপনি পান করতে চান!";
+/* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
+"Send an Email" = "একটি ইমেইল পাঠাও";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "ভাগ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "আয়তন";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry can't call to selected contact." = "দুঃখিত নির্বাচিত পরিচিতিতে কল করতে পারবেন না";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry not found any contact information." = "দুঃখিত কোনো যোগাযোগের তথ্য পাওয়া যায়নি।";
+/* Generated from genl10n: Finder.BApp.swift#217 */
+"Some contacts were saved, but someones were not." = "কিছু যোগাযোগ সংরক্ষিত ছিল, কিন্তু কেউ ছিল না।";
+/* Generated from genl10n: CallApp.BApp.swift#172, Finder.BApp.swift#824 */
+"Sorry not found any information you selected." = "দুঃখিত আপনার নির্বাচিত কোন তথ্য খুঁজে পাওয়া যায় নি।";
+/* Generated from genl10n: Finder.BApp.swift#174 */
+"Sorry, it is not possible to save the contract." = "দুঃখিত, চুক্তি সংরক্ষণ করা সম্ভব নয়।";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "বর্গক্ষেত্র";
 /* Generated from genl10n: Stabilizer.swift */
@@ -268,6 +314,8 @@
 "Starting the Process..." = "প্রক্রিয়া শুরু হচ্ছে ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "সম্পাদিত ফটোগুলি পরীক্ষা শুরু হচ্ছে ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
+"Switch on any items you want to hide. The quality will entirely remain the same." = "যে আইটেমগুলি আপনি লুকিয়ে রাখতে চান তা চালু করুন মানের সম্পূর্ণভাবে একই থাকবে।";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "অনুবাদ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -276,9 +324,5 @@
 "Waiting To Select ..." = "নির্বাচন করার জন্য অপেক্ষা করা হচ্ছে ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "টানা";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "এনএইচডি (640 × 360)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
 /* Generated from genl10n: CallApp.BApp.swift */
 "🔍 Starting To Find ..." = "খুঁজে পেতে শুরু হচ্ছে ...";

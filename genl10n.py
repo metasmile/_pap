@@ -16,6 +16,8 @@ import collections
 
 dest_app_path = './pap/'
 dest_l10n_base_path ='./pap/Resources/Localizations/Base.lproj/Localizable.strings'
+dest_l10n_result_path ='./genl10n_results.txt'
+
 split_key = '.localized'
 __GEN_FLAG__ = "Generated from genl10n"
 
@@ -102,3 +104,7 @@ for new_key in keys_in_gened_strs:
 wcur = codecs.open(dest_l10n_base_path, "w", "utf-8")
 wcur.writelines(wlines)
 wcur.close()
+
+# wcur = codecs.open(dest_l10n_result_path, "w", "utf-8")
+# wcur.writelines('\n'.join(keys_in_gened_strs))
+# wcur.close()

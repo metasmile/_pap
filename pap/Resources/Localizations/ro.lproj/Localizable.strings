@@ -124,12 +124,18 @@
 "cs_keyword_13" = "amant";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d de ori";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: Finder.BApp.swift#1227 */
+"Actions" = "acţiuni";
+/* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
+"Add New Contact" = "Adăugați un contact nou";
+/* Generated from genl10n: Finder.BApp.swift#466 */
+"Add an Event" = "Adăugați un eveniment";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Adresa";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albume";
+/* Generated from genl10n: Finder.BApp.swift#215 */
+"All contacts were successfully saved." = "Toate contactele au fost salvate cu succes.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Animate GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -142,12 +148,24 @@
 "Cannot revert. All selected items have not edited." = "Nu se poate reveni. Toate elementele selectate nu au fost editate.";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Alegeți un număr de telefon pentru a apela";
+/* Generated from genl10n: Finder.BApp.swift#250 */
+"Choose An Action" = "Alegeți o acțiune";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Alegeți o opțiune de export pentru %d Elemente";
+/* Generated from genl10n: Finder.BApp.swift#264 */
+"Choose An Sub Action." = "Alegeți o acțiune secundară.";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Alegeți o opțiune pentru a converti";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Contract" = "Contract";
+/* Generated from genl10n: Clean.BApp.swift#96 */
+"Clean the selected items" = "Curățați elementele selectate";
+/* Generated from genl10n: Clean.BApp.swift#66 */
+"Clean" = "Curat";
+/* Generated from genl10n: Clean.BApp.swift#62 */
+"Cleaning Photos..." = "Curățarea fotografiilor ...";
+/* Generated from genl10n: Finder.BApp.swift#1228 */
+"Contacts" = "Contacte";
+/* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
+"Copy" = "Copie";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Crea";
 /* Generated from genl10n: Stabilizer.swift */
@@ -158,6 +176,8 @@
 "Crop" = "A decupa";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Date";
+/* Generated from genl10n: Finder.BApp.swift#116 */
+"Detecting ... %@ " = "Detectarea ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direcţie";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
@@ -172,22 +192,20 @@
 "Export Options" = "Opțiuni de export";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Export";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Find As" = "Găsiți ca";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Find" = "Găsi";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Găsirea contactelor ... %@";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
+"Flight Number" = "Numărul zborului";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Întârziere cadru";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Grab" = "Apuca";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Ascunde";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -196,6 +214,12 @@
 "Image Quality" = "Calitatea imaginii";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Import";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Information" = "informație";
+/* Generated from genl10n: CodeKit.Contacts.swift#63 */
+"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Este necesară o permisiune pentru a accesa contactele dvs. Activați persoanele de contact din setările iOS.";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+"Layout" = "schemă";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Fotografii live";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -206,50 +230,72 @@
 "Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Albumele mele";
+/* Generated from genl10n: Finder.BApp.swift#435 */
+"New Event" = "Eveniment nou";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Nicio buclă";
+/* Generated from genl10n: Finder.BApp.swift#654 */
+"Open Apple Maps" = "Deschideți Apple Maps";
+/* Generated from genl10n: Finder.BApp.swift#668 */
+"Open Google Maps" = "Deschideți Google Maps";
+/* Generated from genl10n: Finder.BApp.swift#370 */
+"Open Web Page" = "Deschideți o pagină Web";
 /* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "Original";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+"Page Margin" = "Marja de pagină";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+"Page Size Preset" = "Dimensiune presetată a paginii";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Numar de telefon";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Fotografii";
+/* Generated from genl10n: Finder.BApp.swift#1229 */
+"Plain Text" = "Text simplu";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "presetări";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Calitate";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Recognizing ... %@ " = "Recunoscând ... %@";
+/* Generated from genl10n: Finder.BApp.swift#1197 */
+"Quick Actions Only" = "Doar acțiuni rapide";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeta";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Reverse";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "rewind";
+/* Generated from genl10n: Finder.BApp.swift#1185 */
+"Save Found Contacts Directly" = "Salvați contactele găsite direct";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "Salveaza si distribuie";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Salvează rezultatele ...";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Saving Texts ..." = "Salvează texte ...";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+"Scale To Fit" = "Redimensionează pentru potrivire";
+/* Generated from genl10n: Finder.BApp.swift#762 */
+"Search Flights" = "Căutați bilete";
+/* Generated from genl10n: Finder.BApp.swift#1345 */
+"Select Photos To Find Everything." = "Selectați fotografiile pentru a găsi totul.";
+/* Generated from genl10n: Clean.BApp.swift#316 */
+"Select Photos You Want To Clean!" = "Selectați fotografiile pe care doriți să le curățați!";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Selectați fotografiile pe care doriți să le luați numerelor de telefon!";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Select Photos You Want To Grab!" = "Selectați fotografiile pe care doriți să le luați!";
+/* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
+"Send an Email" = "Trimite un email";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Share";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "mărimea";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry can't call to selected contact." = "Ne pare rău că nu puteți apela la contactul selectat.";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry not found any contact information." = "Ne pare rău că nu au fost găsite informații de contact.";
+/* Generated from genl10n: Finder.BApp.swift#217 */
+"Some contacts were saved, but someones were not." = "Unele persoane au fost salvate, dar unele nu au fost.";
+/* Generated from genl10n: CallApp.BApp.swift#172, Finder.BApp.swift#824 */
+"Sorry not found any information you selected." = "Ne pare rău că nu ați găsit informațiile pe care le-ați selectat.";
+/* Generated from genl10n: Finder.BApp.swift#174 */
+"Sorry, it is not possible to save the contract." = "Ne pare rău, nu este posibil să salvați contractul.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Pătrat";
 /* Generated from genl10n: Stabilizer.swift */
@@ -268,6 +314,8 @@
 "Starting the Process..." = "Pornirea procesului ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Începând să verificați fotografiile editate ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
+"Switch on any items you want to hide. The quality will entirely remain the same." = "Activați toate elementele pe care doriți să le ascundeți. Calitatea va rămâne în întregime aceeași.";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Traducere";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -276,9 +324,5 @@
 "Waiting To Select ..." = "Așteptare pentru a selecta ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Urzeală";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD (640 × 360)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
 /* Generated from genl10n: CallApp.BApp.swift */
 "🔍 Starting To Find ..." = "Începeți să găsiți ...";

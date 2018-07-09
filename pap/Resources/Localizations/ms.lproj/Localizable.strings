@@ -124,12 +124,18 @@
 "cs_keyword_13" = "kekasih";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d kali";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: Finder.BApp.swift#1227 */
+"Actions" = "Tindakan";
+/* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
+"Add New Contact" = "Tambah Kenalan Baru";
+/* Generated from genl10n: Finder.BApp.swift#466 */
+"Add an Event" = "Tambah Acara";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Alamat";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Album";
+/* Generated from genl10n: Finder.BApp.swift#215 */
+"All contacts were successfully saved." = "Semua kenalan berjaya disimpan.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "GIF animasi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -142,12 +148,24 @@
 "Cannot revert. All selected items have not edited." = "Tidak boleh kembali. Semua item yang dipilih tidak diedit.";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Pilih Nombor Telefon Untuk Panggilan";
+/* Generated from genl10n: Finder.BApp.swift#250 */
+"Choose An Action" = "Pilih Tindakan";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Pilih Pilihan Eksport Untuk %d Item";
+/* Generated from genl10n: Finder.BApp.swift#264 */
+"Choose An Sub Action." = "Pilih Satu Tindakan Sub.";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Pilih Pilihan Untuk Tukar";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Contract" = "Kontrak";
+/* Generated from genl10n: Clean.BApp.swift#96 */
+"Clean the selected items" = "Bersihkan item yang dipilih";
+/* Generated from genl10n: Clean.BApp.swift#66 */
+"Clean" = "Bersih";
+/* Generated from genl10n: Clean.BApp.swift#62 */
+"Cleaning Photos..." = "Foto Pembersihan ...";
+/* Generated from genl10n: Finder.BApp.swift#1228 */
+"Contacts" = "Kenalan";
+/* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
+"Copy" = "Salinan";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Buat";
 /* Generated from genl10n: Stabilizer.swift */
@@ -158,6 +176,8 @@
 "Crop" = "Crop";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Tarikh";
+/* Generated from genl10n: Finder.BApp.swift#116 */
+"Detecting ... %@ " = "Mengesan ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Arah";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
@@ -172,22 +192,20 @@
 "Export Options" = "Pilihan Eksport";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Eksport";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Find As" = "Cari As";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Find" = "Cari";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Mencari Kenalan ... %@";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
+"Flight Number" = "Nombor penerbangan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Kelewatan Frame";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "Pembuat GIF";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Grab" = "Dapatkan";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Sembunyikan";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -196,6 +214,12 @@
 "Image Quality" = "Kualiti gambar";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Import";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Information" = "Maklumat";
+/* Generated from genl10n: CodeKit.Contacts.swift#63 */
+"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Ia memerlukan kebenaran untuk mengakses kenalan anda. Sila benarkan Kenalan pada Tetapan iOS.";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+"Layout" = "Susun atur";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Foto Langsung";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -206,50 +230,72 @@
 "Modify" = "Ubah suai";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Album saya";
+/* Generated from genl10n: Finder.BApp.swift#435 */
+"New Event" = "Acara Baru";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Tiada gelung";
+/* Generated from genl10n: Finder.BApp.swift#654 */
+"Open Apple Maps" = "Buka Peta Apple";
+/* Generated from genl10n: Finder.BApp.swift#668 */
+"Open Google Maps" = "Buka Peta Google";
+/* Generated from genl10n: Finder.BApp.swift#370 */
+"Open Web Page" = "Buka Halaman Web";
 /* Generated from genl10n: PhotosFilter.BApp.swift */
 "Original" = "Asal";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+"Page Margin" = "Page Margin";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+"Page Size Preset" = "Halaman Preset Saiz";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Nombor telefon";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Foto";
+/* Generated from genl10n: Finder.BApp.swift#1229 */
+"Plain Text" = "Teks kosong";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Pratetap";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Kualiti";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Recognizing ... %@ " = "Menyedari ... %@";
+/* Generated from genl10n: Finder.BApp.swift#1197 */
+"Quick Actions Only" = "Tindakan Pantas Sahaja";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Ulang";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Songsang";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Rewind";
+/* Generated from genl10n: Finder.BApp.swift#1185 */
+"Save Found Contacts Directly" = "Simpan Kenalan Yang Dicari Secara Langsung";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "Simpan dan Kongsi";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save" = "Simpan";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Menyimpan Keputusan ...";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Saving Texts ..." = "Menyimpan Teks ...";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+"Scale To Fit" = "Skala Untuk Fit";
+/* Generated from genl10n: Finder.BApp.swift#762 */
+"Search Flights" = "Penerbangan Penerbangan";
+/* Generated from genl10n: Finder.BApp.swift#1345 */
+"Select Photos To Find Everything." = "Pilih Foto Untuk Cari Semua.";
+/* Generated from genl10n: Clean.BApp.swift#316 */
+"Select Photos You Want To Clean!" = "Pilih Foto Anda Ingin Bersih!";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Pilih Gambar yang Anda Mahu Dapatkan Nombor Telefon!";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Select Photos You Want To Grab!" = "Pilih Foto yang Anda Mahu Dapatkan!";
+/* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
+"Send an Email" = "Hantar email";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Kongsi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Saiz";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry can't call to selected contact." = "Maaf tidak boleh memanggil kenalan terpilih.";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry not found any contact information." = "Maaf, tidak terdapat sebarang maklumat hubungan.";
+/* Generated from genl10n: Finder.BApp.swift#217 */
+"Some contacts were saved, but someones were not." = "Sesetengah kenalan disimpan, tetapi ada juga yang tidak.";
+/* Generated from genl10n: CallApp.BApp.swift#172, Finder.BApp.swift#824 */
+"Sorry not found any information you selected." = "Maaf, tidak terdapat maklumat yang anda pilih.";
+/* Generated from genl10n: Finder.BApp.swift#174 */
+"Sorry, it is not possible to save the contract." = "Maaf, tidak mungkin untuk menyelamatkan kontrak.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -268,6 +314,8 @@
 "Starting the Process..." = "Memulakan Proses ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Bermula untuk menyemak foto yang diedit ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
+"Switch on any items you want to hide. The quality will entirely remain the same." = "Tukar item yang anda ingin sembunyikan. Kualitinya akan tetap sama.";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Terjemahan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -276,9 +324,5 @@
 "Waiting To Select ..." = "Menunggu Untuk Pilih ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD (640 × 360)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
 /* Generated from genl10n: CallApp.BApp.swift */
 "🔍 Starting To Find ..." = "Bermula Untuk Menemukan ...";

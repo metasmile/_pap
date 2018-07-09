@@ -124,12 +124,18 @@
 "cs_keyword_13" = "ស្រឡាញ់";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d ដង";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"1080p (1920×1080)" = "1080 ទំ (1920 × 1080)";
+/* Generated from genl10n: Finder.BApp.swift#1227 */
+"Actions" = "សកម្មភាព";
+/* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
+"Add New Contact" = "បន្ថែមទំនាក់ទំនងថ្មី";
+/* Generated from genl10n: Finder.BApp.swift#466 */
+"Add an Event" = "បន្ថែមព្រឹត្តិការណ៍";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "អាសយដ្ឋាន";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "អាល់ប៊ុម";
+/* Generated from genl10n: Finder.BApp.swift#215 */
+"All contacts were successfully saved." = "ទំនាក់ទំនងទាំងអស់ត្រូវបានរក្សាទុកដោយជោគជ័យ។";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "GIF មានចលនា";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -142,12 +148,24 @@
 "Cannot revert. All selected items have not edited." = "មិនអាចត្រឡប់ទៅវិញ។ ធាតុដែលបានជ្រើសទាំងអស់មិនបានកែសម្រួលទេ។";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "ជ្រើសលេខទូរស័ព្ទដើម្បីហៅ";
+/* Generated from genl10n: Finder.BApp.swift#250 */
+"Choose An Action" = "ជ្រើសសកម្មភាព";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "ជ្រើសជម្រើសនាំចេញសម្រាប់ %d ធាតុ";
+/* Generated from genl10n: Finder.BApp.swift#264 */
+"Choose An Sub Action." = "ជ្រើសសកម្មភាពរង។";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "ជ្រើសជម្រើសដើម្បីបម្លែង";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Contract" = "កិច្ចសន្យា";
+/* Generated from genl10n: Clean.BApp.swift#96 */
+"Clean the selected items" = "សម្អាតធាតុដែលបានជ្រើស";
+/* Generated from genl10n: Clean.BApp.swift#66 */
+"Clean" = "ស្អាត";
+/* Generated from genl10n: Clean.BApp.swift#62 */
+"Cleaning Photos..." = "កំពុងសម្អាតរូបថត ...";
+/* Generated from genl10n: Finder.BApp.swift#1228 */
+"Contacts" = "ទំនាក់ទំនង";
+/* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
+"Copy" = "ចម្លង";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "បង្កើត";
 /* Generated from genl10n: Stabilizer.swift */
@@ -158,6 +176,8 @@
 "Crop" = "ដំណាំ";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "កាលបរិច្ឆេទ";
+/* Generated from genl10n: Finder.BApp.swift#116 */
+"Detecting ... %@ " = "កំពុងរកមើល ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "ទិស";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
@@ -172,22 +192,20 @@
 "Export Options" = "ជម្រើសនាំចេញ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "នាំចេញ";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Find As" = "ស្វែងរកជា";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Find" = "ស្វែងរក";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "ស្វែងរកទំនាក់ទំនង ... %@";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
+"Flight Number" = "លេខហោះហើរ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "បន្ត";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "ការពន្យាពេល";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "អ្នកបង្កើត GIF";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Grab" = "ចាប់យក";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "លាក់";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -196,6 +214,12 @@
 "Image Quality" = "គុណភាព​រូប";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "នាំចូល";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Information" = "ពត៌មាន";
+/* Generated from genl10n: CodeKit.Contacts.swift#63 */
+"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "វាតម្រូវឱ្យមានសិទ្ធិចូលប្រើទំនាក់ទំនងរបស់អ្នក។ សូមអនុញ្ញាតឱ្យមានទំនាក់ទំនងនៅលើការកំណត់ iOS ។";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+"Layout" = "ប្លង់";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "រូបថតផ្ទាល់";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -206,50 +230,72 @@
 "Modify" = "កែប្រែ";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "អាល់ប៊ុមរបស់ខ្ញុំ";
+/* Generated from genl10n: Finder.BApp.swift#435 */
+"New Event" = "ព្រឹត្តិការណ៍ថ្មី";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "គ្មានដំណាំ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "គ្មានរង្វិលជុំ";
+/* Generated from genl10n: Finder.BApp.swift#654 */
+"Open Apple Maps" = "បើកផែនទី Apple";
+/* Generated from genl10n: Finder.BApp.swift#668 */
+"Open Google Maps" = "បើក Google ផែនទី";
+/* Generated from genl10n: Finder.BApp.swift#370 */
+"Open Web Page" = "បើកទំព័របណ្ដាញ";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "ដើម";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+"Page Margin" = "រឹមទំព័រ";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+"Page Size Preset" = "កំណត់ទំហំទំព័រទំហំ";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "លេខទូរសព្ទ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "រូបថត";
+/* Generated from genl10n: Finder.BApp.swift#1229 */
+"Plain Text" = "អត្ថបទ​ធម្មតា";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "កំណត់ជាមុន";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "គុណភាព";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Recognizing ... %@ " = "ការទទួលស្គាល់ ... %@";
+/* Generated from genl10n: Finder.BApp.swift#1197 */
+"Quick Actions Only" = "សកម្មភាពរហ័សតែប៉ុណ្ណោះ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "ធ្វើម្តងទៀត";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "បញ្ច្រាស";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "បងវិលថយក្រោយ";
+/* Generated from genl10n: Finder.BApp.swift#1185 */
+"Save Found Contacts Directly" = "រក្សាទុកទំនាក់ទំនងដែលបានរកឃើញដោយផ្ទាល់";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "រក្សាទុកនិងចែករំលែក";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "រក្សាទុក";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "កំពុងរក្សាទុកលទ្ធផល ...";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Saving Texts ..." = "កំពុងរក្សាទុកអត្ថបទ ...";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+"Scale To Fit" = "ធ្វើមាត្រដ្ឋានឱ្យសម";
+/* Generated from genl10n: Finder.BApp.swift#762 */
+"Search Flights" = "ស្វែងរកជើងហោះហើរ";
+/* Generated from genl10n: Finder.BApp.swift#1345 */
+"Select Photos To Find Everything." = "ជ្រើសរូបថតដើម្បីរកអ្វីៗគ្រប់យ៉ាង។";
+/* Generated from genl10n: Clean.BApp.swift#316 */
+"Select Photos You Want To Clean!" = "ជ្រើសរូបថតដែលអ្នកចង់ស្អាត!";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "ជ្រើសរូបថតដែលអ្នកចង់ចាប់យកលេខទូរស័ព្ទ!";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Select Photos You Want To Grab!" = "ជ្រើសរើសរូបថតដែលអ្នកចង់ចាប់យក!";
+/* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
+"Send an Email" = "ផ្ញើអ៊ីមែល";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "ចែករំលែក";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "ទំហំ";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry can't call to selected contact." = "សូមទោសមិនអាចហៅទៅទំនាក់ទំនងដែលបានជ្រើស។";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry not found any contact information." = "សុំទោសមិនត្រូវបានរកឃើញព័ត៌មានទំនាក់ទំនងទេ។";
+/* Generated from genl10n: Finder.BApp.swift#217 */
+"Some contacts were saved, but someones were not." = "ទំនាក់ទំនងមួយចំនួនត្រូវបានរក្សាទុកប៉ុន្តែមានអ្នកខ្លះមិនបាន។";
+/* Generated from genl10n: CallApp.BApp.swift#172, Finder.BApp.swift#824 */
+"Sorry not found any information you selected." = "សូមទោសរកមិនឃើញព័ត៌មានណាមួយដែលអ្នកបានជ្រើសរើស។";
+/* Generated from genl10n: Finder.BApp.swift#174 */
+"Sorry, it is not possible to save the contract." = "សូមទោស, វាមិនអាចរក្សាទុកកិច្ចសន្យាបានទេ។";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "ការ៉េ";
 /* Generated from genl10n: Stabilizer.swift */
@@ -268,6 +314,8 @@
 "Starting the Process..." = "កំពុងចាប់ផ្ដើមដំណើរការ ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "ចាប់ផ្តើមពិនិត្យមើលរូបថតបានកែ ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
+"Switch on any items you want to hide. The quality will entirely remain the same." = "ប្តូរធាតុដែលអ្នកចង់លាក់។ គុណភាពទាំងស្រុងនឹងនៅដដែល។";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "ការបកប្រែ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -276,9 +324,5 @@
 "Waiting To Select ..." = "កំពុងរង់ចាំ ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "NHD (640 × 360)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
 /* Generated from genl10n: CallApp.BApp.swift */
 "🔍 Starting To Find ..." = "ចាប់ផ្តើមរក ...";

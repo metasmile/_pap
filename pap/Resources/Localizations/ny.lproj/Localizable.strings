@@ -124,12 +124,18 @@
 "cs_keyword_13" = "wokondedwa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d nthawi";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"1080p (1920×1080)" = "1080p (1920 × 1080)";
+/* Generated from genl10n: Finder.BApp.swift#1227 */
+"Actions" = "Zochita";
+/* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
+"Add New Contact" = "Onjezani Zatsopano";
+/* Generated from genl10n: Finder.BApp.swift#466 */
+"Add an Event" = "Onjezerani Chochitika";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Adilesi";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albums";
+/* Generated from genl10n: Finder.BApp.swift#215 */
+"All contacts were successfully saved." = "Othandizira onse adasungidwa bwino.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "GIF yamafilimu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -142,12 +148,24 @@
 "Cannot revert. All selected items have not edited." = "Sangathe kubwereranso. Zosankhidwa zonse sizinasinthe.";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Choose A Phone Number To Call" = "Sankhani Nambala ya Foni Kuti Mudandaule";
+/* Generated from genl10n: Finder.BApp.swift#250 */
+"Choose An Action" = "Sankhani Ntchito";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Choose An Export Option For %d Items";
+/* Generated from genl10n: Finder.BApp.swift#264 */
+"Choose An Sub Action." = "Sankhani Ntchito Yachigawo.";
 /* Generated from genl10n: Convert.AppDockContent.swift */
 "Choose an Option To Convert" = "Sankhani Mwanjira Yomwe Mungasinthe";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Contract" = "Mkangano";
+/* Generated from genl10n: Clean.BApp.swift#96 */
+"Clean the selected items" = "Sambani zinthu zosankhidwa";
+/* Generated from genl10n: Clean.BApp.swift#66 */
+"Clean" = "Oyera";
+/* Generated from genl10n: Clean.BApp.swift#62 */
+"Cleaning Photos..." = "Zojambula Zithunzi ...";
+/* Generated from genl10n: Finder.BApp.swift#1228 */
+"Contacts" = "Othandizira";
+/* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
+"Copy" = "Lembani";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Pangani";
 /* Generated from genl10n: Stabilizer.swift */
@@ -158,6 +176,8 @@
 "Crop" = "Mbewu";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Tsiku";
+/* Generated from genl10n: Finder.BApp.swift#116 */
+"Detecting ... %@ " = "Kuzindikira ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Malangizo";
 /* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
@@ -172,22 +192,20 @@
 "Export Options" = "Zosankha Zotsatsa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Tumizani";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Find As" = "Pezani Monga";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Find" = "Pezani";
 /* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
 "Finding Contacts ... %@ " = "Kupeza Othandizira ... %@";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
+"Flight Number" = "Nambala ya Ndege";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Pita patsogolo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Chiwonongeko Chokhazikika";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Grab" = "Yambani";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HD (1280×720)" = "HD (1280 × 720)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"HVGA (480×320)" = "HVGA (480 × 320)";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Bisani";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -196,6 +214,12 @@
 "Image Quality" = "Quality Image";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Lowani";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Information" = "Information";
+/* Generated from genl10n: CodeKit.Contacts.swift#63 */
+"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Imafuna chilolezo chofikira ojambula anu. Chonde lolani Makalata pazithunzi za iOS.";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+"Layout" = "Kuyika";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Chithunzi Chamoyo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -206,50 +230,72 @@
 "Modify" = "Sinthani";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Nyimbo Zanga";
+/* Generated from genl10n: Finder.BApp.swift#435 */
+"New Event" = "Chochitika Chatsopano";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "Palibe Mmera";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Palibe kuzungulira";
+/* Generated from genl10n: Finder.BApp.swift#654 */
+"Open Apple Maps" = "Tsegulani Mapu a Apple";
+/* Generated from genl10n: Finder.BApp.swift#668 */
+"Open Google Maps" = "Tsegulani Google Maps";
+/* Generated from genl10n: Finder.BApp.swift#370 */
+"Open Web Page" = "Tsegulani Tsamba la Webusaiti";
 /* Generated from genl10n: Stabilizer.swift, PhotosFilter.BApp.swift */
 "Original" = "Zachiyambi";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+"Page Margin" = "Mtsinje wa Tsamba";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+"Page Size Preset" = "Kukula kwa Tsamba Kusankhidwa";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Nambala yafoni";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Zithunzi";
+/* Generated from genl10n: Finder.BApp.swift#1229 */
+"Plain Text" = "Malemba Oyamba";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Kukonzekera";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"QVGA (320×240)" = "QVGA (320 × 240)";
 /* Generated from genl10n: GIFMaker.BApp.swift, Convert.AppDockContent.swift */
 "Quality" = "Makhalidwe";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Recognizing ... %@ " = "Kuzindikira ... %@";
+/* Generated from genl10n: Finder.BApp.swift#1197 */
+"Quick Actions Only" = "Ntchito Zowonjezera Zokha";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Bwerezani";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Bweretsani";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Pewani";
+/* Generated from genl10n: Finder.BApp.swift#1185 */
+"Save Found Contacts Directly" = "Sungani Kupeza Ocheza Mwachindunji";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Save and Share" = "Sungani ndi Gawani";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Sungani";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Kusunga Zotsatira ...";
-/* Generated from genl10n: Textractor.BApp.swift */
-"Saving Texts ..." = "Kusunga Malemba ...";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+"Scale To Fit" = "Kuchuluka Kwambiri";
+/* Generated from genl10n: Finder.BApp.swift#762 */
+"Search Flights" = "Fufuzani ndege";
+/* Generated from genl10n: Finder.BApp.swift#1345 */
+"Select Photos To Find Everything." = "Sankhani Zithunzi Kuti Mupeze Zonse.";
+/* Generated from genl10n: Clean.BApp.swift#316 */
+"Select Photos You Want To Clean!" = "Sankhani Zithunzi Zimene Mukufuna Kuzisambitsa!";
 /* Generated from genl10n: CallApp.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Sankhani Zithunzi Zimene Mukufuna Kujambula Phone Numeri!";
-/* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Select Photos You Want To Grab!" = "Sankhani Zithunzi Zimene Mukufuna Kuzigwira!";
+/* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
+"Send an Email" = "Tumizani imelo";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Gawani";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Kukula";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry can't call to selected contact." = "Pepani sitingayitane ndi ocheza nawo.";
-/* Generated from genl10n: Finder.BApp.swift, CallApp.BApp.swift */
-"Sorry not found any contact information." = "Pepani simunapezepo zambiri.";
+/* Generated from genl10n: Finder.BApp.swift#217 */
+"Some contacts were saved, but someones were not." = "Othandizana ena adasungidwa, koma zina sizinali.";
+/* Generated from genl10n: CallApp.BApp.swift#172, Finder.BApp.swift#824 */
+"Sorry not found any information you selected." = "Pepani musapeze chidziwitso chomwe mwasankha.";
+/* Generated from genl10n: Finder.BApp.swift#174 */
+"Sorry, it is not possible to save the contract." = "Pepani, sikutheka kusunga mgwirizano.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -268,6 +314,8 @@
 "Starting the Process..." = "Kuyambitsa Njira ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Kuyambira kuti muwone zithunzi zosinthidwa ...";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
+"Switch on any items you want to hide. The quality will entirely remain the same." = "Sinthani chilichonse chimene mukufuna kubisala. Mtunduwo udzakhalabe wofanana.";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Kutembenuzidwa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -276,9 +324,5 @@
 "Waiting To Select ..." = "Kudikirira Kusankha ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"nHD (640×360)" = "nHD (640 × 360)";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"qHD (960×540)" = "qHD (960 × 540)";
 /* Generated from genl10n: CallApp.BApp.swift */
 "🔍 Starting To Find ..." = "Kuyambira Kuti Upeze ...";
