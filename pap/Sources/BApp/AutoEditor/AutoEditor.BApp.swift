@@ -224,7 +224,10 @@ extension Defaults: AutoEditorAppDefaults {
 class AutoEditorAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
     fileprivate var autoAdjustmentOptionKeys = AutoEditorApp.AutoAdjustmentsKeys
 
-    lazy var view: UIView = UITableView()
+    lazy var view: UIView = {
+        let tableView = UITableView(frame: .zero)
+        return tableView
+    }()
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
@@ -239,7 +242,6 @@ class AutoEditorAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITa
             view.rowHeight = 52
             view.allowsSelection = false
             view.register(Cell.self, forCellReuseIdentifier: AutoEditorApp.info.identifier)
-            view.backgroundColor = UIColor(red: 31 / 255.0, green: 31 / 255.0, blue: 31 / 255.0, alpha: 1)
             view.tintColor = UIColor(red: 72 / 255.0, green: 168 / 255.0, blue: 247 / 255.0, alpha: 1)
             view.separatorInset.left = view.rowHeight
         }
@@ -268,7 +270,7 @@ class AutoEditorAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITa
         
         cell.imageView?.image = AutoEditorApp.AutoAdjustments.iconImage(filterName)
         //TODO: apply AppearancableApp.primaryColor
-        cell.imageView?.tintColor = UIColor.white
+        cell.imageView?.tintColor = tableView.tintColor
         cell.imageView?.contentMode = .scaleAspectFit
 
         cell.textLabel?.text = AutoEditorApp.AutoAdjustments.aliasName(filterName)
@@ -303,9 +305,6 @@ class AutoEditorAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITa
             super.init(style: style, reuseIdentifier: reuseIdentifier)
             
             accessoryView = optionSwitch
-            backgroundColor = .clear
-//            textLabel?.font = UIFont.systemFont(ofSize: 14)
-            textLabel?.textColor = UIColor.white
         }
         
         required init?(coder aDecoder: NSCoder) {
