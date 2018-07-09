@@ -81,18 +81,8 @@ class AppUIAssetView: AssetView {
         }
     }
     
-    var originalLivePhoto: PHLivePhoto?
-    var filteredLivePhoto: PHLivePhoto? {
-        didSet {
-            self.livePhoto = filteredLivePhoto ?? originalLivePhoto
-        }
-    }
-    
-    override var playerItem: AVPlayerItem? {
-        didSet {
-            applyEditState(editState)
-        }
-    }
+    fileprivate var livePhotoEditingContext: PHLivePhotoEditingContext?
+    fileprivate var contentEditingInputRequestID: PHContentEditingInputRequestID?
     
     lazy var compareOriginalGesture: UILongPressGestureRecognizer = {
         return UILongPressGestureRecognizer(target: self, action: #selector(self.compareOriginalGestureDidChange))
@@ -125,8 +115,7 @@ class AppUIAssetView: AssetView {
         originalImage = nil
         filteredImage = nil
         
-        originalLivePhoto = nil
-        filteredLivePhoto = nil
+        prepareProcessing()
         
         originalBadgeLabel.isHidden = true
         isProcessing = false
@@ -139,16 +128,12 @@ class AppUIAssetView: AssetView {
             self.originalImage = preview
         }, completion: completion)
     }
-    
-    override func livePhotoDidLoad(livePhoto: PHLivePhoto?) {
-        originalLivePhoto = livePhoto
-    }
 }
 
 extension AppUIAssetView {
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if gestureRecognizer == compareOriginalGesture {
-            return filteredImage != nil || filteredLivePhoto != nil
+            return filteredImage != nil
         }
         else {
             return true
@@ -170,22 +155,27 @@ extension AppUIAssetView {
             originalBadgeLabel.isHidden = false
         }
         
-        if asset?.imageType == .stillImage || previewMode {
-            self.image = originalImage
+        self.image = originalImage
+        stopAny()
+        
+        if asset?.imageType == .livePhoto {
+            self.livePhotoView.isHidden = true
         }
-        else if asset?.imageType == .livePhoto {
-            self.livePhoto = originalLivePhoto
+        else if asset?.mediaType == .video {
+            self.videoView.isHidden = true
         }
     }
     
     private func showFiltered() {
         originalBadgeLabel.isHidden = true
         
-        if asset?.imageType == .stillImage || previewMode {
-            self.image = filteredImage
+        self.image = filteredImage
+        
+        if asset?.imageType == .livePhoto {
+            self.livePhotoView.isHidden = false
         }
-        else if asset?.imageType == .livePhoto {
-            self.livePhoto = filteredLivePhoto
+        else if asset?.mediaType == .video {
+            self.videoView.isHidden = false
         }
     }
 }
@@ -198,8 +188,20 @@ extension AppUIAssetView {
         applyFilter(editState)
     }
     
+    private func prepareProcessing() {
+        if let requestID = contentEditingInputRequestID {
+            asset?.cancelContentEditingInputRequest(requestID)
+            contentEditingInputRequestID = nil
+        }
+        
+        livePhotoEditingContext?.cancel()
+        livePhotoEditingContext = nil
+    }
+    
     fileprivate func applyFilter<T>(_ editState: StateValueSet<T>?) where T: ImageEditStateValue {
         guard let asset = asset else { return }
+        
+        prepareProcessing()
         
         self.filteredImage = originalImage?.applyFilter(ciFilter: editState?.ciFilter)
         
@@ -208,28 +210,24 @@ extension AppUIAssetView {
         }
         else if asset.imageType == .livePhoto {
             if let filter = editState?.ciFilter {
-                self.isProcessing(true, animated: false)
+                self.isProcessing(true, animated: true)
                 
-                asset.requestContentEditingInput(with: nil, completionHandler: { (input, info) in
+                asset.requestContentEditingInput(with: nil, completionHandler: { [weak self] (input, info) in
                     guard let input = input else { return }
-                    let editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: input)
-                    editingContext?.frameProcessor = { [weak self] frame, error in
-                        guard self?.editState == editState else {
-                            editingContext?.cancel()
-                            return nil
-                        }
+                    
+                    self?.livePhotoEditingContext = PHLivePhotoEditingContext(livePhotoEditingInput: input)
+                    self?.livePhotoEditingContext?.frameProcessor = { frame, error in
                         return frame.image.applyFilter(ciFilter: filter)
                     }
                     
-                    editingContext?.prepareLivePhotoForPlayback(withTargetSize: asset.pixelSize, options: nil, completionHandler: { (livePhoto, error) in
-                        self.isProcessing(false, animated: true)
+                    self?.livePhotoEditingContext?.prepareLivePhotoForPlayback(withTargetSize: asset.pixelSize, options: nil, completionHandler: { [weak self] (livePhoto, error) in
+                        guard let livePhoto = livePhoto, error == nil else { return }
                         
-                        self.filteredLivePhoto = livePhoto
+                        self?.isProcessing(false, animated: true)
+                        
+                        self?.livePhoto = livePhoto
                     })
                 })
-            }
-            else if self.livePhoto != originalLivePhoto {
-                self.filteredLivePhoto = nil
             }
         }
         else if asset.mediaType == .video {

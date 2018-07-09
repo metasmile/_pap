@@ -449,15 +449,16 @@ extension PreviewView {
             PreviewProcessingQueue.operationQueue.addOperation { [unowned self] in
                 guard let indexPath = PreviewProcessingQueue.indexPathQueue.dequeue() else { return }
                 
+                DispatchQueue.main.async{
+                    guard let cell = self.collectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else { return }
+                    cell.assetView.isProcessing = true
+                }
+                
                 if let item = AppAssets.selected.at(unsafeIndex:indexPath.item) {
                     DispatchQueue.main.async{
-                        guard let cell = self.collectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else {
-                            return
-                        }
-                        cell.assetView.isProcessing = true
+                        guard let cell = self.collectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else { return }
                         cell.setOriginalImage(with: item)
                     }
-                    
                     
                     app.previewProcessing(item, targetSize: targetSize, completion: { (original, filtered) in
                         if let image = filtered {
@@ -465,10 +466,7 @@ extension PreviewView {
                         }
                         
                         DispatchQueue.main.async{
-                            guard let cell = self.collectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else {
-                                print("no cell", indexPath.item)
-                                return
-                            }
+                            guard let cell = self.collectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else { return }
                             cell.setFilteredImage(filtered, original: original, with: item)
                             cell.assetView.isProcessing(false, animated: true)
                         }
@@ -537,8 +535,8 @@ extension PreviewView: UICollectionViewDataSource {
             cell.setFilteredImage(cached, with: item)
         }
         else {
-            cell.assetView.isProcessing = true
             cell.setOriginalImage(with: item)
+            cell.assetView.isProcessing = true
             
             enqueuePreviewProcessing(at: indexPath)
         }
