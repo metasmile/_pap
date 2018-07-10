@@ -12,19 +12,11 @@ import MetalKit
 import Vision
 
 
-protocol GarbageDetector: AsyncProcessor where Self.OutputType==Bool {
-    func isTargetToClean(input:InputType, _ asyncSignal:AsyncManualSignalable?) -> Bool?
-}
+protocol _GarbageDetector: AsyncProcessor where Self.OutputType==Bool {}
 
-extension GarbageDetector{
-    func isTargetToClean(input: InputType, _ asyncSignal: AsyncManualSignalable?) -> Bool? {
-        return self.process(input: input, asyncSignal)
-    }
-}
+protocol _PHAssetGarbageDetector: _GarbageDetector where Self.InputType==PHAsset {}
 
-class PHAssetGarbageDetector : NSObject, GarbageDetector{
-    typealias InputType = PHAsset
-
+class PHAssetGarbageDetector : NSObject, _PHAssetGarbageDetector{
     required public override init() {}
 
     static var label: String = {
@@ -40,21 +32,21 @@ class PHAssetGarbageDetector : NSObject, GarbageDetector{
         return String(describing:type(of: self))
     }()
 
-    func process(input: PHAsset, _ asyncSignal: AsyncManualSignalable?) -> Bool? {
+    func process(input: PHAsset, _ asyncSignal: AsyncWaitSignalable?) -> Bool? {
         return nil
     }
 }
 
 class PHAssetGarbageDetector_Screenshots : PHAssetGarbageDetector{
-    override func process(input: PHAsset, _ asyncSignal: AsyncManualSignalable?) -> Bool? {
-        return input.mediaSubtypes.contains(.photoScreenshot)
+    override func process(input: PHAsset, _ asyncSignal: AsyncWaitSignalable?) -> Bool? {
+        return input.mediaType == .image && input.mediaSubtypes.contains(.photoScreenshot) //FIXME: always true??
     }
 }
 
 class PHAssetGarbageDetector_Lockscreens : PHAssetGarbageDetector{
-    override func process(input: PHAsset, _ asyncSignal: AsyncManualSignalable?) -> Bool? {
+    override func process(input: PHAsset, _ asyncSignal: AsyncWaitSignalable?) -> Bool? {
         //TODO Add detection
-        return input.mediaSubtypes.contains(.photoScreenshot)
+        return input.mediaType == .image && input.mediaSubtypes.contains(.photoScreenshot)
     }
 }
 
@@ -63,7 +55,7 @@ class PHAssetGarbageDetector_Lockscreens : PHAssetGarbageDetector{
 */
 class PHAssetGarbageDetector_Similarity : PHAssetGarbageDetector{
 
-    override func process(input: PHAsset, _ asyncSignal: AsyncManualSignalable?) -> Bool? {
+    override func process(input: PHAsset, _ asyncSignal: AsyncWaitSignalable?) -> Bool? {
         return self.detectSimilarAsset(input)
     }
 
@@ -104,7 +96,7 @@ class PHAssetGarbageDetector_Similarity : PHAssetGarbageDetector{
 */
 
 class PHAssetGarbageDetector_Blurry: PHAssetGarbageDetector{
-    override func process(input: PHAsset, _ asyncSignal: AsyncManualSignalable?) -> Bool? {
+    override func process(input: PHAsset, _ asyncSignal: AsyncWaitSignalable?) -> Bool? {
         return self.detectBlurryImage(input)
     }
 

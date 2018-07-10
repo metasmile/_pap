@@ -48,7 +48,7 @@ public class ExifGhostApp: NSObject, KeyPathWatchable,BApp,
         return item.asset.mediaType == .image
     }
 
-    public func performPreheating(item: AppAsset, _ async: AsyncSignal) -> PreheatingFinishAction? {
+    public func performPreheating(item: AppAsset, _ async: AsyncWaitSignalable) -> PreheatingFinishAction? {
 
         if autoSelect && item.asset.mediaType == .image{
             var purged = false
@@ -75,11 +75,11 @@ public class ExifGhostApp: NSObject, KeyPathWatchable,BApp,
 }
 
 private class _ExifGhostAppTask: AppTaskPrototype, AppTaskable {
-    public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){
         (param as? ParamType)?.cancelAllRequestIDs()
     }
 
-    public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
+    public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
         guard let param = param as? ParamType else{
             throw AppTaskError.invalidParam
         }

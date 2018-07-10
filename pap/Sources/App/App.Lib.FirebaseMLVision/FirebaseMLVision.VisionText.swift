@@ -7,13 +7,13 @@ import Foundation
 import FirebaseMLVision
 
 extension Array where Element==VisionText {
-    func parse<ParserType: VisionTextParser>(parser: ParserType, _ async: AsyncManualSignalable) -> [ParserType.OutputType]? {
+    func parse<ParserType: VisionTextParser>(parser: ParserType, _ async: AsyncWaitSignalable) -> [ParserType.OutputType]? {
         return self.compactMap { visionText -> ParserType.OutputType? in
             return parser.process(input: visionText)
         }.nilEmpty
     }
 
-    func parse<ParserType:VisionTextParser>(type: ParserType.Type, _ async: AsyncManualSignalable) -> [ParserType.OutputType]? {
+    func parse<ParserType:VisionTextParser>(type: ParserType.Type, _ async: AsyncWaitSignalable) -> [ParserType.OutputType]? {
         return self.parse(parser: type.init(), async)
     }
 }

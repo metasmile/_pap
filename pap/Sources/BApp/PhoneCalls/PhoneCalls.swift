@@ -84,7 +84,7 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
     }
 
     fileprivate var preheatedResults = [String:PhoneCallsAppResult]()
-    public func performPreheating(item: AppAsset, _ async: AsyncSignal) -> PreheatingFinishAction? {
+    public func performPreheating(item: AppAsset, _ async: AsyncWaitSignalable) -> PreheatingFinishAction? {
         if self.autoSelect == false{
             return nil
         }
@@ -102,7 +102,7 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
         return nil
     }
 
-    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
+    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
 
         let items = result
                 .filter { respondable in respondable.info.state == .completed }
@@ -203,7 +203,7 @@ private struct PhoneCallsAppDetector{
 
     private let vision = Vision.vision()
 
-    fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncManualSignalable) -> PhoneCallsAppResult? {
+    fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncWaitSignalable) -> PhoneCallsAppResult? {
         guard let visionTexts = vision.textDetector().detect(with: image, async) else {
             return nil
         }
@@ -221,9 +221,9 @@ private class _PhoneCallsAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy,
     private let emailParser = VisionTextEmailAddressParser()
     private let phoneNumberParser = VisionTextPhoneNumberParser()
 
-    public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){}
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){}
 
-    public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
+    public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
 
         guard let asset = (param as? PHAssetItem<ImageEditStateValue>)?.asset else{
             return nil

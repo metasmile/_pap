@@ -19,13 +19,13 @@ public protocol FinalizableApp: App {
      WARNING:
         if App implement this, App also MUST manually control for all about cancellation conditions.
      */
-    func shouldFinalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> Bool
+    func shouldFinalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> Bool
 
-    func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable]
+    func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable]
 }
 
 extension FinalizableApp{
-    public func shouldFinalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> Bool {
+    public func shouldFinalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> Bool {
         let shouldPreventFinalize = type(of: self).info.policy.task.cancellation == AppTaskPolicy.Cancellation.shallow
             && result.isAnyTask(inState: .cancelled)
         

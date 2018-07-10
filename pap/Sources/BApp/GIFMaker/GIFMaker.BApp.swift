@@ -278,7 +278,7 @@ public class GIFMakerApp: BApp,
         return (dockContent as? GIFMakerAppDockContent)?.shouldImport(asset: item.asset) ?? false
     }
 
-    public func performPreheating(item: AppAsset, _ async: AsyncSignal) -> PreheatingFinishAction? {
+    public func performPreheating(item: AppAsset, _ async: AsyncWaitSignalable) -> PreheatingFinishAction? {
         return nil
     }
 
@@ -295,7 +295,7 @@ public class GIFMakerApp: BApp,
         self.config?.adoptValues(fromOther: config)
     }
 
-    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
+    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
         let resultItems = result
             .filter { respondable in respondable.info.state == .completed }
             .compactMap { ($0.result as? GIFMakerPHAssetResult) }
@@ -325,16 +325,16 @@ private class _GIFMakerAppTask: AppTaskPrototype, AppTaskable {
     public typealias ParamType = _GIFMakerAppAsset
     public typealias ResultType = PHAssetResultItem
     
-    public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){
         (param as? _GIFMakerAppAsset)?.cancelAllRequestIDs()
     }
     
-    public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
+    public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
         guard let appAsset = param as? AppAsset else { return nil }
         return try _perform(appAsset, async)
     }
     
-    private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable) throws -> GIFMakerPHAssetResult?  {
+    private func _perform(_ assetItem: AppAsset, _ async: AsyncWaitSignalable) throws -> GIFMakerPHAssetResult?  {
         var result: GIFMakerPHAssetResult?
         
         let defaults = (GIFMakerApp.defaults as! GIFMakerDefaults)

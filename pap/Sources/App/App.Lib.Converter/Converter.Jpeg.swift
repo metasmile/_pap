@@ -38,7 +38,7 @@ class JpgConverter_ScreenshotPng: OptionableConverterBase<JpgConverterOption>, J
 
     static let supportedPresets = ConverterQualityPreset.originalExcluded
     
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> Any? {
 
         var result:Any?
 

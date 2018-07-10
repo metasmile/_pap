@@ -57,7 +57,7 @@ public class PDFactoryApp: BApp, FinalizableApp, PhotoPickerViewControllerDelega
 
     public lazy var dockContent: AppDockContent? = PDFactoryAppAppDockContent()
 
-    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
+    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
 
         let items = result
                 .filter { respondable in respondable.info.state == .completed }
@@ -164,11 +164,11 @@ private class _PDFactoryAppTask: AppTaskPrototype, AppTaskable {
         return options
     }
 
-    public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){
         (param as? AppAsset)?.cancelAllRequestIDs()
     }
 
-    public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
+    public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
         if let appAsset = param as? AppAsset{
             let asset = appAsset.asset
 

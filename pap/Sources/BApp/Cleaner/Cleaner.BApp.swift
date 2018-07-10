@@ -1,6 +1,6 @@
 //
 // Created by BLACKGENE on 27/03/2018.
-// Copyright (c) 2018 Stells. All rights reserved.
+// Copyrig?ht (c) 2018 Stells. All rights reserved.
 //
 
 import Foundation
@@ -13,7 +13,7 @@ import Vision
 
 private typealias CleanerAppParam = PHAssetItem<ImageEditStateValue>
 
-struct CleanerAppResult{
+struct PHAssetGCResult:AppTaskResultable {
     let asset:PHAsset
     let detected:[PHAssetGarbageDetector.Type]
 }
@@ -21,7 +21,7 @@ struct CleanerAppResult{
 private typealias PHAssetID = String
 
 public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp, PreheatableApp {
-    public static let taskType: AppTaskable.Type = _CleanTask.self
+    public static let taskType: AppTaskable.Type = _CleanerAppTask.self
 
     public static let paramType: AppTaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
     
@@ -57,53 +57,62 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     @objc dynamic
     public fileprivate (set) lazy var autoSelect: Bool = false
 
-    fileprivate static var detectorTypes:[PHAssetGarbageDetector.Type] = [
-        PHAssetGarbageDetector_Similarity.self,
-        PHAssetGarbageDetector_Blurry.self,
-        PHAssetGarbageDetector_Screenshots.self,
-        PHAssetGarbageDetector_Lockscreens.self
+    fileprivate static var gdTypes:[PHAssetGarbageDetector.Type] = [
+        PHAssetGarbageDetector_Similarity.self
+        , PHAssetGarbageDetector_Blurry.self
+        , PHAssetGarbageDetector_Screenshots.self
+        , PHAssetGarbageDetector_Lockscreens.self
     ]
 
-    fileprivate var detectorInstances = [String:PHAssetGarbageDetector]()
-    
-    fileprivate var preheatedResults = [PHAssetID: CleanerAppResult]()
-    
-    public func performPreheating(item: AppAsset, _ async: AsyncSignal) -> PreheatingFinishAction? {
-        guard self.autoSelect else { return nil }
+    fileprivate var gdInstances = [String:PHAssetGarbageDetector]()
 
-        let result:CleanerAppResult
+    fileprivate var preheatedGCResults = [PHAssetID: PHAssetGCResult]()
 
-        if let preheatedResult = preheatedResults[item.asset.localIdentifierWithoutSplitter]{
+    fileprivate func gc(item: AppAsset, _ async: AsyncWaitSignalable) -> PHAssetGCResult {
+        var result: PHAssetGCResult
+
+        if let preheatedResult = preheatedGCResults[item.asset.localIdentifierWithoutSplitter]{
             result = preheatedResult
 
         }else{
 
             var detected = [PHAssetGarbageDetector.Type]()
-            for t in type(of: self).detectorTypes{
+            for t in type(of: self).gdTypes {
                 let k = t.identifier
 
                 var detector:PHAssetGarbageDetector
-                if let d = detectorInstances[k]{
+                if let d = gdInstances[k]{
                     detector = d
                 }else{
                     detector = t.init()
-                    detectorInstances[k] = detector
+                    gdInstances[k] = detector
                 }
 
-                if detector.process(input: item.asset, async) == true{
+                if detector.process(input: item.asset, async) ?? false == true{
                     detected.append(t)
                 }
             }
 
-            result = CleanerAppResult(asset:item.asset, detected:detected)
-            preheatedResults[item.asset.localIdentifierWithoutSplitter] = result
+            result = PHAssetGCResult(asset:item.asset, detected:detected)
+            preheatedGCResults[item.asset.localIdentifierWithoutSplitter] = result
         }
 
-        return result.detected.count > 0 ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
+        return result
+    }
+
+    public func performPreheating(item: AppAsset, _ async: AsyncWaitSignalable) -> PreheatingFinishAction? {
+        guard self.autoSelect else { return nil }
+
+        return gc(item: item, async).detected.count > 0
+                ? UICollectionViewPreheatableAppFinishAction.selectItem
+                : nil
     }
     
-    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
-        let items = result.filter { respondable in respondable.info.state == .completed }.compactMap { $0.result as? CleanerAppResult }
+    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
+        let items = result
+                .filter { respondable in respondable.info.state == .completed }
+                .compactMap { $0.result as? PHAssetGCResult
+                }
         
         let alert = UIAlertController(title: "Clean the selected items".localized, message: nil, preferredStyle: .actionSheet)
         
@@ -133,15 +142,16 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     }
 }
 
+private class _CleanerAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, AppTaskable {
 
-private class _CleanTask: AppTaskPrototype, AppTaskable {
-    public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){}
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){}
 
-    public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
-        if let asset = (param as? PHAssetItem<ImageEditStateValue>)?.asset{
-            return PHAssetResultItem(asset: asset, contentEditingOutput: nil)
+    public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
+        guard let item = param as? AppAsset else{
+            return nil
         }
-        return nil
+
+        return AppCenter.default.currentInstanceAs(CleanerApp.self)?.gc(item: item, async)
     }
 }
 

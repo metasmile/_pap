@@ -69,11 +69,11 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp
         return true
     }
 
-    public func performPreheating(item: AppAsset, _ async: AsyncSignal) -> PreheatingFinishAction? {
+    public func performPreheating(item: AppAsset, _ async: AsyncWaitSignalable) -> PreheatingFinishAction? {
         return appDefaults.autoSelect && item.asset.isAdjusted == true ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
     }
 
-    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
+    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
         let adjustedAssets = result.compactMap { r -> PHAsset? in
             let result = r.result as? RevertAppResult
             return result?.isAdjusted == true ? result?.asset : nil
@@ -123,9 +123,9 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp
 }
 
 private class _RevertAppTask: AppTaskPrototype, AppTaskable {
-    public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){}
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){}
 
-    public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
+    public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
         assert(param is RevertAppParam, "TaskParamable type of this app is \(RevertAppParam.self)")
 
         guard let _param = param as? RevertAppParam else{

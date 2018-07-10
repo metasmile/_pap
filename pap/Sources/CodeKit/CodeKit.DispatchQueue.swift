@@ -24,11 +24,11 @@ public protocol AsyncSignalable: Signalable {
     func end() -> Self
 }
 
-public protocol AsyncManualSignalable: AsyncSignalable {
+public protocol AsyncWaitSignalable: AsyncSignalable {
     func waitUntilEnd()
 }
 
-public protocol AsyncControllableSignable {
+public protocol AsyncFinalSignalable {
     func done()
 
     @discardableResult
@@ -41,7 +41,7 @@ public final class AsyncSignal {
     private var offset:Int = 0
 }
 
-extension AsyncSignal: AsyncManualSignalable, AsyncControllableSignable {
+extension AsyncSignal: AsyncWaitSignalable, AsyncFinalSignalable {
 
     public var began:Bool {
         return offset>0

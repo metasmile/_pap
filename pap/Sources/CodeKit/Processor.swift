@@ -15,7 +15,7 @@ protocol Processor {
 }
 
 protocol AsyncProcessor: Processor {
-    func process(input:InputType, _ asyncSignal:AsyncManualSignalable?) -> OutputType?
+    func process(input:InputType, _ asyncSignal: AsyncWaitSignalable?) -> OutputType?
 }
 
 extension AsyncProcessor{

@@ -121,9 +121,9 @@ class AppTaskTests: XCTestCase {
                 return info
             }
 
-            public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){}
+            public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){}
 
-            public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
+            public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
                 async.begin()
                 DispatchQueue.global().async{
                     sleep(UInt32(arc4random_uniform(2)))

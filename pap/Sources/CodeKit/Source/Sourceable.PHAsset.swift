@@ -33,7 +33,7 @@ extension PHAsset {
         return result
     }
     
-    func requestImage(targetSize: CGSize = PHImageManagerMaximumSize, contentMode: PHImageContentMode = .aspectFit, options: PHImageRequestOptions? = PHAsset.highQualityImageRequestOptions, _ async: AsyncManualSignalable = AsyncSignal()) -> (requestID: PHImageRequestID, image: UIImage?) {
+    func requestImage(targetSize: CGSize = PHImageManagerMaximumSize, contentMode: PHImageContentMode = .aspectFit, options: PHImageRequestOptions? = PHAsset.highQualityImageRequestOptions, _ async: AsyncWaitSignalable = AsyncSignal()) -> (requestID: PHImageRequestID, image: UIImage?) {
         async.begin()
         
         var result: UIImage? = nil
@@ -57,7 +57,7 @@ extension PHAsset {
 }
 
 extension PHAsset {
-    func requestImageData(options: PHImageRequestOptions? = PHAsset.highQualityImageRequestOptions, _ async: AsyncManualSignalable = AsyncSignal()) -> (requestID: PHImageRequestID, data: Data?) {
+    func requestImageData(options: PHImageRequestOptions? = PHAsset.highQualityImageRequestOptions, _ async: AsyncWaitSignalable = AsyncSignal()) -> (requestID: PHImageRequestID, data: Data?) {
         async.begin()
         
         var result: Data? = nil

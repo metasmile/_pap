@@ -210,13 +210,13 @@ private class _FiltersAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, Ap
     public typealias ParamType = _FiltersAppAsset
     public typealias ResultType = PHAssetResultItem
 
-    public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){
         
         (param as? _FiltersAppAsset)?.cancelAllRequestIDs()
         (param as? _FiltersAppAsset)?.cancelProcessing()
     }
     
-    public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
+    public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
         assert(param is _FiltersAppAsset, "TaskParamable type of this app is \(_FiltersAppAsset.self)")
         guard let _param = param as? _FiltersAppAsset else{
             throw AppTaskError.invalidParam
@@ -224,7 +224,7 @@ private class _FiltersAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, Ap
         return try self._perform(_param, async)
     }
     
-    private func _perform(_ assetItem: _FiltersAppAsset, _ async: AsyncManualSignalable) throws -> PHAssetResultItem?  {
+    private func _perform(_ assetItem: _FiltersAppAsset, _ async: AsyncWaitSignalable) throws -> PHAssetResultItem?  {
         var result: PHAssetResultItem?
         
         async.begin()

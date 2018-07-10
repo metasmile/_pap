@@ -8,7 +8,7 @@ import FirebaseMLVision
 
 extension VisionTextDetector{
 
-    func detect(with image: UIImage, _ async: AsyncManualSignalable) -> [VisionText]? {
+    func detect(with image: UIImage, _ async: AsyncWaitSignalable) -> [VisionText]? {
         let visionImage = VisionImage(image: image)
         let textDetector = self
 

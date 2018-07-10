@@ -63,7 +63,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
     }
 
     fileprivate var preheatedResults = [String:FinderAppResult]()
-    public func performPreheating(item: AppAsset, _ async: AsyncSignal) -> PreheatingFinishAction? {
+    public func performPreheating(item: AppAsset, _ async: AsyncWaitSignalable) -> PreheatingFinishAction? {
         if self.autoSelect == false{
             return nil
         }
@@ -84,7 +84,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
                 : nil
     }
 
-    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
+    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
         let items = result
                 .filter { $0.info.state == .completed }
                 .compactMap { $0.result as? FinderAppResult }
@@ -146,7 +146,7 @@ private struct FinderAppResult: AppTaskResultable {
 
 extension FinderApp{
 
-    fileprivate func finalize_plaintext(items: [FinderAppResult], _ asyncSignal: AsyncManualSignalable) {
+    fileprivate func finalize_plaintext(items: [FinderAppResult], _ asyncSignal: AsyncWaitSignalable) {
         let strings = items.compactMap{ $0.plainText }
 
         if strings.count > 0 {
@@ -160,7 +160,7 @@ extension FinderApp{
         }
     }
 
-    fileprivate func finalize_contact(items: [FinderAppResult], _ asyncSignal: AsyncManualSignalable) {
+    fileprivate func finalize_contact(items: [FinderAppResult], _ asyncSignal: AsyncWaitSignalable) {
         var canSaveContract = items.compactMap { result -> [CNMutableContact]? in
             return result.contacts?.nilEmpty
         }.count > 0
@@ -246,7 +246,7 @@ extension FinderApp{
         }
     }
 
-    fileprivate func finalize_action(items: [FinderAppResult], _ asyncSignal: AsyncManualSignalable) {
+    fileprivate func finalize_action(items: [FinderAppResult], _ asyncSignal: AsyncWaitSignalable) {
         let alert = UIAlertController(title: "Choose An Action".localized, message: nil, preferredStyle: .actionSheet)
 
         let defaultCancelSubAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
@@ -884,7 +884,7 @@ private struct FinderAppDetector{
     }
 
 
-    fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncManualSignalable) -> FinderAppResult? {
+    fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncWaitSignalable) -> FinderAppResult? {
         guard let visionTexts = vision.textDetector().detect(with: image, async) else {
             return nil
         }
@@ -1000,9 +1000,9 @@ private class _FinderAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, App
     private let emailParser = VisionTextEmailAddressParser()
     private let phoneNumberParser = VisionTextPhoneNumberParser()
 
-    public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){}
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){}
 
-    public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
+    public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
 
         guard let asset = (param as? PHAssetItem<ImageEditStateValue>)?.asset else{
             return nil

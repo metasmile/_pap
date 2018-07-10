@@ -79,9 +79,9 @@ public struct AppTaskPolicy {
 public protocol _AppTaskable {
     init(_ info: AppTaskInfo)
 
-    func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable?
+    func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable?
 
-    func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable)
+    func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable)
 }
 
 public protocol AppTaskable: _AppTaskable {
