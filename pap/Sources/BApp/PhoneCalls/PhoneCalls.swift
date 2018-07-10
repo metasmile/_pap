@@ -55,8 +55,8 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
             , phase: .release
             , appType: PhoneCallsApp.self
             , displayName: "Phone Calls".localized, description:nil, keywords:nil
-            , iconBundleName: R.image.callNumbersBAppIcon.name
-            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy(cancellation: .shallow, priority: .normal, estimatedConcurrencyCount: 1))
+            , iconBundleName: R.image.phoneCallsBAppIcon.name
+            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
             , minOSVersion: nil
     )
 

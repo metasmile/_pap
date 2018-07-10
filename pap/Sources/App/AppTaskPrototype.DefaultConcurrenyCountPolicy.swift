@@ -6,6 +6,15 @@
 import Foundation
 
 public class AppTaskPrototypeDefaultConcurrencyCountPolicy:AppTaskPrototype{
+
+    public required init(_ info: AppTaskInfo) {
+        super.init(info)
+
+#if DEBUG
+        print("[!] WARNING: estimatedConcurrencyCount is already defined so it will be overridden. Check the configuration at AppInfo.AppPolicy.TaskPolicy")
+#endif
+    }
+
     public override var info: AppTaskInfo {
         let info = super.info
 

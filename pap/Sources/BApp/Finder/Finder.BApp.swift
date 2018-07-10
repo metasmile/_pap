@@ -39,7 +39,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
             , appType: FinderApp.self
             , displayName: "Finder".localized, description:nil, keywords:nil
             , iconBundleName: R.image.finderBAppIcon.name
-            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy(cancellation: .shallow, priority: .normal, estimatedConcurrencyCount: 1))
+            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
             , minOSVersion: nil
     )
 

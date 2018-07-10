@@ -75,7 +75,7 @@ public struct FileURL {
             if let utiExtension = uti.fileExtension {
                 url = url.appendingPathExtension(utiExtension)
             }else{
-                print("WARNING: Not found file extension for UTI '\(uti.rawValue)'. Using manually provided file extension '\(url.pathExtension)'.")
+                print("[!] WARNING: Not found file extension for UTI '\(uti.rawValue)'. Using manually provided file extension '\(url.pathExtension)'.")
                 assert(url.pathExtension.count>0, "Path extension is empty.")
             }
         }
