@@ -26,6 +26,7 @@
 		4F71D09F4B8DAECA51DBBE94 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D9C63117AE87507DC6A6 /* RoundedButton.swift */; };
 		4F71D0A68DA33F404A17C2F5 /* Stabilizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D37DA2EF2C176B34AE42 /* Stabilizer.swift */; };
 		4F71D0A75A503CDEC4540DCD /* AppTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF928C2BD1911803D81E /* AppTaskManager.swift */; };
+		4F71D0B93A9136FE6039F23A /* Cleaner.GarbageDetectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4EA58D8AE4C0CDD5733 /* Cleaner.GarbageDetectors.swift */; };
 		4F71D0DD99556116A344D7E6 /* CodeKit.UIGraphicsImageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D581C84B309D065C34B8 /* CodeKit.UIGraphicsImageRenderer.swift */; };
 		4F71D104D649A522A4EA7F96 /* gifmaker_preview_frame_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DC4D3BA4D93B51FD3362 /* gifmaker_preview_frame_2.png */; };
 		4F71D108116B472B5D025C87 /* AutoEditor.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D95F9B95ED4848D18C35 /* AutoEditor.BApp.swift */; };
@@ -407,6 +408,7 @@
 		4F71D4D7D1C9F3CFA4EA5D6B /* AppDockViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppDockViewCell.xib; sourceTree = "<group>"; };
 		4F71D4D8D08CB1574BE2B3B9 /* CodeKit.UIAlertAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIAlertAction.swift; sourceTree = "<group>"; };
 		4F71D4DACD3DE4FCBFA15864 /* PhotoPickerViewController.Operations.PreheatableApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.Operations.PreheatableApp.swift; sourceTree = "<group>"; };
+		4F71D4EA58D8AE4C0CDD5733 /* Cleaner.GarbageDetectors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cleaner.GarbageDetectors.swift; sourceTree = "<group>"; };
 		4F71D4F43AFA7CFB00749370 /* FirebaseMLVision.VisionCloudText.Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseMLVision.VisionCloudText.Parser.swift; sourceTree = "<group>"; };
 		4F71D528E12644D0332ECCAF /* AssetIO.TimelapsVideoBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetIO.TimelapsVideoBuilder.swift; sourceTree = "<group>"; };
 		4F71D55FEA084578B7A60171 /* Converter.AppDockContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.AppDockContent.swift; sourceTree = "<group>"; };
@@ -1381,6 +1383,7 @@
 			children = (
 				A0CB215C20EE674A0011E86D /* Cleaner.BApp.Assets.xcassets */,
 				4F71D964680143F9237CA854 /* Cleaner.BApp.swift */,
+				4F71D4EA58D8AE4C0CDD5733 /* Cleaner.GarbageDetectors.swift */,
 			);
 			path = Cleaner;
 			sourceTree = "<group>";
@@ -2974,6 +2977,7 @@
 				4F71D6AFB78F59B14C11DAEB /* UITableViewCells.swift in Sources */,
 				4F71D2236731DFA0D68AA382 /* UITableViewPickerCell.swift in Sources */,
 				4F71D4153D97A1F440C3291F /* CodeKit.UIAlertAction.swift in Sources */,
+				4F71D0B93A9136FE6039F23A /* Cleaner.GarbageDetectors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

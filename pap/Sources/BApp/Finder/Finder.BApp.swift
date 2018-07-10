@@ -943,7 +943,7 @@ private struct FinderAppDetector{
                 }
 
                 if let mergingContract = mergingContract
-                , let parsedContract = parser.parse(input: visionText, mergingOutput: mergingContract){
+                , let parsedContract = parser.process(input: visionText, mergingOutput: mergingContract){
                         stackedParsedContacts.append(parsedContract)
                 }
             }

@@ -6,14 +6,14 @@
 import Foundation
 
 protocol MergingParser: Processor {
-    func parse(input:InputType, mergingOutput:OutputType) -> OutputType?
+    func process(input:InputType, mergingOutput:OutputType) -> OutputType?
 }
 
 protocol StringParser: Processor where Self.OutputType==String {
-    func parse(input:InputType) -> OutputType?
+    func process(input:InputType) -> OutputType?
 }
 
 // INFO line by line [["word","word","word","word"],["word","word","word","word"],["word","word","word","word"]]
 protocol TextBlockParser: Processor where Self.OutputType==[[String]] {
-    func parse(input:InputType) -> OutputType?
+    func process(input:InputType) -> OutputType?
 }

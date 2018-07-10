@@ -9,17 +9,17 @@ protocol Processor {
     associatedtype InputType
     associatedtype OutputType
 
-    func parse(input:InputType) -> OutputType?
+    func process(input:InputType) -> OutputType?
 
     init()
 }
 
 protocol AsyncProcessor: Processor {
-    func parse(input:InputType, asyncSingal:AsyncManualSignalable?) -> OutputType?
+    func process(input:InputType, _ asyncSignal:AsyncManualSignalable?) -> OutputType?
 }
 
 extension AsyncProcessor{
-    func parse(input: InputType) -> OutputType? {
-        return self.parse(input: input, asyncSingal: nil)
+    func process(input: InputType) -> OutputType? {
+        return self.process(input: input, nil)
     }
 }
