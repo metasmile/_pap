@@ -429,7 +429,6 @@ extension FinderApp{
                 let _quickAction = { (t: String) -> UIAlertAction in
                     return UIAlertAction(title: t, style: .default, handler: { action in
 
-                        //FIXME: when initially create event, event == nil
                         EventKitUtil.shared.newEvent { event in
                             if let event = event{
                                 event.title = "New Event".localized
