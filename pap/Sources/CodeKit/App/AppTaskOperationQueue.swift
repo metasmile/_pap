@@ -114,7 +114,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
         }
     }
 
-    private func cancelItem(_ item: AppTaskItem, _ async: AsyncManualSignalable & AsyncControllableSignable) {
+    private func cancelItem(_ item: AppTaskItem, _ async: AsyncWaitSignalable & AsyncFinalSignalable) {
         let param = item.request.param
 
         async.done()
@@ -122,7 +122,7 @@ class AppTaskOperationQueue: ItemQueue<AppTaskItem> {
         item.response(.cancelled)
     }
 
-    private func tryItem(_ item: AppTaskItem, _ async: AsyncManualSignalable & AsyncControllableSignable){
+    private func tryItem(_ item: AppTaskItem, _ async: AsyncWaitSignalable & AsyncFinalSignalable){
         let param = item.request.param
 
         do {

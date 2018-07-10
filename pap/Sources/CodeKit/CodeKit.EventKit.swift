@@ -52,15 +52,14 @@ public class EventKitUtil {
         case .denied:
             completion(false)
         case .notDetermined:
-            var userAllowed = false
             defaultEventStore.requestAccess(to: .event, completion: { (allowed, error) -> Void in
-                userAllowed = !allowed
-                if userAllowed {
+                if allowed {
                     self.reset()
                     if self.calendar == nil {
-                        _ = self.createCalendar()
+                        completion(self.createCalendar()==nil)
+                    }else{
+                        completion(true)
                     }
-                    completion(userAllowed)
                 } else {
                     completion(false)
                 }

@@ -43,9 +43,9 @@ class CameraApp: NSObject, KeyPathWatchable, BApp, AppDockApp, PhotoPickerCollec
 }
 
 private class _CameraAppTask: AppTaskPrototype, AppTaskable {
-    public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){}
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){}
     
-    public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
+    public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
         if let asset = (param as? PHAssetItem<ImageEditStateValue>)?.asset{
             return PHAssetResultItem(asset: asset, contentEditingOutput: nil)
         }

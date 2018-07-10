@@ -148,11 +148,11 @@
 "Auto Editor" = "સ્વતઃ સંપાદક";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "વિસ્ફોટ";
-/* Generated from genl10n: CallNumbers.swift#57 */
+/* Generated from genl10n: PhoneCalls.swift#57 */
 "Call Numbers" = "કૉલ નંબર્સ";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "પાછા ફરવા નહીં બધી પસંદ કરેલી આઇટમ્સ સંપાદિત નથી.";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Choose A Phone Number To Call" = "કૉલ કરવા માટે ફોન નંબર પસંદ કરો";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "ઍક્શન પસંદ કરો";
@@ -196,7 +196,7 @@
 "Downloading..." = "ડાઉનલોડ કરી રહ્યું છે ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "ઈ - મેઈલ સરનામું";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallNumbers.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, PhoneCalls.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "સ્વતઃ પસંદગી સક્ષમ કરો";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "નિકાસ વિકલ્પો";
@@ -204,11 +204,11 @@
 "Export" = "નિકાસ";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "ફિલ્ટર્સ";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "શોધવા";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "ફાઇન્ડર";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "સંપર્કો શોધી રહ્યાં છે ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "ઉડાન સંખ્યા";
@@ -300,7 +300,7 @@
 "Select Photos To Find Everything." = "બધું શોધવા માટે ફોટાઓ પસંદ કરો";
 /* Generated from genl10n: Cleaner.BApp.swift#316 */
 "Select Photos You Want To Clean!" = "તમે સાફ કરવા માંગો છો તે ફોટા પસંદ કરો!";
-/* Generated from genl10n: CallNumbers.swift */
+/* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "તમે ફોન નંબરો પડાવી લેવું કરવા માંગો છો તે ફોટા પસંદ કરો!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "ઈ - મેઇલ મોકલ";
@@ -310,7 +310,7 @@
 "Size" = "કદ";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "કેટલાક સંપર્કો સાચવવામાં આવ્યા, પરંતુ કોઈની ન હતી.";
-/* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
+/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "માફ કરશો તમે પસંદ કરેલી કોઈપણ માહિતી મળી નથી.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
 "Sorry, this contact could not be saved." = "માફ કરશો, આ સંપર્ક સાચવી શકાતો નથી.";
@@ -338,9 +338,9 @@
 "Translation" = "અનુવાદ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "વિડિઓ";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "પસંદ કરવા માટે રાહ જુએ છે ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "વાર્પ";
-/* Generated from genl10n: CallNumbers.swift */
+/* Generated from genl10n: PhoneCalls.swift */
 "🔍 Starting To Find ..." = "શોધો શરૂ કરી રહ્યા છીએ ...";

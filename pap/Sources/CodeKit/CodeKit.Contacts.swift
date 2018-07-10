@@ -27,7 +27,7 @@ public struct ContactsUtil {
         return CNContactStore.authorizationStatus(for: .contacts)
     }
 
-    public func requestAuthorizationAndWait(_ asyncSignal:AsyncManualSignalable) -> Bool{
+    public func requestAuthorizationAndWait(_ asyncSignal: AsyncWaitSignalable) -> Bool{
         var canSaveContract = false
 
         let status = ContactsUtil.shared.authorizationStatus

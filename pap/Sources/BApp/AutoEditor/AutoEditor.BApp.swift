@@ -179,13 +179,13 @@ private class _AutoEditorAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy,
     public typealias ParamType = _AutoEditorAppAsset
     public typealias ResultType = PHAssetResultItem
 
-    public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){
         
         (param as? _FiltersAppAsset)?.cancelAllRequestIDs()
         (param as? _FiltersAppAsset)?.cancelProcessing()
     }
     
-    public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
+    public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
         assert(param is _AutoEditorAppAsset, "TaskParamable type of this app is \(_FiltersAppAsset.self)")
         guard let _param = param as? _AutoEditorAppAsset else{
             throw AppTaskError.invalidParam
@@ -193,7 +193,7 @@ private class _AutoEditorAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy,
         return try self._perform(_param, async)
     }
     
-    private func _perform(_ assetItem: _AutoEditorAppAsset, _ async: AsyncManualSignalable) throws -> PHAssetResultItem?  {
+    private func _perform(_ assetItem: _AutoEditorAppAsset, _ async: AsyncWaitSignalable) throws -> PHAssetResultItem?  {
         var result: PHAssetResultItem?
         
         async.begin()

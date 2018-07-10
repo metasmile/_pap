@@ -89,7 +89,7 @@ extension GifConverter{
 class GifConverter_Jpeg: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.jpeg, to:.gif) }
 
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> Any? {
         return nil
     }
 
@@ -103,14 +103,14 @@ class GifConverter_Mov: OptionableConverterBase<GifConverterDefaultOption>, GifC
 
     static let supportedPresets = ConverterQualityPreset.originalExcluded
 
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> Any? {
         if let video = source.asset.asAVAsset, let option = options {
             return convert(video: video, option: option, cancellation: cancellation, progressHandler: progressHandler, async)
         }
         return nil
     }
     
-    func convert(video: AVAsset, option: GifConverterDefaultOption, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncManualSignalable) -> Any? {
+    func convert(video: AVAsset, option: GifConverterDefaultOption, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> Any? {
         guard let videoTrack = video.tracks(withMediaType: .video).first else { return nil }
         
         async.begin()
@@ -161,7 +161,7 @@ class GifConverter_LivePhoto: OptionableConverterBase<GifConverterDefaultOption>
 
     static let supportedPresets = ConverterQualityPreset.originalExcluded
 
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> Any? {
         let extractMovieTask = AsyncSignal()
         if let videoURL = MovConverter_LivePhoto().convert(source: source, cancellation: cancellation, progressHandler: progressHandler, extractMovieTask) as? URL, let options = options {
             return GifConverter_Mov().convert(video: AVAsset(url: videoURL), option: options, cancellation: cancellation, progressHandler: progressHandler,async)
@@ -179,7 +179,7 @@ class GifConverter_Timelapse: OptionableConverterBase<GifConverterDefaultOption>
 
     static let supportedPresets = ConverterQualityPreset.originalExcluded
 
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> Any? {
         let converter = GifConverter_Mov()
         converter.options = options
         return converter.convert(source: source, cancellation: cancellation, progressHandler: progressHandler, async)
@@ -195,7 +195,7 @@ class GifConverter_Burst: OptionableConverterBase<GifConverterDefaultOption>, Gi
 
     static let supportedPresets = ConverterQualityPreset.originalExcluded
 
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncManualSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> Any? {
         guard let gifOptions = options else { return nil }
         
         let param = ConverterBurstImageExtractParam(targetSize: gifOptions.sizeWithAspectRatio(), imageQuality: CGFloat(gifOptions.gifQuality), contentMode: PHImageContentMode(rawValue: gifOptions.contentMode) ?? PHImageContentMode.aspectFit)

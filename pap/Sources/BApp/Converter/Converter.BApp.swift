@@ -64,7 +64,7 @@ public class ConverterApp: BApp,
 
     }
 
-    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
+    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
         let resultItems:[Any]? = result
                 .filter { respondable in respondable.info.state == .completed }
                 .compactMap{ $0.result as? ConverterAppResult }
@@ -188,17 +188,17 @@ private class ConverterAppTask: AppTaskPrototype, AppTaskable {
 
     }
 
-    public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){
 
         (param as? AppAsset)?.cancelAllRequestIDs()
     }
 
-    public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
+    public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
         guard let appAsset = param as? AppAsset else { return nil }
         return try _perform(appAsset, async)
     }
 
-    private func _perform(_ assetItem: AppAsset, _ async: AsyncManualSignalable) throws -> ConverterAppResult?  {
+    private func _perform(_ assetItem: AppAsset, _ async: AsyncWaitSignalable) throws -> ConverterAppResult?  {
         let direction = defaults.convertingDirection
         let needsConverter = ConverterSpec.acquireInstance(collection: ConverterApp.availableConverters, direction: direction, asset: assetItem)
 

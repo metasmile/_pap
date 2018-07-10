@@ -33,7 +33,7 @@ extension String {
         return replace(with, "")
     }
 
-    public func trim() -> String{
+    public var trimmed: String{
         return self.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 

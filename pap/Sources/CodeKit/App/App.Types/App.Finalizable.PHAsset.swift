@@ -27,7 +27,7 @@ extension PHAssetFinalizableApp{
 
 extension PHAssetFinalizableApp {
 
-    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
+    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
         let finalizingActions = self.finalizingActions
 
         // filter only completed.
@@ -78,7 +78,7 @@ extension PHAssetFinalizableApp {
         return result
     }
 
-    private func modifyingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncManualSignalable){
+    private func modifyingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncWaitSignalable){
         asyncSignal.begin()
         PHPhotoLibrary.shared().performChanges({
             for result in targetResultAssets{
@@ -92,7 +92,7 @@ extension PHAssetFinalizableApp {
         asyncSignal.waitUntilEnd()
     }
 
-    private func deletingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncManualSignalable){
+    private func deletingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncWaitSignalable){
         asyncSignal.begin()
 
         PHPhotoLibrary.shared().performChanges({
@@ -104,7 +104,7 @@ extension PHAssetFinalizableApp {
         asyncSignal.waitUntilEnd()
     }
 
-    private func sharingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncManualSignalable){
+    private func sharingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncWaitSignalable){
         if let rootVC = UIViewController.root {
             asyncSignal.begin()
             DispatchQueue.global().async {
@@ -126,7 +126,7 @@ extension PHAssetFinalizableApp {
         }
     }
 
-    private func creatingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncManualSignalable){
+    private func creatingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncWaitSignalable){
         asyncSignal.begin()
         PHPhotoLibrary.shared().performChanges({
             for result in targetResultAssets{
@@ -142,7 +142,7 @@ extension PHAssetFinalizableApp {
         asyncSignal.waitUntilEnd()
     }
 
-    private func showingActionsAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncManualSignalable){
+    private func showingActionsAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncWaitSignalable){
         let urls = targetResultAssets.compactMap { resultable -> URL? in
             resultable.contentEditingOutput?.renderedContentURL
         }

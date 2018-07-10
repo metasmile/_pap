@@ -82,7 +82,7 @@ public protocol NSTextCheckingFlightComponent {
 
 extension NSTextCheckingFlightComponent{
     var formattedString:String?{
-        let string = ((airline ?? "") + (flight ?? "")).trim()
+        let string = ((airline ?? "") + (flight ?? "")).trimmed
         return string.count > 0 ? string : nil
     }
 }

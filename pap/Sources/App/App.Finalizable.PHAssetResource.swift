@@ -34,7 +34,7 @@ public protocol PHAssetResourceFinalizableApp: FinalizableApp {
 }
 
 extension PHAssetResourceFinalizableApp {
-    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
+    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
         // filter only completed.
         let result = result
             .filter { respondable in respondable.info.state == .completed }

@@ -109,13 +109,13 @@ public class Stabilizer: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, Phot
 private class StabilizerTask: AppTaskPrototype, AppTaskable {
     private var isCancelled: Bool = false
     
-    public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable) {
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) {
         
         (param as? _StabilizerAppAsset)?.cancelAllRequestIDs()
         (param as? _StabilizerAppAsset)?.cancelProcessing()
     }
 
-    public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
+    public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
         assert(param is _StabilizerAppAsset, "TaskParamable type of this app is \(_StabilizerAppAsset.self)")
         guard let _param = param as? _StabilizerAppAsset else{
             throw AppTaskError.invalidParam
@@ -123,7 +123,7 @@ private class StabilizerTask: AppTaskPrototype, AppTaskable {
         return try self._perform(_param, async)
     }
     
-    private func _perform(_ assetItem: _StabilizerAppAsset, _ async: AsyncManualSignalable) throws -> PHAssetResultItem?  {
+    private func _perform(_ assetItem: _StabilizerAppAsset, _ async: AsyncWaitSignalable) throws -> PHAssetResultItem?  {
         var result: PHAssetResultItem?
         
         async.begin()

@@ -8,7 +8,7 @@ import FirebaseMLVision
 
 extension VisionCloudTextDetector{
 
-    func detect(with image: UIImage, _ async: AsyncManualSignalable) -> VisionCloudText? {
+    func detect(with image: UIImage, _ async: AsyncWaitSignalable) -> VisionCloudText? {
         let visionImage = VisionImage(image: image)
 
         var result:VisionCloudText?
@@ -25,7 +25,7 @@ extension VisionCloudTextDetector{
         return result
     }
 
-    func processToString(from text: VisionCloudText?, _ async: AsyncManualSignalable?=nil) {
+    func processToString(from text: VisionCloudText?, _ async: AsyncWaitSignalable?=nil) {
         guard let features = text, let pages = features.pages else {
             return
         }

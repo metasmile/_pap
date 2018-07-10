@@ -39,7 +39,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
             , appType: FinderApp.self
             , displayName: "Finder".localized, description:nil, keywords:nil
             , iconBundleName: R.image.finderBAppIcon.name
-            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy(cancellation: .shallow, priority: .normal, estimatedConcurrencyCount: 1))
+            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
             , minOSVersion: nil
     )
 
@@ -63,7 +63,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
     }
 
     fileprivate var preheatedResults = [String:FinderAppResult]()
-    public func performPreheating(item: AppAsset, _ async: AsyncSignal) -> PreheatingFinishAction? {
+    public func performPreheating(item: AppAsset, _ async: AsyncWaitSignalable) -> PreheatingFinishAction? {
         if self.autoSelect == false{
             return nil
         }
@@ -84,7 +84,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
                 : nil
     }
 
-    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncManualSignalable) -> [AppTaskRespondable] {
+    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
         let items = result
                 .filter { $0.info.state == .completed }
                 .compactMap { $0.result as? FinderAppResult }
@@ -146,7 +146,7 @@ private struct FinderAppResult: AppTaskResultable {
 
 extension FinderApp{
 
-    fileprivate func finalize_plaintext(items: [FinderAppResult], _ asyncSignal: AsyncManualSignalable) {
+    fileprivate func finalize_plaintext(items: [FinderAppResult], _ asyncSignal: AsyncWaitSignalable) {
         let strings = items.compactMap{ $0.plainText }
 
         if strings.count > 0 {
@@ -160,7 +160,7 @@ extension FinderApp{
         }
     }
 
-    fileprivate func finalize_contact(items: [FinderAppResult], _ asyncSignal: AsyncManualSignalable) {
+    fileprivate func finalize_contact(items: [FinderAppResult], _ asyncSignal: AsyncWaitSignalable) {
         var canSaveContract = items.compactMap { result -> [CNMutableContact]? in
             return result.contacts?.nilEmpty
         }.count > 0
@@ -246,7 +246,7 @@ extension FinderApp{
         }
     }
 
-    fileprivate func finalize_action(items: [FinderAppResult], _ asyncSignal: AsyncManualSignalable) {
+    fileprivate func finalize_action(items: [FinderAppResult], _ asyncSignal: AsyncWaitSignalable) {
         let alert = UIAlertController(title: "Choose An Action".localized, message: nil, preferredStyle: .actionSheet)
 
         let defaultCancelSubAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
@@ -254,6 +254,10 @@ extension FinderApp{
         })
 
         let isQuickActionOnly = FinderApp.privateDefaults.quickActionOnly
+
+        var StringSet = Set<String>()
+        var DateSet = Set<Date>()
+        var URLSet = Set<URL>()
 
         for item in items {
 
@@ -267,6 +271,11 @@ extension FinderApp{
                 Phone Number
             */
             for phoneNumber in Array(Set<String>((resultGroup.phoneNumbers ?? []).reduce([],+).compactMap({ $0.nilEmpty }))) {
+                if StringSet.contains(phoneNumber){
+                    continue
+                } else {
+                    StringSet.insert(phoneNumber)
+                }
 
                 let _quickAction = { (t:String) -> UIAlertAction in
 
@@ -322,7 +331,8 @@ extension FinderApp{
 
                     action =  UIAlertAction(title: phoneNumber, style: .default, handler: { action in
                         DispatchQueue.main.async{
-                            UIViewController.root?.present(_alert, animated: true)
+                            TableViewController.present(with: [UITableViewCellDescriber(label: "test")])
+//                            UIViewController.root?.present(_alert, animated: true)
                         }
 
                     })
@@ -337,89 +347,94 @@ extension FinderApp{
             /*
                 URL
             */
-
-            for urls in resultGroup.urls ?? []{
-
-                var urlPool = Set<URL>()
-                for url in urls where false == urlPool.contains(url){
-                    urlPool.insert(url)
-
-                    //sub actions
-                    let _quickAction = { (t: String) -> UIAlertAction in
-                        return UIAlertAction(title: t, style: .default, handler: { action in
-                            UIApplication.openSafari(with:url) {
-                                asyncSignal.end()
-                            }
-                        })
-                    }
-
-
-                    var action:UIAlertAction
-
-                    if isQuickActionOnly{
-
-                        action = _quickAction(url.absoluteString)
-
-                    }else{
-
-
-                        let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
-                        let _actions = [
-                            defaultCancelSubAction,
-
-                            _quickAction("Open Web Page".localized),
-
-                            UIAlertAction(title: "Add New Contact".localized, style: .default, handler: { action in
-                                if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal){
-                                    let contact = CNMutableContact()
-                                    contact.contactType = .person
-                                    contact.fillNameIfBlanked()
-
-                                    let components = NSCalendar.current.dateComponents([.year, .month, .day], from: Date())
-                                    contact.dates.append(CNLabeledValue(label: "Date".localized, value: components as NSDateComponents))
-
-                                    contact.urlAddresses.append(CNLabeledValue(label: "URL", value: url.absoluteString as NSString))
-
-                                    CNContactViewController.presentDialog(newContact: contact, didDismiss: {
-                                        asyncSignal.end()
-                                    })
-
-                                }else{
-                                    asyncSignal.end()
-                                }
-                            }),
-
-                            UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
-                                UIPasteboard.general.url = url
-                                asyncSignal.end()
-                            }),
-                            UIAlertAction(title: "Share".localized, style: .default, handler: { action in
-                                UIActivityViewController.share(activityItems: [url], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
-                                    asyncSignal.end()
-                                }
-                            })
-                        ]
-                        for _action in _actions{
-                            _alert.addAction(_action)
-                        }
-
-                        action = UIAlertAction(title: url.absoluteString, style: . default, handler: { action in
-                            DispatchQueue.main.async{
-                                UIViewController.root?.present(_alert, animated: true)
-                            }
-                        })
-                    }
-
-                    action.accessoryImage = R.image.ico_action_url()
-
-                    alert.addAction(action)
+            for url in Array(Set((resultGroup.urls ?? []).reduce([],+))){
+                if URLSet.contains(url){
+                    continue
+                } else {
+                    URLSet.insert(url)
                 }
+
+                //sub actions
+                let _quickAction = { (t: String) -> UIAlertAction in
+                    return UIAlertAction(title: t, style: .default, handler: { action in
+                        UIApplication.openSafari(with:url) {
+                            asyncSignal.end()
+                        }
+                    })
+                }
+
+
+                var action:UIAlertAction
+
+                if isQuickActionOnly{
+
+                    action = _quickAction(url.absoluteString)
+
+                }else{
+
+
+                    let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+                    let _actions = [
+                        defaultCancelSubAction,
+
+                        _quickAction("Open Web Page".localized),
+
+                        UIAlertAction(title: "Add New Contact".localized, style: .default, handler: { action in
+                            if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal){
+                                let contact = CNMutableContact()
+                                contact.contactType = .person
+                                contact.fillNameIfBlanked()
+
+                                let components = NSCalendar.current.dateComponents([.year, .month, .day], from: Date())
+                                contact.dates.append(CNLabeledValue(label: "Date".localized, value: components as NSDateComponents))
+
+                                contact.urlAddresses.append(CNLabeledValue(label: "URL", value: url.absoluteString as NSString))
+
+                                CNContactViewController.presentDialog(newContact: contact, didDismiss: {
+                                    asyncSignal.end()
+                                })
+
+                            }else{
+                                asyncSignal.end()
+                            }
+                        }),
+
+                        UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
+                            UIPasteboard.general.url = url
+                            asyncSignal.end()
+                        }),
+                        UIAlertAction(title: "Share".localized, style: .default, handler: { action in
+                            UIActivityViewController.share(activityItems: [url], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
+                                asyncSignal.end()
+                            }
+                        })
+                    ]
+                    for _action in _actions{
+                        _alert.addAction(_action)
+                    }
+
+                    action = UIAlertAction(title: url.absoluteString, style: . default, handler: { action in
+                        DispatchQueue.main.async{
+                            UIViewController.root?.present(_alert, animated: true)
+                        }
+                    })
+                }
+
+                action.accessoryImage = R.image.ico_action_url()
+
+                alert.addAction(action)
             }
 
             /*
                 Date -> Calendar, Reminder
             */
-            for date in (resultGroup.dates ?? []).reduce([],+){
+            for date in Array(Set((resultGroup.dates ?? []).reduce([],+))){
+                if DateSet.contains(date){
+                    continue
+                } else {
+                    DateSet.insert(date)
+                }
+
                 let formatter = DateFormatter()
                 formatter.dateStyle = .long
                 formatter.timeStyle = .medium
@@ -429,7 +444,6 @@ extension FinderApp{
                 let _quickAction = { (t: String) -> UIAlertAction in
                     return UIAlertAction(title: t, style: .default, handler: { action in
 
-                        //FIXME: when initially create event, event == nil
                         EventKitUtil.shared.newEvent { event in
                             if let event = event{
                                 event.title = "New Event".localized
@@ -501,7 +515,13 @@ extension FinderApp{
             /*
                 Email Address -> Email Map app
             */
-            for email in (resultGroup.emails ?? []).reduce([],+) where email.count>0{
+            for email in Array(Set((resultGroup.emails ?? []).reduce([],+).compactMap({ $0.trimmed.nilEmpty }))){
+                if StringSet.contains(email){
+                    continue
+                } else {
+                    StringSet.insert(email)
+                }
+
 
                 //sub actions
 
@@ -620,9 +640,12 @@ extension FinderApp{
             // https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html#//apple_ref/doc/uid/TP40007899-CH5-SW1
 
             for addr in (resultGroup.addresses ?? []).reduce([],+){
-                let addressString = addr.formattedString
-                if addressString.count == 0{
+                let addressString = addr.formattedString.trimmed
+
+                if StringSet.contains(addressString){
                     continue
+                } else {
+                    StringSet.insert(addressString)
                 }
 
                 //sub actions
@@ -681,7 +704,7 @@ extension FinderApp{
 
                     _actions.append(
                             UIAlertAction(title: "Share".localized, style: .default, handler: { action in
-                                UIActivityViewController.share(activityItems: [addr], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
+                                UIActivityViewController.share(activityItems: [addressString], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
                                     asyncSignal.end()
                                 }
                             })
@@ -728,13 +751,19 @@ extension FinderApp{
                 if let action = action{
                     alert.addAction(action)
                 }
+
             }// END OF AN ACTION
 
 
             /*
                 Flight Information
             */
-            for flightString in (resultGroup.flights ?? []).reduce([],+) where flightString.count>0{
+            for flightString in Array(Set((resultGroup.flights ?? []).reduce([],+).compactMap({ $0.nilEmpty }))){
+                if StringSet.contains(flightString){
+                    continue
+                } else {
+                    StringSet.insert(flightString)
+                }
 
                 var action:UIAlertAction?
 
@@ -855,7 +884,7 @@ private struct FinderAppDetector{
     }
 
 
-    fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncManualSignalable) -> FinderAppResult? {
+    fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncWaitSignalable) -> FinderAppResult? {
         guard let visionTexts = vision.textDetector().detect(with: image, async) else {
             return nil
         }
@@ -914,7 +943,7 @@ private struct FinderAppDetector{
                 }
 
                 if let mergingContract = mergingContract
-                , let parsedContract = parser.parse(input: visionText, mergingOutput: mergingContract){
+                , let parsedContract = parser.process(input: visionText, mergingOutput: mergingContract){
                         stackedParsedContacts.append(parsedContract)
                 }
             }
@@ -971,9 +1000,9 @@ private class _FinderAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, App
     private let emailParser = VisionTextEmailAddressParser()
     private let phoneNumberParser = VisionTextPhoneNumberParser()
 
-    public func cancel(_ param: AppTaskParamable, _ async: AsyncManualSignalable){}
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){}
 
-    public func perform(_ param: AppTaskParamable, _ async: AsyncManualSignalable) throws -> AppTaskResultable? {
+    public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
 
         guard let asset = (param as? PHAssetItem<ImageEditStateValue>)?.asset else{
             return nil
@@ -1524,25 +1553,3 @@ private class Cell: UITableViewCell {
         optionSwitch.onTintColor = tintColor
     }
 }
-
-fileprivate extension UIAlertAction {
-
-    var accessoryImage: UIImage? {
-        get {
-            if self.responds(to: Selector(Constants.imageKey)) {
-                return self.value(forKey: Constants.imageKey) as? UIImage
-            }
-            return nil
-        }
-        set {
-            if self.responds(to: Selector(Constants.imageKey)) {
-                self.setValue(newValue, forKey: Constants.imageKey)
-            }
-        }
-    }
-
-    private struct Constants {
-        static var imageKey = "image"
-    }
-}
-

@@ -9,7 +9,7 @@ import FirebaseMLVision
 
 extension VisionCloudText{
     func parseToString() -> String?{
-        return VisionCloudTextParser.default.parse(input: self)
+        return VisionCloudTextParser.default.process(input: self)
     }
 }
 
@@ -19,7 +19,7 @@ struct VisionCloudTextParser: Processor {
 
     static let `default` = VisionCloudTextParser()
 
-    func parse(input: VisionCloudText) -> String? {
+    func process(input: VisionCloudText) -> String? {
         guard let pages = input.pages else {
             return nil
         }

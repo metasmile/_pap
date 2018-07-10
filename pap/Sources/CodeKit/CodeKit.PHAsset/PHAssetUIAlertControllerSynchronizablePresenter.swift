@@ -22,7 +22,7 @@ extension PHAssetUIAlertControllerSynchronizablePresenter {
         return [.save, .share, .saveAndShare]
     }
 
-    public func presentUIAlertControllerAndWait(items: [Any]?, _ asyncSignal: AsyncManualSignalable) {
+    public func presentUIAlertControllerAndWait(items: [Any]?, _ asyncSignal: AsyncWaitSignalable) {
         guard let items = items else {
             return
         }

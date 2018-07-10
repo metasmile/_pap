@@ -148,11 +148,11 @@
 "Auto Editor" = "Авто редактор";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Жарылыс";
-/* Generated from genl10n: CallNumbers.swift#57 */
+/* Generated from genl10n: PhoneCalls.swift#57 */
 "Call Numbers" = "Сандарға қоңырау шалу";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Қайтару мүмкін емес. Барлық таңдалған элементтер өңделмеген.";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Choose A Phone Number To Call" = "Қоңырау шалу үшін телефон нөмірін таңдаңыз";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Әрекетті таңдаңыз";
@@ -196,7 +196,7 @@
 "Downloading..." = "Жүктелуде ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Электрондық пошта";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallNumbers.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, PhoneCalls.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Авто таңдауды қосу";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Экспорт параметрлері";
@@ -204,11 +204,11 @@
 "Export" = "Экспорт";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Сүзгілер";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "Табу";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "Finder";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "Контактілерді табу ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Ұшу нөмірі";
@@ -300,7 +300,7 @@
 "Select Photos To Find Everything." = "Барлығын табу үшін фотосуреттерді таңдаңыз.";
 /* Generated from genl10n: Cleaner.BApp.swift#316 */
 "Select Photos You Want To Clean!" = "Тазалауды қалайтын фотосуреттерді таңдаңыз!";
-/* Generated from genl10n: CallNumbers.swift */
+/* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Телефон нөмірлерін ұстағыңыз келетін фотосуреттерді таңдаңыз!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Электрондық поштаны жіберу";
@@ -310,7 +310,7 @@
 "Size" = "Өлшемі";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Кейбір контактілер сақталды, бірақ кейбір адамдар жоқ.";
-/* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
+/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "Сіз таңдаған қандай да бір ақпарат таппады.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
 "Sorry, this contact could not be saved." = "Кешіріңіз, бұл контакт сақталмады.";
@@ -338,9 +338,9 @@
 "Translation" = "Аударма";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Бейне";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "Таңдауды күтуде ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: CallNumbers.swift */
+/* Generated from genl10n: PhoneCalls.swift */
 "🔍 Starting To Find ..." = "Іздеуге кірісу ...";

@@ -250,7 +250,7 @@ class PhotoPickerViewController: AppDockViewController {
                 }
             }
 
-            AppCenter.default.currentInstanceAs(CallNumbersApp.self)?.watch(\.autoSelect, id: "picker\(CallNumbersApp.info.identifier)") { (app, changed) in
+            AppCenter.default.currentInstanceAs(PhoneCallsApp.self)?.watch(\.autoSelect, id: "picker\(PhoneCallsApp.info.identifier)") { (app, changed) in
                 if app.autoSelect && !AppCenter.default.task.isRunning {
                     self.cancelPreheatingIfNeeded()
                     self.performPrefetchIfNeeded(includingCurrentVisibleItems: true)
@@ -298,7 +298,7 @@ class PhotoPickerViewController: AppDockViewController {
         AppCenter.default.currentInstanceAs(GIFMakerApp.self)?.config?.unwatch(\.sourceType, forIds:["picker\(GIFMakerApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(ConverterApp.self)?.config?.unwatch(\.convertingDirectionIdentifier, forIds:["picker\(ConverterApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(RevertApp.self)?.unwatch(\.autoSelect, forIds:["picker\(RevertApp.info.identifier)"])
-        AppCenter.default.currentInstanceAs(CallNumbersApp.self)?.unwatch(\.autoSelect, forIds:["picker\(CallNumbersApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(PhoneCallsApp.self)?.unwatch(\.autoSelect, forIds:["picker\(PhoneCallsApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(ExifGhostApp.self)?.unwatch(\.autoSelect, forIds:["picker\(ExifGhostApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(FinderApp.self)?.unwatch(\.autoSelect, forIds:["picker\(FinderApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(CleanerApp.self)?.unwatch(\.autoSelect, forIds:["picker\(CleanerApp.info.identifier)"])

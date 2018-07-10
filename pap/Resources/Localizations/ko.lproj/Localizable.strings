@@ -148,11 +148,11 @@
 "Auto Editor" = "자동 편집기";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "버스트";
-/* Generated from genl10n: CallNumbers.swift#57 */
+/* Generated from genl10n: PhoneCalls.swift#57 */
 "Call Numbers" = "전화 번호";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "되돌릴 수 없습니다. 선택한 모든 항목이 편집되지 않았습니다.";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Choose A Phone Number To Call" = "전화 할 전화 번호 선택";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "액션 선택";
@@ -196,7 +196,7 @@
 "Downloading..." = "다운로드 중 ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "이메일 주소";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallNumbers.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, PhoneCalls.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "자동 선택 사용";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "내보내기 옵션";
@@ -204,11 +204,11 @@
 "Export" = "내보내기";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "필터";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "발견";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "파인더";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "연락처 찾기 ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "항공편 번호";
@@ -300,7 +300,7 @@
 "Select Photos To Find Everything." = "모든 것을 찾기 위해 사진을 선택하십시오.";
 /* Generated from genl10n: Cleaner.BApp.swift#316 */
 "Select Photos You Want To Clean!" = "원하는 사진을 선택하십시오.";
-/* Generated from genl10n: CallNumbers.swift */
+/* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "전화 번호를 잡고 싶은 사진을 선택하십시오!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "이메일 보내기";
@@ -310,7 +310,7 @@
 "Size" = "크기";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "일부 연락처는 저장되었지만 일부 연락처는 저장되지 않았습니다.";
-/* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
+/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "선택한 정보를 찾을 수 없습니다.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
 "Sorry, this contact could not be saved." = "죄송합니다.이 연락처를 저장할 수 없습니다.";
@@ -338,9 +338,9 @@
 "Translation" = "번역";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "비디오";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "선택 대기 중 ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: CallNumbers.swift */
+/* Generated from genl10n: PhoneCalls.swift */
 "🔍 Starting To Find ..." = "찾기 시작 ...";

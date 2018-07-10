@@ -148,11 +148,11 @@
 "Auto Editor" = "Trình chỉnh sửa tự động";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
-/* Generated from genl10n: CallNumbers.swift#57 */
+/* Generated from genl10n: PhoneCalls.swift#57 */
 "Call Numbers" = "Số cuộc gọi";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Không thể hoàn nguyên. Tất cả các mục đã chọn chưa được chỉnh sửa.";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Choose A Phone Number To Call" = "Chọn số điện thoại để gọi";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Chọn một hành động";
@@ -196,7 +196,7 @@
 "Downloading..." = "Đang tải xuống ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Địa chỉ email";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallNumbers.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, PhoneCalls.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Bật lựa chọn tự động";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Tùy chọn xuất";
@@ -204,11 +204,11 @@
 "Export" = "Xuất khẩu";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Bộ lọc";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "Tìm thấy";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "người tìm ra";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "Đang tìm Danh bạ ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Số chuyến bay";
@@ -300,7 +300,7 @@
 "Select Photos To Find Everything." = "Chọn ảnh để tìm mọi thứ.";
 /* Generated from genl10n: Cleaner.BApp.swift#316 */
 "Select Photos You Want To Clean!" = "Chọn ảnh bạn muốn xóa!";
-/* Generated from genl10n: CallNumbers.swift */
+/* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Chọn hình ảnh bạn muốn để lấy số điện thoại!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Gửi email";
@@ -310,7 +310,7 @@
 "Size" = "Kích thước";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Một số địa chỉ liên lạc đã được lưu, nhưng ai đó thì không.";
-/* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
+/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "Rất tiếc, không tìm thấy bất kỳ thông tin nào bạn đã chọn.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
 "Sorry, this contact could not be saved." = "Rất tiếc, không thể lưu liên hệ này.";
@@ -338,9 +338,9 @@
 "Translation" = "Dịch";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "Đang chờ chọn ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Làm cong";
-/* Generated from genl10n: CallNumbers.swift */
+/* Generated from genl10n: PhoneCalls.swift */
 "🔍 Starting To Find ..." = "Bắt đầu tìm ...";

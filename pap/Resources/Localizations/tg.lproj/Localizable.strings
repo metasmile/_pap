@@ -148,11 +148,11 @@
 "Auto Editor" = "Таҳлилгари худ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Бастур";
-/* Generated from genl10n: CallNumbers.swift#57 */
+/* Generated from genl10n: PhoneCalls.swift#57 */
 "Call Numbers" = "Рақамҳои Call";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Метавонед баргардед. Ҳамаи намудҳои интихобшуда таҳрир нашудаанд.";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Choose A Phone Number To Call" = "Рақами телефонро барои занг интихоб кунед";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Амалро интихоб кунед";
@@ -196,7 +196,7 @@
 "Downloading..." = "Боргирии ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Суроғаи электронӣ";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallNumbers.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, PhoneCalls.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Интихобро интихоб кунед";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Имкониятҳои содиротӣ";
@@ -204,11 +204,11 @@
 "Export" = "Содирот";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Филтрҳо";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "Ҷустуҷӯ";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "Finder";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "Ҷустуҷӯи мухотибон ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Рақами парвоз";
@@ -300,7 +300,7 @@
 "Select Photos To Find Everything." = "Суратҳо барои ҳама чизро интихоб кунед.";
 /* Generated from genl10n: Cleaner.BApp.swift#316 */
 "Select Photos You Want To Clean!" = "Суратҳоеро, ки шумо тоза мекунед, интихоб кунед!";
-/* Generated from genl10n: CallNumbers.swift */
+/* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Суратҳоеро интихоб кунед, ки мехоҳед Рақамҳои телефонро гиред!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Ирсол намоед";
@@ -310,7 +310,7 @@
 "Size" = "Андозаи";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Баъзе мухотибон наҷот дода шуданд, вале баъзеҳо буданд.";
-/* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
+/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "Мутаассифона, ягон маълумотеро,";
 /* Generated from genl10n: Finder.BApp.swift#174 */
 "Sorry, this contact could not be saved." = "Мутаассифона, ин алоқа наҷот намеёфт.";
@@ -338,9 +338,9 @@
 "Translation" = "Тарҷума";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Видео";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "Интизорӣ барои интихоби ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Варақа";
-/* Generated from genl10n: CallNumbers.swift */
+/* Generated from genl10n: PhoneCalls.swift */
 "🔍 Starting To Find ..." = "Оғоз барои дарёфти ...";

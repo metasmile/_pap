@@ -18,7 +18,7 @@ public struct PHAssetFinalizingOutput {
 protocol PHAssetUIActivityFinalizableApp: PHAssetFinalizableApp{}
 
 extension PHAssetUIActivityFinalizableApp{
-    public func presentFinalizingActivity(items: [PHAssetFinalizingActivityItem]?, _ asyncSignal: AsyncManualSignalable) {
+    public func presentFinalizingActivity(items: [PHAssetFinalizingActivityItem]?, _ asyncSignal: AsyncWaitSignalable) {
         asyncSignal.begin()
         DispatchQueue.main.async {
             if let shareItems = items, shareItems.count > 0, let rootViewController = UIViewController.root {
@@ -87,7 +87,7 @@ internal class PHAssetFinalizingActivity: UIActivity {
 }
 
 extension PHAssetFinalizingActivity {
-    func modifyingAndWait(items:[PHAssetFinalizingActivityItem], _ asyncSignal: AsyncManualSignalable = AsyncSignal()){
+    func modifyingAndWait(items:[PHAssetFinalizingActivityItem], _ asyncSignal: AsyncWaitSignalable = AsyncSignal()){
         asyncSignal.begin()
         PHPhotoLibrary.shared().performChanges({
             items.forEach { item in
@@ -106,7 +106,7 @@ extension PHAssetFinalizingActivity {
         asyncSignal.waitUntilEnd()
     }
 
-    func creatingAndWait(items:[PHAssetFinalizingActivityItem], _ asyncSignal: AsyncManualSignalable = AsyncSignal()){
+    func creatingAndWait(items:[PHAssetFinalizingActivityItem], _ asyncSignal: AsyncWaitSignalable = AsyncSignal()){
         print("creatingAndWait", items.count)
         try? PHPhotoLibrary.shared().performChangesAndWait {
             items.forEach { item in
@@ -122,7 +122,7 @@ extension PHAssetFinalizingActivity {
         print("creatingAndWait end")
     }
 
-    func deletingAndWait(items:[PHAssetFinalizingActivityItem], _ asyncSignal: AsyncManualSignalable = AsyncSignal()){
+    func deletingAndWait(items:[PHAssetFinalizingActivityItem], _ asyncSignal: AsyncWaitSignalable = AsyncSignal()){
         asyncSignal.begin()
 
         PHPhotoLibrary.shared().performChanges({
@@ -134,7 +134,7 @@ extension PHAssetFinalizingActivity {
         asyncSignal.waitUntilEnd()
     }
 
-    func sharingAndWait(items:[PHAssetFinalizingActivityItem], _ asyncSignal: AsyncManualSignalable = AsyncSignal()){
+    func sharingAndWait(items:[PHAssetFinalizingActivityItem], _ asyncSignal: AsyncWaitSignalable = AsyncSignal()){
 //        asyncSignal.begin()
         DispatchQueue.main.async {
             let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: items.compactMap({ $0.output?.resources }).reduce([],+).map { $0.url }, applicationActivities: nil)

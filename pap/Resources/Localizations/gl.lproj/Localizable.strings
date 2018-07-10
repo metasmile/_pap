@@ -148,11 +148,11 @@
 "Auto Editor" = "Editor automático";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Estourido";
-/* Generated from genl10n: CallNumbers.swift#57 */
+/* Generated from genl10n: PhoneCalls.swift#57 */
 "Call Numbers" = "Números de chamadas";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Non se pode volver. Non se editaron todos os elementos seleccionados.";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Choose A Phone Number To Call" = "Elixe un número de teléfono para chamar";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Escolla unha acción";
@@ -196,7 +196,7 @@
 "Downloading..." = "Descargando ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Enderezo electrónico";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallNumbers.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, PhoneCalls.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Activar a selección automática";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Opcións de exportación";
@@ -204,11 +204,11 @@
 "Export" = "Exportar";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filtros";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "Buscar";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "inventor";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "Buscando contactos ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Número de voo";
@@ -300,7 +300,7 @@
 "Select Photos To Find Everything." = "Selecciona fotos para atopar todo.";
 /* Generated from genl10n: Cleaner.BApp.swift#316 */
 "Select Photos You Want To Clean!" = "Selecciona as fotos que queres limpar.";
-/* Generated from genl10n: CallNumbers.swift */
+/* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Selecciona fotos que desexas obter.";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Enviar un correo electrónico";
@@ -310,7 +310,7 @@
 "Size" = "Tamaño";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Gardáronse algúns contactos, pero algúns non foron.";
-/* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
+/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "Non se atopou a información que seleccionaches.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
 "Sorry, this contact could not be saved." = "Non se puido gardar este contacto.";
@@ -338,9 +338,9 @@
 "Translation" = "Tradución";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Vídeo";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "Esperando a seleccionar ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: CallNumbers.swift */
+/* Generated from genl10n: PhoneCalls.swift */
 "🔍 Starting To Find ..." = "Comezando a atopar ...";

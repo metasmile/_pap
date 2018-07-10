@@ -14,7 +14,7 @@ For other ones, use App.Lib.FirebaseMLVision.VisionText.Parser.Extensions
 */
 
 protocol VisionTextParser: Processor where Self.InputType==VisionText {
-    func parse(input:VisionText) -> OutputType?
+    func process(input:VisionText) -> OutputType?
 }
 
 struct VisionTextStringParser: VisionTextParser {
@@ -24,8 +24,8 @@ struct VisionTextStringParser: VisionTextParser {
 
     private let blockParser = VisionTextTextBlockParser()
 
-    func parse(input: VisionText) -> OutputType? {
-        guard let lines = blockParser.parse(input: input) else {
+    func process(input: VisionText) -> OutputType? {
+        guard let lines = blockParser.process(input: input) else {
             return nil
         }
 
@@ -58,8 +58,8 @@ public struct VisionTextStringElementsParser: VisionTextParser {
 
     private let blockParser = VisionTextTextBlockParser()
 
-    func parse(input: VisionText) -> OutputType? {
-        return blockParser.parse(input: input)?.compactMap { strings -> String? in
+    func process(input: VisionText) -> OutputType? {
+        return blockParser.process(input: input)?.compactMap { strings -> String? in
             return strings.joined()
         }
     }
@@ -70,7 +70,7 @@ public struct VisionTextTextBlockParser: VisionTextParser {
 
     static let shared = VisionTextTextBlockParser()
 
-    func parse(input: VisionText) -> OutputType? {
+    func process(input: VisionText) -> OutputType? {
 
         if let block = input as? VisionTextBlock {
             var linesInBlock = [[String]]()

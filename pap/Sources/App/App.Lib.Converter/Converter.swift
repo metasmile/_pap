@@ -95,7 +95,7 @@ protocol Converter {
 
     static func canPerformWith(source:AppAsset) -> Bool
 
-    func convert(source:AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncManualSignalable) -> Any?
+    func convert(source:AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> Any?
 }
 
 protocol ConverterCapability{
@@ -139,11 +139,11 @@ class OptionableConverterBase<T>: OptionableConverter {
 */
 extension Converter{
 
-    func buildVideo(imageUrls:[URL], fps:Int32?=nil, _ async: AsyncManualSignalable) -> URL?{
+    func buildVideo(imageUrls:[URL], fps:Int32?=nil, _ async: AsyncWaitSignalable) -> URL?{
         return self.buildVideo(imagePaths: imageUrls.mapAsPath, fps: fps, async)
     }
 
-    func buildVideo(imagePaths:[String], fps:Int32?=nil, outputSize: CGSize = .zero, _ async: AsyncManualSignalable) -> URL?{
+    func buildVideo(imagePaths:[String], fps:Int32?=nil, outputSize: CGSize = .zero, _ async: AsyncWaitSignalable) -> URL?{
 
         var videoUrl:URL?
 
@@ -170,7 +170,7 @@ extension Converter{
         return videoUrl
     }
     
-    func buildVideo(urls:[(url: URL, frameDelay: Double)], outputSize: CGSize? = nil, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncManualSignalable) -> URL?{
+    func buildVideo(urls:[(url: URL, frameDelay: Double)], outputSize: CGSize? = nil, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> URL?{
         var videoUrl:URL?
         
         if urls.count > 0{
@@ -200,7 +200,7 @@ extension Converter{
         return videoUrl
     }
 
-    public func extractVideoFileURL(source:AppAsset, options: PHVideoRequestOptions? = nil, _ async: AsyncManualSignalable) -> URL? {
+    public func extractVideoFileURL(source:AppAsset, options: PHVideoRequestOptions? = nil, _ async: AsyncWaitSignalable) -> URL? {
 
         let options: PHVideoRequestOptions = PHVideoRequestOptions()
 //        options.version = .original
@@ -246,7 +246,7 @@ struct ConverterBurstImageExtractParam {
 
 extension Converter{
 
-    func extractBurstImageURLs(source:AppAsset, param: ConverterBurstImageExtractParam = ConverterBurstImageExtractParam(), _ async: AsyncManualSignalable) -> [(url: URL, frameDelay: Double)]?{
+    func extractBurstImageURLs(source:AppAsset, param: ConverterBurstImageExtractParam = ConverterBurstImageExtractParam(), _ async: AsyncWaitSignalable) -> [(url: URL, frameDelay: Double)]?{
 
         let fetchOptions = PHFetchOptions()
         fetchOptions.includeAllBurstAssets = true
@@ -308,11 +308,11 @@ extension Converter{
 */
 
 extension Converter{
-    func createLivePhoto(fromImageURLs:[URL], fps:Int32=30, _ async: AsyncManualSignalable) -> PHLivePhoto?{
+    func createLivePhoto(fromImageURLs:[URL], fps:Int32=30, _ async: AsyncWaitSignalable) -> PHLivePhoto?{
         return self.createLivePhoto(fromImagePaths: fromImageURLs.mapAsPath, fps: fps, async)
     }
 
-    func createLivePhoto(fromImagePaths:[String], fps:Int32=30, _ async: AsyncManualSignalable) -> PHLivePhoto?{
+    func createLivePhoto(fromImagePaths:[String], fps:Int32=30, _ async: AsyncWaitSignalable) -> PHLivePhoto?{
         var result:PHLivePhoto?
 
         async.begin()
@@ -326,7 +326,7 @@ extension Converter{
         return result
     }
 
-    func createLivePhoto(fromVideoPath:String, timeLocationOfTitle:Double=0, _ async: AsyncManualSignalable) -> PHLivePhoto?{
+    func createLivePhoto(fromVideoPath:String, timeLocationOfTitle:Double=0, _ async: AsyncWaitSignalable) -> PHLivePhoto?{
         var result:PHLivePhoto?
 
         async.begin()
@@ -349,7 +349,7 @@ extension Converter{
 
 extension Converter{
 
-    func extractImageURLsFromGIFData(asset:PHAsset, _ async: AsyncManualSignalable) -> [(url: URL, frameDelay: Double)]?{
+    func extractImageURLsFromGIFData(asset:PHAsset, _ async: AsyncWaitSignalable) -> [(url: URL, frameDelay: Double)]?{
         var resultUrls:[(URL, Double)]?
         
         let options = PHImageRequestOptions()

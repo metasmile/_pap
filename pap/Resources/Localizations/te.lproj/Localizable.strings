@@ -148,11 +148,11 @@
 "Auto Editor" = "ఆటో ఎడిటర్";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "విస్ఫోటనం";
-/* Generated from genl10n: CallNumbers.swift#57 */
+/* Generated from genl10n: PhoneCalls.swift#57 */
 "Call Numbers" = "కాల్ నంబర్స్";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "తిరిగి రాలేరు. ఎంచుకున్న అన్ని అంశాలను సవరించలేదు.";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Choose A Phone Number To Call" = "కాల్ చేయడానికి ఫోన్ నంబర్ను ఎంచుకోండి";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "ఒక చర్యను ఎంచుకోండి";
@@ -196,7 +196,7 @@
 "Downloading..." = "డౌన్లోడ్ చేస్తోంది ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "ఇ-మెయిల్ చిరునామా";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallNumbers.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, PhoneCalls.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "స్వీయ ఎన్నిక ప్రారంభించు";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "ఎగుమతి ఎంపికలు";
@@ -204,11 +204,11 @@
 "Export" = "ఎగుమతి";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "వడపోతలు";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "కనుగొనండి";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "ఫైండర్";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "సంపర్కాలను కనుగొనడం ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "ఫ్లైట్ సంఖ్య";
@@ -300,7 +300,7 @@
 "Select Photos To Find Everything." = "ప్రతిదాన్ని కనుగొనడానికి ఫోటోలను ఎంచుకోండి.";
 /* Generated from genl10n: Cleaner.BApp.swift#316 */
 "Select Photos You Want To Clean!" = "మీరు శుభ్రం చేయాలనుకుంటున్న ఫోటోలను ఎంచుకోండి!";
-/* Generated from genl10n: CallNumbers.swift */
+/* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "మీరు ఫోన్ నంబర్లను పట్టుకోడానికి కావలసిన ఫోటోలను ఎంచుకోండి!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "ఒక ఇమెయిల్ పంపండి";
@@ -310,7 +310,7 @@
 "Size" = "పరిమాణం";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "కొన్ని పరిచయాలు సేవ్ చేయబడ్డాయి, కానీ కొంతమంది కాదు.";
-/* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
+/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "క్షమించండి మీరు ఎంచుకున్న సమాచారం కనుగొనబడలేదు.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
 "Sorry, this contact could not be saved." = "క్షమించండి, ఈ పరిచయం సేవ్ చేయబడలేదు.";
@@ -338,9 +338,9 @@
 "Translation" = "అనువాద";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "వీడియో";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "ఎంచుకోవడానికి వేచి ఉంది ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "వార్ప్";
-/* Generated from genl10n: CallNumbers.swift */
+/* Generated from genl10n: PhoneCalls.swift */
 "🔍 Starting To Find ..." = "కనుగొనుటకు ప్రారంభిస్తోంది ...";
