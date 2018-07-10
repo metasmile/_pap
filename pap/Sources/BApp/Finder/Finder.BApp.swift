@@ -255,6 +255,10 @@ extension FinderApp{
 
         let isQuickActionOnly = FinderApp.privateDefaults.quickActionOnly
 
+        var StringSet = Set<String>()
+        var DateSet = Set<Date>()
+        var URLSet = Set<URL>()
+
         for item in items {
 
             guard let resultGroup = item.resultGroup else{
@@ -267,6 +271,11 @@ extension FinderApp{
                 Phone Number
             */
             for phoneNumber in Array(Set<String>((resultGroup.phoneNumbers ?? []).reduce([],+).compactMap({ $0.nilEmpty }))) {
+                if StringSet.contains(phoneNumber){
+                    continue
+                } else {
+                    StringSet.insert(phoneNumber)
+                }
 
                 let _quickAction = { (t:String) -> UIAlertAction in
 
@@ -338,6 +347,12 @@ extension FinderApp{
                 URL
             */
             for url in Array(Set((resultGroup.urls ?? []).reduce([],+))){
+                if URLSet.contains(url){
+                    continue
+                } else {
+                    URLSet.insert(url)
+                }
+
                 //sub actions
                 let _quickAction = { (t: String) -> UIAlertAction in
                     return UIAlertAction(title: t, style: .default, handler: { action in
@@ -413,6 +428,12 @@ extension FinderApp{
                 Date -> Calendar, Reminder
             */
             for date in Array(Set((resultGroup.dates ?? []).reduce([],+))){
+                if DateSet.contains(date){
+                    continue
+                } else {
+                    DateSet.insert(date)
+                }
+
                 let formatter = DateFormatter()
                 formatter.dateStyle = .long
                 formatter.timeStyle = .medium
@@ -493,7 +514,13 @@ extension FinderApp{
             /*
                 Email Address -> Email Map app
             */
-            for email in Array(Set((resultGroup.emails ?? []).reduce([],+).compactMap({ $0.nilEmpty }))){
+            for email in Array(Set((resultGroup.emails ?? []).reduce([],+).compactMap({ $0.trimmed.nilEmpty }))){
+                if StringSet.contains(email){
+                    continue
+                } else {
+                    StringSet.insert(email)
+                }
+
 
                 //sub actions
 
@@ -611,14 +638,14 @@ extension FinderApp{
             // https://developers.google.com/maps/documentation/urls/ios-urlscheme
             // https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html#//apple_ref/doc/uid/TP40007899-CH5-SW1
 
-            var addressStringsSet = Set<String>()
             for addr in (resultGroup.addresses ?? []).reduce([],+){
-                let addressString = addr.formattedString
-                if addressString.count == 0 || addressStringsSet.contains(addressString){
+                let addressString = addr.formattedString.trimmed
+
+                if StringSet.contains(addressString){
                     continue
+                } else {
+                    StringSet.insert(addressString)
                 }
-                //remove duplicated
-                addressStringsSet.insert(addressString)
 
                 //sub actions
                 let _quickAction = { (t: String) -> UIAlertAction? in
@@ -723,6 +750,7 @@ extension FinderApp{
                 if let action = action{
                     alert.addAction(action)
                 }
+
             }// END OF AN ACTION
 
 
@@ -730,6 +758,11 @@ extension FinderApp{
                 Flight Information
             */
             for flightString in Array(Set((resultGroup.flights ?? []).reduce([],+).compactMap({ $0.nilEmpty }))){
+                if StringSet.contains(flightString){
+                    continue
+                } else {
+                    StringSet.insert(flightString)
+                }
 
                 var action:UIAlertAction?
 

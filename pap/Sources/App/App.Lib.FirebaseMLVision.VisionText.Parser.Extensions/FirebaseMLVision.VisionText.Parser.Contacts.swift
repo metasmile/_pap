@@ -146,10 +146,10 @@ public struct VisionTextFlightNumberParser: VisionTextParser{
         }
 
         return Array(Set(
-                text.trim()
+                text.trimmed
                 .regexStrings(with: regexPattern)
                 .reduce([],+)
-                .compactMap { $0.trim().nilEmpty }
+                .compactMap { $0.trimmed.nilEmpty }
         )).nilEmpty
     }
 
