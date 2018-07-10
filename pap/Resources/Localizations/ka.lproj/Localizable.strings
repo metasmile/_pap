@@ -148,11 +148,11 @@
 "Auto Editor" = "ავტო რედაქტორი";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "ადიდებული";
-/* Generated from genl10n: CallNumbers.swift#57 */
+/* Generated from genl10n: PhoneCalls.swift#57 */
 "Call Numbers" = "ზარის ნომრები";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "ვერ ხერხდება. ყველა არჩეული ელემენტი არ არის რედაქტირებული.";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Choose A Phone Number To Call" = "აირჩიეთ ტელეფონის ნომერი დარეკეთ";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "ამოირჩიე მოქმედება";
@@ -196,7 +196,7 @@
 "Downloading..." = "ჩამოტვირთვის ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "ელექტრონული მისამართი";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallNumbers.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, PhoneCalls.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "ავტომატური შერჩევის ჩართვა";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "ექსპორტის პარამეტრები";
@@ -204,11 +204,11 @@
 "Export" = "ექსპორტი";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "ფილტრები";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "მოძებნა";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "Finder";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "კონტაქტების მოძიება ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "რეისის ნომერი";
@@ -300,7 +300,7 @@
 "Select Photos To Find Everything." = "აირჩიეთ ფოტოების მოძებნა.";
 /* Generated from genl10n: Cleaner.BApp.swift#316 */
 "Select Photos You Want To Clean!" = "აირჩიეთ ფოტოები გსურთ გაწმენდა!";
-/* Generated from genl10n: CallNumbers.swift */
+/* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "აირჩიეთ ფოტოები გსურთ ტელეფონის ნომრები!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "ელ.ფოსტის გაგზავნა";
@@ -310,7 +310,7 @@
 "Size" = "ზომა";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "ზოგიერთი კონტაქტის შენახვა მოხდა, მაგრამ ვინმეს არ იყო.";
-/* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
+/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "ბოდიში ვერ მოიძებნა რაიმე ინფორმაცია თქვენთვის შერჩეული.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
 "Sorry, this contact could not be saved." = "უკაცრავად, ეს კონტაქტის შენახვა ვერ მოხერხდა.";
@@ -338,9 +338,9 @@
 "Translation" = "თარგმანი";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "ვიდეო";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "ველოდები ველოდოთ ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: CallNumbers.swift */
+/* Generated from genl10n: PhoneCalls.swift */
 "🔍 Starting To Find ..." = "დასაძებნად ...";

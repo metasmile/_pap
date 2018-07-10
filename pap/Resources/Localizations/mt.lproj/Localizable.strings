@@ -148,11 +148,11 @@
 "Auto Editor" = "Editur awtomatiku";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Nfaqgħet";
-/* Generated from genl10n: CallNumbers.swift#57 */
+/* Generated from genl10n: PhoneCalls.swift#57 */
 "Call Numbers" = "Numri ta 'Sejħa";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Ma jistgħux jerġgħu lura. L-oġġetti magħżula kollha ma editjawx.";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Choose A Phone Number To Call" = "Agħżel Numru tat-Telefon għal Sejħa";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Agħżel Azzjoni";
@@ -196,7 +196,7 @@
 "Downloading..." = "Tniżżil ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Indirizz tal-posta elettronika";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, CallNumbers.swift, Textractor.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, PhoneCalls.swift, Textractor.BApp.swift */
 "Enable Auto Selection" = "Jippermettu Selezzjoni Awtomatika";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Għażliet ta 'esportazzjoni";
@@ -204,11 +204,11 @@
 "Export" = "Esportazzjoni";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filtri";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "Sib";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "Finder";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "Sib Kuntatti ... %@";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Numru tat-Titjira";
@@ -300,7 +300,7 @@
 "Select Photos To Find Everything." = "Agħżel ritratti biex isibu kollox.";
 /* Generated from genl10n: Cleaner.BApp.swift#316 */
 "Select Photos You Want To Clean!" = "Agħżel Ritratti Trid Nadif!";
-/* Generated from genl10n: CallNumbers.swift */
+/* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Agħżel Ir-Ritratti Trid Aqbad in-Numri tat-Telefon!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Ibgħat Email";
@@ -310,7 +310,7 @@
 "Size" = "Daqs";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Ġew iffrankati xi kuntatti, iżda someones ma kinux.";
-/* Generated from genl10n: CallNumbers.swift#172, Finder.BApp.swift#824 */
+/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
 "Sorry not found any information you selected." = "Skużana ma nstabet l-ebda informazzjoni li għażilt.";
 /* Generated from genl10n: Finder.BApp.swift#174 */
 "Sorry, this contact could not be saved." = "Skużana, dan il-kuntatt ma setax jiġi ffrankat.";
@@ -338,9 +338,9 @@
 "Translation" = "Traduzzjoni";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
-/* Generated from genl10n: Finder.BApp.swift, CallNumbers.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "Stennija biex Agħżel ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Medd";
-/* Generated from genl10n: CallNumbers.swift */
+/* Generated from genl10n: PhoneCalls.swift */
 "🔍 Starting To Find ..." = "Nibdew Sib ...";

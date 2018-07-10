@@ -72,7 +72,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             , RevertApp.self
             , ConverterApp.self
             , GIFMakerApp.self
-            , CallNumbersApp.self
+            , PhoneCallsApp.self
             , PDFactoryApp.self
             , AutoEditorApp.self
             , ExifGhostApp.self

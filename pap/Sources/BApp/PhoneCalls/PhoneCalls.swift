@@ -8,8 +8,8 @@ import Photos
 import FirebaseMLVision
 import DefaultsKit
 
-private typealias CallNumbersAppParam = PHAssetItem<ImageEditStateValue>
-private struct CallNumbersAppResult: AppTaskResultable {
+private typealias PhoneCallsAppParam = PHAssetItem<ImageEditStateValue>
+private struct PhoneCallsAppResult: AppTaskResultable {
     fileprivate let asset:PHAsset
 
     init(asset:PHAsset){
@@ -22,15 +22,15 @@ private struct CallNumbersAppResult: AppTaskResultable {
     fileprivate var addresses:[VisionTextAddressParser.OutputType]?
 }
 
-private protocol CallNumbersAppDefaults: AppDefaults{
+private protocol PhoneCallsAppDefaults: AppDefaults{
 
 }
 
-extension Defaults: CallNumbersAppDefaults {
+extension Defaults: PhoneCallsAppDefaults {
 
 }
 
-public class CallNumbersApp: NSObject, KeyPathWatchable, BApp
+public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
         , FinalizableApp
         , AppDockApp
         , PhotoPickerViewControllerDelegatableApp
@@ -38,23 +38,23 @@ public class CallNumbersApp: NSObject, KeyPathWatchable, BApp
 //        , PreviewableApp
         , AppManagerDelegatedApp {
 
-    public static let taskType: AppTaskable.Type = _CallNumbersAppTask.self
+    public static let taskType: AppTaskable.Type = _PhoneCallsAppTask.self
 
     public static let paramType: AppTaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
 
-    public private(set) lazy var dockContent: AppDockContent? = CallNumbersAppDockContent()
+    public private(set) lazy var dockContent: AppDockContent? = PhoneCallsAppDockContent()
 
-    private let appDefaults = CallNumbersApp.defaults as! CallNumbersAppDefaults
+    private let appDefaults = PhoneCallsApp.defaults as! PhoneCallsAppDefaults
 
     @objc dynamic
     public fileprivate (set) lazy var autoSelect: Bool = false
 
     public static let info = AppInfo(
-            identifier: "com.stells.pap.callnumbers"
+            identifier: "com.stells.pap.phonecalls"
             , version: "1.0"
             , phase: .release
-            , appType: CallNumbersApp.self
-            , displayName: "Call Numbers".localized, description:nil, keywords:nil
+            , appType: PhoneCallsApp.self
+            , displayName: "Phone Calls".localized, description:nil, keywords:nil
             , iconBundleName: R.image.callNumbersBAppIcon.name
             , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy(cancellation: .shallow, priority: .normal, estimatedConcurrencyCount: 1))
             , minOSVersion: nil
@@ -83,15 +83,15 @@ public class CallNumbersApp: NSObject, KeyPathWatchable, BApp
         return item.asset.mediaType == .image
     }
 
-    fileprivate var preheatedResults = [String:CallNumbersAppResult]()
+    fileprivate var preheatedResults = [String:PhoneCallsAppResult]()
     public func performPreheating(item: AppAsset, _ async: AsyncSignal) -> PreheatingFinishAction? {
         if self.autoSelect == false{
             return nil
         }
 
-        var preheatedResult:CallNumbersAppResult? = preheatedResults[item.asset.localIdentifierWithoutSplitter]
+        var preheatedResult:PhoneCallsAppResult? = preheatedResults[item.asset.localIdentifierWithoutSplitter]
         if preheatedResult == nil, let image = item.asset.asUIImage{
-            preheatedResult = self.detector.detectResult(asset: item.asset, image: image, async) ?? CallNumbersAppResult(asset: item.asset)
+            preheatedResult = self.detector.detectResult(asset: item.asset, image: image, async) ?? PhoneCallsAppResult(asset: item.asset)
             preheatedResults[item.asset.localIdentifierWithoutSplitter] = preheatedResult
         }
 
@@ -107,7 +107,7 @@ public class CallNumbersApp: NSObject, KeyPathWatchable, BApp
         let items = result
                 .filter { respondable in respondable.info.state == .completed }
                 .compactMap {
-                    $0.result as? CallNumbersAppResult
+                    $0.result as? PhoneCallsAppResult
                 }
                 .filter { result in
                     result.phoneNumbers?.count ?? 0 > 0
@@ -196,19 +196,19 @@ public class CallNumbersApp: NSObject, KeyPathWatchable, BApp
         return "Find".localized
     }
 
-    fileprivate var detector = CallNumbersAppDetector()
+    fileprivate var detector = PhoneCallsAppDetector()
 }
 
-private struct CallNumbersAppDetector{
+private struct PhoneCallsAppDetector{
 
     private let vision = Vision.vision()
 
-    fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncManualSignalable) -> CallNumbersAppResult? {
+    fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncManualSignalable) -> PhoneCallsAppResult? {
         guard let visionTexts = vision.textDetector().detect(with: image, async) else {
             return nil
         }
 
-        var result = CallNumbersAppResult(asset: asset)
+        var result = PhoneCallsAppResult(asset: asset)
         result.phoneNumbers = visionTexts.parse(type: VisionTextPhoneNumberParser.self, async)
 //        result.emails = visionTexts.parse(type: VisionTextEmailAddressParser.self, async)
 //        result.addresses = visionTexts.parse(type: VisionTextAddressParser.self, async)
@@ -216,7 +216,7 @@ private struct CallNumbersAppDetector{
     }
 }
 
-private class _CallNumbersAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, AppTaskable {
+private class _PhoneCallsAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, AppTaskable {
 
     private let emailParser = VisionTextEmailAddressParser()
     private let phoneNumberParser = VisionTextPhoneNumberParser()
@@ -229,13 +229,13 @@ private class _CallNumbersAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy
             return nil
         }
 
-        if let preheatedResults = AppCenter.default.currentInstanceAs(CallNumbersApp.self)?.preheatedResults
+        if let preheatedResults = AppCenter.default.currentInstanceAs(PhoneCallsApp.self)?.preheatedResults
         , let result = preheatedResults[asset.localIdentifierWithoutSplitter] {
             return result
 
         }else if let image = asset.asUIImage{
 
-            let detector = AppCenter.default.currentInstanceAs(CallNumbersApp.self)?.detector
+            let detector = AppCenter.default.currentInstanceAs(PhoneCallsApp.self)?.detector
             return detector?.detectResult(asset: asset, image: image, async)
         }
 
@@ -244,9 +244,9 @@ private class _CallNumbersAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy
 }
 
 
-fileprivate class CallNumbersAppDockContent: NSObject, KeyPathWatchable,
+fileprivate class PhoneCallsAppDockContent: NSObject, KeyPathWatchable,
         AppDockContent, UITableViewDelegate, UITableViewDataSource{
-    private lazy var defaults = CallNumbersApp.defaults as! CallNumbersAppDefaults
+    private lazy var defaults = PhoneCallsApp.defaults as! PhoneCallsAppDefaults
 
     private let primaryColor = UIColor(red:0.6, green:0.6, blue:0.6, alpha:1)
 
@@ -269,7 +269,7 @@ fileprivate class CallNumbersAppDockContent: NSObject, KeyPathWatchable,
             view.delegate = self
             view.rowHeight = 52
             view.allowsSelection = false
-            view.register(Cell.self, forCellReuseIdentifier: CallNumbersApp.info.identifier)
+            view.register(Cell.self, forCellReuseIdentifier: PhoneCallsApp.info.identifier)
 //            view.backgroundColor = UIColor(red: 31 / 255.0, green: 31 / 255.0, blue: 31 / 255.0, alpha: 1)
             view.tintColor = self.primaryColor
 //            view.separatorInset.left = view.rowHeight
@@ -310,7 +310,7 @@ fileprivate class CallNumbersAppDockContent: NSObject, KeyPathWatchable,
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CallNumbersApp.info.identifier) as! Cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: PhoneCallsApp.info.identifier) as! Cell
 
         cell.imageView?.tintColor = primaryColor
         cell.imageView?.contentMode = .scaleAspectFit
@@ -319,7 +319,7 @@ fileprivate class CallNumbersAppDockContent: NSObject, KeyPathWatchable,
         cell.optionSwitch.setOn(self.autoSelect, animated: false)
         cell.switchDidChange = { on in
             self.autoSelect = on
-            AppCenter.default.currentInstanceAs(CallNumbersApp.self)?.autoSelect = on
+            AppCenter.default.currentInstanceAs(PhoneCallsApp.self)?.autoSelect = on
         }
 
         return cell

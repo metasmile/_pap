@@ -5,8 +5,6 @@
 
 import Foundation
 
-//TODO: AsyncProcessor
-
 protocol Processor {
     associatedtype InputType
     associatedtype OutputType
@@ -14,4 +12,14 @@ protocol Processor {
     func parse(input:InputType) -> OutputType?
 
     init()
+}
+
+protocol AsyncProcessor: Processor {
+    func parse(input:InputType, asyncSingal:AsyncManualSignalable?) -> OutputType?
+}
+
+extension AsyncProcessor{
+    func parse(input: InputType) -> OutputType? {
+        return self.parse(input: input, asyncSingal: nil)
+    }
 }
