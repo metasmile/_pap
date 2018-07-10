@@ -1553,25 +1553,3 @@ private class Cell: UITableViewCell {
         optionSwitch.onTintColor = tintColor
     }
 }
-
-fileprivate extension UIAlertAction {
-
-    var accessoryImage: UIImage? {
-        get {
-            if self.responds(to: Selector(Constants.imageKey)) {
-                return self.value(forKey: Constants.imageKey) as? UIImage
-            }
-            return nil
-        }
-        set {
-            if self.responds(to: Selector(Constants.imageKey)) {
-                self.setValue(newValue, forKey: Constants.imageKey)
-            }
-        }
-    }
-
-    private struct Constants {
-        static var imageKey = "image"
-    }
-}
-
