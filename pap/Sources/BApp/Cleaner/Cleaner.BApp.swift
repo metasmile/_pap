@@ -186,16 +186,16 @@ private struct SettingsItem {
 }
 
 private protocol CleanerAppDefaults: AppDefaults{
-    var selectedParserCollection: ParserCollection {get set}
+    var selectedCollection: [GDDictionary] {get set}
     var selectionPreset: Int {get set}
     var saveContactWithoutEdit:Bool {get set}
     var quickActionOnly:Bool {get set}
 }
 
 extension Defaults: CleanerAppDefaults {
-    fileprivate var selectedParserCollection: ParserCollection {
+    fileprivate var selectedCollection: [GDDictionary] {
         set{ set(newValue) }
-        get{ return get(or: ParserDictionary.DefaultCollection) }
+        get{ return get(or: GDDictionary.DefaultCollection) }
     }
 
     fileprivate var selectionPreset: Int {
@@ -216,75 +216,82 @@ extension Defaults: CleanerAppDefaults {
 
 
 extension CleanerAppDefaults{
-    fileprivate func addHandledProperty(_ dictionary:ParserDictionary.Key, _ property:ParserItem.Key){
+    fileprivate func addHandledProperty(_ gdDict: GDDictionary, _ item: GDItem){
+
+        var _selectedCollection = selectedCollection
+        if let index = selectedCollection.index(of: gdDict){
+            var items = selectedCollection[index].items
+            if !items.contains(item){
+                items.append(item)
+            }
+            _selectedCollection[index].items = items
+
+        }else{
+            if !gdDict.items.contains(item){
+                var _gdDict = gdDict
+                _gdDict.items.append(item)
+            }
+            _selectedCollection.append(gdDict)
+        }
 
         var immutableSelf = self
-        if immutableSelf.selectedParserCollection[dictionary] == nil{
-            immutableSelf.selectedParserCollection = ParserCollection()
-            var p = immutableSelf.selectedParserCollection
-            p[dictionary] = [property]
-            immutableSelf.selectedParserCollection = p
-        }else{
-            if selectedParserCollection[dictionary]?.contains(property) == false{
-                var p = immutableSelf.selectedParserCollection
-                p[dictionary]?.append(property)
-                immutableSelf.selectedParserCollection = p
+        immutableSelf.selectedCollection = _selectedCollection
+    }
+
+    fileprivate func removeHandledProperty(_ gdDict: GDDictionary, _ item: GDItem){
+
+        if let index = selectedCollection.index(where:{ dictionary in dictionary == gdDict }){
+            var _selectedCollection = self.selectedCollection
+
+            var _gdDict = gdDict
+            if let index = _gdDict.items.index(of: item){
+                _gdDict.items.remove(at: index)
             }
-        }
-    }
+            _selectedCollection[index] = _gdDict
 
-    fileprivate func removeHandledProperty(_ dictionary:ParserDictionary.Key, _ property:ParserItem.Key){
-
-        if let index = selectedParserCollection[dictionary]?.index(of: property){
             var immutableSelf = self
-            var p = immutableSelf.selectedParserCollection
-            p[dictionary]?.remove(at: index)
-            immutableSelf.selectedParserCollection = p
+            immutableSelf.selectedCollection = _selectedCollection
         }
     }
 }
 
-private typealias ParserCollection = [ParserDictionary.Key: [ParserItem.Key]]
+private struct GDItem:Codable, Hashable {
+    fileprivate var identifier:String
+    fileprivate var label:String
+    fileprivate var iconImageName:String?
 
-private struct ParserItem {
-    enum Key: Int, Codable {
-        case PhoneNumber
-        case EmailAddress
-        case Address
-
-        case Date
-        case URL
-
-        case FlightNumber
-        case GPSCoordinates
+    init(gd:PHAssetGarbageDetector.Type, label:String, iconImageName:String?=nil){
+        self.identifier = gd.identifier
+        self.label = label
+        self.iconImageName = iconImageName
     }
 
-    fileprivate var key:Key
-    fileprivate var label:String
-    fileprivate var iconImageBundleName:String?
+    var hashValue: Int {
+        return identifier.hashValue
+    }
 }
 
-private struct ParserDictionary {
-
-    static let DefaultCollection: ParserCollection = [
-        ParserDictionary.Key.Information: [
-            ParserItem.Key.PhoneNumber
-            ,ParserItem.Key.EmailAddress
-            ,ParserItem.Key.Address
-
-            ,ParserItem.Key.Date
-            ,ParserItem.Key.URL
-            ,ParserItem.Key.FlightNumber
-        ]
+private struct GDDictionary:Codable, Hashable {
+    static let DefaultCollection: [GDDictionary] = [
+        GDDictionary(key: .Default, label: "Items".localized, items: [
+            GDItem(gd: PHAssetGarbageDetector_Similarity.self, label:"Similarity".localized, iconImageName: nil)
+            , GDItem(gd: PHAssetGarbageDetector_Blurry.self, label:"Haziness".localized, iconImageName: nil)
+            , GDItem(gd: PHAssetGarbageDetector_Lockscreens.self, label:"Lockscreens".localized,  iconImageName: nil)
+            , GDItem(gd: PHAssetGarbageDetector_Screenshots.self, label:"Screenshots".localized,  iconImageName: nil)
+        ])
     ]
 
     enum Key: Int, Codable {
-        case Information
+        case Default
     }
 
     fileprivate var key:Key
     fileprivate var label:String
-    fileprivate var items:[ParserItem]
+    fileprivate var items:[GDItem]
+
+    var hashValue: Int{
+      return key.hashValue
+    }
 }
 
 fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
@@ -292,30 +299,10 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
 
     fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
 
-    private var parserCollection:[ParserDictionary] {
-        get{
-            if CleanerApp.privateDefaults.selectionPreset == SelectionPreset.plaintext.rawValue{
-                return []
-            }
-
-            return type(of: self).defaultParserCollection
-        }
-    }
-
-    fileprivate static let defaultParserCollection:[ParserDictionary] = [
-
-        ParserDictionary(key: ParserDictionary.Key.Information, label: "Items".localized,
-                items: [
-                    ParserItem(key: ParserItem.Key.PhoneNumber, label:"Phone Number".localized, iconImageBundleName:R.image.ico_action_phonenumber.name)
-                    ,ParserItem(key: ParserItem.Key.EmailAddress, label:"E-mail Address".localized, iconImageBundleName:R.image.ico_action_email.name)
-                    ,ParserItem(key: ParserItem.Key.Address, label:"Address".localized, iconImageBundleName:R.image.ico_action_address.name)
-                    ,ParserItem(key: ParserItem.Key.Date, label:"Date".localized, iconImageBundleName:R.image.ico_action_date.name)
-                    ,ParserItem(key: ParserItem.Key.URL, label:"URL", iconImageBundleName:R.image.ico_action_url.name)
-                    ,ParserItem(key: ParserItem.Key.FlightNumber, label:"Flight Number".localized, iconImageBundleName:R.image.ico_action_flightnumber.name)
-                ])
-    ]
+    private var defaultsCollection = CleanerApp.privateDefaults.selectedCollection
 
     required public override init() {
+
         super.init()
     }
 
@@ -331,10 +318,6 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
         var preferences = AppDockContentPreferences()
         preferences.preferredHeight = 300
         return preferences
-    }
-
-    private var selectedParserCollection: ParserCollection{
-        return CleanerApp.privateDefaults.selectedParserCollection
     }
 
     private var autoSelect:Bool = false
@@ -426,14 +409,14 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
             cell1.valueHandler?(false)
 
         }
-        settingCellDescribers.append(cell0)
+//        settingCellDescribers.append(cell0)
 
         //auto save
         if CleanerApp.privateDefaults.selectionPreset == SelectionPreset.contact.rawValue{
-            settingCellDescribers.append(createCellDescriber_SelectionPreset_contact_saveContactWithoutEdit())
+//            settingCellDescribers.append(createCellDescriber_SelectionPreset_contact_saveContactWithoutEdit())
         }
         else if CleanerApp.privateDefaults.selectionPreset == SelectionPreset.action.rawValue{
-            settingCellDescribers.append(createCellDescriber_SelectionPreset_action_quickActionsOnly())
+//            settingCellDescribers.append(createCellDescriber_SelectionPreset_action_quickActionsOnly())
         }
 
         if let tableView = view as? UITableView{
@@ -452,24 +435,15 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
 
-        let defaultsCollection = CleanerApp.privateDefaults.selectedParserCollection
-
         //get indexes
-        let sections = self.parserCollection.enumerated().compactMap { (section, dictionary) -> [IndexPath]? in
-            if let handledItems = defaultsCollection[dictionary.key]{
-
-                return handledItems.compactMap { key -> IndexPath? in
-                    guard let item = dictionary.items.index(where: { item -> Bool in
-                        return key == item.key
-                    }) else{
-                        return nil
-                    }
-                    return IndexPath(item: item, section: 1+section)
+        let sections = self.defaultsCollection.enumerated().compactMap { section, dictionary -> [IndexPath]? in
+            return dictionary.items.compactMap { item -> IndexPath? in
+                if let index = dictionary.items.index(of: item){
+                    return IndexPath(item: index, section: 1+section)
                 }
+                return nil
             }
-            return nil
         }
-
 
         //init initialSelectedIndexPaths
         initialSelectedIndexPaths = [IndexPath]()
@@ -490,7 +464,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1 + parserCollection.count
+        return 1 + defaultsCollection.count
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -504,7 +478,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
         let label_section0 = "🖼️ ‣ 🔍 ‣ ⭐ " + "Select Photos To Find Everything.".localized
-        return section == 0 ? label_section0 : parserCollection[section-1].label
+        return section == 0 ? label_section0 : defaultsCollection[section-1].label
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -512,7 +486,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? settingCellDescribers.count : parserCollection[section-1].items.count
+        return section == 0 ? settingCellDescribers.count : defaultsCollection[section-1].items.count
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -602,16 +576,17 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
 
     func parserCollection_tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let dict = self.parserCollection[indexPath.section-1]
+        let dictIndex = indexPath.section-1
+        let dict = self.defaultsCollection[dictIndex]
 
         var selected = false
         if let _ = initialSelectedIndexPaths?.index(of: indexPath) {
             selected = true
         }
-        if let _ = CleanerApp.privateDefaults.selectedParserCollection[dict.key]?.index(of: dict.items[indexPath.item].key){
-            selected = true
-        }
-
+        
+        let _dict = CleanerApp.privateDefaults.selectedCollection[dictIndex]
+        selected = _dict.items.indices.contains(indexPath.item)
+        
         let dataItem = dict.items[indexPath.item]
 
         let cell = tableView.dequeueReusableCell(withIdentifier: CleanerApp.info.identifier) as! Cell
@@ -619,16 +594,16 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
         cell.detailTextLabel?.text = selected ? "may be found" : nil
 
         cell.imageView?.tintColor = self.view.tintColor
-        let image = dataItem.iconImageBundleName?.asUIImageNamed
+        let image = dataItem.iconImageName?.asUIImageNamed
         cell.imageView?.image = image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
 
         cell.detailTextLabel?.textColor = UIColor.gray
         cell.optionSwitch.setOn(selected, animated: false)
         cell.switchDidChange = { on in
             if on{
-                CleanerApp.privateDefaults.addHandledProperty(dict.key, dict.items[indexPath.item].key)
+                CleanerApp.privateDefaults.addHandledProperty(dict, dict.items[indexPath.item])
             }else{
-                CleanerApp.privateDefaults.removeHandledProperty(dict.key, dict.items[indexPath.item].key)
+                CleanerApp.privateDefaults.removeHandledProperty(dict, dict.items[indexPath.item])
             }
 
             tableView.reloadRows(at: [indexPath], with: .fade)
