@@ -231,6 +231,10 @@ class AppDockView: CustomView {
 
     // AppDock Control
     private var controller: AppDockContent? {
+        willSet {
+            controller?.willRemoveContentView()
+        }
+        
         didSet {
             if let view = controller?.view {
                 controller?.willSetContentView(view, dock: self)
@@ -299,6 +303,10 @@ class AppDockView: CustomView {
 
     // AppDock accessory
     var accessory: AppDockContent?{
+        willSet {
+            accessory?.willRemoveContentView()
+        }
+        
         didSet {
             if let view = accessory?.view {
                 accessory?.willSetContentView(view, dock: self)
