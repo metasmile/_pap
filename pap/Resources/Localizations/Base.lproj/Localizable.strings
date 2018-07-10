@@ -112,6 +112,8 @@
 "Burst" = "Burst";
 /* Generated from genl10n: CallNumbers.swift#57 */
 "Call Numbers" = "Call Numbers";
+/* Generated from genl10n: Camera.BApp.swift#24 */
+"Camera" = "Camera";
 /* Generated from genl10n: Revert.BApp.swift#86 */
 "Cannot revert. All selected items have not edited." = "Cannot revert. All selected items have not edited.";
 /* Generated from genl10n: CallNumbers.swift#122 */

@@ -66,6 +66,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
         //TODO: batchOS essential/settings app (it cannot be removed)
 
         var defaultAppCollection:[App.Type] = [
+            CameraApp.self,
             FinderApp.self
             , TransformApp.self
             , FiltersApp.self
