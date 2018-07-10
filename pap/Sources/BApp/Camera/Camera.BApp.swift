@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class CameraApp: NSObject, KeyPathWatchable, BApp, AppDockApp, PhotoPickerCollectionViewDisplayableApp, AppManagerDelegatedApp {
+class CameraApp: NSObject, KeyPathWatchable, BApp, AppDockApp, PhotoPickerCollectionViewDisplayableApp {
     public static let taskType: AppTaskable.Type = _CameraAppTask.self
     
     public static let paramType: AppTaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
@@ -32,14 +32,6 @@ class CameraApp: NSObject, KeyPathWatchable, BApp, AppDockApp, PhotoPickerCollec
     func shouldSelect(item: AppAsset) -> Bool {
         return false
     }
-    
-    func willSetCurrent(oldCurrent: App.Type?) {
-        
-    }
-    
-    func didSetCurrent(previous: App.Type?) {
-        
-    }
 }
 
 private class _CameraAppTask: AppTaskPrototype, AppTaskable {
@@ -55,10 +47,12 @@ private class _CameraAppTask: AppTaskPrototype, AppTaskable {
 
 fileprivate class CameraPreviewLayer: AVCaptureVideoPreviewLayer {
     override func action(forKey event: String) -> CAAction? {
-        if event == "bounds" {
+        switch event {
+        case "bounds", "position":
             return nil
+        default:
+            return super.action(forKey: event)
         }
-        return super.action(forKey: event)
     }
 }
 
@@ -72,13 +66,18 @@ fileprivate class CameraView: UIView {
     }
     
     var captureSession: AVCaptureSession?
+    lazy var capturePhotoOutput = AVCapturePhotoOutput()
+    lazy var capturePhotoSettings: AVCapturePhotoSettings = {
+        let settings = AVCapturePhotoSettings()
+        settings.isHighResolutionPhotoEnabled = true
+        return settings
+    }()
     
     fileprivate var sessionQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
+    fileprivate var captureQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        layer.actions = ["position": NSNull()]
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -110,9 +109,7 @@ fileprivate class CameraView: UIView {
         captureSession = AVCaptureSession()
         captureSession?.addInput(captureDeviceInput)
         
-        let capturePhotoOutput = AVCapturePhotoOutput()
         capturePhotoOutput.isHighResolutionCaptureEnabled = true
-        
         captureSession?.addOutput(capturePhotoOutput)
         
         captureVideoPreviewLayer?.session = captureSession
@@ -127,6 +124,12 @@ fileprivate class CameraView: UIView {
     func stopSession() {
         sessionQueue.async {
             self.captureSession?.stopRunning()
+        }
+    }
+    
+    func takePhoto() {
+        sessionQueue.async {
+            self.capturePhotoOutput.capturePhoto(with: self.capturePhotoSettings, delegate: self)
         }
     }
     
@@ -145,7 +148,9 @@ fileprivate class CameraView: UIView {
 
 extension CameraView: AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        
+        captureQueue.async {
+            print(photo.fileDataRepresentation())
+        }
     }
 }
 
@@ -154,11 +159,19 @@ fileprivate class CameraAppDockContent: NSObject, KeyPathWatchable, AppDockConte
         let cameraView = CameraView(frame: .zero)
         cameraView.contentMode = .scaleAspectFit
         cameraView.setUp()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapToCapture))
+        cameraView.addGestureRecognizer(tapGesture)
+        
         return cameraView
     }()
     
     var preferences: AppDockContentPreferable? {
         return AppDockContentPreferences()
+    }
+    
+    @objc func tapToCapture(gesture: UITapGestureRecognizer) {
+        (view as? CameraView)?.takePhoto()
     }
     
     func willSetContentView(_ view: UIView, dock: AppDock) {
