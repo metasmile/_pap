@@ -10,5 +10,5 @@ public protocol PhotoEditorViewControllerDelegatableApp: App {
 }
 
 extension PhotoEditorViewControllerDelegatableApp {
-    var photoEditorDockContent: AppDockContent? { return nil }
+    public var photoEditorDockContent: AppDockContent? { return nil }
 }

@@ -32,7 +32,7 @@ public class StabilizerAppValue: ImageEditStateValue {
 
 public extension StateValueSet where T: ImageEditStateValue {
     var stabilizationMode: ImageAlignment.StabilizationMode? {
-        return self.iterator().reversed().first?.stabilizationMode
+        return imageEditStateValue?.stabilizationMode
     }
 }
 
@@ -103,6 +103,7 @@ public class Stabilizer: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, Phot
     }
     
     public private(set) var defaultEditStateValue: ImageEditStateValue?
+    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?) {}
 }
 
 private class StabilizerTask: AppTaskPrototype, AppTaskable {

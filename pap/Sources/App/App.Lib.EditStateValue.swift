@@ -7,6 +7,12 @@ import Foundation
 import UIKit
 import Photos
 
+extension StateValueSet where T: ImageEditStateValue {
+    var imageEditStateValue: ImageEditStateValue? {
+        return self.iterator().reversed().first
+    }
+}
+
 extension PHAssetItem where EditStateValueType: ImageEditStateValue {}
 
 public class ImageEditStateValue: Object {

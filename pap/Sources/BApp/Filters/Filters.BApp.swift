@@ -26,7 +26,7 @@ public class CIFilterItem: ImageEditStateValue {
 
 public extension StateValueSet where T: ImageEditStateValue {
     var ciFilter: CIFilter? {
-        return self.iterator().reversed().first?.ciFilter
+        return imageEditStateValue?.ciFilter
     }
 }
 
@@ -51,7 +51,7 @@ public class FiltersAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttrr
 public class FiltersApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _ConfigurableApp,
         PHAssetFinalizableApp, PreviewableApp, PreviewProcessableApp, AppDockApp,
         PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp,
-        PhotoEditorViewControllerDelegatableApp {
+PhotoEditorViewControllerDelegatableApp {
     public static let taskType: AppTaskable.Type = _FiltersAppTask.self
     public static let paramType: AppTaskParamable.Type = _FiltersAppAsset.self
     
@@ -60,9 +60,12 @@ public class FiltersApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _Con
     @objc dynamic
     public private(set) lazy var config: FiltersAppConfigValue? = FiltersApp.configure?()
     public private(set) lazy var dockContent: AppDockContent? = FiltersAppDockContent()
-    public private(set) lazy var photoEditorDockContent: AppDockContent? = FiltersAppDockContent()
+    public private(set) lazy var photoEditorDockContent: AppDockContent? = self.dockContent
     
     public private(set) var defaultEditStateValue: ImageEditStateValue?
+    public func setDefaultEditStateValue(_ editStateValue: ImageEditStateValue?) {
+        defaultEditStateValue = editStateValue
+    }
 
     public static let info = AppInfo(
         identifier: "com.stells.pap.filters"
@@ -79,11 +82,7 @@ public class FiltersApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _Con
         super.init()
         
         config?.watch(\.tintColor, options: [.initial, .new]) {
-            self.dockContent?.view.tintColor = self.config?.tintColor
-        }
-        
-        config?.watch(\.filter, options: [.initial, .new]) {
-            self.defaultEditStateValue = self.config?.filter
+            self.updateControllerView()
         }
     }
 
@@ -109,11 +108,14 @@ public class FiltersApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _Con
         let filtered = original?.applyFilter(ciFilter: appAsset.editState.ciFilter)
         completion(original, filtered)
     }
+    
+    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?) {
+        (dockContent as? FiltersAppDockContent)?.selectItem(with: editStateValue)
+    }
 }
 
 private extension FiltersApp {
-    private func updateControllerView(){
-        self.defaultEditStateValue = config?.filter
+    private func updateControllerView() {
         self.dockContent?.view.tintColor = config?.tintColor
     }
 }
@@ -154,18 +156,27 @@ fileprivate class FiltersAppDockContent: NSObject, KeyPathWatchable, AppDockCont
         }
     }
     
-    lazy var view: UIView = {
+    private lazy var items: [AppUICollectionView.CollectionItem] = {
         let image = R.image.filtersJpg()
         
-        var items = CIFilters.filters.map({ (filter) -> AppUICollectionView.CollectionItem in
+        var items = [AppUICollectionView.CollectionItem]()
+        
+        items.append(AppUICollectionView.CollectionItem(title: "Original".localized, image: image, action: {
+            let filterItem = CIFilterItem(CIFilter())
+            AppCenter.default.currentInstanceAs(FiltersApp.self)?.config?.filter = filterItem
+        }))
+        
+        items += CIFilters.filters.map({ (filter) -> AppUICollectionView.CollectionItem in
             return AppUICollectionView.CollectionItem(title: PhotosFilterNames.aliasName(filter.name), image: image?.applyFilter(ciFilter: filter), action: {
-                AppCenter.default.currentInstanceAs(FiltersApp.self)?.config?.filter = CIFilterItem(filter)
+                let filterItem = CIFilterItem(filter)
+                AppCenter.default.currentInstanceAs(FiltersApp.self)?.config?.filter = filterItem
             })
         })
-        items.insert(AppUICollectionView.CollectionItem(title: "Original".localized, image: image, action: {
-            AppCenter.default.currentInstanceAs(FiltersApp.self)?.config?.filter = CIFilterItem(CIFilter())
-        }), at: 0)
         
+        return items
+    }()
+    
+    lazy var view: UIView = {
         let view = AppUICollectionView(items: items)
         view.cellSize = CGSize(width: 80, height: 120)
         view.cellSpacing = 2
@@ -173,6 +184,12 @@ fileprivate class FiltersAppDockContent: NSObject, KeyPathWatchable, AppDockCont
         
         return view
     }()
+    
+    func selectItem(with editStateValue: ImageEditStateValue?) {
+        let index = items.index(where: { $0.title == PhotosFilterNames.aliasName(editStateValue?.ciFilter?.name ?? "") }) ?? 0
+        
+        (view as? AppUICollectionView)?.selectItem(at: IndexPath(item: index, section: 0), animated: true)
+    }
     
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()

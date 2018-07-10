@@ -160,6 +160,10 @@ class PhotoPickerViewController: AppDockViewController {
         super.viewDidAppear(animated)
         
         animatesUpdatingPhotoCollectionContentInset = true
+        
+        if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self) {
+            app.selectEditStateValue(app.defaultEditStateValue)
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -278,6 +282,10 @@ class PhotoPickerViewController: AppDockViewController {
     
     private func setAppValue(_ value: ImageEditStateValue) {
         AppAssets.selected.appendValue(value)
+        
+        if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self) {
+            app.setDefaultEditStateValue(value)
+        }
         
         batchPreviewView.updatePreviews()
     }

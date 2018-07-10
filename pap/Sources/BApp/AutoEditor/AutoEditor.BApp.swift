@@ -12,7 +12,7 @@ class _AutoEditorAppAsset: _FiltersAppAsset {}
 
 public class AutoEditorApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _ConfigurableApp,
         PHAssetFinalizableApp, PreviewableApp, PreviewProcessableApp, AppDockApp,
-        PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp {
+        PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp, PhotoEditorViewControllerDelegatableApp {
 
     public static let taskType: AppTaskable.Type = _AutoEditorAppTask.self
     public static let paramType: AppTaskParamable.Type = _AutoEditorAppAsset.self
@@ -24,6 +24,22 @@ public class AutoEditorApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _
     public private(set) lazy var dockContent: AppDockContent? = AutoEditorAppDockContent()
     
     public private(set) var defaultEditStateValue: ImageEditStateValue?
+    public func setDefaultEditStateValue(_ editStateValue: ImageEditStateValue?) {
+        defaultEditStateValue = editStateValue
+        
+        var defaults = type(of: self).defaults as! AutoEditorAppDefaults
+        
+        if let options = (editStateValue?.ciFilter as? CIAutoAdjustmentFilter)?.options {
+            var optionsToStore = [String:Bool]()
+            for (k,v) in options{
+                if let v = v as? Bool{
+                    optionsToStore[k] = v
+                }
+            }
+            
+            defaults.autoAdjustmentOptions = optionsToStore
+        }
+    }
     
     public static let info = AppInfo(
         identifier: "com.stells.pap.autoeditor"
@@ -45,29 +61,18 @@ public class AutoEditorApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _
 
         let controllerContent = self.dockContent as? AutoEditorAppDockContent
         controllerContent?.watch(\.options, options: [.initial, .new]) {
-
-            var defaults = type(of: self).defaults as! AutoEditorAppDefaults
-
             if let options = controllerContent?.options {
                 let filter = CIAutoAdjustmentFilter(options: options)
                 self.config?.filter = CIFilterItem(filter)
-                self.defaultEditStateValue = CIFilterItem(filter)
-
-                var optionsToStore = [String:Bool]()
-                for (k,v) in options{
-                    if let v = v as? Bool{
-                        optionsToStore[k] = v
-                    }
-                }
-
-                defaults.autoAdjustmentOptions = optionsToStore
 
             }else{
+                var defaults = type(of: self).defaults as! AutoEditorAppDefaults
                 controllerContent?.options = defaults.autoAdjustmentOptions
                 
                 let filter = CIAutoAdjustmentFilter(options: defaults.autoAdjustmentOptions)
-                self.config?.filter = CIFilterItem(filter)
-                self.defaultEditStateValue = CIFilterItem(filter)
+                let filterItem = CIFilterItem(filter)
+                self.config?.filter = filterItem
+                self.defaultEditStateValue = filterItem
             }
         }
     }
@@ -94,10 +99,15 @@ public class AutoEditorApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _
         let filtered = original?.applyFilter(ciFilter: appAsset.editState.ciFilter)
         completion(original, filtered)
     }
+    
+    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?) {
+        let filter = editStateValue?.ciFilter as? CIAutoAdjustmentFilter
+        (self.dockContent as? AutoEditorAppDockContent)?.switchOptions(filter?.options, animated: false)
+    }
 }
 
 class CIAutoAdjustmentFilter: CIFilter {
-    private var options: [String: Any]?
+    var options: [String: Any]?
     
     init(options: [String: Any]? = nil) {
         super.init()
@@ -242,7 +252,7 @@ class AutoEditorAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITa
             view.rowHeight = 52
             view.allowsSelection = false
             view.register(Cell.self, forCellReuseIdentifier: AutoEditorApp.info.identifier)
-            view.tintColor = UIColor(red: 72 / 255.0, green: 168 / 255.0, blue: 247 / 255.0, alpha: 1)
+            view.backgroundColor = .clear
             view.separatorInset.left = view.rowHeight
         }
     }
@@ -255,6 +265,13 @@ class AutoEditorAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITa
     
     @objc dynamic
     var options:[String: Any]? // Bool may be other custom Codable type instead of Any
+    
+    func switchOptions(_ options: [String: Any]?, animated: Bool) {
+        for (index, cell) in (view as! UITableView).visibleCells.enumerated() {
+            let option = (options?[self.autoAdjustmentOptionKeys[index]] as? Bool) ?? false
+            (cell as? Cell)?.optionSwitch.setOn(option, animated: animated)
+        }
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -269,8 +286,8 @@ class AutoEditorAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITa
         let filterName = autoAdjustmentOptionKeys[indexPath.row]
         
         cell.imageView?.image = AutoEditorApp.AutoAdjustments.iconImage(filterName)
-        //TODO: apply AppearancableApp.primaryColor
-        cell.imageView?.tintColor = tableView.tintColor
+        
+        cell.imageView?.tintColor = UIColor(red: 72 / 255.0, green: 168 / 255.0, blue: 247 / 255.0, alpha: 1)
         cell.imageView?.contentMode = .scaleAspectFit
 
         cell.textLabel?.text = AutoEditorApp.AutoAdjustments.aliasName(filterName)
@@ -304,7 +321,9 @@ class AutoEditorAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITa
         override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
             
+            optionSwitch.onTintColor = UIColor(red: 72 / 255.0, green: 168 / 255.0, blue: 247 / 255.0, alpha: 1)
             accessoryView = optionSwitch
+            backgroundColor = .clear
         }
         
         required init?(coder aDecoder: NSCoder) {
@@ -327,7 +346,7 @@ class AutoEditorAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITa
         override func tintColorDidChange() {
             super.tintColorDidChange()
             
-            optionSwitch.onTintColor = tintColor
+            textLabel?.textColor = tintColor
         }
     }
 }

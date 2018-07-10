@@ -77,6 +77,8 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
     public func shouldSelect(item: AppAsset) -> Bool {
         return item.asset.imageType != .animatedGIF
     }
+    
+    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?) {}
 }
 
 private extension TransformApp{

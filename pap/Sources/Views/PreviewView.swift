@@ -410,7 +410,7 @@ public struct PreviewProcessingQueue {
     private static var cachedPreviewImages = [String: URL]()
     
     private static func cacheIdentifier(with item: AppAsset, targetSize: CGSize) -> String? {
-        guard let lastEditState = item.editState.iterator().reversed().first else { return  nil }
+        guard let lastEditState = item.editState.imageEditStateValue else { return  nil }
         return "\(item.asset.localIdentifierWithoutSplitter)_\(targetSize)_\(lastEditState.hash))"
     }
     
