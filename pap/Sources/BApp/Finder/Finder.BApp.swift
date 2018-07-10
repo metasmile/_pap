@@ -331,7 +331,8 @@ extension FinderApp{
 
                     action =  UIAlertAction(title: phoneNumber, style: .default, handler: { action in
                         DispatchQueue.main.async{
-                            UIViewController.root?.present(_alert, animated: true)
+                            TableViewController.present(with: [UITableViewCellDescriber(label: "test")])
+//                            UIViewController.root?.present(_alert, animated: true)
                         }
 
                     })

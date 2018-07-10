@@ -1,10 +1,49 @@
 //
-// Created by BLACKGENE on 10.07.18.
+// Creat?ed by BLACKGENE on 10.07.18.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
 import Foundation
 import UIKit
+
+
+extension TableViewController{
+
+    private static var navigationVC:UINavigationController?
+
+    private static var willDismiss:(() -> ())?
+    private static var didDismiss:(() -> ())?
+
+    public static func present(with describers:[UITableViewCellDescriber]
+            , willPresent:(() -> ())?=nil
+            , didPresent:(() -> ())?=nil
+            , willDismiss:(() -> ())?=nil
+            , didDismiss:(() -> ())?=nil){
+
+        let startingQueue = DispatchQueue.current
+
+        let tvc = TableViewController()
+        tvc.willDismiss = willDismiss
+        tvc.didDismiss = {
+            didDismiss?()
+
+            startingQueue.async{
+                self.navigationVC = nil
+                self.willDismiss = nil
+                self.didDismiss = nil
+            }
+        }
+
+        let vc = UINavigationController(rootViewController: tvc)
+
+        willPresent?()
+        UIViewController.root?.present(vc, animated: true, completion: didPresent)
+
+        self.navigationVC = vc
+    }
+}
+
+
 //
 // MARK :- TableViewController
 //
@@ -59,12 +98,16 @@ class TableViewController: UITableViewController {
         return cell
     }
 
+    private lazy var doneButton = UIBarButtonItem(title: "Done".localized, style: .done, target: self, action: #selector(self.doneButtonDidTap))
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "TableView Demo"
         view.backgroundColor = .white
         setupTableView()
+
+        self.navigationItem.rightBarButtonItem = doneButton
     }
 
     func setupTableView() {
@@ -73,6 +116,17 @@ class TableViewController: UITableViewController {
         tableView.register(CustomTableViewHeader.self, forHeaderFooterViewReuseIdentifier: headerId)
         tableView.register(CustomTableViewFooter.self, forHeaderFooterViewReuseIdentifier: footerId)
         tableView.register(CustomTableCell.self, forCellReuseIdentifier: cellId)
+    }
+
+
+    fileprivate var willDismiss:(() -> ())?
+    fileprivate var didDismiss:(() -> ())?
+
+    @objc func doneButtonDidTap(sender: Any) {
+        willDismiss?()
+        (self.parent ?? self).dismiss(animated: true) {
+            self.didDismiss?()
+        }
     }
 }
 
