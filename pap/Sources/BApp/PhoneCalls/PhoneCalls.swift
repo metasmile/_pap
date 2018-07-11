@@ -169,7 +169,7 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
 
             asyncSignal.begin()
             DispatchQueue.main.async {
-                UIAlertController.alert("Sorry not found any information you selected.".localized, completion:{ _ in
+                UIAlertController.alert(AppMsg.cannot.detect.information, completion:{ _ in
                     asyncSignal.end()
                 })
             }

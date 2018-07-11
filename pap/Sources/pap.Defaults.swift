@@ -21,7 +21,7 @@ extension Defaults: DefaultsProperty {
     }
 }
 
-public struct papCounter {
+public struct papCount {
     struct app {
         static var numberOfCounted:Int{
             return Defaults.shared.appCount.keys.count

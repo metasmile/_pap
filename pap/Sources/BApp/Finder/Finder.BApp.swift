@@ -103,15 +103,27 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
                 .filter { $0.info.state == .completed }
                 .compactMap { $0.result as? FinderAppResult }
 
+        var resultMessage:String?
+
         switch (FinderApp.privateDefaults.selectionPreset){
             case SelectionPreset.plaintext.rawValue:
-                self.finalize_plaintext(items: items, asyncSignal)
+                resultMessage = self.finalize_plaintext(items: items, asyncSignal)
             case SelectionPreset.contact.rawValue:
-                self.finalize_contact(items: items, asyncSignal)
+                resultMessage = self.finalize_contact(items: items, asyncSignal)
             case SelectionPreset.action.rawValue:
-                self.finalize_action(items: items, asyncSignal)
+                resultMessage = self.finalize_action(items: items, asyncSignal)
             default:
                 assert(false, "not supported preset \(String(describing: FinderApp.privateDefaults.selectionPreset))")
+        }
+
+        if let msg = resultMessage{
+            asyncSignal.begin()
+            DispatchQueue.main.async {
+                UIAlertController.alert(msg, completion:{ _ in
+                    asyncSignal.end()
+                })
+            }
+            asyncSignal.waitUntilEnd()
         }
 
         return result
@@ -160,7 +172,7 @@ private struct FinderAppResult: AppTaskResultable {
 
 extension FinderApp{
 
-    fileprivate func finalize_plaintext(items: [FinderAppResult], _ asyncSignal: AsyncWaitSignalable) {
+    fileprivate func finalize_plaintext(items: [FinderAppResult], _ asyncSignal: AsyncWaitSignalable) -> String?{
         let strings = items.compactMap{ $0.plainText }
 
         if strings.count > 0 {
@@ -171,31 +183,32 @@ extension FinderApp{
                 }
             }
             asyncSignal.waitUntilEnd()
+            return nil
         }
+
+        return AppMsg.cannot.detect.information
     }
 
-    fileprivate func finalize_contact(items: [FinderAppResult], _ asyncSignal: AsyncWaitSignalable) {
-        var canSaveContract = items.compactMap { result -> [CNMutableContact]? in
-            return result.contacts?.nilEmpty
-        }.count > 0
+    fileprivate func finalize_contact(items _items: [FinderAppResult], _ asyncSignal: AsyncWaitSignalable) -> String?{
+        let items = _items.filter { (item: FinderAppResult) -> Bool in
+            if let contacts = item.contacts{
+                return contacts.count>0
+            }
+            return false
+        }
+
+        var canSaveContract = items.count > 0
 
         if false == canSaveContract{
-            return
+            return AppMsg.cannot.detect.information
         }
 
         canSaveContract = ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal)
 
-        let errorMessage:String = "Sorry, this contact could not be saved.".localized
+        let errorMessage:String = AppMsg.cannot.save
 
         if false == canSaveContract{
-            asyncSignal.begin()
-            DispatchQueue.main.async {
-                UIAlertController.alert(errorMessage, completion:{ _ in
-                    asyncSignal.end()
-                })
-            }
-            asyncSignal.waitUntilEnd()
-            return
+            return errorMessage
         }
 
         let saveContactWithoutEdit = FinderApp.privateDefaults.saveContactWithoutEdit
@@ -244,6 +257,7 @@ extension FinderApp{
                     continue
                 }
                 for contact in _contacts{
+
                     autoreleasepool{
                         contact.imageData = item.asset.asData
 
@@ -258,9 +272,11 @@ extension FinderApp{
                 }
             }
         }
+
+        return nil
     }
 
-    fileprivate func finalize_action(items: [FinderAppResult], _ asyncSignal: AsyncWaitSignalable) {
+    fileprivate func finalize_action(items: [FinderAppResult], _ asyncSignal: AsyncWaitSignalable) -> String?{
         let alert = UIAlertController(title: "Choose An Action".localized, message: nil, preferredStyle: .actionSheet)
 
         let defaultCancelSubAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
@@ -860,17 +876,10 @@ extension FinderApp{
 
             asyncSignal.waitUntilEnd()
 
-        }else{
-
-            asyncSignal.begin()
-            DispatchQueue.main.async {
-                UIAlertController.alert("Sorry not found any information you selected.".localized, completion:{ _ in
-                    asyncSignal.end()
-                })
-            }
-            asyncSignal.waitUntilEnd()
-
+            return nil
         }
+
+        return AppMsg.cannot.detect.information
     }
 
 }

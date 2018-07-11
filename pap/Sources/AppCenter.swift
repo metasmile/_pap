@@ -84,7 +84,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
         ].sorted { (appType1: App.Type, appType2: App.Type) -> Bool in
 
             return appType1.info.phase.rawValue > appType2.info.phase.rawValue
-                    || papCounter.app.countPerformed(app: appType1) > papCounter.app.countPerformed(app: appType2)
+                    || papCount.app.countPerformed(app: appType1) > papCount.app.countPerformed(app: appType2)
         }
 
         config.appCollection = defaultAppCollection

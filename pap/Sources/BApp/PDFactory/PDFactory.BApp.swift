@@ -142,7 +142,7 @@ public class PDFactoryApp: BApp, FinalizableApp, PhotoPickerViewControllerDelega
 
             asyncSignal.begin()
             DispatchQueue.main.async {
-                UIAlertController.alert("Sorry, something went wrong.".localized, title:type(of: self).info.displayName) { alertAction in
+                UIAlertController.alert(AppMsg.be.wrong.something, title:type(of: self).info.displayName) { alertAction in
                     DispatchQueue.global().async{ asyncSignal.end() }
                 }
             }

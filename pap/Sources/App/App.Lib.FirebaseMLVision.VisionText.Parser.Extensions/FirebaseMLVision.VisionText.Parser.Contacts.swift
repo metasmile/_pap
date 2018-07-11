@@ -255,14 +255,16 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
                 contact.note += "\n\n"
             }
 
-            if !contact.note.contains(rawText){
-                contact.note += rawText
+            if !contact.note.contains(rawText), let content = rawText.trimmed.nilEmpty{
+                contact.note += content
             }
         }
 
-        contact.fillNameIfBlanked()
-
-        return contact
+        if contact.note.count>0{
+            contact.fillNameIfBlanked()
+            return contact
+        }
+        return nil
     }
 
     func process(input: FirebaseMLVision.VisionText) -> CNMutableContact? {
