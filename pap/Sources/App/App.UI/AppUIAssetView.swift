@@ -220,15 +220,19 @@ extension AppUIAssetView {
             if let filter = editState?.ciFilter {
                 self.isProcessing(true, animated: true)
                 
-                asset.requestContentEditingInput(with: nil, completionHandler: { [weak self] (input, info) in
+                let targetSize = bounds.size
+                
+                contentEditingInputRequestID = asset.requestContentEditingInput(with: nil, completionHandler: { [weak self] (input, info) in
                     guard let input = input else { return }
+                    
+                    self?.livePhotoEditingContext?.cancel()
                     
                     self?.livePhotoEditingContext = PHLivePhotoEditingContext(livePhotoEditingInput: input)
                     self?.livePhotoEditingContext?.frameProcessor = { frame, error in
                         return frame.image.applyFilter(ciFilter: filter)
                     }
                     
-                    self?.livePhotoEditingContext?.prepareLivePhotoForPlayback(withTargetSize: asset.pixelSize, options: nil, completionHandler: { [weak self] (livePhoto, error) in
+                    self?.livePhotoEditingContext?.prepareLivePhotoForPlayback(withTargetSize: targetSize, options: nil, completionHandler: { [weak self] (livePhoto, error) in
                         guard let livePhoto = livePhoto, error == nil else { return }
                         
                         self?.isProcessing(false, animated: true)

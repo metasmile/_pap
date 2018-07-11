@@ -208,6 +208,7 @@
 		4F71DFA9D2EB40B350CB4E5B /* GIFMaker.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA8CA1E7F06DD108FFBB /* GIFMaker.BApp.swift */; };
 		511A1AAC20BF698800EFC81F /* App.Previewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511A1AAB20BF698800EFC81F /* App.Previewable.swift */; };
 		514BBEE620F4580A00B434E8 /* Camera.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514BBEE520F4580A00B434E8 /* Camera.BApp.swift */; };
+		518BAC3A20F6BC2200A54750 /* CodeKit.CGGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518BAC3920F6BC2200A54750 /* CodeKit.CGGeometry.swift */; };
 		A01EF6A420E29717004A6CCC /* Finder.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A01EF6A320E29717004A6CCC /* Finder.BApp.Assets.xcassets */; };
 		A0453C5620A33E4700F9BA29 /* AutoEditor.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0453C5520A33E4700F9BA29 /* AutoEditor.BApp.Assets.xcassets */; };
 		A0453C5820A33E7D00F9BA29 /* ExifGhost.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0453C5720A33E7D00F9BA29 /* ExifGhost.BApp.Assets.xcassets */; };
@@ -557,6 +558,7 @@
 		511A1AAB20BF698800EFC81F /* App.Previewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Previewable.swift; sourceTree = "<group>"; };
 		514BBEE520F4580A00B434E8 /* Camera.BApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.BApp.swift; sourceTree = "<group>"; };
 		514CEBFA20E1A31D00098DFA /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
+		518BAC3920F6BC2200A54750 /* CodeKit.CGGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.CGGeometry.swift; sourceTree = "<group>"; };
 		5FA8D6CA125AC9C3DF819BA2 /* Pods_pap_papTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pap_papTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6089B37E3E1620CEDA68858B /* Pods_pap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		725400A349048E8B66FD7B40 /* Pods-pap-papTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pap-papTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pap-papTests/Pods-pap-papTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -853,6 +855,7 @@
 				4F71DDC767D0046648A03D16 /* CodeKit.UIApplication.SFSafariViewController.swift */,
 				4F71D7FFE56BE7607EBC21B6 /* Processor.swift */,
 				4F71D4D8D08CB1574BE2B3B9 /* CodeKit.UIAlertAction.swift */,
+				518BAC3920F6BC2200A54750 /* CodeKit.CGGeometry.swift */,
 			);
 			path = CodeKit;
 			sourceTree = "<group>";
@@ -2888,6 +2891,7 @@
 				4F71DA55751D3743CE82BFB5 /* CodeKit.URL.swift in Sources */,
 				4F71D1201AFD8D1AAB7C3F9D /* CodeKit.Math.swift in Sources */,
 				4F71DD451B0E57BB40808303 /* CodeKit.Misc.swift in Sources */,
+				518BAC3A20F6BC2200A54750 /* CodeKit.CGGeometry.swift in Sources */,
 				4F71D90BF0D739892B5EFB04 /* CodeKit.UUID.swift in Sources */,
 				4F71D5F0A0E3A9E4B322FCBA /* CodeKit.Array.swift in Sources */,
 				4F71D29B3911115701282220 /* CodeKit.Timer.swift in Sources */,
