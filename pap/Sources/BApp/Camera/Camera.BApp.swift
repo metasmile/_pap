@@ -126,7 +126,6 @@ fileprivate class CameraView: UIView {
         }
         
         capturePhotoOutput.isHighResolutionCaptureEnabled = true
-        capturePhotoOutput.isLivePhotoCaptureEnabled = capturePhotoOutput.isLivePhotoCaptureSupported
         
         captureSession.sessionPreset = .photo
         captureSession.addOutput(capturePhotoOutput)
@@ -195,15 +194,21 @@ fileprivate class CameraView: UIView {
     
     func switchCameraPosition() {
         sessionQueue.async {
-            let currentDevice = self.currentCaptureDeviceInput(for: .video)
-            let position: AVCaptureDevice.Position = currentDevice?.device.position == .back ? .front : .back
+            guard let currentDevice = self.currentCaptureDeviceInput(for: .video) else { return }
+            let position: AVCaptureDevice.Position = currentDevice.device.position == .back ? .front : .back
             
             self.captureSession.beginConfiguration()
-            if let oldDevice = currentDevice, let newDevice = self.captureDevice(with: position), let deviceInput = try? AVCaptureDeviceInput(device: newDevice), self.captureSession.canAddInput(deviceInput) {
-                self.captureSession.removeInput(oldDevice)
+            self.captureSession.removeInput(currentDevice)
+            
+            if let newDevice = self.captureDevice(with: position), let deviceInput = try? AVCaptureDeviceInput(device: newDevice), self.captureSession.canAddInput(deviceInput) {
                 self.captureSession.addInput(deviceInput)
             }
+            else {
+                self.captureSession.addInput(currentDevice)
+            }
             self.captureSession.commitConfiguration()
+            
+            self.capturePhotoOutput.isLivePhotoCaptureEnabled = self.capturePhotoOutput.isLivePhotoCaptureSupported
         }
     }
     
