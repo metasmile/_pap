@@ -65,11 +65,12 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
         //TODO: Reorder via icon DnD
         //TODO: batchOS essential/settings app (it cannot be removed)
 
-        var defaultAppCollection:[App.Type] = [
-            CameraApp.self,
+        let defaultAppCollection:[App.Type] = [
+
             FinderApp.self
             , TransformApp.self
             , FiltersApp.self
+            , CameraApp.self
             , RevertApp.self
             , ConverterApp.self
             , GIFMakerApp.self
@@ -77,17 +78,13 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             , PDFactoryApp.self
             , AutoEditorApp.self
             , ExifGhostApp.self
-
-            //phase: .develop | .beta - They will automatically exclude in Release build.
             , CleanerApp.self
             , Stabilizer.self
-        ]
 
-        if papCounter.app.numberOfCounted > 0{
-            defaultAppCollection.sort { (appType: App.Type, appType2: App.Type) -> Bool in
-                return appType.info.phase == .release
-                        && papCounter.app.countPerformed(app: appType) > papCounter.app.countPerformed(app: appType2)
-            }
+        ].sorted { (appType1: App.Type, appType2: App.Type) -> Bool in
+
+            return appType1.info.phase.rawValue > appType2.info.phase.rawValue
+                    || papCounter.app.countPerformed(app: appType1) > papCounter.app.countPerformed(app: appType2)
         }
 
         config.appCollection = defaultAppCollection
