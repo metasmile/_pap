@@ -81,6 +81,7 @@ class AppUIAssetView: AssetView {
         }
     }
     
+    fileprivate var livePhotoEditingQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
     fileprivate var livePhotoEditingContext: PHLivePhotoEditingContext?
     fileprivate var contentEditingInputRequestID: PHContentEditingInputRequestID?
     
@@ -229,10 +230,22 @@ extension AppUIAssetView {
                     
                     self?.livePhotoEditingContext = PHLivePhotoEditingContext(livePhotoEditingInput: input)
                     self?.livePhotoEditingContext?.frameProcessor = { frame, error in
-                        return frame.image.applyFilter(ciFilter: filter)
+                        let signal = AsyncSignal()
+                        signal.begin()
+                        
+                        var filtered: CIImage?
+                        
+                        self?.livePhotoEditingQueue.async {
+                            filtered = frame.image.applyFilter(ciFilter: filter)
+                            signal.end()
+                        }
+                        
+                        signal.waitUntilEnd()
+                        
+                        return filtered
                     }
                     
-                    self?.livePhotoEditingContext?.prepareLivePhotoForPlayback(withTargetSize: targetSize, options: nil, completionHandler: { [weak self] (livePhoto, error) in
+                    self?.livePhotoEditingContext?.prepareLivePhotoForPlayback(withTargetSize: targetSize, options: [PHLivePhotoEditingOption.shouldRenderAtPlaybackTime.rawValue: true], completionHandler: { [weak self] (livePhoto, error) in
                         guard let livePhoto = livePhoto, error == nil else { return }
                         
                         self?.isProcessing(false, animated: true)
