@@ -23,7 +23,7 @@ class CameraApp: NSObject, KeyPathWatchable, BApp, AppDockApp, PhotoPickerCollec
         , phase: .develop
         , appType: CameraApp.self
         , displayName: "Camera".localized, description:nil, keywords:nil
-        , iconBundleName: nil
+        , iconBundleName: R.image.cameraBAppIcon.name
         , policy: AppPolicy.default
         , minOSVersion: nil
     )
