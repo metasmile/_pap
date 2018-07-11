@@ -14,7 +14,13 @@ extension DispatchQueue {
     }
 }
 
-public protocol Signalable {}
+
+public protocol Signalable {
+    //INFO: A stack containing labels of each DispatchQueue, thread safe.
+    // e.g. Creating DispatchQueue:  DispatchQueue(label: {queueStack label})
+    // e.g. Initial queue when AsyncSignal initialized: queueStack[0]
+    var queueStack:[String] {get}
+}
 
 public protocol AsyncSignalable: Signalable {
     var began:Bool { get }
@@ -35,26 +41,36 @@ public protocol AsyncFinalSignalable {
     func finally(_ queue:DispatchQueue?,_ completion: DispatchWorkItem) -> Self
 }
 
-public final class AsyncSignal {
-    internal let dispatchGroup:DispatchGroup = DispatchGroup()
+//INFO: Avoid store AsyncSignal instance as soon as possible
+public final class AsyncSignal{
+    private let dispatchGroup:DispatchGroup = DispatchGroup()
     private let _offsetSyncQueue:DispatchQueue = DispatchQueue(label:"com.stells.internal__sync_queue_\(UUID().uuidString)")
+    private(set) public var queueStack = [String]()
     private var offset:Int = 0
 }
 
-extension AsyncSignal: AsyncWaitSignalable, AsyncFinalSignalable {
+extension AsyncSignal: AsyncWaitSignalable {
 
     public var began:Bool {
         return offset>0
     }
 
-    private func setOffset(_ increment:Bool) -> Bool{
-        return _offsetSyncQueue.sync(flags: .barrier) {
+    private func setOffset(_ increment:Bool, _current:String=DispatchQueue.currentLabel) -> Bool{
+        return _offsetSyncQueue.sync {
             assert(offset>=0,"All state of offset must be >= 0")
             let decre = !increment && offset>0
             let incre = increment && offset>=0
             let executed = incre || decre
             if executed{
                 offset += increment ? 1 : -1
+
+                _offsetSyncQueue.async(flags: .barrier){
+                    if increment{
+                        self.queueStack.append(_current)
+                    }else{
+                        let _ = self.queueStack.popLast()
+                    }
+                }
             }
             return executed
         }
@@ -99,7 +115,9 @@ extension AsyncSignal: AsyncWaitSignalable, AsyncFinalSignalable {
     public func waitUntilEnd() {
         self.waitUntilEnd(timeout:nil)
     }
+}
 
+extension AsyncSignal: AsyncFinalSignalable{
     public func done() {
         while end().began { }
     }
