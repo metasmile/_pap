@@ -18,7 +18,7 @@ extension DispatchQueue {
 public protocol Signalable {
     //INFO: A stack containing labels of each DispatchQueue, thread safe.
     // e.g. Creating DispatchQueue:  DispatchQueue(label: {queueStack label})
-    // e.g. Initial queue when AsyncSignal initialized: queueStack[0]
+    // e.g. A foreground queue when AsyncSignal firstly began: queueStack[0]
     var queueStack:[String] {get}
 }
 

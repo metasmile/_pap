@@ -63,7 +63,17 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
     }
 
     fileprivate var preheatCachedResults = [String:FinderAppResult]()
-    fileprivate var preheatingFrontQueueLabel:String?
+    private var preheatingFrontQueueLabel:String?
+
+    func disposePreheatingCache(){
+        if let l = preheatingFrontQueueLabel{
+            DispatchQueue(label:l).async{
+                self.preheatCachedResults.removeAll()
+            }
+        }else{
+            preheatCachedResults.removeAll()
+        }
+    }
 
     public func performPreheating(item: AppAsset, _ async: AsyncWaitSignalable) -> PreheatingFinishAction? {
         if self.autoSelect == false{
@@ -1297,6 +1307,9 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
             // autoSelect turn off and restore
             cell1.valueHandler?(false)
 
+            //remove preheating cache
+            AppCenter.default.currentInstanceAs(FinderApp.self)?.disposePreheatingCache()
+
         }
         settingCellDescribers.append(cell0)
 
@@ -1498,10 +1511,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         cell.optionSwitch.setOn(selected, animated: false)
         cell.switchDidChange = { on in
 
-            let q = DispatchQueue(label:AppCenter.default.currentInstanceAs(FinderApp.self)?.preheatingFrontQueueLabel ?? DispatchQueue.currentLabel)
-            q.async{
-                AppCenter.default.currentInstanceAs(FinderApp.self)?.preheatCachedResults.removeAll()
-            }
+            AppCenter.default.currentInstanceAs(FinderApp.self)?.disposePreheatingCache()
 
             if on{
                 FinderApp.privateDefaults.addHandledProperty(dict.key, dict.items[indexPath.item].key)
