@@ -62,20 +62,24 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
         return item.asset.mediaType == .image
     }
 
-    fileprivate var preheatedResults = [String:FinderAppResult]()
+    fileprivate var preheatCachedResults = [String:FinderAppResult]()
+    fileprivate var preheatingFrontQueueLabel:String?
+
     public func performPreheating(item: AppAsset, _ async: AsyncWaitSignalable) -> PreheatingFinishAction? {
         if self.autoSelect == false{
             return nil
         }
 
+        preheatingFrontQueueLabel = async.queueStack.first
+
         var preheatedResult:FinderAppResult?
 
-        if let result = preheatedResults[item.asset.localIdentifierWithoutSplitter]{
+        if let result = preheatCachedResults[item.asset.localIdentifierWithoutSplitter]{
             preheatedResult = result
         }else{
             if let image = item.asset.asUIImage{
                 preheatedResult = self.detector.detectResult(asset: item.asset, image: image, async) ?? FinderAppResult(asset: item.asset)
-                preheatedResults[item.asset.localIdentifierWithoutSplitter] = preheatedResult
+                preheatCachedResults[item.asset.localIdentifierWithoutSplitter] = preheatedResult
             }
         }
 
@@ -944,7 +948,7 @@ private struct FinderAppDetector{
 
                 if let mergingContract = mergingContract
                 , let parsedContract = parser.process(input: visionText, mergingOutput: mergingContract){
-                        stackedParsedContacts.append(parsedContract)
+                    stackedParsedContacts.append(parsedContract)
                 }
             }
 
@@ -1008,7 +1012,7 @@ private class _FinderAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, App
             return nil
         }
 
-        if let preheatedResults = AppCenter.default.currentInstanceAs(FinderApp.self)?.preheatedResults
+        if let preheatedResults = AppCenter.default.currentInstanceAs(FinderApp.self)?.preheatCachedResults
         , let result = preheatedResults[asset.localIdentifierWithoutSplitter] {
             return result
 
@@ -1493,6 +1497,12 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         cell.detailTextLabel?.textColor = UIColor.gray
         cell.optionSwitch.setOn(selected, animated: false)
         cell.switchDidChange = { on in
+
+            let q = DispatchQueue(label:AppCenter.default.currentInstanceAs(FinderApp.self)?.preheatingFrontQueueLabel ?? DispatchQueue.currentLabel)
+            q.async{
+                AppCenter.default.currentInstanceAs(FinderApp.self)?.preheatCachedResults.removeAll()
+            }
+
             if on{
                 FinderApp.privateDefaults.addHandledProperty(dict.key, dict.items[indexPath.item].key)
             }else{
