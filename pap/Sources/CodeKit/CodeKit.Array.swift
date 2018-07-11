@@ -6,6 +6,7 @@
 import Foundation
 
 extension Array {
+
     func chunked(into size: Int) -> [[Element]] {
         return stride(from: 0, to: count, by: size).map {
             Array(self[$0 ..< Swift.min($0 + size, count)])
@@ -27,6 +28,14 @@ extension Array {
             }
         }
         return lo
+    }
+
+    public func dictionary<Key: Hashable>(with selectKey: (Element) -> Key) -> [Key:Element] {
+        var dict = [Key:Element]()
+        for element in self {
+            dict[selectKey(element)] = element
+        }
+        return dict
     }
 }
 

@@ -77,19 +77,25 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
         }else{
 
             var detected = [PHAssetGarbageDetector.Type]()
-            for t in type(of: self).gdTypes {
-                let k = t.identifier
+            let gdType_Id = type(of: self).gdTypes.dictionary { $0.identifier }
 
-                var detector:PHAssetGarbageDetector
-                if let d = gdInstances[k]{
-                    detector = d
-                }else{
-                    detector = t.init()
-                    gdInstances[k] = detector
-                }
+            for gd in type(of: self).privateDefaults.selectedCollection{
+                for gcItem in gd.items{
+                    if let t = gdType_Id[gcItem.identifier]{
+                        let k = t.identifier
 
-                if detector.process(input: item.asset, async) ?? false == true{
-                    detected.append(t)
+                        var detector:PHAssetGarbageDetector
+                        if let d = gdInstances[k]{
+                            detector = d
+                        }else{
+                            detector = t.init()
+                            gdInstances[k] = detector
+                        }
+
+                        if detector.process(input: item.asset, async) ?? false == true{
+                            detected.append(t)
+                        }
+                    }
                 }
             }
 
@@ -216,41 +222,24 @@ extension Defaults: CleanerAppDefaults {
 
 
 extension CleanerAppDefaults{
-    fileprivate func addHandledProperty(_ gdDict: GDDictionary, _ item: GDItem){
+    fileprivate func setHandledProperty(_ gdDict: GDDictionary, _ item: GDItem, _ enable:Bool){
+        if let index_dict = selectedCollection.index(of: gdDict){
 
-        var _selectedCollection = selectedCollection
-        if let index = selectedCollection.index(of: gdDict){
-            var items = selectedCollection[index].items
-            if !items.contains(item){
-                items.append(item)
-            }
-            _selectedCollection[index].items = items
+            if let index = selectedCollection[index_dict].items.index(of: item){
+                var _item = item
+                _item.enabled = enable
 
-        }else{
-            if !gdDict.items.contains(item){
                 var _gdDict = gdDict
-                _gdDict.items.append(item)
+                _gdDict.items[index] = _item
+
+                var _selectedCollection = selectedCollection
+                _selectedCollection[index_dict] = _gdDict
+
+                var immutableSelf = self
+                immutableSelf.selectedCollection = _selectedCollection
+
+                print(self.selectedCollection[index_dict].items[index].enabled)
             }
-            _selectedCollection.append(gdDict)
-        }
-
-        var immutableSelf = self
-        immutableSelf.selectedCollection = _selectedCollection
-    }
-
-    fileprivate func removeHandledProperty(_ gdDict: GDDictionary, _ item: GDItem){
-
-        if let index = selectedCollection.index(where:{ dictionary in dictionary == gdDict }){
-            var _selectedCollection = self.selectedCollection
-
-            var _gdDict = gdDict
-            if let index = _gdDict.items.index(of: item){
-                _gdDict.items.remove(at: index)
-            }
-            _selectedCollection[index] = _gdDict
-
-            var immutableSelf = self
-            immutableSelf.selectedCollection = _selectedCollection
         }
     }
 }
@@ -259,6 +248,7 @@ private struct GDItem:Codable, Hashable {
     fileprivate var identifier:String
     fileprivate var label:String
     fileprivate var iconImageName:String?
+    fileprivate var enabled:Bool = true
 
     init(gd:PHAssetGarbageDetector.Type, label:String, iconImageName:String?=nil){
         self.identifier = gd.identifier
@@ -273,9 +263,9 @@ private struct GDItem:Codable, Hashable {
 
 private struct GDDictionary:Codable, Hashable {
     static let DefaultCollection: [GDDictionary] = [
-        GDDictionary(key: .Default, label: "Items".localized, items: [
-            GDItem(gd: PHAssetGarbageDetector_Similarity.self, label:"Similarity".localized, iconImageName: nil)
-            , GDItem(gd: PHAssetGarbageDetector_Blurry.self, label:"Haziness".localized, iconImageName: nil)
+        GDDictionary(key: .Default, label: "Targets".localized, items: [
+            GDItem(gd: PHAssetGarbageDetector_Similarity.self, label:"Similarities".localized, iconImageName: nil)
+            , GDItem(gd: PHAssetGarbageDetector_Blurry.self, label:"Blur Rate".localized, iconImageName: nil)
             , GDItem(gd: PHAssetGarbageDetector_Lockscreens.self, label:"Lockscreens".localized,  iconImageName: nil)
             , GDItem(gd: PHAssetGarbageDetector_Screenshots.self, label:"Screenshots".localized,  iconImageName: nil)
         ])
@@ -290,7 +280,7 @@ private struct GDDictionary:Codable, Hashable {
     fileprivate var items:[GDItem]
 
     var hashValue: Int{
-      return key.hashValue
+      return label.hashValue
     }
 }
 
@@ -299,14 +289,14 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
 
     fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
 
-    private var defaultsCollection = CleanerApp.privateDefaults.selectedCollection
+    private var defaultsCollection:[GDDictionary] {
+        return CleanerApp.privateDefaults.selectedCollection
+    }
 
     required public override init() {
 
         super.init()
     }
-
-    private var initialSelectedIndexPaths:[IndexPath]?
 
     lazy var view: UIView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -435,25 +425,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
 
-        //get indexes
-        let sections = self.defaultsCollection.enumerated().compactMap { section, dictionary -> [IndexPath]? in
-            return dictionary.items.compactMap { item -> IndexPath? in
-                if let index = dictionary.items.index(of: item){
-                    return IndexPath(item: index, section: 1+section)
-                }
-                return nil
-            }
-        }
-
-        //init initialSelectedIndexPaths
-        initialSelectedIndexPaths = [IndexPath]()
-        for indexPaths in sections{
-            initialSelectedIndexPaths?.append(contentsOf: indexPaths)
-        }
-
         (view as! UITableView).reloadData()
-
-        initialSelectedIndexPaths = nil
     }
 
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -494,7 +466,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = indexPath.section == 0 ? settings_tableView(tableView, cellForRowAt: indexPath) : parserCollection_tableView(tableView, cellForRowAt: IndexPath(item: indexPath.item, section: indexPath.section))
+        let cell = indexPath.section == 0 ? settings_tableView(tableView, cellForRowAt: indexPath) : itemCollection_tableView(tableView, cellForRowAt: IndexPath(item: indexPath.item, section: indexPath.section))
         return cell
     }
 
@@ -574,20 +546,13 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
         return cell
     }
 
-    func parserCollection_tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func itemCollection_tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let dictIndex = indexPath.section-1
         let dict = self.defaultsCollection[dictIndex]
 
-        var selected = false
-        if let _ = initialSelectedIndexPaths?.index(of: indexPath) {
-            selected = true
-        }
-        
-        let _dict = CleanerApp.privateDefaults.selectedCollection[dictIndex]
-        selected = _dict.items.indices.contains(indexPath.item)
-        
         let dataItem = dict.items[indexPath.item]
+        let selected = dataItem.enabled
 
         let cell = tableView.dequeueReusableCell(withIdentifier: CleanerApp.info.identifier) as! Cell
         cell.textLabel?.text = dataItem.label
@@ -600,21 +565,10 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
         cell.detailTextLabel?.textColor = UIColor.gray
         cell.optionSwitch.setOn(selected, animated: false)
         cell.switchDidChange = { on in
-            if on{
-                CleanerApp.privateDefaults.addHandledProperty(dict, dict.items[indexPath.item])
-            }else{
-                CleanerApp.privateDefaults.removeHandledProperty(dict, dict.items[indexPath.item])
-            }
+            CleanerApp.privateDefaults.setHandledProperty(dict, dict.items[indexPath.item], on)
 
             tableView.reloadRows(at: [indexPath], with: .fade)
 
-//            let selectedPreset = CleanerApp.privateDefaults.selectionPreset
-//
-//            if selectedPreset == GrabAs.plaintext.rawValue || selectedPreset == GrabAs.contact.rawValue{
-//                CleanerApp.privateDefaults.selectionPreset = GrabAs.action.rawValue
-//
-//                tableView.reloadSections(IndexSet(integer: 0), with: .none)
-//            }
 
         }
         return cell
