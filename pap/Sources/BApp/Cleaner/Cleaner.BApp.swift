@@ -80,7 +80,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
             let gdType_Id = type(of: self).gdTypes.dictionary { $0.identifier }
 
             for gd in type(of: self).privateDefaults.selectedCollection{
-                for gcItem in gd.items{
+                for gcItem in gd.items where gcItem.enabled{
                     if let t = gdType_Id[gcItem.identifier]{
                         let k = t.identifier
 
@@ -285,13 +285,9 @@ private struct GDDictionary:Codable, Hashable {
 }
 
 fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
-    private lazy var tintColor = UIColor(red:0.36, green:0.31, blue:0.71, alpha:1)
+    private lazy var tintColor = UIColor(red:0.11, green:0.71, blue:0.52, alpha:1)
 
     fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
-
-    private var defaultsCollection:[GDDictionary] {
-        return CleanerApp.privateDefaults.selectedCollection
-    }
 
     required public override init() {
 
@@ -436,7 +432,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1 + defaultsCollection.count
+        return 1 + CleanerApp.privateDefaults.selectedCollection.count
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -450,7 +446,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
         let label_section0 = "🖼️ ‣ 🔍 ‣ ⭐ " + "Select Photos To Find Everything.".localized
-        return section == 0 ? label_section0 : defaultsCollection[section-1].label
+        return section == 0 ? label_section0 : CleanerApp.privateDefaults.selectedCollection[section-1].label
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -458,7 +454,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? settingCellDescribers.count : defaultsCollection[section-1].items.count
+        return section == 0 ? settingCellDescribers.count : CleanerApp.privateDefaults.selectedCollection[section-1].items.count
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -549,7 +545,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
     func itemCollection_tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let dictIndex = indexPath.section-1
-        let dict = self.defaultsCollection[dictIndex]
+        let dict = CleanerApp.privateDefaults.selectedCollection[dictIndex]
 
         let dataItem = dict.items[indexPath.item]
         let selected = dataItem.enabled
@@ -565,10 +561,11 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
         cell.detailTextLabel?.textColor = UIColor.gray
         cell.optionSwitch.setOn(selected, animated: false)
         cell.switchDidChange = { on in
-            CleanerApp.privateDefaults.setHandledProperty(dict, dict.items[indexPath.item], on)
+            tableView.performBatchUpdates({
+                CleanerApp.privateDefaults.setHandledProperty(dict, dict.items[indexPath.item], on)
 
-            tableView.reloadRows(at: [indexPath], with: .fade)
-
+                tableView.reloadRows(at: [indexPath], with: .fade)
+            }, completion:nil)
 
         }
         return cell
