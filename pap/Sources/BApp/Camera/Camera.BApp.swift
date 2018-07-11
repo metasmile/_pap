@@ -180,6 +180,33 @@ fileprivate class CameraView: UIView {
         }
     }
     
+    fileprivate func captureDevice(with position: AVCaptureDevice.Position) -> AVCaptureDevice? {
+        if #available(iOS 11.1, *) {
+            return AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera, .builtInTelephotoCamera, .builtInTrueDepthCamera, .builtInWideAngleCamera], mediaType: .video, position: .unspecified).devices.first { $0.position == position }
+        } else {
+            return AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera, .builtInTelephotoCamera, .builtInWideAngleCamera], mediaType: .video, position: .unspecified).devices.first { $0.position == position }
+        }
+    }
+    
+    fileprivate func currentCaptureDeviceInput(for mediaType: AVMediaType) -> AVCaptureDeviceInput? {
+        let captureDeviceInputs = self.captureSession.inputs as? [AVCaptureDeviceInput]
+        return captureDeviceInputs?.first { $0.device.hasMediaType(mediaType) }
+    }
+    
+    func switchCameraPosition() {
+        sessionQueue.async {
+            let currentDevice = self.currentCaptureDeviceInput(for: .video)
+            let position: AVCaptureDevice.Position = currentDevice?.device.position == .back ? .front : .back
+            
+            self.captureSession.beginConfiguration()
+            if let oldDevice = currentDevice, let newDevice = self.captureDevice(with: position), let deviceInput = try? AVCaptureDeviceInput(device: newDevice), self.captureSession.canAddInput(deviceInput) {
+                self.captureSession.removeInput(oldDevice)
+                self.captureSession.addInput(deviceInput)
+            }
+            self.captureSession.commitConfiguration()
+        }
+    }
+    
     override var contentMode: UIViewContentMode {
         didSet {
             switch contentMode {
@@ -259,12 +286,13 @@ fileprivate class CameraAppView: UIView {
         cameraView.contentMode = .scaleAspectFit
         cameraView.setUp()
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapToCapture))
         cameraView.addGestureRecognizer(tapGesture)
         
         return cameraView
     }()
     
+    private lazy var tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapToCapture))
+    private var optionViewHeightLayout: NSLayoutConstraint?
     private var cameraAspectRatioLayout: NSLayoutConstraint?
     
     override init(frame: CGRect) {
@@ -278,9 +306,20 @@ fileprivate class CameraAppView: UIView {
     }
     
     private func intialize() {
+        let optionView = UIView(frame: .zero)
+        optionView.backgroundColor = .black
+        addSubview(optionView)
+        
+        optionView.translatesAutoresizingMaskIntoConstraints = false
+        optionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        optionView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        optionView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        optionViewHeightLayout = optionView.heightAnchor.constraint(equalToConstant: 0)
+        optionViewHeightLayout?.isActive = true
+        
         addSubview(cameraView)
         cameraView.translatesAutoresizingMaskIntoConstraints = false
-        cameraView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        cameraView.topAnchor.constraint(equalTo: optionView.bottomAnchor).isActive = true
         cameraView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
         let widthLayout = cameraView.widthAnchor.constraint(equalTo: widthAnchor)
@@ -293,14 +332,70 @@ fileprivate class CameraAppView: UIView {
         
         cameraAspectRatioLayout = cameraView.heightAnchor.constraint(equalTo: cameraView.widthAnchor, multiplier: 4 / 3)
         cameraAspectRatioLayout?.isActive = true
+        
+        let controlView = UIView(frame: .zero)
+        controlView.backgroundColor = .black
+        addSubview(controlView)
+        
+        controlView.translatesAutoresizingMaskIntoConstraints = false
+        controlView.topAnchor.constraint(equalTo: cameraView.bottomAnchor).isActive = true
+        controlView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        controlView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        controlView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        
+        let captureButton = UIButton(type: .system)
+        captureButton.setTitle("Capture", for: .normal)
+        captureButton.addTarget(self, action: #selector(self.tapToCapture), for: .touchUpInside)
+        addSubview(captureButton)
+        
+        captureButton.translatesAutoresizingMaskIntoConstraints = false
+        captureButton.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor).isActive = true
+        captureButton.centerXAnchor.constraint(equalTo: controlView.centerXAnchor).isActive = true
+        captureButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 44).isActive = true
+        
+        let captureButtonCenterYLayout = captureButton.centerYAnchor.constraint(equalTo: controlView.centerYAnchor)
+        captureButtonCenterYLayout.priority = .defaultLow
+        captureButtonCenterYLayout.isActive = true
+        
+        let switchButton = UIButton(type: .system)
+        switchButton.setTitle("Switch", for: .normal)
+        switchButton.addTarget(self, action: #selector(self.switchCamera), for: .touchUpInside)
+        addSubview(switchButton)
+        
+        switchButton.translatesAutoresizingMaskIntoConstraints = false
+        switchButton.topAnchor.constraint(greaterThanOrEqualTo: topAnchor).isActive = true
+        switchButton.trailingAnchor.constraint(equalTo: cameraView.trailingAnchor).isActive = true
+        
+        let switchButtonCenterYLayout = switchButton.centerYAnchor.constraint(equalTo: optionView.centerYAnchor)
+        switchButtonCenterYLayout.priority = .defaultLow
+        switchButtonCenterYLayout.isActive = true
     }
     
-    @objc func tapToCapture(gesture: UITapGestureRecognizer) {
+    @objc func tapToCapture(sender: Any) {
         cameraView.takePhoto()
+    }
+    
+    @objc func switchCamera(sender: Any) {
+        cameraView.switchCameraPosition()
+    }
+    
+    var isCompactMode: Bool = true {
+        didSet {
+            optionViewHeightLayout?.isActive = false
+            if isCompactMode {
+                optionViewHeightLayout?.constant = 0
+            }
+            else {
+                optionViewHeightLayout?.constant = 44
+            }
+            optionViewHeightLayout?.isActive = true
+            
+            tapGesture.isEnabled = isCompactMode
+        }
     }
 }
 
-fileprivate class CameraAppDockContent: NSObject, KeyPathWatchable, AppDockContent {
+fileprivate class CameraAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDockDelegate {
     lazy var view: UIView = {
         return CameraAppView(frame: .zero)
     }()
@@ -310,7 +405,8 @@ fileprivate class CameraAppDockContent: NSObject, KeyPathWatchable, AppDockConte
     }
     
     var preferences: AppDockContentPreferable? {
-        return AppDockContentPreferences()
+        let pref = AppDockContentPreferences()
+        return pref
     }
     
     func willSetContentView(_ view: UIView, dock: AppDock) {
@@ -323,5 +419,17 @@ fileprivate class CameraAppDockContent: NSObject, KeyPathWatchable, AppDockConte
     
     func willRemoveContentView() {
         cameraView?.stopSession()
+    }
+    
+    var delegate: AppDockDelegate? {
+        return self
+    }
+    
+    func dockWillExpand(_ dock: AppDock) {
+        (view as? CameraAppView)?.isCompactMode = false
+    }
+    
+    func dockWillContract(_ dock: AppDock) {
+        (view as? CameraAppView)?.isCompactMode = true
     }
 }
