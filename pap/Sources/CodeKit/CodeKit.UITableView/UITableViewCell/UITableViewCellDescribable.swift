@@ -11,7 +11,7 @@ public protocol UITableViewCellDefaultDescribable:
 
 public protocol UITableViewCellDescribable {
     var cellIdentifier:String{get}
-    var cellClass:UITableViewCell.Type{get}
+    var cellClass:Swift.AnyClass{get}
 
     var itemIdentifier:Int {set get}
 }
@@ -66,7 +66,7 @@ extension UITableViewCellAccessoryDescribable{
 
 public class UITableViewCellDescriber: UITableViewCellDefaultDescribable {
 
-    public var cellClass:UITableViewCell.Type { return UITableViewCell.self }
+    public var cellClass:Swift.AnyClass { return UITableViewCell.self }
 
     public var itemIdentifier:Int = Int.max
 
@@ -85,35 +85,35 @@ public class UITableViewCellDescriber: UITableViewCellDefaultDescribable {
 
 
 public class UITableViewPickerCellDescriber: UITableViewCellDescriber, UITableViewCellMultipleValueDescribable {
-    public override var cellClass:UITableViewCell.Type { return UITableViewPickerCell.self }
+    public override var cellClass:Swift.AnyClass { return UITableViewPickerCell.self }
 
     public var valueCollection: Any?
 }
 
 public class UITableViewMultiplePickerCellDescriber: UITableViewCellDescriber, UITableViewCellMultipleValueDescribable {
-    public override var cellClass:UITableViewCell.Type { return UITableViewMultiplePickerCell.self }
+    public override var cellClass:Swift.AnyClass { return UITableViewMultiplePickerCell.self }
     
     public var valueCollection: Any?
 }
 
 public class UITableViewSwitchCellDescriber: UITableViewCellDescriber {
-    public override var cellClass:UITableViewCell.Type { return UITableViewSwitchCell.self }
+    public override var cellClass:Swift.AnyClass { return UITableViewSwitchCell.self }
 }
 
 public class UITableViewSegmentControlCellDescriber: UITableViewCellDescriber, UITableViewCellMultipleValueDescribable {
-    public override var cellClass:UITableViewCell.Type { return UITableViewSegmentedControlCell.self }
+    public override var cellClass:Swift.AnyClass { return UITableViewSegmentedControlCell.self }
 
     public var valueCollection: Any?
 }
 
 public class UITableViewSimpleValueCellDescriber: UITableViewCellDescriber, UITableViewCellAccessoryDescribable {
-    public override var cellClass:UITableViewCell.Type { return UITableViewSimpleValueCell.self }
+    public override var cellClass:Swift.AnyClass { return UITableViewSimpleValueCell.self }
 
     public var valuePresenter: ((Any) -> (String))?
 }
 
 public class UITableViewActionSheetCellDescriber: UITableViewCellDescriber, UITableViewCellMultipleValueDescribable, UITableViewCellAccessoryDescribable {
-    public override var cellClass:UITableViewCell.Type { return UITableViewActionSheetCell.self }
+    public override var cellClass:Swift.AnyClass { return UITableViewActionSheetCell.self }
 
     public var valueCollection: Any?
 
@@ -121,7 +121,7 @@ public class UITableViewActionSheetCellDescriber: UITableViewCellDescriber, UITa
 }
 
 public class UITableViewStepperCellDescriber: UITableViewCellDescriber, UITableViewCellMultipleValueDescribable, UITableViewCellAccessoryDescribable {
-    public override var cellClass:UITableViewCell.Type { return UITableViewStepperCell.self }
+    public override var cellClass:Swift.AnyClass { return UITableViewStepperCell.self }
 
 //    var isContinuous: Bool = true // if YES, value change events are sent any time the value changes during interaction. default = YES
 //
