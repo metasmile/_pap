@@ -80,7 +80,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
             return nil
         }
 
-        preheatingFrontQueueLabel = async.queueStack.first
+        preheatingFrontQueueLabel = async.queueStack.first ?? DispatchQueue.currentLabel
 
         var preheatedResult:FinderAppResult?
 
