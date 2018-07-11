@@ -57,10 +57,9 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp
         super.init()
     }
 
-    fileprivate var adjustedCache = [String:Bool]()
 
     func willSetCurrent(oldCurrent: App.Type?) {
-        adjustedCache.removeAll()
+
     }
 
     func didSetCurrent(previous: App.Type?) {}
@@ -100,9 +99,7 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp
             }
         }, completionHandler: { success, error in
             if success {
-                for asset in adjustedAssets {
-                    self.adjustedCache[asset.localIdentifier] = false
-                }
+
             }else{
                 print("[!] Can't revert asset: \(String(describing: error))")
             }
