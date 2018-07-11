@@ -226,26 +226,19 @@ extension AppUIAssetView {
                 contentEditingInputRequestID = asset.requestContentEditingInput(with: nil, completionHandler: { [weak self] (input, info) in
                     guard let input = input else { return }
                     
+                    let app = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self)
+                    app?.photoEditorProcessingDidBegin()
+                    
                     self?.livePhotoEditingContext?.cancel()
                     
                     self?.livePhotoEditingContext = PHLivePhotoEditingContext(livePhotoEditingInput: input)
                     self?.livePhotoEditingContext?.frameProcessor = { frame, error in
-                        let signal = AsyncSignal()
-                        signal.begin()
-                        
-                        var filtered: CIImage?
-                        
-                        self?.livePhotoEditingQueue.async {
-                            filtered = frame.image.applyFilter(ciFilter: filter)
-                            signal.end()
-                        }
-                        
-                        signal.waitUntilEnd()
-                        
-                        return filtered
+                        return frame.image.applyFilter(ciFilter: filter)
                     }
                     
                     self?.livePhotoEditingContext?.prepareLivePhotoForPlayback(withTargetSize: targetSize, options: [PHLivePhotoEditingOption.shouldRenderAtPlaybackTime.rawValue: true], completionHandler: { [weak self] (livePhoto, error) in
+                        app?.photoEditorProcessingDidEnd()
+                        
                         guard let livePhoto = livePhoto, error == nil else { return }
                         
                         self?.isProcessing(false, animated: true)

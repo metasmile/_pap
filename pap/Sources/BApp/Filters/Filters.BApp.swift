@@ -109,6 +109,14 @@ PhotoEditorViewControllerDelegatableApp {
         completion(original, filtered)
     }
     
+    public func photoEditorProcessingDidBegin() {
+        dockContent?.view.isUserInteractionEnabled = false
+    }
+    
+    public func photoEditorProcessingDidEnd() {
+        dockContent?.view.isUserInteractionEnabled = true
+    }
+    
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?) {
         (dockContent as? FiltersAppDockContent)?.selectItem(with: editStateValue)
     }

@@ -7,8 +7,12 @@ import Foundation
 
 public protocol PhotoEditorViewControllerDelegatableApp: App {
     var photoEditorDockContent: AppDockContent? {get}
+    func photoEditorProcessingDidBegin()
+    func photoEditorProcessingDidEnd()
 }
 
 extension PhotoEditorViewControllerDelegatableApp {
     public var photoEditorDockContent: AppDockContent? { return nil }
+    public func photoEditorProcessingDidBegin() {}
+    public func photoEditorProcessingDidEnd() {}
 }
