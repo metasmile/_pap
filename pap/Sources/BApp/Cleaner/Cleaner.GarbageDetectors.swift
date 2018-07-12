@@ -10,7 +10,7 @@ import CocoaImageHashing
 import MetalPerformanceShaders
 import MetalKit
 import Vision
-
+import FirebaseMLVision
 
 protocol _GarbageDetector: AsyncProcessor where Self.OutputType==Bool {}
 
@@ -47,13 +47,36 @@ class PHAssetGarbageDetector_Screenshots : PHAssetGarbageDetector{
 }
 
 class PHAssetGarbageDetector_Lockscreens : PHAssetGarbageDetector{
+    private let vision = Vision.vision()
+
     override class var label:String{
         return "Lockscreens".localized
     }
 
+    let parser = VisionTextElementParser()
+
     override func process(input: PHAsset, _ asyncSignal: AsyncWaitSignalable?) -> Bool? {
-        //TODO Add detection
-        return input.mediaType == .image && input.mediaSubtypes.contains(.photoScreenshot)
+        guard input.mediaType == .image && input.mediaSubtypes.contains(.photoScreenshot) else{
+            return false
+        }
+        guard let image = input.asUIImage, let asyncSignal = asyncSignal else {
+            return nil
+        }
+
+        guard let visionTexts = vision.textDetector().detect(with: image, asyncSignal) else {
+            return nil
+        }
+
+        print("imageSize:",image.size)
+        for visionText in visionTexts{
+            for elems in parser.process(input: visionText) ?? []{
+                for elem in elems{
+                    print(elem.frame, elem.text)
+                }
+            }
+        }
+
+        return false
     }
 }
 

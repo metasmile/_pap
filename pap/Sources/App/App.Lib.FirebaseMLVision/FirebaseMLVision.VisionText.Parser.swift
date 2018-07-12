@@ -70,18 +70,50 @@ public struct VisionTextTextBlockParser: VisionTextParser {
 
     static let shared = VisionTextTextBlockParser()
 
+    let parser = VisionTextElementParser()
+
+    func process(input: VisionText) -> OutputType? {
+        if let results = parser.process(input: input){
+            var linesInBlock = [[String]]()
+
+            //block
+            for line in results {
+                //line
+                var wordsInLine = [String]()
+                for element in line where element.text.count > 0 {
+                    //word
+                    wordsInLine.append(element.text)
+                }
+
+                if wordsInLine.count > 0{
+                    linesInBlock.append(wordsInLine)
+                }
+            }
+
+            return linesInBlock
+        }
+
+        return nil
+    }
+}
+
+public struct VisionTextElementParser: VisionTextParser {
+    typealias OutputType = [[VisionTextElement]]
+
+    static let shared = VisionTextTextBlockParser()
+
     func process(input: VisionText) -> OutputType? {
 
         if let block = input as? VisionTextBlock {
-            var linesInBlock = [[String]]()
+            var linesInBlock = [[VisionTextElement]]()
 
             //block
             for line in block.lines {
                 //line
-                var wordsInLine = [String]()
+                var wordsInLine = [VisionTextElement]()
                 for element in line.elements where element.text.count > 0 {
                     //word
-                    wordsInLine.append(element.text)
+                    wordsInLine.append(element)
                 }
 
                 if wordsInLine.count > 0{
