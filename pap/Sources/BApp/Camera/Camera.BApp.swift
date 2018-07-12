@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import Photos
+import PhotosUI
 
 class CameraApp: NSObject, KeyPathWatchable, BApp, AppDockApp, PhotoPickerCollectionViewDisplayableApp {
     public static let taskType: AppTaskable.Type = _CameraAppTask.self
@@ -66,17 +67,18 @@ fileprivate class CameraView: UIView {
         return layer as? CameraPreviewLayer
     }
     
-    lazy var captureSession = AVCaptureSession()
-    lazy var capturePhotoOutput = AVCapturePhotoOutput()
-    lazy var defaultCapturePhotoSettings: AVCapturePhotoSettings = {
+    private lazy var captureSession = AVCaptureSession()
+    private lazy var capturePhotoOutput = AVCapturePhotoOutput()
+    private lazy var defaultCapturePhotoSettings: AVCapturePhotoSettings = {
         let settings = AVCapturePhotoSettings()
         settings.isHighResolutionPhotoEnabled = true
         return settings
     }()
     
-    fileprivate var sessionQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
+    var configurationDidUpdate: (() -> Void)?
     
-    fileprivate var photoURL: URL?
+    private var sessionQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
+    private var photoURL: URL?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -136,6 +138,8 @@ fileprivate class CameraView: UIView {
         
         //TODO: 이거 제 카메라 찰칵찰칵 시끄러서 라이브 켜놓은거임ㅋㅋ
         capturePhotoOutput.isLivePhotoCaptureEnabled = capturePhotoOutput.isLivePhotoCaptureSupported
+        
+        configurationDidUpdate?()
     }
     
     func startSession() {
@@ -153,6 +157,8 @@ fileprivate class CameraView: UIView {
     var capturesInProgress = Set<CameraViewCaptureProcessor>()
     
     func takePhoto() {
+        performShutterAnimation()
+        
         let captureProcessor: CameraViewCaptureProcessor
         
         let photoSettings: AVCapturePhotoSettings
@@ -208,7 +214,7 @@ fileprivate class CameraView: UIView {
             }
             self.captureSession.commitConfiguration()
             
-            self.capturePhotoOutput.isLivePhotoCaptureEnabled = self.capturePhotoOutput.isLivePhotoCaptureSupported
+            self.configurationDidUpdate?()
         }
     }
     
@@ -221,6 +227,46 @@ fileprivate class CameraView: UIView {
                 captureVideoPreviewLayer?.videoGravity = .resizeAspectFill
             default: break
             }
+        }
+    }
+    
+    func performShutterAnimation(_ completion: (() -> Void)? = nil) {
+        let duration = 0.1
+        
+        CATransaction.begin()
+        
+        if let completion = completion {
+            CATransaction.setCompletionBlock(completion)
+        }
+        
+        let fadeOutAnimation = CABasicAnimation(keyPath: "opacity")
+        fadeOutAnimation.fromValue = 1.0
+        fadeOutAnimation.toValue = 0.0
+        layer.add(fadeOutAnimation, forKey: "opacity")
+        
+        let fadeInAnimation = CABasicAnimation(keyPath: "opacity")
+        fadeInAnimation.fromValue = 0.0
+        fadeInAnimation.toValue = 1.0
+        fadeInAnimation.beginTime = CACurrentMediaTime() + duration * 2.0
+        layer.add(fadeInAnimation, forKey: "opacity")
+        
+        CATransaction.commit()
+    }
+}
+
+extension CameraView {
+    var isLivePhotoSupported: Bool {
+        return capturePhotoOutput.isLivePhotoCaptureSupported
+    }
+    
+    var isLivePhotoEnabled: Bool {
+        set {
+            capturePhotoOutput.isLivePhotoCaptureEnabled = newValue
+            self.configurationDidUpdate?()
+        }
+        
+        get {
+            return capturePhotoOutput.isLivePhotoCaptureEnabled
         }
     }
 }
@@ -288,7 +334,7 @@ fileprivate class CameraViewLivePhotoCaptureProcessor: CameraViewCaptureProcesso
 fileprivate class CameraAppView: UIView {
     lazy var cameraView: CameraView = {
         let cameraView = CameraView(frame: .zero)
-        cameraView.contentMode = .scaleAspectFit
+        cameraView.contentMode = .scaleAspectFill
         cameraView.setUp()
         
         cameraView.addGestureRecognizer(tapGesture)
@@ -299,6 +345,8 @@ fileprivate class CameraAppView: UIView {
     private lazy var tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapToCapture))
     private var optionViewHeightLayout: NSLayoutConstraint?
     private var cameraAspectRatioLayout: NSLayoutConstraint?
+    
+    fileprivate var primaryColor = UIColor(red: 0.97, green: 0.8, blue: 0.27, alpha: 1) // 248    204    70
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -311,6 +359,8 @@ fileprivate class CameraAppView: UIView {
     }
     
     private func intialize() {
+        tintColor = UIColor.white
+        
         let optionView = UIView(frame: .zero)
         optionView.backgroundColor = .black
         addSubview(optionView)
@@ -321,6 +371,17 @@ fileprivate class CameraAppView: UIView {
         optionView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         optionViewHeightLayout = optionView.heightAnchor.constraint(equalToConstant: 0)
         optionViewHeightLayout?.isActive = true
+        
+        let livePhotoButton = UIButton(type: .system)
+        livePhotoButton.setImage(livePhotoBadgeIcon, for: .normal)
+        livePhotoButton.addTarget(self, action: #selector(self.toggleLivePhotoEnabled), for: .touchUpInside)
+        optionView.addSubview(livePhotoButton)
+        
+        livePhotoButton.translatesAutoresizingMaskIntoConstraints = false
+        livePhotoButton.centerXAnchor.constraint(equalTo: optionView.centerXAnchor).isActive = true
+        livePhotoButton.topAnchor.constraint(equalTo: optionView.topAnchor).isActive = true
+        livePhotoButton.bottomAnchor.constraint(equalTo: optionView.bottomAnchor).isActive = true
+        livePhotoButton.widthAnchor.constraint(equalTo: optionView.heightAnchor, multiplier: 1).isActive = true
         
         addSubview(cameraView)
         cameraView.translatesAutoresizingMaskIntoConstraints = false
@@ -374,6 +435,20 @@ fileprivate class CameraAppView: UIView {
         let switchButtonCenterYLayout = switchButton.centerYAnchor.constraint(equalTo: optionView.centerYAnchor)
         switchButtonCenterYLayout.priority = .defaultLow
         switchButtonCenterYLayout.isActive = true
+        
+        cameraView.configurationDidUpdate = {
+            DispatchQueue.main.async {
+                livePhotoButton.setImage(self.livePhotoBadgeIcon, for: .normal)
+                livePhotoButton.tintColor = self.cameraView.isLivePhotoEnabled ? self.primaryColor : nil
+            }
+        }
+    }
+    
+    private var livePhotoBadgeIcon: UIImage {
+        return { () -> UIImage in
+            guard cameraView.isLivePhotoSupported else { return PHLivePhotoView.livePhotoBadgeImage(options: .liveOff) }
+            return cameraView.isLivePhotoEnabled ? PHLivePhotoView.livePhotoBadgeImage(options: .overContent) : PHLivePhotoView.livePhotoBadgeImage(options: .liveOff)
+        }().withRenderingMode(.alwaysTemplate)
     }
     
     @objc func tapToCapture(sender: Any) {
@@ -382,6 +457,11 @@ fileprivate class CameraAppView: UIView {
     
     @objc func switchCamera(sender: Any) {
         cameraView.switchCameraPosition()
+    }
+    
+    @objc func toggleLivePhotoEnabled(sender: Any) {
+        guard cameraView.isLivePhotoSupported else { return }
+        cameraView.isLivePhotoEnabled = !cameraView.isLivePhotoEnabled
     }
     
     var isCompactMode: Bool = true {
