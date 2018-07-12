@@ -69,7 +69,12 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
         gc
     */
 
-    fileprivate var gdInstances = [String:PHAssetGarbageDetector]()
+    private var gdInstances = [String:PHAssetGarbageDetector]()
+
+    func disposeGdInstance(identifier:String){
+        gdInstances[identifier] = nil
+    }
+
     fileprivate func gc(item: AppAsset, _ async: AsyncWaitSignalable) -> PHAssetGCResult {
 
         var detected = [PHAssetGarbageDetector.Type]()
@@ -346,6 +351,17 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
 
     private lazy var defaultCollections = CleanerApp.privateDefaults.selectedCollection
 
+    private var isActivatedAtLeastOne:Bool{
+        let activatedDicts = self.defaultCollections.compactMap { dictionary -> GDDictionary? in
+            return dictionary.items.compactMap { $0.enabled ? $0 : nil }.count > 0 ? dictionary : nil
+        }
+        return activatedDicts.count > 0
+    }
+
+    private func startAutoSelectIfNeeded(){
+        AppCenter.default.currentInstanceAs(CleanerApp.self)?.autoSelect = self.isActivatedAtLeastOne
+    }
+
     required public override init() {
         super.init()
     }
@@ -361,9 +377,6 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
         preferences.preferredHeight = 300
         return preferences
     }
-
-    private var autoSelect:Bool = false
-
 
     private func createCellDescriber_SelectionPreset_contact_saveContactWithoutEdit() -> UITableViewSwitchCellDescriber{
         let celld = UITableViewSwitchCellDescriber()
@@ -397,13 +410,13 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
 
         let cell1 = UITableViewSwitchCellDescriber()
         cell1.itemIdentifier = CleanerAppSettingCells.autoSelect.hashValue
-        cell1.label = "Enable Auto Selection".localized
-        cell1.valueGetter = { self.autoSelect }
+        cell1.label = "Auto Garbage Selection".localized
+        cell1.valueGetter = { AppCenter.default.currentInstanceAs(CleanerApp.self)?.autoSelect }
         cell1.valueHandler = {
-            self.autoSelect = $0 as! Bool
-            AppCenter.default.currentInstanceAs(CleanerApp.self)?.autoSelect = self.autoSelect
+            AppCenter.default.currentInstanceAs(CleanerApp.self)?.autoSelect = $0 as! Bool
+
         }
-        settingCellDescribers.append(cell1)
+//        settingCellDescribers.append(cell1)
 
         let cell0 = UITableViewSegmentControlCellDescriber()
         cell0.itemIdentifier = CleanerAppSettingCells.presets.hashValue
@@ -478,6 +491,8 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
     func didSetContentView(_ view:UIView, dock:AppDock) {
 
         (view as! UITableView).reloadData()
+
+        startAutoSelectIfNeeded()
     }
 
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -621,7 +636,28 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
             self.defaultCollections[dictIndex].items[indexPath.item].enabled = on
             CleanerApp.privateDefaults.selectedCollection = self.defaultCollections
 
+            AppCenter.default.currentInstanceAs(CleanerApp.self)?.autoSelect = false
             AppCenter.default.currentInstanceAs(CleanerApp.self)?.disposePreheatingCache()
+
+            if on == false{
+                let identifier = self.defaultCollections[dictIndex].items[indexPath.item].gdIdentifier
+                AppCenter.default.currentInstanceAs(CleanerApp.self)?.disposeGdInstance(identifier: identifier)
+            }
+
+            self.startAutoSelectIfNeeded()
+
+//            if let cellDesc:UITableViewCellDefaultDescribable = self.settingCellDescribers.first(where:{ describable in
+//                describable.itemIdentifier == CleanerAppSettingCells.autoSelect.hashValue
+//            }){
+//                let activated = self.defaultCollections.compactMap { dictionary -> [GDItem]? in
+//                    return dictionary.items.nilEmpty
+//                }.reduce([],+).compactMap { $0.enabled ? $0 : nil }.count>0
+//
+//                if cellDesc.valueGetter() as? Bool ?? false != activated{
+//                    cellDesc.valueHandler?(activated)
+//                    tableView.reloadSections(IndexSet(integer: 0), with: .none)
+//                }
+//            }
 
             self.itemCollection_tableView_cell_update(cell: cell, selected: on)
         }
