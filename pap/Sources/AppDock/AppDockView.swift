@@ -31,6 +31,10 @@ class AppDockGestureRecognizer: UIPanGestureRecognizer {
     var beginContentLayoutState: AppDockContentLayoutState = .neutralized
 }
 
+protocol AppDockContentTransition {
+    func transitionWillBegin(at location: CGPoint)
+}
+
 internal class AppDockVoidableLayoutConatraint: NSLayoutConstraint {
     override var constant: CGFloat {
         set {
@@ -590,6 +594,10 @@ extension AppDockView: UIGestureRecognizerDelegate {
             sender.beginDrawerOffset = drawerViewHeightLayout.constant
             sender.beginAppContentViewOffset = appContentViewHeightLayout.constant
             sender.beginContentLayoutState = contentLayoutState
+            
+            if let content =  accessory?.view as? AppDockContentTransition {
+                content.transitionWillBegin(at: sender.location(in: accessory?.view))
+            }
             break
         case .changed:
             let delta = sender.beginDrawerOffset - translation.y

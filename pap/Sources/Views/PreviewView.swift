@@ -133,7 +133,7 @@ internal class PreviewCollectionLayout: UICollectionViewLayout {
     }
 }
 
-class PreviewView: CustomView {
+class PreviewView: CustomView, AppDockContentTransition {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewHeightLayout: NSLayoutConstraint!
     
@@ -154,7 +154,12 @@ class PreviewView: CustomView {
         collectionView.contentInset.bottom = 1
         collectionView.register(PreviewCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: PreviewCollectionViewCell.self))
     }
-
+    
+    private var transitionBeginLocation: CGPoint = .zero
+    func transitionWillBegin(at location: CGPoint) {
+        transitionBeginLocation = location
+    }
+    
     public func updatePreviews(animated: Bool = true, forced: Bool = false, completion: (() -> Void)? = nil) {
         setPreviewLayout(with: collectionViewHeightLayout.constant)
         
@@ -175,17 +180,16 @@ class PreviewView: CustomView {
     }
     
     public func setPreviewLayout(with height: CGFloat) {
-        guard let fromLayout = collectionView.collectionViewLayout as? PreviewCollectionLayout else { return }
         let toLayout = PreviewCollectionLayout(previewHeight: height)
         
-        let offsetXRatio = collectionView.contentOffset.x / fromLayout.contentSize.width
+        let touchedIndexPath = collectionView.indexPathForItem(at: transitionBeginLocation)
         
         collectionViewHeightLayout.constant = height
         collectionView.layoutIfNeeded()
         collectionView.setCollectionViewLayout(toLayout, animated: false)
         
-        if appAssetsSelected.count > 0 {
-            collectionView.setContentOffset(CGPoint(x: offsetXRatio * toLayout.contentSize.width, y: collectionView.contentOffset.y), animated: false)
+        if appAssetsSelected.count > 0, let indexPath = touchedIndexPath {
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
         }
     }
 }
