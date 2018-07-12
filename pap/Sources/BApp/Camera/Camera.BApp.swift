@@ -504,7 +504,9 @@ fileprivate class CameraAppView: UIView {
     }
     
     private lazy var captureButton = CaptureButton(frame: .zero)
-    
+
+    private let devicePositionIconViewTag = "devicePositionIconViewTag".hashValue
+
     private func intialize() {
         tintColor = UIColor.white
         
@@ -571,6 +573,7 @@ fileprivate class CameraAppView: UIView {
         
         let switchButton = UIButton(type: .system)
         switchButton.setImage(devicePositionIcon, for: .normal)
+        switchButton.tag = devicePositionIconViewTag
         switchButton.addTarget(self, action: #selector(self.switchCamera), for: .touchUpInside)
         addSubview(switchButton)
         
@@ -600,8 +603,8 @@ fileprivate class CameraAppView: UIView {
     
     private var devicePositionIcon: UIImage {
         return { () -> UIImage in
-            return (self.isCompactMode ? R.image.cameraBAppPositionEmboss() : R.image.cameraBAppPositionIntaglio()) ?? UIImage()
-            
+            return (self.isCompactMode ? R.image.cameraBAppPositionIntaglio() : R.image.cameraBAppPositionEmboss()) ?? UIImage()
+
         }().withRenderingMode(.alwaysTemplate)
     }
     
@@ -637,6 +640,8 @@ fileprivate class CameraAppView: UIView {
             optionViewHeightLayout?.isActive = true
             
             tapGesture.isEnabled = isCompactMode
+
+            (viewWithTag(devicePositionIconViewTag) as? UIButton)?.setImage(self.devicePositionIcon, for: .normal)
         }
     }
 }
