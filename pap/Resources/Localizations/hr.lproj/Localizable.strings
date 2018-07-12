@@ -122,6 +122,10 @@
 "cs_keyword_12" = "prijatelj";
 /*Translated from: lover*/
 "cs_keyword_13" = "ljubavnik";
+/* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
+"%@ might be found" = "Možda se pronađe %@";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
+"%@ will be hidden" = "%@ će biti skriven";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d puta";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
@@ -146,10 +150,12 @@
 "Aspect Ratio" = "Aspect Ratio";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Automatski uređivač";
+/* Generated from genl10n: Cleaner.BApp.swift#244 */
+"Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
-/* Generated from genl10n: PhoneCalls.swift#57 */
-"Call Numbers" = "Brojevi poziva";
+/* Generated from genl10n: Camera.BApp.swift#44 */
+"Camera" = "Fotoaparat";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Ne mogu se vratiti. Sve odabrane stavke nisu uređene.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -166,8 +172,6 @@
 "Clean the selected items" = "Očistite odabrane stavke";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Čistač";
-/* Generated from genl10n: Cleaner.BApp.swift#62 */
-"Cleaning Photos..." = "Čišćenje fotografija ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "kontakti";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -236,6 +240,8 @@
 "Layout" = "raspored";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Fotografija uživo";
+/* Generated from genl10n: Cleaner.BApp.swift#245 */
+"Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Petlja";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -264,6 +270,8 @@
 "Page Margin" = "Margina stranice";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Predodređena veličina stranice";
+/* Generated from genl10n: PhoneCalls.swift#57 */
+"Phone Calls" = "Telefonski pozivi";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Broj telefona";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -294,26 +302,28 @@
 "Saving Results..." = "Spremanje rezultata ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
 "Scale To Fit" = "Skala za prilagodbu";
+/* Generated from genl10n: Cleaner.BApp.swift#246 */
+"Screenshots" = "Slike";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Pretraži letove";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Odaberite fotografije da biste pronašli sve.";
-/* Generated from genl10n: Cleaner.BApp.swift#316 */
-"Select Photos You Want To Clean!" = "Odaberite fotografije koje želite očistiti!";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Odaberite fotografije koje želite zgrabiti brojeve telefona!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Pošalji email";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Udio";
+/* Generated from genl10n: Cleaner.BApp.swift#243 */
+"Similarities" = "sličnosti";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Veličina";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Neki su kontakti spremljeni, ali neki nisu bili.";
-/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
-"Sorry not found any information you selected." = "Nažalost, nisu pronađene informacije koje ste odabrali.";
-/* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, this contact could not be saved." = "Žao nam je, taj se kontakt nije mogao spremiti.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"Sorry, it could not be saved." = "Žao nam je, nije moguće spremiti.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Sorry. No information about you have selected could not be detected." = "Oprosti. Nije bilo moguće otkriti nijedan odabrani podatak.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Kvadrat";
 /* Generated from genl10n: Stabilizer.swift */
@@ -334,6 +344,8 @@
 "Starting to check edited photos..." = "Početak pregledavanja uređenih fotografija ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Uključite sve stavke koje želite sakriti. Kvaliteta će u cijelosti ostati ista.";
+/* Generated from genl10n: Cleaner.BApp.swift#242 */
+"Targets" = "ciljevi";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Prijevod";
 /* Generated from genl10n: GIFMaker.BApp.swift */

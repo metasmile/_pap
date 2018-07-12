@@ -122,6 +122,10 @@
 "cs_keyword_12" = "mnzanga";
 /*Translated from: lover*/
 "cs_keyword_13" = "wokondedwa";
+/* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
+"%@ might be found" = "%@ angapezeke";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
+"%@ will be hidden" = "%@ adzabisika";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d nthawi";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
@@ -146,10 +150,12 @@
 "Aspect Ratio" = "Zotsatira zooneka";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Okonza Auto";
+/* Generated from genl10n: Cleaner.BApp.swift#244 */
+"Blur Rate" = "Ndemanga ya Blur";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Kutentha";
-/* Generated from genl10n: PhoneCalls.swift#57 */
-"Call Numbers" = "Ikani Nambala";
+/* Generated from genl10n: Camera.BApp.swift#44 */
+"Camera" = "Kamera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Sangathe kubwereranso. Zosankhidwa zonse sizinasinthe.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -166,8 +172,6 @@
 "Clean the selected items" = "Sambani zinthu zosankhidwa";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Oyera";
-/* Generated from genl10n: Cleaner.BApp.swift#62 */
-"Cleaning Photos..." = "Zojambula Zithunzi ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Othandizira";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -236,6 +240,8 @@
 "Layout" = "Kuyika";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Chithunzi Chamoyo";
+/* Generated from genl10n: Cleaner.BApp.swift#245 */
+"Lockscreens" = "Zowonongeka";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -264,6 +270,8 @@
 "Page Margin" = "Mtsinje wa Tsamba";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Kukula kwa Tsamba Kusankhidwa";
+/* Generated from genl10n: PhoneCalls.swift#57 */
+"Phone Calls" = "Mafoni Afoni";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Nambala yafoni";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -294,26 +302,28 @@
 "Saving Results..." = "Kusunga Zotsatira ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
 "Scale To Fit" = "Kuchuluka Kwambiri";
+/* Generated from genl10n: Cleaner.BApp.swift#246 */
+"Screenshots" = "Zithunzi zojambula";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Fufuzani ndege";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Sankhani Zithunzi Kuti Mupeze Zonse.";
-/* Generated from genl10n: Cleaner.BApp.swift#316 */
-"Select Photos You Want To Clean!" = "Sankhani Zithunzi Zimene Mukufuna Kuzisambitsa!";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Sankhani Zithunzi Zimene Mukufuna Kujambula Phone Numeri!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Tumizani imelo";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Gawani";
+/* Generated from genl10n: Cleaner.BApp.swift#243 */
+"Similarities" = "Zofanana";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Kukula";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Othandizana ena adasungidwa, koma zina sizinali.";
-/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
-"Sorry not found any information you selected." = "Pepani musapeze chidziwitso chomwe mwasankha.";
-/* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, this contact could not be saved." = "Pepani, kukhudzana kumeneku sikungapulumutsidwe.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"Sorry, it could not be saved." = "Pepani, sichikanakhoza kupulumutsidwa.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Sorry. No information about you have selected could not be detected." = "Pepani. Palibe chidziwitso chokhudza iwe chomwe wasankha sichinaoneke.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -334,6 +344,8 @@
 "Starting to check edited photos..." = "Kuyambira kuti muwone zithunzi zosinthidwa ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Sinthani chilichonse chimene mukufuna kubisala. Mtunduwo udzakhalabe wofanana.";
+/* Generated from genl10n: Cleaner.BApp.swift#242 */
+"Targets" = "Zolinga";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Kutembenuzidwa";
 /* Generated from genl10n: GIFMaker.BApp.swift */

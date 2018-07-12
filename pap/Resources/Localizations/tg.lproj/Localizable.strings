@@ -122,6 +122,10 @@
 "cs_keyword_12" = "дўстон";
 /*Translated from: lover*/
 "cs_keyword_13" = "лев";
+/* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
+"%@ might be found" = "%@ метавонад пайдо шавад";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
+"%@ will be hidden" = "%@ пинҳон хоҳад буд";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d борҳо";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
@@ -146,10 +150,12 @@
 "Aspect Ratio" = "Нишондиҳандаи асъор";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Таҳлилгари худ";
+/* Generated from genl10n: Cleaner.BApp.swift#244 */
+"Blur Rate" = "Меъёри танаффус";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Бастур";
-/* Generated from genl10n: PhoneCalls.swift#57 */
-"Call Numbers" = "Рақамҳои Call";
+/* Generated from genl10n: Camera.BApp.swift#44 */
+"Camera" = "Камера";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Метавонед баргардед. Ҳамаи намудҳои интихобшуда таҳрир нашудаанд.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -166,8 +172,6 @@
 "Clean the selected items" = "Калидҳои интихобшуда тоза кунед";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Тозакунанда";
-/* Generated from genl10n: Cleaner.BApp.swift#62 */
-"Cleaning Photos..." = "Тоза кардани аксҳо ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Тамос";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -236,6 +240,8 @@
 "Layout" = "Забон";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
+/* Generated from genl10n: Cleaner.BApp.swift#245 */
+"Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -264,6 +270,8 @@
 "Page Margin" = "Саҳифа";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Ҳаҷмии саҳифа";
+/* Generated from genl10n: PhoneCalls.swift#57 */
+"Phone Calls" = "Зангҳои телефонӣ";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Рақами мобилӣ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -294,26 +302,28 @@
 "Saving Results..." = "Натиҷаҳои сабт ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
 "Scale To Fit" = "Миқёсаро ба часпидан";
+/* Generated from genl10n: Cleaner.BApp.swift#246 */
+"Screenshots" = "Суратҳо";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Файли ҷустуҷӯ";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Суратҳо барои ҳама чизро интихоб кунед.";
-/* Generated from genl10n: Cleaner.BApp.swift#316 */
-"Select Photos You Want To Clean!" = "Суратҳоеро, ки шумо тоза мекунед, интихоб кунед!";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Суратҳоеро интихоб кунед, ки мехоҳед Рақамҳои телефонро гиред!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Ирсол намоед";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Share";
+/* Generated from genl10n: Cleaner.BApp.swift#243 */
+"Similarities" = "Монандӣ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Андозаи";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Баъзе мухотибон наҷот дода шуданд, вале баъзеҳо буданд.";
-/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
-"Sorry not found any information you selected." = "Мутаассифона, ягон маълумотеро,";
-/* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, this contact could not be saved." = "Мутаассифона, ин алоқа наҷот намеёфт.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"Sorry, it could not be saved." = "Мутаассифона, он наҷот намеёфт.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Sorry. No information about you have selected could not be detected." = "Бубахшед. Ҳеҷ гуна маълумоте дар бораи шумо интихоб нашудааст.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -334,6 +344,8 @@
 "Starting to check edited photos..." = "Оғози санҷиши аксҳои таҳрир ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Ба ҳама чизҳое, ки мехоҳед пинҳон кунед, гузаред. Сифат комилан боқӣ мемонад.";
+/* Generated from genl10n: Cleaner.BApp.swift#242 */
+"Targets" = "Мақсадҳо";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Тарҷума";
 /* Generated from genl10n: GIFMaker.BApp.swift */

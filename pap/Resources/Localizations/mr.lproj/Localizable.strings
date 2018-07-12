@@ -122,6 +122,10 @@
 "cs_keyword_12" = "मित्र";
 /*Translated from: lover*/
 "cs_keyword_13" = "प्रियकर";
+/* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
+"%@ might be found" = "%@ कदाचित आढळू शकते";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
+"%@ will be hidden" = "%@ लपविल्या जातील";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d वेळा";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
@@ -146,10 +150,12 @@
 "Aspect Ratio" = "प्रसर गुणोत्तर";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "ऑटो संपादक";
+/* Generated from genl10n: Cleaner.BApp.swift#244 */
+"Blur Rate" = "ब्लर रेट";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "फट";
-/* Generated from genl10n: PhoneCalls.swift#57 */
-"Call Numbers" = "कॉल नंबर";
+/* Generated from genl10n: Camera.BApp.swift#44 */
+"Camera" = "कॅमेरा";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "परत येऊ शकत नाही. सर्व निवडलेले आयटम संपादित केले नाहीत.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -166,8 +172,6 @@
 "Clean the selected items" = "निवडलेल्या आयटम साफ करा";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "क्लिनर";
-/* Generated from genl10n: Cleaner.BApp.swift#62 */
-"Cleaning Photos..." = "फोटो साफ करीत आहे ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "संपर्क";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -236,6 +240,8 @@
 "Layout" = "लेआउट";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "थेट फोटो";
+/* Generated from genl10n: Cleaner.BApp.swift#245 */
+"Lockscreens" = "लॉकक्रेन्स";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "वळण";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -264,6 +270,8 @@
 "Page Margin" = "पृष्ठ समास";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "पृष्ठ आकार प्रिसेट";
+/* Generated from genl10n: PhoneCalls.swift#57 */
+"Phone Calls" = "फोन कॉल";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "फोन नंबर";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -294,26 +302,28 @@
 "Saving Results..." = "परिणाम जतन करीत आहे ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
 "Scale To Fit" = "फिट करण्यासाठी स्केल";
+/* Generated from genl10n: Cleaner.BApp.swift#246 */
+"Screenshots" = "स्क्रिनशॉट्स";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "उड्डाणे शोधा";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "सर्वकाही शोधण्यासाठी फोटो निवडा";
-/* Generated from genl10n: Cleaner.BApp.swift#316 */
-"Select Photos You Want To Clean!" = "आपण साफ करू इच्छिता ते फोटो निवडा!";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "फोटो निवडा आपण फोन नंबर झेल इच्छित!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "एक ईमेल पाठवा";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "सामायिक करा";
+/* Generated from genl10n: Cleaner.BApp.swift#243 */
+"Similarities" = "समानता";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "आकार";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "काही संपर्क जतन केले गेले, परंतु कोणी नाही.";
-/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
-"Sorry not found any information you selected." = "आपण निवडलेली कोणताही माहिती सापडल्याबद्दल क्षमस्व आढळली नाही.";
-/* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, this contact could not be saved." = "क्षमस्व, हा संपर्क जतन करणे शक्य नाही.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"Sorry, it could not be saved." = "क्षमस्व, ते जतन करणे शक्य नाही.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Sorry. No information about you have selected could not be detected." = "क्षमस्व. आपण निवडलेल्या कोणत्याही माहितीचा शोध लावला जाऊ शकत नाही";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "चौरस";
 /* Generated from genl10n: Stabilizer.swift */
@@ -334,6 +344,8 @@
 "Starting to check edited photos..." = "संपादित केलेल्या फोटोंची तपासणी प्रारंभ करीत आहे ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "आपण लपवू इच्छित असलेल्या कोणत्याही आयटमवर स्विच करा गुणवत्ता संपूर्णपणे समान राहील.";
+/* Generated from genl10n: Cleaner.BApp.swift#242 */
+"Targets" = "लक्ष्य";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "भाषांतर";
 /* Generated from genl10n: GIFMaker.BApp.swift */

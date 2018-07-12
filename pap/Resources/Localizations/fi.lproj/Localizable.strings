@@ -122,6 +122,10 @@
 "cs_keyword_12" = "ystävä";
 /*Translated from: lover*/
 "cs_keyword_13" = "rakastaja";
+/* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
+"%@ might be found" = "%@ saattaa löytyä";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
+"%@ will be hidden" = "%@ on piilotettu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d kertaa";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
@@ -146,10 +150,12 @@
 "Aspect Ratio" = "Kuvasuhde";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Automaattinen muokkaus";
+/* Generated from genl10n: Cleaner.BApp.swift#244 */
+"Blur Rate" = "Esipysyvyys";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
-/* Generated from genl10n: PhoneCalls.swift#57 */
-"Call Numbers" = "Puhelinnumerot";
+/* Generated from genl10n: Camera.BApp.swift#44 */
+"Camera" = "Kamera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Ei voi palata. Kaikki valitut kohteet eivät ole muokattuja.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -166,8 +172,6 @@
 "Clean the selected items" = "Puhdista valitut kohteet";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "siivooja";
-/* Generated from genl10n: Cleaner.BApp.swift#62 */
-"Cleaning Photos..." = "Kuvien puhdistaminen ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Yhteydet";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -236,6 +240,8 @@
 "Layout" = "Layout";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
+/* Generated from genl10n: Cleaner.BApp.swift#245 */
+"Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "silmukka";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -264,6 +270,8 @@
 "Page Margin" = "Sivun marginaali";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Sivun koko Esiasetettu";
+/* Generated from genl10n: PhoneCalls.swift#57 */
+"Phone Calls" = "Puhelinsoitot";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Puhelinnumero";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -294,26 +302,28 @@
 "Saving Results..." = "Tulosten tallentaminen ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
 "Scale To Fit" = "Skaalaus sopivaksi";
+/* Generated from genl10n: Cleaner.BApp.swift#246 */
+"Screenshots" = "kuvakaappauksia";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Etsi lennot";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Valitse valokuvat, jos haluat löytää kaiken.";
-/* Generated from genl10n: Cleaner.BApp.swift#316 */
-"Select Photos You Want To Clean!" = "Valitse valokuvat, jotka haluat puhdistaa!";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Valitse valokuvat, jotka haluat napata puhelinnumerot!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Lähetä sähköposti";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Share";
+/* Generated from genl10n: Cleaner.BApp.swift#243 */
+"Similarities" = "yhtäläisyyksiä";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Koko";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Jotkut yhteystiedot tallentuivat, mutta jotkut eivät olleet.";
-/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
-"Sorry not found any information you selected." = "Valitut tiedot eivät löytynyt.";
-/* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, this contact could not be saved." = "Valitettavasti tätä yhteyttä ei voitu tallentaa.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"Sorry, it could not be saved." = "Valitettavasti sitä ei voi tallentaa.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Sorry. No information about you have selected could not be detected." = "Anteeksi. Tietoja sinusta ei ole valittu.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Neliö";
 /* Generated from genl10n: Stabilizer.swift */
@@ -334,6 +344,8 @@
 "Starting to check edited photos..." = "Muokatut valokuvat tarkistetaan ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Ota kaikki kohteet, jotka haluat piilottaa. Laatu säilyy täysin samana.";
+/* Generated from genl10n: Cleaner.BApp.swift#242 */
+"Targets" = "tavoitteet";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Käännös";
 /* Generated from genl10n: GIFMaker.BApp.swift */

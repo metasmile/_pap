@@ -122,6 +122,10 @@
 "cs_keyword_12" = "amiko";
 /*Translated from: lover*/
 "cs_keyword_13" = "amanto";
+/* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
+"%@ might be found" = "%@ povus esti trovita";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
+"%@ will be hidden" = "%@ estos kaŝita";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d fojojn";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
@@ -146,10 +150,12 @@
 "Aspect Ratio" = "Aspekto Ratio";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Aŭtomata redaktilo";
+/* Generated from genl10n: Cleaner.BApp.swift#244 */
+"Blur Rate" = "Blur Imposto";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Eksplodo";
-/* Generated from genl10n: PhoneCalls.swift#57 */
-"Call Numbers" = "Nomaj Nombroj";
+/* Generated from genl10n: Camera.BApp.swift#44 */
+"Camera" = "Ĉambro";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Ne povas reverti. Ĉiuj elektitaj eroj ne redaktis.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -166,8 +172,6 @@
 "Clean the selected items" = "Purigu la elektitajn erojn";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Pli pura";
-/* Generated from genl10n: Cleaner.BApp.swift#62 */
-"Cleaning Photos..." = "Purigado de fotoj ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Kontaktoj";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -236,6 +240,8 @@
 "Layout" = "Aranĝo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Viva Foto";
+/* Generated from genl10n: Cleaner.BApp.swift#245 */
+"Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Cirklo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -264,6 +270,8 @@
 "Page Margin" = "Paĝo Marĝeno";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Paĝo Grandeco Antaŭdifinita";
+/* Generated from genl10n: PhoneCalls.swift#57 */
+"Phone Calls" = "Telefonaj Vokoj";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Telefonnumero";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -294,26 +302,28 @@
 "Saving Results..." = "Savi Rezultojn ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
 "Scale To Fit" = "Skalo Al Fit";
+/* Generated from genl10n: Cleaner.BApp.swift#246 */
+"Screenshots" = "Ekrankopioj";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Serĉaj flugoj";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Elektu fotojn por Trovi ĉion.";
-/* Generated from genl10n: Cleaner.BApp.swift#316 */
-"Select Photos You Want To Clean!" = "Elektu fotojn Vi Deziras Purigi!";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Elektu fotojn Vi Deziras Grabi Telefonajn Nombrojn!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Sendu retpoŝton";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Kunhavigi";
+/* Generated from genl10n: Cleaner.BApp.swift#243 */
+"Similarities" = "Similecoj";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Grandeco";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Iuj kontaktoj savis, sed kelkaj ne estis.";
-/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
-"Sorry not found any information you selected." = "Ni bedaŭrinde ne trovis ajnan informon, kiun vi elektis.";
-/* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, this contact could not be saved." = "Pardonu, ĉi tiu kontakto ne povis esti savita.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"Sorry, it could not be saved." = "Pardonu, ĝi ne povis esti savita.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Sorry. No information about you have selected could not be detected." = "Pardonu. Neniu informo pri vi elektis ne povis esti detektita.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Kvadrato";
 /* Generated from genl10n: Stabilizer.swift */
@@ -334,6 +344,8 @@
 "Starting to check edited photos..." = "Komencante kontroli la redaktitajn fotojn ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Ŝaltu ajnajn erojn, kiujn vi volas kaŝi. La kvalito tute restos egala.";
+/* Generated from genl10n: Cleaner.BApp.swift#242 */
+"Targets" = "Celoj";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Tradukado";
 /* Generated from genl10n: GIFMaker.BApp.swift */

@@ -122,6 +122,10 @@
 "cs_keyword_12" = "친구";
 /*Translated from: lover*/
 "cs_keyword_13" = "연인";
+/* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
+"%@ might be found" = "%@을 (를) 찾을 수 있습니다.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
+"%@ will be hidden" = "%@이 (가) 숨겨집니다.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d 회";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
@@ -146,10 +150,12 @@
 "Aspect Ratio" = "종횡비";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "자동 편집기";
+/* Generated from genl10n: Cleaner.BApp.swift#244 */
+"Blur Rate" = "흐림 비율";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "버스트";
-/* Generated from genl10n: PhoneCalls.swift#57 */
-"Call Numbers" = "전화 번호";
+/* Generated from genl10n: Camera.BApp.swift#44 */
+"Camera" = "카메라";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "되돌릴 수 없습니다. 선택한 모든 항목이 편집되지 않았습니다.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -166,8 +172,6 @@
 "Clean the selected items" = "선택한 항목 정리";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "클리너";
-/* Generated from genl10n: Cleaner.BApp.swift#62 */
-"Cleaning Photos..." = "사진 청소 중 ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "연락처";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -236,6 +240,8 @@
 "Layout" = "형세";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "라이브 포토";
+/* Generated from genl10n: Cleaner.BApp.swift#245 */
+"Lockscreens" = "잠금 화면";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "무한반복";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -264,6 +270,8 @@
 "Page Margin" = "페이지 여백";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "페이지 크기 사전 설정";
+/* Generated from genl10n: PhoneCalls.swift#57 */
+"Phone Calls" = "전화 통화";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "전화 번호";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -294,26 +302,28 @@
 "Saving Results..." = "결과 저장 중 ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
 "Scale To Fit" = "크기에 맞게 조정";
+/* Generated from genl10n: Cleaner.BApp.swift#246 */
+"Screenshots" = "스크린 샷";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "항공편 검색";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "모든 것을 찾기 위해 사진을 선택하십시오.";
-/* Generated from genl10n: Cleaner.BApp.swift#316 */
-"Select Photos You Want To Clean!" = "원하는 사진을 선택하십시오.";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "전화 번호를 잡고 싶은 사진을 선택하십시오!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "이메일 보내기";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "공유";
+/* Generated from genl10n: Cleaner.BApp.swift#243 */
+"Similarities" = "유사점";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "크기";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "일부 연락처는 저장되었지만 일부 연락처는 저장되지 않았습니다.";
-/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
-"Sorry not found any information you selected." = "선택한 정보를 찾을 수 없습니다.";
-/* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, this contact could not be saved." = "죄송합니다.이 연락처를 저장할 수 없습니다.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"Sorry, it could not be saved." = "죄송합니다. 저장하지 못했습니다.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Sorry. No information about you have selected could not be detected." = "죄송합니다. 선택한 정보를 찾을 수 없습니다.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "1:1";
 /* Generated from genl10n: Stabilizer.swift */
@@ -334,6 +344,8 @@
 "Starting to check edited photos..." = "수정 된 사진 확인 시작 중 ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "숨기려는 항목을 켭니다. 품질은 전적으로 동일하게 유지됩니다.";
+/* Generated from genl10n: Cleaner.BApp.swift#242 */
+"Targets" = "목표";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "번역";
 /* Generated from genl10n: GIFMaker.BApp.swift */

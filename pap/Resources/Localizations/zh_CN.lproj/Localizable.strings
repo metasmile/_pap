@@ -122,6 +122,10 @@
 "cs_keyword_12" = "朋友";
 /*Translated from: lover*/
 "cs_keyword_13" = "情人";
+/* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
+"%@ might be found" = "可能会找到%@";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
+"%@ will be hidden" = "%@将被隐藏";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d次";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
@@ -146,10 +150,12 @@
 "Aspect Ratio" = "纵横比";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "自动编辑器";
+/* Generated from genl10n: Cleaner.BApp.swift#244 */
+"Blur Rate" = "模糊率";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "爆裂";
-/* Generated from genl10n: PhoneCalls.swift#57 */
-"Call Numbers" = "电话号码";
+/* Generated from genl10n: Camera.BApp.swift#44 */
+"Camera" = "相机";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "无法恢复。所有选择的项目都没有编辑。";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -166,8 +172,6 @@
 "Clean the selected items" = "清洁所选项目";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "清洁器";
-/* Generated from genl10n: Cleaner.BApp.swift#62 */
-"Cleaning Photos..." = "清洁照片......";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "往来";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -236,6 +240,8 @@
 "Layout" = "布局";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "现场照片";
+/* Generated from genl10n: Cleaner.BApp.swift#245 */
+"Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -264,6 +270,8 @@
 "Page Margin" = "页边距";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "页面大小预设";
+/* Generated from genl10n: PhoneCalls.swift#57 */
+"Phone Calls" = "电话";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "电话号码";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -294,26 +302,28 @@
 "Saving Results..." = "保存结果...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
 "Scale To Fit" = "缩放以适应";
+/* Generated from genl10n: Cleaner.BApp.swift#246 */
+"Screenshots" = "截图";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "搜索航班";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "选择照片查找所有内容。";
-/* Generated from genl10n: Cleaner.BApp.swift#316 */
-"Select Photos You Want To Clean!" = "选择您要清洁的照片！";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "选择您想要获取电话号码的照片！";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "发送电子邮件";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "分享";
+/* Generated from genl10n: Cleaner.BApp.swift#243 */
+"Similarities" = "相似";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "尺寸";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "有些联系人得救，但有些人没有。";
-/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
-"Sorry not found any information you selected." = "抱歉，未找到您选择的任何信息。";
-/* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, this contact could not be saved." = "抱歉，无法保存此联系人。";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"Sorry, it could not be saved." = "对不起，它无法保存。";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Sorry. No information about you have selected could not be detected." = "抱歉。无法检测到您选择的任何信息。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "广场";
 /* Generated from genl10n: Stabilizer.swift */
@@ -334,6 +344,8 @@
 "Starting to check edited photos..." = "开始检查编辑的照片...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "打开要隐藏的任何项目。质量将完全保持不变。";
+/* Generated from genl10n: Cleaner.BApp.swift#242 */
+"Targets" = "目标";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "翻译";
 /* Generated from genl10n: GIFMaker.BApp.swift */

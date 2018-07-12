@@ -1510,7 +1510,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
         let cell = tableView.dequeueReusableCell(withIdentifier: FinderApp.info.identifier) as! Cell
         cell.textLabel?.text = dataItem.label
-        cell.detailTextLabel?.text = selected ? "may be found" : nil
+        cell.detailTextLabel?.text = selected ? "%@ might be found".localizedFormatted("").trimmed : nil
 
         cell.imageView?.tintColor = self.view.tintColor
         let image = dataItem.iconImageBundleName?.asUIImageNamed
@@ -1529,15 +1529,6 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
             }
 
             tableView.reloadRows(at: [indexPath], with: .fade)
-
-//            let selectedPreset = FinderApp.privateDefaults.selectionPreset
-//
-//            if selectedPreset == GrabAs.plaintext.rawValue || selectedPreset == GrabAs.contact.rawValue{
-//                FinderApp.privateDefaults.selectionPreset = GrabAs.action.rawValue
-//
-//                tableView.reloadSections(IndexSet(integer: 0), with: .none)
-//            }
-
         }
         return cell
     }

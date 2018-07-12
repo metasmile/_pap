@@ -24,10 +24,10 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     public static let taskType: AppTaskable.Type = _CleanerAppTask.self
 
     public static let paramType: AppTaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
-    
+
     public private(set) lazy var dockContent: AppDockContent? = CleanerAppDockContent()
 
-    fileprivate static let privateDefaults = CleanerApp.defaults as! CleanerAppDefaults
+    fileprivate static var privateDefaults = CleanerApp.defaults as! CleanerAppDefaults
 
     public static let info = AppInfo(
             identifier: "com.stells.pap.cleaner"
@@ -47,13 +47,13 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     }
 
     public var titleWillFinalize: String? {
-        return "Cleaning Photos...".localized
+        return "Deleting Photos...".localized
     }
-    
+
     public var doneButtonTitle: String? {
-        return "Start".localized
+        return "Delete".localized
     }
-    
+
     @objc dynamic
     public fileprivate (set) lazy var autoSelect: Bool = false
 
@@ -113,15 +113,15 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
                 ? UICollectionViewPreheatableAppFinishAction.selectItem
                 : nil
     }
-    
+
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
         let items = result
                 .filter { respondable in respondable.info.state == .completed }
                 .compactMap { $0.result as? PHAssetGCResult
                 }
-        
+
         let alert = UIAlertController(title: "Clean the selected items".localized, message: nil, preferredStyle: .actionSheet)
-        
+
         let deleteAction = UIAlertAction(title: "Delete".localized, style: .destructive) { action in
             PHPhotoLibrary.shared().performChanges({
                 PHAssetChangeRequest.deleteAssets(items.map { $0.asset } as NSArray)
@@ -132,18 +132,18 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
         let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel) { action in
             asyncSignal.end()
         }
-        
+
         alert.addAction(deleteAction)
         alert.addAction(cancelAction)
-        
+
         asyncSignal.begin()
-        
+
         DispatchQueue.main.async{
             UIViewController.root?.present(alert, animated: true)
         }
-        
+
         asyncSignal.waitUntilEnd()
-        
+
         return result
     }
 }
@@ -201,7 +201,7 @@ private protocol CleanerAppDefaults: AppDefaults{
 extension Defaults: CleanerAppDefaults {
     fileprivate var selectedCollection: [GDDictionary] {
         set{ set(newValue) }
-        get{ return get(or: GDDictionary.DefaultCollection) }
+        get{ return get(or: GDDictionary.DefaultCollection ) }
     }
 
     fileprivate var selectionPreset: Int {
@@ -220,44 +220,22 @@ extension Defaults: CleanerAppDefaults {
     }
 }
 
-
-extension CleanerAppDefaults{
-    fileprivate func setHandledProperty(_ gdDict: GDDictionary, _ item: GDItem, _ enable:Bool){
-        if let index_dict = selectedCollection.index(of: gdDict){
-
-            if let index = selectedCollection[index_dict].items.index(of: item){
-                var _item = item
-                _item.enabled = enable
-
-                var _gdDict = gdDict
-                _gdDict.items[index] = _item
-
-                var _selectedCollection = selectedCollection
-                _selectedCollection[index_dict] = _gdDict
-
-                var immutableSelf = self
-                immutableSelf.selectedCollection = _selectedCollection
-
-                print(self.selectedCollection[index_dict].items[index].enabled)
-            }
-        }
-    }
-}
-
 private struct GDItem:Codable, Hashable {
-    fileprivate var identifier:String
-    fileprivate var label:String
-    fileprivate var iconImageName:String?
-    fileprivate var enabled:Bool = true
+    fileprivate var identifier: String
+    fileprivate var label: String
+    fileprivate var iconImageName: String?
+    fileprivate var enabled: Bool = true
+    private let _hashValue: Int
 
-    init(gd:PHAssetGarbageDetector.Type, label:String, iconImageName:String?=nil){
+    init(gd: PHAssetGarbageDetector.Type, label: String, iconImageName: String? = nil) {
         self.identifier = gd.identifier
+        self._hashValue = identifier.hashValue
         self.label = label
         self.iconImageName = iconImageName
     }
 
     var hashValue: Int {
-        return identifier.hashValue
+        return _hashValue
     }
 }
 
@@ -280,17 +258,18 @@ private struct GDDictionary:Codable, Hashable {
     fileprivate var items:[GDItem]
 
     var hashValue: Int{
-      return label.hashValue
+      return key.rawValue
     }
 }
 
 fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
-    private lazy var tintColor = UIColor(red:0.11, green:0.71, blue:0.52, alpha:1)
+    private lazy var tintColor = UIColor(red:0.16, green:0.84, blue:0.9, alpha:1)
 
     fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
 
-    required public override init() {
+    private lazy var defaultCollections = CleanerApp.privateDefaults.selectedCollection
 
+    required public override init() {
         super.init()
     }
 
@@ -432,7 +411,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1 + CleanerApp.privateDefaults.selectedCollection.count
+        return 1 + defaultCollections.count
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -446,7 +425,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
         let label_section0 = "🖼️ ‣ 🔍 ‣ ⭐ " + "Select Photos To Find Everything.".localized
-        return section == 0 ? label_section0 : CleanerApp.privateDefaults.selectedCollection[section-1].label
+        return section == 0 ? label_section0 : defaultCollections[section-1].label
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -454,7 +433,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? settingCellDescribers.count : CleanerApp.privateDefaults.selectedCollection[section-1].items.count
+        return section == 0 ? settingCellDescribers.count : defaultCollections[section-1].items.count
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -545,14 +524,14 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
     func itemCollection_tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let dictIndex = indexPath.section-1
-        let dict = CleanerApp.privateDefaults.selectedCollection[dictIndex]
+        let dict = defaultCollections[dictIndex]
 
         let dataItem = dict.items[indexPath.item]
         let selected = dataItem.enabled
 
         let cell = tableView.dequeueReusableCell(withIdentifier: CleanerApp.info.identifier) as! Cell
         cell.textLabel?.text = dataItem.label
-        cell.detailTextLabel?.text = selected ? "may be found" : nil
+        itemCollection_tableView_cell_update(cell: cell, selected: selected)
 
         cell.imageView?.tintColor = self.view.tintColor
         let image = dataItem.iconImageName?.asUIImageNamed
@@ -560,15 +539,19 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
 
         cell.detailTextLabel?.textColor = UIColor.gray
         cell.optionSwitch.setOn(selected, animated: false)
+
         cell.switchDidChange = { on in
-            tableView.performBatchUpdates({
-                CleanerApp.privateDefaults.setHandledProperty(dict, dict.items[indexPath.item], on)
+            self.defaultCollections[dictIndex].items[indexPath.item].enabled = on
+            CleanerApp.privateDefaults.selectedCollection = self.defaultCollections
 
-                tableView.reloadRows(at: [indexPath], with: .fade)
-            }, completion:nil)
-
+            self.itemCollection_tableView_cell_update(cell: cell, selected: on)
         }
+
         return cell
+    }
+
+    func itemCollection_tableView_cell_update(cell:UITableViewCell, selected:Bool){
+        cell.detailTextLabel?.text = selected ? "%@ might be found".localizedFormatted("").trimmed : nil
     }
 
     func pickerCell(_ cell: UITableViewPickerCell, didPick row: Int, value: Any) {

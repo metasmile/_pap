@@ -122,6 +122,10 @@
 "cs_keyword_12" = "hoa";
 /*Translated from: lover*/
 "cs_keyword_13" = "aroha";
+/* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
+"%@ might be found" = "%@ might be found";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
+"%@ will be hidden" = "%@ will be hidden";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d times";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
@@ -146,10 +150,12 @@
 "Aspect Ratio" = "Whakaaro Ratonga";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Whakatika Aunoa";
+/* Generated from genl10n: Cleaner.BApp.swift#244 */
+"Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Tuhinga o mua";
-/* Generated from genl10n: PhoneCalls.swift#57 */
-"Call Numbers" = "Piiraa Tau";
+/* Generated from genl10n: Camera.BApp.swift#44 */
+"Camera" = "Kamupene";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Kāore e taea te hoki. Kāore i te whakatika nga mea kua tohua.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -166,8 +172,6 @@
 "Clean the selected items" = "Whakapaia nga mea kua tīpakohia";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Kaikore";
-/* Generated from genl10n: Cleaner.BApp.swift#62 */
-"Cleaning Photos..." = "Whakapai Atahanga ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Ngā Hoapā";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -236,6 +240,8 @@
 "Layout" = "Tahora";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Whakaahua Ataata";
+/* Generated from genl10n: Cleaner.BApp.swift#245 */
+"Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Pupuhi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -264,6 +270,8 @@
 "Page Margin" = "Whārangi Tae";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Rae Whārangi kua tautuhia";
+/* Generated from genl10n: PhoneCalls.swift#57 */
+"Phone Calls" = "Waea Waea";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Tau Waea";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -294,26 +302,28 @@
 "Saving Results..." = "Tiaki Hua ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
 "Scale To Fit" = "Tauine To Whakauru";
+/* Generated from genl10n: Cleaner.BApp.swift#246 */
+"Screenshots" = "Whakaaturanga";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Rapu Rapu";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Tīpakohia Whakaahua Hei Kimi i nga Mea katoa.";
-/* Generated from genl10n: Cleaner.BApp.swift#316 */
-"Select Photos You Want To Clean!" = "Tīpakohia nga Whakaahua e hiahia ana koe ki te horoi!";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Tīpakohia nga Whakaahua e hiahia ana koe kia mauhia nga Tau Waea!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Tukua he Īmēra";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Vahevahe";
+/* Generated from genl10n: Cleaner.BApp.swift#243 */
+"Similarities" = "He rereke";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Rahi";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Kua ora etahi o nga hoapaki, engari kaore etahi o etahi i uru.";
-/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
-"Sorry not found any information you selected." = "Kaua e kitea etahi korero i tohua e koe.";
-/* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, this contact could not be saved." = "Aroha, kaore e taea te tiaki i tenei whakapiri.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"Sorry, it could not be saved." = "Aroha, kaore e taea te whakaora.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Sorry. No information about you have selected could not be detected." = "Aroha mai. Kaore e taea te kite i nga korero e pa ana ki a koe.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Tae";
 /* Generated from genl10n: Stabilizer.swift */
@@ -334,6 +344,8 @@
 "Starting to check edited photos..." = "Ka timata ki te tirotiro i nga whakaahua whakatika ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Whakawhiti i nga mea e hiahia ana koe ki te huna. Ka noho tonu te kounga.";
+/* Generated from genl10n: Cleaner.BApp.swift#242 */
+"Targets" = "Ngā whāinga";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Translation";
 /* Generated from genl10n: GIFMaker.BApp.swift */

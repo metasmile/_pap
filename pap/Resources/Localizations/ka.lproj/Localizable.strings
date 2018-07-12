@@ -122,6 +122,10 @@
 "cs_keyword_12" = "მეგობარი";
 /*Translated from: lover*/
 "cs_keyword_13" = "შეყვარებული";
+/* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
+"%@ might be found" = "%@ შეიძლება მოიძებნოს";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
+"%@ will be hidden" = "%@ დაიმალება";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d ჯერ";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
@@ -146,10 +150,12 @@
 "Aspect Ratio" = "ასპექტის თანაფარდობა";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "ავტო რედაქტორი";
+/* Generated from genl10n: Cleaner.BApp.swift#244 */
+"Blur Rate" = "ბუნდოვანი შეფასება";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "ადიდებული";
-/* Generated from genl10n: PhoneCalls.swift#57 */
-"Call Numbers" = "ზარის ნომრები";
+/* Generated from genl10n: Camera.BApp.swift#44 */
+"Camera" = "კამერა";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "ვერ ხერხდება. ყველა არჩეული ელემენტი არ არის რედაქტირებული.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -166,8 +172,6 @@
 "Clean the selected items" = "სუფთა შერჩეული ნივთები";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "სუფთა";
-/* Generated from genl10n: Cleaner.BApp.swift#62 */
-"Cleaning Photos..." = "დასუფთავების ფოტოები ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "კონტაქტები";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -236,6 +240,8 @@
 "Layout" = "განლაგება";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "ცოცხალი სურათი";
+/* Generated from genl10n: Cleaner.BApp.swift#245 */
+"Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -264,6 +270,8 @@
 "Page Margin" = "გვერდის ზღვარი";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "გვერდი ზომა Preset";
+/* Generated from genl10n: PhoneCalls.swift#57 */
+"Phone Calls" = "სატელეფონო ზარები";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "ტელეფონის ნომერი";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -294,26 +302,28 @@
 "Saving Results..." = "გადარჩენის შედეგები ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
 "Scale To Fit" = "შეესაბამება შეესაბამება";
+/* Generated from genl10n: Cleaner.BApp.swift#246 */
+"Screenshots" = "სკრინშოტი";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "ძიება ფრენები";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "აირჩიეთ ფოტოების მოძებნა.";
-/* Generated from genl10n: Cleaner.BApp.swift#316 */
-"Select Photos You Want To Clean!" = "აირჩიეთ ფოტოები გსურთ გაწმენდა!";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "აირჩიეთ ფოტოები გსურთ ტელეფონის ნომრები!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "ელ.ფოსტის გაგზავნა";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "გაზიარება";
+/* Generated from genl10n: Cleaner.BApp.swift#243 */
+"Similarities" = "მსგავსება";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "ზომა";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "ზოგიერთი კონტაქტის შენახვა მოხდა, მაგრამ ვინმეს არ იყო.";
-/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
-"Sorry not found any information you selected." = "ბოდიში ვერ მოიძებნა რაიმე ინფორმაცია თქვენთვის შერჩეული.";
-/* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, this contact could not be saved." = "უკაცრავად, ეს კონტაქტის შენახვა ვერ მოხერხდა.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"Sorry, it could not be saved." = "უკაცრავად, ეს არ არის შენახული.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Sorry. No information about you have selected could not be detected." = "ბოდიში. თქვენს მიერ არჩეული ინფორმაცია ვერ მოიძებნა.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "მოედანი";
 /* Generated from genl10n: Stabilizer.swift */
@@ -334,6 +344,8 @@
 "Starting to check edited photos..." = "რედაქტირებული ფოტოების შესამოწმებლად ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "გადართოთ ნებისმიერი ელემენტი, რომელზეც გსურთ დამალვა. ხარისხი მთლიანად იგივე დარჩება.";
+/* Generated from genl10n: Cleaner.BApp.swift#242 */
+"Targets" = "მიზანზე";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "თარგმანი";
 /* Generated from genl10n: GIFMaker.BApp.swift */

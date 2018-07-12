@@ -122,6 +122,10 @@
 "cs_keyword_12" = "saaxiib";
 /*Translated from: lover*/
 "cs_keyword_13" = "lover";
+/* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
+"%@ might be found" = "%@ waxaa laga yaabaa in la helo";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
+"%@ will be hidden" = "%@ waa la qarin doonaa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d waqtiyo";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
@@ -146,10 +150,12 @@
 "Aspect Ratio" = "Heerka Kala Duwan";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Tifatiraha Auto";
+/* Generated from genl10n: Cleaner.BApp.swift#244 */
+"Blur Rate" = "Heerka nabarka";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Dilaaca";
-/* Generated from genl10n: PhoneCalls.swift#57 */
-"Call Numbers" = "Wac Numbers";
+/* Generated from genl10n: Camera.BApp.swift#44 */
+"Camera" = "Muuqaal";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Dib uma noqon karto. Dhamaan alaabooyinka la soo xulay ma aysan dhajin.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -166,8 +172,6 @@
 "Clean the selected items" = "Nadiifi alaabada la soo xulay";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Nadiifiye";
-/* Generated from genl10n: Cleaner.BApp.swift#62 */
-"Cleaning Photos..." = "Nadiifinta Sawirrada ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Xiriirrada";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -236,6 +240,8 @@
 "Layout" = "Layout";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
+/* Generated from genl10n: Cleaner.BApp.swift#245 */
+"Lockscreens" = "Goobaha Sawirrada";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -264,6 +270,8 @@
 "Page Margin" = "Page Margin";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Xajmiga Bogga Hore";
+/* Generated from genl10n: PhoneCalls.swift#57 */
+"Phone Calls" = "Wicitaanada Wicitaanka";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Lambarka taleefanka";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -294,26 +302,28 @@
 "Saving Results..." = "Natiijooyinka Saving ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
 "Scale To Fit" = "Miisaanka Si Loo Qaado";
+/* Generated from genl10n: Cleaner.BApp.swift#246 */
+"Screenshots" = "Screenshots";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Raadi Duulimaadyada";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Xulo Sawiro si aad u hesho Wax kasta.";
-/* Generated from genl10n: Cleaner.BApp.swift#316 */
-"Select Photos You Want To Clean!" = "Xulo Sawirada Waxaad Nadiifineysaa!";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Xulo Sawirada Waxaad Rabto Inaad Naabsato Nambarada Telefoonada!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Dir email";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "La wadaag";
+/* Generated from genl10n: Cleaner.BApp.swift#243 */
+"Similarities" = "Siyaabo isku mid ah";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Cabbirka";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Qaar ka mid ah xiriirrada ayaa la badbaadiyey, laakiin qaar ka mid ah ma aysan aheyn.";
-/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
-"Sorry not found any information you selected." = "Waan ka xumahay inaan helin wax macluumaad ah oo aad dooratay.";
-/* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, this contact could not be saved." = "Waan ka xunnahay, xidhiidhkan aan la badbaadin karin.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"Sorry, it could not be saved." = "Waan ka xunnahay, lama badbaadin karin.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Sorry. No information about you have selected could not be detected." = "Waan ka xunahay. Wax macluumaad ah oo ku saabsan aad dooratay lama ogaan karin.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -334,6 +344,8 @@
 "Starting to check edited photos..." = "Laga bilaabo in la eego sawirada la sameeyay ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Waxyaabaha aad rabto inaad qariso. Tilmaamku wuxuu ahaanayaa mid isku mid ah.";
+/* Generated from genl10n: Cleaner.BApp.swift#242 */
+"Targets" = "Bartilmaameedyada";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Turjubaan";
 /* Generated from genl10n: GIFMaker.BApp.swift */

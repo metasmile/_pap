@@ -122,6 +122,10 @@
 "cs_keyword_12" = "ընկեր";
 /*Translated from: lover*/
 "cs_keyword_13" = "սիրահար";
+/* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
+"%@ might be found" = "%@ կարող է հայտնաբերվել";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
+"%@ will be hidden" = "%@ թաքնված կլինի";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d times";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
@@ -146,10 +150,12 @@
 "Aspect Ratio" = "Ասպեկտի հարաբերակցությունը";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Auto խմբագիր";
+/* Generated from genl10n: Cleaner.BApp.swift#244 */
+"Blur Rate" = "Բլուրի տոկոսադրույքը";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Պայթյուն";
-/* Generated from genl10n: PhoneCalls.swift#57 */
-"Call Numbers" = "Զանգի համարները";
+/* Generated from genl10n: Camera.BApp.swift#44 */
+"Camera" = "Տեսախցիկ";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Հնարավոր չէ վերադառնալ: Բոլոր ընտրված տարրերը չեն խմբագրվել:";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -166,8 +172,6 @@
 "Clean the selected items" = "Մաքրել ընտրված տարրերը";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Մաքուր";
-/* Generated from genl10n: Cleaner.BApp.swift#62 */
-"Cleaning Photos..." = "Մաքրման լուսանկարներ ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Կոնտակտներ";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -236,6 +240,8 @@
 "Layout" = "Կառուցվածք";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Լուսանկարը";
+/* Generated from genl10n: Cleaner.BApp.swift#245 */
+"Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -264,6 +270,8 @@
 "Page Margin" = "Էջի մարժա";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Էջի չափը նախադրված";
+/* Generated from genl10n: PhoneCalls.swift#57 */
+"Phone Calls" = "Հեռախոսազանգ";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Հեռախոսահամար";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -294,26 +302,28 @@
 "Saving Results..." = "Պահպանելով արդյունքները ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
 "Scale To Fit" = "Կշռաչափը";
+/* Generated from genl10n: Cleaner.BApp.swift#246 */
+"Screenshots" = "Սքրինշոթեր";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Որոնել չվերթներ";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Ընտրեք Լուսանկարներ, ամեն ինչ որոնելու համար:";
-/* Generated from genl10n: Cleaner.BApp.swift#316 */
-"Select Photos You Want To Clean!" = "Ընտրեք Լուսանկարներ, որոնք ցանկանում եք մաքրել:";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Ընտրեք Լուսանկարներ, որոնք ուզում եք գրել հեռախոսահամարները:";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Ուղարկեք էլ";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Բաժնետոմս";
+/* Generated from genl10n: Cleaner.BApp.swift#243 */
+"Similarities" = "Նմանություններ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Չափը";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Որոշ կոնտակտներ փրկվեցին, բայց ոմանք չէին:";
-/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
-"Sorry not found any information you selected." = "Ներեցեք ընտրված որեւէ տեղեկություն:";
-/* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, this contact could not be saved." = "Ներեցեք, այս կոնտակտը չի կարող պահվել:";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"Sorry, it could not be saved." = "Ներեցեք, այն չի կարող փրկվել:";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Sorry. No information about you have selected could not be detected." = "Ներողություն. Ընտրված չլինելու մասին տեղեկությունները չեն կարող հայտնաբերվել:";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Հրապարակ";
 /* Generated from genl10n: Stabilizer.swift */
@@ -334,6 +344,8 @@
 "Starting to check edited photos..." = "Սկսած ստուգել լուսանկարները ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Անջատեք ցանկացած կետ, որը ցանկանում եք թաքցնել: Որակը ամբողջությամբ կմնա նույնը:";
+/* Generated from genl10n: Cleaner.BApp.swift#242 */
+"Targets" = "Թիրախներ";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Թարգմանություն";
 /* Generated from genl10n: GIFMaker.BApp.swift */

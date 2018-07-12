@@ -122,6 +122,10 @@
 "cs_keyword_12" = "sõber";
 /*Translated from: lover*/
 "cs_keyword_13" = "armastaja";
+/* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
+"%@ might be found" = "%@ võib leida";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
+"%@ will be hidden" = "%@ peidetakse";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d korda";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
@@ -146,10 +150,12 @@
 "Aspect Ratio" = "Kuvasuhe";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Auto redaktor";
+/* Generated from genl10n: Cleaner.BApp.swift#244 */
+"Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Lõhkemine";
-/* Generated from genl10n: PhoneCalls.swift#57 */
-"Call Numbers" = "Kõne numbrid";
+/* Generated from genl10n: Camera.BApp.swift#44 */
+"Camera" = "Kaamera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Ei saa tagasi pöörduda Kõik valitud elemendid pole redigeeritud.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -166,8 +172,6 @@
 "Clean the selected items" = "Puhasta valitud esemed";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Puhastaja";
-/* Generated from genl10n: Cleaner.BApp.swift#62 */
-"Cleaning Photos..." = "Puhastamine fotod ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Kontaktid";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -236,6 +240,8 @@
 "Layout" = "Paigutus";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
+/* Generated from genl10n: Cleaner.BApp.swift#245 */
+"Lockscreens" = "Lokkide ekraanid";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -264,6 +270,8 @@
 "Page Margin" = "Lehekülje marginaal";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Lehekülje suuruse eelseade";
+/* Generated from genl10n: PhoneCalls.swift#57 */
+"Phone Calls" = "Telefonikõned";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Telefoninumber";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -294,26 +302,28 @@
 "Saving Results..." = "Tulemuste salvestamine ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
 "Scale To Fit" = "Skaala sobivaks";
+/* Generated from genl10n: Cleaner.BApp.swift#246 */
+"Screenshots" = "Ekraanipildid";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Otsi lende";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Valige Fotod, et leida kõik.";
-/* Generated from genl10n: Cleaner.BApp.swift#316 */
-"Select Photos You Want To Clean!" = "Valige fotod, mida soovite puhastada!";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Valige fotod, mida soovite telefoninumbreid haarata!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Emaili saatma";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Jaga";
+/* Generated from genl10n: Cleaner.BApp.swift#243 */
+"Similarities" = "Sarnasused";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Suurus";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Mõned kontaktid on salvestatud, kuid kellegi pole.";
-/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
-"Sorry not found any information you selected." = "Vabandust ei leitud ühtegi valitud teavet.";
-/* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, this contact could not be saved." = "Vabandame, seda kontakti ei saanud salvestada.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"Sorry, it could not be saved." = "Vabandame, seda ei saanud salvestada.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Sorry. No information about you have selected could not be detected." = "Vabandust Teie valitud teavet pole võimalik tuvastada.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Ruut";
 /* Generated from genl10n: Stabilizer.swift */
@@ -334,6 +344,8 @@
 "Starting to check edited photos..." = "Valitud fotode kontrollimine ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Lülitage sisse kõik esemed, mida soovite peita. Kvaliteet jääb samaks.";
+/* Generated from genl10n: Cleaner.BApp.swift#242 */
+"Targets" = "Sihid";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Tõlge";
 /* Generated from genl10n: GIFMaker.BApp.swift */

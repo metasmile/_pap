@@ -122,6 +122,10 @@
 "cs_keyword_12" = "draugas";
 /*Translated from: lover*/
 "cs_keyword_13" = "meilužis";
+/* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
+"%@ might be found" = "%@ gali būti rasta";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
+"%@ will be hidden" = "%@ bus paslėpta";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d kartus";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
@@ -146,10 +150,12 @@
 "Aspect Ratio" = "Aspect Ratio";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Automatinis redaktorius";
+/* Generated from genl10n: Cleaner.BApp.swift#244 */
+"Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Sprogo";
-/* Generated from genl10n: PhoneCalls.swift#57 */
-"Call Numbers" = "Skambučių numeriai";
+/* Generated from genl10n: Camera.BApp.swift#44 */
+"Camera" = "Fotoaparatas";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Negalima grąžinti. Visi pasirinkti elementai nepakeitė.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -166,8 +172,6 @@
 "Clean the selected items" = "Išvalykite pasirinktus elementus";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Švaresnis";
-/* Generated from genl10n: Cleaner.BApp.swift#62 */
-"Cleaning Photos..." = "Valyti nuotraukas ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Kontaktai";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -236,6 +240,8 @@
 "Layout" = "Maketas";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
+/* Generated from genl10n: Cleaner.BApp.swift#245 */
+"Lockscreens" = "Spynos ekranai";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -264,6 +270,8 @@
 "Page Margin" = "Puslapio marža";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Puslapio dydis iš anksto nustatytas";
+/* Generated from genl10n: PhoneCalls.swift#57 */
+"Phone Calls" = "Telefono skambučiai";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Telefono numeris";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -294,26 +302,28 @@
 "Saving Results..." = "Išsaugoti rezultatus ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
 "Scale To Fit" = "Sumažinti, kad tilptų";
+/* Generated from genl10n: Cleaner.BApp.swift#246 */
+"Screenshots" = "Ekrano nuotraukos";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Ieškoti skrydžių";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Pasirinkite 'Nuotraukos', kad rastumėte viską.";
-/* Generated from genl10n: Cleaner.BApp.swift#316 */
-"Select Photos You Want To Clean!" = "Pasirinkite nuotraukas, kurias norite išvalyti!";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Pasirinkite nuotraukas, kuriomis norite paimti telefono numerius!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Siųsti el. Laišką";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Dalintis";
+/* Generated from genl10n: Cleaner.BApp.swift#243 */
+"Similarities" = "Panašumai";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Dydis";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Kai kurie adresatai buvo išsaugoti, bet kiti nebuvo.";
-/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
-"Sorry not found any information you selected." = "Atsiprašome, nerasta jokios jūsų pasirinktos informacijos.";
-/* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, this contact could not be saved." = "Atsiprašome, šis kontaktas negalėjo būti išsaugotas.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"Sorry, it could not be saved." = "Deja, jo nepavyko išsaugoti.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Sorry. No information about you have selected could not be detected." = "Atsiprašome Nepavyko aptikti jūsų pasirinktos informacijos.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Aikštė";
 /* Generated from genl10n: Stabilizer.swift */
@@ -334,6 +344,8 @@
 "Starting to check edited photos..." = "Patikrinkite redaguotas nuotraukas ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Įjunkite visus elementus, kuriuos norite paslėpti. Kokybė išliks tokia pati.";
+/* Generated from genl10n: Cleaner.BApp.swift#242 */
+"Targets" = "Tikslai";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Vertimas";
 /* Generated from genl10n: GIFMaker.BApp.swift */

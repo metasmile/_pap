@@ -406,8 +406,7 @@ class ExifGhostAppAppDockContent: NSObject, AppDockContent, UITableViewDelegate,
 
         let cell = tableView.dequeueReusableCell(withIdentifier: ExifGhostApp.info.identifier) as! Cell
         cell.textLabel?.text = dict.items[indexPath.item].label
-        cell.detailTextLabel?.text = selected ? "will be hidden" : nil
-//        cell.imageView?.image = selected ? R.image.pdFactoryAppIcon() : nil //selected ? UIImageView(image: R.image.pdFactoryAppIcon()) : nil
+        cell.detailTextLabel?.text = selected ? "%@ will be hidden".localizedFormatted("").trimmed : nil
         cell.detailTextLabel?.textColor = UIColor.gray
         cell.optionSwitch.setOn(selected, animated: false)
         cell.switchDidChange = { on in

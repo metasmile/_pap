@@ -122,6 +122,10 @@
 "cs_keyword_12" = "приятел";
 /*Translated from: lover*/
 "cs_keyword_13" = "любовник";
+/* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
+"%@ might be found" = "Може да се намери %@";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
+"%@ will be hidden" = "%@ ще бъде скрита";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d пъти";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
@@ -146,10 +150,12 @@
 "Aspect Ratio" = "Съотношение";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Автоматичен редактор";
+/* Generated from genl10n: Cleaner.BApp.swift#244 */
+"Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Избухвам";
-/* Generated from genl10n: PhoneCalls.swift#57 */
-"Call Numbers" = "Номера на повикванията";
+/* Generated from genl10n: Camera.BApp.swift#44 */
+"Camera" = "Камера";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Не може да се върне. Всички избрани елементи не са редактирани.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -166,8 +172,6 @@
 "Clean the selected items" = "Почистете избраните елементи";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "чистач";
-/* Generated from genl10n: Cleaner.BApp.swift#62 */
-"Cleaning Photos..." = "Почистване на снимки ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Контакти";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -236,6 +240,8 @@
 "Layout" = "оформление";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
+/* Generated from genl10n: Cleaner.BApp.swift#245 */
+"Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "контур";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -264,6 +270,8 @@
 "Page Margin" = "Маржин на страницата";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Предварително зададен размер на страницата";
+/* Generated from genl10n: PhoneCalls.swift#57 */
+"Phone Calls" = "Телефонни обаждания";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Телефонен номер";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -294,26 +302,28 @@
 "Saving Results..." = "Запазване на резултатите ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
 "Scale To Fit" = "Мащабът да се побере";
+/* Generated from genl10n: Cleaner.BApp.swift#246 */
+"Screenshots" = "Снимки от играта";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Търсене на полети";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Изберете снимки, за да намерите всичко.";
-/* Generated from genl10n: Cleaner.BApp.swift#316 */
-"Select Photos You Want To Clean!" = "Изберете снимки, които искате да почистите!";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Изберете снимки, които искате да вземете телефонни номера!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Изпрати имейл";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Дял";
+/* Generated from genl10n: Cleaner.BApp.swift#243 */
+"Similarities" = "прилики";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "размер";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Някои контакти бяха запазени, но някои не бяха.";
-/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
-"Sorry not found any information you selected." = "За съжаление не е намерена никаква информация, която сте избрали.";
-/* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, this contact could not be saved." = "За съжаление този контакт не можа да бъде запазен.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"Sorry, it could not be saved." = "За съжаление не можа да бъде спасен.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Sorry. No information about you have selected could not be detected." = "Извинете. Не може да бъде открита информация за вас.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Квадрат";
 /* Generated from genl10n: Stabilizer.swift */
@@ -334,6 +344,8 @@
 "Starting to check edited photos..." = "Започва да проверява редактираните снимки ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Включете всички елементи, които искате да скриете. Качеството ще остане изцяло същото.";
+/* Generated from genl10n: Cleaner.BApp.swift#242 */
+"Targets" = "Цели";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "превод";
 /* Generated from genl10n: GIFMaker.BApp.swift */

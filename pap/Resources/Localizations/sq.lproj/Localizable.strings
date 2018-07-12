@@ -122,6 +122,10 @@
 "cs_keyword_12" = "mik";
 /*Translated from: lover*/
 "cs_keyword_13" = "dashnor";
+/* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
+"%@ might be found" = "%@ might be found";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
+"%@ will be hidden" = "%@ do të fshihet";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d herë";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
@@ -146,10 +150,12 @@
 "Aspect Ratio" = "Raporti i Aspektit";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Auto Editor";
+/* Generated from genl10n: Cleaner.BApp.swift#244 */
+"Blur Rate" = "Shkalla e përçmimit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
-/* Generated from genl10n: PhoneCalls.swift#57 */
-"Call Numbers" = "Thirrni numrat";
+/* Generated from genl10n: Camera.BApp.swift#44 */
+"Camera" = "aparat fotografik";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Nuk mund të kthehet. Të gjitha artikujt e zgjedhur nuk janë redaktuar.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -166,8 +172,6 @@
 "Clean the selected items" = "Pastroni artikujt e zgjedhur";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "pastruese";
-/* Generated from genl10n: Cleaner.BApp.swift#62 */
-"Cleaning Photos..." = "Pastrimi i fotove ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Kontaktet";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -236,6 +240,8 @@
 "Layout" = "plan urbanistik";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Jetoni Foto";
+/* Generated from genl10n: Cleaner.BApp.swift#245 */
+"Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "lak";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -264,6 +270,8 @@
 "Page Margin" = "Margjina e faqes";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Parazgjedhja e faqes";
+/* Generated from genl10n: PhoneCalls.swift#57 */
+"Phone Calls" = "Telefonata";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Numri i telefonit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -294,26 +302,28 @@
 "Saving Results..." = "Ruajtja e rezultateve ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
 "Scale To Fit" = "Shkallë të përshtaten";
+/* Generated from genl10n: Cleaner.BApp.swift#246 */
+"Screenshots" = "Screenshots";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Kërko Fluturimet";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Përzgjidhni fotot për të gjetur gjithçka.";
-/* Generated from genl10n: Cleaner.BApp.swift#316 */
-"Select Photos You Want To Clean!" = "Zgjidhni fotot që dëshironi të pastroni!";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Zgjidhni fotot që dëshironi të kapni numrat e telefonit!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Dergo nje email";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "pjesë";
+/* Generated from genl10n: Cleaner.BApp.swift#243 */
+"Similarities" = "ngjashmëritë";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "madhësi";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Disa kontakte u ruajtën, por disa nuk ishin.";
-/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
-"Sorry not found any information you selected." = "Na vjen keq që nuk gjetëm ndonjë informacion që keni zgjedhur.";
-/* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, this contact could not be saved." = "Na vjen keq, ky kontakt nuk mund të ruhej.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"Sorry, it could not be saved." = "Na vjen keq, nuk mund të ruhej.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Sorry. No information about you have selected could not be detected." = "Më vjen keq. Asnjë informacion nuk është zbuluar.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "katror";
 /* Generated from genl10n: Stabilizer.swift */
@@ -334,6 +344,8 @@
 "Starting to check edited photos..." = "Fillimi për të kontrolluar fotografitë e redaktuar ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Kalo në çdo send që dëshironi të fshihni. Cilësia do të mbetet tërësisht e njëjtë.";
+/* Generated from genl10n: Cleaner.BApp.swift#242 */
+"Targets" = "Synimet";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "përkthim";
 /* Generated from genl10n: GIFMaker.BApp.swift */

@@ -122,6 +122,10 @@
 "cs_keyword_12" = "přítel";
 /*Translated from: lover*/
 "cs_keyword_13" = "milenec";
+/* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
+"%@ might be found" = "%@ může být nalezen";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
+"%@ will be hidden" = "%@ bude skryt";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d krát";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
@@ -146,10 +150,12 @@
 "Aspect Ratio" = "Poměr stran";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Auto Editor";
+/* Generated from genl10n: Cleaner.BApp.swift#244 */
+"Blur Rate" = "Rozostření";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
-/* Generated from genl10n: PhoneCalls.swift#57 */
-"Call Numbers" = "Čísla volání";
+/* Generated from genl10n: Camera.BApp.swift#44 */
+"Camera" = "Fotoaparát";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Nelze vrátit zpět. Všechny vybrané položky nebyly upraveny.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -166,8 +172,6 @@
 "Clean the selected items" = "Vyčistěte vybrané položky";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Čistič";
-/* Generated from genl10n: Cleaner.BApp.swift#62 */
-"Cleaning Photos..." = "Čištění fotografií ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Kontakty";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -236,6 +240,8 @@
 "Layout" = "Rozvržení";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
+/* Generated from genl10n: Cleaner.BApp.swift#245 */
+"Lockscreens" = "Zámky";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Smyčka";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -264,6 +270,8 @@
 "Page Margin" = "Margin stránky";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Přednastavená velikost stránky";
+/* Generated from genl10n: PhoneCalls.swift#57 */
+"Phone Calls" = "Telefonní hovory";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Telefonní číslo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -294,26 +302,28 @@
 "Saving Results..." = "Uložení výsledků ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
 "Scale To Fit" = "Měřítko pro přizpůsobení";
+/* Generated from genl10n: Cleaner.BApp.swift#246 */
+"Screenshots" = "Screenshoty";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Vyhledat lety";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Vyberte fotky, chcete-li najít vše.";
-/* Generated from genl10n: Cleaner.BApp.swift#316 */
-"Select Photos You Want To Clean!" = "Vyberte fotky, které chcete vyčistit!";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Vyberte fotky, které chcete chytit telefonní čísla!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Poslat email";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Podíl";
+/* Generated from genl10n: Cleaner.BApp.swift#243 */
+"Similarities" = "Podobnosti";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Velikost";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Některé kontakty byly uloženy, ale někteří nebyli.";
-/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
-"Sorry not found any information you selected." = "Je nám líto, ale nenalezli žádné informace, které jste vybrali.";
-/* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, this contact could not be saved." = "Omlouváme se, tento kontakt nebyl uložen.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"Sorry, it could not be saved." = "Je nám líto, ale nemohlo být uloženo.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Sorry. No information about you have selected could not be detected." = "Promiňte. Nebyly nalezeny žádné informace o vás, které jste vybrali.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Náměstí";
 /* Generated from genl10n: Stabilizer.swift */
@@ -334,6 +344,8 @@
 "Starting to check edited photos..." = "Začátek prohlížení upravovaných fotografií ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Zapněte všechny položky, které chcete skrýt. Kvalita zcela zůstane stejná.";
+/* Generated from genl10n: Cleaner.BApp.swift#242 */
+"Targets" = "Cíle";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Překlad";
 /* Generated from genl10n: GIFMaker.BApp.swift */

@@ -122,6 +122,10 @@
 "cs_keyword_12" = "സുഹൃത്ത്";
 /*Translated from: lover*/
 "cs_keyword_13" = "കാമുകൻ";
+/* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
+"%@ might be found" = "%@ കണ്ടേക്കാം";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
+"%@ will be hidden" = "%@ മറയ്ക്കപ്പെടും";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d തവണ";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
@@ -146,10 +150,12 @@
 "Aspect Ratio" = "അനുപാതം";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "ഓട്ടോ എഡിറ്റർ";
+/* Generated from genl10n: Cleaner.BApp.swift#244 */
+"Blur Rate" = "മങ്ങിക്കൽ നിരക്ക്";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "പൊട്ടി";
-/* Generated from genl10n: PhoneCalls.swift#57 */
-"Call Numbers" = "കോൾ നമ്പറുകൾ";
+/* Generated from genl10n: Camera.BApp.swift#44 */
+"Camera" = "ക്യാമറ";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "പഴയപടിയാക്കാൻ കഴിയില്ല. തിരഞ്ഞെടുത്ത എല്ലാ ഇനങ്ങളും എഡിറ്റുചെയ്തില്ല.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -166,8 +172,6 @@
 "Clean the selected items" = "തിരഞ്ഞെടുത്ത ഇനങ്ങൾ വൃത്തിയാക്കുക";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "ക്ലീനർ";
-/* Generated from genl10n: Cleaner.BApp.swift#62 */
-"Cleaning Photos..." = "ഫോട്ടോകൾ ക്ലീൻ ചെയ്യുക ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "ബന്ധങ്ങൾ";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -236,6 +240,8 @@
 "Layout" = "ലേഔട്ട്";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "ലൈവ് ഫോട്ടോ";
+/* Generated from genl10n: Cleaner.BApp.swift#245 */
+"Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "ലൂപ്പ്";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -264,6 +270,8 @@
 "Page Margin" = "പേജ് മാർജിൻ";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "പേജ് വലുപ്പം പ്രീസെറ്റ്";
+/* Generated from genl10n: PhoneCalls.swift#57 */
+"Phone Calls" = "ഫോൺ കോളുകൾ";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "ഫോൺ നമ്പർ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -294,26 +302,28 @@
 "Saving Results..." = "ഫലങ്ങൾ സംരക്ഷിക്കുന്നു ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
 "Scale To Fit" = "വ്യായാമം ചെയ്യുന്നതിന് വലുപ്പം";
+/* Generated from genl10n: Cleaner.BApp.swift#246 */
+"Screenshots" = "സ്ക്രീൻഷോട്ടുകൾ";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "തിരയൽ ഫ്ലൈറ്റുകൾ";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "എല്ലാം കണ്ടെത്താനായി ഫോട്ടോകൾ തിരഞ്ഞെടുക്കുക.";
-/* Generated from genl10n: Cleaner.BApp.swift#316 */
-"Select Photos You Want To Clean!" = "ഫോട്ടോകൾ തിരഞ്ഞെടുക്കുക നിങ്ങൾക്ക് ക്ലീൻ ചെയ്യണം!";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "ഫോൺ ചോയ്സ് എടുക്കാൻ ആഗ്രഹിക്കുന്ന ഫോട്ടോകൾ തിരഞ്ഞെടുക്കുക!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "ഒരു ഇമെയിൽ അയയ്ക്കുക";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "പങ്കിടുക";
+/* Generated from genl10n: Cleaner.BApp.swift#243 */
+"Similarities" = "സമാനതകൾ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "വലുപ്പം";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "ചില ബന്ധങ്ങൾ സംരക്ഷിക്കപ്പെട്ടു, പക്ഷേ ചിലയാളുകൾ ഇല്ലായിരുന്നു.";
-/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
-"Sorry not found any information you selected." = "ക്ഷമിക്കണം നിങ്ങൾ തിരഞ്ഞെടുത്ത ഏതെങ്കിലും വിവരങ്ങൾ കണ്ടെത്തിയില്ല.";
-/* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, this contact could not be saved." = "ക്ഷമിക്കണം, ഈ കോൺടാക്റ്റ് സംരക്ഷിക്കാൻ കഴിഞ്ഞില്ല.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"Sorry, it could not be saved." = "ക്ഷമിക്കണം, അത് സംരക്ഷിക്കാൻ കഴിഞ്ഞില്ല.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Sorry. No information about you have selected could not be detected." = "ക്ഷമിക്കണം. നിങ്ങളെ കുറിച്ചുള്ള ഒരു വിവരവും തിരഞ്ഞെടുത്തില്ല.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "ചതുരം";
 /* Generated from genl10n: Stabilizer.swift */
@@ -334,6 +344,8 @@
 "Starting to check edited photos..." = "എഡിറ്റുചെയ്ത ഫോട്ടോകൾ പരിശോധിക്കുന്നത് ആരംഭിക്കുന്നു ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "നിങ്ങൾ മറയ്ക്കാൻ ആഗ്രഹിക്കുന്ന ഏതെങ്കിലും ഇനങ്ങൾ മാറുക. ഗുണമേന്മ പൂർണമായി നിലനിൽക്കും.";
+/* Generated from genl10n: Cleaner.BApp.swift#242 */
+"Targets" = "ലക്ഷ്യങ്ങൾ";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "വിവർത്തനം";
 /* Generated from genl10n: GIFMaker.BApp.swift */

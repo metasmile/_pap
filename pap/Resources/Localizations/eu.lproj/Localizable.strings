@@ -122,6 +122,10 @@
 "cs_keyword_12" = "Lagun";
 /*Translated from: lover*/
 "cs_keyword_13" = "maitalea";
+/* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
+"%@ might be found" = "%@ aurkitu liteke";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
+"%@ will be hidden" = "%@ ezkutuan egongo da";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d aldiz";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
@@ -146,10 +150,12 @@
 "Aspect Ratio" = "Aspektu-erlazioa";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Auto editorea";
+/* Generated from genl10n: Cleaner.BApp.swift#244 */
+"Blur Rate" = "Blur tasa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "leherketa";
-/* Generated from genl10n: PhoneCalls.swift#57 */
-"Call Numbers" = "Deitu zenbakiak";
+/* Generated from genl10n: Camera.BApp.swift#44 */
+"Camera" = "Kamara";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Ezin da itzuli. Hautatutako elementu guztiak ez dira editatu.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -166,8 +172,6 @@
 "Clean the selected items" = "Garbitu hautatutako elementuak";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Cleaner";
-/* Generated from genl10n: Cleaner.BApp.swift#62 */
-"Cleaning Photos..." = "Argazkiak garbitzeko ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Kontaktu";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -236,6 +240,8 @@
 "Layout" = "Layout";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
+/* Generated from genl10n: Cleaner.BApp.swift#245 */
+"Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -264,6 +270,8 @@
 "Page Margin" = "Orriaren marjina";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Orriaren tamaina aurrezarpenak";
+/* Generated from genl10n: PhoneCalls.swift#57 */
+"Phone Calls" = "Telefono deiak";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Telefono zenbakia";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -294,26 +302,28 @@
 "Saving Results..." = "Emaitzak aurreztea ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
 "Scale To Fit" = "Eskala doitzea";
+/* Generated from genl10n: Cleaner.BApp.swift#246 */
+"Screenshots" = "Pantaila-";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Bilatu hegaldiak";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Aukeratu argazkiak guztia aurkitzeko.";
-/* Generated from genl10n: Cleaner.BApp.swift#316 */
-"Select Photos You Want To Clean!" = "Hautatu garbitu nahi dituzun argazkiak!";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Hautatu argazkiak nahi dituzun telefono zenbakiak!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Bidali e-posta bat";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Share";
+/* Generated from genl10n: Cleaner.BApp.swift#243 */
+"Similarities" = "antzekotasunak";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Tamaina";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Kontaktu batzuk gorde dira, baina beste batzuk ez ziren.";
-/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
-"Sorry not found any information you selected." = "Ez duzu hautatutako edozein informazio aurkitu.";
-/* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, this contact could not be saved." = "Ezin izan dugu kontaktu hau gorde.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"Sorry, it could not be saved." = "Ezin izan da gorde.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Sorry. No information about you have selected could not be detected." = "Sentitzen dut. Ez duzu hautatutako aukerarik hautatu.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Karratu";
 /* Generated from genl10n: Stabilizer.swift */
@@ -334,6 +344,8 @@
 "Starting to check edited photos..." = "Argitaratutako argazkiak egiaztatzeko ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Ezkutatu nahi duzun edozein elementu aktibatu. Kalitatea guztiz berbera izango da.";
+/* Generated from genl10n: Cleaner.BApp.swift#242 */
+"Targets" = "Helburuak";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Itzulpena";
 /* Generated from genl10n: GIFMaker.BApp.swift */

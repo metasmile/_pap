@@ -122,6 +122,10 @@
 "cs_keyword_12" = "friend";
 /*Translated from: lover*/
 "cs_keyword_13" = "amoureux";
+/* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
+"%@ might be found" = "%@ pourrait être trouvé";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
+"%@ will be hidden" = "%@ sera caché";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d fois";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
@@ -146,10 +150,12 @@
 "Aspect Ratio" = "Aspect Ratio";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Éditeur automatique";
+/* Generated from genl10n: Cleaner.BApp.swift#244 */
+"Blur Rate" = "Taux de flou";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Éclater";
-/* Generated from genl10n: PhoneCalls.swift#57 */
-"Call Numbers" = "Numéros d'appel";
+/* Generated from genl10n: Camera.BApp.swift#44 */
+"Camera" = "Caméra";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Impossible de revenir. Tous les éléments sélectionnés n'ont pas été modifiés.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -166,8 +172,6 @@
 "Clean the selected items" = "Nettoyer les éléments sélectionnés";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Nettoyeur";
-/* Generated from genl10n: Cleaner.BApp.swift#62 */
-"Cleaning Photos..." = "Nettoyage des photos ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Contacts";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -236,6 +240,8 @@
 "Layout" = "Disposition";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Photo en direct";
+/* Generated from genl10n: Cleaner.BApp.swift#245 */
+"Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Boucle";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -264,6 +270,8 @@
 "Page Margin" = "Marge de page";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Taille de page prédéfinie";
+/* Generated from genl10n: PhoneCalls.swift#57 */
+"Phone Calls" = "Appels téléphoniques";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Numéro de téléphone";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -294,26 +302,28 @@
 "Saving Results..." = "Sauvegarder les résultats ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
 "Scale To Fit" = "Échelle à adapter";
+/* Generated from genl10n: Cleaner.BApp.swift#246 */
+"Screenshots" = "Captures d'écran";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Recherche de vols";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Sélectionnez des photos pour tout trouver.";
-/* Generated from genl10n: Cleaner.BApp.swift#316 */
-"Select Photos You Want To Clean!" = "Sélectionnez les photos que vous voulez nettoyer!";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Sélectionnez les photos que vous voulez saisir des numéros de téléphone!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Envoyer un e-mail";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
 "Share" = "Partager";
+/* Generated from genl10n: Cleaner.BApp.swift#243 */
+"Similarities" = "Similitudes";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Size";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Certains contacts ont été sauvegardés, mais certains ne l'ont pas été.";
-/* Generated from genl10n: PhoneCalls.swift#172, Finder.BApp.swift#824 */
-"Sorry not found any information you selected." = "Désolé, aucune information n'a été trouvée.";
-/* Generated from genl10n: Finder.BApp.swift#174 */
-"Sorry, this contact could not be saved." = "Désolé, ce contact n'a pas pu être enregistré.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"Sorry, it could not be saved." = "Désolé, il n'a pas pu être enregistré.";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Sorry. No information about you have selected could not be detected." = "Pardon. Aucune information à votre sujet n'a pu être détectée.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Carré";
 /* Generated from genl10n: Stabilizer.swift */
@@ -334,6 +344,8 @@
 "Starting to check edited photos..." = "Commencer à vérifier les photos éditées ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Allumez tous les objets que vous voulez cacher. La qualité restera entièrement la même.";
+/* Generated from genl10n: Cleaner.BApp.swift#242 */
+"Targets" = "Cibles";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Traduction";
 /* Generated from genl10n: GIFMaker.BApp.swift */
