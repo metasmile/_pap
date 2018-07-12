@@ -47,11 +47,11 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     }
 
     public var titleWillFinalize: String? {
-        return "Deleting Photos...".localized
+        return "Cleaning Photos...".localized
     }
 
     public var doneButtonTitle: String? {
-        return "Delete".localized
+        return "Clean".localized
     }
 
     @objc dynamic
@@ -81,7 +81,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
 
             for gd in type(of: self).privateDefaults.selectedCollection{
                 for gcItem in gd.items where gcItem.enabled{
-                    if let t = gdType_Id[gcItem.identifier]{
+                    if let t = gdType_Id[gcItem.gdIdentifier]{
                         let k = t.identifier
 
                         var detector:PHAssetGarbageDetector
@@ -90,6 +90,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
                         }else{
                             detector = t.init()
                             gdInstances[k] = detector
+                            print(k,detector)
                         }
 
                         if detector.process(input: item.asset, async) ?? false == true{
@@ -221,15 +222,15 @@ extension Defaults: CleanerAppDefaults {
 }
 
 private struct GDItem:Codable, Hashable {
-    fileprivate var identifier: String
+    fileprivate var gdIdentifier: String
     fileprivate var label: String
     fileprivate var iconImageName: String?
     fileprivate var enabled: Bool = true
     private let _hashValue: Int
 
     init(gd: PHAssetGarbageDetector.Type, label: String, iconImageName: String? = nil) {
-        self.identifier = gd.identifier
-        self._hashValue = identifier.hashValue
+        self.gdIdentifier = gd.identifier
+        self._hashValue = gdIdentifier.hashValue
         self.label = label
         self.iconImageName = iconImageName
     }

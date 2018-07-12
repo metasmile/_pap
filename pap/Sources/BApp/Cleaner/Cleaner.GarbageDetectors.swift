@@ -19,7 +19,9 @@ protocol _PHAssetGarbageDetector: _GarbageDetector where Self.InputType==PHAsset
 class PHAssetGarbageDetector : NSObject, _PHAssetGarbageDetector{
     required public override init() {}
 
-    static let identifier: String = String(describing:self)
+    static var identifier: String {
+        return String(describing:self)
+    }
 
     func process(input: PHAsset, _ asyncSignal: AsyncWaitSignalable?) -> Bool? {
         return nil
