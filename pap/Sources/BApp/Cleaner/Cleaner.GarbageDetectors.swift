@@ -23,18 +23,34 @@ class PHAssetGarbageDetector : NSObject, _PHAssetGarbageDetector{
         return String(describing:self)
     }
 
+    class var label:String{
+        return "Undefined"
+    }
+
+    class var iconImageName:String?{
+        return nil
+    }
+
     func process(input: PHAsset, _ asyncSignal: AsyncWaitSignalable?) -> Bool? {
         return nil
     }
 }
 
 class PHAssetGarbageDetector_Screenshots : PHAssetGarbageDetector{
+    override class var label:String{
+        return "Screenshots".localized
+    }
+
     override func process(input: PHAsset, _ asyncSignal: AsyncWaitSignalable?) -> Bool? {
         return input.mediaType == .image && input.mediaSubtypes.contains(.photoScreenshot) //FIXME: always true??
     }
 }
 
 class PHAssetGarbageDetector_Lockscreens : PHAssetGarbageDetector{
+    override class var label:String{
+        return "Lockscreens".localized
+    }
+
     override func process(input: PHAsset, _ asyncSignal: AsyncWaitSignalable?) -> Bool? {
         //TODO Add detection
         return input.mediaType == .image && input.mediaSubtypes.contains(.photoScreenshot)
@@ -45,6 +61,9 @@ class PHAssetGarbageDetector_Lockscreens : PHAssetGarbageDetector{
     Similarity
 */
 class PHAssetGarbageDetector_Similarity : PHAssetGarbageDetector{
+    override class var label:String{
+        return "Similarities".localized
+    }
 
     override func process(input: PHAsset, _ asyncSignal: AsyncWaitSignalable?) -> Bool? {
         return self.detectSimilarAsset(input)
@@ -55,7 +74,6 @@ class PHAssetGarbageDetector_Similarity : PHAssetGarbageDetector{
 
     private func detectSimilarAsset(_ asset: PHAsset) -> Bool {
         // https://github.com/ameingast/cocoaimagehashing/
-
         let timeClustering: TimeInterval = 60 // 1 minute
 
         var hasSimilar = false
@@ -85,8 +103,15 @@ class PHAssetGarbageDetector_Similarity : PHAssetGarbageDetector{
 /*
     Blurry
 */
+class PHAssetGarbageDetector_BD: PHAssetGarbageDetector{
+    
+}
 
 class PHAssetGarbageDetector_Blurry: PHAssetGarbageDetector{
+    override class var label:String{
+        return "Blur Rate".localized
+    }
+
     override func process(input: PHAsset, _ asyncSignal: AsyncWaitSignalable?) -> Bool? {
         return self.detectBlurryImage(input)
     }

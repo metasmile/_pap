@@ -57,22 +57,23 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     @objc dynamic
     public fileprivate (set) lazy var autoSelect: Bool = false
 
-    fileprivate static var gdTypes:[PHAssetGarbageDetector.Type] = [
+    fileprivate static var SupportingGDTypes:[PHAssetGarbageDetector.Type] = [
         PHAssetGarbageDetector_Similarity.self
-        , PHAssetGarbageDetector_Blurry.self
+//        , PHAssetGarbageDetector_BD.self
+//        , PHAssetGarbageDetector_Blurry.self
         , PHAssetGarbageDetector_Screenshots.self
         , PHAssetGarbageDetector_Lockscreens.self
     ]
 
     /*
-    gc
+        gc
     */
 
     fileprivate var gdInstances = [String:PHAssetGarbageDetector]()
     fileprivate func gc(item: AppAsset, _ async: AsyncWaitSignalable) -> PHAssetGCResult {
 
         var detected = [PHAssetGarbageDetector.Type]()
-        let gdType_Id = type(of: self).gdTypes.dictionary { $0.identifier }
+        let gdType_Id = type(of: self).SupportingGDTypes.dictionary { $0.identifier }
 
         for gd in type(of: self).privateDefaults.selectedCollection{
             for gcItem in gd.items where gcItem.enabled{
@@ -88,8 +89,10 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
                         print(k,detector)
                     }
 
-                    if detector.process(input: item.asset, async) ?? false == true{
-                        detected.append(t)
+                    autoreleasepool{
+                        if detector.process(input: item.asset, async) ?? false == true{
+                            detected.append(t)
+                        }
                     }
                 }
             }
@@ -187,6 +190,126 @@ private class _CleanerAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, Ap
 }
 
 /*
+    Config
+*/
+
+
+private protocol CleanerAppDefaults: AppDefaults{
+    var selectedCollection: [GDDictionary] {get set}
+    var selectionPreset: Int {get set}
+    var saveContactWithoutEdit:Bool {get set}
+    var quickActionOnly:Bool {get set}
+}
+
+extension Defaults: CleanerAppDefaults {
+    fileprivate var selectedCollection: [GDDictionary] {
+        set{ set(newValue) }
+        get{
+            let defaultCollection = GDDictionary.DefaultCollection
+            let collection = get(or: defaultCollection )
+
+            //diff == 0 return
+            if defaultCollection == collection{
+                return collection
+            }
+            
+            //if not -> migrate
+            var migratedCollection = [GDDictionary]()
+            let keyedCollection = collection.dictionary { $0.key }
+            
+            var modCount = 0
+            for ddict in defaultCollection {
+                guard let ndict = keyedCollection[ddict.key] else {
+                    migratedCollection.append(ddict)
+                    continue
+                }
+                
+                var m_dict = ddict
+                let oGDIds = ddict.itemsGDIdentifiers
+                let nGDIds = ndict.itemsGDIdentifiers
+                
+                for nGDId in nGDIds{
+                    if let oindex = oGDIds.index(of: nGDId)
+                        , let nindex = nGDIds.index(of: nGDId){
+                        m_dict.items[oindex] = ndict.items[nindex]
+                        modCount += 1
+                    }
+                }
+                migratedCollection.append(m_dict)
+            }
+            
+            if modCount > 0{
+                let mSelf = self
+                mSelf.selectedCollection = migratedCollection
+            }
+            
+            return migratedCollection
+        }
+    }
+
+    fileprivate var selectionPreset: Int {
+        set{ set(newValue) }
+        get{ return get(or: SelectionPreset.action.rawValue ) }
+    }
+
+    fileprivate var saveContactWithoutEdit: Bool {
+        set{ set(newValue) }
+        get{ return get(or: false ) }
+    }
+
+    fileprivate var quickActionOnly: Bool {
+        set{ set(newValue) }
+        get{ return get(or: false ) }
+    }
+}
+
+private struct GDItem:Codable, Hashable {
+    fileprivate let gdIdentifier: String
+    fileprivate let label: String
+    fileprivate var iconImageName: String?
+    fileprivate var enabled: Bool
+    private let _hashValue: Int
+
+    init(gd: PHAssetGarbageDetector.Type, enabled:Bool=true) {
+        self.gdIdentifier = gd.identifier
+        self._hashValue = gdIdentifier.hashValue
+        self.label = gd.label
+        self.iconImageName = gd.iconImageName
+        self.enabled = enabled
+    }
+
+    var hashValue: Int {
+        return _hashValue
+    }
+}
+
+private struct GDDictionary:Codable, Hashable {
+    static let DefaultCollection: [GDDictionary] = [
+        GDDictionary(
+                key: .Default
+                , label: "Targets".localized
+                , items: CleanerApp.SupportingGDTypes.map { GDItem(gd: $0) }
+        )
+    ]
+
+    enum Key: Int, Codable {
+        case Default
+    }
+
+    fileprivate var key:Key
+    fileprivate var label:String
+    fileprivate var items:[GDItem]
+    fileprivate var itemsGDIdentifiers:[String]{
+        return items.map { $0.gdIdentifier }
+    }
+
+    var hashValue: Int{
+        return key.rawValue
+    }
+}
+
+
+/*
 
 AppContent
 
@@ -214,77 +337,6 @@ private struct SettingsItem {
     fileprivate var valueHandler:((Any) -> ())?
     fileprivate var cellDescriber: UITableViewCellDescribable //TODO: integrate all properties
     fileprivate var iconImageName:String?
-}
-
-private protocol CleanerAppDefaults: AppDefaults{
-    var selectedCollection: [GDDictionary] {get set}
-    var selectionPreset: Int {get set}
-    var saveContactWithoutEdit:Bool {get set}
-    var quickActionOnly:Bool {get set}
-}
-
-extension Defaults: CleanerAppDefaults {
-    fileprivate var selectedCollection: [GDDictionary] {
-        set{ set(newValue) }
-        get{ return get(or: GDDictionary.DefaultCollection ) }
-    }
-
-    fileprivate var selectionPreset: Int {
-        set{ set(newValue) }
-        get{ return get(or: SelectionPreset.action.rawValue ) }
-    }
-
-    fileprivate var saveContactWithoutEdit: Bool {
-        set{ set(newValue) }
-        get{ return get(or: false ) }
-    }
-
-    fileprivate var quickActionOnly: Bool {
-        set{ set(newValue) }
-        get{ return get(or: false ) }
-    }
-}
-
-private struct GDItem:Codable, Hashable {
-    fileprivate var gdIdentifier: String
-    fileprivate var label: String
-    fileprivate var iconImageName: String?
-    fileprivate var enabled: Bool = true
-    private let _hashValue: Int
-
-    init(gd: PHAssetGarbageDetector.Type, label: String, iconImageName: String? = nil) {
-        self.gdIdentifier = gd.identifier
-        self._hashValue = gdIdentifier.hashValue
-        self.label = label
-        self.iconImageName = iconImageName
-    }
-
-    var hashValue: Int {
-        return _hashValue
-    }
-}
-
-private struct GDDictionary:Codable, Hashable {
-    static let DefaultCollection: [GDDictionary] = [
-        GDDictionary(key: .Default, label: "Targets".localized, items: [
-            GDItem(gd: PHAssetGarbageDetector_Similarity.self, label:"Similarities".localized, iconImageName: nil)
-            , GDItem(gd: PHAssetGarbageDetector_Blurry.self, label:"Blur Rate".localized, iconImageName: nil)
-            , GDItem(gd: PHAssetGarbageDetector_Lockscreens.self, label:"Lockscreens".localized,  iconImageName: nil)
-            , GDItem(gd: PHAssetGarbageDetector_Screenshots.self, label:"Screenshots".localized,  iconImageName: nil)
-        ])
-    ]
-
-    enum Key: Int, Codable {
-        case Default
-    }
-
-    fileprivate var key:Key
-    fileprivate var label:String
-    fileprivate var items:[GDItem]
-
-    var hashValue: Int{
-      return key.rawValue
-    }
 }
 
 fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
