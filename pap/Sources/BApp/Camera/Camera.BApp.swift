@@ -76,15 +76,41 @@ fileprivate class CameraPreviewLayer: AVCaptureVideoPreviewLayer {
     }
 }
 
-fileprivate class CameraView: UIView {
+fileprivate class CameraPreviewView: UIView {
     override class var layerClass: AnyClass {
         return CameraPreviewLayer.self
     }
     
-    var captureVideoPreviewLayer: CameraPreviewLayer? {
+    private var captureVideoPreviewLayer: CameraPreviewLayer? {
         return layer as? CameraPreviewLayer
     }
     
+    override var contentMode: UIViewContentMode {
+        didSet {
+            switch contentMode {
+            case .scaleAspectFit:
+                captureVideoPreviewLayer?.contentsGravity = kCAGravityCenter
+                captureVideoPreviewLayer?.videoGravity = .resizeAspect
+            case .scaleAspectFill:
+                captureVideoPreviewLayer?.contentsGravity = kCAGravityCenter
+                captureVideoPreviewLayer?.videoGravity = .resizeAspectFill
+            default: break
+            }
+        }
+    }
+    
+    var session: AVCaptureSession? {
+        set {
+            captureVideoPreviewLayer?.session = newValue
+        }
+        
+        get {
+            return captureVideoPreviewLayer?.session
+        }
+    }
+}
+
+fileprivate class CameraView: UIView {
     private lazy var captureSession = AVCaptureSession()
     private lazy var capturePhotoOutput = AVCapturePhotoOutput()
     private lazy var defaultCapturePhotoSettings: AVCapturePhotoSettings = {
@@ -95,10 +121,11 @@ fileprivate class CameraView: UIView {
     
     var configurationDidUpdate: (() -> Void)?
     
-    private var sessionQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
-    private var photoURL: URL?
+    private lazy var sessionQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
     
-    private var dimmedView: UIView?
+    private lazy var cameraPreviewView = CameraPreviewView(frame: .zero)
+    
+    private var blurredSnapshotView: UIView?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -111,7 +138,8 @@ fileprivate class CameraView: UIView {
     }
     
     private func initialize() {
-        
+        addSubview(cameraPreviewView)
+        cameraPreviewView.fitConstraints(to: self)
     }
     
     func setUp() {
@@ -161,7 +189,7 @@ fileprivate class CameraView: UIView {
         
         commitConfiguration()
         
-        captureVideoPreviewLayer?.session = captureSession
+        cameraPreviewView.session = captureSession
     }
     
     func startSession() {
@@ -229,16 +257,28 @@ fileprivate class CameraView: UIView {
         return captureDeviceInputs?.first { $0.device.hasMediaType(mediaType) }
     }
     
-    func switchCameraPosition() {
+    func switchCameraPosition(animated: Bool = true) {
         guard let currentDevice = self.currentCaptureDeviceInput(for: .video) else { return }
         let position: AVCaptureDevice.Position = currentDevice.device.position == .back ? .front : .back
-        setCameraPosition(position)
-        performSwitchCameraPositionAnimation(to: position)
+        
+        if animated {
+            let switchingView = performSwitchCameraPositionAnimation(to: position)
+            setCameraPosition(position) {
+                DispatchQueue.main.async {
+                    UIView.transition(with: self, duration: 0.5, options: .transitionCrossDissolve, animations: {
+                        switchingView.removeFromSuperview()
+                    }, completion: nil)
+                }
+            }
+        }
+        else {
+            setCameraPosition(position)
+        }
     }
     
-    private func setCameraPosition(_ position: AVCaptureDevice.Position) {
+    private func setCameraPosition(_ position: AVCaptureDevice.Position, completion: (() -> Void)? = nil) {
         sessionQueue.async {
-            guard let currentDevice = self.currentCaptureDeviceInput(for: .video) else { return }
+            guard let currentDevice = self.currentCaptureDeviceInput(for: .video) else { completion?(); return }
             let isLivePhotoEnabled = self.capturePhotoOutput.isLivePhotoCaptureEnabled
             
             self.beginConfiguration()
@@ -257,20 +297,14 @@ fileprivate class CameraView: UIView {
             }
             
             self.commitConfiguration()
+            
+            completion?()
         }
     }
     
     override var contentMode: UIViewContentMode {
         didSet {
-            switch contentMode {
-            case .scaleAspectFit:
-                captureVideoPreviewLayer?.contentsGravity = kCAGravityResizeAspect
-                captureVideoPreviewLayer?.videoGravity = .resizeAspect
-            case .scaleAspectFill:
-                captureVideoPreviewLayer?.contentsGravity = kCAGravityResizeAspectFill
-                captureVideoPreviewLayer?.videoGravity = .resizeAspectFill
-            default: break
-            }
+            cameraPreviewView.contentMode = contentMode
         }
     }
     
@@ -309,7 +343,7 @@ extension CameraView {
         }
     }
     
-    private func blurredSnapshotView() -> UIView {
+    private func snapshotWithBlur() -> UIView {
         let view = UIView(frame: .zero)
         if let snapshot = snapshotView(afterScreenUpdates: true) {
             view.addSubview(snapshot)
@@ -322,17 +356,14 @@ extension CameraView {
         return view
     }
     
-    private func performSwitchCameraPositionAnimation(to position: AVCaptureDevice.Position) {
-        let switchingView = blurredSnapshotView()
-        
+    private func performSwitchCameraPositionAnimation(to position: AVCaptureDevice.Position) -> UIView {
+        let switchingView = snapshotWithBlur()
         addSubview(switchingView)
         switchingView.fitConstraints(to: self)
         
-        UIView.transition(with: self, duration: 0.5, options: position == .back ? .transitionFlipFromRight : .transitionFlipFromLeft, animations: nil) { _ in
-            UIView.transition(with: switchingView, duration: 0.5, options: .transitionCrossDissolve, animations: {
-                switchingView.alpha = 0
-            }, completion: { _ in switchingView.removeFromSuperview() })
-        }
+        UIView.transition(with: self, duration: 0.5, options: position == .back ? .transitionFlipFromLeft : .transitionFlipFromRight, animations: nil, completion: nil)
+        
+        return switchingView
     }
 }
 
@@ -604,7 +635,6 @@ fileprivate class CameraAppView: UIView {
     private var devicePositionIcon: UIImage {
         return { () -> UIImage in
             return (self.isCompactMode ? R.image.cameraBAppPositionIntaglio() : R.image.cameraBAppPositionEmboss()) ?? UIImage()
-
         }().withRenderingMode(.alwaysTemplate)
     }
     
