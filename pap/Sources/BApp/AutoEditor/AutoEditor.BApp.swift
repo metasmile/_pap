@@ -232,6 +232,7 @@ extension Defaults: AutoEditorAppDefaults {
 }
 
 class AutoEditorAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
+    fileprivate static var primaryColor = UIColor(red:0.12, green:0.67, blue:0.98, alpha:1)
     fileprivate var autoAdjustmentOptionKeys = AutoEditorApp.AutoAdjustmentsKeys
 
     lazy var view: UIView = {
@@ -287,10 +288,11 @@ class AutoEditorAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITa
         
         cell.imageView?.image = AutoEditorApp.AutoAdjustments.iconImage(filterName)
         
-        cell.imageView?.tintColor = UIColor(red: 72 / 255.0, green: 168 / 255.0, blue: 247 / 255.0, alpha: 1)
+        cell.imageView?.tintColor = AutoEditorAppDockContent.primaryColor
         cell.imageView?.contentMode = .scaleAspectFit
 
         cell.textLabel?.text = AutoEditorApp.AutoAdjustments.aliasName(filterName)
+        cell.optionSwitch.onTintColor = cell.imageView?.tintColor
         cell.optionSwitch.setOn((self.options?[self.autoAdjustmentOptionKeys[indexPath.row]] as? Bool) == true, animated: false)
         cell.switchDidChange = { on in
             self.options?[self.autoAdjustmentOptionKeys[indexPath.row]] = on ? true : false
@@ -321,7 +323,6 @@ class AutoEditorAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITa
         override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
             
-            optionSwitch.onTintColor = UIColor(red: 72 / 255.0, green: 168 / 255.0, blue: 247 / 255.0, alpha: 1)
             accessoryView = optionSwitch
             backgroundColor = .clear
         }

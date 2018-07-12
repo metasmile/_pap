@@ -591,8 +591,6 @@ fileprivate class CameraAppView: UIView {
             DispatchQueue.main.async {
                 livePhotoButton.setImage(self.livePhotoBadgeIcon, for: .normal)
                 livePhotoButton.tintColor = self.cameraView.isLivePhotoEnabled ? self.primaryColor : nil
-                
-                switchButton.setImage(self.devicePositionIcon, for: .normal)
             }
         }
         
@@ -602,7 +600,8 @@ fileprivate class CameraAppView: UIView {
     
     private var devicePositionIcon: UIImage {
         return { () -> UIImage in
-            return cameraView.cameraPosition == .front ? PHLivePhotoView.livePhotoBadgeImage(options: .overContent) : PHLivePhotoView.livePhotoBadgeImage(options: .liveOff)
+            return (self.isCompactMode ? R.image.cameraBAppPositionEmboss() : R.image.cameraBAppPositionIntaglio()) ?? UIImage()
+            
         }().withRenderingMode(.alwaysTemplate)
     }
     

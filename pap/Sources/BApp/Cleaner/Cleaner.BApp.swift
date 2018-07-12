@@ -263,7 +263,7 @@ private struct GDDictionary:Codable, Hashable {
 }
 
 fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
-    private lazy var tintColor = UIColor(red:0.16, green:0.84, blue:0.9, alpha:1)
+    private lazy var tintColor = UIColor(red:0.34, green:0.55, blue:0.87, alpha:1)
 
     fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
 
