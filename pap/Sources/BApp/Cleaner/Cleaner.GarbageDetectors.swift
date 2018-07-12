@@ -1,5 +1,5 @@
 //
-// Created by BLACKGENE on 10.07.18.
+// Created by BL?ACKGENE on 10.07.18.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
@@ -62,15 +62,15 @@ class PHAssetGarbageDetector_Lockscreens : PHAssetGarbageDetector{
 */
 class PHAssetGarbageDetector_Similarity : PHAssetGarbageDetector{
     override class var label:String{
-        return "Similarities".localized
+        return "Similarity".localized
     }
 
     override func process(input: PHAsset, _ asyncSignal: AsyncWaitSignalable?) -> Bool? {
         return self.detectSimilarAsset(input)
     }
 
-    fileprivate var targetAssets = [PHAsset]()
-    fileprivate let imageHashing = OSImageHashing.sharedInstance()
+    private var targetAssets = [PHAsset]()
+    private let imageHashing = OSImageHashing.sharedInstance()
 
     private func detectSimilarAsset(_ asset: PHAsset) -> Bool {
         // https://github.com/ameingast/cocoaimagehashing/
@@ -97,6 +97,104 @@ class PHAssetGarbageDetector_Similarity : PHAssetGarbageDetector{
         targetAssets.insert(asset, at: 0)
 
         return hasSimilar
+    }
+}
+
+class PHAssetGarbageDetector_Similarity_t : PHAssetGarbageDetector{
+    override class var label:String{
+        return "Similarities".localized
+    }
+
+    override func process(input: PHAsset, _ asyncSignal: AsyncWaitSignalable?) -> Bool? {
+        return self.detectSimilarAsset(input)
+    }
+
+    private var targetAssets = [PHAsset:Set<String>]()
+    private let imageHashing = OSImageHashing.sharedInstance()
+
+    private var similarCache = [String:OSHashDistanceType]()
+
+    let sep = "=="
+
+    private func isDistanceSimilar(_ distance:OSHashDistanceType) -> Bool{
+        return distance < imageHashing.hashDistanceSimilarityThreshold(withProvider: .dHash)
+    }
+
+    private func getDistance(_ asset1:PHAsset, _ asset2:PHAsset) -> OSHashDistanceType{
+        let keySrc = [asset1.localIdentifier,asset2.localIdentifier]
+        let key = keySrc.joined(separator: sep)
+
+        if let sim = similarCache[key]{
+            return sim
+        }else if let sim = similarCache[keySrc.reversed().joined(separator: sep)]{
+            return sim
+        }
+
+//        let options = PHImageRequestOptions()
+//        options.isSynchronous = true
+//
+//        var _data1: Data?
+//        PHImageManager.default().requestImageData(for: asset1, options: options) { data, _, _, _ in
+//            _data1 = data
+//        }
+//
+//        var _data2: Data?
+//        PHImageManager.default().requestImageData(for: asset2, options: options) { data, _, _, _ in
+//            _data2 = data
+//        }
+//        guard let data1 = _data1, let data2 = _data2 else {
+//            return OSHashDistanceType.max
+//        }
+
+        guard let data1 = asset1.requestThumbnailImage(targetSize: CGSize(width: 150, height: 150))?.asData
+        , let data2 = asset2.requestThumbnailImage(targetSize: CGSize(width: 150, height: 150))?.asData  else {
+            return OSHashDistanceType.max
+        }
+
+        let hash1 = imageHashing.hashImageData(data1)
+        let hash2 = imageHashing.hashImageData(data2)
+        let distance12 = imageHashing.hashDistance(hash1, to: hash2)
+        let distance21 = imageHashing.hashDistance(hash2, to: hash1) //TODO: remove if not differennt between 12, 21
+
+        let distance:OSHashDistanceType = (distance12+distance21)/2
+
+        print("distance12",distance)
+
+        similarCache[key] = distance
+        return distance
+    }
+
+    private func detectSimilarAsset(_ asset: PHAsset) -> Bool {
+        // https://github.com/ameingast/cocoaimagehashing/
+        let id = asset.localIdentifier
+
+        if targetAssets.keys.count == 0{
+            targetAssets[asset] = Set<String>()
+            return false
+        }
+
+        for set in targetAssets.values{
+            if set.contains(id){
+                return true
+            }
+        }
+
+        for hostAsset in targetAssets.keys{
+            if hostAsset.localIdentifier == id{
+                return false
+            }
+
+            if isDistanceSimilar(getDistance(hostAsset, asset)){
+                if targetAssets[hostAsset] == nil{
+                    targetAssets[hostAsset] = Set<String>()
+                }
+                targetAssets[hostAsset]?.insert(id)
+                return true
+            }
+        }
+
+        targetAssets[asset] = Set<String>()
+        return false
     }
 }
 

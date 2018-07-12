@@ -114,7 +114,7 @@
 "Auto Editor" = "Auto Editor";
 /* Generated from genl10n: Cleaner.BApp.swift#413 */
 "Auto Garbage Selection" = "Auto Garbage Selection";
-/* Generated from genl10n: Cleaner.GarbageDetectors.swift#112 */
+/* Generated from genl10n: Cleaner.GarbageDetectors.swift#210 */
 "Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift#89 */
 "Burst" = "Burst";
@@ -282,7 +282,7 @@
 "Send an Email" = "Send an Email";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#92, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#105, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#131, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#145, App.Finalizable.UIActivity.PHAsset.swift#60, PHAssetUIAlertControllerSynchronizablePresenter.swift#58, Finder.BApp.swift#351, Finder.BApp.swift#436, Finder.BApp.swift#521, Finder.BApp.swift#618, Finder.BApp.swift#736, Finder.BApp.swift#833 */
 "Share" = "Share";
-/* Generated from genl10n: Cleaner.GarbageDetectors.swift#65 */
+/* Generated from genl10n: Cleaner.GarbageDetectors.swift#65, Cleaner.GarbageDetectors.swift#105 */
 "Similarities" = "Similarities";
 /* Generated from genl10n: GIFMaker.BApp.swift#461, GIFMaker.BApp.swift#664, GIFMaker.BApp.swift#676, GIFMaker.BApp.swift#813 */
 "Size" = "Size";
