@@ -98,6 +98,8 @@ fileprivate class CameraView: UIView {
     private var sessionQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
     private var photoURL: URL?
     
+    private var dimmedView: UIView?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
@@ -138,6 +140,13 @@ fileprivate class CameraView: UIView {
         beginConfiguration()
         
         captureSession.addInput(videoDeviceInput)
+        
+        try? videoDevice.lockForConfiguration()
+        
+        videoDevice.focusMode = .continuousAutoFocus
+        videoDevice.exposureMode = .continuousAutoExposure
+        
+        videoDevice.unlockForConfiguration()
         
         if let audioDevice = AVCaptureDevice.default(for: .audio),
             let audioDeviceInput = try? AVCaptureDeviceInput(device: audioDevice),
@@ -224,6 +233,7 @@ fileprivate class CameraView: UIView {
         guard let currentDevice = self.currentCaptureDeviceInput(for: .video) else { return }
         let position: AVCaptureDevice.Position = currentDevice.device.position == .back ? .front : .back
         setCameraPosition(position)
+        performSwitchCameraPositionAnimation(to: position)
     }
     
     private func setCameraPosition(_ position: AVCaptureDevice.Position) {
@@ -296,6 +306,32 @@ extension CameraView {
         
         set {
             setCameraPosition(newValue)
+        }
+    }
+    
+    private func blurredSnapshotView() -> UIView {
+        let view = UIView(frame: .zero)
+        if let snapshot = snapshotView(afterScreenUpdates: true) {
+            view.addSubview(snapshot)
+        }
+        
+        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+        view.addSubview(blurView)
+        blurView.fitConstraints(to: view)
+        
+        return view
+    }
+    
+    private func performSwitchCameraPositionAnimation(to position: AVCaptureDevice.Position) {
+        let switchingView = blurredSnapshotView()
+        
+        addSubview(switchingView)
+        switchingView.fitConstraints(to: self)
+        
+        UIView.transition(with: self, duration: 0.5, options: position == .back ? .transitionFlipFromRight : .transitionFlipFromLeft, animations: nil) { _ in
+            UIView.transition(with: switchingView, duration: 0.5, options: .transitionCrossDissolve, animations: {
+                switchingView.alpha = 0
+            }, completion: { _ in switchingView.removeFromSuperview() })
         }
     }
 }
@@ -379,6 +415,64 @@ fileprivate class CameraViewLivePhotoCaptureProcessor: CameraViewCaptureProcesso
     }
 }
 
+fileprivate class CaptureButton: UIControl {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initialize()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        initialize()
+    }
+    
+    private func initialize() {
+        backgroundColor = .clear
+        contentMode = .redraw
+        
+        addTarget(self, action: #selector(self.pressed), for: .touchDown)
+        addTarget(self, action: #selector(self.released), for: [.touchDragInside, .touchDragOutside, .touchUpInside, .touchUpOutside])
+    }
+    
+    private var isPressed: Bool = false
+    
+    @objc func pressed(sender: Any) {
+        isPressed = true
+        setNeedsDisplay()
+    }
+    
+    @objc func released(sender: Any) {
+        isPressed = false
+        setNeedsDisplay()
+    }
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        
+        let scale = min(1, rect.height / 72)
+        
+        let inset = max(4, (rect.height - 72) / 2)
+        let outerCircleLineWidth: CGFloat = 6 * scale
+        let outerCircleInset = outerCircleLineWidth / 2 + inset
+        let innerCircleInset = outerCircleLineWidth + (isPressed ? 6 : 2) * scale + inset
+        
+        let outerCircle = UIBezierPath(ovalIn: UIEdgeInsetsInsetRect(rect, UIEdgeInsets(top: outerCircleInset, left: outerCircleInset, bottom: outerCircleInset, right: outerCircleInset)))
+        let innerCircle = UIBezierPath(ovalIn: UIEdgeInsetsInsetRect(rect, UIEdgeInsets(top: innerCircleInset, left: innerCircleInset, bottom: innerCircleInset, right: innerCircleInset)))
+        
+        let ctx = UIGraphicsGetCurrentContext()
+        
+        ctx?.setLineWidth(outerCircleLineWidth)
+        ctx?.setFillColor(UIColor.clear.cgColor)
+        ctx?.setStrokeColor(UIColor.white.cgColor)
+        ctx?.addPath(outerCircle.cgPath)
+        ctx?.strokePath()
+        
+        ctx?.setFillColor(UIColor.white.cgColor)
+        ctx?.addPath(innerCircle.cgPath)
+        ctx?.fillPath()
+    }
+}
+
 fileprivate class CameraAppView: UIView {
     lazy var cameraView: CameraView = {
         let cameraView = CameraView(frame: .zero)
@@ -391,6 +485,7 @@ fileprivate class CameraAppView: UIView {
     }()
     
     private lazy var tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapToCapture))
+    
     private var optionViewHeightLayout: NSLayoutConstraint?
     private var cameraAspectRatioLayout: NSLayoutConstraint?
     
@@ -407,6 +502,8 @@ fileprivate class CameraAppView: UIView {
         super.init(coder: aDecoder)
         intialize()
     }
+    
+    private lazy var captureButton = CaptureButton(frame: .zero)
     
     private func intialize() {
         tintColor = UIColor.white
@@ -459,28 +556,29 @@ fileprivate class CameraAppView: UIView {
         controlView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         controlView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
-        let captureButton = UIButton(type: .system)
-        captureButton.setTitle("Capture", for: .normal)
         captureButton.addTarget(self, action: #selector(self.tapToCapture), for: .touchUpInside)
         addSubview(captureButton)
         
         captureButton.translatesAutoresizingMaskIntoConstraints = false
-        captureButton.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor).isActive = true
+        captureButton.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         captureButton.centerXAnchor.constraint(equalTo: controlView.centerXAnchor).isActive = true
         captureButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 44).isActive = true
+        captureButton.widthAnchor.constraint(equalTo: captureButton.heightAnchor, multiplier: 1).isActive = true
         
         let captureButtonCenterYLayout = captureButton.centerYAnchor.constraint(equalTo: controlView.centerYAnchor)
         captureButtonCenterYLayout.priority = .defaultLow
         captureButtonCenterYLayout.isActive = true
         
         let switchButton = UIButton(type: .system)
-        switchButton.setTitle("Switch", for: .normal)
+        switchButton.setImage(devicePositionIcon, for: .normal)
         switchButton.addTarget(self, action: #selector(self.switchCamera), for: .touchUpInside)
         addSubview(switchButton)
         
         switchButton.translatesAutoresizingMaskIntoConstraints = false
         switchButton.topAnchor.constraint(greaterThanOrEqualTo: topAnchor).isActive = true
         switchButton.trailingAnchor.constraint(equalTo: cameraView.trailingAnchor).isActive = true
+        switchButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        switchButton.widthAnchor.constraint(equalTo: switchButton.heightAnchor, multiplier: 1).isActive = true
         
         let switchButtonCenterYLayout = switchButton.centerYAnchor.constraint(equalTo: optionView.centerYAnchor)
         switchButtonCenterYLayout.priority = .defaultLow
@@ -493,11 +591,19 @@ fileprivate class CameraAppView: UIView {
             DispatchQueue.main.async {
                 livePhotoButton.setImage(self.livePhotoBadgeIcon, for: .normal)
                 livePhotoButton.tintColor = self.cameraView.isLivePhotoEnabled ? self.primaryColor : nil
+                
+                switchButton.setImage(self.devicePositionIcon, for: .normal)
             }
         }
         
         self.cameraView.isLivePhotoEnabled = self.userSettings.isLivePhotoEnabled
         self.cameraView.cameraPosition = self.userSettings.cameraPosition
+    }
+    
+    private var devicePositionIcon: UIImage {
+        return { () -> UIImage in
+            return cameraView.cameraPosition == .front ? PHLivePhotoView.livePhotoBadgeImage(options: .overContent) : PHLivePhotoView.livePhotoBadgeImage(options: .liveOff)
+        }().withRenderingMode(.alwaysTemplate)
     }
     
     private var livePhotoBadgeIcon: UIImage {
