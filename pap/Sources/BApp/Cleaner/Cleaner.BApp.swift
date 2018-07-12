@@ -64,53 +64,77 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
         , PHAssetGarbageDetector_Lockscreens.self
     ]
 
+    /*
+    gc
+    */
+
     fileprivate var gdInstances = [String:PHAssetGarbageDetector]()
-
-    fileprivate var preheatedGCResults = [PHAssetID: PHAssetGCResult]()
-
     fileprivate func gc(item: AppAsset, _ async: AsyncWaitSignalable) -> PHAssetGCResult {
-        var result: PHAssetGCResult
 
-        if let preheatedResult = preheatedGCResults[item.asset.localIdentifierWithoutSplitter]{
-            result = preheatedResult
+        var detected = [PHAssetGarbageDetector.Type]()
+        let gdType_Id = type(of: self).gdTypes.dictionary { $0.identifier }
 
-        }else{
+        for gd in type(of: self).privateDefaults.selectedCollection{
+            for gcItem in gd.items where gcItem.enabled{
+                if let t = gdType_Id[gcItem.gdIdentifier]{
+                    let k = t.identifier
 
-            var detected = [PHAssetGarbageDetector.Type]()
-            let gdType_Id = type(of: self).gdTypes.dictionary { $0.identifier }
+                    var detector:PHAssetGarbageDetector
+                    if let d = gdInstances[k]{
+                        detector = d
+                    }else{
+                        detector = t.init()
+                        gdInstances[k] = detector
+                        print(k,detector)
+                    }
 
-            for gd in type(of: self).privateDefaults.selectedCollection{
-                for gcItem in gd.items where gcItem.enabled{
-                    if let t = gdType_Id[gcItem.gdIdentifier]{
-                        let k = t.identifier
-
-                        var detector:PHAssetGarbageDetector
-                        if let d = gdInstances[k]{
-                            detector = d
-                        }else{
-                            detector = t.init()
-                            gdInstances[k] = detector
-                            print(k,detector)
-                        }
-
-                        if detector.process(input: item.asset, async) ?? false == true{
-                            detected.append(t)
-                        }
+                    if detector.process(input: item.asset, async) ?? false == true{
+                        detected.append(t)
                     }
                 }
             }
-
-            result = PHAssetGCResult(asset:item.asset, detected:detected)
-            preheatedGCResults[item.asset.localIdentifierWithoutSplitter] = result
         }
 
-        return result
+        return PHAssetGCResult(asset:item.asset, detected:detected)
+    }
+
+    /*
+    preheat
+    */
+    fileprivate var preheatCachedResults = [PHAssetID: PHAssetGCResult]()
+    private var preheatingFrontQueueLabel:String?
+
+    func disposePreheatingCache(){
+        if let l = preheatingFrontQueueLabel{
+            DispatchQueue(label:l).async{
+                self.preheatCachedResults.removeAll()
+            }
+        }else{
+            preheatCachedResults.removeAll()
+        }
     }
 
     public func performPreheating(item: AppAsset, _ async: AsyncWaitSignalable) -> PreheatingFinishAction? {
         guard self.autoSelect else { return nil }
 
-        return gc(item: item, async).detected.count > 0
+        preheatingFrontQueueLabel = async.queueStack.first ?? DispatchQueue.currentLabel
+
+        var result: PHAssetGCResult
+
+        let selectedGdIds = type(of: self).privateDefaults.selectedCollection.compactMap { dictionary -> [GDItem]? in
+            return dictionary.items.nilEmpty
+        }.reduce([],+).map { $0.gdIdentifier }
+
+        if let preheatedResult = preheatCachedResults[item.asset.localIdentifierWithoutSplitter]
+        , Set((preheatedResult.detected.map{ $0.identifier })).symmetricDifference(Set(selectedGdIds)).count == 0{
+            result = preheatedResult
+
+        }else{
+            result = gc(item: item, async)
+            preheatCachedResults[item.asset.localIdentifierWithoutSplitter] = result
+        }
+
+        return result.detected.count > 0
                 ? UICollectionViewPreheatableAppFinishAction.selectItem
                 : nil
     }
@@ -151,9 +175,9 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
 
 private class _CleanerAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, AppTaskable {
 
-    public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){}
+    func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){}
 
-    public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
+    func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
         guard let item = param as? AppAsset else{
             return nil
         }
@@ -544,6 +568,8 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
         cell.switchDidChange = { on in
             self.defaultCollections[dictIndex].items[indexPath.item].enabled = on
             CleanerApp.privateDefaults.selectedCollection = self.defaultCollections
+
+            AppCenter.default.currentInstanceAs(CleanerApp.self)?.disposePreheatingCache()
 
             self.itemCollection_tableView_cell_update(cell: cell, selected: on)
         }
