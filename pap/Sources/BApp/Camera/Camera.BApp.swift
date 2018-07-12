@@ -10,6 +10,24 @@ import UIKit
 import AVFoundation
 import Photos
 import PhotosUI
+import DefaultsKit
+
+protocol CameraAppDefaults: AppDefaults {
+    var isLivePhotoEnabled: Bool { get set }
+    var cameraPosition: AVCaptureDevice.Position { get set }
+}
+
+extension Defaults: CameraAppDefaults {
+    var isLivePhotoEnabled: Bool {
+        set { set(newValue) }
+        get { return get(or: false) }
+    }
+    
+    var cameraPosition: AVCaptureDevice.Position {
+        set { set(newValue.rawValue) }
+        get { return AVCaptureDevice.Position(rawValue: get(or: AVCaptureDevice.Position.back.rawValue)) ?? .back }
+    }
+}
 
 class CameraApp: NSObject, KeyPathWatchable, BApp, AppDockApp, PhotoPickerCollectionViewDisplayableApp {
     public static let taskType: AppTaskable.Type = _CameraAppTask.self
@@ -117,7 +135,7 @@ fileprivate class CameraView: UIView {
             captureSession.canAddInput(videoDeviceInput)
             else { return }
         
-        captureSession.beginConfiguration()
+        beginConfiguration()
         
         captureSession.addInput(videoDeviceInput)
         
@@ -132,14 +150,9 @@ fileprivate class CameraView: UIView {
         captureSession.sessionPreset = .photo
         captureSession.addOutput(capturePhotoOutput)
         
-        captureSession.commitConfiguration()
+        commitConfiguration()
         
         captureVideoPreviewLayer?.session = captureSession
-        
-        //TODO: 이거 제 카메라 찰칵찰칵 시끄러서 라이브 켜놓은거임ㅋㅋ
-        capturePhotoOutput.isLivePhotoCaptureEnabled = capturePhotoOutput.isLivePhotoCaptureSupported
-        
-        configurationDidUpdate?()
     }
     
     func startSession() {
@@ -152,6 +165,15 @@ fileprivate class CameraView: UIView {
         sessionQueue.async {
             self.captureSession.stopRunning()
         }
+    }
+    
+    func beginConfiguration() {
+        captureSession.beginConfiguration()
+    }
+    
+    func commitConfiguration() {
+        captureSession.commitConfiguration()
+        configurationDidUpdate?()
     }
     
     var capturesInProgress = Set<CameraViewCaptureProcessor>()
@@ -199,11 +221,17 @@ fileprivate class CameraView: UIView {
     }
     
     func switchCameraPosition() {
+        guard let currentDevice = self.currentCaptureDeviceInput(for: .video) else { return }
+        let position: AVCaptureDevice.Position = currentDevice.device.position == .back ? .front : .back
+        setCameraPosition(position)
+    }
+    
+    private func setCameraPosition(_ position: AVCaptureDevice.Position) {
         sessionQueue.async {
             guard let currentDevice = self.currentCaptureDeviceInput(for: .video) else { return }
-            let position: AVCaptureDevice.Position = currentDevice.device.position == .back ? .front : .back
+            let isLivePhotoEnabled = self.capturePhotoOutput.isLivePhotoCaptureEnabled
             
-            self.captureSession.beginConfiguration()
+            self.beginConfiguration()
             self.captureSession.removeInput(currentDevice)
             
             if let newDevice = self.captureDevice(with: position), let deviceInput = try? AVCaptureDeviceInput(device: newDevice), self.captureSession.canAddInput(deviceInput) {
@@ -212,9 +240,13 @@ fileprivate class CameraView: UIView {
             else {
                 self.captureSession.addInput(currentDevice)
             }
-            self.captureSession.commitConfiguration()
             
-            self.configurationDidUpdate?()
+            //INFO: keep live photo settings
+            if self.capturePhotoOutput.isLivePhotoCaptureEnabled != isLivePhotoEnabled {
+                self.capturePhotoOutput.isLivePhotoCaptureEnabled = isLivePhotoEnabled
+            }
+            
+            self.commitConfiguration()
         }
     }
     
@@ -222,8 +254,10 @@ fileprivate class CameraView: UIView {
         didSet {
             switch contentMode {
             case .scaleAspectFit:
+                captureVideoPreviewLayer?.contentsGravity = kCAGravityResizeAspect
                 captureVideoPreviewLayer?.videoGravity = .resizeAspect
             case .scaleAspectFill:
+                captureVideoPreviewLayer?.contentsGravity = kCAGravityResizeAspectFill
                 captureVideoPreviewLayer?.videoGravity = .resizeAspectFill
             default: break
             }
@@ -255,14 +289,28 @@ fileprivate class CameraView: UIView {
 }
 
 extension CameraView {
+    var cameraPosition: AVCaptureDevice.Position {
+        get {
+            return currentCaptureDeviceInput(for: .video)?.device.position ?? .unspecified
+        }
+        
+        set {
+            setCameraPosition(newValue)
+        }
+    }
+}
+
+extension CameraView {
     var isLivePhotoSupported: Bool {
         return capturePhotoOutput.isLivePhotoCaptureSupported
     }
     
     var isLivePhotoEnabled: Bool {
         set {
-            capturePhotoOutput.isLivePhotoCaptureEnabled = newValue
-            self.configurationDidUpdate?()
+            sessionQueue.async {
+                self.capturePhotoOutput.isLivePhotoCaptureEnabled = newValue
+                self.configurationDidUpdate?()
+            }
         }
         
         get {
@@ -348,6 +396,8 @@ fileprivate class CameraAppView: UIView {
     
     fileprivate var primaryColor = UIColor(red: 0.97, green: 0.8, blue: 0.27, alpha: 1) // 248    204    70
     
+    private lazy var userSettings = CameraApp.defaults as! CameraAppDefaults
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         intialize()
@@ -396,7 +446,7 @@ fileprivate class CameraAppView: UIView {
         heightLayout.priority = .defaultLow
         heightLayout.isActive = true
         
-        cameraAspectRatioLayout = cameraView.heightAnchor.constraint(equalTo: cameraView.widthAnchor, multiplier: 4 / 3)
+        cameraAspectRatioLayout = cameraView.heightAnchor.constraint(equalTo: cameraView.widthAnchor, multiplier: 1.3)
         cameraAspectRatioLayout?.isActive = true
         
         let controlView = UIView(frame: .zero)
@@ -437,11 +487,17 @@ fileprivate class CameraAppView: UIView {
         switchButtonCenterYLayout.isActive = true
         
         cameraView.configurationDidUpdate = {
+            self.userSettings.isLivePhotoEnabled = self.cameraView.isLivePhotoEnabled
+            self.userSettings.cameraPosition = self.cameraView.cameraPosition
+            
             DispatchQueue.main.async {
                 livePhotoButton.setImage(self.livePhotoBadgeIcon, for: .normal)
                 livePhotoButton.tintColor = self.cameraView.isLivePhotoEnabled ? self.primaryColor : nil
             }
         }
+        
+        self.cameraView.isLivePhotoEnabled = self.userSettings.isLivePhotoEnabled
+        self.cameraView.cameraPosition = self.userSettings.cameraPosition
     }
     
     private var livePhotoBadgeIcon: UIImage {
@@ -500,6 +556,10 @@ fileprivate class CameraAppDockContent: NSObject, KeyPathWatchable, AppDockConte
     
     func didSetContentView(_ view: UIView, dock: AppDock) {
         cameraView?.startSession()
+        
+        if let pref = preferences, view.bounds.height > pref.preferredHeight {
+            (view as? CameraAppView)?.isCompactMode = false
+        }
     }
     
     func willRemoveContentView() {
