@@ -109,11 +109,11 @@ PhotoEditorViewControllerDelegatableApp {
         completion(original, filtered)
     }
     
-    public func photoEditorProcessingDidBegin() {
+    public func photoEditorWillBeginProcessing() {
         dockContent?.view.isUserInteractionEnabled = false
     }
     
-    public func photoEditorProcessingDidEnd() {
+    public func photoEditorWillEndProcessing() {
         dockContent?.view.isUserInteractionEnabled = true
     }
     

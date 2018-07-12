@@ -227,7 +227,7 @@ extension AppUIAssetView {
                     guard let input = input else { return }
                     
                     let app = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self)
-                    app?.photoEditorProcessingDidBegin()
+                    app?.photoEditorWillBeginProcessing()
                     
                     self?.livePhotoEditingContext?.cancel()
                     
@@ -237,7 +237,7 @@ extension AppUIAssetView {
                     }
                     
                     self?.livePhotoEditingContext?.prepareLivePhotoForPlayback(withTargetSize: targetSize, options: [PHLivePhotoEditingOption.shouldRenderAtPlaybackTime.rawValue: true], completionHandler: { [weak self] (livePhoto, error) in
-                        app?.photoEditorProcessingDidEnd()
+                        app?.photoEditorWillEndProcessing()
                         
                         guard let livePhoto = livePhoto, error == nil else { return }
                         
@@ -252,12 +252,19 @@ extension AppUIAssetView {
                 playAny()
             }
         }
-        else if asset.mediaType == .video {
+        else if asset.mediaType == .video, let video = playerItem?.asset {
+            guard let videoTrack = video.tracks(withMediaType: .video).first else { return }
+            
+            let composition = AVMutableComposition()
+            let compositionTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)
+            try? compositionTrack?.insertTimeRange(CMTimeRangeMake(kCMTimeZero, video.duration), of: videoTrack, at: kCMTimeZero)
+            compositionTrack?.preferredTransform = videoTrack.preferredTransform
+            
             if let filter = editState?.ciFilter {
-                playerItem?.videoComposition = playerItem?.asset.applyFilter(filter)
+                playerItem?.videoComposition = composition.applyFilter(filter)
             }
             else if let mode = editState?.stabilizationMode {
-                playerItem?.videoComposition = playerItem?.asset.stabilize(with: mode)
+                playerItem?.videoComposition = composition.stabilize(with: mode)
             }
             playAny()
         }
