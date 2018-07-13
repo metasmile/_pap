@@ -495,9 +495,9 @@ fileprivate class CaptureButton: UIControl {
         let scale = min(1, bounds.height / 72)
         
         let inset = scale < 1 ? bounds.height * 0.1 : 0
-        let outerCircleLineWidth: CGFloat = 6 * scale
+        let outerCircleLineWidth: CGFloat = scale < 1 ? 4 * scale : 6
         let outerCircleInset = outerCircleLineWidth / 2 + inset
-        let innerCircleInset = outerCircleLineWidth + 2 + inset
+        let innerCircleInset = outerCircleLineWidth + (scale < 1 ? 3 * scale : 2) + inset
         
         let outerCircle = UIBezierPath(ovalIn: UIEdgeInsetsInsetRect(bounds, UIEdgeInsets(top: outerCircleInset, left: outerCircleInset, bottom: outerCircleInset, right: outerCircleInset)))
         let innerCircle = UIBezierPath(ovalIn: UIEdgeInsetsInsetRect(bounds, UIEdgeInsets(top: innerCircleInset, left: innerCircleInset, bottom: innerCircleInset, right: innerCircleInset)))
@@ -544,33 +544,12 @@ fileprivate class CameraAppView: UIView {
     private func intialize() {
         tintColor = UIColor.white
         
+        let buttonImageInsets = UIEdgeInsetsMake(4, 4, 4, 4)
+        
         let optionView = UIView(frame: .zero)
         optionView.backgroundColor = .black
         addSubview(optionView)
-        
         optionView.translatesAutoresizingMaskIntoConstraints = false
-        optionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        optionView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        optionView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        optionViewHeightLayout = optionView.heightAnchor.constraint(equalToConstant: 0)
-        optionViewHeightLayout?.isActive = true
-        
-        let buttonImageInsets = UIEdgeInsetsMake(4, 4, 4, 4)
-        
-        let livePhotoButton = UIButton(type: .system)
-        livePhotoButton.imageEdgeInsets = buttonImageInsets
-        livePhotoButton.imageView?.contentMode = .scaleAspectFit
-        livePhotoButton.contentHorizontalAlignment = .fill
-        livePhotoButton.contentVerticalAlignment = .fill
-        livePhotoButton.setImage(livePhotoBadgeIcon, for: .normal)
-        livePhotoButton.addTarget(self, action: #selector(self.toggleLivePhotoEnabled), for: .touchUpInside)
-        optionView.addSubview(livePhotoButton)
-        
-        livePhotoButton.translatesAutoresizingMaskIntoConstraints = false
-        livePhotoButton.centerXAnchor.constraint(equalTo: optionView.centerXAnchor).isActive = true
-        livePhotoButton.topAnchor.constraint(equalTo: optionView.topAnchor).isActive = true
-        livePhotoButton.bottomAnchor.constraint(equalTo: optionView.bottomAnchor).isActive = true
-        livePhotoButton.widthAnchor.constraint(equalTo: optionView.heightAnchor, multiplier: 1).isActive = true
         
         addSubview(cameraView)
         cameraView.translatesAutoresizingMaskIntoConstraints = false
@@ -588,14 +567,35 @@ fileprivate class CameraAppView: UIView {
         cameraAspectRatioLayout = cameraView.heightAnchor.constraint(equalTo: cameraView.widthAnchor, multiplier: 1.3)
         cameraAspectRatioLayout?.isActive = true
         
+        optionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        optionView.leadingAnchor.constraint(equalTo: cameraView.leadingAnchor).isActive = true
+        optionView.trailingAnchor.constraint(equalTo: cameraView.trailingAnchor).isActive = true
+        optionViewHeightLayout = optionView.heightAnchor.constraint(equalToConstant: 0)
+        optionViewHeightLayout?.isActive = true
+        
+        let livePhotoButton = UIButton(type: .system)
+        livePhotoButton.imageEdgeInsets = buttonImageInsets
+        livePhotoButton.imageView?.contentMode = .scaleAspectFit
+        livePhotoButton.contentHorizontalAlignment = .fill
+        livePhotoButton.contentVerticalAlignment = .fill
+        livePhotoButton.setImage(livePhotoBadgeIcon, for: .normal)
+        livePhotoButton.addTarget(self, action: #selector(self.toggleLivePhotoEnabled), for: .touchUpInside)
+        optionView.addSubview(livePhotoButton)
+        
+        livePhotoButton.translatesAutoresizingMaskIntoConstraints = false
+        livePhotoButton.centerXAnchor.constraint(equalTo: optionView.centerXAnchor).isActive = true
+        livePhotoButton.topAnchor.constraint(equalTo: optionView.topAnchor).isActive = true
+        livePhotoButton.bottomAnchor.constraint(equalTo: optionView.bottomAnchor).isActive = true
+        livePhotoButton.widthAnchor.constraint(equalTo: optionView.heightAnchor, multiplier: 1).isActive = true
+        
         let controlView = UIView(frame: .zero)
         controlView.backgroundColor = .black
         addSubview(controlView)
         
         controlView.translatesAutoresizingMaskIntoConstraints = false
         controlView.topAnchor.constraint(equalTo: cameraView.bottomAnchor).isActive = true
-        controlView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        controlView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        controlView.leadingAnchor.constraint(equalTo: cameraView.leadingAnchor).isActive = true
+        controlView.trailingAnchor.constraint(equalTo: cameraView.trailingAnchor).isActive = true
         controlView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
         captureButton.addTarget(self, action: #selector(self.tapToCapture), for: .touchUpInside)
@@ -623,7 +623,7 @@ fileprivate class CameraAppView: UIView {
         
         cameraPositionButton.translatesAutoresizingMaskIntoConstraints = false
         cameraPositionButton.topAnchor.constraint(greaterThanOrEqualTo: topAnchor).isActive = true
-        cameraPositionButton.trailingAnchor.constraint(equalTo: cameraView.trailingAnchor).isActive = true
+        cameraPositionButton.trailingAnchor.constraint(equalTo: cameraView.trailingAnchor, constant: -2).isActive = true
         cameraPositionButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         cameraPositionButton.widthAnchor.constraint(equalTo: cameraPositionButton.heightAnchor, multiplier: 1).isActive = true
         
