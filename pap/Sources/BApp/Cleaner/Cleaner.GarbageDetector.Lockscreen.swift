@@ -26,7 +26,7 @@ class PHAssetGarbageDetector_Lockscreens : PHAssetGarbageDetector{
 
 //    private lazy var dataSet = LockscreenData()
 
-    public var restrictMode:Bool = true
+    public var restrictMode:Bool = false
 
     required public init() {
         super.init()
@@ -47,9 +47,14 @@ class PHAssetGarbageDetector_Lockscreens : PHAssetGarbageDetector{
     let sampleDataViaLog = true
 
     override func process(input: PHAsset, _ asyncSignal: AsyncWaitSignalable?) -> Bool? {
-        guard input.mediaType == .image/* && input.mediaSubtypes.contains(.photoScreenshot)*/ else{
+        guard input.mediaType == .image else{
             return false
         }
+
+        guard input.pixelSize.width*input.pixelSize.height<=UIScreen.main.nativeBounds.width*UIScreen.main.nativeBounds.height else{
+            return nil
+        }
+
         guard let image = input.asUIImage, let asyncSignal = asyncSignal else {
             return nil
         }
@@ -101,24 +106,24 @@ class PHAssetGarbageDetector_Lockscreens : PHAssetGarbageDetector{
                         }
                     }
 
-                    //find time
-                    if elem.text.remove(" ").matched(trimmedTimePattern){
+                    let r = dataSet.TimeRectDictionaryiPhone_Normalized_Min_Max_Rect
+                    if r.1.contains(normalizedFrame) && normalizedFrame.contains(r.0){
 
-                        let r = dataSet.TimeRectDictionaryiPhone_Normalized_Min_Max_Rect
-                        if r.1.contains(normalizedFrame) && normalizedFrame.contains(r.0){
+                        //find time
+                        let targetText = elem.text.remove(" ").replaceIfMatched(withPattern: "[^0-9]", replace: "")
+                        if targetText.matched(trimmedTimePattern){
 
                             if restrictMode {
                                 foundNormalizedTimeRect = normalizedFrame
                                 continue
-                                
+
                             }else{
                                 return true
                             }
                         }
-
-                    }else{
-                        //not found
                     }
+
+
                 }
             }
         }
@@ -149,6 +154,7 @@ private struct LockscreenData{
             ,CGRect(x:246.0, y:348.0, width:627.0, height:188.0) // locale - en
             ,CGRect(x:245.0, y:356.0, width:621.0, height:198.0) // locale - en
             ,CGRect(x: 304.0, y: 332.0, width: 505.0, height: 241.0)
+            ,CGRect(x:221.0, y:316.0, width:649.0, height:251.0)
         ])
 
         ,CGSize(width: 1200.0, height:  2134.0) : Set([
@@ -197,6 +203,7 @@ private struct LockscreenData{
         }
         TimeRectDictionaryiPhone_Normalized = dict
         TimeRectDictionaryiPhone_Normalized_Min_Max_Rect = (minRect, maxRect)
+        print("TimeRectDictionaryiPhone_Normalized_Min_Max_Rect",TimeRectDictionaryiPhone_Normalized_Min_Max_Rect)
     }
 }
 

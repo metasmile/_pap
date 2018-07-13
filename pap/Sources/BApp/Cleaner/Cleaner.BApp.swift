@@ -133,6 +133,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
             return dictionary.items.nilEmpty
         }.reduce([],+).map { $0.gdIdentifier }
 
+        //FIXME:
         if let preheatedResult = preheatCachedResults[item.asset.localIdentifierWithoutSplitter]
         , Set((preheatedResult.detected.map{ $0.identifier })).symmetricDifference(Set(selectedGdIds)).count == 0{
             result = preheatedResult
