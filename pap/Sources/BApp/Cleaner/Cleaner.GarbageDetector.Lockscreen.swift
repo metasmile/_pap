@@ -17,31 +17,97 @@ class PHAssetGarbageDetector_Lockscreens : PHAssetGarbageDetector{
 
     //TODO: add more samples for each device, and bazier/avg values
 
-    static let TimeRectDictionaryiPhoneDeviceScreen:[CGSize:CGRect] /*imageSize: textFrame*/ = [
+    let TimeRectDictionaryiPhone:[CGSize:Set<CGRect>] /*textFrame : imageSize*/ = [
+        /* from Real Device */
+
+        // 6plus + ios11
+        CGSize(width: 576.0, height: 1024.0): Set([
+            CGRect(x: 118.0, y:108.0, width:337.0, height:118.0)
+        ])
+
+        // x + ios 11
+        , CGSize(width: 1125.0, height: 2436.0): Set([
+            CGRect(x:267.0, y:325.0, width:563.0, height:256.0)
+            ,CGRect(x: 304.0, y: 332.0, width: 505.0, height: 241.0)
+        ])
+
+        ,CGSize(width: 1200.0, height:  2134.0) : Set([
+            CGRect(x: 390.0, y: 247.0, width: 301.0, height: 222.0)
+        ])
+
+        ,CGSize(width: 1242.0, height:  2208.0)  : Set([
+            CGRect(x: 278.0, y: 232.0, width: 647.0, height: 305.0)
+        ])
+
+        , CGSize(width: 750.0, height:  1334.0) : Set([
+            CGRect(x: 221.0, y: 161.0, width: 298.0, height: 131.0)
+            ,CGRect(x: 172.0, y: 141.0, width: 388.0, height: 166.0)
+        ])
+
+        /* from Alias/Images */
+        , CGSize(width: 640.0, height:  1136.0) : Set([
+            CGRect(x: 136.0, y: 90.0, width: 346.0, height: 168.0)
+        ])
+    ]
+    let TimeRectDictionaryiPhone_Normalized:[CGSize:Set<CGRect>]
+    let TimeRectDictionaryiPhone_Normalized_Min_Max_Rect:(CGRect, CGRect)
+
+    let TimeRectDictionaryiPadAlias:[CGSize:CGRect] /*imageSize: textFrame*/ = [
         CGSize(width: 576.0, height: 1024.0) : CGRect(x: 118.0, y:108.0, width:337.0, height:118.0) // 6plus + ios11
         , CGSize(width: 1125.0, height: 2436.0) : CGRect(x: 353.0, y:581.0, width:150.0, height:61.0) // x + ios 11
     ]
 
-    static let TimeRectDictionaryiPhoneAlias:[CGSize:CGRect] /*imageSize: textFrame*/ = [
-        CGSize(width: 576.0, height: 1024.0) : CGRect(x: 118.0, y:108.0, width:337.0, height:118.0) // 6plus + ios11
-        , CGSize(width: 1125.0, height: 2436.0) : CGRect(x: 353.0, y:581.0, width:150.0, height:61.0) // x + ios 11
-    ]
+    required public init() {
 
-    static let TimeRectDictionaryiPadAlias:[CGSize:CGRect] /*imageSize: textFrame*/ = [
-        CGSize(width: 576.0, height: 1024.0) : CGRect(x: 118.0, y:108.0, width:337.0, height:118.0) // 6plus + ios11
-        , CGSize(width: 1125.0, height: 2436.0) : CGRect(x: 353.0, y:581.0, width:150.0, height:61.0) // x + ios 11
-    ]
+        var dict = [CGSize:Set<CGRect>]()
+        let values = Array(TimeRectDictionaryiPhone.values)
+        var minSizeBound = CGFloat.greatestFiniteMagnitude
+        var maxSizeBound = CGFloat()
+        var minRect = CGRect()
+        var maxRect = CGRect()
 
-    private let vision = Vision.vision()
+        for (i, size) in TimeRectDictionaryiPhone.keys.enumerated(){
+            let rectSet = values[i]
+            var set = Set<CGRect>()
+            for rect in rectSet{
+                let nRect = CGRect(
+                        x:normalize(rect.origin.x, 0, size.width)
+                        ,y:normalize(rect.origin.y, 0, size.height)
+                        ,width:normalize(rect.size.width, 0, size.width)
+                        ,height: normalize(rect.size.width, 0, size.height)
+                )
+
+                let boundSize = nRect.width*nRect.height
+                if boundSize > maxSizeBound{
+                    maxSizeBound = boundSize
+                    maxRect = nRect
+                }
+                if boundSize < minSizeBound{
+                    minSizeBound = boundSize
+                    minRect = nRect
+                }
+
+                set.insert(nRect)
+            }
+            dict[size] = set
+        }
+        TimeRectDictionaryiPhone_Normalized = dict
+        TimeRectDictionaryiPhone_Normalized_Min_Max_Rect = (minRect, maxRect)
+
+        print(TimeRectDictionaryiPhone_Normalized,minRect, maxRect)
+
+        super.init()
+    }
+
+    private lazy var visionTextDetector = Vision.vision().textDetector()
 
     override class var label:String{
-
         return "Lockscreens".localized
     }
 
     let parser = VisionTextElementParser()
 
-    let trimmedTimePattern = "^[0-9]?[0-9]:?[0-9][0-9]$"
+    let trimmedTimePattern = "^[0-9]{1,2}:?[0-9]{1,2}$"
 
     override func process(input: PHAsset, _ asyncSignal: AsyncWaitSignalable?) -> Bool? {
         guard input.mediaType == .image/* && input.mediaSubtypes.contains(.photoScreenshot)*/ else{
@@ -51,7 +117,7 @@ class PHAssetGarbageDetector_Lockscreens : PHAssetGarbageDetector{
             return nil
         }
 
-        guard let visionTexts = vision.textDetector().detect(with: image, asyncSignal) else {
+        guard let visionTexts = visionTextDetector.detect(with: image, asyncSignal) else {
             return nil
         }
 
@@ -66,7 +132,18 @@ class PHAssetGarbageDetector_Lockscreens : PHAssetGarbageDetector{
         for visionText in visionTexts{
             for elems in parser.process(input: visionText) ?? []{
                 for elem in elems{
-                    print(elem.frame, elem.text)
+                    let trimmedText = elem.text.remove(" ")
+                            .regexStrings(with: trimmedTimePattern)
+                            .reduce([],+)
+
+                    if trimmedText.count == 1{
+//                        elem.frame
+                        
+                    }else if trimmedText.count > 1{
+                        assert(false, "what case?? \(trimmedText)")
+                    }else{
+                        //not found
+                    }
                 }
             }
         }
@@ -76,7 +153,7 @@ class PHAssetGarbageDetector_Lockscreens : PHAssetGarbageDetector{
 }
 
 /*
-6 plus
+X
 
 imageSize: (1125.0, 2436.0)
 (73.0, 52.0, 142.0, 40.0) Drillisch
@@ -87,8 +164,8 @@ imageSize: (1125.0, 2436.0)
 */
 
 /*
-X
 
+6 plus
 imageSize: (576.0, 1024.0)
 (29.0, 6.0, 10.0, 19.0) l
 (43.0, 6.0, 66.0, 19.0) Drillisch
