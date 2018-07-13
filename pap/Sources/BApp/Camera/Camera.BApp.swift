@@ -257,13 +257,13 @@ fileprivate class CameraView: UIView {
         return captureDeviceInputs?.first { $0.device.hasMediaType(mediaType) }
     }
     
-    func switchCameraPosition(animated: Bool = true) {
+    func switchCaptureDevicePosition(animated: Bool = true) {
         guard let currentDevice = self.currentCaptureDeviceInput(for: .video) else { return }
         let position: AVCaptureDevice.Position = currentDevice.device.position == .back ? .front : .back
         
         if animated {
             let switchingView = performSwitchCameraPositionAnimation(to: position)
-            setCameraPosition(position) {
+            setCaptureDevicePosition(position) {
                 DispatchQueue.main.async {
                     UIView.transition(with: self, duration: 0.5, options: .transitionCrossDissolve, animations: {
                         switchingView.removeFromSuperview()
@@ -272,11 +272,11 @@ fileprivate class CameraView: UIView {
             }
         }
         else {
-            setCameraPosition(position)
+            setCaptureDevicePosition(position)
         }
     }
     
-    private func setCameraPosition(_ position: AVCaptureDevice.Position, completion: (() -> Void)? = nil) {
+    private func setCaptureDevicePosition(_ position: AVCaptureDevice.Position, completion: (() -> Void)? = nil) {
         sessionQueue.async {
             guard let currentDevice = self.currentCaptureDeviceInput(for: .video) else { completion?(); return }
             let isLivePhotoEnabled = self.capturePhotoOutput.isLivePhotoCaptureEnabled
@@ -339,7 +339,7 @@ extension CameraView {
         }
         
         set {
-            setCameraPosition(newValue)
+            setCaptureDevicePosition(newValue)
         }
     }
     
@@ -476,12 +476,11 @@ fileprivate class CaptureButton: UIControl {
     }
     
     @objc func pressed(sender: Any) {
-        guard let pathBounds = innerCircleLayer.path?.boundingBoxOfPath else { return }
         let scale: CGFloat = 0.9
         var transform = CATransform3DIdentity
-        transform = CATransform3DTranslate(transform, pathBounds.width / 2, pathBounds.height / 2, 0)
+        transform = CATransform3DTranslate(transform, bounds.width / 2, bounds.height / 2, 0)
         transform = CATransform3DScale(transform, scale, scale, 1)
-        transform = CATransform3DTranslate(transform, -pathBounds.width / 2 * scale, -pathBounds.height / 2 * scale, 0)
+        transform = CATransform3DTranslate(transform, -bounds.width / 2, -bounds.height / 2, 0)
         
         innerCircleLayer.transform = transform
     }
@@ -495,7 +494,7 @@ fileprivate class CaptureButton: UIControl {
         
         let scale = min(1, bounds.height / 72)
         
-        let inset = max(4, (bounds.height - 72) / 2)
+        let inset = scale < 1 ? bounds.height * 0.1 : 0
         let outerCircleLineWidth: CGFloat = 6 * scale
         let outerCircleInset = outerCircleLineWidth / 2 + inset
         let innerCircleInset = outerCircleLineWidth + 2 + inset
@@ -503,12 +502,9 @@ fileprivate class CaptureButton: UIControl {
         let outerCircle = UIBezierPath(ovalIn: UIEdgeInsetsInsetRect(bounds, UIEdgeInsets(top: outerCircleInset, left: outerCircleInset, bottom: outerCircleInset, right: outerCircleInset)))
         let innerCircle = UIBezierPath(ovalIn: UIEdgeInsetsInsetRect(bounds, UIEdgeInsets(top: innerCircleInset, left: innerCircleInset, bottom: innerCircleInset, right: innerCircleInset)))
         
-        CATransaction.begin()
-        CATransaction.setDisableActions(true)
         outerCircleLayer.lineWidth = outerCircleLineWidth
         outerCircleLayer.path = outerCircle.cgPath
         innerCircleLayer.path = innerCircle.cgPath
-        CATransaction.commit()
     }
 }
 
@@ -543,8 +539,7 @@ fileprivate class CameraAppView: UIView {
     }
     
     private lazy var captureButton = CaptureButton(frame: .zero)
-
-    private let devicePositionIconViewTag = "devicePositionIconViewTag".hashValue
+    private lazy var cameraPositionButton = UIButton(type: .system)
 
     private func intialize() {
         tintColor = UIColor.white
@@ -560,7 +555,13 @@ fileprivate class CameraAppView: UIView {
         optionViewHeightLayout = optionView.heightAnchor.constraint(equalToConstant: 0)
         optionViewHeightLayout?.isActive = true
         
+        let buttonImageInsets = UIEdgeInsetsMake(4, 4, 4, 4)
+        
         let livePhotoButton = UIButton(type: .system)
+        livePhotoButton.imageEdgeInsets = buttonImageInsets
+        livePhotoButton.imageView?.contentMode = .scaleAspectFit
+        livePhotoButton.contentHorizontalAlignment = .fill
+        livePhotoButton.contentVerticalAlignment = .fill
         livePhotoButton.setImage(livePhotoBadgeIcon, for: .normal)
         livePhotoButton.addTarget(self, action: #selector(self.toggleLivePhotoEnabled), for: .touchUpInside)
         optionView.addSubview(livePhotoButton)
@@ -601,30 +602,34 @@ fileprivate class CameraAppView: UIView {
         addSubview(captureButton)
         
         captureButton.translatesAutoresizingMaskIntoConstraints = false
-        captureButton.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        captureButton.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor).isActive = true
         captureButton.centerXAnchor.constraint(equalTo: controlView.centerXAnchor).isActive = true
         captureButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 44).isActive = true
+        captureButton.heightAnchor.constraint(lessThanOrEqualToConstant: 72).isActive = true
         captureButton.widthAnchor.constraint(equalTo: captureButton.heightAnchor, multiplier: 1).isActive = true
+        
+        let captureButtonTopLayout = captureButton.topAnchor.constraint(equalTo: controlView.topAnchor)
+        captureButtonTopLayout.priority = .defaultLow - 1
+        captureButtonTopLayout.isActive = true
         
         let captureButtonCenterYLayout = captureButton.centerYAnchor.constraint(equalTo: controlView.centerYAnchor)
         captureButtonCenterYLayout.priority = .defaultLow
         captureButtonCenterYLayout.isActive = true
         
-        let switchButton = UIButton(type: .system)
-        switchButton.setImage(devicePositionIcon, for: .normal)
-        switchButton.tag = devicePositionIconViewTag
-        switchButton.addTarget(self, action: #selector(self.switchCamera), for: .touchUpInside)
-        addSubview(switchButton)
+        cameraPositionButton.imageEdgeInsets = buttonImageInsets
+        cameraPositionButton.setImage(devicePositionIcon, for: .normal)
+        cameraPositionButton.addTarget(self, action: #selector(self.switchDevicePosition), for: .touchUpInside)
+        addSubview(cameraPositionButton)
         
-        switchButton.translatesAutoresizingMaskIntoConstraints = false
-        switchButton.topAnchor.constraint(greaterThanOrEqualTo: topAnchor).isActive = true
-        switchButton.trailingAnchor.constraint(equalTo: cameraView.trailingAnchor).isActive = true
-        switchButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
-        switchButton.widthAnchor.constraint(equalTo: switchButton.heightAnchor, multiplier: 1).isActive = true
+        cameraPositionButton.translatesAutoresizingMaskIntoConstraints = false
+        cameraPositionButton.topAnchor.constraint(greaterThanOrEqualTo: topAnchor).isActive = true
+        cameraPositionButton.trailingAnchor.constraint(equalTo: cameraView.trailingAnchor).isActive = true
+        cameraPositionButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        cameraPositionButton.widthAnchor.constraint(equalTo: cameraPositionButton.heightAnchor, multiplier: 1).isActive = true
         
-        let switchButtonCenterYLayout = switchButton.centerYAnchor.constraint(equalTo: optionView.centerYAnchor)
-        switchButtonCenterYLayout.priority = .defaultLow
-        switchButtonCenterYLayout.isActive = true
+        let cameraPositionButtonCenterYLayout = cameraPositionButton.centerYAnchor.constraint(equalTo: optionView.centerYAnchor)
+        cameraPositionButtonCenterYLayout.priority = .defaultLow
+        cameraPositionButtonCenterYLayout.isActive = true
         
         cameraView.configurationDidUpdate = {
             self.userSettings.isLivePhotoEnabled = self.cameraView.isLivePhotoEnabled
@@ -657,8 +662,8 @@ fileprivate class CameraAppView: UIView {
         cameraView.takePhoto()
     }
     
-    @objc func switchCamera(sender: Any) {
-        cameraView.switchCameraPosition()
+    @objc func switchDevicePosition(sender: Any) {
+        cameraView.switchCaptureDevicePosition()
     }
     
     @objc func toggleLivePhotoEnabled(sender: Any) {
@@ -680,7 +685,7 @@ fileprivate class CameraAppView: UIView {
             tapGesture.isEnabled = isCompactMode
             captureButton.isEnabled = !isCompactMode
 
-            (viewWithTag(devicePositionIconViewTag) as? UIButton)?.setImage(self.devicePositionIcon, for: .normal)
+            cameraPositionButton.setImage(self.devicePositionIcon, for: .normal)
         }
     }
 }
