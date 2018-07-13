@@ -150,6 +150,8 @@
 "Aspect Ratio" = "د اړخ اندازه";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "اتوماتیک مدیر";
+/* Generated from genl10n: Cleaner.BApp.swift#413 */
+"Auto Garbage Selection" = "د آٹو ګودام انتخاب";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "د غږ کچه";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,8 +172,12 @@
 "Choose an Option To Convert" = "د اختیار کولو لپاره یو اختیار غوره کړئ";
 /* Generated from genl10n: Cleaner.BApp.swift#96 */
 "Clean the selected items" = "غوره شوي توکي پاک کړئ";
+/* Generated from genl10n: Cleaner.BApp.swift#54 */
+"Clean" = "پاک";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "کلینر";
+/* Generated from genl10n: Cleaner.BApp.swift#50 */
+"Cleaning Photos..." = "انځورونه پاکول ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "اړیکې";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -316,6 +322,8 @@
 "Share" = "شریک کړئ";
 /* Generated from genl10n: Cleaner.BApp.swift#243 */
 "Similarities" = "ورته ورته";
+/* Generated from genl10n: Cleaner.GarbageDetectors.swift#88 */
+"Similarity" = "ورته ورته";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "اندازه";
 /* Generated from genl10n: Finder.BApp.swift#217 */

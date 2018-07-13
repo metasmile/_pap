@@ -150,6 +150,8 @@
 "Aspect Ratio" = "Αναλογία απεικόνισης";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Auto Editor";
+/* Generated from genl10n: Cleaner.BApp.swift#413 */
+"Auto Garbage Selection" = "Αυτόματη επιλογή σκουπιδιών";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Τιμή θολώματος";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,8 +172,12 @@
 "Choose an Option To Convert" = "Choose an Option To Convert";
 /* Generated from genl10n: Cleaner.BApp.swift#96 */
 "Clean the selected items" = "Καθαρίστε τα επιλεγμένα στοιχεία";
+/* Generated from genl10n: Cleaner.BApp.swift#54 */
+"Clean" = "ΚΑΘΑΡΗ";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Καθαριστής";
+/* Generated from genl10n: Cleaner.BApp.swift#50 */
+"Cleaning Photos..." = "Καθαρισμός φωτογραφιών ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Επαφές";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -316,6 +322,8 @@
 "Share" = "Μερίδιο";
 /* Generated from genl10n: Cleaner.BApp.swift#243 */
 "Similarities" = "Ομοιότητες";
+/* Generated from genl10n: Cleaner.GarbageDetectors.swift#88 */
+"Similarity" = "Ομοιότητα";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Μέγεθος";
 /* Generated from genl10n: Finder.BApp.swift#217 */

@@ -150,6 +150,8 @@
 "Aspect Ratio" = "Cóimheas treoaíochta";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Eagarthóir Auto";
+/* Generated from genl10n: Cleaner.BApp.swift#413 */
+"Auto Garbage Selection" = "Roghnú Carbáiste Uathoibríoch";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Ráta Blur";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,8 +172,12 @@
 "Choose an Option To Convert" = "Roghnaigh Rogha Chun Tiontaigh";
 /* Generated from genl10n: Cleaner.BApp.swift#96 */
 "Clean the selected items" = "Glan na míreanna roghnaithe";
+/* Generated from genl10n: Cleaner.BApp.swift#54 */
+"Clean" = "Glan";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Glantóir";
+/* Generated from genl10n: Cleaner.BApp.swift#50 */
+"Cleaning Photos..." = "Grianghraif a ghlanadh ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Teagmhálacha";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -316,6 +322,8 @@
 "Share" = "Comhroinn";
 /* Generated from genl10n: Cleaner.BApp.swift#243 */
 "Similarities" = "Cosúlachtaí";
+/* Generated from genl10n: Cleaner.GarbageDetectors.swift#88 */
+"Similarity" = "Cosúlacht";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Méid";
 /* Generated from genl10n: Finder.BApp.swift#217 */

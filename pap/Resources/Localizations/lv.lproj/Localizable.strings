@@ -150,6 +150,8 @@
 "Aspect Ratio" = "Aspect Ratio";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Auto redaktors";
+/* Generated from genl10n: Cleaner.BApp.swift#413 */
+"Auto Garbage Selection" = "Automātiskā atkritumu izvēle";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Izplūšanas ātrums";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,8 +172,12 @@
 "Choose an Option To Convert" = "Izvēlieties iespēju konvertēt";
 /* Generated from genl10n: Cleaner.BApp.swift#96 */
 "Clean the selected items" = "Notīriet atlasītos vienumus";
+/* Generated from genl10n: Cleaner.BApp.swift#54 */
+"Clean" = "Tīrs";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Apkopēja";
+/* Generated from genl10n: Cleaner.BApp.swift#50 */
+"Cleaning Photos..." = "Tīrīšana fotogrāfijas ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Kontakti";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -316,6 +322,8 @@
 "Share" = "Kopīgot";
 /* Generated from genl10n: Cleaner.BApp.swift#243 */
 "Similarities" = "Līdzības";
+/* Generated from genl10n: Cleaner.GarbageDetectors.swift#88 */
+"Similarity" = "Līdzība";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Izmērs";
 /* Generated from genl10n: Finder.BApp.swift#217 */

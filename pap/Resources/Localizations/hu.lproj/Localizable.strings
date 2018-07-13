@@ -150,6 +150,8 @@
 "Aspect Ratio" = "Képarány";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Automatikus szerkesztő";
+/* Generated from genl10n: Cleaner.BApp.swift#413 */
+"Auto Garbage Selection" = "Automatikus szemét kiválasztása";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur arány";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,8 +172,12 @@
 "Choose an Option To Convert" = "Válasszon egy opciót konvertálni";
 /* Generated from genl10n: Cleaner.BApp.swift#96 */
 "Clean the selected items" = "Tisztítsa meg a kiválasztott elemeket";
+/* Generated from genl10n: Cleaner.BApp.swift#54 */
+"Clean" = "Tiszta";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Tisztító";
+/* Generated from genl10n: Cleaner.BApp.swift#50 */
+"Cleaning Photos..." = "Fotók tisztítása ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Kapcsolatok";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -316,6 +322,8 @@
 "Share" = "Ossza meg";
 /* Generated from genl10n: Cleaner.BApp.swift#243 */
 "Similarities" = "Hasonlóságok";
+/* Generated from genl10n: Cleaner.GarbageDetectors.swift#88 */
+"Similarity" = "Hasonlóság";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Méret";
 /* Generated from genl10n: Finder.BApp.swift#217 */

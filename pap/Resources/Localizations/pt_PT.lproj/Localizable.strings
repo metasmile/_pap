@@ -150,6 +150,8 @@
 "Aspect Ratio" = "Aspect Ratio";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Editor auto";
+/* Generated from genl10n: Cleaner.BApp.swift#413 */
+"Auto Garbage Selection" = "Seleção Automática de Lixo";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Taxa de desfoque";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,8 +172,12 @@
 "Choose an Option To Convert" = "Escolha uma opção para converter";
 /* Generated from genl10n: Cleaner.BApp.swift#96 */
 "Clean the selected items" = "Limpar os itens selecionados";
+/* Generated from genl10n: Cleaner.BApp.swift#54 */
+"Clean" = "Limpar \ limpo";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Limpador";
+/* Generated from genl10n: Cleaner.BApp.swift#50 */
+"Cleaning Photos..." = "Limpar fotos ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Contatos";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -316,6 +322,8 @@
 "Share" = "Compartilhar";
 /* Generated from genl10n: Cleaner.BApp.swift#243 */
 "Similarities" = "Semelhanças";
+/* Generated from genl10n: Cleaner.GarbageDetectors.swift#88 */
+"Similarity" = "Semelhança";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Tamanho";
 /* Generated from genl10n: Finder.BApp.swift#217 */

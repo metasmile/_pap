@@ -150,6 +150,8 @@
 "Aspect Ratio" = "ਆਕਾਰ ਅਨੁਪਾਤ";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "ਆਟੋ ਸੰਪਾਦਕ";
+/* Generated from genl10n: Cleaner.BApp.swift#413 */
+"Auto Garbage Selection" = "ਆਟੋ ਕੱਚਾ ਚੋਣ";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "ਬਲਰ ਰੇਟ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,8 +172,12 @@
 "Choose an Option To Convert" = "ਬਦਲਣ ਦਾ ਵਿਕਲਪ ਚੁਣੋ";
 /* Generated from genl10n: Cleaner.BApp.swift#96 */
 "Clean the selected items" = "ਚੁਣੀਆਂ ਗਈਆਂ ਚੀਜ਼ਾਂ ਨੂੰ ਸਾਫ਼ ਕਰੋ";
+/* Generated from genl10n: Cleaner.BApp.swift#54 */
+"Clean" = "ਸਾਫ਼ ਕਰੋ";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "ਕਲੀਨਰ";
+/* Generated from genl10n: Cleaner.BApp.swift#50 */
+"Cleaning Photos..." = "ਸਫਾਈ ਫੋਟੋਆਂ ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "ਸੰਪਰਕ";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -316,6 +322,8 @@
 "Share" = "ਸਾਂਝਾ ਕਰੋ";
 /* Generated from genl10n: Cleaner.BApp.swift#243 */
 "Similarities" = "ਸਮਾਨਤਾ";
+/* Generated from genl10n: Cleaner.GarbageDetectors.swift#88 */
+"Similarity" = "ਸਮਾਨਤਾ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "ਆਕਾਰ";
 /* Generated from genl10n: Finder.BApp.swift#217 */
