@@ -14,17 +14,19 @@ import FirebaseMLVision
 
 class PHAssetGarbageDetector_Lockscreens : PHAssetGarbageDetector{
 
-//    private static var dataSet:LockscreenData?
-//    private var dataSet:LockscreenData{
-//        if let v = type(of: self).dataSet {
-//            return v
-//        }
-//        let dataSet = LockscreenData()
-//        type(of: self).dataSet = dataSet
-//        return dataSet
-//    }
+    private static var dataSet:LockscreenData?
+    private var dataSet:LockscreenData{
+        if let v = type(of: self).dataSet {
+            return v
+        }
+        let dataSet = LockscreenData()
+        type(of: self).dataSet = dataSet
+        return dataSet
+    }
 
-    private lazy var dataSet = LockscreenData()
+//    private lazy var dataSet = LockscreenData()
+
+    public var restrictMode:Bool = true
 
     required public init() {
         super.init()
@@ -40,6 +42,9 @@ class PHAssetGarbageDetector_Lockscreens : PHAssetGarbageDetector{
 
     let trimmedTimePattern = "^[0-9]{1,2}:?[0-9]{1,2}$"
     let dateDayPattern = "^([1-9])$|^([1-2][0-9])$|^(3[01])$"
+    let chargedPattern = "^1?[0-9][0-9]%$"
+
+    let sampleDataViaLog = true
 
     override func process(input: PHAsset, _ asyncSignal: AsyncWaitSignalable?) -> Bool? {
         guard input.mediaType == .image/* && input.mediaSubtypes.contains(.photoScreenshot)*/ else{
@@ -55,21 +60,45 @@ class PHAssetGarbageDetector_Lockscreens : PHAssetGarbageDetector{
 
 
         let imageSize = image.size
-        print("imageSize:",image.size)
+
+        if sampleDataViaLog { print("imageSize:",image.size) }
 
         var foundNormalizedTimeRect:CGRect = CGRect.null
+        var shouldFindSinceFoundRect = 4
 
         for visionText in visionTexts{
             for elems in parser.process(input: visionText) ?? []{
                 for elem in elems{
+
+                    if sampleDataViaLog { print(elem.frame, elem.text) }
                     let normalizedFrame = elem.frame.normalized(by:imageSize)
 
-                    //found time -> match day 1 ~ 31
-                    if foundNormalizedTimeRect.isNull == false{
-                        let detectedUnderLineDate = normalizedFrame.minY > foundNormalizedTimeRect.maxY
-                                && elem.text.trimmed.matched(dateDayPattern)
+                    //found time -> match day 1 ~ 31 -> if found return / else skip
+                    if foundNormalizedTimeRect.isNull == false && shouldFindSinceFoundRect > 0{
+                        shouldFindSinceFoundRect -= 1
 
-                        return detectedUnderLineDate
+                        let srcText = elem.text.remove(" ")
+
+                        //day string
+                       let srcDayString = srcText.replaceIfMatched(withPattern: "[^0-9]", replace: "")
+                        if srcDayString.matched(dateDayPattern){
+                            print("FOUND FOUND FOUND FOUND FOUND FOUND FOUND FOUND ")
+                            return true
+                        }
+
+                        //charge Percent
+                        if srcText.matched(chargedPattern) {
+                            print("FOUND FOUND FOUND FOUND FOUND FOUND FOUND FOUND ")
+                            return true
+                        }
+
+                        // cant find
+                        if shouldFindSinceFoundRect==0{
+                            //unable to find within 3 cycles
+                            return false
+                        }else{
+                            continue
+                        }
                     }
 
                     //find time
@@ -77,8 +106,14 @@ class PHAssetGarbageDetector_Lockscreens : PHAssetGarbageDetector{
 
                         let r = dataSet.TimeRectDictionaryiPhone_Normalized_Min_Max_Rect
                         if r.1.contains(normalizedFrame) && normalizedFrame.contains(r.0){
-                            foundNormalizedTimeRect = normalizedFrame
-                            continue
+
+                            if restrictMode {
+                                foundNormalizedTimeRect = normalizedFrame
+                                continue
+                                
+                            }else{
+                                return true
+                            }
                         }
 
                     }else{
@@ -87,7 +122,7 @@ class PHAssetGarbageDetector_Lockscreens : PHAssetGarbageDetector{
                 }
             }
         }
-
+        print("NOT FOUND")
         return false
     }
 }
@@ -110,7 +145,9 @@ private struct LockscreenData{
 
         // x + ios 11
         , CGSize(width: 1125.0, height: 2436.0): Set([
-            CGRect(x:267.0, y:325.0, width:563.0, height:256.0)
+            CGRect(x:267.0, y:325.0, width:563.0, height:256.0) // locale - en
+            ,CGRect(x:246.0, y:348.0, width:627.0, height:188.0) // locale - en
+            ,CGRect(x:245.0, y:356.0, width:621.0, height:198.0) // locale - en
             ,CGRect(x: 304.0, y: 332.0, width: 505.0, height: 241.0)
         ])
 

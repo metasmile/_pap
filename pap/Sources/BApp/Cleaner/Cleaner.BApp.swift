@@ -359,7 +359,10 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
     }
 
     private func startAutoSelectIfNeeded(){
-//        AppCenter.default.currentInstanceAs(CleanerApp.self)?.autoSelect = self.isActivatedAtLeastOne
+        AppCenter.default.currentInstanceAs(CleanerApp.self)?.autoSelect = self.isActivatedAtLeastOne
+    }
+    private func stopAutoSelect(){
+        AppCenter.default.currentInstanceAs(CleanerApp.self)?.autoSelect = false
     }
 
     required public override init() {
@@ -636,7 +639,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
             self.defaultCollections[dictIndex].items[indexPath.item].enabled = on
             CleanerApp.privateDefaults.selectedCollection = self.defaultCollections
 
-            AppCenter.default.currentInstanceAs(CleanerApp.self)?.autoSelect = false
+            self.stopAutoSelect()
             AppCenter.default.currentInstanceAs(CleanerApp.self)?.disposePreheatingCache()
 
             if on == false{

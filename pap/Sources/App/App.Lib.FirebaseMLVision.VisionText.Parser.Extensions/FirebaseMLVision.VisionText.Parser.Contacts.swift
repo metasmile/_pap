@@ -147,7 +147,7 @@ public struct VisionTextFlightNumberParser: VisionTextParser{
 
         return Array(Set(
                 text.trimmed
-                .regexStrings(regexPattern)
+                .matchedStrings(regexPattern)
                 .compactMap { $0.trimmed.nilEmpty }
         )).nilEmpty
     }
