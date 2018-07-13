@@ -148,34 +148,34 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
-        let items = result
-                .filter { respondable in respondable.info.state == .completed }
-                .compactMap { $0.result as? PHAssetGCResult
-                }
-
-        let alert = UIAlertController(title: "Clean the selected items".localized, message: nil, preferredStyle: .actionSheet)
-
-        let deleteAction = UIAlertAction(title: "Delete".localized, style: .destructive) { action in
-            PHPhotoLibrary.shared().performChanges({
-                PHAssetChangeRequest.deleteAssets(items.map { $0.asset } as NSArray)
-            }, completionHandler: { (success, info) in
-                asyncSignal.end()
-            })
-        }
-        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel) { action in
-            asyncSignal.end()
-        }
-
-        alert.addAction(deleteAction)
-        alert.addAction(cancelAction)
-
-        asyncSignal.begin()
-
-        DispatchQueue.main.async{
-            UIViewController.root?.present(alert, animated: true)
-        }
-
-        asyncSignal.waitUntilEnd()
+//        let items = result
+//                .filter { respondable in respondable.info.state == .completed }
+//                .compactMap { $0.result as? PHAssetGCResult
+//                }
+//
+//        let alert = UIAlertController(title: "Clean the selected items".localized, message: nil, preferredStyle: .actionSheet)
+//
+//        let deleteAction = UIAlertAction(title: "Delete".localized, style: .destructive) { action in
+//            PHPhotoLibrary.shared().performChanges({
+//                PHAssetChangeRequest.deleteAssets(items.map { $0.asset } as NSArray)
+//            }, completionHandler: { (success, info) in
+//                asyncSignal.end()
+//            })
+//        }
+//        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel) { action in
+//            asyncSignal.end()
+//        }
+//
+//        alert.addAction(deleteAction)
+//        alert.addAction(cancelAction)
+//
+//        asyncSignal.begin()
+//
+//        DispatchQueue.main.async{
+//            UIViewController.root?.present(alert, animated: true)
+//        }
+//
+//        asyncSignal.waitUntilEnd()
 
         return result
     }
@@ -359,7 +359,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
     }
 
     private func startAutoSelectIfNeeded(){
-        AppCenter.default.currentInstanceAs(CleanerApp.self)?.autoSelect = self.isActivatedAtLeastOne
+//        AppCenter.default.currentInstanceAs(CleanerApp.self)?.autoSelect = self.isActivatedAtLeastOne
     }
 
     required public override init() {
