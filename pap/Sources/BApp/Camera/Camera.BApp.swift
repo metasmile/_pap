@@ -65,14 +65,45 @@ private class _CameraAppTask: AppTaskPrototype, AppTaskable {
     }
 }
 
-fileprivate class CameraPreviewLayer: AVCaptureVideoPreviewLayer {
+fileprivate class CameraPreviewLayer: AVCaptureVideoPreviewLayer, CALayerDelegate {
     override func action(forKey event: String) -> CAAction? {
         switch event {
-        case "bounds", "position":
-            return nil
-        default:
-            return super.action(forKey: event)
+        case "transform", "bounds", "position": return NSNull()
+        default: return super.action(forKey: event)
         }
+    }
+    
+    func action(for layer: CALayer, forKey event: String) -> CAAction? {
+        return action(forKey: event)
+    }
+    
+    override init(session: AVCaptureSession) {
+        super.init(session: session)
+        initialize()
+    }
+    
+    override init() {
+        super.init()
+        initialize()
+    }
+    
+    override init(layer: Any) {
+        super.init(layer: layer)
+        initialize()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        initialize()
+    }
+    
+    override init(sessionWithNoConnection session: AVCaptureSession) {
+        super.init(sessionWithNoConnection: session)
+        initialize()
+    }
+    
+    private func initialize() {
+        sublayers?.forEach { $0.delegate = self }
     }
 }
 
@@ -89,10 +120,10 @@ fileprivate class CameraPreviewView: UIView {
         didSet {
             switch contentMode {
             case .scaleAspectFit:
-                captureVideoPreviewLayer?.contentsGravity = kCAGravityCenter
+                captureVideoPreviewLayer?.contentsGravity = kCAGravityResizeAspect
                 captureVideoPreviewLayer?.videoGravity = .resizeAspect
             case .scaleAspectFill:
-                captureVideoPreviewLayer?.contentsGravity = kCAGravityCenter
+                captureVideoPreviewLayer?.contentsGravity = kCAGravityResizeAspectFill
                 captureVideoPreviewLayer?.videoGravity = .resizeAspectFill
             default: break
             }
@@ -511,6 +542,7 @@ fileprivate class CaptureButton: UIControl {
 fileprivate class CameraAppView: UIView {
     lazy var cameraView: CameraView = {
         let cameraView = CameraView(frame: .zero)
+        cameraView.backgroundColor = .black
         cameraView.contentMode = .scaleAspectFill
         cameraView.setUp()
         
@@ -686,7 +718,14 @@ fileprivate class CameraAppView: UIView {
             captureButton.isEnabled = !isCompactMode
 
             cameraPositionButton.setImage(self.devicePositionIcon, for: .normal)
+            
+            //TODO: ignore layer implicit animation
+            layoutIfNeeded()
         }
+    }
+    
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
     }
 }
 
