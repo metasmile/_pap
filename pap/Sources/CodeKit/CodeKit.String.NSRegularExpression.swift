@@ -18,12 +18,12 @@ private extension String {
 
 // MARK: - Regular Expression
 extension String {
-    func regexMatched(withPattern pattern: String) -> Bool {
+    func matched(_ pattern: String) -> Bool {
         let regexp: NSRegularExpression = self.regexp(pattern)
         return 0 < regexp.numberOfMatches(in: self, options: [], range: NSRange(location: 0, length: (self as NSString).length))
     }
 
-    func regexStrings(with pattern: String) -> [[String]] {
+    func regexGroupStrings(_ pattern: String) -> [[String]] {
         guard !self.isEmpty else { return [] }
         let regex: NSRegularExpression = self.regexp(pattern)
         return regex.matches(in: self, options: [], range: (self as NSString).range(of: self)).map { (checkingResult: NSTextCheckingResult) -> [String] in
@@ -32,6 +32,10 @@ extension String {
                 return (self as NSString).substring(with: checkingResult.range(at: i))
             })
         }
+    }
+
+    func regexStrings(_ pattern: String) -> [String] {
+        return regexGroupStrings(pattern).reduce([],+)
     }
 
     func regexReplace(withPattern pattern: String, replace: String) -> String {
