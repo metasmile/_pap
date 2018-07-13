@@ -447,6 +447,9 @@ fileprivate class CameraViewLivePhotoCaptureProcessor: CameraViewCaptureProcesso
 }
 
 fileprivate class CaptureButton: UIControl {
+    private lazy var outerCircleLayer = CAShapeLayer()
+    private lazy var innerCircleLayer = CAShapeLayer()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
@@ -459,48 +462,53 @@ fileprivate class CaptureButton: UIControl {
     
     private func initialize() {
         backgroundColor = .clear
-        contentMode = .redraw
         
-        addTarget(self, action: #selector(self.pressed), for: .touchDown)
-        addTarget(self, action: #selector(self.released), for: [.touchDragInside, .touchDragOutside, .touchUpInside, .touchUpOutside])
+        outerCircleLayer.strokeColor = UIColor.white.cgColor
+        outerCircleLayer.fillColor = UIColor.clear.cgColor
+        layer.addSublayer(outerCircleLayer)
+        
+        innerCircleLayer.strokeColor = UIColor.clear.cgColor
+        innerCircleLayer.fillColor = UIColor.white.cgColor
+        layer.addSublayer(innerCircleLayer)
+        
+        addTarget(self, action: #selector(self.pressed), for: [.touchDown, .touchDragEnter])
+        addTarget(self, action: #selector(self.released), for: [.touchUpInside, .touchUpOutside, .touchDragExit])
     }
     
-    private var isPressed: Bool = false
-    
     @objc func pressed(sender: Any) {
-        isPressed = true
-        setNeedsDisplay()
+        guard let pathBounds = innerCircleLayer.path?.boundingBoxOfPath else { return }
+        let scale: CGFloat = 0.9
+        var transform = CATransform3DIdentity
+        transform = CATransform3DTranslate(transform, pathBounds.width / 2, pathBounds.height / 2, 0)
+        transform = CATransform3DScale(transform, scale, scale, 1)
+        transform = CATransform3DTranslate(transform, -pathBounds.width / 2 * scale, -pathBounds.height / 2 * scale, 0)
+        
+        innerCircleLayer.transform = transform
     }
     
     @objc func released(sender: Any) {
-        isPressed = false
-        setNeedsDisplay()
+        innerCircleLayer.transform = CATransform3DIdentity
     }
     
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
+    override func layoutSubviews() {
+        super.layoutSubviews()
         
-        let scale = min(1, rect.height / 72)
+        let scale = min(1, bounds.height / 72)
         
-        let inset = max(4, (rect.height - 72) / 2)
+        let inset = max(4, (bounds.height - 72) / 2)
         let outerCircleLineWidth: CGFloat = 6 * scale
         let outerCircleInset = outerCircleLineWidth / 2 + inset
-        let innerCircleInset = outerCircleLineWidth + (isPressed ? 6 : 2) * scale + inset
+        let innerCircleInset = outerCircleLineWidth + 2 + inset
         
-        let outerCircle = UIBezierPath(ovalIn: UIEdgeInsetsInsetRect(rect, UIEdgeInsets(top: outerCircleInset, left: outerCircleInset, bottom: outerCircleInset, right: outerCircleInset)))
-        let innerCircle = UIBezierPath(ovalIn: UIEdgeInsetsInsetRect(rect, UIEdgeInsets(top: innerCircleInset, left: innerCircleInset, bottom: innerCircleInset, right: innerCircleInset)))
+        let outerCircle = UIBezierPath(ovalIn: UIEdgeInsetsInsetRect(bounds, UIEdgeInsets(top: outerCircleInset, left: outerCircleInset, bottom: outerCircleInset, right: outerCircleInset)))
+        let innerCircle = UIBezierPath(ovalIn: UIEdgeInsetsInsetRect(bounds, UIEdgeInsets(top: innerCircleInset, left: innerCircleInset, bottom: innerCircleInset, right: innerCircleInset)))
         
-        let ctx = UIGraphicsGetCurrentContext()
-        
-        ctx?.setLineWidth(outerCircleLineWidth)
-        ctx?.setFillColor(UIColor.clear.cgColor)
-        ctx?.setStrokeColor(UIColor.white.cgColor)
-        ctx?.addPath(outerCircle.cgPath)
-        ctx?.strokePath()
-        
-        ctx?.setFillColor(UIColor.white.cgColor)
-        ctx?.addPath(innerCircle.cgPath)
-        ctx?.fillPath()
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        outerCircleLayer.lineWidth = outerCircleLineWidth
+        outerCircleLayer.path = outerCircle.cgPath
+        innerCircleLayer.path = innerCircle.cgPath
+        CATransaction.commit()
     }
 }
 
@@ -670,6 +678,7 @@ fileprivate class CameraAppView: UIView {
             optionViewHeightLayout?.isActive = true
             
             tapGesture.isEnabled = isCompactMode
+            captureButton.isEnabled = !isCompactMode
 
             (viewWithTag(devicePositionIconViewTag) as? UIButton)?.setImage(self.devicePositionIcon, for: .normal)
         }

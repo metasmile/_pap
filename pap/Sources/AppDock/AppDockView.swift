@@ -572,6 +572,10 @@ extension AppDockView: UIGestureRecognizerDelegate {
         return true
     }
     
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        return !(touch.view is UIControl)
+    }
+    
     @objc func drawerDidTap(sender: UITapGestureRecognizer) {
         guard self.gestureRecognizerShouldBegin(sender) else{
             //INFO: gestureRecognizerShouldBegin == false, but drawerDidTap was called.
