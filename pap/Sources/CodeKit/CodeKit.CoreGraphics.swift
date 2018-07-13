@@ -16,6 +16,15 @@ extension CGRect {
     var maxLength: CGFloat {
         return size.maxLength
     }
+
+    func normalized(by size:CGSize) -> CGRect{
+        return CGRect(
+                x:normalize(origin.x, 0, size.width)
+                ,y:normalize(origin.y, 0, size.height)
+                ,width:normalize(size.width, 0, size.width)
+                ,height: normalize(size.width, 0, size.height)
+        )
+    }
 }
 
 extension CGSize {

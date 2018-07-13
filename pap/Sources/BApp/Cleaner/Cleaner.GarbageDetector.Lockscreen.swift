@@ -12,7 +12,94 @@ import MetalKit
 import Vision
 import FirebaseMLVision
 
+class PHAssetGarbageDetector_Lockscreens : PHAssetGarbageDetector{
+
+//    private static var dataSet:LockscreenData?
+//    private var dataSet:LockscreenData{
+//        if let v = type(of: self).dataSet {
+//            return v
+//        }
+//        let dataSet = LockscreenData()
+//        type(of: self).dataSet = dataSet
+//        return dataSet
+//    }
+
+    private lazy var dataSet = LockscreenData()
+
+    required public init() {
+        super.init()
+    }
+
+    private lazy var visionTextDetector = Vision.vision().textDetector()
+
+    override class var label:String{
+        return "Lockscreens".localized
+    }
+
+    let parser = VisionTextElementParser()
+
+    let trimmedTimePattern = "^[0-9]{1,2}:?[0-9]{1,2}$"
+    let dateDayPattern = "^([1-9])$|^([1-2][0-9])$|^(3[01])$"
+
+    override func process(input: PHAsset, _ asyncSignal: AsyncWaitSignalable?) -> Bool? {
+        guard input.mediaType == .image/* && input.mediaSubtypes.contains(.photoScreenshot)*/ else{
+            return false
+        }
+        guard let image = input.asUIImage, let asyncSignal = asyncSignal else {
+            return nil
+        }
+
+        guard let visionTexts = visionTextDetector.detect(with: image, asyncSignal) else {
+            return nil
+        }
+
+
+        let imageSize = image.size
+        print("imageSize:",image.size)
+
+        var foundNormalizedTimeRect:CGRect = CGRect.null
+
+        for visionText in visionTexts{
+            for elems in parser.process(input: visionText) ?? []{
+                for elem in elems{
+                    let normalizedFrame = elem.frame.normalized(by:imageSize)
+
+                    //found time -> match day 1 ~ 31
+                    if foundNormalizedTimeRect.isNull == false{
+                        let detectedUnderLineDate = normalizedFrame.minY > foundNormalizedTimeRect.maxY
+                                && elem.text.trimmed.matched(dateDayPattern)
+
+                        return detectedUnderLineDate
+                    }
+
+                    //find time
+                    if elem.text.remove(" ").matched(trimmedTimePattern){
+
+                        let r = dataSet.TimeRectDictionaryiPhone_Normalized_Min_Max_Rect
+                        if r.1.contains(normalizedFrame) && normalizedFrame.contains(r.0){
+                            foundNormalizedTimeRect = normalizedFrame
+                            continue
+                        }
+
+                    }else{
+                        //not found
+                    }
+                }
+            }
+        }
+
+        return false
+    }
+}
+
 private struct LockscreenData{
+
+    // imageSize:\s\((.*),(.*)\)$
+    //-> CGSize(width: $1, height: $2)
+
+    // \((.*),(.*),(.*),(.*)\)\s[0-9]?[0-9]:[0-9][0-9]?$
+    // -> CGRect(x: $1, y:$2, width:$3, height:$4)
+
     let TimeRectDictionaryiPhone:[CGSize:Set<CGRect>] /*textFrame : imageSize*/ = [
         /* from Real Device */
 
@@ -56,124 +143,23 @@ private struct LockscreenData{
     init(){
         var dict = [CGSize:Set<CGRect>]()
         let values = Array(TimeRectDictionaryiPhone.values)
-        var minSizeBound = CGFloat.greatestFiniteMagnitude
-        var maxSizeBound = CGFloat()
-        var minRect = CGRect()
+        var minRect = CGRect(x:0.0,y:0.0,width:CGFloat.greatestFiniteMagnitude,height:CGFloat.greatestFiniteMagnitude)
         var maxRect = CGRect()
 
         for (i, size) in TimeRectDictionaryiPhone.keys.enumerated(){
             let rectSet = values[i]
             var set = Set<CGRect>()
             for rect in rectSet{
-                let nRect = CGRect(
-                        x:normalize(rect.origin.x, 0, size.width)
-                        ,y:normalize(rect.origin.y, 0, size.height)
-                        ,width:normalize(rect.size.width, 0, size.width)
-                        ,height: normalize(rect.size.width, 0, size.height)
-                )
+                let nRect = rect.normalized(by:size)
 
-                let boundSize = nRect.width*nRect.height
-                if boundSize > maxSizeBound{
-                    maxSizeBound = boundSize
-                    maxRect = nRect
-                }
-                if boundSize < minSizeBound{
-                    minSizeBound = boundSize
-                    minRect = nRect
-                }
-
+                maxRect = maxRect.union(nRect)
+                minRect = minRect.intersection(nRect)
                 set.insert(nRect)
             }
             dict[size] = set
         }
         TimeRectDictionaryiPhone_Normalized = dict
         TimeRectDictionaryiPhone_Normalized_Min_Max_Rect = (minRect, maxRect)
-    }
-}
-
-class PHAssetGarbageDetector_Lockscreens : PHAssetGarbageDetector{
-
-    private static var dataSet:LockscreenData?
-    private var dataSet:LockscreenData{
-        if let v = type(of: self).dataSet {
-            return v
-        }
-        let dataSet = LockscreenData()
-        type(of: self).dataSet = dataSet
-        return dataSet
-    }
-
-    required public init() {
-        super.init()
-    }
-
-    private lazy var visionTextDetector = Vision.vision().textDetector()
-
-    override class var label:String{
-        return "Lockscreens".localized
-    }
-
-    let parser = VisionTextElementParser()
-
-    let trimmedTimePattern = "^[0-9]{1,2}:?[0-9]{1,2}$"
-    let dateDayPattern = "^([1-9])$|^([1-2][0-9])$|^(3[01])$"
-
-    override func process(input: PHAsset, _ asyncSignal: AsyncWaitSignalable?) -> Bool? {
-        guard input.mediaType == .image/* && input.mediaSubtypes.contains(.photoScreenshot)*/ else{
-            return false
-        }
-        guard let image = input.asUIImage, let asyncSignal = asyncSignal else {
-            return nil
-        }
-
-        guard let visionTexts = visionTextDetector.detect(with: image, asyncSignal) else {
-            return nil
-        }
-
-        print("imageSize:",image.size)
-
-        // imageSize:\s\((.*),(.*)\)$
-        //-> CGSize(width: $1, height: $2)
-
-        // \((.*),(.*),(.*),(.*)\)\s[0-9]?[0-9]:[0-9][0-9]?$
-        // -> CGRect(x: $1, y:$2, width:$3, height:$4)
-
-        var foundTimeRect:CGRect = CGRect.null
-
-        for visionText in visionTexts{
-            for elems in parser.process(input: visionText) ?? []{
-                for elem in elems{
-                    let textFrame = elem.frame
-
-                    //found time -> match day 1 ~ 31
-                    if foundTimeRect.isNull == false{
-                        let detectedUnderLineDate = textFrame.minY > foundTimeRect.maxY
-                                && elem.text.trimmed.matched(dateDayPattern)
-
-                        if detectedUnderLineDate{
-                            print(elem.text)
-                        }
-
-                        return detectedUnderLineDate
-                    }
-
-                    //find time
-                    if elem.text.remove(" ").matched(trimmedTimePattern){
-
-                        let r = dataSet.TimeRectDictionaryiPhone_Normalized_Min_Max_Rect
-                        if r.1.contains(textFrame) && textFrame.contains(r.0){
-                            foundTimeRect = textFrame
-                            continue
-                        }
-
-                    }else{
-                        //not found
-                    }
-                }
-            }
-        }
-
-        return false
     }
 }
 
