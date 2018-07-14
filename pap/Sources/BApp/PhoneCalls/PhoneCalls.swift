@@ -69,7 +69,6 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
 //        callProviderDelegate = CallProviderDelegate(callManager: CallManager.shared)
     }
 
-    private(set) static var launchOption: AppLaunchOption? = nil
 
     func willLaunch(current: App.Type?, withOption: AppLaunchOption?) {
     }

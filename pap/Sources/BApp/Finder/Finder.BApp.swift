@@ -52,7 +52,6 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
 //        callProviderDelegate = CallProviderDelegate(callManager: CallManager.shared)
     }
 
-    fileprivate (set) static var launchOption: AppLaunchOption? = nil
 
     func willLaunch(current: App.Type?, withOption: AppLaunchOption?) {
     }
@@ -1271,8 +1270,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         cell_b.valueHandler = { _ in
             var option = AppLaunchOption()
             option.identifierToReturn = FinderApp.info.identifier
-            FinderApp.launchOption = option
-            AppCenter.default.openApp(identifier:"com.stells.pap.camera")
+            AppCenter.default.openApp(identifier:"com.stells.pap.camera", options:option)
 
         }
         settingCellDescribers.append(cell_b)

@@ -17,6 +17,10 @@ public protocol App {
     static var paramType: AppTaskParamable.Type { get }
 }
 
+/*
+    AppInfo
+*/
+
 public protocol AppInfoSchemeKey {
     var appType: App.Type {get}
     var identifier:String {get}

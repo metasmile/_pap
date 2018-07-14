@@ -9,8 +9,18 @@ extension DispatchQueue {
     public class var currentLabel: String {
         return String(validatingUTF8: __dispatch_queue_get_label(nil)) ?? "anonymous"
     }
+
+    //INFO: compare with Label. Not DispatchQueue instance. DispatchQueue.current != DispatchQueue.main (always)
     public class var current:DispatchQueue {
         return DispatchQueue(label: self.currentLabel)
+    }
+
+    public class func mainAsyncIfNot(execute:@escaping () -> Void){
+        if currentLabel==DispatchQueue.main.label{
+            execute()
+        }else{
+            DispatchQueue.main.async(execute: execute)
+        }
     }
 }
 

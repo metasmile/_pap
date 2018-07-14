@@ -82,14 +82,20 @@ open class AppManager: NSObject, SelectableCollection {
     @objc dynamic
     public private(set) var currentIdentifier: String?
 
+    private var currentLaunchOption:AppLaunchOption?
+
+    public func setCurrent(current:App.Type, with launchOption:AppLaunchOption){
+        self.currentLaunchOption = launchOption
+        self.current = current
+    }
+
     public var current: App.Type?
     {
         willSet {
             assert(newValue == nil || _apps.contains { appType in appType == newValue },"Given current app \(String(describing:newValue)) is not contained in app collection")
             guard newValue != previous else{ return }
 
-            let launchedApp = self.current as? LaunchableApp.Type
-            self.getInstance(newValue, as: LaunchableApp.self)?.willLaunch(current:self.current, withOption:launchedApp?.launchOption)
+            self.getInstance(newValue, as: LaunchableApp.self)?.willLaunch(current:self.current, withOption:currentLaunchOption)
         }
         didSet {
             guard previous == nil || oldValue != current else { return }
@@ -103,11 +109,12 @@ open class AppManager: NSObject, SelectableCollection {
                 AppLifecycleManager.shared.discard(previous.info)
             }
 
-            DispatchQueue.main.async{
+            DispatchQueue.mainAsyncIfNot {
                 self.currentIdentifier = self.current?.info.identifier
 
-                let launchedApp = self.previous as? LaunchableApp.Type
-                self.getInstance(self.current, as: LaunchableApp.self)?.didLaunch(previous:self.previous, withOption:launchedApp?.launchOption)
+                self.getInstance(self.current, as: LaunchableApp.self)?.didLaunch(previous:self.previous, withOption:self.currentLaunchOption)
+
+                self.currentLaunchOption = nil
             }
         }
     }

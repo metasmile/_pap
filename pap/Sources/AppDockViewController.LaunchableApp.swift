@@ -15,27 +15,31 @@ private extension AppDockViewController {
 
 extension AppCenter{
     @discardableResult
-    func openCurrentApp(animation:Bool=false) -> Bool{
-        return self.openApp(identifier: AppCenter.default.current?.info.identifier ?? "", animation: animation)
+    func openCurrentApp(options: AppLaunchOption?=nil, animation:Bool=false) -> Bool{
+        return self.openApp(identifier: AppCenter.default.current?.info.identifier ?? "", options: options, animation: animation)
     }
 
     @discardableResult
-    func openApp(identifier:String, animation:Bool=false) -> Bool{
+    func openApp(identifier:String, options: AppLaunchOption?=nil, animation:Bool=false) -> Bool{
         if identifier.trimmed.nilEmpty != nil
         , let matchedApp = AppCenter.default.apps().first(where:{ $0.info.identifier==identifier }){
-            return self.openApp(matchedApp, animation: animation)
+            return self.selectApp(matchedApp, options:options, animation: animation)
         }
         return false
     }
 
     @discardableResult
-    private func openApp(_ app:App.Type, animation:Bool=false) -> Bool{
+    private func selectApp(_ app:App.Type, options: AppLaunchOption?=nil, animation:Bool=false) -> Bool{
         guard let rootVc = UIApplication.shared.keyWindow?.rootViewController as? AppDockNavigationController
         , let appDockVc = rootVc.topViewController as? AppDockViewController else {
             return false
         }
 
-        self.current = app
+        if let options = options{
+            self.setCurrent(current: app, with: options)
+        }else{
+            self.current = app
+        }
         appDockVc.selectCurrentAppIfExist(animation: animation)
         return true
     }

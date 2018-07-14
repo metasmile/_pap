@@ -59,7 +59,6 @@ class CameraApp: NSObject, KeyPathWatchable, BApp, LaunchableApp, AppDockApp, Ph
         return false
     }
 
-    fileprivate(set) static var launchOption: AppLaunchOption? = nil
 
     func willLaunch(current: App.Type?, withOption: AppLaunchOption?) {
 
@@ -138,12 +137,9 @@ fileprivate class CameraAppDockContent: NSObject, KeyPathWatchable, AppDockConte
         if let option = AppCenter.default.currentInstanceAs(CameraApp.self)?.importedLaunchOption
             , let id = option.identifierToReturn{
             
-            CameraApp.launchOption = AppLaunchOption(options: data)
-            Timer.scheduledTimer(identifier: #file, withTimeInterval: 0.3, block: { timer in
-                DispatchQueue.main.async{
-                    AppCenter.default.openApp(identifier: id, animation:true)
-                }
-            })
+            DispatchQueue.main.async{
+                AppCenter.default.openApp(identifier: id, options:AppLaunchOption(options: data), animation:true)
+            }
         }
     }
 

@@ -22,9 +22,6 @@ public struct AppLaunchOption {
 }
 
 protocol LaunchableApp where Self:App {
-    //INFO: Optional - other apps can read this option if app is providing.
-    static var launchOption: AppLaunchOption? {get}
-
     func willLaunch(current:App.Type?, withOption: AppLaunchOption?)
     func didLaunch(previous:App.Type?, withOption: AppLaunchOption?)
 }
