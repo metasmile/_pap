@@ -118,7 +118,6 @@ class SpotlightSearchAppDelegate: NSObject, UIApplicationDelegate{
         , activity.activityType == CSSearchableItemActionType
         , let identifier = activity.userInfo?[CSSearchableItemActivityIdentifier] as? String
         , identifier.hasPrefix(CSSearchable.prefix) else {
-
             return false
         }
 
@@ -126,8 +125,11 @@ class SpotlightSearchAppDelegate: NSObject, UIApplicationDelegate{
             return false
         }
 
-        DispatchQueue.main.async{
-            AppCenter.default.selectApp(app)
+        //FIXME: unknown problem for some apps.
+        Timer.scheduledTimer(identifier: #file, withTimeInterval: 1) { timer in
+            DispatchQueue.main.async{
+                AppCenter.default.openApp(identifier: app.info.identifier)
+            }
         }
 
         return true
@@ -139,7 +141,7 @@ class SpotlightSearchAppDelegate: NSObject, UIApplicationDelegate{
         //main item
         let csItemAttr = CSSearchableItemAttributeSet(itemContentType: UTI.image.rawValue)
         csItemAttr.title = Bundle.main.displayName
-        csItemAttr.contentDescription = "Do Anything, At Once.".localized
+        csItemAttr.contentDescription = "Do Anything At Once.".localized
         csItemAttr.keywords = Array(0 ... LocalizableKeywordLastIndexNumber).map { e -> String in
             return (LocalizableKeywordPrefix+String(e)).localized
         }

@@ -109,7 +109,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         super.viewWillAppear(animated)
         
         appDockNavigationController?.setAppDockHidden(false, animated: animated)
-        selectCurrentAppIfExist(animated: false)
+        AppCenter.default.openCurrentApp()
     }
     
     override func viewDidAppear(_ animated: Bool) {

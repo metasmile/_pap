@@ -19,7 +19,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
         , AppDockApp
         , PhotoPickerViewControllerDelegatableApp
         , PreheatableApp
-        , AppManagerDelegatedApp {
+        , InterplayableApp {
 
     public static let taskType: AppTaskable.Type = _FinderAppTask.self
 
@@ -52,10 +52,10 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
 //        callProviderDelegate = CallProviderDelegate(callManager: CallManager.shared)
     }
 
-    func willSetCurrent(oldCurrent: App.Type?) {
+    func willSelect(current: App.Type?) {
     }
 
-    func didSetCurrent(previous: App.Type?) {
+    func didSelect(previous: App.Type?) {
     }
 
     public func shouldSelect(item: AppAsset) -> Bool {
