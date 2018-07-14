@@ -31,7 +31,7 @@ class PHAssetGarbageDetector : NSObject, _PHAssetGarbageDetector{
         return nil
     }
 
-    func process(input: PHAsset, _ asyncSignal: AsyncWaitSignalable?) -> Bool? {
+    func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
         return nil
     }
 }
@@ -41,7 +41,7 @@ class PHAssetGarbageDetector_Screenshots : PHAssetGarbageDetector{
         return "Screenshots".localized
     }
 
-    override func process(input: PHAsset, _ asyncSignal: AsyncWaitSignalable?) -> Bool? {
+    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
         return input.mediaType == .image && input.mediaSubtypes.contains(.photoScreenshot) //FIXME: always true??
     }
 }
@@ -67,7 +67,7 @@ class PHAssetGarbageDetector_Flashlight : PHAssetGarbageDetector{
         ,0x5f//=Auto, Fired, Red-eye reduction, Return detected
     ])
 
-    override func process(input: PHAsset, _ asyncSignal: AsyncWaitSignalable?) -> Bool? {
+    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
         guard input.mediaType == .image else { return false }
 
         let option = PHContentEditingInputRequestOptions()
@@ -78,7 +78,7 @@ class PHAssetGarbageDetector_Flashlight : PHAssetGarbageDetector{
 
         let options = PHImageRequestOptions()
         options.isNetworkAccessAllowed = false
-        if let data = input.requestImageData(options: options, asyncSignal!).data{
+        if let data = input.requestImageData(options: options, asyncSignal).data{
             if let flashValue = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifFlash) as? Int{
                 print(firedFlags.contains(flashValue))
                 return firedFlags.contains(flashValue)
@@ -97,7 +97,7 @@ class PHAssetGarbageDetector_Similarity : PHAssetGarbageDetector{
         return "Similarity".localized
     }
 
-    override func process(input: PHAsset, _ asyncSignal: AsyncWaitSignalable?) -> Bool? {
+    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
         return self.detectSimilarAsset(input)
     }
 
@@ -137,7 +137,7 @@ class PHAssetGarbageDetector_Similarity_t : PHAssetGarbageDetector{
         return "Similarities".localized
     }
 
-    override func process(input: PHAsset, _ asyncSignal: AsyncWaitSignalable?) -> Bool? {
+    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
         return self.detectSimilarAsset(input)
     }
 
@@ -242,7 +242,7 @@ class PHAssetGarbageDetector_Blurry: PHAssetGarbageDetector{
         return "Blur Rate".localized
     }
 
-    override func process(input: PHAsset, _ asyncSignal: AsyncWaitSignalable?) -> Bool? {
+    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
         return self.detectBlurryImage(input)
     }
 

@@ -144,6 +144,7 @@ public struct ImageMetadata {
 
 /* Possible keys for kCGImagePropertyExifDictionary */
 
+// https://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/EXIF.html
         static var ExifExposureTime:String { return kCGImagePropertyExifExposureTime as String }
         static var ExifFNumber:String { return kCGImagePropertyExifFNumber as String }
         static var ExifExposureProgram:String { return kCGImagePropertyExifExposureProgram as String }
