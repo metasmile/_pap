@@ -200,8 +200,6 @@
 "Detecting ... %@ " = "Виявлення ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Напрямок";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Робити що-небудь, відразу.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Завантаження ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -220,6 +218,8 @@
 "Finder" = "шукач";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "Пошук контактів ... %@";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
+"Flashlight" = "Ліхтарик";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Номер рейсу";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
@@ -352,6 +352,8 @@
 "Starting to check edited photos..." = "Починаючи перевірку відредагованих фотографій ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Увімкніть будь-які елементи, які потрібно сховати. Якість буде повністю незмінним.";
+/* Generated from genl10n: Finder.BApp.swift#1273 */
+"Take A Photo" = "Взяти фото";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Цілі";
 /* Generated from genl10n: Stabilizer.swift */

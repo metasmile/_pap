@@ -200,8 +200,6 @@
 "Detecting ... %@ " = "Algılama ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Yükləmə ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -220,6 +218,8 @@
 "Finder" = "Finder";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "Əlaqə axtarma ... %@";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
+"Flashlight" = "Fənər";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Uçuş nömrəsi";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
@@ -352,6 +352,8 @@
 "Starting to check edited photos..." = "Edilən şəkilləri yoxlamaq üçün başlayan ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Gizlətmək istədiyiniz hər hansı elementləri işə salın. Keyfiyyət tamamilə eyni qalacaq.";
+/* Generated from genl10n: Finder.BApp.swift#1273 */
+"Take A Photo" = "Şəkil çəkin";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Hədəflər";
 /* Generated from genl10n: Stabilizer.swift */

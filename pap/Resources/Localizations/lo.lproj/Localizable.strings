@@ -200,8 +200,6 @@
 "Detecting ... %@ " = "Detecting ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "ດາວໂຫລດ ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -220,6 +218,8 @@
 "Finder" = "Finder";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "Finding Contacts ... %@";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
+"Flashlight" = "Flashlight";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "ຈໍານວນທ່ຽວບິນ";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
@@ -352,6 +352,8 @@
 "Starting to check edited photos..." = "ເລີ່ມກວດເບິ່ງຮູບພາບທີ່ຖືກແກ້ໄຂ ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "ປ່ຽນສະມາຊິກໃດໆທີ່ທ່ານຕ້ອງການເຊື່ອງ. ຄຸນນະພາບທັງຫມົດຈະຍັງຄົງຢູ່ຄືເກົ່າ.";
+/* Generated from genl10n: Finder.BApp.swift#1273 */
+"Take A Photo" = "ຖ່າຍ​ຮູບ";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "ເປົ້າຫມາຍ";
 /* Generated from genl10n: Stabilizer.swift */

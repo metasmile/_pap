@@ -200,8 +200,6 @@
 "Detecting ... %@ " = "Zisťovanie ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "smer";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Robiť niečo, naraz.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Sťahovanie ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -220,6 +218,8 @@
 "Finder" = "nálezcu";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "Hľadanie kontaktov ... %@";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
+"Flashlight" = "svietidlo";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Číslo letu";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
@@ -352,6 +352,8 @@
 "Starting to check edited photos..." = "Začať skontrolovať upravené fotografie ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Zapnite všetky položky, ktoré chcete skryť. Kvalita zostane úplne rovnaká.";
+/* Generated from genl10n: Finder.BApp.swift#1273 */
+"Take A Photo" = "Odfoť";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "ciele";
 /* Generated from genl10n: Stabilizer.swift */

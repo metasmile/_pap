@@ -200,8 +200,6 @@
 "Detecting ... %@ " = "കണ്ടെത്തുന്നു ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "സംവിധാനം";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "ഡൗൺലോഡുചെയ്യുന്നു ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -220,6 +218,8 @@
 "Finder" = "ഫൈൻഡർ";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "കോൺടാക്റ്റുകൾ കണ്ടെത്തുന്നു ... %@";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
+"Flashlight" = "മിന്നല്പകാശം";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "ഫ്ലൈറ്റ് നമ്പർ";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
@@ -352,6 +352,8 @@
 "Starting to check edited photos..." = "എഡിറ്റുചെയ്ത ഫോട്ടോകൾ പരിശോധിക്കുന്നത് ആരംഭിക്കുന്നു ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "നിങ്ങൾ മറയ്ക്കാൻ ആഗ്രഹിക്കുന്ന ഏതെങ്കിലും ഇനങ്ങൾ മാറുക. ഗുണമേന്മ പൂർണമായി നിലനിൽക്കും.";
+/* Generated from genl10n: Finder.BApp.swift#1273 */
+"Take A Photo" = "ഒരു പടം എടുക്കു";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "ലക്ഷ്യങ്ങൾ";
 /* Generated from genl10n: Stabilizer.swift */

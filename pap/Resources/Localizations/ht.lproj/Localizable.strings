@@ -200,8 +200,6 @@
 "Detecting ... %@ " = "Detekte ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direksyon";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Rale dosye ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -220,6 +218,8 @@
 "Finder" = "Moun";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "Jwenn kontak ... %@";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
+"Flashlight" = "Flach";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Nimewo vòl";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
@@ -352,6 +352,8 @@
 "Starting to check edited photos..." = "Kòmanse tcheke foto edited ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Chanje sou nenpòt atik ou vle kache. Bon jan kalite a ap antyèman rete menm jan an.";
+/* Generated from genl10n: Finder.BApp.swift#1273 */
+"Take A Photo" = "Pran yon foto";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Objektif";
 /* Generated from genl10n: Stabilizer.swift */

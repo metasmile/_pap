@@ -200,8 +200,6 @@
 "Detecting ... %@ " = "கண்டறிதல் ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "திசையில்";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "இறக்குகிறது ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -220,6 +218,8 @@
 "Finder" = "தேடல்";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "தொடர்புகள் கண்டுபிடி ... %@";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
+"Flashlight" = "பிரகாச ஒளி";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "விமான எண்";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
@@ -352,6 +352,8 @@
 "Starting to check edited photos..." = "திருத்தப்பட்ட புகைப்படங்களைச் சரிபார்க்கத் தொடங்குகிறது ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "நீங்கள் மறைக்க விரும்பும் எந்தப் பொருட்களையும் மாற்றவும். தரம் முற்றிலும் ஒரே மாதிரியாக இருக்கும்.";
+/* Generated from genl10n: Finder.BApp.swift#1273 */
+"Take A Photo" = "ஒரு புகைப்படத்தை எடுக்கவும்";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "இலக்குகள்";
 /* Generated from genl10n: Stabilizer.swift */

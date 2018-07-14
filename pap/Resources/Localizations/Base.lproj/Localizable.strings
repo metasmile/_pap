@@ -162,8 +162,6 @@
 "Detecting ... %@ " = "Detecting ... %@ ";
 /* Generated from genl10n: GIFMaker.BApp.swift#542 */
 "Direction" = "Direction";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift#138 */
-"Do Anything At Once." = "Do Anything At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift#757 */
 "Downloading..." = "Downloading...";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#190, Finder.BApp.swift#641, Finder.BApp.swift#1208 */

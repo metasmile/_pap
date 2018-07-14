@@ -200,8 +200,6 @@
 "Detecting ... %@ " = "Gano ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Jagora";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Saukewa ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -220,6 +218,8 @@
 "Finder" = "Mai nemo";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "Gano Lambobi ... %@";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
+"Flashlight" = "Haske haske";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Flight Number";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
@@ -352,6 +352,8 @@
 "Starting to check edited photos..." = "Farawa don bincika hotuna da aka gyara ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Canja kan kowane abu da kake son ɓoyewa. Kyakkyawar za ta kasance ɗaya ɗaya.";
+/* Generated from genl10n: Finder.BApp.swift#1273 */
+"Take A Photo" = "Ɗauki hoto";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Target";
 /* Generated from genl10n: Stabilizer.swift */

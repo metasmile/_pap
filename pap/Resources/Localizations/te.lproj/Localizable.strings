@@ -200,8 +200,6 @@
 "Detecting ... %@ " = "కనుగొనడం ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "దర్శకత్వం";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "డౌన్లోడ్ చేస్తోంది ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -220,6 +218,8 @@
 "Finder" = "ఫైండర్";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "సంపర్కాలను కనుగొనడం ... %@";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
+"Flashlight" = "ఫ్లాష్లైట్";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "ఫ్లైట్ సంఖ్య";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
@@ -352,6 +352,8 @@
 "Starting to check edited photos..." = "సవరించిన ఫోటోలను తనిఖీ చేయడాన్ని ప్రారంభిస్తోంది ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "మీరు దాచాలనుకునే అంశాలపై మారండి. నాణ్యత పూర్తిగా అదే విధంగా ఉంటుంది.";
+/* Generated from genl10n: Finder.BApp.swift#1273 */
+"Take A Photo" = "ఒక ఫోటో తీసుకుని";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "టార్గెట్స్";
 /* Generated from genl10n: Stabilizer.swift */

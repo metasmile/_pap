@@ -200,8 +200,6 @@
 "Detecting ... %@ " = "감지 중 ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "방향";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "다운로드 중 ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -220,6 +218,8 @@
 "Finder" = "파인더";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "연락처 찾기 ... %@";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
+"Flashlight" = "플래시";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "항공편 번호";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
@@ -352,6 +352,8 @@
 "Starting to check edited photos..." = "수정 된 사진 확인 시작 중 ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "숨기려는 항목을 켭니다. 품질은 전적으로 동일하게 유지됩니다.";
+/* Generated from genl10n: Finder.BApp.swift#1273 */
+"Take A Photo" = "사진을 찍다";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "목표";
 /* Generated from genl10n: Stabilizer.swift */

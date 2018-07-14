@@ -200,8 +200,6 @@
 "Detecting ... %@ " = "අනාවරණය ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "අධ්යක්ෂණය";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "බාගත කිරීම ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -220,6 +218,8 @@
 "Finder" = "උයනක්";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "සබඳතා සොයාගැනීම ... %@";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
+"Flashlight" = "සැණෙළිය";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "ගුවන් යානා අංකය";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
@@ -352,6 +352,8 @@
 "Starting to check edited photos..." = "සංස්කරණය කළ ඡායාරූප බලන්න ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "සැඟවීමට අවශ්ය ඕනෑම භාණ්ඩ මාරු කරන්න. ගුණාත්මක භාවය සම්පූර්ණයෙන්ම පවතිනු ඇත.";
+/* Generated from genl10n: Finder.BApp.swift#1273 */
+"Take A Photo" = "පින්තුරයක් ගන්න";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "ඉලක්ක";
 /* Generated from genl10n: Stabilizer.swift */

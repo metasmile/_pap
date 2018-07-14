@@ -200,8 +200,6 @@
 "Detecting ... %@ " = "Jiskopru ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direzzjoni";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Tniżżil ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -220,6 +218,8 @@
 "Finder" = "Finder";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "Sib Kuntatti ... %@";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
+"Flashlight" = "Torċ";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Numru tat-Titjira";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
@@ -352,6 +352,8 @@
 "Starting to check edited photos..." = "Tibda biex tivverifika r-ritratti editjati ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Ixgħel kwalunkwe oġġett li trid taħbi. Il-kwalità tibqa 'għal kollox l-istess.";
+/* Generated from genl10n: Finder.BApp.swift#1273 */
+"Take A Photo" = "Ħu ritratt";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Miri";
 /* Generated from genl10n: Stabilizer.swift */

@@ -200,8 +200,6 @@
 "Detecting ... %@ " = "Detectando ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direção";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Faça qualquer coisa, de uma vez.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Baixando ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -220,6 +218,8 @@
 "Finder" = "inventor";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "Encontrando contatos ... %@";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
+"Flashlight" = "Lanterna";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Número do vôo";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
@@ -352,6 +352,8 @@
 "Starting to check edited photos..." = "Começando a verificar fotos editadas ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Ative todos os itens que você deseja ocultar. A qualidade permanecerá inteiramente a mesma.";
+/* Generated from genl10n: Finder.BApp.swift#1273 */
+"Take A Photo" = "Tire uma foto";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Alvos";
 /* Generated from genl10n: Stabilizer.swift */

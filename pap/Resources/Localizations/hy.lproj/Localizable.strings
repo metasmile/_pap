@@ -200,8 +200,6 @@
 "Detecting ... %@ " = "Հայտնաբերում ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Ուղղություն";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Ներբեռնում ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -220,6 +218,8 @@
 "Finder" = "որոնիչ";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "Կապ գտնելու ... %@";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
+"Flashlight" = "Լապտեր";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Ուղերթի համար";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
@@ -352,6 +352,8 @@
 "Starting to check edited photos..." = "Սկսած ստուգել լուսանկարները ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Անջատեք ցանկացած կետ, որը ցանկանում եք թաքցնել: Որակը ամբողջությամբ կմնա նույնը:";
+/* Generated from genl10n: Finder.BApp.swift#1273 */
+"Take A Photo" = "Լուսանկարել";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Թիրախներ";
 /* Generated from genl10n: Stabilizer.swift */

@@ -200,8 +200,6 @@
 "Detecting ... %@ " = "กำลังตรวจจับ ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "ทิศทาง";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "ทำทุกอย่างพร้อมกัน";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "ดาวน์โหลด ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -220,6 +218,8 @@
 "Finder" = "Finder";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "กำลังค้นหาที่อยู่ติดต่อ ... %@";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
+"Flashlight" = "ไฟฉาย";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "เที่ยวบินหมายเลข";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
@@ -352,6 +352,8 @@
 "Starting to check edited photos..." = "เริ่มตรวจสอบรูปภาพที่แก้ไขแล้ว ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "เปิดรายการที่คุณต้องการซ่อน คุณภาพจะยังคงเหมือนเดิม";
+/* Generated from genl10n: Finder.BApp.swift#1273 */
+"Take A Photo" = "ถ่ายรูป";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "เป้าหมาย";
 /* Generated from genl10n: Stabilizer.swift */

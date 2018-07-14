@@ -200,8 +200,6 @@
 "Detecting ... %@ " = "ಪತ್ತೆಹಚ್ಚಲಾಗುತ್ತಿದೆ ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "ನಿರ್ದೇಶನ";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "ಡೌನ್ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -220,6 +218,8 @@
 "Finder" = "ಫೈಂಡರ್";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "ಸಂಪರ್ಕಗಳನ್ನು ಹುಡುಕಲಾಗುತ್ತಿದೆ ... %@";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
+"Flashlight" = "ಫ್ಲ್ಯಾಶ್ಲೈಟ್";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "ವಿಮಾನ ಸಂಖ್ಯೆ";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
@@ -352,6 +352,8 @@
 "Starting to check edited photos..." = "ಸಂಪಾದಿಸಲಾದ ಫೋಟೋಗಳನ್ನು ಪರಿಶೀಲಿಸಲು ಪ್ರಾರಂಭಿಸಲಾಗುತ್ತಿದೆ ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "ನೀವು ಮರೆಮಾಡಲು ಬಯಸುವ ಯಾವುದೇ ಐಟಂಗಳನ್ನು ಬದಲಾಯಿಸಿ. ಗುಣಮಟ್ಟ ಸಂಪೂರ್ಣವಾಗಿ ಒಂದೇ ಆಗಿರುತ್ತದೆ.";
+/* Generated from genl10n: Finder.BApp.swift#1273 */
+"Take A Photo" = "ಫೋಟೋ ತೆಗೆಯಿರಿ";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "ಗುರಿಗಳು";
 /* Generated from genl10n: Stabilizer.swift */

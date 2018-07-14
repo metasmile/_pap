@@ -200,8 +200,6 @@
 "Detecting ... %@ " = "शोधत आहे ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "दिशा";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "डाऊनलोड करीत आहे ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -220,6 +218,8 @@
 "Finder" = "फाइंडर";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "संपर्क शोधणे ... %@";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
+"Flashlight" = "फ्लॅशलाइट";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "फ्लाइट नंबर";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
@@ -352,6 +352,8 @@
 "Starting to check edited photos..." = "संपादित केलेल्या फोटोंची तपासणी प्रारंभ करीत आहे ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "आपण लपवू इच्छित असलेल्या कोणत्याही आयटमवर स्विच करा गुणवत्ता संपूर्णपणे समान राहील.";
+/* Generated from genl10n: Finder.BApp.swift#1273 */
+"Take A Photo" = "फोटो काढ";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "लक्ष्य";
 /* Generated from genl10n: Stabilizer.swift */

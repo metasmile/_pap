@@ -200,8 +200,6 @@
 "Detecting ... %@ " = "Detecting ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direksyon";
-/* Generated from genl10n: AppDelegate.SpotlightSearch.swift */
-"Do Anything, At Once." = "Do Anything, At Once.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Nagda-download ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -220,6 +218,8 @@
 "Finder" = "Finder";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "Paghahanap ng Mga Contact ... %@";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
+"Flashlight" = "Flashlight";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Flight Number";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
@@ -352,6 +352,8 @@
 "Starting to check edited photos..." = "Simula upang suriin ang na-edit na mga larawan ...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Lumipat sa anumang mga item na nais mong itago. Ang kalidad ay mananatiling pareho.";
+/* Generated from genl10n: Finder.BApp.swift#1273 */
+"Take A Photo" = "Kumuha ng litrato";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Mga Target";
 /* Generated from genl10n: Stabilizer.swift */
