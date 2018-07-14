@@ -40,7 +40,10 @@ extension AppCenter{
         }else{
             self.current = app
         }
-        appDockVc.selectCurrentAppIfExist(animation: animation)
+
+        DispatchQueue.mainAsyncIfNot {
+            appDockVc.selectCurrentAppIfExist(animation: animation)
+        }
         return true
     }
 }

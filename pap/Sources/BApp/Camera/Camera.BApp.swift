@@ -29,12 +29,6 @@ extension Defaults: CameraAppDefaults {
     }
 }
 
-extension AppLaunchOptionsKey {
-    static let capturedAsset = AppLaunchOptionsKey(rawValue:0)
-    static let capturedPhotoURL = AppLaunchOptionsKey(rawValue:1)
-    static let capturedPairedVideoURL = AppLaunchOptionsKey(rawValue:2)
-}
-
 class CameraApp: NSObject, KeyPathWatchable, BApp, LaunchableApp, AppDockApp, PhotoPickerCollectionViewDisplayableApp {
     public static let taskType: AppTaskable.Type = _CameraAppTask.self
     
@@ -68,7 +62,6 @@ class CameraApp: NSObject, KeyPathWatchable, BApp, LaunchableApp, AppDockApp, Ph
 
     func didLaunch(previous: App.Type?, withOption: AppLaunchOption?) {
         importedLaunchOption = withOption
-        print(importedLaunchOption?.identifierToReturn)
     }
 }
 
@@ -101,14 +94,13 @@ fileprivate class CameraAppDockContent: NSObject, KeyPathWatchable, AppDockConte
         cameraView?.capturedHandler = { succeed, results in
             capturedHandlerResult = results
 
-            if let results = capturedHandlerResult{
-                let data = [
-                    AppLaunchOptionsKey.capturedPhotoURL: results[CameraViewCaptureProcessorResultKey.photoURL]
-                    , AppLaunchOptionsKey.capturedPairedVideoURL: results[CameraViewCaptureProcessorResultKey.pairedVideoURL]
-                ]
-                self.didCaptured(with:data)
-            }
-
+//            if let results = capturedHandlerResult{
+//                let data = [
+//                    AppLaunchOptionsKey.capturedPhotoURL: results[CameraViewCaptureProcessorResultKey.photoURL]
+//                    , AppLaunchOptionsKey.capturedPairedVideoURL: results[CameraViewCaptureProcessorResultKey.pairedVideoURL]
+//                ]
+//                self.didCaptured(with:data)
+//            }
         }
         
         PHPhotoLibraryManager.default.watch(\.changes) {
@@ -121,9 +113,9 @@ fileprivate class CameraAppDockContent: NSObject, KeyPathWatchable, AppDockConte
                     for asset in insertedAssets {
                         
                         let data = [
-                            AppLaunchOptionsKey.capturedAsset: asset
-                            , AppLaunchOptionsKey.capturedPhotoURL: results[CameraViewCaptureProcessorResultKey.photoURL]
-                            , AppLaunchOptionsKey.capturedPairedVideoURL: results[CameraViewCaptureProcessorResultKey.pairedVideoURL]
+                            AppLaunchOptionsKey.PHAsset: asset
+                            , AppLaunchOptionsKey.PhotoURL: results[CameraViewCaptureProcessorResultKey.photoURL]
+                            , AppLaunchOptionsKey.PairedVideoURL: results[CameraViewCaptureProcessorResultKey.pairedVideoURL]
                         ]
                         self.didCaptured(with:data)
                         break
@@ -136,10 +128,8 @@ fileprivate class CameraAppDockContent: NSObject, KeyPathWatchable, AppDockConte
     func didCaptured(with data:[AppLaunchOptionsKey:Any?]){
         if let option = AppCenter.default.currentInstanceAs(CameraApp.self)?.importedLaunchOption
             , let id = option.identifierToReturn{
-            
-            DispatchQueue.main.async{
-                AppCenter.default.openApp(identifier: id, options:AppLaunchOption(options: data), animation:true)
-            }
+
+            AppCenter.default.openApp(identifier: id, options:AppLaunchOption(options: data), animation:true)
         }
     }
 

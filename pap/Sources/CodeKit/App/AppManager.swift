@@ -95,7 +95,10 @@ open class AppManager: NSObject, SelectableCollection {
             assert(newValue == nil || _apps.contains { appType in appType == newValue },"Given current app \(String(describing:newValue)) is not contained in app collection")
             guard newValue != previous else{ return }
 
-            self.getInstance(newValue, as: LaunchableApp.self)?.willLaunch(current:self.current, withOption:currentLaunchOption)
+            let launchableApp = self.getInstance(newValue, as: LaunchableApp.self)
+            DispatchQueue.mainAsyncIfNot {
+                launchableApp?.willLaunch(current:self.current, withOption:self.currentLaunchOption)
+            }
         }
         didSet {
             guard previous == nil || oldValue != current else { return }

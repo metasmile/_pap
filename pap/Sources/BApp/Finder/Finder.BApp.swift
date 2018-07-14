@@ -57,6 +57,11 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
     }
 
     func didLaunch(previous: App.Type?, withOption: AppLaunchOption?) {
+        if let option = withOption{
+            let asset = option.options?[AppLaunchOptionsKey.PHAsset] as? PHAsset
+
+            //TODO: asset is guaranteed - select or any actions.
+        }
     }
 
     public func shouldSelect(item: AppAsset) -> Bool {

@@ -125,13 +125,7 @@ class SpotlightSearchAppDelegate: NSObject, UIApplicationDelegate{
             return false
         }
 
-        //FIXME: unknown problem for some apps.
-        Timer.scheduledTimer(identifier: #file, withTimeInterval: 1) { timer in
-            DispatchQueue.main.async{
-                AppCenter.default.openApp(identifier: app.info.identifier)
-            }
-        }
-
+        AppCenter.default.openApp(identifier: app.info.identifier)
         return true
     }
 
