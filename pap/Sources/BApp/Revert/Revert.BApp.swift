@@ -27,7 +27,7 @@ extension Defaults: RevertAppDefaults {
 
 public class RevertApp: NSObject, KeyPathWatchable, BApp
         , AppDockApp
-        , FinalizableApp, InterplayableApp
+        , FinalizableApp
         , PhotoPickerViewControllerDelegatableApp
         , PhotoPickerCollectionViewDisplayableApp
         , PreheatableApp {
@@ -56,13 +56,6 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp
     required public override init(){
         super.init()
     }
-
-
-    func willSelect(current: App.Type?) {
-
-    }
-
-    func didSelect(previous: App.Type?) {}
 
     public func shouldSelect(item: AppAsset) -> Bool {
         return true

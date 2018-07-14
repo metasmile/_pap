@@ -69,10 +69,12 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
 //        callProviderDelegate = CallProviderDelegate(callManager: CallManager.shared)
     }
 
-    func willSelect(current: App.Type?) {
+    private(set) static var interplayOption: AppInterplayOption? = nil
+
+    func willSelect(current: App.Type?, withOption:AppInterplayOption?) {
     }
 
-    func didSelect(previous: App.Type?) {
+    func didSelect(previous: App.Type?, withOption:AppInterplayOption?) {
     }
 
     public var finalizingActions: [PHAssetFinalizingAction] {

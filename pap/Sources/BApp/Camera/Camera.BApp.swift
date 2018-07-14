@@ -29,7 +29,7 @@ extension Defaults: CameraAppDefaults {
     }
 }
 
-class CameraApp: NSObject, KeyPathWatchable, BApp, AppDockApp, PhotoPickerCollectionViewDisplayableApp {
+class CameraApp: NSObject, KeyPathWatchable, BApp, InterplayableApp, AppDockApp, PhotoPickerCollectionViewDisplayableApp {
     public static let taskType: AppTaskable.Type = _CameraAppTask.self
     
     public static let paramType: AppTaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
@@ -52,15 +52,23 @@ class CameraApp: NSObject, KeyPathWatchable, BApp, AppDockApp, PhotoPickerCollec
     func shouldSelect(item: AppAsset) -> Bool {
         return false
     }
+
+    private(set) static var interplayOption: AppInterplayOption? = nil
+
+    func willSelect(current: App.Type?, withOption: AppInterplayOption?) {
+    }
+
+    fileprivate var interplayOption:AppInterplayOption? = nil
+
+    func didSelect(previous: App.Type?, withOption: AppInterplayOption?) {
+        interplayOption = withOption
+    }
 }
 
 private class _CameraAppTask: AppTaskPrototype, AppTaskable {
     public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){}
     
     public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
-        if let asset = (param as? PHAssetItem<ImageEditStateValue>)?.asset{
-            return PHAssetResultItem(asset: asset, contentEditingOutput: nil)
-        }
         return nil
     }
 }
@@ -266,7 +274,7 @@ fileprivate class CameraView: UIView {
         capturesInProgress.insert(captureProcessor)
         
         // Schedule for the capture delegate to be removed from the set after capture.
-        captureProcessor.completionHandler = { [weak self] in
+        captureProcessor.completionHandler = { [weak self] succeed in
             self?.capturesInProgress.remove(captureProcessor)
         }
         
@@ -420,7 +428,7 @@ extension CameraView {
 //https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/capturing_still_and_live_photos/capturing_and_saving_live_photos
 
 fileprivate class CameraViewCaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
-    var completionHandler: () -> () = {}
+    var completionHandler: ((Bool) -> ()) = { let _ = $0 }
     lazy var captureQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
 }
 
@@ -436,8 +444,8 @@ fileprivate class CameraViewStillPhotoCaptureProcessor: CameraViewCaptureProcess
             PHPhotoLibrary.shared().performChanges({
                 PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL: url)
             }, completionHandler: { (success, info) in
+                self.completionHandler(success)
                 signal.end()
-                self.completionHandler()
             })
             signal.waitUntilEnd()
         }
@@ -450,7 +458,7 @@ fileprivate class CameraViewLivePhotoCaptureProcessor: CameraViewCaptureProcesso
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingLivePhotoToMovieFileAt outputFileURL: URL, duration: CMTime, photoDisplayTime: CMTime, resolvedSettings: AVCaptureResolvedPhotoSettings, error: Error?) {
         captureQueue.async {
             guard let photoURL = self.photoURL else { return }
-            
+
             let signal = AsyncSignal()
             
             signal.begin()
@@ -462,6 +470,7 @@ fileprivate class CameraViewLivePhotoCaptureProcessor: CameraViewCaptureProcesso
                 creationRequest.addResource(with: .photo, fileURL: photoURL, options: options)
                 creationRequest.addResource(with: .pairedVideo, fileURL: outputFileURL, options: options)
             }, completionHandler: { (success, info) in
+                self.completionHandler(success)
                 signal.end()
             })
             signal.waitUntilEnd()

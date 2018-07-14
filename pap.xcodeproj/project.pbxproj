@@ -160,7 +160,7 @@
 		4F71DC000A1FD35E151226BB /* cell_icon_depth.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DDE929B4653604C65996 /* cell_icon_depth.png */; };
 		4F71DC16226B8D70AE6BE82F /* Transform.BApp.Public.Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D590D9C96E96C3ED6669 /* Transform.BApp.Public.Contents.swift */; };
 		4F71DC6066F5DE652D19626D /* ImageIO.Metadata.VoidValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2A052463FFF3B331002 /* ImageIO.Metadata.VoidValues.swift */; };
-		4F71DC7EABDA2C30F4A36D51 /* AppDockViewController.Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE345B1BE37A7D9B2BE5 /* AppDockViewController.Operations.swift */; };
+		4F71DC7EABDA2C30F4A36D51 /* AppDockViewController.InterplayableApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE345B1BE37A7D9B2BE5 /* AppDockViewController.InterplayableApp.swift */; };
 		4F71DC8D1CEEE0B33AC27C42 /* App.Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5B00151402B775F469B /* App.Persistable.swift */; };
 		4F71DC985CDF9D119856EDAC /* App.Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3070A5FEF2A41795CA0 /* App.Configurable.swift */; };
 		4F71DC99583655289D339889 /* PDFactory.TPPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DFF7812558760C61E112 /* PDFactory.TPPDF.swift */; };
@@ -545,7 +545,7 @@
 		4F71DDE9A9CE37F16E753B80 /* Converter.Mov.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.Mov.swift; sourceTree = "<group>"; };
 		4F71DE20A7DE6585F1DB3246 /* Transform.App.Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.App.Tests.swift; sourceTree = "<group>"; };
 		4F71DE2155C124D630681B16 /* PhotoPickerViewController.Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.Operations.swift; sourceTree = "<group>"; };
-		4F71DE345B1BE37A7D9B2BE5 /* AppDockViewController.Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDockViewController.Operations.swift; sourceTree = "<group>"; };
+		4F71DE345B1BE37A7D9B2BE5 /* AppDockViewController.InterplayableApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDockViewController.InterplayableApp.swift; sourceTree = "<group>"; };
 		4F71DE72D1DFE3CA3FB4C67C /* FirebaseMLVision.VisionText.Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseMLVision.VisionText.Parser.swift; sourceTree = "<group>"; };
 		4F71DE77D153F85F4E5A92F2 /* AppUICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUICollectionView.swift; sourceTree = "<group>"; };
 		4F71DE78E969F349EB0EB06A /* Test.App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.App.swift; sourceTree = "<group>"; };
@@ -1256,7 +1256,7 @@
 				4F71DC1C2C056A342534A2DC /* pap.Log.swift */,
 				4F71D4DACD3DE4FCBFA15864 /* PhotoPickerViewController.Operations.PreheatableApp.swift */,
 				4F71D89EAAA3533CDB7FEE6F /* PhotoPickerViewController.UICollectionView.Selection.swift */,
-				4F71DE345B1BE37A7D9B2BE5 /* AppDockViewController.Operations.swift */,
+				4F71DE345B1BE37A7D9B2BE5 /* AppDockViewController.InterplayableApp.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -3012,7 +3012,7 @@
 				4F71D0B93A9136FE6039F23A /* Cleaner.GarbageDetector.swift in Sources */,
 				4F71D2D27471ACDA37B79991 /* App.Lib.LocalizedString.swift in Sources */,
 				4F71D4E67E16082DF0ACA14D /* Cleaner.GarbageDetector.Lockscreen.swift in Sources */,
-				4F71DC7EABDA2C30F4A36D51 /* AppDockViewController.Operations.swift in Sources */,
+				4F71DC7EABDA2C30F4A36D51 /* AppDockViewController.InterplayableApp.swift in Sources */,
 				4F71DB283CDD467EFA6CB0E2 /* App.InterplayableApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

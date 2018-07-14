@@ -14,21 +14,14 @@ public struct AppInterplayOptionsKey: Hashable, Equatable, RawRepresentable {
 }
 
 public struct AppInterplayOption {
-    var data:[AppInterplayOptionsKey:Any]?
+    var data:[AppInterplayOptionsKey:Any]
+    var returningAppIdentifier:String?
 }
 
 protocol InterplayableApp where Self:App {
     //INFO: Optional - other apps can read this option if app is providing.
-    var interactionOption: AppInterplayOption? {get}
+    static var interplayOption: AppInterplayOption? {get}
 
-    func willSelect(current:App.Type?)
-    func didSelect(previous:App.Type?)
+    func willSelect(current:App.Type?, withOption:AppInterplayOption?)
+    func didSelect(previous:App.Type?, withOption:AppInterplayOption?)
 }
-
-extension InterplayableApp{
-    var interactionOption: AppInterplayOption? {
-        return nil
-    }
-}
-
-
