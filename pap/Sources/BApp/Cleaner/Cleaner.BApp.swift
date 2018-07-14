@@ -63,6 +63,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
 //        , PHAssetGarbageDetector_Blurry.self
         , PHAssetGarbageDetector_Screenshots.self
         , PHAssetGarbageDetector_Lockscreens.self
+        , PHAssetGarbageDetector_Flashlight.self
     ]
 
     /*
@@ -129,13 +130,13 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
 
         var result: PHAssetGCResult
 
-        let selectedGdIds = type(of: self).privateDefaults.selectedCollection.compactMap { dictionary -> [GDItem]? in
-            return dictionary.items.nilEmpty
-        }.reduce([],+).map { $0.gdIdentifier }
+//        let selectedGdIds = type(of: self).privateDefaults.selectedCollection.compactMap { dictionary -> [GDItem]? in
+//            return dictionary.items.nilEmpty
+//        }.reduce([],+).map { $0.gdIdentifier }
 
         //FIXME:
         if let preheatedResult = preheatCachedResults[item.asset.localIdentifierWithoutSplitter]
-        , Set((preheatedResult.detected.map{ $0.identifier })).symmetricDifference(Set(selectedGdIds)).count == 0{
+        /*, Set((preheatedResult.detected.map{ $0.identifier })).symmetricDifference(Set(selectedGdIds)).count == 0*/{
             result = preheatedResult
 
         }else{

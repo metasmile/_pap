@@ -162,6 +162,11 @@ extension PhotoPickerViewController: UIScrollViewDelegate {
         return appDockView?.isContentLayoutMaximized == false
     }
 
+    //TODO: consider but performace improvement is needed
+//    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        enqueuePreheatingIfNeeded()
+//    }
+
     public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         enqueuePreheatingIfNeeded()
     }

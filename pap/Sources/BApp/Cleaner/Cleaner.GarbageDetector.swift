@@ -46,8 +46,48 @@ class PHAssetGarbageDetector_Screenshots : PHAssetGarbageDetector{
     }
 }
 
+class PHAssetGarbageDetector_Flashlight : PHAssetGarbageDetector{
+    override class var label:String{
+        return "Flashlight".localized
+    }
 
+    let firedFlags = Set<Int>([
+        0x1//=Fired
+        ,0x5//=Fired, Return not detected
+        ,0x7//=Fired, Return detected
+        ,0x9//=On, Fired
+        ,0x19//=Auto, Fired
+        ,0x1d//=Auto, Fired, Return not detected
+        ,0x1f//=Auto, Fired, Return detected
+        ,0x41//=Fired, Red-eye reduction
+        ,0x45//=Fired, Red-eye reduction, Return not detected
+        ,0x47//=Fired, Red-eye reduction, Return detected
+        ,0x59//=Auto, Fired, Red-eye reduction
+        ,0x5d//=Auto, Fired, Red-eye reduction, Return not detected
+        ,0x5f//=Auto, Fired, Red-eye reduction, Return detected
+    ])
 
+    override func process(input: PHAsset, _ asyncSignal: AsyncWaitSignalable?) -> Bool? {
+        guard input.mediaType == .image else { return false }
+
+        let option = PHContentEditingInputRequestOptions()
+        option.isNetworkAccessAllowed = false
+        option.canHandleAdjustmentData = { _ -> Bool in
+            return false
+        }
+
+        let options = PHImageRequestOptions()
+        options.isNetworkAccessAllowed = false
+        if let data = input.requestImageData(options: options, asyncSignal!).data{
+            if let flashValue = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifFlash) as? Int{
+                print(firedFlags.contains(flashValue))
+                return firedFlags.contains(flashValue)
+            }
+        }
+
+        return false
+    }
+}
 
 /*
     Similarity
