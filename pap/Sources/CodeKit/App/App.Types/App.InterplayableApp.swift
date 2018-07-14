@@ -14,9 +14,9 @@ public struct AppInterplayOptionsKey: Hashable, Equatable, RawRepresentable {
 }
 
 public struct AppInterplayOption {
-    var data:[AppInterplayOptionsKey:Any?]?
-    init(data:[AppInterplayOptionsKey:Any?]?=nil){
-        self.data = data
+    var options:[AppInterplayOptionsKey:Any?]?
+    init(options:[AppInterplayOptionsKey:Any?]?=nil){
+        self.options = options
     }
     var identifierToReturn:String?
 }

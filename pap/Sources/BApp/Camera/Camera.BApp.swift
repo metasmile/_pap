@@ -30,8 +30,9 @@ extension Defaults: CameraAppDefaults {
 }
 
 extension AppInterplayOptionsKey{
-    static let capturedPhotoURL = AppInterplayOptionsKey(rawValue:CameraViewCaptureProcessorResultKey.photoURL.rawValue)
-    static let capturedPairedVideoURL = AppInterplayOptionsKey(rawValue:CameraViewCaptureProcessorResultKey.pairedVideoURL.rawValue)
+    static let capturedAsset = AppInterplayOptionsKey(rawValue:0)
+    static let capturedPhotoURL = AppInterplayOptionsKey(rawValue:1)
+    static let capturedPairedVideoURL = AppInterplayOptionsKey(rawValue:2)
 }
 
 class CameraApp: NSObject, KeyPathWatchable, BApp, InterplayableApp, AppDockApp, PhotoPickerCollectionViewDisplayableApp {
@@ -43,8 +44,8 @@ class CameraApp: NSObject, KeyPathWatchable, BApp, InterplayableApp, AppDockApp,
     
     public static let info = AppInfo(
         identifier: "com.stells.pap.camera"
-        , version: "0.1"
-        , phase: .develop
+        , version: "1.0"
+        , phase: .release
         , appType: CameraApp.self
         , displayName: "Camera".localized, description:nil, keywords:nil
         , iconBundleName: R.image.cameraBAppIcon.name
@@ -63,13 +64,13 @@ class CameraApp: NSObject, KeyPathWatchable, BApp, InterplayableApp, AppDockApp,
     func willSelect(current: App.Type?, withOption: AppInterplayOption?) {
     }
 
-    fileprivate var interplayOption:AppInterplayOption? = nil
+    fileprivate var importedInterplayOption:AppInterplayOption? = nil
 
     func didSelect(previous: App.Type?, withOption: AppInterplayOption?) {
 //        interplayOption = withOption
         var option = AppInterplayOption()
         option.identifierToReturn = "com.stells.pap.finder"
-        interplayOption = option
+        importedInterplayOption = option
     }
 }
 
@@ -97,26 +98,43 @@ fileprivate class CameraAppDockContent: NSObject, KeyPathWatchable, AppDockConte
         if let pref = preferences, view.bounds.height > pref.preferredHeight {
             (view as? CameraAppView)?.isCompactMode = false
         }
-
+        
+        var capturedHandlerResult:CameraViewCaptureProcessorResult?
         cameraView?.capturedHandler = { succeed, results in
-            if let r = results{
-                self.didCaptured(with:r)
+            capturedHandlerResult = results
+        }
+        
+        PHPhotoLibraryManager.default.watch(\.changes) {
+            guard let changeInstance = PHPhotoLibraryManager.default.changes else {
+                return
+            }
+            
+            if let results = capturedHandlerResult, let last = PHAssets.fetched.results?.last{
+                if let insertedAssets = changeInstance.changeDetails(for: last)?.insertedObjects{
+                    for asset in insertedAssets {
+                        
+                        let data = [
+                            AppInterplayOptionsKey.capturedAsset: asset
+                            , AppInterplayOptionsKey.capturedPhotoURL: results[CameraViewCaptureProcessorResultKey.photoURL]
+                            , AppInterplayOptionsKey.capturedPairedVideoURL: results[CameraViewCaptureProcessorResultKey.pairedVideoURL]
+                        ]
+                        self.didCaptured(with:data)
+                        break
+                    }
+                }
             }
         }
     }
     
-    func didCaptured(with results:CameraViewCaptureProcessorResult){
-        if let option = AppCenter.default.currentInstanceAs(CameraApp.self)?.interplayOption
+    func didCaptured(with data:[AppInterplayOptionsKey:Any?]){
+        if let option = AppCenter.default.currentInstanceAs(CameraApp.self)?.importedInterplayOption
             , let id = option.identifierToReturn{
             
-            let data = [
-                AppInterplayOptionsKey.capturedPhotoURL: results[CameraViewCaptureProcessorResultKey.photoURL]
-                , AppInterplayOptionsKey.capturedPairedVideoURL: results[CameraViewCaptureProcessorResultKey.pairedVideoURL]
-            ]
-            
-            CameraApp.interplayOption = AppInterplayOption(data: data)
-            DispatchQueue.main.async{
-                AppCenter.default.openApp(identifier: id, animation:true)
+            CameraApp.interplayOption = AppInterplayOption(options: data)
+            DispatchQueue.global(qos: .background).async{
+                DispatchQueue.main.async{
+                    AppCenter.default.openApp(identifier: id, animation:true)
+                }
             }
         }
     }
