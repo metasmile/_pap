@@ -83,6 +83,11 @@ public class UITableViewCellDescriber: UITableViewCellDefaultDescribable {
     }
 }
 
+public class UITableViewButtonCellDescriber: UITableViewCellDescriber {
+    public override var cellClass:Swift.AnyClass { return UITableViewButtonCell.self }
+
+    public var buttonImageName:String?
+}
 
 public class UITableViewPickerCellDescriber: UITableViewCellDescriber, UITableViewCellMultipleValueDescribable {
     public override var cellClass:Swift.AnyClass { return UITableViewPickerCell.self }

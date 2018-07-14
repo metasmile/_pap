@@ -88,8 +88,8 @@ open class AppManager: NSObject, SelectableCollection {
             assert(newValue == nil || _apps.contains { appType in appType == newValue },"Given current app \(String(describing:newValue)) is not contained in app collection")
             guard newValue != previous else{ return }
 
-            let option = (self.current as? InterplayableApp.Type)?.interplayOption
-            self.getInstance(newValue, as: InterplayableApp.self)?.willSelect(current:self.current, withOption:option)
+            let launchedApp = self.current as? LaunchableApp.Type
+            self.getInstance(newValue, as: LaunchableApp.self)?.willLaunch(current:self.current, withOption:launchedApp?.launchOption)
         }
         didSet {
             guard previous == nil || oldValue != current else { return }
@@ -106,8 +106,9 @@ open class AppManager: NSObject, SelectableCollection {
             DispatchQueue.main.async{
                 self.currentIdentifier = self.current?.info.identifier
 
-                let option = (self.current as? InterplayableApp.Type)?.interplayOption
-                self.getInstance(self.current, as: InterplayableApp.self)?.didSelect(previous:self.previous, withOption:option)            }
+                let launchedApp = self.previous as? LaunchableApp.Type
+                self.getInstance(self.current, as: LaunchableApp.self)?.didLaunch(previous:self.previous, withOption:launchedApp?.launchOption)
+            }
         }
     }
 

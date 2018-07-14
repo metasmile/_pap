@@ -19,7 +19,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
         , AppDockApp
         , PhotoPickerViewControllerDelegatableApp
         , PreheatableApp
-        , InterplayableApp {
+        , LaunchableApp {
 
     public static let taskType: AppTaskable.Type = _FinderAppTask.self
 
@@ -52,12 +52,12 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
 //        callProviderDelegate = CallProviderDelegate(callManager: CallManager.shared)
     }
 
-    private(set) static var interplayOption: AppInterplayOption? = nil
+    fileprivate (set) static var launchOption: AppLaunchOption? = nil
 
-    func willSelect(current: App.Type?, withOption:AppInterplayOption?) {
+    func willLaunch(current: App.Type?, withOption: AppLaunchOption?) {
     }
 
-    func didSelect(previous: App.Type?, withOption:AppInterplayOption?) {
+    func didLaunch(previous: App.Type?, withOption: AppLaunchOption?) {
     }
 
     public func shouldSelect(item: AppAsset) -> Bool {
@@ -1061,6 +1061,7 @@ private enum SelectionPreset:Int{
 }
 
 private enum FinderAppSettingCells {
+    case takePhoto
     case presets
     case autoSelect
     case saveContactWithoutEdit
@@ -1263,6 +1264,20 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
             return
         }
 
+        let cell_b = UITableViewButtonCellDescriber()
+        cell_b.itemIdentifier = FinderAppSettingCells.takePhoto.hashValue
+        cell_b.label = "Take A Photo".localized
+        cell_b.buttonImageName = R.image.systemIconCamera.name
+        cell_b.valueHandler = { _ in
+            var option = AppLaunchOption()
+            option.identifierToReturn = FinderApp.info.identifier
+            FinderApp.launchOption = option
+            AppCenter.default.openApp(identifier:"com.stells.pap.camera")
+
+        }
+        settingCellDescribers.append(cell_b)
+
+
         let cell1 = UITableViewSwitchCellDescriber()
         cell1.itemIdentifier = FinderAppSettingCells.autoSelect.hashValue
         cell1.label = "Enable Auto Selection".localized
@@ -1438,6 +1453,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
             return cell
 
         }
+
         else if let cellDescriber = item as? UITableViewSwitchCellDescriber
         , let value = item.valueGetter() as? Bool
         , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewSwitchCell {
@@ -1447,6 +1463,20 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
             cell.switcher.onTintColor = self.view.tintColor
             cell.imageView?.image = item.iconImage?.asUIImage
             cell.switchDidChange = item.valueHandler
+            return cell
+        }
+
+        else if let cellDescriber = item as? UITableViewButtonCellDescriber
+        , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewButtonCell {
+
+            cell.textLabel?.text = item.label
+            cell.button.setImage(cellDescriber.buttonImageName?.asUIImage?.withRenderingMode(.alwaysTemplate), for: .normal)
+            cell.button.tintColor = self.view.tintColor
+            cell.imageView?.image = item.iconImage?.asUIImage
+            cell.didTap = {
+                cellDescriber.valueHandler?(true)
+            }
+            cell.button.layoutIfNeeded()
             return cell
         }
 

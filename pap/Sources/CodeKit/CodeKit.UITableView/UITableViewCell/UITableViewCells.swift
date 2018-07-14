@@ -172,6 +172,56 @@ class UITableViewStepperCell: UITableViewCellWithInclusiveHitTestSubview {
     }
 }
 
+class UITableViewButtonCell: UITableViewCell {
+    private(set) lazy var button: UIButton = UIButton()
+
+    var touchAreaOnlyButton:Bool = false
+    var didTap: (() -> ())?
+
+    override open func prepareForReuse() {
+        super.prepareForReuse()
+
+        didTap = nil
+    }
+
+    override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+
+        button.addTarget(self, action: #selector(self.buttonDidTap), for: .touchUpInside)
+
+        accessoryView = button
+
+        self.detailTextLabel?.textColor = UIColor.gray
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+
+        if !touchAreaOnlyButton{
+            for touch in touches{
+                if let _ = touch.view{
+                    didTap?()
+                    break
+                }
+            }
+        }
+    }
+
+    override open func layoutSubviews() {
+        button.sizeToFit()
+        button.frame = UIEdgeInsetsInsetRect(button.frame, UIEdgeInsetsMake(5, 5, 5, 5))
+
+        super.layoutSubviews()
+    }
+
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    @objc func buttonDidTap(sender: UIButton) {
+        didTap?()
+    }
+}
 
 class UITableViewSegmentedControlCell: UITableViewCellWithInclusiveHitTestSubview {
     private(set) lazy var segmentedControl: UISegmentedControl = UISegmentedControl(items: [])

@@ -15,12 +15,12 @@ private extension AppDockViewController {
 
 extension AppCenter{
     @discardableResult
-    func openCurrentApp(options: AppInterplayOption?=nil, animation:Bool=false) -> Bool{
-        return self.openApp(identifier: AppCenter.default.current?.info.identifier ?? "", options: options, animation: animation)
+    func openCurrentApp(animation:Bool=false) -> Bool{
+        return self.openApp(identifier: AppCenter.default.current?.info.identifier ?? "", animation: animation)
     }
 
     @discardableResult
-    func openApp(identifier:String, options: AppInterplayOption?=nil, animation:Bool=false) -> Bool{
+    func openApp(identifier:String, animation:Bool=false) -> Bool{
         if identifier.trimmed.nilEmpty != nil
         , let matchedApp = AppCenter.default.apps().first(where:{ $0.info.identifier==identifier }){
             return self.openApp(matchedApp, animation: animation)

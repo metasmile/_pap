@@ -29,13 +29,13 @@ extension Defaults: CameraAppDefaults {
     }
 }
 
-extension AppInterplayOptionsKey{
-    static let capturedAsset = AppInterplayOptionsKey(rawValue:0)
-    static let capturedPhotoURL = AppInterplayOptionsKey(rawValue:1)
-    static let capturedPairedVideoURL = AppInterplayOptionsKey(rawValue:2)
+extension AppLaunchOptionsKey {
+    static let capturedAsset = AppLaunchOptionsKey(rawValue:0)
+    static let capturedPhotoURL = AppLaunchOptionsKey(rawValue:1)
+    static let capturedPairedVideoURL = AppLaunchOptionsKey(rawValue:2)
 }
 
-class CameraApp: NSObject, KeyPathWatchable, BApp, InterplayableApp, AppDockApp, PhotoPickerCollectionViewDisplayableApp {
+class CameraApp: NSObject, KeyPathWatchable, BApp, LaunchableApp, AppDockApp, PhotoPickerCollectionViewDisplayableApp {
     public static let taskType: AppTaskable.Type = _CameraAppTask.self
     
     public static let paramType: AppTaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
@@ -59,18 +59,17 @@ class CameraApp: NSObject, KeyPathWatchable, BApp, InterplayableApp, AppDockApp,
         return false
     }
 
-    fileprivate(set) static var interplayOption: AppInterplayOption? = nil
+    fileprivate(set) static var launchOption: AppLaunchOption? = nil
 
-    func willSelect(current: App.Type?, withOption: AppInterplayOption?) {
+    func willLaunch(current: App.Type?, withOption: AppLaunchOption?) {
+
     }
 
-    fileprivate var importedInterplayOption:AppInterplayOption? = nil
+    fileprivate var importedLaunchOption: AppLaunchOption? = nil
 
-    func didSelect(previous: App.Type?, withOption: AppInterplayOption?) {
-//        interplayOption = withOption
-        var option = AppInterplayOption()
-        option.identifierToReturn = "com.stells.pap.finder"
-        importedInterplayOption = option
+    func didLaunch(previous: App.Type?, withOption: AppLaunchOption?) {
+        importedLaunchOption = withOption
+        print(importedLaunchOption?.identifierToReturn)
     }
 }
 
@@ -102,6 +101,15 @@ fileprivate class CameraAppDockContent: NSObject, KeyPathWatchable, AppDockConte
         var capturedHandlerResult:CameraViewCaptureProcessorResult?
         cameraView?.capturedHandler = { succeed, results in
             capturedHandlerResult = results
+
+            if let results = capturedHandlerResult{
+                let data = [
+                    AppLaunchOptionsKey.capturedPhotoURL: results[CameraViewCaptureProcessorResultKey.photoURL]
+                    , AppLaunchOptionsKey.capturedPairedVideoURL: results[CameraViewCaptureProcessorResultKey.pairedVideoURL]
+                ]
+                self.didCaptured(with:data)
+            }
+
         }
         
         PHPhotoLibraryManager.default.watch(\.changes) {
@@ -114,9 +122,9 @@ fileprivate class CameraAppDockContent: NSObject, KeyPathWatchable, AppDockConte
                     for asset in insertedAssets {
                         
                         let data = [
-                            AppInterplayOptionsKey.capturedAsset: asset
-                            , AppInterplayOptionsKey.capturedPhotoURL: results[CameraViewCaptureProcessorResultKey.photoURL]
-                            , AppInterplayOptionsKey.capturedPairedVideoURL: results[CameraViewCaptureProcessorResultKey.pairedVideoURL]
+                            AppLaunchOptionsKey.capturedAsset: asset
+                            , AppLaunchOptionsKey.capturedPhotoURL: results[CameraViewCaptureProcessorResultKey.photoURL]
+                            , AppLaunchOptionsKey.capturedPairedVideoURL: results[CameraViewCaptureProcessorResultKey.pairedVideoURL]
                         ]
                         self.didCaptured(with:data)
                         break
@@ -126,16 +134,16 @@ fileprivate class CameraAppDockContent: NSObject, KeyPathWatchable, AppDockConte
         }
     }
     
-    func didCaptured(with data:[AppInterplayOptionsKey:Any?]){
-        if let option = AppCenter.default.currentInstanceAs(CameraApp.self)?.importedInterplayOption
+    func didCaptured(with data:[AppLaunchOptionsKey:Any?]){
+        if let option = AppCenter.default.currentInstanceAs(CameraApp.self)?.importedLaunchOption
             , let id = option.identifierToReturn{
             
-            CameraApp.interplayOption = AppInterplayOption(options: data)
-            DispatchQueue.global(qos: .background).async{
+            CameraApp.launchOption = AppLaunchOption(options: data)
+            Timer.scheduledTimer(identifier: #file, withTimeInterval: 0.3, block: { timer in
                 DispatchQueue.main.async{
                     AppCenter.default.openApp(identifier: id, animation:true)
                 }
-            }
+            })
         }
     }
 

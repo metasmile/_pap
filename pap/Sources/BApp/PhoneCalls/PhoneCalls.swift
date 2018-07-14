@@ -36,7 +36,7 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
         , PhotoPickerViewControllerDelegatableApp
         , PreheatableApp
 //        , PreviewableApp
-        , InterplayableApp {
+        , LaunchableApp {
 
     public static let taskType: AppTaskable.Type = _PhoneCallsAppTask.self
 
@@ -69,12 +69,12 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
 //        callProviderDelegate = CallProviderDelegate(callManager: CallManager.shared)
     }
 
-    private(set) static var interplayOption: AppInterplayOption? = nil
+    private(set) static var launchOption: AppLaunchOption? = nil
 
-    func willSelect(current: App.Type?, withOption:AppInterplayOption?) {
+    func willLaunch(current: App.Type?, withOption: AppLaunchOption?) {
     }
 
-    func didSelect(previous: App.Type?, withOption:AppInterplayOption?) {
+    func didLaunch(previous: App.Type?, withOption: AppLaunchOption?) {
     }
 
     public var finalizingActions: [PHAssetFinalizingAction] {
