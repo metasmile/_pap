@@ -6,16 +6,19 @@
 import Foundation
 
 public struct AppInterplayOptionsKey: Hashable, Equatable, RawRepresentable {
-    public typealias RawValue = String
+    public typealias RawValue = Int
     public private(set) var rawValue: RawValue
-    public init?(rawValue: RawValue) {
+    public init(rawValue: RawValue) {
         self.rawValue = rawValue
     }
 }
 
 public struct AppInterplayOption {
-    var data:[AppInterplayOptionsKey:Any]
-    var returningAppIdentifier:String?
+    var data:[AppInterplayOptionsKey:Any?]?
+    init(data:[AppInterplayOptionsKey:Any?]?=nil){
+        self.data = data
+    }
+    var identifierToReturn:String?
 }
 
 protocol InterplayableApp where Self:App {

@@ -29,6 +29,11 @@ extension Defaults: CameraAppDefaults {
     }
 }
 
+extension AppInterplayOptionsKey{
+    static let capturedPhotoURL = AppInterplayOptionsKey(rawValue:CameraViewCaptureProcessorResultKey.photoURL.rawValue)
+    static let capturedPairedVideoURL = AppInterplayOptionsKey(rawValue:CameraViewCaptureProcessorResultKey.pairedVideoURL.rawValue)
+}
+
 class CameraApp: NSObject, KeyPathWatchable, BApp, InterplayableApp, AppDockApp, PhotoPickerCollectionViewDisplayableApp {
     public static let taskType: AppTaskable.Type = _CameraAppTask.self
     
@@ -53,7 +58,7 @@ class CameraApp: NSObject, KeyPathWatchable, BApp, InterplayableApp, AppDockApp,
         return false
     }
 
-    private(set) static var interplayOption: AppInterplayOption? = nil
+    fileprivate(set) static var interplayOption: AppInterplayOption? = nil
 
     func willSelect(current: App.Type?, withOption: AppInterplayOption?) {
     }
@@ -61,7 +66,75 @@ class CameraApp: NSObject, KeyPathWatchable, BApp, InterplayableApp, AppDockApp,
     fileprivate var interplayOption:AppInterplayOption? = nil
 
     func didSelect(previous: App.Type?, withOption: AppInterplayOption?) {
-        interplayOption = withOption
+//        interplayOption = withOption
+        var option = AppInterplayOption()
+        option.identifierToReturn = "com.stells.pap.finder"
+        interplayOption = option
+    }
+}
+
+fileprivate class CameraAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDockDelegate {
+    lazy var view: UIView = {
+        return CameraAppView(frame: .zero)
+    }()
+
+    private var cameraView: CameraView? {
+        return (view as? CameraAppView)?.cameraView
+    }
+
+    var preferences: AppDockContentPreferable? {
+        let pref = AppDockContentPreferences()
+        return pref
+    }
+
+    func willSetContentView(_ view: UIView, dock: AppDock) {
+
+    }
+
+    func didSetContentView(_ view: UIView, dock: AppDock) {
+        cameraView?.startSession()
+
+        if let pref = preferences, view.bounds.height > pref.preferredHeight {
+            (view as? CameraAppView)?.isCompactMode = false
+        }
+
+        cameraView?.capturedHandler = { succeed, results in
+            if let r = results{
+                self.didCaptured(with:r)
+            }
+        }
+    }
+    
+    func didCaptured(with results:CameraViewCaptureProcessorResult){
+        if let option = AppCenter.default.currentInstanceAs(CameraApp.self)?.interplayOption
+            , let id = option.identifierToReturn{
+            
+            let data = [
+                AppInterplayOptionsKey.capturedPhotoURL: results[CameraViewCaptureProcessorResultKey.photoURL]
+                , AppInterplayOptionsKey.capturedPairedVideoURL: results[CameraViewCaptureProcessorResultKey.pairedVideoURL]
+            ]
+            
+            CameraApp.interplayOption = AppInterplayOption(data: data)
+            DispatchQueue.main.async{
+                AppCenter.default.openApp(identifier: id, animation:true)
+            }
+        }
+    }
+
+    func willRemoveContentView() {
+        cameraView?.stopSession()
+    }
+
+    var delegate: AppDockDelegate? {
+        return self
+    }
+
+    func dockWillExpand(_ dock: AppDock) {
+        (view as? CameraAppView)?.isCompactMode = false
+    }
+
+    func dockWillContract(_ dock: AppDock) {
+        (view as? CameraAppView)?.isCompactMode = true
     }
 }
 
@@ -72,6 +145,16 @@ private class _CameraAppTask: AppTaskPrototype, AppTaskable {
         return nil
     }
 }
+
+
+/*
+
+Moduleize
+
+CodeKit/Camera/
+CodeKit/Camera/UI
+
+*/
 
 fileprivate class CameraPreviewLayer: AVCaptureVideoPreviewLayer, CALayerDelegate {
     override func action(forKey event: String) -> CAAction? {
@@ -138,6 +221,7 @@ fileprivate class CameraPreviewView: UIView {
         }
     }
     
+    //FIXME: didn't use main queue warning
     var session: AVCaptureSession? {
         set {
             captureVideoPreviewLayer?.session = newValue
@@ -159,6 +243,7 @@ fileprivate class CameraView: UIView {
     }()
     
     var configurationDidUpdate: (() -> Void)?
+    var capturedHandler:CameraViewCaptureProcessorCompletionHandler?
     
     private lazy var sessionQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
     
@@ -274,8 +359,9 @@ fileprivate class CameraView: UIView {
         capturesInProgress.insert(captureProcessor)
         
         // Schedule for the capture delegate to be removed from the set after capture.
-        captureProcessor.completionHandler = { [weak self] succeed in
+        captureProcessor.completionHandler = { [weak self] succeed, result in
             self?.capturesInProgress.remove(captureProcessor)
+            self?.capturedHandler?(succeed, succeed ? result : nil)
         }
         
         sessionQueue.async {
@@ -427,8 +513,25 @@ extension CameraView {
 
 //https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/capturing_still_and_live_photos/capturing_and_saving_live_photos
 
+
+typealias CameraViewCaptureProcessorResult = [CameraViewCaptureProcessorResultKey:Any]
+typealias CameraViewCaptureProcessorCompletionHandler = (_ succeed:Bool, _ result:CameraViewCaptureProcessorResult?) -> ()
+
+struct CameraViewCaptureProcessorResultKey: Hashable, Equatable, RawRepresentable {
+    public typealias RawValue = Int
+    public private(set) var rawValue: RawValue
+    public init(rawValue: RawValue) {
+        self.rawValue = rawValue
+    }
+}
+
+extension CameraViewCaptureProcessorResultKey{
+    static let photoURL = CameraViewCaptureProcessorResultKey(rawValue:PHAssetResourceType.photo.rawValue)
+    static let pairedVideoURL = CameraViewCaptureProcessorResultKey(rawValue:PHAssetResourceType.pairedVideo.rawValue)
+}
+
 fileprivate class CameraViewCaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
-    var completionHandler: ((Bool) -> ()) = { let _ = $0 }
+    var completionHandler:CameraViewCaptureProcessorCompletionHandler?
     lazy var captureQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
 }
 
@@ -444,7 +547,9 @@ fileprivate class CameraViewStillPhotoCaptureProcessor: CameraViewCaptureProcess
             PHPhotoLibrary.shared().performChanges({
                 PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL: url)
             }, completionHandler: { (success, info) in
-                self.completionHandler(success)
+                self.completionHandler?(success, [
+                    CameraViewCaptureProcessorResultKey.photoURL:url
+                ])
                 signal.end()
             })
             signal.waitUntilEnd()
@@ -470,7 +575,10 @@ fileprivate class CameraViewLivePhotoCaptureProcessor: CameraViewCaptureProcesso
                 creationRequest.addResource(with: .photo, fileURL: photoURL, options: options)
                 creationRequest.addResource(with: .pairedVideo, fileURL: outputFileURL, options: options)
             }, completionHandler: { (success, info) in
-                self.completionHandler(success)
+                self.completionHandler?(success, [
+                    CameraViewCaptureProcessorResultKey.photoURL:photoURL
+                    , CameraViewCaptureProcessorResultKey.pairedVideoURL:outputFileURL
+                ])
                 signal.end()
             })
             signal.waitUntilEnd()
@@ -749,45 +857,4 @@ fileprivate class CameraAppView: UIView {
     }
 }
 
-fileprivate class CameraAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDockDelegate {
-    lazy var view: UIView = {
-        return CameraAppView(frame: .zero)
-    }()
-    
-    private var cameraView: CameraView? {
-        return (view as? CameraAppView)?.cameraView
-    }
-    
-    var preferences: AppDockContentPreferable? {
-        let pref = AppDockContentPreferences()
-        return pref
-    }
-    
-    func willSetContentView(_ view: UIView, dock: AppDock) {
-        
-    }
-    
-    func didSetContentView(_ view: UIView, dock: AppDock) {
-        cameraView?.startSession()
-        
-        if let pref = preferences, view.bounds.height > pref.preferredHeight {
-            (view as? CameraAppView)?.isCompactMode = false
-        }
-    }
-    
-    func willRemoveContentView() {
-        cameraView?.stopSession()
-    }
-    
-    var delegate: AppDockDelegate? {
-        return self
-    }
-    
-    func dockWillExpand(_ dock: AppDock) {
-        (view as? CameraAppView)?.isCompactMode = false
-    }
-    
-    func dockWillContract(_ dock: AppDock) {
-        (view as? CameraAppView)?.isCompactMode = true
-    }
-}
+
