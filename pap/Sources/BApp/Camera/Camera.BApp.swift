@@ -578,6 +578,14 @@ fileprivate class CameraAppView: UIView {
         
         let buttonImageInsets = UIEdgeInsetsMake(4, 4, 4, 4)
         
+        let backgroundView = UIView(frame: .zero)
+        backgroundView.backgroundColor = .black
+        addSubview(backgroundView)
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        
+        backgroundView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        backgroundView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        
         let optionView = UIView(frame: .zero)
         optionView.backgroundColor = .black
         addSubview(optionView)
@@ -598,6 +606,9 @@ fileprivate class CameraAppView: UIView {
         
         cameraAspectRatioLayout = cameraView.heightAnchor.constraint(equalTo: cameraView.widthAnchor, multiplier: 1.3)
         cameraAspectRatioLayout?.isActive = true
+        
+        backgroundView.leadingAnchor.constraint(equalTo: cameraView.leadingAnchor).isActive = true
+        backgroundView.trailingAnchor.constraint(equalTo: cameraView.trailingAnchor).isActive = true
         
         optionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         optionView.leadingAnchor.constraint(equalTo: cameraView.leadingAnchor).isActive = true
