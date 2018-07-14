@@ -237,10 +237,3 @@ class AppDockViewController: UIViewController {
         return insets
     }
 }
-
-extension AppDockViewController {
-    func selectCurrentAppIfExist(animated: Bool = true) {
-        guard let currentApp = AppCenter.default.current, let indexOfCurrentApp = appDockItems.index(where: { $0.app == currentApp }), indexOfCurrentApp != NSNotFound else { return }
-        appDockView?.selectItem(at: IndexPath(item: indexOfCurrentApp, section: 0), animated: animated)
-    }
-}

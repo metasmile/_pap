@@ -122,17 +122,12 @@ class SpotlightSearchAppDelegate: NSObject, UIApplicationDelegate{
             return false
         }
 
-        guard let rootVc = UIApplication.shared.keyWindow?.rootViewController as? AppDockNavigationController
-        , let appDockVc = rootVc.topViewController as? AppDockViewController
-        , let app = CSSearchable.appBySearchable(activity: activity)
-        , app != AppCenter.default.current else {
-
+        guard let app = CSSearchable.appBySearchable(activity: activity) else {
             return false
         }
 
         DispatchQueue.main.async{
-            AppCenter.default.current = app
-            appDockVc.selectCurrentAppIfExist(animated: false)
+            AppCenter.default.selectApp(app)
         }
 
         return true
