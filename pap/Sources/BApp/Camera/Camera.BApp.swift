@@ -12,9 +12,9 @@ import Photos
 import PhotosUI
 import DefaultsKit
 
-protocol CameraAppDefaults: AppDefaults {
-    var isLivePhotoEnabled: Bool { get set }
-    var cameraPosition: AVCaptureDevice.Position { get set }
+protocol CameraAppDefaults: AppDefaults, AppUICameraViewOptions {
+    //INFO: extend app-specific properties if needed,
+    // app developer can manually implement, decide or define whether storing values or getting default in app scope.
 }
 
 extension Defaults: CameraAppDefaults {
@@ -22,7 +22,7 @@ extension Defaults: CameraAppDefaults {
         set { set(newValue) }
         get { return get(or: false) }
     }
-    
+
     var cameraPosition: AVCaptureDevice.Position {
         set { set(newValue.rawValue) }
         get { return AVCaptureDevice.Position(rawValue: get(or: AVCaptureDevice.Position.back.rawValue)) ?? .back }
@@ -69,7 +69,7 @@ class CameraAppView: AppUICameraView {}
 
 fileprivate class CameraAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDockDelegate {
     lazy var view: UIView = {
-        return CameraAppView(frame: .zero)
+        return CameraAppView(frame: .zero, options:CameraApp.defaults as! CameraAppDefaults)
     }()
 
     private var cameraView: CameraView? {

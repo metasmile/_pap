@@ -8,8 +8,15 @@ import UIKit
 import AVFoundation
 import Photos
 import PhotosUI
+import DefaultsKit
+
+protocol AppUICameraViewOptions {
+    var isLivePhotoEnabled: Bool { get set }
+    var cameraPosition: AVCaptureDevice.Position { get set }
+}
 
 class AppUICameraView: UIView {
+
     lazy var cameraView: CameraView = {
         let cameraView = CameraView(frame: .zero)
         cameraView.backgroundColor = .black
@@ -28,11 +35,13 @@ class AppUICameraView: UIView {
 
     fileprivate var primaryColor = UIColor(red: 0.97, green: 0.8, blue: 0.27, alpha: 1) // 248    204    70
 
-    private lazy var userSettings = CameraApp.defaults as! CameraAppDefaults
-
-    override init(frame: CGRect) {
+    init(frame: CGRect, options: AppUICameraViewOptions?=nil) {
         super.init(frame: frame)
-        intialize()
+        intialize(with: options)
+    }
+
+    override convenience init(frame:CGRect) {
+        self.init(frame: frame, options: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -44,7 +53,7 @@ class AppUICameraView: UIView {
     private lazy var cameraPositionButton = UIButton(type: .system)
     private lazy var backgroundView = UIView(frame: .zero)
 
-    private func intialize() {
+    private func intialize(with defaults: AppUICameraViewOptions?=nil) {
         tintColor = UIColor.white
 
         let buttonImageInsets = UIEdgeInsetsMake(4, 4, 4, 4)
@@ -145,8 +154,9 @@ class AppUICameraView: UIView {
         cameraPositionButtonCenterYLayout.isActive = true
 
         cameraView.configurationDidUpdate = {
-            self.userSettings.isLivePhotoEnabled = self.cameraView.isLivePhotoEnabled
-            self.userSettings.cameraPosition = self.cameraView.cameraPosition
+            var defaults = defaults
+            defaults?.isLivePhotoEnabled = self.cameraView.isLivePhotoEnabled
+            defaults?.cameraPosition = self.cameraView.cameraPosition
 
             DispatchQueue.main.async {
                 livePhotoButton.setImage(self.livePhotoBadgeIcon, for: .normal)
@@ -154,8 +164,10 @@ class AppUICameraView: UIView {
             }
         }
 
-        self.cameraView.isLivePhotoEnabled = self.userSettings.isLivePhotoEnabled
-        self.cameraView.cameraPosition = self.userSettings.cameraPosition
+        if let defaults = defaults{
+            self.cameraView.isLivePhotoEnabled = defaults.isLivePhotoEnabled
+            self.cameraView.cameraPosition = defaults.cameraPosition
+        }
     }
 
     private var devicePositionIcon: UIImage {
