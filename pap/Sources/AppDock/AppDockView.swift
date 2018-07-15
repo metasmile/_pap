@@ -19,6 +19,13 @@ struct AppDockItem {
 
 // MARK: -
 
+protocol AppDockViewDataSource {
+    func numberOfItems(in view: AppDockView) -> Int
+    func appDockView(_ view: AppDockView, itemAt index: Int) -> AppDockItem?
+    func appDockView(_ view: AppDockView, appForItemAt index: Int) -> App.Type?
+    func appDockView(_ view: AppDockView, indexOf item: AppDockItem) -> Int?
+}
+
 protocol AppDockViewDelegate {
     func appDockView(_ view: AppDockView, didSelectItemWith item: AppDockItem)
     func appDockView(_ view: AppDockView, didOpenDrawer isOpened: Bool)
@@ -79,15 +86,14 @@ class AppDockView: CustomView {
     @IBOutlet weak private var bottomAccessoryView: UIView!
     
     var delegate: AppDockViewDelegate?
+    var dataSource: AppDockViewDataSource?
     
     private var reorderAppGesture: UILongPressGestureRecognizer?
     
-    var items: [AppDockItem] = [AppDockItem]() {
-        didSet {
-            layoutDockView()
-
-            reloadAppDock()
-        }
+    func reloadData() {
+        layoutDockView()
+        
+        reloadAppDock()
     }
 
     var barStyle: UIBarStyle = UIBarStyle.default {
@@ -200,7 +206,7 @@ class AppDockView: CustomView {
     }
 
     private var shouldDrawerBarEnable: Bool {
-        if !hasAppContentAsLayout || items.count == 0{
+        if !hasAppContentAsLayout || dataSource?.numberOfItems(in: self) == 0{
             return false
         }
 
@@ -406,7 +412,7 @@ extension AppDockView {
     }
     
     fileprivate var preferredDockViewHeight: CGFloat {
-        return items.count > 1 ? DefaultPreferences.AppDockView.compactHeight : AppDockView.VoidLayoutValue
+        return dataSource?.numberOfItems(in: self) ?? 0 > 1 ? DefaultPreferences.AppDockView.compactHeight : AppDockView.VoidLayoutValue
     }
     
     fileprivate var preferredAccessoryViewHeight: CGFloat {
@@ -494,10 +500,13 @@ extension AppDockView {
     }
     
     func selectItem(at indexPath: IndexPath, animated: Bool = false) {
-        guard indexPath.item < items.count else { return }
+        guard indexPath.item < dataSource?.numberOfItems(in: self) ?? 0 else { return }
         appCollectionView.selectItem(at: indexPath, animated: animated, scrollPosition: .centeredHorizontally)
         zoomOutAppCollectionView(delay: 0)
-        delegate?.appDockView(self, didSelectItemWith: items[indexPath.item])
+        
+        if let item = dataSource?.appDockView(self, itemAt: indexPath.item) {
+            delegate?.appDockView(self, didSelectItemWith: item)
+        }
     }
 }
 
@@ -505,12 +514,15 @@ extension AppDockView {
 
 extension AppDockView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+        return dataSource?.numberOfItems(in: self) ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.nib.appDockViewCell.name, for: indexPath) as! AppDockViewCell
-        cell.setAppInfo(items[indexPath.item].app, at: indexPath)
+        
+        if let app = dataSource?.appDockView(self, appForItemAt: indexPath.item) {
+            cell.setAppInfo(app, at: indexPath)
+        }
 
         switch barStyle {
         case .black:
@@ -527,7 +539,10 @@ extension AppDockView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         zoomOutAppCollectionView(delay: 0)
         delegate?.appDockView(self, needsScrollToBottom: true)
-        delegate?.appDockView(self, didSelectItemWith: items[indexPath.item])
+        
+        if let item = dataSource?.appDockView(self, itemAt: indexPath.item) {
+            delegate?.appDockView(self, didSelectItemWith: item)
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
@@ -539,7 +554,7 @@ extension AppDockView: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        items.swapAt(sourceIndexPath.item, destinationIndexPath.item)
+//        items.swapAt(sourceIndexPath.item, destinationIndexPath.item)
     }
 }
 

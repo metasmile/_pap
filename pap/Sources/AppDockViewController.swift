@@ -161,7 +161,8 @@ class AppDockViewController: UIViewController {
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = doneButton
         
-        appDockView?.items = appDockItems
+        appDockView?.dataSource = self
+        appDockView?.reloadData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -235,5 +236,23 @@ class AppDockViewController: UIViewController {
             insets.bottom = appDockView.bounds.height - safeAreaInsets.bottom
         }
         return insets
+    }
+}
+
+extension AppDockViewController: AppDockViewDataSource {
+    func numberOfItems(in view: AppDockView) -> Int {
+        return appDockItems.count
+    }
+    
+    func appDockView(_ view: AppDockView, itemAt index: Int) -> AppDockItem? {
+        return appDockItems[safe: index]
+    }
+    
+    func appDockView(_ view: AppDockView, appForItemAt index: Int) -> App.Type? {
+        return appDockItems[safe: index]?.app
+    }
+    
+    func appDockView(_ view: AppDockView, indexOf item: AppDockItem) -> Int? {
+        return appDockItems.index { $0.app == item.app }
     }
 }
