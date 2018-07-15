@@ -1,5 +1,5 @@
 //
-//  AppUIAssetView.swift
+//  App.UI.AssetView.swift
 //  batch
 //
 //  Created by HYOJIN MO on 2018. 4. 27..

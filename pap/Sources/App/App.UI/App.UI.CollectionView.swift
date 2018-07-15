@@ -1,5 +1,5 @@
 //
-//  AppUICollectionView.swift
+//  App.UI.CollectionView.swift
 //  batch
 //
 //  Created by HYOJIN MO on 2018. 4. 17..
