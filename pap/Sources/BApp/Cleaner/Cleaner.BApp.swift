@@ -13,9 +13,16 @@ import Vision
 
 private typealias CleanerAppParam = PHAssetItem<ImageEditStateValue>
 
+typealias PHAssetGCDetectedResult = [String:Bool]
+
+enum PHAssetGCAction: Int{
+    case none
+    case delete
+}
+
 struct PHAssetGCResult:AppTaskResultable {
     let asset:PHAsset
-    let detected:[PHAssetGarbageDetector.Type]
+    let action: PHAssetGCAction
 }
 
 private typealias PHAssetID = String
@@ -51,13 +58,13 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     }
 
     public var doneButtonTitle: String? {
-        return "Clean".localized
+        return "Delete".localized
     }
 
     @objc dynamic
     public fileprivate (set) lazy var autoSelect: Bool = false
 
-    fileprivate static var SupportingGDTypes:[PHAssetGarbageDetector.Type] = [
+    fileprivate static let SupportingGDTypes:[PHAssetGarbageDetector.Type] = [
         PHAssetGarbageDetector_Similarity.self
 //        , PHAssetGarbageDetector_BD.self
 //        , PHAssetGarbageDetector_Blurry.self
@@ -66,26 +73,43 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
         , PHAssetGarbageDetector_Flashlight.self
     ]
 
+    fileprivate static let SupportingGDTypesKeys:[String:PHAssetGarbageDetector.Type]
+            = SupportingGDTypes.dictionary { $0.identifier }
+
     /*
         gc
     */
-
-    private var gdInstances = [String:PHAssetGarbageDetector]()
 
     func disposeGdInstance(identifier:String){
         gdInstances[identifier] = nil
     }
 
+    private var gdInstances = [String:PHAssetGarbageDetector]()
+    fileprivate var cachedResults = [PHAssetID: PHAssetGCDetectedResult]()
+
     fileprivate func gc(item: AppAsset, _ async: AsyncWaitSignalable) -> PHAssetGCResult {
 
-        var detected = [PHAssetGarbageDetector.Type]()
-        let gdType_Id = type(of: self).SupportingGDTypes.dictionary { $0.identifier }
+        let gdType_Id = type(of: self).SupportingGDTypesKeys
+        let gdCollection = type(of: self).privateDefaults.selectedCollection
 
-        for gd in type(of: self).privateDefaults.selectedCollection{
+        var action:PHAssetGCAction = .none
+
+        for gd in gdCollection{
             for gcItem in gd.items where gcItem.enabled{
                 if let t = gdType_Id[gcItem.gdIdentifier]{
                     let k = t.identifier
+                    let asset = item.asset
+                    let aid = asset.localIdentifier
 
+                    //found cached result
+                    if let detectedResult = cachedResults[aid]
+                        , let detected = detectedResult[k]{
+
+                        action = detected ? .delete: .none
+                        break
+                    }
+
+                    //start to detect
                     var detector:PHAssetGarbageDetector
                     if let d = gdInstances[k]{
                         detector = d
@@ -95,65 +119,47 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
                         print(k,detector)
                     }
 
-                    autoreleasepool{
-                        if detector.process(input: item.asset, async) ?? false == true{
-                            detected.append(t)
-                        }
+                    let detected = detector.process(input: asset, async) ?? false
+
+                    var detectedCacheObject = cachedResults[aid] ?? PHAssetGCDetectedResult()
+                    detectedCacheObject[k] = detected
+                    cachedResults[aid] = detectedCacheObject
+
+                    if detected{
+                        action = .delete
+                        break
                     }
                 }
             }
         }
 
-        return PHAssetGCResult(asset:item.asset, detected:detected)
+        return PHAssetGCResult(asset:item.asset, action: action)
     }
 
     /*
     preheat
     */
-    fileprivate var preheatCachedResults = [PHAssetID: PHAssetGCResult]()
-    private var preheatingFrontQueueLabel:String?
-
-    func disposePreheatingCache(){
-        if let l = preheatingFrontQueueLabel{
-            DispatchQueue(label:l).async{
-                self.preheatCachedResults.removeAll()
-            }
-        }else{
-            preheatCachedResults.removeAll()
-        }
-    }
-
     public func performPreheating(item: AppAsset, _ async: AsyncWaitSignalable) -> PreheatingFinishAction? {
         guard self.autoSelect else { return nil }
 
-        preheatingFrontQueueLabel = async.queueStack.first ?? DispatchQueue.currentLabel
-
-        var result: PHAssetGCResult
-
-//        let selectedGdIds = type(of: self).privateDefaults.selectedCollection.compactMap { dictionary -> [GDItem]? in
-//            return dictionary.items.nilEmpty
-//        }.reduce([],+).map { $0.gdIdentifier }
-
-        //FIXME:
-        if let preheatedResult = preheatCachedResults[item.asset.localIdentifierWithoutSplitter]
-        /*, Set((preheatedResult.detected.map{ $0.identifier })).symmetricDifference(Set(selectedGdIds)).count == 0*/{
-            result = preheatedResult
-
-        }else{
-            result = gc(item: item, async)
-            preheatCachedResults[item.asset.localIdentifierWithoutSplitter] = result
-        }
-
-        return result.detected.count > 0
-                ? UICollectionViewPreheatableAppFinishAction.selectItem
-                : nil
+        return gc(item: item, async).action == .delete ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
-//        let items = result
-//                .filter { respondable in respondable.info.state == .completed }
-//                .compactMap { $0.result as? PHAssetGCResult
-//                }
+        let items = result
+                .filter { respondable in respondable.info.state == .completed }
+                .compactMap { $0.result as? PHAssetGCResult
+                }
+
+        asyncSignal.begin()
+        PHPhotoLibrary.shared().performChanges({
+            PHAssetChangeRequest.deleteAssets(items.compactMap { result -> PHAsset? in
+                result.action == .delete ? result.asset : nil
+            } as NSArray)
+        }, completionHandler: { (success, info) in
+            asyncSignal.end()
+        })
+        asyncSignal.waitUntilEnd()
 //
 //        let alert = UIAlertController(title: "Clean the selected items".localized, message: nil, preferredStyle: .actionSheet)
 //
@@ -192,7 +198,8 @@ private class _CleanerAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, Ap
             return nil
         }
 
-        return AppCenter.default.currentInstanceAs(CleanerApp.self)?.gc(item: item, async)
+        return PHAssetGCResult(asset: item.asset, action: .delete)
+//        return AppCenter.default.currentInstanceAs(CleanerApp.self)?.gc(item: item, async)
     }
 }
 
@@ -642,7 +649,6 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
             CleanerApp.privateDefaults.selectedCollection = self.defaultCollections
 
             self.stopAutoSelect()
-            AppCenter.default.currentInstanceAs(CleanerApp.self)?.disposePreheatingCache()
 
             if on == false{
                 let identifier = self.defaultCollections[dictIndex].items[indexPath.item].gdIdentifier
