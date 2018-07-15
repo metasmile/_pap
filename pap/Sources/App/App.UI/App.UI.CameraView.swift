@@ -42,13 +42,13 @@ class AppUICameraView: UIView {
 
     private lazy var captureButton = CaptureButton(frame: .zero)
     private lazy var cameraPositionButton = UIButton(type: .system)
+    private lazy var backgroundView = UIView(frame: .zero)
 
     private func intialize() {
         tintColor = UIColor.white
 
         let buttonImageInsets = UIEdgeInsetsMake(4, 4, 4, 4)
 
-        let backgroundView = UIView(frame: .zero)
         backgroundView.backgroundColor = .black
         addSubview(backgroundView)
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
@@ -199,6 +199,8 @@ class AppUICameraView: UIView {
             captureButton.isEnabled = !isCompactMode
 
             cameraPositionButton.setImage(self.devicePositionIcon, for: .normal)
+
+            backgroundView.isHidden = isCompactMode
 
             //TODO: ignore layer implicit animation
             layoutIfNeeded()
