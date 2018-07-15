@@ -58,7 +58,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     }
 
     public var doneButtonTitle: String? {
-        return "Delete".localized
+        return "Clean".localized
     }
 
     @objc dynamic
@@ -457,8 +457,14 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
         cell1.label = "Auto Garbage Selection".localized
         cell1.valueGetter = { CleanerApp.privateDefaults.autoSelect }
         cell1.valueHandler = { val in
-            CleanerApp.privateDefaults.autoSelect = val as? Bool ?? false
+            let enabled = val as? Bool ?? false
+            CleanerApp.privateDefaults.autoSelect = enabled
             self.startAutoSelectIfNeeded()
+
+            let tableView = (view as! UITableView)
+            for section in 1..<self.numberOfSections(in: tableView) {
+                tableView.reloadSections(IndexSet(integer: section), with: .none)
+            }
 
         }
         settingCellDescribers.append(cell1)
@@ -698,6 +704,8 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
 
             self.itemCollection_tableView_cell_update(cell: cell, selected: on)
         }
+
+        cell.enable(self.autoSelectedEnabled)
 
         return cell
     }
