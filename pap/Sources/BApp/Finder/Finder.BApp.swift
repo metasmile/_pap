@@ -60,6 +60,8 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
         if let option = withOption{
             let asset = option.options?[AppLaunchOptionsKey.PHAsset] as? PHAsset
 
+            print("PHAssets",PHAssets.fetched.indexPath(of: asset))
+
             //TODO: asset is guaranteed - select or any actions.
         }
     }

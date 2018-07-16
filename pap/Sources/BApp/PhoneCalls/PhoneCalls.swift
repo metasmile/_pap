@@ -202,7 +202,7 @@ private class PhoneCallsAppDetector{
 
     private let vision = Vision.vision()
 
-    private var visionDetector = self.vision.textDetector()
+    private lazy var visionDetector:VisionTextDetector = vision.textDetector()
 
     private var imageRequestIds = [PHImageRequestID]()
 

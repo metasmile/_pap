@@ -8,13 +8,13 @@ import Foundation
 
 private struct PreheatingQueue {
 
-    fileprivate static let dispatchQueue = DispatchQueue(label: "com.stells.internal.dispatchQueue"+#file, qos: .utility)
+    fileprivate static let dispatchQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
 
     //INFO: controlQueue must be higher than dispatchQueue for its priority
-    fileprivate static let controlQueue =  DispatchQueue(label: "com.stells.internal.controlQueue"+#file, qos: .userInteractive)
+    fileprivate static let controlQueue =  DispatchQueue.main
 
     //INFO: Access all following properties only with dispatchQueue when write
-    fileprivate static let indexPathItemQueue = ItemQueue<IndexPath>()
+    fileprivate static let indexPathQueue = ItemQueue<IndexPath>()
 
     //INFO: Write 'canceled' must be a dispatchqueue that has earlier QoS than .utility
     fileprivate static var canceled = false
@@ -34,8 +34,8 @@ extension PhotoPickerViewController{
                     && self.photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == false{
 
             PreheatingQueue.dispatchQueue.async{
-                if false == PreheatingQueue.indexPathItemQueue.enqueued(where:{ $0 == indexPath }){
-                    PreheatingQueue.indexPathItemQueue.enqueue(indexPath)
+                if false == PreheatingQueue.indexPathQueue.enqueued(where:{ $0 == indexPath }){
+                    PreheatingQueue.indexPathQueue.enqueue(indexPath)
                 }
             }
         }
@@ -43,10 +43,9 @@ extension PhotoPickerViewController{
 
     public func cancelPreheatingIfNeeded(){
         PreheatingQueue.controlQueue.async{
-            if PreheatingQueue.indexPathItemQueue.count == 0{
+            if PreheatingQueue.indexPathQueue.count == 0{
                 return
             }
-            PreheatingQueue.indexPathItemQueue.dequeueAll()
             PreheatingQueue.canceled = true
         }
     }
@@ -65,7 +64,7 @@ extension PhotoPickerViewController{
 
         func performNext() {
             PreheatingQueue.dispatchQueue.async {
-                guard let indexPath = PreheatingQueue.indexPathItemQueue.dequeue() else {
+                guard let indexPath = PreheatingQueue.indexPathQueue.dequeue() else {
                     return
                 }
 
@@ -81,7 +80,7 @@ extension PhotoPickerViewController{
                 }
 
                 if PreheatingQueue.canceled{
-                    PreheatingQueue.indexPathItemQueue.dequeueAll()
+                    PreheatingQueue.indexPathQueue.dequeueAll()
                     return
                 }
 
@@ -97,8 +96,7 @@ extension PhotoPickerViewController{
 
         PreheatingQueue.controlQueue.async {
             PreheatingQueue.canceled = false
+            performNext()
         }
-
-        performNext()
     }
 }
