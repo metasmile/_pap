@@ -93,32 +93,38 @@ open class AppManager: NSObject, SelectableCollection {
     {
         willSet {
             assert(newValue == nil || _apps.contains { appType in appType == newValue },"Given current app \(String(describing:newValue)) is not contained in app collection")
-            guard newValue != previous else{ return }
-
-            let launchableApp = self.getInstance(newValue, as: LaunchableApp.self)
-            DispatchQueue.mainAsyncIfNot {
-                launchableApp?.willLaunch(current:self.current, withOption:self.currentLaunchOption)
-            }
         }
         didSet {
             guard previous == nil || oldValue != current else { return }
 
+            // #1 - call willResign
+            self.getInstance(oldValue, as: LaunchableApp.self)?.didResign(current: current)
+
+            // #2 - assign previous
             self.previous = oldValue
 
-            var defaultsOfCurrent = self.currentDefaults
-            defaultsOfCurrent?.touchedVersion = current?.info.version
-
+            // #3 - discard previous if needed
             if let previous = self.previous, previous.info.policy.lifeCycle.instance == .availability {
                 AppLifecycleManager.shared.discard(previous.info)
             }
 
+            // #4 - touch current version
+            var defaultsOfCurrent = self.currentDefaults
+            defaultsOfCurrent?.touchedVersion = current?.info.version
+
+            // #5 - capture identifier
+            let currentIdentifier = self.current?.info.identifier
+
             DispatchQueue.mainAsyncIfNot {
-                self.currentIdentifier = self.current?.info.identifier
-
-                self.getInstance(self.current, as: LaunchableApp.self)?.didLaunch(previous:self.previous, withOption:self.currentLaunchOption)
-
-                self.currentLaunchOption = nil
+                // #6 - notify current identifier
+                self.currentIdentifier = currentIdentifier
             }
+
+            // #7 - acquire current instance firstly -> notify didLaunch.
+            self.getInstance(self.current, as: LaunchableApp.self)?.didLaunch(previous:self.previous, withOption:self.currentLaunchOption)
+
+            // #8 - discard currentLaunchOption already passed
+            self.currentLaunchOption = nil
         }
     }
 

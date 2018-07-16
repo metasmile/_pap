@@ -103,7 +103,7 @@ extension AsyncSignal: AsyncWaitSignalable {
     @discardableResult
     public func waitUntilEnd(timeout:DispatchTime?=nil) -> DispatchTimeoutResult?{
         guard self.began else {
-            assert(false,"[!] self.began==false, \(#function) was synchronously called before calling begin(), or, after end() in same queue. Call begin(), or remove unnecessary end() at same block.")
+            assert(false,"[!] self.began==false, \(#function) was synchronously called before calling begin(), or end() was called in same queue. Call begin() before, remove unnecessary end() at same block, or call end() in async block of other queue.")
             return nil
         }
 

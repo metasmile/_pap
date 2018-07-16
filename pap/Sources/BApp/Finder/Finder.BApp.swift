@@ -18,6 +18,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
         , FinalizableApp
         , AppDockApp
         , PhotoPickerViewControllerDelegatableApp
+        , PhotoPickerCollectionViewDisplayableApp
         , PreheatableApp
         , LaunchableApp {
 
@@ -52,20 +53,24 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
 //        callProviderDelegate = CallProviderDelegate(callManager: CallManager.shared)
     }
 
+    func didResign(current: App.Type?) {
 
-    func willLaunch(current: App.Type?, withOption: AppLaunchOption?) {
     }
 
+    private var importedLaunchOption:AppLaunchOption?
     func didLaunch(previous: App.Type?, withOption: AppLaunchOption?) {
-        if let option = withOption{
-            let asset = option.options?[AppLaunchOptionsKey.PHAsset] as? PHAsset
-
-            //TODO: asset is guaranteed - select or any actions.
-        }
+        importedLaunchOption = withOption
     }
 
     public func shouldSelect(item: AppAsset) -> Bool {
         return item.asset.mediaType == .image
+    }
+
+    public func shouldSelectWhenInserted(indexPaths: [IndexPath]?) -> [IndexPath]? {
+        if let _ = importedLaunchOption{
+            return indexPaths
+        }
+        return nil
     }
 
     fileprivate var preheatCachedResults = [String:FinderAppResult]()
@@ -1275,6 +1280,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         cell_b.valueHandler = { _ in
             var option = AppLaunchOption()
             option.identifierToReturn = FinderApp.info.identifier
+
             AppCenter.default.openApp(identifier:"com.stells.pap.camera", options:option)
 
         }
@@ -1417,7 +1423,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
-        let label_section0 = "🖼️ ‣ 🔍 ‣ ⭐ " + "Select Photos To Find Everything.".localized
+        let label_section0 = "🖼️ ‣ 🤖 ‣ 🔍 " + "Select Photos To Find Everything.".localized
         return section == 0 ? label_section0 : parserCollection[section-1].label
     }
 

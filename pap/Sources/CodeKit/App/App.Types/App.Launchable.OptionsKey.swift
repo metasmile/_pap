@@ -9,7 +9,12 @@ import Foundation
     AVFoundation, PhotosKit
 */
 extension AppLaunchOptionsKey {
+    //value type: PHAsset
     static let PHAsset = AppLaunchOptionsKey(rawValue:0)
+
+    //value type: URL
     static let PhotoURL = AppLaunchOptionsKey(rawValue:1)
+
+    //value type: URL
     static let PairedVideoURL = AppLaunchOptionsKey(rawValue:2)
 }

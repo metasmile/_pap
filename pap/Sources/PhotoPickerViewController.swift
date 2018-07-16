@@ -39,16 +39,25 @@ class PhotoPickerViewController: AppDockViewController {
     func setNeedsScrollToBottom() {
         needsScrollToBottom = true
     }
+
+    var scrollingBottomOffsetY:CGFloat{
+        return max(-photoCollectionView.adjustedContentInset.top, photoCollectionView.contentSize.height - photoCollectionView.bounds.size.height + photoCollectionView.adjustedContentInset.bottom - collectionView(photoCollectionView, layout: photoCollectionView.collectionViewLayout, referenceSizeForFooterInSection: 0).height)
+    }
+
+    var scrollBottomOffsetYIncludingMargin:CGFloat{
+        return photoCollectionView.contentSize.height - photoCollectionView.bounds.size.height + photoCollectionView.adjustedContentInset.bottom
+    }
     
-    func scrollToBottomIfNeeded() {
+    func scrollToBottomIfNeeded(animated:Bool=false) {
         guard needsScrollToBottom else { return }
         needsScrollToBottom = false
-        
-        let bottomOffsetY = max(-photoCollectionView.adjustedContentInset.top, photoCollectionView.contentSize.height - photoCollectionView.bounds.size.height + photoCollectionView.adjustedContentInset.bottom - collectionView(photoCollectionView, layout: photoCollectionView.collectionViewLayout, referenceSizeForFooterInSection: 0).height)
-        photoCollectionView.setContentOffset(CGPoint(x: 0, y: bottomOffsetY), animated: false)
+
+        photoCollectionView.setContentOffset(CGPoint(x: 0, y: scrollingBottomOffsetY), animated: animated)
     }
 
     override func viewDidLoad() {
+        self.appDockView?.delegate = self
+
         super.viewDidLoad()
 
         //preview
@@ -529,6 +538,7 @@ class PhotoPickerViewController: AppDockViewController {
         
         var indexPathToScroll: IndexPath?
         var needsToRestoreSelection = false
+        var insertedIndexes = [IndexPath]()
 
         //perform batch update
         //confirm and remove: https://console.firebase.google.com/project/batch-photos/crashlytics/app/ios:com.stells.pap/issues/5ac8295036c7b23527c249dd?time=1523145600000:1523231999000&sessionId=18f49e20db084ed8b9c8b26e72871bad_DNE_0_v2
@@ -565,7 +575,8 @@ class PhotoPickerViewController: AppDockViewController {
                     let indexPaths = inserted.map { IndexPath(item: $0, section:section) }
                     indexPathToScroll = indexPaths.last
                     needsToRestoreSelection = true
-                    
+
+                    insertedIndexes.append(contentsOf: indexPaths)
                     self.photoCollectionView.insertItems(at: indexPaths)
                 }
                 if let changed = changes.changedIndexes, changed.count > 0 {
@@ -596,6 +607,21 @@ class PhotoPickerViewController: AppDockViewController {
             }
             
             self.appDockView?.reloadKeepingDrawerOpened()
+
+            // PhotoPickerCollectionViewDisplayableApp.shouldSelectWhenInserted
+            let collectionViewDelegatableApp = AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDisplayableApp.self)
+            if let allowedSelectionIndexPaths = collectionViewDelegatableApp?.shouldSelectWhenInserted(indexPaths: insertedIndexes.nilEmpty){
+                for indexPath in allowedSelectionIndexPaths {
+                    self.selectCollectionViewItem(at: indexPath)
+                }
+
+                DispatchQueue.global(qos: .background).async{
+                    DispatchQueue.main.async{
+                        self.setNeedsScrollToBottom()
+                        self.scrollToBottomIfNeeded(animated: true)
+                    }
+                }
+            }
         })
     }
 }
@@ -821,6 +847,44 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         }
         
         appDockView?.disabled = false
+    }
+}
+
+extension PhotoPickerViewController: AppDockViewDelegate{
+    func appDockView(_ view: AppDockView, needsScrollToBottom: Bool) {
+//        self.needsScrollToBottom = needsScrollToBottom
+    }
+
+    func appDockView(_ view: AppDockView, didSelectItemWith item: AppDockItem) {
+        let willAppChange = AppCenter.default.current != item.app
+
+        AppCenter.default.current = item.app
+
+        view.loadControllerContentIfNeeded()
+
+        if willAppChange {
+            appDidChange()
+        }
+        else {
+            if photoCollectionView.contentOffset.y >= self.scrollingBottomOffsetY{
+                if appDockView?.contentLayoutState == .minimized {
+                    appDockView?.openDrawer()
+                }
+            }
+            else {
+                setNeedsScrollToBottom()
+                scrollToBottomIfNeeded(animated: true)
+            }
+        }
+    }
+
+    func appDockView(_ view: AppDockView, didOpenDrawer isOpened: Bool) {
+        if let dimmedView = (navigationController as? AppDockNavigationController)?.dimmedView{
+
+            UIView.transition(with: dimmedView, duration: 0.4, options: .transitionCrossDissolve, animations: {
+                dimmedView.isHidden = !isOpened
+            }, completion: nil)
+        }
     }
 }
 

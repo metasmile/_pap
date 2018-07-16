@@ -42,7 +42,7 @@ extension PHAsset {
             
             result = image
             
-            _ = async.end()
+            async.end()
         }
         
         let userInfo: [String: Any] = [

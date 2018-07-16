@@ -8,7 +8,11 @@ import UIKit
 
 private extension AppDockViewController {
     func selectCurrentAppIfExist(animation: Bool = true) {
-        guard let currentApp = AppCenter.default.current, let indexOfCurrentApp = appDockItems.index(where: { $0.app == currentApp }), indexOfCurrentApp != NSNotFound else { return }
+        guard let currentApp = AppCenter.default.current
+        , let indexOfCurrentApp = appDockItems.index(where: { $0.app == currentApp }), indexOfCurrentApp != NSNotFound else {
+            return
+        }
+
         appDockView?.selectItem(at: IndexPath(item: indexOfCurrentApp, section: 0), animated: animation)
     }
 }
@@ -35,6 +39,8 @@ extension AppCenter{
             return false
         }
 
+        let willChange = self.current != app
+
         if let options = options{
             self.setCurrent(current: app, with: options)
         }else{
@@ -43,6 +49,9 @@ extension AppCenter{
 
         DispatchQueue.mainAsyncIfNot {
             appDockVc.selectCurrentAppIfExist(animation: animation)
+            if willChange{
+                appDockVc.appDidChange()
+            }
         }
         return true
     }

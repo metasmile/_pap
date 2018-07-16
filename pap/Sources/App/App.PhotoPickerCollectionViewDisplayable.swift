@@ -6,14 +6,21 @@
 import Foundation
 
 // PhotoPickerCollectionView -> App
-public protocol PhotoPickerCollectionViewDisplayableApp: App {
+protocol PhotoPickerCollectionViewDisplayableApp: App {
     func shouldSelect(item:AppAsset) -> Bool
 
     var numberOfItemsShouldSelect: Int? {get}
+
+    // do filter indexPaths and return. returning nil means, does not select any items
+    func shouldSelectWhenInserted(indexPaths:[IndexPath]?) -> [IndexPath]?
 }
 
 extension PhotoPickerCollectionViewDisplayableApp{
     public var numberOfItemsShouldSelect: Int? {
+        return nil
+    }
+
+    public func shouldSelectWhenInserted(indexPaths: [IndexPath]?) -> [IndexPath]? {
         return nil
     }
 }

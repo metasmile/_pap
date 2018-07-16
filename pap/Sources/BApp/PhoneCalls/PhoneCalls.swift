@@ -56,7 +56,8 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
             , appType: PhoneCallsApp.self
             , displayName: "Phone Calls".localized, description:nil, keywords:nil
             , iconBundleName: R.image.phoneCallsBAppIcon.name
-            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
+            , policy: AppPolicy.default
+//            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
             , minOSVersion: nil
     )
 
@@ -70,10 +71,12 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
     }
 
 
-    func willLaunch(current: App.Type?, withOption: AppLaunchOption?) {
+    func didResign(current: App.Type?) {
+        self.detector.reassignDetector()
     }
 
     func didLaunch(previous: App.Type?, withOption: AppLaunchOption?) {
+
     }
 
     public var finalizingActions: [PHAssetFinalizingAction] {
@@ -84,23 +87,16 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
         return item.asset.mediaType == .image
     }
 
-    fileprivate var preheatedResults = [String:PhoneCallsAppResult]()
     public func performPreheating(item: AppAsset, _ async: AsyncWaitSignalable) -> PreheatingFinishAction? {
         if self.autoSelect == false{
             return nil
         }
 
-        var preheatedResult:PhoneCallsAppResult? = preheatedResults[item.asset.localIdentifierWithoutSplitter]
-        if preheatedResult == nil, let image = item.asset.asUIImage{
-            preheatedResult = self.detector.detectResult(asset: item.asset, image: image, async) ?? PhoneCallsAppResult(asset: item.asset)
-            preheatedResults[item.asset.localIdentifierWithoutSplitter] = preheatedResult
+        if self.detector.detectResult(asset: item.asset, async)?.phoneNumbers?.count ?? 0 == 0{
+            return nil
         }
 
-        if preheatedResult?.phoneNumbers?.count ?? 0 > 0{
-            return UICollectionViewPreheatableAppFinishAction.selectItem
-        }
-
-        return nil
+        return UICollectionViewPreheatableAppFinishAction.selectItem
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
@@ -197,22 +193,63 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
         return "Find".localized
     }
 
-    fileprivate var detector = PhoneCallsAppDetector()
+    fileprivate lazy var detector = PhoneCallsAppDetector()
 }
 
-private struct PhoneCallsAppDetector{
+private class PhoneCallsAppDetector{
+
+    private var cachedResults = [String:PhoneCallsAppResult]()
 
     private let vision = Vision.vision()
 
-    fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncWaitSignalable) -> PhoneCallsAppResult? {
-        guard let visionTexts = vision.textDetector().detect(with: image, async) else {
+    private lazy var visionDetector:VisionTextDetector = vision.textDetector()
+
+    private var imageRequestIds = [PHImageRequestID]()
+
+    private lazy var imageRequestOptions:PHImageRequestOptions = {
+        let options = PHImageRequestOptions()
+        options.isSynchronous = true
+        options.isNetworkAccessAllowed = false
+        options.deliveryMode = .highQualityFormat
+        options.resizeMode = .exact
+        return options
+    }()
+
+    fileprivate func reassignDetector(){
+        visionDetector = vision.textDetector()
+    }
+
+    fileprivate func cancelDetecting(_ async: AsyncWaitSignalable){
+        DispatchQueue.mainAsyncIfNot {
+            self.imageRequestIds.forEach { id in
+                PHImageManager.default().cancelImageRequest(id)
+            }
+            self.imageRequestIds = [PHImageRequestID]()
+        }
+    }
+
+    fileprivate func detectResult(asset:PHAsset, _ async: AsyncWaitSignalable) -> PhoneCallsAppResult? {
+        if let cachedResults = cachedResults[asset.localIdentifier]{
+            return cachedResults
+        }
+
+        //TODO: compare with max image .. hmm not too different
+        var image: UIImage? = nil
+        let id = PHImageManager.default().requestImage(for: asset, targetSize: CGSize(width:1000,height:1000), contentMode: .aspectFit, options: self.imageRequestOptions) { _image, dictionary in
+            image = _image
+        }
+        imageRequestIds.append(id)
+
+        guard let targetImage = image else {
             return nil
         }
 
+        let visionTexts = visionDetector.detect(with: targetImage, async)
+
         var result = PhoneCallsAppResult(asset: asset)
-        result.phoneNumbers = visionTexts.parse(type: VisionTextPhoneNumberParser.self, async)
-//        result.emails = visionTexts.parse(type: VisionTextEmailAddressParser.self, async)
-//        result.addresses = visionTexts.parse(type: VisionTextAddressParser.self, async)
+        result.phoneNumbers = visionTexts?.parse(type: VisionTextPhoneNumberParser.self, async)
+        cachedResults[asset.localIdentifier] = result
+
         return result
     }
 }
@@ -222,25 +259,17 @@ private class _PhoneCallsAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy,
     private let emailParser = VisionTextEmailAddressParser()
     private let phoneNumberParser = VisionTextPhoneNumberParser()
 
-    public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){}
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){
+        AppCenter.default.currentInstanceAs(PhoneCallsApp.self)?.detector.cancelDetecting(async)
+    }
 
     public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
-
         guard let asset = (param as? PHAssetItem<ImageEditStateValue>)?.asset else{
             return nil
         }
 
-        if let preheatedResults = AppCenter.default.currentInstanceAs(PhoneCallsApp.self)?.preheatedResults
-        , let result = preheatedResults[asset.localIdentifierWithoutSplitter] {
-            return result
-
-        }else if let image = asset.asUIImage{
-
-            let detector = AppCenter.default.currentInstanceAs(PhoneCallsApp.self)?.detector
-            return detector?.detectResult(asset: asset, image: image, async)
-        }
-
-        return nil
+        let detector = AppCenter.default.currentInstanceAs(PhoneCallsApp.self)?.detector
+        return detector?.detectResult(asset: asset, async)
     }
 }
 
@@ -249,7 +278,7 @@ fileprivate class PhoneCallsAppDockContent: NSObject, KeyPathWatchable,
         AppDockContent, UITableViewDelegate, UITableViewDataSource{
     private lazy var defaults = PhoneCallsApp.defaults as! PhoneCallsAppDefaults
 
-    private let primaryColor = UIColor(red:0.6, green:0.6, blue:0.6, alpha:1)
+    private let primaryColor = UIColor(red:0.27, green:0.82, blue:0.35, alpha:1)
 
     lazy var view: UIView = {
         let tableView = UITableView(frame: .zero, style: .grouped)

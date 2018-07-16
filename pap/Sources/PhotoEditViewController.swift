@@ -54,6 +54,8 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     }()
     
     override func viewDidLoad() {
+        self.appDockView?.delegate = self
+
         super.viewDidLoad()
 
         title = "Edit".localized
@@ -258,3 +260,38 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         return actionItems
     }
 }
+
+
+extension PhotoEditViewController: AppDockViewDelegate{
+    func appDockView(_ view: AppDockView, needsScrollToBottom: Bool) {}
+
+    func appDockView(_ view: AppDockView, didSelectItemWith item: AppDockItem) {
+        let willAppChange = AppCenter.default.current != item.app
+
+        AppCenter.default.current = item.app
+
+        view.loadControllerContentIfNeeded()
+
+        if willAppChange {
+            appDidChange()
+        }
+        else {
+            if appDockView?.contentLayoutState == .minimized {
+                appDockView?.openDrawer()
+            }
+        }
+    }
+
+    func appDockView(_ view: AppDockView, didOpenDrawer isOpened: Bool) {
+        if let dimmedView = (navigationController as? AppDockNavigationController)?.dimmedView{
+
+            UIView.transition(with: dimmedView, duration: 0.4, options: .transitionCrossDissolve, animations: {
+                dimmedView.isHidden = !isOpened
+            }, completion: nil)
+        }
+    }
+}
+
+// MARK: - Photos
+
+

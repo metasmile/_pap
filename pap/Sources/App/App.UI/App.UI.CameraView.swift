@@ -168,6 +168,8 @@ class AppUICameraView: UIView {
             self.cameraView.isLivePhotoEnabled = defaults.isLivePhotoEnabled
             self.cameraView.cameraPosition = defaults.cameraPosition
         }
+
+        self.isCompactMode = true
     }
 
     private var devicePositionIcon: UIImage {

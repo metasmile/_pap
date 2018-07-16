@@ -227,10 +227,10 @@ class AppDockView: CustomView {
         }
     }
     
-    // set an App
-    weak var app: AppDockApp? {
-        didSet {
-            self.controller = dataSource?.dockContent(in: self)
+    func loadControllerContentIfNeeded(){
+        let controller = dataSource?.dockContent(in: self)
+        if self.controller?.view != controller?.view{
+            self.controller = controller
         }
     }
     
@@ -271,7 +271,7 @@ class AppDockView: CustomView {
     }
 
     var conformsPreviewable:Bool{
-        return app is PreviewableApp
+        return AppCenter.default.current is PreviewableApp.Type
     }
 
     private func hasControlView(_ view: UIView?) -> Bool {
@@ -541,7 +541,7 @@ extension AppDockView: UICollectionViewDataSource {
 extension AppDockView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         zoomOutAppCollectionView(delay: 0)
-        delegate?.appDockView(self, needsScrollToBottom: true)
+//        delegate?.appDockView(self, needsScrollToBottom: true)
         
         if let item = dataSource?.appDockView(self, itemAt: indexPath.item) {
             delegate?.appDockView(self, didSelectItemWith: item)

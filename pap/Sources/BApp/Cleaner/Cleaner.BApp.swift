@@ -38,12 +38,13 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
 
     public static let info = AppInfo(
             identifier: "com.stells.pap.cleaner"
-            , version: "0.1"
-            , phase: .develop
+            , version: "1.0"
+            , phase: .release
             , appType: CleanerApp.self
             , displayName: "Cleaner".localized, description:nil, keywords:nil
             , iconBundleName: R.image.cleanerBAppIcon.name
-            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
+            , policy: AppPolicy.default
+//            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
             , minOSVersion: nil
     )
 
