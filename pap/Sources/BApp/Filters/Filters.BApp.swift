@@ -60,7 +60,7 @@ PhotoEditorViewControllerDelegatableApp {
     @objc dynamic
     public private(set) lazy var config: FiltersAppConfigValue? = FiltersApp.configure?()
     public private(set) lazy var dockContent: AppDockContent? = FiltersAppDockContent()
-    public private(set) lazy var photoEditorDockContent: AppDockContent? = self.dockContent
+    public private(set) lazy var photoEditorDockContent: AppDockContent? = FiltersAppDockContent()
     
     public private(set) var defaultEditStateValue: ImageEditStateValue?
     public func setDefaultEditStateValue(_ editStateValue: ImageEditStateValue?) {
@@ -110,21 +110,23 @@ PhotoEditorViewControllerDelegatableApp {
     }
     
     public func photoEditorWillBeginProcessing() {
-        dockContent?.view.isUserInteractionEnabled = false
+        photoEditorDockContent?.view.isUserInteractionEnabled = false
     }
     
     public func photoEditorWillEndProcessing() {
-        dockContent?.view.isUserInteractionEnabled = true
+        photoEditorDockContent?.view.isUserInteractionEnabled = true
     }
     
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?) {
         (dockContent as? FiltersAppDockContent)?.selectItem(with: editStateValue)
+        (photoEditorDockContent as? FiltersAppDockContent)?.selectItem(with: editStateValue)
     }
 }
 
 private extension FiltersApp {
     private func updateControllerView() {
         self.dockContent?.view.tintColor = config?.tintColor
+        self.photoEditorDockContent?.view.tintColor = config?.tintColor
     }
 }
 

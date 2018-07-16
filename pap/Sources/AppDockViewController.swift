@@ -143,7 +143,7 @@ extension AppDockNavigationController: AppDockViewDelegate {
     }
 }
 
-class AppDockViewController: UIViewController {
+class AppDockViewController: UIViewController, AppDockViewDataSource {
     var appDockView: AppDockView? {
         return (navigationController as? AppDockNavigationController)?.appDockView
     }
@@ -237,22 +237,20 @@ class AppDockViewController: UIViewController {
         }
         return insets
     }
+    
+    func dockContent(in view: AppDockView) -> AppDockContent? {
+        return AppCenter.default.currentInstanceAs(AppDockApp.self)?.dockContent
+    }
 }
 
-extension AppDockViewController: AppDockViewDataSource {
+extension AppDockViewController {
+    //MARK: - AppDockViewDataSource
+    
     func numberOfItems(in view: AppDockView) -> Int {
         return appDockItems.count
     }
     
     func appDockView(_ view: AppDockView, itemAt index: Int) -> AppDockItem? {
         return appDockItems[safe: index]
-    }
-    
-    func appDockView(_ view: AppDockView, appForItemAt index: Int) -> App.Type? {
-        return appDockItems[safe: index]?.app
-    }
-    
-    func appDockView(_ view: AppDockView, indexOf item: AppDockItem) -> Int? {
-        return appDockItems.index { $0.app == item.app }
     }
 }

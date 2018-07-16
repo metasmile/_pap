@@ -110,6 +110,7 @@ private extension TransformApp{
 
     private func updateControllerView(){
         self.dockContent?.view.tintColor = config?.tintColor
+        self.photoEditorDockContent?.view.tintColor = config?.tintColor
     }
 }
 

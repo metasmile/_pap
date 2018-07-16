@@ -105,6 +105,10 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         return [AppDockItem(app: app)]
     }
     
+    override func dockContent(in view: AppDockView) -> AppDockContent? {
+        return AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self)?.photoEditorDockContent
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         

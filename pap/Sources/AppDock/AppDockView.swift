@@ -22,8 +22,7 @@ struct AppDockItem {
 protocol AppDockViewDataSource {
     func numberOfItems(in view: AppDockView) -> Int
     func appDockView(_ view: AppDockView, itemAt index: Int) -> AppDockItem?
-    func appDockView(_ view: AppDockView, appForItemAt index: Int) -> App.Type?
-    func appDockView(_ view: AppDockView, indexOf item: AppDockItem) -> Int?
+    func dockContent(in view: AppDockView) -> AppDockContent?
 }
 
 protocol AppDockViewDelegate {
@@ -231,8 +230,12 @@ class AppDockView: CustomView {
     // set an App
     weak var app: AppDockApp? {
         didSet {
-            self.controller = app?.dockContent
+            self.controller = dataSource?.dockContent(in: self)
         }
+    }
+    
+    var selectedIndex: Int? {
+        return appCollectionView.indexPathsForSelectedItems?.first?.item
     }
 
     /*
@@ -520,8 +523,8 @@ extension AppDockView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.nib.appDockViewCell.name, for: indexPath) as! AppDockViewCell
         
-        if let app = dataSource?.appDockView(self, appForItemAt: indexPath.item) {
-            cell.setAppInfo(app, at: indexPath)
+        if let item = dataSource?.appDockView(self, itemAt: indexPath.item) {
+            cell.setAppInfo(item.app, at: indexPath)
         }
 
         switch barStyle {
