@@ -100,19 +100,19 @@ extension AppDockNavigationController: AppDockViewDelegate {
     }
     
     func appDockView(_ view: AppDockView, didSelectItemWith item: AppDockItem) {
-        if AppCenter.default.current != item.app {
-            AppCenter.default.current = item.app
-            
-            appDockView.app = item.app as? AppDockApp.Type
-            //INFO: by apps? or globally? hmm at first following imessage policy(global)
-            
+        let willAppChange = AppCenter.default.current != item.app
+
+        AppCenter.default.current = item.app
+
+        view.loadControllerContentIfNeeded()
+
+        if willAppChange {
+
             if let vc = self.topViewController as? AppDockViewController {
                 vc.appDidChange()
             }
         }
         else {
-            appDockView.app = item.app as? AppDockApp.Type
-
             var needsToOpenDockViewDrawer = false
 
             if let collectionView = self.topViewController?.view.subviews.first as? UICollectionView {

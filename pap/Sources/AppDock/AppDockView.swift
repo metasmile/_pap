@@ -227,10 +227,10 @@ class AppDockView: CustomView {
         }
     }
     
-    // set an App
-    var app: AppDockApp.Type? {
-        didSet {
-            self.controller = dataSource?.dockContent(in: self)
+    func loadControllerContentIfNeeded(){
+        let controller = dataSource?.dockContent(in: self)
+        if self.controller?.view != controller?.view{
+            self.controller = controller
         }
     }
     
@@ -271,7 +271,7 @@ class AppDockView: CustomView {
     }
 
     var conformsPreviewable:Bool{
-        return app is PreviewableApp.Type
+        return AppCenter.default.current is PreviewableApp.Type
     }
 
     private func hasControlView(_ view: UIView?) -> Bool {
