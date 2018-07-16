@@ -72,7 +72,7 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
 
 
     func didResign(current: App.Type?) {
-        self.detector.disposeDetector()
+        self.detector.reassignDetector()
     }
 
     func didLaunch(previous: App.Type?, withOption: AppLaunchOption?) {
@@ -200,15 +200,9 @@ private class PhoneCallsAppDetector{
 
     private var cachedResults = [String:PhoneCallsAppResult]()
 
-    private var _visionDetector:VisionTextDetector?
-    private var visionDetector:VisionTextDetector {
-        if let d = _visionDetector{
-            return d
-        }
-        let d = Vision.vision().textDetector()
-        _visionDetector = d
-        return d
-    }
+    private let vision = Vision.vision()
+
+    private var visionDetector = self.vision.textDetector()
 
     private var imageRequestIds = [PHImageRequestID]()
 
@@ -221,8 +215,8 @@ private class PhoneCallsAppDetector{
         return options
     }()
 
-    fileprivate func disposeDetector(){
-        _visionDetector = nil
+    fileprivate func reassignDetector(){
+        visionDetector = vision.textDetector()
     }
 
     fileprivate func cancelDetecting(_ async: AsyncWaitSignalable){

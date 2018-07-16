@@ -99,8 +99,6 @@ extension PhotoPickerViewController{
             PreheatingQueue.canceled = false
         }
 
-        PreheatingQueue.dispatchQueue.async {
-            performNext()
-        }
+        performNext()
     }
 }
