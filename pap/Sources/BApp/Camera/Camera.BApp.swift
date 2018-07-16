@@ -91,37 +91,13 @@ fileprivate class CameraAppDockContent: NSObject, KeyPathWatchable, AppDockConte
             (view as? CameraAppView)?.isCompactMode = false
         }
         
-        var capturedHandlerResult:CaptureProcessorResult?
         cameraView?.capturedHandler = { succeed, results in
-            capturedHandlerResult = results
-
-//            if let results = capturedHandlerResult{
-//                let data = [
-//                    AppLaunchOptionsKey.capturedPhotoURL: results[CaptureProcessorResultKey.photoURL]
-//                    , AppLaunchOptionsKey.capturedPairedVideoURL: results[CaptureProcessorResultKey.pairedVideoURL]
-//                ]
-//                self.didCaptured(with:data)
-//            }
-        }
-        
-        PHPhotoLibraryManager.default.watch(\.changes) {
-            guard let changeInstance = PHPhotoLibraryManager.default.changes else {
-                return
-            }
-            
-            if let results = capturedHandlerResult, let last = PHAssets.fetched.results?.last{
-                if let insertedAssets = changeInstance.changeDetails(for: last)?.insertedObjects{
-                    for asset in insertedAssets {
-                        
-                        let data = [
-                            AppLaunchOptionsKey.PHAsset: asset
-                            , AppLaunchOptionsKey.PhotoURL: results[CaptureProcessorResultKey.photoURL]
-                            , AppLaunchOptionsKey.PairedVideoURL: results[CaptureProcessorResultKey.pairedVideoURL]
-                        ]
-                        self.didCaptured(with:data)
-                        break
-                    }
-                }
+            if let results = results{
+                let data = [
+                    AppLaunchOptionsKey.PhotoURL: results[CaptureProcessorResultKey.photoURL]
+                    , AppLaunchOptionsKey.PairedVideoURL: results[CaptureProcessorResultKey.pairedVideoURL]
+                ]
+                self.didCaptured(with:data)
             }
         }
     }

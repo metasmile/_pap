@@ -538,6 +538,7 @@ class PhotoPickerViewController: AppDockViewController {
         
         var indexPathToScroll: IndexPath?
         var needsToRestoreSelection = false
+        var insertedIndexes = [IndexPath]()
 
         //perform batch update
         //confirm and remove: https://console.firebase.google.com/project/batch-photos/crashlytics/app/ios:com.stells.pap/issues/5ac8295036c7b23527c249dd?time=1523145600000:1523231999000&sessionId=18f49e20db084ed8b9c8b26e72871bad_DNE_0_v2
@@ -574,7 +575,8 @@ class PhotoPickerViewController: AppDockViewController {
                     let indexPaths = inserted.map { IndexPath(item: $0, section:section) }
                     indexPathToScroll = indexPaths.last
                     needsToRestoreSelection = true
-                    
+
+                    insertedIndexes.append(contentsOf: indexPaths)
                     self.photoCollectionView.insertItems(at: indexPaths)
                 }
                 if let changed = changes.changedIndexes, changed.count > 0 {
@@ -605,6 +607,16 @@ class PhotoPickerViewController: AppDockViewController {
             }
             
             self.appDockView?.reloadKeepingDrawerOpened()
+
+            // PhotoPickerCollectionViewDisplayableApp.shouldSelectWhenInserted
+            let collectionViewDelegatableApp = AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDisplayableApp.self)
+            if let allowedSelectionIndexPaths = collectionViewDelegatableApp?.shouldSelectWhenInserted(indexPaths: insertedIndexes.nilEmpty){
+                for indexPath in allowedSelectionIndexPaths {
+                    self.selectCollectionViewItem(at: indexPath)
+                }
+                self.setNeedsScrollToBottom()
+                self.scrollToBottomIfNeeded(animated: true)
+            }
         })
     }
 }
