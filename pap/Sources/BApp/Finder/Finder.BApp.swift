@@ -52,8 +52,8 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
 //        callProviderDelegate = CallProviderDelegate(callManager: CallManager.shared)
     }
 
+    func didResign(current: App.Type?) {
 
-    func willLaunch(current: App.Type?, withOption: AppLaunchOption?) {
     }
 
     func didLaunch(previous: App.Type?, withOption: AppLaunchOption?) {

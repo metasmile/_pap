@@ -10,12 +10,10 @@ extension VisionTextDetector{
 
     func detect(with image: UIImage, _ async: AsyncWaitSignalable) -> [VisionText]? {
         let visionImage = VisionImage(image: image)
-        let textDetector = self
-
         var result:[VisionText]?
 
         async.begin()
-        textDetector.detect(in: visionImage) { features, error in
+        self.detect(in: visionImage) { features, error in
             if let error = error {
                 print("Received error: \(error)")
             }

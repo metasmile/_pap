@@ -53,8 +53,7 @@ class CameraApp: NSObject, KeyPathWatchable, BApp, LaunchableApp, AppDockApp, Ph
         return false
     }
 
-
-    func willLaunch(current: App.Type?, withOption: AppLaunchOption?) {
+    func didResign(current: App.Type?) {
 
     }
 

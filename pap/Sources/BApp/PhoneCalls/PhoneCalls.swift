@@ -71,10 +71,12 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
     }
 
 
-    func willLaunch(current: App.Type?, withOption: AppLaunchOption?) {
+    func didResign(current: App.Type?) {
+        self.detector.disposeDetector()
     }
 
     func didLaunch(previous: App.Type?, withOption: AppLaunchOption?) {
+
     }
 
     public var finalizingActions: [PHAssetFinalizingAction] {
@@ -198,24 +200,62 @@ private class PhoneCallsAppDetector{
 
     private var cachedResults = [String:PhoneCallsAppResult]()
 
-    private let vision = Vision.vision()
+    private var _visionDetector:VisionTextDetector?
+    private var visionDetector:VisionTextDetector {
+        if let d = _visionDetector{
+            return d
+        }
+        let d = Vision.vision().textDetector()
+        _visionDetector = d
+        return d
+    }
+
+    private var imageRequestIds = [PHImageRequestID]()
+
+    private lazy var imageRequestOptions:PHImageRequestOptions = {
+        let options = PHImageRequestOptions()
+        options.isSynchronous = true
+        options.isNetworkAccessAllowed = false
+        options.deliveryMode = .highQualityFormat
+        options.resizeMode = .exact
+        return options
+    }()
+
+    fileprivate func disposeDetector(){
+        _visionDetector = nil
+    }
+
+    fileprivate func cancelDetecting(_ async: AsyncWaitSignalable){
+        DispatchQueue.mainAsyncIfNot {
+            self.imageRequestIds.forEach { id in
+                PHImageManager.default().cancelImageRequest(id)
+            }
+            self.imageRequestIds = [PHImageRequestID]()
+        }
+    }
 
     fileprivate func detectResult(asset:PHAsset, _ async: AsyncWaitSignalable) -> PhoneCallsAppResult? {
         if let cachedResults = cachedResults[asset.localIdentifier]{
             return cachedResults
         }
 
-        guard let image = asset.asUIImage else {
+        //TODO: compare with max image .. hmm not too different
+        var image: UIImage? = nil
+        let id = PHImageManager.default().requestImage(for: asset, targetSize: CGSize(width:1000,height:1000), contentMode: .aspectFit, options: self.imageRequestOptions) { _image, dictionary in
+            image = _image
+        }
+        imageRequestIds.append(id)
+
+        guard let targetImage = image else {
             return nil
         }
 
-        guard let visionTexts = vision.textDetector().detect(with: image, async) else {
-            return nil
-        }
+        let visionTexts = visionDetector.detect(with: targetImage, async)
 
         var result = PhoneCallsAppResult(asset: asset)
-        result.phoneNumbers = visionTexts.parse(type: VisionTextPhoneNumberParser.self, async)
+        result.phoneNumbers = visionTexts?.parse(type: VisionTextPhoneNumberParser.self, async)
         cachedResults[asset.localIdentifier] = result
+
         return result
     }
 }
@@ -225,7 +265,9 @@ private class _PhoneCallsAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy,
     private let emailParser = VisionTextEmailAddressParser()
     private let phoneNumberParser = VisionTextPhoneNumberParser()
 
-    public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){}
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){
+        AppCenter.default.currentInstanceAs(PhoneCallsApp.self)?.detector.cancelDetecting(async)
+    }
 
     public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
         guard let asset = (param as? PHAssetItem<ImageEditStateValue>)?.asset else{
