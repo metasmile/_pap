@@ -228,7 +228,7 @@ class AppDockView: CustomView {
     }
     
     // set an App
-    weak var app: AppDockApp? {
+    var app: AppDockApp.Type? {
         didSet {
             self.controller = dataSource?.dockContent(in: self)
         }
@@ -271,7 +271,7 @@ class AppDockView: CustomView {
     }
 
     var conformsPreviewable:Bool{
-        return app is PreviewableApp
+        return app is PreviewableApp.Type
     }
 
     private func hasControlView(_ view: UIView?) -> Bool {
