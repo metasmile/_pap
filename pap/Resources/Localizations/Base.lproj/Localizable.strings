@@ -162,7 +162,7 @@
 "Detecting ... %@ " = "Detecting ... %@ ";
 /* Generated from genl10n: GIFMaker.BApp.swift#542 */
 "Direction" = "Direction";
-/* Generated from genl10n: PhotoPickerViewController.swift#778 */
+/* Generated from genl10n: PhotoPickerViewController.swift#783 */
 "Downloading..." = "Downloading...";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#190, Finder.BApp.swift#646, Finder.BApp.swift#1213 */
 "E-mail Address" = "E-mail Address";
@@ -266,7 +266,7 @@
 "Save and Share" = "Save and Share";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift#52 */
 "Save" = "Save";
-/* Generated from genl10n: PhotoPickerViewController.swift#801 */
+/* Generated from genl10n: PhotoPickerViewController.swift#806 */
 "Saving Results..." = "Saving Results...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
 "Scale To Fit" = "Scale To Fit";
@@ -308,7 +308,7 @@
 "Start" = "Start";
 /* Generated from genl10n: Finder.BApp.swift#145 */
 "Starting To Find ..." = "Starting To Find ...";
-/* Generated from genl10n: PhotoPickerViewController.swift#735 */
+/* Generated from genl10n: PhotoPickerViewController.swift#740 */
 "Starting the Process..." = "Starting the Process...";
 /* Generated from genl10n: Revert.BApp.swift#107 */
 "Starting to check edited photos..." = "Starting to check edited photos...";

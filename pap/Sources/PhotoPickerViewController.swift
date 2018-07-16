@@ -614,8 +614,13 @@ class PhotoPickerViewController: AppDockViewController {
                 for indexPath in allowedSelectionIndexPaths {
                     self.selectCollectionViewItem(at: indexPath)
                 }
-                self.setNeedsScrollToBottom()
-                self.scrollToBottomIfNeeded(animated: true)
+
+                DispatchQueue.global(qos: .background).async{
+                    DispatchQueue.main.async{
+                        self.setNeedsScrollToBottom()
+                        self.scrollToBottomIfNeeded(animated: true)
+                    }
+                }
             }
         })
     }
