@@ -39,6 +39,8 @@ extension AppCenter{
             return false
         }
 
+        let willChange = self.current != app
+
         if let options = options{
             self.setCurrent(current: app, with: options)
         }else{
@@ -47,7 +49,9 @@ extension AppCenter{
 
         DispatchQueue.mainAsyncIfNot {
             appDockVc.selectCurrentAppIfExist(animation: animation)
-            appDockVc.appDidChange()
+            if willChange{
+                appDockVc.appDidChange()
+            }
         }
         return true
     }

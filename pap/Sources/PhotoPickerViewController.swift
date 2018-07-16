@@ -39,16 +39,25 @@ class PhotoPickerViewController: AppDockViewController {
     func setNeedsScrollToBottom() {
         needsScrollToBottom = true
     }
+
+    var scrollingBottomOffsetY:CGFloat{
+        return max(-photoCollectionView.adjustedContentInset.top, photoCollectionView.contentSize.height - photoCollectionView.bounds.size.height + photoCollectionView.adjustedContentInset.bottom - collectionView(photoCollectionView, layout: photoCollectionView.collectionViewLayout, referenceSizeForFooterInSection: 0).height)
+    }
+
+    var scrollBottomOffsetYIncludingMargin:CGFloat{
+        return photoCollectionView.contentSize.height - photoCollectionView.bounds.size.height + photoCollectionView.adjustedContentInset.bottom
+    }
     
-    func scrollToBottomIfNeeded() {
+    func scrollToBottomIfNeeded(animated:Bool=false) {
         guard needsScrollToBottom else { return }
         needsScrollToBottom = false
-        
-        let bottomOffsetY = max(-photoCollectionView.adjustedContentInset.top, photoCollectionView.contentSize.height - photoCollectionView.bounds.size.height + photoCollectionView.adjustedContentInset.bottom - collectionView(photoCollectionView, layout: photoCollectionView.collectionViewLayout, referenceSizeForFooterInSection: 0).height)
-        photoCollectionView.setContentOffset(CGPoint(x: 0, y: bottomOffsetY), animated: false)
+
+        photoCollectionView.setContentOffset(CGPoint(x: 0, y: scrollingBottomOffsetY), animated: animated)
     }
 
     override func viewDidLoad() {
+        self.appDockView?.delegate = self
+
         super.viewDidLoad()
 
         //preview
@@ -821,6 +830,43 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         }
         
         appDockView?.disabled = false
+    }
+}
+
+extension PhotoPickerViewController: AppDockViewDelegate{
+    func appDockView(_ view: AppDockView, needsScrollToBottom: Bool) {
+        self.needsScrollToBottom = needsScrollToBottom
+    }
+
+    func appDockView(_ view: AppDockView, didSelectItemWith item: AppDockItem) {
+        let willAppChange = AppCenter.default.current != item.app
+
+        AppCenter.default.current = item.app
+
+        view.loadControllerContentIfNeeded()
+
+        if willAppChange {
+            appDidChange()
+        }
+        else {
+            if photoCollectionView.contentOffset.y >= self.scrollingBottomOffsetY{
+                if appDockView?.contentLayoutState == .minimized {
+                    appDockView?.openDrawer()
+                }
+            }
+            else {
+                scrollToBottomIfNeeded(animated: true)
+            }
+        }
+    }
+
+    func appDockView(_ view: AppDockView, didOpenDrawer isOpened: Bool) {
+        if let dimmedView = (navigationController as? AppDockNavigationController)?.dimmedView{
+
+            UIView.transition(with: dimmedView, duration: 0.4, options: .transitionCrossDissolve, animations: {
+                dimmedView.isHidden = !isOpened
+            }, completion: nil)
+        }
     }
 }
 

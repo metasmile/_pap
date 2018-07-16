@@ -18,7 +18,6 @@ internal class AppDockContainerView: UIView {
 class AppDockNavigationController: UINavigationController, UINavigationControllerDelegate {
     lazy var appDockView: AppDockView = {
         let view = AppDockView(frame: CGRect(origin: CGPoint(x: 0, y: self.view.bounds.height - 64), size: CGSize(width: self.view.bounds.width, height: 64)))
-        view.delegate = self
         return view
     }()
     
@@ -92,55 +91,6 @@ class AppDockNavigationController: UINavigationController, UINavigationControlle
     }
     
     private var needsScrollToBottom = false
-}
-
-extension AppDockNavigationController: AppDockViewDelegate {
-    func appDockView(_ view: AppDockView, needsScrollToBottom: Bool) {
-        self.needsScrollToBottom = needsScrollToBottom
-    }
-    
-    func appDockView(_ view: AppDockView, didSelectItemWith item: AppDockItem) {
-        let willAppChange = AppCenter.default.current != item.app
-
-        AppCenter.default.current = item.app
-
-        view.loadControllerContentIfNeeded()
-
-        if willAppChange {
-
-            if let vc = self.topViewController as? AppDockViewController {
-                vc.appDidChange()
-            }
-        }
-        else {
-            var needsToOpenDockViewDrawer = false
-
-            if let collectionView = self.topViewController?.view.subviews.first as? UICollectionView {
-                let bottomOffsetY = collectionView.contentSize.height - collectionView.bounds.size.height + collectionView.adjustedContentInset.bottom
-
-                if collectionView.contentOffset.y == bottomOffsetY{
-                    needsToOpenDockViewDrawer = true
-                }
-                else if needsScrollToBottom {
-                    needsScrollToBottom = false
-                    collectionView.setContentOffset(CGPoint(x: 0, y: bottomOffsetY), animated: true)
-                }
-
-            }else{
-                needsToOpenDockViewDrawer = true
-            }
-
-            if needsToOpenDockViewDrawer && appDockView.contentLayoutState == .minimized {
-                appDockView.openDrawer()
-            }
-        }
-    }
-    
-    func appDockView(_ view: AppDockView, didOpenDrawer isOpened: Bool) {
-        UIView.transition(with: dimmedView, duration: 0.4, options: .transitionCrossDissolve, animations: {
-            self.dimmedView.isHidden = !isOpened
-        }, completion: nil)
-    }
 }
 
 class AppDockViewController: UIViewController, AppDockViewDataSource {
