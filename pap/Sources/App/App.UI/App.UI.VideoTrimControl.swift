@@ -30,6 +30,7 @@ class AppUIVideoTrimControl: UIView {
     private lazy var imageGenerator: AVAssetImageGenerator? = {
         guard let video = video else { return nil }
         let imageGenerator = AVAssetImageGenerator(asset: video)
+        
         return imageGenerator
     }()
     
@@ -42,9 +43,19 @@ class AppUIVideoTrimControl: UIView {
             self.video = video
             
             self.timelineCellSize = AVMakeRect(aspectRatio: asset.pixelSize, insideRect: bounds).size
-            let numberOfCells = ceil(timelineCellSize.width / bounds.width)
-            print(numberOfCells, timelineCellSize.width / bounds.width)
+            let numberOfCells = timelineCellSize.width / bounds.width
             
+            let timePerCell = CMTimeMultiplyByFloat64(duration, 1 / Double(numberOfCells))
+            
+            var insertTime = kCMTimeZero
+            timeline.append(insertTime)
+            
+            while insertTime < duration {
+                insertTime = CMTimeAdd(insertTime, timePerCell)
+                timeline.append(insertTime)
+            }
+            
+            timeline.append(duration)
         }
     }
     
