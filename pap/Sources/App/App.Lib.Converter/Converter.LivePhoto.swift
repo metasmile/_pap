@@ -108,7 +108,9 @@ struct LivePhotoConverter_Mov: LivePhotoConverter {
 
             }, andFetched: nil)
 
-            async.waitUntilEnd()
+            if async.began{ //Avoid assertion error. (when end() was called in same queue before waitUntilEnd())
+                async.waitUntilEnd()
+            }
         }
 
         return succeed ? ConverterVoidReturnValue : nil
