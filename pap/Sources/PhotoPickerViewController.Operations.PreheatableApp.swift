@@ -43,9 +43,6 @@ extension PhotoPickerViewController{
 
     public func cancelPreheatingIfNeeded(){
         PreheatingQueue.controlQueue.async{
-            if PreheatingQueue.indexPathQueue.count == 0{
-                return
-            }
             PreheatingQueue.canceled = true
         }
     }
