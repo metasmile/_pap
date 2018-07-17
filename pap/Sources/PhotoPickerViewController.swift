@@ -115,32 +115,9 @@ class PhotoPickerViewController: AppDockViewController {
         PHPhotoLibraryManager.default.authorizeIfNeeded { authorized in
             guard authorized else { return }
 
-            if self.collection == nil {
-                self.collection = self.defaultCollection
-                self.titleFade = self.collection?.localizedTitle ?? Bundle.main.displayName
+            DispatchQueue.main.async{ // if not call from DispatchQueue.main.async, scroll will not work.
+                self.loadPhotoLibraryInCurrentCollection()
             }
-
-            //QA: attach initial progress activity view + non-mainqueue.async
-            if let collection = self.collection {
-                PHAssets.fetched.load(from: collection)
-            }
-            else {
-                PHAssets.fetched.load(with: .smartAlbum, subtype: .smartAlbumUserLibrary) // iphone x: .028702974319458s
-            }
-
-            if let numberOfSection = PHAssets.fetched.results?.count, numberOfSection > 0
-            , let numberOfItemsInSection = PHAssets.fetched.results?[numberOfSection - 1].count
-            , numberOfItemsInSection > 0 {
-                self.setNeedsScrollToBottom()
-            }
-            self.photoCollectionView.reloadData()
-            self.photoCollectionView.performBatchUpdates(nil, completion: { result in
-                self.performPrefetchIfNeeded(includingCurrentVisibleItems: true)
-                self.scrollToBottomIfNeeded(animated: true)
-            })
-
-            //navigation controller accessories
-            self.title = self.collection?.localizedTitle ?? Bundle.main.displayName
         }
 
         navigationItem.setLeftBarButton(nil, animated: false)
@@ -194,6 +171,35 @@ class PhotoPickerViewController: AppDockViewController {
         super.viewWillLayoutSubviews()
         
         photoCollectionView.collectionViewLayout.invalidateLayout()
+    }
+
+    private func loadPhotoLibraryInCurrentCollection(){
+        if self.collection == nil {
+            self.collection = self.defaultCollection
+            self.titleFade = self.collection?.localizedTitle ?? Bundle.main.displayName
+        }
+
+        //QA: attach initial progress activity view + non-mainqueue.async
+        if let collection = self.collection {
+            PHAssets.fetched.load(from: collection)
+        }
+        else {
+            PHAssets.fetched.load(with: .smartAlbum, subtype: .smartAlbumUserLibrary) // iphone x: .028702974319458s
+        }
+
+        if let numberOfSection = PHAssets.fetched.results?.count, numberOfSection > 0
+        , let numberOfItemsInSection = PHAssets.fetched.results?[numberOfSection - 1].count
+        , numberOfItemsInSection > 0 {
+            self.setNeedsScrollToBottom()
+        }
+        self.photoCollectionView.reloadData()
+        self.photoCollectionView.performBatchUpdates(nil, completion: { result in
+            self.performPrefetchIfNeeded(includingCurrentVisibleItems: true)
+            self.scrollToBottomIfNeeded(animated: true)
+        })
+
+        //navigation controller accessories
+        self.title = self.collection?.localizedTitle ?? Bundle.main.displayName
     }
 
     private func flushQueuedPhotoLibraryChanges(){
