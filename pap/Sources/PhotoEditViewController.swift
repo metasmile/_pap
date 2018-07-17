@@ -122,14 +122,14 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         super.viewDidAppear(animated)
         
         if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self) {
-            app.selectEditStateValue(self.preferredEditState.imageEditStateValue)
+            app.selectEditStateValue(self.preferredEditState.imageEditStateValue, in: (app as? PhotoEditorViewControllerDelegatableApp)?.photoEditorDockContent)
         }
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        updatePreview()
+        layoutAssetView()
     }
     
     override func registerWatchingAppConfig() {

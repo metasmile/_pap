@@ -103,7 +103,7 @@ public class Stabilizer: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, Phot
     }
     
     public private(set) var defaultEditStateValue: ImageEditStateValue?
-    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?) {}
+    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in dockContent: AppDockContent?) {}
 }
 
 private class StabilizerTask: AppTaskPrototype, AppTaskable {

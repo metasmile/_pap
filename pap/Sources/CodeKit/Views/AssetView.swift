@@ -333,7 +333,7 @@ extension AssetView {
 extension AssetView {
     fileprivate func loadImage(for asset: PHAsset, completion: @escaping (UIImage?) -> Void) {
         let targetBounds = AVMakeRect(aspectRatio: asset.pixelSize, insideRect: bounds)
-        let targetScale: CGFloat = UIScreen.main.nativeScale
+        let targetScale: CGFloat = UIScreen.main.scale
         let targetSize = CGSize(width: targetBounds.width * targetScale, height: targetBounds.height * targetScale)
         imageRequestID = AssetView.imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: imageRequestOptions) { [weak self] (image, info) in
             guard (info?[PHImageResultIsDegradedKey] as? Bool) != true else { return }

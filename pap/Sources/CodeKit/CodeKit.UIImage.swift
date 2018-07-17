@@ -65,4 +65,16 @@ public extension UIImage {
             return false
         }
     }
+    
+    //https://nshipster.com/image-resizing/
+    func resize(in size: CGSize) -> UIImage? {
+        guard size != self.size else { return self }
+        
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        draw(in: CGRect(origin: .zero, size: size))
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return scaledImage
+    }
 }

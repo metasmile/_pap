@@ -117,9 +117,8 @@ PhotoEditorViewControllerDelegatableApp {
         photoEditorDockContent?.view.isUserInteractionEnabled = true
     }
     
-    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?) {
+    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in dockContent: AppDockContent?) {
         (dockContent as? FiltersAppDockContent)?.selectItem(with: editStateValue)
-        (photoEditorDockContent as? FiltersAppDockContent)?.selectItem(with: editStateValue)
     }
 }
 
@@ -194,6 +193,8 @@ fileprivate class FiltersAppDockContent: NSObject, KeyPathWatchable, AppDockCont
         
         return view
     }()
+    
+    var selectedEditStateValue: ImageEditStateValue?
     
     func selectItem(with editStateValue: ImageEditStateValue?) {
         let index = items.index(where: { $0.title == PhotosFilterNames.aliasName(editStateValue?.ciFilter?.name ?? "") }) ?? 0

@@ -11,7 +11,7 @@ import UIKit
 public protocol PreviewableApp: App {
     var defaultEditStateValue: ImageEditStateValue? { get }
     func setDefaultEditStateValue(_ editStateValue: ImageEditStateValue?)
-    func selectEditStateValue(_ editStateValue: ImageEditStateValue?)
+    func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in dockContent: AppDockContent?)
 }
 
 extension PreviewableApp {

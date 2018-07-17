@@ -78,7 +78,7 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
         return item.asset.imageType != .animatedGIF
     }
     
-    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?) {}
+    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in dockContent: AppDockContent?) {}
 }
 
 private extension TransformApp{

@@ -117,10 +117,9 @@ public class AutoEditorApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _
         completion(original, filtered)
     }
     
-    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?) {
+    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in dockContent: AppDockContent?) {
         let filter = editStateValue?.ciFilter as? CIAutoAdjustmentFilter
-        (self.dockContent as? AutoEditorAppDockContent)?.switchOptions(filter?.options, animated: false)
-        (self.photoEditorDockContent as? AutoEditorAppDockContent)?.switchOptions(filter?.options, animated: false)
+        (dockContent as? AutoEditorAppDockContent)?.switchOptions(filter?.options, animated: false)
     }
 }
 
