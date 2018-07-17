@@ -97,6 +97,7 @@ class PhotoPickerViewController: AppDockViewController {
             }
 
             //remove temp files after current all tasks are finished.
+            //TODO: domain-driven disk management. (if app did mark for maintaining cache resources, skip)
             DispatchQueue.global(qos: .background).async{
                 FileManager.default.clearTemporaryDirectory()
             }
@@ -104,33 +105,8 @@ class PhotoPickerViewController: AppDockViewController {
             papLog.event.allTasksAreFinished()
         }
 
-        //check photo library permission
-        PHPhotoLibraryManager.default.authorizeIfNeeded { authorized in
-            guard authorized else { return }
-            
-            if self.collection == nil {
-                self.collection = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil).firstObject
-                self.titleFade = self.collection?.localizedTitle ?? Bundle.main.displayName
-            }
-
-            //QA: attach initial progress activity view + non-mainqueue.async
-            if let collection = self.collection {
-                PHAssets.fetched.load(from: collection)
-            }
-            else {
-                PHAssets.fetched.load(with: .smartAlbum, subtype: .smartAlbumUserLibrary) // iphone x: .028702974319458s
-            }
-
-            if let numberOfSection = PHAssets.fetched.results?.count, numberOfSection > 0
-                , let numberOfItemsInSection = PHAssets.fetched.results?[numberOfSection - 1].count
-                , numberOfItemsInSection > 0 {
-                self.setNeedsScrollToBottom()
-            }
-            self.photoCollectionView.reloadData()
-            self.photoCollectionView.performBatchUpdates(nil, completion: { result in
-                self.performPrefetchIfNeeded(includingCurrentVisibleItems: true)
-            })
-         }
+        //check photo library permission and load
+        self.loadCurrentCollectionIfPossible()
 
         //navigation controller accessories
         title = self.collection?.localizedTitle ?? Bundle.main.displayName
@@ -156,6 +132,35 @@ class PhotoPickerViewController: AppDockViewController {
         dragSelectionGesture = DragSelectionGestureRecognizer(target: self, action: #selector(self.dragSelectionGestureDidRecognize))
         dragSelectionGesture.delegate = self
         photoCollectionView.addGestureRecognizer(dragSelectionGesture)
+    }
+
+    private func loadCurrentCollectionIfPossible(){
+        PHPhotoLibraryManager.default.authorizeIfNeeded { authorized in
+            guard authorized else { return }
+
+            if self.collection == nil {
+                self.collection = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil).firstObject
+                self.titleFade = self.collection?.localizedTitle ?? Bundle.main.displayName
+            }
+
+            //QA: attach initial progress activity view + non-mainqueue.async
+            if let collection = self.collection {
+                PHAssets.fetched.load(from: collection)
+            }
+            else {
+                PHAssets.fetched.load(with: .smartAlbum, subtype: .smartAlbumUserLibrary) // iphone x: .028702974319458s
+            }
+
+            if let numberOfSection = PHAssets.fetched.results?.count, numberOfSection > 0
+            , let numberOfItemsInSection = PHAssets.fetched.results?[numberOfSection - 1].count
+            , numberOfItemsInSection > 0 {
+                self.setNeedsScrollToBottom()
+            }
+            self.photoCollectionView.reloadData()
+            self.photoCollectionView.performBatchUpdates(nil, completion: { result in
+                self.performPrefetchIfNeeded(includingCurrentVisibleItems: true)
+            })
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
