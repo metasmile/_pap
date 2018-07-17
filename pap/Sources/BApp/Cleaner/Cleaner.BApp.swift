@@ -55,11 +55,11 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     }
 
     public var titleWillFinalize: String? {
-        return "Cleaning Photos...".localized
+        return "Deleting Photos...".localized
     }
 
     public var doneButtonTitle: String? {
-        return "Clean".localized
+        return "Delete".localized
     }
 
     @objc dynamic
@@ -373,7 +373,7 @@ private struct SettingsItem {
 }
 
 fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
-    private lazy var tintColor = UIColor(red:0.34, green:0.55, blue:0.87, alpha:1)
+    private lazy var tintColor = UIColor(red:0.48, green:0.55, blue:0.82, alpha:1)
 
     fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
 
@@ -455,7 +455,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
 
         let cell1 = UITableViewSwitchCellDescriber()
         cell1.itemIdentifier = CleanerAppSettingCells.autoSelect.hashValue
-        cell1.label = "Auto Garbage Selection".localized
+        cell1.label = "Auto Garbage Collection".localized
         cell1.valueGetter = { CleanerApp.privateDefaults.autoSelect }
         cell1.valueHandler = { val in
             let enabled = val as? Bool ?? false
@@ -568,7 +568,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
-        let label_section0 = "🖼️ ‣ 🔍 ‣ ⭐ " + "Select Photos To Find Everything.".localized
+        let label_section0 = "Select Photos To Delete.".localized
         return section == 0 ? label_section0 : defaultCollections[section-1].label
     }
 
