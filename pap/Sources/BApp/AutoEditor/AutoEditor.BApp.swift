@@ -182,9 +182,9 @@ private extension AutoEditorApp {
 
     static let AutoAdjustmentsKeys = [
         AutoEditorApp.AutoAdjustments.Enhance,
-        AutoEditorApp.AutoAdjustments.RedEye,
+        AutoEditorApp.AutoAdjustments.Straighten,
         AutoEditorApp.AutoAdjustments.Crop,
-        AutoEditorApp.AutoAdjustments.Straighten
+        AutoEditorApp.AutoAdjustments.RedEye
     ]
     
     private func updateControllerView(){

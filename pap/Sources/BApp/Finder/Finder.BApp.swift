@@ -1423,7 +1423,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
-        let label_section0 = "🖼️ ‣ 🤖 ‣ 🔍 " + "Select Photos To Find Everything.".localized
+        let label_section0 = "Select Photos To Find Everything.".localized
         return section == 0 ? label_section0 : parserCollection[section-1].label
     }
 

@@ -328,7 +328,7 @@ fileprivate class PhoneCallsAppDockContent: NSObject, KeyPathWatchable,
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 0 ? "🖼️ ‣ 🤖 ‣ 📞" + "Select Photos You Want To Grab Phone Numbers!".localized : nil
+        return section == 0 ? "Select Photos You Want To Grab Phone Numbers!".localized : nil
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

@@ -14,49 +14,35 @@ final class PHPhotoLibraryManager: NSObject, KeyPathWatchable, PHPhotoLibraryCha
     @objc dynamic
     public private(set) var changes:PHChange?
 
-    public func authorizeIfNeeded(_ completion:((Bool) -> ())?=nil) {
-        //photos access authorization
-        PHPhotoLibraryManager.default.requestPhotoLibraryAuthorizationIfNeeded { [unowned self] (authorized) in
-            if authorized{
-                PHPhotoLibrary.shared().register(self)
-            }
-            completion?(authorized)
+    public func authorizeIfNeeded(_ completion:@escaping (Bool) -> ()) {
+        _authorizeIfNeeded(PHPhotoLibrary.authorizationStatus(), completion)
+    }
+
+    private func _authorizeIfNeeded(_ status:PHAuthorizationStatus, _ completion:@escaping (Bool) -> ()) {
+        PHPhotoLibrary.shared().unregisterChangeObserver(self)
+
+        if status == .authorized{
+            PHPhotoLibrary.shared().register(self)
+            completion(true)
+            return
         }
+
+        if status == .notDetermined{
+            PHPhotoLibrary.requestAuthorization { (status) in
+                DispatchQueue.main.async{
+                    assert(status != .notDetermined,"what?")
+                    self._authorizeIfNeeded(status == .notDetermined ? .restricted : status, completion)
+                }
+            }
+            return
+        }
+
+        self.showPhotoLibrarySettingsAlert()
+        completion(false)
     }
 
     func photoLibraryDidChange(_ changeInstance: PHChange) {
         self.changes = changeInstance
-    }
-
-    private func requestPhotoLibraryAuthorizationIfNeeded(_ completion: @escaping ((Bool) -> ())) {
-        let status = PHPhotoLibrary.authorizationStatus()
-
-        DispatchQueue.main.async {
-            switch status {
-            case .authorized:
-                completion(true)
-                break
-            case .notDetermined:
-                self.requestPhotoLibraryAuthorization(completion)
-            case .denied, .restricted:
-                self.showPhotoLibrarySettingsAlert()
-                completion(false)
-            }
-        }
-    }
-
-    private func requestPhotoLibraryAuthorization(_ completion: @escaping ((Bool) -> ())) {
-        PHPhotoLibrary.requestAuthorization { (status) in
-            switch status {
-            case .authorized:
-                DispatchQueue.main.async { completion(true) }
-            case .notDetermined, .denied, .restricted:
-                DispatchQueue.main.async {
-                    self.showPhotoLibrarySettingsAlert()
-                    completion(false)
-                }
-            }
-        }
     }
 
     private func showPhotoLibrarySettingsAlert() {

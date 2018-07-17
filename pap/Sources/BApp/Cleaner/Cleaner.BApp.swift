@@ -55,23 +55,26 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     }
 
     public var titleWillFinalize: String? {
-        return "Cleaning Photos...".localized
+        return "Deleting Photos...".localized
     }
 
     public var doneButtonTitle: String? {
-        return "Clean".localized
+        return "Delete".localized
     }
 
     @objc dynamic
     public fileprivate (set) lazy var autoSelect: Bool = false
 
     fileprivate static let SupportingGDTypes:[PHAssetGarbageDetector.Type] = [
-        PHAssetGarbageDetector_Similarity.self
+        PHAssetGarbageDetector_NotTakenWithiOSCamera.self
+        , PHAssetGarbageDetector_Screenshots.self
+        ,PHAssetGarbageDetector_Similarity.self
 //        , PHAssetGarbageDetector_BD.self
 //        , PHAssetGarbageDetector_Blurry.self
-        , PHAssetGarbageDetector_Screenshots.self
         , PHAssetGarbageDetector_Lockscreens.self
         , PHAssetGarbageDetector_Flashlight.self
+        , PHAssetGarbageDetector_TooSlowShutterSpeed.self
+        , PHAssetGarbageDetector_TooShortVideos.self
     ]
 
     fileprivate static let SupportingGDTypesKeys:[String:PHAssetGarbageDetector.Type]
@@ -87,6 +90,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
 
     private var gdInstances = [String:PHAssetGarbageDetector]()
     fileprivate var cachedResults = [PHAssetID: PHAssetGCDetectedResult]()
+    fileprivate var enableCache = true
 
     fileprivate func gc(item: AppAsset, _ async: AsyncWaitSignalable) -> PHAssetGCResult {
 
@@ -96,6 +100,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
         var action:PHAssetGCAction = .none
 
         for gd in gdCollection{
+            //TODO: sort by more lighter gd.
             for gcItem in gd.items where gcItem.enabled{
                 if let t = gdType_Id[gcItem.gdIdentifier]{
                     let k = t.identifier
@@ -122,9 +127,11 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
 
                     let detected = detector.process(input: asset, async) ?? false
 
-                    var detectedCacheObject = cachedResults[aid] ?? PHAssetGCDetectedResult()
-                    detectedCacheObject[k] = detected
-                    cachedResults[aid] = detectedCacheObject
+                    if enableCache{
+                        var detectedCacheObject = cachedResults[aid] ?? PHAssetGCDetectedResult()
+                        detectedCacheObject[k] = detected
+                        cachedResults[aid] = detectedCacheObject
+                    }
 
                     if detected{
                         action = .delete
@@ -205,6 +212,8 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
 
 private class _CleanerAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, AppTaskable {
 
+    private var gcMode = false
+
     func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){}
 
     func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
@@ -212,7 +221,11 @@ private class _CleanerAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, Ap
             return nil
         }
 
-        return AppCenter.default.currentInstanceAs(CleanerApp.self)?.gc(item: item, async)
+        if gcMode {
+            return AppCenter.default.currentInstanceAs(CleanerApp.self)?.gc(item: item, async)
+        }else{
+            return PHAssetGCResult(asset: item.asset, action: .delete)
+        }
     }
 }
 
@@ -373,7 +386,7 @@ private struct SettingsItem {
 }
 
 fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
-    private lazy var tintColor = UIColor(red:0.34, green:0.55, blue:0.87, alpha:1)
+    private lazy var tintColor = UIColor(red:0.48, green:0.55, blue:0.82, alpha:1)
 
     fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
 
@@ -455,7 +468,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
 
         let cell1 = UITableViewSwitchCellDescriber()
         cell1.itemIdentifier = CleanerAppSettingCells.autoSelect.hashValue
-        cell1.label = "Auto Garbage Selection".localized
+        cell1.label = "Auto Garbage Collection".localized
         cell1.valueGetter = { CleanerApp.privateDefaults.autoSelect }
         cell1.valueHandler = { val in
             let enabled = val as? Bool ?? false
@@ -568,7 +581,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
-        let label_section0 = "🖼️ ‣ 🔍 ‣ ⭐ " + "Select Photos To Find Everything.".localized
+        let label_section0 = "Select Photos To Delete.".localized
         return section == 0 ? label_section0 : defaultCollections[section-1].label
     }
 

@@ -80,12 +80,82 @@ class PHAssetGarbageDetector_Flashlight : PHAssetGarbageDetector{
         options.isNetworkAccessAllowed = false
         if let data = input.requestImageData(options: options, asyncSignal).data{
             if let flashValue = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifFlash) as? Int{
-                print(firedFlags.contains(flashValue))
                 return firedFlags.contains(flashValue)
             }
         }
 
         return false
+    }
+}
+
+class PHAssetGarbageDetector_TooSlowShutterSpeed: PHAssetGarbageDetector{
+    override class var label:String{
+        return "Too Slow Shutter Speed".localized
+    }
+
+    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+        guard input.mediaType == .image else { return false }
+
+        let option = PHContentEditingInputRequestOptions()
+        option.isNetworkAccessAllowed = false
+        option.canHandleAdjustmentData = { _ -> Bool in
+            return false
+        }
+
+        let options = PHImageRequestOptions()
+        options.isNetworkAccessAllowed = false
+        if let data = input.requestImageData(options: options, asyncSignal).data{
+            //ShutterSpeedValue
+            //ExposureTime
+            //TODO: capture at night get sample threshold
+            if let v = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifExposureTime){
+                print("ExposureTime", v)
+            }
+
+            if let v = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifShutterSpeedValue){
+                print("ShutterSpeedValue", v)
+            }
+        }
+
+        return false
+    }
+}
+
+class PHAssetGarbageDetector_TooShortVideos : PHAssetGarbageDetector{
+    override class var label:String{
+        return "Too Short Videos".localized
+    }
+
+    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+        //TODO: user defined custom duration
+        return input.mediaType == .video && input.duration <= 1
+    }
+}
+
+class PHAssetGarbageDetector_NotTakenWithiOSCamera: PHAssetGarbageDetector{
+    override class var label:String{
+        return "Not Taken With iOS Camera".localized
+    }
+
+    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+        guard input.mediaType == .image else { return false }
+
+        let option = PHContentEditingInputRequestOptions()
+        option.isNetworkAccessAllowed = false
+        option.canHandleAdjustmentData = { _ -> Bool in
+            return false
+        }
+
+        let options = PHImageRequestOptions()
+        options.isNetworkAccessAllowed = false
+        if let data = input.requestImageData(options: options, asyncSignal).data{
+            if let v = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifLensMake) as? String{
+                if v.trimmed == "Apple"{
+                    return false
+                }
+            }
+        }
+        return true
     }
 }
 

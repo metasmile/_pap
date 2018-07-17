@@ -22,6 +22,12 @@ extension DispatchQueue {
             DispatchQueue.main.async(execute: execute)
         }
     }
+
+    public class func mainAsyncAfter(qos: DispatchQoS.QoSClass = .default, execute:@escaping () -> Void){
+        DispatchQueue.global(qos: qos).async{
+            DispatchQueue.main.async(execute:execute)
+        }
+    }
 }
 
 
