@@ -28,6 +28,12 @@ class PhotoPickerViewController: AppDockViewController {
     var dragSelectionGesture: DragSelectionGestureRecognizer!
 
     var collection: PHAssetCollection?
+    var defaultCollection: PHAssetCollection?{
+        return PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil).firstObject
+    }
+    var isCurrentCollectionDefault:Bool{
+        return self.collection?.localIdentifier == self.defaultCollection?.localIdentifier
+    }
     var queuedPhotoLibraryChanges = ItemQueue<PHChange>()
     
     fileprivate var photoEditorTransitionContext: PhotoEditorTransitionContext?
@@ -79,11 +85,11 @@ class PhotoPickerViewController: AppDockViewController {
         PHPhotoLibraryManager.default.watch(\.changes) {
             guard let changeInstance = PHPhotoLibraryManager.default.changes else { return }
 
-            self.queuedPhotoLibraryChanges.enqueue(changeInstance)
+            DispatchQueue.main.async{
+                self.queuedPhotoLibraryChanges.enqueue(changeInstance)
 
-            self.cancelPreheatingIfNeeded()
+                self.cancelPreheatingIfNeeded()
 
-            DispatchQueue.main.async {
                 if AppCenter.default.task.isRunning == false{
                     self.flushQueuedPhotoLibraryChanges()
                 }
@@ -92,7 +98,7 @@ class PhotoPickerViewController: AppDockViewController {
 
         //monitor latest AppCenter task
         AppCenter.default.task.watch(\.appIdentifiersFinished) {
-            DispatchQueue.main.async {
+            DispatchQueue.main.async{
                 self.flushQueuedPhotoLibraryChanges()
             }
 
@@ -106,10 +112,36 @@ class PhotoPickerViewController: AppDockViewController {
         }
 
         //check photo library permission and load
-        self.loadCurrentCollectionIfPossible()
+        PHPhotoLibraryManager.default.authorizeIfNeeded { authorized in
+            guard authorized else { return }
 
-        //navigation controller accessories
-        title = self.collection?.localizedTitle ?? Bundle.main.displayName
+            if self.collection == nil {
+                self.collection = self.defaultCollection
+                self.titleFade = self.collection?.localizedTitle ?? Bundle.main.displayName
+            }
+
+            //QA: attach initial progress activity view + non-mainqueue.async
+            if let collection = self.collection {
+                PHAssets.fetched.load(from: collection)
+            }
+            else {
+                PHAssets.fetched.load(with: .smartAlbum, subtype: .smartAlbumUserLibrary) // iphone x: .028702974319458s
+            }
+
+            if let numberOfSection = PHAssets.fetched.results?.count, numberOfSection > 0
+            , let numberOfItemsInSection = PHAssets.fetched.results?[numberOfSection - 1].count
+            , numberOfItemsInSection > 0 {
+                self.setNeedsScrollToBottom()
+            }
+            self.photoCollectionView.reloadData()
+            self.photoCollectionView.performBatchUpdates(nil, completion: { result in
+                self.performPrefetchIfNeeded(includingCurrentVisibleItems: true)
+                self.scrollToBottomIfNeeded(animated: true)
+            })
+
+            //navigation controller accessories
+            self.title = self.collection?.localizedTitle ?? Bundle.main.displayName
+        }
 
         navigationItem.setLeftBarButton(nil, animated: false)
         navigationItem.setRightBarButton(nil, animated: false)
@@ -134,35 +166,6 @@ class PhotoPickerViewController: AppDockViewController {
         photoCollectionView.addGestureRecognizer(dragSelectionGesture)
     }
 
-    private func loadCurrentCollectionIfPossible(){
-        PHPhotoLibraryManager.default.authorizeIfNeeded { authorized in
-            guard authorized else { return }
-
-            if self.collection == nil {
-                self.collection = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil).firstObject
-                self.titleFade = self.collection?.localizedTitle ?? Bundle.main.displayName
-            }
-
-            //QA: attach initial progress activity view + non-mainqueue.async
-            if let collection = self.collection {
-                PHAssets.fetched.load(from: collection)
-            }
-            else {
-                PHAssets.fetched.load(with: .smartAlbum, subtype: .smartAlbumUserLibrary) // iphone x: .028702974319458s
-            }
-
-            if let numberOfSection = PHAssets.fetched.results?.count, numberOfSection > 0
-            , let numberOfItemsInSection = PHAssets.fetched.results?[numberOfSection - 1].count
-            , numberOfItemsInSection > 0 {
-                self.setNeedsScrollToBottom()
-            }
-            self.photoCollectionView.reloadData()
-            self.photoCollectionView.performBatchUpdates(nil, completion: { result in
-                self.performPrefetchIfNeeded(includingCurrentVisibleItems: true)
-            })
-        }
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -194,8 +197,20 @@ class PhotoPickerViewController: AppDockViewController {
     }
 
     private func flushQueuedPhotoLibraryChanges(){
+        assert(Thread.isMainThread, "flushQueuedPhotoLibraryChanges must be called in main")
+
         while let changeInstance = self.queuedPhotoLibraryChanges.dequeue() {
-            self.photoLibraryDidChange(changeInstance)
+            //changed, but if found actual changes from other collection has existed (e.g. current == Favorite, but captured on Camera app)
+            if self.arePhotoLibraryChangesInCurrentFetched(changeInstance)?.count ?? 0 > 0{
+                self.photoLibraryDidChangeInCurrentFetched(changeInstance)
+                continue
+            }
+
+            if !self.isCurrentCollectionDefault{
+                self.queuedPhotoLibraryChanges.dequeueAll()
+                self.navigationController?.popViewController(animated: true)
+            }
+            break
         }
     }
     
@@ -508,10 +523,10 @@ class PhotoPickerViewController: AppDockViewController {
         }
     }
 
-    private func photoLibraryDidChange(_ changeInstance: PHChange) {
-        let selectedAssetIdentifiers = photoCollectionView.indexPathsForSelectedItems?.compactMap({ PHAssets.fetched.asset(at: $0)?.localIdentifier })
-        
-        guard let fetchResults = PHAssets.fetched.results else { return }
+    private func arePhotoLibraryChangesInCurrentFetched(_ changeInstance: PHChange) -> [(Int, PHFetchResultChangeDetails<PHAsset>)]?{
+        guard let fetchResults = PHAssets.fetched.results else {
+            return nil
+        }
 
         let fetchResultChanges = fetchResults.enumerated().compactMap { results -> (Int, PHFetchResultChangeDetails<PHAsset>)? in
             let (section, result) = results
@@ -520,8 +535,18 @@ class PhotoPickerViewController: AppDockViewController {
             }
             return nil
         }
-        
-        guard !fetchResultChanges.isEmpty else { return }
+
+        guard !fetchResultChanges.isEmpty else {
+            return nil
+        }
+
+        return fetchResultChanges
+    }
+
+    private func photoLibraryDidChangeInCurrentFetched(_ changeInstance: PHChange) {
+        guard let fetchResultChanges = arePhotoLibraryChangesInCurrentFetched(changeInstance), !fetchResultChanges.isEmpty else {
+            return
+        }
 
         /*
             Handle Tasks while batch performing
@@ -613,6 +638,7 @@ class PhotoPickerViewController: AppDockViewController {
             }
             
             if needsToRestoreSelection {
+                let selectedAssetIdentifiers = self.photoCollectionView.indexPathsForSelectedItems?.compactMap({ PHAssets.fetched.asset(at: $0)?.localIdentifier })
                 self.restoreSelectionByUser(selectedAssetIdentifiers)
             }
             
@@ -625,11 +651,9 @@ class PhotoPickerViewController: AppDockViewController {
                     self.selectCollectionViewItem(at: indexPath)
                 }
 
-                DispatchQueue.global(qos: .background).async{
-                    DispatchQueue.main.async{
-                        self.setNeedsScrollToBottom()
-                        self.scrollToBottomIfNeeded(animated: true)
-                    }
+                DispatchQueue.mainAsyncAfter(qos: .background) {
+                    self.setNeedsScrollToBottom()
+                    self.scrollToBottomIfNeeded(animated: true)
                 }
             }
         })

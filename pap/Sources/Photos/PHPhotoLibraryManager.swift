@@ -30,6 +30,7 @@ final class PHPhotoLibraryManager: NSObject, KeyPathWatchable, PHPhotoLibraryCha
         if status == .notDetermined{
             PHPhotoLibrary.requestAuthorization { (status) in
                 DispatchQueue.main.async{
+                    assert(status != .notDetermined,"what?")
                     self._authorizeIfNeeded(status == .notDetermined ? .restricted : status, completion)
                 }
             }
