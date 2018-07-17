@@ -216,6 +216,7 @@
 		4F71DFA9D2EB40B350CB4E5B /* GIFMaker.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA8CA1E7F06DD108FFBB /* GIFMaker.BApp.swift */; };
 		511A1AAC20BF698800EFC81F /* App.Previewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511A1AAB20BF698800EFC81F /* App.Previewable.swift */; };
 		514BBEE620F4580A00B434E8 /* Camera.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514BBEE520F4580A00B434E8 /* Camera.BApp.swift */; };
+		515C9A5920FC2358004AF6BF /* App.UI.VideoTrimControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515C9A5820FC2358004AF6BF /* App.UI.VideoTrimControl.swift */; };
 		518BAC3A20F6BC2200A54750 /* CodeKit.CGGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518BAC3920F6BC2200A54750 /* CodeKit.CGGeometry.swift */; };
 		A01EF6A420E29717004A6CCC /* Finder.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A01EF6A320E29717004A6CCC /* Finder.BApp.Assets.xcassets */; };
 		A0453C5620A33E4700F9BA29 /* AutoEditor.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0453C5520A33E4700F9BA29 /* AutoEditor.BApp.Assets.xcassets */; };
@@ -574,6 +575,7 @@
 		511A1AAB20BF698800EFC81F /* App.Previewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Previewable.swift; sourceTree = "<group>"; };
 		514BBEE520F4580A00B434E8 /* Camera.BApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.BApp.swift; sourceTree = "<group>"; };
 		514CEBFA20E1A31D00098DFA /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
+		515C9A5820FC2358004AF6BF /* App.UI.VideoTrimControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.UI.VideoTrimControl.swift; sourceTree = "<group>"; };
 		518BAC3920F6BC2200A54750 /* CodeKit.CGGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.CGGeometry.swift; sourceTree = "<group>"; };
 		5FA8D6CA125AC9C3DF819BA2 /* Pods_pap_papTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pap_papTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6089B37E3E1620CEDA68858B /* Pods_pap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1153,6 +1155,7 @@
 				4F71DE77D153F85F4E5A92F2 /* App.UI.CollectionView.swift */,
 				4F71DE95525B05018BADF27D /* AppUICollectionViewCell.xib */,
 				4F71D9B7F2FA7E5A8E504B61 /* App.UI.CameraView.swift */,
+				515C9A5820FC2358004AF6BF /* App.UI.VideoTrimControl.swift */,
 			);
 			path = App.UI;
 			sourceTree = "<group>";
@@ -2884,6 +2887,7 @@
 				4F71D6A901FB2081A06E9E43 /* App.swift in Sources */,
 				4F71DE6DDDD0BC4FB5B79F6D /* App.Finalizable.swift in Sources */,
 				4F71DC8D1CEEE0B33AC27C42 /* App.Persistable.swift in Sources */,
+				515C9A5920FC2358004AF6BF /* App.UI.VideoTrimControl.swift in Sources */,
 				4F71DC985CDF9D119856EDAC /* App.Configurable.swift in Sources */,
 				4F71D87185DBD1B878C1F91A /* AppTaskRespondable.swift in Sources */,
 				4F71D14E23286B026B778B05 /* AppManager.swift in Sources */,
