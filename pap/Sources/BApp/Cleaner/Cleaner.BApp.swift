@@ -220,7 +220,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
 
 private class _CleanerAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, AppTaskable {
 
-    private var gcMode = DEVMODE==true
+    private let deletingTargetMatched = CleanerApp.privateDefaults.deletingTarget==DeletingTarget.matched.rawValue
 
     func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){}
 
@@ -229,7 +229,7 @@ private class _CleanerAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, Ap
             return nil
         }
 
-        if gcMode {
+        if DEVMODE ? true : self.deletingTargetMatched {
             return AppCenter.default.currentInstanceAs(CleanerApp.self)?.gc(item: item, async)
         }else{
             return PHAssetGCResult(asset: item.asset, action: .delete)
@@ -244,7 +244,7 @@ private class _CleanerAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, Ap
 
 private protocol CleanerAppDefaults: AppDefaults{
     var selectedCollection: [GDDictionary] {get set}
-    var selectionPreset: Int {get set}
+    var deletingTarget: Int {get set}
     var saveContactWithoutEdit:Bool {get set}
     var quickActionOnly:Bool {get set}
     var autoSelect:Bool {get set}
@@ -296,9 +296,9 @@ extension Defaults: CleanerAppDefaults {
         }
     }
 
-    fileprivate var selectionPreset: Int {
+    fileprivate var deletingTarget: Int {
         set{ set(newValue) }
-        get{ return get(or: SelectionPreset.action.rawValue ) }
+        get{ return get(or: DeletingTarget.selected.rawValue ) }
     }
 
     fileprivate var saveContactWithoutEdit: Bool {
@@ -369,14 +369,13 @@ AppContent
 
 */
 
-private enum SelectionPreset:Int{
-    case action
-    case contact
-    case plaintext
+private enum DeletingTarget:Int{
+    case selected
+    case matched
 }
 
 private enum CleanerAppSettingCells {
-    case presets
+    case deletingTarget
     case autoSelect
     case saveContactWithoutEdit
     case quickActionOnly
@@ -492,58 +491,58 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
         settingCellDescribers.append(cell1)
 
         let cell0 = UITableViewSegmentControlCellDescriber()
-        cell0.itemIdentifier = CleanerAppSettingCells.presets.hashValue
-        cell0.label = "Formats".localized
-        cell0.valueGetter = { CleanerApp.privateDefaults.selectionPreset }
+        cell0.itemIdentifier = CleanerAppSettingCells.deletingTarget.hashValue
+        cell0.label = "Deleting Targets".localized
+        cell0.valueGetter = { CleanerApp.privateDefaults.deletingTarget
+        }
         cell0.valueCollection = [
-            (label:"Actions".localized,value: SelectionPreset.action.rawValue),
-            (label:"Contacts".localized,value: SelectionPreset.contact.rawValue),
-            (label:"Plain Text".localized,value: SelectionPreset.plaintext.rawValue)
+            (label:"Selected".localized,value: DeletingTarget.selected.rawValue),
+            (label:"But Matched".localized,value: DeletingTarget.matched.rawValue)
         ]
         cell0.valueHandler = {
             let preset = $0 as! Int
 
             var defaults = CleanerApp.privateDefaults
-            defaults.selectionPreset = preset
+            defaults.deletingTarget = preset
 
             // selectionPreset changed -> other self.parserCollection getter will be returned.
             (view as? UITableView)?.reloadData()
 
 
-            [
-                CleanerAppSettingCells.saveContactWithoutEdit.hashValue
-                , CleanerAppSettingCells.quickActionOnly.hashValue
-            ].forEach { hashValue in
-
-                if let index = self.settingCellDescribers.index(where:{ describable in
-                    return describable.itemIdentifier == hashValue
-                }){
-                    self.settingCellDescribers.remove(at: index)
-                }
-            }
+//            [
+//                CleanerAppSettingCells.saveContactWithoutEdit.hashValue
+//                , CleanerAppSettingCells.quickActionOnly.hashValue
+//            ].forEach { hashValue in
+//
+//                if let index = self.settingCellDescribers.index(where:{ describable in
+//                    return describable.itemIdentifier == hashValue
+//                }){
+//                    self.settingCellDescribers.remove(at: index)
+//                }
+//            }
 
             //saveContactWithoutEdit
-            if preset == SelectionPreset.contact.rawValue{
-                self.settingCellDescribers.append(self.createCellDescriber_SelectionPreset_contact_saveContactWithoutEdit())
-            }
-
-            if preset == SelectionPreset.action.rawValue{
-                self.settingCellDescribers.append(self.createCellDescriber_SelectionPreset_action_quickActionsOnly())
-            }
+//            if preset == DeletingTarget.matched.rawValue{
+//                self.settingCellDescribers.append(self.createCellDescriber_SelectionPreset_contact_saveContactWithoutEdit())
+//            }
+//
+//            if preset == DeletingTarget.selected.rawValue{
+//                self.settingCellDescribers.append(self.createCellDescriber_SelectionPreset_action_quickActionsOnly())
+//            }
 
             (view as? UITableView)?.reloadData()
 
             // autoSelect turn off and restore
-            cell1.valueHandler?(false)
+//            cell1.valueHandler?(false)
 
         }
-//        settingCellDescribers.append(cell0)
+        settingCellDescribers.append(cell0)
 
         //auto save
-        if CleanerApp.privateDefaults.selectionPreset == SelectionPreset.contact.rawValue{
+        if CleanerApp.privateDefaults.deletingTarget == DeletingTarget.matched.rawValue{
 //            settingCellDescribers.append(createCellDescriber_SelectionPreset_contact_saveContactWithoutEdit())
         }
-        else if CleanerApp.privateDefaults.selectionPreset == SelectionPreset.action.rawValue{
+        else if CleanerApp.privateDefaults.deletingTarget == DeletingTarget.selected.rawValue{
 //            settingCellDescribers.append(createCellDescriber_SelectionPreset_action_quickActionsOnly())
         }
 
@@ -718,9 +717,9 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
                 AppCenter.default.currentInstanceAs(CleanerApp.self)?.disposeGdInstance(identifier: identifier)
             }
 
-            if self.isActivatedAtLeastOne == false{
-                self.autoSelectedEnabled = self.isActivatedAtLeastOne
-            }
+//            if self.isActivatedAtLeastOne == false{
+//                self.autoSelectedEnabled = self.isActivatedAtLeastOne
+//            }
 
             self.startAutoSelectIfNeeded()
 
