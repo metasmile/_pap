@@ -126,19 +126,20 @@ class PHAssetGarbageDetector_VideosWithoutSound: PHAssetGarbageDetector{
             asyncSignal.end()
         })
         asyncSignal.waitUntilEnd()
-
+        print(haveNotSound)
         return haveNotSound
     }
 }
 
-class PHAssetGarbageDetector_VideosCopiedByInstragram: PHAssetGarbageDetector{
+class PHAssetGarbageDetector_VideosSavedbyInstagramApp: PHAssetGarbageDetector{
     override class var label:String{
-        return "Videos Copied By Instagram".localized
+        return "Videos Saved by Instagram App".localized
     }
 
     override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
         guard input.mediaType == .video else { return false }
 
+        print(input.pixelSize)
         return input.pixelSize.width==720 && input.pixelSize.height==720
     }
 }
@@ -181,18 +182,18 @@ class PHAssetGarbageDetector_TooSlowShutterSpeed: PHAssetGarbageDetector{
 
 class PHAssetGarbageDetector_VideosShorterThan1Sec: PHAssetGarbageDetector{
     override class var label:String{
-        return "Videos Shorter Than One Second".localized
+        return "Videos Shorter Than 1 Second".localized
     }
 
     override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
         //TODO: user defined custom duration
-        return input.mediaType == .video && input.duration <= 1
+        return input.mediaType == .video && input.duration < 1
     }
 }
 
-class PHAssetGarbageDetector_NotByiOSCamera: PHAssetGarbageDetector{
+class PHAssetGarbageDetector_SavedWithouttheCamera: PHAssetGarbageDetector{
     override class var label:String{
-        return "Not By iOS Camera".localized
+        return "Saved Without the Camera".localized
     }
 
     override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {

@@ -72,7 +72,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     public fileprivate (set) lazy var autoSelect: Bool = false
 
     fileprivate static let SupportingGDTypes:[PHAssetGarbageDetector.Type] = [
-        PHAssetGarbageDetector_NotByiOSCamera.self
+        PHAssetGarbageDetector_SavedWithouttheCamera.self
         , PHAssetGarbageDetector_Screenshots.self
         , PHAssetGarbageDetector_Similarity.self
 //        , PHAssetGarbageDetector_Blurry.self
@@ -82,7 +82,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
         , PHAssetGarbageDetector_TooSlowShutterSpeed.self
         , PHAssetGarbageDetector_VideosWithoutSound.self
         , PHAssetGarbageDetector_VideosShorterThan1Sec.self
-        , PHAssetGarbageDetector_VideosCopiedByInstragram.self
+        , PHAssetGarbageDetector_VideosSavedbyInstagramApp.self
     ]
 
     fileprivate static let SupportingGDTypesKeys:[String:PHAssetGarbageDetector.Type]
