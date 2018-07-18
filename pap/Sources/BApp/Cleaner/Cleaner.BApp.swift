@@ -78,7 +78,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
 //        , PHAssetGarbageDetector_Blurry.self
         , PHAssetGarbageDetector_Lockscreens.self
         , PHAssetGarbageDetector_Flashlight.self
-        , PHAssetGarbageDetector_FlashlightAndCloseupFace.self // toggling relationship TakenWithFlashlightFace on -> TakenWithFlashlight off
+        , PHAssetGarbageDetector_TooCloseupFace.self // toggling relationship TakenWithFlashlightFace on -> TakenWithFlashlight off
         , PHAssetGarbageDetector_TooSlowShutterSpeed.self
         , PHAssetGarbageDetector_TooShortVideos.self
     ]
@@ -183,7 +183,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
 
         }else{
             DispatchQueue.main.async{
-                UIAlertController.alert("Sorry, Not found any cleaning targets.") { action in
+                UIAlertController.alert("Sorry, There are not any deleting targets in selected items.") { action in
                     asyncSignal.end()
                 }
             }
@@ -220,7 +220,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
 
 private class _CleanerAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, AppTaskable {
 
-    private let deletingTargetMatched = CleanerApp.privateDefaults.deletingTarget==DeletingTarget.matched.rawValue
+    private let deletingTargetMatched = CleanerApp.privateDefaults.deletingTarget==DeletingTarget.targeted.rawValue
 
     func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){}
 
@@ -229,7 +229,7 @@ private class _CleanerAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, Ap
             return nil
         }
 
-        if DEVMODE ? true : self.deletingTargetMatched {
+        if self.deletingTargetMatched {
             return AppCenter.default.currentInstanceAs(CleanerApp.self)?.gc(item: item, async)
         }else{
             return PHAssetGCResult(asset: item.asset, action: .delete)
@@ -371,7 +371,7 @@ AppContent
 
 private enum DeletingTarget:Int{
     case selected
-    case matched
+    case targeted
 }
 
 private enum CleanerAppSettingCells {
@@ -397,7 +397,9 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
 
     fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
 
-    private lazy var defaultCollections = CleanerApp.privateDefaults.selectedCollection
+    private var defaultCollections:[GDDictionary] {
+        return CleanerApp.privateDefaults.selectedCollection
+    }
 
     required public override init() {
         super.init()
@@ -463,7 +465,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
         }
         set{
             self.autoSelectionCellDesc?.valueHandler?(newValue)
-            (self.view as? UITableView)?.reloadSections(IndexSet(integer: 0), with: .none)
+            (self.view as? UITableView)?.reloadSections(IndexSet(integer: 0), with: .fade)
         }
     }
 
@@ -498,7 +500,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
         }
         cell0.valueCollection = [
             (label:"Selected".localized,value: DeletingTarget.selected.rawValue),
-            (label:"Matched".localized,value: DeletingTarget.matched.rawValue)
+            (label:"Targeted".localized,value: DeletingTarget.targeted.rawValue)
         ]
         cell0.valueHandler = {
             let preset = $0 as! Int
@@ -540,7 +542,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
         settingCellDescribers.append(cell0)
 
         //auto save
-        if CleanerApp.privateDefaults.deletingTarget == DeletingTarget.matched.rawValue{
+        if CleanerApp.privateDefaults.deletingTarget == DeletingTarget.targeted.rawValue{
 //            settingCellDescribers.append(createCellDescriber_SelectionPreset_contact_saveContactWithoutEdit())
         }
         else if CleanerApp.privateDefaults.deletingTarget == DeletingTarget.selected.rawValue{
@@ -689,8 +691,6 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
         return cell
     }
 
-
-
     func itemCollection_tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let dictIndex = indexPath.section-1
@@ -701,7 +701,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
 
         let cell = tableView.dequeueReusableCell(withIdentifier: CleanerApp.info.identifier) as! Cell
         cell.textLabel?.text = dataItem.label
-        itemCollection_tableView_cell_update(cell: cell, selected: selected)
+        cell.detailTextLabel?.text = selected ? "%@ might be found".localizedFormatted("").trimmed : nil
 
         cell.imageView?.tintColor = self.view.tintColor
         let image = dataItem.iconImageName?.asUIImageNamed
@@ -711,13 +711,38 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
         cell.optionSwitch.setOn(selected, animated: false)
 
         cell.switchDidChange = { on in
-            self.defaultCollections[dictIndex].items[indexPath.item].enabled = on
-            CleanerApp.privateDefaults.selectedCollection = self.defaultCollections
+            let identifier = dataItem.gdIdentifier
 
+            //set enable
+            var collection = self.defaultCollections
+            collection[dictIndex].items[indexPath.item].enabled = on
+            
+//            //configure relative options
+//            if identifier==PHAssetGarbageDetector_FlashlightAndCloseupFace.identifier{
+//                if on{
+//                    if let index = self.defaultCollections[dictIndex].items.index(where: { (item) -> Bool in
+//                        return item.gdIdentifier==PHAssetGarbageDetector_Flashlight.identifier
+//                    }){
+//                        self.defaultCollections[dictIndex].items[index].enabled = !on
+//                    }
+//                }
+//
+//            }else if identifier==PHAssetGarbageDetector_Flashlight.identifier{
+//                if on{
+//                    if let index = self.defaultCollections[dictIndex].items.index(where: { (item) -> Bool in
+//                        return item.gdIdentifier==PHAssetGarbageDetector_FlashlightAndCloseupFace.identifier
+//                    }){
+//                        self.defaultCollections[dictIndex].items[index].enabled = !on
+//                    }
+//                }
+//            }
+
+            //commit
+            CleanerApp.privateDefaults.selectedCollection = collection
+            
             self.stopAutoSelect()
 
             if on == false{
-                let identifier = self.defaultCollections[dictIndex].items[indexPath.item].gdIdentifier
                 AppCenter.default.currentInstanceAs(CleanerApp.self)?.disposeGdInstance(identifier: identifier)
             }
 
@@ -727,16 +752,12 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
 
             self.startAutoSelectIfNeeded()
 
-            self.itemCollection_tableView_cell_update(cell: cell, selected: on)
+            tableView.reloadRows(at: [indexPath], with: .fade)
         }
 
-        cell.enable(self.autoSelectedEnabled)
+//        cell.enable(self.autoSelectedEnabled)
 
         return cell
-    }
-
-    func itemCollection_tableView_cell_update(cell:UITableViewCell, selected:Bool){
-        cell.detailTextLabel?.text = selected ? "%@ might be found".localizedFormatted("").trimmed : nil
     }
 
     func pickerCell(_ cell: UITableViewPickerCell, didPick row: Int, value: Any) {

@@ -79,8 +79,10 @@ class PHAssetGarbageDetector_Flashlight: PHAssetGarbageDetector{
         let options = PHImageRequestOptions()
         options.isNetworkAccessAllowed = false
         if let data = input.requestImageData(options: options, asyncSignal).data{
-            if let flashValue = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifFlash) as? Int{
-                return firedFlags.contains(flashValue)
+            if let lensMake = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifLensMake) as? String{
+                if lensMake.trimmed == "Apple", let flashValue = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifFlash) as? Int{
+                    return firedFlags.contains(flashValue)
+                }
             }
         }
 
@@ -88,18 +90,14 @@ class PHAssetGarbageDetector_Flashlight: PHAssetGarbageDetector{
     }
 }
 
-class PHAssetGarbageDetector_FlashlightAndCloseupFace: PHAssetGarbageDetector_Flashlight {
+class PHAssetGarbageDetector_TooCloseupFace: PHAssetGarbageDetector {
     override class var label:String{
-        return "Flashlight and Close-Up Face".localized
+        return "Too Close-up Face".localized
     }
 
-    private let allowedMinFaceBoundSizeRatio:CGFloat = 0.3
+    private let allowedMinFaceBoundSizeRatio:CGFloat = 0.4
 
     override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
-        guard super.process(input: input, asyncSignal) ?? false == true else{
-            return false
-        }
-
         guard let faces = input.asCIImage?.asFaceBoundingBoxes else{
             return false
         }
