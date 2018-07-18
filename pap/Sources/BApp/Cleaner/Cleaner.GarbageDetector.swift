@@ -107,13 +107,39 @@ class PHAssetGarbageDetector_TooCloseupFace: PHAssetGarbageDetector {
     }
 }
 
+
+
+class PHAssetGarbageDetector_VideosWithoutSound: PHAssetGarbageDetector{
+    override class var label:String{
+        return "Videos Without Sound".localized
+    }
+
+    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+        guard input.mediaType == .video else { return false }
+
+        let videoRequestOptions = PHVideoRequestOptions()
+        videoRequestOptions.isNetworkAccessAllowed = false
+        videoRequestOptions.deliveryMode = .automatic
+
+        var haveNotSound = false
+        asyncSignal.begin()
+        PHImageManager.default().requestAVAsset(forVideo: input, options: videoRequestOptions, resultHandler: { (asset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable: Any]?) -> Void in
+            haveNotSound = asset?.tracks(withMediaType: .audio).count ?? 0 == 0
+            asyncSignal.end()
+        })
+        asyncSignal.waitUntilEnd()
+
+        return haveNotSound
+    }
+}
+
 class PHAssetGarbageDetector_TooSlowShutterSpeed: PHAssetGarbageDetector{
     override class var label:String{
         return "Too Slow Shutter Speed".localized
     }
 
     override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
-        guard input.mediaType == .image else { return false }
+//        guard input.mediaType == .image else { return false }
 
         let option = PHContentEditingInputRequestOptions()
         option.isNetworkAccessAllowed = false
@@ -127,7 +153,6 @@ class PHAssetGarbageDetector_TooSlowShutterSpeed: PHAssetGarbageDetector{
         if let data = input.requestImageData(options: options, asyncSignal).data{
             //ShutterSpeedValue
             //ExposureTime
-
             if let v = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifExposureTime) as? Double{
                 //ShutterSpeed=-log2(ExposureTime).
                 return v >= 0.25
@@ -144,9 +169,9 @@ class PHAssetGarbageDetector_TooSlowShutterSpeed: PHAssetGarbageDetector{
     }
 }
 
-class PHAssetGarbageDetector_TooShortVideos : PHAssetGarbageDetector{
+class PHAssetGarbageDetector_VideosShorterThan1Sec: PHAssetGarbageDetector{
     override class var label:String{
-        return "Too Short Videos".localized
+        return "Videos Shorter Than One Second".localized
     }
 
     override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {

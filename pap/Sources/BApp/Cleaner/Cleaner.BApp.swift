@@ -78,9 +78,10 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
 //        , PHAssetGarbageDetector_Blurry.self
         , PHAssetGarbageDetector_Lockscreens.self
         , PHAssetGarbageDetector_Flashlight.self
-        , PHAssetGarbageDetector_TooCloseupFace.self // toggling relationship TakenWithFlashlightFace on -> TakenWithFlashlight off
+        , PHAssetGarbageDetector_TooCloseupFace.self
         , PHAssetGarbageDetector_TooSlowShutterSpeed.self
-        , PHAssetGarbageDetector_TooShortVideos.self
+        , PHAssetGarbageDetector_VideosWithoutSound.self
+        , PHAssetGarbageDetector_VideosShorterThan1Sec.self
     ]
 
     fileprivate static let SupportingGDTypesKeys:[String:PHAssetGarbageDetector.Type]
@@ -313,7 +314,7 @@ extension Defaults: CleanerAppDefaults {
 
     fileprivate var autoSelect: Bool {
         set{ set(newValue) }
-        get{ return get(or: true ) }
+        get{ return get(or: false ) }
     }
 }
 
