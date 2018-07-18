@@ -182,6 +182,9 @@ fileprivate class RevertAppDockContent: NSObject, KeyPathWatchable, AppDockConte
         cell.imageView?.contentMode = .scaleAspectFit
 
         cell.textLabel?.text = "Enable Auto Selection".localized
+        cell.imageView?.image = R.image.commonIconRobot()?.withRenderingMode(.alwaysTemplate)
+        cell.imageView?.tintColor = primaryColor
+
         cell.optionSwitch.setOn(defaults.autoSelect, animated: false)
         cell.switchDidChange = { on in
             self.defaults.autoSelect = on

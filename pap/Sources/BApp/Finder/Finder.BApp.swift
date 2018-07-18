@@ -1291,6 +1291,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         cell1.itemIdentifier = FinderAppSettingCells.autoSelect.hashValue
         cell1.label = "Enable Auto Selection".localized
         cell1.valueGetter = { self.autoSelect }
+        cell1.iconImage = R.image.commonIconRobot.name
         cell1.valueHandler = {
             self.autoSelect = $0 as! Bool
             AppCenter.default.currentInstanceAs(FinderApp.self)?.autoSelect = self.autoSelect
@@ -1470,7 +1471,10 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
             cell.textLabel?.text = item.label
             cell.switcher.setOn(value, animated: false)
             cell.switcher.onTintColor = self.view.tintColor
-            cell.imageView?.image = item.iconImage?.asUIImage
+            if let image = item.iconImage?.asUIImage{
+                cell.imageView?.image = image.withRenderingMode(.alwaysTemplate)
+                cell.imageView?.tintColor = self.view.tintColor
+            }
             cell.switchDidChange = item.valueHandler
             return cell
         }

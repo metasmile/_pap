@@ -476,6 +476,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
         let cell1 = UITableViewSwitchCellDescriber()
         cell1.itemIdentifier = CleanerAppSettingCells.autoSelect.hashValue
         cell1.label = "Auto Garbage Collection".localized
+        cell1.iconImage = R.image.commonIconRobot.name
         cell1.valueGetter = { CleanerApp.privateDefaults.autoSelect }
         cell1.valueHandler = { val in
             let enabled = val as? Bool ?? false
@@ -634,7 +635,10 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
             cell.textLabel?.text = item.label
             cell.switcher.setOn(value, animated: false)
             cell.switcher.onTintColor = self.view.tintColor
-            cell.imageView?.image = item.iconImage?.asUIImage
+            if let image = item.iconImage?.asUIImage{
+                cell.imageView?.image = image.withRenderingMode(.alwaysTemplate)
+                cell.imageView?.tintColor = self.view.tintColor
+            }
             cell.switchDidChange = item.valueHandler
             return cell
         }

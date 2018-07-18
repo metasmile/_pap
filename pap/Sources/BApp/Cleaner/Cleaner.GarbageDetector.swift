@@ -135,9 +135,11 @@ class PHAssetGarbageDetector_TooSlowShutterSpeed: PHAssetGarbageDetector{
                 return v >= 0.25
             }
 
-//            if let v = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifShutterSpeedValue){
-//                print("ShutterSpeedValue", v)
-//            }
+            //OR
+
+            if let v = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifShutterSpeedValue) as? Double{
+                return v < 2.1
+            }
         }
 
         return false
