@@ -82,6 +82,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
         , PHAssetGarbageDetector_TooSlowShutterSpeed.self
         , PHAssetGarbageDetector_VideosWithoutSound.self
         , PHAssetGarbageDetector_VideosShorterThan1Sec.self
+        , PHAssetGarbageDetector_VideosCopiedByInstragram.self
     ]
 
     fileprivate static let SupportingGDTypesKeys:[String:PHAssetGarbageDetector.Type]

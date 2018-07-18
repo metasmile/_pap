@@ -107,8 +107,6 @@ class PHAssetGarbageDetector_TooCloseupFace: PHAssetGarbageDetector {
     }
 }
 
-
-
 class PHAssetGarbageDetector_VideosWithoutSound: PHAssetGarbageDetector{
     override class var label:String{
         return "Videos Without Sound".localized
@@ -130,6 +128,18 @@ class PHAssetGarbageDetector_VideosWithoutSound: PHAssetGarbageDetector{
         asyncSignal.waitUntilEnd()
 
         return haveNotSound
+    }
+}
+
+class PHAssetGarbageDetector_VideosCopiedByInstragram: PHAssetGarbageDetector{
+    override class var label:String{
+        return "Videos Copied By Instagram".localized
+    }
+
+    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+        guard input.mediaType == .video else { return false }
+
+        return input.pixelSize.width==720 && input.pixelSize.height==720
     }
 }
 
