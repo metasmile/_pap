@@ -393,7 +393,7 @@ private struct SettingsItem {
 }
 
 fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
-    private lazy var tintColor = UIColor(red:0.48, green:0.55, blue:0.82, alpha:1)
+    private lazy var tintColor = UIColor(red:0.31, green:0.44, blue:0.84, alpha:1)
 
     fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
 
@@ -498,7 +498,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
         }
         cell0.valueCollection = [
             (label:"Selected".localized,value: DeletingTarget.selected.rawValue),
-            (label:"But Matched".localized,value: DeletingTarget.matched.rawValue)
+            (label:"Matched".localized,value: DeletingTarget.matched.rawValue)
         ]
         cell0.valueHandler = {
             let preset = $0 as! Int

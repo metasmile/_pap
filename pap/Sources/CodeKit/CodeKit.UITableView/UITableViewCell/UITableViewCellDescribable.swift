@@ -87,6 +87,7 @@ public class UITableViewButtonCellDescriber: UITableViewCellDescriber {
     public override var cellClass:Swift.AnyClass { return UITableViewButtonCell.self }
 
     public var buttonImageName:String?
+    public var buttonTitleLabel:String?
 }
 
 public class UITableViewPickerCellDescriber: UITableViewCellDescriber, UITableViewCellMultipleValueDescribable {

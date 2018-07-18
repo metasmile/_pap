@@ -1273,6 +1273,17 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
             return
         }
 
+        let cell1 = UITableViewSwitchCellDescriber()
+        cell1.itemIdentifier = FinderAppSettingCells.autoSelect.hashValue
+        cell1.label = "Enable Auto Selection".localized
+        cell1.valueGetter = { self.autoSelect }
+        cell1.iconImage = R.image.commonIconRobot.name
+        cell1.valueHandler = {
+            self.autoSelect = $0 as! Bool
+            AppCenter.default.currentInstanceAs(FinderApp.self)?.autoSelect = self.autoSelect
+        }
+        settingCellDescribers.append(cell1)
+
         let cell_b = UITableViewButtonCellDescriber()
         cell_b.itemIdentifier = FinderAppSettingCells.takePhoto.hashValue
         cell_b.label = "Take A Photo".localized
@@ -1286,17 +1297,6 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         }
         settingCellDescribers.append(cell_b)
 
-
-        let cell1 = UITableViewSwitchCellDescriber()
-        cell1.itemIdentifier = FinderAppSettingCells.autoSelect.hashValue
-        cell1.label = "Enable Auto Selection".localized
-        cell1.valueGetter = { self.autoSelect }
-        cell1.iconImage = R.image.commonIconRobot.name
-        cell1.valueHandler = {
-            self.autoSelect = $0 as! Bool
-            AppCenter.default.currentInstanceAs(FinderApp.self)?.autoSelect = self.autoSelect
-        }
-        settingCellDescribers.append(cell1)
 
         let cell0 = UITableViewSegmentControlCellDescriber()
         cell0.itemIdentifier = FinderAppSettingCells.presets.hashValue
@@ -1483,9 +1483,17 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewButtonCell {
 
             cell.textLabel?.text = item.label
-            cell.button.setImage(cellDescriber.buttonImageName?.asUIImage?.withRenderingMode(.alwaysTemplate), for: .normal)
+
+            if let buttonAsImage = cellDescriber.buttonImageName?.asUIImage{
+                cell.button.setImage(buttonAsImage.withRenderingMode(.alwaysTemplate), for: .normal)
+            }else if let buttonAsText = cellDescriber.buttonTitleLabel {
+                cell.button.setTitle(buttonAsText, for: .normal)
+                cell.button.setTitleColor(self.view.tintColor, for: .selected)
+                cell.button.setTitleColor(self.view.tintColor, for: .highlighted)
+            }
             cell.button.tintColor = self.view.tintColor
-            cell.imageView?.image = item.iconImage?.asUIImage
+            cell.imageView?.image = item.iconImage?.asUIImage?.withRenderingMode(.alwaysTemplate)
+            cell.imageView?.tintColor = self.view.tintColor
             cell.didTap = {
                 cellDescriber.valueHandler?(true)
             }

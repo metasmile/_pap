@@ -84,7 +84,7 @@
 "cs_keyword_12" = "friend";
 "cs_keyword_13" = "lover";
 
-/* Generated from genl10n: Finder.BApp.swift#1558, Cleaner.BApp.swift#739 */
+/* Generated from genl10n: Finder.BApp.swift#1566, Cleaner.BApp.swift#739 */
 "%@ might be found" = "%@ might be found";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#413 */
 "%@ will be hidden" = "%@ will be hidden";
@@ -118,8 +118,6 @@
 "Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift#89 */
 "Burst" = "Burst";
-/* Generated from genl10n: Cleaner.BApp.swift#501 */
-"But Matched" = "But Matched";
 /* Generated from genl10n: Camera.BApp.swift#44 */
 "Camera" = "Camera";
 /* Generated from genl10n: Revert.BApp.swift#78 */
@@ -166,7 +164,7 @@
 "Downloading..." = "Downloading...";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#190, Finder.BApp.swift#646, Finder.BApp.swift#1213 */
 "E-mail Address" = "E-mail Address";
-/* Generated from genl10n: Revert.BApp.swift#184, PhoneCalls.swift#348, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1292 */
+/* Generated from genl10n: Revert.BApp.swift#184, PhoneCalls.swift#348, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1278 */
 "Enable Auto Selection" = "Enable Auto Selection";
 /* Generated from genl10n: Converter.AppDockContent.swift#149 */
 "Export Options" = "Export Options";
@@ -216,6 +214,8 @@
 "Loop" = "Loop";
 /* Generated from genl10n: GIFMaker.BApp.swift#274 */
 "Make GIF" = "Make GIF";
+/* Generated from genl10n: Cleaner.BApp.swift#501 */
+"Matched" = "Matched";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift#58 */
 "Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift#258 */
@@ -322,7 +322,7 @@
 "Starting to check edited photos..." = "Starting to check edited photos...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#298 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Switch on any items you want to hide. The quality will entirely remain the same.";
-/* Generated from genl10n: Finder.BApp.swift#1278 */
+/* Generated from genl10n: Finder.BApp.swift#1289 */
 "Take A Photo" = "Take A Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#344 */
 "Targets" = "Targets";
