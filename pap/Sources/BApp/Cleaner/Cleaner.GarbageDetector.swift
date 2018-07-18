@@ -46,12 +46,12 @@ class PHAssetGarbageDetector_Screenshots : PHAssetGarbageDetector{
     }
 }
 
-class PHAssetGarbageDetector_Flashlight : PHAssetGarbageDetector{
+class PHAssetGarbageDetector_Flashlight: PHAssetGarbageDetector{
     override class var label:String{
         return "Flashlight".localized
     }
 
-    let firedFlags = Set<Int>([
+    private let firedFlags = Set<Int>([
         0x1//=Fired
         ,0x5//=Fired, Return not detected
         ,0x7//=Fired, Return detected
@@ -85,6 +85,48 @@ class PHAssetGarbageDetector_Flashlight : PHAssetGarbageDetector{
         }
 
         return false
+    }
+}
+
+class PHAssetGarbageDetector_FlashlightAndFaceInCloseup: PHAssetGarbageDetector_Flashlight {
+    override class var label:String{
+        return "Flashlight and Face In Close-up".localized
+    }
+
+    private let allowedMinFaceBoundSizeRatio:CGFloat = 0.3
+
+    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+        return autoreleasepool{
+            guard let flashed = super.process(input: input, asyncSignal) else{
+                return false
+            }
+            guard let ciImage = input.asCIImage else{
+                return false
+            }
+
+            var foundQualifiedFace:Bool = false
+            do{
+                asyncSignal.begin()
+                print("1 foundQualifiedFace")
+                let handler = VNImageRequestHandler(ciImage: ciImage, options: [:])
+                try handler.perform([(VNDetectFaceRectanglesRequest { (request, error) in
+                    if let faces = (request.results as? [VNFaceObservation])?.compactMap({ $0.boundingBox }), !faces.isEmpty {
+                        let rect = faces.biggest()
+
+                        foundQualifiedFace = rect.width*rect.height>=self.allowedMinFaceBoundSizeRatio
+                        print("foundQualifiedFace",foundQualifiedFace)
+                    }
+                    asyncSignal.end()
+                })])
+                if asyncSignal.began{
+                    asyncSignal.waitUntilEnd()
+                }
+            }catch let e {
+                print(e)
+            }
+
+            return flashed && foundQualifiedFace
+        }
     }
 }
 
@@ -132,9 +174,9 @@ class PHAssetGarbageDetector_TooShortVideos : PHAssetGarbageDetector{
     }
 }
 
-class PHAssetGarbageDetector_NotTakenWithiOSCamera: PHAssetGarbageDetector{
+class PHAssetGarbageDetector_NotByiOSCamera: PHAssetGarbageDetector{
     override class var label:String{
-        return "Not Taken With iOS Camera".localized
+        return "Not By iOS Camera".localized
     }
 
     override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
@@ -379,7 +421,7 @@ class PHAssetGarbageDetector_Blurry: PHAssetGarbageDetector{
         let faceDetectRequest = VNDetectFaceRectanglesRequest { (request, error) in
             dispatchGroup.leave()
 
-            if let faces = (request.results as? [VNFaceObservation])?.compactMap({ $0.boundingBox }), !faces.isEmpty, let bounds = faces[1...].reduce(faces.first, { $0?.union($1) }), bounds.width * bounds.height > 0.2 {
+            if let faces = (request.results as? [VNFaceObservation])?.compactMap({ $0.boundingBox }), !faces.isEmpty, let bounds = faces.union(), bounds.width * bounds.height > 0.2 {
                 let transform = CGAffineTransform(scaleX: image.extent.width, y: image.extent.height)
                 faceBounds = bounds.applying(transform)
             }

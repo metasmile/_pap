@@ -11,6 +11,8 @@ import MetalPerformanceShaders
 import MetalKit
 import Vision
 
+fileprivate let DEVMODE = true
+
 private typealias CleanerAppParam = PHAssetItem<ImageEditStateValue>
 
 typealias PHAssetGCDetectedResult = [String:Bool]
@@ -66,13 +68,14 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     public fileprivate (set) lazy var autoSelect: Bool = false
 
     fileprivate static let SupportingGDTypes:[PHAssetGarbageDetector.Type] = [
-        PHAssetGarbageDetector_NotTakenWithiOSCamera.self
+        PHAssetGarbageDetector_NotByiOSCamera.self
         , PHAssetGarbageDetector_Screenshots.self
-        ,PHAssetGarbageDetector_Similarity.self
+        , PHAssetGarbageDetector_Similarity.self
 //        , PHAssetGarbageDetector_BD.self
 //        , PHAssetGarbageDetector_Blurry.self
         , PHAssetGarbageDetector_Lockscreens.self
         , PHAssetGarbageDetector_Flashlight.self
+        , PHAssetGarbageDetector_FlashlightAndFaceInCloseup.self // toggling relationship TakenWithFlashlightFace on -> TakenWithFlashlight off
         , PHAssetGarbageDetector_TooSlowShutterSpeed.self
         , PHAssetGarbageDetector_TooShortVideos.self
     ]
@@ -90,7 +93,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
 
     private var gdInstances = [String:PHAssetGarbageDetector]()
     fileprivate var cachedResults = [PHAssetID: PHAssetGCDetectedResult]()
-    fileprivate var enableCache = true
+    fileprivate var enableCache = DEVMODE==false
 
     fileprivate func gc(item: AppAsset, _ async: AsyncWaitSignalable) -> PHAssetGCResult {
 
@@ -212,7 +215,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
 
 private class _CleanerAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, AppTaskable {
 
-    private var gcMode = false
+    private var gcMode = DEVMODE==true
 
     func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){}
 
