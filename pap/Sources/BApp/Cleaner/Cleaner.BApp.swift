@@ -11,7 +11,11 @@ import MetalPerformanceShaders
 import MetalKit
 import Vision
 
-fileprivate let DEVMODE = true
+#if DEBUG
+private var DEVMODE = true
+#else
+private var DEVMODE = false
+#endif
 
 private typealias CleanerAppParam = PHAssetItem<ImageEditStateValue>
 
@@ -71,11 +75,10 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
         PHAssetGarbageDetector_NotByiOSCamera.self
         , PHAssetGarbageDetector_Screenshots.self
         , PHAssetGarbageDetector_Similarity.self
-//        , PHAssetGarbageDetector_BD.self
-//        , PHAssetGarbageDetector_Blurry.self
+        , PHAssetGarbageDetector_Blurry.self
         , PHAssetGarbageDetector_Lockscreens.self
         , PHAssetGarbageDetector_Flashlight.self
-        , PHAssetGarbageDetector_FlashlightAndFaceInCloseup.self // toggling relationship TakenWithFlashlightFace on -> TakenWithFlashlight off
+        , PHAssetGarbageDetector_FlashlightAndCloseupFace.self // toggling relationship TakenWithFlashlightFace on -> TakenWithFlashlight off
         , PHAssetGarbageDetector_TooSlowShutterSpeed.self
         , PHAssetGarbageDetector_TooShortVideos.self
     ]

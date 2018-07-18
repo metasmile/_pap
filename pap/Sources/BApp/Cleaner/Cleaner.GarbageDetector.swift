@@ -88,45 +88,25 @@ class PHAssetGarbageDetector_Flashlight: PHAssetGarbageDetector{
     }
 }
 
-class PHAssetGarbageDetector_FlashlightAndFaceInCloseup: PHAssetGarbageDetector_Flashlight {
+class PHAssetGarbageDetector_FlashlightAndCloseupFace: PHAssetGarbageDetector_Flashlight {
     override class var label:String{
-        return "Flashlight and Face In Close-up".localized
+        return "Flashlight and Close-Up Face".localized
     }
 
     private let allowedMinFaceBoundSizeRatio:CGFloat = 0.3
 
     override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
-        return autoreleasepool{
-            guard let flashed = super.process(input: input, asyncSignal) else{
-                return false
-            }
-            guard let ciImage = input.asCIImage else{
-                return false
-            }
+//        guard super.process(input: input, asyncSignal) ?? false == true else{
+//            return false
+//        }
 
-            var foundQualifiedFace:Bool = false
-            do{
-                asyncSignal.begin()
-                print("1 foundQualifiedFace")
-                let handler = VNImageRequestHandler(ciImage: ciImage, options: [:])
-                try handler.perform([(VNDetectFaceRectanglesRequest { (request, error) in
-                    if let faces = (request.results as? [VNFaceObservation])?.compactMap({ $0.boundingBox }), !faces.isEmpty {
-                        let rect = faces.biggest()
-
-                        foundQualifiedFace = rect.width*rect.height>=self.allowedMinFaceBoundSizeRatio
-                        print("foundQualifiedFace",foundQualifiedFace)
-                    }
-                    asyncSignal.end()
-                })])
-                if asyncSignal.began{
-                    asyncSignal.waitUntilEnd()
-                }
-            }catch let e {
-                print(e)
-            }
-
-            return flashed && foundQualifiedFace
+        guard let faces = input.asCIImage?.asFaceBoundingBoxes else{
+            return false
         }
+
+        let rect = faces.biggest()
+        print(rect.width*rect.height>=self.allowedMinFaceBoundSizeRatio)
+        return rect.width*rect.height>=self.allowedMinFaceBoundSizeRatio
     }
 }
 
@@ -345,10 +325,6 @@ class PHAssetGarbageDetector_Similarity_t : PHAssetGarbageDetector{
 /*
     Blurry
 */
-class PHAssetGarbageDetector_BD: PHAssetGarbageDetector{
-    
-}
-
 class PHAssetGarbageDetector_Blurry: PHAssetGarbageDetector{
     override class var label:String{
         return "Blur Rate".localized
@@ -367,12 +343,13 @@ class PHAssetGarbageDetector_Blurry: PHAssetGarbageDetector{
                 let device = MTLCreateSystemDefaultDevice(),
                 let commandQueue = device.makeCommandQueue(),
                 let commandBuffer = commandQueue.makeCommandBuffer(),
-                var ciImage = asset.asCIImage
+                let ciImage = asset.asCIImage
                 else { return false }
 
-        if let face = croppedFaceGroup(ciImage) {
-            ciImage = face
-        }
+
+//        if let face = croppedFaceGroup(ciImage) {
+//            ciImage = face
+//        }
 
         let textureDescriptor = MTLTextureDescriptor.texture2DDescriptor(pixelFormat: .rgba8Unorm, width: Int(ciImage.extent.width), height: Int(ciImage.extent.height), mipmapped: false)
         textureDescriptor.usage = [MTLTextureUsage.shaderRead, MTLTextureUsage.shaderWrite]
@@ -414,24 +391,11 @@ class PHAssetGarbageDetector_Blurry: PHAssetGarbageDetector{
     }
 
     private func croppedFaceGroup(_ image: CIImage) -> CIImage? {
-        let dispatchGroup = DispatchGroup()
+        if let unionBound = image.asFaceBoundingBoxes?.union(), unionBound.width * unionBound.height > 0.2{
 
-        var faceBounds: CGRect?
-
-        let faceDetectRequest = VNDetectFaceRectanglesRequest { (request, error) in
-            dispatchGroup.leave()
-
-            if let faces = (request.results as? [VNFaceObservation])?.compactMap({ $0.boundingBox }), !faces.isEmpty, let bounds = faces.union(), bounds.width * bounds.height > 0.2 {
-                let transform = CGAffineTransform(scaleX: image.extent.width, y: image.extent.height)
-                faceBounds = bounds.applying(transform)
-            }
+            let transform = CGAffineTransform(scaleX: image.extent.width, y: image.extent.height)
+            return image.cropped(to: unionBound.applying(transform))
         }
-
-        dispatchGroup.enter()
-        try? VNImageRequestHandler(ciImage: image, options: [:]).perform([faceDetectRequest])
-        dispatchGroup.wait()
-
-        guard let rect = faceBounds else { return nil }
-        return image.cropped(to: rect)
+        return nil
     }
 }

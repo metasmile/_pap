@@ -13,7 +13,7 @@ public extension UIImage {
     
     func applyFilter(ciFilter: CIFilter?) -> UIImage {
         guard let filter = ciFilter, filter.inputKeys.contains(kCIInputImageKey) else { return self }
-        filter.setValue(CIImage(image: self), forKey: kCIInputImageKey)
+        filter.setValue(self.asCIImage, forKey: kCIInputImageKey)
         guard let outputImage = filter.outputImage, let cgImage = UIImage.sharedCIContextForFilter.createCGImage(outputImage, from: outputImage.extent) else { return self }
         return UIImage(cgImage: cgImage, scale: self.scale, orientation: self.imageOrientation)
     }

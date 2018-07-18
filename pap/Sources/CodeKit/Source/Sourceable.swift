@@ -6,6 +6,7 @@
 import Foundation
 import Photos
 import UIKit
+import Vision
 
 public protocol Sourceable {
 
@@ -64,10 +65,9 @@ extension UIImage: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
     public var asPHAsset:PHAsset? { get { return nil } }
 
     public var asCIImage: CIImage? {
-        if let cgImage = self.cgImage{
-            return CIImage(cgImage: cgImage)
+        return autoreleasepool {
+            return CIImage(image: self)
         }
-        return nil
     }
 }
 
@@ -79,9 +79,22 @@ extension CALayer: ImageSourceable {
     }
 }
 
-extension CIImage: DataSourceable{
+extension CIImage: DataSourceable, ImageSourceable, VisionSourceable{
     public var asData:Data? {
         return CIContext().jpegRepresentation(of: self, colorSpace: self.colorSpace ?? CGColorSpaceCreateDeviceRGB())
+    }
+
+    public var asUIImage:UIImage? {
+        return autoreleasepool{
+            if let cgImage = self.cgImage{
+                return UIImage(cgImage: cgImage)
+            }
+            return nil
+        }
+    }
+
+    public var asCIImage: CIImage? {
+        return self
     }
 }
 
@@ -95,7 +108,9 @@ extension Data: ImageSourceable, DataSourceable, URLSourceable, StringSourceable
         }
     }
     public var asCIImage: CIImage?{
-        return CIImage(data:self)
+        return autoreleasepool{
+            return CIImage(data:self)
+        }
     }
 }
 extension URL: ImageSourceable, DataSourceable, URLSourceable {
@@ -116,7 +131,9 @@ extension URL: ImageSourceable, DataSourceable, URLSourceable {
     }
 
     public var asCIImage: CIImage?{
-        return CIImage(contentsOf: self)
+        return autoreleasepool{
+            return CIImage(contentsOf: self)
+        }
     }
 }
 
@@ -149,9 +166,11 @@ extension String: ImageSourceable, BundleImageSourceable, DataSourceable, URLSou
     }
 
     public var asCIImage: CIImage?{
-        if let url = asURL {
-            return CIImage(contentsOf: url)
+        return autoreleasepool{
+            if let url = asURL {
+                return CIImage(contentsOf: url)
+            }
+            return nil
         }
-        return nil
     }
 }
