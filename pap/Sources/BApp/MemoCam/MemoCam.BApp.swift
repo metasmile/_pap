@@ -77,13 +77,19 @@ import FirebaseMLVision
 
 private struct MemoCamAppDetector {
     private let vision = Vision.vision()
+    private var textDetector: VisionTextDetector
     
-    fileprivate func detectResult(image: UIImage, _ async: AsyncWaitSignalable) -> MemoCamAppResult? {
-        guard let visionTexts = vision.textDetector().detect(with: image, async) else {
+    init() {
+        textDetector = vision.textDetector()
+    }
+    
+    fileprivate mutating func detectResult(image: UIImage, _ async: AsyncWaitSignalable) -> MemoCamAppResult? {
+        guard let visionTexts = self.textDetector.detect(with: image, async) else {
             return nil
         }
         
         var result = MemoCamAppResult(image: image)
+        result.sourceVisionTexts = visionTexts
         result.plainText = visionTexts.parse(type: VisionTextStringParser.self, async)?.joined()
         
         return result
@@ -100,8 +106,8 @@ fileprivate class MemoCamAppDockContent: NSObject, KeyPathWatchable, AppDockCont
         return arView
     }()
     
-    private var arView: AppUIARView? {
-        return view as? AppUIARView
+    private var arView: AppUIARView {
+        return view as! AppUIARView
     }
     
     private var detector = MemoCamAppDetector()
@@ -116,38 +122,47 @@ fileprivate class MemoCamAppDockContent: NSObject, KeyPathWatchable, AppDockCont
     }
     
     func didSetContentView(_ view: UIView, dock: AppDock) {
-        let targetSize = view.bounds.size
+        let targetSize = arView.previewSize
         
-        let request = VNDetectTextRectanglesRequest(completionHandler: { (request, error) in
-            guard let observations = request.results as? [VNTextObservation], let rect = observations.first?.boundingBox else { return }
-
-            let bounds = observations.map { $0.boundingBox }.reduce(rect, { $0.union($1) })
-
-            self.addPlane(bounds, at: CGPoint(x: bounds.midX * targetSize.width, y: bounds.midY * targetSize.height))
-        })
+        let debugLayer = CAShapeLayer()
+        debugLayer.frame = arView.previewView.bounds
+        debugLayer.fillColor = UIColor.clear.cgColor
+        debugLayer.strokeColor = UIColor.red.cgColor
+        debugLayer.lineWidth = 1
+        debugLayer.actions = ["path": NSNull()]
+        arView.previewView.layer.addSublayer(debugLayer)
         
-        arView?.startSession()
-        arView?.updateRenderer = { renderer, frame in
-//            let image = renderer.snapshot(atTime: frame.timestamp, with: targetSize, antialiasingMode: .none)
-//            if let detectedResult = self.detector.detectResult(image: image, AsyncSignal()) {
-//                guard let firstFrame = detectedResult.sourceVisionTexts?.first?.frame else { return }
-//
-//                guard let bounds = detectedResult.sourceVisionTexts?.map({ $0.frame }).reduce(firstFrame, { $0.union($1) }) else { return }
-//
-//                print(bounds)
-//
-////                self.addPlane(bounds, at: CGPoint(x: bounds.midX * targetSize.width, y: bounds.midY * targetSize.height))
-//            }
-            
-            
-            let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: frame.capturedImage, options: [:])
-            try? imageRequestHandler.perform([request])
+        arView.startSession()
+        arView.updateRenderer = { renderer, frame in
+            autoreleasepool {
+                let image = renderer.snapshot(atTime: frame.timestamp, with: targetSize, antialiasingMode: .none)
+                
+                guard let result = self.detector.detectResult(image: image, AsyncSignal()) else { return }
+                
+                let path = UIBezierPath()
+                
+                result.sourceVisionTexts?.forEach {
+                    let bounds = $0.frame
+                    let normalizedBounds = bounds.normalized(by: image.size)
+                    
+                    guard normalizedBounds.width * normalizedBounds.height > 0.01 else { return }
+                    
+                    path.append(UIBezierPath(rect: bounds))
+                    
+//                    self.addPlane(normalizedBounds, at: CGPoint(x: bounds.midX, y: bounds.midY))
+                }
+                
+                DispatchQueue.main.async {
+                    debugLayer.path = path.cgPath
+                }
+                
+            }
         }
     }
     
     func willRemoveContentView() {
-        arView?.updateRenderer = nil
-        arView?.stopSession()
+        arView.updateRenderer = nil
+        arView.stopSession()
     }
     
     var delegate: AppDockDelegate? {
@@ -163,44 +178,55 @@ fileprivate class MemoCamAppDockContent: NSObject, KeyPathWatchable, AppDockCont
     }
     
     @objc private func arViewDidTap(sender: UITapGestureRecognizer) {
-        let location = sender.location(in: arView)
-        if let node = arView?.node(at: location) {
-            node.removeFromParentNode()
-        }
-        else if let worldTranslation = arView?.worldTranslation(at: location) {
-            addBox(x: worldTranslation.x, y: worldTranslation.y, z: worldTranslation.z)
-        }
+        arView.scene.rootNode.childNodes.forEach { $0.removeFromParentNode() }
+    }
+    
+    func addLabel(_ rect: CGRect, text: String, at location: CGPoint) {
+        guard let hitTestResult = arView.hitTest(at: location) else { return }
+        
+        let textGeometry = SCNText(string: text, extrusionDepth: 2.0)
+        textGeometry.firstMaterial = SCNMaterial()
+        textGeometry.firstMaterial?.diffuse.contents = UIColor.black
+        textGeometry.firstMaterial?.specular.contents = UIColor.white
+        textGeometry.font = UIFont.systemFont(ofSize: 0.5)
+        
+        let node = SCNNode(geometry: textGeometry)
+        
+        position(node: node, atHit: hitTestResult)
+        
+        arView.scene.rootNode.addChildNode(node)
     }
     
     func addPlane(_ rect: CGRect, at location: CGPoint) {
-        guard let translation = arView?.worldTranslation(at: location), arView?.node(at: location) == nil else { return }
-        
-        print(rect.size)
+        guard let hitTestResult = arView.hitTest(at: location) else { return }
         
         let plane = SCNPlane(width: rect.width / 50, height: rect.height / 50)
-        
         let node = SCNNode(geometry: plane)
-        node.position = SCNVector3(translation.x, translation.y, translation.z)
-        node.eulerAngles.x = -.pi / 2
         
-        arView?.scene.rootNode.addChildNode(node)
+        position(node: node, atHit: hitTestResult)
+        
+        arView.scene.rootNode.addChildNode(node)
     }
     
-    func addBox(x: Float = 0, y: Float = 0, z: Float = -0.2) {
-        let box = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0)
+    private func position(node: SCNNode, atHit hit: ARHitTestResult) {
+        guard let geometry = node.geometry else { return }
         
-        let boxNode = SCNNode()
-        boxNode.geometry = box
-        boxNode.position = SCNVector3(x, y, z)
+        if let anchor = hit.anchor {
+            node.transform = SCNMatrix4(anchor.transform)
+        }
         
-        arView?.scene.rootNode.addChildNode(boxNode)
+        node.eulerAngles.x = (Float.pi / 2)
+        
+        let position = SCNVector3Make(hit.worldTransform.columns.3.x + geometry.boundingBox.min.z, hit.worldTransform.columns.3.y, hit.worldTransform.columns.3.z)
+        
+        node.position = position
     }
 }
 
 import ARKit
 
 class AppUIARView: UIView {
-    private lazy var previewView: ARSCNView = {
+    fileprivate lazy var previewView: ARSCNView = {
         let view = ARSCNView(frame: .zero, options: nil)
         return view
     }()
@@ -240,13 +266,24 @@ class AppUIARView: UIView {
     
     private func initialize() {
         addSubview(previewView)
-        previewView.fitConstraints(to: self)
+        previewView.translatesAutoresizingMaskIntoConstraints = false
+        previewView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+        previewView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 16 / 9).isActive = true
+        previewView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        previewView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
         previewView.automaticallyUpdatesLighting = true
         previewView.autoenablesDefaultLighting = true
         
+        previewView.showsStatistics = true
+        previewView.debugOptions = [ARSCNDebugOptions.showFeaturePoints/*, ARSCNDebugOptions.showWorldOrigin*/]
+        
         renderer.autoenablesDefaultLighting = true
         renderer.scene = scene
+    }
+    
+    var previewSize: CGSize {
+        return previewView.bounds.size
     }
 }
 
@@ -270,14 +307,32 @@ extension AppUIARView: ARSessionDelegate {
 }
 
 extension AppUIARView {
+    func hitTest(at location: CGPoint) -> ARHitTestResult? {
+        if #available(iOS 11.3, *) {
+            return previewView.hitTest(location, types: [.existingPlaneUsingGeometry, .featurePoint]).first
+        }
+        else {
+            return previewView.hitTest(location, types: [.existingPlaneUsingExtent, .featurePoint]).first
+        }
+    }
+    
     func node(at location: CGPoint) -> SCNNode? {
         let hitTestResults = previewView.hitTest(location)
         return hitTestResults.first?.node
     }
     
-    func worldTranslation(at location: CGPoint) -> float3? {
-        guard let hitTestResultWithFeaturePoints = previewView.hitTest(location, types: .featurePoint).first else { return nil }
-        return hitTestResultWithFeaturePoints.worldTransform.translation
+    func convertPointToWorld(_ location: CGPoint) -> float3? {
+        return worldTransform(location)?.translation
+    }
+    
+    func anchorTransform(_ location: CGPoint) -> matrix_float4x4? {
+        guard let hitTestResult = previewView.hitTest(location, types: .existingPlane).first else { return nil }
+        return hitTestResult.anchor?.transform
+    }
+    
+    func worldTransform(_ location: CGPoint) -> matrix_float4x4? {
+        guard let hitTestResult = previewView.hitTest(location, types: .featurePoint).first else { return nil }
+        return hitTestResult.worldTransform
     }
 }
 
