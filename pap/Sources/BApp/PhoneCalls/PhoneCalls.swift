@@ -347,6 +347,8 @@ fileprivate class PhoneCallsAppDockContent: NSObject, KeyPathWatchable,
 
         cell.textLabel?.text = "Enable Auto Selection".localized
         cell.optionSwitch.setOn(self.autoSelect, animated: false)
+        cell.imageView?.image = R.image.commonIconRobot()?.withRenderingMode(.alwaysTemplate)
+        cell.imageView?.tintColor = primaryColor
         cell.switchDidChange = { on in
             self.autoSelect = on
             AppCenter.default.currentInstanceAs(PhoneCallsApp.self)?.autoSelect = on

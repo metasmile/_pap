@@ -133,6 +133,7 @@
 		4F71D95F393063F1D620196C /* AppTaskPrototype.DefaultConcurrenyCountPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5E3248E9FE7836799D0 /* AppTaskPrototype.DefaultConcurrenyCountPolicy.swift */; };
 		4F71D977BEC450768BF59183 /* CodeKit.CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DBCD5F4393C1B49479A2 /* CodeKit.CoreGraphics.swift */; };
 		4F71D9820AE66A8CBC6B9535 /* CodeKit.UIView.GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC428EEA88994C64FF8F /* CodeKit.UIView.GestureRecognizer.swift */; };
+		4F71D98444C83F45E85BAD7F /* Sourceable.Vision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD004B97749DEC07E31D /* Sourceable.Vision.swift */; };
 		4F71D994A3ECDB2185DF45EF /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D767B17EDED1C363D81D /* Numeric.swift */; };
 		4F71D9AD0D07B03569A06D55 /* App.PhotoPickerViewControllerDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D756451C76841F34DEF7 /* App.PhotoPickerViewControllerDelegatable.swift */; };
 		4F71D9B168A56E3DDB5D830C /* Filters.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6BC03B411AB10F62128 /* Filters.BApp.swift */; };
@@ -539,6 +540,7 @@
 		4F71DCD6CE77B2E12B423FDF /* PHPhotoLibraryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHPhotoLibraryManager.swift; sourceTree = "<group>"; };
 		4F71DCE3A0EB7D65562E4AA8 /* App.Launchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Launchable.swift; sourceTree = "<group>"; };
 		4F71DCF49BB6EB7CCC7FBF86 /* CodeKit.UIView.Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIView.Property.swift; sourceTree = "<group>"; };
+		4F71DD004B97749DEC07E31D /* Sourceable.Vision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sourceable.Vision.swift; sourceTree = "<group>"; };
 		4F71DD0573CFB93A8F794768 /* App.Finalizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Finalizable.swift; sourceTree = "<group>"; };
 		4F71DD137A224271338EC3FC /* gifmaker_preview_frame_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gifmaker_preview_frame_5.png; sourceTree = "<group>"; };
 		4F71DD2A1BFEA35153058A40 /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift; sourceTree = "<group>"; };
@@ -1348,6 +1350,7 @@
 			children = (
 				4F71D6D7019D801E307C79E5 /* Sourceable.swift */,
 				4F71DC7D71745378B15730C3 /* Sourceable.PHAsset.swift */,
+				4F71DD004B97749DEC07E31D /* Sourceable.Vision.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -3058,6 +3061,7 @@
 				4F71D6915C6977DE7270E964 /* Camera.CaptureProcessor.swift in Sources */,
 				4F71DF3FE01E9F386E6D118C /* App.UI.CameraView.swift in Sources */,
 				4F71D4EDFB81D8C50B0AF3E9 /* CodeKit.UITableViewCell.swift in Sources */,
+				4F71D98444C83F45E85BAD7F /* Sourceable.Vision.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

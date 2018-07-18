@@ -54,6 +54,9 @@ public struct VisionTextPhoneNumberParser: VisionTextParser{
 
     private let blockParser = VisionTextTextBlockParser()
 
+    //https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers
+    private let deniedPattern = "[^0-9\\+\\s\\)\\(\\-]"
+
     func process(input: FirebaseMLVision.VisionText) -> VisionTextStringElementsParser.OutputType? {
         guard let lines = blockParser.process(input: input) else{
             return nil
@@ -64,9 +67,18 @@ public struct VisionTextPhoneNumberParser: VisionTextParser{
         for line in lines{
             for word in line{
                 if let phoneNumber = try? VisionTextPhoneNumberParser.phoneNumberKit.parse(word)
+                    , !phoneNumbers.contains(phoneNumber.numberString)
                     , phoneNumber.type != .notParsed && phoneNumber.type != .unknown
                     , phoneNumber.numberString.count>0
-                    , !phoneNumbers.contains(phoneNumber.numberString) {
+                    , !phoneNumber.numberString.matched(deniedPattern){
+
+//                    print(phoneNumber.numberString.matched(deniedPattern),
+//                            phoneNumber.type
+//                            , phoneNumber.numberString
+//                            , phoneNumber.adjustedNationalNumber()
+//                            , phoneNumber.countryCode
+//                            , phoneNumber.nationalNumber
+//                            , phoneNumber.numberExtension)
 
                     phoneNumbers.insert(phoneNumber.numberString)
                 }

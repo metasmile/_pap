@@ -139,8 +139,7 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
     }
     public var asPHAsset:PHAsset? { return self }
     public var asCIImage: CIImage? {
-        guard let image = asUIImage else { return nil }
-        return CIImage(image: image)
+        return asUIImage?.asCIImage
     }
 
     static var highQualityImageRequestOptions: PHImageRequestOptions {

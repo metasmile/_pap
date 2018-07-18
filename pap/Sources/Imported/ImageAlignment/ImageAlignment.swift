@@ -41,14 +41,14 @@ public extension UIImage {
     @objc
     public func stabilizeHomographic(with image: UIImage, clamp: CGPoint = .zero) -> UIImage {
         guard let matrix = ImageAlignment.homographicTransform(image, onto: self) else { return self }
-        guard let warppedImage = CIImage(image: self)?.applyHomographic(matrix, clamp: clamp), let cgimage = ImageAlignment.sharedCIContext.createCGImage(warppedImage, from: warppedImage.extent) else { return self }
+        guard let warppedImage = self.asCIImage?.applyHomographic(matrix, clamp: clamp), let cgimage = ImageAlignment.sharedCIContext.createCGImage(warppedImage, from: warppedImage.extent) else { return self }
         return UIImage(cgImage: cgimage)
     }
 
     @objc
     public func stabilizeTranslation(with image: UIImage, clamp: CGPoint = .zero) -> UIImage {
         guard let transform = ImageAlignment.translationTransform(image, onto: self) else { return self }
-        guard let transformedImage = CIImage(image: self)?.applyTranslation(transform, clamp: clamp), let cgimage = ImageAlignment.sharedCIContext.createCGImage(transformedImage, from: transformedImage.extent) else { return self }
+        guard let transformedImage = self.asCIImage?.applyTranslation(transform, clamp: clamp), let cgimage = ImageAlignment.sharedCIContext.createCGImage(transformedImage, from: transformedImage.extent) else { return self }
         return UIImage(cgImage: cgimage)
     }
 }
@@ -82,7 +82,7 @@ public extension CIImage {
 @available(iOS 11.0, *)
 extension ImageAlignment {
     static func homographicTransform(_ floating: UIImage, onto reference: UIImage) -> matrix_float3x3? {
-        guard let floatingImage = CIImage(image: floating), let referenceImage = CIImage(image: reference) else { return nil }
+        guard let floatingImage = floating.asCIImage, let referenceImage = reference.asCIImage else { return nil }
         return homographicTransform(floatingImage, onto: referenceImage)
     }
     
@@ -110,7 +110,7 @@ extension ImageAlignment {
 @available(iOS 11.0, *)
 extension ImageAlignment {
     static func translationTransform(_ floating: UIImage, onto reference: UIImage) -> CGAffineTransform? {
-        guard let floatingImage = CIImage(image: floating), let referenceImage = CIImage(image: reference) else { return nil }
+        guard let floatingImage = floating.asCIImage, let referenceImage = reference.asCIImage else { return nil }
         return translationTransform(floatingImage, onto: referenceImage)
     }
     

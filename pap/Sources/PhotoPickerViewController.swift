@@ -205,19 +205,18 @@ class PhotoPickerViewController: AppDockViewController {
     private func flushQueuedPhotoLibraryChanges(){
         assert(Thread.isMainThread, "flushQueuedPhotoLibraryChanges must be called in main")
 
+        var countOfOtherFetched = 0
         while let changeInstance = self.queuedPhotoLibraryChanges.dequeue() {
             //changed, but if found actual changes from other collection has existed (e.g. current == Favorite, but captured on Camera app)
-            if self.arePhotoLibraryChangesInCurrentFetched(changeInstance)?.count ?? 0 > 0{
-                self.photoLibraryDidChangeInCurrentFetched(changeInstance)
-                continue
+            if self.photoLibraryDidChangeInCurrentFetched(changeInstance) == nil{
+                countOfOtherFetched += 1
             }
-
-            if !self.isCurrentCollectionDefault{
-                self.queuedPhotoLibraryChanges.dequeueAll()
-                self.navigationController?.popViewController(animated: true)
-            }
-            break
         }
+
+        //FIXME: after pop -> entered any album again -> some other PHChange is arriving (probably seems Album's PHChange_. strange.
+//        if !self.isCurrentCollectionDefault && countOfOtherFetched > 0{
+//            self.navigationController?.popViewController(animated: true)
+//        }
     }
     
     override var appDockItems: [AppDockItem] {
@@ -549,15 +548,19 @@ class PhotoPickerViewController: AppDockViewController {
         return fetchResultChanges
     }
 
-    private func photoLibraryDidChangeInCurrentFetched(_ changeInstance: PHChange) {
+    @discardableResult
+    private func photoLibraryDidChangeInCurrentFetched(_ changeInstance: PHChange) -> (inserted:[PHAsset],changed:[PHAsset],removed:[PHAsset])? {
         guard let fetchResultChanges = arePhotoLibraryChangesInCurrentFetched(changeInstance), !fetchResultChanges.isEmpty else {
-            return
+            return nil
         }
 
         /*
             Handle Tasks while batch performing
         */
         let removedAssets = fetchResultChanges.compactMap { (_, changes) in changes.removedObjects}.reduce([],+)
+        let changedAssets = fetchResultChanges.compactMap { (_, changes) in changes.insertedObjects}.reduce([],+)
+        let insertedAssets = fetchResultChanges.compactMap { (_, changes) in changes.changedObjects}.reduce([],+)
+
         let tasksWereRanAndRemoved = AppCenter.default.task.isRunning && removedAssets.count > 0
         if tasksWereRanAndRemoved {
             AppCenter.default.task.suspend()
@@ -663,6 +666,8 @@ class PhotoPickerViewController: AppDockViewController {
                 }
             }
         })
+
+        return (inserted: insertedAssets, changed:changedAssets, removed:removedAssets)
     }
 }
 

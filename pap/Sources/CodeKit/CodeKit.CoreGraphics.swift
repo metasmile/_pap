@@ -8,6 +8,18 @@
 
 import UIKit
 
+extension Array where Element==CGRect{
+    func union() -> CGRect?{
+        return self[1...].reduce(first, { $0?.union($1) })
+    }
+
+    func biggest() -> CGRect{
+        return self.sorted { (rect: CGRect, rect2: CGRect) -> Bool in
+            return rect.width*rect.height > rect2.width*rect2.height
+        }.first ?? CGRect.null
+    }
+}
+
 extension CGRect {
     var minLength: CGFloat {
         return size.minLength

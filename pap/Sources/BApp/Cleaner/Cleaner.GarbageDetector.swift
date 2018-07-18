@@ -46,12 +46,12 @@ class PHAssetGarbageDetector_Screenshots : PHAssetGarbageDetector{
     }
 }
 
-class PHAssetGarbageDetector_Flashlight : PHAssetGarbageDetector{
+class PHAssetGarbageDetector_Flashlight: PHAssetGarbageDetector{
     override class var label:String{
         return "Flashlight".localized
     }
 
-    let firedFlags = Set<Int>([
+    private let firedFlags = Set<Int>([
         0x1//=Fired
         ,0x5//=Fired, Return not detected
         ,0x7//=Fired, Return detected
@@ -79,12 +79,68 @@ class PHAssetGarbageDetector_Flashlight : PHAssetGarbageDetector{
         let options = PHImageRequestOptions()
         options.isNetworkAccessAllowed = false
         if let data = input.requestImageData(options: options, asyncSignal).data{
-            if let flashValue = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifFlash) as? Int{
-                return firedFlags.contains(flashValue)
+            if let lensMake = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifLensMake) as? String{
+                if lensMake.trimmed == "Apple", let flashValue = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifFlash) as? Int{
+                    return firedFlags.contains(flashValue)
+                }
             }
         }
 
         return false
+    }
+}
+
+class PHAssetGarbageDetector_TooCloseupFace: PHAssetGarbageDetector {
+    override class var label:String{
+        return "Too Close-up Face".localized
+    }
+
+    private let allowedMinFaceBoundSizeRatio:CGFloat = 0.4
+
+    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+        guard let faces = input.asCIImage?.asFaceBoundingBoxes else{
+            return false
+        }
+
+        let rect = faces.biggest()
+        return rect.width*rect.height>=self.allowedMinFaceBoundSizeRatio
+    }
+}
+
+class PHAssetGarbageDetector_VideosWithoutSound: PHAssetGarbageDetector{
+    override class var label:String{
+        return "Videos Without Sound".localized
+    }
+
+    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+        guard input.mediaType == .video else { return false }
+
+        let videoRequestOptions = PHVideoRequestOptions()
+        videoRequestOptions.isNetworkAccessAllowed = false
+        videoRequestOptions.deliveryMode = .automatic
+
+        var haveNotSound = false
+        asyncSignal.begin()
+        PHImageManager.default().requestAVAsset(forVideo: input, options: videoRequestOptions, resultHandler: { (asset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable: Any]?) -> Void in
+            haveNotSound = asset?.tracks(withMediaType: .audio).count ?? 0 == 0
+            asyncSignal.end()
+        })
+        asyncSignal.waitUntilEnd()
+        print(haveNotSound)
+        return haveNotSound
+    }
+}
+
+class PHAssetGarbageDetector_VideosSavedbyInstagramApp: PHAssetGarbageDetector{
+    override class var label:String{
+        return "Videos Saved by Instagram App".localized
+    }
+
+    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+        guard input.mediaType == .video else { return false }
+
+        print(input.pixelSize)
+        return input.pixelSize.width==720 && input.pixelSize.height==720
     }
 }
 
@@ -94,7 +150,7 @@ class PHAssetGarbageDetector_TooSlowShutterSpeed: PHAssetGarbageDetector{
     }
 
     override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
-        guard input.mediaType == .image else { return false }
+//        guard input.mediaType == .image else { return false }
 
         let option = PHContentEditingInputRequestOptions()
         option.isNetworkAccessAllowed = false
@@ -104,16 +160,19 @@ class PHAssetGarbageDetector_TooSlowShutterSpeed: PHAssetGarbageDetector{
 
         let options = PHImageRequestOptions()
         options.isNetworkAccessAllowed = false
+
         if let data = input.requestImageData(options: options, asyncSignal).data{
             //ShutterSpeedValue
             //ExposureTime
-            //TODO: capture at night get sample threshold
-            if let v = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifExposureTime){
-                print("ExposureTime", v)
+            if let v = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifExposureTime) as? Double{
+                //ShutterSpeed=-log2(ExposureTime).
+                return v >= 0.25
             }
 
-            if let v = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifShutterSpeedValue){
-                print("ShutterSpeedValue", v)
+            //OR
+
+            if let v = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifShutterSpeedValue) as? Double{
+                return v < 2.1
             }
         }
 
@@ -121,20 +180,20 @@ class PHAssetGarbageDetector_TooSlowShutterSpeed: PHAssetGarbageDetector{
     }
 }
 
-class PHAssetGarbageDetector_TooShortVideos : PHAssetGarbageDetector{
+class PHAssetGarbageDetector_VideosShorterThan1Sec: PHAssetGarbageDetector{
     override class var label:String{
-        return "Too Short Videos".localized
+        return "Videos Shorter Than 1 Second".localized
     }
 
     override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
         //TODO: user defined custom duration
-        return input.mediaType == .video && input.duration <= 1
+        return input.mediaType == .video && input.duration < 1
     }
 }
 
-class PHAssetGarbageDetector_NotTakenWithiOSCamera: PHAssetGarbageDetector{
+class PHAssetGarbageDetector_SavedWithouttheCamera: PHAssetGarbageDetector{
     override class var label:String{
-        return "Not Taken With iOS Camera".localized
+        return "Saved Without the Camera".localized
     }
 
     override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
@@ -303,10 +362,7 @@ class PHAssetGarbageDetector_Similarity_t : PHAssetGarbageDetector{
 /*
     Blurry
 */
-class PHAssetGarbageDetector_BD: PHAssetGarbageDetector{
-    
-}
-
+//FIXME: Blurry is not detect only Blurred.
 class PHAssetGarbageDetector_Blurry: PHAssetGarbageDetector{
     override class var label:String{
         return "Blur Rate".localized
@@ -325,12 +381,13 @@ class PHAssetGarbageDetector_Blurry: PHAssetGarbageDetector{
                 let device = MTLCreateSystemDefaultDevice(),
                 let commandQueue = device.makeCommandQueue(),
                 let commandBuffer = commandQueue.makeCommandBuffer(),
-                var ciImage = asset.asCIImage
+                let ciImage = asset.asCIImage
                 else { return false }
 
-        if let face = croppedFaceGroup(ciImage) {
-            ciImage = face
-        }
+
+//        if let face = croppedFaceGroup(ciImage) {
+//            ciImage = face
+//        }
 
         let textureDescriptor = MTLTextureDescriptor.texture2DDescriptor(pixelFormat: .rgba8Unorm, width: Int(ciImage.extent.width), height: Int(ciImage.extent.height), mipmapped: false)
         textureDescriptor.usage = [MTLTextureUsage.shaderRead, MTLTextureUsage.shaderWrite]
@@ -372,24 +429,11 @@ class PHAssetGarbageDetector_Blurry: PHAssetGarbageDetector{
     }
 
     private func croppedFaceGroup(_ image: CIImage) -> CIImage? {
-        let dispatchGroup = DispatchGroup()
+        if let unionBound = image.asFaceBoundingBoxes?.union(), unionBound.width * unionBound.height > 0.2{
 
-        var faceBounds: CGRect?
-
-        let faceDetectRequest = VNDetectFaceRectanglesRequest { (request, error) in
-            dispatchGroup.leave()
-
-            if let faces = (request.results as? [VNFaceObservation])?.compactMap({ $0.boundingBox }), !faces.isEmpty, let bounds = faces[1...].reduce(faces.first, { $0?.union($1) }), bounds.width * bounds.height > 0.2 {
-                let transform = CGAffineTransform(scaleX: image.extent.width, y: image.extent.height)
-                faceBounds = bounds.applying(transform)
-            }
+            let transform = CGAffineTransform(scaleX: image.extent.width, y: image.extent.height)
+            return image.cropped(to: unionBound.applying(transform))
         }
-
-        dispatchGroup.enter()
-        try? VNImageRequestHandler(ciImage: image, options: [:]).perform([faceDetectRequest])
-        dispatchGroup.wait()
-
-        guard let rect = faceBounds else { return nil }
-        return image.cropped(to: rect)
+        return nil
     }
 }

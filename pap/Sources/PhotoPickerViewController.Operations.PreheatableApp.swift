@@ -69,11 +69,9 @@ extension PhotoPickerViewController{
 
                 if let asset = PHAssets.fetched.asset(at: indexPath)
                 , let item = AppAssets.selected.at(unsafeIndex:indexPath.item) ?? AppAsset.create(for:asset) {
-
-                    if let finishAction = interactableApp.performPreheating(item: item, signal) as? UICollectionViewPreheatableAppFinishAction {
+                    if let finishAction = autoreleasepool(invoking:{ interactableApp.performPreheating(item: item, signal) }) as? UICollectionViewPreheatableAppFinishAction {
                         autoSelect = finishAction == .selectItem
                     }
-
                 }
 
                 if PreheatingQueue.canceled{
