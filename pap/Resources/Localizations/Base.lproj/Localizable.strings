@@ -114,7 +114,7 @@
 "Auto Editor" = "Auto Editor";
 /* Generated from genl10n: Cleaner.BApp.swift#478 */
 "Auto Garbage Collection" = "Auto Garbage Collection";
-/* Generated from genl10n: Cleaner.GarbageDetector.swift#330 */
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#332 */
 "Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift#89 */
 "Burst" = "Burst";
@@ -228,7 +228,7 @@
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift#573 */
 "No loop" = "No loop";
-/* Generated from genl10n: Cleaner.GarbageDetector.swift#158 */
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#160 */
 "Not By iOS Camera" = "Not By iOS Camera";
 /* Generated from genl10n: Finder.BApp.swift#718 */
 "Open Apple Maps" = "Open Apple Maps";
@@ -290,9 +290,9 @@
 "Send an Email" = "Send an Email";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#92, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#105, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#131, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#145, App.Finalizable.UIActivity.PHAsset.swift#60, PHAssetUIAlertControllerSynchronizablePresenter.swift#58, Finder.BApp.swift#362, Finder.BApp.swift#447, Finder.BApp.swift#532, Finder.BApp.swift#629, Finder.BApp.swift#747, Finder.BApp.swift#844 */
 "Share" = "Share";
-/* Generated from genl10n: Cleaner.GarbageDetector.swift#228 */
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#230 */
 "Similarities" = "Similarities";
-/* Generated from genl10n: Cleaner.GarbageDetector.swift#188 */
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#190 */
 "Similarity" = "Similarity";
 /* Generated from genl10n: GIFMaker.BApp.swift#461, GIFMaker.BApp.swift#664, GIFMaker.BApp.swift#676, GIFMaker.BApp.swift#813 */
 "Size" = "Size";
@@ -326,7 +326,7 @@
 "Take A Photo" = "Take A Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#344 */
 "Targets" = "Targets";
-/* Generated from genl10n: Cleaner.GarbageDetector.swift#147 */
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#149 */
 "Too Short Videos" = "Too Short Videos";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#114 */
 "Too Slow Shutter Speed" = "Too Slow Shutter Speed";

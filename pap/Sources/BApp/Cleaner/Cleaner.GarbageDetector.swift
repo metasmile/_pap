@@ -125,17 +125,19 @@ class PHAssetGarbageDetector_TooSlowShutterSpeed: PHAssetGarbageDetector{
 
         let options = PHImageRequestOptions()
         options.isNetworkAccessAllowed = false
+
         if let data = input.requestImageData(options: options, asyncSignal).data{
             //ShutterSpeedValue
             //ExposureTime
-            //TODO: capture at night get sample threshold
-            if let v = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifExposureTime){
-                print("ExposureTime", v)
+
+            if let v = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifExposureTime) as? Double{
+                //ShutterSpeed=-log2(ExposureTime).
+                return v >= 0.25
             }
 
-            if let v = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifShutterSpeedValue){
-                print("ShutterSpeedValue", v)
-            }
+//            if let v = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifShutterSpeedValue){
+//                print("ShutterSpeedValue", v)
+//            }
         }
 
         return false
