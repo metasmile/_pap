@@ -96,16 +96,15 @@ class PHAssetGarbageDetector_FlashlightAndCloseupFace: PHAssetGarbageDetector_Fl
     private let allowedMinFaceBoundSizeRatio:CGFloat = 0.3
 
     override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
-//        guard super.process(input: input, asyncSignal) ?? false == true else{
-//            return false
-//        }
+        guard super.process(input: input, asyncSignal) ?? false == true else{
+            return false
+        }
 
         guard let faces = input.asCIImage?.asFaceBoundingBoxes else{
             return false
         }
 
         let rect = faces.biggest()
-        print(rect.width*rect.height>=self.allowedMinFaceBoundSizeRatio)
         return rect.width*rect.height>=self.allowedMinFaceBoundSizeRatio
     }
 }
@@ -325,6 +324,7 @@ class PHAssetGarbageDetector_Similarity_t : PHAssetGarbageDetector{
 /*
     Blurry
 */
+//FIXME: Blurry is not detect only Blurred.
 class PHAssetGarbageDetector_Blurry: PHAssetGarbageDetector{
     override class var label:String{
         return "Blur Rate".localized

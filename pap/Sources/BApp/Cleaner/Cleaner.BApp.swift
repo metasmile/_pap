@@ -75,7 +75,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
         PHAssetGarbageDetector_NotByiOSCamera.self
         , PHAssetGarbageDetector_Screenshots.self
         , PHAssetGarbageDetector_Similarity.self
-        , PHAssetGarbageDetector_Blurry.self
+//        , PHAssetGarbageDetector_Blurry.self
         , PHAssetGarbageDetector_Lockscreens.self
         , PHAssetGarbageDetector_Flashlight.self
         , PHAssetGarbageDetector_FlashlightAndCloseupFace.self // toggling relationship TakenWithFlashlightFace on -> TakenWithFlashlight off
@@ -131,7 +131,9 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
                         print(k,detector)
                     }
 
-                    let detected = detector.process(input: asset, async) ?? false
+                    let detected = autoreleasepool{
+                        return detector.process(input: asset, async) ?? false
+                    }
 
                     if enableCache{
                         var detectedCacheObject = cachedResults[aid] ?? PHAssetGCDetectedResult()
