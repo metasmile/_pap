@@ -13,10 +13,10 @@ private struct PreheatingQueue {
     //INFO: controlQueue must be higher than dispatchQueue for its priority
     fileprivate static let controlQueue =  DispatchQueue.main
 
-    //INFO: Access all following properties only with dispatchQueue when write
+    //INFO: Access all following properties. MUST ACCESS ONLY WITH <<PreheatingQueue.dispatchQueue>> WHEN WRITE
     fileprivate static let indexPathQueue = ItemQueue<IndexPath>()
 
-    //INFO: Write 'canceled' must be a dispatchqueue that has earlier QoS than .utility
+    //INFO: Write 'canceled'. MUST ACCESS ONLY WITH a queue faster than <<PreheatingQueue.dispatchQueue>> WHEN WRITE
     fileprivate static var canceled = false
 
 }

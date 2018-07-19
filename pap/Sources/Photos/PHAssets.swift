@@ -9,11 +9,37 @@ import Photos
 public final class PHAssets: NSObject, KeyPathWatchable {
     public static let fetched = PHAssets()
 
-    @objc dynamic
-    public private(set) var collections: PHFetchResult<PHAssetCollection>?
+    private let syncQueue = DispatchQueue(label: #file, qos: .userInteractive)
 
     @objc dynamic
-    public private(set) var results: [PHFetchResult<PHAsset>]?
+    private var _collections: PHFetchResult<PHAssetCollection>?
+    public private(set) var collections: PHFetchResult<PHAssetCollection>?{
+        set{
+            syncQueue.async(flags:.barrier){
+                self._collections = newValue
+            }
+        }
+        get{
+            return syncQueue.sync{
+                return self._collections
+            }
+        }
+    }
+
+    @objc dynamic
+    private var _results: [PHFetchResult<PHAsset>]?
+    public private(set) var results: [PHFetchResult<PHAsset>]?{
+        set{
+            syncQueue.async(flags:.barrier){
+                self._results = newValue
+            }
+        }
+        get{
+            return syncQueue.sync{
+                return self._results
+            }
+        }
+    }
 
     private override init() {}
 
