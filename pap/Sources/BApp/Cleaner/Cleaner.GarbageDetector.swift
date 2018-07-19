@@ -139,8 +139,21 @@ class PHAssetGarbageDetector_VideosSavedbyInstagramApp: PHAssetGarbageDetector{
     override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
         guard input.mediaType == .video else { return false }
 
-        print(input.pixelSize)
-        return input.pixelSize.width==720 && input.pixelSize.height==720
+        let videoRequestOptions = PHVideoRequestOptions()
+        videoRequestOptions.isNetworkAccessAllowed = false
+        videoRequestOptions.deliveryMode = .automatic
+
+        var size = CGSize.zero
+        asyncSignal.begin()
+        PHImageManager.default().requestAVAsset(forVideo: input, options: videoRequestOptions, resultHandler: { (asset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable: Any]?) -> Void in
+            if let track = asset?.tracks(withMediaType: .video).first{
+                size = track.naturalSize.applying(track.preferredTransform)
+            }
+            asyncSignal.end()
+        })
+        asyncSignal.waitUntilEnd()
+
+        return size.width==720.0 && size.height==720.0
     }
 }
 

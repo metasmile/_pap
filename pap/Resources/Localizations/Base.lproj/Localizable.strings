@@ -114,7 +114,7 @@
 "Auto Editor" = "Auto Editor";
 /* Generated from genl10n: Cleaner.BApp.swift#482 */
 "Auto Garbage Collection" = "Auto Garbage Collection";
-/* Generated from genl10n: Cleaner.GarbageDetector.swift#368 */
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#381 */
 "Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift#89 */
 "Burst" = "Burst";
@@ -264,7 +264,7 @@
 "Save and Share" = "Save and Share";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift#52 */
 "Save" = "Save";
-/* Generated from genl10n: Cleaner.GarbageDetector.swift#196 */
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#209 */
 "Saved Without the Camera" = "Saved Without the Camera";
 /* Generated from genl10n: PhotoPickerViewController.swift#851 */
 "Saving Results..." = "Saving Results...";
@@ -286,9 +286,9 @@
 "Send an Email" = "Send an Email";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#92, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#105, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#131, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#145, App.Finalizable.UIActivity.PHAsset.swift#60, PHAssetUIAlertControllerSynchronizablePresenter.swift#58, Finder.BApp.swift#362, Finder.BApp.swift#447, Finder.BApp.swift#532, Finder.BApp.swift#629, Finder.BApp.swift#747, Finder.BApp.swift#844 */
 "Share" = "Share";
-/* Generated from genl10n: Cleaner.GarbageDetector.swift#266 */
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#279 */
 "Similarities" = "Similarities";
-/* Generated from genl10n: Cleaner.GarbageDetector.swift#226 */
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#239 */
 "Similarity" = "Similarity";
 /* Generated from genl10n: GIFMaker.BApp.swift#461, GIFMaker.BApp.swift#664, GIFMaker.BApp.swift#676, GIFMaker.BApp.swift#813 */
 "Size" = "Size";
@@ -326,7 +326,7 @@
 "Targets" = "Targets";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#95 */
 "Too Close-up Face" = "Too Close-up Face";
-/* Generated from genl10n: Cleaner.GarbageDetector.swift#149 */
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#162 */
 "Too Slow Shutter Speed" = "Too Slow Shutter Speed";
 /* Generated from genl10n: Stabilizer.swift#273 */
 "Translation" = "Translation";
@@ -334,7 +334,7 @@
 "Video" = "Video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#136 */
 "Videos Saved by Instagram App" = "Videos Saved by Instagram App";
-/* Generated from genl10n: Cleaner.GarbageDetector.swift#185 */
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#198 */
 "Videos Shorter Than 1 Second" = "Videos Shorter Than 1 Second";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#112 */
 "Videos Without Sound" = "Videos Without Sound";
