@@ -14,6 +14,10 @@ import FirebaseMLVision
 
 class PHAssetGarbageDetector_Lockscreens : PHAssetGarbageDetector{
 
+    override class var priority: PHAssetGarbageDetectingPriority {
+        return .lowest
+    }
+
     private static var dataSet:LockscreenData?
     private var dataSet:LockscreenData{
         if let v = type(of: self).dataSet {

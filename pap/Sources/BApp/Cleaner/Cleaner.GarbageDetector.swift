@@ -16,6 +16,14 @@ protocol _GarbageDetector: AsyncProcessor where Self.OutputType==Bool {}
 
 protocol _PHAssetGarbageDetector: _GarbageDetector where Self.InputType==PHAsset {}
 
+//INFO: lighter detector, higher priority.
+enum PHAssetGarbageDetectingPriority:Int {
+    case lowest
+    case low
+    case normal
+    case high
+}
+
 class PHAssetGarbageDetector : NSObject, _PHAssetGarbageDetector{
     required public override init() {}
 
@@ -25,6 +33,10 @@ class PHAssetGarbageDetector : NSObject, _PHAssetGarbageDetector{
 
     class var shouldCacheResults:Bool{
         return true
+    }
+
+    class var priority: PHAssetGarbageDetectingPriority {
+        return .normal
     }
 
     class var label:String{
@@ -95,6 +107,11 @@ class PHAssetGarbageDetector_Flashlight: PHAssetGarbageDetector{
 }
 
 class PHAssetGarbageDetector_TooCloseupFace: PHAssetGarbageDetector {
+
+    override class var priority: PHAssetGarbageDetectingPriority {
+        return .low
+    }
+
     override class var label:String{
         return "Too Close-up Face".localized
     }
@@ -198,6 +215,10 @@ class PHAssetGarbageDetector_TooSlowShutterSpeed: PHAssetGarbageDetector{
 }
 
 class PHAssetGarbageDetector_VideosShorterThan1Sec: PHAssetGarbageDetector{
+    override class var priority: PHAssetGarbageDetectingPriority {
+        return .high
+    }
+
     override class var label:String{
         return "Videos Shorter Than 1 Second".localized
     }
@@ -238,6 +259,11 @@ class PHAssetGarbageDetector_SavedWithouttheCamera: PHAssetGarbageDetector{
 
 
 class PHAssetGarbageDetector_Similarity: PHAssetGarbageDetector{
+
+    override class var priority: PHAssetGarbageDetectingPriority {
+        return .lowest
+    }
+
     override class var label:String{
         return "Similarities".localized
     }

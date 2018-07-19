@@ -101,45 +101,49 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
         var action:PHAssetGCAction = .none
 
         for gd in gdCollection{
-            //TODO: sort by more lighter gd.
-            for gcItem in gd.items where gcItem.enabled{
-                if let t = gdType_Id[gcItem.gdIdentifier]{
-                    let k = t.identifier
-                    let asset = item.asset
-                    let aid = asset.localIdentifier
+            let ts = gd.items.filter { $0.enabled }.compactMap { gcItem -> PHAssetGarbageDetector.Type? in
+                return gdType_Id[gcItem.gdIdentifier]
+            }.sorted { (detectorType: PHAssetGarbageDetector.Type, detectorType2: PHAssetGarbageDetector.Type) -> Bool in
+                detectorType.priority.rawValue < detectorType2.priority.rawValue
+            }
 
-                    //found cached result
-                    if let detectedResult = cachedResults[aid]
-                        , let detected = detectedResult[k]{
+            for t in ts{
+                print(t.priority)
+                let k = t.identifier
+                let asset = item.asset
+                let aid = asset.localIdentifier
 
-                        action = detected ? .delete: .none
-                        break
-                    }
+                //found cached result
+                if let detectedResult = cachedResults[aid]
+                , let detected = detectedResult[k]{
 
-                    //start to detect
-                    var detector:PHAssetGarbageDetector
-                    if let d = gdInstances[k]{
-                        detector = d
-                    }else{
-                        detector = t.init()
-                        gdInstances[k] = detector
-                        print(k,detector)
-                    }
+                    action = detected ? .delete: .none
+                    break
+                }
 
-                    let detected = autoreleasepool{
-                        return detector.process(input: asset, async) ?? false
-                    }
+                //start to detect
+                var detector:PHAssetGarbageDetector
+                if let d = gdInstances[k]{
+                    detector = d
+                }else{
+                    detector = t.init()
+                    gdInstances[k] = detector
+                    print(k,detector)
+                }
 
-                    if t.shouldCacheResults {
-                        var detectedCacheObject = cachedResults[aid] ?? PHAssetGCDetectedResult()
-                        detectedCacheObject[k] = detected
-                        cachedResults[aid] = detectedCacheObject
-                    }
+                let detected = autoreleasepool{
+                    return detector.process(input: asset, async) ?? false
+                }
 
-                    if detected{
-                        action = .delete
-                        break
-                    }
+                if t.shouldCacheResults {
+                    var detectedCacheObject = cachedResults[aid] ?? PHAssetGCDetectedResult()
+                    detectedCacheObject[k] = detected
+                    cachedResults[aid] = detectedCacheObject
+                }
+
+                if detected{
+                    action = .delete
+                    break
                 }
             }
         }
