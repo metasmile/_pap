@@ -11,7 +11,7 @@ import UIKit
 class _AutoEditorAppAsset: _FiltersAppAsset {}
 
 public class AutoEditorApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _ConfigurableApp,
-        PHAssetFinalizableApp, PreviewableApp, PreviewProcessableApp, AppDockApp,
+        PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, AppDockApp,
         PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp, PhotoEditorViewControllerDelegatableApp {
 
     public static let taskType: AppTaskable.Type = _AutoEditorAppTask.self
@@ -97,7 +97,11 @@ public class AutoEditorApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _
     public var doneButtonTitle: String? {
         return "Apply".localized
     }
-    
+
+    public static var allowExpandablePreview: Bool {
+        return true
+    }
+
     public func shouldSelect(item: AppAsset) -> Bool {
         return item.asset.imageType == .stillImage
     }

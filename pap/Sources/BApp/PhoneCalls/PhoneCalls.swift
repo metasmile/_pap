@@ -36,7 +36,7 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
         , PhotoPickerViewControllerDelegatableApp
         , PhotoPickerCollectionViewDisplayableApp
         , PreheatableApp
-        , PreviewableApp
+        , EditableApp
         , LaunchableApp {
 
     public static let taskType: AppTaskable.Type = _PhoneCallsAppTask.self
@@ -90,6 +90,10 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
 
     public var finalizingActions: [PHAssetFinalizingAction] {
         return [.showActions]
+    }
+
+    public static var allowExpandablePreview: Bool {
+        return true
     }
 
     public func shouldSelect(item: AppAsset) -> Bool {

@@ -30,7 +30,7 @@ public class TransformAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAtt
 }
 
 public class TransformApp: NSObject, BApp, KeyPathWatchable
-        , ConfigurableApp, _ConfigurableApp, PreviewableApp, AppDockApp, PHAssetFinalizableApp
+        , ConfigurableApp, _ConfigurableApp, EditableApp, AppDockApp, PHAssetFinalizableApp
         , PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp
         , PhotoEditorViewControllerDelegatableApp {
 
@@ -63,6 +63,10 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
         config?.watch(\.tintColor, options: [.initial, .new]) {
             self.updateControllerView()
         }
+    }
+
+    public static var allowExpandablePreview: Bool {
+        return true
     }
 
     public func setConfigValues<T: AppConfigValuable>(_ config:T){

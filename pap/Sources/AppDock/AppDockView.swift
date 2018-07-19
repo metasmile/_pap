@@ -271,7 +271,7 @@ class AppDockView: CustomView {
     }
 
     var conformsPreviewable:Bool{
-        return AppCenter.default.current is PreviewableApp.Type
+        return (AppCenter.default.current as? AppDockApp.Type)?.allowExpandablePreview ?? false
     }
 
     private func hasControlView(_ view: UIView?) -> Bool {

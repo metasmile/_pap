@@ -49,7 +49,7 @@ public class FiltersAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttrr
 }
 
 public class FiltersApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _ConfigurableApp,
-        PHAssetFinalizableApp, PreviewableApp, PreviewProcessableApp, AppDockApp,
+        PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, AppDockApp,
         PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp,
 PhotoEditorViewControllerDelegatableApp {
     public static let taskType: AppTaskable.Type = _FiltersAppTask.self
@@ -96,6 +96,10 @@ PhotoEditorViewControllerDelegatableApp {
     
     public var finalizingActions: [PHAssetFinalizingAction] {
         return [.modify]
+    }
+
+    public static var allowExpandablePreview: Bool {
+        return true
     }
     
     public func setConfigValues<T: AppConfigValuable>(_ config:T){

@@ -8,9 +8,15 @@ import UIKit
 
 public protocol AppDockApp: class, App {
     var dockContent: AppDockContent? {get}
+
+    static var allowExpandablePreview:Bool {get}
 }
 
 extension AppDockApp {
+    public static var allowExpandablePreview: Bool {
+        return false
+    }
+
     public var dockContent: AppDockContent? {
         let label = UILabel()
         label.text = type(of: self).info.displayName + " Control View Area"

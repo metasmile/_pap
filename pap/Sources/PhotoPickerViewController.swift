@@ -156,7 +156,7 @@ class PhotoPickerViewController: AppDockViewController {
         
         animatesUpdatingPhotoCollectionContentInset = true
         
-        if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self) {
+        if let app = AppCenter.default.currentInstanceAs(EditableApp.self) {
             app.selectEditStateValue(app.defaultEditStateValue, in: (app as? AppDockApp)?.dockContent)
         }
     }
@@ -228,7 +228,7 @@ class PhotoPickerViewController: AppDockViewController {
         
         AppAssets.selected.reloadAll()
         
-        if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self) {
+        if let app = AppCenter.default.currentInstanceAs(EditableApp.self) {
             let value = app.defaultEditStateValue
             if let value = value {
                 AppAssets.selected.appendValue(value)
@@ -323,7 +323,7 @@ class PhotoPickerViewController: AppDockViewController {
     private func setAppValue(_ value: ImageEditStateValue) {
         AppAssets.selected.appendValue(value)
         
-        if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self) {
+        if let app = AppCenter.default.currentInstanceAs(EditableApp.self) {
             app.setDefaultEditStateValue(value)
         }
         
