@@ -8,6 +8,7 @@
 
 import UIKit
 
+//TODO: PreviewableApp
 public protocol PreviewableApp: App {
     var defaultEditStateValue: ImageEditStateValue? { get }
     func setDefaultEditStateValue(_ editStateValue: ImageEditStateValue?)
@@ -17,6 +18,11 @@ public protocol PreviewableApp: App {
 extension PreviewableApp {
     public var defaultEditStateValue: ImageEditStateValue? { return nil }
     public func setDefaultEditStateValue(_ editStateValue: ImageEditStateValue?) {}
+    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in dockContent: AppDockContent?) {}
+}
+
+public protocol PreviewableStatableApp {
+
 }
 
 public protocol PreviewProcessableApp: App {

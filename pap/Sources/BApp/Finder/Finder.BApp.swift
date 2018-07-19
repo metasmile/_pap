@@ -1327,7 +1327,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
                 }){
                     self.settingCellDescribers.remove(at: index)
                 }
-             }
+            }
 
             //saveContactWithoutEdit
             if preset == SelectionPreset.contact.rawValue{

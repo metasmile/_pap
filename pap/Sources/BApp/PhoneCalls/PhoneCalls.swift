@@ -34,8 +34,9 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
         , FinalizableApp
         , AppDockApp
         , PhotoPickerViewControllerDelegatableApp
+        , PhotoPickerCollectionViewDisplayableApp
         , PreheatableApp
-//        , PreviewableApp
+        , PreviewableApp
         , LaunchableApp {
 
     public static let taskType: AppTaskable.Type = _PhoneCallsAppTask.self
@@ -75,8 +76,16 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
         self.detector.reassignDetector()
     }
 
+    private var importedLaunchOption:AppLaunchOption?
     func didLaunch(previous: App.Type?, withOption: AppLaunchOption?) {
+        importedLaunchOption = withOption
+    }
 
+    public func shouldSelectWhenInserted(indexPaths: [IndexPath]?) -> [IndexPath]? {
+        if let _ = importedLaunchOption{
+            return indexPaths
+        }
+        return nil
     }
 
     public var finalizingActions: [PHAssetFinalizingAction] {
@@ -273,15 +282,23 @@ private class _PhoneCallsAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy,
     }
 }
 
+enum PhoneCallsAppCells{
+    case autoSelect
+    case takePhoto
+}
 
 fileprivate class PhoneCallsAppDockContent: NSObject, KeyPathWatchable,
         AppDockContent, UITableViewDelegate, UITableViewDataSource{
+
+    fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
+
     private lazy var defaults = PhoneCallsApp.defaults as! PhoneCallsAppDefaults
 
     private let primaryColor = UIColor(red:0.27, green:0.82, blue:0.35, alpha:1)
 
     lazy var view: UIView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.tintColor = primaryColor
         return tableView
     }()
 
@@ -289,20 +306,55 @@ fileprivate class PhoneCallsAppDockContent: NSObject, KeyPathWatchable,
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
-        preferences.preferredHeight = (view as! UITableView).rowHeight + 48
+        let view = (self.view as! UITableView)
+        preferences.preferredHeight = CGFloat(view.numberOfRows(inSection: 0))*view.rowHeight + 48
         return preferences
     }
 
     func willSetContentView(_ view: UIView, dock: AppDock) {
-        if let view = view as? UITableView{
-            view.dataSource = self
-            view.delegate = self
-            view.rowHeight = 52
-            view.allowsSelection = false
-            view.register(Cell.self, forCellReuseIdentifier: PhoneCallsApp.info.identifier)
-//            view.backgroundColor = UIColor(red: 31 / 255.0, green: 31 / 255.0, blue: 31 / 255.0, alpha: 1)
-            view.tintColor = self.primaryColor
-//            view.separatorInset.left = view.rowHeight
+
+        if settingCellDescribers.count>0{
+            return
+        }
+
+        let cell1 = UITableViewSwitchCellDescriber()
+        cell1.itemIdentifier = PhoneCallsAppCells.autoSelect.hashValue
+        cell1.label = "Enable Auto Selection".localized
+        cell1.valueGetter = { self.autoSelect }
+        cell1.iconImage = R.image.commonIconRobot.name
+        cell1.valueHandler = { on in
+            let enable = (on as? Bool) ?? false
+            self.autoSelect = enable
+            AppCenter.default.currentInstanceAs(PhoneCallsApp.self)?.autoSelect = enable
+        }
+        settingCellDescribers.append(cell1)
+
+
+        let cell_b = UITableViewButtonCellDescriber()
+        cell_b.itemIdentifier = PhoneCallsAppCells.takePhoto.hashValue
+        cell_b.label = "Take A Photo".localized
+        cell_b.buttonImageName = R.image.systemIconCamera.name
+        cell_b.valueHandler = { _ in
+            var option = AppLaunchOption()
+            option.identifierToReturn = PhoneCallsApp.info.identifier
+
+            AppCenter.default.openApp(identifier:"com.stells.pap.camera", options:option)
+
+        }
+        settingCellDescribers.append(cell_b)
+
+
+        if let tableView = view as? UITableView{
+            tableView.dataSource = self
+            tableView.delegate = self
+            tableView.rowHeight = 44
+            tableView.allowsSelection = false
+            tableView.allowsMultipleSelection = false
+            tableView.register(Cell.self, forCellReuseIdentifier: FinderApp.info.identifier)
+
+            for desc in settingCellDescribers {
+                tableView.register(describer: desc)
+            }
         }
     }
 
@@ -336,24 +388,96 @@ fileprivate class PhoneCallsAppDockContent: NSObject, KeyPathWatchable,
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return settingCellDescribers.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: PhoneCallsApp.info.identifier) as! Cell
+        return settings_tableView(tableView, cellForRowAt: indexPath)
+    }
 
-        cell.imageView?.tintColor = primaryColor
-        cell.imageView?.contentMode = .scaleAspectFit
+    func settings_tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item = self.settingCellDescribers[indexPath.item]
 
-        cell.textLabel?.text = "Enable Auto Selection".localized
-        cell.optionSwitch.setOn(self.autoSelect, animated: false)
-        cell.imageView?.image = R.image.commonIconRobot()?.withRenderingMode(.alwaysTemplate)
-        cell.imageView?.tintColor = primaryColor
-        cell.switchDidChange = { on in
-            self.autoSelect = on
-            AppCenter.default.currentInstanceAs(PhoneCallsApp.self)?.autoSelect = on
+        if let cellDescriber = item as? UITableViewSwitchCellDescriber
+        , let value = item.valueGetter() as? Bool
+        , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewSwitchCell {
+
+            cell.textLabel?.text = item.label
+            cell.switcher.setOn(value, animated: false)
+            cell.switcher.onTintColor = self.view.tintColor
+            if let image = item.iconImage?.asUIImage{
+                cell.imageView?.image = image.withRenderingMode(.alwaysTemplate)
+                cell.imageView?.tintColor = self.view.tintColor
+            }
+            cell.switchDidChange = item.valueHandler
+            return cell
         }
 
+        else if let cellDescriber = item as? UITableViewButtonCellDescriber
+        , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewButtonCell {
+
+            cell.textLabel?.text = item.label
+
+            if let buttonAsImage = cellDescriber.buttonImageName?.asUIImage{
+                cell.button.setImage(buttonAsImage.withRenderingMode(.alwaysTemplate), for: .normal)
+            }else if let buttonAsText = cellDescriber.buttonTitleLabel {
+                cell.button.setTitle(buttonAsText, for: .normal)
+                cell.button.setTitleColor(self.view.tintColor, for: .selected)
+                cell.button.setTitleColor(self.view.tintColor, for: .highlighted)
+            }
+            cell.button.tintColor = self.view.tintColor
+            cell.imageView?.image = item.iconImage?.asUIImage?.withRenderingMode(.alwaysTemplate)
+            cell.imageView?.tintColor = self.view.tintColor
+            cell.didTap = {
+                cellDescriber.valueHandler?(true)
+            }
+            cell.button.layoutIfNeeded()
+            return cell
+        }
+
+        else if let cellDescriber = item as? UITableViewStepperCellDescriber
+        , let value = item.valueGetter() as? Int
+        , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewStepperCell {
+
+            cell.textLabel?.text = item.label
+            cell.detailTextLabel?.text = cellDescriber.valuePresenter?(value) ?? String(value)
+            cell.imageView?.image = item.iconImage?.asUIImage
+
+            cell.stepper.stepValue = cellDescriber.stepValue
+            cell.stepper.minimumValue = cellDescriber.minimumValue
+            cell.stepper.maximumValue = cellDescriber.maximumValue
+            cell.stepper.value = Double(value)
+
+            cell.didChangeValue = { value in
+                cell.detailTextLabel?.text = cellDescriber.valuePresenter?(value) ?? String(Int(value))
+                item.valueHandler?(value)
+            }
+            return cell
+        }
+
+        else if let cellDescriber = item as? UITableViewSegmentControlCellDescriber
+        , let valueCollection = cellDescriber.valueCollection as? [(String, Int)]
+        , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewSegmentedControlCell{
+
+            cell.textLabel?.text = item.label
+            cell.imageView?.image = item.iconImage?.asUIImage
+
+            cell.segmentedControl.removeAllSegments()
+
+            for (label, _) in valueCollection{
+                cell.segmentedControl.insertSegment(withTitle: label, at: cell.segmentedControl.numberOfSegments, animated: false)
+            }
+
+            cell.segmentedControl.selectedSegmentIndex = valueCollection.index { t in
+                t.1 == (item.valueGetter() as! Int)
+            } ?? 0
+
+            cell.didChangeValue = item.valueHandler
+            return cell
+        }
+
+        let cell = tableView.cellForRow(at: indexPath) ?? UITableViewCell()
+        cell.textLabel?.text = item.label
         return cell
     }
 

@@ -656,13 +656,16 @@ class PhotoPickerViewController: AppDockViewController {
             // PhotoPickerCollectionViewDisplayableApp.shouldSelectWhenInserted
             let collectionViewDelegatableApp = AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDisplayableApp.self)
             if let allowedSelectionIndexPaths = collectionViewDelegatableApp?.shouldSelectWhenInserted(indexPaths: insertedIndexes.nilEmpty){
-                for indexPath in allowedSelectionIndexPaths {
-                    self.selectCollectionViewItem(at: indexPath)
-                }
+                Timer.scheduledTimer(identifier: #file+#function, withTimeInterval: 0) { timer in
+                    for indexPath in allowedSelectionIndexPaths {
+                        self.selectCollectionViewItem(at: indexPath)
+                    }
 
-                DispatchQueue.mainAsyncAfter(qos: .background) {
-                    self.setNeedsScrollToBottom()
-                    self.scrollToBottomIfNeeded(animated: true)
+                    DispatchQueue.mainAsyncAfter(qos: .background) {
+                        self.viewDidLayoutSubviews()
+                        self.setNeedsScrollToBottom()
+                        self.scrollToBottomIfNeeded(animated: true)
+                    }
                 }
             }
         })

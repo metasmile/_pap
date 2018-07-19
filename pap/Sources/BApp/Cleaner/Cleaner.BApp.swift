@@ -104,11 +104,10 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
             let ts = gd.items.filter { $0.enabled }.compactMap { gcItem -> PHAssetGarbageDetector.Type? in
                 return gdType_Id[gcItem.gdIdentifier]
             }.sorted { (detectorType: PHAssetGarbageDetector.Type, detectorType2: PHAssetGarbageDetector.Type) -> Bool in
-                detectorType.priority.rawValue < detectorType2.priority.rawValue
+                detectorType.priority.rawValue > detectorType2.priority.rawValue
             }
 
             for t in ts{
-                print(t.priority)
                 let k = t.identifier
                 let asset = item.asset
                 let aid = asset.localIdentifier
