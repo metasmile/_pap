@@ -96,6 +96,26 @@ private struct MemoCamAppDetector {
     }
 }
 
+fileprivate class PolygonLayer: CAShapeLayer {
+    init(points: [CGPoint]) {
+        super.init()
+        
+        guard let firstPoint = points.first else { return }
+        let polygon = UIBezierPath()
+        polygon.move(to: firstPoint)
+        points[1...].forEach {
+            polygon.addLine(to: $0)
+        }
+        polygon.close()
+        
+        self.path = polygon.cgPath
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
 fileprivate class MemoCamAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDockDelegate {
     lazy var view: UIView = {
         let arView = AppUIARView(frame: .zero)
@@ -109,6 +129,15 @@ fileprivate class MemoCamAppDockContent: NSObject, KeyPathWatchable, AppDockCont
     private var arView: AppUIARView {
         return view as! AppUIARView
     }
+    
+    private lazy var debugLayer: CAShapeLayer = {
+        let layer = CAShapeLayer()
+        layer.fillColor = UIColor.clear.cgColor
+        layer.strokeColor = UIColor.red.cgColor
+        layer.lineWidth = 1
+        layer.actions = ["path": NSNull()]
+        return layer
+    }()
     
     private var detector = MemoCamAppDetector()
     
@@ -124,12 +153,9 @@ fileprivate class MemoCamAppDockContent: NSObject, KeyPathWatchable, AppDockCont
     func didSetContentView(_ view: UIView, dock: AppDock) {
         let targetSize = arView.previewSize
         
-        let debugLayer = CAShapeLayer()
+        debugLayer.removeFromSuperlayer()
+        
         debugLayer.frame = arView.previewView.bounds
-        debugLayer.fillColor = UIColor.clear.cgColor
-        debugLayer.strokeColor = UIColor.red.cgColor
-        debugLayer.lineWidth = 1
-        debugLayer.actions = ["path": NSNull()]
         arView.previewView.layer.addSublayer(debugLayer)
         
         arView.startSession()
@@ -145,17 +171,29 @@ fileprivate class MemoCamAppDockContent: NSObject, KeyPathWatchable, AppDockCont
                     let bounds = $0.frame
                     let normalizedBounds = bounds.normalized(by: image.size)
                     
-                    guard normalizedBounds.width * normalizedBounds.height > 0.01 else { return }
+                    let polygon = UIBezierPath()
                     
-                    path.append(UIBezierPath(rect: bounds))
+                    guard
+                        let firstPoint = $0.cornerPoints.first?.cgPointValue,
+                        normalizedBounds.width * normalizedBounds.height > 0.01
+                    else { return }
                     
-//                    self.addPlane(normalizedBounds, at: CGPoint(x: bounds.midX, y: bounds.midY))
+                    polygon.move(to: firstPoint)
+                    $0.cornerPoints[1...].forEach {
+                        polygon.addLine(to: $0.cgPointValue)
+                    }
+                    polygon.close()
+                    
+                    path.append(polygon)
+                    
+//                    DispatchQueue(label: "nodeQueue", qos: .utility).async {
+//                        self.addPlane(bounds)
+//                    }
                 }
                 
                 DispatchQueue.main.async {
-                    debugLayer.path = path.cgPath
+                    self.debugLayer.path = path.cgPath
                 }
-                
             }
         }
     }
@@ -178,48 +216,42 @@ fileprivate class MemoCamAppDockContent: NSObject, KeyPathWatchable, AppDockCont
     }
     
     @objc private func arViewDidTap(sender: UITapGestureRecognizer) {
-        arView.scene.rootNode.childNodes.forEach { $0.removeFromParentNode() }
+        DispatchQueue(label: "nodeQueue", qos: .utility).async {
+            self.arView.scene.rootNode.childNodes.forEach { $0.removeFromParentNode() }
+        }
     }
     
-    func addLabel(_ rect: CGRect, text: String, at location: CGPoint) {
-        guard let hitTestResult = arView.hitTest(at: location) else { return }
+    func addPlane(_ rect: CGRect) {
+        let center = CGPoint(x: rect.midX, y: rect.midY)
+        let topLeft = CGPoint(x: rect.minX, y: rect.minY)
+        let topRight = CGPoint(x: rect.maxX, y: rect.minY)
+        let bottomLeft = CGPoint(x: rect.minX, y: rect.maxY)
+        let bottomRight = CGPoint(x: rect.maxX, y: rect.maxY)
         
-        let textGeometry = SCNText(string: text, extrusionDepth: 2.0)
-        textGeometry.firstMaterial = SCNMaterial()
-        textGeometry.firstMaterial?.diffuse.contents = UIColor.black
-        textGeometry.firstMaterial?.specular.contents = UIColor.white
-        textGeometry.font = UIFont.systemFont(ofSize: 0.5)
+        guard
+            let hitTestTopLeft = arView.hitTest(at: topLeft, types: .featurePoint),
+            let hitTestTopRight = arView.hitTest(at: topRight, types: .featurePoint),
+            let hitTestBottomLeft = arView.hitTest(at: bottomLeft, types: .featurePoint),
+            let hitTestBottomRight = arView.hitTest(at: bottomRight, types: .featurePoint),
+            let hitTestCenter = arView.hitTest(at: center, types: .featurePoint)
+        else { return }
         
-        let node = SCNNode(geometry: textGeometry)
+        let plane = SCNPlane(width: CGFloat(hitTestTopLeft.worldTransform.translation.x.distance(to: hitTestTopRight.worldTransform.translation.x).magnitude), height: CGFloat(hitTestBottomLeft.worldTransform.translation.y.distance(to: hitTestTopLeft.worldTransform.translation.y)).magnitude)
+        plane.firstMaterial?.diffuse.contents = UIColor.green
         
-        position(node: node, atHit: hitTestResult)
-        
-        arView.scene.rootNode.addChildNode(node)
-    }
-    
-    func addPlane(_ rect: CGRect, at location: CGPoint) {
-        guard let hitTestResult = arView.hitTest(at: location) else { return }
-        
-        let plane = SCNPlane(width: rect.width / 50, height: rect.height / 50)
         let node = SCNNode(geometry: plane)
         
-        position(node: node, atHit: hitTestResult)
-        
-        arView.scene.rootNode.addChildNode(node)
-    }
-    
-    private func position(node: SCNNode, atHit hit: ARHitTestResult) {
-        guard let geometry = node.geometry else { return }
-        
-        if let anchor = hit.anchor {
+        if let anchor = arView.hitTest(at: center)?.anchor {
             node.transform = SCNMatrix4(anchor.transform)
+            plane.firstMaterial?.diffuse.contents = UIColor.red
         }
         
-        node.eulerAngles.x = (Float.pi / 2)
+        node.eulerAngles.x = -.pi / 2
         
-        let position = SCNVector3Make(hit.worldTransform.columns.3.x + geometry.boundingBox.min.z, hit.worldTransform.columns.3.y, hit.worldTransform.columns.3.z)
-        
+        let position = SCNVector3Make(hitTestCenter.worldTransform.columns.3.x, hitTestCenter.worldTransform.columns.3.y, hitTestCenter.worldTransform.columns.3.z)
         node.position = position
+        
+        arView.scene.rootNode.addChildNode(node)
     }
 }
 
@@ -307,12 +339,12 @@ extension AppUIARView: ARSessionDelegate {
 }
 
 extension AppUIARView {
-    func hitTest(at location: CGPoint) -> ARHitTestResult? {
+    func hitTest(at location: CGPoint, types: ARHitTestResult.ResultType? = nil) -> ARHitTestResult? {
         if #available(iOS 11.3, *) {
-            return previewView.hitTest(location, types: [.existingPlaneUsingGeometry, .featurePoint]).first
+            return previewView.hitTest(location, types: types ?? [.existingPlaneUsingGeometry, .featurePoint]).first
         }
         else {
-            return previewView.hitTest(location, types: [.existingPlaneUsingExtent, .featurePoint]).first
+            return previewView.hitTest(location, types: types ?? [.existingPlaneUsingExtent, .featurePoint]).first
         }
     }
     
