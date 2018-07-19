@@ -46,7 +46,7 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp
             , minOSVersion: nil
     )
 
-    public private(set) lazy var dockContent: AppDockContent? = RevertAppDockContent()
+    public private(set) lazy var content: AppDockContent? = RevertAppDockContent()
 
     private let appDefaults = RevertApp.defaults as! RevertAppDefaults
 

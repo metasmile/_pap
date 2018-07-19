@@ -55,7 +55,7 @@ public class PDFactoryApp: BApp, FinalizableApp, PhotoPickerViewControllerDelega
         return item.asset.mediaType == .image
     }
 
-    public lazy var dockContent: AppDockContent? = PDFactoryAppAppDockContent()
+    public lazy var content: AppDockContent? = PDFactoryAppAppDockContent()
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
 

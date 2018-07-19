@@ -255,7 +255,7 @@ public class GIFMakerApp: BApp,
     
     @objc dynamic
     public private(set) lazy var config: GIFMakerAppConfigValue? = GIFMakerApp.configure?()
-    public private(set) lazy var dockContent: AppDockContent? = GIFMakerAppDockContent()
+    public private(set) lazy var content: AppDockContent? = GIFMakerAppDockContent()
     
     public static let info = AppInfo(
         identifier: "com.stells.pap.gifmaker"
@@ -275,7 +275,7 @@ public class GIFMakerApp: BApp,
     }
     
     public func shouldSelect(item: AppAsset) -> Bool {
-        return (dockContent as? GIFMakerAppDockContent)?.shouldImport(asset: item.asset) ?? false
+        return (content as? GIFMakerAppDockContent)?.shouldImport(asset: item.asset) ?? false
     }
 
     public func performPreheating(item: AppAsset, _ async: AsyncWaitSignalable) -> PreheatingFinishAction? {

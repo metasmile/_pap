@@ -21,7 +21,7 @@ public class AutoEditorApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _
     
     @objc dynamic
     public private(set) lazy var config: FiltersAppConfigValue? = FiltersApp.configure?()
-    public private(set) lazy var dockContent: AppDockContent? = AutoEditorAppDockContent()
+    public private(set) lazy var content: AppDockContent? = AutoEditorAppDockContent()
     public private(set) lazy var photoEditorDockContent: AppDockContent? = AutoEditorAppDockContent()
     
     public private(set) var defaultEditStateValue: ImageEditStateValue?
@@ -60,7 +60,7 @@ public class AutoEditorApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _
             self.updateControllerView()
         }
 
-        let controllerContent = self.dockContent as? AutoEditorAppDockContent
+        let controllerContent = self.content as? AutoEditorAppDockContent
         controllerContent?.watch(\.options, options: [.initial, .new]) {
             if let options = controllerContent?.options {
                 let filter = CIAutoAdjustmentFilter(options: options)
@@ -98,7 +98,7 @@ public class AutoEditorApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _
         return "Apply".localized
     }
 
-    public static var allowExpandablePreview: Bool {
+    public static var fixedContentLayout: Bool {
         return true
     }
 
@@ -121,9 +121,9 @@ public class AutoEditorApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _
         completion(original, filtered)
     }
     
-    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in dockContent: AppDockContent?) {
+    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
         let filter = editStateValue?.ciFilter as? CIAutoAdjustmentFilter
-        (dockContent as? AutoEditorAppDockContent)?.switchOptions(filter?.options, animated: false)
+        (content as? AutoEditorAppDockContent)?.switchOptions(filter?.options, animated: false)
     }
 }
 
@@ -192,7 +192,7 @@ private extension AutoEditorApp {
     ]
     
     private func updateControllerView(){
-        self.dockContent?.view.tintColor = config?.tintColor
+        self.content?.view.tintColor = config?.tintColor
         self.photoEditorDockContent?.view.tintColor = config?.tintColor
     }
 }

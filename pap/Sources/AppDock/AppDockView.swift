@@ -22,7 +22,7 @@ struct AppDockItem {
 protocol AppDockViewDataSource {
     func numberOfItems(in view: AppDockView) -> Int
     func appDockView(_ view: AppDockView, itemAt index: Int) -> AppDockItem?
-    func dockContent(in view: AppDockView) -> AppDockContent?
+    func content(in view: AppDockView) -> AppDockContent?
 }
 
 protocol AppDockViewDelegate {
@@ -228,7 +228,7 @@ class AppDockView: CustomView {
     }
     
     func loadControllerContentIfNeeded(){
-        let controller = dataSource?.dockContent(in: self)
+        let controller = dataSource?.content(in: self)
         if self.controller?.view != controller?.view{
             self.controller = controller
         }
@@ -271,7 +271,7 @@ class AppDockView: CustomView {
     }
 
     var conformsPreviewable:Bool{
-        return (AppCenter.default.current as? AppDockApp.Type)?.allowExpandablePreview ?? false
+        return (AppCenter.default.current as? AppDockApp.Type)?.fixedContentLayout ?? false
     }
 
     private func hasControlView(_ view: UIView?) -> Bool {

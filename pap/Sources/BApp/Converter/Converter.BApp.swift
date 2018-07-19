@@ -31,7 +31,7 @@ public class ConverterApp: BApp,
     @objc dynamic
     public private(set) lazy var config: ConverterAppConfigValue? = ConverterAppConfigValue()
 
-    public private(set) var dockContent: AppDockContent?
+    public private(set) var content: AppDockContent?
 
     public static let info = AppInfo(
             identifier: "com.stells.pap.converter"
@@ -45,7 +45,7 @@ public class ConverterApp: BApp,
     )
 
     required public init() {
-        dockContent = ConverterAppDockContent(app:self)
+        content = ConverterAppDockContent(app:self)
     }
 
     public var doneButtonTitle: String? {

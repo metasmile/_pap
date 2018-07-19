@@ -31,7 +31,7 @@ public class ExifGhostApp: NSObject, KeyPathWatchable,BApp,
             , minOSVersion: nil
     )
 
-    public private(set) lazy var dockContent: AppDockContent? = ExifGhostAppAppDockContent()
+    public private(set) lazy var content: AppDockContent? = ExifGhostAppAppDockContent()
 
     @objc dynamic
     public var autoSelect: Bool = false
@@ -102,7 +102,7 @@ private class _ExifGhostAppTask: AppTaskPrototype, AppTaskable {
                 , let metadata = data.getMetadata(){
 
                     var ghostedData:Data
-                    if let appContentAsExifGhostApp = AppCenter.default.currentInstanceAs(AppDockApp.self)?.dockContent as? ExifGhostAppAppDockContent {
+                    if let appContentAsExifGhostApp = AppCenter.default.currentInstanceAs(AppDockApp.self)?.content as? ExifGhostAppAppDockContent {
                         if appContentAsExifGhostApp.shouldGhostAll{
                             ghostedData = data.setMetadata(with: nil)
 

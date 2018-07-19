@@ -107,7 +107,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         return [AppDockItem(app: app)]
     }
     
-    override func dockContent(in view: AppDockView) -> AppDockContent? {
+    override func content(in view: AppDockView) -> AppDockContent? {
         return AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self)?.photoEditorDockContent
     }
     

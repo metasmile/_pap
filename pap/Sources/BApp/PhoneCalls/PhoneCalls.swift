@@ -43,7 +43,7 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
 
     public static let paramType: AppTaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
 
-    public private(set) lazy var dockContent: AppDockContent? = PhoneCallsAppDockContent()
+    public private(set) lazy var content: AppDockContent? = PhoneCallsAppDockContent()
 
     private let appDefaults = PhoneCallsApp.defaults as! PhoneCallsAppDefaults
 
@@ -92,7 +92,7 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
         return [.showActions]
     }
 
-    public static var allowExpandablePreview: Bool {
+    public static var fixedContentLayout: Bool {
         return true
     }
 

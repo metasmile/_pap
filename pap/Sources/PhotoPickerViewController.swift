@@ -157,7 +157,7 @@ class PhotoPickerViewController: AppDockViewController {
         animatesUpdatingPhotoCollectionContentInset = true
         
         if let app = AppCenter.default.currentInstanceAs(EditableApp.self) {
-            app.selectEditStateValue(app.defaultEditStateValue, in: (app as? AppDockApp)?.dockContent)
+            app.selectEditStateValue(app.defaultEditStateValue, in: (app as? AppDockApp)?.content)
         }
     }
 
@@ -234,7 +234,7 @@ class PhotoPickerViewController: AppDockViewController {
                 AppAssets.selected.appendValue(value)
             }
             
-            app.selectEditStateValue(value, in: (app as? AppDockApp)?.dockContent)
+            app.selectEditStateValue(value, in: (app as? AppDockApp)?.content)
         }
         
         redisplayVisibleCellsEnabled()

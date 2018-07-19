@@ -34,7 +34,7 @@ class CameraApp: NSObject, KeyPathWatchable, BApp, LaunchableApp, AppDockApp, Ph
     
     public static let paramType: AppTaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
     
-    public private(set) lazy var dockContent: AppDockContent? = CameraAppDockContent()
+    public private(set) lazy var content: AppDockContent? = CameraAppDockContent()
     
     public static let info = AppInfo(
         identifier: "com.stells.pap.camera"

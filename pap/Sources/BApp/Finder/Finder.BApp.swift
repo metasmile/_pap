@@ -26,7 +26,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
 
     public static let paramType: AppTaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
 
-    public private(set) lazy var dockContent: AppDockContent? = FinderAppDockContent()
+    public private(set) lazy var content: AppDockContent? = FinderAppDockContent()
 
     fileprivate static let privateDefaults = FinderApp.defaults as! FinderAppDefaults
 

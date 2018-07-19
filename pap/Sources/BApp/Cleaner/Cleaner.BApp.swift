@@ -32,7 +32,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
 
     public static let paramType: AppTaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
 
-    public private(set) lazy var dockContent: AppDockContent? = CleanerAppDockContent()
+    public private(set) lazy var content: AppDockContent? = CleanerAppDockContent()
 
     fileprivate static var privateDefaults = CleanerApp.defaults as! CleanerAppDefaults
 

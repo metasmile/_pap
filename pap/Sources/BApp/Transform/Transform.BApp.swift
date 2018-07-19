@@ -43,7 +43,7 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
     @objc dynamic
     public private(set) lazy var config: TransformAppConfigValue? = TransformApp.configure?()
 
-    public private(set) lazy var dockContent: AppDockContent? = createController()
+    public private(set) lazy var content: AppDockContent? = createController()
     public private(set) lazy var photoEditorDockContent: AppDockContent? = createController()
 
     public static let info = AppInfo(
@@ -65,7 +65,7 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
         }
     }
 
-    public static var allowExpandablePreview: Bool {
+    public static var fixedContentLayout: Bool {
         return true
     }
 
@@ -82,7 +82,7 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
         return item.asset.imageType != .animatedGIF
     }
     
-    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in dockContent: AppDockContent?) {}
+    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {}
 }
 
 private extension TransformApp{
@@ -113,7 +113,7 @@ private extension TransformApp{
     }
 
     private func updateControllerView(){
-        self.dockContent?.view.tintColor = config?.tintColor
+        self.content?.view.tintColor = config?.tintColor
         self.photoEditorDockContent?.view.tintColor = config?.tintColor
     }
 }
