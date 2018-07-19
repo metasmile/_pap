@@ -18,6 +18,25 @@ private struct UIAlertControllerPool{
     }
 }
 
+public struct UIAlertControllerPreference {
+    static private var _sourceView:UIView?
+    static private var _unsetWhenUse:Bool = true
+
+    static func setSharedPopoverPresentationControllerSourceView(view:UIView?, unsetWhenUse:Bool=true) {
+//        _sourceView = view
+//        _unsetWhenUse = unsetWhenUse
+    }
+
+    static var sharedPopoverPresentationControllerSourceView:UIView? {
+        let view = _sourceView ?? UIViewController.root?.view
+        if _unsetWhenUse{
+            _sourceView = nil
+        }
+        //TODO: convertRect? not works yet.
+        return view
+    }
+}
+
 public extension UIAlertController{
 
     @discardableResult
@@ -48,6 +67,8 @@ public extension UIAlertController{
         }))
 
         UIAlertControllerPool.shared.presentingAlertViewController = alert
+
+        alert.popoverPresentationController?.sourceView = UIAlertControllerPreference.sharedPopoverPresentationControllerSourceView
 
         UIViewController.root?.present(alert, animated: true) {
             if let dismissInterval = autoDismiss{

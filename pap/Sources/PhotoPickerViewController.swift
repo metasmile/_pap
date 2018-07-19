@@ -248,6 +248,9 @@ class PhotoPickerViewController: AppDockViewController {
         updateDoneButtonState()
         cancelPreheatingIfNeeded()
         performPrefetchIfNeeded(includingCurrentVisibleItems: true)
+
+        //TODO: for iPad - popoverPresentation sourceView is not works - see u at next update
+        UIAlertControllerPreference.setSharedPopoverPresentationControllerSourceView(view: self.appDockView?.selectedDockViewCell, unsetWhenUse: false)
     }
     
     override func registerWatchingAppConfig() {
@@ -364,28 +367,6 @@ class PhotoPickerViewController: AppDockViewController {
         }
     }
 
-    /*
-    PayableApp
-    */
-    private lazy var ratingButton = UIBarButtonItem(image: R.image.systemIconFavoriteLine(), style: .plain, target: self, action: #selector(self.payableButtonDidTap))
-
-    var payableButton:UIBarButtonItem?{
-        //TODO: payableButton by state
-
-        ratingButton.target = self
-        ratingButton.action = #selector(self.payableButtonDidTap)
-
-        return ratingButton
-    }
-
-    @objc func payableButtonDidTap(sender: UIButton) {
-
-        //https://github.com/UrbanApps/Armchair
-        Armchair.resetAllCounters()
-        Armchair.showPrompt()
-//        Armchair.rateApp()
-    }
-
     override func cancelButtonDidTap(sender: Any) {
         super.cancelButtonDidTap(sender: sender)
         
@@ -403,6 +384,16 @@ class PhotoPickerViewController: AppDockViewController {
         updateVisibleCellsEnabled()
 
         cancelPreheatingIfNeeded()
+    }
+
+    @objc func payableButtonDidTap(sender: UIButton) {
+
+        //https://github.com/UrbanApps/Armchair
+        Armchair.resetAllCounters()
+        Armchair.showPrompt { info in
+            return true
+        }
+//        Armchair.rateApp()
     }
 
     private func showAndRevertTitleByCurrentAppIfNeeded(){
@@ -464,31 +455,50 @@ class PhotoPickerViewController: AppDockViewController {
         }
     }
 
-    private func updateSelectedItemsControl() {
-        let selectedAssets = self.selectedAssetsInCollectionView
-        let numberOfVideos = selectedAssets?.filter({ $0.mediaType == .video }).count ?? 0
-        let numberOfPhotos = selectedAssets?.filter({ $0.mediaType == .image }).count ?? 0
-        let numberOfItems = numberOfPhotos + numberOfVideos
-        
-        if numberOfItems == 0 {
+    private enum RightButtonState{
+        case unpaidDeselected
+        case paidSelected
+    }
 
-            navigationItem.setLeftBarButton(nil, animated: true)
-            navigationItem.setRightBarButton(payableButton, animated: true)
-            
-            if appDockView?.accessory != nil {
-                appDockView?.accessory = nil
-                batchPreviewView.reloadContent()
-            }
-        }
-        else {
+    private func updateSelectedItemsControl() {
+
+        switch updateRightButtonState(){
+
+        case .paidSelected:
             navigationItem.setLeftBarButton(self.cancelButton, animated: true)
-            navigationItem.setRightBarButton(self.doneButton, animated: true)
 
             if appDockView?.accessory == nil {
                 appDockView?.accessory = batchPreviewView
             }
+
+        case .unpaidDeselected:
+            navigationItem.setLeftBarButton(nil, animated: true)
+
+            if appDockView?.accessory != nil {
+                appDockView?.accessory = nil
+                batchPreviewView.reloadContent()
+            }
+
         }
     }
+
+    private lazy var ratingButton = UIBarButtonItem(image: R.image.systemIconFavoriteLine(), style: .plain, target: self, action: #selector(self.payableButtonDidTap))
+
+    private func updateRightButtonState() -> RightButtonState{
+
+        //TODO: payableButton by state
+        if self.estimatedAvailableSelectedItems == 0 {
+            ratingButton.target = self
+            ratingButton.action = #selector(self.payableButtonDidTap)
+            navigationItem.setRightBarButton(ratingButton, animated: true)
+
+            return .unpaidDeselected
+        }
+
+        navigationItem.setRightBarButton(self.doneButton, animated: true)
+        return .paidSelected
+    }
+
 
     private func updateDoneButtonState() {
 
@@ -503,6 +513,12 @@ class PhotoPickerViewController: AppDockViewController {
         }
     }
 
+    var estimatedAvailableSelectedItems:Int{
+        let selectedAssets = self.selectedAssetsInCollectionView
+        let numberOfVideos = selectedAssets?.filter({ $0.mediaType == .video }).count ?? 0
+        let numberOfPhotos = selectedAssets?.filter({ $0.mediaType == .image }).count ?? 0
+        return numberOfPhotos + numberOfVideos
+    }
 
     var formattedStringForAllPhotos: String {
         var numberOfImages = 0

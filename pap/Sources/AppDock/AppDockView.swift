@@ -498,6 +498,7 @@ extension AppDockView {
 }
 
 extension AppDockView {
+
     var selectedIndexPath: IndexPath? {
         return appCollectionView.indexPathsForSelectedItems?.first
     }
@@ -516,6 +517,13 @@ extension AppDockView {
 // MARK: -
 
 extension AppDockView: UICollectionViewDataSource {
+    var selectedDockViewCell:UICollectionViewCell?{
+        guard let indexPath = selectedIndexPath else{
+            return nil
+        }
+        return collectionView(self.appCollectionView, cellForItemAt: indexPath)
+    }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataSource?.numberOfItems(in: self) ?? 0
     }

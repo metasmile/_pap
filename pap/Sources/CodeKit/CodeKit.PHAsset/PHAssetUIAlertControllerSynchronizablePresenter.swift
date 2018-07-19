@@ -13,6 +13,7 @@ public enum PHAssetUIAlertControllerAction: Int{
     case saveAndShare
 }
 
+
 public protocol PHAssetUIAlertControllerSynchronizablePresenter {
     var shouldDisplayAlertActions:[PHAssetUIAlertControllerAction] {get}
 }
@@ -36,7 +37,7 @@ extension PHAssetUIAlertControllerSynchronizablePresenter {
             activityViewController.completionWithItemsHandler = { (activityType:UIActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
                 asyncSignal.end()
             }
-            activityViewController.popoverPresentationController?.sourceView = rootViewController.view
+            activityViewController.popoverPresentationController?.sourceView = UIAlertControllerPreference.sharedPopoverPresentationControllerSourceView
 
             DispatchQueue.main.async{
                 rootViewController.present(activityViewController, animated: true, completion: nil)
@@ -75,6 +76,7 @@ extension PHAssetUIAlertControllerSynchronizablePresenter {
             asyncSignal.begin()
 
             DispatchQueue.main.async{
+                alert.popoverPresentationController?.sourceView = UIAlertControllerPreference.sharedPopoverPresentationControllerSourceView
                 rootViewController.present(alert, animated: true)
             }
 

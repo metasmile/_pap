@@ -118,7 +118,7 @@ extension PHAssetFinalizableApp {
                     activityViewController.completionWithItemsHandler = { (activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, activityError: Error?) in
                         asyncSignal.end()
                     }
-                    activityViewController.popoverPresentationController?.sourceView = rootVC.view
+                    activityViewController.popoverPresentationController?.sourceView = UIAlertControllerPreference.sharedPopoverPresentationControllerSourceView
                     rootVC.present(activityViewController, animated: true, completion: nil)
                 }
             }
