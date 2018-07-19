@@ -11,12 +11,6 @@ import MetalPerformanceShaders
 import MetalKit
 import Vision
 
-#if DEBUG
-private var DEVMODE = true
-#else
-private var DEVMODE = false
-#endif
-
 private typealias CleanerAppParam = PHAssetItem<ImageEditStateValue>
 
 typealias PHAssetGCDetectedResult = [String:Bool]
@@ -98,7 +92,6 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
 
     private var gdInstances = [String:PHAssetGarbageDetector]()
     fileprivate var cachedResults = [PHAssetID: PHAssetGCDetectedResult]()
-    fileprivate var enableCache = DEVMODE==false
 
     fileprivate func gc(item: AppAsset, _ async: AsyncWaitSignalable) -> PHAssetGCResult {
 
@@ -137,7 +130,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
                         return detector.process(input: asset, async) ?? false
                     }
 
-                    if enableCache{
+                    if t.shouldCacheResults {
                         var detectedCacheObject = cachedResults[aid] ?? PHAssetGCDetectedResult()
                         detectedCacheObject[k] = detected
                         cachedResults[aid] = detectedCacheObject
