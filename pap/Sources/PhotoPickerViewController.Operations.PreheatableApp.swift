@@ -52,7 +52,7 @@ extension PhotoPickerViewController{
     }
 
     public func performPrefetchIfNeeded(includingCurrentVisibleItems:Bool=false){
-        guard let interactableApp = AppCenter.default.currentInstanceAs(PreheatableApp.self) else {
+        guard let _ = AppCenter.default.currentInstanceAs(PreheatableApp.self) else {
             cancelPreheatingIfNeeded()
             return
         }
@@ -71,6 +71,11 @@ extension PhotoPickerViewController{
                     return
                 }
 
+                guard let preheatingApp = AppCenter.default.currentInstanceAs(PreheatableApp.self) else {
+                    self.cancelPreheatingIfNeeded()
+                    return
+                }
+
                 guard let indexPath = PreheatingQueue.indexPathQueue.dequeue()
                 , let asset = PHAssets.fetched.asset(at: indexPath) else {
                     return
@@ -79,7 +84,7 @@ extension PhotoPickerViewController{
 
                 var autoSelect = false
                 if let item = AppAssets.selected.at(unsafeIndex:indexPath.item) ?? AppAsset.create(for:asset)
-                , let finishAction = autoreleasepool(invoking:{ interactableApp.performPreheating(item: item, signal) }) as? UICollectionViewPreheatableAppFinishAction {
+                , let finishAction = autoreleasepool(invoking:{ preheatingApp.performPreheating(item: item, signal) }) as? UICollectionViewPreheatableAppFinishAction {
                     autoSelect = finishAction == .selectItem
                 }
 
