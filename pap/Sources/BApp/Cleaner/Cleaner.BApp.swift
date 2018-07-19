@@ -187,31 +187,6 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
             }
         }
         asyncSignal.waitUntilEnd()
-//
-//        let alert = UIAlertController(title: "Clean the selected items".localized, message: nil, preferredStyle: .actionSheet)
-//
-//        let deleteAction = UIAlertAction(title: "Delete".localized, style: .destructive) { action in
-//            PHPhotoLibrary.shared().performChanges({
-//                PHAssetChangeRequest.deleteAssets(items.map { $0.asset } as NSArray)
-//            }, completionHandler: { (success, info) in
-//                asyncSignal.end()
-//            })
-//        }
-//        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel) { action in
-//            asyncSignal.end()
-//        }
-//
-//        alert.addAction(deleteAction)
-//        alert.addAction(cancelAction)
-//
-//        asyncSignal.begin()
-//
-//        DispatchQueue.main.async{
-//            UIViewController.root?.present(alert, animated: true)
-//        }
-//
-//        asyncSignal.waitUntilEnd()
-
         return result
     }
 }

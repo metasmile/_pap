@@ -250,7 +250,6 @@ class PhotoPickerViewController: AppDockViewController {
         performPrefetchIfNeeded(includingCurrentVisibleItems: true)
 
         //TODO: for iPad - popoverPresentation sourceView is not works - see u at next update
-        UIAlertControllerPreference.setSharedPopoverPresentationControllerSourceView(view: self.appDockView?.selectedDockViewCell, unsetWhenUse: false)
     }
     
     override func registerWatchingAppConfig() {

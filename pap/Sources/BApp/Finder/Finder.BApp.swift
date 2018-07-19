@@ -288,7 +288,7 @@ extension FinderApp{
     }
 
     fileprivate func finalize_action(items: [FinderAppResult], _ asyncSignal: AsyncWaitSignalable) -> String?{
-        let alert = UIAlertController(title: "Choose An Action".localized, message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController.actionSheet(title: "Choose An Action".localized, message: nil)
 
         let defaultCancelSubAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
             asyncSignal.end()
@@ -348,7 +348,7 @@ extension FinderApp{
                     action = _quickAction(phoneNumber)
 
                 }else{
-                    let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+                    let _alert = UIAlertController.actionSheet(title: actionMessage, message: nil)
 
                     let _actions = [
                         defaultCancelSubAction,
@@ -414,7 +414,7 @@ extension FinderApp{
                 }else{
 
 
-                    let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+                    let _alert = UIAlertController.actionSheet(title: actionMessage, message: nil)
                     let _actions = [
                         defaultCancelSubAction,
 
@@ -514,7 +514,7 @@ extension FinderApp{
                     action  = _quickAction(dateString)
 
                 }else{
-                    let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+                    let _alert = UIAlertController.actionSheet(title: actionMessage, message: nil)
                     var _actions = [defaultCancelSubAction]
 
                     _actions.append(
@@ -586,7 +586,7 @@ extension FinderApp{
 
 
                 }else{
-                    let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+                    let _alert = UIAlertController.actionSheet(title: actionMessage, message: nil)
 
                     var _actions = [defaultCancelSubAction]
 
@@ -711,7 +711,7 @@ extension FinderApp{
 
                 }else{
 
-                    let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+                    let _alert = UIAlertController.actionSheet(title: actionMessage, message: nil)
 
                     var _actions = [defaultCancelSubAction]
 
@@ -825,7 +825,7 @@ extension FinderApp{
                     action = _quickAction(flightString)
 
                 }else{
-                    let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+                    let _alert = UIAlertController.actionSheet(title: actionMessage, message: nil)
 
                     var _actions = [defaultCancelSubAction]
 

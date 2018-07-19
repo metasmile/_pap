@@ -37,14 +37,13 @@ extension PHAssetUIAlertControllerSynchronizablePresenter {
             activityViewController.completionWithItemsHandler = { (activityType:UIActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
                 asyncSignal.end()
             }
-            activityViewController.popoverPresentationController?.sourceView = UIAlertControllerPreference.sharedPopoverPresentationControllerSourceView
 
             DispatchQueue.main.async{
                 rootViewController.present(activityViewController, animated: true, completion: nil)
             }
         }
 
-        let alert = UIAlertController(title: "Choose An Export Option For %d Items".localizedFormatted(items.count), message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController.actionSheet(title: "Choose An Export Option For %d Items".localizedFormatted(items.count), message: nil)
 
         for actionType in self.shouldDisplayAlertActions {
 
@@ -76,7 +75,6 @@ extension PHAssetUIAlertControllerSynchronizablePresenter {
             asyncSignal.begin()
 
             DispatchQueue.main.async{
-                alert.popoverPresentationController?.sourceView = UIAlertControllerPreference.sharedPopoverPresentationControllerSourceView
                 rootViewController.present(alert, animated: true)
             }
 

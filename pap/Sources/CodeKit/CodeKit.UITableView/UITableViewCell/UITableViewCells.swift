@@ -109,7 +109,7 @@ class UITableViewActionSheetCell: UITableViewSimpleValueCell {
 
     @objc func tapped(r: UITapGestureRecognizer) {
 
-        let alert = UIAlertController(title: actionSheetTitleText, message: actionSheetMessageText, preferredStyle: .actionSheet)
+        let alert = UIAlertController.actionSheet(title: actionSheetTitleText, message: actionSheetMessageText)
 
         if let labels = valueLabels {
             for l in labels {

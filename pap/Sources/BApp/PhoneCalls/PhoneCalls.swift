@@ -129,7 +129,7 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
 
         var phoneNumberPool = Set<String>()
 
-        let alert = UIAlertController(title: "Choose A Phone Number To Call".localized, message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController.actionSheet(title: "Choose A Phone Number To Call".localized, message: nil)
 
         for item in items {
 
