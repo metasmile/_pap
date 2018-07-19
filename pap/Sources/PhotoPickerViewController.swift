@@ -66,7 +66,7 @@ class PhotoPickerViewController: AppDockViewController {
         self.appDockView?.delegate = self
 
         super.viewDidLoad()
-        
+
         //preview
         batchPreviewView = PreviewView(frame: .zero)
         batchPreviewView.delegate = self
@@ -142,6 +142,8 @@ class PhotoPickerViewController: AppDockViewController {
         dragSelectionGesture = DragSelectionGestureRecognizer(target: self, action: #selector(self.dragSelectionGestureDidRecognize))
         dragSelectionGesture.delegate = self
         photoCollectionView.addGestureRecognizer(dragSelectionGesture)
+
+        updateSelectedItemUIs()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -362,6 +364,28 @@ class PhotoPickerViewController: AppDockViewController {
         }
     }
 
+    /*
+    PayableApp
+    */
+    private lazy var ratingButton = UIBarButtonItem(image: R.image.systemIconFavoriteLine(), style: .plain, target: self, action: #selector(self.payableButtonDidTap))
+
+    var payableButton:UIBarButtonItem?{
+        //TODO: payableButton by state
+
+        ratingButton.target = self
+        ratingButton.action = #selector(self.payableButtonDidTap)
+
+        return ratingButton
+    }
+
+    @objc func payableButtonDidTap(sender: UIButton) {
+
+        //https://github.com/UrbanApps/Armchair
+        Armchair.resetAllCounters()
+        Armchair.showPrompt()
+//        Armchair.rateApp()
+    }
+
     override func cancelButtonDidTap(sender: Any) {
         super.cancelButtonDidTap(sender: sender)
         
@@ -447,8 +471,9 @@ class PhotoPickerViewController: AppDockViewController {
         let numberOfItems = numberOfPhotos + numberOfVideos
         
         if numberOfItems == 0 {
+
             navigationItem.setLeftBarButton(nil, animated: true)
-            navigationItem.setRightBarButton(nil, animated: true)
+            navigationItem.setRightBarButton(payableButton, animated: true)
             
             if appDockView?.accessory != nil {
                 appDockView?.accessory = nil
@@ -477,6 +502,7 @@ class PhotoPickerViewController: AppDockViewController {
             doneButton?.title = definedTitle ?? "Start".localized
         }
     }
+
 
     var formattedStringForAllPhotos: String {
         var numberOfImages = 0
