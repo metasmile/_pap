@@ -10,6 +10,7 @@ import UIKit
 import Photos
 import PhotosUI
 import Hero
+import Armchair
 
 fileprivate struct PhotoEditorTransitionContext {
     var sourceView: UIView
@@ -65,7 +66,7 @@ class PhotoPickerViewController: AppDockViewController {
         self.appDockView?.delegate = self
 
         super.viewDidLoad()
-
+        
         //preview
         batchPreviewView = PreviewView(frame: .zero)
         batchPreviewView.delegate = self

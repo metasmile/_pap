@@ -184,7 +184,7 @@ class PHAssetGarbageDetector_TooSlowShutterSpeed: PHAssetGarbageDetector{
     }
 
     override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
-//        guard input.mediaType == .image else { return false }
+        guard input.mediaType == .image else { return false }
 
         let option = PHContentEditingInputRequestOptions()
         option.isNetworkAccessAllowed = false
