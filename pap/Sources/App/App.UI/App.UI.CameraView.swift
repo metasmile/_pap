@@ -34,7 +34,7 @@ class AppUICameraView: UIView {
     private var optionViewHeightLayout: NSLayoutConstraint?
     private var cameraAspectRatioLayout: NSLayoutConstraint?
 
-    fileprivate var primaryColor = UIColor(red:1, green:0.79, blue:0.18, alpha:1)
+    fileprivate var primaryColor = UIColor(red:0.99, green:0.8, blue:0.2, alpha:1)
 
     init(frame: CGRect, options: AppUICameraViewOptions?=nil) {
         super.init(frame: frame)
