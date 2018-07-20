@@ -92,12 +92,14 @@ class CameraView: UIView {
     }
 
     func startSession() {
+        UIDeviceMotion.shared.startUpdates()
         sessionQueue.async {
             self.captureSession.startRunning()
         }
     }
 
     func stopSession() {
+        UIDeviceMotion.shared.stopUpdates()
         sessionQueue.async {
             self.captureSession.stopRunning()
         }
