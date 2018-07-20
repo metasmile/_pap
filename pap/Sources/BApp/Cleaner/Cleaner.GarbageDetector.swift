@@ -262,7 +262,7 @@ class PHAssetGarbageDetector_SavedWithouttheCamera: PHAssetGarbageDetector{
 
 class PHAssetGarbageDetector_SavedWithBuiltInCamera: PHAssetGarbageDetector{
 //    override class var iconImageName:String?{
-//        return R.image.cameraBAppIcon.name
+//        return R.image.appUICameraViewIcon.name
 //    }
 
 //    override class var iconImageShouldUseTintColor:Bool{

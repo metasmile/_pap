@@ -13,6 +13,7 @@ import DefaultsKit
 protocol AppUICameraViewOptions {
     var isLivePhotoEnabled: Bool { get set }
     var cameraPosition: AVCaptureDevice.Position { get set }
+    var cameraFlashMode: AVCaptureDevice.FlashMode { get set }
 }
 
 class AppUICameraView: UIView {
@@ -33,7 +34,7 @@ class AppUICameraView: UIView {
     private var optionViewHeightLayout: NSLayoutConstraint?
     private var cameraAspectRatioLayout: NSLayoutConstraint?
 
-    fileprivate var primaryColor = UIColor(red: 0.97, green: 0.8, blue: 0.27, alpha: 1) // 248    204    70
+    fileprivate var primaryColor = UIColor(red:1, green:0.79, blue:0.18, alpha:1)
 
     init(frame: CGRect, options: AppUICameraViewOptions?=nil) {
         super.init(frame: frame)
@@ -51,9 +52,16 @@ class AppUICameraView: UIView {
 
     private lazy var captureButton = CaptureButton(frame: .zero)
     private lazy var cameraPositionButton = UIButton(type: .system)
+    private lazy var cameraFlashButton = UIButton(type: .system)
     private lazy var backgroundView = UIView(frame: .zero)
 
     private func intialize(with defaults: AppUICameraViewOptions?=nil) {
+        if let defaults = defaults{
+            self.cameraView.isLivePhotoEnabled = defaults.isLivePhotoEnabled
+            self.cameraView.cameraPosition = defaults.cameraPosition
+            self.cameraView.currentFlashMode = defaults.cameraFlashMode
+        }
+
         tintColor = UIColor.white
 
         let buttonImageInsets = UIEdgeInsetsMake(4, 4, 4, 4)
@@ -138,6 +146,7 @@ class AppUICameraView: UIView {
         captureButtonCenterYLayout.priority = .defaultLow
         captureButtonCenterYLayout.isActive = true
 
+        //position
         cameraPositionButton.imageEdgeInsets = buttonImageInsets
         cameraPositionButton.setImage(devicePositionIcon, for: .normal)
         cameraPositionButton.addTarget(self, action: #selector(self.switchDevicePosition), for: .touchUpInside)
@@ -153,20 +162,34 @@ class AppUICameraView: UIView {
         cameraPositionButtonCenterYLayout.priority = .defaultLow
         cameraPositionButtonCenterYLayout.isActive = true
 
+        //flash
+        cameraFlashButton.imageEdgeInsets = buttonImageInsets
+        cameraFlashButton.setImage(flashModeIcon, for: .normal)
+        cameraFlashButton.addTarget(self, action: #selector(self.switchFlash), for: .touchUpInside)
+        addSubview(cameraFlashButton)
+
+        cameraFlashButton.translatesAutoresizingMaskIntoConstraints = false
+        cameraFlashButton.topAnchor.constraint(greaterThanOrEqualTo: topAnchor).isActive = true
+        cameraFlashButton.leadingAnchor.constraint(equalTo: cameraView.leadingAnchor, constant: 2).isActive = true
+        cameraFlashButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        cameraFlashButton.widthAnchor.constraint(equalTo: cameraFlashButton.heightAnchor, multiplier: 1).isActive = true
+
+        let cameraFlashButtonCenterYLayout = cameraFlashButton.centerYAnchor.constraint(equalTo: optionView.centerYAnchor)
+        cameraFlashButtonCenterYLayout.priority = .defaultLow
+        cameraFlashButtonCenterYLayout.isActive = true
+
         cameraView.configurationDidUpdate = {
             var defaults = defaults
             defaults?.isLivePhotoEnabled = self.cameraView.isLivePhotoEnabled
             defaults?.cameraPosition = self.cameraView.cameraPosition
 
-            DispatchQueue.main.async {
+            DispatchQueue.mainAsyncIfNot {
                 livePhotoButton.setImage(self.livePhotoBadgeIcon, for: .normal)
                 livePhotoButton.tintColor = self.cameraView.isLivePhotoEnabled ? self.primaryColor : nil
-            }
-        }
 
-        if let defaults = defaults{
-            self.cameraView.isLivePhotoEnabled = defaults.isLivePhotoEnabled
-            self.cameraView.cameraPosition = defaults.cameraPosition
+                self.cameraFlashButton.setImage(self.flashModeIcon, for: .normal)
+                self.cameraFlashButton.tintColor = self.cameraView.currentFlashMode == .on ? self.primaryColor : nil
+            }
         }
 
         self.isCompactMode = true
@@ -174,7 +197,7 @@ class AppUICameraView: UIView {
 
     private var devicePositionIcon: UIImage {
         return { () -> UIImage in
-            return (self.isCompactMode ? R.image.cameraBAppPositionIntaglio() : R.image.cameraBAppPositionEmboss()) ?? UIImage()
+            return (self.isCompactMode ? R.image.appUICameraViewPositionIntaglio() : R.image.appUICameraViewPositionEmboss()) ?? UIImage()
         }().withRenderingMode(.alwaysTemplate)
     }
 
@@ -185,12 +208,31 @@ class AppUICameraView: UIView {
         }().withRenderingMode(.alwaysTemplate)
     }
 
+    private var flashModeIcon: UIImage{
+        return { () -> UIImage in
+            switch cameraView.currentFlashMode{
+                case .on, .auto:
+                    return R.image.appUICameraViewFlashOn() ?? UIImage()
+                case .off:
+                    return R.image.appUICameraViewFlashOff() ?? UIImage()
+            }
+        }().withRenderingMode(.alwaysTemplate)
+    }
+
     @objc func tapToCapture(sender: Any) {
         cameraView.takePhoto()
     }
 
     @objc func switchDevicePosition(sender: Any) {
         cameraView.switchCaptureDevicePosition()
+    }
+
+    @objc func switchFlash(sender: Any) {
+        cameraView.currentFlashMode = [
+            AVCaptureDevice.FlashMode.auto:AVCaptureDevice.FlashMode.on,
+            AVCaptureDevice.FlashMode.on:AVCaptureDevice.FlashMode.off,
+            AVCaptureDevice.FlashMode.off:AVCaptureDevice.FlashMode.auto
+        ][cameraView.currentFlashMode]!
     }
 
     @objc func toggleLivePhotoEnabled(sender: Any) {

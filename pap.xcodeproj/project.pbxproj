@@ -338,6 +338,7 @@
 		A0956C1C2095005200E680B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0956BB12095005200E680B9 /* Localizable.strings */; };
 		A0956C1D2095005200E680B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0956BB42095005200E680B9 /* Localizable.strings */; };
 		A0956C21209501B500E680B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0956C1F209501B500E680B9 /* Localizable.strings */; };
+		A0991D1121022D0600845BC5 /* App.UI.CameraView.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0991D1021022D0600845BC5 /* App.UI.CameraView.xcassets */; };
 		A0CB215D20EE674A0011E86D /* Cleaner.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0CB215C20EE674A0011E86D /* Cleaner.BApp.Assets.xcassets */; };
 		A0CFB65620DD52DA00F0098F /* PhoneCalls.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0CFB65520DD52DA00F0098F /* PhoneCalls.BApp.Assets.xcassets */; };
 		A0CFD8E92052D9F10007041B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CFD8E82052D9F10007041B /* R.generated.swift */; };
@@ -700,6 +701,7 @@
 		A0956BB22095005200E680B9 /* ta */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ta; path = Localizable.strings; sourceTree = "<group>"; };
 		A0956BB52095005200E680B9 /* gu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = gu; path = Localizable.strings; sourceTree = "<group>"; };
 		A0956C20209501B500E680B9 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = Localizable.strings; sourceTree = "<group>"; };
+		A0991D1021022D0600845BC5 /* App.UI.CameraView.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = App.UI.CameraView.xcassets; sourceTree = "<group>"; };
 		A09F74DD20A5D952001890DB /* Converter.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Converter.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		A0CB215C20EE674A0011E86D /* Cleaner.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Cleaner.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		A0CFB65520DD52DA00F0098F /* PhoneCalls.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PhoneCalls.BApp.Assets.xcassets; sourceTree = "<group>"; };
@@ -1166,6 +1168,7 @@
 				4F71DE95525B05018BADF27D /* AppUICollectionViewCell.xib */,
 				4F71D9B7F2FA7E5A8E504B61 /* App.UI.CameraView.swift */,
 				515C9A5820FC2358004AF6BF /* App.UI.VideoTrimControl.swift */,
+				A0991D1021022D0600845BC5 /* App.UI.CameraView.xcassets */,
 			);
 			path = App.UI;
 			sourceTree = "<group>";
@@ -2623,6 +2626,7 @@
 				A0453C5820A33E7D00F9BA29 /* ExifGhost.BApp.Assets.xcassets in Resources */,
 				A0956BF92095005200E680B9 /* Localizable.strings in Resources */,
 				A0956BB72095005200E680B9 /* Localizable.strings in Resources */,
+				A0991D1121022D0600845BC5 /* App.UI.CameraView.xcassets in Resources */,
 				A0956BD42095005200E680B9 /* Localizable.strings in Resources */,
 				A0956BBA2095005200E680B9 /* Localizable.strings in Resources */,
 				A0956BF02095005200E680B9 /* Localizable.strings in Resources */,

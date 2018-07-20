@@ -27,6 +27,11 @@ extension Defaults: CameraAppDefaults {
         set { set(newValue.rawValue) }
         get { return AVCaptureDevice.Position(rawValue: get(or: AVCaptureDevice.Position.back.rawValue)) ?? .back }
     }
+
+    var cameraFlashMode: AVCaptureDevice.FlashMode {
+        set { set(newValue.rawValue) }
+        get { return AVCaptureDevice.FlashMode(rawValue: get(or: AVCaptureDevice.FlashMode.off.rawValue)) ?? .off }
+    }
 }
 
 class CameraApp: NSObject, KeyPathWatchable, BApp, LaunchableApp, AppDockApp, PhotoPickerCollectionViewDisplayableApp {

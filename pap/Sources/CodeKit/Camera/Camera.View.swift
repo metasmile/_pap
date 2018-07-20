@@ -12,9 +12,10 @@ import PhotosUI
 class CameraView: UIView {
     private lazy var captureSession = AVCaptureSession()
     private lazy var capturePhotoOutput = AVCapturePhotoOutput()
-    private lazy var defaultCapturePhotoSettings: AVCapturePhotoSettings = {
+    private lazy var currentPhotoSettings: AVCapturePhotoSettings = {
         let settings = AVCapturePhotoSettings()
         settings.isHighResolutionPhotoEnabled = true
+        settings.flashMode = .off
         return settings
     }()
     private lazy var deviceMotion = UIDeviceMotion()
@@ -128,16 +129,16 @@ class CameraView: UIView {
                 , metadataComment: captureMetadataComment
         )
 
-        let photoSettings: AVCapturePhotoSettings
+        let photoSettings:AVCapturePhotoSettings
+
         if self.capturePhotoOutput.availablePhotoCodecTypes.contains(.hevc), capturePhotoOutput.isLivePhotoCaptureEnabled {
             photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.hevc])
             photoSettings.livePhotoMovieFileURL = FileURL.temp(UUID().uuidString, UTI.quickTimeMovie, group: FileURL.fileAndQueuePrivateGroup())
             captureProcessor = CameraViewLivePhotoCaptureProcessor(param: param)
         } else {
-            photoSettings = AVCapturePhotoSettings(from: self.defaultCapturePhotoSettings)
+            photoSettings = AVCapturePhotoSettings(from: self.currentPhotoSettings)
             captureProcessor = CameraViewStillPhotoCaptureProcessor(param: param)
         }
-        photoSettings.flashMode = .auto
         photoSettings.isAutoStillImageStabilizationEnabled = capturePhotoOutput.isStillImageStabilizationSupported
 
         capturesInProgress.insert(captureProcessor)
@@ -250,7 +251,6 @@ extension CameraView {
         get {
             return currentCaptureDeviceInput(for: .video)?.device.position ?? .unspecified
         }
-
         set {
             setCaptureDevicePosition(newValue)
         }
@@ -295,6 +295,16 @@ extension CameraView {
 
         get {
             return capturePhotoOutput.isLivePhotoCaptureEnabled
+        }
+    }
+
+    var currentFlashMode: AVCaptureDevice.FlashMode {
+        set {
+            self.currentPhotoSettings.flashMode = newValue
+            self.configurationDidUpdate?()
+        }
+        get {
+            return currentPhotoSettings.flashMode
         }
     }
 }
