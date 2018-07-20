@@ -97,7 +97,7 @@ fileprivate class CameraAppDockContent: NSObject, KeyPathWatchable, AppDockConte
         if let pref = preferences, view.bounds.height > pref.preferredHeight {
             (view as? CameraAppView)?.isCompactMode = false
         }
-        
+
         cameraView?.capturedHandler = { succeed, results in
             if let results = results{
                 let data = [

@@ -287,7 +287,7 @@
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#92, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#105, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#131, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#145, App.Finalizable.UIActivity.PHAsset.swift#60, PHAssetUIAlertControllerSynchronizablePresenter.swift#58, Finder.BApp.swift#362, Finder.BApp.swift#447, Finder.BApp.swift#532, Finder.BApp.swift#629, Finder.BApp.swift#747, Finder.BApp.swift#844 */
 "Share" = "Share";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#310 */
-"Similarities" = "Similarities";
+"Similarity" = "Similarity";
 /* Generated from genl10n: GIFMaker.BApp.swift#461, GIFMaker.BApp.swift#664, GIFMaker.BApp.swift#676, GIFMaker.BApp.swift#813 */
 "Size" = "Size";
 /* Generated from genl10n: Finder.BApp.swift#255 */

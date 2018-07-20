@@ -307,7 +307,7 @@ class PHAssetGarbageDetector_Similarity: PHAssetGarbageDetector{
     }
 
     override class var label:String{
-        return "Similarities".localized
+        return "Similarity".localized
     }
 
 //    override class var shouldCacheResults:Bool{

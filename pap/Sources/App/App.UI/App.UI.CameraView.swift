@@ -54,12 +54,33 @@ class AppUICameraView: UIView {
     private lazy var cameraPositionButton = UIButton(type: .system)
     private lazy var cameraFlashButton = UIButton(type: .system)
     private lazy var backgroundView = UIView(frame: .zero)
+    private lazy var livePhotoButton = UIButton(type: .system)
 
     private func intialize(with defaults: AppUICameraViewOptions?=nil) {
         if let defaults = defaults{
             self.cameraView.isLivePhotoEnabled = defaults.isLivePhotoEnabled
             self.cameraView.cameraPosition = defaults.cameraPosition
             self.cameraView.currentFlashMode = defaults.cameraFlashMode
+        }
+
+        cameraView.deviceMotion.watch(\.orientation){
+            let o = self.cameraView.deviceMotion.orientation
+
+            var angle:Double = 0;
+            if (o == .landscapeLeft ){ angle = .pi/2.0}
+            else if (o == .landscapeRight ){ angle = -.pi/2.0}
+            else if (o == .portraitUpsideDown ){ angle = .pi}
+
+            DispatchQueue.main.async{
+                let newTransform = o == .unknown ? CGAffineTransform.identity : CGAffineTransform(rotationAngle: CGFloat(angle))
+                if self.livePhotoButton.transform != newTransform{
+                    UIView.animate(withDuration: 0.3, delay: 0, options: .beginFromCurrentState, animations: { () -> () in
+                        self.livePhotoButton.transform = newTransform
+                        self.cameraFlashButton.transform = newTransform
+                        self.cameraPositionButton.transform = newTransform
+                     }, completion: nil)
+                }
+            }
         }
 
         tintColor = UIColor.white
@@ -103,7 +124,6 @@ class AppUICameraView: UIView {
         optionViewHeightLayout = optionView.heightAnchor.constraint(equalToConstant: 0)
         optionViewHeightLayout?.isActive = true
 
-        let livePhotoButton = UIButton(type: .system)
         livePhotoButton.imageEdgeInsets = buttonImageInsets
         livePhotoButton.imageView?.contentMode = .scaleAspectFit
         livePhotoButton.contentHorizontalAlignment = .fill
@@ -184,8 +204,8 @@ class AppUICameraView: UIView {
             defaults?.cameraPosition = self.cameraView.cameraPosition
 
             DispatchQueue.mainAsyncIfNot {
-                livePhotoButton.setImage(self.livePhotoBadgeIcon, for: .normal)
-                livePhotoButton.tintColor = self.cameraView.isLivePhotoEnabled ? self.primaryColor : nil
+                self.livePhotoButton.setImage(self.livePhotoBadgeIcon, for: .normal)
+                self.livePhotoButton.tintColor = self.cameraView.isLivePhotoEnabled ? self.primaryColor : nil
 
                 self.cameraFlashButton.setImage(self.flashModeIcon, for: .normal)
                 self.cameraFlashButton.tintColor = self.cameraView.currentFlashMode == .on ? self.primaryColor : nil

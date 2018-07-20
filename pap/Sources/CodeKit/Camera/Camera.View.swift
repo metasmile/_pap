@@ -18,7 +18,7 @@ class CameraView: UIView {
         settings.flashMode = .off
         return settings
     }()
-    private lazy var deviceMotion = UIDeviceMotion()
+    private(set) lazy var deviceMotion = UIDeviceMotion()
 
     var configurationDidUpdate: (() -> Void)?
     var capturedHandler:CaptureProcessorCompletionHandler?
@@ -95,7 +95,7 @@ class CameraView: UIView {
     }
 
     func startSession() {
-        deviceMotion.startUpdates()
+        deviceMotion.startUpdates(interval: 0.6)
         sessionQueue.async {
             self.captureSession.startRunning()
         }

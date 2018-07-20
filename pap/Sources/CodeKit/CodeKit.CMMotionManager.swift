@@ -28,7 +28,7 @@ class UIDeviceMotion: NSObject, KeyPathWatchable {
     public private(set) var angle = Double.nan
 
     @objc dynamic
-    public private(set) var absZ = Double.nan
+    public private(set) var z = Double.nan
 
     override init(){
         super.init()
@@ -77,7 +77,7 @@ class UIDeviceMotion: NSObject, KeyPathWatchable {
             }
 
             self.angle = a
-            self.absZ = absZ
+            self.z = z
             self.orientation = device
         }
     }
@@ -86,7 +86,7 @@ class UIDeviceMotion: NSObject, KeyPathWatchable {
         self.motionManager.stopAccelerometerUpdates()
 
         self.angle = .nan
-        self.absZ = .nan
+        self.z = .nan
         self.orientation = .unknown
     }
 }
