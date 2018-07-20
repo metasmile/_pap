@@ -66,17 +66,18 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     public fileprivate (set) lazy var autoSelect: Bool = false
 
     fileprivate static let SupportingGDTypes:[PHAssetGarbageDetector.Type] = [
-        PHAssetGarbageDetector_SavedWithouttheCamera.self
-        , PHAssetGarbageDetector_Screenshots.self
-        , PHAssetGarbageDetector_Similarity.self
-//        , PHAssetGarbageDetector_Blurry.self
+        PHAssetGarbageDetector_Similarity.self
         , PHAssetGarbageDetector_Lockscreens.self
+        , PHAssetGarbageDetector_Screenshots.self
+//        , PHAssetGarbageDetector_Blurry.self
         , PHAssetGarbageDetector_Flashlight.self
         , PHAssetGarbageDetector_TooCloseupFace.self
         , PHAssetGarbageDetector_TooSlowShutterSpeed.self
         , PHAssetGarbageDetector_VideosWithoutSound.self
         , PHAssetGarbageDetector_VideosShorterThan1Sec.self
         , PHAssetGarbageDetector_VideosSavedbyInstagramApp.self
+        , PHAssetGarbageDetector_SavedWithBuiltInCamera.self
+        , PHAssetGarbageDetector_SavedWithouttheCamera.self
     ]
 
     fileprivate static let SupportingGDTypesKeys:[String:PHAssetGarbageDetector.Type]
@@ -294,6 +295,7 @@ private struct GDItem:Codable, Hashable {
     fileprivate let gdIdentifier: String
     fileprivate let label: String
     fileprivate var iconImageName: String?
+    fileprivate var iconImageShouldUseTintColor: Bool
     fileprivate var enabled: Bool
     private let _hashValue: Int
 
@@ -302,6 +304,7 @@ private struct GDItem:Codable, Hashable {
         self._hashValue = gdIdentifier.hashValue
         self.label = gd.label
         self.iconImageName = gd.iconImageName
+        self.iconImageShouldUseTintColor = gd.iconImageShouldUseTintColor
         self.enabled = enabled
     }
 
@@ -678,7 +681,12 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
 
         cell.imageView?.tintColor = self.view.tintColor
         let image = dataItem.iconImageName?.asUIImageNamed
-        cell.imageView?.image = image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+
+        if dataItem.iconImageShouldUseTintColor{
+            cell.imageView?.image = image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        }else{
+            cell.imageView?.image = image?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        }
 
         cell.detailTextLabel?.textColor = UIColor.gray
         cell.optionSwitch.setOn(selected, animated: false)

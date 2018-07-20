@@ -36,6 +36,14 @@ struct CaptureProcessorParam {
 }
 
 class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
+
+    static var ExifUserCommentIdentifier:String{
+        return "com.stells.pap.CaptureProcessor"
+    }
+    static var ExifUserCommentSeparator:String{
+        return ","
+    }
+
     var completionHandler:CaptureProcessorCompletionHandler?
     lazy var captureQueue = DispatchQueue(label: "com.stells.internal."+String(describing:type(of: self)), qos: .utility)
 
@@ -60,13 +68,11 @@ class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
                     , value: "\(displayName) \(Bundle.main.shortVersionString ?? "") (\(Bundle.main.version ?? ""))"
             )
         }
-        if let metadataComment = param.metadataComment {
-            metadata = metadata.updateMetadata(
-                    dictionary: ImageMetadata.Dictionary.Exif
-                    , property: ImageMetadata.Property.ExifUserComment
-                    , value: metadataComment
-            )
-        }
+        metadata = metadata.updateMetadata(
+                dictionary: ImageMetadata.Dictionary.Exif
+                , property: ImageMetadata.Property.ExifUserComment
+                , value: [param.metadataComment ?? "", type(of: self).ExifUserCommentIdentifier].joined(separator: type(of: self).ExifUserCommentSeparator).trimmed
+        )
 
         /*
             Writing

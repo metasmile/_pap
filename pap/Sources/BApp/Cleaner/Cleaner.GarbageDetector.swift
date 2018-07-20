@@ -47,6 +47,10 @@ class PHAssetGarbageDetector : NSObject, _PHAssetGarbageDetector{
         return nil
     }
 
+    class var iconImageShouldUseTintColor:Bool{
+        return true
+    }
+
     func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
         return nil
     }
@@ -256,7 +260,45 @@ class PHAssetGarbageDetector_SavedWithouttheCamera: PHAssetGarbageDetector{
     }
 }
 
+class PHAssetGarbageDetector_SavedWithBuiltInCamera: PHAssetGarbageDetector{
+//    override class var iconImageName:String?{
+//        return R.image.cameraBAppIcon.name
+//    }
 
+//    override class var iconImageShouldUseTintColor:Bool{
+//        return false
+//    }
+
+    override class var priority: PHAssetGarbageDetectingPriority {
+        return .high
+    }
+
+    override class var label:String{
+        return "Saved With Built-in Camera".localized
+    }
+
+    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+        guard input.mediaType == .image else { return false }
+
+        let option = PHContentEditingInputRequestOptions()
+        option.isNetworkAccessAllowed = false
+        option.canHandleAdjustmentData = { _ -> Bool in
+            return false
+        }
+
+        let options = PHImageRequestOptions()
+        options.isNetworkAccessAllowed = false
+        if let data = input.requestImageData(options: options, asyncSignal).data{
+            if let v = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifUserComment) as? String{
+                if v.trimmed.contains(CaptureProcessor.ExifUserCommentIdentifier){
+                    return true
+                }
+            }
+        }
+
+        return false
+    }
+}
 
 class PHAssetGarbageDetector_Similarity: PHAssetGarbageDetector{
 

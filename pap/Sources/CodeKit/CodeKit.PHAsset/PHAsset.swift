@@ -116,7 +116,7 @@ extension PHAsset {
 
             guard let image = input?.fullSizeImageURL?.asCIImage
             , let metadata = transformMetadata(image.properties)
-            , input?.uniformTypeIdentifier == kUTTypeJPEG as String else {
+            , input?.uniformTypeIdentifier == UTI.jpeg.rawValue else {
                 completion(false)
                 return
             }
