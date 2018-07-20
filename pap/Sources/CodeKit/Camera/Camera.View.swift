@@ -73,7 +73,6 @@ class CameraView: UIView {
 
         videoDevice.focusMode = .continuousAutoFocus
         videoDevice.exposureMode = .continuousAutoExposure
-
         videoDevice.unlockForConfiguration()
 
         if let audioDevice = AVCaptureDevice.default(for: .audio),
@@ -89,7 +88,7 @@ class CameraView: UIView {
 
         commitConfiguration()
 
-        cameraPreviewView.session = captureSession
+        cameraPreviewView.setSession(captureSession)
     }
 
     func startSession() {
@@ -119,15 +118,16 @@ class CameraView: UIView {
         performShutterAnimation()
 
         let captureProcessor: CaptureProcessor
+        let param = CaptureProcessorParameter(videoDeviceInput: self.currentVideoDeviceInput)
 
         let photoSettings: AVCapturePhotoSettings
         if self.capturePhotoOutput.availablePhotoCodecTypes.contains(.hevc), capturePhotoOutput.isLivePhotoCaptureEnabled {
             photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.hevc])
             photoSettings.livePhotoMovieFileURL = FileURL.temp(UUID().uuidString, UTI.quickTimeMovie, group: FileURL.fileAndQueuePrivateGroup())
-            captureProcessor = CameraViewLivePhotoCaptureProcessor()
+            captureProcessor = CameraViewLivePhotoCaptureProcessor(parameter: param)
         } else {
             photoSettings = AVCapturePhotoSettings(from: self.defaultCapturePhotoSettings)
-            captureProcessor = CameraViewStillPhotoCaptureProcessor()
+            captureProcessor = CameraViewStillPhotoCaptureProcessor(parameter: param)
         }
         photoSettings.flashMode = .auto
         photoSettings.isAutoStillImageStabilizationEnabled = capturePhotoOutput.isStillImageStabilizationSupported
@@ -158,8 +158,12 @@ class CameraView: UIView {
         return captureDeviceInputs?.first { $0.device.hasMediaType(mediaType) }
     }
 
+    fileprivate var currentVideoDeviceInput:AVCaptureDeviceInput? {
+        return self.currentCaptureDeviceInput(for:.video)
+    }
+
     func switchCaptureDevicePosition(animated: Bool = true) {
-        guard let currentDevice = self.currentCaptureDeviceInput(for: .video) else { return }
+        guard let currentDevice = self.currentVideoDeviceInput else { return }
         let position: AVCaptureDevice.Position = currentDevice.device.position == .back ? .front : .back
 
         if animated {
@@ -179,7 +183,7 @@ class CameraView: UIView {
 
     private func setCaptureDevicePosition(_ position: AVCaptureDevice.Position, completion: (() -> Void)? = nil) {
         sessionQueue.async {
-            guard let currentDevice = self.currentCaptureDeviceInput(for: .video) else { completion?(); return }
+            guard let currentDevice = self.currentVideoDeviceInput else { completion?(); return }
             let isLivePhotoEnabled = self.capturePhotoOutput.isLivePhotoCaptureEnabled
 
             self.beginConfiguration()
@@ -355,15 +359,12 @@ fileprivate class CameraPreviewView: UIView {
         }
     }
 
-    //FIXME: didn't use main queue warning
-    var session: AVCaptureSession? {
-        set {
-            captureVideoPreviewLayer?.session = newValue
-        }
+    func setSession(_ session:AVCaptureSession){
+        captureVideoPreviewLayer?.session = session
+    }
 
-        get {
-            return captureVideoPreviewLayer?.session
-        }
+    var session: AVCaptureSession? {
+        return captureVideoPreviewLayer?.session
     }
 }
 

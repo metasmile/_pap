@@ -11,8 +11,6 @@ import CoreImage
 extension Data {
 
     func getMetadata() -> [String: Any]? {
-//        return self.asCIImage?.properties
-
         let imageSource = CGImageSourceCreateWithData(self as CFData, nil)
         if let imageSource = imageSource {
             let options: [String: Any] = [kCGImageSourceShouldCache as String: false]
@@ -26,10 +24,13 @@ extension Data {
     }
 
     func getMetadataValue(dictionary:String?=nil, property:String) -> Any? {
-        if let d = dictionary, let dictionaryItemDict = getMetadata()?[d] as? [String: Any]{
+        guard let metadata = getMetadata() else{
+            return nil
+        }
+        if let d = dictionary, let dictionaryItemDict = metadata[d] as? [String: Any]{
             return dictionaryItemDict[property]
         }
-        return nil
+        return metadata[property]
     }
 
     func setMetadata(with metadata:[String:Any]?) -> Data{
