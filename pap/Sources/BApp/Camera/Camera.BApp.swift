@@ -46,7 +46,9 @@ class CameraApp: NSObject, KeyPathWatchable, BApp, LaunchableApp, AppDockApp, Ph
         , version: "1.0"
         , phase: .release
         , appType: CameraApp.self
-        , displayName: "Camera".localized, description:nil, keywords:nil
+        , displayName: "Camera".localized
+        , description: "Robust Standard Built-In Camera for Capturing Live Photos."
+        , keywords:["Camera", "Capture","Take a photo", "Video", "Record"]
         , iconBundleName: R.image.cameraBAppIcon.name
         , policy: AppPolicy.default
         , minOSVersion: nil

@@ -28,7 +28,9 @@ public class PDFactoryApp: BApp, FinalizableApp, PhotoPickerViewControllerDelega
             , version: "1.0"
             , phase: .release
             , appType: PDFactoryApp.self
-            , displayName: "PDFactory", description:nil, keywords:nil
+            , displayName: "PDFactory"
+            , description:"PDFactory makes PDF document from multiple images.".localized
+            , keywords:["PDF","PDF Builder","Documents","PDF Editor","Margin","Layout","Pages"]
             , iconBundleName: R.image.pdFactoryBAppIcon.name
             , policy: AppPolicy.default
             , minOSVersion: nil

@@ -57,7 +57,9 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
             , version: "1.0"
             , phase: .release
             , appType: PhoneCallsApp.self
-            , displayName: "Phone Calls".localized, description:nil, keywords:nil
+            , displayName: "Phone Calls".localized
+            , description:nil
+            , keywords:nil
             , iconBundleName: R.image.phoneCallsBAppIcon.name
             , policy: AppPolicy.default
 //            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)

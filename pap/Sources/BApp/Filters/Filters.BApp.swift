@@ -72,7 +72,9 @@ PhotoEditorViewControllerDelegatableApp {
         , version: "1.0"
         , phase: .release
         , appType: FiltersApp.self
-        , displayName: "Filters".localized, description:nil, keywords:nil
+        , displayName: "Filters".localized
+        , description: "Apply High-Quality Filters On Your All Photos You Want.".localized
+        , keywords: ["Filters", "Color", "Effect", "High-Quality"] + FiltersAppDockContent.CIFilters.filters.compactMap({ FiltersAppDockContent.PhotosFilterNames.aliasName($0.name) })
         , iconBundleName: R.image.filtersBAppIcon.name
         , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
         , minOSVersion: nil
@@ -134,7 +136,7 @@ private extension FiltersApp {
 }
 
 fileprivate class FiltersAppDockContent: NSObject, KeyPathWatchable, AppDockContent {
-    private struct PhotosFilterNames {
+    fileprivate struct PhotosFilterNames {
         static let CIPhotoEffectChrome = "CIPhotoEffectChrome"
         static let CIPhotoEffectFade = "CIPhotoEffectFade"
         static let CIPhotoEffectInstant = "CIPhotoEffectInstant"
@@ -185,7 +187,7 @@ fileprivate class FiltersAppDockContent: NSObject, KeyPathWatchable, AppDockCont
                 AppCenter.default.currentInstanceAs(FiltersApp.self)?.config?.filter = filterItem
             })
         })
-        
+
         return items
     }()
     

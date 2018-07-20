@@ -47,7 +47,9 @@ public class AutoEditorApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _
         , version: "1.0"
         , phase: .release
         , appType: AutoEditorApp.self
-        , displayName: "Auto Editor".localized, description:nil, keywords:nil
+        , displayName: "Auto Editor".localized
+        , description: "Auto Editor lets you edit automatically if your photos are needed to correct.".localized
+        , keywords: ["photo editor", "photos", "enhancement", "crop", "red-eye removal", "fix", "quality"]
         , iconBundleName: R.image.autoEditorBAppIcon.name
         , policy: AppPolicy.default
         , minOSVersion: nil

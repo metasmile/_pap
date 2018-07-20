@@ -25,7 +25,9 @@ public class ExifGhostApp: NSObject, KeyPathWatchable,BApp,
             , version: "1.0"
             , phase: .release
             , appType: ExifGhostApp.self
-            , displayName: "EXIF Ghost", description:nil, keywords:nil
+            , displayName: "EXIF Ghost"
+            , description: "EXIF Ghost lets you remove all kinds of data containing by your photos including privacy information.".localized
+            , keywords: ["privacy", "exif", "metadata", "GPS", "altitude", "latitude", "time stamp", "date", "date time", "time", "personal data"]
             , iconBundleName: R.image.exifGhostBAppIcon.name
             , policy: AppPolicy.default
             , minOSVersion: nil

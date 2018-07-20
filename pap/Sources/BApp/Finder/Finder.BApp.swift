@@ -38,7 +38,9 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
             , version: "1.0"
             , phase: .release
             , appType: FinderApp.self
-            , displayName: "Finder".localized, description:nil, keywords:nil
+            , displayName: "Finder".localized
+            , description: "Finder enables extracting every meaningful informations such as phone numbers, addresses, dates or URLs from photos from your photos, and then call, open maps or navigate websites even searh flights!".localized
+            , keywords: ["Date", "Address", "Maps", "Location","URL","Flight","E-Mail", "Call", "Phone Number", "Contacts","Text","Detection","Information", "Search","Find","Recognization"]
             , iconBundleName: R.image.finderBAppIcon.name
             , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
             , minOSVersion: nil
