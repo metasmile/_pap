@@ -160,7 +160,7 @@
 "Did not detect anything." = "Did not detect anything.";
 /* Generated from genl10n: GIFMaker.BApp.swift#542 */
 "Direction" = "Direction";
-/* Generated from genl10n: PhotoPickerViewController.swift#873 */
+/* Generated from genl10n: PhotoPickerViewController.swift#874 */
 "Downloading..." = "Downloading...";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#202, Finder.BApp.swift#646, Finder.BApp.swift#1213 */
 "E-mail Address" = "E-mail Address";
@@ -274,7 +274,7 @@
 "Saved With Built-in Camera" = "Saved With Built-in Camera";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#238 */
 "Saved Without the Camera" = "Saved Without the Camera";
-/* Generated from genl10n: PhotoPickerViewController.swift#896 */
+/* Generated from genl10n: PhotoPickerViewController.swift#897 */
 "Saving Results..." = "Saving Results...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
 "Scale To Fit" = "Scale To Fit";
@@ -310,11 +310,11 @@
 "Stabilizer" = "Stabilizer";
 /* Generated from genl10n: Stabilizer.swift#91 */
 "Stabilizing Selected Items..." = "Stabilizing Selected Items...";
-/* Generated from genl10n: PhotoPickerViewController.swift#511 */
+/* Generated from genl10n: PhotoPickerViewController.swift#512 */
 "Start" = "Start";
 /* Generated from genl10n: Finder.BApp.swift#145 */
 "Starting To Find ..." = "Starting To Find ...";
-/* Generated from genl10n: PhotoPickerViewController.swift#830 */
+/* Generated from genl10n: PhotoPickerViewController.swift#831 */
 "Starting the Process..." = "Starting the Process...";
 /* Generated from genl10n: Revert.BApp.swift#107 */
 "Starting to check edited photos..." = "Starting to check edited photos...";

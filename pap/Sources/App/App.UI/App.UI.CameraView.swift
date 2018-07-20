@@ -241,10 +241,16 @@ class AppUICameraView: UIView {
 
     @objc func tapToCapture(sender: Any) {
         cameraView.takePhoto()
+
+        let f = self.isCompactMode ? UIImpactFeedbackGenerator(style: .medium) : UIImpactFeedbackGenerator(style: .heavy)
+        f.prepare()
+        f.impactOccurred()
     }
 
     @objc func switchDevicePosition(sender: Any) {
         cameraView.switchCaptureDevicePosition()
+
+        UIImpactFeedbackGenerator(style:.light).impactOccurred()
     }
 
     @objc func switchFlash(sender: Any) {
@@ -253,11 +259,15 @@ class AppUICameraView: UIView {
             AVCaptureDevice.FlashMode.on:AVCaptureDevice.FlashMode.off,
             AVCaptureDevice.FlashMode.off:AVCaptureDevice.FlashMode.auto
         ][cameraView.currentFlashMode]!
+
+        UIImpactFeedbackGenerator(style:.light).impactOccurred()
     }
 
     @objc func toggleLivePhotoEnabled(sender: Any) {
         guard cameraView.isLivePhotoSupported else { return }
         cameraView.isLivePhotoEnabled = !cameraView.isLivePhotoEnabled
+
+        UIImpactFeedbackGenerator(style:.light).impactOccurred()
     }
 
     var isCompactMode: Bool = true {
