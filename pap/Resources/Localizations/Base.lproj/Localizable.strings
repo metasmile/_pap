@@ -122,7 +122,7 @@
 "Camera" = "Camera";
 /* Generated from genl10n: Revert.BApp.swift#78 */
 "Cannot revert. All selected items have not edited." = "Cannot revert. All selected items have not edited.";
-/* Generated from genl10n: PhoneCalls.swift#132 */
+/* Generated from genl10n: PhoneCalls.swift#129 */
 "Choose A Phone Number To Call" = "Choose A Phone Number To Call";
 /* Generated from genl10n: Finder.BApp.swift#291 */
 "Choose An Action" = "Choose An Action";
@@ -156,13 +156,15 @@
 "Deleting Targets" = "Deleting Targets";
 /* Generated from genl10n: Finder.BApp.swift#153 */
 "Detecting ... %@ " = "Detecting ... %@ ";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Did not detect anything." = "Did not detect anything.";
 /* Generated from genl10n: GIFMaker.BApp.swift#542 */
 "Direction" = "Direction";
 /* Generated from genl10n: PhotoPickerViewController.swift#873 */
 "Downloading..." = "Downloading...";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#202, Finder.BApp.swift#646, Finder.BApp.swift#1213 */
 "E-mail Address" = "E-mail Address";
-/* Generated from genl10n: Revert.BApp.swift#184, PhoneCalls.swift#326, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1278 */
+/* Generated from genl10n: Revert.BApp.swift#184, PhoneCalls.swift#357, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1278 */
 "Enable Auto Selection" = "Enable Auto Selection";
 /* Generated from genl10n: Converter.AppDockContent.swift#149 */
 "Export Options" = "Export Options";
@@ -170,11 +172,11 @@
 "Export" = "Export";
 /* Generated from genl10n: Filters.BApp.swift#75 */
 "Filters" = "Filters";
-/* Generated from genl10n: PhoneCalls.swift#206, Finder.BApp.swift#157 */
+/* Generated from genl10n: PhoneCalls.swift#237, Finder.BApp.swift#157 */
 "Find" = "Find";
 /* Generated from genl10n: Finder.BApp.swift#41 */
 "Finder" = "Finder";
-/* Generated from genl10n: PhoneCalls.swift#202 */
+/* Generated from genl10n: PhoneCalls.swift#233 */
 "Finding Contacts ... %@ " = "Finding Contacts ... %@ ";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#71 */
 "Flashlight" = "Flashlight";
@@ -196,6 +198,8 @@
 "Image Quality" = "Image Quality";
 /* Generated from genl10n: GIFMaker.BApp.swift#440 */
 "Import" = "Import";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"It could not be saved." = "It could not be saved.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "It requires a permission to access your contacts. Please allow Contacts on iOS Settings.";
 /* Generated from genl10n: Finder.BApp.swift#1210 */
@@ -218,6 +222,8 @@
 "New Contact" = "New Contact";
 /* Generated from genl10n: Finder.BApp.swift#490 */
 "New Event" = "New Event";
+/* Generated from genl10n: PhoneCalls.swift#140, PhoneCalls.swift#143, PhoneCalls.swift#178, PhoneCalls.swift#180 */
+"New Phone Number" = "New Phone Number";
 /* Generated from genl10n: Stabilizer.swift#281, GIFMaker.BApp.swift#141 */
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift#573 */
@@ -234,7 +240,7 @@
 "Page Margin" = "Page Margin";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Page Size Preset";
-/* Generated from genl10n: PhoneCalls.swift#58 */
+/* Generated from genl10n: PhoneCalls.swift#60 */
 "Phone Calls" = "Phone Calls";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#210, Finder.BApp.swift#332, Finder.BApp.swift#1212 */
 "Phone Number" = "Phone Number";
@@ -256,6 +262,8 @@
 "Reverse" = "Reverse";
 /* Generated from genl10n: GIFMaker.BApp.swift#210 */
 "Rewind" = "Rewind";
+/* Generated from genl10n: PhoneCalls.swift#135 */
+"Save All Phone Numbers" = "Save All Phone Numbers";
 /* Generated from genl10n: Finder.BApp.swift#1249, Cleaner.BApp.swift#399 */
 "Save Found Contacts Directly" = "Save Found Contacts Directly";
 /* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift#63 */
@@ -278,7 +286,7 @@
 "Select Photos To Delete." = "Select Photos To Delete.";
 /* Generated from genl10n: Finder.BApp.swift#1427 */
 "Select Photos To Find Everything." = "Select Photos To Find Everything.";
-/* Generated from genl10n: PhoneCalls.swift#387 */
+/* Generated from genl10n: PhoneCalls.swift#418 */
 "Select Photos You Want To Grab Phone Numbers!" = "Select Photos You Want To Grab Phone Numbers!";
 /* Generated from genl10n: Cleaner.BApp.swift#478 */
 "Selected" = "Selected";
@@ -292,10 +300,6 @@
 "Size" = "Size";
 /* Generated from genl10n: Finder.BApp.swift#255 */
 "Some contacts were saved, but someones were not." = "Some contacts were saved, but someones were not.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
-"Sorry, it could not be saved." = "Sorry, it could not be saved.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
-"Sorry. No information about you have selected could not be detected." = "Sorry. No information about you have selected could not be detected.";
 /* Generated from genl10n: GIFMaker.BApp.swift#108 */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift#331 */
@@ -316,7 +320,7 @@
 "Starting to check edited photos..." = "Starting to check edited photos...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#298 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Switch on any items you want to hide. The quality will entirely remain the same.";
-/* Generated from genl10n: PhoneCalls.swift#339, Finder.BApp.swift#1289 */
+/* Generated from genl10n: PhoneCalls.swift#370, Finder.BApp.swift#1289 */
 "Take A Photo" = "Take A Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#479 */
 "Targeted" = "Targeted";
@@ -336,9 +340,9 @@
 "Videos Shorter Than 1 Second" = "Videos Shorter Than 1 Second";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#137 */
 "Videos Without Sound" = "Videos Without Sound";
-/* Generated from genl10n: PhoneCalls.swift#198, Finder.BApp.swift#149 */
+/* Generated from genl10n: PhoneCalls.swift#229, Finder.BApp.swift#149 */
 "Waiting To Select ..." = "Waiting To Select ...";
 /* Generated from genl10n: Stabilizer.swift#274 */
 "Warp" = "Warp";
-/* Generated from genl10n: PhoneCalls.swift#194 */
+/* Generated from genl10n: PhoneCalls.swift#225 */
 "🔍 Starting To Find ..." = "🔍 Starting To Find ...";

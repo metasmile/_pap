@@ -7,6 +7,8 @@ import Foundation
 import Photos
 import FirebaseMLVision
 import DefaultsKit
+import Contacts
+import ContactsUI
 
 private typealias PhoneCallsAppParam = PHAssetItem<ImageEditStateValue>
 private struct PhoneCallsAppResult: AppTaskResultable {
@@ -124,42 +126,71 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
                 }
 
 
-        //TODO: wrap with something VO
-        //TODO: if numbers and emails are in same block, maybe it is data of a person.
-
-        var phoneNumberPool = Set<String>()
-
         let alert = UIAlertController.actionSheet(title: "Choose A Phone Number To Call".localized, message: nil)
 
-        for item in items {
+        let numbers = Array(Set(items.compactMap { (result: PhoneCallsAppResult) -> [String]? in
+            return result.phoneNumbers?.reduce([],+)
+        }.reduce([],+)))
 
-            for phoneNumberSetInBlock in item.phoneNumbers ?? []{
+        alert.addAction(UIAlertAction(title: "Save All Phone Numbers".localized, style: . default, handler: { action in
+            if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal) {
 
-                for phoneNumber in phoneNumberSetInBlock where false == phoneNumberPool.contains(phoneNumber) && phoneNumber.count>0 {
-                    phoneNumberPool.insert(phoneNumber)
+                let contact = CNMutableContact()
+                contact.contactType = .person
+                contact.givenName = "New Phone Number".localized
 
-                    alert.addAction(UIAlertAction(title: phoneNumber, style: . default, handler: { action in
-
-                        DispatchQueue.main.async {
-
-                            if ContactsUtil.shared.isCapableToCall, let url = URL(string: "tel://\(phoneNumber)") {
-                                asyncSignal.end()
-
-                                if #available(iOS 10, *) {
-                                    UIApplication.shared.open(url)
-                                } else {
-                                    UIApplication.shared.openURL(url)
-                                }
-                            }else{
-                                UIActivityViewController.share(activityItems: [phoneNumber]) { type, b, anies, error in
-                                    asyncSignal.end()
-                                }
-                            }
-                        }
-                    }))
-
+                for number in numbers{
+                    let value = CNLabeledValue(label: "New Phone Number".localized, value: CNPhoneNumber(stringValue: number))
+                    contact.phoneNumbers.append(value)
                 }
+
+                DispatchQueue.main.async {
+                    CNContactViewController.presentDialog(newContact: contact)
+                }
+
+                asyncSignal.end()
             }
+        }))
+
+        for phoneNumber in numbers {
+
+            alert.addAction(UIAlertAction(title: phoneNumber, style: . default, handler: { action in
+
+                DispatchQueue.main.async {
+
+                    if let url = URL(string: "tel://\(phoneNumber)")
+                        , ContactsUtil.shared.isCapableToCall
+                        , UIApplication.shared.canOpenURL(url) {
+
+                        asyncSignal.end()
+
+                        if #available(iOS 10, *) {
+                            UIApplication.shared.open(url)
+                        } else {
+                            UIApplication.shared.openURL(url)
+                        }
+
+                    }else if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal) {
+                        asyncSignal.end()
+
+                        let contact = CNMutableContact()
+                        contact.contactType = .person
+                        contact.givenName = "New Phone Number".localized
+                        for number in [phoneNumber]{
+                            let value = CNLabeledValue(label: "New Phone Number".localized, value: CNPhoneNumber(stringValue: number))
+                            contact.phoneNumbers.append(value)
+                        }
+
+                        CNContactViewController.presentDialog(newContact: contact)
+
+                    } else{
+                        UIActivityViewController.share(activityItems: [phoneNumber]) { type, b, anies, error in
+                            asyncSignal.end()
+                        }
+                    }
+                }
+            }))
+
         }
 
         if alert.actions.count > 0{
