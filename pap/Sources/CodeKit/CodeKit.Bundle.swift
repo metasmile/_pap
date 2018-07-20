@@ -17,5 +17,13 @@ extension Bundle {
 
         return urlTypes.compactMap { $0["CFBundleURLSchemes"] as? [String] }.reduce([], +).nilEmpty
     }
+
+    var version:String? {
+        return Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+    }
+
+    var shortVersionString:String?{
+        return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+    }
 }
 

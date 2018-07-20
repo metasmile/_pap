@@ -110,6 +110,7 @@
 		4F71D7183DFB117A969BE78E /* FirebaseMLVision.VisionText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D660E9D0D9F31FE22592 /* FirebaseMLVision.VisionText.swift */; };
 		4F71D7188829B440276F4A55 /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D57DA15E2931006D080E /* Selectable.swift */; };
 		4F71D7260F2A027807AA1A3B /* PhotoPickerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D19E3BDD7D8E7927412E /* PhotoPickerDetailViewController.swift */; };
+		4F71D74CD448F4473D613D55 /* ImageIO.Metadata.Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0149B2F38B0BCC4A992 /* ImageIO.Metadata.Util.swift */; };
 		4F71D753FAC4D11F3FAA85C1 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D17919E12758958F0951 /* PreviewView.swift */; };
 		4F71D78E5582BC36F7298D40 /* AppUICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DE95525B05018BADF27D /* AppUICollectionViewCell.xib */; };
 		4F71D78EB364C2DF91F0B573 /* PHAssetItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC27C133314C1E92B775 /* PHAssetItem.swift */; };
@@ -365,6 +366,7 @@
 		1AB639CA86D7F085825EB367 /* Pods-pap-papTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pap-papTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-pap-papTests/Pods-pap-papTests.release.xcconfig"; sourceTree = "<group>"; };
 		33D37ED5B737EE655DF40FEE /* Pods-pap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pap/Pods-pap.debug.xcconfig"; sourceTree = "<group>"; };
 		4F71D0043D08EE0021680D4F /* CodeKit.UIView.Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIView.Animation.swift; sourceTree = "<group>"; };
+		4F71D0149B2F38B0BCC4A992 /* ImageIO.Metadata.Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.Metadata.Util.swift; sourceTree = "<group>"; };
 		4F71D0150990AE9E6B4D72A2 /* AppAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAssets.swift; sourceTree = "<group>"; };
 		4F71D03709F50D8869D69AE7 /* App.PhotoEditorViewControllerDelegatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.PhotoEditorViewControllerDelegatable.swift; sourceTree = "<group>"; };
 		4F71D05C5F9729D98015C194 /* FileIO.UTI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileIO.UTI.swift; sourceTree = "<group>"; };
@@ -1039,6 +1041,7 @@
 				4F71D2A052463FFF3B331002 /* ImageIO.Metadata.VoidValues.swift */,
 				4F71DF2BA1EF2662C299D170 /* ImageIO.Metadata.Properties.Label.swift */,
 				4F71D8AD81A7900470EF8D1E /* ImageIO.Metadata.Properties.Collection.swift */,
+				4F71D0149B2F38B0BCC4A992 /* ImageIO.Metadata.Util.swift */,
 			);
 			path = ImageIO;
 			sourceTree = "<group>";
@@ -3058,6 +3061,7 @@
 				4F71DC13E83C432C049C5399 /* App.PreviewProcessableApp.swift in Sources */,
 				4F71DD212768CD615EFA57E0 /* PhotoPickerViewController.Operations.PayableApp.swift in Sources */,
 				4F71D53D8666AAD3A454B3C4 /* CodeKit.CMMotionManager.swift in Sources */,
+				4F71D74CD448F4473D613D55 /* ImageIO.Metadata.Util.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

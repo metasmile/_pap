@@ -85,6 +85,8 @@ fileprivate class CameraAppDockContent: NSObject, KeyPathWatchable, AppDockConte
     }
 
     func didSetContentView(_ view: UIView, dock: AppDock) {
+        cameraView?.captureMetadataComment = AppCenter.default.currentInstanceAs(CameraApp.self)?.importedLaunchOption?.identifierToReturn
+
         cameraView?.startSession()
 
         if let pref = preferences, view.bounds.height > pref.preferredHeight {

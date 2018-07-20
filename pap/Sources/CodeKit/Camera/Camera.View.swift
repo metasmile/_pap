@@ -21,6 +21,7 @@ class CameraView: UIView {
 
     var configurationDidUpdate: (() -> Void)?
     var capturedHandler:CaptureProcessorCompletionHandler?
+    var captureMetadataComment:String?
 
     private lazy var sessionQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
 
@@ -121,16 +122,20 @@ class CameraView: UIView {
         performShutterAnimation()
 
         let captureProcessor: CaptureProcessor
-        let param = CaptureProcessorParameter(videoDeviceInput: self.currentVideoDeviceInput, deviceOrientation: deviceMotion.orientation)
+        let param = CaptureProcessorParam(
+                videoDeviceInput: currentVideoDeviceInput
+                , deviceOrientation: deviceMotion.orientation
+                , metadataComment: captureMetadataComment
+        )
 
         let photoSettings: AVCapturePhotoSettings
         if self.capturePhotoOutput.availablePhotoCodecTypes.contains(.hevc), capturePhotoOutput.isLivePhotoCaptureEnabled {
             photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.hevc])
             photoSettings.livePhotoMovieFileURL = FileURL.temp(UUID().uuidString, UTI.quickTimeMovie, group: FileURL.fileAndQueuePrivateGroup())
-            captureProcessor = CameraViewLivePhotoCaptureProcessor(parameter: param)
+            captureProcessor = CameraViewLivePhotoCaptureProcessor(param: param)
         } else {
             photoSettings = AVCapturePhotoSettings(from: self.defaultCapturePhotoSettings)
-            captureProcessor = CameraViewStillPhotoCaptureProcessor(parameter: param)
+            captureProcessor = CameraViewStillPhotoCaptureProcessor(param: param)
         }
         photoSettings.flashMode = .auto
         photoSettings.isAutoStillImageStabilizationEnabled = capturePhotoOutput.isStillImageStabilizationSupported

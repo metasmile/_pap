@@ -29,32 +29,61 @@ extension CaptureProcessorResultKey{
     static let pairedVideoURL = CaptureProcessorResultKey(rawValue:PHAssetResourceType.pairedVideo.rawValue)
 }
 
-struct CaptureProcessorParameter{
+struct CaptureProcessorParam {
     let videoDeviceInput:AVCaptureDeviceInput?
     var deviceOrientation:UIDeviceOrientation
+    var metadataComment:String?
 }
 
 class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
     var completionHandler:CaptureProcessorCompletionHandler?
     lazy var captureQueue = DispatchQueue(label: "com.stells.internal."+String(describing:type(of: self)), qos: .utility)
 
-    let parameter:CaptureProcessorParameter
+    let param: CaptureProcessorParam
 
-    required init(parameter:CaptureProcessorParameter){
-        self.parameter = parameter
+    required init(param: CaptureProcessorParam){
+        self.param = param
     }
 
     final func exportStillImageOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) -> URL? {
+        let frontFacing = self.param.videoDeviceInput?.device.position == .front
 
-        if let data = photo.fileDataRepresentation()
+        /*
+            Metadata Config
+        */
+        var metadata = photo.metadata
+
+        if let displayName = Bundle.main.displayName{
+            metadata = metadata.updateMetadata(
+                    dictionary: ImageMetadata.Dictionary.TIFF
+                    , property: ImageMetadata.Property.TIFFSoftware
+                    , value: "\(displayName) \(Bundle.main.shortVersionString ?? "") (\(Bundle.main.version ?? ""))"
+            )
+        }
+        if let metadataComment = param.metadataComment {
+            metadata = metadata.updateMetadata(
+                    dictionary: ImageMetadata.Dictionary.Exif
+                    , property: ImageMetadata.Property.ExifUserComment
+                    , value: metadataComment
+            )
+        }
+
+        /*
+            Writing
+        */
+        if let data = photo.fileDataRepresentation(withReplacementMetadata: metadata
+                , replacementEmbeddedThumbnailPhotoFormat: nil
+                , replacementEmbeddedThumbnailPixelBuffer: nil
+                , replacementDepthData: nil)//photo.fileDataRepresentation()
+
         , let ciImage = data.asCIImage {
             var transform = CGAffineTransform.identity
 
-            if self.parameter.videoDeviceInput?.device.position == .front{
+            if frontFacing{
                 transform = transform.concatenating(ciImage.orientationTransform(for: .downMirrored))
             }
 
-            switch parameter.deviceOrientation{
+            switch param.deviceOrientation{
                 case .landscapeRight:
                     transform = transform.concatenating(ciImage.orientationTransform(for: .right))
                 case .landscapeLeft:
