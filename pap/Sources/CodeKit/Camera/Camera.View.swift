@@ -17,6 +17,7 @@ class CameraView: UIView {
         settings.isHighResolutionPhotoEnabled = true
         return settings
     }()
+    private lazy var deviceMotion = UIDeviceMotion()
 
     var configurationDidUpdate: (() -> Void)?
     var capturedHandler:CaptureProcessorCompletionHandler?
@@ -92,14 +93,14 @@ class CameraView: UIView {
     }
 
     func startSession() {
-        UIDeviceMotion.shared.startUpdates()
+        deviceMotion.startUpdates()
         sessionQueue.async {
             self.captureSession.startRunning()
         }
     }
 
     func stopSession() {
-        UIDeviceMotion.shared.stopUpdates()
+        deviceMotion.stopUpdates()
         sessionQueue.async {
             self.captureSession.stopRunning()
         }
@@ -120,7 +121,7 @@ class CameraView: UIView {
         performShutterAnimation()
 
         let captureProcessor: CaptureProcessor
-        let param = CaptureProcessorParameter(videoDeviceInput: self.currentVideoDeviceInput)
+        let param = CaptureProcessorParameter(videoDeviceInput: self.currentVideoDeviceInput, deviceOrientation: deviceMotion.orientation)
 
         let photoSettings: AVCapturePhotoSettings
         if self.capturePhotoOutput.availablePhotoCodecTypes.contains(.hevc), capturePhotoOutput.isLivePhotoCaptureEnabled {

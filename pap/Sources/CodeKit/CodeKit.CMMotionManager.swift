@@ -10,13 +10,13 @@ import UIKit
 /*
     Usage:
 
-    UIDeviceMotion.shared.watch(\.{ orientation | angle | absZ }){
+    UIMotionDevice.shared.watch(\.{ orientation | angle | absZ }){
         print(UIDeviceMotion.shared.orientation.rawValue)
     }
 */
 
 class UIDeviceMotion: NSObject, KeyPathWatchable {
-    public static let `shared` = UIDeviceMotion()
+    public static let shared = UIDeviceMotion()
 
     private lazy var motionQueue = OperationQueue()
     private lazy var motionManager = CMMotionManager()
