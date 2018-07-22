@@ -89,8 +89,15 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
         gc
     */
 
-    func disposeGdInstance(identifier:String){
-        gdInstances[identifier] = nil
+    func disposeGdInstance(gdIdentifier:String){
+        gdInstances[gdIdentifier] = nil
+
+        //also dispose result caches
+        for (k,v) in cachedResults{
+            var result = v
+            result[gdIdentifier] = nil
+            cachedResults[k] = result
+        }
     }
 
     private var gdInstances = [String:PHAssetGarbageDetector]()
@@ -294,6 +301,13 @@ extension Defaults: CleanerAppDefaults {
 }
 
 private struct GDItem:Codable, Hashable {
+    private static var DefaultEnabledGDTypes:[PHAssetGarbageDetector.Type]{
+        return [
+            PHAssetGarbageDetector_Similarity.self
+            , PHAssetGarbageDetector_Lockscreens.self
+        ]
+    }
+
     fileprivate let gdIdentifier: String
     fileprivate let label: String
     fileprivate var iconImageName: String?
@@ -301,13 +315,13 @@ private struct GDItem:Codable, Hashable {
     fileprivate var enabled: Bool
     private let _hashValue: Int
 
-    init(gd: PHAssetGarbageDetector.Type, enabled:Bool=true) {
+    init(gd: PHAssetGarbageDetector.Type) {
         self.gdIdentifier = gd.identifier
         self._hashValue = gdIdentifier.hashValue
         self.label = gd.label
         self.iconImageName = gd.iconImageName
         self.iconImageShouldUseTintColor = gd.iconImageShouldUseTintColor
-        self.enabled = enabled
+        self.enabled = type(of: self).DefaultEnabledGDTypes.contains(where:{ $0 == gd })
     }
 
     var hashValue: Int {
@@ -694,7 +708,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
         cell.optionSwitch.setOn(selected, animated: false)
 
         cell.switchDidChange = { on in
-            let identifier = dataItem.gdIdentifier
+            let gdIdentifier = dataItem.gdIdentifier
 
             //set enable
             var collection = self.defaultCollections
@@ -726,7 +740,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
             self.stopAutoSelect()
 
             if on == false{
-                AppCenter.default.currentInstanceAs(CleanerApp.self)?.disposeGdInstance(identifier: identifier)
+                AppCenter.default.currentInstanceAs(CleanerApp.self)?.disposeGdInstance(gdIdentifier: gdIdentifier)
             }
 
 //            if self.isActivatedAtLeastOne == false{
