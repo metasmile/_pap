@@ -517,7 +517,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
 //            cell1.valueHandler?(false)
 
         }
-        settingCellDescribers.append(cell0)
+//        settingCellDescribers.append(cell0)
 
         //auto save
         if CleanerApp.privateDefaults.deletingTarget == DeletingTarget.targeted.rawValue{

@@ -31,7 +31,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         let cachingParam = self.collectionViewDefaultCachingImageRequest(collectionView, at: indexPath)
 
         if let asset = PHAssets.fetched.asset(at: indexPath) {
-            cell.setAsset(asset, cachingParam: cachingParam, at: indexPath)
+            cell.setAsset(asset, cachingOption: cachingParam, at: indexPath)
         }
         return cell
     }

@@ -551,7 +551,7 @@ extension AppDockView: UICollectionViewDelegate {
         zoomOutAppCollectionView(delay: 0)
 //        delegate?.appDockView(self, needsScrollToBottom: true)
 
-        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        UISelectionFeedbackGenerator().selectionChanged()
         
         if let item = dataSource?.appDockView(self, itemAt: indexPath.item) {
             delegate?.appDockView(self, didSelectItemWith: item)

@@ -168,7 +168,7 @@ class UITableViewStepperCell: UITableViewCellWithInclusiveHitTestSubview {
     }
 
     @objc func valueDidChange(sender: UIStepper) {
-        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        UISelectionFeedbackGenerator().selectionChanged()
         didChangeValue?(sender.value)
     }
 }
@@ -201,7 +201,7 @@ class UITableViewButtonCell: UITableViewCell {
         if !touchAreaOnlyButton{
             for touch in touches{
                 if let _ = touch.view{
-                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                    UISelectionFeedbackGenerator().selectionChanged()
                     didTap?()
                     break
                 }
@@ -257,7 +257,7 @@ class UITableViewSegmentedControlCell: UITableViewCellWithInclusiveHitTestSubvie
     }
 
     @objc func valueDidChange(sender: UISegmentedControl) {
-        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        UISelectionFeedbackGenerator().selectionChanged()
         didChangeValue?(sender.selectedSegmentIndex)
     }
 }

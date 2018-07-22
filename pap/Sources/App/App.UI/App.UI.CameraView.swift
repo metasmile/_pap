@@ -149,6 +149,7 @@ class AppUICameraView: UIView {
         controlView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
 
         captureButton.addTarget(self, action: #selector(self.tapToCapture), for: .touchUpInside)
+        captureButton.addTarget(self, action: #selector(self.tapDownToCapture), for: .touchDown)
         addSubview(captureButton)
 
         captureButton.translatesAutoresizingMaskIntoConstraints = false
@@ -240,17 +241,19 @@ class AppUICameraView: UIView {
     }
 
     @objc func tapToCapture(sender: Any) {
+        UIImpactFeedbackGenerator(style: .light).impactOccurred()
         cameraView.takePhoto()
+    }
 
-        let f = self.isCompactMode ? UIImpactFeedbackGenerator(style: .medium) : UIImpactFeedbackGenerator(style: .heavy)
-        f.prepare()
-        f.impactOccurred()
+    @objc func tapDownToCapture(sender: Any) {
+        UISelectionFeedbackGenerator().selectionChanged()
+        UIImpactFeedbackGenerator(style: .light).prepare()
     }
 
     @objc func switchDevicePosition(sender: Any) {
         cameraView.switchCaptureDevicePosition()
 
-        UIImpactFeedbackGenerator(style:.light).impactOccurred()
+        UISelectionFeedbackGenerator().selectionChanged()
     }
 
     @objc func switchFlash(sender: Any) {
@@ -260,14 +263,14 @@ class AppUICameraView: UIView {
             AVCaptureDevice.FlashMode.off:AVCaptureDevice.FlashMode.auto
         ][cameraView.currentFlashMode]!
 
-        UIImpactFeedbackGenerator(style:.light).impactOccurred()
+        UISelectionFeedbackGenerator().selectionChanged()
     }
 
     @objc func toggleLivePhotoEnabled(sender: Any) {
         guard cameraView.isLivePhotoSupported else { return }
         cameraView.isLivePhotoEnabled = !cameraView.isLivePhotoEnabled
 
-        UIImpactFeedbackGenerator(style:.light).impactOccurred()
+        UISelectionFeedbackGenerator().selectionChanged()
     }
 
     var isCompactMode: Bool = true {

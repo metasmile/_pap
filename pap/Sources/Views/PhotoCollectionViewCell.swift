@@ -85,17 +85,19 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         imageRequestId = nil
     }
 
-    func setAsset(_ asset: PHAsset, cachingParam: PHAssetRequestOption, at indexPath: IndexPath) {
-        self.imageContentMode = cachingParam.contentMode
+    func setAsset(_ asset: PHAsset, cachingOption: PHAssetRequestOption, at indexPath: IndexPath) {
+        self.imageContentMode = cachingOption.contentMode
         self.indexPath = indexPath
 
         prepareForDisplay(with: asset)
 
-        imageRequestId = PhotosManager.default.cachingImageManager.requestImage(for: asset, option: cachingParam) { [weak self] (image, info) in
+        imageRequestId = PhotosManager.default.cachingImageManager.requestImage(for: asset, option: cachingOption) { [weak self] (image, info) in
             guard self?.indexPath == indexPath else { return }
-            self?.imageView.image = image
-            self?.updateDecorationContents(with: asset)
-            self?.imageRequestId = nil
+            DispatchQueue.main.async{
+                self?.imageView.image = image
+                self?.updateDecorationContents(with: asset)
+                self?.imageRequestId = nil
+            }
         }
     }
     
