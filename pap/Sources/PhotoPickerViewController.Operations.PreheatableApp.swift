@@ -77,23 +77,12 @@ extension PhotoPickerViewController{
                 PreheatingQueue.identifierSet.remove(asset.localIdentifier)
 
                 //prefetchedImage
-                var prefetchedImage:PHAssetRequestedImage? = nil
-                if preheatingApp.needsPrefetchedImage{
-                    signal.begin()
-                    let cachingRequest = self.collectionViewDefaultCachingImageRequest(self.photoCollectionView, at: indexPath)
-                    let _ = PhotosManager.default.cachingImageManager.requestImage(for: asset, request: cachingRequest, resultHandler: { [weak self] (image, info) in
-                        if let image = image{
-                            prefetchedImage = PHAssetRequestedImage(image: image, request: cachingRequest)
-                        }
-                        signal.end()
-                    })
-                    signal.waitUntilEnd()
-                }
+                let cachingOption = self.collectionViewDefaultCachingImageRequest(self.photoCollectionView, at: indexPath)
 
                 //performPreheating
                 var autoSelect = false
                 if let item = AppAssets.selected.at(unsafeIndex:indexPath.item) ?? AppAsset.create(for:asset)
-                , let finishAction = autoreleasepool(invoking:{ preheatingApp.performPreheating(item: item, prefetchedImage:prefetchedImage, signal) }) as? UICollectionViewPreheatableAppFinishAction {
+                , let finishAction = autoreleasepool(invoking:{ preheatingApp.performPreheating(item: item, cachingOption:cachingOption, signal) }) as? UICollectionViewPreheatableAppFinishAction {
                     autoSelect = finishAction == .selectItem
                 }
                 

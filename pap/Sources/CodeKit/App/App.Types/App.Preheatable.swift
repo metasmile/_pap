@@ -12,14 +12,5 @@ extension String: PreheatingFinishAction{}
 extension Int: PreheatingFinishAction{}
 
 public protocol PreheatableApp: App{
-    var needsPrefetchedImage:Bool { get }
-
-    //INFO: if needsPrefetchedImage == false (default) prefetchedImage will be nil
-    func performPreheating(item: AppAsset, prefetchedImage:PHAssetRequestedImage?, _ async: AsyncWaitSignalable)  -> PreheatingFinishAction?
-}
-
-extension PreheatableApp{
-    public var needsPrefetchedImage: Bool {
-        return false
-    }
+    func performPreheating(item: AppAsset, cachingOption: PHAssetRequestOption?, _ async: AsyncWaitSignalable)  -> PreheatingFinishAction?
 }

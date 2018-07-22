@@ -12,7 +12,7 @@ import MetalKit
 import Vision
 import FirebaseMLVision
 
-typealias GarbageDetectorInput = (asset:PHAsset, prefetchedImage:PHAssetRequestedImage?)
+typealias GarbageDetectorInput = (asset:PHAsset, cachingOption: PHAssetRequestOption?)
 
 protocol _GarbageDetector: AsyncProcessor where Self.OutputType==Bool {}
 
@@ -51,10 +51,6 @@ class PHAssetGarbageDetector : NSObject, _PHAssetGarbageDetector{
 
     class var iconImageShouldUseTintColor:Bool{
         return true
-    }
-
-    class var needsPrefetchImage:Bool{
-        return false
     }
 
     func process(input: GarbageDetectorInput, _ asyncSignal: AsyncWaitSignalable) -> Bool? {
@@ -319,9 +315,6 @@ class PHAssetGarbageDetector_Similarity: PHAssetGarbageDetector{
 //    override class var shouldCacheResults:Bool{
 //        return false
 //    }
-    override class var needsPrefetchImage: Bool {
-        return true
-    }
 
     private var targetAssets = [PHAsset:Set<String>]()
     private let imageHashing = OSImageHashing.sharedInstance()

@@ -50,7 +50,7 @@ public class ExifGhostApp: NSObject, KeyPathWatchable,BApp,
         return item.asset.mediaType == .image
     }
 
-    public func performPreheating(item: AppAsset, prefetchedImage:PHAssetRequestedImage?, _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
+    public func performPreheating(item: AppAsset, cachingOption: PHAssetRequestOption?, _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
 
         if autoSelect && item.asset.mediaType == .image{
             var purged = false
