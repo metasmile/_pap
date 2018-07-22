@@ -19,7 +19,7 @@ extension PhotoPickerViewController{
         }
         else {
             if AppAssets.selected.hasChanges {
-                let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                let alert = UIAlertController.actionSheet(title: nil, message: nil)
                 alert.addAction(UIAlertAction(title: "Discard Changes".localized, style: .destructive, handler: { (action) in
                     self.cancelAllSelection()
                 }))

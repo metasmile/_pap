@@ -13,6 +13,7 @@ public enum PHAssetUIAlertControllerAction: Int{
     case saveAndShare
 }
 
+
 public protocol PHAssetUIAlertControllerSynchronizablePresenter {
     var shouldDisplayAlertActions:[PHAssetUIAlertControllerAction] {get}
 }
@@ -36,14 +37,13 @@ extension PHAssetUIAlertControllerSynchronizablePresenter {
             activityViewController.completionWithItemsHandler = { (activityType:UIActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
                 asyncSignal.end()
             }
-            activityViewController.popoverPresentationController?.sourceView = rootViewController.view
 
             DispatchQueue.main.async{
                 rootViewController.present(activityViewController, animated: true, completion: nil)
             }
         }
 
-        let alert = UIAlertController(title: "Choose An Export Option For %d Items".localizedFormatted(items.count), message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController.actionSheet(title: "Choose An Export Option For %d Items".localizedFormatted(items.count), message: nil)
 
         for actionType in self.shouldDisplayAlertActions {
 

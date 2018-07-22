@@ -29,21 +29,103 @@ extension CaptureProcessorResultKey{
     static let pairedVideoURL = CaptureProcessorResultKey(rawValue:PHAssetResourceType.pairedVideo.rawValue)
 }
 
+struct CaptureProcessorParam {
+    let videoDeviceInput:AVCaptureDeviceInput?
+    var deviceOrientation:UIDeviceOrientation
+    var metadataComment:String?
+}
+
 class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
+
+    static var ExifUserCommentIdentifier:String{
+        return "com.stells.pap.CaptureProcessor"
+    }
+    static var ExifUserCommentSeparator:String{
+        return ","
+    }
+
     var completionHandler:CaptureProcessorCompletionHandler?
-    lazy var captureQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
+    lazy var captureQueue = DispatchQueue(label: "com.stells.internal."+String(describing:type(of: self)), qos: .utility)
+
+    let param: CaptureProcessorParam
+
+    required init(param: CaptureProcessorParam){
+        self.param = param
+    }
+
+    final func exportStillImageOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) -> URL? {
+        let frontFacing = self.param.videoDeviceInput?.device.position == .front
+
+        /*
+            Metadata Config
+        */
+        var metadata = photo.metadata
+
+        if let displayName = Bundle.main.displayName{
+            metadata = metadata.updateMetadata(
+                    dictionary: ImageMetadata.Dictionary.TIFF
+                    , property: ImageMetadata.Property.TIFFSoftware
+                    , value: "\(displayName) \(Bundle.main.shortVersionString ?? "") (\(Bundle.main.version ?? ""))"
+            )
+        }
+        metadata = metadata.updateMetadata(
+                dictionary: ImageMetadata.Dictionary.Exif
+                , property: ImageMetadata.Property.ExifUserComment
+                , value: [param.metadataComment ?? "", type(of: self).ExifUserCommentIdentifier].joined(separator: type(of: self).ExifUserCommentSeparator).trimmed
+        )
+
+        /*
+            Writing
+        */
+        if let data = photo.fileDataRepresentation(withReplacementMetadata: metadata
+                , replacementEmbeddedThumbnailPhotoFormat: nil
+                , replacementEmbeddedThumbnailPixelBuffer: nil
+                , replacementDepthData: nil)//photo.fileDataRepresentation()
+
+        , let ciImage = data.asCIImage {
+            var transform = CGAffineTransform.identity
+
+            if frontFacing{
+                transform = transform.concatenating(ciImage.orientationTransform(for: .downMirrored))
+            }
+
+            switch param.deviceOrientation{
+                case .landscapeRight:
+                    transform = transform.concatenating(ciImage.orientationTransform(for: .right))
+                case .landscapeLeft:
+                    transform = transform.concatenating(ciImage.orientationTransform(for: .left))
+                case .portraitUpsideDown:
+                    transform = transform.concatenating(ciImage.orientationTransform(for: .upMirrored))
+                    transform = transform.concatenating(ciImage.orientationTransform(for: .downMirrored))
+                case .portrait, .faceUp, .faceDown, .unknown:
+                    break
+            }
+
+            let ciImageWriting = transform == CGAffineTransform.identity
+                    ? ciImage
+                    : ciImage.transformed(by: transform)
+
+            let url = FileURL.temp(UUID().uuidString, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
+            if ciImageWriting.writeJPEGRepresentationOriginally(to: url){
+                return url
+            }
+        }
+        return nil
+    }
 }
 
 final class CameraViewStillPhotoCaptureProcessor: CaptureProcessor {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        let url = FileURL.temp(UUID().uuidString, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
-        guard let _ = try? photo.fileDataRepresentation()?.write(to: url) else { return }
+        guard let url = self.exportStillImageOutput(output, didFinishProcessingPhoto: photo, error: error) else{
+            return
+        }
 
         captureQueue.async {
             let signal = AsyncSignal()
 
             signal.begin()
             PHPhotoLibrary.shared().performChanges({
+
                 PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL: url)
             }, completionHandler: { (success, info) in
                 self.completionHandler?(success, [
@@ -58,6 +140,15 @@ final class CameraViewStillPhotoCaptureProcessor: CaptureProcessor {
 
 final class CameraViewLivePhotoCaptureProcessor: CaptureProcessor {
     private var photoURL: URL?
+
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        captureQueue.async {
+            guard let url = self.exportStillImageOutput(output, didFinishProcessingPhoto: photo, error: error) else{
+                return
+            }
+            self.photoURL = url
+        }
+    }
 
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingLivePhotoToMovieFileAt outputFileURL: URL, duration: CMTime, photoDisplayTime: CMTime, resolvedSettings: AVCaptureResolvedPhotoSettings, error: Error?) {
         captureQueue.async {
@@ -81,14 +172,6 @@ final class CameraViewLivePhotoCaptureProcessor: CaptureProcessor {
                 signal.end()
             })
             signal.waitUntilEnd()
-        }
-    }
-
-    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        captureQueue.async {
-            let url = FileURL.temp(UUID().uuidString, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
-            guard let _ = try? photo.fileDataRepresentation()?.write(to: url) else { return }
-            self.photoURL = url
         }
     }
 }

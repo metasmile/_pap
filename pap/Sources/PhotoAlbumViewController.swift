@@ -105,7 +105,7 @@ class PhotoAlbumViewController: UIViewController, PHPhotoLibraryChangeObserver  
         title = "Albums".localized
         
         //TODO: Preload
-        PHPhotoLibraryManager.default.authorizeIfNeeded { authorized in
+        PhotosManager.default.authorizeIfNeeded { authorized in
             guard authorized else { return }
             
             PHPhotoLibrary.shared().register(self)

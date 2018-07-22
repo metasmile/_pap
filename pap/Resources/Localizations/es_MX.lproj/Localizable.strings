@@ -164,7 +164,7 @@
 "Choose A Phone Number To Call" = "Elija un número de teléfono para llamar";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Elige una acción";
-/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Elija una opción de exportación para %d elementos";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Elija una acción secundaria.";
@@ -300,9 +300,9 @@
 "Rewind" = "Rebobinar";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "Guardar contactos encontrados directamente";
-/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Guardar y compartir";
-/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save" = "Salvar";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Guardando resultados ...";
@@ -318,7 +318,7 @@
 "Select Photos You Want To Grab Phone Numbers!" = "Seleccione las fotos que desea para tomar números de teléfono!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Enviar un correo electrónico";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Compartir";
 /* Generated from genl10n: Cleaner.BApp.swift#243 */
 "Similarities" = "Similitudes";

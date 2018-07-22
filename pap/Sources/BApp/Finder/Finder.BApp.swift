@@ -26,7 +26,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
 
     public static let paramType: AppTaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
 
-    public private(set) lazy var dockContent: AppDockContent? = FinderAppDockContent()
+    public private(set) lazy var content: AppDockContent? = FinderAppDockContent()
 
     fileprivate static let privateDefaults = FinderApp.defaults as! FinderAppDefaults
 
@@ -38,7 +38,9 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
             , version: "1.0"
             , phase: .release
             , appType: FinderApp.self
-            , displayName: "Finder".localized, description:nil, keywords:nil
+            , displayName: "Finder".localized
+            , description: "Finder enables extracting every meaningful informations such as phone numbers, addresses, dates or URLs from photos from your photos, and then call, open maps or navigate websites even searh flights!".localized
+            , keywords: ["Date", "Address", "Maps", "Location","URL","Flight","E-Mail", "Call", "Phone Number", "Contacts","Text","Detection","Information", "Search","Find","Recognization"]
             , iconBundleName: R.image.finderBAppIcon.name
             , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
             , minOSVersion: nil
@@ -86,7 +88,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
         }
     }
 
-    public func performPreheating(item: AppAsset, _ async: AsyncWaitSignalable) -> PreheatingFinishAction? {
+    public func performPreheating(item: AppAsset, cachingOption: PHAssetRequestOption?, _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
         if self.autoSelect == false{
             return nil
         }
@@ -288,7 +290,7 @@ extension FinderApp{
     }
 
     fileprivate func finalize_action(items: [FinderAppResult], _ asyncSignal: AsyncWaitSignalable) -> String?{
-        let alert = UIAlertController(title: "Choose An Action".localized, message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController.actionSheet(title: "Choose An Action".localized, message: nil)
 
         let defaultCancelSubAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
             asyncSignal.end()
@@ -348,7 +350,7 @@ extension FinderApp{
                     action = _quickAction(phoneNumber)
 
                 }else{
-                    let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+                    let _alert = UIAlertController.actionSheet(title: actionMessage, message: nil)
 
                     let _actions = [
                         defaultCancelSubAction,
@@ -414,7 +416,7 @@ extension FinderApp{
                 }else{
 
 
-                    let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+                    let _alert = UIAlertController.actionSheet(title: actionMessage, message: nil)
                     let _actions = [
                         defaultCancelSubAction,
 
@@ -514,7 +516,7 @@ extension FinderApp{
                     action  = _quickAction(dateString)
 
                 }else{
-                    let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+                    let _alert = UIAlertController.actionSheet(title: actionMessage, message: nil)
                     var _actions = [defaultCancelSubAction]
 
                     _actions.append(
@@ -586,7 +588,7 @@ extension FinderApp{
 
 
                 }else{
-                    let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+                    let _alert = UIAlertController.actionSheet(title: actionMessage, message: nil)
 
                     var _actions = [defaultCancelSubAction]
 
@@ -711,7 +713,7 @@ extension FinderApp{
 
                 }else{
 
-                    let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+                    let _alert = UIAlertController.actionSheet(title: actionMessage, message: nil)
 
                     var _actions = [defaultCancelSubAction]
 
@@ -825,7 +827,7 @@ extension FinderApp{
                     action = _quickAction(flightString)
 
                 }else{
-                    let _alert = UIAlertController(title: actionMessage, message: nil, preferredStyle: .actionSheet)
+                    let _alert = UIAlertController.actionSheet(title: actionMessage, message: nil)
 
                     var _actions = [defaultCancelSubAction]
 
@@ -1327,7 +1329,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
                 }){
                     self.settingCellDescribers.remove(at: index)
                 }
-             }
+            }
 
             //saveContactWithoutEdit
             if preset == SelectionPreset.contact.rawValue{

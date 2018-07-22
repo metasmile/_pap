@@ -30,7 +30,7 @@ public class TransformAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAtt
 }
 
 public class TransformApp: NSObject, BApp, KeyPathWatchable
-        , ConfigurableApp, _ConfigurableApp, PreviewableApp, AppDockApp, PHAssetFinalizableApp
+        , ConfigurableApp, _ConfigurableApp, EditableApp, AppDockApp, PHAssetFinalizableApp
         , PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp
         , PhotoEditorViewControllerDelegatableApp {
 
@@ -43,7 +43,7 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
     @objc dynamic
     public private(set) lazy var config: TransformAppConfigValue? = TransformApp.configure?()
 
-    public private(set) lazy var dockContent: AppDockContent? = createController()
+    public private(set) lazy var content: AppDockContent? = createController()
     public private(set) lazy var photoEditorDockContent: AppDockContent? = createController()
 
     public static let info = AppInfo(
@@ -51,7 +51,9 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
             , version: "1.0"
             , phase: .release
             , appType: TransformApp.self
-            , displayName: "Transform".localized, description:nil, keywords:nil
+            , displayName: "Transform".localized
+            , description: "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos.".localized
+            , keywords: ["Transformation", "Rotation","Flip","Vertical","Editor"]
             , iconBundleName: R.image.transformBAppIcon.name
             , policy: AppPolicy.default
             , minOSVersion: nil
@@ -63,6 +65,10 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
         config?.watch(\.tintColor, options: [.initial, .new]) {
             self.updateControllerView()
         }
+    }
+
+    public static var fixedContentLayout: Bool {
+        return true
     }
 
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
@@ -78,7 +84,7 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
         return item.asset.imageType != .animatedGIF
     }
     
-    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in dockContent: AppDockContent?) {}
+    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {}
 }
 
 private extension TransformApp{
@@ -109,7 +115,7 @@ private extension TransformApp{
     }
 
     private func updateControllerView(){
-        self.dockContent?.view.tintColor = config?.tintColor
+        self.content?.view.tintColor = config?.tintColor
         self.photoEditorDockContent?.view.tintColor = config?.tintColor
     }
 }

@@ -11,7 +11,7 @@ import UIKit
 class _AutoEditorAppAsset: _FiltersAppAsset {}
 
 public class AutoEditorApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _ConfigurableApp,
-        PHAssetFinalizableApp, PreviewableApp, PreviewProcessableApp, AppDockApp,
+        PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, AppDockApp,
         PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp, PhotoEditorViewControllerDelegatableApp {
 
     public static let taskType: AppTaskable.Type = _AutoEditorAppTask.self
@@ -21,7 +21,7 @@ public class AutoEditorApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _
     
     @objc dynamic
     public private(set) lazy var config: FiltersAppConfigValue? = FiltersApp.configure?()
-    public private(set) lazy var dockContent: AppDockContent? = AutoEditorAppDockContent()
+    public private(set) lazy var content: AppDockContent? = AutoEditorAppDockContent()
     public private(set) lazy var photoEditorDockContent: AppDockContent? = AutoEditorAppDockContent()
     
     public private(set) var defaultEditStateValue: ImageEditStateValue?
@@ -47,7 +47,9 @@ public class AutoEditorApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _
         , version: "1.0"
         , phase: .release
         , appType: AutoEditorApp.self
-        , displayName: "Auto Editor".localized, description:nil, keywords:nil
+        , displayName: "Auto Editor".localized
+        , description: "Auto Editor lets you edit automatically if your photos are needed to correct.".localized
+        , keywords: ["photo editor", "photos", "enhancement", "crop", "red-eye removal", "fix", "quality"]
         , iconBundleName: R.image.autoEditorBAppIcon.name
         , policy: AppPolicy.default
         , minOSVersion: nil
@@ -60,7 +62,7 @@ public class AutoEditorApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _
             self.updateControllerView()
         }
 
-        let controllerContent = self.dockContent as? AutoEditorAppDockContent
+        let controllerContent = self.content as? AutoEditorAppDockContent
         controllerContent?.watch(\.options, options: [.initial, .new]) {
             if let options = controllerContent?.options {
                 let filter = CIAutoAdjustmentFilter(options: options)
@@ -97,7 +99,11 @@ public class AutoEditorApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _
     public var doneButtonTitle: String? {
         return "Apply".localized
     }
-    
+
+    public static var fixedContentLayout: Bool {
+        return true
+    }
+
     public func shouldSelect(item: AppAsset) -> Bool {
         return item.asset.imageType == .stillImage
     }
@@ -117,9 +123,9 @@ public class AutoEditorApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _
         completion(original, filtered)
     }
     
-    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in dockContent: AppDockContent?) {
+    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
         let filter = editStateValue?.ciFilter as? CIAutoAdjustmentFilter
-        (dockContent as? AutoEditorAppDockContent)?.switchOptions(filter?.options, animated: false)
+        (content as? AutoEditorAppDockContent)?.switchOptions(filter?.options, animated: false)
     }
 }
 
@@ -188,7 +194,7 @@ private extension AutoEditorApp {
     ]
     
     private func updateControllerView(){
-        self.dockContent?.view.tintColor = config?.tintColor
+        self.content?.view.tintColor = config?.tintColor
         self.photoEditorDockContent?.view.tintColor = config?.tintColor
     }
 }

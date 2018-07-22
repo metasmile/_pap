@@ -68,7 +68,7 @@ public class UITableViewCellDescriber: UITableViewCellDefaultDescribable {
 
     public var cellClass:Swift.AnyClass { return UITableViewCell.self }
 
-    public var itemIdentifier:Int = Int.max
+    public lazy var itemIdentifier:Int = Int.max
 
     public var label: String = "Untitled"
     public var iconImage: ImageSourceable?

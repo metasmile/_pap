@@ -107,7 +107,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         return [AppDockItem(app: app)]
     }
     
-    override func dockContent(in view: AppDockView) -> AppDockContent? {
+    override func content(in view: AppDockView) -> AppDockContent? {
         return AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self)?.photoEditorDockContent
     }
     
@@ -121,7 +121,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self) {
+        if let app = AppCenter.default.currentInstanceAs(EditableApp.self) {
             app.selectEditStateValue(self.preferredEditState.imageEditStateValue, in: (app as? PhotoEditorViewControllerDelegatableApp)?.photoEditorDockContent)
         }
     }

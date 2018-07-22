@@ -4,7 +4,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 private struct PreheatingQueue {
 
@@ -13,10 +13,11 @@ private struct PreheatingQueue {
     //INFO: controlQueue must be higher than dispatchQueue for its priority
     fileprivate static let controlQueue =  DispatchQueue.main
 
-    //INFO: Access all following properties only with dispatchQueue when write
+    //INFO: Access all following properties. MUST ACCESS ONLY WITH <<PreheatingQueue.dispatchQueue>> WHEN WRITE
     fileprivate static let indexPathQueue = ItemQueue<IndexPath>()
+    fileprivate static var identifierSet = Set<String>()
 
-    //INFO: Write 'canceled' must be a dispatchqueue that has earlier QoS than .utility
+    //INFO: Write 'canceled'. MUST ACCESS ONLY WITH a queue faster than <<PreheatingQueue.dispatchQueue>> WHEN WRITE
     fileprivate static var canceled = false
 
 }
@@ -34,9 +35,12 @@ extension PhotoPickerViewController{
                     && self.photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == false{
 
             PreheatingQueue.dispatchQueue.async{
-                if false == PreheatingQueue.indexPathQueue.enqueued(where:{ $0 == indexPath }){
-                    PreheatingQueue.indexPathQueue.enqueue(indexPath)
+                guard let asset = PHAssets.fetched.asset(at: indexPath)
+                , false == PreheatingQueue.identifierSet.contains(asset.localIdentifier) else{
+                    return
                 }
+                PreheatingQueue.identifierSet.insert(asset.localIdentifier)
+                PreheatingQueue.indexPathQueue.enqueue(indexPath)
             }
         }
     }
@@ -48,7 +52,7 @@ extension PhotoPickerViewController{
     }
 
     public func performPrefetchIfNeeded(includingCurrentVisibleItems:Bool=false){
-        guard let interactableApp = AppCenter.default.currentInstanceAs(PreheatableApp.self) else {
+        guard let _ = AppCenter.default.currentInstanceAs(PreheatableApp.self) else {
             cancelPreheatingIfNeeded()
             return
         }
@@ -61,24 +65,34 @@ extension PhotoPickerViewController{
 
         func performNext() {
             PreheatingQueue.dispatchQueue.async {
-                guard let indexPath = PreheatingQueue.indexPathQueue.dequeue() else {
+                guard let preheatingApp = AppCenter.default.currentInstanceAs(PreheatableApp.self) else {
+                    self.cancelPreheatingIfNeeded()
                     return
                 }
 
-                var autoSelect = false
-
-                if let asset = PHAssets.fetched.asset(at: indexPath)
-                , let item = AppAssets.selected.at(unsafeIndex:indexPath.item) ?? AppAsset.create(for:asset) {
-                    if let finishAction = autoreleasepool(invoking:{ interactableApp.performPreheating(item: item, signal) }) as? UICollectionViewPreheatableAppFinishAction {
-                        autoSelect = finishAction == .selectItem
-                    }
+                guard let indexPath = PreheatingQueue.indexPathQueue.dequeue()
+                , let asset = PHAssets.fetched.asset(at: indexPath) else {
+                    return
                 }
+                PreheatingQueue.identifierSet.remove(asset.localIdentifier)
 
+                //prefetchedImage
+                let cachingOption = self.collectionViewDefaultCachingImageRequest(self.photoCollectionView, at: indexPath)
+
+                //performPreheating
+                var autoSelect = false
+                if let item = AppAssets.selected.at(unsafeIndex:indexPath.item) ?? AppAsset.create(for:asset)
+                , let finishAction = autoreleasepool(invoking:{ preheatingApp.performPreheating(item: item, cachingOption:cachingOption, signal) }) as? UICollectionViewPreheatableAppFinishAction {
+                    autoSelect = finishAction == .selectItem
+                }
+                
                 if PreheatingQueue.canceled{
+                    PreheatingQueue.identifierSet.removeAll()
                     PreheatingQueue.indexPathQueue.dequeueAll()
                     return
                 }
 
+                //select
                 if autoSelect{
                     DispatchQueue.main.async{
                         self.selectCollectionViewItem(at: indexPath, animated: false)
@@ -91,7 +105,8 @@ extension PhotoPickerViewController{
 
         PreheatingQueue.controlQueue.async {
             PreheatingQueue.canceled = false
-            performNext()
         }
+
+        performNext()
     }
 }

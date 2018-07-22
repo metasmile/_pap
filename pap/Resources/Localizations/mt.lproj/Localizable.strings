@@ -164,7 +164,7 @@
 "Choose A Phone Number To Call" = "Agħżel Numru tat-Telefon għal Sejħa";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Agħżel Azzjoni";
-/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Agħżel Għażla ta 'Esportazzjoni Għal %d Oġġetti";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Agħżel Azzjoni Sub.";
@@ -300,7 +300,7 @@
 "Rewind" = "Rewind";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "Ħlief Kuntatti Mqaddsa Direttament";
-/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Ħlief u Aqsam";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Ħlief";

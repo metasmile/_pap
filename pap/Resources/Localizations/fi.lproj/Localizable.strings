@@ -164,7 +164,7 @@
 "Choose A Phone Number To Call" = "Valitse puhelinnumero puheluun";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Valitse Toimi";
-/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Valitse %d Vientivaihtoehto";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Valitse alatoiminto.";
@@ -300,9 +300,9 @@
 "Rewind" = "Rewind";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "Tallenna löydetyt yhteystiedot suoraan";
-/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Tallenna ja jaa";
-/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save" = "Tallentaa";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Tulosten tallentaminen ...";
@@ -318,7 +318,7 @@
 "Select Photos You Want To Grab Phone Numbers!" = "Valitse valokuvat, jotka haluat napata puhelinnumerot!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Lähetä sähköposti";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
 /* Generated from genl10n: Cleaner.BApp.swift#243 */
 "Similarities" = "yhtäläisyyksiä";

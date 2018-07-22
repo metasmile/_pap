@@ -27,6 +27,11 @@ extension Defaults: CameraAppDefaults {
         set { set(newValue.rawValue) }
         get { return AVCaptureDevice.Position(rawValue: get(or: AVCaptureDevice.Position.back.rawValue)) ?? .back }
     }
+
+    var cameraFlashMode: AVCaptureDevice.FlashMode {
+        set { set(newValue.rawValue) }
+        get { return AVCaptureDevice.FlashMode(rawValue: get(or: AVCaptureDevice.FlashMode.off.rawValue)) ?? .off }
+    }
 }
 
 class CameraApp: NSObject, KeyPathWatchable, BApp, LaunchableApp, AppDockApp, PhotoPickerCollectionViewDisplayableApp {
@@ -34,14 +39,16 @@ class CameraApp: NSObject, KeyPathWatchable, BApp, LaunchableApp, AppDockApp, Ph
     
     public static let paramType: AppTaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
     
-    public private(set) lazy var dockContent: AppDockContent? = CameraAppDockContent()
+    public private(set) lazy var content: AppDockContent? = CameraAppDockContent()
     
     public static let info = AppInfo(
         identifier: "com.stells.pap.camera"
         , version: "1.0"
         , phase: .release
         , appType: CameraApp.self
-        , displayName: "Camera".localized, description:nil, keywords:nil
+        , displayName: "Camera".localized
+        , description: "Robust Standard Built-In Camera for Capturing Live Photos."
+        , keywords:["Camera", "Capture","Take a photo", "Video", "Record"]
         , iconBundleName: R.image.cameraBAppIcon.name
         , policy: AppPolicy.default
         , minOSVersion: nil
@@ -85,12 +92,14 @@ fileprivate class CameraAppDockContent: NSObject, KeyPathWatchable, AppDockConte
     }
 
     func didSetContentView(_ view: UIView, dock: AppDock) {
+        cameraView?.captureMetadataComment = AppCenter.default.currentInstanceAs(CameraApp.self)?.importedLaunchOption?.identifierToReturn
+
         cameraView?.startSession()
 
         if let pref = preferences, view.bounds.height > pref.preferredHeight {
             (view as? CameraAppView)?.isCompactMode = false
         }
-        
+
         cameraView?.capturedHandler = { succeed, results in
             if let results = results{
                 let data = [

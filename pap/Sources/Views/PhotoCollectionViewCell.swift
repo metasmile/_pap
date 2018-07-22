@@ -80,28 +80,24 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         decorationView.isHidden = true
         
         if let imageRequestId = imageRequestId {
-            PHPhotoLibraryManager.cachingImageManager.cancelImageRequest(imageRequestId)
+            PhotosManager.default.cachingImageManager.cancelImageRequest(imageRequestId)
         }
         imageRequestId = nil
     }
 
-    func setAsset(_ asset: PHAsset, at indexPath: IndexPath) {
+    func setAsset(_ asset: PHAsset, cachingOption: PHAssetRequestOption, at indexPath: IndexPath) {
+        self.imageContentMode = cachingOption.contentMode
         self.indexPath = indexPath
+
         prepareForDisplay(with: asset)
-        
-        let requestOptions = PHImageRequestOptions()
-        requestOptions.resizeMode = .fast
-        
-        let targetSizeScale = UIScreen.main.scale
-        let targetSize = CGSize(width: imageView.bounds.size.width*targetSizeScale, height: imageView.bounds.size.height*targetSizeScale)
-        
-        imageRequestId = PHPhotoLibraryManager.cachingImageManager.requestImage(for: asset, targetSize: targetSize, contentMode: imageContentMode, options: requestOptions) { [weak self] (image, info) in
-            DispatchQueue.main.async { [weak self] in
-                guard self?.indexPath == indexPath else { return }
+
+        imageRequestId = PhotosManager.default.cachingImageManager.requestImage(for: asset, option: cachingOption) { [weak self] (image, info) in
+            guard self?.indexPath == indexPath else { return }
+            DispatchQueue.main.async{
                 self?.imageView.image = image
                 self?.updateDecorationContents(with: asset)
+                self?.imageRequestId = nil
             }
-            self?.imageRequestId = nil
         }
     }
     

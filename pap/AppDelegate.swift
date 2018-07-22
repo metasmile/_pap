@@ -32,6 +32,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
 
         Armchair.appID("1309539102")
+        Armchair.useStoreKitReviewPrompt( true)
+        #if DEBUG
+        Armchair.resetAllCounters()
+        #endif
 
         DispatchQueue.global(qos: .background).async{
             self.spotlightSearchAppDelegate.indexDefaultSearchableItems()

@@ -164,7 +164,7 @@
 "Choose A Phone Number To Call" = "අමතන්න දුරකථන අංකය තෝරන්න";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "ක්රියාවක් තෝරන්න";
-/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "%d අයිතම සඳහා අපනයන තෝරාගැනීම තෝරන්න";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "උප උපක්රමය තෝරන්න.";
@@ -300,7 +300,7 @@
 "Rewind" = "නැවතත්";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "සෘජු සම්බන්ධතා සොයාගත හැකිය";
-/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "සුරකින්න සහ බෙදාගන්න";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "සුරකින්න";

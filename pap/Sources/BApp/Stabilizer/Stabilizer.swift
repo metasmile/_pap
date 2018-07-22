@@ -55,7 +55,7 @@ public class StabilizerAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAt
 }
 
 public class Stabilizer: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp
-        , PhotoPickerCollectionViewDisplayableApp, ConfigurableApp, _ConfigurableApp, PreviewableApp{
+        , PhotoPickerCollectionViewDisplayableApp, ConfigurableApp, _ConfigurableApp, EditableApp {
     public static let taskType: AppTaskable.Type = StabilizerTask.self
 
     public static let paramType: AppTaskParamable.Type = _StabilizerAppAsset.self
@@ -64,7 +64,7 @@ public class Stabilizer: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, Phot
     
     @objc dynamic
     public private(set) lazy var config: StabilizerAppConfigValue? = Stabilizer.configure?()
-    public private(set) lazy var dockContent: AppDockContent? = StabilizerAppDockContent()
+    public private(set) lazy var content: AppDockContent? = StabilizerAppDockContent()
 
     public static let info = AppInfo(
             identifier: "com.stells.pap.stabilizer"
@@ -103,7 +103,7 @@ public class Stabilizer: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, Phot
     }
     
     public private(set) var defaultEditStateValue: ImageEditStateValue?
-    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in dockContent: AppDockContent?) {}
+    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {}
 }
 
 private class StabilizerTask: AppTaskPrototype, AppTaskable {

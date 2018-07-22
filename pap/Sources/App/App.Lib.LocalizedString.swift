@@ -14,12 +14,12 @@ struct AppMsg {
     struct cannot{
         struct detect {
             static var information:String{
-                return "Sorry. No information about you have selected could not be detected.".localized
+                return "Did not detect anything.".localized
             }
         }
 
         static var save:String{
-            return "Sorry, it could not be saved.".localized
+            return "It could not be saved.".localized
         }
     }
 

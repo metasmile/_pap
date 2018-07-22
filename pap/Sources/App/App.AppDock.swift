@@ -7,11 +7,17 @@ import Foundation
 import UIKit
 
 public protocol AppDockApp: class, App {
-    var dockContent: AppDockContent? {get}
+    var content: AppDockContent? {get}
+
+    static var fixedContentLayout:Bool {get}
 }
 
 extension AppDockApp {
-    public var dockContent: AppDockContent? {
+    public static var fixedContentLayout: Bool {
+        return false
+    }
+
+    public var content: AppDockContent? {
         let label = UILabel()
         label.text = type(of: self).info.displayName + " Control View Area"
         label.textAlignment = .center

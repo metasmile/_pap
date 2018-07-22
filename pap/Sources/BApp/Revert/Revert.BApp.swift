@@ -46,7 +46,7 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp
             , minOSVersion: nil
     )
 
-    public private(set) lazy var dockContent: AppDockContent? = RevertAppDockContent()
+    public private(set) lazy var content: AppDockContent? = RevertAppDockContent()
 
     private let appDefaults = RevertApp.defaults as! RevertAppDefaults
 
@@ -61,7 +61,7 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp
         return true
     }
 
-    public func performPreheating(item: AppAsset, _ async: AsyncWaitSignalable) -> PreheatingFinishAction? {
+    public func performPreheating(item: AppAsset, cachingOption: PHAssetRequestOption?, _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
         return appDefaults.autoSelect && item.asset.isAdjusted == true ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
     }
 

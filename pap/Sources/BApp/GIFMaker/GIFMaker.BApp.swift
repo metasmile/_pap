@@ -255,14 +255,16 @@ public class GIFMakerApp: BApp,
     
     @objc dynamic
     public private(set) lazy var config: GIFMakerAppConfigValue? = GIFMakerApp.configure?()
-    public private(set) lazy var dockContent: AppDockContent? = GIFMakerAppDockContent()
+    public private(set) lazy var content: AppDockContent? = GIFMakerAppDockContent()
     
     public static let info = AppInfo(
         identifier: "com.stells.pap.gifmaker"
         , version: "1.0"
         , phase: .release
         , appType: GIFMakerApp.self
-        , displayName: "GIF Maker".localized, description:nil, keywords:nil
+        , displayName: "GIF Maker".localized
+        , description: "GIF Maker allows for easily and quickily making GIF images from Photos or Live Photos with various options!".localized
+        , keywords: ["GIF Maker", "Live Photos", "GIF Editor", "GIF", "Video Converter", "Burst Photos","Animated GIF", "Animation", "Aspect Ratio","Repeatation"]
         , iconBundleName: R.image.gifMakerBAppIcon.name
         , policy: AppPolicy.default
         , minOSVersion: nil
@@ -275,10 +277,10 @@ public class GIFMakerApp: BApp,
     }
     
     public func shouldSelect(item: AppAsset) -> Bool {
-        return (dockContent as? GIFMakerAppDockContent)?.shouldImport(asset: item.asset) ?? false
+        return (content as? GIFMakerAppDockContent)?.shouldImport(asset: item.asset) ?? false
     }
 
-    public func performPreheating(item: AppAsset, _ async: AsyncWaitSignalable) -> PreheatingFinishAction? {
+    public func performPreheating(item: AppAsset, cachingOption: PHAssetRequestOption?, _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
         return nil
     }
 

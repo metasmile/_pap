@@ -16,10 +16,6 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         return AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDisplayableApp.self)
     }
     
-    private var assetContentMode: PHImageContentMode {
-        return traitCollection.userInterfaceIdiom == .phone ? .aspectFill : .aspectFit
-    }
-
     // MARK: - UICollectionViewDataSource
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -32,9 +28,10 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.nib.photoCollectionViewCell.name, for: indexPath) as! PhotoCollectionViewCell
+        let cachingParam = self.collectionViewDefaultCachingImageRequest(collectionView, at: indexPath)
+
         if let asset = PHAssets.fetched.asset(at: indexPath) {
-            cell.imageContentMode = assetContentMode
-            cell.setAsset(asset, at: indexPath)
+            cell.setAsset(asset, cachingOption: cachingParam, at: indexPath)
         }
         return cell
     }
@@ -48,13 +45,11 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     // MARK: - UICollectionViewDataSourcePrefetching
 
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        let cellSize = self.collectionView(collectionView, layout: collectionView.collectionViewLayout, sizeForItemAt: IndexPath(item: 0, section: 0))
-        PHPhotoLibraryManager.cachingImageManager.startCachingImages(for: indexPaths.compactMap({ PHAssets.fetched.asset(at: $0) }), targetSize: cellSize, contentMode: assetContentMode, options: nil)
+        self.collectionViewStartCachingImages(collectionView, at: indexPaths)
     }
 
     func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
-        let cellSize = self.collectionView(collectionView, layout: collectionView.collectionViewLayout, sizeForItemAt: IndexPath(item: 0, section: 0))
-        PHPhotoLibraryManager.cachingImageManager.stopCachingImages(for: indexPaths.compactMap({ PHAssets.fetched.asset(at: $0) }), targetSize: cellSize, contentMode: assetContentMode, options: nil)
+        self.collectionViewStopCachingImages(collectionView, at: indexPaths)
     }
 
     // MARK: - UICollectionViewDelegate
@@ -100,7 +95,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         if let asset = PHAssets.fetched.asset(at: indexPath){
             batchPreviewView.appendCollectionViewItem(with:asset)
 
-            if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self), let value = app.defaultEditStateValue, let item = AppAssets.selected.by(asset) {
+            if let app = AppCenter.default.currentInstanceAs(EditableApp.self), let value = app.defaultEditStateValue, let item = AppAssets.selected.by(asset) {
                 AppAssets.selected.appendValue(value, for: [item])
             }
         }

@@ -49,7 +49,7 @@ public class FiltersAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttrr
 }
 
 public class FiltersApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _ConfigurableApp,
-        PHAssetFinalizableApp, PreviewableApp, PreviewProcessableApp, AppDockApp,
+        PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, AppDockApp,
         PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp,
 PhotoEditorViewControllerDelegatableApp {
     public static let taskType: AppTaskable.Type = _FiltersAppTask.self
@@ -59,7 +59,7 @@ PhotoEditorViewControllerDelegatableApp {
     
     @objc dynamic
     public private(set) lazy var config: FiltersAppConfigValue? = FiltersApp.configure?()
-    public private(set) lazy var dockContent: AppDockContent? = FiltersAppDockContent()
+    public private(set) lazy var content: AppDockContent? = FiltersAppDockContent()
     public private(set) lazy var photoEditorDockContent: AppDockContent? = FiltersAppDockContent()
     
     public private(set) var defaultEditStateValue: ImageEditStateValue?
@@ -72,7 +72,9 @@ PhotoEditorViewControllerDelegatableApp {
         , version: "1.0"
         , phase: .release
         , appType: FiltersApp.self
-        , displayName: "Filters".localized, description:nil, keywords:nil
+        , displayName: "Filters".localized
+        , description: "Apply High-Quality Filters On Your All Photos You Want.".localized
+        , keywords: ["Filters", "Color", "Effect", "High-Quality"] + FiltersAppDockContent.CIFilters.filters.compactMap({ FiltersAppDockContent.PhotosFilterNames.aliasName($0.name) })
         , iconBundleName: R.image.filtersBAppIcon.name
         , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
         , minOSVersion: nil
@@ -97,6 +99,10 @@ PhotoEditorViewControllerDelegatableApp {
     public var finalizingActions: [PHAssetFinalizingAction] {
         return [.modify]
     }
+
+    public static var fixedContentLayout: Bool {
+        return true
+    }
     
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
         self.config?.adoptValues(fromOther: config)
@@ -117,20 +123,20 @@ PhotoEditorViewControllerDelegatableApp {
         photoEditorDockContent?.view.isUserInteractionEnabled = true
     }
     
-    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in dockContent: AppDockContent?) {
-        (dockContent as? FiltersAppDockContent)?.selectItem(with: editStateValue)
+    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
+        (content as? FiltersAppDockContent)?.selectItem(with: editStateValue)
     }
 }
 
 private extension FiltersApp {
     private func updateControllerView() {
-        self.dockContent?.view.tintColor = config?.tintColor
+        self.content?.view.tintColor = config?.tintColor
         self.photoEditorDockContent?.view.tintColor = config?.tintColor
     }
 }
 
 fileprivate class FiltersAppDockContent: NSObject, KeyPathWatchable, AppDockContent {
-    private struct PhotosFilterNames {
+    fileprivate struct PhotosFilterNames {
         static let CIPhotoEffectChrome = "CIPhotoEffectChrome"
         static let CIPhotoEffectFade = "CIPhotoEffectFade"
         static let CIPhotoEffectInstant = "CIPhotoEffectInstant"
@@ -181,7 +187,7 @@ fileprivate class FiltersAppDockContent: NSObject, KeyPathWatchable, AppDockCont
                 AppCenter.default.currentInstanceAs(FiltersApp.self)?.config?.filter = filterItem
             })
         })
-        
+
         return items
     }()
     

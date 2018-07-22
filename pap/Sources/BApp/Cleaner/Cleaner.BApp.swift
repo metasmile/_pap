@@ -1,5 +1,5 @@
 //
-// Created by BLACKGENE on 27/03/2018.
+// Created ?by BLACKGENE on 27/03/2018.
 // Copyrig?ht (c) 2018 Stells. All rights reserved.
 //
 
@@ -10,12 +10,6 @@ import CocoaImageHashing
 import MetalPerformanceShaders
 import MetalKit
 import Vision
-
-#if DEBUG
-private var DEVMODE = true
-#else
-private var DEVMODE = false
-#endif
 
 private typealias CleanerAppParam = PHAssetItem<ImageEditStateValue>
 
@@ -38,7 +32,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
 
     public static let paramType: AppTaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
 
-    public private(set) lazy var dockContent: AppDockContent? = CleanerAppDockContent()
+    public private(set) lazy var content: AppDockContent? = CleanerAppDockContent()
 
     fileprivate static var privateDefaults = CleanerApp.defaults as! CleanerAppDefaults
 
@@ -47,7 +41,9 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
             , version: "1.0"
             , phase: .release
             , appType: CleanerApp.self
-            , displayName: "Cleaner".localized, description:nil, keywords:nil
+            , displayName: "Cleaner".localized
+            , description: "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lock screenshots!".localized
+            , keywords: ["Clean","Remove","Instagram Video","Screenshot", "Flashlight", "Close-up", "Similar Photos", "Duplicate", "Capacity", "Memory", "Volume", "Saving"]
             , iconBundleName: R.image.cleanerBAppIcon.name
             , policy: AppPolicy.default
 //            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
@@ -72,17 +68,18 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     public fileprivate (set) lazy var autoSelect: Bool = false
 
     fileprivate static let SupportingGDTypes:[PHAssetGarbageDetector.Type] = [
-        PHAssetGarbageDetector_SavedWithouttheCamera.self
-        , PHAssetGarbageDetector_Screenshots.self
-        , PHAssetGarbageDetector_Similarity.self
-//        , PHAssetGarbageDetector_Blurry.self
+        PHAssetGarbageDetector_Similarity.self
         , PHAssetGarbageDetector_Lockscreens.self
+        , PHAssetGarbageDetector_Screenshots.self
+//        , PHAssetGarbageDetector_Blurry.self
         , PHAssetGarbageDetector_Flashlight.self
         , PHAssetGarbageDetector_TooCloseupFace.self
         , PHAssetGarbageDetector_TooSlowShutterSpeed.self
         , PHAssetGarbageDetector_VideosWithoutSound.self
         , PHAssetGarbageDetector_VideosShorterThan1Sec.self
         , PHAssetGarbageDetector_VideosSavedbyInstagramApp.self
+        , PHAssetGarbageDetector_SavedWithBuiltInCamera.self
+        , PHAssetGarbageDetector_SavedWithouttheCamera.self
     ]
 
     fileprivate static let SupportingGDTypesKeys:[String:PHAssetGarbageDetector.Type]
@@ -92,15 +89,21 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
         gc
     */
 
-    func disposeGdInstance(identifier:String){
-        gdInstances[identifier] = nil
+    func disposeGdInstance(gdIdentifier:String){
+        gdInstances[gdIdentifier] = nil
+
+        //also dispose result caches
+        for (k,v) in cachedResults{
+            var result = v
+            result[gdIdentifier] = nil
+            cachedResults[k] = result
+        }
     }
 
     private var gdInstances = [String:PHAssetGarbageDetector]()
     fileprivate var cachedResults = [PHAssetID: PHAssetGCDetectedResult]()
-    fileprivate var enableCache = DEVMODE==false
 
-    fileprivate func gc(item: AppAsset, _ async: AsyncWaitSignalable) -> PHAssetGCResult {
+    fileprivate func gc(item: AppAsset, cachingOption: PHAssetRequestOption?, _ async: AsyncWaitSignalable) -> PHAssetGCResult {
 
         let gdType_Id = type(of: self).SupportingGDTypesKeys
         let gdCollection = type(of: self).privateDefaults.selectedCollection
@@ -108,45 +111,48 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
         var action:PHAssetGCAction = .none
 
         for gd in gdCollection{
-            //TODO: sort by more lighter gd.
-            for gcItem in gd.items where gcItem.enabled{
-                if let t = gdType_Id[gcItem.gdIdentifier]{
-                    let k = t.identifier
-                    let asset = item.asset
-                    let aid = asset.localIdentifier
+            let ts = gd.items.filter { $0.enabled }.compactMap { gcItem -> PHAssetGarbageDetector.Type? in
+                return gdType_Id[gcItem.gdIdentifier]
+            }.sorted { (detectorType: PHAssetGarbageDetector.Type, detectorType2: PHAssetGarbageDetector.Type) -> Bool in
+                detectorType.priority.rawValue > detectorType2.priority.rawValue
+            }
 
-                    //found cached result
-                    if let detectedResult = cachedResults[aid]
-                        , let detected = detectedResult[k]{
+            for t in ts{
+                let k = t.identifier
+                let asset = item.asset
+                let aid = asset.localIdentifier
 
-                        action = detected ? .delete: .none
-                        break
-                    }
+                //found cached result
+                if let detectedResult = cachedResults[aid]
+                , let detected = detectedResult[k]{
 
-                    //start to detect
-                    var detector:PHAssetGarbageDetector
-                    if let d = gdInstances[k]{
-                        detector = d
-                    }else{
-                        detector = t.init()
-                        gdInstances[k] = detector
-                        print(k,detector)
-                    }
+                    action = detected ? .delete: .none
+                    break
+                }
 
-                    let detected = autoreleasepool{
-                        return detector.process(input: asset, async) ?? false
-                    }
+                //start to detect
+                var detector:PHAssetGarbageDetector
+                if let d = gdInstances[k]{
+                    detector = d
+                }else{
+                    detector = t.init()
+                    gdInstances[k] = detector
+                    print(k,detector)
+                }
 
-                    if enableCache{
-                        var detectedCacheObject = cachedResults[aid] ?? PHAssetGCDetectedResult()
-                        detectedCacheObject[k] = detected
-                        cachedResults[aid] = detectedCacheObject
-                    }
+                let detected = autoreleasepool{
+                    return detector.process(input: (asset:asset, cachingOption:cachingOption), async) ?? false
+                }
 
-                    if detected{
-                        action = .delete
-                        break
-                    }
+                if t.shouldCacheResults {
+                    var detectedCacheObject = cachedResults[aid] ?? PHAssetGCDetectedResult()
+                    detectedCacheObject[k] = detected
+                    cachedResults[aid] = detectedCacheObject
+                }
+
+                if detected{
+                    action = .delete
+                    break
                 }
             }
         }
@@ -157,10 +163,10 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     /*
     preheat
     */
-    public func performPreheating(item: AppAsset, _ async: AsyncWaitSignalable) -> PreheatingFinishAction? {
+    public func performPreheating(item: AppAsset, cachingOption: PHAssetRequestOption?, _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
         guard self.autoSelect else { return nil }
 
-        return gc(item: item, async).action == .delete ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
+        return gc(item: item, cachingOption:cachingOption, async).action == .delete ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
@@ -185,37 +191,12 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
 
         }else{
             DispatchQueue.main.async{
-                UIAlertController.alert("Sorry, There are not any deleting targets in selected items.") { action in
+                UIAlertController.alert("There are not any deleting targets in selected items.") { action in
                     asyncSignal.end()
                 }
             }
         }
         asyncSignal.waitUntilEnd()
-//
-//        let alert = UIAlertController(title: "Clean the selected items".localized, message: nil, preferredStyle: .actionSheet)
-//
-//        let deleteAction = UIAlertAction(title: "Delete".localized, style: .destructive) { action in
-//            PHPhotoLibrary.shared().performChanges({
-//                PHAssetChangeRequest.deleteAssets(items.map { $0.asset } as NSArray)
-//            }, completionHandler: { (success, info) in
-//                asyncSignal.end()
-//            })
-//        }
-//        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel) { action in
-//            asyncSignal.end()
-//        }
-//
-//        alert.addAction(deleteAction)
-//        alert.addAction(cancelAction)
-//
-//        asyncSignal.begin()
-//
-//        DispatchQueue.main.async{
-//            UIViewController.root?.present(alert, animated: true)
-//        }
-//
-//        asyncSignal.waitUntilEnd()
-
         return result
     }
 }
@@ -232,7 +213,7 @@ private class _CleanerAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, Ap
         }
 
         if self.deletingTargetMatched {
-            return AppCenter.default.currentInstanceAs(CleanerApp.self)?.gc(item: item, async)
+            return AppCenter.default.currentInstanceAs(CleanerApp.self)?.gc(item: item, cachingOption: nil, async)
         }else{
             return PHAssetGCResult(asset: item.asset, action: .delete)
         }
@@ -320,18 +301,27 @@ extension Defaults: CleanerAppDefaults {
 }
 
 private struct GDItem:Codable, Hashable {
+    private static var DefaultEnabledGDTypes:[PHAssetGarbageDetector.Type]{
+        return [
+            PHAssetGarbageDetector_Similarity.self
+            , PHAssetGarbageDetector_Lockscreens.self
+        ]
+    }
+
     fileprivate let gdIdentifier: String
     fileprivate let label: String
     fileprivate var iconImageName: String?
+    fileprivate var iconImageShouldUseTintColor: Bool
     fileprivate var enabled: Bool
     private let _hashValue: Int
 
-    init(gd: PHAssetGarbageDetector.Type, enabled:Bool=true) {
+    init(gd: PHAssetGarbageDetector.Type) {
         self.gdIdentifier = gd.identifier
         self._hashValue = gdIdentifier.hashValue
         self.label = gd.label
         self.iconImageName = gd.iconImageName
-        self.enabled = enabled
+        self.iconImageShouldUseTintColor = gd.iconImageShouldUseTintColor
+        self.enabled = type(of: self).DefaultEnabledGDTypes.contains(where:{ $0 == gd })
     }
 
     var hashValue: Int {
@@ -541,7 +531,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
 //            cell1.valueHandler?(false)
 
         }
-        settingCellDescribers.append(cell0)
+//        settingCellDescribers.append(cell0)
 
         //auto save
         if CleanerApp.privateDefaults.deletingTarget == DeletingTarget.targeted.rawValue{
@@ -707,13 +697,18 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
 
         cell.imageView?.tintColor = self.view.tintColor
         let image = dataItem.iconImageName?.asUIImageNamed
-        cell.imageView?.image = image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+
+        if dataItem.iconImageShouldUseTintColor{
+            cell.imageView?.image = image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        }else{
+            cell.imageView?.image = image?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        }
 
         cell.detailTextLabel?.textColor = UIColor.gray
         cell.optionSwitch.setOn(selected, animated: false)
 
         cell.switchDidChange = { on in
-            let identifier = dataItem.gdIdentifier
+            let gdIdentifier = dataItem.gdIdentifier
 
             //set enable
             var collection = self.defaultCollections
@@ -745,7 +740,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
             self.stopAutoSelect()
 
             if on == false{
-                AppCenter.default.currentInstanceAs(CleanerApp.self)?.disposeGdInstance(identifier: identifier)
+                AppCenter.default.currentInstanceAs(CleanerApp.self)?.disposeGdInstance(gdIdentifier: gdIdentifier)
             }
 
 //            if self.isActivatedAtLeastOne == false{

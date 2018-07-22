@@ -38,7 +38,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
 
         TransformApp.configure = {
             let config = TransformAppConfigValue()
-            config.tintColor = .black
+            config.tintColor = UIColor(red:0.75, green:0.31, blue:0.8, alpha:1)
             return config
         }
         

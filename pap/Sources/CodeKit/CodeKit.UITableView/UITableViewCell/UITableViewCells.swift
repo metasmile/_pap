@@ -109,7 +109,7 @@ class UITableViewActionSheetCell: UITableViewSimpleValueCell {
 
     @objc func tapped(r: UITapGestureRecognizer) {
 
-        let alert = UIAlertController(title: actionSheetTitleText, message: actionSheetMessageText, preferredStyle: .actionSheet)
+        let alert = UIAlertController.actionSheet(title: actionSheetTitleText, message: actionSheetMessageText)
 
         if let labels = valueLabels {
             for l in labels {
@@ -168,6 +168,7 @@ class UITableViewStepperCell: UITableViewCellWithInclusiveHitTestSubview {
     }
 
     @objc func valueDidChange(sender: UIStepper) {
+        UISelectionFeedbackGenerator().selectionChanged()
         didChangeValue?(sender.value)
     }
 }
@@ -200,6 +201,7 @@ class UITableViewButtonCell: UITableViewCell {
         if !touchAreaOnlyButton{
             for touch in touches{
                 if let _ = touch.view{
+                    UISelectionFeedbackGenerator().selectionChanged()
                     didTap?()
                     break
                 }
@@ -255,6 +257,7 @@ class UITableViewSegmentedControlCell: UITableViewCellWithInclusiveHitTestSubvie
     }
 
     @objc func valueDidChange(sender: UISegmentedControl) {
+        UISelectionFeedbackGenerator().selectionChanged()
         didChangeValue?(sender.selectedSegmentIndex)
     }
 }

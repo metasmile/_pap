@@ -19,6 +19,18 @@ private struct UIAlertControllerPool{
 }
 
 public extension UIAlertController{
+    public static func actionSheet(title: String?, message: String?, sourceView:UIView?=nil) -> UIAlertController{
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+
+        if let popoverPresentationController = alert.popoverPresentationController {
+            popoverPresentationController.sourceView = sourceView ?? UIViewController.root?.view
+            if let view = sourceView{
+                popoverPresentationController.sourceRect = view.bounds
+            }
+        }
+
+        return alert
+    }
 
     @discardableResult
     public static func alert(_ message:String
@@ -48,6 +60,7 @@ public extension UIAlertController{
         }))
 
         UIAlertControllerPool.shared.presentingAlertViewController = alert
+
 
         UIViewController.root?.present(alert, animated: true) {
             if let dismissInterval = autoDismiss{

@@ -25,13 +25,15 @@ public class ExifGhostApp: NSObject, KeyPathWatchable,BApp,
             , version: "1.0"
             , phase: .release
             , appType: ExifGhostApp.self
-            , displayName: "EXIF Ghost", description:nil, keywords:nil
+            , displayName: "EXIF Ghost"
+            , description: "EXIF Ghost lets you remove all kinds of data containing by your photos including privacy information.".localized
+            , keywords: ["privacy", "exif", "metadata", "GPS", "altitude", "latitude", "time stamp", "date", "date time", "time", "personal data"]
             , iconBundleName: R.image.exifGhostBAppIcon.name
             , policy: AppPolicy.default
             , minOSVersion: nil
     )
 
-    public private(set) lazy var dockContent: AppDockContent? = ExifGhostAppAppDockContent()
+    public private(set) lazy var content: AppDockContent? = ExifGhostAppAppDockContent()
 
     @objc dynamic
     public var autoSelect: Bool = false
@@ -48,7 +50,7 @@ public class ExifGhostApp: NSObject, KeyPathWatchable,BApp,
         return item.asset.mediaType == .image
     }
 
-    public func performPreheating(item: AppAsset, _ async: AsyncWaitSignalable) -> PreheatingFinishAction? {
+    public func performPreheating(item: AppAsset, cachingOption: PHAssetRequestOption?, _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
 
         if autoSelect && item.asset.mediaType == .image{
             var purged = false
@@ -102,7 +104,7 @@ private class _ExifGhostAppTask: AppTaskPrototype, AppTaskable {
                 , let metadata = data.getMetadata(){
 
                     var ghostedData:Data
-                    if let appContentAsExifGhostApp = AppCenter.default.currentInstanceAs(AppDockApp.self)?.dockContent as? ExifGhostAppAppDockContent {
+                    if let appContentAsExifGhostApp = AppCenter.default.currentInstanceAs(AppDockApp.self)?.content as? ExifGhostAppAppDockContent {
                         if appContentAsExifGhostApp.shouldGhostAll{
                             ghostedData = data.setMetadata(with: nil)
 

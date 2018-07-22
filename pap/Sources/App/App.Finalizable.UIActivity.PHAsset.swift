@@ -143,7 +143,6 @@ extension PHAssetFinalizingActivity {
 //                asyncSignal.end()
             }
 
-            activityViewController.popoverPresentationController?.sourceView = UIViewController.root?.view
             UIViewController.root?.present(activityViewController, animated: true, completion: nil)
         }
 //        asyncSignal.waitUntilEnd()

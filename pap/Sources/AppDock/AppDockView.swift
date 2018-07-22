@@ -22,7 +22,7 @@ struct AppDockItem {
 protocol AppDockViewDataSource {
     func numberOfItems(in view: AppDockView) -> Int
     func appDockView(_ view: AppDockView, itemAt index: Int) -> AppDockItem?
-    func dockContent(in view: AppDockView) -> AppDockContent?
+    func content(in view: AppDockView) -> AppDockContent?
 }
 
 protocol AppDockViewDelegate {
@@ -228,7 +228,7 @@ class AppDockView: CustomView {
     }
     
     func loadControllerContentIfNeeded(){
-        let controller = dataSource?.dockContent(in: self)
+        let controller = dataSource?.content(in: self)
         if self.controller?.view != controller?.view{
             self.controller = controller
         }
@@ -271,7 +271,7 @@ class AppDockView: CustomView {
     }
 
     var conformsPreviewable:Bool{
-        return AppCenter.default.current is PreviewableApp.Type
+        return (AppCenter.default.current as? AppDockApp.Type)?.fixedContentLayout ?? false
     }
 
     private func hasControlView(_ view: UIView?) -> Bool {
@@ -498,6 +498,7 @@ extension AppDockView {
 }
 
 extension AppDockView {
+
     var selectedIndexPath: IndexPath? {
         return appCollectionView.indexPathsForSelectedItems?.first
     }
@@ -516,6 +517,13 @@ extension AppDockView {
 // MARK: -
 
 extension AppDockView: UICollectionViewDataSource {
+    var selectedDockViewCell:UICollectionViewCell?{
+        guard let indexPath = selectedIndexPath else{
+            return nil
+        }
+        return collectionView(self.appCollectionView, cellForItemAt: indexPath)
+    }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataSource?.numberOfItems(in: self) ?? 0
     }
@@ -542,6 +550,8 @@ extension AppDockView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         zoomOutAppCollectionView(delay: 0)
 //        delegate?.appDockView(self, needsScrollToBottom: true)
+
+        UISelectionFeedbackGenerator().selectionChanged()
         
         if let item = dataSource?.appDockView(self, itemAt: indexPath.item) {
             delegate?.appDockView(self, didSelectItemWith: item)

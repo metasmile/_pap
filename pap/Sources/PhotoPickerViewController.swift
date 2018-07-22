@@ -10,6 +10,7 @@ import UIKit
 import Photos
 import PhotosUI
 import Hero
+import Armchair
 
 fileprivate struct PhotoEditorTransitionContext {
     var sourceView: UIView
@@ -82,8 +83,8 @@ class PhotoPickerViewController: AppDockViewController {
         }
 
         //listen PHPhotoLibrary changes
-        PHPhotoLibraryManager.default.watch(\.changes) {
-            guard let changeInstance = PHPhotoLibraryManager.default.changes else { return }
+        PhotosManager.default.watch(\.changes) {
+            guard let changeInstance = PhotosManager.default.changes else { return }
 
             DispatchQueue.main.async{
                 self.queuedPhotoLibraryChanges.enqueue(changeInstance)
@@ -112,7 +113,7 @@ class PhotoPickerViewController: AppDockViewController {
         }
 
         //check photo library permission and load
-        PHPhotoLibraryManager.default.authorizeIfNeeded { authorized in
+        PhotosManager.default.authorizeIfNeeded { authorized in
             guard authorized else { return }
 
             DispatchQueue.main.async{ // if not call from DispatchQueue.main.async, scroll will not work.
@@ -141,6 +142,8 @@ class PhotoPickerViewController: AppDockViewController {
         dragSelectionGesture = DragSelectionGestureRecognizer(target: self, action: #selector(self.dragSelectionGestureDidRecognize))
         dragSelectionGesture.delegate = self
         photoCollectionView.addGestureRecognizer(dragSelectionGesture)
+
+        updateSelectedItemUIs()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -156,8 +159,8 @@ class PhotoPickerViewController: AppDockViewController {
         
         animatesUpdatingPhotoCollectionContentInset = true
         
-        if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self) {
-            app.selectEditStateValue(app.defaultEditStateValue, in: (app as? AppDockApp)?.dockContent)
+        if let app = AppCenter.default.currentInstanceAs(EditableApp.self) {
+            app.selectEditStateValue(app.defaultEditStateValue, in: (app as? AppDockApp)?.content)
         }
     }
 
@@ -228,13 +231,13 @@ class PhotoPickerViewController: AppDockViewController {
         
         AppAssets.selected.reloadAll()
         
-        if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self) {
+        if let app = AppCenter.default.currentInstanceAs(EditableApp.self) {
             let value = app.defaultEditStateValue
             if let value = value {
                 AppAssets.selected.appendValue(value)
             }
             
-            app.selectEditStateValue(value, in: (app as? AppDockApp)?.dockContent)
+            app.selectEditStateValue(value, in: (app as? AppDockApp)?.content)
         }
         
         redisplayVisibleCellsEnabled()
@@ -245,6 +248,8 @@ class PhotoPickerViewController: AppDockViewController {
         updateDoneButtonState()
         cancelPreheatingIfNeeded()
         performPrefetchIfNeeded(includingCurrentVisibleItems: true)
+
+        //TODO: for iPad - popoverPresentation sourceView is not works - see u at next update
     }
     
     override func registerWatchingAppConfig() {
@@ -323,7 +328,7 @@ class PhotoPickerViewController: AppDockViewController {
     private func setAppValue(_ value: ImageEditStateValue) {
         AppAssets.selected.appendValue(value)
         
-        if let app = AppCenter.default.currentInstanceAs(PreviewableApp.self) {
+        if let app = AppCenter.default.currentInstanceAs(EditableApp.self) {
             app.setDefaultEditStateValue(value)
         }
         
@@ -363,8 +368,9 @@ class PhotoPickerViewController: AppDockViewController {
 
     override func cancelButtonDidTap(sender: Any) {
         super.cancelButtonDidTap(sender: sender)
-        
+
         let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.prepare()
         generator.impactOccurred()
 
         cancelAllInCurrentContext()
@@ -378,6 +384,16 @@ class PhotoPickerViewController: AppDockViewController {
         updateVisibleCellsEnabled()
 
         cancelPreheatingIfNeeded()
+    }
+
+    @objc func payableButtonDidTap(sender: UIButton) {
+
+        //https://github.com/UrbanApps/Armchair
+        Armchair.resetAllCounters()
+        Armchair.showPrompt { info in
+            return true
+        }
+//        Armchair.rateApp()
     }
 
     private func showAndRevertTitleByCurrentAppIfNeeded(){
@@ -439,30 +455,50 @@ class PhotoPickerViewController: AppDockViewController {
         }
     }
 
+    private enum RightButtonState{
+        case unpaidDeselected
+        case paidSelected
+    }
+
     private func updateSelectedItemsControl() {
-        let selectedAssets = self.selectedAssetsInCollectionView
-        let numberOfVideos = selectedAssets?.filter({ $0.mediaType == .video }).count ?? 0
-        let numberOfPhotos = selectedAssets?.filter({ $0.mediaType == .image }).count ?? 0
-        let numberOfItems = numberOfPhotos + numberOfVideos
-        
-        if numberOfItems == 0 {
-            navigationItem.setLeftBarButton(nil, animated: true)
-            navigationItem.setRightBarButton(nil, animated: true)
-            
-            if appDockView?.accessory != nil {
-                appDockView?.accessory = nil
-                batchPreviewView.reloadContent()
-            }
-        }
-        else {
+
+        switch updateRightButtonState(){
+
+        case .paidSelected:
             navigationItem.setLeftBarButton(self.cancelButton, animated: true)
-            navigationItem.setRightBarButton(self.doneButton, animated: true)
 
             if appDockView?.accessory == nil {
                 appDockView?.accessory = batchPreviewView
             }
+
+        case .unpaidDeselected:
+            navigationItem.setLeftBarButton(nil, animated: true)
+
+            if appDockView?.accessory != nil {
+                appDockView?.accessory = nil
+                batchPreviewView.reloadContent()
+            }
+
         }
     }
+
+    private lazy var ratingButton = UIBarButtonItem(image: R.image.systemIconFavoriteLine(), style: .plain, target: self, action: #selector(self.payableButtonDidTap))
+
+    private func updateRightButtonState() -> RightButtonState{
+
+        //TODO: payableButton by state
+        if self.estimatedAvailableSelectedItems == 0 {
+            ratingButton.target = self
+            ratingButton.action = #selector(self.payableButtonDidTap)
+            navigationItem.setRightBarButton(ratingButton, animated: true)
+
+            return .unpaidDeselected
+        }
+
+        navigationItem.setRightBarButton(self.doneButton, animated: true)
+        return .paidSelected
+    }
+
 
     private func updateDoneButtonState() {
 
@@ -475,6 +511,13 @@ class PhotoPickerViewController: AppDockViewController {
             let definedTitle = AppCenter.default.currentInstanceAs(PhotoPickerViewControllerDelegatableApp.self)?.doneButtonTitle
             doneButton?.title = definedTitle ?? "Start".localized
         }
+    }
+
+    var estimatedAvailableSelectedItems:Int{
+        let selectedAssets = self.selectedAssetsInCollectionView
+        let numberOfVideos = selectedAssets?.filter({ $0.mediaType == .video }).count ?? 0
+        let numberOfPhotos = selectedAssets?.filter({ $0.mediaType == .image }).count ?? 0
+        return numberOfPhotos + numberOfVideos
     }
 
     var formattedStringForAllPhotos: String {
@@ -656,13 +699,16 @@ class PhotoPickerViewController: AppDockViewController {
             // PhotoPickerCollectionViewDisplayableApp.shouldSelectWhenInserted
             let collectionViewDelegatableApp = AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDisplayableApp.self)
             if let allowedSelectionIndexPaths = collectionViewDelegatableApp?.shouldSelectWhenInserted(indexPaths: insertedIndexes.nilEmpty){
-                for indexPath in allowedSelectionIndexPaths {
-                    self.selectCollectionViewItem(at: indexPath)
-                }
+                Timer.scheduledTimer(identifier: #file+#function, withTimeInterval: 0) { timer in
+                    for indexPath in allowedSelectionIndexPaths {
+                        self.selectCollectionViewItem(at: indexPath)
+                    }
 
-                DispatchQueue.mainAsyncAfter(qos: .background) {
-                    self.setNeedsScrollToBottom()
-                    self.scrollToBottomIfNeeded(animated: true)
+                    DispatchQueue.mainAsyncAfter(qos: .background) {
+                        self.viewDidLayoutSubviews()
+                        self.setNeedsScrollToBottom()
+                        self.scrollToBottomIfNeeded(animated: true)
+                    }
                 }
             }
         })

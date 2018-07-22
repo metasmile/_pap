@@ -188,8 +188,8 @@ class AppDockViewController: UIViewController, AppDockViewDataSource {
         return insets
     }
     
-    func dockContent(in view: AppDockView) -> AppDockContent? {
-        return AppCenter.default.currentInstanceAs(AppDockApp.self)?.dockContent
+    func content(in view: AppDockView) -> AppDockContent? {
+        return AppCenter.default.currentInstanceAs(AppDockApp.self)?.content
     }
 }
 
