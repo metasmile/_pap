@@ -77,11 +77,7 @@ final class PhotosManager: NSObject, KeyPathWatchable, PHPhotoLibraryChangeObser
 /*
     PHCachingImageManager
 */
-public struct PHCachingImageParam {
-    let targetSize: CGSize
-    let contentMode: PHImageContentMode
-    let options: PHImageRequestOptions?
-}
+public typealias PHCachingImageParam = (targetSize:CGSize, contentMode:PHImageContentMode, options:PHImageRequestOptions?)
 
 public extension PHCachingImageManager{
     func requestImage(for asset: PHAsset, param:PHCachingImageParam, resultHandler: @escaping (UIImage?, [AnyHashable: Any]?) -> Void) -> PHImageRequestID {
@@ -96,7 +92,6 @@ public extension PHCachingImageManager{
         stopCachingImages(for: assets, targetSize: param.targetSize, contentMode: param.contentMode, options: param.options)
     }
 }
-
 
 private class PHCachingImageManager_DEBUG: PHCachingImageManager {
     private var targetSizesByAsset = [String:Set<CGSize>]()

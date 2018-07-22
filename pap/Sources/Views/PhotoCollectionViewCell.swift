@@ -92,11 +92,9 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         prepareForDisplay(with: asset)
 
         imageRequestId = PhotosManager.default.cachingImageManager.requestImage(for: asset, param: cachingParam) { [weak self] (image, info) in
-            DispatchQueue.main.async { [weak self] in
-                guard self?.indexPath == indexPath else { return }
-                self?.imageView.image = image
-                self?.updateDecorationContents(with: asset)
-            }
+            guard self?.indexPath == indexPath else { return }
+            self?.imageView.image = image
+            self?.updateDecorationContents(with: asset)
             self?.imageRequestId = nil
         }
     }

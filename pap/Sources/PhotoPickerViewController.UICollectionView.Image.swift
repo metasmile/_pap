@@ -7,6 +7,15 @@ import Foundation
 import UIKit
 import Photos
 
+private struct PHImageRequestOptionsForCaching {
+    static let `default` = PHImageRequestOptionsForCaching()
+    let requestOptions = { () -> PHImageRequestOptions in
+        var option = PHImageRequestOptions()
+        option.resizeMode = .fast
+        return option
+    }()
+}
+
 extension PhotoPickerViewController{
 
     var collectionViewDefaultContentMode: PHImageContentMode {
@@ -18,23 +27,24 @@ extension PhotoPickerViewController{
     }
 
     func collectionViewDefaultCachingImageParam(_ collectionView: UICollectionView, at indexPath: IndexPath) -> PHCachingImageParam {
-        let size = self.collectionView(collectionView, layout: collectionView.collectionViewLayout, sizeForItemAt: indexPath).screenScaled()
-        let requestOptions = PHImageRequestOptions()
-        requestOptions.resizeMode = .fast
-        return PHCachingImageParam(targetSize: size, contentMode: collectionViewDefaultContentMode, options: requestOptions)
+        return (
+                targetSize: self.collectionView(collectionView, layout: collectionView.collectionViewLayout, sizeForItemAt: indexPath).screenScaled()
+                , contentMode: collectionViewDefaultContentMode
+                , options: PHImageRequestOptionsForCaching.default.requestOptions
+        )
     }
 
-    func collectionViewStartCachingImage(_ collectionView: UICollectionView, at indexPath: IndexPath) {
-        if let asset = PHAssets.fetched.asset(at: indexPath){
-            let p = self.collectionViewDefaultCachingImageParam(collectionView, at: indexPath)
-            PhotosManager.default.cachingImageManager.startCachingImages(for: [asset], targetSize: p.targetSize, contentMode: p.contentMode, options: p.options)
+    func collectionViewStartCachingImages(_ collectionView: UICollectionView, at indexPaths: [IndexPath]) {
+        if let indexPaths = indexPaths.nilEmpty{
+            let p = self.collectionViewDefaultCachingImageParam(collectionView, at: indexPaths[0])
+            PhotosManager.default.cachingImageManager.startCachingImages(for: indexPaths.compactMap { PHAssets.fetched.asset(at: $0) }, targetSize: p.targetSize, contentMode: p.contentMode, options: p.options)
         }
     }
 
-    func collectionViewStopCachingImage(_ collectionView: UICollectionView, at indexPath: IndexPath) {
-        if let asset = PHAssets.fetched.asset(at: indexPath){
-            let p = self.collectionViewDefaultCachingImageParam(collectionView, at: indexPath)
-            PhotosManager.default.cachingImageManager.stopCachingImages(for: [asset], targetSize: p.targetSize, contentMode: p.contentMode, options: p.options)
+    func collectionViewStopCachingImages(_ collectionView: UICollectionView, at indexPaths: [IndexPath]) {
+        if let indexPaths = indexPaths.nilEmpty{
+            let p = self.collectionViewDefaultCachingImageParam(collectionView, at: indexPaths[0])
+            PhotosManager.default.cachingImageManager.stopCachingImages(for: indexPaths.compactMap { PHAssets.fetched.asset(at: $0) }, targetSize: p.targetSize, contentMode: p.contentMode, options: p.options)
         }
     }
 }

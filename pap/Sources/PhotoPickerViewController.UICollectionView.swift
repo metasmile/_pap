@@ -45,15 +45,11 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     // MARK: - UICollectionViewDataSourcePrefetching
 
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        for indexPath in indexPaths{
-            self.collectionViewStartCachingImage(collectionView, at: indexPath)
-        }
+        self.collectionViewStartCachingImages(collectionView, at: indexPaths)
     }
 
     func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
-        for indexPath in indexPaths{
-            self.collectionViewStopCachingImage(collectionView, at: indexPath)
-        }
+        self.collectionViewStopCachingImages(collectionView, at: indexPaths)
     }
 
     // MARK: - UICollectionViewDelegate
