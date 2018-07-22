@@ -1,5 +1,5 @@
 //
-// Created by BLACKGENE on 27/03/2018.
+// Created ?by BLACKGENE on 27/03/2018.
 // Copyrig?ht (c) 2018 Stells. All rights reserved.
 //
 
@@ -85,6 +85,20 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     fileprivate static let SupportingGDTypesKeys:[String:PHAssetGarbageDetector.Type]
             = SupportingGDTypes.dictionary { $0.identifier }
 
+
+    public var needsPrefetchedImage: Bool {
+        let types = type(of: self).SupportingGDTypesKeys
+        for gd in type(of: self).privateDefaults.selectedCollection{
+            let gd_needsPrefetchImage = gd.items.first { item in
+                item.enabled && types[item.gdIdentifier]?.needsPrefetchImage ?? false == true
+            }
+            if gd_needsPrefetchImage != nil{
+                return true
+            }
+        }
+        return false
+    }
+
     /*
         gc
     */
@@ -96,7 +110,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     private var gdInstances = [String:PHAssetGarbageDetector]()
     fileprivate var cachedResults = [PHAssetID: PHAssetGCDetectedResult]()
 
-    fileprivate func gc(item: AppAsset, _ async: AsyncWaitSignalable) -> PHAssetGCResult {
+    fileprivate func gc(item: AppAsset, prefetchedImage:PHAssetRequestedImage?, _ async: AsyncWaitSignalable) -> PHAssetGCResult {
 
         let gdType_Id = type(of: self).SupportingGDTypesKeys
         let gdCollection = type(of: self).privateDefaults.selectedCollection
@@ -134,7 +148,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
                 }
 
                 let detected = autoreleasepool{
-                    return detector.process(input: asset, async) ?? false
+                    return detector.process(input: (asset:asset, prefetchedImage:prefetchedImage), async) ?? false
                 }
 
                 if t.shouldCacheResults {
@@ -156,10 +170,10 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     /*
     preheat
     */
-    public func performPreheating(item: AppAsset, _ async: AsyncWaitSignalable) -> PreheatingFinishAction? {
+    public func performPreheating(item: AppAsset, prefetchedImage:PHAssetRequestedImage?, _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
         guard self.autoSelect else { return nil }
 
-        return gc(item: item, async).action == .delete ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
+        return gc(item: item, prefetchedImage:prefetchedImage, async).action == .delete ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
@@ -206,7 +220,7 @@ private class _CleanerAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, Ap
         }
 
         if self.deletingTargetMatched {
-            return AppCenter.default.currentInstanceAs(CleanerApp.self)?.gc(item: item, async)
+            return AppCenter.default.currentInstanceAs(CleanerApp.self)?.gc(item: item, prefetchedImage: nil, async)
         }else{
             return PHAssetGCResult(asset: item.asset, action: .delete)
         }

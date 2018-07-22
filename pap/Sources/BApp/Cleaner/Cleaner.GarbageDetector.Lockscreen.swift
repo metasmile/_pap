@@ -50,16 +50,16 @@ class PHAssetGarbageDetector_Lockscreens : PHAssetGarbageDetector{
 
     let sampleDataViaLog = true
 
-    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
-        guard input.mediaType == .image else{
+    override func process(input: GarbageDetectorInput,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+        guard input.asset.mediaType == .image else{
             return false
         }
 
-        guard input.pixelSize.width*input.pixelSize.height<=UIScreen.main.nativeBounds.width*UIScreen.main.nativeBounds.height else{
+        guard input.asset.pixelSize.width*input.asset.pixelSize.height<=UIScreen.main.nativeBounds.width*UIScreen.main.nativeBounds.height else{
             return nil
         }
 
-        guard let image = input.asUIImage else {
+        guard let image = input.asset.asUIImage else {
             return nil
         }
 

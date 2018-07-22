@@ -12,9 +12,11 @@ import MetalKit
 import Vision
 import FirebaseMLVision
 
+typealias GarbageDetectorInput = (asset:PHAsset, prefetchedImage:PHAssetRequestedImage?)
+
 protocol _GarbageDetector: AsyncProcessor where Self.OutputType==Bool {}
 
-protocol _PHAssetGarbageDetector: _GarbageDetector where Self.InputType==PHAsset {}
+protocol _PHAssetGarbageDetector: _GarbageDetector where Self.InputType==GarbageDetectorInput {}
 
 //INFO: lighter detector, higher priority.
 enum PHAssetGarbageDetectingPriority:Int {
@@ -51,7 +53,11 @@ class PHAssetGarbageDetector : NSObject, _PHAssetGarbageDetector{
         return true
     }
 
-    func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+    class var needsPrefetchImage:Bool{
+        return false
+    }
+
+    func process(input: GarbageDetectorInput, _ asyncSignal: AsyncWaitSignalable) -> Bool? {
         return nil
     }
 }
@@ -61,8 +67,8 @@ class PHAssetGarbageDetector_Screenshots : PHAssetGarbageDetector{
         return "Screenshots".localized
     }
 
-    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
-        return input.mediaType == .image && input.mediaSubtypes.contains(.photoScreenshot) //FIXME: always true??
+    override func process(input: GarbageDetectorInput,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+        return input.asset.mediaType == .image && input.asset.mediaSubtypes.contains(.photoScreenshot) //FIXME: always true??
     }
 }
 
@@ -87,8 +93,8 @@ class PHAssetGarbageDetector_Flashlight: PHAssetGarbageDetector{
         ,0x5f//=Auto, Fired, Red-eye reduction, Return detected
     ])
 
-    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
-        guard input.mediaType == .image else { return false }
+    override func process(input: GarbageDetectorInput,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+        guard input.asset.mediaType == .image else { return false }
 
         let option = PHContentEditingInputRequestOptions()
         option.isNetworkAccessAllowed = false
@@ -98,7 +104,7 @@ class PHAssetGarbageDetector_Flashlight: PHAssetGarbageDetector{
 
         let options = PHImageRequestOptions()
         options.isNetworkAccessAllowed = false
-        if let data = input.requestImageData(options: options, asyncSignal).data{
+        if let data = input.asset.requestImageData(options: options, asyncSignal).data{
             if let lensMake = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifLensMake) as? String{
                 if lensMake.trimmed == "Apple", let flashValue = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifFlash) as? Int{
                     return firedFlags.contains(flashValue)
@@ -122,8 +128,8 @@ class PHAssetGarbageDetector_TooCloseupFace: PHAssetGarbageDetector {
 
     private let allowedMinFaceBoundSizeRatio:CGFloat = 0.4
 
-    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
-        guard let faces = input.asCIImage?.asFaceBoundingBoxes else{
+    override func process(input: GarbageDetectorInput,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+        guard let faces = input.asset.asCIImage?.asFaceBoundingBoxes else{
             return false
         }
 
@@ -137,8 +143,8 @@ class PHAssetGarbageDetector_VideosWithoutSound: PHAssetGarbageDetector{
         return "Videos Without Sound".localized
     }
 
-    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
-        guard input.mediaType == .video else { return false }
+    override func process(input: GarbageDetectorInput,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+        guard input.asset.mediaType == .video else { return false }
 
         let videoRequestOptions = PHVideoRequestOptions()
         videoRequestOptions.isNetworkAccessAllowed = false
@@ -146,7 +152,7 @@ class PHAssetGarbageDetector_VideosWithoutSound: PHAssetGarbageDetector{
 
         var haveNotSound = false
         asyncSignal.begin()
-        PHImageManager.default().requestAVAsset(forVideo: input, options: videoRequestOptions, resultHandler: { (asset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable: Any]?) -> Void in
+        PHImageManager.default().requestAVAsset(forVideo: input.asset, options: videoRequestOptions, resultHandler: { (asset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable: Any]?) -> Void in
             haveNotSound = asset?.tracks(withMediaType: .audio).count ?? 0 == 0
             asyncSignal.end()
         })
@@ -161,8 +167,8 @@ class PHAssetGarbageDetector_VideosSavedbyInstagramApp: PHAssetGarbageDetector{
         return "Videos Saved by Instagram App".localized
     }
 
-    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
-        guard input.mediaType == .video else { return false }
+    override func process(input: GarbageDetectorInput,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+        guard input.asset.mediaType == .video else { return false }
 
         let videoRequestOptions = PHVideoRequestOptions()
         videoRequestOptions.isNetworkAccessAllowed = false
@@ -170,7 +176,7 @@ class PHAssetGarbageDetector_VideosSavedbyInstagramApp: PHAssetGarbageDetector{
 
         var size = CGSize.zero
         asyncSignal.begin()
-        PHImageManager.default().requestAVAsset(forVideo: input, options: videoRequestOptions, resultHandler: { (asset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable: Any]?) -> Void in
+        PHImageManager.default().requestAVAsset(forVideo: input.asset, options: videoRequestOptions, resultHandler: { (asset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable: Any]?) -> Void in
             if let track = asset?.tracks(withMediaType: .video).first{
                 size = track.naturalSize.applying(track.preferredTransform)
             }
@@ -187,8 +193,8 @@ class PHAssetGarbageDetector_TooSlowShutterSpeed: PHAssetGarbageDetector{
         return "Too Slow Shutter Speed".localized
     }
 
-    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
-        guard input.mediaType == .image else { return false }
+    override func process(input: GarbageDetectorInput,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+        guard input.asset.mediaType == .image else { return false }
 
         let option = PHContentEditingInputRequestOptions()
         option.isNetworkAccessAllowed = false
@@ -199,7 +205,7 @@ class PHAssetGarbageDetector_TooSlowShutterSpeed: PHAssetGarbageDetector{
         let options = PHImageRequestOptions()
         options.isNetworkAccessAllowed = false
 
-        if let data = input.requestImageData(options: options, asyncSignal).data{
+        if let data = input.asset.requestImageData(options: options, asyncSignal).data{
             //ShutterSpeedValue
             //ExposureTime
             if let v = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifExposureTime) as? Double{
@@ -227,9 +233,9 @@ class PHAssetGarbageDetector_VideosShorterThan1Sec: PHAssetGarbageDetector{
         return "Videos Shorter Than 1 Second".localized
     }
 
-    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+    override func process(input: GarbageDetectorInput,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
         //TODO: user defined custom duration
-        return input.mediaType == .video && input.duration < 1
+        return input.asset.mediaType == .video && input.asset.duration < 1
     }
 }
 
@@ -238,8 +244,8 @@ class PHAssetGarbageDetector_SavedWithouttheCamera: PHAssetGarbageDetector{
         return "Saved Without the Camera".localized
     }
 
-    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
-        guard input.mediaType == .image else { return false }
+    override func process(input: GarbageDetectorInput,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+        guard input.asset.mediaType == .image else { return false }
 
         let option = PHContentEditingInputRequestOptions()
         option.isNetworkAccessAllowed = false
@@ -249,7 +255,7 @@ class PHAssetGarbageDetector_SavedWithouttheCamera: PHAssetGarbageDetector{
 
         let options = PHImageRequestOptions()
         options.isNetworkAccessAllowed = false
-        if let data = input.requestImageData(options: options, asyncSignal).data{
+        if let data = input.asset.requestImageData(options: options, asyncSignal).data{
             if let v = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifLensMake) as? String{
                 if v.trimmed == "Apple"{
                     return false
@@ -277,8 +283,8 @@ class PHAssetGarbageDetector_SavedWithBuiltInCamera: PHAssetGarbageDetector{
         return "Saved With Built-in Camera".localized
     }
 
-    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
-        guard input.mediaType == .image else { return false }
+    override func process(input: GarbageDetectorInput,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+        guard input.asset.mediaType == .image else { return false }
 
         let option = PHContentEditingInputRequestOptions()
         option.isNetworkAccessAllowed = false
@@ -288,7 +294,7 @@ class PHAssetGarbageDetector_SavedWithBuiltInCamera: PHAssetGarbageDetector{
 
         let options = PHImageRequestOptions()
         options.isNetworkAccessAllowed = false
-        if let data = input.requestImageData(options: options, asyncSignal).data{
+        if let data = input.asset.requestImageData(options: options, asyncSignal).data{
             if let v = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifUserComment) as? String{
                 if v.trimmed.contains(CaptureProcessor.ExifUserCommentIdentifier){
                     return true
@@ -313,6 +319,9 @@ class PHAssetGarbageDetector_Similarity: PHAssetGarbageDetector{
 //    override class var shouldCacheResults:Bool{
 //        return false
 //    }
+    override class var needsPrefetchImage: Bool {
+        return true
+    }
 
     private var targetAssets = [PHAsset:Set<String>]()
     private let imageHashing = OSImageHashing.sharedInstance()
@@ -325,7 +334,7 @@ class PHAssetGarbageDetector_Similarity: PHAssetGarbageDetector{
 
     let sep = "=="
 
-    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+    override func process(input: GarbageDetectorInput,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
         return self.detectSimilarAsset(input, maxTimeRange: maxTimeRangeAsADay)
     }
 
@@ -333,7 +342,8 @@ class PHAssetGarbageDetector_Similarity: PHAssetGarbageDetector{
         return distance < similarityThreshold
     }
 
-    private func detectSimilarAsset(_ asset: PHAsset, maxTimeRange:TimeInterval) -> Bool {
+    private func detectSimilarAsset(_ input: GarbageDetectorInput, maxTimeRange:TimeInterval) -> Bool {
+        let asset = input.asset
         // https://github.com/ameingast/cocoaimagehashing/
         let id = asset.localIdentifier
 
@@ -354,14 +364,19 @@ class PHAssetGarbageDetector_Similarity: PHAssetGarbageDetector{
                 continue
             }
 
-            if isDistanceSimilar(getDistance(hostAsset, asset, samplingImageSize)){
+            guard let data1 = hostAsset.requestThumbnailImage(targetSize: samplingImageSize)?.asData
+            , let data2 = asset.requestThumbnailImage(targetSize: samplingImageSize)?.asData  else {
+                continue
+            }
 
-                if targetAssets[hostAsset] == nil{
+            if isDistanceSimilar(getDistance((identifier:hostAsset.localIdentifier, data:data1), (identifier:asset.localIdentifier, data:data2))) {
+
+                if targetAssets[hostAsset] == nil {
                     targetAssets[hostAsset] = Set<String>()
                 }
                 targetAssets[hostAsset]?.insert(id)
 
-                if targetAssets[asset] == nil{
+                if targetAssets[asset] == nil {
                     targetAssets[asset] = Set<String>()
                 }
                 targetAssets[asset]?.insert(hostAsset.localIdentifier)
@@ -373,8 +388,8 @@ class PHAssetGarbageDetector_Similarity: PHAssetGarbageDetector{
         return false
     }
 
-    private func getDistance(_ asset1:PHAsset, _ asset2:PHAsset, _ sampleSize:CGSize) -> OSHashDistanceType{
-        let keySrc = [asset1.localIdentifier,asset2.localIdentifier]
+    private func getDistance(_ image1:(identifier:String, data:Data?), _ image2:(identifier:String, data:Data?)) -> OSHashDistanceType{
+        let keySrc = [image1.identifier, image2.identifier]
         let key_pair1 = keySrc.joined(separator: sep)
         let key_pair2 = keySrc.reversed().joined(separator: sep)
 
@@ -384,8 +399,8 @@ class PHAssetGarbageDetector_Similarity: PHAssetGarbageDetector{
             return sim
         }
 
-        guard let data1 = asset1.requestThumbnailImage(targetSize: sampleSize)?.asData
-        , let data2 = asset2.requestThumbnailImage(targetSize: sampleSize)?.asData  else {
+        guard let data1 = image1.data
+        , let data2 = image2.data  else {
             return OSHashDistanceType.max
         }
 
@@ -408,11 +423,12 @@ class PHAssetGarbageDetector_Blurry: PHAssetGarbageDetector{
         return "Blur Rate".localized
     }
 
-    override func process(input: PHAsset,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+    override func process(input: GarbageDetectorInput,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
         return self.detectBlurryImage(input)
     }
 
-    private func detectBlurryImage(_ asset: PHAsset) -> Bool {
+    private func detectBlurryImage(_ input: GarbageDetectorInput) -> Bool {
+        let asset = input.asset
         // https://www.pyimagesearch.com/2015/09/07/blur-detection-with-opencv/
         // https://stackoverflow.com/questions/46893198/detecting-if-image-is-blurred-using-opencv
         //

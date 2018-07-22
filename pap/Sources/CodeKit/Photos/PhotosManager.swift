@@ -15,7 +15,7 @@ final class PhotosManager: NSObject, KeyPathWatchable, PHPhotoLibraryChangeObser
 */
     let cachingImageManager = { () -> PHCachingImageManager in
 #if DEBUG
-        return PHCachingImageManager_DEBUG()
+        return _PHCachingImageManager_Debug()
 #else
         return PHCachingImageManager()
 #endif
@@ -75,34 +75,20 @@ final class PhotosManager: NSObject, KeyPathWatchable, PHPhotoLibraryChangeObser
 
 
 /*
-    PHCachingImageManager
+PHCachingImageManager
 */
-public typealias PHCachingImageParam = (targetSize:CGSize, contentMode:PHImageContentMode, options:PHImageRequestOptions?)
 
-public extension PHCachingImageManager{
-    func requestImage(for asset: PHAsset, param:PHCachingImageParam, resultHandler: @escaping (UIImage?, [AnyHashable: Any]?) -> Void) -> PHImageRequestID {
-        return requestImage(for: asset, targetSize: param.targetSize, contentMode: param.contentMode, options: param.options, resultHandler: resultHandler)
-    }
+private class _PHCachingImageManager_Debug: PHCachingImageManager {
 
-    func startCachingImages(for assets: [PHAsset], param:PHCachingImageParam) {
-        startCachingImages(for: assets, targetSize: param.targetSize, contentMode: param.contentMode, options: param.options)
-    }
-
-    func stopCachingImages(for assets: [PHAsset], param:PHCachingImageParam) {
-        stopCachingImages(for: assets, targetSize: param.targetSize, contentMode: param.contentMode, options: param.options)
-    }
-}
-
-private class PHCachingImageManager_DEBUG: PHCachingImageManager {
     private var targetSizesByAsset = [String:Set<CGSize>]()
     private func registerTargetSize(by assets:[PHAsset]?, targetSize:CGSize?){
         assert(DispatchQueue.main.label == DispatchQueue.currentLabel, "It tried to access PHCachingImageManager in not mainqueue.")
-        
+
         guard let assets = assets else {
             targetSizesByAsset.removeAll()
             return
         }
-        
+
         for asset in assets{
             if let size = targetSize, size != CGSize.zero{
                 var mSizeSet:Set<CGSize> = targetSizesByAsset[asset.localIdentifier] ?? Set<CGSize>()

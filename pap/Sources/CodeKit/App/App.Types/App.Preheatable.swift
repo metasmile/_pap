@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import UIKit
 
 public protocol PreheatingFinishAction: Codable{}
 
@@ -11,5 +12,14 @@ extension String: PreheatingFinishAction{}
 extension Int: PreheatingFinishAction{}
 
 public protocol PreheatableApp: App{
-    func performPreheating(item:AppAsset, _ async: AsyncWaitSignalable) -> PreheatingFinishAction?
+    var needsPrefetchedImage:Bool { get }
+
+    //INFO: if needsPrefetchedImage == false (default) prefetchedImage will be nil
+    func performPreheating(item: AppAsset, prefetchedImage:PHAssetRequestedImage?, _ async: AsyncWaitSignalable)  -> PreheatingFinishAction?
+}
+
+extension PreheatableApp{
+    public var needsPrefetchedImage: Bool {
+        return false
+    }
 }

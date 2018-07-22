@@ -280,7 +280,7 @@ public class GIFMakerApp: BApp,
         return (content as? GIFMakerAppDockContent)?.shouldImport(asset: item.asset) ?? false
     }
 
-    public func performPreheating(item: AppAsset, _ async: AsyncWaitSignalable) -> PreheatingFinishAction? {
+    public func performPreheating(item: AppAsset, prefetchedImage:PHAssetRequestedImage?, _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
         return nil
     }
 
