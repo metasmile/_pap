@@ -328,20 +328,13 @@ class PHAssetGarbageDetector_Similarity: PHAssetGarbageDetector{
     let sep = "=="
 
     override func process(input: GarbageDetectorInput,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
-        return self.detectSimilarAsset(input, maxTimeRange: maxTimeRangeAsADay)
-    }
-
-    private func isDistanceSimilar(_ distance:OSHashDistanceType) -> Bool{
-        return distance < similarityThreshold
-    }
-
-    private func detectSimilarAsset(_ input: GarbageDetectorInput, maxTimeRange:TimeInterval) -> Bool {
-        let asset = input.asset
+        let maxTimeRange = maxTimeRangeAsADay
+        let inputAsset = input.asset
         // https://github.com/ameingast/cocoaimagehashing/
-        let id = asset.localIdentifier
+        let id = inputAsset.localIdentifier
 
         if targetAssets.keys.count == 0{
-            targetAssets[asset] = Set<String>()
+            targetAssets[inputAsset] = Set<String>()
             return false
         }
 
@@ -353,35 +346,71 @@ class PHAssetGarbageDetector_Similarity: PHAssetGarbageDetector{
 
         let hostAssets = Array(targetAssets.keys)
         for hostAsset in hostAssets where hostAsset.localIdentifier != id {
-            guard let fromDate = hostAsset.creationDate, let toDate = asset.creationDate, fromDate.timeIntervalSince(toDate).magnitude < maxTimeRange else {
+            guard let fromDate = hostAsset.creationDate, let toDate = inputAsset.creationDate, fromDate.timeIntervalSince(toDate).magnitude < maxTimeRange else {
                 continue
             }
 
-            guard let data1 = hostAsset.requestThumbnailImage(targetSize: samplingImageSize)?.asData
-            , let data2 = asset.requestThumbnailImage(targetSize: samplingImageSize)?.asData  else {
+            var cachingHostAssetData:Data?
+            var cachingInputAssetData:Data?
+            if let cachingOption = input.cachingOption{
+                let currentQueue = DispatchQueue.current
+                asyncSignal.begin()
+                PhotosManager.default.cachingImageManager.requestImage(for: hostAsset, option: cachingOption) { image, info in
+                    guard (info?[PHImageResultIsDegradedKey] as? Bool) != true else { return }
+                    currentQueue.async{
+                        cachingHostAssetData = image?.asData
+                        asyncSignal.end()
+                    }
+                }
+                asyncSignal.waitUntilEnd()
+
+                asyncSignal.begin()
+                PhotosManager.default.cachingImageManager.requestImage(for: inputAsset, option: cachingOption) { image, info in
+                    guard (info?[PHImageResultIsDegradedKey] as? Bool) != true else { return }
+                    currentQueue.async{
+                        cachingInputAssetData = image?.asData
+                        asyncSignal.end()
+                    }
+                }
+                asyncSignal.waitUntilEnd()
+            }
+
+            var _hostAssetData:Data? = cachingHostAssetData
+            var _inputData:Data? = cachingInputAssetData
+            if _hostAssetData == nil || _inputData == nil{
+                _hostAssetData = hostAsset.requestThumbnailImage(targetSize: samplingImageSize)?.asData
+                _inputData = inputAsset.requestThumbnailImage(targetSize: samplingImageSize)?.asData
+            }
+
+            guard let hostAssetData = _hostAssetData
+            , let inputData = _inputData else {
                 continue
             }
 
-            if isDistanceSimilar(getDistance((identifier:hostAsset.localIdentifier, data:data1), (identifier:asset.localIdentifier, data:data2))) {
+            if isDistanceSimilar(getDistance((identifier:hostAsset.localIdentifier, data: hostAssetData), (identifier: inputAsset.localIdentifier, data: inputData))) {
 
                 if targetAssets[hostAsset] == nil {
                     targetAssets[hostAsset] = Set<String>()
                 }
                 targetAssets[hostAsset]?.insert(id)
 
-                if targetAssets[asset] == nil {
-                    targetAssets[asset] = Set<String>()
+                if targetAssets[inputAsset] == nil {
+                    targetAssets[inputAsset] = Set<String>()
                 }
-                targetAssets[asset]?.insert(hostAsset.localIdentifier)
+                targetAssets[inputAsset]?.insert(hostAsset.localIdentifier)
                 return true
             }
         }
 
-        targetAssets[asset] = Set<String>()
+        targetAssets[inputAsset] = Set<String>()
         return false
     }
 
-    private func getDistance(_ image1:(identifier:String, data:Data?), _ image2:(identifier:String, data:Data?)) -> OSHashDistanceType{
+    private func isDistanceSimilar(_ distance:OSHashDistanceType) -> Bool{
+        return distance < similarityThreshold
+    }
+
+    private func getDistance(_ image1:(identifier:String, data:Data), _ image2:(identifier:String, data:Data)) -> OSHashDistanceType{
         let keySrc = [image1.identifier, image2.identifier]
         let key_pair1 = keySrc.joined(separator: sep)
         let key_pair2 = keySrc.reversed().joined(separator: sep)
@@ -392,10 +421,8 @@ class PHAssetGarbageDetector_Similarity: PHAssetGarbageDetector{
             return sim
         }
 
-        guard let data1 = image1.data
-        , let data2 = image2.data  else {
-            return OSHashDistanceType.max
-        }
+        let data1 = image1.data
+        let data2 = image2.data
 
         let hash1 = imageHashing.hashImageData(data1)
         let hash2 = imageHashing.hashImageData(data2)
