@@ -85,17 +85,13 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         imageRequestId = nil
     }
 
-    func setAsset(_ asset: PHAsset, at indexPath: IndexPath) {
+    func setAsset(_ asset: PHAsset, cachingParam:PHCachingImageParam, at indexPath: IndexPath) {
+        self.imageContentMode = cachingParam.contentMode
         self.indexPath = indexPath
-        prepareForDisplay(with: asset)
-        
-        let requestOptions = PHImageRequestOptions()
-        requestOptions.resizeMode = .fast
-        
-        let targetSizeScale = UIScreen.main.scale
-        let targetSize = CGSize(width: imageView.bounds.size.width*targetSizeScale, height: imageView.bounds.size.height*targetSizeScale)
 
-        imageRequestId = PhotosManager.default.cachingImageManager.requestImage(for: asset, targetSize: targetSize, contentMode: imageContentMode, options: requestOptions) { [weak self] (image, info) in
+        prepareForDisplay(with: asset)
+
+        imageRequestId = PhotosManager.default.cachingImageManager.requestImage(for: asset, param: cachingParam) { [weak self] (image, info) in
             DispatchQueue.main.async { [weak self] in
                 guard self?.indexPath == indexPath else { return }
                 self?.imageView.image = image

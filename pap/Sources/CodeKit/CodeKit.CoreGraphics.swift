@@ -93,6 +93,11 @@ extension CGSize {
     func aspectFill(in boundingSize: CGSize) -> CGSize {
         return CGSize.aspectFill(aspectRatio: self, boundingSize: boundingSize)
     }
+
+    func screenScaled() -> CGSize{
+        let targetSizeScale = UIScreen.main.scale
+        return CGSize(width: width*targetSizeScale, height: height*targetSizeScale)
+    }
 }
 
 extension CGAffineTransform {
