@@ -80,7 +80,7 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         decorationView.isHidden = true
         
         if let imageRequestId = imageRequestId {
-            PHPhotoLibraryManager.cachingImageManager.cancelImageRequest(imageRequestId)
+            PhotosManager.default.cachingImageManager.cancelImageRequest(imageRequestId)
         }
         imageRequestId = nil
     }
@@ -94,8 +94,8 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         
         let targetSizeScale = UIScreen.main.scale
         let targetSize = CGSize(width: imageView.bounds.size.width*targetSizeScale, height: imageView.bounds.size.height*targetSizeScale)
-        
-        imageRequestId = PHPhotoLibraryManager.cachingImageManager.requestImage(for: asset, targetSize: targetSize, contentMode: imageContentMode, options: requestOptions) { [weak self] (image, info) in
+
+        imageRequestId = PhotosManager.default.cachingImageManager.requestImage(for: asset, targetSize: targetSize, contentMode: imageContentMode, options: requestOptions) { [weak self] (image, info) in
             DispatchQueue.main.async { [weak self] in
                 guard self?.indexPath == indexPath else { return }
                 self?.imageView.image = image

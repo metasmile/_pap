@@ -164,7 +164,7 @@
 "Choose A Phone Number To Call" = "Izvēlieties tālruņa numuru, uz kuru zvanīt";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Izvēlieties darbību";
-/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Izvēlieties eksporta opciju %d vienumiem";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Izvēlieties apakšpasākumu.";
@@ -300,7 +300,7 @@
 "Rewind" = "Attīšana atpakaļ";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "Saglabājiet tieši atrast kontaktpersonas";
-/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Saglabāt un dalīties";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Saglabājiet";

@@ -164,7 +164,7 @@
 "Choose A Phone Number To Call" = "اختر رقم هاتف للاتصال";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "اختيار إجراء";
-/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "اختر خيار تصدير للعناصر %d";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "اختر إجراء فرعي.";
@@ -300,9 +300,9 @@
 "Rewind" = "الترجيع";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "حفظ العثور على جهات الاتصال مباشرة";
-/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "احفظ وشارك";
-/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "حفظ النتائج ...";
@@ -318,7 +318,7 @@
 "Select Photos You Want To Grab Phone Numbers!" = "حدد صور تريد انتزاع أرقام الهاتف!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "أرسل بريدا إلكترونيا";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
 /* Generated from genl10n: Cleaner.BApp.swift#243 */
 "Similarities" = "التشابه";

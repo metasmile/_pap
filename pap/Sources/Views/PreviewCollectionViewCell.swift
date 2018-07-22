@@ -47,7 +47,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         assetView.layer.transform = CATransform3DIdentity
         
         if let imageRequestId = imageRequestId {
-            PHPhotoLibraryManager.cachingImageManager.cancelImageRequest(imageRequestId)
+            PhotosManager.default.cachingImageManager.cancelImageRequest(imageRequestId)
         }
         imageRequestId = nil
     }

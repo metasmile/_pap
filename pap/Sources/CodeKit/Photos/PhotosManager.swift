@@ -1,0 +1,125 @@
+//
+// Created by BLACKGENE on 12/03/2018.
+// Copyright (c) 2018 Stells. All rights reserved.
+//
+
+import Foundation
+import UIKit
+import Photos
+
+final class PhotosManager: NSObject, KeyPathWatchable, PHPhotoLibraryChangeObserver {
+    static let `default` = PhotosManager()
+
+/*
+    PHCachingImageManager
+*/
+    let cachingImageManager = { () -> PHCachingImageManager in
+ #if DEBUG
+        return PHCachingImageManager_DEBUG()
+#else
+        return PHCachingImageManager()
+#endif
+    }()
+
+/*
+    Authorization
+*/
+    public func authorizeIfNeeded(_ completion:@escaping (Bool) -> ()) {
+        _authorizeIfNeeded(PHPhotoLibrary.authorizationStatus(), completion)
+    }
+
+    private func _authorizeIfNeeded(_ status:PHAuthorizationStatus, _ completion:@escaping (Bool) -> ()) {
+        PHPhotoLibrary.shared().unregisterChangeObserver(self)
+
+        if status == .authorized{
+            PHPhotoLibrary.shared().register(self)
+            completion(true)
+            return
+        }
+
+        if status == .notDetermined{
+            PHPhotoLibrary.requestAuthorization { (status) in
+                DispatchQueue.main.async{
+                    assert(status != .notDetermined,"what?")
+                    self._authorizeIfNeeded(status == .notDetermined ? .restricted : status, completion)
+                }
+            }
+            return
+        }
+
+        self.showPhotoLibrarySettingsAlert()
+        completion(false)
+    }
+
+    private func showPhotoLibrarySettingsAlert() {
+        let alert = UIAlertController(title: "Photos Access Disabled".localized, message: "Please open settings and allow access to your photos".localized, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Open Settings".localized, style: .default, handler: { (action) in
+            UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
+
+        UIViewController.root?.present(alert, animated: true, completion: nil)
+    }
+
+/*
+    PHChange
+*/
+    @objc dynamic
+    public private(set) var changes:PHChange?
+
+    func photoLibraryDidChange(_ changeInstance: PHChange) {
+        self.changes = changeInstance
+    }
+}
+
+private class PHCachingImageManager_DEBUG: PHCachingImageManager {
+    private var targetSizesByAsset = [String:Set<CGSize>]()
+    private func registerTargetSize(by assets:[PHAsset]?, targetSize:CGSize?){
+        assert(DispatchQueue.main.label == DispatchQueue.currentLabel, "It tried to access PHCachingImageManager in not mainqueue.")
+        
+        guard let assets = assets else {
+            targetSizesByAsset.removeAll()
+            return
+        }
+        
+        for asset in assets{
+            if let size = targetSize, size != CGSize.zero{
+                var mSizeSet:Set<CGSize> = targetSizesByAsset[asset.localIdentifier] ?? Set<CGSize>()
+                if mSizeSet.contains(size){
+                    continue
+                }
+
+                if mSizeSet.count>0{
+                    print("[i] INFO: Caching image with size \(String(describing: mSizeSet)) is already exist, but it tries to add other size \(String(describing: size)). If the sizes are not too different, consider to use one of them.")
+                }
+
+                mSizeSet.insert(size)
+                targetSizesByAsset[asset.localIdentifier] = mSizeSet
+            }else{
+                targetSizesByAsset[asset.localIdentifier] = nil
+            }
+        }
+    }
+
+    override func requestImage(for asset: PHAsset, targetSize: CGSize, contentMode: PHImageContentMode, options: PHImageRequestOptions?, resultHandler: @escaping (UIImage?, [AnyHashable: Any]?) -> Void) -> PHImageRequestID {
+        if let sizeSet = targetSizesByAsset[asset.localIdentifier], sizeSet.count>0, sizeSet.contains(targetSize) == false{
+            print("[i] INFO: Caching image with size \(String(describing: sizeSet)) is already exist, but requested size \(targetSize) is trying to add new size.")
+        }
+        return super.requestImage(for: asset, targetSize: targetSize, contentMode: contentMode, options: options, resultHandler: resultHandler)
+    }
+
+    override func startCachingImages(for assets: [PHAsset], targetSize: CGSize, contentMode: PHImageContentMode, options: PHImageRequestOptions?) {
+        registerTargetSize(by: assets, targetSize: targetSize)
+        super.startCachingImages(for: assets, targetSize: targetSize, contentMode: contentMode, options: options)
+    }
+
+    override func stopCachingImages(for assets: [PHAsset], targetSize: CGSize, contentMode: PHImageContentMode, options: PHImageRequestOptions?) {
+        registerTargetSize(by: assets, targetSize: nil)
+        super.stopCachingImages(for: assets, targetSize: targetSize, contentMode: contentMode, options: options)
+    }
+
+    override func stopCachingImagesForAllAssets() {
+        registerTargetSize(by: nil, targetSize: nil)
+        super.stopCachingImagesForAllAssets()
+    }
+}

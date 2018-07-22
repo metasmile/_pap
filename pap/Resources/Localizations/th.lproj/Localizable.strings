@@ -164,7 +164,7 @@
 "Choose A Phone Number To Call" = "เลือกหมายเลขโทรศัพท์ที่ต้องการโทร";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "เลือกการกระทำ";
-/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "เลือกตัวเลือกการส่งออกสำหรับ %d รายการ";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "เลือกการกระทำย่อย";
@@ -300,9 +300,9 @@
 "Rewind" = "Rewind";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "บันทึกรายชื่อติดต่อที่พบโดยตรง";
-/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "บันทึกและแบ่งปัน";
-/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift */
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "กำลังบันทึกผลลัพธ์ ...";
@@ -318,7 +318,7 @@
 "Select Photos You Want To Grab Phone Numbers!" = "เลือกภาพถ่ายที่คุณต้องการหยิบเบอร์โทรศัพท์!";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "ส่งอีเมล์";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAssetUIAlertControllerSynchronizablePresenter.swift */
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "หุ้น";
 /* Generated from genl10n: Cleaner.BApp.swift#243 */
 "Similarities" = "ความคล้ายคลึงกัน";

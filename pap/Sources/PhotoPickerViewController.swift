@@ -83,8 +83,8 @@ class PhotoPickerViewController: AppDockViewController {
         }
 
         //listen PHPhotoLibrary changes
-        PHPhotoLibraryManager.default.watch(\.changes) {
-            guard let changeInstance = PHPhotoLibraryManager.default.changes else { return }
+        PhotosManager.default.watch(\.changes) {
+            guard let changeInstance = PhotosManager.default.changes else { return }
 
             DispatchQueue.main.async{
                 self.queuedPhotoLibraryChanges.enqueue(changeInstance)
@@ -113,7 +113,7 @@ class PhotoPickerViewController: AppDockViewController {
         }
 
         //check photo library permission and load
-        PHPhotoLibraryManager.default.authorizeIfNeeded { authorized in
+        PhotosManager.default.authorizeIfNeeded { authorized in
             guard authorized else { return }
 
             DispatchQueue.main.async{ // if not call from DispatchQueue.main.async, scroll will not work.

@@ -130,7 +130,7 @@
 "Choose A Phone Number To Call" = "Choose A Phone Number To Call";
 /* Generated from genl10n: Finder.BApp.swift#293 */
 "Choose An Action" = "Choose An Action";
-/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift#46 */
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift#46 */
 "Choose An Export Option For %d Items" = "Choose An Export Option For %d Items";
 /* Generated from genl10n: Finder.BApp.swift#311 */
 "Choose An Sub Action." = "Choose An Sub Action.";
@@ -282,9 +282,9 @@
 "Save All Phone Numbers" = "Save All Phone Numbers";
 /* Generated from genl10n: Finder.BApp.swift#1251, Cleaner.BApp.swift#401 */
 "Save Found Contacts Directly" = "Save Found Contacts Directly";
-/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift#63 */
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift#63 */
 "Save and Share" = "Save and Share";
-/* Generated from genl10n: PHAssetUIAlertControllerSynchronizablePresenter.swift#52 */
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift#52 */
 "Save" = "Save";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#277 */
 "Saved With Built-in Camera" = "Saved With Built-in Camera";
@@ -308,7 +308,7 @@
 "Selected" = "Selected";
 /* Generated from genl10n: Finder.BApp.swift#595, Finder.BApp.swift#606, Finder.BApp.swift#616 */
 "Send an Email" = "Send an Email";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#92, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#105, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#131, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#145, App.Finalizable.UIActivity.PHAsset.swift#60, PHAssetUIAlertControllerSynchronizablePresenter.swift#58, Finder.BApp.swift#364, Finder.BApp.swift#449, Finder.BApp.swift#534, Finder.BApp.swift#631, Finder.BApp.swift#749, Finder.BApp.swift#846 */
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#92, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#105, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#131, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#145, App.Finalizable.UIActivity.PHAsset.swift#60, PHAsset.UIAlertController.SynchronizablePresenter.swift#58, Finder.BApp.swift#364, Finder.BApp.swift#449, Finder.BApp.swift#534, Finder.BApp.swift#631, Finder.BApp.swift#749, Finder.BApp.swift#846 */
 "Share" = "Share";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#310 */
 "Similarity" = "Similarity";
