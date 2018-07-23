@@ -164,6 +164,7 @@
 		4F71DB2B9DF220FBD8CBB497 /* PhotoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D47F20EC723F99C7D8F4 /* PhotoEditViewController.swift */; };
 		4F71DB53632696002E0077B2 /* FirebaseMLVision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7E95CB7CF5A53BA9B46 /* FirebaseMLVision.swift */; };
 		4F71DB6DFA22872615C35AB0 /* warp.metal in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5D63852192CF4147FD5 /* warp.metal */; };
+		4F71DB7E0B0C52577EC3D7D0 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC58EF662B297E81FB44 /* Version.swift */; };
 		4F71DBB61D645367E3ED362A /* ImageIO.Metadata.Properties.Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF2BA1EF2662C299D170 /* ImageIO.Metadata.Properties.Label.swift */; };
 		4F71DBBFF98A9E9798923CF3 /* App.Editable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D53963FE84DB6837A9BD /* App.Editable.swift */; };
 		4F71DBC795D261C726708C90 /* Sourceable.PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2C256B7B8430A721FAF /* Sourceable.PHAsset.swift */; };
@@ -547,6 +548,7 @@
 		4F71DC3348F880F2ADB6F7E3 /* PhoneCalls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneCalls.swift; sourceTree = "<group>"; };
 		4F71DC428EEA88994C64FF8F /* CodeKit.UIView.GestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIView.GestureRecognizer.swift; sourceTree = "<group>"; };
 		4F71DC4D3BA4D93B51FD3362 /* gifmaker_preview_frame_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gifmaker_preview_frame_2.png; sourceTree = "<group>"; };
+		4F71DC58EF662B297E81FB44 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		4F71DC6616CF130CCC518DC5 /* gifmaker_preview_frame_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gifmaker_preview_frame_3.png; sourceTree = "<group>"; };
 		4F71DC86D21CEF245CBF82A0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		4F71DC9B1E3F0901394FC91B /* App.UI.AssetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.UI.AssetView.swift; sourceTree = "<group>"; };
@@ -883,6 +885,7 @@
 				4F71D3CF7C5B48D7CFC73BCC /* CodeKit.CMMotionManager.swift */,
 				4F71D524FEF15BEECBF828D6 /* Photos */,
 				4F71DB51501243A8A049A36D /* Sourceable */,
+				4F71DC58EF662B297E81FB44 /* Version.swift */,
 			);
 			path = CodeKit;
 			sourceTree = "<group>";
@@ -3070,6 +3073,7 @@
 				4F71DF8F3504A8832D659C00 /* PHImageManager.swift in Sources */,
 				4F71D9B103E4D9E617FDB8A5 /* App.Asset.swift in Sources */,
 				4F71D33E7C80AC58C1BD1C40 /* App.Cacheable.swift in Sources */,
+				4F71DB7E0B0C52577EC3D7D0 /* Version.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

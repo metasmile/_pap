@@ -19,6 +19,14 @@ extension Defaults: DefaultsProperty {
     fileprivate var appCount:[String:Double]{ // [identifier: performed count]
         set{ set(newValue) } get{ return get(or:[String:Double]()) }
     }
+
+    public var latestShortVersion:String?{
+        set{ set(newValue) } get{ return get() }
+    }
+
+    public var latestVersion:String?{
+        set{ set(newValue) } get{ return get() }
+    }
 }
 
 public struct papCount {

@@ -37,6 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Armchair.resetAllCounters()
         #endif
 
+        Defaults.shared.latestShortVersion = Bundle.main.shortVersionString
+        Defaults.shared.latestVersion = Bundle.main.version
+
         DispatchQueue.global(qos: .background).async{
             self.spotlightSearchAppDelegate.indexDefaultSearchableItems()
             self.spotlightSearchAppDelegate.application(application, didFinishLaunchingWithOptions: launchOptions)
