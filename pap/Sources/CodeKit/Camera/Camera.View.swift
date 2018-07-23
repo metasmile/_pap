@@ -134,6 +134,7 @@ class CameraView: UIView {
         if self.capturePhotoOutput.availablePhotoCodecTypes.contains(.hevc), capturePhotoOutput.isLivePhotoCaptureEnabled {
             photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.hevc])
             photoSettings.livePhotoMovieFileURL = FileURL.temp(UUID().uuidString, UTI.quickTimeMovie, group: FileURL.fileAndQueuePrivateGroup())
+            photoSettings.flashMode = self.currentFlashMode
             captureProcessor = CameraViewLivePhotoCaptureProcessor(param: param)
         } else {
             photoSettings = AVCapturePhotoSettings(from: self.currentPhotoSettings)
@@ -309,6 +310,42 @@ extension CameraView {
     }
 }
 
+extension CameraView {
+    func changePointOfInterest(at location: CGPoint) {
+        let layerPoint = layer.convert(location, to: cameraPreviewView.previewLayer)
+        let pointOfInterest = cameraPreviewView.previewLayer.captureDevicePointConverted(fromLayerPoint: layerPoint)
+        
+        sessionQueue.async {
+            self.setPointOfInterest(pointOfInterest)
+        }
+    }
+    
+    private func setPointOfInterest(_ pointOfInterest: CGPoint) {
+        guard
+            let captureDevice = captureDevice(with: cameraPosition),
+            let _ = try? captureDevice.lockForConfiguration()
+        else { return }
+        
+        if captureDevice.isFocusPointOfInterestSupported {
+            captureDevice.focusPointOfInterest = pointOfInterest
+        }
+        
+        if captureDevice.isFocusModeSupported(.continuousAutoFocus) {
+            captureDevice.focusMode = .continuousAutoFocus
+        }
+        
+        if captureDevice.isExposurePointOfInterestSupported {
+            captureDevice.exposurePointOfInterest = pointOfInterest
+        }
+        
+        if captureDevice.isExposureModeSupported(.continuousAutoExposure) {
+            captureDevice.exposureMode = .continuousAutoExposure
+        }
+        
+        captureDevice.unlockForConfiguration()
+    }
+}
+
 /*
 CameraPreviewLayer
 */
@@ -359,30 +396,30 @@ fileprivate class CameraPreviewView: UIView {
         return CameraPreviewLayer.self
     }
 
-    private var captureVideoPreviewLayer: CameraPreviewLayer? {
-        return layer as? CameraPreviewLayer
+    fileprivate var previewLayer: CameraPreviewLayer {
+        return layer as! CameraPreviewLayer
     }
 
     override var contentMode: UIViewContentMode {
         didSet {
             switch contentMode {
             case .scaleAspectFit:
-                captureVideoPreviewLayer?.contentsGravity = kCAGravityResizeAspect
-                captureVideoPreviewLayer?.videoGravity = .resizeAspect
+                previewLayer.contentsGravity = kCAGravityResizeAspect
+                previewLayer.videoGravity = .resizeAspect
             case .scaleAspectFill:
-                captureVideoPreviewLayer?.contentsGravity = kCAGravityResizeAspectFill
-                captureVideoPreviewLayer?.videoGravity = .resizeAspectFill
+                previewLayer.contentsGravity = kCAGravityResizeAspectFill
+                previewLayer.videoGravity = .resizeAspectFill
             default: break
             }
         }
     }
 
     func setSession(_ session:AVCaptureSession){
-        captureVideoPreviewLayer?.session = session
+        previewLayer.session = session
     }
 
     var session: AVCaptureSession? {
-        return captureVideoPreviewLayer?.session
+        return previewLayer.session
     }
 }
 

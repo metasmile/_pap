@@ -95,6 +95,7 @@ class AppUICameraView: UIView {
         backgroundView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
 
         let optionView = UIView(frame: .zero)
+        optionView.clipsToBounds = true
         optionView.backgroundColor = .black
         addSubview(optionView)
         optionView.translatesAutoresizingMaskIntoConstraints = false
@@ -139,6 +140,7 @@ class AppUICameraView: UIView {
         livePhotoButton.widthAnchor.constraint(equalTo: optionView.heightAnchor, multiplier: 1).isActive = true
 
         let controlView = UIView(frame: .zero)
+        controlView.clipsToBounds = true
         controlView.backgroundColor = .black
         addSubview(controlView)
 
@@ -241,8 +243,13 @@ class AppUICameraView: UIView {
     }
 
     @objc func tapToCapture(sender: Any) {
-        UIImpactFeedbackGenerator(style: .light).impactOccurred()
-        cameraView.takePhoto()
+        if isCompactMode || sender is CaptureButton {
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+            cameraView.takePhoto()
+        }
+        else if let gesture = sender as? UITapGestureRecognizer {
+            cameraView.changePointOfInterest(at: gesture.location(in: cameraView))
+        }
     }
 
     @objc func tapDownToCapture(sender: Any) {
@@ -284,7 +291,6 @@ class AppUICameraView: UIView {
             }
             optionViewHeightLayout?.isActive = true
 
-            tapGesture.isEnabled = isCompactMode
             captureButton.isEnabled = !isCompactMode
 
             cameraPositionButton.setImage(self.devicePositionIcon, for: .normal)
@@ -300,7 +306,3 @@ class AppUICameraView: UIView {
         super.layoutIfNeeded()
     }
 }
-
-
-
-
