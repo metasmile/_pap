@@ -218,7 +218,7 @@ extension AppUIAssetView {
             
         }
         else if asset.imageType == .livePhoto {
-            if let filter = editState?.ciFilter {
+            if editState?.ciFilter != nil || editState?.stabilizationMode != nil {
                 self.isProcessing(true, animated: true)
                 
                 let targetSize = bounds.size
@@ -232,8 +232,26 @@ extension AppUIAssetView {
                     self?.livePhotoEditingContext?.cancel()
                     
                     self?.livePhotoEditingContext = PHLivePhotoEditingContext(livePhotoEditingInput: input)
+                    
+                    var referenceImage: CIImage?
                     self?.livePhotoEditingContext?.frameProcessor = { frame, error in
-                        return frame.image.applyFilter(ciFilter: filter)
+                        if let filter = editState?.ciFilter {
+                            return frame.image.applyFilter(ciFilter: filter)
+                        }
+                        else if let mode = editState?.stabilizationMode {
+                            let result: CIImage
+                            if let image = referenceImage {
+                                result = frame.image.stabilize(with: image, mode: mode)
+                            }
+                            else {
+                                result = frame.image
+                            }
+                            referenceImage = frame.image
+                            return result
+                        }
+                        else {
+                            return frame.image
+                        }
                     }
                     
                     self?.livePhotoEditingContext?.prepareLivePhotoForPlayback(withTargetSize: targetSize, options: [PHLivePhotoEditingOption.shouldRenderAtPlaybackTime.rawValue: true], completionHandler: { [weak self] (livePhoto, error) in

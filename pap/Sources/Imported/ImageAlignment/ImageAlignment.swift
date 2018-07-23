@@ -21,60 +21,73 @@ import Vision
 public class ImageAlignment {
     static let sharedCIContext = CIContext()
     
-    public enum StabilizationMode: Int {
-        case homographic = 0
-        case translation = 1
+    public struct StabilizationMode: OptionSet {
+        public let rawValue: Int
+        
+        public static let homographic = StabilizationMode(rawValue: 1 << 0)
+        public static let translation = StabilizationMode(rawValue: 1 << 1)
+        public static let crop = StabilizationMode(rawValue: 1 << 2)
+        
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
     }
 }
 
 @available(iOS 11.0, *)
 public extension UIImage {
-    public func stabilize(with image: UIImage, mode: ImageAlignment.StabilizationMode = .translation, clamp: CGPoint = .zero) -> UIImage {
-        switch mode {
-        case .homographic:
-            return stabilizeHomographic(with: image, clamp: clamp)
-        case .translation:
-            return stabilizeTranslation(with: image, clamp: clamp)
+    public func stabilize(with image: UIImage, mode: ImageAlignment.StabilizationMode = .translation) -> UIImage {
+        if mode.contains(.translation) {
+            return stabilizeTranslation(with: image, crop: mode.contains(.crop))
+        }
+        else if mode.contains(.homographic) {
+            return stabilizeHomographic(with: image, crop: mode.contains(.crop))
+        }
+        else {
+            return image
         }
     }
 
     @objc
-    public func stabilizeHomographic(with image: UIImage, clamp: CGPoint = .zero) -> UIImage {
+    public func stabilizeHomographic(with image: UIImage, crop: Bool = false) -> UIImage {
         guard let matrix = ImageAlignment.homographicTransform(image, onto: self) else { return self }
-        guard let warppedImage = self.asCIImage?.applyHomographic(matrix, clamp: clamp), let cgimage = ImageAlignment.sharedCIContext.createCGImage(warppedImage, from: warppedImage.extent) else { return self }
+        guard let warppedImage = self.asCIImage?.applyHomographic(matrix, crop: crop), let cgimage = ImageAlignment.sharedCIContext.createCGImage(warppedImage, from: warppedImage.extent) else { return self }
         return UIImage(cgImage: cgimage)
     }
 
     @objc
-    public func stabilizeTranslation(with image: UIImage, clamp: CGPoint = .zero) -> UIImage {
+    public func stabilizeTranslation(with image: UIImage, crop: Bool = false) -> UIImage {
         guard let transform = ImageAlignment.translationTransform(image, onto: self) else { return self }
-        guard let transformedImage = self.asCIImage?.applyTranslation(transform, clamp: clamp), let cgimage = ImageAlignment.sharedCIContext.createCGImage(transformedImage, from: transformedImage.extent) else { return self }
+        guard let transformedImage = self.asCIImage?.applyTranslation(transform, crop: crop), let cgimage = ImageAlignment.sharedCIContext.createCGImage(transformedImage, from: transformedImage.extent) else { return self }
         return UIImage(cgImage: cgimage)
     }
 }
 
 @available(iOS 11.0, *)
 public extension CIImage {
-    public func stabilize(with image: CIImage, mode: ImageAlignment.StabilizationMode = .translation, clamp: CGPoint = .zero) -> CIImage {
-        switch mode {
-        case .homographic:
-            return stabilizeHomographic(with: image, clamp: clamp)
-        case .translation:
-            return stabilizeTranslation(with: image, clamp: clamp)
+    public func stabilize(with image: CIImage, mode: ImageAlignment.StabilizationMode = .translation) -> CIImage {
+        if mode.contains(.translation) {
+            return stabilizeTranslation(with: image, crop: mode.contains(.crop))
+        }
+        else if mode.contains(.homographic) {
+            return stabilizeHomographic(with: image, crop: mode.contains(.crop))
+        }
+        else {
+            return image
         }
     }
     
     @objc
-    public func stabilizeHomographic(with image: CIImage, clamp: CGPoint = .zero) -> CIImage {
+    public func stabilizeHomographic(with image: CIImage, crop: Bool = false) -> CIImage {
         guard let matrix = ImageAlignment.homographicTransform(image, onto: self) else { return self }
-        guard let warppedImage = self.applyHomographic(matrix, clamp: clamp) else { return self }
+        guard let warppedImage = self.applyHomographic(matrix, crop: crop) else { return self }
         return warppedImage
     }
     
     @objc
-    public func stabilizeTranslation(with image: CIImage, clamp: CGPoint = .zero) -> CIImage {
+    public func stabilizeTranslation(with image: CIImage, crop: Bool = false) -> CIImage {
         guard let transform = ImageAlignment.translationTransform(image, onto: self) else { return self }
-        guard let transformedImage = self.applyTranslation(transform, clamp: clamp) else { return self }
+        guard let transformedImage = self.applyTranslation(transform, crop: crop) else { return self }
         return transformedImage
     }
 }
@@ -149,17 +162,14 @@ private struct Kernels {
 
 @available(iOS 11.0, *)
 extension CIImage {
-    func applyHomographic(_ matrix: matrix_float3x3, clamp: CGPoint = .zero) -> CIImage? {
-        let clamppedScale = (extent.width + max(clamp.x, clamp.y)) / extent.width
-        var transform = CGAffineTransform(scaleX: clamppedScale, y: clamppedScale)
-        transform = transform.translatedBy(x: -clamp.x / 2, y: -clamp.y / 2)
+    func applyHomographic(_ matrix: matrix_float3x3, crop: Bool = false) -> CIImage? {
+        let clamp = CGPoint(x: extent.width / 20, y: extent.height / 20)
+        var transform = CGAffineTransform.identity
         
-        var clamp = clamp
-        if clamp.x == 0 {
-            clamp.x = extent.width
-        }
-        if clamp.y == 0 {
-            clamp.y = extent.height
+        if crop {
+            let clamppedScale = max((extent.width + clamp.x) / extent.width, (extent.height + clamp.y) / extent.height)
+            transform = CGAffineTransform(scaleX: clamppedScale, y: clamppedScale)
+            transform = transform.translatedBy(x: -clamp.x / 2, y: -clamp.y / 2)
         }
         
         return (Kernels.homographic?.apply(extent: extent, roiCallback: { index, rect in
@@ -171,17 +181,14 @@ extension CIImage {
         ]) ?? self).transformed(by: transform)
     }
     
-    func applyTranslation(_ translation: CGAffineTransform, clamp: CGPoint = .zero) -> CIImage? {
-        let clamppedScale = (extent.width + max(clamp.x, clamp.y)) / extent.width
-        var transform = CGAffineTransform(scaleX: clamppedScale, y: clamppedScale)
-        transform = transform.translatedBy(x: -clamp.x / 2, y: -clamp.y / 2)
+    func applyTranslation(_ translation: CGAffineTransform, crop: Bool = false) -> CIImage? {
+        let clamp = CGPoint(x: extent.width / 20, y: extent.height / 20)
+        var transform = CGAffineTransform.identity
         
-        var clamp = clamp
-        if clamp.x == 0 {
-            clamp.x = extent.width
-        }
-        if clamp.y == 0 {
-            clamp.y = extent.height
+        if crop {
+            let clamppedScale = max((extent.width + clamp.x) / extent.width, (extent.height + clamp.y) / extent.height)
+            transform = CGAffineTransform(scaleX: clamppedScale, y: clamppedScale)
+            transform = transform.translatedBy(x: -clamp.x / 2, y: -clamp.y / 2)
         }
         
         return (Kernels.translation?.apply(extent: extent, roiCallback: { index, rect in

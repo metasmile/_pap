@@ -9,10 +9,14 @@ import DefaultsKit
 
 class _StabilizerAppAsset: PHAssetItem<ImageEditStateValue> {
     fileprivate var exportSession: AVAssetExportSession?
+    fileprivate var editingContext: PHLivePhotoEditingContext?
     
     func cancelProcessing() {
         exportSession?.cancelExport()
         exportSession = nil
+        
+        editingContext?.cancel()
+        editingContext = nil
     }
 }
 
@@ -95,7 +99,7 @@ public class Stabilizer: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, Phot
     }
     
     public func shouldSelect(item: AppAsset) -> Bool {
-        return item.asset.mediaType == .video// || (item.asset.mediaType == .image && !item.asset.mediaSubtypes.contains(.photoLive))
+        return item.asset.mediaType == .video || item.asset.imageType == .livePhoto
     }
     
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
@@ -159,8 +163,6 @@ extension _StabilizerAppAsset: PHAssetVideoEditable {
                 completionHandler(nil, nil)
                 return nil
         }
-        
-        let maximumClamp = CGPoint(x: asset.pixelSize.width / 20, y: asset.pixelSize.height / 20)
         
         //TODO: Auto clamp ?
 //
@@ -230,7 +232,7 @@ extension _StabilizerAppAsset: PHAssetVideoEditable {
                 return
             }
             
-            self.exportSession = AVAssetExportSession.export(asset: video, videoComposition: video.stabilize(with: self.editState.stabilizationMode ?? .translation, clamp: maximumClamp), presetName: AVAssetExportPresetHighestQuality, outputURL: item.output.renderedContentURL, progressHandler: progressHandler, completionHandler: { (success) in
+            self.exportSession = AVAssetExportSession.export(asset: video, videoComposition: video.stabilize(with: self.editState.stabilizationMode ?? .translation), presetName: AVAssetExportPresetHighestQuality, outputURL: item.output.renderedContentURL, progressHandler: progressHandler, completionHandler: { (success) in
                 if success {
                     completionHandler(asset, item.output)
                 }
@@ -249,6 +251,51 @@ extension _StabilizerAppAsset: PHAssetVideoEditable {
         let reader = try AVAssetReader(asset: asset)
         reader.add(output)
         return (reader, output)
+    }
+}
+
+extension _StabilizerAppAsset: PHAssetLivePhotoEditable {
+    func edit<T:LivePhotoProcessable>(processor:T.Type, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
+        let r = self.requestContentEditing { _item in
+            guard let item = _item else{
+                completionHandler(nil,nil)
+                return
+            }
+            
+            let mode = self.editState.stabilizationMode ?? .translation
+            
+            self.editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: item.input)
+            guard let duration = self.editingContext?.duration.seconds else { return }
+            let progress = Progress(totalUnitCount: Int64(duration * 1000))
+            
+            var referenceImage: CIImage?
+            self.editingContext?.frameProcessor = { frame, error in
+                progressHandler?({
+                    progress.completedUnitCount = Int64(frame.time.seconds * 1000)
+                    return progress
+                }())
+                
+                let result: CIImage
+                if let image = referenceImage {
+                    result = frame.image.stabilize(with: image, mode: mode)
+                }
+                else {
+                    result = frame.image
+                }
+                referenceImage = frame.image
+                return result
+            }
+            
+            self.editingContext?.saveLivePhoto(to: item.output, options: nil, completionHandler: { (success, error) in
+                guard success else {
+                    completionHandler(nil, nil)
+                    return
+                }
+                completionHandler(self.asset, item.output)
+            })
+        }
+        
+        return [PHAssetRequestID(forEditingInput: r)]
     }
 }
 
@@ -335,8 +382,13 @@ class StabilizerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppD
         modeCell.valueCollection = StabilizerSettings.stabilizationTitles
         modeCell.valueHandler = {
             if let index = $0 as? Int {
-                self.defaults.stabilizationMode = index
-                AppCenter.default.currentInstanceAs(Stabilizer.self)?.config?.stabilizationMode = StabilizerAppValue(ImageAlignment.StabilizationMode(rawValue: index))
+                var options = ImageAlignment.StabilizationMode(rawValue: index)
+                if self.defaults.crop {
+                    options.insert(.crop)
+                }
+                
+                self.defaults.stabilizationMode = options.rawValue
+                AppCenter.default.currentInstanceAs(Stabilizer.self)?.config?.stabilizationMode = StabilizerAppValue(options)
             }
         }
         cellDescribers.append(modeCell)
@@ -349,6 +401,17 @@ class StabilizerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppD
         cropCell.valueHandler = {
             if let index = $0 as? Int {
                 self.defaults.crop = index == 0
+                
+                var options = ImageAlignment.StabilizationMode(rawValue: self.defaults.stabilizationMode)
+                if index == 0 {
+                    options = options.union(.crop)
+                }
+                else {
+                    options.remove(.crop)
+                }
+                
+                self.defaults.stabilizationMode = options.rawValue
+                AppCenter.default.currentInstanceAs(Stabilizer.self)?.config?.stabilizationMode = StabilizerAppValue(options)
             }
         }
         cellDescribers.append(cropCell)
