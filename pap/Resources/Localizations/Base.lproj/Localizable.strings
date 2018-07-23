@@ -146,11 +146,9 @@
 "Copy" = "Copy";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift#57 */
 "Create" = "Create";
-/* Generated from genl10n: Stabilizer.swift#406 */
-"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift#494 */
 "Crop to Fit" = "Crop to Fit";
-/* Generated from genl10n: Stabilizer.swift#329, GIFMaker.BApp.swift#142 */
+/* Generated from genl10n: Stabilizer.swift#332, GIFMaker.BApp.swift#142 */
 "Crop" = "Crop";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#179 */
 "Custom" = "Custom";
@@ -232,7 +230,7 @@
 "New Event" = "New Event";
 /* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
 "New Phone Number" = "New Phone Number";
-/* Generated from genl10n: Stabilizer.swift#330, GIFMaker.BApp.swift#141 */
+/* Generated from genl10n: Stabilizer.swift#333, GIFMaker.BApp.swift#141 */
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift#575 */
 "No loop" = "No loop";
@@ -288,7 +286,7 @@
 "Saved Without the Camera" = "Saved Without the Camera";
 /* Generated from genl10n: PhotoPickerViewController.swift#861 */
 "Saving Results..." = "Saving Results...";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+/* Generated from genl10n: Stabilizer.swift#414, PDFactory.AppDockContent.swift#138 */
 "Scale To Fit" = "Scale To Fit";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#67 */
 "Screenshots" = "Screenshots";
@@ -314,11 +312,11 @@
 "Some contacts were saved, but someones were not." = "Some contacts were saved, but someones were not.";
 /* Generated from genl10n: GIFMaker.BApp.swift#108 */
 "Square" = "Square";
-/* Generated from genl10n: Stabilizer.swift#380 */
+/* Generated from genl10n: Stabilizer.swift#383 */
 "Stabilization Mode" = "Stabilization Mode";
 /* Generated from genl10n: Stabilizer.swift#98 */
 "Stabilize" = "Stabilize";
-/* Generated from genl10n: Stabilizer.swift#78, Stabilizer.swift#451 */
+/* Generated from genl10n: Stabilizer.swift#78, Stabilizer.swift#459 */
 "Stabilizer" = "Stabilizer";
 /* Generated from genl10n: Stabilizer.swift#95 */
 "Stabilizing Selected Items..." = "Stabilizing Selected Items...";
@@ -344,8 +342,8 @@
 "Too Close-up Face" = "Too Close-up Face";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "Too Slow Shutter Speed";
-/* Generated from genl10n: Stabilizer.swift#322 */
-"Translation" = "Translation";
+/* Generated from genl10n: Stabilizer.swift#325 */
+"Translate" = "Translate";
 /* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
 "Use Auto Selection Bot" = "Use Auto Selection Bot";
 /* Generated from genl10n: GIFMaker.BApp.swift#91 */
@@ -358,5 +356,5 @@
 "Videos Without Sound" = "Videos Without Sound";
 /* Generated from genl10n: PhoneCalls.swift#231, Finder.BApp.swift#151 */
 "Waiting To Select ..." = "Waiting To Select ...";
-/* Generated from genl10n: Stabilizer.swift#323 */
+/* Generated from genl10n: Stabilizer.swift#326 */
 "Warp" = "Warp";

@@ -84,7 +84,7 @@ public class Stabilizer: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, Phot
     required public override init() {
         super.init()
         
-        self.defaultEditStateValue = StabilizerAppValue(.translation)
+        self.defaultEditStateValue = StabilizerAppValue(ImageAlignment.StabilizationMode(rawValue: (Stabilizer.defaults as! StabilizerAppDefaults).stabilizationMode))
     }
     
     public var finalizingActions: [PHAssetFinalizingAction] {
@@ -108,6 +108,9 @@ public class Stabilizer: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, Phot
     
     public private(set) var defaultEditStateValue: ImageEditStateValue?
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {}
+    public func setDefaultEditStateValue(_ editStateValue: ImageEditStateValue?) {
+        defaultEditStateValue = editStateValue
+    }
 }
 
 private class StabilizerTask: AppTaskPrototype, AppTaskable {
@@ -319,7 +322,7 @@ extension Defaults: StabilizerAppDefaults {
 struct StabilizerSettings {
     static var stabilizationTitles: [String] {
         return [
-            "Translation".localized,
+            "Translate".localized,
             "Warp".localized
         ]
     }
@@ -380,7 +383,7 @@ class StabilizerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppD
         modeCell.label = "Stabilization Mode".localized
         modeCell.valueGetter = {
             let mode = ImageAlignment.StabilizationMode(rawValue: self.defaults.stabilizationMode)
-            if mode.contains(.homographic) {
+            if mode.contains(.translation) {
                 return StabilizerSettings.stabilizationTitles[0]
             }
             else {
@@ -390,9 +393,14 @@ class StabilizerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppD
         modeCell.valueCollection = StabilizerSettings.stabilizationTitles
         modeCell.valueHandler = {
             if let index = $0 as? Int {
-                var options = ImageAlignment.StabilizationMode(rawValue: index)
-                if self.defaults.crop {
-                    options.insert(.crop)
+                var options = ImageAlignment.StabilizationMode(rawValue: self.defaults.stabilizationMode)
+                if index == 0 {
+                    options.remove(.homographic)
+                    options.insert(.translation)
+                }
+                else {
+                    options.remove(.translation)
+                    options.insert(.homographic)
                 }
                 
                 self.defaults.stabilizationMode = options.rawValue
@@ -403,7 +411,7 @@ class StabilizerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppD
         
         let cropCell = UITableViewSegmentControlCellDescriber()
         cropCell.itemIdentifier = Cells.stabilizationMode.hashValue
-        cropCell.label = "Crop To Fit".localized
+        cropCell.label = "Scale To Fit".localized
         cropCell.valueGetter = { StabilizerSettings.cropTitles[self.defaults.crop ? 0 : 1] }
         cropCell.valueCollection = StabilizerSettings.cropTitles
         cropCell.valueHandler = {
