@@ -10,7 +10,6 @@ import UIKit
 import Photos
 import PhotosUI
 import Hero
-import Armchair
 
 fileprivate struct PhotoEditorTransitionContext {
     var sourceView: UIView
@@ -386,16 +385,6 @@ class PhotoPickerViewController: AppDockViewController {
         cancelPreheatingIfNeeded()
     }
 
-    @objc func payableButtonDidTap(sender: UIButton) {
-
-        //https://github.com/UrbanApps/Armchair
-        Armchair.resetAllCounters()
-        Armchair.showPrompt { info in
-            return true
-        }
-//        Armchair.rateApp()
-    }
-
     private func showAndRevertTitleByCurrentAppIfNeeded(){
         let timerId = "picker_title_change_timer"
         if self.selectedAssetsInCollectionView?.count ?? 0 == 0 {
@@ -455,11 +444,6 @@ class PhotoPickerViewController: AppDockViewController {
         }
     }
 
-    private enum RightButtonState{
-        case unpaidDeselected
-        case paidSelected
-    }
-
     private func updateSelectedItemsControl() {
 
         switch updateRightButtonState(){
@@ -481,25 +465,6 @@ class PhotoPickerViewController: AppDockViewController {
 
         }
     }
-
-    private lazy var ratingButton = UIBarButtonItem(image: R.image.systemIconFavoriteLine(), style: .plain, target: self, action: #selector(self.payableButtonDidTap))
-
-    private func updateRightButtonState() -> RightButtonState{
-
-        //TODO: payableButton by state
-        if self.estimatedAvailableSelectedItems == 0 {
-            ratingButton.target = self
-            ratingButton.action = #selector(self.payableButtonDidTap)
-            navigationItem.setRightBarButton(ratingButton, animated: true)
-
-            return .unpaidDeselected
-        }
-
-        navigationItem.setRightBarButton(self.doneButton, animated: true)
-        return .paidSelected
-    }
-
-
     private func updateDoneButtonState() {
 
         if AppCenter.default.current == nil{

@@ -42,6 +42,11 @@ public struct SemanticVersion {
     // 1.2.3 -> 0.0 == -6
 
     static func distance(old:String, new:String) -> Int{
+        if old.trimmed.matched("[^0-9.]") || new.trimmed.matched("[^0-9.]"){
+            assert(false,"Version string can contain only '.' or numbers.")
+            return 0
+        }
+
         var oldr = old.split(separator: ".")
         if oldr.count<2{
             oldr.append("0")
