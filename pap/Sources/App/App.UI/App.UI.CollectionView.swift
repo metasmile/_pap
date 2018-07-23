@@ -109,7 +109,9 @@ class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         items[indexPath.item].action?()
         
-        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        if collectionView.contentSize.width > collectionView.bounds.width {
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        }
     }
 }
 
