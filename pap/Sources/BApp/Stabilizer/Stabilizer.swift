@@ -133,6 +133,8 @@ private class StabilizerTask: AppTaskPrototype, AppTaskable {
                 PHAssetItemProgressNotification.update(item: assetItem, progress: progress)
             }) { (asset, contentEditingOutput) in
                 if let asset = asset, let contentEditingOutput = contentEditingOutput {
+                    contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: FiltersApp.self, editInfo: assetItem.editState.stabilizationMode != nil ? ["stabilizationMode": assetItem.editState.stabilizationMode!.rawValue] : [:], from: asset)
+                    
                     result = PHAssetResultItem(
                         asset: asset,
                         contentEditingOutput: contentEditingOutput)

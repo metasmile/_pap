@@ -164,6 +164,13 @@ final class CameraViewLivePhotoCaptureProcessor: CaptureProcessor {
                 let creationRequest = PHAssetCreationRequest.forAsset()
                 creationRequest.addResource(with: .photo, fileURL: photoURL, options: options)
                 creationRequest.addResource(with: .pairedVideo, fileURL: outputFileURL, options: options)
+                
+                if let asset = creationRequest.placeholderForCreatedAsset {
+                    let output = PHContentEditingOutput(placeholderForCreatedAsset: asset)
+                    output.adjustmentData = PAPAdjustmentData.createAdjustmentData(with: CaptureProcessor.ExifUserCommentIdentifier, editInfo: [:])
+                    creationRequest.contentEditingOutput = output
+                    print(output)
+                }
             }, completionHandler: { (success, info) in
                 self.completionHandler?(success, [
                     CaptureProcessorResultKey.photoURL:photoURL

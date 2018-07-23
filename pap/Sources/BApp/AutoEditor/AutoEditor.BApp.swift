@@ -227,6 +227,8 @@ private class _AutoEditorAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy,
                 PHAssetItemProgressNotification.update(item: assetItem, progress: progress)
             }) { (asset, contentEditingOutput) in
                 if let asset = asset, let contentEditingOutput = contentEditingOutput {
+                    contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: FiltersApp.self, editInfo: (assetItem.editState.ciFilter as? CIAutoAdjustmentFilter)?.options ?? [:], from: asset)
+                    
                     result = PHAssetResultItem(
                         asset: asset,
                         contentEditingOutput: contentEditingOutput)

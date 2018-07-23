@@ -149,6 +149,8 @@ private class _TransfromAppTask: AppTaskPrototype, AppTaskable {
                 PHAssetItemProgressNotification.update(item: assetItem, progress: progress)
             }) { (asset, contentEditingOutput) in
                 if let asset = asset, let contentEditingOutput = contentEditingOutput {
+                    contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: FiltersApp.self, editInfo: ["transform": NSStringFromCGAffineTransform(assetItem.editState.transform)], from: asset)
+                    
                     result = PHAssetResultItem(
                             asset: asset,
                             contentEditingOutput: contentEditingOutput)

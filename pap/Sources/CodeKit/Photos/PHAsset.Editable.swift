@@ -55,6 +55,62 @@ struct PHAssetContentEditingItem {
     var output:PHContentEditingOutput
 }
 
+struct PAPAdjustmentData {
+    static let formatVersion = "1.0"
+    static let formatIdentifier = "\(Bundle.main.bundleIdentifier ?? "com.stells.pap").PHAsset.adjustmentData"
+    
+    static func isVaildAdjustmentData(_ data: PHAdjustmentData?) -> Bool {
+        return data?.formatIdentifier == PAPAdjustmentData.formatIdentifier
+    }
+    
+    static func createAdjustmentData(for app: App.Type, editInfo: [String: Any], from asset: PHAsset? = nil) -> PHAdjustmentData {
+        return createAdjustmentData(with: app.info.identifier, editInfo: editInfo, from: asset)
+    }
+    
+    static func createAdjustmentData(with appIdentifier: String, editInfo: [String: Any], from asset: PHAsset? = nil) -> PHAdjustmentData {
+        // history
+        var history = [[String: Any]]()
+        
+        //TODO: fetch previous history
+//        var previousAdjustmentData: PHAdjustmentData?
+//        if isVaildAdjustmentData(previousAdjustmentData), let previousEditData = previousAdjustmentData?.data, let previousEditInfo = try? JSONSerialization.jsonObject(with: previousEditData) as? [String: AnyObject] {
+//            if let previousHistory = previousEditInfo?["history"] as? [[String: Any]] {
+//                history.append(contentsOf: previousHistory)
+//            }
+//        }
+        
+        var editInfo = editInfo
+        editInfo["id"] = appIdentifier
+        if let source = asset?.localIdentifier {
+            editInfo["source"] = source
+        }
+        history.append(editInfo)
+        
+        var adjustmentInfo: [String: Any] = [
+            "id": appIdentifier,
+            "editInfo": editInfo,
+            "history": history
+        ]
+        if let source = asset?.localIdentifier {
+            adjustmentInfo["source"] = source
+        }
+        
+        let data: Data
+        if let json = try? JSONSerialization.data(withJSONObject: adjustmentInfo, options: .prettyPrinted) {
+            data = json
+        }
+        else {
+            data = Data()
+        }
+        
+        print("edited", adjustmentInfo)
+        
+        let adjustmentData = PHAdjustmentData(formatIdentifier: PAPAdjustmentData.formatIdentifier, formatVersion: PAPAdjustmentData.formatVersion, data: data)
+        
+        return adjustmentData
+    }
+}
+
 extension PHAssetItem {
 
     @discardableResult
@@ -70,14 +126,8 @@ extension PHAssetItem {
                 block(nil)
                 return
             }
-            guard let dataInfo = "Edited".data(using: .utf8) else {
-                block(nil)
-                return
-            }
 
             let contentEditingOutput = PHContentEditingOutput(contentEditingInput: _input)
-            contentEditingOutput.adjustmentData = PHAdjustmentData(formatIdentifier: Bundle.main.bundleIdentifier ?? "", formatVersion: "1.0", data: dataInfo)
-
             block(PHAssetContentEditingItem(requestID: _requestID, input: _input, info: info, output: contentEditingOutput))
         }
         return requestID!
