@@ -12,10 +12,26 @@ import DefaultsKit
     dirty policy code in here.
 */
 
-fileprivate extension Defaults {
-    fileprivate var rightButtonPayablePhase: PhotoPickerViewControllerRightBarButtonPayablePhase {
-        set{ set(newValue) }
-        get { return get(or: PhotoPickerViewControllerRightBarButtonPayablePhase.inStoreRating) }
+enum PhotoPickerViewControllerRightBarButtonState {
+    case unpaidDeselected
+    case paidSelected
+}
+
+fileprivate enum PayablePhaseForFree:Int {
+    case inStoreRating // heavy
+    case onPromptRating //light
+    case socialShare //fucking light no share no use
+    case messageUs //then, finally, you can have a permission to message us.
+}
+
+fileprivate protocol PayableDefaults:DefaultsProperty{
+    var rightButtonPayablePhase: PayablePhaseForFree {set get}
+}
+
+extension Defaults:PayableDefaults {
+    fileprivate var rightButtonPayablePhase: PayablePhaseForFree {
+        set{ set(newValue.rawValue) }
+        get { return PayablePhaseForFree(rawValue: get(or: PayablePhaseForFree.inStoreRating.rawValue))! }
     }
 }
 
@@ -31,23 +47,14 @@ private class PhotoPickerViewControllerPayableAssets{
     fileprivate lazy var messageUsButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
 }
 
-enum PhotoPickerViewControllerRightBarButtonState {
-    case unpaidDeselected
-    case paidSelected
-}
-
-enum PhotoPickerViewControllerRightBarButtonPayablePhase:Int, Codable {
-    case inStoreRating // heavy
-    case onPromptRating //light
-    case socialShare //fucking light no share no use
-    case messageUs //then, finally, you can have a permission to message us.
-}
-
 extension PhotoPickerViewController{
 
+    @discardableResult
     func updateRightButtonState() -> PhotoPickerViewControllerRightBarButtonState {
-        let rightButtonItem:UIBarButtonItem
-        switch Defaults.shared.rightButtonPayablePhase{
+        if self.estimatedAvailableSelectedItems <= 0 {
+
+            let rightButtonItem:UIBarButtonItem
+            switch Defaults.shared.rightButtonPayablePhase{
             case .inStoreRating:
                 rightButtonItem = PhotoPickerViewControllerPayableAssets.shared.inStoreRatingButton
             case .onPromptRating:
@@ -56,11 +63,11 @@ extension PhotoPickerViewController{
                 rightButtonItem = PhotoPickerViewControllerPayableAssets.shared.socialShareButton
             case .messageUs:
                 rightButtonItem = PhotoPickerViewControllerPayableAssets.shared.messageUsButton
-        }
+            }
 
-        if self.estimatedAvailableSelectedItems == 0 {
             rightButtonItem.target = self
             rightButtonItem.action = #selector(self.payableButtonDidTap)
+            navigationItem.setRightBarButton(rightButtonItem, animated: true)
             return .unpaidDeselected
         }
 
@@ -81,23 +88,42 @@ extension PhotoPickerViewController{
         }
     }
 
-    private func payableButtonDidTap_inStoreRating() {
+    private func shiftNextPayablePhase(){
+        let nextPhase: PayablePhaseForFree
 
-//        let ratedCurrentVersion = Armchair.userDefaultsObject()?.boolForKey(keyForArmchairKeyType(ArmchairKey.RatedCurrentVersion))
-
-        Armchair.onDidDismissModalView { b in
-            print("onDidDismissModalView",b)
+        if let isRatedCurrentVersion = Armchair.userDefaultsObject()?.boolForKey(keyForArmchairKeyType(ArmchairKey.RatedCurrentVersion)), isRatedCurrentVersion {
+            switch Defaults.shared.rightButtonPayablePhase{
+                case .inStoreRating:
+                    nextPhase = .onPromptRating
+                case .onPromptRating:
+                    nextPhase = .socialShare
+                case .socialShare:
+                    nextPhase = .messageUs
+                case .messageUs:
+                    nextPhase = .messageUs
+            }
+        }else{
+            nextPhase = .inStoreRating
         }
 
-        Armchair.showPrompt { info in
-//            info.info
-            print(info.description)
-            return true
+        Defaults.shared.rightButtonPayablePhase = nextPhase
+        print("shiftNextPayablePhase", nextPhase)
+        self.updateRightButtonState()
+    }
+
+    private func payableButtonDidTap_inStoreRating() {
+        Armchair.onDidDismissModalView { b in
+            self.shiftNextPayablePhase()
+            Armchair.onDidDismissModalView(nil)
         }
         Armchair.rateApp()
     }
 
     private func payableButtonDidTap_onPromptRating() {
+        Armchair.showPrompt { info in
+            self.shiftNextPayablePhase()
+            return true
+        }
     }
 
     private func payableButtonDidTap_socialShare() {

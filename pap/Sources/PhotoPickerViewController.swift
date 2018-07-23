@@ -448,21 +448,20 @@ class PhotoPickerViewController: AppDockViewController {
 
         switch updateRightButtonState(){
 
-        case .paidSelected:
-            navigationItem.setLeftBarButton(self.cancelButton, animated: true)
+            case .paidSelected:
+                navigationItem.setLeftBarButton(self.cancelButton, animated: true)
 
-            if appDockView?.accessory == nil {
-                appDockView?.accessory = batchPreviewView
-            }
+                if appDockView?.accessory == nil {
+                    appDockView?.accessory = batchPreviewView
+                }
 
-        case .unpaidDeselected:
-            navigationItem.setLeftBarButton(nil, animated: true)
+            case .unpaidDeselected:
+                navigationItem.setLeftBarButton(nil, animated: true)
 
-            if appDockView?.accessory != nil {
-                appDockView?.accessory = nil
-                batchPreviewView.reloadContent()
-            }
-
+                if appDockView?.accessory != nil {
+                    appDockView?.accessory = nil
+                    batchPreviewView.reloadContent()
+                }
         }
     }
     private func updateDoneButtonState() {
