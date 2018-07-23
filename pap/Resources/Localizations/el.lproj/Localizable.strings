@@ -1,11 +1,11 @@
 /*Translated from: Photos Access Disabled*/
-"Photos Access Disabled" = "Φωτογραφίες Η πρόσβαση είναι απενεργοποιημένη";
+"Photos Access Disabled" = "Photos Access Disabled";
 /*Translated from: Please open settings and allow access to your photos*/
 "Please open settings and allow access to your photos" = "Ανοίξτε τις ρυθμίσεις και επιτρέψτε την πρόσβαση στις φωτογραφίες σας";
 /*Translated from: Open Settings*/
 "Open Settings" = "Ανοίξτε τις ρυθμίσεις";
 /*Translated from: OK*/
-"OK" = "Εντάξει";
+"OK" = "OK";
 /*Translated from: Done*/
 "Done" = "Εγινε";
 /*Translated from: Confirm*/
@@ -24,14 +24,10 @@
 "Edit %d video(s)" = "Επεξεργασία %d βίντεο";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Επεξεργασία %d στοιχείου";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "Επεξεργασία παρτίδας";
 /*Translated from: Edit*/
 "Edit" = "Edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Απορρίψετε τις αλλαγές";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Έναρξη επεξεργασίας παρτίδας ...";
 /*Translated from: Processing...*/
 "Processing..." = "Επεξεργασία...";
 /*Translated from: Cancelling...*/
@@ -47,13 +43,13 @@
 /*Translated from: Select this video*/
 "Select this video" = "Επιλέξτε αυτό το βίντεο";
 /*Translated from: Deselect this photo*/
-"Deselect this photo" = "Καταργήστε την επιλογή αυτής της φωτογραφίας";
+"Deselect this photo" = "Deselect this photo";
 /*Translated from: Deselect this video*/
 "Deselect this video" = "Αποεπιλέξτε αυτό το βίντεο";
 /*Translated from: Edit this photo*/
-"Edit this photo" = "Επεξεργασία αυτής της φωτογραφίας";
+"Edit this photo" = "Edit this photo";
 /*Translated from: Edit this video*/
-"Edit this video" = "Επεξεργαστείτε αυτό το βίντεο";
+"Edit this video" = "Edit this video";
 /*Translated from: %@ Photo*/
 "%d Photo" = "%@ Φωτογραφία";
 /*Translated from: %@ Video*/
@@ -67,15 +63,15 @@
 /*Translated from: %@ Items*/
 "%d Items" = "%@ Στοιχεία";
 /*Translated from: Edit %@ Photo*/
-"Edit %d Photo" = "Επεξεργασία %@ Φωτογραφία";
+"Edit %d Photo" = "Edit %@ Photo";
 /*Translated from: Edit %@ Video*/
-"Edit %d Video" = "Επεξεργαστείτε το %@ Βίντεο";
+"Edit %d Video" = "Edit %@ Video";
 /*Translated from: Edit %@ Photos*/
-"Edit %d Photos" = "Επεξεργαστείτε τις %@ Φωτογραφίες";
+"Edit %d Photos" = "Edit %@ Photos";
 /*Translated from: Edit %@ Videos*/
 "Edit %d Videos" = "Επεξεργασία %@ Βίντεο";
 /*Translated from: Edit %@ Items*/
-"Edit %d Items" = "Επεξεργαστείτε τα %@ Στοιχεία";
+"Edit %d Items" = "Edit %@ Items";
 /*com.stells.pap.transform*/
 "Transform" = "Μεταμορφώνω";
 /*com.stells.pap.photosfilter*/
@@ -97,7 +93,7 @@
 /*CoreSpotligth keywords - localizable - marketing*/
 "cs_keyword_0" = "άλμπουμ";
 /*Translated from: camera*/
-"cs_keyword_1" = "ΦΩΤΟΓΡΑΦΙΚΗ ΜΗΧΑΝΗ";
+"cs_keyword_1" = "camera";
 /*Translated from: photos*/
 "cs_keyword_2" = "φωτογραφίες";
 /*Translated from: editor*/
@@ -145,7 +141,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Κινούμενο GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Animation" = "Κινουμένων σχεδίων";
+"Animation" = "Animation";
 /* Generated from genl10n: Filters.BApp.swift#76 */
 "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Εφαρμόστε φίλτρα υψηλής ποιότητας σε όλες τις φωτογραφίες που θέλετε. Δεν υπάρχει όριο στον αριθμό των φωτογραφιών για την επεξεργασία τους.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -159,7 +155,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
 /* Generated from genl10n: Camera.BApp.swift#44 */
-"Camera" = "ΦΩΤΟΓΡΑΦΙΚΗ ΜΗΧΑΝΗ";
+"Camera" = "Camera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Δεν είναι δυνατή η επαναφορά. Όλα τα επιλεγμένα στοιχεία δεν έχουν επεξεργαστεί.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -183,19 +179,19 @@
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "Μετατροπέας";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
-"Copy" = "αντίγραφο";
+"Copy" = "Copy";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Δημιουργώ";
 /* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Περικοπή για προσαρμογή";
+"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop to Fit" = "Περικοπή για προσαρμογή";
+"Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Εθιμο";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Date" = "Ημερομηνία";
+"Date" = "Date";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "Διαγραφή στόχων";
 /* Generated from genl10n: Finder.BApp.swift#116 */
@@ -207,7 +203,7 @@
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Λήψη ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
-"E-mail Address" = "Διεύθυνση ηλεκτρονικού ταχυδρομείου";
+"E-mail Address" = "E-mail Address";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "Το EXIF ​​Ghost σάς επιτρέπει να καταργήσετε όλα τα είδη δεδομένων που περιέχουν τις φωτογραφίες σας, συμπεριλαμβανομένων ιδιωτικών πληροφοριών.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
@@ -231,7 +227,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1224 */
 "Formats" = "Μορφές";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "Προς τα εμπρός";
+"Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
@@ -275,7 +271,7 @@
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"No loop" = "Δεν υπάρχει βρόχος";
+"No loop" = "No loop";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Ανοίξτε τους Χάρτες Apple";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -307,7 +303,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "Μόνο γρήγορες ενέργειες";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Repeat" = "Επαναλαμβάνω";
+"Repeat" = "Repeat";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Reverse";
 /* Generated from genl10n: Revert.BApp.swift#44 */
@@ -321,7 +317,7 @@
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Αποθήκευση και κοινή χρήση";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
-"Save" = "Αποθηκεύσετε";
+"Save" = "Save";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "Αποθηκευμένη με ενσωματωμένη κάμερα";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -329,7 +325,7 @@
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Αποθήκευση αποτελεσμάτων ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
-"Scale To Fit" = "Κλίμακα για να ταιριάζει";
+"Scale To Fit" = "Scale To Fit";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
 "Screenshots" = "Στιγμιότυπα οθόνης";
 /* Generated from genl10n: Finder.BApp.swift#762 */
@@ -343,7 +339,7 @@
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Επιλεγμένο";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
-"Send an Email" = "Αποστολή μηνύματος ηλεκτρονικού ταχυδρομείου";
+"Send an Email" = "Send an Email";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Μερίδιο";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
@@ -369,7 +365,7 @@
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Ξεκινώντας τη διαδικασία ...";
 /* Generated from genl10n: Revert.BApp.swift */
-"Starting to check edited photos..." = "Ξεκινώντας να ελέγχετε τις φωτογραφίες που έχετε επεξεργαστεί ...";
+"Starting to check edited photos..." = "Starting to check edited photos...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Ενεργοποιήστε τα στοιχεία που θέλετε να αποκρύψετε. Η ποιότητα θα παραμείνει εξ ολοκλήρου η ίδια.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
@@ -400,5 +396,3 @@
 "Waiting To Select ..." = "Αναμονή για επιλογή ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Στημόνι";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "Ξεκινώντας να βρούμε ...";

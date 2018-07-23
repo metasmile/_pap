@@ -7,9 +7,9 @@
 /*Translated from: OK*/
 "OK" = "சரி";
 /*Translated from: Done*/
-"Done" = "முடிந்தது";
+"Done" = "Done";
 /*Translated from: Confirm*/
-"Confirm" = "உறுதிப்படுத்தவும்";
+"Confirm" = "Confirm";
 /*Translated from: Cancel*/
 "Cancel" = "ரத்து";
 /*Translated from: Detail*/
@@ -24,14 +24,10 @@
 "Edit %d video(s)" = "%d வீடியோ (கள்) ஐத் திருத்து";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "%d உருப்படி (கள்)";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "தொகுதி திருத்து";
 /*Translated from: Edit*/
 "Edit" = "தொகு";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "மாற்றங்களை கைவிடலாம்";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "தொகுதி திருத்துதலை தொடங்கவும் ...";
 /*Translated from: Processing...*/
 "Processing..." = "செயலாக்கும் ...";
 /*Translated from: Cancelling...*/
@@ -43,15 +39,15 @@
 /*Translated from: Reverting Photos...*/
 "Reverting Photos..." = "படங்களை மாற்றியமைக்கிறது ...";
 /*Translated from: Select this photo*/
-"Select this photo" = "இந்த புகைப்படத்தைத் தேர்ந்தெடுக்கவும்";
+"Select this photo" = "Select this photo";
 /*Translated from: Select this video*/
-"Select this video" = "இந்த வீடியோவைத் தேர்ந்தெடுக்கவும்";
+"Select this video" = "Select this video";
 /*Translated from: Deselect this photo*/
-"Deselect this photo" = "இந்த புகைப்படத்தை தேர்வுநீக்கம் செய்யவும்";
+"Deselect this photo" = "Deselect this photo";
 /*Translated from: Deselect this video*/
-"Deselect this video" = "இந்த வீடியோவை தேர்வுநீக்கம் செய்யவும்";
+"Deselect this video" = "Deselect this video";
 /*Translated from: Edit this photo*/
-"Edit this photo" = "இந்த புகைப்படத்தை திருத்தவும்";
+"Edit this photo" = "Edit this photo";
 /*Translated from: Edit this video*/
 "Edit this video" = "இந்த வீடியோவை திருத்தவும்";
 /*Translated from: %@ Photo*/
@@ -71,7 +67,7 @@
 /*Translated from: Edit %@ Video*/
 "Edit %d Video" = "%@ வீடியோவை திருத்து";
 /*Translated from: Edit %@ Photos*/
-"Edit %d Photos" = "%@ புகைப்படங்கள் திருத்தவும்";
+"Edit %d Photos" = "Edit %@ Photos";
 /*Translated from: Edit %@ Videos*/
 "Edit %d Videos" = "%@ வீடியோக்கள் திருத்தவும்";
 /*Translated from: Edit %@ Items*/
@@ -79,7 +75,7 @@
 /*com.stells.pap.transform*/
 "Transform" = "மாற்றும்";
 /*com.stells.pap.photosfilter*/
-"Apply" = "விண்ணப்பிக்கவும்";
+"Apply" = "Apply";
 /*com.stells.pap.revert*/
 "Revert" = "மாற்றியமை";
 /*Translated from: Starting to revert...*/
@@ -99,7 +95,7 @@
 /*Translated from: camera*/
 "cs_keyword_1" = "கேமரா";
 /*Translated from: photos*/
-"cs_keyword_2" = "புகைப்படங்கள்";
+"cs_keyword_2" = "photos";
 /*Translated from: editor*/
 "cs_keyword_3" = "ஆசிரியர்";
 /*Translated from: messenger*/
@@ -133,7 +129,7 @@
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
 "Add New Contact" = "புதிய தொடர்பு சேர்க்கவும்";
 /* Generated from genl10n: Finder.BApp.swift#466 */
-"Add an Event" = "ஒரு நிகழ்வைச் சேர்க்கவும்";
+"Add an Event" = "Add an Event";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "முகவரி";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
@@ -141,7 +137,7 @@
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "அனைத்து தொடர்புகளும் வெற்றிகரமாக சேமிக்கப்பட்டன.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
-"All" = "அனைத்து";
+"All" = "All";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "அனிமேஷன் GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -155,7 +151,7 @@
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "ஆட்டோ எடிட்டர்";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
-"Blur Rate" = "தெளிவின்மை விகிதம்";
+"Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "பர்ஸ்ட்";
 /* Generated from genl10n: Camera.BApp.swift#44 */
@@ -185,7 +181,7 @@
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "நகல்";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Create" = "உருவாக்கவும்";
+"Create" = "Create";
 /* Generated from genl10n: Stabilizer.swift */
 "Crop To Fit" = "பொருத்துவதற்கு பயிர்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -217,7 +213,7 @@
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "வடிகட்டிகள்";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
-"Find" = "கண்டுபிடிக்க";
+"Find" = "Find";
 /* Generated from genl10n: Finder.BApp.swift#42 */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "உங்கள் புகைப்படங்களில் உள்ள தொலைபேசி எண்கள், முகவரிகள், தேதிகள் அல்லது URL கள் போன்ற ஒவ்வொரு அர்த்தமுள்ள தகவலையும் கண்டுபிடிப்பதைத் தேடுகிறது, பின்னர் அழைப்புகள், திறந்த வரைபடங்கள் அல்லது வலைத்தளங்களை தேடலைத் தேடுங்கள்!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -261,7 +257,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "லூப்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Make GIF" = "GIF ஐ செய்யுங்கள்";
+"Make GIF" = "Make GIF";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "மாற்று";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
@@ -291,15 +287,15 @@
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "பக்க அளவு முன்னமைவு";
 /* Generated from genl10n: PhoneCalls.swift#57 */
-"Phone Calls" = "தொலைப்பேசி அழைப்புகள்";
+"Phone Calls" = "Phone Calls";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "தொலைபேசி எண்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Photos" = "புகைப்படங்கள்";
+"Photos" = "Photos";
 /* Generated from genl10n: Finder.BApp.swift#1229 */
 "Plain Text" = "சாதாரண எழுத்து";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
-"Presets" = "முன்னமைப்புகள்";
+"Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "தனியுரிமை";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
@@ -307,7 +303,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "விரைவான நடவடிக்கைகள் மட்டுமே";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Repeat" = "மீண்டும் மீண்டும்";
+"Repeat" = "Repeat";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "பின்னோக்கு";
 /* Generated from genl10n: Revert.BApp.swift#44 */
@@ -319,7 +315,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "தொடர்புகளை நேரடியாக சேமிக்கவும்";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
-"Save and Share" = "சேமிக்கவும் மற்றும் பகிர்ந்து";
+"Save and Share" = "Save and Share";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "சேமி";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
@@ -329,7 +325,7 @@
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "முடிவுகளை சேமிக்கிறது ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
-"Scale To Fit" = "பொருத்துவதற்கு அளவுகோல்";
+"Scale To Fit" = "Scale To Fit";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
 "Screenshots" = "ஸ்கிரீன்";
 /* Generated from genl10n: Finder.BApp.swift#762 */
@@ -341,9 +337,9 @@
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "நீங்கள் எண்களை கைப்பற்ற விரும்புகிறீர்களா?";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
-"Selected" = "தேர்ந்தெடுக்கப்பட்ட";
+"Selected" = "Selected";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
-"Send an Email" = "ஒரு மின்னஞ்சல் அனுப்பவும்";
+"Send an Email" = "Send an Email";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "பகிர்";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
@@ -353,7 +349,7 @@
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "சில தொடர்புகள் சேமிக்கப்பட்டன, ஆனால் யாரோ ஒருவர் இல்லை.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Square" = "சதுக்கத்தில்";
+"Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilization Mode" = "உறுதிப்படுத்தல் முறை";
 /* Generated from genl10n: Stabilizer.swift */
@@ -373,7 +369,7 @@
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "நீங்கள் மறைக்க விரும்பும் எந்தப் பொருட்களையும் மாற்றவும். தரம் முற்றிலும் ஒரே மாதிரியாக இருக்கும்.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
-"Take A Photo" = "ஒரு புகைப்படத்தை எடுக்கவும்";
+"Take A Photo" = "Take A Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "இலக்கு";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
@@ -399,6 +395,4 @@
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "தேர்ந்தெடுக்க காத்திருக்கிறது ...";
 /* Generated from genl10n: Stabilizer.swift */
-"Warp" = "தொகுப்பை";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "கண்டுபிடிக்க தொடங்குகிறது ...";
+"Warp" = "Warp";

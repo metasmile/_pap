@@ -5,7 +5,7 @@
 /*Translated from: Open Settings*/
 "Open Settings" = "Ouvrir les paramètres";
 /*Translated from: OK*/
-"OK" = "D'accord";
+"OK" = "OK";
 /*Translated from: Done*/
 "Done" = "Done";
 /*Translated from: Confirm*/
@@ -24,14 +24,10 @@
 "Edit %d video(s)" = "Modifier %d vidéo (s)";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Modifier %d élément (s)";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "Batch Edit";
 /*Translated from: Edit*/
 "Edit" = "Edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Annuler les modifications";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Démarrer l'édition par lots ...";
 /*Translated from: Processing...*/
 "Processing..." = "En traitement...";
 /*Translated from: Cancelling...*/
@@ -189,7 +185,7 @@
 /* Generated from genl10n: Stabilizer.swift */
 "Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop to Fit" = "Recadrer pour s'adapter";
+"Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
@@ -321,7 +317,7 @@
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Sauvegarder et partager";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
-"Save" = "sauvegarder";
+"Save" = "Save";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "Enregistré avec caméra intégrée";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -400,5 +396,3 @@
 "Waiting To Select ..." = "En attente de sélectionner ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "Commencer à trouver ...";

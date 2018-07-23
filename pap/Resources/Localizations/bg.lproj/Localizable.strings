@@ -5,7 +5,7 @@
 /*Translated from: Open Settings*/
 "Open Settings" = "Отворете Настройки";
 /*Translated from: OK*/
-"OK" = "Добре";
+"OK" = "OK";
 /*Translated from: Done*/
 "Done" = "Свършен";
 /*Translated from: Confirm*/
@@ -21,17 +21,13 @@
 /*Translated from: Edit %d photo(s)*/
 "Edit %d photo(s)" = "Редактирайте %d снимка (и)";
 /*Translated from: Edit %d video(s)*/
-"Edit %d video(s)" = "Редактиране на %d видеоклип (и)";
+"Edit %d video(s)" = "Edit %d video(s)";
 /*Translated from: Edit %d item(s)*/
-"Edit %d item(s)" = "Редактиране на %d елемент (и)";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "Редактиране на партида";
+"Edit %d item(s)" = "Edit %d item(s)";
 /*Translated from: Edit*/
-"Edit" = "редактиране";
+"Edit" = "Edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Отхвърлите промените";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Стартиране на партидирането ...";
 /*Translated from: Processing...*/
 "Processing..." = "Обработка ...";
 /*Translated from: Cancelling...*/
@@ -69,11 +65,11 @@
 /*Translated from: Edit %@ Photo*/
 "Edit %d Photo" = "Редактирайте %@ Снимка";
 /*Translated from: Edit %@ Video*/
-"Edit %d Video" = "Редактирайте %@ Видеоклипа";
+"Edit %d Video" = "Edit %@ Video";
 /*Translated from: Edit %@ Photos*/
 "Edit %d Photos" = "Редактирайте %@ Снимки";
 /*Translated from: Edit %@ Videos*/
-"Edit %d Videos" = "Редактирайте %@ Видеоклипове";
+"Edit %d Videos" = "Edit %@ Videos";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "Редактирайте %@ Елементи";
 /*com.stells.pap.transform*/
@@ -107,9 +103,9 @@
 /*Translated from: filter*/
 "cs_keyword_5" = "филтър";
 /*Translated from: edit*/
-"cs_keyword_6" = "редактиране";
+"cs_keyword_6" = "edit";
 /*Translated from: image*/
-"cs_keyword_7" = "изображение";
+"cs_keyword_7" = "image";
 /*Translated from: smart*/
 "cs_keyword_8" = "smart";
 /*Translated from: picture*/
@@ -141,7 +137,7 @@
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Всички контакти бяха успешно запазени.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
-"All" = "всичко";
+"All" = "All";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Анимиран GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -187,13 +183,13 @@
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "създавам";
 /* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Изрязване, за да се побере";
+"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop to Fit" = "Изрязване за подреждане";
+"Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "реколта";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
-"Custom" = "Персонализиран";
+"Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Дата";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
@@ -233,7 +229,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "напред";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Frame Delay" = "Закъснение на рамката";
+"Frame Delay" = "Frame Delay";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker позволява лесно и бързо да правите GIF изображения от Photos или Live Photos с различни опции! И тогава можете да отворите приложението за конвертор, за да го превърнете във всичко, като например 'Живи снимки' или 'Видеоклипове'.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -243,7 +239,7 @@
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "Скриване на избраните елементи ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Image Quality" = "Качество на изображението";
+"Image Quality" = "Image Quality";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "внос";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
@@ -289,7 +285,7 @@
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Page Margin" = "Маржин на страницата";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
-"Page Size Preset" = "Предварително зададен размер на страницата";
+"Page Size Preset" = "Page Size Preset";
 /* Generated from genl10n: PhoneCalls.swift#57 */
 "Phone Calls" = "Телефонни обаждания";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -400,5 +396,3 @@
 "Waiting To Select ..." = "Изчакване за избор ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "основа";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "Започва да намира ...";

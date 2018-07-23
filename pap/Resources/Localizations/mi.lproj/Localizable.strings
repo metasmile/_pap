@@ -24,14 +24,10 @@
 "Edit %d video(s)" = "Edit %d video(s)";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Whakatika %d nga mea (s)";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "Whakatika Whakatau";
 /*Translated from: Edit*/
-"Edit" = "Whakatika";
+"Edit" = "Edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Makahia nga Huringa";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Tīmata Whakatika Whakatau ...";
 /*Translated from: Processing...*/
 "Processing..." = "Te tukatuka ...";
 /*Translated from: Cancelling...*/
@@ -67,7 +63,7 @@
 /*Translated from: %@ Items*/
 "%d Items" = "%@ Items";
 /*Translated from: Edit %@ Photo*/
-"Edit %d Photo" = "Whakatikahia %@ Whakaahua";
+"Edit %d Photo" = "Edit %@ Photo";
 /*Translated from: Edit %@ Video*/
 "Edit %d Video" = "Whakatika %@ Ataata";
 /*Translated from: Edit %@ Photos*/
@@ -75,7 +71,7 @@
 /*Translated from: Edit %@ Videos*/
 "Edit %d Videos" = "Whakatikahia %@ Ataata";
 /*Translated from: Edit %@ Items*/
-"Edit %d Items" = "Whakatikahia %@ Ngā Tūemi";
+"Edit %d Items" = "Edit %@ Items";
 /*com.stells.pap.transform*/
 "Transform" = "Ka huri";
 /*com.stells.pap.photosfilter*/
@@ -107,7 +103,7 @@
 /*Translated from: filter*/
 "cs_keyword_5" = "tātari";
 /*Translated from: edit*/
-"cs_keyword_6" = "whakatika";
+"cs_keyword_6" = "edit";
 /*Translated from: image*/
 "cs_keyword_7" = "image";
 /*Translated from: smart*/
@@ -157,7 +153,7 @@
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "Tuhinga o mua";
+"Burst" = "Burst";
 /* Generated from genl10n: Camera.BApp.swift#44 */
 "Camera" = "Kamupene";
 /* Generated from genl10n: Revert.BApp.swift */
@@ -191,7 +187,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Te tipu hei Whakauru";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "Nga tipu";
+"Crop" = "Crop";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Ritenga";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -273,15 +269,15 @@
 /* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
 "New Phone Number" = "Tau Tau Hou";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"No Crop" = "Karekau he Tao";
+"No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"No loop" = "Karekau he papa";
+"No loop" = "No loop";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Whakatuhia nga Mahere Apple";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Whakatūwhera Mahere Google";
 /* Generated from genl10n: Finder.BApp.swift#370 */
-"Open Web Page" = "Whakatūwheratia te Whārangi Tukutuku";
+"Open Web Page" = "Open Web Page";
 /* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
 "Original" = "Tuhinga";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
@@ -307,7 +303,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "Nga Mahi Tere anake";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Repeat" = "Whakahiti ano";
+"Repeat" = "Repeat";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Hurihia";
 /* Generated from genl10n: Revert.BApp.swift#44 */
@@ -400,5 +396,3 @@
 "Waiting To Select ..." = "E tatari ana ki te whiriwhiri ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "He wera";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "Tīmata ki te Kimi ...";

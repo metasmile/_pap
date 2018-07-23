@@ -7,11 +7,11 @@
 /*Translated from: OK*/
 "OK" = "Хуб";
 /*Translated from: Done*/
-"Done" = "Муҳокима";
+"Done" = "Done";
 /*Translated from: Confirm*/
 "Confirm" = "Тасдиқ кунед";
 /*Translated from: Cancel*/
-"Cancel" = "Бекор кардан";
+"Cancel" = "Cancel";
 /*Translated from: Detail*/
 "Detail" = "Маълумот";
 /*Translated from: Delete*/
@@ -24,14 +24,10 @@
 "Edit %d video(s)" = "Edit %d video(s)";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Таҳлили %d item (s)";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "Тафсилоти гурӯҳӣ";
 /*Translated from: Edit*/
 "Edit" = "Таҳрири";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Тағир додани тағиротҳо";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Оғоз кардани таркиби ...";
 /*Translated from: Processing...*/
 "Processing..." = "Коркарди ...";
 /*Translated from: Cancelling...*/
@@ -107,7 +103,7 @@
 /*Translated from: filter*/
 "cs_keyword_5" = "филтр";
 /*Translated from: edit*/
-"cs_keyword_6" = "таҳрир кардан";
+"cs_keyword_6" = "edit";
 /*Translated from: image*/
 "cs_keyword_7" = "тасвир";
 /*Translated from: smart*/
@@ -239,7 +235,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: ExifGhost.BApp.swift */
-"Hide" = "Пинҳон кунед";
+"Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "Пинҳон кардани ҷузъҳои интихобшуда ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -363,7 +359,7 @@
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilizing Selected Items..." = "Истилоҳотҳои интихобшуда ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "Оғоз кунед";
+"Start" = "Start";
 /* Generated from genl10n: Finder.BApp.swift */
 "Starting To Find ..." = "Оғоз барои дарёфти ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -400,5 +396,3 @@
 "Waiting To Select ..." = "Интизорӣ барои интихоби ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Варақа";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "Оғоз барои дарёфти ...";

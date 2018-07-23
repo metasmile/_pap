@@ -13,7 +13,7 @@
 /*Translated from: Cancel*/
 "Cancel" = "Faaleaoga";
 /*Translated from: Detail*/
-"Detail" = "Faʻamatalaga";
+"Detail" = "Detail";
 /*Translated from: Delete*/
 "Delete" = "Aveese";
 /*Translated from: Sorry, something went wrong.*/
@@ -24,14 +24,10 @@
 "Edit %d video(s)" = "Faʻasologa %d vitio (s)";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Faʻasologa %d mea (s)";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "Lisi Faʻataʻitaʻitusi";
 /*Translated from: Edit*/
-"Edit" = "Faʻamata";
+"Edit" = "Edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Lafoaʻia Suiga";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Amata le Faʻatulagaina o Paʻa ...";
 /*Translated from: Processing...*/
 "Processing..." = "Faʻasagaga ...";
 /*Translated from: Cancelling...*/
@@ -107,7 +103,7 @@
 /*Translated from: filter*/
 "cs_keyword_5" = "faamama";
 /*Translated from: edit*/
-"cs_keyword_6" = "faʻafeiloaʻi";
+"cs_keyword_6" = "edit";
 /*Translated from: image*/
 "cs_keyword_7" = "ata";
 /*Translated from: smart*/
@@ -131,9 +127,9 @@
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Gaioiga";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
-"Add New Contact" = "Faʻaopoopo le Faʻamatalaga fou";
+"Add New Contact" = "Add New Contact";
 /* Generated from genl10n: Finder.BApp.swift#466 */
-"Add an Event" = "Faaopoopo se Mea na tupu";
+"Add an Event" = "Add an Event";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Tuatusi";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
@@ -141,7 +137,7 @@
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "O tagata uma na faʻafesoʻotaʻi sa faamanuiaina lelei.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
-"All" = "Faʻatasi";
+"All" = "All";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "GIF animated";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -191,7 +187,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Vaomatua e Toto";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "Vaomatua";
+"Crop" = "Crop";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Faʻasalalau";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -245,7 +241,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Ata o Ata";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Import" = "Faaulufale mai";
+"Import" = "Import";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
 "It could not be saved." = "E le mafai ona laveaiina.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
@@ -273,7 +269,7 @@
 /* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
 "New Phone Number" = "Numera Telefoni Fou";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"No Crop" = "Leai se Vaomatua";
+"No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Leai se loop";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -301,7 +297,7 @@
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Faʻasaga";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
-"Privacy" = "Tulaga faalilolilo";
+"Privacy" = "Privacy";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Tulaga lelei";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
@@ -329,7 +325,7 @@
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Faʻasaoina o Tali ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
-"Scale To Fit" = "Fuafaatatau e Faatulagaina";
+"Scale To Fit" = "Scale To Fit";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
 "Screenshots" = "Faʻafanua";
 /* Generated from genl10n: Finder.BApp.swift#762 */
@@ -399,6 +395,4 @@
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "Faatali e Filifili ...";
 /* Generated from genl10n: Stabilizer.swift */
-"Warp" = "Filifili";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "Amataina e Saili ...";
+"Warp" = "Warp";

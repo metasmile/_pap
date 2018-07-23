@@ -5,13 +5,13 @@
 /*Translated from: Open Settings*/
 "Open Settings" = "सेटिङहरू खोल्नुहोस्";
 /*Translated from: OK*/
-"OK" = "ठिक छ";
+"OK" = "OK";
 /*Translated from: Done*/
 "Done" = "भयो";
 /*Translated from: Confirm*/
-"Confirm" = "निश्चित गर्नुहोस्";
+"Confirm" = "Confirm";
 /*Translated from: Cancel*/
-"Cancel" = "रद्द गर्नुहोस्";
+"Cancel" = "Cancel";
 /*Translated from: Detail*/
 "Detail" = "विस्तार";
 /*Translated from: Delete*/
@@ -23,15 +23,11 @@
 /*Translated from: Edit %d video(s)*/
 "Edit %d video(s)" = "Edit %d video(s)";
 /*Translated from: Edit %d item(s)*/
-"Edit %d item(s)" = "वस्तु (हरू) सम्पादन गर्नुहोस् %d";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "ब्याच सम्पादन";
+"Edit %d item(s)" = "Edit %d item(s)";
 /*Translated from: Edit*/
-"Edit" = "सम्पादन गर्नुहोस्";
+"Edit" = "Edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "परिवर्तनहरू खारेज गर्नुहोस्";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "ब्याच सम्पादन शुरू गर्नुहोस् ...";
 /*Translated from: Processing...*/
 "Processing..." = "प्रक्रिया गर्दै ...";
 /*Translated from: Cancelling...*/
@@ -73,27 +69,27 @@
 /*Translated from: Edit %@ Photos*/
 "Edit %d Photos" = "Edit %@ Photos";
 /*Translated from: Edit %@ Videos*/
-"Edit %d Videos" = "सम्पादन गर्नुहोस् %@ भिडियोहरू";
+"Edit %d Videos" = "Edit %@ Videos";
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "Edit %@ Items";
 /*com.stells.pap.transform*/
-"Transform" = "रूपान्तरण गर्नुहोस्";
+"Transform" = "Transform";
 /*com.stells.pap.photosfilter*/
-"Apply" = "निवेदन गर्नु";
+"Apply" = "Apply";
 /*com.stells.pap.revert*/
-"Revert" = "उल्टाउनुहोस्";
+"Revert" = "Revert";
 /*Translated from: Starting to revert...*/
 "Starting to revert..." = "उल्टाउन सुरु गर्दै ...";
 /*Translated from: Reverting Photos...*/
 "Reverting Photos..." = "फोटोहरू उल्टाउँदै ...";
 /*com.stells.pap.pdfactory*/
-"Create %@" = "%@ सिर्जना गर्नुहोस्";
+"Create %@" = "Create %@";
 /*Translated from: Starting to create PDF...*/
 "Starting to create PDF..." = "पीडीएफ सिर्जना गर्न सुरु हुँदै ...";
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "PDF पृष्ठ सिर्जना गर्दै ...";
 /*com.stells.pap.converter*/
-"Convert" = "रूपान्तरण गर्नुहोस्";
+"Convert" = "Convert";
 /*CoreSpotligth keywords - localizable - marketing*/
 "cs_keyword_0" = "एल्बम";
 /*Translated from: camera*/
@@ -105,9 +101,9 @@
 /*Translated from: messenger*/
 "cs_keyword_4" = "दूत";
 /*Translated from: filter*/
-"cs_keyword_5" = "फिल्टर गर्नुहोस्";
+"cs_keyword_5" = "filter";
 /*Translated from: edit*/
-"cs_keyword_6" = "सम्पादन गर्नुहोस्";
+"cs_keyword_6" = "edit";
 /*Translated from: image*/
 "cs_keyword_7" = "छवि";
 /*Translated from: smart*/
@@ -185,13 +181,13 @@
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "कापी";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Create" = "सिर्जना गर्नुहोस्";
+"Create" = "Create";
 /* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Fit मा फन्ट गर्नुहोस्";
+"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "फिट मा फट गर्नुहोस्";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "खेती गर्नुहोस्";
+"Crop" = "Crop";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "अनुकूलन";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -213,11 +209,11 @@
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "निर्यात विकल्पहरू";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Export" = "निर्यात गर्नुहोस्";
+"Export" = "Export";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "फिल्टरहरू";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
-"Find" = "पत्ता लगाउनुहोस्";
+"Find" = "Find";
 /* Generated from genl10n: Finder.BApp.swift#42 */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "खोजकर्ताले तपाईंको साटोको फोन नम्बरहरू, ठेगानाहरू, मितिहरू वा URL हरूको रूपमा हरेक सार्थक जानकारी निकाल्दछ र त्यसपछि कल गर्नुहोस्, नक्सा खोल्नुहोस् वा खोजी उडानहरूमा समेत वेबसाइटहरू नेभिगेट गर्नुहोस्!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -231,7 +227,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1224 */
 "Formats" = "ढाँचाहरू";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "फर्वार्ड गर्नुहोस्";
+"Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "फ्रेम ढिलाइ";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
@@ -239,13 +235,13 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF निर्माता";
 /* Generated from genl10n: ExifGhost.BApp.swift */
-"Hide" = "लुकाउनुहोस्";
+"Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "लुकेका छनौट वस्तुहरू ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "छवि गुणस्तर";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Import" = "आयात गर्नुहोस्";
+"Import" = "Import";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
 "It could not be saved." = "यो बचत गर्न सकिएन।";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
@@ -263,7 +259,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "GIF बनाउनुहोस्";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "परिमार्जन गर्नुहोस्";
+"Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "मेरो एल्बमहरू";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
@@ -307,7 +303,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "द्रुत कार्यहरू मात्र";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Repeat" = "दोहोर्याउनुहोस्";
+"Repeat" = "Repeat";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "रिवर्स";
 /* Generated from genl10n: Revert.BApp.swift#44 */
@@ -321,7 +317,7 @@
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "बचत र साझेदारी गर्नुहोस्";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save" = "बचत गर्नुहोस्";
+"Save" = "Save";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "निर्मित क्यामेराको साथ बचत गरियो";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -345,7 +341,7 @@
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "इमेल पठाउनुहोस्";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
-"Share" = "साझेदारी गर्नुहोस्";
+"Share" = "Share";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "समानता";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -363,7 +359,7 @@
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilizing Selected Items..." = "चयन गरिएका वस्तुहरू स्थिर गर्दै ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "सुरू गर्नुहोस्";
+"Start" = "Start";
 /* Generated from genl10n: Finder.BApp.swift */
 "Starting To Find ..." = "खोजी गर्न सुरु गर्दै ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -400,5 +396,3 @@
 "Waiting To Select ..." = "चयन गर्न पर्खँदै ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "वारप";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "खोजी गर्न सुरु गर्दै ...";

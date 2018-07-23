@@ -24,14 +24,10 @@
 "Edit %d video(s)" = "Redigera %d video (er)";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Redigera %d objekt (er)";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "Batch Edit";
 /*Translated from: Edit*/
-"Edit" = "Redigera";
+"Edit" = "Edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Ignorera ändringar";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Starta batchredigering ...";
 /*Translated from: Processing...*/
 "Processing..." = "Bearbetning ...";
 /*Translated from: Cancelling...*/
@@ -107,7 +103,7 @@
 /*Translated from: filter*/
 "cs_keyword_5" = "filtrera";
 /*Translated from: edit*/
-"cs_keyword_6" = "redigera";
+"cs_keyword_6" = "edit";
 /*Translated from: image*/
 "cs_keyword_7" = "bild";
 /*Translated from: smart*/
@@ -175,7 +171,7 @@
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner gör att du kan hitta och ta bort alla typer av felaktiga bilder, t.ex. dubbletter och liknande bilder, närbilder eller Lockscreen-bilder!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
-"Cleaner" = "Rengöringsmedel";
+"Cleaner" = "Cleaner";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Kontakter";
 /* Generated from genl10n: Converter.BApp.swift#42 */
@@ -187,13 +183,13 @@
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Skapa";
 /* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Beskära för att passa";
+"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Skörda att passa";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Beskära";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
-"Custom" = "Beställnings";
+"Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Datum";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
@@ -273,7 +269,7 @@
 /* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
 "New Phone Number" = "Nytt telefonnummer";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
-"No Crop" = "Ingen beskärning";
+"No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Ingen slinga";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -313,7 +309,7 @@
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Återställ app gör det möjligt att snabbt återställa en massa mängd redigerade foton till originalet. Dessutom hjälper det dig med det automatiska valet!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "Spola tillbaka";
+"Rewind" = "Rewind";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "Spara alla telefonnummer";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
@@ -345,7 +341,7 @@
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Skicka ett email";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
-"Share" = "Dela med sig";
+"Share" = "Share";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Likhet";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -400,5 +396,3 @@
 "Waiting To Select ..." = "Väntar på att välja ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "Börjar hitta ...";

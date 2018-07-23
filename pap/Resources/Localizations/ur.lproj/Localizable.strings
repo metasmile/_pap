@@ -5,7 +5,7 @@
 /*Translated from: Open Settings*/
 "Open Settings" = "کھولیں ترتیبات";
 /*Translated from: OK*/
-"OK" = "ٹھیک ہے";
+"OK" = "OK";
 /*Translated from: Done*/
 "Done" = "ہو گیا";
 /*Translated from: Confirm*/
@@ -24,14 +24,10 @@
 "Edit %d video(s)" = "ترمیم %d ویڈیو (ے)";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Edit %d item(s)";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "بیچ میں ترمیم کریں";
 /*Translated from: Edit*/
 "Edit" = "ترمیم";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "تبدیلیاں مسترد کریں";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "بیچ میں ترمیم شروع کریں ...";
 /*Translated from: Processing...*/
 "Processing..." = "پروسیسنگ ...";
 /*Translated from: Cancelling...*/
@@ -79,7 +75,7 @@
 /*com.stells.pap.transform*/
 "Transform" = "ٹرانسفارمر";
 /*com.stells.pap.photosfilter*/
-"Apply" = "درخواست دیں";
+"Apply" = "Apply";
 /*com.stells.pap.revert*/
 "Revert" = "واپس";
 /*Translated from: Starting to revert...*/
@@ -183,7 +179,7 @@
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "کنورٹر";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
-"Copy" = "کاپی کریں";
+"Copy" = "Copy";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "بنانا";
 /* Generated from genl10n: Stabilizer.swift */
@@ -193,7 +189,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "فصل";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
-"Custom" = "اپنی مرضی کے مطابق";
+"Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "تاریخ";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
@@ -321,7 +317,7 @@
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "محفوظ کریں اور اشتراک کریں";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save" = "محفوظ کریں";
+"Save" = "Save";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "بلٹ ان کیمرے کے ساتھ محفوظ";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -329,7 +325,7 @@
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "بچت کے نتائج ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
-"Scale To Fit" = "مناسبت حد تک لانے کیلئے کسی چیز کو چھوٹا یا بڑا کرنا";
+"Scale To Fit" = "Scale To Fit";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
 "Screenshots" = "اسکرین شاٹس";
 /* Generated from genl10n: Finder.BApp.swift#762 */
@@ -400,5 +396,3 @@
 "Waiting To Select ..." = "منتخب کرنے کے لئے انتظار کر رہا ہے ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "وارپ";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "تلاش کرنے کے لئے شروع ...";

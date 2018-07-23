@@ -7,7 +7,7 @@
 /*Translated from: OK*/
 "OK" = "OK";
 /*Translated from: Done*/
-"Done" = "Arna dhéanamh";
+"Done" = "Done";
 /*Translated from: Confirm*/
 "Confirm" = "Deimhnigh";
 /*Translated from: Cancel*/
@@ -19,19 +19,15 @@
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "Tá brón orm, rud a chuaigh mícheart.";
 /*Translated from: Edit %d photo(s)*/
-"Edit %d photo(s)" = "Cuir %d grianghraf (í) in eagar";
+"Edit %d photo(s)" = "Edit %d photo(s)";
 /*Translated from: Edit %d video(s)*/
 "Edit %d video(s)" = "Cuir %d físeán (í) in eagar";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Cuir %d mír (í) in eagar";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "Baisc Edit";
 /*Translated from: Edit*/
-"Edit" = "Athraigh";
+"Edit" = "Edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Athruithe a Dhíscaoileadh";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Tosaigh Eagarthóireacht Baisc ...";
 /*Translated from: Processing...*/
 "Processing..." = "Próiseáil ...";
 /*Translated from: Cancelling...*/
@@ -51,7 +47,7 @@
 /*Translated from: Deselect this video*/
 "Deselect this video" = "Roghnaigh an físeán seo";
 /*Translated from: Edit this photo*/
-"Edit this photo" = "Cuir an grianghraf seo in eagar";
+"Edit this photo" = "Edit this photo";
 /*Translated from: Edit this video*/
 "Edit this video" = "Cuir an físeán seo in eagar";
 /*Translated from: %@ Photo*/
@@ -67,11 +63,11 @@
 /*Translated from: %@ Items*/
 "%d Items" = "Míreanna %@";
 /*Translated from: Edit %@ Photo*/
-"Edit %d Photo" = "Cuir %@ Grianghraf in eagar";
+"Edit %d Photo" = "Edit %@ Photo";
 /*Translated from: Edit %@ Video*/
 "Edit %d Video" = "Cuir %@ Físeáin in eagar";
 /*Translated from: Edit %@ Photos*/
-"Edit %d Photos" = "Cuir %@ Grianghraif ar fáil";
+"Edit %d Photos" = "Edit %@ Photos";
 /*Translated from: Edit %@ Videos*/
 "Edit %d Videos" = "Cuir %@ Físeáin in eagar";
 /*Translated from: Edit %@ Items*/
@@ -79,7 +75,7 @@
 /*com.stells.pap.transform*/
 "Transform" = "Athraigh";
 /*com.stells.pap.photosfilter*/
-"Apply" = "Cuir iarratas isteach";
+"Apply" = "Apply";
 /*com.stells.pap.revert*/
 "Revert" = "Revert";
 /*Translated from: Starting to revert...*/
@@ -107,7 +103,7 @@
 /*Translated from: filter*/
 "cs_keyword_5" = "scagaire";
 /*Translated from: edit*/
-"cs_keyword_6" = "in eagar";
+"cs_keyword_6" = "edit";
 /*Translated from: image*/
 "cs_keyword_7" = "íomha";
 /*Translated from: smart*/
@@ -193,7 +189,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Cnoc";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
-"Custom" = "Saincheaptha";
+"Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Dáta";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
@@ -253,7 +249,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Míreanna";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
-"Layout" = "Leagan Amach";
+"Layout" = "Layout";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Grianghraf Beo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -281,7 +277,7 @@
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Oscail Google Maps";
 /* Generated from genl10n: Finder.BApp.swift#370 */
-"Open Web Page" = "Leathanach Gréasáin Oscailte";
+"Open Web Page" = "Open Web Page";
 /* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
 "Original" = "Bunaidh";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
@@ -289,7 +285,7 @@
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Page Margin" = "Imeall na Leathanach";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
-"Page Size Preset" = "Méid réamhshocraithe Leathanach";
+"Page Size Preset" = "Page Size Preset";
 /* Generated from genl10n: PhoneCalls.swift#57 */
 "Phone Calls" = "Glaonna Fón";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -299,9 +295,9 @@
 /* Generated from genl10n: Finder.BApp.swift#1229 */
 "Plain Text" = "Téacs Plain";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
-"Presets" = "Réamhshocruithe";
+"Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
-"Privacy" = "Príobháideacht";
+"Privacy" = "Privacy";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Caighdeán";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
@@ -400,5 +396,3 @@
 "Waiting To Select ..." = "Ag Feitheamh Chun Roghnaigh ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "Ag tosú ag Lorg ...";

@@ -5,9 +5,9 @@
 /*Translated from: Open Settings*/
 "Open Settings" = "Atidaryti nustatymus";
 /*Translated from: OK*/
-"OK" = "Gerai";
+"OK" = "OK";
 /*Translated from: Done*/
-"Done" = "padaryta";
+"Done" = "Done";
 /*Translated from: Confirm*/
 "Confirm" = "Patvirtinti";
 /*Translated from: Cancel*/
@@ -21,17 +21,13 @@
 /*Translated from: Edit %d photo(s)*/
 "Edit %d photo(s)" = "Redaguoti %d nuotrauką (-as)";
 /*Translated from: Edit %d video(s)*/
-"Edit %d video(s)" = "Redaguoti %d vaizdo įrašą (-us)";
+"Edit %d video(s)" = "Edit %d video(s)";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Redaguoti %d elementą (-us)";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "Batch Edit";
 /*Translated from: Edit*/
-"Edit" = "Redaguoti";
+"Edit" = "Edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Atsisakyti pakeitimų";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Pradėti serijos redagavimą ...";
 /*Translated from: Processing...*/
 "Processing..." = "Apdorojimas...";
 /*Translated from: Cancelling...*/
@@ -47,7 +43,7 @@
 /*Translated from: Select this video*/
 "Select this video" = "Pasirinkite šį vaizdo įrašą";
 /*Translated from: Deselect this photo*/
-"Deselect this photo" = "Panaikinkite šios nuotraukos pasirinkimą";
+"Deselect this photo" = "Deselect this photo";
 /*Translated from: Deselect this video*/
 "Deselect this video" = "Atšaukti šį vaizdo įrašą";
 /*Translated from: Edit this photo*/
@@ -57,7 +53,7 @@
 /*Translated from: %@ Photo*/
 "%d Photo" = "%@ Nuotrauka";
 /*Translated from: %@ Video*/
-"%d Video" = "%@ Vaizdo įrašas";
+"%d Video" = "%@ Video";
 /*Translated from: %@ Item*/
 "%d Item" = "%@ Elementas";
 /*Translated from: %@ Photos*/
@@ -69,7 +65,7 @@
 /*Translated from: Edit %@ Photo*/
 "Edit %d Photo" = "Redaguoti %@ nuotrauką";
 /*Translated from: Edit %@ Video*/
-"Edit %d Video" = "Redaguoti %@ vaizdo įrašą";
+"Edit %d Video" = "Edit %@ Video";
 /*Translated from: Edit %@ Photos*/
 "Edit %d Photos" = "Redaguoti %@ nuotraukas";
 /*Translated from: Edit %@ Videos*/
@@ -97,7 +93,7 @@
 /*CoreSpotligth keywords - localizable - marketing*/
 "cs_keyword_0" = "albumas";
 /*Translated from: camera*/
-"cs_keyword_1" = "fotoaparatas";
+"cs_keyword_1" = "camera";
 /*Translated from: photos*/
 "cs_keyword_2" = "nuotraukos";
 /*Translated from: editor*/
@@ -107,7 +103,7 @@
 /*Translated from: filter*/
 "cs_keyword_5" = "filtras";
 /*Translated from: edit*/
-"cs_keyword_6" = "Redaguoti";
+"cs_keyword_6" = "edit";
 /*Translated from: image*/
 "cs_keyword_7" = "vaizdas";
 /*Translated from: smart*/
@@ -153,13 +149,13 @@
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
 "Auto Editor lets you edit automatically if your photos are needed to correct." = "Automatinis redaktorius leidžia automatiškai redaguoti, jei jūsų nuotraukos turi būti ištaisytos.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
-"Auto Editor" = "Automatinis redaktorius";
+"Auto Editor" = "Auto Editor";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Sprogo";
 /* Generated from genl10n: Camera.BApp.swift#44 */
-"Camera" = "Fotoaparatas";
+"Camera" = "Camera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Negalima grąžinti. Visi pasirinkti elementai nepakeitė.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -183,15 +179,15 @@
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "Konverteris";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
-"Copy" = "Kopijuoti";
+"Copy" = "Copy";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Sukurti";
 /* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Apkarpyti, kad tilptų";
+"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "'Apkarpyti iki'";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "Apkarpyti";
+"Crop" = "Crop";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Tinkintas";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -239,7 +235,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF kūrėjas";
 /* Generated from genl10n: ExifGhost.BApp.swift */
-"Hide" = "Paslėpti";
+"Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "Paslėpti pasirinktus elementus ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -279,7 +275,7 @@
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Atidarykite 'Apple Maps'";
 /* Generated from genl10n: Finder.BApp.swift#668 */
-"Open Google Maps" = "Atidarykite 'Google' žemėlapius";
+"Open Google Maps" = "Open Google Maps";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "Atidarykite tinklalapį";
 /* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
@@ -289,7 +285,7 @@
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Page Margin" = "Puslapio marža";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
-"Page Size Preset" = "Puslapio dydis iš anksto nustatytas";
+"Page Size Preset" = "Page Size Preset";
 /* Generated from genl10n: PhoneCalls.swift#57 */
 "Phone Calls" = "Telefono skambučiai";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -321,7 +317,7 @@
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Išsaugoti ir dalintis";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save" = "Sutaupyti";
+"Save" = "Save";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "Išsaugota naudojant įmontuotą fotoaparatą";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -335,7 +331,7 @@
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Ieškoti skrydžių";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
-"Select Photos To Delete." = "Pasirinkite 'Nuotraukos, kurias norite ištrinti'.";
+"Select Photos To Delete." = "Select Photos To Delete.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Pasirinkite 'Nuotraukos', kad rastumėte viską.";
 /* Generated from genl10n: PhoneCalls.swift */
@@ -389,7 +385,7 @@
 /* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
 "Use Auto Selection Bot" = "Naudokite automatinio atrankos bot";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Video" = "Vaizdo įrašas";
+"Video" = "Video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
 "Videos Saved by Instagram App" = "Vaizdo įrašai, kuriuos išsaugojo 'Instagram App'";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
@@ -400,5 +396,3 @@
 "Waiting To Select ..." = "Laukiama pasirinkti ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "Pradedant rasti ...";

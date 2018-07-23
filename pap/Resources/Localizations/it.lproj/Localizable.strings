@@ -24,18 +24,14 @@
 "Edit %d video(s)" = "Modifica %d video (s)";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Modifica %d oggetto / i";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "Batch Edit";
 /*Translated from: Edit*/
 "Edit" = "Edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Non salvare le modifiche";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Avvia modifica batch ...";
 /*Translated from: Processing...*/
 "Processing..." = "In lavorazione...";
 /*Translated from: Cancelling...*/
-"Cancelling..." = "Annullamento in corso ...";
+"Cancelling..." = "Cancelling...";
 /*Translated from: Saving Photos...*/
 "Saving Photos..." = "Salvataggio di foto ...";
 /*Translated from: Deleting Photos...*/
@@ -155,7 +151,7 @@
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Editor automatico";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
-"Blur Rate" = "Tasso di sfocatura";
+"Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "scoppiare";
 /* Generated from genl10n: Camera.BApp.swift#44 */
@@ -175,7 +171,7 @@
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner ti consente di trovare ed eliminare ogni tipo di foto non corrette, ad esempio immagini duplicate e simili, foto ravvicinate o foto Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
-"Cleaner" = "addetto alle pulizie";
+"Cleaner" = "Cleaner";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Contatti";
 /* Generated from genl10n: Converter.BApp.swift#42 */
@@ -187,9 +183,9 @@
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Creare";
 /* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Ritaglia per adattarsi";
+"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop to Fit" = "Ritaglia per adattarsi";
+"Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
@@ -239,7 +235,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: ExifGhost.BApp.swift */
-"Hide" = "Nascondere";
+"Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "Nascondere gli elementi selezionati ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -253,13 +249,13 @@
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Elementi";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
-"Layout" = "disposizione";
+"Layout" = "Layout";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Foto in diretta";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
 "Lockscreens" = "lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Loop" = "Ciclo continuo";
+"Loop" = "Loop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Crea GIF";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -273,7 +269,7 @@
 /* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
 "New Phone Number" = "Nuovo numero di telefono";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
-"No Crop" = "Nessun raccolto";
+"No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Nessun ciclo";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -345,7 +341,7 @@
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Invia un'e-mail";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
-"Share" = "Condividere";
+"Share" = "Share";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Somiglianza";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -400,5 +396,3 @@
 "Waiting To Select ..." = "In attesa di selezionare ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Ordito";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "Iniziare a trovare ...";

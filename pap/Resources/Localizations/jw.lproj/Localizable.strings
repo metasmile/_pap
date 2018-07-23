@@ -24,14 +24,10 @@
 "Edit %d video(s)" = "Sunting %d video (s)";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Sunting %d item (s)";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "Batch Edit";
 /*Translated from: Edit*/
 "Edit" = "Sunting";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Buang owah-owahan";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Mulai Batch Editing ...";
 /*Translated from: Processing...*/
 "Processing..." = "Processing ...";
 /*Translated from: Cancelling...*/
@@ -189,7 +185,7 @@
 /* Generated from genl10n: Stabilizer.swift */
 "Crop To Fit" = "Potong Kanggo Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop to Fit" = "Potong kanggo Cocokake";
+"Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Potong";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
@@ -239,7 +235,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: ExifGhost.BApp.swift */
-"Hide" = "Singidaken";
+"Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "Nyatane Kapilih Item ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -273,9 +269,9 @@
 /* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
 "New Phone Number" = "Nomer Telpon Anyar";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"No Crop" = "Ora Ana Potong";
+"No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"No loop" = "Ora ana daur ulang";
+"No loop" = "No loop";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Bukak Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -400,5 +396,3 @@
 "Waiting To Select ..." = "Nunggu Kanggo Pilih ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "Miwiti Kanggo Golek ...";

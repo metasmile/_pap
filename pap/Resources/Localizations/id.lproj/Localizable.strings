@@ -5,7 +5,7 @@
 /*Translated from: Open Settings*/
 "Open Settings" = "Buka Pengaturan";
 /*Translated from: OK*/
-"OK" = "baik";
+"OK" = "OK";
 /*Translated from: Done*/
 "Done" = "Selesai";
 /*Translated from: Confirm*/
@@ -24,14 +24,10 @@
 "Edit %d video(s)" = "Edit %d video(s)";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Edit %d item(s)";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "Batch Edit";
 /*Translated from: Edit*/
 "Edit" = "Edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Membuang perubahan";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Mulai Pengeditan Batch ...";
 /*Translated from: Processing...*/
 "Processing..." = "Pengolahan...";
 /*Translated from: Cancelling...*/
@@ -79,7 +75,7 @@
 /*com.stells.pap.transform*/
 "Transform" = "Transform";
 /*com.stells.pap.photosfilter*/
-"Apply" = "Menerapkan";
+"Apply" = "Apply";
 /*com.stells.pap.revert*/
 "Revert" = "Revert";
 /*Translated from: Starting to revert...*/
@@ -217,7 +213,7 @@
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filter";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
-"Find" = "Menemukan";
+"Find" = "Find";
 /* Generated from genl10n: Finder.BApp.swift#42 */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Finder memungkinkan mengekstraksi setiap informasi yang bermakna seperti nomor telepon, alamat, tanggal atau URL dari foto Anda, dan kemudian memanggil, membuka peta atau menavigasi situs web bahkan mencari penerbangan!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -239,7 +235,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: ExifGhost.BApp.swift */
-"Hide" = "Menyembunyikan";
+"Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "Menyembunyikan Item yang Dipilih ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -263,7 +259,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Buat GIF";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "Memodifikasi";
+"Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Album Saya";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
@@ -321,7 +317,7 @@
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Simpan dan Bagikan";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
-"Save" = "Menyimpan";
+"Save" = "Save";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "Disimpan Dengan Kamera Bawaan";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -400,5 +396,3 @@
 "Waiting To Select ..." = "Menunggu Untuk Memilih ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "Mulai Menemukan ...";

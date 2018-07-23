@@ -24,14 +24,10 @@
 "Edit %d video(s)" = "%d ቪዲዮ (ዎች) አርትዕ";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "%d ንጥል (ፎች) አርትዕ";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "ባች ማስተካከያ";
 /*Translated from: Edit*/
 "Edit" = "አርትዕ";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "ለውጦችን ያስወግዱ";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "የቡድን አርትዖት ጀምር ...";
 /*Translated from: Processing...*/
 "Processing..." = "በማስሄድ ላይ ...";
 /*Translated from: Cancelling...*/
@@ -400,5 +396,3 @@
 "Waiting To Select ..." = "ለመምረጥ በመጠበቅ ላይ ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "ጦርነት";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "ለማግኘት መጀመር ...";

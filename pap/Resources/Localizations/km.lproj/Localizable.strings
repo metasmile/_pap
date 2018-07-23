@@ -5,7 +5,7 @@
 /*Translated from: Open Settings*/
 "Open Settings" = "បើកការកំណត់";
 /*Translated from: OK*/
-"OK" = "យល់ព្រម";
+"OK" = "OK";
 /*Translated from: Done*/
 "Done" = "ធ្វើ";
 /*Translated from: Confirm*/
@@ -24,14 +24,10 @@
 "Edit %d video(s)" = "កែសម្រួល %d វីដេអូ (s បាន)";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "កែសម្រួល %d ធាតុ (s បាន)";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "កែសម្រួលបាច់";
 /*Translated from: Edit*/
-"Edit" = "កែសម្រួល";
+"Edit" = "Edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "បោះបង់ការផ្លាស់ប្តូរ";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "ចាប់ផ្តើមការកែប្រែបាច់ ...";
 /*Translated from: Processing...*/
 "Processing..." = "កំពុងដំណើរការ ...";
 /*Translated from: Cancelling...*/
@@ -101,7 +97,7 @@
 /*Translated from: photos*/
 "cs_keyword_2" = "រូបថត";
 /*Translated from: editor*/
-"cs_keyword_3" = "កម្មវិធីនិពន្ធ";
+"cs_keyword_3" = "editor";
 /*Translated from: messenger*/
 "cs_keyword_4" = "អ្នកនាំសារ";
 /*Translated from: filter*/
@@ -141,7 +137,7 @@
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "ទំនាក់ទំនងទាំងអស់ត្រូវបានរក្សាទុកដោយជោគជ័យ។";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
-"All" = "ទាំងអស់";
+"All" = "All";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "GIF មានចលនា";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -153,7 +149,7 @@
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
 "Auto Editor lets you edit automatically if your photos are needed to correct." = "កម្មវិធីនិពន្ធដោយស្វ័យប្រវត្តិអនុញ្ញាតឱ្យអ្នកកែសម្រួលដោយស្វ័យប្រវត្តិប្រសិនបើរូបថតរបស់អ្នកត្រូវការដើម្បីកែ។";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
-"Auto Editor" = "កម្មវិធីនិពន្ធដោយស្វ័យប្រវត្តិ";
+"Auto Editor" = "Auto Editor";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "អត្រាព្រិល";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -195,7 +191,7 @@
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "ផ្ទាល់ខ្លួន";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Date" = "កាលបរិច្ឆេទ";
+"Date" = "Date";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "ការលុបគោលដៅ";
 /* Generated from genl10n: Finder.BApp.swift#116 */
@@ -259,7 +255,7 @@
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
 "Lockscreens" = "Lockscreen";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Loop" = "រង្វិលជុំ";
+"Loop" = "Loop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "បង្កើត GIF";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -275,7 +271,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "គ្មានដំណាំ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"No loop" = "គ្មានរង្វិលជុំ";
+"No loop" = "No loop";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "បើកផែនទី Apple";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -313,7 +309,7 @@
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "ត្រឡប់កម្មវិធីអនុញ្ញាតឱ្យស្ដារចំនួននៃរូបថតដែលបានកែសម្រួលទៅថតដើមមួយយ៉ាងឆាប់រហ័ស។ លើសពីនេះទៀតវាជួយអ្នកជាមួយការជ្រើសរើសដោយស្វ័យប្រវត្តិ!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "បងវិលថយក្រោយ";
+"Rewind" = "Rewind";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "រក្សាទុកលេខទូរស័ព្ទទាំងអស់";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
@@ -321,7 +317,7 @@
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "រក្សាទុកនិងចែករំលែក";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save" = "រក្សាទុក";
+"Save" = "Save";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "រក្សាទុកជាមួយកាមេរ៉ាជាប់នឹង";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -400,5 +396,3 @@
 "Waiting To Select ..." = "កំពុងរង់ចាំ ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "ចាប់ផ្តើមរក ...";

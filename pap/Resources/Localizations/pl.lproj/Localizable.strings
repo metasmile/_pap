@@ -24,14 +24,10 @@
 "Edit %d video(s)" = "Edytuj %d wideo (s)";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Edycja %d przedmiotu (ów)";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "Batch Edit";
 /*Translated from: Edit*/
-"Edit" = "Edytować";
+"Edit" = "Edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Odrzucać zmiany";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Rozpocznij edycję wsadową ...";
 /*Translated from: Processing...*/
 "Processing..." = "Przetwarzanie...";
 /*Translated from: Cancelling...*/
@@ -79,7 +75,7 @@
 /*com.stells.pap.transform*/
 "Transform" = "Przekształcać";
 /*com.stells.pap.photosfilter*/
-"Apply" = "Zastosować";
+"Apply" = "Apply";
 /*com.stells.pap.revert*/
 "Revert" = "Odwracać";
 /*Translated from: Starting to revert...*/
@@ -97,7 +93,7 @@
 /*CoreSpotligth keywords - localizable - marketing*/
 "cs_keyword_0" = "album";
 /*Translated from: camera*/
-"cs_keyword_1" = "aparat fotograficzny";
+"cs_keyword_1" = "camera";
 /*Translated from: photos*/
 "cs_keyword_2" = "zdjęcia";
 /*Translated from: editor*/
@@ -107,7 +103,7 @@
 /*Translated from: filter*/
 "cs_keyword_5" = "filtr";
 /*Translated from: edit*/
-"cs_keyword_6" = "edytować";
+"cs_keyword_6" = "edit";
 /*Translated from: image*/
 "cs_keyword_7" = "obraz";
 /*Translated from: smart*/
@@ -141,7 +137,7 @@
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Wszystkie kontakty zostały pomyślnie zapisane.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
-"All" = "Wszystko";
+"All" = "All";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Animowany gif";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -157,9 +153,9 @@
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Tempo rozmycia";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "Rozerwanie";
+"Burst" = "Burst";
 /* Generated from genl10n: Camera.BApp.swift#44 */
-"Camera" = "Aparat fotograficzny";
+"Camera" = "Camera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Nie można się cofnąć. Wszystkie wybrane elementy nie zostały edytowane.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -187,11 +183,11 @@
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Stwórz";
 /* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Przytnij, aby dopasować";
+"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop to Fit" = "Przytnij do dopasowania";
+"Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
-"Crop" = "Przyciąć";
+"Crop" = "Crop";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Zwyczaj";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -217,7 +213,7 @@
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filtry";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
-"Find" = "Odnaleźć";
+"Find" = "Find";
 /* Generated from genl10n: Finder.BApp.swift#42 */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Finder umożliwia pobieranie wszystkich ważnych informacji, takich jak numery telefonów, adresy, daty lub adresy URL ze zdjęć, a następnie wywoływanie, otwieranie map lub nawigowanie po stronach internetowych nawet podczas lotów wyszukiwania!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -251,7 +247,7 @@
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Wymaga pozwolenia na dostęp do kontaktów. Zezwalaj na kontakty w ustawieniach iOS.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
-"Items" = "Przedmiotów";
+"Items" = "Items";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Układ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -273,7 +269,7 @@
 /* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
 "New Phone Number" = "Nowy numer telefonu";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
-"No Crop" = "Bez przycinania";
+"No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Bez pętli";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -281,7 +277,7 @@
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Otwórz Mapy Google";
 /* Generated from genl10n: Finder.BApp.swift#370 */
-"Open Web Page" = "Otwórz stronę internetową";
+"Open Web Page" = "Open Web Page";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Oryginalny";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
@@ -313,7 +309,7 @@
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Przywróć aplikację pozwala szybko przywrócić pierwotną liczbę edytowanych zdjęć do oryginalnej. Ponadto pomaga w automatycznym wyborze!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "Przewijanie do tyłu";
+"Rewind" = "Rewind";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "Zapisz wszystkie numery telefonów";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
@@ -329,7 +325,7 @@
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Zapisywanie wyników ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
-"Scale To Fit" = "Skalowanie w celu dopasowania";
+"Scale To Fit" = "Scale To Fit";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
 "Screenshots" = "Zrzuty ekranu";
 /* Generated from genl10n: Finder.BApp.swift#762 */
@@ -400,5 +396,3 @@
 "Waiting To Select ..." = "Oczekiwanie na wybór ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Osnowa";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "Zaczyna szukać ...";

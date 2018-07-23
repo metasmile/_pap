@@ -5,7 +5,7 @@
 /*Translated from: Open Settings*/
 "Open Settings" = "Abrir configurações";
 /*Translated from: OK*/
-"OK" = "Está bem";
+"OK" = "OK";
 /*Translated from: Done*/
 "Done" = "Feito";
 /*Translated from: Confirm*/
@@ -24,14 +24,10 @@
 "Edit %d video(s)" = "Editar %d vídeo (s)";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Editar %d item (s)";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "Edição em lote";
 /*Translated from: Edit*/
 "Edit" = "Editar";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Descartar mudanças";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Iniciar edição em lote ...";
 /*Translated from: Processing...*/
 "Processing..." = "Em processamento...";
 /*Translated from: Cancelling...*/
@@ -183,7 +179,7 @@
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "Conversor";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
-"Copy" = "cópia de";
+"Copy" = "Copy";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Create";
 /* Generated from genl10n: Stabilizer.swift */
@@ -193,9 +189,9 @@
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
-"Custom" = "personalizadas";
+"Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Date" = "Encontro";
+"Date" = "Date";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "Excluindo Destinos";
 /* Generated from genl10n: Finder.BApp.swift#116 */
@@ -217,7 +213,7 @@
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filtros";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
-"Find" = "Encontrar";
+"Find" = "Find";
 /* Generated from genl10n: Finder.BApp.swift#42 */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "O Finder permite extrair todas as informações significativas, como números de telefone, endereços, datas ou URLs de suas fotos, e depois ligar, abrir mapas ou navegar em sites, até mesmo em voos de busca!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -273,7 +269,7 @@
 /* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
 "New Phone Number" = "Novo número de telefone";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
-"No Crop" = "Nenhuma colheita";
+"No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Sem loop";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -345,7 +341,7 @@
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Enviar um email";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
-"Share" = "Compartilhar";
+"Share" = "Share";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Semelhança";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -399,6 +395,4 @@
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "Esperando para selecionar ...";
 /* Generated from genl10n: Stabilizer.swift */
-"Warp" = "Urdidura";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "Começando a encontrar ...";
+"Warp" = "Warp";

@@ -24,14 +24,10 @@
 "Edit %d video(s)" = "Edit %d Video (en)";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Edit %d item(s)";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "Batch Edit";
 /*Translated from: Edit*/
-"Edit" = "Editéieren";
+"Edit" = "Edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Ännerunge verwerfen";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Start Batch Editing Start";
 /*Translated from: Processing...*/
 "Processing..." = "Veraarbechtung ...";
 /*Translated from: Cancelling...*/
@@ -131,7 +127,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Actions";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
-"Add New Contact" = "Neie neie Kontrakt hinzufügen";
+"Add New Contact" = "Add New Contact";
 /* Generated from genl10n: Finder.BApp.swift#466 */
 "Add an Event" = "Fügt e Event";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -183,7 +179,7 @@
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "Konverter";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
-"Copy" = "Kopéieren";
+"Copy" = "Copy";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Erstellen";
 /* Generated from genl10n: Stabilizer.swift */
@@ -193,7 +189,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Crop";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
-"Custom" = "Benotzerdefinéiert";
+"Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Datum";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
@@ -213,7 +209,7 @@
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Exportoptiounen";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Export" = "Exportéieren";
+"Export" = "Export";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filter";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -239,13 +235,13 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: ExifGhost.BApp.swift */
-"Hide" = "Verstoppen";
+"Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "Versteigert Elemente verstoppt ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Bildqualitéit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Import" = "Importéieren";
+"Import" = "Import";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
 "It could not be saved." = "Et konnt net gespäichert ginn.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
@@ -313,7 +309,7 @@
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "D'App revertéiert erlaabt e bësse Betrag vun den geännerten Fotoen op déi originell ze schnell nees opzefänken. Ausserdeem hëlleft Dir Iech mat der automatescher Auswiel!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "Spull zeréck";
+"Rewind" = "Rewind";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "Späichere all Telefonsnummer";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
@@ -321,7 +317,7 @@
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Späicheren an deelen";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save" = "Späicheren";
+"Save" = "Save";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "Gespaart mat Built-In Kamera";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -400,5 +396,3 @@
 "Waiting To Select ..." = "Waarden To Select ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "Op der Sich no ...";

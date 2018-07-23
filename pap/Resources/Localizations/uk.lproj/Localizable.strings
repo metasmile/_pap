@@ -5,7 +5,7 @@
 /*Translated from: Open Settings*/
 "Open Settings" = "Відкрийте Налаштування";
 /*Translated from: OK*/
-"OK" = "добре";
+"OK" = "OK";
 /*Translated from: Done*/
 "Done" = "Готово";
 /*Translated from: Confirm*/
@@ -24,14 +24,10 @@
 "Edit %d video(s)" = "Редагувати %d відео (и)";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Змінити %d елемент (и)";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "Пакетний редагування";
 /*Translated from: Edit*/
-"Edit" = "Редагувати";
+"Edit" = "Edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Скасувати зміни";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Почати редагування пакетів ...";
 /*Translated from: Processing...*/
 "Processing..." = "Обробка ...";
 /*Translated from: Cancelling...*/
@@ -79,7 +75,7 @@
 /*com.stells.pap.transform*/
 "Transform" = "Transform";
 /*com.stells.pap.photosfilter*/
-"Apply" = "Застосувати";
+"Apply" = "Apply";
 /*com.stells.pap.revert*/
 "Revert" = "Revert";
 /*Translated from: Starting to revert...*/
@@ -107,9 +103,9 @@
 /*Translated from: filter*/
 "cs_keyword_5" = "фільтр";
 /*Translated from: edit*/
-"cs_keyword_6" = "редагувати";
+"cs_keyword_6" = "edit";
 /*Translated from: image*/
-"cs_keyword_7" = "зображення";
+"cs_keyword_7" = "image";
 /*Translated from: smart*/
 "cs_keyword_8" = "smart";
 /*Translated from: picture*/
@@ -183,17 +179,17 @@
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "Конвертер";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
-"Copy" = "Скопіювати";
+"Copy" = "Copy";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Створити";
 /* Generated from genl10n: Stabilizer.swift */
 "Crop To Fit" = "Обрізати на посадку";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop to Fit" = "Обрізати, щоб пристосувати";
+"Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
-"Custom" = "Користувальницький";
+"Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Дата";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
@@ -217,7 +213,7 @@
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Фільтри";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
-"Find" = "Знайдіть";
+"Find" = "Find";
 /* Generated from genl10n: Finder.BApp.swift#42 */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Finder дозволяє витягувати будь-яку важливу інформацію, таку як номери телефонів, адреси, дати чи URL-адреси з ваших фотографій, а потім дзвонити, відкривати карти або переходити на веб-сайти, навіть шукати рейси!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -289,7 +285,7 @@
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Page Margin" = "Маржа сторінки";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
-"Page Size Preset" = "Попередньо встановлений розмір сторінки";
+"Page Size Preset" = "Page Size Preset";
 /* Generated from genl10n: PhoneCalls.swift#57 */
 "Phone Calls" = "Телефонні дзвінки";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -301,7 +297,7 @@
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Пресетів";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
-"Privacy" = "Конфіденційність";
+"Privacy" = "Privacy";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Якість";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
@@ -321,7 +317,7 @@
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Зберегти та поділитися";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
-"Save" = "Зберегти";
+"Save" = "Save";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "Збережено за допомогою вбудованої камери";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -343,9 +339,9 @@
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Вибрано";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
-"Send an Email" = "Надіслати електронний лист";
+"Send an Email" = "Send an Email";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
-"Share" = "Поділитися";
+"Share" = "Share";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Подібність";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -387,7 +383,7 @@
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Переклад";
 /* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
-"Use Auto Selection Bot" = "Використовуйте Bot для автоматичного вибору";
+"Use Auto Selection Bot" = "Use Auto Selection Bot";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Відео";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
@@ -400,5 +396,3 @@
 "Waiting To Select ..." = "Очікування вибрати ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "Починаючи шукати ...";

@@ -5,11 +5,11 @@
 /*Translated from: Open Settings*/
 "Open Settings" = "Нээлттэй Тохиргоо";
 /*Translated from: OK*/
-"OK" = "БОЛЖ БАЙНА УУ";
+"OK" = "OK";
 /*Translated from: Done*/
-"Done" = "Үүнийг хийлээ";
+"Done" = "Done";
 /*Translated from: Confirm*/
-"Confirm" = "Баталгаажуулна";
+"Confirm" = "Confirm";
 /*Translated from: Cancel*/
 "Cancel" = "Цуцлах";
 /*Translated from: Detail*/
@@ -24,14 +24,10 @@
 "Edit %d video(s)" = "Засах %d видео (s)";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Засах %d зүйл (s)";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "Багц засварлах";
 /*Translated from: Edit*/
-"Edit" = "Засварлах";
+"Edit" = "Edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Өөрчлөлтийг хаях";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Багцлах засварыг эхлүүлэх ...";
 /*Translated from: Processing...*/
 "Processing..." = "Боловсруулж байна ...";
 /*Translated from: Cancelling...*/
@@ -79,9 +75,9 @@
 /*com.stells.pap.transform*/
 "Transform" = "Өөрчлөлт";
 /*com.stells.pap.photosfilter*/
-"Apply" = "Хүсэлт гаргах";
+"Apply" = "Apply";
 /*com.stells.pap.revert*/
-"Revert" = "Дахин буцаах";
+"Revert" = "Revert";
 /*Translated from: Starting to revert...*/
 "Starting to revert..." = "Дахин эхлүүлэх ...";
 /*Translated from: Reverting Photos...*/
@@ -107,7 +103,7 @@
 /*Translated from: filter*/
 "cs_keyword_5" = "шүүлтүүр";
 /*Translated from: edit*/
-"cs_keyword_6" = "засварлах";
+"cs_keyword_6" = "edit";
 /*Translated from: image*/
 "cs_keyword_7" = "зураг";
 /*Translated from: smart*/
@@ -191,7 +187,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Газар тариалан";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "Газар тариалан";
+"Crop" = "Crop";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -273,9 +269,9 @@
 /* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
 "New Phone Number" = "Шинэ утасны дугаар";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"No Crop" = "Үр тариа байхгүй";
+"No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"No loop" = "Ямар ч давталт";
+"No loop" = "No loop";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Apple Газрын зураг нээх";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -289,7 +285,7 @@
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Page Margin" = "Хуудасны маржин";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
-"Page Size Preset" = "Хуудасны хэмжээг урьдчилан харах";
+"Page Size Preset" = "Page Size Preset";
 /* Generated from genl10n: PhoneCalls.swift#57 */
 "Phone Calls" = "Утасны дуудлага";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -313,7 +309,7 @@
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Буцаж сэргээх аппликейшн нь зассан тоон хэмжээг зассан зургуудыг эх хувь руу хурдан сэргээх боломжтой. Цаашилбал, энэ нь автоматаар сонгоход танд тусална!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "Дахин урагшлах";
+"Rewind" = "Rewind";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "Бүх утасны дугаарыг хадгал";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
@@ -321,7 +317,7 @@
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Хадгалах ба хуваалцах";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save" = "Хадгалах";
+"Save" = "Save";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "Баригдсан Камераар хадгалагдсан";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -400,5 +396,3 @@
 "Waiting To Select ..." = "Сонгохыг хүлээж байна ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "Туршлагаас эхлээд ...";

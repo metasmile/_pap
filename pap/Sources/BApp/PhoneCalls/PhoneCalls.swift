@@ -224,7 +224,7 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
     }
 
     public var titleWillBegin: String? {
-        return "🔍 Starting To Find ...".localized
+        return "Starting To Find ...".localized
     }
 
     public var titleWillFinalize: String? {

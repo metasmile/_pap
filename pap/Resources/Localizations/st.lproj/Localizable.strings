@@ -7,7 +7,7 @@
 /*Translated from: OK*/
 "OK" = "OK";
 /*Translated from: Done*/
-"Done" = "E entsoe";
+"Done" = "Done";
 /*Translated from: Confirm*/
 "Confirm" = "Tiisa";
 /*Translated from: Cancel*/
@@ -24,14 +24,10 @@
 "Edit %d video(s)" = "Fetola %d video (s)";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Fetola %d ntho (s)";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "Batch Edit";
 /*Translated from: Edit*/
 "Edit" = "Fetola";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Lahla Liphetoho";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Qala ho Fetola Bana ...";
 /*Translated from: Processing...*/
 "Processing..." = "Tlhahlobo ...";
 /*Translated from: Cancelling...*/
@@ -109,7 +105,7 @@
 /*Translated from: edit*/
 "cs_keyword_6" = "fetola";
 /*Translated from: image*/
-"cs_keyword_7" = "setšoantšo";
+"cs_keyword_7" = "image";
 /*Translated from: smart*/
 "cs_keyword_8" = "smart";
 /*Translated from: picture*/
@@ -131,7 +127,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Liketso";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
-"Add New Contact" = "Kenya Tlhahisoleseding e Ncha";
+"Add New Contact" = "Add New Contact";
 /* Generated from genl10n: Finder.BApp.swift#466 */
 "Add an Event" = "Kenya ketsahalo";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -141,7 +137,7 @@
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Litso tsohle li bolokiloe ka katleho.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
-"All" = "Kaofela";
+"All" = "All";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "GIF ea Animated";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -155,9 +151,9 @@
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Auto Editor";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
-"Blur Rate" = "Tekanyo ea sephiri";
+"Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "Ho phatloha";
+"Burst" = "Burst";
 /* Generated from genl10n: Camera.BApp.swift#44 */
 "Camera" = "Khamera";
 /* Generated from genl10n: Revert.BApp.swift */
@@ -195,7 +191,7 @@
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Tloaelo";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Date" = "Letsatsi";
+"Date" = "Date";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "Ho tlosa sepheo";
 /* Generated from genl10n: Finder.BApp.swift#116 */
@@ -221,7 +217,7 @@
 /* Generated from genl10n: Finder.BApp.swift#42 */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Finder e nolofalletsa ho fumana boitsebiso bo bong le bo bong bo nang le moelelo joalo ka linomoro tsa fono, liaterese, matsatsi kapa URL tse tsoang litšoantšong tsa hau, ebe o bitsa, limmapa tse bulehileng kapa liwebsaete tsa marang-rang le ho batla lipalangoang!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
-"Finder" = "tšehang ba bang";
+"Finder" = "Finder";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "Ho Fumana Boitsebiso ... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
@@ -229,7 +225,7 @@
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Nomoro ea sefofaneng";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
-"Formats" = "E hlophisitsoeng";
+"Formats" = "Formats";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Tsoela pele";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -255,7 +251,7 @@
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Lisebelisoa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Live Photo" = "Setšoantšo sa Pheliso";
+"Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -291,7 +287,7 @@
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Boemo ba Preset ea Leqephe";
 /* Generated from genl10n: PhoneCalls.swift#57 */
-"Phone Calls" = "Likitso tsa thelefono";
+"Phone Calls" = "Phone Calls";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Nomoro ea mohala";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -400,5 +396,3 @@
 "Waiting To Select ..." = "E emetse ho khetha ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "Ho qala ho Fumana ...";

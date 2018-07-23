@@ -5,7 +5,7 @@
 /*Translated from: Open Settings*/
 "Open Settings" = "Åbn indstillinger";
 /*Translated from: OK*/
-"OK" = "Okay";
+"OK" = "OK";
 /*Translated from: Done*/
 "Done" = "Færdig";
 /*Translated from: Confirm*/
@@ -24,14 +24,10 @@
 "Edit %d video(s)" = "Rediger %d video (r)";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Rediger %d vare (r)";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "Batch Edit";
 /*Translated from: Edit*/
-"Edit" = "Redigere";
+"Edit" = "Edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Kassere ændringer";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Start batch redigering ...";
 /*Translated from: Processing...*/
 "Processing..." = "Forarbejdning...";
 /*Translated from: Cancelling...*/
@@ -107,7 +103,7 @@
 /*Translated from: filter*/
 "cs_keyword_5" = "filter";
 /*Translated from: edit*/
-"cs_keyword_6" = "redigere";
+"cs_keyword_6" = "edit";
 /*Translated from: image*/
 "cs_keyword_7" = "billede";
 /*Translated from: smart*/
@@ -193,7 +189,7 @@
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Afgrøde";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
-"Custom" = "Brugerdefinerede";
+"Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Dato";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
@@ -313,7 +309,7 @@
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Gendan app gør det muligt hurtigt at genoprette en masse mængder redigerede fotos til den oprindelige. Desuden hjælper det dig med det automatiske valg!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "Spole tilbage";
+"Rewind" = "Rewind";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "Gem alle telefonnumre";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
@@ -349,7 +345,7 @@
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Lighed";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Size" = "Størrelse";
+"Size" = "Size";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Nogle kontakter blev gemt, men nogle var ikke.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -400,5 +396,3 @@
 "Waiting To Select ..." = "Venter på at vælge ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "Begynder at finde ...";

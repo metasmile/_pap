@@ -24,14 +24,10 @@
 "Edit %d video(s)" = "Bewurkje %d fideo's (s)";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Bewurkje %d item (s)";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "Batch bewurkje";
 /*Translated from: Edit*/
-"Edit" = "Bewurkje";
+"Edit" = "Edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Wizigings negearje";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Start Batch Editing ...";
 /*Translated from: Processing...*/
 "Processing..." = "Bewurking...";
 /*Translated from: Cancelling...*/
@@ -107,7 +103,7 @@
 /*Translated from: filter*/
 "cs_keyword_5" = "filter";
 /*Translated from: edit*/
-"cs_keyword_6" = "bewurkje";
+"cs_keyword_6" = "edit";
 /*Translated from: image*/
 "cs_keyword_7" = "byld";
 /*Translated from: smart*/
@@ -213,7 +209,7 @@
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Export Opsjes";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Export" = "Eksportearje";
+"Export" = "Export";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filters";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -239,7 +235,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: ExifGhost.BApp.swift */
-"Hide" = "Ferstopje";
+"Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "Hide Selected Items ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -400,5 +396,3 @@
 "Waiting To Select ..." = "Wachtsje op selektearje ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "Begjin te finen ...";

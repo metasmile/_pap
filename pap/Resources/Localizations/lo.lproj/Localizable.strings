@@ -5,9 +5,9 @@
 /*Translated from: Open Settings*/
 "Open Settings" = "ເປີດການຕັ້ງຄ່າ";
 /*Translated from: OK*/
-"OK" = "ຕົກ​ລົງ";
+"OK" = "OK";
 /*Translated from: Done*/
-"Done" = "ເຮັດແລ້ວ";
+"Done" = "Done";
 /*Translated from: Confirm*/
 "Confirm" = "ຢືນຢັນ";
 /*Translated from: Cancel*/
@@ -24,14 +24,10 @@
 "Edit %d video(s)" = "Edit %d video(s)";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Edit %d item(s)";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "Batch Edit";
 /*Translated from: Edit*/
 "Edit" = "ແກ້ໄຂ";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "ປະຕິເສດການປ່ຽນແປງ";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Start Batch Editing ...";
 /*Translated from: Processing...*/
 "Processing..." = "ການປຸງແຕ່ງ ...";
 /*Translated from: Cancelling...*/
@@ -97,7 +93,7 @@
 /*CoreSpotligth keywords - localizable - marketing*/
 "cs_keyword_0" = "ອັນລະບັ້ມ";
 /*Translated from: camera*/
-"cs_keyword_1" = "ກ້ອງ​ຖ່າຍ​ຮູບ";
+"cs_keyword_1" = "camera";
 /*Translated from: photos*/
 "cs_keyword_2" = "ຮູບພາບ";
 /*Translated from: editor*/
@@ -141,7 +137,7 @@
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "ລາຍຊື່ຜູ້ຕິດຕໍ່ທັງຫມົດຖືກບັນທຶກໄວ້ຢ່າງສໍາເລັດ";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
-"All" = "ທັງຫມົດ";
+"All" = "All";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "GIF ເຄື່ອນໄຫວ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -159,7 +155,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
 /* Generated from genl10n: Camera.BApp.swift#44 */
-"Camera" = "ກ້ອງ​ຖ່າຍ​ຮູບ";
+"Camera" = "Camera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "ບໍ່ສາມາດກັບຄືນໄດ້. ລາຍການທີ່ເລືອກທັງຫມົດບໍ່ໄດ້ຖືກດັດແກ້.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -187,11 +183,11 @@
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "ສ້າງ";
 /* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "ການປູກເພື່ອໃຫ້ເຫມາະສົມ";
+"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "ການປູກພືດທີ່ເຫມາະສົມ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop" = "ການປູກພືດ";
+"Crop" = "Crop";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -239,7 +235,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: ExifGhost.BApp.swift */
-"Hide" = "ເຊື່ອງໄວ້";
+"Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "ເຊື່ອງລາຍການທີ່ເລືອກ ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -301,7 +297,7 @@
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
-"Privacy" = "ຄວາມເປັນສ່ວນຕົວ";
+"Privacy" = "Privacy";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "ຄຸນະພາບ";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
@@ -321,7 +317,7 @@
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "ບັນທຶກແລະແບ່ງປັນ";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save" = "ຊ່ວຍປະຢັດ";
+"Save" = "Save";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "ບັນທືກກັບກ້ອງຖ່າຍຮູບທີ່ຕິດຕັ້ງຢູ່";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -400,5 +396,3 @@
 "Waiting To Select ..." = "ລໍຖ້າເພື່ອເລືອກ ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "ເລີ່ມຄົ້ນຫາ";

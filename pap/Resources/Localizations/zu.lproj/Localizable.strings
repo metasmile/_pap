@@ -5,15 +5,15 @@
 /*Translated from: Open Settings*/
 "Open Settings" = "Vula izilungiselelo";
 /*Translated from: OK*/
-"OK" = "KULUNGILE";
+"OK" = "OK";
 /*Translated from: Done*/
-"Done" = "Kwenziwe";
+"Done" = "Done";
 /*Translated from: Confirm*/
 "Confirm" = "Qinisekisa";
 /*Translated from: Cancel*/
 "Cancel" = "Khansela";
 /*Translated from: Detail*/
-"Detail" = "Imininingwane";
+"Detail" = "Detail";
 /*Translated from: Delete*/
 "Delete" = "Susa";
 /*Translated from: Sorry, something went wrong.*/
@@ -24,14 +24,10 @@
 "Edit %d video(s)" = "Hlela %d ividiyo (s)";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Hlela %d into (s)";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "Hlela ukuhlela";
 /*Translated from: Edit*/
 "Edit" = "Hlela";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Lahla Izinguquko";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Qala ukuhlela kwe-Batch ...";
 /*Translated from: Processing...*/
 "Processing..." = "Iyacubungula ...";
 /*Translated from: Cancelling...*/
@@ -79,9 +75,9 @@
 /*com.stells.pap.transform*/
 "Transform" = "Guqula";
 /*com.stells.pap.photosfilter*/
-"Apply" = "Faka isicelo";
+"Apply" = "Apply";
 /*com.stells.pap.revert*/
-"Revert" = "Buyela emuva";
+"Revert" = "Revert";
 /*Translated from: Starting to revert...*/
 "Starting to revert..." = "Iqala ukubuyela emuva ...";
 /*Translated from: Reverting Photos...*/
@@ -149,13 +145,13 @@
 /* Generated from genl10n: Filters.BApp.swift#76 */
 "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Faka izihlungi ze-High-Quality kuzo zonke izithombe ozifunayo. Akukho mkhawulo kunani lezithombe ongazihlela.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Aspect Ratio" = "Ukulinganisa kokulinganisa";
+"Aspect Ratio" = "Aspect Ratio";
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
 "Auto Editor lets you edit automatically if your photos are needed to correct." = "Umhleli Wokuzenzakalela kukuvumela ukuba uhlele ngokuzenzekelayo uma izithombe zakho zidinga ukulungisa.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
-"Auto Editor" = "Umhleli Wokuzenzakalela";
+"Auto Editor" = "Auto Editor";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
-"Blur Rate" = "Isilinganiso se-Blur";
+"Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Ukushisa";
 /* Generated from genl10n: Camera.BApp.swift#44 */
@@ -187,13 +183,13 @@
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Dala";
 /* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Hlala ukuze ugcwalise";
+"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop to Fit" = "Nciphisa ukuze ugcwalise";
+"Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "Khulisa";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
-"Custom" = "Ngokwezifiso";
+"Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Usuku";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
@@ -255,7 +251,7 @@
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Ukuhlelwa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Live Photo" = "Isithombe esibukhoma";
+"Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
 "Lockscreens" = "Ama-Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -299,7 +295,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1229 */
 "Plain Text" = "Umbhalo obala";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
-"Presets" = "Ukusetha kabusha";
+"Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "Ubumfihlo";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
@@ -309,7 +305,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Phinda";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "Phindela emuva";
+"Reverse" = "Reverse";
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Ukubuyisela uhlelo lokusebenza kuvumela ukubuyisela inani elihle lezithombe ezihleliwe ekuqaleni kokuqala. Ngaphezu kwalokho, kukusiza ngokukhethwa okuzenzakalelayo!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -321,7 +317,7 @@
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Londoloza futhi Yabelana";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save" = "Londoloza";
+"Save" = "Save";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "Ilondolozwe Ngamakhamera Awakhiwe";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -400,5 +396,3 @@
 "Waiting To Select ..." = "Ilinde Ukukhetha ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "I-Warp";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "Ukuqala ukuthola ...";

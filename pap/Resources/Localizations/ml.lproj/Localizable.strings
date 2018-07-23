@@ -7,31 +7,27 @@
 /*Translated from: OK*/
 "OK" = "ശരി";
 /*Translated from: Done*/
-"Done" = "ചെയ്തുകഴിഞ്ഞു";
+"Done" = "Done";
 /*Translated from: Confirm*/
-"Confirm" = "സ്ഥിരീകരിക്കുക";
+"Confirm" = "Confirm";
 /*Translated from: Cancel*/
 "Cancel" = "റദ്ദാക്കുക";
 /*Translated from: Detail*/
 "Detail" = "വിശദമായി";
 /*Translated from: Delete*/
-"Delete" = "ഇല്ലാതാക്കുക";
+"Delete" = "Delete";
 /*Translated from: Sorry, something went wrong.*/
 "Sorry, something went wrong." = "ക്ഷമിക്കണം, എന്തോ കുഴപ്പം സംഭവിച്ചു.";
 /*Translated from: Edit %d photo(s)*/
-"Edit %d photo(s)" = "%d ഫോട്ടോ (ഫോട്ടോകൾ) എഡിറ്റുചെയ്യുക";
+"Edit %d photo(s)" = "Edit %d photo(s)";
 /*Translated from: Edit %d video(s)*/
 "Edit %d video(s)" = "%d വീഡിയോ (കൾ) എഡിറ്റുചെയ്യുക";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "%d ഇനം (ങ്ങൾ) എഡിറ്റുചെയ്യുക";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "ബാച്ച് എഡിറ്റ്";
 /*Translated from: Edit*/
-"Edit" = "എഡിറ്റുചെയ്യുക";
+"Edit" = "Edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "മാറ്റങ്ങള് ഉപേക്ഷിക്കുക";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "ബാച്ച് എഡിറ്റിംഗ് ആരംഭിക്കുക ...";
 /*Translated from: Processing...*/
 "Processing..." = "പ്രോസസ്സ് ചെയ്യുന്നു ...";
 /*Translated from: Cancelling...*/
@@ -77,11 +73,11 @@
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "%@ ഇനങ്ങൾ എഡിറ്റുചെയ്യുക";
 /*com.stells.pap.transform*/
-"Transform" = "പരിവർത്തനം ചെയ്യുക";
+"Transform" = "Transform";
 /*com.stells.pap.photosfilter*/
-"Apply" = "പ്രയോഗിക്കുക";
+"Apply" = "Apply";
 /*com.stells.pap.revert*/
-"Revert" = "പഴയപടിയാക്കുക";
+"Revert" = "Revert";
 /*Translated from: Starting to revert...*/
 "Starting to revert..." = "പഴയപടിയാക്കാൻ തുടങ്ങുന്നു ...";
 /*Translated from: Reverting Photos...*/
@@ -105,9 +101,9 @@
 /*Translated from: messenger*/
 "cs_keyword_4" = "ദൂതൻ";
 /*Translated from: filter*/
-"cs_keyword_5" = "ഫിൽറ്റർ ചെയ്യുക";
+"cs_keyword_5" = "filter";
 /*Translated from: edit*/
-"cs_keyword_6" = "എഡിറ്റ് ചെയ്യുക";
+"cs_keyword_6" = "edit";
 /*Translated from: image*/
 "cs_keyword_7" = "ചിത്രം";
 /*Translated from: smart*/
@@ -141,7 +137,7 @@
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "എല്ലാ കോൺടാക്റ്റുകളും വിജയകരമായി സംരക്ഷിച്ചു.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
-"All" = "എല്ലാം";
+"All" = "All";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "ആനിമേറ്റുചെയ്ത GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -183,13 +179,13 @@
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "പരിവർത്തനം";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
-"Copy" = "പകർത്തുക";
+"Copy" = "Copy";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "സൃഷ്ടിക്കാൻ";
 /* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "വ്യായാമം ചെയ്യാൻ വിളിക്കുക";
+"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop to Fit" = "വ്യായാമം ചെയ്യാൻ വിളിക്കുക";
+"Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "വിള";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
@@ -213,11 +209,11 @@
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "കയറ്റുമതി ഓപ്ഷനുകൾ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Export" = "കയറ്റുമതി ചെയ്യുക";
+"Export" = "Export";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "ഫിൽട്ടറുകൾ";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
-"Find" = "കണ്ടെത്തുക";
+"Find" = "Find";
 /* Generated from genl10n: Finder.BApp.swift#42 */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "നിങ്ങളുടെ ഫോട്ടോകളിൽ നിന്ന് ഫോൺ നമ്പറുകൾ, വിലാസങ്ങൾ, തീയതികൾ അല്ലെങ്കിൽ URL കൾ പോലുള്ള എല്ലാ അർഥവത്തായ വിവരങ്ങൾ ലഭ്യമാക്കുന്നതിന് ഫൈൻഡർ പ്രവർത്തനക്ഷമമാക്കുന്നു, തുടർന്ന് വിളിക്കുക, തുറന്ന മാപ്പുകൾ അല്ലെങ്കിൽ വെബ്സൈറ്റുകളെ നാവിഗേറ്റ് ചെയ്യുക എന്നിങ്ങനെയുള്ള തിരച്ചിൽ ഫ്ലൈറ്റുകൾ!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -239,13 +235,13 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: ExifGhost.BApp.swift */
-"Hide" = "മറയ്ക്കൂ";
+"Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "തിരഞ്ഞെടുത്ത ഇനങ്ങൾ മറയ്ക്കുന്നു ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "ചിത്രത്തിന്റെ നിലവാരം";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Import" = "ഇമ്പോർട്ടുചെയ്യുക";
+"Import" = "Import";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
 "It could not be saved." = "ഇത് സംരക്ഷിക്കാൻ കഴിഞ്ഞില്ല.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
@@ -263,7 +259,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "GIF ചെയ്യുക";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "പരിഷ്ക്കരിക്കുക";
+"Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "എന്റെ ആൽബങ്ങൾ";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
@@ -273,7 +269,7 @@
 /* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
 "New Phone Number" = "പുതിയ ഫോൺ നമ്പർ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"No Crop" = "വിളമൊന്നുമില്ല";
+"No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "ലൂപ്പ് ഇല്ല";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -309,11 +305,11 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "ആവർത്തിച്ച്";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "പിന്നോട്ട് പോകുക";
+"Reverse" = "Reverse";
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "പഴയപട്ടികയിലെ ഒരു കൂട്ടം ഫോട്ടോകൾ വേഗത്തിൽ ഒറിജിനിലേക്ക് പുനഃസംഭരിക്കാൻ അനുവദിക്കുന്നു. കൂടാതെ, ഓട്ടോമാറ്റിക് സെലക്ഷനുമായി ഇത് നിങ്ങളെ സഹായിക്കുന്നു!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "റിവൈൻഡുചെയ്യുക";
+"Rewind" = "Rewind";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "എല്ലാ ഫോൺ നമ്പറുകളും സംരക്ഷിക്കുക";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
@@ -321,7 +317,7 @@
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "സംരക്ഷിച്ച് പങ്കിടുക";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save" = "രക്ഷിക്കും";
+"Save" = "Save";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "ബിൽട്ട്-ഇൻ ക്യാമറ ഉപയോഗിച്ച് സംരക്ഷിച്ചു";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -329,7 +325,7 @@
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "ഫലങ്ങൾ സംരക്ഷിക്കുന്നു ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
-"Scale To Fit" = "വ്യായാമം ചെയ്യുന്നതിന് വലുപ്പം";
+"Scale To Fit" = "Scale To Fit";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
 "Screenshots" = "സ്ക്രീൻഷോട്ടുകൾ";
 /* Generated from genl10n: Finder.BApp.swift#762 */
@@ -363,7 +359,7 @@
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilizing Selected Items..." = "തിരഞ്ഞെടുത്ത ഇനങ്ങൾ സ്ഥിരപ്പെടുത്തുന്നു ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "ആരംഭിക്കുക";
+"Start" = "Start";
 /* Generated from genl10n: Finder.BApp.swift */
 "Starting To Find ..." = "കണ്ടെത്താനാരംഭിക്കുന്നു ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -397,8 +393,6 @@
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "ശബ്ദമില്ലാത്ത വീഡിയോകൾ";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
-"Waiting To Select ..." = "തിരഞ്ഞെടുക്കുന്നതിന് കാത്തിരിക്കുന്നു ...";
+"Waiting To Select ..." = "Waiting To Select ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "വാർപ്പ്";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "കണ്ടെത്താനാരംഭിക്കുന്നു ...";

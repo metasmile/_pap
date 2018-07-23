@@ -5,9 +5,9 @@
 /*Translated from: Open Settings*/
 "Open Settings" = "Mở cài đặt";
 /*Translated from: OK*/
-"OK" = "được";
+"OK" = "OK";
 /*Translated from: Done*/
-"Done" = "Làm xong";
+"Done" = "Done";
 /*Translated from: Confirm*/
 "Confirm" = "Xác nhận";
 /*Translated from: Cancel*/
@@ -24,14 +24,10 @@
 "Edit %d video(s)" = "Chỉnh sửa %d video";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Chỉnh sửa %d mục";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "Batch Edit";
 /*Translated from: Edit*/
-"Edit" = "Chỉnh sửa";
+"Edit" = "Edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Loại bỏ những thay đổi";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Bắt đầu chỉnh sửa hàng loạt ...";
 /*Translated from: Processing...*/
 "Processing..." = "Chế biến...";
 /*Translated from: Cancelling...*/
@@ -101,13 +97,13 @@
 /*Translated from: photos*/
 "cs_keyword_2" = "photos";
 /*Translated from: editor*/
-"cs_keyword_3" = "biên tập viên";
+"cs_keyword_3" = "editor";
 /*Translated from: messenger*/
 "cs_keyword_4" = "messenger";
 /*Translated from: filter*/
 "cs_keyword_5" = "bộ lọc";
 /*Translated from: edit*/
-"cs_keyword_6" = "chỉnh sửa";
+"cs_keyword_6" = "edit";
 /*Translated from: image*/
 "cs_keyword_7" = "hình ảnh";
 /*Translated from: smart*/
@@ -141,7 +137,7 @@
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Tất cả địa chỉ liên hệ đã được lưu thành công.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
-"All" = "Tất cả các";
+"All" = "All";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "GIF động";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -153,7 +149,7 @@
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
 "Auto Editor lets you edit automatically if your photos are needed to correct." = "Trình chỉnh sửa tự động cho phép bạn chỉnh sửa tự động nếu ảnh của bạn là cần thiết để sửa.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
-"Auto Editor" = "Trình chỉnh sửa tự động";
+"Auto Editor" = "Auto Editor";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Tốc độ làm mờ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -183,7 +179,7 @@
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "Chuyển đổi";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
-"Copy" = "Sao chép";
+"Copy" = "Copy";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Tạo nên";
 /* Generated from genl10n: Stabilizer.swift */
@@ -217,11 +213,11 @@
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Bộ lọc";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
-"Find" = "Tìm thấy";
+"Find" = "Find";
 /* Generated from genl10n: Finder.BApp.swift#42 */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Trình tìm kiếm cho phép trích xuất mọi thông tin có ý nghĩa như số điện thoại, địa chỉ, ngày hoặc URL từ ảnh của bạn và sau đó gọi, mở bản đồ hoặc điều hướng trang web ngay cả khi tìm kiếm chuyến bay!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
-"Finder" = "người tìm ra";
+"Finder" = "Finder";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "Đang tìm Danh bạ ... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
@@ -259,7 +255,7 @@
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Loop" = "Vòng lặp";
+"Loop" = "Loop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Tạo GIF";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -275,7 +271,7 @@
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"No loop" = "Không có vòng lặp";
+"No loop" = "No loop";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Mở Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -321,7 +317,7 @@
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Lưu và chia sẻ";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
-"Save" = "Tiết kiệm";
+"Save" = "Save";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "Đã lưu với máy ảnh tích hợp";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -349,11 +345,11 @@
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Tương tự";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Size" = "Kích thước";
+"Size" = "Size";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Một số địa chỉ liên lạc đã được lưu, nhưng ai đó thì không.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Square" = "Quảng trường";
+"Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilization Mode" = "Stabilization Mode";
 /* Generated from genl10n: Stabilizer.swift */
@@ -375,7 +371,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "Chụp một tấm";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
-"Targeted" = "Đã nhắm mục tiêu";
+"Targeted" = "Targeted";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Mục tiêu";
 /* Generated from genl10n: Transform.BApp.swift#55 */
@@ -399,6 +395,4 @@
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "Đang chờ chọn ...";
 /* Generated from genl10n: Stabilizer.swift */
-"Warp" = "Làm cong";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "Bắt đầu tìm ...";
+"Warp" = "Warp";

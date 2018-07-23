@@ -5,7 +5,7 @@
 /*Translated from: Open Settings*/
 "Open Settings" = "ওপেন সেটিংস";
 /*Translated from: OK*/
-"OK" = "ঠিক আছে";
+"OK" = "OK";
 /*Translated from: Done*/
 "Done" = "সম্পন্ন";
 /*Translated from: Confirm*/
@@ -23,15 +23,11 @@
 /*Translated from: Edit %d video(s)*/
 "Edit %d video(s)" = "%d ভিডিও (গুলি) সম্পাদনা করুন";
 /*Translated from: Edit %d item(s)*/
-"Edit %d item(s)" = "%d আইটেম (গুলি) সম্পাদনা করুন";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "ব্যাচ সম্পাদনা করুন";
+"Edit %d item(s)" = "Edit %d item(s)";
 /*Translated from: Edit*/
-"Edit" = "সম্পাদন করা";
+"Edit" = "Edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "পরিবর্তন বাতিল";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "ব্যাচ সম্পাদনা শুরু করুন ...";
 /*Translated from: Processing...*/
 "Processing..." = "প্রক্রিয়া হচ্ছে ...";
 /*Translated from: Cancelling...*/
@@ -79,9 +75,9 @@
 /*com.stells.pap.transform*/
 "Transform" = "রুপান্তর";
 /*com.stells.pap.photosfilter*/
-"Apply" = "প্রয়োগ করা";
+"Apply" = "Apply";
 /*com.stells.pap.revert*/
-"Revert" = "প্রত্যাবর্তন করা";
+"Revert" = "Revert";
 /*Translated from: Starting to revert...*/
 "Starting to revert..." = "প্রত্যাবর্তন শুরু হচ্ছে ...";
 /*Translated from: Reverting Photos...*/
@@ -107,7 +103,7 @@
 /*Translated from: filter*/
 "cs_keyword_5" = "ছাঁকনি";
 /*Translated from: edit*/
-"cs_keyword_6" = "সম্পাদন করা";
+"cs_keyword_6" = "edit";
 /*Translated from: image*/
 "cs_keyword_7" = "ভাবমূর্তি";
 /*Translated from: smart*/
@@ -217,7 +213,7 @@
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "ফিল্টার";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
-"Find" = "আবিষ্কার";
+"Find" = "Find";
 /* Generated from genl10n: Finder.BApp.swift#42 */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "ফাইন্ডার আপনার ছবি থেকে ফোন নম্বর, ঠিকানা, তারিখ বা URL হিসাবে প্রত্যেক অর্থপূর্ণ তথ্য আহরণ করতে সক্ষম হন, এবং তারপর কল করুন, খোলা ম্যাপস বা ওয়েবসাইট নেভিগেট এমনকি ফ্লাইট অনুসন্ধান!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -263,7 +259,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "GIF তৈরি করুন";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "পরিবর্তন করুন";
+"Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "আমার অ্যালবামগুলি";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
@@ -319,9 +315,9 @@
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "সরাসরি পরিচিত পরিচিতি সংরক্ষণ করুন";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
-"Save and Share" = "সংরক্ষণ করুন এবং শেয়ার করুন";
+"Save and Share" = "Save and Share";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
-"Save" = "সংরক্ষণ করুন";
+"Save" = "Save";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "অন্তর্নির্মিত-ক্যামেরা সঙ্গে সংরক্ষিত";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -397,8 +393,6 @@
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "ভিডিও ছাড়া শব্দ";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
-"Waiting To Select ..." = "নির্বাচন করার জন্য অপেক্ষা করা হচ্ছে ...";
+"Waiting To Select ..." = "Waiting To Select ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "টানা";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "খুঁজে পেতে শুরু হচ্ছে ...";

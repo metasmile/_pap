@@ -24,14 +24,10 @@
 "Edit %d video(s)" = "Редактировать %d видео (ы)";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Изменить %d элемент (ы)";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "Batch Edit";
 /*Translated from: Edit*/
-"Edit" = "редактировать";
+"Edit" = "Edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Отменить изменения";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "Начало пакетного редактирования ...";
 /*Translated from: Processing...*/
 "Processing..." = "Processing...";
 /*Translated from: Cancelling...*/
@@ -79,7 +75,7 @@
 /*com.stells.pap.transform*/
 "Transform" = "преобразование";
 /*com.stells.pap.photosfilter*/
-"Apply" = "Подать заявление";
+"Apply" = "Apply";
 /*com.stells.pap.revert*/
 "Revert" = "Revert";
 /*Translated from: Starting to revert...*/
@@ -93,7 +89,7 @@
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "Создание страниц PDF ...";
 /*com.stells.pap.converter*/
-"Convert" = "Конвертировать";
+"Convert" = "Convert";
 /*CoreSpotligth keywords - localizable - marketing*/
 "cs_keyword_0" = "альбом";
 /*Translated from: camera*/
@@ -107,7 +103,7 @@
 /*Translated from: filter*/
 "cs_keyword_5" = "фильтр";
 /*Translated from: edit*/
-"cs_keyword_6" = "редактировать";
+"cs_keyword_6" = "edit";
 /*Translated from: image*/
 "cs_keyword_7" = "image";
 /*Translated from: smart*/
@@ -155,7 +151,7 @@
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Авто редактор";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
-"Blur Rate" = "Уровень размытости";
+"Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
 /* Generated from genl10n: Camera.BApp.swift#44 */
@@ -193,7 +189,7 @@
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "урожай";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
-"Custom" = "изготовленный на заказ";
+"Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Дата";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
@@ -239,13 +235,13 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: ExifGhost.BApp.swift */
-"Hide" = "Спрятать";
+"Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "Скрытие выбранных элементов ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Качество изображения";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Import" = "Импортировать";
+"Import" = "Import";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
 "It could not be saved." = "Его нельзя было сохранить.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
@@ -301,7 +297,7 @@
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Пресеты";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
-"Privacy" = "Конфиденциальность";
+"Privacy" = "Privacy";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Качественный";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
@@ -321,7 +317,7 @@
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Сохранить и поделиться";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
-"Save" = "Сохранить";
+"Save" = "Save";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "Сохранено со встроенной камерой";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -329,7 +325,7 @@
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Сохранение результатов ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
-"Scale To Fit" = "Масштабироваться в соответствии";
+"Scale To Fit" = "Scale To Fit";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
 "Screenshots" = "Скриншоты";
 /* Generated from genl10n: Finder.BApp.swift#762 */
@@ -345,7 +341,7 @@
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Отправить письмо";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
-"Share" = "Поделиться";
+"Share" = "Share";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "сходство";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -400,5 +396,3 @@
 "Waiting To Select ..." = "Ожидание выбора ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "Начало поиска ...";

@@ -5,7 +5,7 @@
 /*Translated from: Open Settings*/
 "Open Settings" = "సెట్టింగులను తెరవండి";
 /*Translated from: OK*/
-"OK" = "అలాగే";
+"OK" = "OK";
 /*Translated from: Done*/
 "Done" = "పూర్తి";
 /*Translated from: Confirm*/
@@ -24,14 +24,10 @@
 "Edit %d video(s)" = "%d వీడియో (లు) ను సవరించండి";
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "%d అంశం (లు) ను సవరించండి";
-/*Translated from: Batch Edit*/
-"Batch Edit" = "బ్యాచ్ మార్చు";
 /*Translated from: Edit*/
 "Edit" = "మార్చు";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "మార్పులను విస్మరించు";
-/*Translated from: Start Batch Editing...*/
-"Start Batch Editing..." = "బ్యాచ్ ఎడిటింగ్ను ప్రారంభించండి ...";
 /*Translated from: Processing...*/
 "Processing..." = "ప్రోసెసింగ్ ...";
 /*Translated from: Cancelling...*/
@@ -81,7 +77,7 @@
 /*com.stells.pap.photosfilter*/
 "Apply" = "వర్తించు";
 /*com.stells.pap.revert*/
-"Revert" = "కు తిరిగి వెళ్లు";
+"Revert" = "Revert";
 /*Translated from: Starting to revert...*/
 "Starting to revert..." = "తిరిగి మార్చడం మొదలుపెట్టింది ...";
 /*Translated from: Reverting Photos...*/
@@ -121,7 +117,7 @@
 /*Translated from: friend*/
 "cs_keyword_12" = "స్నేహితుడు";
 /*Translated from: lover*/
-"cs_keyword_13" = "ప్రేమికుడు";
+"cs_keyword_13" = "lover";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ ఉండవచ్చు";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -187,9 +183,9 @@
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "సృష్టించు";
 /* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "కత్తిరించడానికి కత్తిరింపు";
+"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop to Fit" = "కత్తిరించడానికి కత్తిరించండి";
+"Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "పంట";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
@@ -217,7 +213,7 @@
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "వడపోతలు";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
-"Find" = "కనుగొనండి";
+"Find" = "Find";
 /* Generated from genl10n: Finder.BApp.swift#42 */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "ఫైండర్ మీ ఫోటోల నుండి ఫోన్ నంబర్లు, చిరునామాలు, తేదీలు లేదా URL లు వంటి ప్రతి అర్ధవంతమైన సమాచారాన్ని సంగ్రహించడం ప్రారంభిస్తుంది, ఆపై కాల్, ఓపెన్ మ్యాప్లు లేదా వెబ్సైట్లను నావిగేట్ చేయండి కూడా విమానాలు శోధించండి!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
@@ -319,7 +315,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "దొరకలేదు పరిచయాలను నేరుగా సేవ్";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
-"Save and Share" = "సేవ్ మరియు భాగస్వామ్యం చేయండి";
+"Save and Share" = "Save and Share";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "సేవ్";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
@@ -400,5 +396,3 @@
 "Waiting To Select ..." = "ఎంచుకోవడానికి వేచి ఉంది ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "వార్ప్";
-/* Generated from genl10n: PhoneCalls.swift */
-"🔍 Starting To Find ..." = "కనుగొనుటకు ప్రారంభిస్తోంది ...";
