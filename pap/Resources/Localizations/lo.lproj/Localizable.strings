@@ -146,12 +146,14 @@
 "Animated GIF" = "GIF ເຄື່ອນໄຫວ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animation";
+/* Generated from genl10n: Filters.BApp.swift#76 */
+"Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "ສະຫມັກຂໍເອົາການກັ່ນຕອງທີ່ມີຄຸນະພາບສູງໃນຮູບພາບທັງຫມົດທີ່ທ່ານຕ້ອງການ. ບໍ່ຈໍາກັດຈໍານວນຮູບຖ່າຍເພື່ອແກ້ໄຂມັນ.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Aspect Ratio";
+/* Generated from genl10n: AutoEditor.BApp.swift#51 */
+"Auto Editor lets you edit automatically if your photos are needed to correct." = "ຕົວແກ້ໄຂອັດຕະໂນມັດສາມາດແກ້ໄຂໄດ້ໂດຍອັດຕະໂນມັດຖ້າຮູບພາບຂອງທ່ານຈໍາເປັນຕ້ອງແກ້ໄຂ.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Auto Editor";
-/* Generated from genl10n: Cleaner.BApp.swift#413 */
-"Auto Garbage Selection" = "ການເລືອກລົດຂີ້ເຫຍື້ອ";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "ອັດຕາບິດ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,16 +172,14 @@
 "Choose An Sub Action." = "ເລືອກເອົາການປະຕິບັດຕົວຢ່າງຫນຶ່ງ.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Choose an Option To Convert" = "ເລືອກເອົາທາງເລືອກເພື່ອແປງ";
-/* Generated from genl10n: Cleaner.BApp.swift#96 */
-"Clean the selected items" = "ເຮັດຄວາມສະອາດລາຍການທີ່ເລືອກ";
-/* Generated from genl10n: Cleaner.BApp.swift#54 */
-"Clean" = "ຄວາມສະອາດ";
+/* Generated from genl10n: Cleaner.BApp.swift#45 */
+"Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "ຕົວເຮັດຄວາມສະອາດຊ່ວຍໃຫ້ທ່ານຊອກຫາແລະລຶບຮູບພາບທີ່ບໍ່ຖືກຕ້ອງທຸກຢ່າງເຊັ່ນຮູບພາບທີ່ຊ້ໍາກັນແລະຄ້າຍຄືກັນ, ຮູບພາບທີ່ໃກ້ຊິດຫຼືການຖ່າຍພາບ Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "ຄວາມສະອາດ";
-/* Generated from genl10n: Cleaner.BApp.swift#50 */
-"Cleaning Photos..." = "ທໍາຄວາມສະອາດຮູບພາບ ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "ຕິດຕໍ່ພົວພັນ";
+/* Generated from genl10n: Converter.BApp.swift#42 */
+"Converter enables you to convert every media formats into every each other." = "ການປ່ຽນແປງເຮັດໃຫ້ທ່ານສາມາດປ່ຽນທຸກຮູບແບບສື່ເຂົ້າໄປໃນແຕ່ລະພາກສ່ວນອື່ນ.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "ການປ່ຽນແປງ";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
@@ -196,16 +196,20 @@
 "Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Date";
+/* Generated from genl10n: Cleaner.BApp.swift#506 */
+"Deleting Targets" = "ລຶບເປົ້າຫມາຍ";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "Detecting ... %@";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Did not detect anything." = "ບໍ່ພົບສິ່ງໃດ.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "ດາວໂຫລດ ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "ທີ່​ຢູ່​ອີ​ເມວ";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, PhoneCalls.swift, Textractor.BApp.swift */
-"Enable Auto Selection" = "ເປີດຕົວເລືອກອັດຕະໂນມັດ";
+/* Generated from genl10n: ExifGhost.BApp.swift#29 */
+"EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "Ghost EXIF ​​ຊ່ວຍໃຫ້ທ່ານເອົາຂໍ້ມູນທັງຫມົດທີ່ມີຮູບພາບຂອງທ່ານລວມທັງຂໍ້ມູນສ່ວນຕົວ.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Export Options";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -214,6 +218,8 @@
 "Filters" = "ການກັ່ນຕອງ";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "ຊອກຫາ";
+/* Generated from genl10n: Finder.BApp.swift#42 */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Finder ສາມາດສະກັດຂໍ້ມູນທີ່ມີຄວາມຫມາຍທັງຫມົດເຊັ່ນ: ເບີໂທລະສັບ, ທີ່ຢູ່, ວັນທີຫຼື URL ຈາກຮູບພາບຂອງທ່ານ, ແລະຫຼັງຈາກນັ້ນໂທຫາ, ເປີດແຜນທີ່ຫຼືນໍາທາງເວັບໄຊທ໌ເຖິງການຊອກຫາທ່ຽວບິນ!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "Finder";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -228,6 +234,8 @@
 "Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
+/* Generated from genl10n: GIFMaker.BApp.swift#266 */
+"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker ອະນຸຍາດໃຫ້ສໍາລັບຮູບພາບຕ່າງໆຂອງ GIF ໄດ້ອຍ່າງງ່າຍດາຍແລະລວດໄວໂດຍມີຕົວເລືອກຕ່າງໆ! ແລະຫຼັງຈາກນັ້ນທ່ານສາມາດເປີດແອັບຯແປງໄດ້ເພື່ອປ່ຽນທຸກຢ່າງເຊັ່ນ Live Photos ຫຼື Videos.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -238,6 +246,8 @@
 "Image Quality" = "ຄຸນະພາບຂອງພາບ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "ນໍາເຂົ້າ";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"It could not be saved." = "ມັນບໍ່ສາມາດບັນທືກໄດ້.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "ມັນຮຽກຮ້ອງໃຫ້ມີການອະນຸຍາດໃຫ້ເຂົ້າເຖິງລາຍຊື່ຂອງທ່ານ. ກະລຸນາອະນຸຍາດໃຫ້ Contacts ໃນ iOS Settings.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
@@ -260,6 +270,8 @@
 "New Contact" = "ຕິດຕໍ່ໃຫມ່";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "ເຫດການໃຫມ່";
+/* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
+"New Phone Number" = "ຫມາຍເລກໂທລະສັບໃຫມ່";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -272,6 +284,8 @@
 "Open Web Page" = "ເປີດຫນ້າເວັບ";
 /* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
 "Original" = "ຕົ້ນສະບັບ";
+/* Generated from genl10n: PDFactory.BApp.swift#32 */
+"PDFactory makes PDF document from multiple images with various page options." = "PDFactory ເຮັດໃຫ້ເອກະສານ PDF ຈາກຮູບພາບຕ່າງໆທີ່ມີທາງເລືອກຕ່າງໆ.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Page Margin" = "Page Margin";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
@@ -296,14 +310,22 @@
 "Repeat" = "Repeat";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Reverse";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "ການປ່ຽນແອັບຯໃຫມ່ສາມາດຟື້ນຟູການຖ່າຍພາບຂອງຮູບພາບທີ່ຖືກແກ້ໄຂໄປໄດ້ຢ່າງໄວວາ. ຍິ່ງໄປກວ່ານັ້ນ, ມັນຊ່ວຍໃຫ້ທ່ານມີການຄັດເລືອກອັດຕະໂນມັດ!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Rewind";
+/* Generated from genl10n: PhoneCalls.swift#137 */
+"Save All Phone Numbers" = "ບັນທຶກທຸກເບີໂທລະສັບ";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "ບັນທຶກລາຍຊື່ທີ່ຕິດຕໍ່ໂດຍກົງ";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "ບັນທຶກແລະແບ່ງປັນ";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "ຊ່ວຍປະຢັດ";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
+"Saved With Built-in Camera" = "ບັນທືກກັບກ້ອງຖ່າຍຮູບທີ່ຕິດຕັ້ງຢູ່";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"Saved Without the Camera" = "ບັນທຶກໂດຍບໍ່ມີກ້ອງຖ່າຍຮູບ";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "ບັນທຶກຜົນໄດ້ຮັບ ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
@@ -312,26 +334,24 @@
 "Screenshots" = "Screenshots";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "ຄົ້ນຫາທ່ຽວບິນ";
+/* Generated from genl10n: Cleaner.BApp.swift#602 */
+"Select Photos To Delete." = "ເລືອກຮູບພາບເພື່ອລຶບ.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "ເລືອກຮູບພາບເພື່ອຊອກທຸກສິ່ງທຸກຢ່າງ.";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "ເລືອກຮູບພາບທີ່ທ່ານຕ້ອງການທີ່ຈະຈັບຕົວເລກໂທລະສັບ!";
+/* Generated from genl10n: Cleaner.BApp.swift#510 */
+"Selected" = "ຖືກຄັດເລືອກ";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "ສົ່ງອີເມວ";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "ແບ່ງປັນ";
-/* Generated from genl10n: Cleaner.BApp.swift#243 */
-"Similarities" = "ຄວາມຄ້າຍຄືກັນ";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "ຄວາມຄ້າຍຄືກັນ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "ຂະຫນາດ";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "ບາງຄົນຕິດຕໍ່ພົວພັນໄດ້ຖືກບັນທືກ, ແຕ່ບາງຄົນບໍ່ໄດ້.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
-"Sorry, it could not be saved." = "ຂໍອະໄພ, ມັນບໍ່ສາມາດບັນທືກໄດ້.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
-"Sorry. No information about you have selected could not be detected." = "ຂໍ​ໂທດ. ບໍ່ມີຂໍ້ມູນກ່ຽວກັບທ່ານທີ່ໄດ້ເລືອກບໍ່ສາມາດພົບໄດ້.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -354,12 +374,28 @@
 "Switch on any items you want to hide. The quality will entirely remain the same." = "ປ່ຽນສະມາຊິກໃດໆທີ່ທ່ານຕ້ອງການເຊື່ອງ. ຄຸນນະພາບທັງຫມົດຈະຍັງຄົງຢູ່ຄືເກົ່າ.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "ຖ່າຍ​ຮູບ";
+/* Generated from genl10n: Cleaner.BApp.swift#511 */
+"Targeted" = "ເປົ້າຫມາຍ";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "ເປົ້າຫມາຍ";
+/* Generated from genl10n: Transform.BApp.swift#55 */
+"This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "ນີ້ງ່າຍດາຍແຕ່ເຄື່ອງມືທີ່ໄວທີ່ສຸດເຮັດໃຫ້ທ່ານສາມາດ rotate ແລະ flip ຫຼາຍຂອງໄຟລ໌ສື່ມວນຊົນລວມທັງຮູບພາບສົດ. ໂດຍຄ່າເລີ່ມຕົ້ນ, ບໍ່ມີຂໍ້ຈໍາກັດໃນການຈໍານວນຮູບຖ່າຍເພື່ອແກ້ໄຂ.";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
+"Too Close-up Face" = "ໃບຫນ້າໃກ້ຊິດເກີນໄປ";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
+"Too Slow Shutter Speed" = "ຄວາມໄວຊັດເຕີຊ້າເກີນໄປ";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "ການແປພາສາ";
+/* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
+"Use Auto Selection Bot" = "ໃຊ້ Auto Selection Bot";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "ວິດີໂອ";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
+"Videos Saved by Instagram App" = "ວິດີໂອທີ່ບັນທຶກໂດຍ Instagram App";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
+"Videos Shorter Than 1 Second" = "ວິດີໂອສັ້ນກວ່າ 1 ວິນາທີ";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
+"Videos Without Sound" = "ວິດີໂອບໍ່ມີສຽງ";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "ລໍຖ້າເພື່ອເລືອກ ...";
 /* Generated from genl10n: Stabilizer.swift */

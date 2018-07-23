@@ -146,12 +146,14 @@
 "Animated GIF" = "Ti ere GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Idanilaraya";
+/* Generated from genl10n: Filters.BApp.swift#76 */
+"Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Waye awọn Ajọ Ipadẹ giga lori gbogbo awọn fọto ti o fẹ. Ko si opin si nọmba awọn fọto lati ṣatunkọ wọn.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Iwoye ifojusi";
+/* Generated from genl10n: AutoEditor.BApp.swift#51 */
+"Auto Editor lets you edit automatically if your photos are needed to correct." = "Olootu laifọwọyi jẹ ki o satunkọ laifọwọyi ti o ba nilo awọn fọto rẹ lati ṣatunṣe.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Olootu Idojukọ";
-/* Generated from genl10n: Cleaner.BApp.swift#413 */
-"Auto Garbage Selection" = "Aṣayan Iyanjẹ Aifọwọyi";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,16 +172,14 @@
 "Choose An Sub Action." = "Yan Ibẹẹ Apa.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Choose an Option To Convert" = "Yan Aṣayan Lati Yiyipada";
-/* Generated from genl10n: Cleaner.BApp.swift#96 */
-"Clean the selected items" = "Nu awọn ohun ti a yan";
-/* Generated from genl10n: Cleaner.BApp.swift#54 */
-"Clean" = "Mọ";
+/* Generated from genl10n: Cleaner.BApp.swift#45 */
+"Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Isọkanra n ṣe iranlọwọ fun ọ lati wa ati pa gbogbo awọn iru awọn aworan ti ko tọ gẹgẹbi apẹrẹ ati awọn aworan irufẹ, awọn aworan sunmọ-oke tabi awọn Iwọn Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Isọda";
-/* Generated from genl10n: Cleaner.BApp.swift#50 */
-"Cleaning Photos..." = "Nya Awọn fọto ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Awọn olubasọrọ";
+/* Generated from genl10n: Converter.BApp.swift#42 */
+"Converter enables you to convert every media formats into every each other." = "Olugbanilaaye jẹ ki o yipada gbogbo ọna kika media sinu gbogbo awọn miiran.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "Oluyipada";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
@@ -196,16 +196,20 @@
 "Custom" = "Aṣa";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Ọjọ";
+/* Generated from genl10n: Cleaner.BApp.swift#506 */
+"Deleting Targets" = "Pa Awọn ifojusi";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "Ṣawari ... %@";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Did not detect anything." = "Ko ri ohunkohun.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Itọsọna";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Gbigba ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Adirẹsi imeeli";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, PhoneCalls.swift, Textractor.BApp.swift */
-"Enable Auto Selection" = "Ṣiṣe Aṣayan Iyanilẹṣe";
+/* Generated from genl10n: ExifGhost.BApp.swift#29 */
+"EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ẹmi n jẹ ki o yọ gbogbo iru data ti o ni awọn fọto rẹ pẹlu alaye ikọkọ.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Awọn aṣayan Ifiranṣẹ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -214,6 +218,8 @@
 "Filters" = "Ajọ";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "Wa";
+/* Generated from genl10n: Finder.BApp.swift#42 */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Olùwádìí ń jẹ ki n yọ gbogbo alaye ti o niyele gẹgẹbi awọn nọmba foonu, adirẹsi, awọn ọjọ tabi Awọn URL lati awọn aworan rẹ, ati lẹhinna pe, ṣii awọn maapu tabi ṣawari awọn aaye ayelujara paapaa ofurufu ofurufu!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "Finder";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -228,6 +234,8 @@
 "Forward" = "Siwaju";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Fireemu duro";
+/* Generated from genl10n: GIFMaker.BApp.swift#266 */
+"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Ẹlẹda fun laaye lati ṣe kiakia awọn aworan GIF lati Awọn fọto tabi awọn fọto Live pẹlu awọn aṣayan oriṣiriṣi! Ati lẹhin naa o le ṣii ohun elo iyipada lati yipada si ohun gbogbo bii Live Awọn fọto tabi Awọn fidio.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Ẹlẹda";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -238,6 +246,8 @@
 "Image Quality" = "Didara aworan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Ṣe akowọle";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"It could not be saved." = "O ko le wa ni fipamọ.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "O nilo igbanilaaye lati wọle si awọn olubasọrọ rẹ. Jọwọ gba Awọn olubasọrọ lori iOS Eto.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
@@ -260,6 +270,8 @@
 "New Contact" = "Olubasọrọtitun";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Iṣẹlẹ Titun";
+/* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
+"New Phone Number" = "Nọmba foonu titun";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "Ko si Irugbin";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -272,6 +284,8 @@
 "Open Web Page" = "Ṣi oju-iwe ayelujara";
 /* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
 "Original" = "Atilẹkọ";
+/* Generated from genl10n: PDFactory.BApp.swift#32 */
+"PDFactory makes PDF document from multiple images with various page options." = "PDFactory ṣe PDF iwe-ipamọ lati oriṣiriṣi awọn aworan pẹlu orisirisi awọn aṣayan oju-iwe.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Page Margin" = "Oju ewe Page";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
@@ -296,14 +310,22 @@
 "Repeat" = "Tun ṣe";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Yiyipada";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Awọn ohun elo ti n ṣatunṣe jẹ ki o pada sipo awọn iye ti o ṣatunkọ si aworan atilẹba ni kiakia. Pẹlupẹlu, o ṣe iranlọwọ fun ọ pẹlu aṣayan asayan!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Pada sẹhin";
+/* Generated from genl10n: PhoneCalls.swift#137 */
+"Save All Phone Numbers" = "Fi gbogbo Awọn nọmba foonu pamọ";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "Fipamọ Awọn Aami Ri Awọn Olubasọrọ gangan";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Fipamọ ati Pin";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Fipamọ";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
+"Saved With Built-in Camera" = "Ti fi pamọ pẹlu kamẹra-itumọ ti";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"Saved Without the Camera" = "Fipam laisi kamẹra";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Awọn esi ti o nbọ ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
@@ -312,26 +334,24 @@
 "Screenshots" = "Awọn sikirinisoti";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Wa Awọn iṣowo";
+/* Generated from genl10n: Cleaner.BApp.swift#602 */
+"Select Photos To Delete." = "Yan Awọn fọto Lati Paarẹ.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Yan Awọn fọto Lati Wa Ohun gbogbo.";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Yan Awọn fọto Ti O Fẹ Lati Gba Awọn nọmba foonu!";
+/* Generated from genl10n: Cleaner.BApp.swift#510 */
+"Selected" = "Ti yan";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Firanṣẹ Imeeli kan";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Pinpin";
-/* Generated from genl10n: Cleaner.BApp.swift#243 */
-"Similarities" = "Awọn iyatọ";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Iruwe";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Iwọn";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Diẹ ninu awọn olubasọrọ ti o ti fipamọ, ṣugbọn awọn ohun kan ko.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
-"Sorry, it could not be saved." = "Binu, o ko le wa ni fipamọ.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
-"Sorry. No information about you have selected could not be detected." = "Binu. Ko si alaye nipa rẹ ti yan ko ṣee wa-ri.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -354,12 +374,28 @@
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Yipada lori awọn ohun kan ti o fẹ pa. Didara naa yoo jẹ iduro kanna.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "Ya fọto kan";
+/* Generated from genl10n: Cleaner.BApp.swift#511 */
+"Targeted" = "Ipolowo";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Awọn ifojusi";
+/* Generated from genl10n: Transform.BApp.swift#55 */
+"This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "Eyi rọrun ṣugbọn ọpa ti o yara ju lọ jẹ ki o yara yiyara ati ṣipada ọpọlọpọ awọn faili media pẹlu Awọn Live Awọn fọto. Nipa aiyipada, ko si opin si nọmba awọn fọto lati ṣatunkọ wọn.";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
+"Too Close-up Face" = "Too oke-oju Iwari";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
+"Too Slow Shutter Speed" = "Sutọ Suturẹ Ṣiṣe Iyara";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Translation";
+/* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
+"Use Auto Selection Bot" = "Lo Aṣayan Aifọwọyi Bot";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Fidio";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
+"Videos Saved by Instagram App" = "Awọn fidio Ti a fipamọ nipasẹ Instagram App";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
+"Videos Shorter Than 1 Second" = "Awọn fidio Yatọ ju 1 Keji";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
+"Videos Without Sound" = "Awọn fidio laisi ohun";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "Nduro Lati Yan ...";
 /* Generated from genl10n: Stabilizer.swift */

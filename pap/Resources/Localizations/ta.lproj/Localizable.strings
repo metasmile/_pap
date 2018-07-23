@@ -146,12 +146,14 @@
 "Animated GIF" = "அனிமேஷன் GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "அனிமேஷன்";
+/* Generated from genl10n: Filters.BApp.swift#76 */
+"Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "நீங்கள் விரும்பும் அனைத்து புகைப்படங்களிலும் உயர் தர வடிப்பான்களைப் பயன்படுத்துங்கள். அவற்றை திருத்தும் புகைப்படங்களின் எண்ணிக்கையில் வரம்பு இல்லை.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "விகிதம்";
+/* Generated from genl10n: AutoEditor.BApp.swift#51 */
+"Auto Editor lets you edit automatically if your photos are needed to correct." = "ஆட்டோ எடிட்டர் உங்கள் புகைப்படங்களை சரி செய்ய தேவைப்பட்டால் தானாகவே திருத்த முடியும்.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "ஆட்டோ எடிட்டர்";
-/* Generated from genl10n: Cleaner.BApp.swift#413 */
-"Auto Garbage Selection" = "ஆட்டோ குப்பை தேர்வு";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "தெளிவின்மை விகிதம்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,16 +172,14 @@
 "Choose An Sub Action." = "ஒரு துணை அதிரடி தேர்வு.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Choose an Option To Convert" = "மாற்ற ஒரு விருப்பத்தை தேர்வு";
-/* Generated from genl10n: Cleaner.BApp.swift#96 */
-"Clean the selected items" = "தேர்ந்தெடுத்த உருப்படிகளை சுத்தம் செய்யவும்";
-/* Generated from genl10n: Cleaner.BApp.swift#54 */
-"Clean" = "சுத்தமான";
+/* Generated from genl10n: Cleaner.BApp.swift#45 */
+"Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "துப்புரவு மற்றும் ஒத்த படங்கள், நெருங்கிய புகைப்படங்கள் அல்லது லாக்ஸ்ஸ்கிரீன் காட்சிகள் போன்ற தவறான புகைப்படங்களைத் தவறாக கண்டறிந்து அழிக்க உங்களை சுத்தப்படுத்துகிறது!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "தூய்மையான";
-/* Generated from genl10n: Cleaner.BApp.swift#50 */
-"Cleaning Photos..." = "புகைப்படங்கள் சுத்தம் ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "தொடர்புகள்";
+/* Generated from genl10n: Converter.BApp.swift#42 */
+"Converter enables you to convert every media formats into every each other." = "மாற்றி ஒவ்வொரு ஊடக வடிவத்தையும் ஒவ்வொரு வேறு ஒரு இடத்திற்கு மாற்றியமைக்க உதவுகிறது.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "மாற்றி";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
@@ -196,16 +196,20 @@
 "Custom" = "விருப்ப";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "தேதி";
+/* Generated from genl10n: Cleaner.BApp.swift#506 */
+"Deleting Targets" = "இலக்குகளை நீக்குகிறது";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "கண்டறிதல் ... %@";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Did not detect anything." = "எதையும் கண்டுபிடிக்க முடியவில்லை.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "திசையில்";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "இறக்குகிறது ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "மின்னஞ்சல் முகவரி";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, PhoneCalls.swift, Textractor.BApp.swift */
-"Enable Auto Selection" = "தானியங்கு தேர்வு இயக்கு";
+/* Generated from genl10n: ExifGhost.BApp.swift#29 */
+"EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF ஆவி உங்கள் தனிப்பட்ட தகவல்களை உள்ளடக்கிய அனைத்து வகையான தரவுகளையும் அகற்ற அனுமதிக்கிறது.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "ஏற்றுமதி விருப்பங்கள்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -214,6 +218,8 @@
 "Filters" = "வடிகட்டிகள்";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "கண்டுபிடிக்க";
+/* Generated from genl10n: Finder.BApp.swift#42 */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "உங்கள் புகைப்படங்களில் உள்ள தொலைபேசி எண்கள், முகவரிகள், தேதிகள் அல்லது URL கள் போன்ற ஒவ்வொரு அர்த்தமுள்ள தகவலையும் கண்டுபிடிப்பதைத் தேடுகிறது, பின்னர் அழைப்புகள், திறந்த வரைபடங்கள் அல்லது வலைத்தளங்களை தேடலைத் தேடுங்கள்!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "தேடல்";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -228,6 +234,8 @@
 "Forward" = "முன்னோக்கி";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "ஃப்ரேம் தாமதம்";
+/* Generated from genl10n: GIFMaker.BApp.swift#266 */
+"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF மேக்கர் எளிதாகவும் விரைவாகவும் GIF படங்களை புகைப்படங்கள் அல்லது லைவ் ஃபோட்டோக்களை பல்வேறு விருப்பங்களுடன் உருவாக்க அனுமதிக்கிறது! பின்னர் லைவ் ஃபோட்டோக்கள் அல்லது வீடியோக்களைப் போன்ற அனைத்தையும் மாற்றுவதற்கு மாற்றி பயன்பாட்டை திறக்கலாம்.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF மேக்கர்";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -238,6 +246,8 @@
 "Image Quality" = "பட தரம்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "இறக்குமதி";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"It could not be saved." = "இது சேமிக்கப்படவில்லை.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "உங்கள் தொடர்புகளை அணுகுவதற்கான அனுமதி தேவை. IOS அமைப்புகளில் தொடர்புகளை அனுமதிக்கவும்.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
@@ -260,6 +270,8 @@
 "New Contact" = "புதிய தொடர்பு";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "புதிய நிகழ்வு";
+/* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
+"New Phone Number" = "புதிய தொலைபேசி எண்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "இல்லை பயிர்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -272,6 +284,8 @@
 "Open Web Page" = "வலைப்பக்கத்தை திற";
 /* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
 "Original" = "அசல்";
+/* Generated from genl10n: PDFactory.BApp.swift#32 */
+"PDFactory makes PDF document from multiple images with various page options." = "PDF ஆக பல பக்கங்களில் இருந்து PDF ஆவணத்தை பல்வேறு பக்க விருப்பங்கள் மூலம் செய்கிறது.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Page Margin" = "பக்க விளிம்பு";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
@@ -296,14 +310,22 @@
 "Repeat" = "மீண்டும் மீண்டும்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "பின்னோக்கு";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "திருத்திய பயன்பாட்டை விரைவாக அசல் ஒரு திருத்தப்பட்ட புகைப்படங்கள் ஒரு கொத்து அளவு மீண்டும் அனுமதிக்கிறது. மேலும், இது தானாக தேர்வு செய்ய உதவுகிறது!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "ரீவைண்ட்";
+/* Generated from genl10n: PhoneCalls.swift#137 */
+"Save All Phone Numbers" = "அனைத்து தொலைபேசி எண்கள் சேமிக்க";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "தொடர்புகளை நேரடியாக சேமிக்கவும்";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "சேமிக்கவும் மற்றும் பகிர்ந்து";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "சேமி";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
+"Saved With Built-in Camera" = "பில்ட்-இன் கேமராவுடன் சேமிக்கப்பட்டது";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"Saved Without the Camera" = "கேமரா இல்லாமல் சேமிக்கப்பட்டது";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "முடிவுகளை சேமிக்கிறது ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
@@ -312,26 +334,24 @@
 "Screenshots" = "ஸ்கிரீன்";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "தேடல் விமானங்கள்";
+/* Generated from genl10n: Cleaner.BApp.swift#602 */
+"Select Photos To Delete." = "நீக்குவதற்கு படங்களைத் தேர்ந்தெடுக்கவும்.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "எல்லாவற்றையும் கண்டுபிடிக்க புகைப்படங்களைத் தேர்ந்தெடுக்கவும்.";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "நீங்கள் எண்களை கைப்பற்ற விரும்புகிறீர்களா?";
+/* Generated from genl10n: Cleaner.BApp.swift#510 */
+"Selected" = "தேர்ந்தெடுக்கப்பட்ட";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "ஒரு மின்னஞ்சல் அனுப்பவும்";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "பகிர்";
-/* Generated from genl10n: Cleaner.BApp.swift#243 */
-"Similarities" = "ஒற்றுமைகள்";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "ஒற்றுமை";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "அளவு";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "சில தொடர்புகள் சேமிக்கப்பட்டன, ஆனால் யாரோ ஒருவர் இல்லை.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
-"Sorry, it could not be saved." = "மன்னிக்கவும், அது சேமிக்கப்படவில்லை.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
-"Sorry. No information about you have selected could not be detected." = "மன்னிக்கவும். உங்களைப் பற்றிய தகவல்கள் எதுவும் கண்டறியப்படவில்லை.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "சதுக்கத்தில்";
 /* Generated from genl10n: Stabilizer.swift */
@@ -354,12 +374,28 @@
 "Switch on any items you want to hide. The quality will entirely remain the same." = "நீங்கள் மறைக்க விரும்பும் எந்தப் பொருட்களையும் மாற்றவும். தரம் முற்றிலும் ஒரே மாதிரியாக இருக்கும்.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "ஒரு புகைப்படத்தை எடுக்கவும்";
+/* Generated from genl10n: Cleaner.BApp.swift#511 */
+"Targeted" = "இலக்கு";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "இலக்குகள்";
+/* Generated from genl10n: Transform.BApp.swift#55 */
+"This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "இந்த எளிமையான ஆனால் மிக வேகமாக கருவி நீங்கள் நேரடி புகைப்படங்கள் உட்பட நிறைய ஊடகங்களை சுழற்றுவதற்கு மற்றும் சுழற்ற உதவுகிறது. இயல்புநிலையாக, அவற்றைத் திருத்தும் புகைப்படங்களின் எண்ணிக்கையில் வரம்பு இல்லை.";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
+"Too Close-up Face" = "மிக நெருங்கிய முகம்";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
+"Too Slow Shutter Speed" = "மிக மெதுவாக ஷட்டர் வேகம்";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "மொழிபெயர்ப்பு";
+/* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
+"Use Auto Selection Bot" = "ஆட்டோ தேர்வு பாட்டைப் பயன்படுத்துக";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "காணொளி";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
+"Videos Saved by Instagram App" = "Instagram பயன்பாடு மூலம் சேமிக்கப்படும் வீடியோக்கள்";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
+"Videos Shorter Than 1 Second" = "வீடியோக்கள் 1 இரண்டாவது விட குறைவாக";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
+"Videos Without Sound" = "ஒலி இல்லாமல் வீடியோக்கள்";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "தேர்ந்தெடுக்க காத்திருக்கிறது ...";
 /* Generated from genl10n: Stabilizer.swift */

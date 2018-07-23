@@ -146,12 +146,14 @@
 "Animated GIF" = "अॅनिमेटेड GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "अॅनिमेशन";
+/* Generated from genl10n: Filters.BApp.swift#76 */
+"Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "आपल्या सर्व फोटोंवर उच्च दर्जाचे फिल्टर लागू करा. त्यांना संपादित करण्यासाठी फोटोंच्या संख्येची मर्यादा नाही.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "प्रसर गुणोत्तर";
+/* Generated from genl10n: AutoEditor.BApp.swift#51 */
+"Auto Editor lets you edit automatically if your photos are needed to correct." = "आपले फोटो दुरुस्त करण्यासाठी आवश्यक असल्यास ऑटो संपादक आपल्याला स्वयंचलितपणे संपादित करू देते.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "ऑटो संपादक";
-/* Generated from genl10n: Cleaner.BApp.swift#413 */
-"Auto Garbage Selection" = "ऑटो कचरा निवड";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "ब्लर रेट";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,16 +172,14 @@
 "Choose An Sub Action." = "एक उप क्रिया निवडा";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Choose an Option To Convert" = "रूपांतरित करण्याचे पर्याय निवडा";
-/* Generated from genl10n: Cleaner.BApp.swift#96 */
-"Clean the selected items" = "निवडलेल्या आयटम साफ करा";
-/* Generated from genl10n: Cleaner.BApp.swift#54 */
-"Clean" = "स्वच्छ";
+/* Generated from genl10n: Cleaner.BApp.swift#45 */
+"Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "क्लिनर आपल्याला प्रत्येक चुकीच्या फोटोंसारखी आणि डुप्लिकेट आणि तत्सम प्रतिमा, क्लोज-अप फोटो किंवा लॉकस्क्रीन शॉट्स शोधण्यास आणि हटविण्यास सक्षम करते!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "क्लिनर";
-/* Generated from genl10n: Cleaner.BApp.swift#50 */
-"Cleaning Photos..." = "फोटो साफ करीत आहे ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "संपर्क";
+/* Generated from genl10n: Converter.BApp.swift#42 */
+"Converter enables you to convert every media formats into every each other." = "कनवर्टर आपल्याला प्रत्येक मीडिया स्वरुपात प्रत्येक इतर स्वरुपात रूपांतर करण्यास सक्षम करते.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "कनवर्टर";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
@@ -196,16 +196,20 @@
 "Custom" = "सानुकूल";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "तारीख";
+/* Generated from genl10n: Cleaner.BApp.swift#506 */
+"Deleting Targets" = "लक्ष्य हटविणे";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "शोधत आहे ... %@";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Did not detect anything." = "काहीही सापडले नाही";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "दिशा";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "डाऊनलोड करीत आहे ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "ई-मेल पत्ता";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, PhoneCalls.swift, Textractor.BApp.swift */
-"Enable Auto Selection" = "स्वयं निवड सक्षम करा";
+/* Generated from genl10n: ExifGhost.BApp.swift#29 */
+"EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF भूत आपल्याला खाजगी माहितीसह आपले फोटो असलेल्या सर्व प्रकारच्या डेटा काढू देते";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "निर्यात पर्याय";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -214,6 +218,8 @@
 "Filters" = "फिल्टर्स";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "शोधणे";
+/* Generated from genl10n: Finder.BApp.swift#42 */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "शोधक आपल्या फोटोंमधील प्रत्येक अर्थपूर्ण माहिती जसे की फोन नंबर, पत्ते, तारखा किंवा URL काढणे सक्षम करते आणि नंतर कॉल करा, नकाशे उघडा किंवा वेबसाइट्स शोधणे अगदी शोध घ्या!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "फाइंडर";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -228,6 +234,8 @@
 "Forward" = "अग्रेषित करा";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "फ्रेम विलंब";
+/* Generated from genl10n: GIFMaker.BApp.swift#266 */
+"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker फोटो आणि लाईव्ह फोटोमधून विविध पर्यायांमधून सहज आणि त्वरित GIF प्रतिमा निर्माण करण्यास परवानगी देतो! आणि मग आपण थेट फोटो किंवा व्हिडिओ यासारख्या सर्व गोष्टींमध्ये रूपांतरित करण्यासाठी रुपरेषा अॅप उघडू शकता.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -238,6 +246,8 @@
 "Image Quality" = "प्रतिमा गुणवत्ता";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "आयात करा";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"It could not be saved." = "हे जतन केले जाऊ शकले नाही.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "आपल्या संपर्कांना प्रवेश करण्याची परवानगी आवश्यक आहे कृपया iOS सेटिंग्जवर संपर्कांना अनुमती द्या.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
@@ -260,6 +270,8 @@
 "New Contact" = "नवीन संपर्क";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "नवीन कार्यक्रम";
+/* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
+"New Phone Number" = "नवीन फोन नंबर";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "क्रॉप नाही";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -272,6 +284,8 @@
 "Open Web Page" = "वेब पृष्ठ उघडा";
 /* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
 "Original" = "मूळ";
+/* Generated from genl10n: PDFactory.BApp.swift#32 */
+"PDFactory makes PDF document from multiple images with various page options." = "PDFactory विविध पृष्ठ पर्यायांसह एकाधिक प्रतिमेतून PDF दस्तऐवज तयार करतो.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Page Margin" = "पृष्ठ समास";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
@@ -296,14 +310,22 @@
 "Repeat" = "पुनरावृत्ती करा";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "उलट करा";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "परत अॅप त्वरित संपादित केलेल्या फोटोंच्या एकुण संख्येस द्रुतगतीने मूळ व्हिडिओंना पुनर्संचयित करण्याची अनुमती देतो शिवाय, हे आपोआप निवड करण्यास मदत करते!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "रिवाइंड";
+/* Generated from genl10n: PhoneCalls.swift#137 */
+"Save All Phone Numbers" = "सर्व फोन नंबर जतन करा";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "थेट संपर्क प्राप्त संपर्क";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "जतन करा आणि सामायिक करा";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "जतन करा";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
+"Saved With Built-in Camera" = "अंगभूत कॅमेरा सह जतन";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"Saved Without the Camera" = "कॅमेरा शिवाय जतन";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "परिणाम जतन करीत आहे ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
@@ -312,26 +334,24 @@
 "Screenshots" = "स्क्रिनशॉट्स";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "उड्डाणे शोधा";
+/* Generated from genl10n: Cleaner.BApp.swift#602 */
+"Select Photos To Delete." = "हटविण्यासाठी फोटो निवडा";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "सर्वकाही शोधण्यासाठी फोटो निवडा";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "फोटो निवडा आपण फोन नंबर झेल इच्छित!";
+/* Generated from genl10n: Cleaner.BApp.swift#510 */
+"Selected" = "निवडलेले";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "एक ईमेल पाठवा";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "सामायिक करा";
-/* Generated from genl10n: Cleaner.BApp.swift#243 */
-"Similarities" = "समानता";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "सारखेपणा";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "आकार";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "काही संपर्क जतन केले गेले, परंतु कोणी नाही.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
-"Sorry, it could not be saved." = "क्षमस्व, ते जतन करणे शक्य नाही.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
-"Sorry. No information about you have selected could not be detected." = "क्षमस्व. आपण निवडलेल्या कोणत्याही माहितीचा शोध लावला जाऊ शकत नाही";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "चौरस";
 /* Generated from genl10n: Stabilizer.swift */
@@ -354,12 +374,28 @@
 "Switch on any items you want to hide. The quality will entirely remain the same." = "आपण लपवू इच्छित असलेल्या कोणत्याही आयटमवर स्विच करा गुणवत्ता संपूर्णपणे समान राहील.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "फोटो काढ";
+/* Generated from genl10n: Cleaner.BApp.swift#511 */
+"Targeted" = "लक्ष्यित";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "लक्ष्य";
+/* Generated from genl10n: Transform.BApp.swift#55 */
+"This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "हे सोपे परंतु सर्वात जलद साधन आपल्याला लाईव्ह फोटोजसह अनेक मीडिया फाइल्स द्रुतपणे फिरवू आणि फ्लिप करू देते. डीफॉल्टनुसार, फोटोंची संख्या संपादित करण्यासाठी त्यांना मर्यादा नाही.";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
+"Too Close-up Face" = "खूप क्लोज-अप फेस";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
+"Too Slow Shutter Speed" = "खूप धीमे शटर गती";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "भाषांतर";
+/* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
+"Use Auto Selection Bot" = "स्वयं निवड बॉट वापरा";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "व्हिडिओ";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
+"Videos Saved by Instagram App" = "Instagram App द्वारे जतन केलेले व्हिडिओ";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
+"Videos Shorter Than 1 Second" = "1 सेकंदापेक्षा कमी व्हिडिओ";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
+"Videos Without Sound" = "विना व्हिडिओ व्हिडिओ";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "निवडण्याची प्रतीक्षा करीत आहे ...";
 /* Generated from genl10n: Stabilizer.swift */

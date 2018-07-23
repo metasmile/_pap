@@ -146,12 +146,14 @@
 "Animated GIF" = "Animated GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animasiya";
+/* Generated from genl10n: Filters.BApp.swift#76 */
+"Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "İstədiyiniz bütün fotoşəkillərinizə yüksək keyfiyyətli filtrelər tətbiq edin. Onları düzəldəcək fotoşəkillərin sayına heç bir məhdudiyyət yoxdur.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Aspekt nisbəti";
+/* Generated from genl10n: AutoEditor.BApp.swift#51 */
+"Auto Editor lets you edit automatically if your photos are needed to correct." = "Auto Editor, şəkillərinizin düzəlməsi üçün lazım olsa avtomatik olaraq redaktə etməyə imkan verir.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Auto redaktoru";
-/* Generated from genl10n: Cleaner.BApp.swift#413 */
-"Auto Garbage Selection" = "Avtomatik Çöp Seçimi";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,16 +172,14 @@
 "Choose An Sub Action." = "Bir Sub Fəaliyyəti seçin.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Choose an Option To Convert" = "Konvertasiya etmək üçün bir seçim seçin";
-/* Generated from genl10n: Cleaner.BApp.swift#96 */
-"Clean the selected items" = "Seçilmiş elementləri təmizləyin";
-/* Generated from genl10n: Cleaner.BApp.swift#54 */
-"Clean" = "Təmiz olun";
+/* Generated from genl10n: Cleaner.BApp.swift#45 */
+"Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Təmiz, yinelenen və oxşar şəkillər, yaxın fotoşəkilləri və ya Lockscreen çekimləri kimi hər cür yanlış fotoşəkilləri tapmaq və silmək imkanı verir!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Təmiz";
-/* Generated from genl10n: Cleaner.BApp.swift#50 */
-"Cleaning Photos..." = "Fotoşəkillərin təmizlənməsi ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Əlaqə";
+/* Generated from genl10n: Converter.BApp.swift#42 */
+"Converter enables you to convert every media formats into every each other." = "Converter, hər bir media formatının hər birinə çevrilməsini təmin edir.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "Converter";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
@@ -196,16 +196,20 @@
 "Custom" = "Xüsusi";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Tarix";
+/* Generated from genl10n: Cleaner.BApp.swift#506 */
+"Deleting Targets" = "Hədəflərin silinməsi";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "Algılama ... %@";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Did not detect anything." = "Heç bir şeyi təsbit etmədi.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Yükləmə ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "E-poçt ünvanı";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, PhoneCalls.swift, Textractor.BApp.swift */
-"Enable Auto Selection" = "Avtomatik Seçimi aktiv edin";
+/* Generated from genl10n: ExifGhost.BApp.swift#29 */
+"EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost, özəl məlumatlar daxil olmaqla, fotoşəkillərinizi ehtiva edən hər cür məlumatı ləğv etməyə imkan verir.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "İxrac Seçimləri";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -214,6 +218,8 @@
 "Filters" = "Filtrlər";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "Tapın";
+/* Generated from genl10n: Finder.BApp.swift#42 */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Finder şəkillərinizdən telefon nömrələri, ünvanlar, tarixlər və ya URL-lər kimi hər mənalı informasiyanın çıxarılmasına imkan yaradır və sonra zənglər, xəritələr açmaq və hətta uçuş axtarış nöqtələrinə baxın!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "Finder";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -228,6 +234,8 @@
 "Forward" = "İrəli";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame gecikməsi";
+/* Generated from genl10n: GIFMaker.BApp.swift#266 */
+"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker asanlıqla və tez GIF şəkillərini Fotoşəkillərdən və ya Fərqli variantlarla Canlı Fotoşəkilləri etməyə imkan verir! Və sonra Canlı Foto və ya Video kimi hər şeyi çevirmək üçün konvertor tətbiqini aça bilərsiniz.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -238,6 +246,8 @@
 "Image Quality" = "Image keyfiyyəti";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "İthalat";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"It could not be saved." = "Xilas ola bilməzdi.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Kontaktlarınıza daxil olmaq üçün icazə tələb olunur. Xahiş edirik iOS Ayarlarında Əlaqə edin.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
@@ -260,6 +270,8 @@
 "New Contact" = "Yeni Əlaqə";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Yeni hadisə";
+/* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
+"New Phone Number" = "Yeni telefon nömrəsi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "Məhsul yoxdur";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -272,6 +284,8 @@
 "Open Web Page" = "Veb səhifəni açın";
 /* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
 "Original" = "Orijinal";
+/* Generated from genl10n: PDFactory.BApp.swift#32 */
+"PDFactory makes PDF document from multiple images with various page options." = "PDFactory, PDF sənədini müxtəlif səhifə seçimləri ilə bir çox şəkillərdən edir.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Page Margin" = "Səhifə Margin";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
@@ -296,14 +310,22 @@
 "Repeat" = "Təkrarlamaq";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Ters";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Geri qaytarılan proqramlar, bir qrup dəstəyi tez bir zamanda orijinalə bərpa etməyə imkan verir. Bundan əlavə, avtomatik seçim ilə sizə kömək edir!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Rewind";
+/* Generated from genl10n: PhoneCalls.swift#137 */
+"Save All Phone Numbers" = "Bütün Telefon nömrələrini Saxla";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "Əlaqəli Əlaqələri tapın";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Saxla və paylaşın";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Yadda saxla";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
+"Saved With Built-in Camera" = "Daxili Kamera ilə saxlandı";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"Saved Without the Camera" = "Kamerasız Saxlanıldı";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Nəticələri qənaət ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
@@ -312,26 +334,24 @@
 "Screenshots" = "Ekran görüntüləri";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Uçuş axtarışı";
+/* Generated from genl10n: Cleaner.BApp.swift#602 */
+"Select Photos To Delete." = "Sil üçün Fotoları seçin.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Hər şeyi tapmaq üçün Photos seçin.";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Telefon nömrələrini tutmaq istəsəniz Fotoları seçin!";
+/* Generated from genl10n: Cleaner.BApp.swift#510 */
+"Selected" = "Seçilmiş";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "E-poçt göndər";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Paylaş";
-/* Generated from genl10n: Cleaner.BApp.swift#243 */
-"Similarities" = "Oxşarlıqlar";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Oxşarlıq";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Ölçü";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Bəzi təmaslar qurtardı, ancaq bəzi insanlar olmadı.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
-"Sorry, it could not be saved." = "Üzr istəyirik, xilas ola bilmədi.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
-"Sorry. No information about you have selected could not be detected." = "Üzr istəyirik. Seçdiyiniz haqqında heç bir məlumat aşkarlana bilmədi.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Meydan";
 /* Generated from genl10n: Stabilizer.swift */
@@ -354,12 +374,28 @@
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Gizlətmək istədiyiniz hər hansı elementləri işə salın. Keyfiyyət tamamilə eyni qalacaq.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "Şəkil çəkin";
+/* Generated from genl10n: Cleaner.BApp.swift#511 */
+"Targeted" = "Hedefli";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Hədəflər";
+/* Generated from genl10n: Transform.BApp.swift#55 */
+"This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "Bu sadə, lakin ən sürətli vasitə, Canlı Fotoşəkillər daxil olmaqla bir çox media faylını sürətlə çevirmə və çevirmə imkanı verir. Mənim cari olaraq, onları redaktə etmək üçün şəkil sayına heç bir məhdudiyyət yoxdur.";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
+"Too Close-up Face" = "Çox Yumşaq Üz";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
+"Too Slow Shutter Speed" = "Çox Səsverici Sürət";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Tərcümə";
+/* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
+"Use Auto Selection Bot" = "Avtomatik Seçim Bot istifadə edin";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
+"Videos Saved by Instagram App" = "Instagram App tərəfindən saxlanılan videolar";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
+"Videos Shorter Than 1 Second" = "Videolar 1 saniyə daha qısa";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
+"Videos Without Sound" = "Səssiz videolar";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "Seçimi gözləyirəm ...";
 /* Generated from genl10n: Stabilizer.swift */

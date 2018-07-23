@@ -146,12 +146,14 @@
 "Animated GIF" = "애니메이션 GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "에니메이션";
+/* Generated from genl10n: Filters.BApp.swift#76 */
+"Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "원하는 모든 사진에 고품질 필터를 적용하십시오. 편집 할 사진 수에는 제한이 없습니다.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "종횡비";
+/* Generated from genl10n: AutoEditor.BApp.swift#51 */
+"Auto Editor lets you edit automatically if your photos are needed to correct." = "자동 편집기를 사용하면 사진을 수정해야하는 경우 자동으로 편집 할 수 있습니다.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "자동 편집기";
-/* Generated from genl10n: Cleaner.BApp.swift#413 */
-"Auto Garbage Selection" = "자동 쓰레기 선택";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "흐림 비율";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,16 +172,14 @@
 "Choose An Sub Action." = "하위 작업을 선택하십시오.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Choose an Option To Convert" = "변환 할 옵션 선택";
-/* Generated from genl10n: Cleaner.BApp.swift#96 */
-"Clean the selected items" = "선택한 항목 정리";
-/* Generated from genl10n: Cleaner.BApp.swift#54 */
-"Clean" = "깨끗한";
+/* Generated from genl10n: Cleaner.BApp.swift#45 */
+"Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "클리너를 사용하면 복제되거나 유사한 이미지, 클로즈업 사진 또는 잠금 화면 샷과 같은 모든 종류의 잘못된 사진을 찾아서 삭제할 수 있습니다!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "클리너";
-/* Generated from genl10n: Cleaner.BApp.swift#50 */
-"Cleaning Photos..." = "사진 청소 중 ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "연락처";
+/* Generated from genl10n: Converter.BApp.swift#42 */
+"Converter enables you to convert every media formats into every each other." = "변환기를 사용하면 모든 미디어 형식을 서로간에 변환 할 수 있습니다.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "변환기";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
@@ -196,16 +196,20 @@
 "Custom" = "관습";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "날짜";
+/* Generated from genl10n: Cleaner.BApp.swift#506 */
+"Deleting Targets" = "대상 삭제";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "감지 중 ... %@";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Did not detect anything." = "아무것도 발견하지 못했습니다.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "방향";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "다운로드 중 ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "이메일 주소";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, PhoneCalls.swift, Textractor.BApp.swift */
-"Enable Auto Selection" = "자동 선택 사용";
+/* Generated from genl10n: ExifGhost.BApp.swift#29 */
+"EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost를 사용하면 개인 정보를 비롯한 사진이 포함 된 모든 종류의 데이터를 제거 할 수 있습니다.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "내보내기 옵션";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -214,6 +218,8 @@
 "Filters" = "필터";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "발견";
+/* Generated from genl10n: Finder.BApp.swift#42 */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Finder를 사용하면 사진에서 전화 번호, 주소, 날짜 또는 URL과 같은 모든 의미있는 정보를 추출한 다음 전화를 걸거나지도를 열고 웹 사이트를 탐색 할 수 있습니다!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "파인더";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -228,6 +234,8 @@
 "Forward" = "앞으로";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "프레임 딜레이";
+/* Generated from genl10n: GIFMaker.BApp.swift#266 */
+"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker를 사용하면 다양한 옵션으로 사진이나 라이브 사진에서 GIF 이미지를 쉽고 빠르게 만들 수 있습니다! 그런 다음 변환기 앱을 열어 라이브 사진이나 비디오와 같은 모든 것을 변환 할 수 있습니다.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF 만들기";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -238,6 +246,8 @@
 "Image Quality" = "이미지 품질";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "가져오기";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"It could not be saved." = "그것은 구원받을 수 없었습니다.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "연락처에 액세스하려면 권한이 필요합니다. iOS 설정에서 주소록을 허용하십시오.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
@@ -260,6 +270,8 @@
 "New Contact" = "새 연락처";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "새로운 이벤트";
+/* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
+"New Phone Number" = "새 전화 번호";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "자르지 않음";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -272,6 +284,8 @@
 "Open Web Page" = "웹 페이지 열기";
 /* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
 "Original" = "원본";
+/* Generated from genl10n: PDFactory.BApp.swift#32 */
+"PDFactory makes PDF document from multiple images with various page options." = "PDFactory는 다양한 페이지 옵션으로 여러 이미지에서 PDF 문서를 만듭니다.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Page Margin" = "페이지 여백";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
@@ -296,14 +310,22 @@
 "Repeat" = "반복";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "역방향";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "되돌리기 앱을 사용하면 여러 장의 사진을 원래 사진으로 빠르게 복원 할 수 있습니다. 또한, 그것은 자동 선택으로 당신을 도와줍니다!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "되감기";
+/* Generated from genl10n: PhoneCalls.swift#137 */
+"Save All Phone Numbers" = "모든 전화 번호 저장";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "찾은 연락처를 직접 저장";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "저장 및 공유";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "저장";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
+"Saved With Built-in Camera" = "내장 카메라로 저장";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"Saved Without the Camera" = "카메라없이 저장 됨";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "결과 저장 중 ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
@@ -312,26 +334,24 @@
 "Screenshots" = "스크린 샷";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "항공편 검색";
+/* Generated from genl10n: Cleaner.BApp.swift#602 */
+"Select Photos To Delete." = "삭제할 사진을 선택하십시오.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "모든 것을 찾기 위해 사진을 선택하십시오.";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "전화 번호를 잡고 싶은 사진을 선택하십시오!";
+/* Generated from genl10n: Cleaner.BApp.swift#510 */
+"Selected" = "선택된";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "이메일 보내기";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "공유";
-/* Generated from genl10n: Cleaner.BApp.swift#243 */
-"Similarities" = "유사점";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "유사성";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "크기";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "일부 연락처는 저장되었지만 일부 연락처는 저장되지 않았습니다.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
-"Sorry, it could not be saved." = "죄송합니다. 저장하지 못했습니다.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
-"Sorry. No information about you have selected could not be detected." = "죄송합니다. 선택한 정보를 찾을 수 없습니다.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "1:1";
 /* Generated from genl10n: Stabilizer.swift */
@@ -354,12 +374,28 @@
 "Switch on any items you want to hide. The quality will entirely remain the same." = "숨기려는 항목을 켭니다. 품질은 전적으로 동일하게 유지됩니다.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "사진을 찍다";
+/* Generated from genl10n: Cleaner.BApp.swift#511 */
+"Targeted" = "타겟팅 됨";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "목표";
+/* Generated from genl10n: Transform.BApp.swift#55 */
+"This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "이 간단하면서도 빠른 도구를 사용하면 라이브 사진을 비롯한 많은 미디어 파일을 빠르게 회전하고 뒤집을 수 있습니다. 기본적으로 편집 할 사진 수에는 제한이 없습니다.";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
+"Too Close-up Face" = "너무 근접 촬영 얼굴";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
+"Too Slow Shutter Speed" = "너무 느린 셔터 속도";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "번역";
+/* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
+"Use Auto Selection Bot" = "자동 선택 봇 사용";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "비디오";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
+"Videos Saved by Instagram App" = "Instagram 앱이 저장 한 비디오";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
+"Videos Shorter Than 1 Second" = "1 초보다 짧은 동영상";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
+"Videos Without Sound" = "소리가없는 비디오";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "선택 대기 중 ...";
 /* Generated from genl10n: Stabilizer.swift */

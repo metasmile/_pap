@@ -146,12 +146,14 @@
 "Animated GIF" = "Animeeritud GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animatsioon";
+/* Generated from genl10n: Filters.BApp.swift#76 */
+"Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Kõigile soovitud fotodele rakendage kvaliteetseid filtreid. Fotode muutmiseks nende muutmiseks pole piiratud.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Kuvasuhe";
+/* Generated from genl10n: AutoEditor.BApp.swift#51 */
+"Auto Editor lets you edit automatically if your photos are needed to correct." = "Auto redaktor võimaldab teil automaatselt muuta, kui teie fotod vajavad parandamiseks.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Auto redaktor";
-/* Generated from genl10n: Cleaner.BApp.swift#413 */
-"Auto Garbage Selection" = "Automaatne prügiabi valik";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,16 +172,14 @@
 "Choose An Sub Action." = "Valige alamprogramm.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Choose an Option To Convert" = "Valige konversioonivõimalus";
-/* Generated from genl10n: Cleaner.BApp.swift#96 */
-"Clean the selected items" = "Puhasta valitud esemed";
-/* Generated from genl10n: Cleaner.BApp.swift#54 */
-"Clean" = "Puhas";
+/* Generated from genl10n: Cleaner.BApp.swift#45 */
+"Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Puhastaja võimaldab teil leida ja kustutada igasuguseid ebaõigeid fotosid, näiteks topeltpilte ja sarnaseid pilte, lähivõtteid ja Lockscreen-kaadreid!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Puhastaja";
-/* Generated from genl10n: Cleaner.BApp.swift#50 */
-"Cleaning Photos..." = "Puhastamine fotod ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Kontaktid";
+/* Generated from genl10n: Converter.BApp.swift#42 */
+"Converter enables you to convert every media formats into every each other." = "Converter võimaldab teil teisendada iga meediumifaili.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "Konverter";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
@@ -196,16 +196,20 @@
 "Custom" = "Kohandatud";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Kuupäev";
+/* Generated from genl10n: Cleaner.BApp.swift#506 */
+"Deleting Targets" = "Sihtide kustutamine";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "Avastades ... %@";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Did not detect anything." = "Ei avastas midagi.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Suund";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Allalaadimine ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "E-posti aadress";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, PhoneCalls.swift, Textractor.BApp.swift */
-"Enable Auto Selection" = "Luba automaatne valik";
+/* Generated from genl10n: ExifGhost.BApp.swift#29 */
+"EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost võimaldab teil eemaldada igasugused teie fotod sisaldavad andmed, sealhulgas privaatsed andmed.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Ekspordi valikud";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -214,6 +218,8 @@
 "Filters" = "Filtrid";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "Leia";
+/* Generated from genl10n: Finder.BApp.swift#42 */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Finder võimaldab iga teie fotodel saadaolevat sisukat teavet, nagu telefoninumbreid, aadresse, kuupäevi või URL-e, välja printida ja seejärel helistada, avada kaarte või navigeerida veebisaite, isegi otsida lende!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "Finder";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -228,6 +234,8 @@
 "Forward" = "Edasi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Raami viivitus";
+/* Generated from genl10n: GIFMaker.BApp.swift#266 */
+"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF-i tegija võimaldab hõlpsalt ja kiiresti GIF-pilte pildistamisest või fotodest erinevatel valikuvõimalustel! Ja siis saate konverteri rakenduse avada, et teisendada sellesse kõik, näiteks Live Fotod või Videod.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF-i tegija";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -238,6 +246,8 @@
 "Image Quality" = "Pildikvaliteet";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Import";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"It could not be saved." = "Seda ei saanud salvestada.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Selleks on vaja luba oma kontaktidele juurde pääseda. Luba iOS-i seadetes kontaktid.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
@@ -260,6 +270,8 @@
 "New Contact" = "Uus kontakt";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Uus sündmus";
+/* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
+"New Phone Number" = "Uus telefoninumber";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -272,6 +284,8 @@
 "Open Web Page" = "Avatud veebisait";
 /* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
 "Original" = "Originaal";
+/* Generated from genl10n: PDFactory.BApp.swift#32 */
+"PDFactory makes PDF document from multiple images with various page options." = "PDFactory teeb PDF-dokumendi mitmest kujutisest koos erinevate lehe valikutega.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Page Margin" = "Lehekülje marginaal";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
@@ -296,14 +310,22 @@
 "Repeat" = "Korrake";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Tagurpidi";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Rakenduse taastamine võimaldab kiirelt redigeeritavate fotode hulga hulga taastamist esialgsele. Lisaks sellele aitab see automaatselt valida!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Tagasikerimine";
+/* Generated from genl10n: PhoneCalls.swift#137 */
+"Save All Phone Numbers" = "Salvesta kõik telefoninumbrid";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "Salvesta otse kontaktandmed";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Salvesta ja jagage";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Salvesta";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
+"Saved With Built-in Camera" = "Salvestatud sisseehitatud kaameraga";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"Saved Without the Camera" = "Salvestatud ilma kaamerata";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Tulemuste salvestamine ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
@@ -312,26 +334,24 @@
 "Screenshots" = "Ekraanipildid";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Otsi lende";
+/* Generated from genl10n: Cleaner.BApp.swift#602 */
+"Select Photos To Delete." = "Valige Fotod, mida soovite kustutada.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Valige Fotod, et leida kõik.";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Valige fotod, mida soovite telefoninumbreid haarata!";
+/* Generated from genl10n: Cleaner.BApp.swift#510 */
+"Selected" = "Valitud";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Emaili saatma";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Jaga";
-/* Generated from genl10n: Cleaner.BApp.swift#243 */
-"Similarities" = "Sarnasused";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Sarnasus";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Suurus";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Mõned kontaktid on salvestatud, kuid kellegi pole.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
-"Sorry, it could not be saved." = "Vabandame, seda ei saanud salvestada.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
-"Sorry. No information about you have selected could not be detected." = "Vabandust Teie valitud teavet pole võimalik tuvastada.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Ruut";
 /* Generated from genl10n: Stabilizer.swift */
@@ -354,12 +374,28 @@
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Lülitage sisse kõik esemed, mida soovite peita. Kvaliteet jääb samaks.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "Pildista";
+/* Generated from genl10n: Cleaner.BApp.swift#511 */
+"Targeted" = "Sihitud";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Sihid";
+/* Generated from genl10n: Transform.BApp.swift#55 */
+"This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "See lihtne, kuid kiireim tööriist võimaldab teil kiiresti pöörata ja ümber lülitada palju meediumifaile, sealhulgas Live-fotosid. Vaikimisi pole nende arvu muutmiseks piiratud nende fotode arvu.";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
+"Too Close-up Face" = "Liiga lähedal olev nägu";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
+"Too Slow Shutter Speed" = "Liiga aeglane säriaeg";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Tõlge";
+/* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
+"Use Auto Selection Bot" = "Kasutage automaatse valimise boti";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
+"Videos Saved by Instagram App" = "Instagrami rakenduse salvestatud videod";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
+"Videos Shorter Than 1 Second" = "Videod lühemad kui 1 sekund";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
+"Videos Without Sound" = "Videod ilma helita";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "Ootan valima ...";
 /* Generated from genl10n: Stabilizer.swift */

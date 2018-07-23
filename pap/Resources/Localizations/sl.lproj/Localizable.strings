@@ -146,12 +146,14 @@
 "Animated GIF" = "Animirani GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animacija";
+/* Generated from genl10n: Filters.BApp.swift#76 */
+"Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Uporabite visoko kakovostne filtre na vseh vaših fotografijah, ki jih želite. Število fotografij za urejanje ni omejeno.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Razmerje";
+/* Generated from genl10n: AutoEditor.BApp.swift#51 */
+"Auto Editor lets you edit automatically if your photos are needed to correct." = "Samodejni urejevalnik vam omogoča samodejno urejanje, če so vaše fotografije potrebne za odpravo.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Samodejni urejevalnik";
-/* Generated from genl10n: Cleaner.BApp.swift#413 */
-"Auto Garbage Selection" = "Samodejno izbiranje smeti";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,16 +172,14 @@
 "Choose An Sub Action." = "Izberite podukrep.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Choose an Option To Convert" = "Izberite možnost za pretvorbo";
-/* Generated from genl10n: Cleaner.BApp.swift#96 */
-"Clean the selected items" = "Očistite izbrane elemente";
-/* Generated from genl10n: Cleaner.BApp.swift#54 */
-"Clean" = "Čisto";
+/* Generated from genl10n: Cleaner.BApp.swift#45 */
+"Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner vam omogoča iskanje in brisanje vseh nepravilnih fotografij, kot so podvojene in podobne slike, fotografije v velikih količinah ali posnetki Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Čistilo";
-/* Generated from genl10n: Cleaner.BApp.swift#50 */
-"Cleaning Photos..." = "Fotografije za čiščenje ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Stiki";
+/* Generated from genl10n: Converter.BApp.swift#42 */
+"Converter enables you to convert every media formats into every each other." = "Pretvornik vam omogoča pretvorbo vseh medijskih formatov v vsako drugo.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "Pretvornik";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
@@ -196,16 +196,20 @@
 "Custom" = "Po meri";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Datum";
+/* Generated from genl10n: Cleaner.BApp.swift#506 */
+"Deleting Targets" = "Brisanje ciljev";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "Odkrivanje ... %@";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Did not detect anything." = "Ničesar ni zaznal.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Smer";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Prenos ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Email naslov";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, PhoneCalls.swift, Textractor.BApp.swift */
-"Enable Auto Selection" = "Omogoči samodejno izbiranje";
+/* Generated from genl10n: ExifGhost.BApp.swift#29 */
+"EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost vam omogoča odstranjevanje vseh vrst podatkov, ki vsebujejo vaše fotografije, vključno z zasebnimi informacijami.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Izvozne možnosti";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -214,6 +218,8 @@
 "Filters" = "Filtri";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "Najti";
+/* Generated from genl10n: Finder.BApp.swift#42 */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Finder omogoča izpisovanje vseh pomembnih informacij, kot so telefonske številke, naslovi, datumi ali URL-ji iz vaših fotografij, nato pa pokličite, odprite zemljevide ali krmarite po spletnih mestih, tudi če iščete lete!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "Finder";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -228,6 +234,8 @@
 "Forward" = "Naprej";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Zakasnitev Frame";
+/* Generated from genl10n: GIFMaker.BApp.swift#266 */
+"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker omogoča enostavno in hitro izdelavo slik GIF iz fotografij ali fotografij v živo z različnimi možnostmi! In nato lahko odprete program pretvornika za pretvorbo v vse, kot so fotografije v živo ali videoposnetki.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "Izdelovalec GIF";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -238,6 +246,8 @@
 "Image Quality" = "Kvaliteta slike";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Uvozi";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"It could not be saved." = "Ni bilo mogoče shraniti.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Zahteva dovoljenje za dostop do vaših stikov. Omogočite imenik v nastavitvah za iOS.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
@@ -260,6 +270,8 @@
 "New Contact" = "Nov kontakt";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Nov dogodek";
+/* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
+"New Phone Number" = "Nova telefonska številka";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "Brez pridelka";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -272,6 +284,8 @@
 "Open Web Page" = "Odpri spletno stran";
 /* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
 "Original" = "Original";
+/* Generated from genl10n: PDFactory.BApp.swift#32 */
+"PDFactory makes PDF document from multiple images with various page options." = "PDFactory omogoča PDF dokument z več slik z različnimi možnostmi strani.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Page Margin" = "Page Margin";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
@@ -296,14 +310,22 @@
 "Repeat" = "Ponovi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Povratno";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Aplikacija »Povrni« omogoča hitro obnovitev skupne količine urejanih fotografij v izvirno. Poleg tega vam pomaga pri samodejnem izboru!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Rewind";
+/* Generated from genl10n: PhoneCalls.swift#137 */
+"Save All Phone Numbers" = "Shrani vse telefonske številke";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "Shrani najdene stike neposredno";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Shrani in delite";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Shrani";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
+"Saved With Built-in Camera" = "Shranjeno z vgrajeno kamero";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"Saved Without the Camera" = "Shranjeno brez kamere";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Shranjevanje rezultatov ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
@@ -312,26 +334,24 @@
 "Screenshots" = "Posnetki zaslona";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Iskanje letov";
+/* Generated from genl10n: Cleaner.BApp.swift#602 */
+"Select Photos To Delete." = "Izberite fotografije za brisanje.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Izberite fotografije, če želite najti vse.";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Izberite fotografije, ki jih želite privzeti telefonske številke!";
+/* Generated from genl10n: Cleaner.BApp.swift#510 */
+"Selected" = "Izbrano";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Pošlji E-pošto";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Deliti";
-/* Generated from genl10n: Cleaner.BApp.swift#243 */
-"Similarities" = "Podobnosti";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Podobnost";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Velikost";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Nekateri stiki so bili shranjeni, nekateri pa niso bili.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
-"Sorry, it could not be saved." = "Oprostite, ni bilo mogoče shraniti.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
-"Sorry. No information about you have selected could not be detected." = "Oprostite. Nobenih podatkov o tem, ki ste jih izbrali, ni bilo mogoče zaznati.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Trg";
 /* Generated from genl10n: Stabilizer.swift */
@@ -354,12 +374,28 @@
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Vklopite vse predmete, ki jih želite skriti. Kakovost bo popolnoma ostala enaka.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "Fotografirati";
+/* Generated from genl10n: Cleaner.BApp.swift#511 */
+"Targeted" = "Ciljno";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Cilji";
+/* Generated from genl10n: Transform.BApp.swift#55 */
+"This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "To preprosto, a najhitrejše orodje vam omogoča hitro vrtenje in flipping veliko medijskih datotek, vključno z živimi fotografijami. Privzeto ni omejitev števila fotografij za urejanje.";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
+"Too Close-up Face" = "Preveč blizu obraza";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
+"Too Slow Shutter Speed" = "Previsoka hitrost zaklopa";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Prevajanje";
+/* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
+"Use Auto Selection Bot" = "Uporabite samodejni izbor bota";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
+"Videos Saved by Instagram App" = "Videoposnetki, shranjeni v aplikaciji Instagram";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
+"Videos Shorter Than 1 Second" = "Video posnetki krajši od 1 sekunde";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
+"Videos Without Sound" = "Videoposnetki brez zvokov";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "Čakanje na izbiro ...";
 /* Generated from genl10n: Stabilizer.swift */

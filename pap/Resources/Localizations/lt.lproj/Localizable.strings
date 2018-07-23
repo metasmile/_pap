@@ -146,12 +146,14 @@
 "Animated GIF" = "Animuoti GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animacija";
+/* Generated from genl10n: Filters.BApp.swift#76 */
+"Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Taikykite aukštos kokybės filtrus visoms norimoms nuotraukoms. Neribota nuotraukų kiekio redaguoti.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Aspect Ratio";
+/* Generated from genl10n: AutoEditor.BApp.swift#51 */
+"Auto Editor lets you edit automatically if your photos are needed to correct." = "Automatinis redaktorius leidžia automatiškai redaguoti, jei jūsų nuotraukos turi būti ištaisytos.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Automatinis redaktorius";
-/* Generated from genl10n: Cleaner.BApp.swift#413 */
-"Auto Garbage Selection" = "Automatinis šiukšlių pasirinkimas";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,16 +172,14 @@
 "Choose An Sub Action." = "Pasirinkite Sub Action.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Choose an Option To Convert" = "Pasirinkite variantą konvertuoti";
-/* Generated from genl10n: Cleaner.BApp.swift#96 */
-"Clean the selected items" = "Išvalykite pasirinktus elementus";
-/* Generated from genl10n: Cleaner.BApp.swift#54 */
-"Clean" = "Švarus";
+/* Generated from genl10n: Cleaner.BApp.swift#45 */
+"Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Valymo priemonė leidžia jums surasti ir ištrinti bet kokias neteisingas nuotraukas, pvz., Pasikartojančius ir panašius vaizdus, ​​artimųjų nuotraukas ar 'Lockscreen' nuotraukas!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Švaresnis";
-/* Generated from genl10n: Cleaner.BApp.swift#50 */
-"Cleaning Photos..." = "Valyti nuotraukas ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Kontaktai";
+/* Generated from genl10n: Converter.BApp.swift#42 */
+"Converter enables you to convert every media formats into every each other." = "Konverteris leidžia jums konvertuoti kiekvieną medijos formatą į kiekvieną kitą.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "Konverteris";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
@@ -196,16 +196,20 @@
 "Custom" = "Tinkintas";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Data";
+/* Generated from genl10n: Cleaner.BApp.swift#506 */
+"Deleting Targets" = "Tikslų ištrynimas";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "Aptikimas ... %@";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Did not detect anything." = "Nieko neaptiko.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Kryptis";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Atsisiunčiama ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Elektroninio pašto adresas";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, PhoneCalls.swift, Textractor.BApp.swift */
-"Enable Auto Selection" = "Įgalinti automatinį pasirinkimą";
+/* Generated from genl10n: ExifGhost.BApp.swift#29 */
+"EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "'EXIF Ghost' leidžia pašalinti visų rūšių duomenis, kuriuose yra jūsų nuotraukos, įskaitant asmeninę informaciją.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Eksporto parinktys";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -214,6 +218,8 @@
 "Filters" = "Filtrai";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "Rasti";
+/* Generated from genl10n: Finder.BApp.swift#42 */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "'Finder' leidžia išgauti kiekvieną prasmingą informaciją, pvz., Jūsų telefono numerius, adresus, datas arba URL iš savo nuotraukų, paskui skambinti, atidaryti žemėlapius arba naršyti svetaines net ieškant skrydžių!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "ieškiklis";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -228,6 +234,8 @@
 "Forward" = "Persiųsti";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
+/* Generated from genl10n: GIFMaker.BApp.swift#266 */
+"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "'GIF Maker' leidžia lengvai ir greitai kurti GIF vaizdus iš 'Photos' arba 'Live Photos' su įvairiomis parinktimis! Tada galite atidaryti konverterio programą, kad galėtumėte konvertuoti į viską, pvz., Tiesiogines nuotraukas ar vaizdo įrašus.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF kūrėjas";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -238,6 +246,8 @@
 "Image Quality" = "Vaizdo kokybė";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Importuoti";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"It could not be saved." = "Nepavyko išsaugoti.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Tam reikia leidimo pasiekti jūsų kontaktus. Leiskite 'Contacts' 'iOS' nustatymuose.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
@@ -260,6 +270,8 @@
 "New Contact" = "Naujas kontaktas";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Naujas įvykis";
+/* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
+"New Phone Number" = "Naujas telefono numeris";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "Nr pasėlių";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -272,6 +284,8 @@
 "Open Web Page" = "Atidarykite tinklalapį";
 /* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
 "Original" = "Originalas";
+/* Generated from genl10n: PDFactory.BApp.swift#32 */
+"PDFactory makes PDF document from multiple images with various page options." = "PDFactory sukuria PDF dokumentą iš kelių vaizdų su įvairiomis puslapio parinktimis.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Page Margin" = "Puslapio marža";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
@@ -296,14 +310,22 @@
 "Repeat" = "Pakartokite";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Atvirkštinis";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "'Grąžinti' programą leidžia greitai redaguoti originalias nuotraukas. Be to, tai padeda automatiškai pasirinkti!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Atsukti";
+/* Generated from genl10n: PhoneCalls.swift#137 */
+"Save All Phone Numbers" = "Išsaugoti visus telefono numerius";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "Išsaugoti Rasti Kontaktai tiesiogiai";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Išsaugoti ir dalintis";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Sutaupyti";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
+"Saved With Built-in Camera" = "Išsaugota naudojant įmontuotą fotoaparatą";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"Saved Without the Camera" = "Išsaugotas be fotoaparato";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Išsaugoti rezultatus ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
@@ -312,26 +334,24 @@
 "Screenshots" = "Ekrano nuotraukos";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Ieškoti skrydžių";
+/* Generated from genl10n: Cleaner.BApp.swift#602 */
+"Select Photos To Delete." = "Pasirinkite 'Nuotraukos, kurias norite ištrinti'.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Pasirinkite 'Nuotraukos', kad rastumėte viską.";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Pasirinkite nuotraukas, kuriomis norite paimti telefono numerius!";
+/* Generated from genl10n: Cleaner.BApp.swift#510 */
+"Selected" = "Pasirinkta";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Siųsti el. Laišką";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Dalintis";
-/* Generated from genl10n: Cleaner.BApp.swift#243 */
-"Similarities" = "Panašumai";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Panašumas";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Dydis";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Kai kurie adresatai buvo išsaugoti, bet kiti nebuvo.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
-"Sorry, it could not be saved." = "Deja, jo nepavyko išsaugoti.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
-"Sorry. No information about you have selected could not be detected." = "Atsiprašome Nepavyko aptikti jūsų pasirinktos informacijos.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Aikštė";
 /* Generated from genl10n: Stabilizer.swift */
@@ -354,12 +374,28 @@
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Įjunkite visus elementus, kuriuos norite paslėpti. Kokybė išliks tokia pati.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "Nufotografuoti";
+/* Generated from genl10n: Cleaner.BApp.swift#511 */
+"Targeted" = "Tikslinės";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Tikslai";
+/* Generated from genl10n: Transform.BApp.swift#55 */
+"This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "Šis paprastas, bet greičiausiai įrankis leidžia greitai pasukti ir apversti daugybę daugialypės terpės failų, įskaitant 'Live Photos'. Pagal numatytuosius nustatymus nuotraukų redaguoti jų skaičius neribojamas.";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
+"Too Close-up Face" = "Per didelis veidas";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
+"Too Slow Shutter Speed" = "Per mažas užrakto greitis";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Vertimas";
+/* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
+"Use Auto Selection Bot" = "Naudokite automatinio atrankos bot";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Vaizdo įrašas";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
+"Videos Saved by Instagram App" = "Vaizdo įrašai, kuriuos išsaugojo 'Instagram App'";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
+"Videos Shorter Than 1 Second" = "Vaizdo įrašai trumpesni už 1 sekundę";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
+"Videos Without Sound" = "Vaizdo įrašai be garso";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "Laukiama pasirinkti ...";
 /* Generated from genl10n: Stabilizer.swift */

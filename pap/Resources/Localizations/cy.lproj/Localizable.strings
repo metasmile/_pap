@@ -146,12 +146,14 @@
 "Animated GIF" = "GIF animeiddiedig";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animeiddiad";
+/* Generated from genl10n: Filters.BApp.swift#76 */
+"Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Gwnewch hidlwyr Ansawdd Uchel ar eich holl luniau rydych chi eisiau. Nid oes cyfyngiad i'r nifer o luniau i'w golygu.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Cymhareb agwedd";
+/* Generated from genl10n: AutoEditor.BApp.swift#51 */
+"Auto Editor lets you edit automatically if your photos are needed to correct." = "Mae Golygydd Auto yn eich galluogi i olygu'n awtomatig os oes angen eich lluniau i gywiro.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Golygydd Auto";
-/* Generated from genl10n: Cleaner.BApp.swift#413 */
-"Auto Garbage Selection" = "Dewis Garbage Auto";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Cyfradd Blur";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,16 +172,14 @@
 "Choose An Sub Action." = "Dewiswch Is-Weithrediad.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Choose an Option To Convert" = "Dewiswch Opsiwn I Trosi";
-/* Generated from genl10n: Cleaner.BApp.swift#96 */
-"Clean the selected items" = "Glanhewch yr eitemau a ddewiswyd";
-/* Generated from genl10n: Cleaner.BApp.swift#54 */
-"Clean" = "Glanhau";
+/* Generated from genl10n: Cleaner.BApp.swift#45 */
+"Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Mae Glanhawr yn eich galluogi i ddod o hyd i ddileu pob math o luniau anghywir megis delweddau dyblyg a debyg, lluniau agos neu luniau Sgriniau Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Glanhawr";
-/* Generated from genl10n: Cleaner.BApp.swift#50 */
-"Cleaning Photos..." = "Glanhau Lluniau ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Cysylltiadau";
+/* Generated from genl10n: Converter.BApp.swift#42 */
+"Converter enables you to convert every media formats into every each other." = "Mae Converter yn eich galluogi i drosi pob fformat cyfryngau i mewn i gilydd.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "Converter";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
@@ -196,16 +196,20 @@
 "Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Dyddiad";
+/* Generated from genl10n: Cleaner.BApp.swift#506 */
+"Deleting Targets" = "Dileu Targedau";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "Canfod ... %@";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Did not detect anything." = "Nid oedd yn canfod unrhyw beth.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Cyfeiriad";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Lawrlwytho ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Cyfeiriad ebost";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, PhoneCalls.swift, Textractor.BApp.swift */
-"Enable Auto Selection" = "Galluogi Detholiad Auto";
+/* Generated from genl10n: ExifGhost.BApp.swift#29 */
+"EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "Mae EXIF ​​Ghost yn gadael i chi gael gwared ar bob math o ddata sy'n cynnwys eich lluniau gan gynnwys gwybodaeth breifat.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Opsiynau Allforio";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -214,6 +218,8 @@
 "Filters" = "Hidlau";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "Dod o hyd";
+/* Generated from genl10n: Finder.BApp.swift#42 */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Mae canfyddwr yn galluogi tynnu pob gwybodaeth ystyrlon fel rhifau ffôn, cyfeiriadau, dyddiadau neu URLau o'ch lluniau, ac yna ffonio, mapiau agored neu wefannau llywio hyd yn oed chwilio teithiau!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "Finder";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -228,6 +234,8 @@
 "Forward" = "Ymlaen";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Oedi Ffrâm";
+/* Generated from genl10n: GIFMaker.BApp.swift#266 */
+"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker yn caniatáu i chi wneud yn hawdd ac yn gyflym delweddau GIF o Photos neu Live Photos gyda gwahanol opsiynau! Ac yna gallwch chi agor yr app trawsnewidydd i droi'n bopeth fel Live Photos neu Fideos.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -238,6 +246,8 @@
 "Image Quality" = "Ansawdd Delwedd";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Mewnforio";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"It could not be saved." = "Ni ellid ei achub.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Mae'n gofyn am ganiatâd i gael mynediad i'ch cysylltiadau. Rhowch Gyswllt ar Gosodiadau iOS.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
@@ -260,6 +270,8 @@
 "New Contact" = "Cyswllt Newydd";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Digwyddiad Newydd";
+/* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
+"New Phone Number" = "Rhif Ffôn Newydd";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "Dim Cnwd";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -272,6 +284,8 @@
 "Open Web Page" = "Tudalen We Agored";
 /* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
 "Original" = "Gwreiddiol";
+/* Generated from genl10n: PDFactory.BApp.swift#32 */
+"PDFactory makes PDF document from multiple images with various page options." = "Mae PDFactory yn gwneud dogfen PDF o ddelweddau lluosog gyda gwahanol ddewisiadau tudalen.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Page Margin" = "Tudalen Ymyl";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
@@ -296,14 +310,22 @@
 "Repeat" = "Ailadroddwch";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Yn ôl";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Mae Advert app yn caniatáu adfer nifer o luniau wedi'u golygu i'r un gwreiddiol yn gyflym. Ar ben hynny, mae'n eich helpu gyda'r dewis awtomatig!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Rewind";
+/* Generated from genl10n: PhoneCalls.swift#137 */
+"Save All Phone Numbers" = "Arbed Pob Rhif Ffôn";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "Achub Cysylltiadau Wedi dod o hyd yn Uniongyrchol";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Arbed a Rhannu";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Arbed";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
+"Saved With Built-in Camera" = "Wedi'i Cadw gyda Camera Adeiledig";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"Saved Without the Camera" = "Wedi'i Cadw Heb y Camera";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Canlyniadau Arbed ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
@@ -312,26 +334,24 @@
 "Screenshots" = "Sgrinluniau";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Chwilio am Ddeithiau";
+/* Generated from genl10n: Cleaner.BApp.swift#602 */
+"Select Photos To Delete." = "Dewis Lluniau i'w Dileu.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Dewis Lluniau i Dod o hyd i Bopeth.";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Dewis Lluniau Hoffech Chi Eidio Rhifau Ffôn!";
+/* Generated from genl10n: Cleaner.BApp.swift#510 */
+"Selected" = "Wedi'i ddewis";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Anfon E-bost";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Rhannu";
-/* Generated from genl10n: Cleaner.BApp.swift#243 */
-"Similarities" = "Priodweddau";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Tebygrwydd";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Maint";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Achubwyd rhai cysylltiadau, ond nid oedd rhai pethau.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
-"Sorry, it could not be saved." = "Mae'n ddrwg gennym, ni ellid ei achub.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
-"Sorry. No information about you have selected could not be detected." = "Mae'n ddrwg gennym. Ni ellir canfod unrhyw wybodaeth amdanoch chi.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Sgwâr";
 /* Generated from genl10n: Stabilizer.swift */
@@ -354,12 +374,28 @@
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Newid unrhyw eitemau rydych chi am eu cuddio. Bydd yr ansawdd yn aros yr un fath yn llwyr.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "Tynnu llun";
+/* Generated from genl10n: Cleaner.BApp.swift#511 */
+"Targeted" = "Targedu";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Targedau";
+/* Generated from genl10n: Transform.BApp.swift#55 */
+"This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "Mae'r offeryn syml hwn, ond y cyflymaf yn eich galluogi i gylchdroi a thorri llawer o ffeiliau cyfryngau yn gyflym gan gynnwys Photos Live. Yn ddiofyn, nid oes cyfyngiad i'r nifer o luniau i'w golygu.";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
+"Too Close-up Face" = "Rhy wyneb gormodol";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
+"Too Slow Shutter Speed" = "Rhy Gyflymder Gwennol Araf";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Cyfieithu";
+/* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
+"Use Auto Selection Bot" = "Defnyddio Bot Detholiad Auto";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Fideo";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
+"Videos Saved by Instagram App" = "Fideos Saved gan Instagram App";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
+"Videos Shorter Than 1 Second" = "Fideos yn Fyrrach nag 1 Ail";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
+"Videos Without Sound" = "Fideos Heb Sain";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "Aros i Ddewis ...";
 /* Generated from genl10n: Stabilizer.swift */

@@ -146,12 +146,14 @@
 "Animated GIF" = "Hreyfimyndir";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Hreyfimyndir";
+/* Generated from genl10n: Filters.BApp.swift#76 */
+"Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Notaðu hágæða síur á öllum myndunum þínum sem þú vilt. Það er engin takmörk fyrir fjölda mynda til að breyta þeim.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Stærðarhlutföll";
+/* Generated from genl10n: AutoEditor.BApp.swift#51 */
+"Auto Editor lets you edit automatically if your photos are needed to correct." = "Sjálfvirk ritstjóri leyfir þér að breyta sjálfkrafa ef myndirnar þínar eru nauðsynlegar til að leiðrétta.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Sjálfvirk ritstjóri";
-/* Generated from genl10n: Cleaner.BApp.swift#413 */
-"Auto Garbage Selection" = "Val á sjálfvirkum sorp";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Óskýrt hlutfall";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,16 +172,14 @@
 "Choose An Sub Action." = "Veldu undirgerð.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Choose an Option To Convert" = "Veldu valkost til að breyta";
-/* Generated from genl10n: Cleaner.BApp.swift#96 */
-"Clean the selected items" = "Hreinsaðu valin atriði";
-/* Generated from genl10n: Cleaner.BApp.swift#54 */
-"Clean" = "Hreint";
+/* Generated from genl10n: Cleaner.BApp.swift#45 */
+"Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner gerir þér kleift að finna og eyða alls konar rangar myndir eins og afrit og svipaðar myndir, nánar myndir eða Lockscreen skot!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Hreinni";
-/* Generated from genl10n: Cleaner.BApp.swift#50 */
-"Cleaning Photos..." = "Þrif myndir ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Tengiliðir";
+/* Generated from genl10n: Converter.BApp.swift#42 */
+"Converter enables you to convert every media formats into every each other." = "Breytir gerir þér kleift að umbreyta öllum fjölmiðlum í hvert annað.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "Breytir";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
@@ -196,16 +196,20 @@
 "Custom" = "Sérsniðin";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Dagsetning";
+/* Generated from genl10n: Cleaner.BApp.swift#506 */
+"Deleting Targets" = "Eyða markmiðum";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "Uppgötvun ... %@";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Did not detect anything." = "Uppgötvaði ekkert.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Stefnu";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Hleður niður ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Netfang";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, PhoneCalls.swift, Textractor.BApp.swift */
-"Enable Auto Selection" = "Virkja sjálfvalið val";
+/* Generated from genl10n: ExifGhost.BApp.swift#29 */
+"EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost leyfir þér að fjarlægja allar tegundir af gögnum sem innihalda myndirnar þínar, þ.mt einkaupplýsingar.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Útflutningsvalkostir";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -214,6 +218,8 @@
 "Filters" = "Síur";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "Finna";
+/* Generated from genl10n: Finder.BApp.swift#42 */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Finder gerir þér kleift að þykkja allar mikilvægar upplýsingar, svo sem símanúmer, heimilisföng, dagsetningar eða vefslóðir úr myndunum þínum, og þá hringdu, opna kort eða flettu vefsíður jafnvel leitarflug!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "Finder";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -228,6 +234,8 @@
 "Forward" = "Áfram";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Framlenging ramma";
+/* Generated from genl10n: GIFMaker.BApp.swift#266 */
+"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker gerir þér kleift að gera GIF-myndir úr Photos eða Live Photos með ýmsum valkostum auðveldlega og fljótt! Og þá er hægt að opna breytirforritið til að umbreyta í allt eins og lifandi myndir eða myndbönd.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -238,6 +246,8 @@
 "Image Quality" = "Myndgæði";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Flytja inn";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"It could not be saved." = "Það gat ekki verið vistað.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Það krefst heimildar til að fá aðgang að tengiliðunum þínum. Vinsamlegast leyfðu tengiliði á iOS stillingum.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
@@ -260,6 +270,8 @@
 "New Contact" = "Nýr tengiliður";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "New Event";
+/* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
+"New Phone Number" = "Nýr símanúmer";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "Engin uppskera";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -272,6 +284,8 @@
 "Open Web Page" = "Opna vefsíðu";
 /* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
 "Original" = "Upprunalega";
+/* Generated from genl10n: PDFactory.BApp.swift#32 */
+"PDFactory makes PDF document from multiple images with various page options." = "PDFactory gerir PDF skjal frá mörgum myndum með ýmsum valkostum síðu.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Page Margin" = "Page Margin";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
@@ -296,14 +310,22 @@
 "Repeat" = "Endurtaka";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Aftur";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Endurheimta app gerir kleift að endurheimta fullt magn af breyttum myndum á upphaflega fljótt. Ennfremur hjálpar það þér við sjálfvirka valið!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Snúa aftur";
+/* Generated from genl10n: PhoneCalls.swift#137 */
+"Save All Phone Numbers" = "Vista öll símanúmer";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "Vista fundin tengiliði beint";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Vista og deila";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Vista";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
+"Saved With Built-in Camera" = "Vistuð með innbyggðu myndavél";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"Saved Without the Camera" = "Vistað án myndavélarinnar";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Vistar niðurstöður ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
@@ -312,26 +334,24 @@
 "Screenshots" = "Skjámyndir";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Leita flug";
+/* Generated from genl10n: Cleaner.BApp.swift#602 */
+"Select Photos To Delete." = "Veldu myndir til að eyða.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Veldu myndir til að finna allt.";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Veldu myndir sem þú vilt grípa símanúmer!";
+/* Generated from genl10n: Cleaner.BApp.swift#510 */
+"Selected" = "Valdar";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Senda tölvupóst";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Deila";
-/* Generated from genl10n: Cleaner.BApp.swift#243 */
-"Similarities" = "Líkt";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Líkindi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Stærð";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Sumir tengiliðir voru vistaðar en sumir voru ekki.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
-"Sorry, it could not be saved." = "Því miður gæti það ekki verið vistað.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
-"Sorry. No information about you have selected could not be detected." = "Því miður. Ekki var hægt að greina neinar upplýsingar um þig.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -354,12 +374,28 @@
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Kveiktu á einhverjum hlutum sem þú vilt fela. Gæðin mun alveg vera sú sama.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "Taktu mynd";
+/* Generated from genl10n: Cleaner.BApp.swift#511 */
+"Targeted" = "Miðaðar";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Markmið";
+/* Generated from genl10n: Transform.BApp.swift#55 */
+"This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "Þetta einfalda en hraðasta tólið gerir þér kleift að snúa fljótt og flipa mikið af fjölmiðlum, þar á meðal Live Photos. Sjálfgefin eru engar takmarkanir á fjölda mynda til að breyta þeim.";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
+"Too Close-up Face" = "Of nærmynd";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
+"Too Slow Shutter Speed" = "Of hægur lokarahraði";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Þýðing";
+/* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
+"Use Auto Selection Bot" = "Notaðu Auto Selection Bot";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
+"Videos Saved by Instagram App" = "Vídeó vistuð með Instagram App";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
+"Videos Shorter Than 1 Second" = "Myndbönd styttri en 1 sekúndu";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
+"Videos Without Sound" = "Myndbönd án hljóðs";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "Bíð eftir að velja ...";
 /* Generated from genl10n: Stabilizer.swift */

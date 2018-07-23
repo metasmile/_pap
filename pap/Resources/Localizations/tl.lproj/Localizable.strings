@@ -146,12 +146,14 @@
 "Animated GIF" = "Animated GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animation";
+/* Generated from genl10n: Filters.BApp.swift#76 */
+"Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Ilapat ang mga filter ng High-Quality sa iyong lahat ng mga larawan na gusto mo. Walang limitasyon sa bilang ng mga larawan upang i-edit ang mga ito.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Ratio ng Aspect";
+/* Generated from genl10n: AutoEditor.BApp.swift#51 */
+"Auto Editor lets you edit automatically if your photos are needed to correct." = "Hinahayaan ka ng Auto Editor na awtomatikong mag-edit kung kinakailangan ang iyong mga larawan upang itama.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Auto Editor";
-/* Generated from genl10n: Cleaner.BApp.swift#413 */
-"Auto Garbage Selection" = "Pagpili ng Basura ng Auto";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,16 +172,14 @@
 "Choose An Sub Action." = "Pumili ng isang Sub Action.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Choose an Option To Convert" = "Pumili ng Pagpipilian Upang I-convert";
-/* Generated from genl10n: Cleaner.BApp.swift#96 */
-"Clean the selected items" = "Linisin ang mga napiling item";
-/* Generated from genl10n: Cleaner.BApp.swift#54 */
-"Clean" = "Malinis";
+/* Generated from genl10n: Cleaner.BApp.swift#45 */
+"Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Ang Cleaner ay nagbibigay-daan sa iyo upang mahanap at tanggalin ang lahat ng uri ng hindi tamang mga larawan tulad ng mga dobleng at katulad na mga imahe, mga larawan na malapit-up o mga screen shot!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Mas malinis";
-/* Generated from genl10n: Cleaner.BApp.swift#50 */
-"Cleaning Photos..." = "Nililinis ang mga Larawan ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Mga contact";
+/* Generated from genl10n: Converter.BApp.swift#42 */
+"Converter enables you to convert every media formats into every each other." = "Pinapayagan ka ng converter na i-convert ang bawat format ng media sa bawat isa.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "Converter";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
@@ -196,16 +196,20 @@
 "Custom" = "Pasadya";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Petsa";
+/* Generated from genl10n: Cleaner.BApp.swift#506 */
+"Deleting Targets" = "Pagtanggal ng Mga Target";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "Detecting ... %@";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Did not detect anything." = "Hindi nakita ang anumang bagay.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direksyon";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Nagda-download ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Address ng E-mail";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, PhoneCalls.swift, Textractor.BApp.swift */
-"Enable Auto Selection" = "Paganahin ang Auto Selection";
+/* Generated from genl10n: ExifGhost.BApp.swift#29 */
+"EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "Hinahayaan ka ng EXIF ​​Ghost na alisin ang lahat ng uri ng data na naglalaman ng iyong mga larawan kasama ang pribadong impormasyon.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "I-export ang Opsyon";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -214,6 +218,8 @@
 "Filters" = "Mga Filter";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "Hanapin";
+/* Generated from genl10n: Finder.BApp.swift#42 */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Ang Finder ay nagbibigay-daan sa pag-extract ng bawat makabuluhang impormasyon tulad ng mga numero ng telepono, address, petsa o URL mula sa iyong mga larawan, at pagkatapos ay tumawag, buksan ang mga mapa o mag-navigate sa mga website kahit flight ng paghahanap!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "Finder";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -228,6 +234,8 @@
 "Forward" = "Ipasa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
+/* Generated from genl10n: GIFMaker.BApp.swift#266 */
+"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "Pinapayagan ka ng GIF Maker para sa madali at mabilis na paggawa ng mga imahe ng GIF mula sa Mga Larawan o Live na Mga Larawan na may iba't ibang mga pagpipilian! At pagkatapos ay maaari mong buksan ang converter app upang i-convert sa lahat ng bagay tulad ng Live na Mga Larawan o Mga Video.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -238,6 +246,8 @@
 "Image Quality" = "Kalidad ng imahe";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Angkat";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"It could not be saved." = "Hindi ito mai-save.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Nangangailangan ito ng pahintulot na ma-access ang iyong mga contact. Mangyaring payagan ang Mga Contact sa Mga Setting ng iOS.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
@@ -260,6 +270,8 @@
 "New Contact" = "Bagong kontak";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Bagong kaganapan";
+/* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
+"New Phone Number" = "Bagong Numero ng Telepono";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "Walang I-crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -272,6 +284,8 @@
 "Open Web Page" = "Buksan ang Web Page";
 /* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
 "Original" = "Orihinal";
+/* Generated from genl10n: PDFactory.BApp.swift#32 */
+"PDFactory makes PDF document from multiple images with various page options." = "Ang PDFactory ay gumagawa ng dokumentong PDF mula sa maraming mga larawan na may iba't ibang mga pagpipilian sa pahina.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Page Margin" = "Pahina ng Margin";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
@@ -296,14 +310,22 @@
 "Repeat" = "Ulitin";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Baliktarin";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Ang pagbabalik ng app ay nagbibigay-daan sa pagpapanumbalik ng isang bungkos na halaga ng na-edit na mga larawan sa orihinal na isa nang mabilis. Higit pa rito, tinutulungan ka nito sa awtomatikong pagpili!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Rewind";
+/* Generated from genl10n: PhoneCalls.swift#137 */
+"Save All Phone Numbers" = "I-save ang Lahat ng Mga Numero ng Telepono";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "I-save ang Nahanap na Mga Contact nang direkta";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "I-save at ibahagi ang";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "I-save";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
+"Saved With Built-in Camera" = "Naka-save Gamit ang Built-in Camera";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"Saved Without the Camera" = "Nai-save Nang Walang Camera";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Nagse-save ng Mga Resulta ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
@@ -312,26 +334,24 @@
 "Screenshots" = "Mga screenshot";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Mga Flight sa Paghahanap";
+/* Generated from genl10n: Cleaner.BApp.swift#602 */
+"Select Photos To Delete." = "Piliin ang Mga Larawan Upang Tanggalin.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Piliin ang Mga Larawan Upang Makahanap ng Lahat.";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Piliin ang Mga Larawan na Gusto Mong Kunin ang Mga Numero ng Telepono!";
+/* Generated from genl10n: Cleaner.BApp.swift#510 */
+"Selected" = "Napili";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Magpadala ng Email";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Ibahagi";
-/* Generated from genl10n: Cleaner.BApp.swift#243 */
-"Similarities" = "Pagkakatulad";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Pagkakatulad";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Sukat";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Ang ilang mga contact ay nai-save, ngunit someones ay hindi.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
-"Sorry, it could not be saved." = "Paumanhin, hindi ito mai-save.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
-"Sorry. No information about you have selected could not be detected." = "Paumanhin. Walang nakitang impormasyon tungkol sa iyong napili.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -354,12 +374,28 @@
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Lumipat sa anumang mga item na nais mong itago. Ang kalidad ay mananatiling pareho.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "Kumuha ng litrato";
+/* Generated from genl10n: Cleaner.BApp.swift#511 */
+"Targeted" = "Naka-target";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Mga Target";
+/* Generated from genl10n: Transform.BApp.swift#55 */
+"This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "Ang simple ngunit ang pinakamabilis na tool ay nagbibigay-daan sa mabilis mong paikutin at i-flip ng maraming mga file ng media kabilang ang Live na Mga Larawan. Bilang default, walang limitasyon sa bilang ng mga larawan upang i-edit ang mga ito.";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
+"Too Close-up Face" = "Masyadong Mukha Mukha";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
+"Too Slow Shutter Speed" = "Masyadong Mabilis na Bilis ng Shutter";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Pagsasalin";
+/* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
+"Use Auto Selection Bot" = "Gumamit ng Auto Selection Bot";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
+"Videos Saved by Instagram App" = "Mga video na Naka-save ng Instagram App";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
+"Videos Shorter Than 1 Second" = "Mga Video Mas maikli kaysa 1 Ikalawang";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
+"Videos Without Sound" = "Mga Video Nang walang Tunog";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "Naghihintay na Pumili ...";
 /* Generated from genl10n: Stabilizer.swift */

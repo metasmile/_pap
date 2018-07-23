@@ -146,12 +146,14 @@
 "Animated GIF" = "Gif Animado";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animação";
+/* Generated from genl10n: Filters.BApp.swift#76 */
+"Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Aplique filtros de alta qualidade às suas fotos que você deseja. Não há limite para o número de fotos para editá-las.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Aspect Ratio";
+/* Generated from genl10n: AutoEditor.BApp.swift#51 */
+"Auto Editor lets you edit automatically if your photos are needed to correct." = "O Auto Editor permite que você edite automaticamente se suas fotos são necessárias para corrigir.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Editor auto";
-/* Generated from genl10n: Cleaner.BApp.swift#413 */
-"Auto Garbage Selection" = "Seleção Automática de Lixo";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Taxa de desfoque";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,16 +172,14 @@
 "Choose An Sub Action." = "Escolha uma sub ação.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Choose an Option To Convert" = "Escolha uma opção para converter";
-/* Generated from genl10n: Cleaner.BApp.swift#96 */
-"Clean the selected items" = "Limpar os itens selecionados";
-/* Generated from genl10n: Cleaner.BApp.swift#54 */
-"Clean" = "Limpar \ limpo";
+/* Generated from genl10n: Cleaner.BApp.swift#45 */
+"Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "O Cleaner permite que você encontre e apague todos os tipos de fotos incorretas, como imagens duplicadas e similares, fotos em close-up ou fotos do Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Limpador";
-/* Generated from genl10n: Cleaner.BApp.swift#50 */
-"Cleaning Photos..." = "Limpar fotos ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Contatos";
+/* Generated from genl10n: Converter.BApp.swift#42 */
+"Converter enables you to convert every media formats into every each other." = "Conversor permite converter todos os formatos de mídia em cada um dos outros.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "Conversor";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
@@ -196,16 +196,20 @@
 "Custom" = "personalizadas";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Encontro";
+/* Generated from genl10n: Cleaner.BApp.swift#506 */
+"Deleting Targets" = "Excluindo Destinos";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "Detectando ... %@";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Did not detect anything." = "Não detectou nada.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direção";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Baixando ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Endereço de e-mail";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, PhoneCalls.swift, Textractor.BApp.swift */
-"Enable Auto Selection" = "Ativar seleção automática";
+/* Generated from genl10n: ExifGhost.BApp.swift#29 */
+"EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "O EXIF ​​Ghost permite remover todos os tipos de dados contendo suas fotos, incluindo informações privadas.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Opções de Exportação";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -214,6 +218,8 @@
 "Filters" = "Filtros";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "Encontrar";
+/* Generated from genl10n: Finder.BApp.swift#42 */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "O Finder permite extrair todas as informações significativas, como números de telefone, endereços, datas ou URLs de suas fotos, e depois ligar, abrir mapas ou navegar em sites, até mesmo em voos de busca!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "inventor";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -228,6 +234,8 @@
 "Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
+/* Generated from genl10n: GIFMaker.BApp.swift#266 */
+"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker permite fácil e rapidamente fazer imagens GIF de fotos ou fotos ao vivo com várias opções! E então você pode abrir o aplicativo conversor para converter em tudo, como fotos ao vivo ou vídeos.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "Criador de GIF";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -238,6 +246,8 @@
 "Image Quality" = "Qualidade da imagem";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Importar";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"It could not be saved." = "Não foi possível salvar.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Requer permissão para acessar seus contatos. Por favor, permita contatos em configurações do iOS.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
@@ -260,6 +270,8 @@
 "New Contact" = "Novo contato";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Novo evento";
+/* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
+"New Phone Number" = "Novo número de telefone";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "Nenhuma colheita";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -272,6 +284,8 @@
 "Open Web Page" = "Abrir página da web";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Original";
+/* Generated from genl10n: PDFactory.BApp.swift#32 */
+"PDFactory makes PDF document from multiple images with various page options." = "O PDFactory faz o documento PDF a partir de várias imagens com várias opções de página.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Page Margin" = "Margem de página";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
@@ -296,14 +310,22 @@
 "Repeat" = "Repetir";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Reverse";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Reverter aplicativo permite restaurar um monte de fotos editadas para o original rapidamente. Além disso, ajuda você com a seleção automática!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Rebobinar";
+/* Generated from genl10n: PhoneCalls.swift#137 */
+"Save All Phone Numbers" = "Salvar todos os números de telefone";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "Salvar contatos encontrados diretamente";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Salvar e compartilhar";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save" = "Salve";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
+"Saved With Built-in Camera" = "Salvo com câmera embutida";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"Saved Without the Camera" = "Salvo sem a câmera";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Salvando Resultados ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
@@ -312,26 +334,24 @@
 "Screenshots" = "Screenshots";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Pesquisar voos";
+/* Generated from genl10n: Cleaner.BApp.swift#602 */
+"Select Photos To Delete." = "Selecione Fotos para Excluir.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Selecione fotos para encontrar tudo.";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Selecione Fotos Que Você Quer Agarrar Números De Telefone!";
+/* Generated from genl10n: Cleaner.BApp.swift#510 */
+"Selected" = "Selecionado";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Enviar um email";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Compartilhar";
-/* Generated from genl10n: Cleaner.BApp.swift#243 */
-"Similarities" = "Semelhanças";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Semelhança";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Tamanho";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Alguns contatos foram salvos, mas alguns não foram.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
-"Sorry, it could not be saved." = "Desculpe, não foi possível salvar.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
-"Sorry. No information about you have selected could not be detected." = "Desculpa. Nenhuma informação sobre você selecionada não pôde ser detectada.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Quadrado";
 /* Generated from genl10n: Stabilizer.swift */
@@ -354,12 +374,28 @@
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Ative todos os itens que você deseja ocultar. A qualidade permanecerá inteiramente a mesma.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "Tire uma foto";
+/* Generated from genl10n: Cleaner.BApp.swift#511 */
+"Targeted" = "Visadas";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Alvos";
+/* Generated from genl10n: Transform.BApp.swift#55 */
+"This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "Essa ferramenta simples, mas a mais rápida, permite girar e girar rapidamente vários arquivos de mídia, incluindo Live Photos. Por padrão, não há limite para o número de fotos para editá-las.";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
+"Too Close-up Face" = "Demasiado rosto de close-up";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
+"Too Slow Shutter Speed" = "Velocidade do obturador muito lenta";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Translation";
+/* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
+"Use Auto Selection Bot" = "Use o Bot de Seleção Automática";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Vídeo";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
+"Videos Saved by Instagram App" = "Vídeos salvos pelo aplicativo Instagram";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
+"Videos Shorter Than 1 Second" = "Vídeos com menos de 1 segundo";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
+"Videos Without Sound" = "Vídeos sem som";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "Esperando para selecionar ...";
 /* Generated from genl10n: Stabilizer.swift */

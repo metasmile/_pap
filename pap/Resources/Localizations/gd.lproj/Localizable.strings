@@ -146,12 +146,14 @@
 "Animated GIF" = "GIF beòthaichte";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Beothachadh";
+/* Generated from genl10n: Filters.BApp.swift#76 */
+"Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Cuir a-steach criathragan àrd-inbhe air na dealbhan a tha thu ag iarraidh. Chan eil cuingealachadh air an àireamh de dhealbhan gus an deasachadh.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Comharradh Cuspair";
+/* Generated from genl10n: AutoEditor.BApp.swift#51 */
+"Auto Editor lets you edit automatically if your photos are needed to correct." = "Leigidh Deasaiche fèin-ghluasad dhut a dheasachadh gu fèin-ghluasadach ma tha feum air do dhealbhan gus a cheartachadh.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Deasaiche Auto";
-/* Generated from genl10n: Cleaner.BApp.swift#413 */
-"Auto Garbage Selection" = "Taghadh garbage fèin-ghluasadach";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Sgaoileadh";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,16 +172,14 @@
 "Choose An Sub Action." = "Tagh Fo-ghnìomh.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Choose an Option To Convert" = "Tagh Roghainn To Tionndadh";
-/* Generated from genl10n: Cleaner.BApp.swift#96 */
-"Clean the selected items" = "Glan na rudan a chaidh a thaghadh";
-/* Generated from genl10n: Cleaner.BApp.swift#54 */
-"Clean" = "Glan";
+/* Generated from genl10n: Cleaner.BApp.swift#45 */
+"Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Bidh an neach-glanaidh a 'toirt cothrom dhut a h-uile seòrsa de dhealbhan ceàrr a lorg agus a sguabadh às mar ìomhaighean dùbailte agus coltach, dealbhan dùinte no seallaidhean Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Nas glaine";
-/* Generated from genl10n: Cleaner.BApp.swift#50 */
-"Cleaning Photos..." = "A 'glanadh dealbhan ...";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Caraidean";
+/* Generated from genl10n: Converter.BApp.swift#42 */
+"Converter enables you to convert every media formats into every each other." = "Bheir Tionndadh cothrom dhut gach cruth meadhain a thionndadh gu gach fear eile.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "Tionndadh";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
@@ -196,16 +196,20 @@
 "Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Ceann-latha";
+/* Generated from genl10n: Cleaner.BApp.swift#506 */
+"Deleting Targets" = "A 'Cur às do Targaidean";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "A 'lorg ... %@";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+"Did not detect anything." = "Cha do lorg e dad.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Stiùireadh";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Luchdachadh a-nuas ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Seòladh puist-d";
-/* Generated from genl10n: Revert.BApp.swift, ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift, Finder.BApp.swift, PhoneCalls.swift, Textractor.BApp.swift */
-"Enable Auto Selection" = "Dèan comas air roghainn uidheamachd";
+/* Generated from genl10n: ExifGhost.BApp.swift#29 */
+"EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "Tha EXIF ​​Ghost a 'leigeil leat gach seòrsa data anns a bheil na dealbhan agad a' gabhail a-steach fiosrachadh prìobhaideach.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Roghainnean Export";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -214,6 +218,8 @@
 "Filters" = "Sgileagan";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "Lorg";
+/* Generated from genl10n: Finder.BApp.swift#42 */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Tha an neach-lorg a 'toirt comas air a h-uile fiosrachadh brìoghmhor a thoirt a-mach, leithid àireamhan fòn, seòlaidhean, cinn-latha no URLan bho na dealbhan agad, agus an uairsin fònadh, mapaichean fosgailte no làraichean-lìn a ghiùlain eadhon turasan!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "Finder";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -228,6 +234,8 @@
 "Forward" = "Air adhart";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Mion-fhrèam";
+/* Generated from genl10n: GIFMaker.BApp.swift#266 */
+"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "Tha GIF Maker a 'toirt cothrom dhut agus gu luath a' dèanamh ìomhaighean GIF bho Dealbhan no Dealbhan Beò le diofar roghainnean! Agus an uairsin faodaidh tu an tionndadh tionndaidh fhosgladh gus atharrachadh mar a h-uile rud leithid Dealbhan Beò no Fideothan.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -238,6 +246,8 @@
 "Image Quality" = "Càileachd Ìomhaigh";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Import";
+/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+"It could not be saved." = "Cha b 'urrainn dha a bhith air a shàbhaladh.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Feumaidh e cead faighinn a-steach do na ceanglaichean agad. Leig le luchd-aithne a-steach air roghainnean iOS.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
@@ -260,6 +270,8 @@
 "New Contact" = "Seòladh ùr";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Tachartas Ùr";
+/* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
+"New Phone Number" = "Àireamh Fòn Ùr";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "Gun Bàrr";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -272,6 +284,8 @@
 "Open Web Page" = "Duilleag Lìn Fosgailte";
 /* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
 "Original" = "Original";
+/* Generated from genl10n: PDFactory.BApp.swift#32 */
+"PDFactory makes PDF document from multiple images with various page options." = "Bidh PDFactory a 'dèanamh sgrìobhainn PDF bho iomadh ìomhaigh le diofar roghainnean duilleagan.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Page Margin" = "Duilleag na duilleige";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
@@ -296,14 +310,22 @@
 "Repeat" = "Dèan aithris a-rithist";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Reverse";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Tha an t-aplacaid air ais a 'leigeil le mòran de dhealbhan deasaichte ath-chur chun a' chiad fhear gu luath. A bharrachd air an sin, tha e gad chuideachadh leis an taghadh fèin-ghluasadach!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Ath-nuadhachadh";
+/* Generated from genl10n: PhoneCalls.swift#137 */
+"Save All Phone Numbers" = "Sàbhail na h-àireamhan fòn gu lèir";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "Sàbhail Fhuair iad fios gu dìreach";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Sàbhail agus Co-roinn";
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "Sàbhail";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
+"Saved With Built-in Camera" = "Sàbhail le camara a chaidh a thogail";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"Saved Without the Camera" = "Sàbhail às a 'chamara";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "A 'sàbhaladh nan toraidhean ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
@@ -312,26 +334,24 @@
 "Screenshots" = "Dealbhan-camara";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Rannsaich Slighean";
+/* Generated from genl10n: Cleaner.BApp.swift#602 */
+"Select Photos To Delete." = "Tagh Dealbhan gu Delete.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Tagh Dealbhan Tagh To Find Everything.";
 /* Generated from genl10n: PhoneCalls.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Tagh Dealbhan a tha thu ag iarraidh Grab àireamhan fòn!";
+/* Generated from genl10n: Cleaner.BApp.swift#510 */
+"Selected" = "Air a thaghadh";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Cuir post-d";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Share";
-/* Generated from genl10n: Cleaner.BApp.swift#243 */
-"Similarities" = "Cosgaisean";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Co-ionann";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Meud";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Chaidh cuid de na ceanglaichean a shàbhaladh, ach cha robh càil ann.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
-"Sorry, it could not be saved." = "Duilich, cha b 'urrainn dha a bhith air a shàbhaladh.";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
-"Sorry. No information about you have selected could not be detected." = "Duilich. Chan fhaod thu fiosrachadh mu do dheidhinn a thaghadh a bhith air a lorg.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Ceàrnag";
 /* Generated from genl10n: Stabilizer.swift */
@@ -354,12 +374,28 @@
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Dèan air rud sam bith a tha thu airson falach. Bidh an càileachd fhathast mar an ceudna.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "Gabh dealbh";
+/* Generated from genl10n: Cleaner.BApp.swift#511 */
+"Targeted" = "Cuimsichte";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Targaidean";
+/* Generated from genl10n: Transform.BApp.swift#55 */
+"This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "Tha an t-inneal sìmplidh seo ach as luaithe a 'leigeil leat gluasad gu luath agus sgapadh tòrr de na faidhlichean mheadhanan, nam measg Dealbhan Beò. Gu bunaiteach, chan eil cuingealachadh air an àireamh de dhealbhan gus an deasachadh.";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
+"Too Close-up Face" = "Aghaidh ro dhlùth-dhìreach";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
+"Too Slow Shutter Speed" = "Lùm astar slaite gu mall";
 /* Generated from genl10n: Stabilizer.swift */
 "Translation" = "Eadar-theangachadh";
+/* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
+"Use Auto Selection Bot" = "Cleachd Auto Selection Bot";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Bhidio";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
+"Videos Saved by Instagram App" = "Videos air an glèidheadh ​​le App Instagram";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
+"Videos Shorter Than 1 Second" = "Videos nas lugha na 1 an dàrna";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
+"Videos Without Sound" = "Bhidio gun chuais";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Waiting To Select ..." = "A 'Feitheamh ri Tagh ...";
 /* Generated from genl10n: Stabilizer.swift */
