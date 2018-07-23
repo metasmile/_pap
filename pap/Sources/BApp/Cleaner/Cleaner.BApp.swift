@@ -27,7 +27,7 @@ struct PHAssetGCResult:AppTaskResultable {
 
 private typealias PHAssetID = String
 
-public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp, PreheatableApp {
+public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp, PHAssetCacheableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp, PreheatableApp {
     public static let taskType: AppTaskable.Type = _CleanerAppTask.self
 
     public static let paramType: AppTaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
@@ -54,6 +54,17 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
 
     public var finalizingActions: [PHAssetFinalizingAction] {
         return [.showActions]
+    }
+
+    public var needsCachingRequestOptions: [PHAssetRequestOption]? {
+        var options = [PHAssetRequestOption]()
+        let types = type(of: self).SupportingGDTypesKeys
+        for gd in type(of: self).privateDefaults.selectedCollection{
+            for gditem in gd.items{
+                options += types[gditem.gdIdentifier]?.needsCachingRequestOptions ?? []
+            }
+        }
+        return options.nilEmpty
     }
 
     public var titleWillFinalize: String? {
@@ -103,7 +114,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     private var gdInstances = [String:PHAssetGarbageDetector]()
     fileprivate var cachedResults = [PHAssetID: PHAssetGCDetectedResult]()
 
-    fileprivate func gc(item: AppAsset, cachingOption: PHAssetRequestOption?, _ async: AsyncWaitSignalable) -> PHAssetGCResult {
+    fileprivate func gc(item: AppAsset,  _ async: AsyncWaitSignalable) -> PHAssetGCResult {
 
         let gdType_Id = type(of: self).SupportingGDTypesKeys
         let gdCollection = type(of: self).privateDefaults.selectedCollection
@@ -111,8 +122,13 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
         var action:PHAssetGCAction = .none
 
         for gd in gdCollection{
-            let ts = gd.items.filter { $0.enabled }.compactMap { gcItem -> PHAssetGarbageDetector.Type? in
+            let ts = gd.items.compactMap { gcItem -> PHAssetGarbageDetector.Type? in
+                // enabled + allowed type
+                if gcItem.enabled == false{
+                    return nil
+                }
                 return gdType_Id[gcItem.gdIdentifier]
+
             }.sorted { (detectorType: PHAssetGarbageDetector.Type, detectorType2: PHAssetGarbageDetector.Type) -> Bool in
                 detectorType.priority.rawValue > detectorType2.priority.rawValue
             }
@@ -124,9 +140,9 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
 
                 //found cached result
                 if let detectedResult = cachedResults[aid]
-                , let detected = detectedResult[k]{
+                , let detectedAction = detectedResult[k]{
 
-                    action = detected ? .delete: .none
+                    action = detectedAction ? .delete: .none
                     break
                 }
 
@@ -141,7 +157,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
                 }
 
                 let detected = autoreleasepool{
-                    return detector.process(input: (asset:asset, cachingOption:cachingOption), async) ?? false
+                    return detector.process(input: item, async) ?? false
                 }
 
                 if t.shouldCacheResults {
@@ -163,10 +179,10 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     /*
     preheat
     */
-    public func performPreheating(item: AppAsset, cachingOption: PHAssetRequestOption?, _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
+    public func performPreheating(item: AppAsset,  _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
         guard self.autoSelect else { return nil }
 
-        return gc(item: item, cachingOption:cachingOption, async).action == .delete ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
+        return gc(item: item, async).action == .delete ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
@@ -213,7 +229,7 @@ private class _CleanerAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, Ap
         }
 
         if self.deletingTargetMatched {
-            return AppCenter.default.currentInstanceAs(CleanerApp.self)?.gc(item: item, cachingOption: nil, async)
+            return AppCenter.default.currentInstanceAs(CleanerApp.self)?.gc(item: item, async)
         }else{
             return PHAssetGCResult(asset: item.asset, action: .delete)
         }

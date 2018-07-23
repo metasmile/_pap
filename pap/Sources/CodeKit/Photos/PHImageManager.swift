@@ -10,6 +10,7 @@ import Photos
 public typealias PHAssetRequestOption = (targetSize:CGSize, contentMode:PHImageContentMode, options:PHImageRequestOptions?)
 
 public extension PHCachingImageManager{
+    @discardableResult
     func requestImage(for asset: PHAsset, option: PHAssetRequestOption, resultHandler: @escaping (UIImage?, [AnyHashable: Any]?) -> Void) -> PHImageRequestID {
         return requestImage(for: asset, targetSize: option.targetSize, contentMode: option.contentMode, options: option.options, resultHandler: resultHandler)
     }
