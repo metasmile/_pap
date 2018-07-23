@@ -6,7 +6,12 @@
 import Foundation
 import DefaultsKit
 
-extension Defaults: DefaultsProperty {
+protocol papDefaultsPublic:DefaultsProperty{
+    var appIdentifier: String?{set get}
+    var appDockContentLayoutState: Int{set get}
+}
+
+extension Defaults: papDefaultsPublic {
     public var appIdentifier: String? {
         set{ set(newValue) } get{ return get() }
     }
@@ -14,18 +19,16 @@ extension Defaults: DefaultsProperty {
     public var appDockContentLayoutState: Int {
         set{ set(newValue) } get{ return get(or:AppDockContentLayoutState.neutralized.rawValue) }
     }
+}
 
-    // private
+fileprivate protocol papDefaultsPrivate:DefaultsProperty{
+    var appCount: [String:Double]{set get}
+}
+
+extension Defaults:papDefaultsPrivate{
+// private
     fileprivate var appCount:[String:Double]{ // [identifier: performed count]
         set{ set(newValue) } get{ return get(or:[String:Double]()) }
-    }
-
-    public var latestShortVersion:String?{
-        set{ set(newValue) } get{ return get() }
-    }
-
-    public var latestVersion:String?{
-        set{ set(newValue) } get{ return get() }
     }
 }
 

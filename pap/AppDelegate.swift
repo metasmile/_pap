@@ -39,6 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         Defaults.shared.latestShortVersion = Bundle.main.shortVersionString
         Defaults.shared.latestVersion = Bundle.main.version
+        print("Version: ", Bundle.main.shortVersionString ?? "No version info")
+        print("Version Distance: ",Defaults.shared.shortVersionDistance ?? "nil")
+        print("Version Description: ",Defaults.shared.shortVersionDescription)
 
         DispatchQueue.global(qos: .background).async{
             self.spotlightSearchAppDelegate.indexDefaultSearchableItems()

@@ -222,6 +222,7 @@
 		4F71DF9E8CF93879A1DFA695 /* AssetIO.LivePhotoResource.Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA862E45A6C3A07BFC8C /* AssetIO.LivePhotoResource.Image.swift */; };
 		4F71DF9EC1EE3B0A88CDC1BE /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8D05F3DB92CF73E92C3 /* Converter.swift */; };
 		4F71DFA9D2EB40B350CB4E5B /* GIFMaker.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA8CA1E7F06DD108FFBB /* GIFMaker.BApp.swift */; };
+		4F71DFDB7500B2FFA2938EEF /* Defaults.Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA25079F23C2E3097538 /* Defaults.Version.swift */; };
 		4F71DFE5074AF3A8EACED3B2 /* PHAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D500774A9E14C8E4F76F /* PHAssets.swift */; };
 		514BBEE620F4580A00B434E8 /* Camera.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514BBEE520F4580A00B434E8 /* Camera.BApp.swift */; };
 		515C9A5920FC2358004AF6BF /* App.UI.VideoTrimControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515C9A5820FC2358004AF6BF /* App.UI.VideoTrimControl.swift */; };
@@ -522,6 +523,7 @@
 		4F71D9F99FBAD774C0050948 /* PhotosManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosManager.swift; sourceTree = "<group>"; };
 		4F71D9FA96D3866E152A9B2B /* Transform.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.BApp.swift; sourceTree = "<group>"; };
 		4F71DA10E97AC3BD6F9BEB5F /* App.PhotoPickerCollectionViewDisplayable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.PhotoPickerCollectionViewDisplayable.swift; sourceTree = "<group>"; };
+		4F71DA25079F23C2E3097538 /* Defaults.Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.Version.swift; sourceTree = "<group>"; };
 		4F71DA2C81A5E64BA1A98AF7 /* PreviewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewCollectionViewCell.xib; sourceTree = "<group>"; };
 		4F71DA3C273565A6E320B6AF /* PhotoPickerFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerFooterView.swift; sourceTree = "<group>"; };
 		4F71DA48CBC788C2A5093364 /* Camera.CaptureProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.CaptureProcessor.swift; sourceTree = "<group>"; };
@@ -886,6 +888,7 @@
 				4F71D524FEF15BEECBF828D6 /* Photos */,
 				4F71DB51501243A8A049A36D /* Sourceable */,
 				4F71DC58EF662B297E81FB44 /* Version.swift */,
+				4F71DED9CA241BF7A1780D10 /* Defaults */,
 			);
 			path = CodeKit;
 			sourceTree = "<group>";
@@ -1439,6 +1442,14 @@
 				4F71D1AEADD4AE4A9EE7437F /* cell_icon_pano.png */,
 			);
 			path = StaticImages;
+			sourceTree = "<group>";
+		};
+		4F71DED9CA241BF7A1780D10 /* Defaults */ = {
+			isa = PBXGroup;
+			children = (
+				4F71DA25079F23C2E3097538 /* Defaults.Version.swift */,
+			);
+			path = Defaults;
 			sourceTree = "<group>";
 		};
 		4F71DFB4345AEAE14B7512FD /* Cleaner */ = {
@@ -3074,6 +3085,7 @@
 				4F71D9B103E4D9E617FDB8A5 /* App.Asset.swift in Sources */,
 				4F71D33E7C80AC58C1BD1C40 /* App.Cacheable.swift in Sources */,
 				4F71DB7E0B0C52577EC3D7D0 /* Version.swift in Sources */,
+				4F71DFDB7500B2FFA2938EEF /* Defaults.Version.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

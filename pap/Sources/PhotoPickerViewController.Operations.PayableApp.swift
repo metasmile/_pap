@@ -6,15 +6,29 @@
 import Foundation
 import UIKit
 import Armchair
+import DefaultsKit
 
 /*
     dirty policy code in here.
 */
 
+fileprivate extension Defaults {
+    fileprivate var rightButtonPayablePhase: PhotoPickerViewControllerRightBarButtonPayablePhase {
+        set{ set(newValue) }
+        get { return get(or: PhotoPickerViewControllerRightBarButtonPayablePhase.inStoreRating) }
+    }
+}
+
 private class PhotoPickerViewControllerPayableAssets{
     static let shared: PhotoPickerViewControllerPayableAssets = PhotoPickerViewControllerPayableAssets()
 
-    fileprivate lazy var ratingButton = UIBarButtonItem(image: R.image.systemIconFavoriteLine(), style: .plain, target: self, action: nil)
+    fileprivate lazy var inStoreRatingButton = UIBarButtonItem(image: R.image.systemIconFavoriteLine(), style: .plain, target: self, action: nil)
+
+    fileprivate lazy var onPromptRatingButton = UIBarButtonItem(image: R.image.systemIconFavoriteLine(), style: .plain, target: self, action: nil)
+
+    fileprivate lazy var socialShareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: nil)
+
+    fileprivate lazy var messageUsButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
 }
 
 enum PhotoPickerViewControllerRightBarButtonState {
@@ -22,24 +36,31 @@ enum PhotoPickerViewControllerRightBarButtonState {
     case paidSelected
 }
 
-enum PhotoPickerViewControllerRightBarButtonPayablePhase:Int {
-    case inAppStoreRating // heavy
-    case inAppRating //light
+enum PhotoPickerViewControllerRightBarButtonPayablePhase:Int, Codable {
+    case inStoreRating // heavy
+    case onPromptRating //light
     case socialShare //fucking light no share no use
+    case messageUs //then, finally, you can have a permission to message us.
 }
 
 extension PhotoPickerViewController{
 
     func updateRightButtonState() -> PhotoPickerViewControllerRightBarButtonState {
+        let rightButtonItem:UIBarButtonItem
+        switch Defaults.shared.rightButtonPayablePhase{
+            case .inStoreRating:
+                rightButtonItem = PhotoPickerViewControllerPayableAssets.shared.inStoreRatingButton
+            case .onPromptRating:
+                rightButtonItem = PhotoPickerViewControllerPayableAssets.shared.onPromptRatingButton
+            case .socialShare:
+                rightButtonItem = PhotoPickerViewControllerPayableAssets.shared.socialShareButton
+            case .messageUs:
+                rightButtonItem = PhotoPickerViewControllerPayableAssets.shared.messageUsButton
+        }
 
-        let ratingButton = PhotoPickerViewControllerPayableAssets.shared.ratingButton
-
-        //TODO: payableButton by state
         if self.estimatedAvailableSelectedItems == 0 {
-            ratingButton.target = self
-            ratingButton.action = #selector(self.payableButtonDidTap)
-            navigationItem.setRightBarButton(ratingButton, animated: true)
-
+            rightButtonItem.target = self
+            rightButtonItem.action = #selector(self.payableButtonDidTap)
             return .unpaidDeselected
         }
 
@@ -48,18 +69,22 @@ extension PhotoPickerViewController{
     }
 
     @objc fileprivate func payableButtonDidTap(sender: UIButton) {
-
-        let ratedCurrentVersion = Armchair.userDefaultsObject()?.boolForKey(keyForArmchairKeyType(ArmchairKey.RatedCurrentVersion))
-
-        //https://github.com/UrbanApps/Armchair
-//        Armchair.reviewMessage()
-        Armchair.shouldPromptIfRated(true)
-        Armchair.onDidDeclineToRate {
-            print("onDidDeclineToRate")
+        switch Defaults.shared.rightButtonPayablePhase{
+            case .inStoreRating:
+                self.payableButtonDidTap_inStoreRating()
+            case .onPromptRating:
+                self.payableButtonDidTap_onPromptRating()
+            case .socialShare:
+                self.payableButtonDidTap_socialShare()
+            case .messageUs:
+                self.payableButtonDidTap_messageUs()
         }
-        Armchair.onDidOptToRate {
-            print("onDidOptToRate")
-        }
+    }
+
+    private func payableButtonDidTap_inStoreRating() {
+
+//        let ratedCurrentVersion = Armchair.userDefaultsObject()?.boolForKey(keyForArmchairKeyType(ArmchairKey.RatedCurrentVersion))
+
         Armchair.onDidDismissModalView { b in
             print("onDidDismissModalView",b)
         }
@@ -70,6 +95,14 @@ extension PhotoPickerViewController{
             return true
         }
         Armchair.rateApp()
+    }
 
+    private func payableButtonDidTap_onPromptRating() {
+    }
+
+    private func payableButtonDidTap_socialShare() {
+    }
+
+    private func payableButtonDidTap_messageUs() {
     }
 }

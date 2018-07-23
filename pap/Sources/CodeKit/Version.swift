@@ -49,11 +49,13 @@ public struct SemanticVersion {
 
         var oldr = old.split(separator: ".")
         if oldr.count<2{
+            assert(false,"Version string should separate by '.' with numbers at least once.")
             oldr.append("0")
         }
 
         var newr = new.split(separator: ".")
         if newr.count<2{
+            assert(false,"Version string should separate by '.' with numbers at least once.")
             newr.append("0")
         }
 
@@ -67,8 +69,8 @@ public struct SemanticVersion {
         }
 
         var dist:Int = 0
-        let oldri = oldr.map { Int($0)!}
-        let newri = newr.map { Int($0)!}
+        let oldri = oldr.compactMap { Int($0) }
+        let newri = newr.compactMap { Int($0) }
 
         for i in 0 ..< Int(max(oldr.count, newr.count)){
             let o = oldri[i]
