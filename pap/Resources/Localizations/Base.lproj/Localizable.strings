@@ -150,7 +150,7 @@
 "Copy" = "Copy";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift#57 */
 "Create" = "Create";
-/* Generated from genl10n: Stabilizer.swift#398 */
+/* Generated from genl10n: Stabilizer.swift#406 */
 "Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift#494 */
 "Crop to Fit" = "Crop to Fit";
@@ -322,7 +322,7 @@
 "Stabilization Mode" = "Stabilization Mode";
 /* Generated from genl10n: Stabilizer.swift#98 */
 "Stabilize" = "Stabilize";
-/* Generated from genl10n: Stabilizer.swift#78, Stabilizer.swift#443 */
+/* Generated from genl10n: Stabilizer.swift#78, Stabilizer.swift#451 */
 "Stabilizer" = "Stabilizer";
 /* Generated from genl10n: Stabilizer.swift#95 */
 "Stabilizing Selected Items..." = "Stabilizing Selected Items...";

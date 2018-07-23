@@ -378,7 +378,15 @@ class StabilizerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppD
         let modeCell = UITableViewSegmentControlCellDescriber()
         modeCell.itemIdentifier = Cells.stabilizationMode.hashValue
         modeCell.label = "Stabilization Mode".localized
-        modeCell.valueGetter = { StabilizerSettings.stabilizationTitles[self.defaults.stabilizationMode] }
+        modeCell.valueGetter = {
+            let mode = ImageAlignment.StabilizationMode(rawValue: self.defaults.stabilizationMode)
+            if mode.contains(.homographic) {
+                return StabilizerSettings.stabilizationTitles[0]
+            }
+            else {
+                return StabilizerSettings.stabilizationTitles[1]
+            }
+        }
         modeCell.valueCollection = StabilizerSettings.stabilizationTitles
         modeCell.valueHandler = {
             if let index = $0 as? Int {
@@ -404,7 +412,7 @@ class StabilizerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppD
                 
                 var options = ImageAlignment.StabilizationMode(rawValue: self.defaults.stabilizationMode)
                 if index == 0 {
-                    options = options.union(.crop)
+                    options.insert(.crop)
                 }
                 else {
                     options.remove(.crop)
