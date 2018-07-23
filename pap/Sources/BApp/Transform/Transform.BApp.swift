@@ -52,7 +52,7 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
             , phase: .release
             , appType: TransformApp.self
             , displayName: "Transform".localized
-            , description: "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos.".localized
+            , description: "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them.".localized
             , keywords: ["Transformation", "Rotation","Flip","Vertical","Editor"]
             , iconBundleName: R.image.transformBAppIcon.name
             , policy: AppPolicy.default

@@ -73,7 +73,7 @@ PhotoEditorViewControllerDelegatableApp {
         , phase: .release
         , appType: FiltersApp.self
         , displayName: "Filters".localized
-        , description: "Apply High-Quality Filters On Your All Photos You Want.".localized
+        , description: "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them.".localized
         , keywords: ["Filters", "Color", "Effect", "High-Quality"] + FiltersAppDockContent.CIFilters.filters.compactMap({ FiltersAppDockContent.PhotosFilterNames.aliasName($0.name) })
         , iconBundleName: R.image.filtersBAppIcon.name
         , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)

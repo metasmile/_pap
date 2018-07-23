@@ -263,7 +263,7 @@ public class GIFMakerApp: BApp,
         , phase: .release
         , appType: GIFMakerApp.self
         , displayName: "GIF Maker".localized
-        , description: "GIF Maker allows for easily and quickily making GIF images from Photos or Live Photos with various options!".localized
+        , description: "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos.".localized
         , keywords: ["GIF Maker", "Live Photos", "GIF Editor", "GIF", "Video Converter", "Burst Photos","Animated GIF", "Animation", "Aspect Ratio","Repeatation"]
         , iconBundleName: R.image.gifMakerBAppIcon.name
         , policy: AppPolicy.default

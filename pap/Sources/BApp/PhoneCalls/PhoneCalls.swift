@@ -58,8 +58,8 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
             , phase: .release
             , appType: PhoneCallsApp.self
             , displayName: "Phone Calls".localized
-            , description:nil
-            , keywords:nil
+            , description:"Phone Calls lets you grab phone numbers accurately in your multiple photos. Then you simply start calling!"
+            , keywords: ["Phone", "Call", "Numbers", "Address", "Contact"]
             , iconBundleName: R.image.phoneCallsBAppIcon.name
             , policy: AppPolicy.default
 //            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
@@ -356,7 +356,7 @@ fileprivate class PhoneCallsAppDockContent: NSObject, KeyPathWatchable,
 
         let cell1 = UITableViewSwitchCellDescriber()
         cell1.itemIdentifier = PhoneCallsAppCells.autoSelect.hashValue
-        cell1.label = "Enable Auto Selection".localized
+        cell1.label = "Use Auto Selection Bot".localized
         cell1.valueGetter = { self.autoSelect }
         cell1.iconImage = R.image.commonIconRobot.name
         cell1.valueHandler = { on in

@@ -89,6 +89,14 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
 
         config.appCollection = defaultAppCollection
 
+        #if DEBUG
+        for app in defaultAppCollection{
+            print(app.info.displayName)
+            print(app.info.description ?? "")
+//            print(app.info.keywords?.joined(separator: ",") ?? "")
+        }
+        #endif
+
         return config
     }
 }

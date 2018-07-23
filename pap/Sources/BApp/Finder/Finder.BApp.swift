@@ -39,7 +39,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
             , phase: .release
             , appType: FinderApp.self
             , displayName: "Finder".localized
-            , description: "Finder enables extracting every meaningful informations such as phone numbers, addresses, dates or URLs from photos from your photos, and then call, open maps or navigate websites even searh flights!".localized
+            , description: "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!".localized
             , keywords: ["Date", "Address", "Maps", "Location","URL","Flight","E-Mail", "Call", "Phone Number", "Contacts","Text","Detection","Information", "Search","Find","Recognization"]
             , iconBundleName: R.image.finderBAppIcon.name
             , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
@@ -1277,7 +1277,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
         let cell1 = UITableViewSwitchCellDescriber()
         cell1.itemIdentifier = FinderAppSettingCells.autoSelect.hashValue
-        cell1.label = "Enable Auto Selection".localized
+        cell1.label = "Use Auto Selection Bot".localized
         cell1.valueGetter = { self.autoSelect }
         cell1.iconImage = R.image.commonIconRobot.name
         cell1.valueHandler = {

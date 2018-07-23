@@ -40,7 +40,9 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp
             , version: "1.0"
             , phase: .release
             , appType: RevertApp.self
-            , displayName: "Revert".localized, description:nil, keywords:nil
+            , displayName: "Revert".localized
+            , description: "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!".localized
+            , keywords: ["Restore","Repair","Revert","recovery"]
             , iconBundleName: R.image.revertBAppIcon.name
             , policy: AppPolicy.default
             , minOSVersion: nil
@@ -181,7 +183,7 @@ fileprivate class RevertAppDockContent: NSObject, KeyPathWatchable, AppDockConte
         cell.imageView?.tintColor = primaryColor
         cell.imageView?.contentMode = .scaleAspectFit
 
-        cell.textLabel?.text = "Enable Auto Selection".localized
+        cell.textLabel?.text = "Use Auto Selection Bot".localized
         cell.imageView?.image = R.image.commonIconRobot()?.withRenderingMode(.alwaysTemplate)
         cell.imageView?.tintColor = primaryColor
 

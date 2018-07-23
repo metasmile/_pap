@@ -42,7 +42,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
             , phase: .release
             , appType: CleanerApp.self
             , displayName: "Cleaner".localized
-            , description: "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lock screenshots!".localized
+            , description: "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!".localized
             , keywords: ["Clean","Remove","Instagram Video","Screenshot", "Flashlight", "Close-up", "Similar Photos", "Duplicate", "Capacity", "Memory", "Volume", "Saving"]
             , iconBundleName: R.image.cleanerBAppIcon.name
             , policy: AppPolicy.default
@@ -485,7 +485,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
 
         let cell1 = UITableViewSwitchCellDescriber()
         cell1.itemIdentifier = CleanerAppSettingCells.autoSelect.hashValue
-        cell1.label = "Auto Garbage Collection".localized
+        cell1.label = "Use Auto Selection Bot".localized
         cell1.iconImage = R.image.commonIconRobot.name
         cell1.valueGetter = { CleanerApp.privateDefaults.autoSelect }
         cell1.valueHandler = { val in
