@@ -27,8 +27,7 @@ class CameraView: UIView {
     private lazy var sessionQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
 
     private lazy var cameraPreviewView = CameraPreviewView(frame: .zero)
-
-    private var blurredSnapshotView: UIView?
+    private var cameraPointOfInterestLayer: CAShapeLayer?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -63,10 +62,10 @@ class CameraView: UIView {
 
     private func configureSession() {
         guard
-                let videoDevice = AVCaptureDevice.default(for: .video),
-                let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice),
-                captureSession.canAddInput(videoDeviceInput)
-                else { return }
+            let videoDevice = AVCaptureDevice.default(for: .video),
+            let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice),
+            captureSession.canAddInput(videoDeviceInput)
+        else { return }
 
         beginConfiguration()
 
@@ -318,6 +317,8 @@ extension CameraView {
         sessionQueue.async {
             self.setPointOfInterest(pointOfInterest)
         }
+        
+        performPointOfInterestAnimation(at: layerPoint)
     }
     
     private func setPointOfInterest(_ pointOfInterest: CGPoint) {
@@ -343,6 +344,69 @@ extension CameraView {
         }
         
         captureDevice.unlockForConfiguration()
+    }
+    
+    private func performPointOfInterestAnimation(at pointOfInterest: CGPoint) {
+        cameraPointOfInterestLayer?.removeFromSuperlayer()
+        
+        let size = CGSize(width: 75, height: 75)
+        let rect = CGRect(origin: CGPoint(x: pointOfInterest.x - size.width / 2.0, y: pointOfInterest.y - size.height / 2.0), size: size)
+        
+        let endPath = UIBezierPath(rect: rect)
+        endPath.move(to: CGPoint(x: rect.minX + size.width / 2.0, y: rect.minY))
+        endPath.addLine(to: CGPoint(x: rect.minX + size.width / 2.0, y: rect.minY + 5.0))
+        endPath.move(to: CGPoint(x: rect.maxX, y: rect.minY + size.height / 2.0))
+        endPath.addLine(to: CGPoint(x: rect.maxX - 5.0, y: rect.minY + size.height / 2.0))
+        endPath.move(to: CGPoint(x: rect.minX + size.width / 2.0, y: rect.maxY))
+        endPath.addLine(to: CGPoint(x: rect.minX + size.width / 2.0, y: rect.maxY - 5.0))
+        endPath.move(to: CGPoint(x: rect.minX, y: rect.minY + size.height / 2.0))
+        endPath.addLine(to: CGPoint(x: rect.minX + 5.0, y: rect.minY + size.height / 2.0))
+        
+        let startPath = UIBezierPath(cgPath: endPath.cgPath)
+        let scaleAroundCenterTransform = CGAffineTransform(translationX: -pointOfInterest.x, y: -pointOfInterest.y).concatenating(CGAffineTransform(scaleX: 2.0, y: 2.0).concatenating(CGAffineTransform(translationX: pointOfInterest.x, y: pointOfInterest.y)))
+        startPath.apply(scaleAroundCenterTransform)
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = endPath.cgPath
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.strokeColor = UIColor(red:1, green:0.83, blue:0, alpha:0.95).cgColor
+        shapeLayer.lineWidth = 1.0
+        
+        layer.addSublayer(shapeLayer)
+        
+        cameraPointOfInterestLayer = shapeLayer
+        
+        CATransaction.begin()
+        
+        CATransaction.setAnimationDuration(0.2)
+        CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut))
+        
+        CATransaction.setCompletionBlock {
+            if shapeLayer.superlayer != nil {
+                shapeLayer.removeFromSuperlayer()
+                self.cameraPointOfInterestLayer = nil
+            }
+        }
+        
+        let appearPathAnimation = CABasicAnimation(keyPath: "path")
+        appearPathAnimation.fromValue = startPath.cgPath
+        appearPathAnimation.toValue = endPath.cgPath
+        shapeLayer.add(appearPathAnimation, forKey: "path")
+        
+        let appearOpacityAnimation = CABasicAnimation(keyPath: "opacity")
+        appearOpacityAnimation.fromValue = 0.0
+        appearOpacityAnimation.toValue = 1.0
+        shapeLayer.add(appearOpacityAnimation, forKey: "opacity")
+        
+        let disappearOpacityAnimation = CABasicAnimation(keyPath: "opacity")
+        disappearOpacityAnimation.fromValue = 1.0
+        disappearOpacityAnimation.toValue = 0.0
+        disappearOpacityAnimation.beginTime = CACurrentMediaTime() + 0.8
+        disappearOpacityAnimation.fillMode = kCAFillModeForwards
+        disappearOpacityAnimation.isRemovedOnCompletion = false
+        shapeLayer.add(disappearOpacityAnimation, forKey: "opacity")
+        
+        CATransaction.commit()
     }
 }
 
