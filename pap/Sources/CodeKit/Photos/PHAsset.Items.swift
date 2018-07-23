@@ -10,6 +10,7 @@ public protocol PHAssetParamable: AppTaskParamable {
     var asset: PHAsset { get }
     var indexPath:IndexPath? { set get }
     var requestIDs:[PHAssetRequestID] { get }
+    var cachingRequestOptions:[PHAssetRequestOption]? {set get}
 
     init(_ asset: PHAsset)
     init(_ asset: PHAsset, indexPath:IndexPath?)
@@ -30,7 +31,6 @@ public struct PHAssetResultItem: PHAssetResultable {
     }
 }
 
-
 public struct PHAssetItemProgressNotification {
     static func update(item: PHAssetItem<ImageEditStateValue>?=nil, progress: Progress) {
         var userInfo: [String: Any] = [
@@ -50,6 +50,7 @@ public class PHAssetItem<EditStateValueType:Hashable>: ItemObject, PHAssetParama
     public var asset: PHAsset
     public var indexPath:IndexPath?
     public var requestIDs = [PHAssetRequestID]()
+    public var cachingRequestOptions:[PHAssetRequestOption]?
     public var editState = StateValueSet<EditStateValueType>()
 
     required public init(_ asset: PHAsset) {

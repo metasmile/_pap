@@ -12,7 +12,7 @@ import MetalKit
 import Vision
 import FirebaseMLVision
 
-typealias GarbageDetectorInput = (asset:PHAsset, cachingOption: PHAssetRequestOption?)
+typealias GarbageDetectorInput = AppAsset
 
 protocol _GarbageDetector: AsyncProcessor where Self.OutputType==Bool {}
 
@@ -352,7 +352,8 @@ class PHAssetGarbageDetector_Similarity: PHAssetGarbageDetector{
 
             var cachingHostAssetData:Data?
             var cachingInputAssetData:Data?
-            if let cachingOption = input.cachingOption{
+
+            if let cachingOption = input.cachingRequestOptions?.first{ //TODO: not first, pick the best one for this.
                 let currentQueue = DispatchQueue.current
                 asyncSignal.begin()
                 PhotosManager.default.cachingImageManager.requestImage(for: hostAsset, option: cachingOption) { image, info in

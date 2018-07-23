@@ -6,7 +6,34 @@
 import Foundation
 import Photos
 
+//TODO:ImageEditStateValue type is external type
 public typealias AppAsset = PHAssetItem<ImageEditStateValue>
+
+//TODO: remove specific "ImageEdit" meaning -> more general, expandable
+//TODO: change to associatedType for all types
+extension StateValueSet where T: ImageEditStateValue {
+    var imageEditStateValue: ImageEditStateValue? {
+        return self.iterator().reversed().first
+    }
+}
+
+extension PHAssetItem where EditStateValueType: ImageEditStateValue {}
+
+//TODO: separate later
+public class ImageEditStateValue: Object {
+    var transform: CGAffineTransform {
+        return .identity
+    }
+    var transform3d: CATransform3D {
+        return CATransform3DIdentity
+    }
+    var ciFilter: CIFilter? {
+        return nil
+    }
+    var stabilizationMode: ImageAlignment.StabilizationMode? {
+        return nil
+    }
+}
 
 //TODO: internal / locally collect
 public final class AppAssets: NSObject {

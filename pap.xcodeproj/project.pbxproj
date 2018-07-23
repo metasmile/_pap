@@ -138,6 +138,7 @@
 		4F71D9820AE66A8CBC6B9535 /* CodeKit.UIView.GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC428EEA88994C64FF8F /* CodeKit.UIView.GestureRecognizer.swift */; };
 		4F71D994A3ECDB2185DF45EF /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D767B17EDED1C363D81D /* Numeric.swift */; };
 		4F71D9AD0D07B03569A06D55 /* App.PhotoPickerViewControllerDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D756451C76841F34DEF7 /* App.PhotoPickerViewControllerDelegatable.swift */; };
+		4F71D9B103E4D9E617FDB8A5 /* App.Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5ACD3F74B3B759BD54E /* App.Asset.swift */; };
 		4F71D9B168A56E3DDB5D830C /* Filters.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6BC03B411AB10F62128 /* Filters.BApp.swift */; };
 		4F71D9B4E8D299388E1A92B5 /* AppDockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DBEC96C298669B35221A /* AppDockViewController.swift */; };
 		4F71DA0B9AEC1B768A9A7B17 /* auto_enhance.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DAB5B25218649CB5F6C1 /* auto_enhance.png */; };
@@ -186,7 +187,6 @@
 		4F71DD451B0E57BB40808303 /* CodeKit.Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5824B6B11743968A078 /* CodeKit.Misc.swift */; };
 		4F71DD4D6A4A605B65C90B2C /* AppTaskOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEC69AB8A6AD6EF11C5E /* AppTaskOperationQueue.swift */; };
 		4F71DD60873341BE5272EABB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D495C6A50C4C97D67231 /* GoogleService-Info.plist */; };
-		4F71DD96889086A493429E3F /* AppAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0150990AE9E6B4D72A2 /* AppAssets.swift */; };
 		4F71DDA1AEBC0351DA96F2E4 /* App.UI.AssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC9B1E3F0901394FC91B /* App.UI.AssetView.swift */; };
 		4F71DDE4E61BBA7D752D8E3C /* cell_icon_burst.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D4244E62E40BB345C65F /* cell_icon_burst.png */; };
 		4F71DDEB5238D49028E356BD /* Converter.AppDockContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D55FEA084578B7A60171 /* Converter.AppDockContent.swift */; };
@@ -370,7 +370,6 @@
 		33D37ED5B737EE655DF40FEE /* Pods-pap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pap/Pods-pap.debug.xcconfig"; sourceTree = "<group>"; };
 		4F71D0043D08EE0021680D4F /* CodeKit.UIView.Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIView.Animation.swift; sourceTree = "<group>"; };
 		4F71D0149B2F38B0BCC4A992 /* ImageIO.Metadata.Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.Metadata.Util.swift; sourceTree = "<group>"; };
-		4F71D0150990AE9E6B4D72A2 /* AppAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAssets.swift; sourceTree = "<group>"; };
 		4F71D03709F50D8869D69AE7 /* App.PhotoEditorViewControllerDelegatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.PhotoEditorViewControllerDelegatable.swift; sourceTree = "<group>"; };
 		4F71D05C5F9729D98015C194 /* FileIO.UTI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileIO.UTI.swift; sourceTree = "<group>"; };
 		4F71D077D3D83619681446DA /* PHImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHImageManager.swift; sourceTree = "<group>"; };
@@ -448,6 +447,7 @@
 		4F71D5824B6B11743968A078 /* CodeKit.Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Misc.swift; sourceTree = "<group>"; };
 		4F71D590D9C96E96C3ED6669 /* Transform.BApp.Public.Contents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.BApp.Public.Contents.swift; sourceTree = "<group>"; };
 		4F71D59BE451048768EE797F /* Transform.BApp.Contents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.BApp.Contents.swift; sourceTree = "<group>"; };
+		4F71D5ACD3F74B3B759BD54E /* App.Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Asset.swift; sourceTree = "<group>"; };
 		4F71D5B00151402B775F469B /* App.Persistable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Persistable.swift; sourceTree = "<group>"; };
 		4F71D5BC4E62AAE070D85B69 /* CodeKit.UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIViewController.swift; sourceTree = "<group>"; };
 		4F71D5BE3EC7986FCBEDA9B4 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -1275,7 +1275,6 @@
 				4F71D80B973041669F583333 /* App */,
 				4F71D229236B67AFEC420BB8 /* CodeKit */,
 				4F71D4F88B56B56F3B959312 /* Imported */,
-				4F71D0150990AE9E6B4D72A2 /* AppAssets.swift */,
 				4F71D720E8D148915253E277 /* AppCenter.swift */,
 				4F71DBEC96C298669B35221A /* AppDockViewController.swift */,
 				4F71D47F20EC723F99C7D8F4 /* PhotoEditViewController.swift */,
@@ -1388,6 +1387,7 @@
 				4F71DF928C2BD1911803D81E /* AppTaskManager.swift */,
 				4F71DEC69AB8A6AD6EF11C5E /* AppTaskOperationQueue.swift */,
 				4F71DFEDA5A22CEADE72D78D /* AppTask.swift */,
+				4F71D5ACD3F74B3B759BD54E /* App.Asset.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -2960,7 +2960,6 @@
 				4F71DEB236685AB6222E02C7 /* CodeKit.MobileCoreSerivices.UTCoreTypes.swift in Sources */,
 				4F71DB6DFA22872615C35AB0 /* warp.metal in Sources */,
 				4F71D9517538EDF39287054E /* ImageAlignment.swift in Sources */,
-				4F71DD96889086A493429E3F /* AppAssets.swift in Sources */,
 				4F71DE701D89D3576571839C /* AppCenter.swift in Sources */,
 				4F71D9B4E8D299388E1A92B5 /* AppDockViewController.swift in Sources */,
 				4F71DB2B9DF220FBD8CBB497 /* PhotoEditViewController.swift in Sources */,
@@ -3066,6 +3065,7 @@
 				4F71DFE5074AF3A8EACED3B2 /* PHAssets.swift in Sources */,
 				4F71DBC8D36C8DA15A02C033 /* PhotoPickerViewController.UICollectionView.Image.swift in Sources */,
 				4F71DF8F3504A8832D659C00 /* PHImageManager.swift in Sources */,
+				4F71D9B103E4D9E617FDB8A5 /* App.Asset.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

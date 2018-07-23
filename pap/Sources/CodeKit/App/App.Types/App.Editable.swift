@@ -19,27 +19,3 @@ extension EditableApp {
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {}
 }
 
-
-//TODO: change to associatedType for all types
-extension StateValueSet where T: ImageEditStateValue {
-    var imageEditStateValue: ImageEditStateValue? {
-        return self.iterator().reversed().first
-    }
-}
-
-extension PHAssetItem where EditStateValueType: ImageEditStateValue {}
-
-public class ImageEditStateValue: Object {
-    var transform: CGAffineTransform {
-        return .identity
-    }
-    var transform3d: CATransform3D {
-        return CATransform3DIdentity
-    }
-    var ciFilter: CIFilter? {
-        return nil
-    }
-    var stabilizationMode: ImageAlignment.StabilizationMode? {
-        return nil
-    }
-}

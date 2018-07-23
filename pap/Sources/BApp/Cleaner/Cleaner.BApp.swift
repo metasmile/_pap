@@ -103,7 +103,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     private var gdInstances = [String:PHAssetGarbageDetector]()
     fileprivate var cachedResults = [PHAssetID: PHAssetGCDetectedResult]()
 
-    fileprivate func gc(item: AppAsset, cachingOption: PHAssetRequestOption?, _ async: AsyncWaitSignalable) -> PHAssetGCResult {
+    fileprivate func gc(item: AppAsset,  _ async: AsyncWaitSignalable) -> PHAssetGCResult {
 
         let gdType_Id = type(of: self).SupportingGDTypesKeys
         let gdCollection = type(of: self).privateDefaults.selectedCollection
@@ -141,7 +141,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
                 }
 
                 let detected = autoreleasepool{
-                    return detector.process(input: (asset:asset, cachingOption:cachingOption), async) ?? false
+                    return detector.process(input: item, async) ?? false
                 }
 
                 if t.shouldCacheResults {
@@ -163,10 +163,10 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     /*
     preheat
     */
-    public func performPreheating(item: AppAsset, cachingOption: PHAssetRequestOption?, _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
+    public func performPreheating(item: AppAsset,  _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
         guard self.autoSelect else { return nil }
 
-        return gc(item: item, cachingOption:cachingOption, async).action == .delete ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
+        return gc(item: item, async).action == .delete ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
@@ -213,7 +213,7 @@ private class _CleanerAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, Ap
         }
 
         if self.deletingTargetMatched {
-            return AppCenter.default.currentInstanceAs(CleanerApp.self)?.gc(item: item, cachingOption: nil, async)
+            return AppCenter.default.currentInstanceAs(CleanerApp.self)?.gc(item: item, async)
         }else{
             return PHAssetGCResult(asset: item.asset, action: .delete)
         }

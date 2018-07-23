@@ -104,7 +104,7 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
         return item.asset.mediaType == .image
     }
 
-    public func performPreheating(item: AppAsset, cachingOption: PHAssetRequestOption?, _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
+    public func performPreheating(item: AppAsset,  _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
         if self.autoSelect == false{
             return nil
         }
