@@ -27,7 +27,7 @@ struct PHAssetGCResult:AppTaskResultable {
 
 private typealias PHAssetID = String
 
-public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp, PreheatableApp {
+public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp, PHAssetCacheableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp, PreheatableApp {
     public static let taskType: AppTaskable.Type = _CleanerAppTask.self
 
     public static let paramType: AppTaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
@@ -54,6 +54,17 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
 
     public var finalizingActions: [PHAssetFinalizingAction] {
         return [.showActions]
+    }
+
+    public var needsCachingRequestOptions: [PHAssetRequestOption]? {
+        var options = [PHAssetRequestOption]()
+        let types = type(of: self).SupportingGDTypesKeys
+        for gd in type(of: self).privateDefaults.selectedCollection{
+            for gditem in gd.items{
+                options += types[gditem.gdIdentifier]?.needsCachingRequestOptions ?? []
+            }
+        }
+        return options.nilEmpty
     }
 
     public var titleWillFinalize: String? {
@@ -111,8 +122,13 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
         var action:PHAssetGCAction = .none
 
         for gd in gdCollection{
-            let ts = gd.items.filter { $0.enabled }.compactMap { gcItem -> PHAssetGarbageDetector.Type? in
+            let ts = gd.items.compactMap { gcItem -> PHAssetGarbageDetector.Type? in
+                // enabled + allowed type
+                if gcItem.enabled == false{
+                    return nil
+                }
                 return gdType_Id[gcItem.gdIdentifier]
+
             }.sorted { (detectorType: PHAssetGarbageDetector.Type, detectorType2: PHAssetGarbageDetector.Type) -> Bool in
                 detectorType.priority.rawValue > detectorType2.priority.rawValue
             }
@@ -124,9 +140,9 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
 
                 //found cached result
                 if let detectedResult = cachedResults[aid]
-                , let detected = detectedResult[k]{
+                , let detectedAction = detectedResult[k]{
 
-                    action = detected ? .delete: .none
+                    action = detectedAction ? .delete: .none
                     break
                 }
 

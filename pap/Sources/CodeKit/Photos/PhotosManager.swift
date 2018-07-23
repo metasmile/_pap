@@ -97,7 +97,7 @@ private class _PHCachingImageManager_Debug: PHCachingImageManager {
                 }
 
                 if mSizeSet.count>0{
-                    print("[i] INFO: Caching image with size \(String(describing: mSizeSet)) is already exist, but it tries to add other size \(String(describing: size)). If the sizes are not too different, consider to use one of them.")
+                    print("[i] INFO: New caching image size \(String(describing: size)) is being newly added into -> \(String(describing: mSizeSet)) ")
                 }
 
                 mSizeSet.insert(size)
@@ -110,7 +110,7 @@ private class _PHCachingImageManager_Debug: PHCachingImageManager {
 
     override func requestImage(for asset: PHAsset, targetSize: CGSize, contentMode: PHImageContentMode, options: PHImageRequestOptions?, resultHandler: @escaping (UIImage?, [AnyHashable: Any]?) -> Void) -> PHImageRequestID {
         if let sizeSet = targetSizesByAsset[asset.localIdentifier], sizeSet.count>0, sizeSet.contains(targetSize) == false{
-            print("[i] INFO: Caching image with size \(String(describing: sizeSet)) is already exist, but requested size \(targetSize) is trying to add new size.")
+            print("[i] INFO: New caching image size \(String(describing: targetSize)) is being newly added into -> \(String(describing: sizeSet)) ")
         }
         return super.requestImage(for: asset, targetSize: targetSize, contentMode: contentMode, options: options, resultHandler: resultHandler)
     }

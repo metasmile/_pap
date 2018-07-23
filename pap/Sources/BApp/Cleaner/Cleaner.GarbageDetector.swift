@@ -1,5 +1,5 @@
 //
-// Created by BL?ACKGENE on 10.07.18.
+// Created by BL?ACKGENE on 10.?07.18.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
@@ -51,6 +51,10 @@ class PHAssetGarbageDetector : NSObject, _PHAssetGarbageDetector{
 
     class var iconImageShouldUseTintColor:Bool{
         return true
+    }
+
+    class var needsCachingRequestOptions: [PHAssetRequestOption]?{
+        return nil
     }
 
     func process(input: GarbageDetectorInput, _ asyncSignal: AsyncWaitSignalable) -> Bool? {
@@ -316,10 +320,20 @@ class PHAssetGarbageDetector_Similarity: PHAssetGarbageDetector{
 //        return false
 //    }
 
+    private static var samplingImageReqOption:PHImageRequestOptions = { () -> PHImageRequestOptions in
+        var option = PHImageRequestOptions()
+        option.resizeMode = .fast
+        return option
+    }()
+
+    override class var needsCachingRequestOptions: [PHAssetRequestOption]?{
+        return [(targetSize: samplingImageSize , contentMode: .aspectFit, options: samplingImageReqOption)]
+    }
+
     private var targetAssets = [PHAsset:Set<String>]()
     private let imageHashing = OSImageHashing.sharedInstance()
 
-    private let samplingImageSize = CGSize(width:100,height:100)
+    static let samplingImageSize = CGSize(width:100,height:100)
     private let maxTimeRangeAsADay:TimeInterval = 60*60*24
     private let similarityThreshold = 12 //TODO: users can select restricion ratio.
 
@@ -353,7 +367,17 @@ class PHAssetGarbageDetector_Similarity: PHAssetGarbageDetector{
             var cachingHostAssetData:Data?
             var cachingInputAssetData:Data?
 
-            if let cachingOption = input.cachingRequestOptions?.first{ //TODO: not first, pick the best one for this.
+            let matchedRequestOptionCachingSampleImage = input.cachingRequestOptions?.first { size, mode, options in
+                return size==type(of: self).samplingImageSize
+            }
+
+            #if DEBUG
+                if matchedRequestOptionCachingSampleImage == nil{
+                    print("[!] WARNING: samplingImage is not caching")
+                }
+            #endif
+
+            if let cachingOption = matchedRequestOptionCachingSampleImage{
                 let currentQueue = DispatchQueue.current
                 asyncSignal.begin()
                 PhotosManager.default.cachingImageManager.requestImage(for: hostAsset, option: cachingOption) { image, info in
@@ -379,8 +403,8 @@ class PHAssetGarbageDetector_Similarity: PHAssetGarbageDetector{
             var _hostAssetData:Data? = cachingHostAssetData
             var _inputData:Data? = cachingInputAssetData
             if _hostAssetData == nil || _inputData == nil{
-                _hostAssetData = hostAsset.requestThumbnailImage(targetSize: samplingImageSize)?.asData
-                _inputData = inputAsset.requestThumbnailImage(targetSize: samplingImageSize)?.asData
+                 _hostAssetData = hostAsset.requestThumbnailImage(targetSize: type(of: self).samplingImageSize)?.asData
+                _inputData = inputAsset.requestThumbnailImage(targetSize: type(of: self).samplingImageSize)?.asData
             }
 
             guard let hostAssetData = _hostAssetData
