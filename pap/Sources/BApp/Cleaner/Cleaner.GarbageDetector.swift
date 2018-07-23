@@ -382,27 +382,28 @@ class PHAssetGarbageDetector_Similarity: PHAssetGarbageDetector{
                 asyncSignal.begin()
                 PhotosManager.default.cachingImageManager.requestImage(for: hostAsset, option: cachingOption) { image, info in
                     guard (info?[PHImageResultIsDegradedKey] as? Bool) != true else { return }
-                    currentQueue.async{
+                    currentQueue.async {
                         cachingHostAssetData = image?.asData
                         asyncSignal.end()
                     }
                 }
-                asyncSignal.waitUntilEnd()
+                if asyncSignal.began{ asyncSignal.waitUntilEnd() } //INFO: if cachingHostAssetData already cached, it will be directly returned.
 
                 asyncSignal.begin()
                 PhotosManager.default.cachingImageManager.requestImage(for: inputAsset, option: cachingOption) { image, info in
                     guard (info?[PHImageResultIsDegradedKey] as? Bool) != true else { return }
-                    currentQueue.async{
+                    currentQueue.async {
                         cachingInputAssetData = image?.asData
                         asyncSignal.end()
                     }
                 }
-                asyncSignal.waitUntilEnd()
+                if asyncSignal.began{ asyncSignal.waitUntilEnd() }
             }
 
             var _hostAssetData:Data? = cachingHostAssetData
             var _inputData:Data? = cachingInputAssetData
             if _hostAssetData == nil || _inputData == nil{
+                print("[!] WARNING: cachingAsset data is missiong.",cachingHostAssetData ?? "cachingHostAssetData-nil",cachingHostAssetData ?? "cachingHostAssetData-nil")
                  _hostAssetData = hostAsset.requestThumbnailImage(targetSize: type(of: self).samplingImageSize)?.asData
                 _inputData = inputAsset.requestThumbnailImage(targetSize: type(of: self).samplingImageSize)?.asData
             }
