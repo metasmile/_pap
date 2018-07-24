@@ -1,5 +1,5 @@
 //
-// Created by BLACKGENE on 19.07.18.
+// Created by BL?ACKGENE on 19.07.18.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
@@ -12,7 +12,6 @@ import DefaultsKit
     TODO: make this as AppCenter.chargeManager
 */
 private protocol ChargeDefaults:DefaultsProperty{
-    var currentChargeType: ChargeType {set get}
     var balance: Double {set get}
 }
 
@@ -25,16 +24,6 @@ extension Defaults: ChargeDefaults {
             assert(false,"charged balance is allowed only 0...1")
         }
         get { return get(or:0) }
-    }
-
-//    fileprivate var currentChargeType: ChargeType {
-//        set{ set(newValue.rawValue) }
-//        get { return ChargeType(rawValue: get(or: ChargeType.inStoreRating.rawValue))! }
-//    }
-
-    fileprivate var currentChargeType: ChargeType {
-        set{ set(newValue) }
-        get { return get(or: ChargeType.inStoreRating) }
     }
 }
 
@@ -55,48 +44,142 @@ enum ChargeType:Int, Codable {
     case renewableYearlySubscription
 }
 
-class ChargeManager {
+enum RewardType:Int, Codable {
+    case timeOfUses
+    case countOfUses
+    case owned
+}
 
-    private var defaults: ChargeDefaults = Defaults(userDefaults: UserDefaults(suiteName: String(describing: ChargeManager.self)) ?? UserDefaults.standard)
+typealias ChargeableObject = Chargeable & ChargeableDisplayInfo
 
-    fileprivate static let `default` = ChargeManager(scheme:[
-        ChargeType.inStoreRating: 0.5
-        , ChargeType.onPromptRating: 0.3
-        , ChargeType.socialShare: 0.2
-        , ChargeType.feedback: 1
-    ])
+struct ChargeableItem:Chargeable{
+    let type: ChargeType
+    let reward: RewardType
+}
 
-    private let scheme:[ChargeType:Double] // type: price
+protocol Chargeable {
+    var type: ChargeType {get}
+    var reward:RewardType {get}
+}
 
-    init(scheme:[ChargeType:Double]){
-        self.scheme = scheme
+extension Chargeable{
+    func isEqual(other:Chargeable) -> Bool{
+        return reward==other.reward && type==other.type
     }
+}
 
-    func pay(for payable: Payable){
-        if let price = getPrice(for: payable){
-            defaults.balance += clamp(price, 0, 1-defaults.balance)
-        }
-    }
+protocol ChargeableDisplayInfo {
+    var title:String {get}
+    var description:String? {get}
+}
 
-    func getPrice(for payable: Payable) -> Double?{
-        return scheme[payable.type]
-    }
+fileprivate protocol _Chargeable {
+    var price:Double {get}
+}
 
-    func isCharged(for payable:Payable) -> Bool{
-        return getPrice(for: payable) ?? 0 > defaults.balance
-    }
-
-    var balance:Double{
-        return defaults.balance
-    }
-
-    //TODO: balance consumption
-    //TODO: consumption unit date, app use count etc.
+fileprivate struct ChargeSchemeItem: Chargeable, _Chargeable, ChargeableDisplayInfo {
+    let type: ChargeType
+    let price:Double
+    let reward: RewardType
+    let title: String
+    let description: String?
 }
 
 protocol Payable {
-    var type: ChargeType {get}
+    static var charge: Chargeable {get}
+
+    func pay(_ asyncSignal:AsyncWaitSignalable) -> Bool
+
+    init()
 }
+
+class ChargeManager:NSObject, KeyPathWatchable{
+
+    private let payingQueue:DispatchQueue = DispatchQueue(label: String(describing: ChargeManager.self))
+    private var defaults: ChargeDefaults = Defaults(userDefaults: UserDefaults(suiteName: String(describing: ChargeManager.self)) ?? UserDefaults.standard)
+
+    fileprivate static let `default` = ChargeManager(scheme:[
+        ChargeSchemeItem(type: .inStoreRating, price: 0.5, reward: .timeOfUses, title:"AppStore Rating", description:nil)
+        , ChargeSchemeItem(type: .onPromptRating, price: 0.3, reward: .timeOfUses, title:"AppStore Rating", description:nil)
+        , ChargeSchemeItem(type: .socialShare, price: 0.2, reward: .timeOfUses, title:"AppStore Rating", description:nil)
+        , ChargeSchemeItem(type: .feedback, price: 1, reward: .timeOfUses, title:"AppStore Rating", description:nil)
+    ].dictionary { (item: ChargeSchemeItem) -> ChargeType in
+        return item.type
+    })
+
+    private let scheme:[ChargeType: ChargeSchemeItem] // type: price
+
+    private init(scheme:[ChargeType: ChargeSchemeItem]){
+        self.scheme = scheme
+    }
+
+    private func commitBalance(addingPrice:Double){
+        defaults.balance += addingPrice
+        self.balance = defaults.balance
+    }
+
+    //INFO: watchable + read-only. Don't directly access. Use commitBalance()
+    @objc dynamic
+    private(set) lazy var balance:Double = self.defaults.balance
+
+    func pay(for payable: Payable.Type, _ asyncSignal:AsyncWaitSignalable=AsyncSignal()){
+        if let price = getPrice(for: payable){
+            let currentBalance = self.defaults.balance
+            payingQueue.async{
+                if payable.init().pay(asyncSignal){
+
+                    DispatchQueue.main.async{
+                        self.commitBalance(addingPrice: clamp(price, 0, 1-currentBalance))
+                    }
+                }
+            }
+        }
+    }
+
+    private func getChargeScheme(for payable: Payable.Type) -> ChargeSchemeItem?{
+        return scheme.values.first { item in
+            return (item as Chargeable).isEqual(other: payable.charge)
+        }
+    }
+
+    func getPrice(for payable: Payable.Type) -> Double?{
+        return getChargeScheme(for: payable)?.price
+    }
+
+    func getChargeInfo(for payable: Payable.Type) -> ChargeableDisplayInfo?{
+        return getChargeScheme(for: payable)
+    }
+
+    func isCharged(for payable:Payable.Type) -> Bool{
+        //TODO: consumption unit date, app use count etc.
+        return balance > getPrice(for: payable) ?? 0
+    }
+
+    func getCharge(for payable: Payable.Type) -> ChargeableObject?{
+        return getChargeScheme(for: payable)
+    }
+
+    func getRemainingCharges() -> [ChargeableObject]{
+        if balance==0{
+            return []
+        }
+
+        let cheapFirstItems = scheme.values.sorted { (item: ChargeSchemeItem, item2: ChargeSchemeItem) -> Bool in
+            return item.price < item2.price
+        }
+        var remainingCharges = [ChargeSchemeItem]()
+        var bal = self.balance
+        for item in cheapFirstItems {
+            bal += item.price
+            if bal > 1{
+                break
+            }
+            remainingCharges.append(item)
+        }
+        return remainingCharges
+    }
+}
+
 
 enum PhotoPickerViewControllerRightBarButtonState {
     case unpaidDeselected
@@ -115,34 +198,62 @@ private class PhotoPickerViewControllerChargeableAssets {
     fileprivate lazy var feedbackButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
 }
 
+struct Payable_InAppStoreRating:Payable{
+    static let charge:Chargeable = ChargeableItem(type: .inStoreRating, reward: .timeOfUses)
+
+    func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
+        var paid = false
+        asyncSignal.begin()
+
+        Armchair.onDidDismissModalView { b in
+            paid = true
+            asyncSignal.end()
+
+            Armchair.onDidDismissModalView(nil)
+        }
+        DispatchQueue.main.async{
+            Armchair.rateApp()
+        }
+        asyncSignal.waitUntilEnd()
+        return paid
+    }
+}
+
+struct Payable_OnPromptRating:Payable{
+    static let charge:Chargeable = ChargeableItem(type: .onPromptRating, reward: .timeOfUses)
+
+    func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
+        var paid = false
+        asyncSignal.begin()
+
+        DispatchQueue.main.async{
+            Armchair.showPrompt { info in
+                paid = true
+                asyncSignal.end()
+                return true
+            }
+        }
+
+        asyncSignal.waitUntilEnd()
+        return paid
+    }
+}
+
 extension PhotoPickerViewController{
 
     @discardableResult
     func updateRightButtonState() -> PhotoPickerViewControllerRightBarButtonState {
-        if self.estimatedAvailableSelectedItems <= 0 {
 
-            let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.inStoreRatingButton
-//            switch Defaults.shared.chargeablePhase {
-//                case .inStoreRating:
-//                    rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.inStoreRatingButton
-//                case .onPromptRating:
-//                    rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.onPromptRatingButton
-//                case .socialShare:
-//                    rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.socialShareButton
-//                case .feedback:
-//                    rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.feedbackButton
-//                default:
-//                    break
-//            }
-
-            rightButtonItem.target = self
-            rightButtonItem.action = #selector(self.chargeableButtonDidTap)
-            navigationItem.setRightBarButton(rightButtonItem, animated: true)
-            return .unpaidDeselected
+        if self.estimatedAvailableSelectedItems > 0 && ChargeManager.default.balance > 0 {
+            navigationItem.setRightBarButton(self.doneButton, animated: true)
+            return .paidSelected
         }
 
-        navigationItem.setRightBarButton(self.doneButton, animated: true)
-        return .paidSelected
+        let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.inStoreRatingButton
+        rightButtonItem.target = self
+        rightButtonItem.action = #selector(self.chargeableButtonDidTap)
+        navigationItem.setRightBarButton(rightButtonItem, animated: true)
+        return .unpaidDeselected
     }
 
     @objc fileprivate func chargeableButtonDidTap(sender: UIButton) {
@@ -156,64 +267,16 @@ extension PhotoPickerViewController{
 //                }, completion: nil)
 //            }
 //        }
-        
-        switch Defaults.shared.currentChargeType {
-            case .inStoreRating:
-                self.chargeableButtonDidTap_inStoreRating()
-            case .onPromptRating:
-                self.chargeableButtonDidTap_onPromptRating()
-            case .socialShare:
-                self.chargeableButtonDidTap_socialShare()
-            case .feedback:
-                self.chargeableButtonDidTap_feedback()
-            default: break
-        }
-    }
 
-    private func shiftNextChargeablePhase(){
-        let nextPhase: ChargeType
-
-        if let isRatedCurrentVersion = Armchair.userDefaultsObject()?.boolForKey(keyForArmchairKeyType(ArmchairKey.RatedCurrentVersion)), isRatedCurrentVersion {
-            switch Defaults.shared.currentChargeType {
+        for charge in ChargeManager.default.getRemainingCharges() {
+            switch charge.type {
                 case .inStoreRating:
-                    nextPhase = .onPromptRating
+                    ChargeManager.default.pay(for: Payable_InAppStoreRating.self)
                 case .onPromptRating:
-                    nextPhase = .socialShare
-                case .socialShare:
-                    nextPhase = .feedback
-                case .feedback:
-                    nextPhase = .feedback
-                default:
-                    nextPhase = .feedback
-                    break
+                    ChargeManager.default.pay(for: Payable_InAppStoreRating.self)
+                default: break
             }
-        }else{
-            nextPhase = .inStoreRating
         }
-
-        Defaults.shared.currentChargeType = nextPhase
-        self.updateRightButtonState()
-    }
-
-    private func chargeableButtonDidTap_inStoreRating() {
-        Armchair.onDidDismissModalView { b in
-            self.shiftNextChargeablePhase()
-            Armchair.onDidDismissModalView(nil)
-        }
-        Armchair.rateApp()
-    }
-
-    private func chargeableButtonDidTap_onPromptRating() {
-        Armchair.showPrompt { info in
-            self.shiftNextChargeablePhase()
-            return true
-        }
-    }
-
-    private func chargeableButtonDidTap_socialShare() {
-    }
-
-    private func chargeableButtonDidTap_feedback() {
     }
 }
 
