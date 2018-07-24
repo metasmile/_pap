@@ -8,9 +8,9 @@ import Photos
 
 public protocol PHAssetParamable: AppTaskParamable {
     var asset: PHAsset { get }
-    var indexPath:IndexPath? { set get }
-    var requestIDs:[PHAssetRequestID] { get }
-    var cachingRequestOptions:[PHAssetRequestOption]? {set get}
+    var indexPath:IndexPath? { get }
+    var requestIDs:[PHAssetRequestID]? { get }
+    var cachingRequestOptions:[PHAssetRequestOption]? { get }
 
     init(_ asset: PHAsset)
     init(_ asset: PHAsset, indexPath:IndexPath?)
@@ -19,6 +19,29 @@ public protocol PHAssetParamable: AppTaskParamable {
 public protocol PHAssetResultable: AppTaskResultable {
     var asset: PHAsset { get }
     var contentEditingOutput: PHContentEditingOutput?  { get }
+}
+
+public struct PHAssetItem: PHAssetParamable{ //Non-mutable PHAsset VO
+
+    public let asset: PHAsset
+    public let indexPath: IndexPath?
+    public let requestIDs: [PHAssetRequestID]?
+    public let cachingRequestOptions: [PHAssetRequestOption]?
+
+    public init(_ asset: PHAsset) {
+        self.init(asset)
+    }
+
+    public init(_ asset: PHAsset, indexPath: IndexPath?) {
+        self.init(asset,indexPath:indexPath)
+    }
+
+    public init(_ asset: PHAsset, indexPath: IndexPath?=nil, requestIDs:[PHAssetRequestID]?=nil, cachingRequestOptions:[PHAssetRequestOption]?=nil) {
+        self.asset = asset
+        self.indexPath = indexPath
+        self.requestIDs = requestIDs
+        self.cachingRequestOptions = cachingRequestOptions
+    }
 }
 
 public struct PHAssetResultItem: PHAssetResultable {
@@ -44,10 +67,6 @@ public struct AppAssetItemProgressNotification {
         NotificationCenter.default.post(name: PHAssetProgressNotification.Name.progressChanged, object: self, userInfo: userInfo)
     }
 }
-
-//public struct AppAssetItem: PHAssetParamable{
-//
-//}
 
 public struct PHAssetRequestID {
     enum DefaultValue{

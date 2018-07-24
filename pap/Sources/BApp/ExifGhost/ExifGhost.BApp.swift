@@ -126,7 +126,7 @@ private class _ExifGhostAppTask: AppTaskPrototype, AppTaskable {
             async.end()
         }
 
-        param.requestIDs += [PHAssetRequestID(forEditingInput: id)]
+        param.requestIDs? += [PHAssetRequestID(forEditingInput: id)]
 
         async.waitUntilEnd()
         return result

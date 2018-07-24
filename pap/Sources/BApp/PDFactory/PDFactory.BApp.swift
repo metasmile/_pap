@@ -186,7 +186,7 @@ private class _PDFactoryAppTask: AppTaskPrototype, AppTaskable {
                 async.end()
             }
 
-            appAsset.requestIDs += [PHAssetRequestID(forImage:imageRequestID)]
+            appAsset.requestIDs? += [PHAssetRequestID(forImage:imageRequestID)]
             async.waitUntilEnd()
 
             //read metadata
@@ -208,7 +208,7 @@ private class _PDFactoryAppTask: AppTaskPrototype, AppTaskable {
                     }
                     async.end()
                 }
-                appAsset.requestIDs += [PHAssetRequestID(forEditingInput: editingInputId)]
+                appAsset.requestIDs? += [PHAssetRequestID(forEditingInput: editingInputId)]
                 async.waitUntilEnd()
             }
 

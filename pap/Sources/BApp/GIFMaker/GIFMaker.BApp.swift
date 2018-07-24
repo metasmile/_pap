@@ -351,7 +351,7 @@ private class _GIFMakerAppTask: AppTaskPrototype, AppTaskable {
             if let image = response.1 {
                 let cachedAsset = LocalCachedAsset(assetItem.asset, image: image, targetSize: targetSize, imageQuality: CGFloat(defaults.gifQuality))
                 result = GIFMakerPHAssetResult(fileURL: cachedAsset.imageFileURL, orderedIndex: AppAssets.selected.index(of: assetItem))
-                assetItem.requestIDs += [PHAssetRequestID(forImage:response.0)]
+                assetItem.requestIDs? += [PHAssetRequestID(forImage:response.0)]
             }
         case .burst?:
             let converter = GifConverter_Burst()

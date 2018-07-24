@@ -137,7 +137,7 @@ extension AppAssetItem {
 
         NotificationCenter.default.addObserver(forName: RemoteSourceFetchNotification.Name.fetchBagan, object: asset, queue: nil) { notification in
             if let _requestId = notification.userInfo?[RemoteSourceFetchNotification.UserInfo.Key.imageRequestID] as? PHImageRequestID{
-                self.requestIDs.append(PHAssetRequestID(forImage:_requestId))
+                self.requestIDs?.append(PHAssetRequestID(forImage:_requestId))
             }
         }
 
@@ -155,13 +155,13 @@ extension AppAssetItem {
             }
         }() {
 
-            self.requestIDs += requestIDs
+            self.requestIDs? += requestIDs
         }
     }
 
     func cancelAllRequestIDs() {
         
-        for req in requestIDs{
+        for req in requestIDs ?? []{
             if req.forImage != PHAssetRequestID.DefaultValue.forImage{
                 PHImageManager.default().cancelImageRequest(req.forImage)
             }

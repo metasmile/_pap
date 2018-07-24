@@ -68,7 +68,7 @@ class JpgConverter_ScreenshotPng: OptionableConverterBase<JpgConverterOption>, J
             async.end()
         }
 
-        source.requestIDs.append(PHAssetRequestID(forImage: requestId))
+        source.requestIDs?.append(PHAssetRequestID(forImage: requestId))
         async.waitUntilEnd()
         return result
     }

@@ -13,7 +13,7 @@ public typealias AppAsset = AppAssetItem<ImageEditStateValue>
 public class AppAssetItem<StateValueType:Hashable>: ItemObject, PHAssetParamable {
     public var asset: PHAsset
     public var indexPath:IndexPath?
-    public var requestIDs = [PHAssetRequestID]()
+    public var requestIDs:[PHAssetRequestID]? = [PHAssetRequestID]()
     public var cachingRequestOptions:[PHAssetRequestOption]?
     public var editState = StateValueSet<StateValueType>()
 
