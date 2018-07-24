@@ -11,13 +11,34 @@ import DefaultsKit
 /*
     TODO: make this as AppCenter.chargeManager
 */
-
-enum PhotoPickerViewControllerRightBarButtonState {
-    case unpaidDeselected
-    case paidSelected
+private protocol ChargeDefaults:DefaultsProperty{
+    var currentChargeType: ChargeType {set get}
+    var balance: Double {set get}
 }
 
-fileprivate enum ChargeType:Int {
+extension Defaults: ChargeDefaults {
+    fileprivate var balance: Double {
+        set{
+            if newValue>=0.0 && newValue<=1.0 {
+                set(newValue)
+            }
+            assert(false,"charged balance is allowed only 0...1")
+        }
+        get { return get(or:0) }
+    }
+
+//    fileprivate var currentChargeType: ChargeType {
+//        set{ set(newValue.rawValue) }
+//        get { return ChargeType(rawValue: get(or: ChargeType.inStoreRating.rawValue))! }
+//    }
+
+    fileprivate var currentChargeType: ChargeType {
+        set{ set(newValue) }
+        get { return get(or: ChargeType.inStoreRating) }
+    }
+}
+
+enum ChargeType:Int, Codable {
     //promotional
     case inStoreRating
     case onPromptRating
@@ -34,15 +55,52 @@ fileprivate enum ChargeType:Int {
     case renewableYearlySubscription
 }
 
-fileprivate protocol ChargeableDefaults:DefaultsProperty{
-    var currentChargeType: ChargeType {set get}
+class ChargeManager {
+
+    private var defaults: ChargeDefaults = Defaults(userDefaults: UserDefaults(suiteName: String(describing: ChargeManager.self)) ?? UserDefaults.standard)
+
+    fileprivate static let `default` = ChargeManager(scheme:[
+        ChargeType.inStoreRating: 0.5
+        , ChargeType.onPromptRating: 0.3
+        , ChargeType.socialShare: 0.2
+        , ChargeType.feedback: 1
+    ])
+
+    private let scheme:[ChargeType:Double] // type: price
+
+    init(scheme:[ChargeType:Double]){
+        self.scheme = scheme
+    }
+
+    func pay(for payable: Payable){
+        if let price = getPrice(for: payable){
+            defaults.balance += clamp(price, 0, 1-defaults.balance)
+        }
+    }
+
+    func getPrice(for payable: Payable) -> Double?{
+        return scheme[payable.type]
+    }
+
+    func isCharged(for payable:Payable) -> Bool{
+        return getPrice(for: payable) ?? 0 > defaults.balance
+    }
+
+    var balance:Double{
+        return defaults.balance
+    }
+
+    //TODO: balance consumption
+    //TODO: consumption unit date, app use count etc.
 }
 
-extension Defaults: ChargeableDefaults {
-    fileprivate var currentChargeType: ChargeType {
-        set{ set(newValue.rawValue) }
-        get { return ChargeType(rawValue: get(or: ChargeType.inStoreRating.rawValue))! }
-    }
+protocol Payable {
+    var type: ChargeType {get}
+}
+
+enum PhotoPickerViewControllerRightBarButtonState {
+    case unpaidDeselected
+    case paidSelected
 }
 
 private class PhotoPickerViewControllerChargeableAssets {
