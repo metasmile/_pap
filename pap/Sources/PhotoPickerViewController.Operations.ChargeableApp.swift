@@ -9,7 +9,7 @@ import Armchair
 import DefaultsKit
 
 /*
-    dirty policy code in here.
+    TODO: make this as AppCenter.chargeManager
 */
 
 enum PhotoPickerViewControllerRightBarButtonState {
@@ -17,26 +17,36 @@ enum PhotoPickerViewControllerRightBarButtonState {
     case paidSelected
 }
 
-fileprivate enum PayablePhaseForFree:Int {
-    case inStoreRating // heavy
-    case onPromptRating //light
-    case socialShare //fucking light no share no use
-    case messageUs //then, finally, you can have a permission to message us.
+fileprivate enum ChargeType:Int {
+    //promotional
+    case inStoreRating
+    case onPromptRating
+    case socialShare
+    case feedback
+    case ads
+
+    //paid
+    case nonConsumablePurchase
+    case consumablePurchase
+    case nonRenewingMonthlySubscription
+    case nonRenewingYearlySubscription
+    case renewableMonthlySubscription
+    case renewableYearlySubscription
 }
 
-fileprivate protocol PayableDefaults:DefaultsProperty{
-    var rightButtonPayablePhase: PayablePhaseForFree {set get}
+fileprivate protocol ChargeableDefaults:DefaultsProperty{
+    var currentChargeType: ChargeType {set get}
 }
 
-extension Defaults:PayableDefaults {
-    fileprivate var rightButtonPayablePhase: PayablePhaseForFree {
+extension Defaults: ChargeableDefaults {
+    fileprivate var currentChargeType: ChargeType {
         set{ set(newValue.rawValue) }
-        get { return PayablePhaseForFree(rawValue: get(or: PayablePhaseForFree.inStoreRating.rawValue))! }
+        get { return ChargeType(rawValue: get(or: ChargeType.inStoreRating.rawValue))! }
     }
 }
 
-private class PhotoPickerViewControllerPayableAssets{
-    static let shared: PhotoPickerViewControllerPayableAssets = PhotoPickerViewControllerPayableAssets()
+private class PhotoPickerViewControllerChargeableAssets {
+    static let shared: PhotoPickerViewControllerChargeableAssets = PhotoPickerViewControllerChargeableAssets()
 
     fileprivate lazy var inStoreRatingButton = UIBarButtonItem(image: R.image.systemIconFavoriteLine(), style: .plain, target: self, action: nil)
 
@@ -44,7 +54,7 @@ private class PhotoPickerViewControllerPayableAssets{
 
     fileprivate lazy var socialShareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: nil)
 
-    fileprivate lazy var messageUsButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
+    fileprivate lazy var feedbackButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
 }
 
 extension PhotoPickerViewController{
@@ -53,20 +63,22 @@ extension PhotoPickerViewController{
     func updateRightButtonState() -> PhotoPickerViewControllerRightBarButtonState {
         if self.estimatedAvailableSelectedItems <= 0 {
 
-            let rightButtonItem:UIBarButtonItem
-            switch Defaults.shared.rightButtonPayablePhase{
-            case .inStoreRating:
-                rightButtonItem = PhotoPickerViewControllerPayableAssets.shared.inStoreRatingButton
-            case .onPromptRating:
-                rightButtonItem = PhotoPickerViewControllerPayableAssets.shared.onPromptRatingButton
-            case .socialShare:
-                rightButtonItem = PhotoPickerViewControllerPayableAssets.shared.socialShareButton
-            case .messageUs:
-                rightButtonItem = PhotoPickerViewControllerPayableAssets.shared.messageUsButton
-            }
+            let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.inStoreRatingButton
+//            switch Defaults.shared.chargeablePhase {
+//                case .inStoreRating:
+//                    rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.inStoreRatingButton
+//                case .onPromptRating:
+//                    rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.onPromptRatingButton
+//                case .socialShare:
+//                    rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.socialShareButton
+//                case .feedback:
+//                    rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.feedbackButton
+//                default:
+//                    break
+//            }
 
             rightButtonItem.target = self
-            rightButtonItem.action = #selector(self.payableButtonDidTap)
+            rightButtonItem.action = #selector(self.chargeableButtonDidTap)
             navigationItem.setRightBarButton(rightButtonItem, animated: true)
             return .unpaidDeselected
         }
@@ -75,11 +87,11 @@ extension PhotoPickerViewController{
         return .paidSelected
     }
 
-    @objc fileprivate func payableButtonDidTap(sender: UIButton) {
+    @objc fileprivate func chargeableButtonDidTap(sender: UIButton) {
 //        if let vc = R.storyboard.appStoryboard.pricingViewController() {
 //            vc.delegate = self
 //            self.present(vc, animated: true, completion: nil)
-//            
+//
 //            if let dimmedView = (navigationController as? AppDockNavigationController)?.dimmedView{
 //                UIView.transition(with: dimmedView, duration: 0.4, options: .transitionCrossDissolve, animations: {
 //                    dimmedView.isHidden = false
@@ -87,60 +99,63 @@ extension PhotoPickerViewController{
 //            }
 //        }
         
-        switch Defaults.shared.rightButtonPayablePhase{
+        switch Defaults.shared.currentChargeType {
             case .inStoreRating:
-                self.payableButtonDidTap_inStoreRating()
+                self.chargeableButtonDidTap_inStoreRating()
             case .onPromptRating:
-                self.payableButtonDidTap_onPromptRating()
+                self.chargeableButtonDidTap_onPromptRating()
             case .socialShare:
-                self.payableButtonDidTap_socialShare()
-            case .messageUs:
-                self.payableButtonDidTap_messageUs()
+                self.chargeableButtonDidTap_socialShare()
+            case .feedback:
+                self.chargeableButtonDidTap_feedback()
+            default: break
         }
     }
 
-    private func shiftNextPayablePhase(){
-        let nextPhase: PayablePhaseForFree
+    private func shiftNextChargeablePhase(){
+        let nextPhase: ChargeType
 
         if let isRatedCurrentVersion = Armchair.userDefaultsObject()?.boolForKey(keyForArmchairKeyType(ArmchairKey.RatedCurrentVersion)), isRatedCurrentVersion {
-            switch Defaults.shared.rightButtonPayablePhase{
+            switch Defaults.shared.currentChargeType {
                 case .inStoreRating:
                     nextPhase = .onPromptRating
                 case .onPromptRating:
                     nextPhase = .socialShare
                 case .socialShare:
-                    nextPhase = .messageUs
-                case .messageUs:
-                    nextPhase = .messageUs
+                    nextPhase = .feedback
+                case .feedback:
+                    nextPhase = .feedback
+                default:
+                    nextPhase = .feedback
+                    break
             }
         }else{
             nextPhase = .inStoreRating
         }
 
-        Defaults.shared.rightButtonPayablePhase = nextPhase
-        print("shiftNextPayablePhase", nextPhase)
+        Defaults.shared.currentChargeType = nextPhase
         self.updateRightButtonState()
     }
 
-    private func payableButtonDidTap_inStoreRating() {
+    private func chargeableButtonDidTap_inStoreRating() {
         Armchair.onDidDismissModalView { b in
-            self.shiftNextPayablePhase()
+            self.shiftNextChargeablePhase()
             Armchair.onDidDismissModalView(nil)
         }
         Armchair.rateApp()
     }
 
-    private func payableButtonDidTap_onPromptRating() {
+    private func chargeableButtonDidTap_onPromptRating() {
         Armchair.showPrompt { info in
-            self.shiftNextPayablePhase()
+            self.shiftNextChargeablePhase()
             return true
         }
     }
 
-    private func payableButtonDidTap_socialShare() {
+    private func chargeableButtonDidTap_socialShare() {
     }
 
-    private func payableButtonDidTap_messageUs() {
+    private func chargeableButtonDidTap_feedback() {
     }
 }
 
