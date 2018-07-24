@@ -20,8 +20,9 @@ extension Defaults: ChargeDefaults {
         set{
             if newValue>=0.0 && newValue<=1.0 {
                 set(newValue)
+            }else{
+                assert(false,"charged balance is allowed only 0...1")
             }
-            assert(false,"charged balance is allowed only 0...1")
         }
         get { return get(or:0) }
     }
@@ -93,10 +94,10 @@ protocol Payable {
     init()
 }
 
-class ChargeManager:NSObject, KeyPathWatchable{
+class ChargeManager: NSObject, KeyPathWatchable{
 
     private let payingQueue:DispatchQueue = DispatchQueue(label: String(describing: ChargeManager.self))
-    private var defaults: ChargeDefaults = Defaults(userDefaults: UserDefaults(suiteName: String(describing: ChargeManager.self)) ?? UserDefaults.standard)
+    private var defaults: ChargeDefaults
 
     fileprivate static let `default` = ChargeManager(scheme:[
         ChargeSchemeItem(type: .inStoreRating, price: 0.5, reward: .timeOfUses, title:"AppStore Rating", description:nil)
@@ -111,26 +112,34 @@ class ChargeManager:NSObject, KeyPathWatchable{
 
     private init(scheme:[ChargeType: ChargeSchemeItem]){
         self.scheme = scheme
+        self.defaults = Defaults(userDefaults: UserDefaults(suiteName: String(describing: ChargeManager.self)) ?? UserDefaults.standard)
+
+        #if DEBUG
+        //INFO: FOR DEBUG FOR DEBUG FOR DEBUG FOR DEBUG FOR DEBUG FOR DEBUG FOR DEBUG
+        self.defaults.balance = 0
+        #endif
+        self.balance = self.defaults.balance
     }
 
-    private func commitBalance(addingPrice:Double){
-        defaults.balance += addingPrice
-        self.balance = defaults.balance
-    }
-
-    //INFO: watchable + read-only. Don't directly access. Use commitBalance()
+    //INFO: watchable + read-only.
     @objc dynamic
-    private(set) lazy var balance:Double = self.defaults.balance
+    private(set) var balance:Double {
+        didSet{
+            defaults.balance = balance
+        }
+    }
 
     func pay(for payable: Payable.Type, _ asyncSignal:AsyncWaitSignalable=AsyncSignal()){
         if let price = getPrice(for: payable){
-            let currentBalance = self.defaults.balance
+            let currentBalance = self.balance
             payingQueue.async{
                 if payable.init().pay(asyncSignal){
 
                     DispatchQueue.main.async{
-                        self.commitBalance(addingPrice: clamp(price, 0, 1-currentBalance))
+                        self.balance += clamp(price, 0, 1-currentBalance)
                     }
+                }else{
+                    print("[!]WARNING: payment failed \(String(describing: payable))")
                 }
             }
         }
@@ -211,8 +220,10 @@ struct Payable_InAppStoreRating:Payable{
             asyncSignal.end()
             Armchair.onDidDismissModalView(nil)
         }
-        Armchair.rateApp()
-//        asyncSignal.waitUntilEnd()
+        DispatchQueue.main.async{
+            Armchair.rateApp()
+        }
+        asyncSignal.waitUntilEnd()
         return paid
     }
 }
@@ -224,13 +235,14 @@ struct Payable_OnPromptRating:Payable{
         var paid = false
         asyncSignal.begin()
 
-        Armchair.showPrompt { info in
-            paid = true
-            asyncSignal.end()
-            return true
+        DispatchQueue.main.async{
+            Armchair.showPrompt { info in
+                paid = true
+                asyncSignal.end()
+                return true
+            }
         }
-
-//        asyncSignal.waitUntilEnd()
+        asyncSignal.waitUntilEnd()
         return paid
     }
 }
@@ -239,6 +251,10 @@ extension PhotoPickerViewController{
 
     @discardableResult
     func updateRightButtonState() -> PhotoPickerViewControllerRightBarButtonState {
+
+        ChargeManager.default.watch(\.balance) {
+            print("Modified balance:", ChargeManager.default.balance)
+        }
 
         if self.estimatedAvailableSelectedItems > 0 && ChargeManager.default.balance > 0 {
             navigationItem.setRightBarButton(self.doneButton, animated: true)
