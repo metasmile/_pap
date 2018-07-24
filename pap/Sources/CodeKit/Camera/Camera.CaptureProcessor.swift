@@ -54,7 +54,7 @@ class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
     }
 
     final func exportStillImageOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) -> URL? {
-        let frontFacing = self.param.videoDeviceInput?.device.position == .front
+//        let frontFacing = self.param.videoDeviceInput?.device.position == .front
 
         /*
             Metadata Config

@@ -934,12 +934,7 @@ extension PhotoPickerViewController: AppDockViewDelegate{
     }
 
     func appDockView(_ view: AppDockView, didOpenDrawer isOpened: Bool) {
-        if let dimmedView = (navigationController as? AppDockNavigationController)?.dimmedView{
-
-            UIView.transition(with: dimmedView, duration: 0.4, options: .transitionCrossDissolve, animations: {
-                dimmedView.isHidden = !isOpened
-            }, completion: nil)
-        }
+        setViewControllerDisabled(isOpened)
     }
 }
 

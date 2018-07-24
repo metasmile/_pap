@@ -99,11 +99,7 @@ extension PhotoPickerViewController{
 //            vc.delegate = self
 //            self.present(vc, animated: true, completion: nil)
 //
-//            if let dimmedView = (navigationController as? AppDockNavigationController)?.dimmedView{
-//                UIView.transition(with: dimmedView, duration: 0.4, options: .transitionCrossDissolve, animations: {
-//                    dimmedView.isHidden = false
-//                }, completion: nil)
-//            }
+//            setViewControllerDisabled(true)
 //        }
 
         print("RemainingCharges:", AppCenter.chargeManager.getRemainingCharges().map { $0.type })
@@ -125,10 +121,6 @@ extension PhotoPickerViewController{
 
 extension PhotoPickerViewController: PricingViewControllerDelegate {
     func pricingViewControllerDidCancel(_ controller: PricingViewController) {
-        if let dimmedView = (navigationController as? AppDockNavigationController)?.dimmedView{
-            UIView.transition(with: dimmedView, duration: 0.4, options: .transitionCrossDissolve, animations: {
-                dimmedView.isHidden = true
-            }, completion: nil)
-        }
+        setViewControllerDisabled(false)
     }
 }

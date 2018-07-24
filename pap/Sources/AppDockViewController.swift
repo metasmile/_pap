@@ -93,7 +93,7 @@ class AppDockNavigationController: UINavigationController, UINavigationControlle
     private var needsScrollToBottom = false
 }
 
-class AppDockViewController: UIViewController, AppDockViewDataSource {
+class AppDockViewController: UIViewController {
     var appDockView: AppDockView? {
         return (navigationController as? AppDockNavigationController)?.appDockView
     }
@@ -193,14 +193,21 @@ class AppDockViewController: UIViewController, AppDockViewDataSource {
     }
 }
 
-extension AppDockViewController {
-    //MARK: - AppDockViewDataSource
-    
+extension AppDockViewController: AppDockViewDataSource {
     func numberOfItems(in view: AppDockView) -> Int {
         return appDockItems.count
     }
     
     func appDockView(_ view: AppDockView, itemAt index: Int) -> AppDockItem? {
         return appDockItems[safe: index]
+    }
+}
+
+extension AppDockViewController {
+    func setViewControllerDisabled(_ disabled: Bool) {
+        guard let dimmedView = appDockNavigationController?.dimmedView else { return }
+        UIView.transition(with: dimmedView, duration: 0.4, options: .transitionCrossDissolve, animations: {
+            dimmedView.isHidden = !disabled
+        }, completion: nil)
     }
 }
