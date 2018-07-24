@@ -81,6 +81,7 @@
 		4F71D466EFAA7A462A5C0945 /* AppDockViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D4D7D1C9F3CFA4EA5D6B /* AppDockViewCell.xib */; };
 		4F71D470CB2DA2A48F4ACBB7 /* PHAsset.Editable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5F742AD0E3ACDE89B67 /* PHAsset.Editable.swift */; };
 		4F71D4AAB06F4948D2CCEA29 /* cell_icon_gif.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D92382932E62756DD454 /* cell_icon_gif.png */; };
+		4F71D4D5B8C813D0D64D002D /* AppCenter.Charge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2B33CCE4070AC95E760 /* AppCenter.Charge.swift */; };
 		4F71D4E67E16082DF0ACA14D /* Cleaner.GarbageDetector.Lockscreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA8F0863AF455F4F99AC /* Cleaner.GarbageDetector.Lockscreen.swift */; };
 		4F71D4EDFB81D8C50B0AF3E9 /* CodeKit.UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3172139CC55C5AEEAEA /* CodeKit.UITableViewCell.swift */; };
 		4F71D4FDDE4A6207CADC0C8E /* Revert.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D34F0E97063C79A5B851 /* Revert.BApp.swift */; };
@@ -188,6 +189,7 @@
 		4F71DD43CF0FBC5CA2222BAB /* CodeKit.NSKeyValueObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D83EB584CA987350B0CA /* CodeKit.NSKeyValueObservation.swift */; };
 		4F71DD451B0E57BB40808303 /* CodeKit.Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5824B6B11743968A078 /* CodeKit.Misc.swift */; };
 		4F71DD4D6A4A605B65C90B2C /* AppTaskOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEC69AB8A6AD6EF11C5E /* AppTaskOperationQueue.swift */; };
+		4F71DD53FD0BC5F4E71141ED /* ChargeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D12FBAC0FCC6B9CC56E9 /* ChargeManager.swift */; };
 		4F71DD60873341BE5272EABB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D495C6A50C4C97D67231 /* GoogleService-Info.plist */; };
 		4F71DDA1AEBC0351DA96F2E4 /* App.UI.AssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC9B1E3F0901394FC91B /* App.UI.AssetView.swift */; };
 		4F71DDE4E61BBA7D752D8E3C /* cell_icon_burst.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D4244E62E40BB345C65F /* cell_icon_burst.png */; };
@@ -388,6 +390,7 @@
 		4F71D100CC0D42F18306A2AF /* App.Finalizable.PHAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Finalizable.PHAsset.swift; sourceTree = "<group>"; };
 		4F71D10EB70A4D26DAC6BA29 /* ExifGhost.AppDockContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExifGhost.AppDockContent.swift; sourceTree = "<group>"; };
 		4F71D11C4F488566874AD894 /* ExifGhost.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExifGhost.BApp.swift; sourceTree = "<group>"; };
+		4F71D12FBAC0FCC6B9CC56E9 /* ChargeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargeManager.swift; sourceTree = "<group>"; };
 		4F71D132D30EEEBCF933A408 /* UIKitItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitItem.swift; sourceTree = "<group>"; };
 		4F71D1454DAF0FCE6B550234 /* CodeKit.ContactsUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.ContactsUI.swift; sourceTree = "<group>"; };
 		4F71D17919E12758958F0951 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
@@ -410,6 +413,7 @@
 		4F71D2593153FA71D25C1A2D /* CodeKit.OptionSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.OptionSet.swift; sourceTree = "<group>"; };
 		4F71D27A76BAB8CD67CEFCD6 /* CodeKit.UUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UUID.swift; sourceTree = "<group>"; };
 		4F71D2A052463FFF3B331002 /* ImageIO.Metadata.VoidValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.Metadata.VoidValues.swift; sourceTree = "<group>"; };
+		4F71D2B33CCE4070AC95E760 /* AppCenter.Charge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCenter.Charge.swift; sourceTree = "<group>"; };
 		4F71D2BECCF1365F71189DAC /* AppDockDrawerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDockDrawerView.swift; sourceTree = "<group>"; };
 		4F71D2C256B7B8430A721FAF /* Sourceable.PHAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sourceable.PHAsset.swift; sourceTree = "<group>"; };
 		4F71D2C6AC6415B946CC4677 /* App.LifecycleManagable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.LifecycleManagable.swift; sourceTree = "<group>"; };
@@ -891,6 +895,7 @@
 				4F71DB51501243A8A049A36D /* Sourceable */,
 				4F71DC58EF662B297E81FB44 /* Version.swift */,
 				4F71DED9CA241BF7A1780D10 /* Defaults */,
+				4F71DAFD1B74B1C942EFA88F /* Charge */,
 			);
 			path = CodeKit;
 			sourceTree = "<group>";
@@ -1303,6 +1308,7 @@
 				4F71D5309805B6CC484619E3 /* PhotoPickerViewController.Operations.ChargeableApp.swift */,
 				4F71D8D0CD35711021E28E23 /* PhotoPickerViewController.UICollectionView.CachingImage.swift */,
 				515AB1622106C029005E1997 /* PricingViewController.swift */,
+				4F71D2B33CCE4070AC95E760 /* AppCenter.Charge.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -1316,6 +1322,14 @@
 				4F71D0D967BFB92001862DCE /* auto_straighten.png */,
 			);
 			path = AutoEditor.BApp.Assets;
+			sourceTree = "<group>";
+		};
+		4F71DAFD1B74B1C942EFA88F /* Charge */ = {
+			isa = PBXGroup;
+			children = (
+				4F71D12FBAC0FCC6B9CC56E9 /* ChargeManager.swift */,
+			);
+			path = Charge;
 			sourceTree = "<group>";
 		};
 		4F71DB51501243A8A049A36D /* Sourceable */ = {
@@ -3090,6 +3104,8 @@
 				4F71D33E7C80AC58C1BD1C40 /* App.Cacheable.swift in Sources */,
 				4F71DB7E0B0C52577EC3D7D0 /* Version.swift in Sources */,
 				4F71DFDB7500B2FFA2938EEF /* Defaults.Version.swift in Sources */,
+				4F71DD53FD0BC5F4E71141ED /* ChargeManager.swift in Sources */,
+				4F71D4D5B8C813D0D64D002D /* AppCenter.Charge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
