@@ -76,6 +76,17 @@ extension PhotoPickerViewController{
     }
 
     @objc fileprivate func payableButtonDidTap(sender: UIButton) {
+//        if let vc = R.storyboard.appStoryboard.pricingViewController() {
+//            vc.delegate = self
+//            self.present(vc, animated: true, completion: nil)
+//            
+//            if let dimmedView = (navigationController as? AppDockNavigationController)?.dimmedView{
+//                UIView.transition(with: dimmedView, duration: 0.4, options: .transitionCrossDissolve, animations: {
+//                    dimmedView.isHidden = false
+//                }, completion: nil)
+//            }
+//        }
+        
         switch Defaults.shared.rightButtonPayablePhase{
             case .inStoreRating:
                 self.payableButtonDidTap_inStoreRating()
@@ -130,5 +141,15 @@ extension PhotoPickerViewController{
     }
 
     private func payableButtonDidTap_messageUs() {
+    }
+}
+
+extension PhotoPickerViewController: PricingViewControllerDelegate {
+    func pricingViewControllerDidCancel(_ controller: PricingViewController) {
+        if let dimmedView = (navigationController as? AppDockNavigationController)?.dimmedView{
+            UIView.transition(with: dimmedView, duration: 0.4, options: .transitionCrossDissolve, animations: {
+                dimmedView.isHidden = true
+            }, completion: nil)
+        }
     }
 }
