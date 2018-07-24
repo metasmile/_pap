@@ -103,12 +103,12 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     func disposeGdInstance(gdIdentifier:String){
         gdInstances[gdIdentifier] = nil
 
-        //also dispose result caches
-        for (k,v) in cachedResults{
-            var result = v
-            result[gdIdentifier] = nil
-            cachedResults[k] = result
-        }
+//        //also dispose result caches
+//        for (k,v) in cachedResults{
+//            var result = v
+//            result[gdIdentifier] = nil
+//            cachedResults[k] = result
+//        }
     }
 
     private var gdInstances = [String:PHAssetGarbageDetector]()
@@ -140,10 +140,16 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
 
                 //found cached result
                 if let detectedResult = cachedResults[aid]
-                , let detectedAction = detectedResult[k]{
+                , let isDeletingTarget = detectedResult[k]{
 
-                    action = detectedAction ? .delete: .none
-                    break
+                    if isDeletingTarget{
+                        action = .delete
+                        break
+
+                    }else{
+                        action = .none
+                        continue // set action to none and continue
+                    }
                 }
 
                 //start to detect
