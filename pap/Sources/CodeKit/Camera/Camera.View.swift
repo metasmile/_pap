@@ -310,7 +310,35 @@ extension CameraView {
 }
 
 extension CameraView {
-    func changePointOfInterest(at location: CGPoint) {
+    func changeFocusMode(_ mode: AVCaptureDevice.FocusMode) {
+        guard
+            let captureDevice = captureDevice(with: cameraPosition),
+            let _ = try? captureDevice.lockForConfiguration()
+        else { return }
+        
+        if captureDevice.isFocusModeSupported(mode) {
+            captureDevice.focusMode = mode
+        }
+        
+        captureDevice.unlockForConfiguration()
+    }
+    
+    func changeExposureMode(_ mode: AVCaptureDevice.ExposureMode) {
+        guard
+            let captureDevice = captureDevice(with: cameraPosition),
+            let _ = try? captureDevice.lockForConfiguration()
+        else { return }
+        
+        if captureDevice.isExposureModeSupported(mode) {
+            captureDevice.exposureMode = mode
+        }
+        
+        captureDevice.unlockForConfiguration()
+    }
+}
+
+extension CameraView {
+    func changePointOfInterest(at location: CGPoint, showsGuide: Bool = true) {
         let layerPoint = layer.convert(location, to: cameraPreviewView.previewLayer)
         let pointOfInterest = cameraPreviewView.previewLayer.captureDevicePointConverted(fromLayerPoint: layerPoint)
         
@@ -318,7 +346,9 @@ extension CameraView {
             self.setPointOfInterest(pointOfInterest)
         }
         
-        performPointOfInterestAnimation(at: layerPoint)
+        if showsGuide {
+            performPointOfInterestAnimation(at: layerPoint)
+        }
     }
     
     private func setPointOfInterest(_ pointOfInterest: CGPoint) {
@@ -331,12 +361,12 @@ extension CameraView {
             captureDevice.focusPointOfInterest = pointOfInterest
         }
         
-        if captureDevice.isFocusModeSupported(.continuousAutoFocus) {
-            captureDevice.focusMode = .continuousAutoFocus
-        }
-        
         if captureDevice.isExposurePointOfInterestSupported {
             captureDevice.exposurePointOfInterest = pointOfInterest
+        }
+        
+        if captureDevice.isFocusModeSupported(.continuousAutoFocus) {
+            captureDevice.focusMode = .continuousAutoFocus
         }
         
         if captureDevice.isExposureModeSupported(.continuousAutoExposure) {

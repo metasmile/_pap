@@ -296,13 +296,11 @@ class AppUICameraView: UIView {
             cameraPositionButton.setImage(self.devicePositionIcon, for: .normal)
 
             backgroundView.isHidden = isCompactMode
-
+            
             //TODO: ignore layer implicit animation
             layoutIfNeeded()
+            
+            cameraView.changePointOfInterest(at: CGPoint(x: cameraView.width / 2, y: cameraView.height / 2), showsGuide: !isCompactMode)
         }
-    }
-
-    override func layoutIfNeeded() {
-        super.layoutIfNeeded()
     }
 }
