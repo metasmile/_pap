@@ -136,18 +136,18 @@ class ChargeManager:NSObject, KeyPathWatchable{
         }
     }
 
-    private func getChargeScheme(for payable: Payable.Type) -> ChargeSchemeItem?{
+    private func getChargingScheme(for payable: Payable.Type) -> ChargeSchemeItem?{
         return scheme.values.first { item in
             return (item as Chargeable).isEqual(other: payable.charge)
         }
     }
 
     func getPrice(for payable: Payable.Type) -> Double?{
-        return getChargeScheme(for: payable)?.price
+        return getChargingScheme(for: payable)?.price
     }
 
     func getChargeInfo(for payable: Payable.Type) -> ChargeableDisplayInfo?{
-        return getChargeScheme(for: payable)
+        return getChargingScheme(for: payable)
     }
 
     func isCharged(for payable:Payable.Type) -> Bool{
@@ -156,11 +156,11 @@ class ChargeManager:NSObject, KeyPathWatchable{
     }
 
     func getCharge(for payable: Payable.Type) -> ChargeableObject?{
-        return getChargeScheme(for: payable)
+        return getChargingScheme(for: payable)
     }
 
     func getRemainingCharges() -> [ChargeableObject]{
-        if balance==0{
+        if balance==1{
             return []
         }
 
@@ -176,13 +176,14 @@ class ChargeManager:NSObject, KeyPathWatchable{
             }
             remainingCharges.append(item)
         }
-        return remainingCharges
+        return remainingCharges.reversed()
     }
 }
 
 
 enum PhotoPickerViewControllerRightBarButtonState {
     case unpaidDeselected
+    case unpaidSelected
     case paidSelected
 }
 
@@ -208,13 +209,10 @@ struct Payable_InAppStoreRating:Payable{
         Armchair.onDidDismissModalView { b in
             paid = true
             asyncSignal.end()
-
             Armchair.onDidDismissModalView(nil)
         }
-        DispatchQueue.main.async{
-            Armchair.rateApp()
-        }
-        asyncSignal.waitUntilEnd()
+        Armchair.rateApp()
+//        asyncSignal.waitUntilEnd()
         return paid
     }
 }
@@ -226,15 +224,13 @@ struct Payable_OnPromptRating:Payable{
         var paid = false
         asyncSignal.begin()
 
-        DispatchQueue.main.async{
-            Armchair.showPrompt { info in
-                paid = true
-                asyncSignal.end()
-                return true
-            }
+        Armchair.showPrompt { info in
+            paid = true
+            asyncSignal.end()
+            return true
         }
 
-        asyncSignal.waitUntilEnd()
+//        asyncSignal.waitUntilEnd()
         return paid
     }
 }
@@ -247,6 +243,14 @@ extension PhotoPickerViewController{
         if self.estimatedAvailableSelectedItems > 0 && ChargeManager.default.balance > 0 {
             navigationItem.setRightBarButton(self.doneButton, animated: true)
             return .paidSelected
+        }
+
+        if self.estimatedAvailableSelectedItems > 0 && ChargeManager.default.balance == 0 {
+            let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.inStoreRatingButton
+            rightButtonItem.target = self
+            rightButtonItem.action = #selector(self.chargeableButtonDidTap)
+            navigationItem.setRightBarButton(rightButtonItem, animated: true)
+            return .unpaidSelected
         }
 
         let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.inStoreRatingButton
@@ -268,13 +272,18 @@ extension PhotoPickerViewController{
 //            }
 //        }
 
+        print("RemainingCharges:", ChargeManager.default.getRemainingCharges().map { $0.type })
+
         for charge in ChargeManager.default.getRemainingCharges() {
             switch charge.type {
                 case .inStoreRating:
                     ChargeManager.default.pay(for: Payable_InAppStoreRating.self)
+                    return
                 case .onPromptRating:
-                    ChargeManager.default.pay(for: Payable_InAppStoreRating.self)
-                default: break
+                    ChargeManager.default.pay(for: Payable_OnPromptRating.self)
+                    return
+                default:
+                    break
             }
         }
     }

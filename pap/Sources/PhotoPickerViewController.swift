@@ -448,7 +448,7 @@ class PhotoPickerViewController: AppDockViewController {
 
         switch updateRightButtonState(){
 
-            case .paidSelected:
+            case .paidSelected, .unpaidSelected:
                 navigationItem.setLeftBarButton(self.cancelButton, animated: true)
 
                 if appDockView?.accessory == nil {
