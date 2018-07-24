@@ -12,7 +12,7 @@ import MetalKit
 import Vision
 import FirebaseMLVision
 
-typealias GarbageDetectorInput = AppAsset
+typealias GarbageDetectorInput = PHAssetParamable
 
 protocol _GarbageDetector: AsyncProcessor where Self.OutputType==Bool {}
 

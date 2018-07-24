@@ -12,5 +12,5 @@ extension String: PreheatingFinishAction{}
 extension Int: PreheatingFinishAction{}
 
 public protocol PreheatableApp: App{
-    func performPreheating(item: AppAsset,  _ async: AsyncWaitSignalable)  -> PreheatingFinishAction?
+    func performPreheating(item: PHAssetParamable,  _ async: AsyncWaitSignalable)  -> PreheatingFinishAction?
 }

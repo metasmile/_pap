@@ -280,7 +280,7 @@ public class GIFMakerApp: BApp,
         return (content as? GIFMakerAppDockContent)?.shouldImport(asset: item.asset) ?? false
     }
 
-    public func performPreheating(item: AppAsset,  _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
+    public func performPreheating(item: PHAssetParamable,  _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
         return nil
     }
 
@@ -351,7 +351,8 @@ private class _GIFMakerAppTask: AppTaskPrototype, AppTaskable {
             if let image = response.1 {
                 let cachedAsset = LocalCachedAsset(assetItem.asset, image: image, targetSize: targetSize, imageQuality: CGFloat(defaults.gifQuality))
                 result = GIFMakerPHAssetResult(fileURL: cachedAsset.imageFileURL, orderedIndex: AppAssets.selected.index(of: assetItem))
-                assetItem.requestIDs? += [PHAssetRequestID(forImage:response.0)]
+
+                assetItem.appendRequestId(PHAssetRequestID(forImage:response.0))
             }
         case .burst?:
             let converter = GifConverter_Burst()

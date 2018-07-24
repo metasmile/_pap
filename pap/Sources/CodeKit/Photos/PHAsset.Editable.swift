@@ -137,7 +137,7 @@ extension AppAssetItem {
 
         NotificationCenter.default.addObserver(forName: RemoteSourceFetchNotification.Name.fetchBagan, object: asset, queue: nil) { notification in
             if let _requestId = notification.userInfo?[RemoteSourceFetchNotification.UserInfo.Key.imageRequestID] as? PHImageRequestID{
-                self.requestIDs?.append(PHAssetRequestID(forImage:_requestId))
+                self.appendRequestId(PHAssetRequestID(forImage:_requestId))
             }
         }
 
@@ -155,7 +155,9 @@ extension AppAssetItem {
             }
         }() {
 
-            self.requestIDs? += requestIDs
+            for id in requestIDs{
+                self.appendRequestId(id)
+            }
         }
     }
 

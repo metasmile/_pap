@@ -50,7 +50,7 @@ public class ExifGhostApp: NSObject, KeyPathWatchable,BApp,
         return item.asset.mediaType == .image
     }
 
-    public func performPreheating(item: AppAsset,  _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
+    public func performPreheating(item: PHAssetParamable,  _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
 
         if autoSelect && item.asset.mediaType == .image{
             var purged = false
@@ -126,7 +126,7 @@ private class _ExifGhostAppTask: AppTaskPrototype, AppTaskable {
             async.end()
         }
 
-        param.requestIDs? += [PHAssetRequestID(forEditingInput: id)]
+        param.appendRequestId(PHAssetRequestID(forEditingInput: id))
 
         async.waitUntilEnd()
         return result

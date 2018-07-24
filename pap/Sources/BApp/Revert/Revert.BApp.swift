@@ -63,7 +63,7 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp
         return true
     }
 
-    public func performPreheating(item: AppAsset,  _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
+    public func performPreheating(item: PHAssetParamable,  _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
         return appDefaults.autoSelect && item.asset.isAdjusted == true ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
     }
 

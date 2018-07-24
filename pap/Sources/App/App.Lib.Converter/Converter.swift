@@ -226,7 +226,7 @@ extension Converter{
             async.end()
         })
 
-        source.requestIDs?.append(PHAssetRequestID(forImage: requestId))
+        source.appendRequestId(PHAssetRequestID(forImage: requestId))
         async.waitUntilEnd()
 
         return returningURL
@@ -278,7 +278,7 @@ extension Converter{
                         resultUrl = url
                     } catch _ {}
                 }
-                source.requestIDs?.append(PHAssetRequestID(forImage: response.0))
+                source.appendRequestId(PHAssetRequestID(forImage: response.0))
 
                 if let resultUrl = resultUrl {
                     urls.append(resultUrl)

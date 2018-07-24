@@ -126,7 +126,7 @@ struct MovConverter_LivePhoto: MovConverter {
             async.end()
 
         })
-        source.requestIDs?.append(PHAssetRequestID(forImage: req_livephoto))
+        source.appendRequestId(PHAssetRequestID(forImage: req_livephoto))
         async.waitUntilEnd()
 
         guard let livePhoto = exportedlivePhoto else {
@@ -157,7 +157,7 @@ struct MovConverter_LivePhoto: MovConverter {
             }
             async.end()
         }
-        source.requestIDs?.append(PHAssetRequestID(forResourceData: req_data))
+        source.appendRequestId(PHAssetRequestID(forResourceData: req_data))
         async.waitUntilEnd()
 
         return resultURL

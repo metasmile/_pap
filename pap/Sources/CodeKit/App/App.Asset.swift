@@ -13,7 +13,7 @@ public typealias AppAsset = AppAssetItem<ImageEditStateValue>
 public class AppAssetItem<StateValueType:Hashable>: ItemObject, PHAssetParamable {
     public var asset: PHAsset
     public var indexPath:IndexPath?
-    public var requestIDs:[PHAssetRequestID]? = [PHAssetRequestID]()
+    public private(set) var requestIDs:[PHAssetRequestID]?
     public var cachingRequestOptions:[PHAssetRequestOption]?
     public var editState = StateValueSet<StateValueType>()
 
@@ -24,6 +24,13 @@ public class AppAssetItem<StateValueType:Hashable>: ItemObject, PHAssetParamable
     convenience required public init(_ asset: PHAsset, indexPath:IndexPath?=nil) {
         self.init(asset)
         self.indexPath = indexPath
+    }
+
+    public func appendRequestId(_ id:PHAssetRequestID){
+        if requestIDs == nil{
+            requestIDs = [PHAssetRequestID]()
+        }
+        requestIDs?.append(id)
     }
 
     //TODO: define and separate what is AppAsset and AppAssetItem, StateValueType?

@@ -88,7 +88,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
         }
     }
 
-    public func performPreheating(item: AppAsset,  _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
+    public func performPreheating(item: PHAssetParamable,  _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
         if self.autoSelect == false{
             return nil
         }

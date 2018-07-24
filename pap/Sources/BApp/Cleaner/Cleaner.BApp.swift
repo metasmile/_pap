@@ -114,7 +114,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     private var gdInstances = [String:PHAssetGarbageDetector]()
     fileprivate var cachedResults = [PHAssetID: PHAssetGCDetectedResult]()
 
-    fileprivate func gc(item: AppAsset,  _ async: AsyncWaitSignalable) -> PHAssetGCResult {
+    fileprivate func gc(item: PHAssetParamable,  _ async: AsyncWaitSignalable) -> PHAssetGCResult {
 
         let gdType_Id = type(of: self).SupportingGDTypesKeys
         let gdCollection = type(of: self).privateDefaults.selectedCollection
@@ -185,7 +185,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     /*
     preheat
     */
-    public func performPreheating(item: AppAsset,  _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
+    public func performPreheating(item: PHAssetParamable,  _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
         guard self.autoSelect else { return nil }
 
         return gc(item: item, async).action == .delete ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
