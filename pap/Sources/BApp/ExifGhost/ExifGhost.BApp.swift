@@ -7,7 +7,7 @@ import Foundation
 import Photos
 import ImageIO
 
-private typealias ParamType = PHAssetItem<ImageEditStateValue>
+private typealias ParamType = AppAsset
 
 public class ExifGhostApp: NSObject, KeyPathWatchable,BApp,
         PHAssetFinalizableApp,

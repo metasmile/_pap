@@ -7,7 +7,40 @@ import Foundation
 import Photos
 
 //TODO:ImageEditStateValue type is external type
-public typealias AppAsset = PHAssetItem<ImageEditStateValue>
+public typealias AppAsset = AppAssetItem<ImageEditStateValue>
+
+//TODO: Minifiy 2-depth generic type/protocolize
+public class AppAssetItem<StateValueType:Hashable>: ItemObject, PHAssetParamable {
+    public var asset: PHAsset
+    public var indexPath:IndexPath?
+    public var requestIDs = [PHAssetRequestID]()
+    public var cachingRequestOptions:[PHAssetRequestOption]?
+    public var editState = StateValueSet<StateValueType>()
+
+    required public init(_ asset: PHAsset) {
+        self.asset = asset
+    }
+
+    convenience required public init(_ asset: PHAsset, indexPath:IndexPath?=nil) {
+        self.init(asset)
+        self.indexPath = indexPath
+    }
+
+    //TODO: define and separate what is AppAsset and AppAssetItem, StateValueType?
+    public class func create(for asset: PHAsset, manager:AppManager=AppCenter.default) -> AppAssetItem<StateValueType>? {
+        guard let app = manager.current else { return nil }
+
+        if let itemType = app.paramType as? PHAssetParamable.Type
+        , let item = itemType.init(asset) as? AppAssetItem<StateValueType> {
+            return item
+
+        } else{
+            assert(false, "[!] Unable to create, or does not implement yet for param type of \(app.info.appType)")
+            return nil
+        }
+    }
+}
+
 
 //TODO: remove specific "ImageEdit" meaning -> more general, expandable
 //TODO: change to associatedType for all types
@@ -17,7 +50,7 @@ extension StateValueSet where T: ImageEditStateValue {
     }
 }
 
-extension PHAssetItem where EditStateValueType: ImageEditStateValue {}
+extension AppAssetItem where StateValueType: ImageEditStateValue {}
 
 //TODO: separate later
 public class ImageEditStateValue: Object {

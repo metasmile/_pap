@@ -223,7 +223,7 @@ private class ConverterAppTask: AppTaskPrototype, AppTaskable {
         }
         
         let result = converter.convert(source: assetItem, cancellation: { self.info.state == .cancelled }, progressHandler: { progress in
-            PHAssetItemProgressNotification.update(item: assetItem, progress: progress)
+            AppAssetItemProgressNotification.update(item: assetItem, progress: progress)
         }, async)
         let index = AppAssets.selected.index(of: assetItem)
 

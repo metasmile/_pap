@@ -24,7 +24,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
 
     public static let taskType: AppTaskable.Type = _FinderAppTask.self
 
-    public static let paramType: AppTaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
+    public static let paramType: AppTaskParamable.Type = AppAsset.self
 
     public private(set) lazy var content: AppDockContent? = FinderAppDockContent()
 
@@ -163,7 +163,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
 }
 
 
-private typealias FinderAppParam = PHAssetItem<ImageEditStateValue>
+private typealias FinderAppParam = AppAsset
 
 private struct FinderAppResult: AppTaskResultable {
     fileprivate let asset:PHAsset
@@ -1040,7 +1040,7 @@ private class _FinderAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, App
 
     public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
 
-        guard let asset = (param as? PHAssetItem<ImageEditStateValue>)?.asset else{
+        guard let asset = (param as? AppAsset)?.asset else{
             return nil
         }
 

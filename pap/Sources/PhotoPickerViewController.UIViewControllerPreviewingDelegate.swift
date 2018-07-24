@@ -68,7 +68,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
         }
     }
 
-    private func setActions(with item: PHAssetItem<ImageEditStateValue>, at indexPath: IndexPath, to vc: PhotoPickerDetailViewController) {
+    private func setActions(with item: AppAsset, at indexPath: IndexPath, to vc: PhotoPickerDetailViewController) {
         if let _ = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self){
             _setActionsWithEditor(with:item, at:indexPath,to:vc)
 
@@ -77,7 +77,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
         }
     }
 
-    private func _setActionsWithoutEditor(with item: PHAssetItem<ImageEditStateValue>, at indexPath: IndexPath, to vc: PhotoPickerDetailViewController) {
+    private func _setActionsWithoutEditor(with item: AppAsset, at indexPath: IndexPath, to vc: PhotoPickerDetailViewController) {
         var typeWord = "photo"
         if item.asset.mediaType == .video {
             typeWord = "video"
@@ -112,7 +112,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
         }
     }
 
-    private func _setActionsWithEditor(with item: PHAssetItem<ImageEditStateValue>, at indexPath: IndexPath, to vc: PhotoPickerDetailViewController) {
+    private func _setActionsWithEditor(with item: AppAsset, at indexPath: IndexPath, to vc: PhotoPickerDetailViewController) {
         var typeWord = "photo"
         if item.asset.mediaType == .video {
             typeWord = "video"

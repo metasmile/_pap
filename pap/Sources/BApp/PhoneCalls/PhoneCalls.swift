@@ -10,7 +10,7 @@ import DefaultsKit
 import Contacts
 import ContactsUI
 
-private typealias PhoneCallsAppParam = PHAssetItem<ImageEditStateValue>
+private typealias PhoneCallsAppParam = AppAsset
 private struct PhoneCallsAppResult: AppTaskResultable {
     fileprivate let asset:PHAsset
 
@@ -43,7 +43,7 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
 
     public static let taskType: AppTaskable.Type = _PhoneCallsAppTask.self
 
-    public static let paramType: AppTaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
+    public static let paramType: AppTaskParamable.Type = AppAsset.self
 
     public private(set) lazy var content: AppDockContent? = PhoneCallsAppDockContent()
 
@@ -310,7 +310,7 @@ private class _PhoneCallsAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy,
     }
 
     public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
-        guard let asset = (param as? PHAssetItem<ImageEditStateValue>)?.asset else{
+        guard let asset = (param as? AppAsset)?.asset else{
             return nil
         }
 

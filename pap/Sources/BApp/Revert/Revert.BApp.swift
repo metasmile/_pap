@@ -7,7 +7,7 @@ import Foundation
 import Photos
 import DefaultsKit
 
-private typealias RevertAppParam = PHAssetItem<ImageEditStateValue>
+private typealias RevertAppParam = AppAsset
 private struct RevertAppResult: AppTaskResultable {
     fileprivate let asset:PHAsset
     fileprivate let isAdjusted:Bool

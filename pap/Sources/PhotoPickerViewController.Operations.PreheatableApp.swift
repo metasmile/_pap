@@ -16,6 +16,7 @@ private struct PreheatingQueue {
     //INFO: Access all following properties. MUST ACCESS ONLY WITH <<PreheatingQueue.dispatchQueue>> WHEN WRITE
     fileprivate static let indexPathQueue = ItemQueue<IndexPath>()
     fileprivate static var identifierSet = Set<String>()
+    fileprivate static var itemSet = [String:AppAsset]()
 
     //INFO: Write 'canceled'. MUST ACCESS ONLY WITH a queue faster than <<PreheatingQueue.dispatchQueue>> WHEN WRITE
     fileprivate static var canceled = false
@@ -81,8 +82,10 @@ extension PhotoPickerViewController{
 
                 //performPreheating
                 var autoSelect = false
-                if let item = AppAssets.selected.at(unsafeIndex:indexPath.item) ?? AppAsset.create(for:asset){
+                if let item = PreheatingQueue.itemSet[asset.localIdentifier] ?? AppAsset.create(for:asset){
                     item.cachingRequestOptions = cachingOptions
+
+                    PreheatingQueue.itemSet[asset.localIdentifier] = item
 
                     if let finishAction = autoreleasepool(invoking:{ preheatingApp.performPreheating(item: item, signal) }) as? UICollectionViewPreheatableAppFinishAction {
                         autoSelect = finishAction == .selectItem
@@ -90,6 +93,7 @@ extension PhotoPickerViewController{
                 }
                 
                 if PreheatingQueue.canceled{
+                    PreheatingQueue.itemSet.removeAll()
                     PreheatingQueue.identifierSet.removeAll()
                     PreheatingQueue.indexPathQueue.dequeueAll()
                     return

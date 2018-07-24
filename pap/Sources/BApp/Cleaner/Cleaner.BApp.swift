@@ -11,7 +11,7 @@ import MetalPerformanceShaders
 import MetalKit
 import Vision
 
-private typealias CleanerAppParam = PHAssetItem<ImageEditStateValue>
+private typealias CleanerAppParam = AppAsset
 
 typealias PHAssetGCDetectedResult = [String:Bool]
 
@@ -30,7 +30,7 @@ private typealias PHAssetID = String
 public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp, PHAssetCacheableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp, PreheatableApp {
     public static let taskType: AppTaskable.Type = _CleanerAppTask.self
 
-    public static let paramType: AppTaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
+    public static let paramType: AppTaskParamable.Type = AppAsset.self
 
     public private(set) lazy var content: AppDockContent? = CleanerAppDockContent()
 

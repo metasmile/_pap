@@ -10,7 +10,7 @@ import UIKit
 import Photos
 import MobileCoreServices
 
-class _TransformAppAsset: PHAssetItem<ImageEditStateValue> {
+class _TransformAppAsset: AppAsset {
     fileprivate var editingContext: PHLivePhotoEditingContext?
     fileprivate var exportSession: AVAssetExportSession?
     

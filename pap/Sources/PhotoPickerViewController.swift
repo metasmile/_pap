@@ -690,7 +690,7 @@ extension UIView {
 }
 
 extension PhotoPickerViewController: EditViewControllerDelegate {
-    func showPhotoEditor(with editItem: PHAssetItem<ImageEditStateValue>?) {
+    func showPhotoEditor(with editItem: AppAsset?) {
         guard let editItem = editItem else { return }
         
         if let photoEditViewController = R.storyboard.appStoryboard.photoEditViewController(){

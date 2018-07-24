@@ -299,7 +299,7 @@ extension PreviewView {
         reaction.when(progress:{ response, progress, remained, completed in
             assert(response.info.state != .completed || response.info.state == .completed && response.result != nil, "task state is .completed but result is nil")
 
-            let requestedParam = response.request.param as? PHAssetItem<ImageEditStateValue>
+            let requestedParam = response.request.param as? AppAsset
             let totalCount = remained.count+completed.count
 
             assert(totalCount>0, "totalCount == 0 but progress has started")

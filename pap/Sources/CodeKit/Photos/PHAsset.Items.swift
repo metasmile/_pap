@@ -31,8 +31,8 @@ public struct PHAssetResultItem: PHAssetResultable {
     }
 }
 
-public struct PHAssetItemProgressNotification {
-    static func update(item: PHAssetItem<ImageEditStateValue>?=nil, progress: Progress) {
+public struct AppAssetItemProgressNotification {
+    static func update(item: AppAsset?=nil, progress: Progress) {
         var userInfo: [String: Any] = [
             PHAssetProgressNotification.UserInfo.Key.progress: Float(progress.fractionCompleted)
         ]
@@ -45,36 +45,9 @@ public struct PHAssetItemProgressNotification {
     }
 }
 
-//TODO: Minifiy 2-depth generic type/protocolize
-public class PHAssetItem<EditStateValueType:Hashable>: ItemObject, PHAssetParamable {
-    public var asset: PHAsset
-    public var indexPath:IndexPath?
-    public var requestIDs = [PHAssetRequestID]()
-    public var cachingRequestOptions:[PHAssetRequestOption]?
-    public var editState = StateValueSet<EditStateValueType>()
-
-    required public init(_ asset: PHAsset) {
-        self.asset = asset
-    }
-
-    convenience required public init(_ asset: PHAsset, indexPath:IndexPath?=nil) {
-        self.init(asset)
-        self.indexPath = indexPath
-    }
-
-    public class func create(for asset: PHAsset, manager:AppManager=AppCenter.default) -> PHAssetItem<EditStateValueType>? {
-        guard let app = manager.current else { return nil }
-
-        if let itemType = app.paramType as? PHAssetParamable.Type
-        , let item = itemType.init(asset) as? PHAssetItem<EditStateValueType> {
-            return item
-
-        } else{
-            assert(false, "[!] Unable to create, or does not implement yet for param type of \(app.info.appType)")
-            return nil
-        }
-    }
-}
+//public struct AppAssetItem: PHAssetParamable{
+//
+//}
 
 public struct PHAssetRequestID {
     enum DefaultValue{

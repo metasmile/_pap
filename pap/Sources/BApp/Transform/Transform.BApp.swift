@@ -146,7 +146,7 @@ private class _TransfromAppTask: AppTaskPrototype, AppTaskable {
 
         DispatchQueue(label: "com.stells.internal."+#file, qos: .utility).async {
             assetItem.runEditing({ (progress) in
-                PHAssetItemProgressNotification.update(item: assetItem, progress: progress)
+                AppAssetItemProgressNotification.update(item: assetItem, progress: progress)
             }) { (asset, contentEditingOutput) in
                 if let asset = asset, let contentEditingOutput = contentEditingOutput {
                     contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: FiltersApp.self, editInfo: ["transform": NSStringFromCGAffineTransform(assetItem.editState.transform)], from: asset)

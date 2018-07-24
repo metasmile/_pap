@@ -248,7 +248,7 @@ private class _FiltersAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, Ap
         
         DispatchQueue(label: "com.stells.internal."+#file, qos: .utility).async {
             assetItem.runEditing({ (progress) in
-                PHAssetItemProgressNotification.update(item: assetItem, progress: progress)
+                AppAssetItemProgressNotification.update(item: assetItem, progress: progress)
             }) { (asset, contentEditingOutput) in
                 if let asset = asset, let contentEditingOutput = contentEditingOutput {
                     contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: FiltersApp.self, editInfo: ["filterName": assetItem.editState.ciFilter?.name ?? ""], from: asset)

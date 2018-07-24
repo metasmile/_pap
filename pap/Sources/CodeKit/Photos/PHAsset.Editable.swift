@@ -111,7 +111,7 @@ struct PAPAdjustmentData {
     }
 }
 
-extension PHAssetItem {
+extension AppAssetItem {
 
     @discardableResult
     func requestContentEditing(options:PHContentEditingInputRequestOptions?=nil, _ block: @escaping PHAssetContentEditingHandler) -> PHContentEditingInputRequestID {

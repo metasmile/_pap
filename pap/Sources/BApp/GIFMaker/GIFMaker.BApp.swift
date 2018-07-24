@@ -13,7 +13,7 @@ import MobileCoreServices
 
 //INFO: feature reference: https://ezgif.com
 
-class _GIFMakerAppAsset: PHAssetItem<ImageEditStateValue> {}
+class _GIFMakerAppAsset: AppAsset {}
 
 private struct GIFMakerPHAssetResult: AppTaskResultable {
     public var fileURL: URL?
@@ -310,7 +310,7 @@ public class GIFMakerApp: BApp,
         case .photo?:
             let urls = resultItems.compactMap({ $0.fileURL })
 
-            if let url = UIImageGIFRepresentationURL(with: GifConverterDefaultOption.URLs(urls: urls, with: defaults.direction), loopCount: defaults.loopCount, frameDelay: defaults.frameDelay, cancellation: { result.contains(where: { $0.info.state == .cancelled }) == true }, progressHandler: { progress in PHAssetItemProgressNotification.update(progress: progress) }) {
+            if let url = UIImageGIFRepresentationURL(with: GifConverterDefaultOption.URLs(urls: urls, with: defaults.direction), loopCount: defaults.loopCount, frameDelay: defaults.frameDelay, cancellation: { result.contains(where: { $0.info.state == .cancelled }) == true }, progressHandler: { progress in AppAssetItemProgressNotification.update(progress: progress) }) {
                 results.append(url)
             }
 
@@ -357,14 +357,14 @@ private class _GIFMakerAppTask: AppTaskPrototype, AppTaskable {
             let converter = GifConverter_Burst()
             converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount)
             
-            if let url = converter.convert(source: assetItem, cancellation: { self.info.state == .cancelled }, progressHandler: { progress in PHAssetItemProgressNotification.update(item: assetItem, progress: progress) }, async) as? URL {
+            if let url = converter.convert(source: assetItem, cancellation: { self.info.state == .cancelled }, progressHandler: { progress in AppAssetItemProgressNotification.update(item: assetItem, progress: progress) }, async) as? URL {
                 result = GIFMakerPHAssetResult(fileURL: url, orderedIndex: AppAssets.selected.index(of: assetItem))
             }
         case .livePhoto?:
             let converter = GifConverter_LivePhoto()
             converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount)
             
-            if let url = converter.convert(source: assetItem, cancellation: { self.info.state == .cancelled }, progressHandler: { progress in PHAssetItemProgressNotification.update(item: assetItem, progress: progress) }, async) as? URL {
+            if let url = converter.convert(source: assetItem, cancellation: { self.info.state == .cancelled }, progressHandler: { progress in AppAssetItemProgressNotification.update(item: assetItem, progress: progress) }, async) as? URL {
                 result = GIFMakerPHAssetResult(fileURL: url, orderedIndex: AppAssets.selected.index(of: assetItem))
             }
         default: break

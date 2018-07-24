@@ -7,7 +7,7 @@ import Foundation
 import Photos
 import DefaultsKit
 
-class _StabilizerAppAsset: PHAssetItem<ImageEditStateValue> {
+class _StabilizerAppAsset: AppAsset {
     fileprivate var exportSession: AVAssetExportSession?
     fileprivate var editingContext: PHLivePhotoEditingContext?
     
@@ -137,7 +137,7 @@ private class StabilizerTask: AppTaskPrototype, AppTaskable {
         
         DispatchQueue(label: "com.stells.internal."+#file, qos: .utility).async {
             assetItem.runEditing({ (progress) in
-                PHAssetItemProgressNotification.update(item: assetItem, progress: progress)
+                AppAssetItemProgressNotification.update(item: assetItem, progress: progress)
             }) { (asset, contentEditingOutput) in
                 if let asset = asset, let contentEditingOutput = contentEditingOutput {
                     contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: FiltersApp.self, editInfo: assetItem.editState.stabilizationMode != nil ? ["stabilizationMode": assetItem.editState.stabilizationMode!.rawValue] : [:], from: asset)

@@ -17,7 +17,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
     @IBOutlet weak var assetView: AppUIAssetView!
     
     var asset: PHAsset?
-    var editItem: PHAssetItem<ImageEditStateValue>?
+    var editItem: AppAsset?
     var imageRequestId: PHImageRequestID?
     var imageContentMode = PHImageContentMode.aspectFit
     private var needsToUpdatePreview: Bool = false
@@ -66,7 +66,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         needsToUpdatePreview = false
     }
     
-    func setFilteredImage(_ filtered: UIImage?, original: UIImage? = nil, with item: PHAssetItem<ImageEditStateValue>) {
+    func setFilteredImage(_ filtered: UIImage?, original: UIImage? = nil, with item: AppAsset) {
         let asset = item.asset
         
         setEditItem(item)
@@ -86,7 +86,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         setImageEditItem(item.editState, animated: false)
     }
     
-    func setOriginalImage(_ original: UIImage? = nil, with item: PHAssetItem<ImageEditStateValue>) {
+    func setOriginalImage(_ original: UIImage? = nil, with item: AppAsset) {
         let asset = item.asset
         
         setEditItem(item)
@@ -112,7 +112,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         }
     }
     
-    private func setEditItem(_ item: PHAssetItem<ImageEditStateValue>) {
+    private func setEditItem(_ item: AppAsset) {
         let asset = item.asset
         
         self.editItem = item
@@ -128,7 +128,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         layoutIfNeeded()
     }
     
-    func setEditItemForPreview(_ item: PHAssetItem<ImageEditStateValue>) {
+    func setEditItemForPreview(_ item: AppAsset) {
         let asset = item.asset
         
         setEditItem(item)
