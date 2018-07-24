@@ -80,6 +80,7 @@ class AppUICameraView: UIView {
                         self.cameraPositionButton.transform = newTransform
                      }, completion: nil)
                 }
+                self.cameraView.updateVideoOrientation()
             }
         }
 
@@ -248,7 +249,7 @@ class AppUICameraView: UIView {
             cameraView.takePhoto()
         }
         else if let gesture = sender as? UITapGestureRecognizer {
-            cameraView.changePointOfInterest(at: gesture.location(in: cameraView))
+            cameraView.updatePointOfInterest(at: gesture.location(in: cameraView))
         }
     }
 
@@ -300,7 +301,7 @@ class AppUICameraView: UIView {
             //TODO: ignore layer implicit animation
             layoutIfNeeded()
             
-            cameraView.changePointOfInterest(at: CGPoint(x: cameraView.width / 2, y: cameraView.height / 2), showsGuide: !isCompactMode)
+            cameraView.updatePointOfInterest(at: CGPoint(x: cameraView.width / 2, y: cameraView.height / 2), showsGuide: !isCompactMode)
         }
     }
 }

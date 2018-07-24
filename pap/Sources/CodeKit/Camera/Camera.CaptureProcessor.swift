@@ -83,30 +83,32 @@ class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
                 , replacementDepthData: nil)//photo.fileDataRepresentation()
 
         , let ciImage = data.asCIImage {
-            var transform = CGAffineTransform.identity
-
-            if frontFacing{
-                transform = transform.concatenating(ciImage.orientationTransform(for: .downMirrored))
-            }
-
-            switch param.deviceOrientation{
-                case .landscapeRight:
-                    transform = transform.concatenating(ciImage.orientationTransform(for: .right))
-                case .landscapeLeft:
-                    transform = transform.concatenating(ciImage.orientationTransform(for: .left))
-                case .portraitUpsideDown:
-                    transform = transform.concatenating(ciImage.orientationTransform(for: .upMirrored))
-                    transform = transform.concatenating(ciImage.orientationTransform(for: .downMirrored))
-                case .portrait, .faceUp, .faceDown, .unknown:
-                    break
-            }
-
-            let ciImageWriting = transform == CGAffineTransform.identity
-                    ? ciImage
-                    : ciImage.transformed(by: transform)
+            //FIXME: may not need this code after update video connection orientation and mirrored
+            
+//            var transform = CGAffineTransform.identity
+//
+//            if frontFacing{
+//                transform = transform.concatenating(ciImage.orientationTransform(for: .downMirrored))
+//            }
+//
+//            switch param.deviceOrientation{
+//                case .landscapeRight:
+//                    transform = transform.concatenating(ciImage.orientationTransform(for: .right))
+//                case .landscapeLeft:
+//                    transform = transform.concatenating(ciImage.orientationTransform(for: .left))
+//                case .portraitUpsideDown:
+//                    transform = transform.concatenating(ciImage.orientationTransform(for: .upMirrored))
+//                    transform = transform.concatenating(ciImage.orientationTransform(for: .downMirrored))
+//                case .portrait, .faceUp, .faceDown, .unknown:
+//                    break
+//            }
+//
+//            let ciImageWriting = transform == CGAffineTransform.identity
+//                    ? ciImage
+//                    : ciImage.transformed(by: transform)
 
             let url = FileURL.temp(UUID().uuidString, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
-            if ciImageWriting.writeJPEGRepresentationOriginally(to: url){
+            if ciImage.writeJPEGRepresentationOriginally(to: url){
                 return url
             }
         }

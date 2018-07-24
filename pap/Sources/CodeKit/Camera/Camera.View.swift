@@ -91,6 +91,7 @@ class CameraView: UIView {
         commitConfiguration()
 
         cameraPreviewView.setSession(captureSession)
+        updateVideoOrientation()
     }
 
     func startSession() {
@@ -208,6 +209,10 @@ class CameraView: UIView {
             //INFO: keep live photo settings
             if self.capturePhotoOutput.isLivePhotoCaptureEnabled != isLivePhotoEnabled {
                 self.capturePhotoOutput.isLivePhotoCaptureEnabled = isLivePhotoEnabled
+            }
+            
+            if let connection = self.capturePhotoOutput.connection(with: .video), connection.isVideoMirroringSupported {
+                connection.isVideoMirrored = position == .front
             }
 
             self.commitConfiguration()
@@ -338,13 +343,15 @@ extension CameraView {
 }
 
 extension CameraView {
-    func changePointOfInterest(at location: CGPoint, showsGuide: Bool = true) {
+    func updatePointOfInterest(at location: CGPoint, showsGuide: Bool = true) {
         let layerPoint = layer.convert(location, to: cameraPreviewView.previewLayer)
         let pointOfInterest = cameraPreviewView.previewLayer.captureDevicePointConverted(fromLayerPoint: layerPoint)
         
         sessionQueue.async {
             self.setPointOfInterest(pointOfInterest)
         }
+        
+        cameraPointOfInterestLayer?.removeFromSuperlayer()
         
         if showsGuide {
             performPointOfInterestAnimation(at: layerPoint)
@@ -377,8 +384,6 @@ extension CameraView {
     }
     
     private func performPointOfInterestAnimation(at pointOfInterest: CGPoint) {
-        cameraPointOfInterestLayer?.removeFromSuperlayer()
-        
         let size = CGSize(width: 75, height: 75)
         let rect = CGRect(origin: CGPoint(x: pointOfInterest.x - size.width / 2.0, y: pointOfInterest.y - size.height / 2.0), size: size)
         
@@ -437,6 +442,22 @@ extension CameraView {
         shapeLayer.add(disappearOpacityAnimation, forKey: "opacity")
         
         CATransaction.commit()
+    }
+}
+
+extension CameraView {
+    func updateVideoOrientation() {
+        guard let connection = capturePhotoOutput.connection(with: .video), connection.isVideoOrientationSupported else { return }
+        connection.videoOrientation = currentVideoOrientation
+    }
+    
+    var currentVideoOrientation: AVCaptureVideoOrientation {
+        switch deviceMotion.orientation {
+        case .landscapeLeft: return .landscapeRight
+        case .landscapeRight: return .landscapeLeft
+        case .portraitUpsideDown: return .portraitUpsideDown
+        default: return .portrait
+        }
     }
 }
 
