@@ -115,6 +115,10 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     fileprivate var cachedResults = [PHAssetID: PHAssetGCDetectedResult]()
 
     fileprivate func gc(item: PHAssetParamable,  _ async: AsyncWaitSignalable) -> PHAssetGCResult {
+        //hey, for Panorama, remove manually
+        if item.asset.mediaSubtypes.contains(.photoPanorama){
+            return PHAssetGCResult(asset:item.asset, action: .none)
+        }
 
         let gdType_Id = type(of: self).SupportingGDTypesKeys
         let gdCollection = type(of: self).privateDefaults.selectedCollection
