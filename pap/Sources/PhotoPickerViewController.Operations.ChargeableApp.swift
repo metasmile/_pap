@@ -87,7 +87,22 @@ class ChargeableButton: UIButton {
                 setImage(R.image.systemIconFavoriteFill(), for: .normal)
             }
             else {
-                setImage(R.image.systemIconFavoriteLine(), for: .normal)
+                let ratio = CGFloat(balance ?? 0)
+                
+                guard let fillImage = R.image.systemIconFavoriteFill()?.withRenderingMode(.alwaysTemplate) else { return }
+                let imageBounds = CGRect(origin: .zero, size: fillImage.size)
+                let image = UIGraphicsImageRenderer(bounds: imageBounds).imageWithCurrentContext { (ctx) in
+                    
+                    ctx.setFillColor(tintColor.cgColor)
+                    ctx.addRect(CGRect(x: 0, y: imageBounds.height - imageBounds.height * ratio, width: imageBounds.width, height: imageBounds.height * ratio))
+                    ctx.fillPath()
+                    
+                    if let balanceImage = ctx.makeImage(), let masking = fillImage.cgImage, let masked = masking.masking(balanceImage) {
+                        ctx.draw(masked, in: imageBounds)
+                    }
+                    R.image.systemIconFavoriteLine()?.draw(at: .zero)
+                }
+                setImage(image, for: .normal)
             }
         }
     }
