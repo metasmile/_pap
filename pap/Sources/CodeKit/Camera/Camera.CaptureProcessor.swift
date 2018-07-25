@@ -54,13 +54,11 @@ class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
     }
 
     final func exportStillImageOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) -> URL? {
-//        let frontFacing = self.param.videoDeviceInput?.device.position == .front
-
         /*
             Metadata Config
         */
         var metadata = photo.metadata
-
+        //TODO: should add CLLocation but currently hold on
         if let displayName = Bundle.main.displayName{
             metadata = metadata.updateMetadata(
                     dictionary: ImageMetadata.Dictionary.TIFF
@@ -80,33 +78,9 @@ class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
         if let data = photo.fileDataRepresentation(withReplacementMetadata: metadata
                 , replacementEmbeddedThumbnailPhotoFormat: nil
                 , replacementEmbeddedThumbnailPixelBuffer: nil
-                , replacementDepthData: nil)//photo.fileDataRepresentation()
+                , replacementDepthData: nil)
 
         , let ciImage = data.asCIImage {
-            //FIXME: may not need this code after update video connection orientation and mirrored
-            
-//            var transform = CGAffineTransform.identity
-//
-//            if frontFacing{
-//                transform = transform.concatenating(ciImage.orientationTransform(for: .downMirrored))
-//            }
-//
-//            switch param.deviceOrientation{
-//                case .landscapeRight:
-//                    transform = transform.concatenating(ciImage.orientationTransform(for: .right))
-//                case .landscapeLeft:
-//                    transform = transform.concatenating(ciImage.orientationTransform(for: .left))
-//                case .portraitUpsideDown:
-//                    transform = transform.concatenating(ciImage.orientationTransform(for: .upMirrored))
-//                    transform = transform.concatenating(ciImage.orientationTransform(for: .downMirrored))
-//                case .portrait, .faceUp, .faceDown, .unknown:
-//                    break
-//            }
-//
-//            let ciImageWriting = transform == CGAffineTransform.identity
-//                    ? ciImage
-//                    : ciImage.transformed(by: transform)
-
             let url = FileURL.temp(UUID().uuidString, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
             if ciImage.writeJPEGRepresentationOriginally(to: url){
                 return url

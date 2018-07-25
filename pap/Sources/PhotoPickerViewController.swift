@@ -142,6 +142,10 @@ class PhotoPickerViewController: AppDockViewController {
         dragSelectionGesture.delegate = self
         photoCollectionView.addGestureRecognizer(dragSelectionGesture)
 
+        //AppCenter.chargeManager related
+        initializeChargeWhenViewDidLoad()
+
+        //INFO: maintain last
         updateSelectedItemUIs()
     }
 

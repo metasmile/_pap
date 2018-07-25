@@ -165,8 +165,10 @@ private struct OnSocialShare:Payable{
     static let charge:Chargeable = AppChargeItem(type: .socialShare, reward: .timeOfUses)
     
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
-        guard let appURL = URL(string: "https://apps.photo") else { return false } //TODO: replace this with app store link
-        
+        guard let appURL = URL(string: "https://get.apps.photo") else {
+            return false
+        }
+
         var paid = false
         asyncSignal.begin()
         
@@ -231,12 +233,15 @@ private class OnFeedback: NSObject, Payable, MFMailComposeViewControllerDelegate
 
 extension PhotoPickerViewController{
 
-    @discardableResult
-    func updateRightButtonState() -> PhotoPickerViewControllerRightBarButtonState {
-
+    func initializeChargeWhenViewDidLoad(){
         AppCenter.chargeManager.watch(\.balance) {
             print("Modified balance:", AppCenter.chargeManager.balance)
+            self.updateRightButtonState()
         }
+    }
+
+    @discardableResult
+    func updateRightButtonState() -> PhotoPickerViewControllerRightBarButtonState {
 
         if self.estimatedAvailableSelectedItems > 0 && AppCenter.chargeManager.balance > 0 {
             navigationItem.setRightBarButton(self.doneButton, animated: true)
