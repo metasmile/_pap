@@ -14,6 +14,85 @@ enum PhotoPickerViewControllerRightBarButtonState {
     case paidSelected
 }
 
+class ChargeableBarButtonItem: UIBarButtonItem {
+    override init() {
+        super.init()
+        initialize()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        initialize()
+    }
+    
+    private lazy var chargeableButton = ChargeableButton(type: .system)
+    
+    private func initialize() {
+        customView = chargeableButton
+        
+        chargeableButton.imageView?.contentMode = .scaleAspectFit
+        chargeableButton.imageEdgeInsets = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
+        
+        chargeableButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
+    }
+    
+    override var title: String? {
+        set {
+            chargeableButton.setTitle(newValue, for: .normal)
+            chargeableButton.sizeToFit()
+        }
+        
+        get {
+            return chargeableButton.title(for: .normal)
+        }
+    }
+    
+    var balance: Double? {
+        set {
+            chargeableButton.balance = newValue
+            chargeableButton.sizeToFit()
+        }
+        
+        get {
+            return chargeableButton.balance
+        }
+    }
+    
+    override var action: Selector? {
+        didSet {
+            guard let selector = action else { return }
+            chargeableButton.addTarget(self.target, action: selector, for: .touchUpInside)
+        }
+    }
+}
+
+class ChargeableButton: UIButton {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initialize()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        initialize()
+    }
+    
+    private func initialize() {
+        
+    }
+    
+    var balance: Double? {
+        didSet {
+            if balance == 1 {
+                setImage(R.image.systemIconFavoriteFill(), for: .normal)
+            }
+            else {
+                setImage(R.image.systemIconFavoriteLine(), for: .normal)
+            }
+        }
+    }
+}
+
 private class PhotoPickerViewControllerChargeableAssets {
     static let shared: PhotoPickerViewControllerChargeableAssets = PhotoPickerViewControllerChargeableAssets()
 
@@ -24,6 +103,8 @@ private class PhotoPickerViewControllerChargeableAssets {
     fileprivate lazy var socialShareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: nil)
 
     fileprivate lazy var feedbackButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
+    
+    fileprivate lazy var chargeableButton = ChargeableBarButtonItem()
 }
 
 private struct InAppStoreRating:Payable{
@@ -148,14 +229,18 @@ extension PhotoPickerViewController{
         }
 
         if self.estimatedAvailableSelectedItems > 0 && AppCenter.chargeManager.balance == 0 {
-            let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.inStoreRatingButton
+            let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.chargeableButton
+            rightButtonItem.title = doneButton?.title
+            rightButtonItem.balance = AppCenter.chargeManager.balance
             rightButtonItem.target = self
             rightButtonItem.action = #selector(self.chargeableButtonDidTap)
             navigationItem.setRightBarButton(rightButtonItem, animated: true)
             return .unpaidSelected
         }
 
-        let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.inStoreRatingButton
+        let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.chargeableButton
+        rightButtonItem.title = nil
+        rightButtonItem.balance = AppCenter.chargeManager.balance
         rightButtonItem.target = self
         rightButtonItem.action = #selector(self.chargeableButtonDidTap)
         navigationItem.setRightBarButton(rightButtonItem, animated: true)
