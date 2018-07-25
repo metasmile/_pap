@@ -46,8 +46,8 @@ protocol Payable {
 }
 
 protocol Chargeable {
-    var type: ChargeType {set get}
-    var reward:RewardType {set get}
+    var type: ChargeType {get}
+    var reward: RewardType {get}
 }
 
 extension Chargeable{
@@ -63,7 +63,7 @@ protocol Charge: Chargeable {
     var description:String? {get}
 }
 
-protocol Amount{
+protocol Amount: Codable{
     var value:Double{get}
 
     init(value:Double)
@@ -72,4 +72,18 @@ protocol Amount{
 protocol MutableAmount: Amount{
     func add(_ amount:Amount) -> Amount
     func subtract(_ amount:Amount) -> Amount
+}
+
+
+protocol ChargeBanker {
+    //INFO: return ChargeBank. balanceValue
+    func willGetBalanceValue(balance:MutableAmount) -> Amount
+
+    func willInitialize(balance:MutableAmount) -> Amount
+
+    //INFO: return charged price amount or nil.
+    func willDeposit(priceAmountFor charge:Charge, balance:MutableAmount) -> Amount?
+    func didDeposit(for charge:Charge, balance:MutableAmount)
+
+    init()
 }

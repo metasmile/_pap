@@ -15,26 +15,26 @@ class ChargeManager{
 
     private(set) var bank: ChargeBank
 
-    init(charges:[Charge], bankDelegate:ChargeBankDelegate.Type){
+    init(charges:[Charge], banker: ChargeBanker.Type){
         self.charges = charges
-        self.bank = ChargeBank(delegate: bankDelegate)
+        self.bank = ChargeBank(banker: banker)
     }
 
     func resetBalance(){
 #if DEBUG
         print("[i]INFO: In the release build, balance resetting will not be performed.")
-        bank.balanceAmountsValue = 0
+        bank.balanceValue = 0
 #endif
     }
 
-    func getCharge(for payable: Payable.Type) -> Charge?{
+    func getCharge(for chargeable: Chargeable) -> Charge?{
         return charges.first { item in
-            return (item as Chargeable).isEqual(other: payable.charge)
+            return (item as Chargeable).isEqual(other: chargeable)
         }
     }
 
     func getRemainingCharges(cheapFirst:Bool=false) -> [Charge]{
-        if self.bank.balanceAmountsValue == 1{
+        if self.bank.balanceValue == 1{
             return []
         }
 
@@ -42,7 +42,7 @@ class ChargeManager{
             return item.priceAmount.value < item2.priceAmount.value
         }
         var remainingCharges = [Charge]()
-        var bal = self.bank.balanceAmountsValue
+        var bal = self.bank.balanceValue
         for item in cheapFirstItems {
             bal += item.priceAmount.value
             if bal > 1{
@@ -56,9 +56,8 @@ class ChargeManager{
     /*
         Payment
     */
-
     func pay(for payable: Payable.Type, _ asyncSignal:AsyncWaitSignalable=AsyncSignal()){
-        if let chargeToDeposit = getCharge(for: payable) {
+        if let chargeToDeposit = getCharge(for: payable.charge) {
             payingQueue.async{
                 if payable.init().pay(asyncSignal){
 
@@ -74,7 +73,7 @@ class ChargeManager{
 
     func isPaid(for payable:Payable.Type) -> Bool{
         //TODO: consumption unit date, app use count etc.
-        return self.bank.balanceAmountsValue > getCharge(for: payable)?.priceAmount.value ?? 0
+        return self.bank.balanceValue > getCharge(for: payable.charge)?.priceAmount.value ?? 0
     }
 }
 
@@ -117,52 +116,50 @@ class MutableAmountObject: AmountObject, MutableAmount{
 /*
 Private Interfaces
 */
-protocol ChargeBankDelegate{
-    func willInitialize(balance:MutableAmount) -> Amount
-    func willDeposit(for charge:Charge, balance:MutableAmount) -> Amount?
-    func didDeposit(for charge:Charge, balance:MutableAmount)
-
-    init()
-}
-
 final class ChargeBank: NSObject, KeyPathWatchable {
-    private lazy var defaults: ChargeDefaults = Defaults(userDefaults: UserDefaults(suiteName: String(describing: ChargeBank.self)+"UserDefaults") ?? UserDefaults.standard)
+    private var defaults: ChargeDefaults = Defaults(userDefaults: UserDefaults(suiteName: String(describing: ChargeBank.self)+"UserDefaults") ?? UserDefaults.standard)
 
-    private lazy var amount:MutableAmountObject = MutableAmountObject(value:defaults.balanceAmountsValue)
+    private let balanceAmount:MutableAmountObject
 
     @objc dynamic
-    fileprivate (set) lazy var balanceAmountsValue:Double = self.delegate.willInitialize(balance: amount).value
+    fileprivate(set) var balanceValue:Double{
+        set{
+            balanceAmount.value = newValue
+            self.defaults.balanceValue = newValue
+        }
+        get{
+            balanceAmount.value = banker.willGetBalanceValue(balance: balanceAmount).value
+            return balanceAmount.value
+        }
+    }
 
-    private var delegate:ChargeBankDelegate
+    private let banker: ChargeBanker
 
-    required init(delegate:ChargeBankDelegate.Type){
-        self.delegate = delegate.init()
+    required init(banker: ChargeBanker.Type){
+        self.banker = banker.init()
+
+        self.balanceAmount = MutableAmountObject(value:defaults.balanceValue)
+        self.balanceAmount.value = self.banker.willInitialize(balance: self.balanceAmount).value
     }
 
     func deposit(for charge:Charge){
-        if let priceAmount = delegate.willDeposit(for: charge, balance: amount){
-            balanceAmountsValue = amount.add(priceAmount).value
-            commitBalanceAmount()
+        if let priceAmount = banker.willDeposit(priceAmountFor: charge, balance: balanceAmount){
+            balanceValue = balanceAmount.add(priceAmount).value
         }
-        delegate.didDeposit(for: charge, balance: amount)
+        banker.didDeposit(for: charge, balance: balanceAmount)
     }
 
     fileprivate func consume(for charge:Charge){
-        balanceAmountsValue = amount.subtract(charge.priceAmount).value
-        commitBalanceAmount()
-    }
-
-    private func commitBalanceAmount(){
-        defaults.balanceAmountsValue = self.balanceAmountsValue
+        balanceValue = balanceAmount.subtract(charge.priceAmount).value
     }
 }
 
 private protocol ChargeDefaults:DefaultsProperty{
-    var balanceAmountsValue: Double {set get}
+    var balanceValue: Double {set get}
 }
 
 extension Defaults: ChargeDefaults {
-    fileprivate var balanceAmountsValue: Double {
+    fileprivate var balanceValue: Double {
         set{
             if newValue>=0.0 && newValue<=1.0 {
                 set(newValue)

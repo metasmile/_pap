@@ -17,8 +17,8 @@ extension PhotoPickerViewController{
 
     func initializeChargeWhenViewDidLoad(){
 
-        AppCenter.charge.bank.watch(\.balanceAmountsValue) {
-            print("Updated balance:", AppCenter.charge.bank.balanceAmountsValue)
+        AppCenter.charge.bank.watch(\.balanceValue) {
+            print("Updated balance:", AppCenter.charge.bank.balanceValue)
             self.updateRightButtonState()
         }
     }
@@ -26,15 +26,15 @@ extension PhotoPickerViewController{
     @discardableResult
     func updateRightButtonState() -> PhotoPickerViewControllerRightBarButtonState {
 
-        if self.estimatedAvailableSelectedItems > 0 && AppCenter.charge.bank.balanceAmountsValue > 0 {
+        if self.estimatedAvailableSelectedItems > 0 && AppCenter.charge.bank.balanceValue > 0 {
             navigationItem.setRightBarButton(self.doneButton, animated: true)
             return .paidSelected
         }
 
-        if self.estimatedAvailableSelectedItems > 0 && AppCenter.charge.bank.balanceAmountsValue == 0 {
+        if self.estimatedAvailableSelectedItems > 0 && AppCenter.charge.bank.balanceValue == 0 {
             let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.chargeableButton
             rightButtonItem.title = doneButton?.title
-            rightButtonItem.balance = AppCenter.charge.bank.balanceAmountsValue
+            rightButtonItem.balance = AppCenter.charge.bank.balanceValue
             rightButtonItem.target = self
             rightButtonItem.action = #selector(self.chargeableButtonDidTap)
             navigationItem.setRightBarButton(rightButtonItem, animated: true)
@@ -43,7 +43,7 @@ extension PhotoPickerViewController{
 
         let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.chargeableButton
         rightButtonItem.title = nil
-        rightButtonItem.balance = AppCenter.charge.bank.balanceAmountsValue
+        rightButtonItem.balance = AppCenter.charge.bank.balanceValue
         rightButtonItem.target = self
         rightButtonItem.action = #selector(self.chargeableButtonDidTap)
         navigationItem.setRightBarButton(rightButtonItem, animated: true)
