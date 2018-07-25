@@ -106,9 +106,11 @@ class ChargeableBarButtonItem: UIBarButtonItem {
         customView = chargeableButton
         
         chargeableButton.imageView?.contentMode = .scaleAspectFit
-        chargeableButton.imageEdgeInsets = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
+        chargeableButton.imageEdgeInsets = UIEdgeInsets(top: 2, left: 0, bottom: 2, right: 0)
         
         chargeableButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
+        chargeableButton.titleEdgeInsets.left = 2
+        chargeableButton.titleEdgeInsets.right = -2
     }
     
     override var title: String? {
@@ -142,6 +144,23 @@ class ChargeableBarButtonItem: UIBarButtonItem {
 }
 
 class ChargeableButton: UIButton {
+    struct ChargeType: OptionSet {
+        public let rawValue: Int
+        
+        init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        init(_ rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        static let fill = ChargeType(1 << 0)
+        static let opacity = ChargeType(1 << 1)
+    }
+    
+    var chargeType: ChargeType = [.fill, .opacity]
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
@@ -164,20 +183,30 @@ class ChargeableButton: UIButton {
             else {
                 let ratio = CGFloat(balance ?? 0)
                 
-                guard let fillImage = R.image.systemIconFavoriteFill()?.withRenderingMode(.alwaysTemplate) else { return }
-                let imageBounds = CGRect(origin: .zero, size: fillImage.size)
-                let image = UIGraphicsImageRenderer(bounds: imageBounds).imageWithCurrentContext { (ctx) in
+                guard let iconImage = R.image.systemIconFavoriteFill() else { return }
+                
+                let imageBounds = CGRect(origin: .zero, size: iconImage.size)
+                let buttonImage = UIGraphicsImageRenderer(bounds: imageBounds).imageWithCurrentContext { (ctx) in
                     
-                    ctx.setFillColor(tintColor.cgColor)
-                    ctx.addRect(CGRect(x: 0, y: imageBounds.height - imageBounds.height * ratio, width: imageBounds.width, height: imageBounds.height * ratio))
-                    ctx.fillPath()
-                    
-                    if let balanceImage = ctx.makeImage(), let masking = fillImage.cgImage, let masked = masking.masking(balanceImage) {
-                        ctx.draw(masked, in: imageBounds)
+                    if self.chargeType.contains(.fill) {
+                        ctx.saveGState()
+                        
+                        ctx.setFillColor(tintColor.cgColor)
+                        ctx.addRect(CGRect(x: 0, y: imageBounds.height - imageBounds.height * ratio, width: imageBounds.width, height: imageBounds.height * ratio))
+                        ctx.clip(using: .evenOdd)
+                        
+                        iconImage.draw(at: .zero, blendMode: .multiply, alpha: ratio / 2)
+                        
+                        ctx.restoreGState()
                     }
+                    
+                    if self.chargeType.contains(.opacity) {
+                        iconImage.draw(at: .zero, blendMode: .normal, alpha: ratio / 2)
+                    }
+                    
                     R.image.systemIconFavoriteLine()?.draw(at: .zero)
                 }
-                setImage(image, for: .normal)
+                setImage(buttonImage, for: .normal)
             }
         }
     }
