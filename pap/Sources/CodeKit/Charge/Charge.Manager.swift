@@ -20,13 +20,6 @@ class ChargeManager{
         self.bank = ChargeBank(banker: banker)
     }
 
-    func resetBalance(){
-#if DEBUG
-        print("[i]INFO: In the release build, balance resetting will not be performed.")
-        bank.balanceValue = 0
-#endif
-    }
-
     func getCharge(for chargeable: Chargeable) -> Charge?{
         return charges.first { item in
             return (item as Chargeable).isEqual(other: chargeable)
@@ -70,11 +63,6 @@ class ChargeManager{
             }
         }
     }
-
-    func isPaid(for payable:Payable.Type) -> Bool{
-        //TODO: consumption unit date, app use count etc.
-        return self.bank.balanceValue > getCharge(for: payable.charge)?.priceAmount.value ?? 0
-    }
 }
 
 /*
@@ -100,6 +88,10 @@ class AmountObject:Amount{
 }
 
 class MutableAmountObject: AmountObject, MutableAmount{
+    convenience init(amount: Amount) {
+        self.init(value: amount.value)
+    }
+
     @discardableResult
     func add(_ amount: Amount) -> Amount {
         self.value += clamp(amount.value, type(of: self).minValue, type(of: self).maxValue - value)
@@ -122,7 +114,7 @@ final class ChargeBank: NSObject, KeyPathWatchable {
     private let balanceAmount:MutableAmountObject
 
     @objc dynamic
-    fileprivate(set) var balanceValue:Double{
+    private(set) var balanceValue:Double{
         set{
             balanceAmount.value = newValue
             self.defaults.balanceValue = newValue
@@ -137,9 +129,7 @@ final class ChargeBank: NSObject, KeyPathWatchable {
 
     required init(banker: ChargeBanker.Type){
         self.banker = banker.init()
-
-        self.balanceAmount = MutableAmountObject(value:defaults.balanceValue)
-        self.balanceAmount.value = self.banker.willInitialize(balance: self.balanceAmount).value
+        self.balanceAmount = MutableAmountObject(amount: self.banker.willInitialize(balance: MutableAmountObject(value:defaults.balanceValue)))
     }
 
     func deposit(for charge:Charge){

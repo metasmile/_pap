@@ -70,16 +70,20 @@ protocol Amount: Codable{
 }
 
 protocol MutableAmount: Amount{
+    @discardableResult
     func add(_ amount:Amount) -> Amount
+
+    @discardableResult
     func subtract(_ amount:Amount) -> Amount
 }
 
 
 protocol ChargeBanker {
+    //INFO: setup something stuffs
+    func willInitialize(balance:MutableAmount) -> Amount
+
     //INFO: return ChargeBank. balanceValue
     func willGetBalanceValue(balance:MutableAmount) -> Amount
-
-    func willInitialize(balance:MutableAmount) -> Amount
 
     //INFO: return charged price amount or nil.
     func willDeposit(priceAmountFor charge:Charge, balance:MutableAmount) -> Amount?
