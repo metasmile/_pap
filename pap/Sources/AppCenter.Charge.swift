@@ -1,5 +1,5 @@
 //
-// Created by BLACKGENE on 24.07.18.
+// Created by BLACKGE?NE on 24.07.18.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
@@ -8,7 +8,16 @@ import UIKit
 import DefaultsKit
 
 
-struct AppChargeableItem: Codable, Chargeable{
+private struct AppChargeItem: Charge {
+    var type: ChargeType
+    var reward: RewardType
+
+    let priceAmount:Amount
+    let title: String
+    let description: String?
+}
+
+struct AppChargeableItem: Chargeable{
     let type: ChargeType
     let reward: RewardType
 
@@ -16,8 +25,31 @@ struct AppChargeableItem: Codable, Chargeable{
         self.type = type
         self.reward = reward
     }
+}
+
+struct AppChargeReceipt: Codable, Chargeable{
+
+    init(chargeable:Chargeable){
+        self.type = chargeable.type
+        self.reward = chargeable.reward
+    }
+
+    let uuid:String = UUID().uuidString
+    let createdDate:Date = Date()
+
+    let type: ChargeType
+    let reward: RewardType
+
+    var dateData:Date?
+    var stringData:String?
+    var intData:Int?
+    var doubleData:Double?
+    var dataData:Data?
 
     private enum CodingKeys: Int, CodingKey {
+        case uuid
+        case createdDate
+
         case type
         case reward
 
@@ -28,14 +60,12 @@ struct AppChargeableItem: Codable, Chargeable{
         case dataData
     }
 
-    var dateData:Date?
-    var stringData:String?
-    var intData:Int?
-    var doubleData:Double?
-    var dataData:Data?
-
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(uuid, forKey: .uuid)
+        try container.encode(createdDate, forKey: .createdDate)
+
         try container.encode(type, forKey: .type)
         try container.encode(reward, forKey: .reward)
 
@@ -45,15 +75,6 @@ struct AppChargeableItem: Codable, Chargeable{
         try container.encode(doubleData, forKey: .doubleData)
         try container.encode(dataData, forKey: .dataData)
     }
-}
-
-private struct AppChargeItem: Charge {
-    var type: ChargeType
-    var reward: RewardType
-
-    let priceAmount:Amount
-    let title: String
-    let description: String?
 }
 
 
@@ -72,56 +93,71 @@ private final class AppChargeManager: ChargeManager{
 }
 
 private protocol AppChargeBankDefaults:DefaultsProperty{
-    var deposited:[AppChargeableItem] {set get}
+    var receipts:[String:AppChargeReceipt] {set get} // receipt ID : object
 }
 
 extension Defaults: AppChargeBankDefaults {
-    var deposited:[AppChargeableItem]{
+    var receipts:[String:AppChargeReceipt]{
         set{ set(newValue) }
-        get{ return get(or:[AppChargeableItem]()) }
+        get{ return get(or:[String:AppChargeReceipt]()) }
     }
 }
 
 private final class AppChargeBank: ChargeBanker {
     private var defaults: AppChargeBankDefaults = Defaults(userDefaults: UserDefaults(suiteName: String(describing: AppChargeBank.self)+"UserDefaults") ?? UserDefaults.standard)
 
-    private let papAbsTimeOfUsesTime:TimeInterval = 60*60*24*14 //14d
+    private let papAbsTimeOfUsesTime:TimeInterval = 60//60*60*24*14 //14d
     private let papAbsTotalPerformCount = 50
 
     init() {}
 
     func willInitialize(balance: MutableAmount) -> Amount {
         //DEBUG
-        defaults.deposited = [AppChargeableItem]()
+        defaults.receipts = [String:AppChargeReceipt]()
         return AmountObject(value: 0)
 
 //        return balance
     }
 
+    //TODO: performance care
     func willGetBalanceValue(balance: MutableAmount) -> Amount {
-        for chargeable in defaults.deposited {
-            guard let charge = AppChargeManager.shared.getCharge(for: chargeable) else {
+        var subtractedReceiptIds = [String]()
+
+        for (uuid, receipt) in defaults.receipts {
+
+            guard let charge = AppChargeManager.shared.getCharge(for: receipt) else {
                 continue
             }
 
-            if chargeable.reward == RewardType.timeOfUses, let date = chargeable.dateData{
+            if receipt.reward == RewardType.timeOfUses, let date = receipt.dateData{
                 if Date().timeIntervalSince(date) > papAbsTimeOfUsesTime{
+                    subtractedReceiptIds.append(uuid)
 
+                    print("before", balance.value)
                     balance.subtract(charge.priceAmount)
+                    print("after subtract", balance.value)
                 }
             }
-
         }
 
+        var receipts = defaults.receipts
+        for id in subtractedReceiptIds {
+            print("[i] INFO: Removed Receipt: ", receipts[id] ?? "", id)
+            receipts.removeValue(forKey: id)
+        }
+        defaults.receipts = receipts
+        
         return balance
     }
 
     func willDeposit(priceAmountFor charge: Charge, balance: MutableAmount) -> Amount? {
 
-        var item = AppChargeableItem(type: charge.type, reward: charge.reward)
-        item.dateData = Date()
+        var receipt = AppChargeReceipt(chargeable: charge)
+        receipt.dateData = Date()
 
-        defaults.deposited.append(item)
+        defaults.receipts[receipt.uuid] = receipt
+
+        print("[i] Deposited: ", receipt, receipt.uuid)
 
         return charge.priceAmount
     }

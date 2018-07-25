@@ -82,7 +82,8 @@ protocol ChargeBanker {
     //INFO: setup something stuffs
     func willInitialize(balance:MutableAmount) -> Amount
 
-    //INFO: return ChargeBank. balanceValue
+    //INFO: return ChargeBank. balanceValue - this method may call significantly.
+    // handle carefully for maintaining high performance.
     func willGetBalanceValue(balance:MutableAmount) -> Amount
 
     //INFO: return charged price amount or nil.

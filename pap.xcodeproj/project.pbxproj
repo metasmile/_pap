@@ -45,6 +45,7 @@
 		4F71D1CC347DF98722652FB0 /* PDFactory.AppDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8A24AFBF88E43089246 /* PDFactory.AppDefaults.swift */; };
 		4F71D1CEFF929A07E3AB0C00 /* Cleaner.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D964680143F9237CA854 /* Cleaner.BApp.swift */; };
 		4F71D1EEBA7ED8C1BFC21EC0 /* App.Lib.Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2588E42F7B00E16E945 /* App.Lib.Parser.swift */; };
+		4F71D1F875B08E88EB8BC40D /* App.Chargeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5A902C8A1223C286310 /* App.Chargeable.swift */; };
 		4F71D1FF041181D0AD2BE1AE /* CodeKit.DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D333058F5CDA9A8C83D0 /* CodeKit.DispatchQueue.swift */; };
 		4F71D20000F4CF5D7E7013E1 /* CodeKit.UITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3CDAC5D9C7C21B01F5B /* CodeKit.UITableViewController.swift */; };
 		4F71D22321E67D59611079CC /* CodeKit.UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8033E59EAB278D35495 /* CodeKit.UIAlertController.swift */; };
@@ -458,6 +459,7 @@
 		4F71D5824B6B11743968A078 /* CodeKit.Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Misc.swift; sourceTree = "<group>"; };
 		4F71D590D9C96E96C3ED6669 /* Transform.BApp.Public.Contents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.BApp.Public.Contents.swift; sourceTree = "<group>"; };
 		4F71D59BE451048768EE797F /* Transform.BApp.Contents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.BApp.Contents.swift; sourceTree = "<group>"; };
+		4F71D5A902C8A1223C286310 /* App.Chargeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Chargeable.swift; sourceTree = "<group>"; };
 		4F71D5ACD3F74B3B759BD54E /* App.Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Asset.swift; sourceTree = "<group>"; };
 		4F71D5B00151402B775F469B /* App.Persistable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Persistable.swift; sourceTree = "<group>"; };
 		4F71D5BC4E62AAE070D85B69 /* CodeKit.UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIViewController.swift; sourceTree = "<group>"; };
@@ -1402,6 +1404,7 @@
 				4F71DDC43B0DF0CCD376101D /* App.Launchable.OptionsKey.swift */,
 				4F71D53963FE84DB6837A9BD /* App.Editable.swift */,
 				4F71D0B30553201A68087681 /* App.Cacheable.swift */,
+				4F71D5A902C8A1223C286310 /* App.Chargeable.swift */,
 			);
 			path = App.Types;
 			sourceTree = "<group>";
@@ -3110,6 +3113,7 @@
 				4F71DD53FD0BC5F4E71141ED /* Charge.Manager.swift in Sources */,
 				4F71D4D5B8C813D0D64D002D /* AppCenter.Charge.swift in Sources */,
 				4F71D49A025B0DE5358DEF78 /* Charge.Types.swift in Sources */,
+				4F71D1F875B08E88EB8BC40D /* App.Chargeable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
