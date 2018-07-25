@@ -10,7 +10,6 @@ import DefaultsKit
 class ChargeManager: NSObject, KeyPathWatchable{
 
     private let payingQueue:DispatchQueue = DispatchQueue(label: String(describing: ChargeManager.self))
-    fileprivate let defaults: ChargeDefaults = Defaults(userDefaults: UserDefaults(suiteName: String(describing: type(of: self))+"UserDefaults") ?? UserDefaults.standard)
 
     private let charges:[Charge] // type: price
 
@@ -18,7 +17,7 @@ class ChargeManager: NSObject, KeyPathWatchable{
     @objc dynamic
     fileprivate (set) var balanceAmountsValue:Double = 0
 
-    private lazy var balance = ChargeManagerBalanceAmount(value: defaults.balanceAmountsValue, manager:self)
+    private lazy var balance:AmountBankManager = ChargeManagerDefaultAmountBank()
 
     init(charges:[Charge]){
         self.charges = charges
@@ -27,7 +26,7 @@ class ChargeManager: NSObject, KeyPathWatchable{
     func resetBalance(){
 #if DEBUG
         print("[i]INFO: In the release build, balance resetting will not be performed.")
-        balance = ChargeManagerBalanceAmount(value: 0, manager:self)
+        balance.balanceAmountsValue = 0
 #endif
     }
 
@@ -38,7 +37,7 @@ class ChargeManager: NSObject, KeyPathWatchable{
     }
 
     func getRemainingCharges(cheapFirst:Bool=false) -> [Charge]{
-        if self.balance.value == 1{
+        if self.balance.balanceAmountsValue == 1{
             return []
         }
 
@@ -46,7 +45,7 @@ class ChargeManager: NSObject, KeyPathWatchable{
             return item.priceAmount.value < item2.priceAmount.value
         }
         var remainingCharges = [Charge]()
-        var bal = self.balance.value
+        var bal = self.balance.balanceAmountsValue
         for item in cheapFirstItems {
             bal += item.priceAmount.value
             if bal > 1{
@@ -78,7 +77,7 @@ class ChargeManager: NSObject, KeyPathWatchable{
 
     func isPaid(for payable:Payable.Type) -> Bool{
         //TODO: consumption unit date, app use count etc.
-        return self.balance.value > getCharge(for: payable)?.priceAmount.value ?? 0
+        return self.balance.balanceAmountsValue > getCharge(for: payable)?.priceAmount.value ?? 0
     }
 }
 
@@ -121,49 +120,37 @@ class MutableAmountObject: AmountObject, MutableAmount{
 /*
 Private Interfaces
 */
-private class ChargeManagerBalanceAmount: MutableAmountObject{
-    private var manager:ChargeManager?
+protocol AmountBank {
+    var balanceAmountsValue:Double{get}
 
-    required init(value: Double) {
-        super.init(value: value)
-    }
+    func deposit(for charge:Charge)
+}
 
-    convenience init(value: Double, manager:ChargeManager?){
-        self.init(value: value)
-        self.manager = manager
-    }
+private protocol AmountBankManager: AmountBank {
+    var balanceAmountsValue:Double{set get}
+}
 
-    override var value: Double {
-        get {
-            return super.value
-        }
-        set {
-            super.value = newValue
-
-            var defaults = self.manager?.defaults
-            defaults?.balanceAmountsValue = newValue
-            manager?.balanceAmountsValue = newValue
+private class ChargeManagerDefaultAmountBank: NSObject, KeyPathWatchable, AmountBankManager {
+    @objc dynamic
+    fileprivate (set) var balanceAmountsValue:Double = 0 {
+        didSet{
+            defaults.balanceAmountsValue = balanceAmountsValue
         }
     }
+
+    private lazy var defaults: ChargeDefaults = Defaults(userDefaults: UserDefaults(suiteName: String(describing: type(of: self))+"UserDefaults") ?? UserDefaults.standard)
+
+    private lazy var amount = MutableAmountObject(value:defaults.balanceAmountsValue)
 
     func deposit(for charge:Charge){
         //TODO: register consumption actions by reward type, only when charge.priceAmount == MutableAmount
         // charge.reward
-        self.add(charge.priceAmount)
+
+        balanceAmountsValue = amount.add(charge.priceAmount).value
     }
 
     private func consume(for charge:Charge){
-        self.subtract(charge.priceAmount)
-    }
-
-    @discardableResult
-    override func add(_ amount: Amount) -> Amount {
-        return super.add(amount)
-    }
-
-    @discardableResult
-    override func subtract(_ amount: Amount) -> Amount {
-        return super.subtract(amount)
+        balanceAmountsValue = amount.subtract(charge.priceAmount).value
     }
 }
 
