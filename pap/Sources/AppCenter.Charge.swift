@@ -22,20 +22,33 @@ private struct AppChargeItem: Charge {
 }
 
 extension AppCenter{
-    static let chargeManager:ChargeManager = papChargeManager(charges:[
+    static let charge:ChargeManager = papChargeManager(charges:[
         AppChargeItem(type: .inStoreRating, reward: .timeOfUses,  priceAmount: MutableAmountObject(value:0.5), title:"AppStore Rating", description:nil)
         , AppChargeItem(type: .onPromptRating, reward: .timeOfUses, priceAmount: MutableAmountObject(value:0.3), title:"AppStore Rating", description:nil)
         , AppChargeItem(type: .socialShare, reward: .timeOfUses, priceAmount: MutableAmountObject(value:0.2), title:"AppStore Rating", description:nil)
         , AppChargeItem(type: .feedback, reward: .timeOfUses, priceAmount: AmountObject(value:1), title:"AppStore Rating", description:nil)
         /* .... */
-    ])
+    ], bankDelegate:papChargeBank.self)
 }
 
 private final class papChargeManager: ChargeManager{
-    //TODO: pap specific overridden policies here
-    override init(charges: [Charge]) {
-        super.init(charges: charges)
+    override init(charges: [Charge], bankDelegate: ChargeBankDelegate.Type) {
+        super.init(charges: charges, bankDelegate: bankDelegate)
+    }
+}
 
-        self.resetBalance()
+private final class papChargeBank: ChargeBankDelegate{
+    func willInitialize(balance: MutableAmount) -> Amount {
+        return balance
+    }
+
+    func willDeposit(for charge: Charge, balance: MutableAmount) -> Amount? {
+        return balance
+    }
+
+    func didDeposit(for charge: Charge, balance: MutableAmount) {
+    }
+
+    init() {
     }
 }

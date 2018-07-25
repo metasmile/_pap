@@ -16,8 +16,9 @@ enum PhotoPickerViewControllerRightBarButtonState {
 extension PhotoPickerViewController{
 
     func initializeChargeWhenViewDidLoad(){
-        AppCenter.chargeManager.watch(\.balanceAmountsValue) {
-            print("Updated balance:", AppCenter.chargeManager.balanceAmountsValue)
+
+        AppCenter.charge.bank.watch(\.balanceAmountsValue) {
+            print("Updated balance:", AppCenter.charge.bank.balanceAmountsValue)
             self.updateRightButtonState()
         }
     }
@@ -25,15 +26,15 @@ extension PhotoPickerViewController{
     @discardableResult
     func updateRightButtonState() -> PhotoPickerViewControllerRightBarButtonState {
 
-        if self.estimatedAvailableSelectedItems > 0 && AppCenter.chargeManager.balanceAmountsValue > 0 {
+        if self.estimatedAvailableSelectedItems > 0 && AppCenter.charge.bank.balanceAmountsValue > 0 {
             navigationItem.setRightBarButton(self.doneButton, animated: true)
             return .paidSelected
         }
 
-        if self.estimatedAvailableSelectedItems > 0 && AppCenter.chargeManager.balanceAmountsValue == 0 {
+        if self.estimatedAvailableSelectedItems > 0 && AppCenter.charge.bank.balanceAmountsValue == 0 {
             let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.chargeableButton
             rightButtonItem.title = doneButton?.title
-            rightButtonItem.balance = AppCenter.chargeManager.balanceAmountsValue
+            rightButtonItem.balance = AppCenter.charge.bank.balanceAmountsValue
             rightButtonItem.target = self
             rightButtonItem.action = #selector(self.chargeableButtonDidTap)
             navigationItem.setRightBarButton(rightButtonItem, animated: true)
@@ -42,7 +43,7 @@ extension PhotoPickerViewController{
 
         let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.chargeableButton
         rightButtonItem.title = nil
-        rightButtonItem.balance = AppCenter.chargeManager.balanceAmountsValue
+        rightButtonItem.balance = AppCenter.charge.bank.balanceAmountsValue
         rightButtonItem.target = self
         rightButtonItem.action = #selector(self.chargeableButtonDidTap)
         navigationItem.setRightBarButton(rightButtonItem, animated: true)
@@ -57,22 +58,22 @@ extension PhotoPickerViewController{
 //            setViewControllerDisabled(true)
 //        }
 
-        print("RemainingCharges:", AppCenter.chargeManager.getRemainingCharges().map { $0.type })
+        print("RemainingCharges:", AppCenter.charge.getRemainingCharges().map { $0.type })
 
         //TODO: users can choose the one of them
-        for charge in AppCenter.chargeManager.getRemainingCharges() {
+        for charge in AppCenter.charge.getRemainingCharges() {
             switch charge.type {
             case .inStoreRating:
-                AppCenter.chargeManager.pay(for: InAppStoreRating.self)
+                AppCenter.charge.pay(for: InAppStoreRating.self)
                 return
             case .onPromptRating:
-                AppCenter.chargeManager.pay(for: OnPromptRating.self)
+                AppCenter.charge.pay(for: OnPromptRating.self)
                 return
             case .socialShare:
-                AppCenter.chargeManager.pay(for: OnSocialShare.self)
+                AppCenter.charge.pay(for: OnSocialShare.self)
                 return
             case .feedback:
-                AppCenter.chargeManager.pay(for: OnFeedback.self)
+                AppCenter.charge.pay(for: OnFeedback.self)
                 return
             default:
                 break

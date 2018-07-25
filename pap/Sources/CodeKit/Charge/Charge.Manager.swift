@@ -7,26 +7,23 @@ import Foundation
 import UIKit
 import DefaultsKit
 
-class ChargeManager: NSObject, KeyPathWatchable{
+class ChargeManager{
 
     private let payingQueue:DispatchQueue = DispatchQueue(label: String(describing: ChargeManager.self))
 
-    private let charges:[Charge] // type: price
+    private let charges:[Charge]
 
-    //INFO: Watchable + read-only. Don't set directly.
-    @objc dynamic
-    fileprivate (set) var balanceAmountsValue:Double = 0
+    private(set) var bank: ChargeBank
 
-    private lazy var balance:AmountBankManager = ChargeManagerDefaultAmountBank()
-
-    init(charges:[Charge]){
+    init(charges:[Charge], bankDelegate:ChargeBankDelegate.Type){
         self.charges = charges
+        self.bank = ChargeBank(delegate: bankDelegate)
     }
 
     func resetBalance(){
 #if DEBUG
         print("[i]INFO: In the release build, balance resetting will not be performed.")
-        balance.balanceAmountsValue = 0
+        bank.balanceAmountsValue = 0
 #endif
     }
 
@@ -37,7 +34,7 @@ class ChargeManager: NSObject, KeyPathWatchable{
     }
 
     func getRemainingCharges(cheapFirst:Bool=false) -> [Charge]{
-        if self.balance.balanceAmountsValue == 1{
+        if self.bank.balanceAmountsValue == 1{
             return []
         }
 
@@ -45,7 +42,7 @@ class ChargeManager: NSObject, KeyPathWatchable{
             return item.priceAmount.value < item2.priceAmount.value
         }
         var remainingCharges = [Charge]()
-        var bal = self.balance.balanceAmountsValue
+        var bal = self.bank.balanceAmountsValue
         for item in cheapFirstItems {
             bal += item.priceAmount.value
             if bal > 1{
@@ -66,7 +63,7 @@ class ChargeManager: NSObject, KeyPathWatchable{
                 if payable.init().pay(asyncSignal){
 
                     DispatchQueue.main.async{
-                        self.balance.deposit(for:chargeToDeposit)
+                        self.bank.deposit(for:chargeToDeposit)
                     }
                 }else{
                     print("[i] INFO: payment failed \(String(describing: payable))")
@@ -77,7 +74,7 @@ class ChargeManager: NSObject, KeyPathWatchable{
 
     func isPaid(for payable:Payable.Type) -> Bool{
         //TODO: consumption unit date, app use count etc.
-        return self.balance.balanceAmountsValue > getCharge(for: payable)?.priceAmount.value ?? 0
+        return self.bank.balanceAmountsValue > getCharge(for: payable)?.priceAmount.value ?? 0
     }
 }
 
@@ -120,37 +117,43 @@ class MutableAmountObject: AmountObject, MutableAmount{
 /*
 Private Interfaces
 */
-protocol AmountBank {
-    var balanceAmountsValue:Double{get}
+protocol ChargeBankDelegate{
+    func willInitialize(balance:MutableAmount) -> Amount
+    func willDeposit(for charge:Charge, balance:MutableAmount) -> Amount?
+    func didDeposit(for charge:Charge, balance:MutableAmount)
 
-    func deposit(for charge:Charge)
+    init()
 }
 
-private protocol AmountBankManager: AmountBank {
-    var balanceAmountsValue:Double{set get}
-}
+final class ChargeBank: NSObject, KeyPathWatchable {
+    private lazy var defaults: ChargeDefaults = Defaults(userDefaults: UserDefaults(suiteName: String(describing: ChargeBank.self)+"UserDefaults") ?? UserDefaults.standard)
 
-private class ChargeManagerDefaultAmountBank: NSObject, KeyPathWatchable, AmountBankManager {
+    private lazy var amount:MutableAmountObject = MutableAmountObject(value:defaults.balanceAmountsValue)
+
     @objc dynamic
-    fileprivate (set) var balanceAmountsValue:Double = 0 {
-        didSet{
-            defaults.balanceAmountsValue = balanceAmountsValue
-        }
+    fileprivate (set) lazy var balanceAmountsValue:Double = self.delegate.willInitialize(balance: amount).value
+
+    private var delegate:ChargeBankDelegate
+
+    required init(delegate:ChargeBankDelegate.Type){
+        self.delegate = delegate.init()
     }
-
-    private lazy var defaults: ChargeDefaults = Defaults(userDefaults: UserDefaults(suiteName: String(describing: type(of: self))+"UserDefaults") ?? UserDefaults.standard)
-
-    private lazy var amount = MutableAmountObject(value:defaults.balanceAmountsValue)
 
     func deposit(for charge:Charge){
-        //TODO: register consumption actions by reward type, only when charge.priceAmount == MutableAmount
-        // charge.reward
-
-        balanceAmountsValue = amount.add(charge.priceAmount).value
+        if let priceAmount = delegate.willDeposit(for: charge, balance: amount){
+            balanceAmountsValue = amount.add(priceAmount).value
+            commitBalanceAmount()
+        }
+        delegate.didDeposit(for: charge, balance: amount)
     }
 
-    private func consume(for charge:Charge){
+    fileprivate func consume(for charge:Charge){
         balanceAmountsValue = amount.subtract(charge.priceAmount).value
+        commitBalanceAmount()
+    }
+
+    private func commitBalanceAmount(){
+        defaults.balanceAmountsValue = self.balanceAmountsValue
     }
 }
 
