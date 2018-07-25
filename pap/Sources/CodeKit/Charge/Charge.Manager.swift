@@ -18,7 +18,7 @@ class ChargeManager: NSObject, KeyPathWatchable{
     @objc dynamic
     fileprivate (set) var balanceAmountsValue:Double = 0
 
-    private lazy var balance = BalanceAmount(value: self.defaults.balanceAmountsValue, manager:self)
+    private lazy var balance = ChargeManagerBalanceAmount(value: defaults.balanceAmountsValue, manager:self)
 
     init(charges:[Charge]){
         self.charges = charges
@@ -27,7 +27,7 @@ class ChargeManager: NSObject, KeyPathWatchable{
     func resetBalance(){
 #if DEBUG
         print("[i]INFO: In the release build, balance resetting will not be performed.")
-        balanceAmountsValue = 0
+        balance = ChargeManagerBalanceAmount(value: 0, manager:self)
 #endif
     }
 
@@ -38,7 +38,7 @@ class ChargeManager: NSObject, KeyPathWatchable{
     }
 
     func getRemainingCharges(cheapFirst:Bool=false) -> [Charge]{
-        if balanceAmountsValue == 1{
+        if self.balance.value == 1{
             return []
         }
 
@@ -46,7 +46,7 @@ class ChargeManager: NSObject, KeyPathWatchable{
             return item.priceAmount.value < item2.priceAmount.value
         }
         var remainingCharges = [Charge]()
-        var bal = self.balanceAmountsValue
+        var bal = self.balance.value
         for item in cheapFirstItems {
             bal += item.priceAmount.value
             if bal > 1{
@@ -62,13 +62,12 @@ class ChargeManager: NSObject, KeyPathWatchable{
     */
 
     func pay(for payable: Payable.Type, _ asyncSignal:AsyncWaitSignalable=AsyncSignal()){
-        if let priceAmount = getCharge(for: payable)?.priceAmount {
-            let currentBalanceAmountValue = self.balanceAmountsValue
+        if let chargeToDeposit = getCharge(for: payable) {
             payingQueue.async{
                 if payable.init().pay(asyncSignal){
 
                     DispatchQueue.main.async{
-                        self.balanceAmountsValue += clamp(priceAmount.value, 0, 1 - currentBalanceAmountValue)
+                        self.balance.deposit(for:chargeToDeposit)
                     }
                 }else{
                     print("[i] INFO: payment failed \(String(describing: payable))")
@@ -79,18 +78,25 @@ class ChargeManager: NSObject, KeyPathWatchable{
 
     func isPaid(for payable:Payable.Type) -> Bool{
         //TODO: consumption unit date, app use count etc.
-        return balanceAmountsValue > getCharge(for: payable)?.priceAmount.value ?? 0
+        return self.balance.value > getCharge(for: payable)?.priceAmount.value ?? 0
     }
 }
 
 /*
     Basic Implementation.
 */
+
+extension AmountObject{
+    static let minValue:Double = 0
+    static let maxValue:Double = 1
+}
+
 class AmountObject:Amount{
+    @objc dynamic
     fileprivate(set) var value: Double = Double.nan
 
     required init(value: Double) {
-        if value>=0.0 && value<=1.0 {
+        if value >= type(of: self).minValue && value <= type(of: self).maxValue {
             self.value = value
         }else{
             assert(false,"Amount is allowed only 0...1")
@@ -101,13 +107,13 @@ class AmountObject:Amount{
 class MutableAmountObject: AmountObject, MutableAmount{
     @discardableResult
     func add(_ amount: Amount) -> Amount {
-        self.value += amount.value
+        self.value += clamp(amount.value, type(of: self).minValue, type(of: self).maxValue - value)
         return self
     }
 
     @discardableResult
     func subtract(_ amount: Amount) -> Amount {
-        self.value -= amount.value
+        self.value -= clamp(amount.value, type(of: self).minValue, value)
         return self
     }
 }
@@ -115,7 +121,7 @@ class MutableAmountObject: AmountObject, MutableAmount{
 /*
 Private Interfaces
 */
-private class BalanceAmount: MutableAmountObject{
+private class ChargeManagerBalanceAmount: MutableAmountObject{
     private var manager:ChargeManager?
 
     required init(value: Double) {
@@ -138,6 +144,26 @@ private class BalanceAmount: MutableAmountObject{
             defaults?.balanceAmountsValue = newValue
             manager?.balanceAmountsValue = newValue
         }
+    }
+
+    func deposit(for charge:Charge){
+        //TODO: register consumption actions by reward type, only when charge.priceAmount == MutableAmount
+        // charge.reward
+        self.add(charge.priceAmount)
+    }
+
+    private func consume(for charge:Charge){
+        self.subtract(charge.priceAmount)
+    }
+
+    @discardableResult
+    override func add(_ amount: Amount) -> Amount {
+        return super.add(amount)
+    }
+
+    @discardableResult
+    override func subtract(_ amount: Amount) -> Amount {
+        return super.subtract(amount)
     }
 }
 
