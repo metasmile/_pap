@@ -7,12 +7,86 @@ import Foundation
 import UIKit
 import Armchair
 
-
 enum PhotoPickerViewControllerRightBarButtonState {
     case unpaidDeselected
     case unpaidSelected
     case paidSelected
 }
+
+extension PhotoPickerViewController{
+
+    func initializeChargeWhenViewDidLoad(){
+        AppCenter.chargeManager.watch(\.balance) {
+            print("Updated balance:", AppCenter.chargeManager.balance)
+            self.updateRightButtonState()
+        }
+    }
+
+    @discardableResult
+    func updateRightButtonState() -> PhotoPickerViewControllerRightBarButtonState {
+
+        if self.estimatedAvailableSelectedItems > 0 && AppCenter.chargeManager.balance > 0 {
+            navigationItem.setRightBarButton(self.doneButton, animated: true)
+            return .paidSelected
+        }
+
+        if self.estimatedAvailableSelectedItems > 0 && AppCenter.chargeManager.balance == 0 {
+            let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.chargeableButton
+            rightButtonItem.title = doneButton?.title
+            rightButtonItem.balance = AppCenter.chargeManager.balance
+            rightButtonItem.target = self
+            rightButtonItem.action = #selector(self.chargeableButtonDidTap)
+            navigationItem.setRightBarButton(rightButtonItem, animated: true)
+            return .unpaidSelected
+        }
+
+        let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.chargeableButton
+        rightButtonItem.title = nil
+        rightButtonItem.balance = AppCenter.chargeManager.balance
+        rightButtonItem.target = self
+        rightButtonItem.action = #selector(self.chargeableButtonDidTap)
+        navigationItem.setRightBarButton(rightButtonItem, animated: true)
+        return .unpaidDeselected
+    }
+
+    @objc fileprivate func chargeableButtonDidTap(sender: UIButton) {
+//        if let vc = R.storyboard.appStoryboard.pricingViewController() {
+//            vc.delegate = self
+//            self.present(vc, animated: true, completion: nil)
+//
+//            setViewControllerDisabled(true)
+//        }
+
+        print("RemainingCharges:", AppCenter.chargeManager.getRemainingCharges().map { $0.type })
+
+        //TODO: users can choose the one of them
+        for charge in AppCenter.chargeManager.getRemainingCharges() {
+            switch charge.type {
+            case .inStoreRating:
+                AppCenter.chargeManager.pay(for: InAppStoreRating.self)
+                return
+            case .onPromptRating:
+                AppCenter.chargeManager.pay(for: OnPromptRating.self)
+                return
+            case .socialShare:
+                AppCenter.chargeManager.pay(for: OnSocialShare.self)
+                return
+            case .feedback:
+                AppCenter.chargeManager.pay(for: OnFeedback.self)
+                return
+            default:
+                break
+            }
+        }
+    }
+}
+
+extension PhotoPickerViewController: PricingViewControllerDelegate {
+    func pricingViewControllerDidCancel(_ controller: PricingViewController) {
+        setViewControllerDisabled(false)
+    }
+}
+
 
 class ChargeableBarButtonItem: UIBarButtonItem {
     override init() {
@@ -123,7 +197,7 @@ private class PhotoPickerViewControllerChargeableAssets {
 }
 
 private struct InAppStoreRating:Payable{
-    static let charge:Chargeable = AppChargeItem(type: .inStoreRating, reward: .timeOfUses)
+    static let charge:Chargeable = AppChargeableItem(type: .inStoreRating, reward: .timeOfUses)
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
         var paid = false
@@ -143,7 +217,7 @@ private struct InAppStoreRating:Payable{
 }
 
 private struct OnPromptRating:Payable{
-    static let charge:Chargeable = AppChargeItem(type: .onPromptRating, reward: .timeOfUses)
+    static let charge:Chargeable = AppChargeableItem(type: .onPromptRating, reward: .timeOfUses)
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
         var paid = false
@@ -162,7 +236,7 @@ private struct OnPromptRating:Payable{
 }
 
 private struct OnSocialShare:Payable{
-    static let charge:Chargeable = AppChargeItem(type: .socialShare, reward: .timeOfUses)
+    static let charge:Chargeable = AppChargeableItem(type: .socialShare, reward: .timeOfUses)
     
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
         guard let appURL = URL(string: "https://get.apps.photo") else {
@@ -194,7 +268,7 @@ extension UIActivityType {
 import MessageUI
 
 private class OnFeedback: NSObject, Payable, MFMailComposeViewControllerDelegate {
-    static let charge:Chargeable = AppChargeItem(type: .feedback, reward: .timeOfUses)
+    static let charge:Chargeable = AppChargeableItem(type: .feedback, reward: .timeOfUses)
     
     private var mailComposerCompletionBlock: ((_ sent: Bool) -> Void)?
     
@@ -210,7 +284,7 @@ private class OnFeedback: NSObject, Payable, MFMailComposeViewControllerDelegate
             let mailComposer = MFMailComposeViewController()
             mailComposer.mailComposeDelegate = self
             mailComposer.setToRecipients(["feedback@apps.photo"])
-            mailComposer.setSubject("Photo Apps Feedback")
+            mailComposer.setSubject("👋 My Feedback for \(Bundle.main.displayName ?? "our app") ✍️")
             
             self.mailComposerCompletionBlock = { sent in
                 paid = sent
@@ -228,78 +302,5 @@ private class OnFeedback: NSObject, Payable, MFMailComposeViewControllerDelegate
         mailComposerCompletionBlock = nil
         
         controller.dismiss(animated: true, completion: nil)
-    }
-}
-
-extension PhotoPickerViewController{
-
-    func initializeChargeWhenViewDidLoad(){
-        AppCenter.chargeManager.watch(\.balance) {
-            print("Modified balance:", AppCenter.chargeManager.balance)
-            self.updateRightButtonState()
-        }
-    }
-
-    @discardableResult
-    func updateRightButtonState() -> PhotoPickerViewControllerRightBarButtonState {
-
-        if self.estimatedAvailableSelectedItems > 0 && AppCenter.chargeManager.balance > 0 {
-            navigationItem.setRightBarButton(self.doneButton, animated: true)
-            return .paidSelected
-        }
-
-        if self.estimatedAvailableSelectedItems > 0 && AppCenter.chargeManager.balance == 0 {
-            let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.chargeableButton
-            rightButtonItem.title = doneButton?.title
-            rightButtonItem.balance = AppCenter.chargeManager.balance
-            rightButtonItem.target = self
-            rightButtonItem.action = #selector(self.chargeableButtonDidTap)
-            navigationItem.setRightBarButton(rightButtonItem, animated: true)
-            return .unpaidSelected
-        }
-
-        let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.chargeableButton
-        rightButtonItem.title = nil
-        rightButtonItem.balance = AppCenter.chargeManager.balance
-        rightButtonItem.target = self
-        rightButtonItem.action = #selector(self.chargeableButtonDidTap)
-        navigationItem.setRightBarButton(rightButtonItem, animated: true)
-        return .unpaidDeselected
-    }
-
-    @objc fileprivate func chargeableButtonDidTap(sender: UIButton) {
-//        if let vc = R.storyboard.appStoryboard.pricingViewController() {
-//            vc.delegate = self
-//            self.present(vc, animated: true, completion: nil)
-//
-//            setViewControllerDisabled(true)
-//        }
-
-        print("RemainingCharges:", AppCenter.chargeManager.getRemainingCharges().map { $0.type })
-        
-        for charge in AppCenter.chargeManager.getRemainingCharges() {
-            switch charge.type {
-                case .inStoreRating:
-                    AppCenter.chargeManager.pay(for: InAppStoreRating.self)
-                    return
-                case .onPromptRating:
-                    AppCenter.chargeManager.pay(for: OnPromptRating.self)
-                    return
-                case .socialShare:
-                    AppCenter.chargeManager.pay(for: OnSocialShare.self)
-                    return
-                case .feedback:
-                    AppCenter.chargeManager.pay(for: OnFeedback.self)
-                    return
-                default:
-                    break
-            }
-        }
-    }
-}
-
-extension PhotoPickerViewController: PricingViewControllerDelegate {
-    func pricingViewControllerDidCancel(_ controller: PricingViewController) {
-        setViewControllerDisabled(false)
     }
 }

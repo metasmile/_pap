@@ -6,35 +6,34 @@
 import Foundation
 import UIKit
 
-struct AppChargeItem: Chargeable{
-    let type: ChargeType
-    let reward: RewardType
+struct AppChargeableItem: Chargeable{
+    var type: ChargeType
+    var reward: RewardType
 }
 
-private struct AppChargeScheme: ChargeableScheme {
-    let type: ChargeType
+private struct AppChargeItem: Charge {
+    var type: ChargeType
+    var reward: RewardType
+
     let price:Double
-    let reward: RewardType
     let title: String
     let description: String?
 }
 
 extension AppCenter{
-    static let chargeManager:ChargeManager = papChargeManager(scheme:[
-        AppChargeScheme(type: .inStoreRating, price: 0.5, reward: .timeOfUses, title:"AppStore Rating", description:nil)
-        , AppChargeScheme(type: .onPromptRating, price: 0.3, reward: .timeOfUses, title:"AppStore Rating", description:nil)
-        , AppChargeScheme(type: .socialShare, price: 0.2, reward: .timeOfUses, title:"AppStore Rating", description:nil)
-        , AppChargeScheme(type: .feedback, price: 1, reward: .timeOfUses, title:"AppStore Rating", description:nil)
+    static let chargeManager:ChargeManager = papChargeManager(charges:[
+        AppChargeItem(type: .inStoreRating, reward: .timeOfUses,  price: 0.5, title:"AppStore Rating", description:nil)
+        , AppChargeItem(type: .onPromptRating, reward: .timeOfUses, price: 0.3, title:"AppStore Rating", description:nil)
+        , AppChargeItem(type: .socialShare, reward: .timeOfUses, price: 0.2, title:"AppStore Rating", description:nil)
+        , AppChargeItem(type: .feedback, reward: .timeOfUses, price: 1, title:"AppStore Rating", description:nil)
         /* .... */
-    ].dictionary { (item: AppChargeScheme) -> ChargeType in
-        return item.type
-    })
+    ])
 }
 
 private final class papChargeManager: ChargeManager{
     //TODO: pap specific overridden policies here
-    override init(scheme: [ChargeType: ChargeableScheme]) {
-        super.init(scheme: scheme)
+    override init(charges: [Charge]) {
+        super.init(charges: charges)
 
         self.resetBalance()
     }

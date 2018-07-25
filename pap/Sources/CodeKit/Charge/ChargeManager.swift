@@ -38,15 +38,9 @@ enum RewardType:Int, Codable {
     case owned
 }
 
-typealias ChargeableObject = Chargeable & ChargeableDisplayInfo
-
-protocol ChargeableScheme: ChargeableObject {
-    var price: Double {get}
-}
-
 protocol Chargeable {
-    var type: ChargeType {get}
-    var reward:RewardType {get}
+    var type: ChargeType {set get}
+    var reward:RewardType {set get}
 }
 
 extension Chargeable{
@@ -55,7 +49,9 @@ extension Chargeable{
     }
 }
 
-protocol ChargeableDisplayInfo {
+protocol Charge: Chargeable {
+    var price: Double {get}
+
     var title:String {get}
     var description:String? {get}
 }
@@ -65,10 +61,10 @@ class ChargeManager: NSObject, KeyPathWatchable{
     private let payingQueue:DispatchQueue = DispatchQueue(label: String(describing: ChargeManager.self))
     private var defaults: ChargeDefaults
 
-    private let scheme:[ChargeType: ChargeableScheme] // type: price
+    private let charges:[Charge] // type: price
 
-    init(scheme:[ChargeType: ChargeableScheme]){
-        self.scheme = scheme
+    init(charges:[Charge]){
+        self.charges = charges
         self.defaults = Defaults(userDefaults: UserDefaults(suiteName: String(describing: type(of: self))+"UserDefaults") ?? UserDefaults.standard)
         self.balance = self.defaults.balance
     }
@@ -88,8 +84,38 @@ class ChargeManager: NSObject, KeyPathWatchable{
 #endif
     }
 
+    func getCharge(for payable: Payable.Type) -> Charge?{
+        return charges.first { item in
+            return (item as Chargeable).isEqual(other: payable.charge)
+        }
+    }
+
+    func getRemainingCharges(cheapFirst:Bool=false) -> [Charge]{
+        if balance==1{
+            return []
+        }
+
+        let cheapFirstItems = charges.sorted { (item: Charge, item2: Charge) -> Bool in
+            return item.price < item2.price
+        }
+        var remainingCharges = [Charge]()
+        var bal = self.balance
+        for item in cheapFirstItems {
+            bal += item.price
+            if bal > 1{
+                break
+            }
+            remainingCharges.append(item)
+        }
+        return cheapFirst ? remainingCharges : remainingCharges.reversed()
+    }
+
+    /*
+        Payment
+    */
+
     func pay(for payable: Payable.Type, _ asyncSignal:AsyncWaitSignalable=AsyncSignal()){
-        if let price = getPrice(for: payable){
+        if let price = getCharge(for: payable)?.price{
             let currentBalance = self.balance
             payingQueue.async{
                 if payable.init().pay(asyncSignal){
@@ -104,47 +130,9 @@ class ChargeManager: NSObject, KeyPathWatchable{
         }
     }
 
-    private func getChargingScheme(for payable: Payable.Type) -> ChargeableScheme?{
-        return scheme.values.first { item in
-            return (item as Chargeable).isEqual(other: payable.charge)
-        }
-    }
-
-    func getPrice(for payable: Payable.Type) -> Double?{
-        return getChargingScheme(for: payable)?.price
-    }
-
-    func getChargeInfo(for payable: Payable.Type) -> ChargeableDisplayInfo?{
-        return getChargingScheme(for: payable)
-    }
-
-    func isCharged(for payable:Payable.Type) -> Bool{
+    func isPaid(for payable:Payable.Type) -> Bool{
         //TODO: consumption unit date, app use count etc.
-        return balance > getPrice(for: payable) ?? 0
-    }
-
-    func getCharge(for payable: Payable.Type) -> ChargeableObject?{
-        return getChargingScheme(for: payable)
-    }
-
-    func getRemainingCharges() -> [ChargeableObject]{
-        if balance==1{
-            return []
-        }
-
-        let cheapFirstItems = scheme.values.sorted { (item: ChargeableScheme, item2: ChargeableScheme) -> Bool in
-            return item.price < item2.price
-        }
-        var remainingCharges = [ChargeableScheme]()
-        var bal = self.balance
-        for item in cheapFirstItems {
-            bal += item.price
-            if bal > 1{
-                break
-            }
-            remainingCharges.append(item)
-        }
-        return remainingCharges.reversed()
+        return balance > getCharge(for: payable)?.price ?? 0
     }
 }
 
