@@ -65,6 +65,74 @@ private struct OnPromptRating:Payable{
     }
 }
 
+private struct OnSocialShare:Payable{
+    static let charge:Chargeable = AppChargeItem(type: .socialShare, reward: .timeOfUses)
+    
+    func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
+        guard let appURL = URL(string: "https://apps.photo") else { return false } //TODO: replace this with app store link
+        
+        var paid = false
+        asyncSignal.begin()
+        
+        DispatchQueue.main.async {
+            let shareActivity = UIActivityViewController(activityItems: [appURL], applicationActivities: nil)
+            shareActivity.excludedActivityTypes = [.copyToPasteboard, .addToReadingList, .addToReminder, .addToNote]
+            shareActivity.completionWithItemsHandler = { activityType, completed, returnedItems, error in
+                paid = completed
+                asyncSignal.end()
+            }
+            UIViewController.root?.present(shareActivity, animated: true, completion: nil)
+        }
+        asyncSignal.waitUntilEnd()
+        return paid
+    }
+}
+
+extension UIActivityType {
+    static let addToReminder = UIActivityType("com.apple.reminders.RemindersEditorExtension")
+    static let addToNote = UIActivityType("com.apple.mobilenotes.SharingExtension")
+}
+
+import MessageUI
+
+private class OnFeedback: NSObject, Payable, MFMailComposeViewControllerDelegate {
+    static let charge:Chargeable = AppChargeItem(type: .feedback, reward: .timeOfUses)
+    
+    private var mailComposerCompletionBlock: ((_ sent: Bool) -> Void)?
+    
+    required override init() {}
+    
+    func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
+        guard MFMailComposeViewController.canSendMail() else { return false }
+        
+        var paid = false
+        asyncSignal.begin()
+        
+        DispatchQueue.main.async {
+            let mailComposer = MFMailComposeViewController()
+            mailComposer.mailComposeDelegate = self
+            mailComposer.setToRecipients(["feedback@apps.photo"])
+            mailComposer.setSubject("Photo Apps Feedback")
+            
+            self.mailComposerCompletionBlock = { sent in
+                paid = sent
+                asyncSignal.end()
+            }
+            UIViewController.root?.present(mailComposer, animated: true, completion: nil)
+        }
+        
+        asyncSignal.waitUntilEnd()
+        return paid
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        mailComposerCompletionBlock?(result == .sent)
+        mailComposerCompletionBlock = nil
+        
+        controller.dismiss(animated: true, completion: nil)
+    }
+}
+
 extension PhotoPickerViewController{
 
     @discardableResult
@@ -103,7 +171,7 @@ extension PhotoPickerViewController{
 //        }
 
         print("RemainingCharges:", AppCenter.chargeManager.getRemainingCharges().map { $0.type })
-
+        
         for charge in AppCenter.chargeManager.getRemainingCharges() {
             switch charge.type {
                 case .inStoreRating:
@@ -111,6 +179,12 @@ extension PhotoPickerViewController{
                     return
                 case .onPromptRating:
                     AppCenter.chargeManager.pay(for: OnPromptRating.self)
+                    return
+                case .socialShare:
+                    AppCenter.chargeManager.pay(for: OnSocialShare.self)
+                    return
+                case .feedback:
+                    AppCenter.chargeManager.pay(for: OnFeedback.self)
                     return
                 default:
                     break
