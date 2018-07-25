@@ -36,6 +36,6 @@ private final class papChargeManager: ChargeManager{
     override init(scheme: [ChargeType: ChargeableScheme]) {
         super.init(scheme: scheme)
 
-        self.resetBalance()
+//        self.resetBalance()
     }
 }

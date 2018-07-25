@@ -260,12 +260,11 @@ extension Converter{
         
         var interval = 0.1
         var assetDate: Date?
-        
+
         let fetchedAsset = PHAsset.fetchAssets(withBurstIdentifier: source.asset.burstIdentifier ?? "", options: fetchOptions)
         fetchedAsset.enumerateObjects { (asset, idx, stop) in
-            autoreleasepool {
-                async.begin()
-                
+            assetDate = autoreleasepool {
+
                 let response = asset.requestImage(targetSize: targetSize, contentMode: param.contentMode, options: PHAsset.highQualityImageRequestOptions)
 
                 var resultUrl: URL? = nil
@@ -288,18 +287,15 @@ extension Converter{
                         intervals.append(interval)
                     }
                 }
-                
-                assetDate = asset.creationDate
-                
-                async.end()
+                return asset.creationDate
             }
         }
         
         intervals.append(interval)
         
-        async.waitUntilEnd()
-        
-        return (urls.count>0 && urls.count == intervals.count) ? urls.enumerated().map { ($0.element, intervals[$0.offset]) } : nil
+        return (urls.count>0 && urls.count == intervals.count)
+                ? urls.enumerated().map { ($0.element, intervals[$0.offset]) }
+                : nil
     }
 }
 
