@@ -1,5 +1,5 @@
 //
-// Created by BLACKGENE on 26.07.18.
+// Created by BLAC?KGENE on 26.07.18.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
@@ -76,24 +76,27 @@ extension Defaults: ChargeReceiptAccessorStorage {
     }
 }
 
-// ChargeReceiptStorageAccessor allows only ChargeBanker
-protocol ChargeReceiptStorageAccessor where Self:ChargeBanker{}
-
 struct ChargeReceiptStorage { //struct means final.
     private var receiptsStorage: ChargeReceiptAccessorStorage
     private(set) var receipts:[String: ChargeableReceipt]
 
-    init(accessor: ChargeReceiptStorageAccessor){
+    init(accessor: ChargeReceiptStorable){
         receiptsStorage = Defaults(userDefaults: UserDefaults(suiteName: String(describing: type(of: accessor))+String(describing: ChargeReceiptStorage.self)) ?? UserDefaults.standard)
         receipts = receiptsStorage.receipts
     }
 
-    func hasReceipt(_ receiptId:String) -> Bool{
-        return receipts[receiptId] != nil
+    func hasReceipt(by receiptUUID:String) -> Bool{
+        return receipts[receiptUUID] != nil
+    }
+
+    func getReceipt(for chargeable:Chargeable) -> ChargeableReceipt?{
+        return receipts.values.first { receipt in
+            return receipt.isEqual(other: chargeable)
+        }
     }
 
     mutating func addReceipt(_ receipt: ChargeableReceipt){
-        if !hasReceipt(receipt.uuid){
+        if !hasReceipt(by: receipt.uuid){
             receipts[receipt.uuid] = receipt
         }
     }
@@ -103,7 +106,7 @@ struct ChargeReceiptStorage { //struct means final.
     }
 
     mutating func updateReceipt(_ receipt:ChargeableReceipt){
-        if hasReceipt(receipt.uuid){
+        if hasReceipt(by: receipt.uuid){
             receipts[receipt.uuid] = receipt
         }
     }

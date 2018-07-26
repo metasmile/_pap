@@ -60,7 +60,9 @@ extension PhotoPickerViewController{
 
         print("RemainingCharges:", AppCenter.charge.getRemainingCharges().map { $0.type })
 
-        //TODO: users can choose the one of them
+        let selected = self.estimatedAvailableSelectedItems > 0
+
+
         for charge in AppCenter.charge.getRemainingCharges() {
             switch charge.type {
             case .inStoreRating:

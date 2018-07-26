@@ -26,14 +26,17 @@ enum ChargeType:Int, Codable {
 }
 
 enum RewardType:Int, Codable {
+    //will be engaged only nonSelected
+    case nonBlockOfUses
+
     //e.g. promotional
     case timeOfUsesByVersion // while uses on single version
     case timeOfUses
     case countOfUsesByVersion
     case countOfUses
-    case ownedByVersion
 
     //e.g. paid or VIP code
+    case ownedByVersion
     case owned
 }
 
@@ -110,21 +113,3 @@ extension MutableAmount{
         return self.set(createSharesAmount(of:amount, ratio:ratio))
     }
 }
-
-protocol ChargeBanker {
-    static var version:Int{get}
-
-    //INFO: setup something stuffs
-    func willInitialize(balance:MutableAmount) -> Amount
-
-    //INFO: return ChargeBank. balanceValue - this method may call significantly.
-    // handle carefully for maintaining high performance.
-    func willSynchronizeBalanceValue(balance:MutableAmount) -> Amount
-
-    //INFO: return charged price amount or nil.
-    func willSaveDeposit(forPriceAmountOf charge:Charge, balance:MutableAmount) -> Amount?
-    func didSaveDeposit(for charge:Charge, balance:MutableAmount)
-
-    init()
-}
-

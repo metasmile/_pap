@@ -14,10 +14,10 @@ extension AppCenter{
 
 private final class AppChargeManager: ChargeManager{
     fileprivate static let shared = AppChargeManager(charges:[
-        AppCharge(type: .inStoreRating, reward: .timeOfUses,  priceAmount: MutableAmountObject(value:0.1), title:"AppStore Rating", description:nil)
-        , AppCharge(type: .onPromptRating, reward: .timeOfUses, priceAmount: MutableAmountObject(value:0.2), title:"AppStore Rating", description:nil)
-        , AppCharge(type: .socialShare, reward: .timeOfUses, priceAmount: MutableAmountObject(value:0.5), title:"AppStore Rating", description:nil)
-        , AppCharge(type: .feedback, reward: .timeOfUses, priceAmount: AmountObject(value:1), title:"AppStore Rating", description:nil)
+        AppCharge(type: .inStoreRating, reward: .nonBlockOfUses,  priceAmount: AmountObject(value:0.0), title:"Rate In App Store", description:nil)
+        , AppCharge(type: .onPromptRating, reward: .nonBlockOfUses, priceAmount: AmountObject(value:0.0), title:"Rate", description:nil)
+        , AppCharge(type: .socialShare, reward: .timeOfUses, priceAmount: AmountObject(value:0.5), title:"Share", description:nil)
+        , AppCharge(type: .feedback, reward: .timeOfUses, priceAmount: AmountObject(value:1), title:"Feedback", description:nil)
         /* .... */
     ], banker: AppChargeBanker.self)
 }
@@ -41,7 +41,7 @@ struct AppChargeable: Chargeable{
     }
 }
 
-private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorageAccessor {
+private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
     fileprivate static let version:Int = 1
 
     private lazy var receiptStorage = ChargeReceiptStorage(accessor:self)
@@ -62,7 +62,8 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorageAccessor 
 
             if receipt.reward == RewardType.timeOfUses, let date = receipt.dateData{
                 let newDate = Date()
-                let spentRatio = normalize(newDate.timeIntervalSince(date),0,papAbsTimeOfUsesTime)
+                let totalRewardTime = papAbsTimeOfUsesTime * charge.priceAmount.value/type(of: balance).maxValue
+                let spentRatio = normalize(newDate.timeIntervalSince(date), 0, totalRewardTime)
 
                 var updatingReceipt = receipt
                 updatingReceipt.dateData = newDate
@@ -88,6 +89,10 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorageAccessor 
         receiptStorage.commit()
         
         return balance
+    }
+
+    func getReceipt(for chargeable: Chargeable) -> ChargeableReceipt? {
+        return receiptStorage.getReceipt(for: chargeable)
     }
 
     func willInitialize(balance: MutableAmount) -> Amount {
