@@ -16,8 +16,22 @@ class ChargeManager{
     private(set) var bank: ChargeBank
 
     init(charges:[Charge], banker: ChargeBanker.Type){
-        self.charges = charges
         self.bank = ChargeBank(banker: banker)
+
+        //validation
+        var initCharges = [Charge]()
+        let bankMaxValue = type(of: self.bank.balance).maxValue
+        var sumOfPriceAmount = 0.0
+        for c in charges{
+            sumOfPriceAmount += c.priceAmount.value
+            if sumOfPriceAmount > bankMaxValue{
+                assert(false, "Sum of priceAmount must be same or lower than maxValue of given Bank \(bankMaxValue). It overflowed with \(sumOfPriceAmount-bankMaxValue).")
+                break
+            }
+            initCharges.append(c)
+        }
+
+        self.charges = initCharges
     }
 
     func getCharge(for chargeable: Chargeable) -> Charge?{
@@ -71,10 +85,9 @@ Private Interfaces
 final class ChargeBank: NSObject, KeyPathWatchable {
     private var defaults: ChargeDefaults = Defaults(userDefaults: UserDefaults(suiteName: String(describing: ChargeBank.self)+"UserDefaults") ?? UserDefaults.standard)
 
-    private let balanceAmount:MutableAmountObject
-
+    @discardableResult
     private func synchronizeBalanceValue() -> Double{
-        let finalValue = balanceAmount.set(banker.willSynchronizeBalanceValue(balance: balanceAmount)).value
+        let finalValue = mutableBalance.set(banker.willSynchronizeBalanceValue(balance: mutableBalance)).value
         if defaults.balanceValue != finalValue{
             //commit
             defaults.balanceValue = finalValue
@@ -82,10 +95,17 @@ final class ChargeBank: NSObject, KeyPathWatchable {
         return finalValue
     }
 
+    private let mutableBalance:MutableAmountObject
+
+    fileprivate var balance:Amount{
+        synchronizeBalanceValue()
+        return mutableBalance
+    }
+
     @objc dynamic
     private(set) var balanceValue:Double{
         set{} //only for broadcasting
-        get{ return synchronizeBalanceValue() }
+        get{ return balance.value }
     }
 
     private let banker: ChargeBanker
@@ -95,15 +115,15 @@ final class ChargeBank: NSObject, KeyPathWatchable {
 
         let amount = MutableAmountObject(value:defaults.balanceValue)
         amount.set(self.banker.willInitialize(balance: amount))
-        self.balanceAmount = amount
+        self.mutableBalance = amount
     }
 
     func deposit(for charge:Charge){
-        if let priceAmount = banker.willSaveDeposit(forPriceAmountOf: charge, balance: balanceAmount){
-            balanceAmount.add(priceAmount)
+        if let priceAmount = banker.willSaveDeposit(forPriceAmountOf: charge, balance: mutableBalance){
+            mutableBalance.add(priceAmount)
             balanceValue = synchronizeBalanceValue()
         }
-        banker.didSaveDeposit(for: charge, balance: balanceAmount)
+        banker.didSaveDeposit(for: charge, balance: mutableBalance)
     }
 }
 

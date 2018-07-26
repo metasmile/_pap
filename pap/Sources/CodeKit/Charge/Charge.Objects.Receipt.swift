@@ -6,7 +6,7 @@
 import Foundation
 import DefaultsKit
 
-struct ChargeableReceipt: Codable, Chargeable{
+struct ChargeableReceipt: Codable, Chargeable, Hashable{
 
     let uuid:String = UUID().uuidString
     let createdDate:Date = Date()
@@ -58,6 +58,10 @@ struct ChargeableReceipt: Codable, Chargeable{
         try container.encode(doubleData, forKey: .doubleData)
         try container.encode(dataData, forKey: .dataData)
     }
+
+    var hashValue: Int {
+        return self.uuid.hashValue
+    }
 }
 
 
@@ -84,14 +88,28 @@ struct ChargeReceiptStorage { //struct means final.
         receipts = receiptsStorage.receipts
     }
 
+    func hasReceipt(_ receiptId:String) -> Bool{
+        return receipts[receiptId] != nil
+    }
+
     mutating func addReceipt(_ receipt: ChargeableReceipt){
-        receiptsStorage.receipts[receipt.uuid] = receipt
-        receipts = receiptsStorage.receipts
+        if !hasReceipt(receipt.uuid){
+            receipts[receipt.uuid] = receipt
+        }
     }
 
     mutating func removeReceipt(_ receiptId:String){
-        receiptsStorage.receipts[receiptId] = nil
-        receipts = receiptsStorage.receipts
+        receipts[receiptId] = nil
+    }
+
+    mutating func updateReceipt(_ receipt:ChargeableReceipt){
+        if hasReceipt(receipt.uuid){
+            receipts[receipt.uuid] = receipt
+        }
+    }
+
+    mutating func commit(){
+        receiptsStorage.receipts = receipts
     }
 
     mutating func disposeAll(){

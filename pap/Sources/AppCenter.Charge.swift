@@ -52,32 +52,41 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorageAccessor 
     init() {}
 
     private func synchronizeBalance(balance: MutableAmount) -> Amount{
-        var expiredReceiptIds = [String]()
+        var removingReceipts = Set<ChargeableReceipt>()
 
-        for (uuid, receipt) in receiptStorage.receipts {
+        for (_, receipt) in receiptStorage.receipts {
 
             guard let charge = AppChargeManager.shared.getCharge(for: receipt) else {
                 continue
             }
 
             if receipt.reward == RewardType.timeOfUses, let date = receipt.dateData{
-                let spentRatio = normalize(Date().timeIntervalSince(date),0,papAbsTimeOfUsesTime)
-                
-                print("before", balance.value, "for share ratio: ", charge.priceAmount.getValueOfShares(inContainer: balance), spentRatio)
-                
+                let newDate = Date()
+                let spentRatio = normalize(newDate.timeIntervalSince(date),0,papAbsTimeOfUsesTime)
+
+                var updatingReceipt = receipt
+                updatingReceipt.dateData = newDate
+                receiptStorage.updateReceipt(updatingReceipt)
+
                 balance.subtractShares(of: charge.priceAmount, ratio: spentRatio)
-                print("after subtract", balance.value)
                 
                 if spentRatio >= 1{
-                    expiredReceiptIds.append(uuid)
+                    removingReceipts.insert(receipt)
                 }
             }
         }
 
-        for id in expiredReceiptIds {
-            receiptStorage.removeReceipt(id)
-            print("[i] INFO: Removed Receipt: ", id)
+        if balance.value==0{
+            removingReceipts = Set(receiptStorage.receipts.values)
         }
+
+        for r in removingReceipts {
+            receiptStorage.removeReceipt(r.uuid)
+            print("[i] INFO: Removed Receipts: ", r.uuid)
+        }
+        
+        receiptStorage.commit()
+        
         return balance
     }
 
@@ -97,6 +106,7 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorageAccessor 
         receipt.dateData = Date()
 
         receiptStorage.addReceipt(receipt)
+        receiptStorage.commit()
 
         print("[i] Deposited: ", receipt, receipt.uuid)
 
