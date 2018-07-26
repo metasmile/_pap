@@ -58,29 +58,43 @@ extension PhotoPickerViewController{
 //            setViewControllerDisabled(true)
 //        }
 
-        print("RemainingCharges:", AppCenter.charge.getRemainingCharges().map { $0.type })
+        print("Payable Charges In Balance:", AppCenter.charge.getChargesHasPricingInBalance().map { $0.type })
+        print("Paid Charges:", AppCenter.charge.getChargesHasReceipt() )
+        print("Unpaid Charges:", AppCenter.charge.getChargesHasNotReceipt() )
 
+        //selected
         let selected = self.estimatedAvailableSelectedItems > 0
 
+        //TODO: replace with pricingViewController
+        let alert = UIAlertController.actionSheet(title: "Choose A Payable Method", message: nil)
 
-        for charge in AppCenter.charge.getRemainingCharges() {
+        for charge in AppCenter.charge.getChargesHasNotReceipt() {
+
             switch charge.type {
-            case .inStoreRating:
-                AppCenter.charge.pay(for: InAppStoreRating.self)
-                return
-            case .onPromptRating:
-                AppCenter.charge.pay(for: OnPromptRating.self)
-                return
-            case .socialShare:
-                AppCenter.charge.pay(for: OnSocialShare.self)
-                return
-            case .feedback:
-                AppCenter.charge.pay(for: OnFeedback.self)
-                return
-            default:
-                break
+                case .inStoreRating where !selected && charge.reward == .nonBlockOfUses:
+                    alert.addAction(UIAlertAction(title: charge.titleApplyingReward, style: .default) { action in
+                        AppCenter.charge.pay(for: InAppStoreRating.self)
+                    })
+                case .onPromptRating where !selected && charge.reward == .nonBlockOfUses:
+                    alert.addAction(UIAlertAction(title: charge.titleApplyingReward, style: .default) { action in
+                        AppCenter.charge.pay(for: OnPromptRating.self)
+                    })
+                case .socialShare:
+                    alert.addAction(UIAlertAction(title: charge.titleApplyingReward, style: .default) { action in
+                        AppCenter.charge.pay(for: OnSocialShare.self)
+                    })
+                case .feedback:
+                    alert.addAction(UIAlertAction(title: charge.titleApplyingReward, style: .default) { action in
+                        AppCenter.charge.pay(for: OnFeedback.self)
+                    })
+                default:
+                    break
             }
         }
+
+        alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel))
+
+        UIViewController.root?.present(alert, animated: true)
     }
 }
 

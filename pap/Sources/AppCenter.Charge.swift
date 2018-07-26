@@ -20,6 +20,23 @@ private final class AppChargeManager: ChargeManager{
         , AppCharge(type: .feedback, reward: .timeOfUses, priceAmount: AmountObject(value:1), title:"Feedback", description:nil)
         /* .... */
     ], banker: AppChargeBanker.self)
+
+
+}
+
+extension Charge{
+    var titleApplyingReward:String {
+        switch (self.reward) {
+
+        case .timeOfUses where self.priceAmount.value>0:
+            let days = Calendar.current.component(.day, from: Date(timeIntervalSinceNow: self.priceAmount.value * AppChargeBanker.papAbsTimeOfUsesTime))
+
+            return "\(self.title) (\("%d Day License".localizedFormatted(days)))"
+
+        default:
+            return self.title
+        }
+    }
 }
 
 private struct AppCharge: Charge {
@@ -46,8 +63,8 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
 
     private lazy var receiptStorage = ChargeReceiptStorage(accessor:self)
 
-    private let papAbsTimeOfUsesTime:TimeInterval = 30//60*60*24*14 //14d
-    private let papAbsTotalPerformCount = 50
+    fileprivate static let papAbsTimeOfUsesTime:TimeInterval = 30//60*60*24*14 //14d
+    fileprivate static let papAbsTotalPerformCount = 50
 
     init() {}
 
@@ -62,7 +79,7 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
 
             if receipt.reward == RewardType.timeOfUses, let date = receipt.dateData{
                 let newDate = Date()
-                let totalRewardTime = papAbsTimeOfUsesTime * charge.priceAmount.value/type(of: balance).maxValue
+                let totalRewardTime = type(of: self).papAbsTimeOfUsesTime * charge.priceAmount.value/type(of: balance).maxValue
                 let spentRatio = normalize(newDate.timeIntervalSince(date), 0, totalRewardTime)
 
                 var updatingReceipt = receipt
