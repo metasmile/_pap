@@ -105,9 +105,10 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
             receiptStorage.removeReceipt(r.uuid)
             print("[i] INFO: Removed Receipts: ", r.uuid)
         }
-        
-        receiptStorage.commit()
-        
+
+        DispatchQueue.global().async{
+            self.receiptStorage.commit()
+        }
         return balance
     }
 
@@ -117,7 +118,9 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
 
     func willInitialize(balance: MutableAmount) -> Amount {
         //DEBUG
-        receiptStorage.disposeAll()
+        for r in receiptStorage.receipts.keys{
+            receiptStorage.removeReceipt(r)
+        }
         return AmountObject(value: 0)
 //        return self.synchronizeBalance(balance:balance)
     }

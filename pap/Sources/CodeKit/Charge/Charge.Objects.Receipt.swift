@@ -76,8 +76,8 @@ extension Defaults: ChargeReceiptAccessorStorage {
     }
 }
 
-struct ChargeReceiptStorage { //struct means final.
-    private var receiptsStorage: ChargeReceiptAccessorStorage
+final class ChargeReceiptStorage {
+    private let receiptsStorage: ChargeReceiptAccessorStorage
     private(set) var receipts:[String: ChargeableReceipt]
 
     init(accessor: ChargeReceiptStorable){
@@ -95,28 +95,24 @@ struct ChargeReceiptStorage { //struct means final.
         }
     }
 
-    mutating func addReceipt(_ receipt: ChargeableReceipt){
+    func addReceipt(_ receipt: ChargeableReceipt){
         if !hasReceipt(by: receipt.uuid){
             receipts[receipt.uuid] = receipt
         }
     }
 
-    mutating func removeReceipt(_ receiptId:String){
+    func removeReceipt(_ receiptId:String){
         receipts[receiptId] = nil
     }
 
-    mutating func updateReceipt(_ receipt:ChargeableReceipt){
+    func updateReceipt(_ receipt:ChargeableReceipt){
         if hasReceipt(by: receipt.uuid){
             receipts[receipt.uuid] = receipt
         }
     }
 
-    mutating func commit(){
-        receiptsStorage.receipts = receipts
-    }
-
-    mutating func disposeAll(){
-        receiptsStorage.receipts.removeAll()
-        receipts.removeAll()
+    func commit(){
+        var mutableReceiptsStorage = self.receiptsStorage
+        mutableReceiptsStorage.receipts = self.receipts
     }
 }
