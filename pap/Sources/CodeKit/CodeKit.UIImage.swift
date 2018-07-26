@@ -78,3 +78,20 @@ public extension UIImage {
         return scaledImage
     }
 }
+
+public extension UIImage {
+    func tintColor(_ color: UIColor, blendMode: CGBlendMode = .multiply) -> UIImage {
+        guard let cgImage = self.cgImage else { return self }
+        let drawRect = CGRect(origin: .zero, size: size)
+        return UIGraphicsImageRenderer(size: size).imageWithCurrentContext { (ctx) in
+            ctx.scaleBy(x: 1, y: -1)
+            ctx.translateBy(x: 0, y: -size.height)
+            
+            ctx.setBlendMode(blendMode)
+            ctx.clip(to: drawRect, mask: cgImage)
+            
+            ctx.setFillColor(color.cgColor)
+            ctx.fill(drawRect)
+        }?.withRenderingMode(.alwaysOriginal) ?? self
+    }
+}

@@ -160,6 +160,7 @@ class ChargeableButton: UIButton {
     }
     
     var chargeType: ChargeType = [.fill, .opacity]
+    var showsColorLevel = true
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -177,37 +178,56 @@ class ChargeableButton: UIButton {
     
     var balance: Double? {
         didSet {
-            if balance == 1 {
-                setImage(R.image.systemIconFavoriteFill(), for: .normal)
+            let ratio: CGFloat = CGFloat(balance ?? 0)
+            
+            var buttonImage: UIImage?
+            if ratio == 1 {
+                buttonImage = R.image.systemIconFavoriteFill()
             }
             else {
-                let ratio = CGFloat(balance ?? 0)
+                let color: UIColor
                 
-                guard let iconImage = R.image.systemIconFavoriteFill() else { return }
+                if showsColorLevel {
+                    if ratio < 0.2 {
+                        color = UIColor.red
+                    }
+                    else if ratio < 0.4 {
+                        color = UIColor(red: 0.97, green: 0.8, blue: 0.27, alpha: 1)
+                    }
+                    else {
+                        color = tintColor
+                    }
+                }
+                else {
+                    color = tintColor
+                }
+                
+                guard let iconImage = R.image.systemIconFavoriteFill()?.tintColor(color) else { return }
                 
                 let imageBounds = CGRect(origin: .zero, size: iconImage.size)
-                let buttonImage = UIGraphicsImageRenderer(bounds: imageBounds).imageWithCurrentContext { (ctx) in
+                buttonImage = UIGraphicsImageRenderer(bounds: imageBounds).imageWithCurrentContext { (ctx) in
+                    if self.chargeType.contains(.opacity) {
+                        iconImage.draw(at: .zero, blendMode: .normal, alpha: ratio / 2 + 0.1)
+                    }
                     
                     if self.chargeType.contains(.fill) {
                         ctx.saveGState()
                         
-                        ctx.setFillColor(tintColor.cgColor)
                         ctx.addRect(CGRect(x: 0, y: imageBounds.height - imageBounds.height * ratio, width: imageBounds.width, height: imageBounds.height * ratio))
                         ctx.clip(using: .evenOdd)
                         
-                        iconImage.draw(at: .zero, blendMode: .multiply, alpha: ratio / 2)
+                        iconImage.draw(at: .zero, blendMode: .multiply, alpha: 0.5)
                         
                         ctx.restoreGState()
                     }
                     
-                    if self.chargeType.contains(.opacity) {
-                        iconImage.draw(at: .zero, blendMode: .normal, alpha: ratio / 2)
-                    }
-                    
+                    ctx.setBlendMode(.darken)
                     R.image.systemIconFavoriteLine()?.draw(at: .zero)
-                }
-                setImage(buttonImage, for: .normal)
+                    R.image.systemIconFavoriteLine()?.tintColor(color).draw(at: .zero)
+                }?.withRenderingMode(.alwaysOriginal)
             }
+            
+            setImage(buttonImage, for: .normal)
         }
     }
 }
