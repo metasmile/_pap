@@ -252,15 +252,17 @@ class ChargeableButton: UIButton {
             
             if showsAnimation {
                 let animationKey = "chargeAnimation"
-                if let _ = levelAnimations[level] {
-                    
-                }
+                if let _ = levelAnimations[level] {}
                 else if let anim = level.animation {
                     levelAnimations.removeAll()
                     levelAnimations[level] = anim
                     
                     imageView?.layer.removeAllAnimations()
                     imageView?.layer.add(anim, forKey: animationKey)
+                }
+                else {
+                    imageView?.layer.removeAllAnimations()
+                    levelAnimations.removeAll()
                 }
             }
             else {
