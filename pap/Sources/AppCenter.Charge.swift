@@ -29,10 +29,9 @@ extension Charge{
         switch (self.reward) {
 
         case .timeOfUses where self.priceAmount.value>0:
-            let days = Calendar.current.component(.day, from: Date(timeIntervalSinceNow: self.priceAmount.value * AppChargeBanker.papAbsTimeOfUsesTime))
-
-            return "\(self.title) (\("%d Day License".localizedFormatted(days)))"
-
+            let days = (self.priceAmount.value * AppChargeBanker.papAbsTimeOfUsesDay).roundedString(toPlaces: 1, trimTrailingZeros: true)
+            let license = "%@ Day License".localizedFormatted(days)
+            return "\(self.title) (\(license))"
         default:
             return self.title
         }
@@ -63,12 +62,16 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
 
     private lazy var receiptStorage = ChargeReceiptStorage(accessor:self)
 
-    fileprivate static let papAbsTimeOfUsesTime:TimeInterval = 30//60*60*24*14 //14d
+    fileprivate static let papAbsTimeDayUnit:TimeInterval = 60*60*24
+    fileprivate static let papAbsTimeOfUsesDay:TimeInterval = 7
+    fileprivate static let papAbsTimeOfUsesTime:TimeInterval = papAbsTimeOfUsesDay*papAbsTimeDayUnit
+
     fileprivate static let papAbsTotalPerformCount = 50
 
     init() {}
 
     private func synchronizeBalance(balance: MutableAmount) -> Amount{
+        let wasZeroBalance = balance.value==0
         var removingReceipts = Set<ChargeableReceipt>()
 
         for (_, receipt) in receiptStorage.receipts {
@@ -94,7 +97,7 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
             }
         }
 
-        if balance.value==0{
+        if wasZeroBalance == false && balance.value==0{
             removingReceipts = Set(receiptStorage.receipts.values)
         }
 

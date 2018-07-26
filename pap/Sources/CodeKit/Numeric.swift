@@ -8,6 +8,23 @@ import CoreGraphics
 
 public typealias NumericBinaryFloatingPoint = SignedNumeric & FloatingPoint
 
+extension Double {
+    /// Rounds the double to decimal places value
+    func round(toPlaces places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
+    }
+
+    public func roundedString(toPlaces places:Int, trimTrailingZeros:Bool=false) -> String{
+        let dayStr = String(round(toPlaces: 1))
+        if trimTrailingZeros{
+            let repeatingZero = "."+String(repeating: "0", count: places)
+            return dayStr.hasSuffix(repeatingZero) ? dayStr.remove(repeatingZero) : dayStr
+        }
+        return dayStr
+    }
+}
+
 public func clamp<T>(_ value: T, _ minValue: T, _ maxValue: T) -> T where T:Comparable {
     return min(max(value, minValue), maxValue)
 }

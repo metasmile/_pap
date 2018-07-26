@@ -68,17 +68,30 @@ extension PhotoPickerViewController{
         //TODO: replace with pricingViewController
         let alert = UIAlertController.actionSheet(title: "Choose A Payable Method", message: nil)
 
-        for charge in AppCenter.charge.getChargesHasNotReceipt() {
+        for charge in AppCenter.charge.charges {
+            let receipt = AppCenter.charge.bank.getStoredReceipt(for: charge)
 
             switch charge.type {
-                case .inStoreRating where !selected && charge.reward == .nonBlockOfUses:
+
+                    // charge.reward == .nonBlockOfUses, first touch -> Immediately popup.
+                case .inStoreRating where receipt == nil && !selected && charge.reward == .nonBlockOfUses:
+                    AppCenter.charge.pay(for: InAppStoreRating.self)
+                    return
+
+                case .onPromptRating where receipt == nil && !selected && charge.reward == .nonBlockOfUses:
+                    AppCenter.charge.pay(for: OnPromptRating.self)
+                    return
+
+                    // charge.reward == .nonBlockOfUses, second touch -> Contained by menu.
+                case .inStoreRating where receipt != nil && !selected && charge.reward == .nonBlockOfUses:
                     alert.addAction(UIAlertAction(title: charge.titleApplyingReward, style: .default) { action in
                         AppCenter.charge.pay(for: InAppStoreRating.self)
                     })
-                case .onPromptRating where !selected && charge.reward == .nonBlockOfUses:
+                case .onPromptRating where receipt != nil && !selected && charge.reward == .nonBlockOfUses:
                     alert.addAction(UIAlertAction(title: charge.titleApplyingReward, style: .default) { action in
                         AppCenter.charge.pay(for: OnPromptRating.self)
                     })
+
                 case .socialShare:
                     alert.addAction(UIAlertAction(title: charge.titleApplyingReward, style: .default) { action in
                         AppCenter.charge.pay(for: OnSocialShare.self)
@@ -123,7 +136,13 @@ class ChargeableBarButtonItem: UIBarButtonItem {
         
         chargeableButton.imageView?.contentMode = .scaleAspectFit
         chargeableButton.imageEdgeInsets = UIEdgeInsets(top: 2, left: 0, bottom: 2, right: 0)
-        
+
+        chargeableButton.chargeType = [.fill]
+
+        //TODO: apply true when some restrictful conditions (e.g. finished trial days) to induce for paying
+        chargeableButton.showsColorLevel = false
+        chargeableButton.showsAnimation = false
+
         chargeableButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
         chargeableButton.titleEdgeInsets.left = 2
         chargeableButton.titleEdgeInsets.right = -2
@@ -304,7 +323,7 @@ private class PhotoPickerViewControllerChargeableAssets {
 }
 
 private struct InAppStoreRating:Payable{
-    static let charge:Chargeable = AppChargeable(type: .inStoreRating, reward: .timeOfUses)
+    static let charge:Chargeable = AppChargeable(type: .inStoreRating, reward: .nonBlockOfUses)
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
         var paid = false
@@ -324,7 +343,7 @@ private struct InAppStoreRating:Payable{
 }
 
 private struct OnPromptRating:Payable{
-    static let charge:Chargeable = AppChargeable(type: .onPromptRating, reward: .timeOfUses)
+    static let charge:Chargeable = AppChargeable(type: .onPromptRating, reward: .nonBlockOfUses)
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
         var paid = false

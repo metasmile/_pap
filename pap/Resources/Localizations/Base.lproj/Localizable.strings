@@ -82,12 +82,12 @@
 "cs_keyword_12" = "friend";
 "cs_keyword_13" = "lover";
 
+/* Generated from genl10n: AppCenter.Charge.swift#33 */
+"%@ Day License" = "%@ Day License";
 /* Generated from genl10n: Finder.BApp.swift#1569, Cleaner.BApp.swift#722 */
 "%@ might be found" = "%@ might be found";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#413 */
 "%@ will be hidden" = "%@ will be hidden";
-/* Generated from genl10n: AppCenter.Charge.swift#34 */
-"%d Day License" = "%d Day License";
 /* Generated from genl10n: GIFMaker.BApp.swift#579 */
 "%d times" = "%d times";
 /* Generated from genl10n: Finder.BApp.swift#1309 */
