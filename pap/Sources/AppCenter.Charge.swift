@@ -8,7 +8,7 @@ import UIKit
 import DefaultsKit
 
 
-private struct AppChargeItem: Charge {
+private struct AppCharge: Charge {
     var type: ChargeType
     var reward: RewardType
 
@@ -17,7 +17,7 @@ private struct AppChargeItem: Charge {
     let description: String?
 }
 
-struct AppChargeableItem: Chargeable{
+struct AppChargeable: Chargeable{
     let type: ChargeType
     let reward: RewardType
 
@@ -27,7 +27,7 @@ struct AppChargeableItem: Chargeable{
     }
 }
 
-struct AppChargeReceipt: Codable, Chargeable{
+struct AppChargeableReceipt: Codable, Chargeable{
 
     init(chargeable:Chargeable){
         self.type = chargeable.type
@@ -36,6 +36,7 @@ struct AppChargeReceipt: Codable, Chargeable{
 
     let uuid:String = UUID().uuidString
     let createdDate:Date = Date()
+    let bankVersion:Int = AppChargeBank.version
 
     let type: ChargeType
     let reward: RewardType
@@ -49,6 +50,7 @@ struct AppChargeReceipt: Codable, Chargeable{
     private enum CodingKeys: Int, CodingKey {
         case uuid
         case createdDate
+        case bankVersion
 
         case type
         case reward
@@ -65,6 +67,7 @@ struct AppChargeReceipt: Codable, Chargeable{
 
         try container.encode(uuid, forKey: .uuid)
         try container.encode(createdDate, forKey: .createdDate)
+        try container.encode(bankVersion, forKey: .bankVersion)
 
         try container.encode(type, forKey: .type)
         try container.encode(reward, forKey: .reward)
@@ -84,26 +87,28 @@ extension AppCenter{
 
 private final class AppChargeManager: ChargeManager{
     fileprivate static let shared = AppChargeManager(charges:[
-        AppChargeItem(type: .inStoreRating, reward: .timeOfUses,  priceAmount: MutableAmountObject(value:0.1), title:"AppStore Rating", description:nil)
-        , AppChargeItem(type: .onPromptRating, reward: .timeOfUses, priceAmount: MutableAmountObject(value:0.2), title:"AppStore Rating", description:nil)
-        , AppChargeItem(type: .socialShare, reward: .timeOfUses, priceAmount: MutableAmountObject(value:0.5), title:"AppStore Rating", description:nil)
-        , AppChargeItem(type: .feedback, reward: .timeOfUses, priceAmount: AmountObject(value:1), title:"AppStore Rating", description:nil)
+        AppCharge(type: .inStoreRating, reward: .timeOfUses,  priceAmount: MutableAmountObject(value:0.1), title:"AppStore Rating", description:nil)
+        , AppCharge(type: .onPromptRating, reward: .timeOfUses, priceAmount: MutableAmountObject(value:0.2), title:"AppStore Rating", description:nil)
+        , AppCharge(type: .socialShare, reward: .timeOfUses, priceAmount: MutableAmountObject(value:0.5), title:"AppStore Rating", description:nil)
+        , AppCharge(type: .feedback, reward: .timeOfUses, priceAmount: AmountObject(value:1), title:"AppStore Rating", description:nil)
         /* .... */
     ], banker: AppChargeBank.self)
 }
 
 private protocol AppChargeBankDefaults:DefaultsProperty{
-    var receipts:[String:AppChargeReceipt] {set get} // receipt ID : object
+    var receipts:[String: AppChargeableReceipt] {set get} // receipt ID : object
 }
 
 extension Defaults: AppChargeBankDefaults {
-    var receipts:[String:AppChargeReceipt]{
+    var receipts:[String: AppChargeableReceipt]{
         set{ set(newValue) }
-        get{ return get(or:[String:AppChargeReceipt]()) }
+        get{ return get(or:[String: AppChargeableReceipt]()) }
     }
 }
 
 private final class AppChargeBank: ChargeBanker {
+    fileprivate static let version:Int = 1
+
     private var defaults: AppChargeBankDefaults = Defaults(userDefaults: UserDefaults(suiteName: String(describing: AppChargeBank.self)+"UserDefaults") ?? UserDefaults.standard)
 
     private let papAbsTimeOfUsesTime:TimeInterval = 60//60*60*24*14 //14d
@@ -113,7 +118,7 @@ private final class AppChargeBank: ChargeBanker {
 
     func willInitialize(balance: MutableAmount) -> Amount {
         //DEBUG
-        defaults.receipts = [String:AppChargeReceipt]()
+        defaults.receipts = [String: AppChargeableReceipt]()
         return AmountObject(value: 0)
 
 //        return balance
@@ -152,7 +157,7 @@ private final class AppChargeBank: ChargeBanker {
 
     func willDeposit(priceAmountFor charge: Charge, balance: MutableAmount) -> Amount? {
 
-        var receipt = AppChargeReceipt(chargeable: charge)
+        var receipt = AppChargeableReceipt(chargeable: charge)
         receipt.dateData = Date()
 
         defaults.receipts[receipt.uuid] = receipt

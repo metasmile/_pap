@@ -64,6 +64,7 @@ protocol Charge: Chargeable {
 }
 
 protocol Amount: Codable{
+    var uuid:String{get}
     var value:Double{get}
 
     init(value:Double)
@@ -75,10 +76,15 @@ protocol MutableAmount: Amount{
 
     @discardableResult
     func subtract(_ amount:Amount) -> Amount
+
+    @discardableResult
+    func set(_ amount:Amount) -> Amount
 }
 
 
 protocol ChargeBanker {
+    static var version:Int{get}
+
     //INFO: setup something stuffs
     func willInitialize(balance:MutableAmount) -> Amount
 

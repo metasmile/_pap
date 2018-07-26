@@ -288,7 +288,7 @@ private class PhotoPickerViewControllerChargeableAssets {
 }
 
 private struct InAppStoreRating:Payable{
-    static let charge:Chargeable = AppChargeableItem(type: .inStoreRating, reward: .timeOfUses)
+    static let charge:Chargeable = AppChargeable(type: .inStoreRating, reward: .timeOfUses)
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
         var paid = false
@@ -308,7 +308,7 @@ private struct InAppStoreRating:Payable{
 }
 
 private struct OnPromptRating:Payable{
-    static let charge:Chargeable = AppChargeableItem(type: .onPromptRating, reward: .timeOfUses)
+    static let charge:Chargeable = AppChargeable(type: .onPromptRating, reward: .timeOfUses)
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
         var paid = false
@@ -327,7 +327,7 @@ private struct OnPromptRating:Payable{
 }
 
 private struct OnSocialShare:Payable{
-    static let charge:Chargeable = AppChargeableItem(type: .socialShare, reward: .timeOfUses)
+    static let charge:Chargeable = AppChargeable(type: .socialShare, reward: .timeOfUses)
     
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
         guard let appURL = URL(string: "https://get.apps.photo") else {
@@ -359,7 +359,7 @@ extension UIActivityType {
 import MessageUI
 
 private class OnFeedback: NSObject, Payable, MFMailComposeViewControllerDelegate {
-    static let charge:Chargeable = AppChargeableItem(type: .feedback, reward: .timeOfUses)
+    static let charge:Chargeable = AppChargeable(type: .feedback, reward: .timeOfUses)
     
     private var mailComposerCompletionBlock: ((_ sent: Bool) -> Void)?
     

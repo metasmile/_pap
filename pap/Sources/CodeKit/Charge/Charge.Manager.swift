@@ -74,8 +74,9 @@ extension AmountObject{
     static let maxValue:Double = 1
 }
 
-class AmountObject:Amount{
-    @objc dynamic
+class AmountObject: Amount{
+    lazy var uuid:String = UUID().uuidString
+
     fileprivate(set) var value: Double = Double.nan
 
     required init(value: Double) {
@@ -101,6 +102,12 @@ class MutableAmountObject: AmountObject, MutableAmount{
     @discardableResult
     func subtract(_ amount: Amount) -> Amount {
         self.value -= clamp(amount.value, type(of: self).minValue, value)
+        return self
+    }
+
+    @discardableResult
+    func set(_ amount: Amount) -> Amount {
+        self.value = amount.value
         return self
     }
 }
@@ -129,7 +136,10 @@ final class ChargeBank: NSObject, KeyPathWatchable {
 
     required init(banker: ChargeBanker.Type){
         self.banker = banker.init()
-        self.balanceAmount = MutableAmountObject(amount: self.banker.willInitialize(balance: MutableAmountObject(value:defaults.balanceValue)))
+
+        let amount = MutableAmountObject(value:defaults.balanceValue)
+        amount.set(self.banker.willInitialize(balance: amount))
+        self.balanceAmount = amount
     }
 
     func deposit(for charge:Charge){
