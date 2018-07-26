@@ -33,6 +33,8 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
     @objc dynamic
     public lazy var autoSelect: Bool = false
 
+    fileprivate lazy var detector = FinderAppDetector()
+
     public static let info = AppInfo(
             identifier: "com.stells.pap.finder"
             , version: "1.0"
@@ -42,7 +44,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
             , description: "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!".localized
             , keywords: ["Date", "Address", "Maps", "Location","URL","Flight","E-Mail", "Call", "Phone Number", "Contacts","Text","Detection","Information", "Search","Find","Recognization"]
             , iconBundleName: R.image.finderBAppIcon.name
-            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
+            , policy: AppPolicy.default
             , minOSVersion: nil
     )
 
@@ -50,13 +52,14 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
         
     }
 
-//    static var callProviderDelegate:CallProviderDelegate?
     class func didConfigurate(with manager: AppManager) {
-//        callProviderDelegate = CallProviderDelegate(callManager: CallManager.shared)
+
     }
 
     func didResign(current: App.Type?) {
 
+        //replace with new instance
+        self.detector = FinderAppDetector()
     }
 
     private var importedLaunchOption:AppLaunchOption?
@@ -158,8 +161,6 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
     public var doneButtonTitle: String? {
         return "Find".localized
     }
-
-    fileprivate var detector = FinderAppDetector()
 }
 
 

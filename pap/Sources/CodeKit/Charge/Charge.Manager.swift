@@ -107,7 +107,7 @@ class MutableAmountObject: AmountObject, MutableAmount{
 
     @discardableResult
     func set(_ amount: Amount) -> Amount {
-        self.value = amount.value
+        self.value = clamp(amount.value, type(of: self).minValue, type(of: self).maxValue)
         return self
     }
 }
@@ -127,8 +127,7 @@ final class ChargeBank: NSObject, KeyPathWatchable {
             self.defaults.balanceValue = newValue
         }
         get{
-            balanceAmount.value = banker.willGetBalanceValue(balance: balanceAmount).value
-            return balanceAmount.value
+            return balanceAmount.set(banker.willGetBalanceValue(balance: balanceAmount)).value
         }
     }
 
@@ -143,10 +142,10 @@ final class ChargeBank: NSObject, KeyPathWatchable {
     }
 
     func deposit(for charge:Charge){
-        if let priceAmount = banker.willDeposit(priceAmountFor: charge, balance: balanceAmount){
+        if let priceAmount = banker.willSaveDeposit(priceAmountFor: charge, balance: balanceAmount){
             balanceValue = balanceAmount.add(priceAmount).value
         }
-        banker.didDeposit(for: charge, balance: balanceAmount)
+        banker.willSaveDeposit(for: charge, balance: balanceAmount)
     }
 
     fileprivate func consume(for charge:Charge){

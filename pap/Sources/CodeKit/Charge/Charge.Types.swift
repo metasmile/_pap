@@ -93,8 +93,8 @@ protocol ChargeBanker {
     func willGetBalanceValue(balance:MutableAmount) -> Amount
 
     //INFO: return charged price amount or nil.
-    func willDeposit(priceAmountFor charge:Charge, balance:MutableAmount) -> Amount?
-    func didDeposit(for charge:Charge, balance:MutableAmount)
+    func willSaveDeposit(priceAmountFor charge:Charge, balance:MutableAmount) -> Amount?
+    func willSaveDeposit(for charge:Charge, balance:MutableAmount)
 
     init()
 }
