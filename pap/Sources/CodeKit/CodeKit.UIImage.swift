@@ -80,7 +80,8 @@ public extension UIImage {
 }
 
 public extension UIImage {
-    func tintColor(_ color: UIColor, blendMode: CGBlendMode = .multiply) -> UIImage {
+    //https://robots.thoughtbot.com/designing-for-ios-blending-modes
+    func tintColor(_ color: UIColor, blendMode: CGBlendMode = .normal) -> UIImage {
         guard let cgImage = self.cgImage else { return self }
         let drawRect = CGRect(origin: .zero, size: size)
         return UIGraphicsImageRenderer(size: size).imageWithCurrentContext { (ctx) in
