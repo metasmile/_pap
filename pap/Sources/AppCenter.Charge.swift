@@ -19,7 +19,7 @@ private final class AppChargeManager: ChargeManager{
         , AppCharge(type: .socialShare, reward: .timeOfUses, priceAmount: MutableAmountObject(value:0.5), title:"AppStore Rating", description:nil)
         , AppCharge(type: .feedback, reward: .timeOfUses, priceAmount: AmountObject(value:1), title:"AppStore Rating", description:nil)
         /* .... */
-    ], banker: AppChargeBank.self)
+    ], banker: AppChargeBanker.self)
 }
 
 private struct AppCharge: Charge {
@@ -41,93 +41,56 @@ struct AppChargeable: Chargeable{
     }
 }
 
-struct AppChargeableReceipt: Codable, Chargeable{
-
-    init(chargeable:Chargeable){
-        self.type = chargeable.type
-        self.reward = chargeable.reward
-    }
-
-    let uuid:String = UUID().uuidString
-    let createdDate:Date = Date()
-    let bankVersion:Int = AppChargeBank.version
-
-    let type: ChargeType
-    let reward: RewardType
-
-    var dateData:Date?
-    var stringData:String?
-    var intData:Int?
-    var doubleData:Double?
-    var dataData:Data?
-
-    private enum CodingKeys: Int, CodingKey {
-        case uuid
-        case createdDate
-        case bankVersion
-
-        case type
-        case reward
-
-        case dateData
-        case stringData
-        case intData
-        case doubleData
-        case dataData
-    }
-
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-
-        try container.encode(uuid, forKey: .uuid)
-        try container.encode(createdDate, forKey: .createdDate)
-        try container.encode(bankVersion, forKey: .bankVersion)
-
-        try container.encode(type, forKey: .type)
-        try container.encode(reward, forKey: .reward)
-
-        try container.encode(dateData, forKey: .dateData)
-        try container.encode(stringData, forKey: .stringData)
-        try container.encode(intData, forKey: .intData)
-        try container.encode(doubleData, forKey: .doubleData)
-        try container.encode(dataData, forKey: .dataData)
-    }
-}
-
 private protocol AppChargeBankDefaults:DefaultsProperty{
-    var receipts:[String: AppChargeableReceipt] {set get} // receipt ID : object
+    var receipts:[String: ChargeableReceipt] {set get} // receipt ID : object
 }
 
 extension Defaults: AppChargeBankDefaults {
-    var receipts:[String: AppChargeableReceipt]{
+    var receipts:[String: ChargeableReceipt]{
         set{ set(newValue) }
-        get{ return get(or:[String: AppChargeableReceipt]()) }
+        get{ return get(or:[String: ChargeableReceipt]()) }
     }
 }
 
-private final class AppChargeBank: ChargeBanker {
+private struct AppReceiptAccessor { //struct means final.
+    private var receiptsStorage: AppChargeBankDefaults = Defaults(userDefaults: UserDefaults(suiteName: String(describing: AppReceiptAccessor.self)+"Storage") ?? UserDefaults.standard)
+
+    private(set) var receipts:[String: ChargeableReceipt]
+
+    init(){
+        receipts = receiptsStorage.receipts
+    }
+
+    mutating func addReceipt(_ receipt: ChargeableReceipt){
+        receiptsStorage.receipts[receipt.uuid] = receipt
+        receipts = receiptsStorage.receipts
+    }
+
+    mutating func removeReceipt(_ receiptId:String){
+        receiptsStorage.receipts[receiptId] = nil
+        receipts = receiptsStorage.receipts
+    }
+
+    mutating fileprivate func disposeAll(){
+        receiptsStorage.receipts.removeAll()
+        receipts.removeAll()
+    }
+}
+
+private final class AppChargeBanker: ChargeBanker {
     fileprivate static let version:Int = 1
 
-    private var defaults: AppChargeBankDefaults = Defaults(userDefaults: UserDefaults(suiteName: String(describing: AppChargeBank.self)+"UserDefaults") ?? UserDefaults.standard)
+    private lazy var receiptAccessor = AppReceiptAccessor()
 
     private let papAbsTimeOfUsesTime:TimeInterval = 30//60*60*24*14 //14d
     private let papAbsTotalPerformCount = 50
 
     init() {}
 
-    func willInitialize(balance: MutableAmount) -> Amount {
-        //DEBUG
-        defaults.receipts = [String: AppChargeableReceipt]()
-        return AmountObject(value: 0)
-
-//        return balance
-    }
-
-    //TODO: performance care
-    func willGetBalanceValue(balance: MutableAmount) -> Amount {
+    private func synchronizeBalance(balance: MutableAmount) -> Amount{
         var subtractedReceiptIds = [String]()
 
-        for (uuid, receipt) in defaults.receipts {
+        for (uuid, receipt) in receiptAccessor.receipts {
 
             guard let charge = AppChargeManager.shared.getCharge(for: receipt) else {
                 continue
@@ -144,28 +107,36 @@ private final class AppChargeBank: ChargeBanker {
             }
         }
 
-        var receipts = defaults.receipts
         for id in subtractedReceiptIds {
-            print("[i] INFO: Removed Receipt: ", receipts[id] ?? "", id)
-            receipts.removeValue(forKey: id)
+            receiptAccessor.removeReceipt(id)
+            print("[i] INFO: Removed Receipt: ", id)
         }
-        defaults.receipts = receipts
-        
         return balance
     }
 
-    func willSaveDeposit(priceAmountFor charge: Charge, balance: MutableAmount) -> Amount? {
+    func willInitialize(balance: MutableAmount) -> Amount {
+        //DEBUG
+        receiptAccessor.disposeAll()
+        return AmountObject(value: 0)
+//        return self.synchronizeBalance(balance:balance)
+    }
 
-        var receipt = AppChargeableReceipt(chargeable: charge)
+    func willSynchronizeBalanceValue(balance: MutableAmount) -> Amount {
+        return self.synchronizeBalance(balance:balance)
+    }
+
+    func willSaveDeposit(forPriceAmountOf charge: Charge, balance: MutableAmount) -> Amount? {
+        var receipt = ChargeableReceipt(chargeable: charge, bankerVersion: AppChargeBanker.version)
         receipt.dateData = Date()
 
-        defaults.receipts[receipt.uuid] = receipt
+        receiptAccessor.addReceipt(receipt)
 
         print("[i] Deposited: ", receipt, receipt.uuid)
 
         return charge.priceAmount
     }
 
-    func willSaveDeposit(for charge: Charge, balance: MutableAmount) {
+    func didSaveDeposit(for charge: Charge, balance: MutableAmount) {
+
     }
 }

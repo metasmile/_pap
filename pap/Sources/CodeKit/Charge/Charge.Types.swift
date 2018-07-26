@@ -90,11 +90,12 @@ protocol ChargeBanker {
 
     //INFO: return ChargeBank. balanceValue - this method may call significantly.
     // handle carefully for maintaining high performance.
-    func willGetBalanceValue(balance:MutableAmount) -> Amount
+    func willSynchronizeBalanceValue(balance:MutableAmount) -> Amount
 
     //INFO: return charged price amount or nil.
-    func willSaveDeposit(priceAmountFor charge:Charge, balance:MutableAmount) -> Amount?
-    func willSaveDeposit(for charge:Charge, balance:MutableAmount)
+    func willSaveDeposit(forPriceAmountOf charge:Charge, balance:MutableAmount) -> Amount?
+    func didSaveDeposit(for charge:Charge, balance:MutableAmount)
 
     init()
 }
+
