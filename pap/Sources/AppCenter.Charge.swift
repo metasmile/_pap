@@ -41,46 +41,10 @@ struct AppChargeable: Chargeable{
     }
 }
 
-private protocol AppChargeBankDefaults:DefaultsProperty{
-    var receipts:[String: ChargeableReceipt] {set get} // receipt ID : object
-}
-
-extension Defaults: AppChargeBankDefaults {
-    var receipts:[String: ChargeableReceipt]{
-        set{ set(newValue) }
-        get{ return get(or:[String: ChargeableReceipt]()) }
-    }
-}
-
-private struct AppReceiptAccessor { //struct means final.
-    private var receiptsStorage: AppChargeBankDefaults = Defaults(userDefaults: UserDefaults(suiteName: String(describing: AppReceiptAccessor.self)+"Storage") ?? UserDefaults.standard)
-
-    private(set) var receipts:[String: ChargeableReceipt]
-
-    init(){
-        receipts = receiptsStorage.receipts
-    }
-
-    mutating func addReceipt(_ receipt: ChargeableReceipt){
-        receiptsStorage.receipts[receipt.uuid] = receipt
-        receipts = receiptsStorage.receipts
-    }
-
-    mutating func removeReceipt(_ receiptId:String){
-        receiptsStorage.receipts[receiptId] = nil
-        receipts = receiptsStorage.receipts
-    }
-
-    mutating fileprivate func disposeAll(){
-        receiptsStorage.receipts.removeAll()
-        receipts.removeAll()
-    }
-}
-
-private final class AppChargeBanker: ChargeBanker {
+private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorageAccessor {
     fileprivate static let version:Int = 1
 
-    private lazy var receiptAccessor = AppReceiptAccessor()
+    private lazy var receiptStorage = ChargeReceiptStorage(accessor:self)
 
     private let papAbsTimeOfUsesTime:TimeInterval = 30//60*60*24*14 //14d
     private let papAbsTotalPerformCount = 50
@@ -88,27 +52,30 @@ private final class AppChargeBanker: ChargeBanker {
     init() {}
 
     private func synchronizeBalance(balance: MutableAmount) -> Amount{
-        var subtractedReceiptIds = [String]()
+        var expiredReceiptIds = [String]()
 
-        for (uuid, receipt) in receiptAccessor.receipts {
+        for (uuid, receipt) in receiptStorage.receipts {
 
             guard let charge = AppChargeManager.shared.getCharge(for: receipt) else {
                 continue
             }
 
             if receipt.reward == RewardType.timeOfUses, let date = receipt.dateData{
-                if Date().timeIntervalSince(date) > papAbsTimeOfUsesTime{
-                    subtractedReceiptIds.append(uuid)
-
-                    print("before", balance.value)
-                    balance.subtract(charge.priceAmount)
-                    print("after subtract", balance.value)
+                let spentRatio = normalize(Date().timeIntervalSince(date),0,papAbsTimeOfUsesTime)
+                
+                print("before", balance.value, "for share ratio: ", charge.priceAmount.getValueOfShares(inContainer: balance), spentRatio)
+                
+                balance.subtractShares(of: charge.priceAmount, ratio: spentRatio)
+                print("after subtract", balance.value)
+                
+                if spentRatio >= 1{
+                    expiredReceiptIds.append(uuid)
                 }
             }
         }
 
-        for id in subtractedReceiptIds {
-            receiptAccessor.removeReceipt(id)
+        for id in expiredReceiptIds {
+            receiptStorage.removeReceipt(id)
             print("[i] INFO: Removed Receipt: ", id)
         }
         return balance
@@ -116,7 +83,7 @@ private final class AppChargeBanker: ChargeBanker {
 
     func willInitialize(balance: MutableAmount) -> Amount {
         //DEBUG
-        receiptAccessor.disposeAll()
+        receiptStorage.disposeAll()
         return AmountObject(value: 0)
 //        return self.synchronizeBalance(balance:balance)
     }
@@ -129,7 +96,7 @@ private final class AppChargeBanker: ChargeBanker {
         var receipt = ChargeableReceipt(chargeable: charge, bankerVersion: AppChargeBanker.version)
         receipt.dateData = Date()
 
-        receiptAccessor.addReceipt(receipt)
+        receiptStorage.addReceipt(receipt)
 
         print("[i] Deposited: ", receipt, receipt.uuid)
 

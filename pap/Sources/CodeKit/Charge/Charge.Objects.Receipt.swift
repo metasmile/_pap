@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import DefaultsKit
 
 struct ChargeableReceipt: Codable, Chargeable{
 
@@ -56,5 +57,45 @@ struct ChargeableReceipt: Codable, Chargeable{
         try container.encode(intData, forKey: .intData)
         try container.encode(doubleData, forKey: .doubleData)
         try container.encode(dataData, forKey: .dataData)
+    }
+}
+
+
+private protocol ChargeReceiptAccessorStorage:DefaultsProperty{
+    var receipts:[String: ChargeableReceipt] {set get} // receipt ID : object
+}
+
+extension Defaults: ChargeReceiptAccessorStorage {
+    var receipts:[String: ChargeableReceipt]{
+        set{ set(newValue) }
+        get{ return get(or:[String: ChargeableReceipt]()) }
+    }
+}
+
+// ChargeReceiptStorageAccessor allows only ChargeBanker
+protocol ChargeReceiptStorageAccessor where Self:ChargeBanker{}
+
+struct ChargeReceiptStorage { //struct means final.
+    private var receiptsStorage: ChargeReceiptAccessorStorage
+    private(set) var receipts:[String: ChargeableReceipt]
+
+    init(accessor: ChargeReceiptStorageAccessor){
+        receiptsStorage = Defaults(userDefaults: UserDefaults(suiteName: String(describing: type(of: accessor))+String(describing: ChargeReceiptStorage.self)) ?? UserDefaults.standard)
+        receipts = receiptsStorage.receipts
+    }
+
+    mutating func addReceipt(_ receipt: ChargeableReceipt){
+        receiptsStorage.receipts[receipt.uuid] = receipt
+        receipts = receiptsStorage.receipts
+    }
+
+    mutating func removeReceipt(_ receiptId:String){
+        receiptsStorage.receipts[receiptId] = nil
+        receipts = receiptsStorage.receipts
+    }
+
+    mutating func disposeAll(){
+        receiptsStorage.receipts.removeAll()
+        receipts.removeAll()
     }
 }

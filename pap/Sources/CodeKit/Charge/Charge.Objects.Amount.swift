@@ -5,12 +5,10 @@
 
 import Foundation
 
-extension AmountObject{
+class AmountObject: Amount{
     static let minValue:Double = 0
     static let maxValue:Double = 1
-}
 
-class AmountObject: Amount{
     lazy var uuid:String = UUID().uuidString
 
     fileprivate(set) var value: Double = Double.nan

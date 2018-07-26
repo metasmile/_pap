@@ -64,10 +64,19 @@ protocol Charge: Chargeable {
 }
 
 protocol Amount: Codable{
+    static var minValue:Double{get}
+    static var maxValue:Double{get}
+
     var uuid:String{get}
     var value:Double{get}
 
     init(value:Double)
+}
+
+extension Amount{
+    func getValueOfShares(inContainer amount:Amount) -> Double{
+        return value/type(of: amount).maxValue
+    }
 }
 
 protocol MutableAmount: Amount{
@@ -81,6 +90,26 @@ protocol MutableAmount: Amount{
     func set(_ amount:Amount) -> Amount
 }
 
+extension MutableAmount{
+    private func createSharesAmount(of amount:Amount, ratio:Double) -> Amount{
+        return type(of: amount).init(value: amount.getValueOfShares(inContainer: self) * ratio)
+    }
+    
+    @discardableResult
+    func addShares(of amount:Amount, ratio:Double) -> Amount{
+        return self.add(createSharesAmount(of:amount, ratio:ratio))
+    }
+
+    @discardableResult
+    func subtractShares(of amount:Amount, ratio:Double) -> Amount{
+        return self.subtract(createSharesAmount(of:amount, ratio:ratio))
+    }
+
+    @discardableResult
+    func setShares(forContained amount:Amount, ratio:Double) -> Amount{
+        return self.set(createSharesAmount(of:amount, ratio:ratio))
+    }
+}
 
 protocol ChargeBanker {
     static var version:Int{get}
