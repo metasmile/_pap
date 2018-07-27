@@ -251,6 +251,7 @@ private struct OnSocialShare:Payable{
                 paid = completed
                 asyncSignal.end()
             }
+            shareActivity.popoverPresentationController?.sourceView = UIViewController.root?.view
             UIViewController.root?.present(shareActivity, animated: true, completion: nil)
         }
         asyncSignal.waitUntilEnd()
@@ -283,6 +284,7 @@ private class OnFeedback: NSObject, Payable, MFMailComposeViewControllerDelegate
             mailComposer.mailComposeDelegate = self
             mailComposer.setToRecipients(["feedback@apps.photo"])
             mailComposer.setSubject("👋 My Feedback for \(Bundle.main.displayName ?? "our app") ✍️")
+            mailComposer.popoverPresentationController?.sourceView = UIViewController.root?.view
             
             self.mailComposerCompletionBlock = { sent in
                 paid = sent
