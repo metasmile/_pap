@@ -89,7 +89,7 @@ extension PhotoPickerViewController{
             
             var badgeImage: UIImage?
             
-            let estimatedChargeableImage = ChargeableImage(balance: charge.priceAmount.value, options: .fill, tintColor: view.tintColor, appearanceDelegate: PhotoPickerViewControllerChargeableAssets())
+            let estimatedChargeableImage = ChargeableImage(balance: charge.priceAmount.value, fillMode: .fill, tintColor: view.tintColor, appearanceDelegate: PhotoPickerViewControllerChargeableAssets())
             
             if let icon = estimatedChargeableImage, let rewardText = charge.rewardDescription {
                 badgeImage = ChargeableBadgeIcon(icon, title: rewardText, tintColor: view.tintColor)
@@ -173,7 +173,7 @@ private class PhotoPickerViewControllerChargeableAssets : ChargeableButtonAppear
         chargeableButton.imageView?.contentMode = .scaleAspectFit
         chargeableButton.imageEdgeInsets = UIEdgeInsets(top: 2, left: 0, bottom: 2, right: 0)
 
-        chargeableButton.chargeOptions = [.fill]
+        chargeableButton.fillMode = [.fill]
 
         //TODO: apply true when some restrictful conditions (e.g. finished trial days) to induce for paying
         chargeableButton.showsColorLevel = false

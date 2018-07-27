@@ -11,7 +11,7 @@ protocol ChargeableButtonAppearance {
     var filledImage:UIImage?{get}
 }
 
-struct ChargeOptions: OptionSet {
+struct ChargeableFillMode: OptionSet {
     public let rawValue: Int
     
     init(rawValue: Int) {
@@ -22,11 +22,11 @@ struct ChargeOptions: OptionSet {
         self.rawValue = rawValue
     }
     
-    static let fill = ChargeOptions(1 << 0)
-    static let opacity = ChargeOptions(1 << 1)
+    static let fill = ChargeableFillMode(1 << 0)
+    static let opacity = ChargeableFillMode(1 << 1)
 }
 
-private enum ChargeLevel: CGFloat {
+enum ChargeLevel: CGFloat {
     case warning = 0.1
     case low = 0.2
     case high = 0.8
@@ -80,18 +80,18 @@ private enum ChargeLevel: CGFloat {
 }
 
 class ChargeableImage: UIImage {
-    static func `init`(balance: Double, options chargeOptions: ChargeOptions = .fill, tintColor color: UIColor, appearanceDelegate: ChargeableButtonAppearance?) -> UIImage? {
+    static func `init`(balance: Double, fillMode: ChargeableFillMode = .fill, tintColor color: UIColor, appearanceDelegate: ChargeableButtonAppearance?) -> UIImage? {
         let ratio: CGFloat = CGFloat(balance)
         
         guard let iconImage = appearanceDelegate?.filledImage?.tintColor(color) else { return nil }
         
         let imageBounds = CGRect(origin: .zero, size: iconImage.size)
         return UIGraphicsImageRenderer(bounds: imageBounds).imageWithCurrentContext { (ctx) in
-            if chargeOptions.contains(.opacity) {
+            if fillMode.contains(.opacity) {
                 iconImage.draw(at: .zero, blendMode: .normal, alpha: ratio == 1 ? 1 : ratio / 2 + 0.1)
             }
             
-            if chargeOptions.contains(.fill) {
+            if fillMode.contains(.fill) {
                 ctx.saveGState()
                 
                 ctx.addRect(CGRect(x: 0, y: imageBounds.height - imageBounds.height * ratio, width: imageBounds.width, height: imageBounds.height * ratio))
@@ -152,7 +152,7 @@ class ChargeableButton: UIButton {
         appearanceDelegate = appearance
     }
 
-    var chargeOptions: ChargeOptions = [.fill, .opacity]
+    var fillMode: ChargeableFillMode = [.fill, .opacity]
     var showsColorLevel = true
     var showsAnimation = true
     private var levelAnimations = [ChargeLevel: CAAnimation]()
@@ -162,7 +162,7 @@ class ChargeableButton: UIButton {
             let ratio: CGFloat = CGFloat(balance ?? 0)
             let level: ChargeLevel = ChargeLevel(balance: ratio)
             let color: UIColor = showsColorLevel ? level.representativeColor ?? tintColor : tintColor
-            let buttonImage = ChargeableImage(balance: balance ?? 0, options: self.chargeOptions, tintColor: color, appearanceDelegate: appearanceDelegate)
+            let buttonImage = ChargeableImage(balance: balance ?? 0, fillMode: self.fillMode, tintColor: color, appearanceDelegate: appearanceDelegate)
 
             setImage(buttonImage, for: .normal)
 
