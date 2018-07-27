@@ -21,6 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let spotlightSearchAppDelegate = SpotlightSearchAppDelegate()
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        Defaults.shared.initVersionInfo()
+        print("Version: ", Bundle.main.shortVersionString ?? "No version info")
+        print("Version Distance: ",Defaults.shared.shortVersionDistance ?? "nil")
+        print("Version Description: ",Defaults.shared.shortVersionDescription)
+
         return false
     }
 
@@ -36,12 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if DEBUG
         Armchair.resetAllCounters()
         #endif
-
-        Defaults.shared.latestShortVersion = Bundle.main.shortVersionString
-        Defaults.shared.latestVersion = Bundle.main.version
-        print("Version: ", Bundle.main.shortVersionString ?? "No version info")
-        print("Version Distance: ",Defaults.shared.shortVersionDistance ?? "nil")
-        print("Version Description: ",Defaults.shared.shortVersionDescription)
 
         DispatchQueue.global(qos: .background).async{
             self.spotlightSearchAppDelegate.indexDefaultSearchableItems()

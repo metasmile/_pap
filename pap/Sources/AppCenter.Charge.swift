@@ -14,37 +14,42 @@ extension AppCenter{
 
 private final class AppChargeManager: ChargeManager{
     fileprivate static let shared = AppChargeManager(charges:[
-        AppCharge(type: .inStoreRating, reward: .nonBlockOfUses,  priceAmount: AmountObject(value:0.0), title:"Review In App Store", description:nil)
-        , AppCharge(type: .onPromptRating, reward: .nonBlockOfUses, priceAmount: AmountObject(value:0.0), title:"Rate", description:nil)
-        , AppCharge(type: .socialShare, reward: .timeOfUses, priceAmount: AmountObject(value:0.5), title:"Share This App", description:nil)
-        , AppCharge(type: .feedback, reward: .timeOfUses, priceAmount: AmountObject(value:1), title:"Send Us Feedback", description:nil)
+        AppCharge(type: .inStoreRating, reward: .nonBlockOfUses,  priceAmount: AmountObject(value:0.0), title:"Write A Review".localized, description:nil)
+        , AppCharge(type: .onPromptRating, reward: .nonBlockOfUses, priceAmount: AmountObject(value:0.0), title:"Give A Rating".localized, description:nil)
+        , AppCharge(type: .socialShare, reward: .timeOfUses, priceAmount: AmountObject(value:0.5), title:"Share This App".localized, description:nil)
+        , AppCharge(type: .feedback, reward: .timeOfUses, priceAmount: AmountObject(value:0.5), title:"Send Us Feedback".localized, description:nil)
         /* .... */
     ], banker: AppChargeBanker.self)
-
-
 }
 
 extension Charge{
-    var titleApplyingReward:String {
-        switch (self.reward) {
+    private var daysFormattedStringWithPriceAmount:String?{
+        return (self.priceAmount.value * AppChargeBanker.AbsTimeOfUsesDay).roundedString(toPlaces: 1, trimTrailingZeros: true)
+    }
 
-        case .timeOfUses where self.priceAmount.value>0:
-            let days = (self.priceAmount.value * AppChargeBanker.papAbsTimeOfUsesDay).roundedString(toPlaces: 1, trimTrailingZeros: true)
-            let license = "%@ Day License".localizedFormatted(days)
-            return "\(self.title) (\(license))"
-        default:
+    var titleWithReward:String {
+        guard let daysString = daysFormattedStringWithPriceAmount else{
             return self.title
+        }
+
+        switch (self.reward) {
+            case .timeOfUses:
+                return "\(self.title) (\("%@ Day License".localizedFormatted(daysString)))"
+            default:
+                return self.title
         }
     }
     
-    var rewardDescription:String? {
-        switch (self.reward) {
-            
-        case .timeOfUses where self.priceAmount.value>0:
-            let days = (self.priceAmount.value * AppChargeBanker.papAbsTimeOfUsesDay).roundedString(toPlaces: 1, trimTrailingZeros: true)
-            return "%@ Day".localizedFormatted(days)
-        default:
+    var shortTitleWithReward:String? {
+        guard let daysString = daysFormattedStringWithPriceAmount else{
             return nil
+        }
+
+        switch (self.reward) {
+            case .timeOfUses:
+                return "%@ Day".localizedFormatted(daysString)
+            default:
+                return nil
         }
     }
 }
@@ -68,16 +73,27 @@ struct AppChargeable: Chargeable{
     }
 }
 
+/*
+POLICY
+
+1.0
+First Installed User: Non consumption all
+
+
+
+*/
+
 private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
     fileprivate static let version:Int = 1
 
+    private let shortVersionDescription = Defaults.shared.shortVersionDescription
     private lazy var receiptStorage = ChargeReceiptStorage(accessor:self)
 
-    fileprivate static let papAbsTimeDayUnit:TimeInterval = 60*60*24
-    fileprivate static let papAbsTimeOfUsesDay:TimeInterval = 7
-    fileprivate static let papAbsTimeOfUsesTime:TimeInterval = papAbsTimeOfUsesDay*papAbsTimeDayUnit
+    fileprivate static let AbsTimeDayTime:TimeInterval = 60*60*24
+    fileprivate static let AbsTimeOfUsesDay:TimeInterval = 7
+    fileprivate static let AbsTimeOfUsesTime:TimeInterval = AbsTimeOfUsesDay * AbsTimeOfUsesDay
 
-    fileprivate static let papAbsTotalPerformCount = 50
+    fileprivate static let AbsCountOfUsesCount = 50
 
     init() {}
 
@@ -85,7 +101,7 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
         let wasZeroBalance = balance.value==0
         var removingReceipts = Set<ChargeableReceipt>()
 
-        for (_, receipt) in receiptStorage.receipts {
+        for (_, receipt) in receiptStorage.receipts { //TODO: improve performance - o.n -> o.1 avg.
 
             guard let charge = AppChargeManager.shared.getCharge(for: receipt) else {
                 continue
@@ -93,7 +109,7 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
 
             if receipt.reward == RewardType.timeOfUses, let date = receipt.dateData{
                 let newDate = Date()
-                let totalRewardTime = type(of: self).papAbsTimeOfUsesTime * charge.priceAmount.value/type(of: balance).maxValue
+                let totalRewardTime = type(of: self).AbsTimeOfUsesTime * charge.priceAmount.value/type(of: balance).maxValue
                 let spentRatio = normalize(newDate.timeIntervalSince(date), 0, totalRewardTime)
 
                 var updatingReceipt = receipt

@@ -26,19 +26,26 @@ extension PhotoPickerViewController{
     @discardableResult
     func updateRightButtonState() -> PhotoPickerViewControllerRightBarButtonState {
 
-        if self.estimatedAvailableSelectedItems > 0 && AppCenter.charge.bank.balanceValue > 0 {
-            navigationItem.setRightBarButton(self.doneButton, animated: true)
-            return .paidSelected
-        }
+        let selected = self.estimatedAvailableSelectedItems > 0
 
-        if self.estimatedAvailableSelectedItems > 0 && AppCenter.charge.bank.balanceValue == 0 {
-            let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.chargeableButton
-            rightButtonItem.title = doneButton?.title
-            rightButtonItem.balance = AppCenter.charge.bank.balanceValue
-            rightButtonItem.target = self
-            rightButtonItem.action = #selector(self.chargeableButtonDidTap)
-            navigationItem.setRightBarButton(rightButtonItem, animated: true)
-            return .unpaidSelected
+        if selected{
+            let currentSyncedBalanceValue = AppCenter.charge.bank.balanceValue
+
+            if currentSyncedBalanceValue > 0 {
+                navigationItem.setRightBarButton(self.doneButton, animated: true)
+                return .paidSelected
+            } else if currentSyncedBalanceValue == 0 {
+                let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.chargeableButton
+                rightButtonItem.title = doneButton?.title
+                rightButtonItem.balance = AppCenter.charge.bank.balanceValue
+                rightButtonItem.target = self
+                rightButtonItem.action = #selector(self.chargeableButtonDidTap)
+                navigationItem.setRightBarButton(rightButtonItem, animated: true)
+                return .unpaidSelected
+
+            }
+            assert(false, "current balance value synced with < 0")
+            return .paidSelected
         }
 
         let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.chargeableButton
@@ -91,7 +98,7 @@ extension PhotoPickerViewController{
             
             let estimatedChargeableImage = ChargeableImage(balance: charge.priceAmount.value, fillMode: .fill, tintColor: view.tintColor, appearanceDelegate: PhotoPickerViewControllerChargeableAssets())
             
-            if let icon = estimatedChargeableImage, let rewardText = charge.rewardDescription {
+            if let icon = estimatedChargeableImage, let rewardText = charge.shortTitleWithReward {
                 badgeImage = ChargeableBadgeIcon(icon, title: rewardText, tintColor: view.tintColor)
             }
             else {
