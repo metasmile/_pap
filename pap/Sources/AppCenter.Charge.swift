@@ -111,14 +111,14 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
 
     func willInitialize(balance: MutableAmount) -> Amount {
         switch appShortVersionDescription{
-        case .first:
-            //give tutorial balance 3 days
-            let initialTutorialOfferedAmount = AmountObject(value: type(of: self).InitialTutorialTimeOfUsesDay/type(of: self).AbsTimeOfUsesDay)
-            balance.add(initialTutorialOfferedAmount)
-        case .reversed, .unhandled:
-            balance.set(AmountObject(value: 0))
-        default:
-            break
+            case .first:
+                //give tutorial balance 3 days
+                assert(balance.value==0, "User installs the app firstly but why balance is not 0?")
+                balance.add(AmountObject(value: type(of: self).InitialTutorialTimeOfUsesDay/type(of: self).AbsTimeOfUsesDay))
+            case .reversed, .unhandled:
+                balance.set(AmountObject(value: 0))
+            default:
+                break
         }
         return self.synchronizeBalance(balance:balance)
     }
@@ -133,20 +133,30 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
                 continue
             }
 
-            if receipt.reward == RewardType.timeOfUses, let date = receipt.dateData{
-                let newDate = Date()
-                let totalRewardTime = type(of: self).AbsTimeOfUsesTime * charge.priceAmount.value/type(of: balance).maxValue
-                let spentRatio = normalize(newDate.timeIntervalSince(date), 0, totalRewardTime)
-
-                var updatingReceipt = receipt
-                updatingReceipt.dateData = newDate
-                receiptStorage.updateReceipt(updatingReceipt)
-
-                balance.subtractShares(of: charge.priceAmount, ratio: spentRatio)
-                
-                if spentRatio >= 1{
+            switch receipt.reward{
+                case .timeOfUsesByVersion,
+                     .countOfUsesByVersion,
+                     .ownedByVersion where appShortVersionDescription == .new:
                     removingReceipts.insert(receipt)
-                }
+
+                case .timeOfUses:
+                    if let date = receipt.dateData{
+                        let newDate = Date()
+                        let totalRewardTime = type(of: self).AbsTimeOfUsesTime * charge.priceAmount.value/type(of: balance).maxValue
+                        let spentRatio = normalize(newDate.timeIntervalSince(date), 0, totalRewardTime)
+
+                        var updatingReceipt = receipt
+                        updatingReceipt.dateData = newDate
+                        receiptStorage.updateReceipt(updatingReceipt)
+
+                        balance.subtractShares(of: charge.priceAmount, ratio: spentRatio)
+
+                        if spentRatio >= 1{
+                            removingReceipts.insert(receipt)
+                        }
+                    }
+                default:
+                    assert(false, "[!] WARNING: \(receipt.reward) handling is not implemented yet.")
             }
         }
 
