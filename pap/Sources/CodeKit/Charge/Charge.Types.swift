@@ -69,16 +69,36 @@ protocol Charge: Chargeable {
 protocol Amount: Codable{
     static var minValue:Double{get}
     static var maxValue:Double{get}
+    static var invalidatedValue:Double{get}
 
     var uuid:String{get}
     var value:Double{get}
 
     init(value:Double)
+
+    static func validate(value:Double) -> Double
 }
 
+//Default Amount
 extension Amount{
+    static var minValue: Double {
+        return 0
+    }
+    static var maxValue: Double {
+        return 1
+    }
+    static var invalidatedValue: Double {
+        return Double.nan
+    }
+
     func getValueOfShares(inContainer amount:Amount) -> Double{
         return value/type(of: amount).maxValue
+    }
+
+    static func validate(value:Double) -> Double {
+        let validated = value >= minValue && value <= maxValue
+        assert(validated,"The value of amount is in validate. \(value). Valid range of value is [\(minValue)...\(maxValue)]")
+        return validated ? value : invalidatedValue
     }
 }
 

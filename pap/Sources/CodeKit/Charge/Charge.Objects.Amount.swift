@@ -5,24 +5,23 @@
 
 import Foundation
 
-class AmountObject: Amount{
-    static let minValue:Double = 0
-    static let maxValue:Double = 1
-
-    lazy var uuid:String = UUID().uuidString
-
-    fileprivate(set) var value: Double = Double.nan
-
-    required init(value: Double) {
-        if value >= type(of: self).minValue && value <= type(of: self).maxValue {
-            self.value = value
-        }else{
-            assert(false,"Amount is allowed only 0...1")
-        }
+struct AmountObject:Amount{
+    let uuid:String = UUID().uuidString
+    private(set) var value:Double
+    init(value: Double) {
+        self.value = type(of: self).validate(value: value)
     }
 }
 
-class MutableAmountObject: AmountObject, MutableAmount{
+class MutableAmountObject: MutableAmount{
+    lazy var uuid:String = UUID().uuidString
+
+    private(set) var value: Double
+
+    required init(value: Double){
+        self.value = type(of: self).validate(value: value)
+    }
+
     convenience init(amount: Amount) {
         self.init(value: amount.value)
     }

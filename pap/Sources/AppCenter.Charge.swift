@@ -77,25 +77,51 @@ struct AppChargeable: Chargeable{
 POLICY
 
 1.0
-First Installed User: Non consumption all
+
+Tn : T3 : Tutorial 3 Day
+Bn : B1.0 : Balance Full
+
+ChargeableApp.charge? -> Purchase App -> Pricing VC/Alert
+
+| Version                 | Policy
+-------------------------------------------------------
+| First ... Normal T3              | Rating? + Balance?
+| First -> Normal -> B(n(>0)...x)  | Rating? + Balance!
+| Normal -> New   -> B(n(>0)...x)  | Rating! + Balance!
 
 
+ChargeableApp.charge! -> Pricing VC/Alert
 
 */
-
 private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
     fileprivate static let version:Int = 1
 
-    private let shortVersionDescription = Defaults.shared.shortVersionDescription
+    private let appShortVersionDescription = Defaults.shared.shortVersionDescription
     private lazy var receiptStorage = ChargeReceiptStorage(accessor:self)
 
-    fileprivate static let AbsTimeDayTime:TimeInterval = 60*60*24
-    fileprivate static let AbsTimeOfUsesDay:TimeInterval = 7
+    fileprivate static let AbsTimeDayUnit:TimeInterval = 60*60*24
+    fileprivate static let AbsTimeOfUsesDay:TimeInterval = 30
     fileprivate static let AbsTimeOfUsesTime:TimeInterval = AbsTimeOfUsesDay * AbsTimeOfUsesDay
+
+    fileprivate static let InitialTutorialTimeOfUsesDay:TimeInterval = 3
 
     fileprivate static let AbsCountOfUsesCount = 50
 
     init() {}
+
+    func willInitialize(balance: MutableAmount) -> Amount {
+        switch appShortVersionDescription{
+        case .first:
+            //give tutorial balance 3 days
+            let initialTutorialOfferedAmount = AmountObject(value: type(of: self).InitialTutorialTimeOfUsesDay/type(of: self).AbsTimeOfUsesDay)
+            balance.add(initialTutorialOfferedAmount)
+        case .reversed, .unhandled:
+            balance.set(AmountObject(value: 0))
+        default:
+            break
+        }
+        return self.synchronizeBalance(balance:balance)
+    }
 
     private func synchronizeBalance(balance: MutableAmount) -> Amount{
         let wasZeroBalance = balance.value==0
@@ -143,32 +169,20 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
         return receiptStorage.getReceipt(for: chargeable)
     }
 
-    func willInitialize(balance: MutableAmount) -> Amount {
-        //DEBUG
-        for r in receiptStorage.receipts.keys{
-            receiptStorage.removeReceipt(r)
-        }
-        return AmountObject(value: 0)
-//        return self.synchronizeBalance(balance:balance)
-    }
-
     func willSynchronizeBalanceValue(balance: MutableAmount) -> Amount {
         return self.synchronizeBalance(balance:balance)
     }
 
     func willSaveDeposit(forPriceAmountOf charge: Charge, balance: MutableAmount) -> Amount? {
-        var receipt = ChargeableReceipt(chargeable: charge, bankerVersion: AppChargeBanker.version)
-        receipt.dateData = Date()
-
-        receiptStorage.addReceipt(receipt)
-        receiptStorage.commit()
-
-        print("[i] Deposited: ", receipt, receipt.uuid)
-
         return charge.priceAmount
     }
 
     func didSaveDeposit(for charge: Charge, balance: MutableAmount) {
+        var receipt = ChargeableReceipt(chargeable: charge, bankerVersion: AppChargeBanker.version)
+        receipt.dateData = Date()
+        receiptStorage.addReceipt(receipt)
+        receiptStorage.commit()
 
+        print("[i] Deposited: ", receipt, receipt.uuid)
     }
 }

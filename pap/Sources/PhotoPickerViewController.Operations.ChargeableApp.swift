@@ -72,13 +72,14 @@ extension PhotoPickerViewController{
         //selected
         let selected = self.estimatedAvailableSelectedItems > 0
         
-        let alert = UIAlertController.actionSheet(title: nil, message: "Choose A Renewable Method")
+        let alert = UIAlertController.actionSheet(title: nil, message: "You Can Renew Them Repeatedly.".localized)
         
         let attributedTitle = NSMutableAttributedString()
         attributedTitle.append(NSAttributedString(string: "\n", attributes: [
             NSAttributedStringKey.font: UIFont.preferredFont(forTextStyle: .body)
         ]))
-        attributedTitle.append(NSAttributedString(string: "Renew \(Bundle.main.displayName ?? "Photo Apps") Free Trial", attributes: [
+
+        attributedTitle.append(NSAttributedString(string: "Get Unlimited Free Trial".localized, attributes: [
             NSAttributedStringKey.font: UIFont.preferredFont(forTextStyle: .title2)
         ]))
         alert.setValue(attributedTitle, forKey: "attributedTitle")
