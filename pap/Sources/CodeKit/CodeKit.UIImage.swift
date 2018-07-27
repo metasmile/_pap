@@ -77,6 +77,45 @@ public extension UIImage {
         
         return scaledImage
     }
+    
+    func resize(aspectFit size: CGSize) -> UIImage? {
+        guard size != self.size else { return self }
+        
+        let resize = self.size.aspectFit(in: size)
+        
+        UIGraphicsBeginImageContextWithOptions(resize, false, 0)
+        draw(in: CGRect(origin: .zero, size: resize))
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return scaledImage
+    }
+    
+    func resize(aspectFill size: CGSize) -> UIImage? {
+        guard size != self.size else { return self }
+        
+        let resize = self.size.aspectFit(in: size)
+        
+        UIGraphicsBeginImageContextWithOptions(resize, false, 0)
+        draw(in: CGRect(origin: .zero, size: resize))
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return scaledImage
+    }
+    
+    func crop(aspectFill size: CGSize) -> UIImage? {
+        guard size != self.size else { return self }
+        
+        let resize = self.size.aspectFill(in: size)
+        
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        draw(in: CGRect(origin: CGPoint(x: min(0, (resize.width - size.width) / 2), y: min(0, (resize.height - size.height) / 2)), size: resize))
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return scaledImage
+    }
 }
 
 public extension UIImage {

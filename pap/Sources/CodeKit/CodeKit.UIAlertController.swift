@@ -31,6 +31,19 @@ public extension UIAlertController{
 
         return alert
     }
+    
+    public static func alert(title: String?, message: String?, sourceView:UIView?=nil) -> UIAlertController{
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        if let popoverPresentationController = alert.popoverPresentationController {
+            popoverPresentationController.sourceView = sourceView ?? UIViewController.root?.view
+            if let view = sourceView{
+                popoverPresentationController.sourceRect = view.bounds
+            }
+        }
+        
+        return alert
+    }
 
     @discardableResult
     public static func alert(_ message:String

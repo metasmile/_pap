@@ -11,22 +11,140 @@ protocol ChargeableButtonAppearance {
     var filledImage:UIImage?{get}
 }
 
-class ChargeableButton: UIButton {
-    struct ChargeType: OptionSet {
-        public let rawValue: Int
-
-        init(rawValue: Int) {
-            self.rawValue = rawValue
-        }
-
-        init(_ rawValue: Int) {
-            self.rawValue = rawValue
-        }
-
-        static let fill = ChargeType(1 << 0)
-        static let opacity = ChargeType(1 << 1)
+struct ChargeOptions: OptionSet {
+    public let rawValue: Int
+    
+    init(rawValue: Int) {
+        self.rawValue = rawValue
     }
+    
+    init(_ rawValue: Int) {
+        self.rawValue = rawValue
+    }
+    
+    static let fill = ChargeOptions(1 << 0)
+    static let opacity = ChargeOptions(1 << 1)
+}
 
+private enum ChargeLevel: CGFloat {
+    case warning = 0.1
+    case low = 0.2
+    case high = 0.8
+    case full = 1
+    
+    static func `init`(balance: CGFloat) -> ChargeLevel {
+        if balance < ChargeLevel.warning.rawValue {
+            return ChargeLevel.warning
+        }
+        else if balance < ChargeLevel.low.rawValue {
+            return ChargeLevel.low
+        }
+//            else if ratio == ChargeLevel.full.rawValue {
+//                return ChargeLevel.full
+//            }
+        else {
+            return ChargeLevel.high
+        }
+    }
+    
+    var representativeColor: UIColor? {
+        switch self {
+        case .warning: return UIColor(red: 0.92, green: 0.3, blue: 0.25, alpha: 1)
+        case .low: return UIColor(red: 0.97, green: 0.8, blue: 0.27, alpha: 1)
+        case .full: return UIColor(red: 0.46, green: 0.97, blue: 0.36, alpha: 1)
+        default: return nil
+        }
+    }
+    
+    var animation: CAAnimation? {
+        switch self {
+        case .warning:
+            let animation = CABasicAnimation(keyPath: "opacity")
+            animation.fromValue = 1
+            animation.toValue = 0.5
+            animation.duration = 0.75
+            animation.repeatCount = Float.infinity
+            animation.autoreverses = true
+            return animation
+        case .low:
+            let animation = CABasicAnimation(keyPath: "opacity")
+            animation.fromValue = 1
+            animation.toValue = 0.5
+            animation.duration = 1.5
+            animation.repeatCount = Float.infinity
+            animation.autoreverses = true
+            return animation
+        default: return nil
+        }
+    }
+}
+
+class ChargeableImage: UIImage {
+    static func `init`(balance: Double, options chargeOptions: ChargeOptions = .fill, tintColor color: UIColor, appearanceDelegate: ChargeableButtonAppearance?) -> UIImage? {
+        let ratio: CGFloat = CGFloat(balance)
+        
+        guard let iconImage = appearanceDelegate?.filledImage?.tintColor(color) else { return nil }
+        
+        let imageBounds = CGRect(origin: .zero, size: iconImage.size)
+        return UIGraphicsImageRenderer(bounds: imageBounds).imageWithCurrentContext { (ctx) in
+            if chargeOptions.contains(.opacity) {
+                iconImage.draw(at: .zero, blendMode: .normal, alpha: ratio == 1 ? 1 : ratio / 2 + 0.1)
+            }
+            
+            if chargeOptions.contains(.fill) {
+                ctx.saveGState()
+                
+                ctx.addRect(CGRect(x: 0, y: imageBounds.height - imageBounds.height * ratio, width: imageBounds.width, height: imageBounds.height * ratio))
+                ctx.clip(using: .evenOdd)
+                
+                iconImage.draw(at: .zero, blendMode: .multiply, alpha: 0.3)
+                
+                ctx.restoreGState()
+            }
+            
+            appearanceDelegate?.emptyImage?.tintColor(UIColor.black).draw(at: .zero)
+            ctx.setBlendMode(.multiply)
+            appearanceDelegate?.emptyImage?.tintColor(color).draw(at: .zero)
+        }?.withRenderingMode(.alwaysOriginal)
+    }
+}
+
+class ChargeableBadgeIcon: UIImage {
+    static func `init`(_ image: UIImage, title: String, tintColor color: UIColor) -> UIImage {
+        let attributes = [
+            NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 10),
+            NSAttributedStringKey.foregroundColor: UIColor.white
+        ]
+        let renderText = NSString(string: "\(title)")
+        let textSize = renderText.size(withAttributes: attributes)
+        let badgePaddingTop: CGFloat = 2
+        let badgePaddingLeft: CGFloat = 6
+        let badgeSize = UIEdgeInsetsInsetRect(CGRect(origin: .zero, size: textSize), UIEdgeInsets(top: -badgePaddingTop, left: -badgePaddingLeft, bottom: -badgePaddingTop, right: -badgePaddingLeft)).size
+        
+        let badgeRect = CGRect(origin: .zero, size: badgeSize)
+        let roundedRectPath = UIBezierPath(roundedRect: badgeRect, cornerRadius: badgeSize.height / 2)
+        
+        guard let titleImage = UIGraphicsImageRenderer(size: badgeSize).imageWithCurrentContext(actions: { ctx in
+            ctx.setFillColor(color.cgColor)
+            ctx.addPath(roundedRectPath.cgPath)
+            ctx.fillPath()
+            
+            ctx.saveGState()
+            ctx.setBlendMode(.destinationOut)
+            renderText.draw(at: CGPoint(x: badgePaddingLeft, y: badgePaddingTop), withAttributes: attributes)
+            ctx.restoreGState()
+        }) else { return image }
+        
+        let iconSize = image.size
+        let iconLeftMargin: CGFloat = badgePaddingLeft / 2
+        return UIGraphicsImageRenderer(size: CGSize(width: badgeSize.width + iconSize.width + iconLeftMargin, height: iconSize.height)).imageWithCurrentContext { ctx in
+            image.draw(at: .zero)
+            titleImage.draw(at: CGPoint(x: iconSize.width + iconLeftMargin, y: (iconSize.height - badgeSize.height) / 2))
+        } ?? image
+    }
+}
+
+class ChargeableButton: UIButton {
     private var appearanceDelegate: ChargeableButtonAppearance?
 
     convenience init(type buttonType: UIButtonType, appearance: ChargeableButtonAppearance){
@@ -34,60 +152,7 @@ class ChargeableButton: UIButton {
         appearanceDelegate = appearance
     }
 
-    private enum ChargeLevel: CGFloat {
-        case warning = 0.1
-        case low = 0.2
-        case high = 0.8
-        case full = 1
-
-        static func `init`(balance: CGFloat) -> ChargeLevel {
-            if balance < ChargeLevel.warning.rawValue {
-                return ChargeLevel.warning
-            }
-            else if balance < ChargeLevel.low.rawValue {
-                return ChargeLevel.low
-            }
-//            else if ratio == ChargeLevel.full.rawValue {
-//                return ChargeLevel.full
-//            }
-            else {
-                return ChargeLevel.high
-            }
-        }
-
-        var representativeColor: UIColor? {
-            switch self {
-            case .warning: return UIColor(red: 0.92, green: 0.3, blue: 0.25, alpha: 1)
-            case .low: return UIColor(red: 0.97, green: 0.8, blue: 0.27, alpha: 1)
-            case .full: return UIColor(red: 0.46, green: 0.97, blue: 0.36, alpha: 1)
-            default: return nil
-            }
-        }
-
-        var animation: CAAnimation? {
-            switch self {
-            case .warning:
-                let animation = CABasicAnimation(keyPath: "opacity")
-                animation.fromValue = 1
-                animation.toValue = 0.5
-                animation.duration = 0.75
-                animation.repeatCount = Float.infinity
-                animation.autoreverses = true
-                return animation
-            case .low:
-                let animation = CABasicAnimation(keyPath: "opacity")
-                animation.fromValue = 1
-                animation.toValue = 0.5
-                animation.duration = 1.5
-                animation.repeatCount = Float.infinity
-                animation.autoreverses = true
-                return animation
-            default: return nil
-            }
-        }
-    }
-
-    var chargeType: ChargeType = [.fill, .opacity]
+    var chargeOptions: ChargeOptions = [.fill, .opacity]
     var showsColorLevel = true
     var showsAnimation = true
     private var levelAnimations = [ChargeLevel: CAAnimation]()
@@ -97,31 +162,7 @@ class ChargeableButton: UIButton {
             let ratio: CGFloat = CGFloat(balance ?? 0)
             let level: ChargeLevel = ChargeLevel(balance: ratio)
             let color: UIColor = showsColorLevel ? level.representativeColor ?? tintColor : tintColor
-
-            guard let iconImage = appearanceDelegate?.filledImage?.tintColor(color) else { return }
-
-            let imageBounds = CGRect(origin: .zero, size: iconImage.size)
-            let buttonImage = UIGraphicsImageRenderer(bounds: imageBounds).imageWithCurrentContext { (ctx) in
-                if self.chargeType.contains(.opacity) {
-                    iconImage.draw(at: .zero, blendMode: .normal, alpha: ratio == 1 ? 1 : ratio / 2 + 0.1)
-                }
-
-                if self.chargeType.contains(.fill) {
-                    ctx.saveGState()
-
-                    ctx.addRect(CGRect(x: 0, y: imageBounds.height - imageBounds.height * ratio, width: imageBounds.width, height: imageBounds.height * ratio))
-                    ctx.clip(using: .evenOdd)
-
-                    iconImage.draw(at: .zero, blendMode: .multiply, alpha: 0.3)
-
-                    ctx.restoreGState()
-                }
-
-                appearanceDelegate?.emptyImage?.tintColor(UIColor.black).draw(at: .zero)
-                ctx.setBlendMode(.multiply)
-                appearanceDelegate?.emptyImage?.tintColor(color).draw(at: .zero)
-
-            }?.withRenderingMode(.alwaysOriginal)
+            let buttonImage = ChargeableImage(balance: balance ?? 0, options: self.chargeOptions, tintColor: color, appearanceDelegate: appearanceDelegate)
 
             setImage(buttonImage, for: .normal)
 

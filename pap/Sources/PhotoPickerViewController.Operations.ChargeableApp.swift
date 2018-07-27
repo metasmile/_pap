@@ -64,12 +64,39 @@ extension PhotoPickerViewController{
 
         //selected
         let selected = self.estimatedAvailableSelectedItems > 0
-
-        //TODO: replace with pricingViewController
-        let alert = UIAlertController.actionSheet(title: "Choose A Payable Method", message: nil)
+        
+        let alert = UIAlertController.actionSheet(title: nil, message: "Choose A Renewable Method")
+        
+        let attributedTitle = NSMutableAttributedString()
+        attributedTitle.append(NSAttributedString(string: "\n", attributes: [
+            NSAttributedStringKey.font: UIFont.preferredFont(forTextStyle: .body)
+        ]))
+        attributedTitle.append(NSAttributedString(string: "Renew \(Bundle.main.displayName ?? "Photo Apps") Free Trial", attributes: [
+            NSAttributedStringKey.font: UIFont.preferredFont(forTextStyle: .title2)
+        ]))
+        alert.setValue(attributedTitle, forKey: "attributedTitle")
+        
+        let creditCardWidth = UIScreen.main.bounds.width - 45
+        let creditCardSize = CGSize(width: creditCardWidth, height: creditCardWidth / 1.586) // credit card aspect ratio: 1.586
+        
+        let imageAction = UIAlertAction(title: "", style: .default, handler: nil)
+        imageAction.setValue(UIImage(named: "AppIcon")?.crop(aspectFill: creditCardSize)?.rounded(radius: 10)?.withRenderingMode(.alwaysOriginal), forKey: "image") //TODO: replace to something promotional image
+        imageAction.isEnabled = false
+        alert.addAction(imageAction)
 
         for charge in AppCenter.charge.charges {
             let receipt = AppCenter.charge.bank.getStoredReceipt(for: charge)
+            
+            var badgeImage: UIImage?
+            
+            let estimatedChargeableImage = ChargeableImage(balance: charge.priceAmount.value, options: .fill, tintColor: view.tintColor, appearanceDelegate: PhotoPickerViewControllerChargeableAssets())
+            
+            if let icon = estimatedChargeableImage, let rewardText = charge.rewardDescription {
+                badgeImage = ChargeableBadgeIcon(icon, title: rewardText, tintColor: view.tintColor)
+            }
+            else {
+                badgeImage = estimatedChargeableImage
+            }
 
             switch charge.type {
 
@@ -84,22 +111,29 @@ extension PhotoPickerViewController{
 
                     // charge.reward == .nonBlockOfUses, second touch -> Contained by menu.
                 case .inStoreRating where receipt != nil && !selected && charge.reward == .nonBlockOfUses:
-                    alert.addAction(UIAlertAction(title: charge.titleApplyingReward, style: .default) { action in
+                    let action = UIAlertAction(title: charge.title, style: .default) { action in
                         AppCenter.charge.pay(for: InAppStoreRating.self)
-                    })
+                    }
+                    action.setValue(badgeImage, forKey: "image")
+                    alert.addAction(action)
                 case .onPromptRating where receipt != nil && !selected && charge.reward == .nonBlockOfUses:
-                    alert.addAction(UIAlertAction(title: charge.titleApplyingReward, style: .default) { action in
+                    let action = UIAlertAction(title: charge.title, style: .default) { action in
                         AppCenter.charge.pay(for: OnPromptRating.self)
-                    })
-
+                    }
+                    action.setValue(badgeImage, forKey: "image")
+                    alert.addAction(action)
                 case .socialShare:
-                    alert.addAction(UIAlertAction(title: charge.titleApplyingReward, style: .default) { action in
+                    let action = UIAlertAction(title: charge.title, style: .default) { action in
                         AppCenter.charge.pay(for: OnSocialShare.self)
-                    })
+                    }
+                    action.setValue(badgeImage, forKey: "image")
+                    alert.addAction(action)
                 case .feedback:
-                    alert.addAction(UIAlertAction(title: charge.titleApplyingReward, style: .default) { action in
+                    let action = UIAlertAction(title: charge.title, style: .default) { action in
                         AppCenter.charge.pay(for: OnFeedback.self)
-                    })
+                    }
+                    action.setValue(badgeImage, forKey: "image")
+                    alert.addAction(action)
                 default:
                     break
             }
@@ -135,7 +169,7 @@ private class PhotoPickerViewControllerChargeableAssets : ChargeableButtonAppear
         chargeableButton.imageView?.contentMode = .scaleAspectFit
         chargeableButton.imageEdgeInsets = UIEdgeInsets(top: 2, left: 0, bottom: 2, right: 0)
 
-        chargeableButton.chargeType = [.fill]
+        chargeableButton.chargeOptions = [.fill]
 
         //TODO: apply true when some restrictful conditions (e.g. finished trial days) to induce for paying
         chargeableButton.showsColorLevel = false

@@ -14,10 +14,10 @@ extension AppCenter{
 
 private final class AppChargeManager: ChargeManager{
     fileprivate static let shared = AppChargeManager(charges:[
-        AppCharge(type: .inStoreRating, reward: .nonBlockOfUses,  priceAmount: AmountObject(value:0.0), title:"Rate In App Store", description:nil)
+        AppCharge(type: .inStoreRating, reward: .nonBlockOfUses,  priceAmount: AmountObject(value:0.0), title:"Review In App Store", description:nil)
         , AppCharge(type: .onPromptRating, reward: .nonBlockOfUses, priceAmount: AmountObject(value:0.0), title:"Rate", description:nil)
-        , AppCharge(type: .socialShare, reward: .timeOfUses, priceAmount: AmountObject(value:0.5), title:"Share", description:nil)
-        , AppCharge(type: .feedback, reward: .timeOfUses, priceAmount: AmountObject(value:1), title:"Feedback", description:nil)
+        , AppCharge(type: .socialShare, reward: .timeOfUses, priceAmount: AmountObject(value:0.5), title:"Share This App", description:nil)
+        , AppCharge(type: .feedback, reward: .timeOfUses, priceAmount: AmountObject(value:1), title:"Send Us Feedback", description:nil)
         /* .... */
     ], banker: AppChargeBanker.self)
 
@@ -34,6 +34,17 @@ extension Charge{
             return "\(self.title) (\(license))"
         default:
             return self.title
+        }
+    }
+    
+    var rewardDescription:String? {
+        switch (self.reward) {
+            
+        case .timeOfUses where self.priceAmount.value>0:
+            let days = (self.priceAmount.value * AppChargeBanker.papAbsTimeOfUsesDay).roundedString(toPlaces: 1, trimTrailingZeros: true)
+            return "%@ Day".localizedFormatted(days)
+        default:
+            return nil
         }
     }
 }
