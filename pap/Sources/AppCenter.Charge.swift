@@ -14,7 +14,7 @@ extension AppCenter{
 
 private final class AppChargeManager: ChargeManager{
     fileprivate static let shared = AppChargeManager(charges:[
-        AppCharge(type: .welcomeFreeTrial, reward: .timeOfUses,  priceAmount: AmountObject(value:AppChargeBanker.InitialTutorialTimeOfUsesDay/AppChargeBanker.AbsTimeOfUsesDay), title:"Welcome Free Tutorial".localized, description:nil)
+        AppCharge(type: .welcomeFreeTrial, reward: .timeOfUses,  priceAmount: AmountObject(value:AppChargeBanker.InitialTutorial_TimeOfUses_Day/AppChargeBanker.Abs_TimeOfUses_Day), title:"Welcome Free Trial Pack".localized, description:nil)
         , AppCharge(type: .inStoreRating, reward: .nonBlockOfUses,  priceAmount: AmountObject(value:0.0), title:"Write A Review".localized, description:nil)
         , AppCharge(type: .onPromptRating, reward: .nonBlockOfUses, priceAmount: AmountObject(value:0.0), title:"Give A Rating".localized, description:nil)
         , AppCharge(type: .socialShare, reward: .timeOfUses, priceAmount: AmountObject(value:0.5), title:"Share This App".localized, description:nil)
@@ -25,7 +25,7 @@ private final class AppChargeManager: ChargeManager{
 
 extension Charge{
     private var daysFormattedStringWithPriceAmount:String?{
-        return (self.priceAmount.value * AppChargeBanker.AbsTimeOfUsesDay).roundedString(toPlaces: 1, trimTrailingZeros: true)
+        return (self.priceAmount.value * AppChargeBanker.Abs_TimeOfUses_Day).roundedString(toPlaces: 1, trimTrailingZeros: true)
     }
 
     var titleWithReward:String {
@@ -100,13 +100,12 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
     private let appShortVersionDescription = Defaults.shared.shortVersionDescription
     private lazy var receiptStorage = ChargeReceiptStorage(accessor:self)
 
-    fileprivate static let AbsTimeDayUnit:TimeInterval = 60*60*24
-    fileprivate static let AbsTimeOfUsesDay:TimeInterval = 30
-    fileprivate static let AbsTimeOfUsesTime:TimeInterval = AbsTimeOfUsesDay * AbsTimeOfUsesDay
+    fileprivate static let Abs_TimeOfUses_DayTimeUnit:TimeInterval = 60*60*24
+    fileprivate static let InitialTutorial_TimeOfUses_Day:TimeInterval = 3
+    fileprivate static let Abs_TimeOfUses_Day:TimeInterval = 30
+    fileprivate static let Abs_TimeOfUses_Time:TimeInterval = Abs_TimeOfUses_Day * Abs_TimeOfUses_DayTimeUnit
 
-    fileprivate static let InitialTutorialTimeOfUsesDay:TimeInterval = 3
-
-    fileprivate static let AbsCountOfUsesCount = 50
+    fileprivate static let Abs_CountOfUses_Count = 50
 
     private let registeredCharges:[Charge]
 
@@ -172,16 +171,15 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
                 case .timeOfUses:
                     if let date = receipt.dateData{
                         let newDate = Date()
-                        let totalRewardTime = type(of: self).AbsTimeOfUsesTime * charge.priceAmount.value/type(of: balance).maxValue
+                        let totalRewardTime = type(of: self).Abs_TimeOfUses_Time * charge.priceAmount.value/type(of: balance).maxValue
                         let spentRatio = normalize(newDate.timeIntervalSince(date), 0, totalRewardTime)
 
                         var updatingReceipt = receipt
                         updatingReceipt.dateData = newDate
                         receiptStorage.updateReceipt(updatingReceipt)
 
-                        print("[i] timeOfUses will subtract - balance:", balance.value)
                         balance.subtractShares(of: charge.priceAmount, ratio: spentRatio)
-                        print("[i] timeOfUses did subtract - balance:", balance.value)
+                        print("[i] Receipt type:\(receipt.type), reward:\(receipt.reward) did subtract - balance:", balance.value)
 
                         if spentRatio >= 1{
                             removingReceipts.insert(receipt)

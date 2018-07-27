@@ -79,7 +79,7 @@ extension PhotoPickerViewController{
             NSAttributedStringKey.font: UIFont.preferredFont(forTextStyle: .body)
         ]))
 
-        attributedTitle.append(NSAttributedString(string: "Get Unlimited Free Trial".localized, attributes: [
+        attributedTitle.append(NSAttributedString(string: "Get Your Free Trial".localized, attributes: [
             NSAttributedStringKey.font: UIFont.preferredFont(forTextStyle: .title2)
         ]))
         alert.setValue(attributedTitle, forKey: "attributedTitle")
