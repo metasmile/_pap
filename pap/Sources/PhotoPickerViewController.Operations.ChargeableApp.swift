@@ -50,7 +50,7 @@ extension PhotoPickerViewController{
         return .unpaidDeselected
     }
 
-    @objc fileprivate func chargeableButtonDidTap(sender: UIButton) {
+    @objc fileprivate func chargeableButtonDidTap(sender: Any) {
 //        if let vc = R.storyboard.appStoryboard.pricingViewController() {
 //            vc.delegate = self
 //            self.present(vc, animated: true, completion: nil)
@@ -76,7 +76,7 @@ extension PhotoPickerViewController{
         ]))
         alert.setValue(attributedTitle, forKey: "attributedTitle")
         
-        let creditCardWidth = UIScreen.main.bounds.width - 45
+        let creditCardWidth = (alert.popoverPresentationController == nil ? view.bounds.width : 320) - 45
         let creditCardSize = CGSize(width: creditCardWidth, height: creditCardWidth / 1.586) // credit card aspect ratio: 1.586
         
         let imageAction = UIAlertAction(title: "", style: .default, handler: nil)
@@ -140,6 +140,10 @@ extension PhotoPickerViewController{
         }
 
         alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel))
+        
+        if let popover =  alert.popoverPresentationController {
+            popover.barButtonItem = navigationItem.rightBarButtonItem
+        }
 
         UIViewController.root?.present(alert, animated: true)
     }
