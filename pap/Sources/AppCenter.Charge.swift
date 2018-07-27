@@ -1,5 +1,5 @@
 //
-// Created by BLACKGE?NE on 24.07.18.
+// Created by BLACKGE?NE ?on 24.07.18.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
@@ -14,7 +14,8 @@ extension AppCenter{
 
 private final class AppChargeManager: ChargeManager{
     fileprivate static let shared = AppChargeManager(charges:[
-        AppCharge(type: .inStoreRating, reward: .nonBlockOfUses,  priceAmount: AmountObject(value:0.0), title:"Write A Review".localized, description:nil)
+        AppCharge(type: .welcomeFreeTrial, reward: .timeOfUses,  priceAmount: AmountObject(value:AppChargeBanker.InitialTutorialTimeOfUsesDay/AppChargeBanker.AbsTimeOfUsesDay), title:"Welcome Free Tutorial".localized, description:nil)
+        , AppCharge(type: .inStoreRating, reward: .nonBlockOfUses,  priceAmount: AmountObject(value:0.0), title:"Write A Review".localized, description:nil)
         , AppCharge(type: .onPromptRating, reward: .nonBlockOfUses, priceAmount: AmountObject(value:0.0), title:"Give A Rating".localized, description:nil)
         , AppCharge(type: .socialShare, reward: .timeOfUses, priceAmount: AmountObject(value:0.5), title:"Share This App".localized, description:nil)
         , AppCharge(type: .feedback, reward: .timeOfUses, priceAmount: AmountObject(value:0.5), title:"Send Us Feedback".localized, description:nil)
@@ -107,33 +108,62 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
 
     fileprivate static let AbsCountOfUsesCount = 50
 
-    init() {}
+    private let registeredCharges:[Charge]
+
+    init(registeredCharges: [Charge]) {
+        self.registeredCharges = registeredCharges
+    }
 
     func willInitialize(balance: MutableAmount) -> Amount {
-        switch appShortVersionDescription{
-            case .first:
-                //give tutorial balance 3 days
-                assert(balance.value==0, "User installs the app firstly but why balance is not 0?")
-                balance.add(AmountObject(value: type(of: self).InitialTutorialTimeOfUsesDay/type(of: self).AbsTimeOfUsesDay))
-            case .reversed, .unhandled:
-                balance.set(AmountObject(value: 0))
-            default:
-                break
-        }
         return self.synchronizeBalance(balance:balance)
     }
 
+    func didInitialize(balance: MutableAmount) {
+        switch appShortVersionDescription{
+            case .first:
+                if let welcomeCharge = self.registeredCharges.first(where:{ charge in
+                    return charge.type == .welcomeFreeTrial
+                }){
+                    //give tutorial balance 3 days
+                    assert(balance.value==0, "User installs the app firstly but why balance is not 0?")
+                    balance.add(welcomeCharge.priceAmount)
+                    createReceipt(for:welcomeCharge, balance:balance)
+                }
+
+            case .reversed, .unhandled:
+                balance.set(AmountObject(value: 0))
+                synchronizeBalance(balance:balance)
+
+            default:
+                break
+        }
+
+        print("[i] \(String(describing: type(of: self))) Initializd. Balace: ", balance.value)
+    }
+
+    private func createReceipt(for charge: Charge, balance: MutableAmount){
+        var receipt = ChargeableReceipt(chargeable: charge, bankerVersion: AppChargeBanker.version)
+        receipt.dateData = Date()
+        receiptStorage.addReceipt(receipt)
+        synchronizeBalance(balance:balance)
+        print("[i] Receipt Saved: ", receipt, receipt.uuid)
+    }
+
+    @discardableResult
     private func synchronizeBalance(balance: MutableAmount) -> Amount{
-        let wasZeroBalance = balance.value==0
+        let initialBalance = balance.value
         var removingReceipts = Set<ChargeableReceipt>()
 
         for (_, receipt) in receiptStorage.receipts { //TODO: improve performance - o.n -> o.1 avg.
 
-            guard let charge = AppChargeManager.shared.getCharge(for: receipt) else {
+            guard let charge = registeredCharges.first(where:{ charge in charge.isEqual(other: receipt)}) else {
                 continue
             }
 
             switch receipt.reward{
+                case .nonBlockOfUses:
+                    break
+
                 case .timeOfUsesByVersion,
                      .countOfUsesByVersion,
                      .ownedByVersion where appShortVersionDescription == .new:
@@ -149,7 +179,9 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
                         updatingReceipt.dateData = newDate
                         receiptStorage.updateReceipt(updatingReceipt)
 
+                        print("[i] timeOfUses will subtract - balance:", balance.value)
                         balance.subtractShares(of: charge.priceAmount, ratio: spentRatio)
+                        print("[i] timeOfUses did subtract - balance:", balance.value)
 
                         if spentRatio >= 1{
                             removingReceipts.insert(receipt)
@@ -160,7 +192,7 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
             }
         }
 
-        if wasZeroBalance == false && balance.value==0{
+        if initialBalance > 0 && balance.value==0{
             removingReceipts = Set(receiptStorage.receipts.values)
         }
 
@@ -180,7 +212,7 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
     }
 
     func willSynchronizeBalanceValue(balance: MutableAmount) -> Amount {
-        return self.synchronizeBalance(balance:balance)
+        return synchronizeBalance(balance:balance)
     }
 
     func willSaveDeposit(forPriceAmountOf charge: Charge, balance: MutableAmount) -> Amount? {
@@ -188,11 +220,6 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
     }
 
     func didSaveDeposit(for charge: Charge, balance: MutableAmount) {
-        var receipt = ChargeableReceipt(chargeable: charge, bankerVersion: AppChargeBanker.version)
-        receipt.dateData = Date()
-        receiptStorage.addReceipt(receipt)
-        receiptStorage.commit()
-
-        print("[i] Deposited: ", receipt, receipt.uuid)
+        createReceipt(for: charge, balance:balance)
     }
 }

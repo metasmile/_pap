@@ -82,9 +82,9 @@
 "cs_keyword_12" = "friend";
 "cs_keyword_13" = "lover";
 
-/* Generated from genl10n: AppCenter.Charge.swift#37 */
+/* Generated from genl10n: AppCenter.Charge.swift#38 */
 "%@ Day License" = "%@ Day License";
-/* Generated from genl10n: AppCenter.Charge.swift#50 */
+/* Generated from genl10n: AppCenter.Charge.swift#51 */
 "%@ Day" = "%@ Day";
 /* Generated from genl10n: Finder.BApp.swift#1569, Cleaner.BApp.swift#722 */
 "%@ might be found" = "%@ might be found";
@@ -202,7 +202,7 @@
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
 "Get Unlimited Free Trial" = "Get Unlimited Free Trial";
-/* Generated from genl10n: AppCenter.Charge.swift#18 */
+/* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Give A Rating";
 /* Generated from genl10n: ExifGhost.BApp.swift#71 */
 "Hide" = "Hide";
@@ -308,11 +308,11 @@
 "Select Photos You Want To Grab Phone Numbers!" = "Select Photos You Want To Grab Phone Numbers!";
 /* Generated from genl10n: Cleaner.BApp.swift#520 */
 "Selected" = "Selected";
-/* Generated from genl10n: AppCenter.Charge.swift#20 */
+/* Generated from genl10n: AppCenter.Charge.swift#21 */
 "Send Us Feedback" = "Send Us Feedback";
 /* Generated from genl10n: Finder.BApp.swift#596, Finder.BApp.swift#607, Finder.BApp.swift#617 */
 "Send an Email" = "Send an Email";
-/* Generated from genl10n: AppCenter.Charge.swift#19 */
+/* Generated from genl10n: AppCenter.Charge.swift#20 */
 "Share This App" = "Share This App";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#92, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#105, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#131, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#145, App.Finalizable.UIActivity.PHAsset.swift#60, PHAsset.UIAlertController.SynchronizablePresenter.swift#58, Finder.BApp.swift#365, Finder.BApp.swift#450, Finder.BApp.swift#535, Finder.BApp.swift#632, Finder.BApp.swift#750, Finder.BApp.swift#847 */
 "Share" = "Share";
@@ -371,6 +371,8 @@
 /* Generated from genl10n: Stabilizer.swift#326 */
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#17 */
+"Welcome Free Tutorial" = "Welcome Free Tutorial";
+/* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "Write A Review";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
 "You Can Renew Them Repeatedly." = "You Can Renew Them Repeatedly.";

@@ -18,7 +18,7 @@ extension PhotoPickerViewController{
     func initializeChargeWhenViewDidLoad(){
 
         AppCenter.charge.bank.watch(\.balanceValue) {
-            print("Updated balance:", AppCenter.charge.bank.balanceValue)
+            print("[i] Updated balance:", AppCenter.charge.bank.balanceValue)
             self.updateRightButtonState()
         }
     }

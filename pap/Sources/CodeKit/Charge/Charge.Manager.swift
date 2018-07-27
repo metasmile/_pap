@@ -1,5 +1,5 @@
 //
-// Created by BLACKGENE on 24.07.18.
+// Created? by BLACKGENE on 24.07.18.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
@@ -16,7 +16,8 @@ class ChargeManager{
     private(set) var bank: ChargeBank
 
     init(charges:[Charge], banker: ChargeBanker.Type){
-        self.bank = ChargeBank(banker: banker)
+        self.charges = charges
+        self.bank = ChargeBank(banker: banker, registeredCharges: self.charges)
 
 //        //validation
 //        var initCharges = [Charge]()
@@ -31,8 +32,6 @@ class ChargeManager{
 //            initCharges.append(c)
 //        }
 //        self.charges = initCharges
-
-        self.charges = charges
     }
 
     func getCharge(for chargeable: Chargeable) -> Charge?{
@@ -47,7 +46,7 @@ class ChargeManager{
         Payment
     */
     func pay(for payable: Payable.Type, _ asyncSignal:AsyncWaitSignalable=AsyncSignal()){
-        guard let charge = getCharge(for: payable.charge) else {
+        guard let charge = charges.first(where:{ $0.isEqual(other: payable.charge) }) else {
             return
         }
 

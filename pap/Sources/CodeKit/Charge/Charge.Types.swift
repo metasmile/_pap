@@ -1,5 +1,5 @@
 //
-// Created by BLACKGENE on 25.07.18.
+// Crea??ted by BLACKGENE on 25.07.18.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
@@ -7,6 +7,7 @@ import Foundation
 
 enum ChargeType:Int, Codable {
     //promotional
+    case welcomeFreeTrial
     case inStoreRating
     case onPromptRating
     case socialShare
@@ -56,6 +57,12 @@ protocol Chargeable {
 extension Chargeable{
     func isEqual(other:Chargeable) -> Bool{
         return reward==other.reward && type==other.type
+    }
+}
+
+extension Equatable where Self:Chargeable{
+    static func ==(lhs: Self, rhs: Self) -> Bool {
+        return lhs.isEqual(other:rhs)
     }
 }
 

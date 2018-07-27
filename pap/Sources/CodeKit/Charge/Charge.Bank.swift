@@ -21,6 +21,7 @@ protocol ChargeBanker {
 
     //INFO: setup something stuffs
     func willInitialize(balance:MutableAmount) -> Amount
+    func didInitialize(balance:MutableAmount)
 
     //INFO: return ChargeBank. balanceValue - this method may call significantly.
     // handle carefully for maintaining high performance.
@@ -30,7 +31,7 @@ protocol ChargeBanker {
     func willSaveDeposit(forPriceAmountOf charge:Charge, balance:MutableAmount) -> Amount?
     func didSaveDeposit(for charge:Charge, balance:MutableAmount)
 
-    init()
+    init(registeredCharges:[Charge])
 }
 
 final class ChargeBank: NSObject, KeyPathWatchable {
@@ -61,12 +62,13 @@ final class ChargeBank: NSObject, KeyPathWatchable {
 
     private let banker: ChargeBanker
 
-    required init(banker: ChargeBanker.Type){
-        self.banker = banker.init()
+    required init(banker: ChargeBanker.Type, registeredCharges:[Charge]){
+        self.banker = banker.init(registeredCharges:registeredCharges)
 
         let amount = MutableAmountObject(value:defaults.balanceValue)
         amount.set(self.banker.willInitialize(balance: amount))
         self.mutableBalance = amount
+        self.banker.didInitialize(balance: self.mutableBalance)
     }
 
     func save(for charge:Charge){
