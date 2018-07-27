@@ -118,6 +118,10 @@
 "cs_keyword_12" = "സുഹൃത്ത്";
 /*Translated from: lover*/
 "cs_keyword_13" = "കാമുകൻ";
+/* Generated from genl10n: AppCenter.Charge.swift#33 */
+"%@ Day License" = "%@ ഡേ ലൈസൻസ്";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@ ദിവസം";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ കണ്ടേക്കാം";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -182,8 +186,6 @@
 "Copy" = "Copy";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "സൃഷ്ടിക്കാൻ";
-/* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -380,8 +382,8 @@
 "Too Close-up Face" = "വളരെ അടയ്ക്കുക അപ്പ് മുഖം";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "വളരെ സ്ലോ ഷട്ടർ സ്പീഡ്";
-/* Generated from genl10n: Stabilizer.swift */
-"Translation" = "വിവർത്തനം";
+/* Generated from genl10n: Stabilizer.swift#325 */
+"Translate" = "വിവർത്തനം ചെയ്യുക";
 /* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
 "Use Auto Selection Bot" = "സ്വയം തിരഞ്ഞെടുക്കൽ ബോട്ട് ഉപയോഗിക്കുക";
 /* Generated from genl10n: GIFMaker.BApp.swift */

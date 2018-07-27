@@ -118,6 +118,10 @@
 "cs_keyword_12" = "amiga";
 /*Translated from: lover*/
 "cs_keyword_13" = "amante";
+/* Generated from genl10n: AppCenter.Charge.swift#33 */
+"%@ Day License" = "%@ Licenza por día";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@ Día";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ pódese atopar";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -182,8 +186,6 @@
 "Copy" = "Copiar";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Crear";
-/* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -380,8 +382,8 @@
 "Too Close-up Face" = "Demasiado cara de primer plano";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "Velocidade de obturación demasiada lenta";
-/* Generated from genl10n: Stabilizer.swift */
-"Translation" = "Tradución";
+/* Generated from genl10n: Stabilizer.swift#325 */
+"Translate" = "Traducir";
 /* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
 "Use Auto Selection Bot" = "Use Bot de selección automática";
 /* Generated from genl10n: GIFMaker.BApp.swift */

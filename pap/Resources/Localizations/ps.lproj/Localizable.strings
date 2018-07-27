@@ -118,6 +118,10 @@
 "cs_keyword_12" = "ملګري";
 /*Translated from: lover*/
 "cs_keyword_13" = "مین";
+/* Generated from genl10n: AppCenter.Charge.swift#33 */
+"%@ Day License" = "%@ د ورځ جواز جواز";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@ ورځ";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ might be found";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -182,8 +186,6 @@
 "Copy" = "کاپی";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "جوړ کړئ";
-/* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "د کرلو لپاره فصل";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "فصل ته فصل";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -380,8 +382,8 @@
 "Too Close-up Face" = "ډیر تړل شوی مخ";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "ډیر لږ سټټر سپیټ";
-/* Generated from genl10n: Stabilizer.swift */
-"Translation" = "ژباړه";
+/* Generated from genl10n: Stabilizer.swift#325 */
+"Translate" = "ژباړه";
 /* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
 "Use Auto Selection Bot" = "د آٹو انتخاب انتخاب وکاروئ";
 /* Generated from genl10n: GIFMaker.BApp.swift */

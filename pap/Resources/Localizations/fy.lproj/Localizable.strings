@@ -118,6 +118,10 @@
 "cs_keyword_12" = "freon";
 /*Translated from: lover*/
 "cs_keyword_13" = "lover";
+/* Generated from genl10n: AppCenter.Charge.swift#33 */
+"%@ Day License" = "%@ Daglizzen";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@ Dei";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ wurde fûn";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -182,8 +186,6 @@
 "Copy" = "Kopy";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Meitsje";
-/* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Wetter - Agrarwetter";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -380,8 +382,8 @@
 "Too Close-up Face" = "Too Close-up Gesicht";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "Too langere snelheid";
-/* Generated from genl10n: Stabilizer.swift */
-"Translation" = "Oersetting";
+/* Generated from genl10n: Stabilizer.swift#325 */
+"Translate" = "Oersette";
 /* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
 "Use Auto Selection Bot" = "Brûk Auto Seleks Bot";
 /* Generated from genl10n: GIFMaker.BApp.swift */

@@ -118,6 +118,10 @@
 "cs_keyword_12" = "přítel";
 /*Translated from: lover*/
 "cs_keyword_13" = "milenec";
+/* Generated from genl10n: AppCenter.Charge.swift#33 */
+"%@ Day License" = "%@ Denní licence";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@ Den";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ může být nalezen";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -182,8 +186,6 @@
 "Copy" = "Copy";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Vytvořit";
-/* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
@@ -380,8 +382,8 @@
 "Too Close-up Face" = "Příliš blízká tvář";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "Příliš nízká rychlost závěrky";
-/* Generated from genl10n: Stabilizer.swift */
-"Translation" = "Překlad";
+/* Generated from genl10n: Stabilizer.swift#325 */
+"Translate" = "přeložit";
 /* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
 "Use Auto Selection Bot" = "Použijte automatický výběr Bot";
 /* Generated from genl10n: GIFMaker.BApp.swift */

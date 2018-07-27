@@ -118,6 +118,10 @@
 "cs_keyword_12" = "స్నేహితుడు";
 /*Translated from: lover*/
 "cs_keyword_13" = "lover";
+/* Generated from genl10n: AppCenter.Charge.swift#33 */
+"%@ Day License" = "%@ డే లైసెన్స్";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@ డే";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ ఉండవచ్చు";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -182,8 +186,6 @@
 "Copy" = "కాపీ";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "సృష్టించు";
-/* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -380,8 +382,8 @@
 "Too Close-up Face" = "చాలా క్లోజ్ అప్ ఫేస్";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "చాలా స్లో షట్టర్ వేగం";
-/* Generated from genl10n: Stabilizer.swift */
-"Translation" = "అనువాద";
+/* Generated from genl10n: Stabilizer.swift#325 */
+"Translate" = "అనువదించు";
 /* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
 "Use Auto Selection Bot" = "ఆటో ఎంపిక బోట్ ఉపయోగించండి";
 /* Generated from genl10n: GIFMaker.BApp.swift */

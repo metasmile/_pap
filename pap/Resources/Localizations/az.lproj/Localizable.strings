@@ -118,6 +118,10 @@
 "cs_keyword_12" = "dostum";
 /*Translated from: lover*/
 "cs_keyword_13" = "sevgilisi";
+/* Generated from genl10n: AppCenter.Charge.swift#33 */
+"%@ Day License" = "%@ Gün Lisansı";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@ Gün";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ tapılmadı";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -182,8 +186,6 @@
 "Copy" = "Kopyala";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Yaradın";
-/* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Bitirmək üçün meyvə";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Fit üçün əkin";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -380,8 +382,8 @@
 "Too Close-up Face" = "Çox Yumşaq Üz";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "Çox Səsverici Sürət";
-/* Generated from genl10n: Stabilizer.swift */
-"Translation" = "Tərcümə";
+/* Generated from genl10n: Stabilizer.swift#325 */
+"Translate" = "Tərcümə etmək";
 /* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
 "Use Auto Selection Bot" = "Avtomatik Seçim Bot istifadə edin";
 /* Generated from genl10n: GIFMaker.BApp.swift */

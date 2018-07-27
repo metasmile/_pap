@@ -118,6 +118,10 @@
 "cs_keyword_12" = "פרייַנד";
 /*Translated from: lover*/
 "cs_keyword_13" = "ליבהאָבער";
+/* Generated from genl10n: AppCenter.Charge.swift#33 */
+"%@ Day License" = "%@ טאָג דערלויבעניש";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@ טאָג";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ קען זיין געפונען";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -182,8 +186,6 @@
 "Copy" = "Copy";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "שאַפֿן";
-/* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "קראָפּ צו פּאַסיק";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "קראָפּ צו פּאַסיק";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -380,8 +382,8 @@
 "Too Close-up Face" = "אויך נאָענט אַרויף פאַסע";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "צו סלאָו שאַטער ספּיד";
-/* Generated from genl10n: Stabilizer.swift */
-"Translation" = "איבערזעצונג";
+/* Generated from genl10n: Stabilizer.swift#325 */
+"Translate" = "איבערזעצן";
 /* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
 "Use Auto Selection Bot" = "ניצן אַוטאָ סעלעקציע באָט";
 /* Generated from genl10n: GIFMaker.BApp.swift */

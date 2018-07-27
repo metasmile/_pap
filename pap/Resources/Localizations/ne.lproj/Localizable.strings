@@ -118,6 +118,10 @@
 "cs_keyword_12" = "मित्र";
 /*Translated from: lover*/
 "cs_keyword_13" = "प्रेमी";
+/* Generated from genl10n: AppCenter.Charge.swift#33 */
+"%@ Day License" = "%@ दिन लाइसेन्स";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@ दिन";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ भेट्टाउन सकिन्छ";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -182,8 +186,6 @@
 "Copy" = "कापी";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Create";
-/* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "फिट मा फट गर्नुहोस्";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -380,8 +382,8 @@
 "Too Close-up Face" = "अति बन्द-अप फेस";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "धेरै ढिलो बन्दरगाह";
-/* Generated from genl10n: Stabilizer.swift */
-"Translation" = "अनुवाद";
+/* Generated from genl10n: Stabilizer.swift#325 */
+"Translate" = "अनुवाद गर्नुहोस्";
 /* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
 "Use Auto Selection Bot" = "स्वत चयन चयन बट प्रयोग गर्नुहोस्";
 /* Generated from genl10n: GIFMaker.BApp.swift */

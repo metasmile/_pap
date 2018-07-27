@@ -118,6 +118,10 @@
 "cs_keyword_12" = "دوست";
 /*Translated from: lover*/
 "cs_keyword_13" = "عاشق";
+/* Generated from genl10n: AppCenter.Charge.swift#33 */
+"%@ Day License" = "%@ دن لائسنس";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@ دن";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ پایا جا سکتا ہے";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -182,8 +186,6 @@
 "Copy" = "Copy";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "بنانا";
-/* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "فٹ کرنے کے لئے فصل";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "فٹ کرنے کے لئے فصلیں";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -380,8 +382,8 @@
 "Too Close-up Face" = "بہت قریب کا چہرہ";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "بہت سست شٹر کی رفتار";
-/* Generated from genl10n: Stabilizer.swift */
-"Translation" = "ترجمہ";
+/* Generated from genl10n: Stabilizer.swift#325 */
+"Translate" = "ترجمہ کریں";
 /* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
 "Use Auto Selection Bot" = "آٹو انتخاب بوٹ کا استعمال کریں";
 /* Generated from genl10n: GIFMaker.BApp.swift */

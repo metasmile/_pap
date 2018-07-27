@@ -118,6 +118,10 @@
 "cs_keyword_12" = "நண்பன்";
 /*Translated from: lover*/
 "cs_keyword_13" = "காதலன்";
+/* Generated from genl10n: AppCenter.Charge.swift#33 */
+"%@ Day License" = "%@ நாள் உரிமம்";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@ நாள்";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ காணலாம்";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -182,8 +186,6 @@
 "Copy" = "நகல்";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Create";
-/* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "பொருத்துவதற்கு பயிர்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "பொருத்துவதற்கு பயிர்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -380,8 +382,8 @@
 "Too Close-up Face" = "மிக நெருங்கிய முகம்";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "மிக மெதுவாக ஷட்டர் வேகம்";
-/* Generated from genl10n: Stabilizer.swift */
-"Translation" = "மொழிபெயர்ப்பு";
+/* Generated from genl10n: Stabilizer.swift#325 */
+"Translate" = "மொழிபெயர்";
 /* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
 "Use Auto Selection Bot" = "ஆட்டோ தேர்வு பாட்டைப் பயன்படுத்துக";
 /* Generated from genl10n: GIFMaker.BApp.swift */

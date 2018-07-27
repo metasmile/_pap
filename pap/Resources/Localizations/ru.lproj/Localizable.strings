@@ -118,6 +118,10 @@
 "cs_keyword_12" = "друг";
 /*Translated from: lover*/
 "cs_keyword_13" = "любовник";
+/* Generated from genl10n: AppCenter.Charge.swift#33 */
+"%@ Day License" = "%@ Дневная лицензия";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@ День";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ можно найти";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -182,8 +186,6 @@
 "Copy" = "копия";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Создайте";
-/* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Crop To Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
@@ -380,8 +382,8 @@
 "Too Close-up Face" = "Слишком крупным планом";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "Слишком низкая скорость затвора";
-/* Generated from genl10n: Stabilizer.swift */
-"Translation" = "Перевод";
+/* Generated from genl10n: Stabilizer.swift#325 */
+"Translate" = "Переведите";
 /* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
 "Use Auto Selection Bot" = "Использовать автоматический выбор бота";
 /* Generated from genl10n: GIFMaker.BApp.swift */

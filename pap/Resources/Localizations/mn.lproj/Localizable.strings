@@ -118,6 +118,10 @@
 "cs_keyword_12" = "найз";
 /*Translated from: lover*/
 "cs_keyword_13" = "хайрт";
+/* Generated from genl10n: AppCenter.Charge.swift#33 */
+"%@ Day License" = "%@ Өдрийн лиценз";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@ Өдөр";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ олж болно";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -182,8 +186,6 @@
 "Copy" = "Хуулах";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Үүсгэх";
-/* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Тариа болгох";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Газар тариалан";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -380,8 +382,8 @@
 "Too Close-up Face" = "Хэт ойртох нүүр";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "Shutter Speed ​​хэтэрхий хурдан байна";
-/* Generated from genl10n: Stabilizer.swift */
-"Translation" = "Орчуулга";
+/* Generated from genl10n: Stabilizer.swift#325 */
+"Translate" = "Translate хийх";
 /* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
 "Use Auto Selection Bot" = "Auto Selection Bot ашиглана уу";
 /* Generated from genl10n: GIFMaker.BApp.swift */

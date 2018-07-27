@@ -118,6 +118,10 @@
 "cs_keyword_12" = "ընկեր";
 /*Translated from: lover*/
 "cs_keyword_13" = "սիրահար";
+/* Generated from genl10n: AppCenter.Charge.swift#33 */
+"%@ Day License" = "%@ Օրվա լիցենզիա";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@ Day";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ կարող է հայտնաբերվել";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -182,8 +186,6 @@
 "Copy" = "Պատճեն";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Ստեղծեք";
-/* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Կտրել կոճակը";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Կերտելու համար բույս";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -380,8 +382,8 @@
 "Too Close-up Face" = "Շատ մոտավոր դեմք";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "Շատ դանդաղ դահլիճ արագություն";
-/* Generated from genl10n: Stabilizer.swift */
-"Translation" = "Թարգմանություն";
+/* Generated from genl10n: Stabilizer.swift#325 */
+"Translate" = "Թարգմանություն";
 /* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
 "Use Auto Selection Bot" = "Օգտագործեք Auto Selection Bot";
 /* Generated from genl10n: GIFMaker.BApp.swift */

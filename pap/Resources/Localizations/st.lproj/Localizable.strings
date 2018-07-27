@@ -118,6 +118,10 @@
 "cs_keyword_12" = "motsoalle";
 /*Translated from: lover*/
 "cs_keyword_13" = "moratuoa";
+/* Generated from genl10n: AppCenter.Charge.swift#33 */
+"%@ Day License" = "%@ Letsatsi la Letsatsi";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@ Letsatsi";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ e ka fumanoa";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -182,8 +186,6 @@
 "Copy" = "Kopitsa";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Etsa";
-/* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Ho Hōla ho Tšoara";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Hōlela ho Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -380,8 +382,8 @@
 "Too Close-up Face" = "Boikutlo bo Haufi";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "Tebelo ea Slow Shutter haholo";
-/* Generated from genl10n: Stabilizer.swift */
-"Translation" = "Phetolelo";
+/* Generated from genl10n: Stabilizer.swift#325 */
+"Translate" = "Fetolela";
 /* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
 "Use Auto Selection Bot" = "Sebelisa Bot Selection Bot";
 /* Generated from genl10n: GIFMaker.BApp.swift */

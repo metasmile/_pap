@@ -118,6 +118,10 @@
 "cs_keyword_12" = "친구";
 /*Translated from: lover*/
 "cs_keyword_13" = "연인";
+/* Generated from genl10n: AppCenter.Charge.swift#33 */
+"%@ Day License" = "%@ 데이 라이센스";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@ 주";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@을 (를) 찾을 수 있습니다.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -182,8 +186,6 @@
 "Copy" = "복사";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "생성";
-/* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "자르기";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "자르기";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -380,8 +382,8 @@
 "Too Close-up Face" = "너무 근접 촬영 얼굴";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "너무 느린 셔터 속도";
-/* Generated from genl10n: Stabilizer.swift */
-"Translation" = "번역";
+/* Generated from genl10n: Stabilizer.swift#325 */
+"Translate" = "옮기다";
 /* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
 "Use Auto Selection Bot" = "자동 선택 봇 사용";
 /* Generated from genl10n: GIFMaker.BApp.swift */

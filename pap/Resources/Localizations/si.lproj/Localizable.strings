@@ -118,6 +118,10 @@
 "cs_keyword_12" = "මිතුරිය";
 /*Translated from: lover*/
 "cs_keyword_13" = "පෙම්වතා";
+/* Generated from genl10n: AppCenter.Charge.swift#33 */
+"%@ Day License" = "%@ දින බලපත්රය";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@ දිනය";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ සොයාගත හැකිය";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -182,8 +186,6 @@
 "Copy" = "Copy";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Create";
-/* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "යෝග්යය බෝග";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "සුදුසුය";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -380,8 +382,8 @@
 "Too Close-up Face" = "ඉතා සමීප මුහුණකි";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "තරමක් මන්දගාමී ස්ලටර් වේගය";
-/* Generated from genl10n: Stabilizer.swift */
-"Translation" = "පරිවර්තනය";
+/* Generated from genl10n: Stabilizer.swift#325 */
+"Translate" = "පරිවර්තනය කරන්න";
 /* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
 "Use Auto Selection Bot" = "ස්වයං ය තේරීම් බොත් භාවිත කරන්න";
 /* Generated from genl10n: GIFMaker.BApp.swift */

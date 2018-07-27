@@ -118,6 +118,10 @@
 "cs_keyword_12" = "cara";
 /*Translated from: lover*/
 "cs_keyword_13" = "leannán";
+/* Generated from genl10n: AppCenter.Charge.swift#33 */
+"%@ Day License" = "%@ Ceadúnas Lá";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@ Lá";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ d'fhéadfaí a fháil";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -182,8 +186,6 @@
 "Copy" = "Cóip";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Cruthaigh";
-/* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Buail Chun Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Buail chun Fit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -380,8 +382,8 @@
 "Too Close-up Face" = "Aghaidh ró-dhúshlánach";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "Lua Gaoithe Luas Malaile";
-/* Generated from genl10n: Stabilizer.swift */
-"Translation" = "Aistriúchán";
+/* Generated from genl10n: Stabilizer.swift#325 */
+"Translate" = "Aistrigh";
 /* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
 "Use Auto Selection Bot" = "Bain úsáid as Bot Roghnú Uathoibríoch";
 /* Generated from genl10n: GIFMaker.BApp.swift */

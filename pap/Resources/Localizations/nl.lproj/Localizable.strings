@@ -118,6 +118,10 @@
 "cs_keyword_12" = "vriend";
 /*Translated from: lover*/
 "cs_keyword_13" = "minnaar";
+/* Generated from genl10n: AppCenter.Charge.swift#33 */
+"%@ Day License" = "%@ Daglicentie";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@ Dag";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ kan worden gevonden";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -182,8 +186,6 @@
 "Copy" = "Copy";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "creëren";
-/* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Bijsnijden";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Bijsnijden";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
@@ -380,8 +382,8 @@
 "Too Close-up Face" = "Te dichtbij gezicht";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "Te lange sluitertijd";
-/* Generated from genl10n: Stabilizer.swift */
-"Translation" = "Vertaling";
+/* Generated from genl10n: Stabilizer.swift#325 */
+"Translate" = "Vertalen";
 /* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
 "Use Auto Selection Bot" = "Gebruik Auto Selectie Bot";
 /* Generated from genl10n: GIFMaker.BApp.swift */

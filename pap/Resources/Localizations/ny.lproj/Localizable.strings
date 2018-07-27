@@ -118,6 +118,10 @@
 "cs_keyword_12" = "mnzanga";
 /*Translated from: lover*/
 "cs_keyword_13" = "lover";
+/* Generated from genl10n: AppCenter.Charge.swift#33 */
+"%@ Day License" = "%@ Malayisensi a Tsiku";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@ Tsiku";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ angapezeke";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -182,8 +186,6 @@
 "Copy" = "Lembani";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Pangani";
-/* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "Mbewu Yokongola";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Mbewu Yokongola";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -380,8 +382,8 @@
 "Too Close-up Face" = "Chithunzi Chokwanira Kwambiri";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "Kuthamanga Kwang'onopang'ono Kwambiri";
-/* Generated from genl10n: Stabilizer.swift */
-"Translation" = "Kutembenuzidwa";
+/* Generated from genl10n: Stabilizer.swift#325 */
+"Translate" = "Samasulira";
 /* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
 "Use Auto Selection Bot" = "Gwiritsani ntchito Bot Selection Bot";
 /* Generated from genl10n: GIFMaker.BApp.swift */

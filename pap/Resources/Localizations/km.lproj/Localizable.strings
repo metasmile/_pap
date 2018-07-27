@@ -118,6 +118,10 @@
 "cs_keyword_12" = "មិត្តភក្តិ";
 /*Translated from: lover*/
 "cs_keyword_13" = "ស្រឡាញ់";
+/* Generated from genl10n: AppCenter.Charge.swift#33 */
+"%@ Day License" = "%@ អាជ្ញាប័ណ្ណថ្ងៃ";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@ ថ្ងៃ";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ អាចត្រូវបានរកឃើញ";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -182,8 +186,6 @@
 "Copy" = "ចម្លង";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "បង្កើត";
-/* Generated from genl10n: Stabilizer.swift */
-"Crop To Fit" = "ច្រឹបដើម្បីសមនឹង";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "ច្រឹបទៅសម";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -380,8 +382,8 @@
 "Too Close-up Face" = "មុខបិទជិត";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "ល្បឿនយឺតពេក";
-/* Generated from genl10n: Stabilizer.swift */
-"Translation" = "ការបកប្រែ";
+/* Generated from genl10n: Stabilizer.swift#325 */
+"Translate" = "បកប្រែ";
 /* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
 "Use Auto Selection Bot" = "ប្រើការជ្រើសរើសស្វ័យប្រវត្តិ Bot";
 /* Generated from genl10n: GIFMaker.BApp.swift */
