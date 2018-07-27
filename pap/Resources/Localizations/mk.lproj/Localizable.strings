@@ -212,6 +212,8 @@
 "Export Options" = "Извоз опции";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Извоз";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
+"Extend Period of Free Use" = "Продолжи периодот на слободна употреба";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Филтри";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -236,6 +238,8 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker овозможува лесно и брзо правење GIF слики од фотографии или живо фотографии со различни опции! А потоа можете да ја отворите апликацијата конвертор за да конвертирате во сè, како што се живописни фотографии или видеа.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: AppCenter.Charge.swift#19 */
+"Give A Rating" = "Дајте оценка";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Крие";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -340,8 +344,12 @@
 "Select Photos You Want To Grab Phone Numbers!" = "Изберете фотографии што сакате да ги зграби телефонските броеви!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Избрани";
+/* Generated from genl10n: AppCenter.Charge.swift#21 */
+"Send Us Feedback" = "Испратете ни повратни информации";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Испрати е-пошта";
+/* Generated from genl10n: AppCenter.Charge.swift#20 */
+"Share This App" = "Сподели ја оваа апликација";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Сподели";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
@@ -398,3 +406,9 @@
 "Waiting To Select ..." = "Чекање за избор ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
+/* Generated from genl10n: AppCenter.Charge.swift#17 */
+"Welcome Free Trial Pack" = "Добредојдовте бесплатен пробен пакет";
+/* Generated from genl10n: AppCenter.Charge.swift#18 */
+"Write A Review" = "Напиши преглед";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
+"You Can Renew Them Repeatedly." = "Можете повторно да ги обновите.";

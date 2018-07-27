@@ -212,6 +212,8 @@
 "Export Options" = "د صادرولو اختیارونه";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "صادرات";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
+"Extend Period of Free Use" = "د وړیا ګټه اخیستنه دوره وغورځوئ";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "فلټرونه";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -236,6 +238,8 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "د GIF میکانیزم د اسانتیاوو او چټکتیا اجازه ورکوي د GIF انځورونه له انځورونو یا د ژوند څخه په مختلفو اختیارونو سره د ژوند انځورونه جوړ کړئ! او بیا تاسو کولی شئ د کنټرول اپلیټ پرانیزئ ترڅو هرڅه بدل کړئ لکه د ژوند عکسونه یا ویډیو.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "د GIF میکر";
+/* Generated from genl10n: AppCenter.Charge.swift#19 */
+"Give A Rating" = "یوه درجه ورکړئ";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "پټ کړئ";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -340,8 +344,12 @@
 "Select Photos You Want To Grab Phone Numbers!" = "انځورونه وټاکئ تاسو غواړئ د تلیفون شمېره واخلئ!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "ټاکل شوی";
+/* Generated from genl10n: AppCenter.Charge.swift#21 */
+"Send Us Feedback" = "موږ ته ځواب ورکړئ";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "برېښلیک واستوئ";
+/* Generated from genl10n: AppCenter.Charge.swift#20 */
+"Share This App" = "دا اپلیکیشن شریک کړئ";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "شریک کړئ";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
@@ -398,3 +406,9 @@
 "Waiting To Select ..." = "غوره کولو لپاره انتظار ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "وارپ";
+/* Generated from genl10n: AppCenter.Charge.swift#17 */
+"Welcome Free Trial Pack" = "د ازموینې وړ ازموینه";
+/* Generated from genl10n: AppCenter.Charge.swift#18 */
+"Write A Review" = "بیاکتنه ولیکئ";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
+"You Can Renew Them Repeatedly." = "تاسو کولی شئ دوی په وار وار سره بیا نوی کړي.";

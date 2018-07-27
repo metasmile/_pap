@@ -212,6 +212,8 @@
 "Export Options" = "Roghanna Easpórtála";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Easpórtáil";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
+"Extend Period of Free Use" = "An Tréimhse um Úsáid Saor in Aisce a Leathnú";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Scagairí";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -236,6 +238,8 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "Ceadaíonn GIF Déantóir íomhánna GIF a dhéanamh go héasca agus go tapa ó Grianghraif nó Grianghraif Beo le roghanna éagsúla! Agus ansin is féidir leat an t-inneall tiontaire a oscailt i ngach rud ar nós Grianghraif Beo nó Físeáin.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "Déantóir GIF";
+/* Generated from genl10n: AppCenter.Charge.swift#19 */
+"Give A Rating" = "Tabhair Rátáil";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Folaigh";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -340,8 +344,12 @@
 "Select Photos You Want To Grab Phone Numbers!" = "Roghnaigh Grianghrafanna Ar mhaith leat Grab Uimhreacha Fón!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Roghnaithe";
+/* Generated from genl10n: AppCenter.Charge.swift#21 */
+"Send Us Feedback" = "Seol Aiseolas Orainn";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Seol Ríomhphost";
+/* Generated from genl10n: AppCenter.Charge.swift#20 */
+"Share This App" = "Comhroinn an App seo";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Comhroinn";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
@@ -398,3 +406,9 @@
 "Waiting To Select ..." = "Ag Feitheamh Chun Roghnaigh ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
+/* Generated from genl10n: AppCenter.Charge.swift#17 */
+"Welcome Free Trial Pack" = "Pacáiste Trialach Saor in Aisce";
+/* Generated from genl10n: AppCenter.Charge.swift#18 */
+"Write A Review" = "Scríobh Athbhreithniú";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
+"You Can Renew Them Repeatedly." = "Is féidir leat iad a athnuachan arís agus arís eile.";

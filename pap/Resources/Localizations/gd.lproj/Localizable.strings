@@ -212,6 +212,8 @@
 "Export Options" = "Roghainnean Export";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Export";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
+"Extend Period of Free Use" = "Leudachadh ùine de chleachdadh an-asgaidh";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Sgileagan";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -236,6 +238,8 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "Tha GIF Maker a 'toirt cothrom dhut agus gu luath a' dèanamh ìomhaighean GIF bho Dealbhan no Dealbhan Beò le diofar roghainnean! Agus an uairsin faodaidh tu an tionndadh tionndaidh fhosgladh gus atharrachadh mar a h-uile rud leithid Dealbhan Beò no Fideothan.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: AppCenter.Charge.swift#19 */
+"Give A Rating" = "Thoir rangachadh A";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Falaich";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -340,8 +344,12 @@
 "Select Photos You Want To Grab Phone Numbers!" = "Tagh Dealbhan a tha thu ag iarraidh Grab àireamhan fòn!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Air a thaghadh";
+/* Generated from genl10n: AppCenter.Charge.swift#21 */
+"Send Us Feedback" = "Cuir fios air ais thugainn";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Cuir post-d";
+/* Generated from genl10n: AppCenter.Charge.swift#20 */
+"Share This App" = "Co-roinn an App seo";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Share";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
@@ -398,3 +406,9 @@
 "Waiting To Select ..." = "A 'Feitheamh ri Tagh ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
+/* Generated from genl10n: AppCenter.Charge.swift#17 */
+"Welcome Free Trial Pack" = "Pasgan Fàilte saor-thoileach an-asgaidh";
+/* Generated from genl10n: AppCenter.Charge.swift#18 */
+"Write A Review" = "Sgrìobh Ath-bhreithneachadh";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
+"You Can Renew Them Repeatedly." = "Faodaidh tu ath-nuadhachadh orra a-rithist.";

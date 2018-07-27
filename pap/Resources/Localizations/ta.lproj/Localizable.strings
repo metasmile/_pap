@@ -212,6 +212,8 @@
 "Export Options" = "ஏற்றுமதி விருப்பங்கள்";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "ஏற்றுமதி";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
+"Extend Period of Free Use" = "இலவச பயன்பாட்டின் காலம் நீட்டிக்கவும்";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "வடிகட்டிகள்";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -236,6 +238,8 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF மேக்கர் எளிதாகவும் விரைவாகவும் GIF படங்களை புகைப்படங்கள் அல்லது லைவ் ஃபோட்டோக்களை பல்வேறு விருப்பங்களுடன் உருவாக்க அனுமதிக்கிறது! பின்னர் லைவ் ஃபோட்டோக்கள் அல்லது வீடியோக்களைப் போன்ற அனைத்தையும் மாற்றுவதற்கு மாற்றி பயன்பாட்டை திறக்கலாம்.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF மேக்கர்";
+/* Generated from genl10n: AppCenter.Charge.swift#19 */
+"Give A Rating" = "மதிப்பீடு கொடுங்கள்";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "மறை";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -340,8 +344,12 @@
 "Select Photos You Want To Grab Phone Numbers!" = "நீங்கள் எண்களை கைப்பற்ற விரும்புகிறீர்களா?";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Selected";
+/* Generated from genl10n: AppCenter.Charge.swift#21 */
+"Send Us Feedback" = "எங்களுக்கு கருத்து தெரிவிக்கவும்";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Send an Email";
+/* Generated from genl10n: AppCenter.Charge.swift#20 */
+"Share This App" = "இந்த பயன்பாட்டைப் பகிரவும்";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "பகிர்";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
@@ -398,3 +406,9 @@
 "Waiting To Select ..." = "தேர்ந்தெடுக்க காத்திருக்கிறது ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
+/* Generated from genl10n: AppCenter.Charge.swift#17 */
+"Welcome Free Trial Pack" = "வரவேற்பு இலவச சோதனை பேக்";
+/* Generated from genl10n: AppCenter.Charge.swift#18 */
+"Write A Review" = "ஒரு விமர்சனம் எழுத";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
+"You Can Renew Them Repeatedly." = "நீங்கள் மீண்டும் மீண்டும் அவர்கள் புதுப்பிக்க முடியும்.";

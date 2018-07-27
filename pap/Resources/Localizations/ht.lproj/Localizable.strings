@@ -212,6 +212,8 @@
 "Export Options" = "Opsyon Export";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Export";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
+"Extend Period of Free Use" = "Pwolonje peryòd de itilizasyon gratis";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filtè";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -236,6 +238,8 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "Maker GIF pèmèt pou fasil epi byen vit fè imaj GIF nan Ekran oswa Live Photos ak opsyon divès kalite! Lè sa a, ou ka louvri app a konvètisè yo konvèti nan tout bagay tankou Live Photos oswa videyo.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "Maker GIF";
+/* Generated from genl10n: AppCenter.Charge.swift#19 */
+"Give A Rating" = "Bay yon Rating";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Kache";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -340,8 +344,12 @@
 "Select Photos You Want To Grab Phone Numbers!" = "Chwazi Ekran ou vle pwan nimewo telefòn!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Chwazi";
+/* Generated from genl10n: AppCenter.Charge.swift#21 */
+"Send Us Feedback" = "Voye nou Feedback";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Voye yon imèl";
+/* Generated from genl10n: AppCenter.Charge.swift#20 */
+"Share This App" = "Pataje App sa a";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Pataje";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
@@ -398,3 +406,9 @@
 "Waiting To Select ..." = "Ap tann Pou Chwazi ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Chape";
+/* Generated from genl10n: AppCenter.Charge.swift#17 */
+"Welcome Free Trial Pack" = "Byenveni gratis jijman pake";
+/* Generated from genl10n: AppCenter.Charge.swift#18 */
+"Write A Review" = "Ekri yon revizyon";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
+"You Can Renew Them Repeatedly." = "Ou ka renouvle yo repete.";

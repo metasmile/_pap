@@ -212,6 +212,8 @@
 "Export Options" = "Filifiliga o Faʻataulaga";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Faʻataulaga";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
+"Extend Period of Free Use" = "Faʻatele le Vaitaimi o le Faʻaaogaina Faʻaaogaina";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Fusi";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -236,6 +238,8 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker e mafai ona faigofie ma vave ona faia GIF ata mai Ata poo Live Photos ma ni filifiliga eseese! Ona mafai lea ona e tatalaina le tagata liliu mai e liliu i mea uma e pei o Live Photos poo Vitio.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Faia";
+/* Generated from genl10n: AppCenter.Charge.swift#19 */
+"Give A Rating" = "Tuuina mai se Faʻataʻitaʻiga";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Faʻaali";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -340,8 +344,12 @@
 "Select Photos You Want To Grab Phone Numbers!" = "Filifili ata e te manaʻo e faʻailogaina numera o telefoni!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Filifilia";
+/* Generated from genl10n: AppCenter.Charge.swift#21 */
+"Send Us Feedback" = "Auina Mai Matou Faʻaalia";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Auina atu se Imeli";
+/* Generated from genl10n: AppCenter.Charge.swift#20 */
+"Share This App" = "Faasoa atu lenei App";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Fetufaai";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
@@ -398,3 +406,9 @@
 "Waiting To Select ..." = "Faatali e Filifili ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
+/* Generated from genl10n: AppCenter.Charge.swift#17 */
+"Welcome Free Trial Pack" = "Faʻafeiloaʻi le Faʻamasinoga Faʻamasinoga Faʻamatalaga";
+/* Generated from genl10n: AppCenter.Charge.swift#18 */
+"Write A Review" = "Tusi se Iloiloga";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
+"You Can Renew Them Repeatedly." = "E Mafai Ona E Toe Faaluaina Latou.";

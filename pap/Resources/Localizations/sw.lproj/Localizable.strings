@@ -212,6 +212,8 @@
 "Export Options" = "Chaguo la Nje";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Tuma nje";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
+"Extend Period of Free Use" = "Panua Kipindi cha Matumizi ya Bure";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filters";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -236,6 +238,8 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker inaruhusu kwa urahisi na kwa haraka kufanya picha za GIF kutoka kwa Picha au Picha za Kuishi na chaguzi mbalimbali! Na kisha unaweza kufungua programu ya kubadilisha fedha kubadilisha kila kitu kama Picha za Kuishi au Video.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: AppCenter.Charge.swift#19 */
+"Give A Rating" = "Kutoa Rating";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Ficha";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -340,8 +344,12 @@
 "Select Photos You Want To Grab Phone Numbers!" = "Chagua Picha Unayotaka Kuchukua Hesabu za Simu!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Ilichaguliwa";
+/* Generated from genl10n: AppCenter.Charge.swift#21 */
+"Send Us Feedback" = "Tutumie Maoni";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Tuma Barua pepe";
+/* Generated from genl10n: AppCenter.Charge.swift#20 */
+"Share This App" = "Shiriki Programu hii";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Shiriki";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
@@ -398,3 +406,9 @@
 "Waiting To Select ..." = "Inasubiri Ili Chagua ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Vurugu";
+/* Generated from genl10n: AppCenter.Charge.swift#17 */
+"Welcome Free Trial Pack" = "Pakiti ya Jaribio la Karibu la Karibu";
+/* Generated from genl10n: AppCenter.Charge.swift#18 */
+"Write A Review" = "Andika Ukaguzi";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
+"You Can Renew Them Repeatedly." = "Unaweza Kuwafanya Upya Mara kwa mara.";

@@ -212,6 +212,8 @@
 "Export Options" = "Hilbijêre Hilbijêre";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Eksport";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
+"Extend Period of Free Use" = "Demjimara Daxistina Azad a Free";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filters";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -236,6 +238,8 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker dikare ji hêla hêsanî û zûtirîn wêneyên GIF ve ji wêneyên Wêne yan Live Live bi gelek bijartan re dike! Û paşê hûn dikarin kanalek veşêrek vekin ku ji bo her tiştê ku mîna wêneyên zindî û Videos Live.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: AppCenter.Charge.swift#19 */
+"Give A Rating" = "A Rating bidin";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -340,8 +344,12 @@
 "Select Photos You Want To Grab Phone Numbers!" = "Wêneyên Hilbijêrin Tu Dixwazin Telefon Numbers Grab!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Hilbijartin";
+/* Generated from genl10n: AppCenter.Charge.swift#21 */
+"Send Us Feedback" = "Vîdeo Têkilî bide";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Email bişînin";
+/* Generated from genl10n: AppCenter.Charge.swift#20 */
+"Share This App" = "Share this App";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Par";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
@@ -398,3 +406,9 @@
 "Waiting To Select ..." = "Hêvîdar Hilbijêre ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
+/* Generated from genl10n: AppCenter.Charge.swift#17 */
+"Welcome Free Trial Pack" = "Pack Pack trial trial";
+/* Generated from genl10n: AppCenter.Charge.swift#18 */
+"Write A Review" = "Pirtûka Bixwîne";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
+"You Can Renew Them Repeatedly." = "Hûn dikarin herdem bi nû ve nûve bikin.";

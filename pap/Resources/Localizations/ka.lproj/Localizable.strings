@@ -212,6 +212,8 @@
 "Export Options" = "ექსპორტის პარამეტრები";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "ექსპორტი";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
+"Extend Period of Free Use" = "თავისუფალი გამოყენების პერიოდის გაფართოება";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "ფილტრები";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -236,6 +238,8 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker იძლევა ადვილად და სწრაფად მიღების GIF სურათები ფოტოები ან ცოცხალი ფოტოები სხვადასხვა ვარიანტი! და შემდეგ შეგიძლიათ გახსნათ კონვერტორი app გარდაქმნას ყველაფერს, როგორიცაა ცოცხალი ფოტოები ან ვიდეოები.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: AppCenter.Charge.swift#19 */
+"Give A Rating" = "მიეცით რეიტინგი";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "დამალვა";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -340,8 +344,12 @@
 "Select Photos You Want To Grab Phone Numbers!" = "აირჩიეთ ფოტოები გსურთ ტელეფონის ნომრები!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "არჩეულია";
+/* Generated from genl10n: AppCenter.Charge.swift#21 */
+"Send Us Feedback" = "გამოგვიგზავნეთ კავშირი";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "ელ.ფოსტის გაგზავნა";
+/* Generated from genl10n: AppCenter.Charge.swift#20 */
+"Share This App" = "გაუზიარეთ ეს აპლიკაცია";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "გაზიარება";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
@@ -398,3 +406,9 @@
 "Waiting To Select ..." = "ველოდები ველოდოთ ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
+/* Generated from genl10n: AppCenter.Charge.swift#17 */
+"Welcome Free Trial Pack" = "სტუმარს უფასო საცდელი პაკეტი";
+/* Generated from genl10n: AppCenter.Charge.swift#18 */
+"Write A Review" = "დაწერე მიმოხილვა";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
+"You Can Renew Them Repeatedly." = "შეგიძლიათ განმეორებითი განმეორებითი განახლება.";

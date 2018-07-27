@@ -212,6 +212,8 @@
 "Export Options" = "ជម្រើសនាំចេញ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "នាំចេញ";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
+"Extend Period of Free Use" = "ពន្យារពេលប្រើប្រាស់ដោយឥតគិតថ្លៃ";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "តម្រង";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -236,6 +238,8 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker អនុញ្ញាតឱ្យមានភាពងាយស្រួលនិងយ៉ាងឆាប់រហ័សធ្វើឱ្យរូបភាព GIF ពីរូបថតឬរូបថតបន្តផ្ទាល់ជាមួយជម្រើសផ្សេងគ្នា! ហើយបន្ទាប់មកអ្នកអាចបើកកម្មវិធីបម្លែងដើម្បីបម្លែងទៅជាអ្វីគ្រប់យ៉ាងដូចជារូបថតផ្ទាល់ឬវីដេអូ។";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "អ្នកបង្កើត GIF";
+/* Generated from genl10n: AppCenter.Charge.swift#19 */
+"Give A Rating" = "ផ្តល់ពិន្ទុ";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "លាក់";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -340,8 +344,12 @@
 "Select Photos You Want To Grab Phone Numbers!" = "ជ្រើសរូបថតដែលអ្នកចង់ចាប់យកលេខទូរស័ព្ទ!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "បានជ្រើស";
+/* Generated from genl10n: AppCenter.Charge.swift#21 */
+"Send Us Feedback" = "ផ្ញើឱ្យយើងនូវមតិយោបល់";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "ផ្ញើអ៊ីមែល";
+/* Generated from genl10n: AppCenter.Charge.swift#20 */
+"Share This App" = "ចែករំលែកកម្មវិធីនេះ";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "ចែករំលែក";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
@@ -398,3 +406,9 @@
 "Waiting To Select ..." = "កំពុងរង់ចាំ ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
+/* Generated from genl10n: AppCenter.Charge.swift#17 */
+"Welcome Free Trial Pack" = "សូមស្វាគមន៍កញ្ចប់សាកល្បងឥតគិតថ្លៃ";
+/* Generated from genl10n: AppCenter.Charge.swift#18 */
+"Write A Review" = "សរសេរ​សង្ខេប​ឡើងវិញ";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
+"You Can Renew Them Repeatedly." = "អ្នកអាចបន្តម្តងហើយម្តងទៀត។";

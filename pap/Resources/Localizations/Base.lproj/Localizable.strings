@@ -176,6 +176,8 @@
 "Export Options" = "Export Options";
 /* Generated from genl10n: GIFMaker.BApp.swift#457 */
 "Export" = "Export";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
+"Extend Period of Free Use" = "Extend Period of Free Use";
 /* Generated from genl10n: Filters.BApp.swift#75 */
 "Filters" = "Filters";
 /* Generated from genl10n: PhoneCalls.swift#239, Finder.BApp.swift#162 */
@@ -200,8 +202,6 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos.";
 /* Generated from genl10n: GIFMaker.BApp.swift#265, GIFMaker.BApp.swift#588 */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
-"Get Your Free Trial" = "Get Your Free Trial";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Give A Rating";
 /* Generated from genl10n: ExifGhost.BApp.swift#71 */

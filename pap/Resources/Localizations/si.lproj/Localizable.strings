@@ -212,6 +212,8 @@
 "Export Options" = "අපනයන විකල්පයන්";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "අපනයන";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
+"Extend Period of Free Use" = "නිදහස් භාවිතය සඳහා කාලය දීර්ඝ කිරීම";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "පෙරහන්";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -236,6 +238,8 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker මඟින් පහසුවෙන් සහ ඉක්මනින් GIF පිළිඹිබුවන් වෙතින් ඡායාරූප හෝ සජීව ෆොටෝ සිට විවිධ විකල්ප සහිතව ඉඩ සලසා දෙයි! ඉන්පසු සජීවී ඡායාරූප හෝ වීඩියෝ දර්ශන වැනි දේ බවට හැරවීම සඳහා ඔබ පරිවර්තක යෙදුම විවෘත කළ හැකිය.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: AppCenter.Charge.swift#19 */
+"Give A Rating" = "ශ්රේණිගත කිරීම ලබා දෙන්න";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "සඟවන්න";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -340,8 +344,12 @@
 "Select Photos You Want To Grab Phone Numbers!" = "දුරකථන අංක ග්රහණය කිරීමට ඔබට අවශ්ය ඡායාරූප තෝරන්න!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "තෝරාගත්";
+/* Generated from genl10n: AppCenter.Charge.swift#21 */
+"Send Us Feedback" = "අප අමතන්න ප්රතිපෝෂණය";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "ඊ-තැපෑලක් යවන්න";
+/* Generated from genl10n: AppCenter.Charge.swift#20 */
+"Share This App" = "මෙම යෙදුම බෙදාගන්න";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "බෙදාගන්න";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
@@ -398,3 +406,9 @@
 "Waiting To Select ..." = "තේරීම බලා සිටීම ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "වාප්";
+/* Generated from genl10n: AppCenter.Charge.swift#17 */
+"Welcome Free Trial Pack" = "සාම්ප්රදායික ට්රැකි පැකේජය සාදරයෙන් පිළිගනිමු";
+/* Generated from genl10n: AppCenter.Charge.swift#18 */
+"Write A Review" = "සමාලෝචනයක් ලියන්න";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
+"You Can Renew Them Repeatedly." = "ඔබට නැවත නැවතත් අලුත් කළ හැකිය.";

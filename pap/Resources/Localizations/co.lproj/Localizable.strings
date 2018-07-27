@@ -212,6 +212,8 @@
 "Export Options" = "Opzioni di l'Esplora";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Esporta";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
+"Extend Period of Free Use" = "Perìode l'uttenimentu liberatu";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filtri";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -236,6 +238,8 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker permette ferà facilmente è rapidamente l'imagine GIF da Foto o Photos Live with various options! E pudete apre u l'app purificazione di cunvertisce in tuttu cum'è Live Photos or Videos.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: AppCenter.Charge.swift#19 */
+"Give A Rating" = "Give A Rating";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Oculze";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -340,8 +344,12 @@
 "Select Photos You Want To Grab Phone Numbers!" = "Assicurà i vostri ritratti à vulete piglià e telefoni!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Sceltu";
+/* Generated from genl10n: AppCenter.Charge.swift#21 */
+"Send Us Feedback" = "Invia rispunsevule";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Mandate un email";
+/* Generated from genl10n: AppCenter.Charge.swift#20 */
+"Share This App" = "Share This App";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Share";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
@@ -398,3 +406,9 @@
 "Waiting To Select ..." = "Waiting To Select ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
+/* Generated from genl10n: AppCenter.Charge.swift#17 */
+"Welcome Free Trial Pack" = "Benvenuti Pruvenza Libera";
+/* Generated from genl10n: AppCenter.Charge.swift#18 */
+"Write A Review" = "Scrivi un rigalu";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
+"You Can Renew Them Repeatedly." = "Pudete rinnuvà a piena Repeatedly.";

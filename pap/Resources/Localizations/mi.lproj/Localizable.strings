@@ -212,6 +212,8 @@
 "Export Options" = "Ngā Kōwhiringa Whakaputa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Kaweake";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
+"Extend Period of Free Use" = "Whakanuia te Wā o te Whakamahinga Kore";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Ngā Tātari";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -236,6 +238,8 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "Ka taea e GIF te kaihanga i nga whakaahua GIF mai i Photos Photos ranei ranei me nga momo whiringa! Na ka taea e koe te whakatuwhera i te taupānga converter ki te tahuri ki nga mea katoa, penei ko Live Photos, Videos ranei.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "Kaihanga GIF";
+/* Generated from genl10n: AppCenter.Charge.swift#19 */
+"Give A Rating" = "Homai he Whakatau";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Huna";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -340,8 +344,12 @@
 "Select Photos You Want To Grab Phone Numbers!" = "Tīpakohia nga Whakaahua e hiahia ana koe kia mauhia nga Tau Waea!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Kua tīpakohia";
+/* Generated from genl10n: AppCenter.Charge.swift#21 */
+"Send Us Feedback" = "Tukuna mai he Whakautu";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Tukua he Īmēra";
+/* Generated from genl10n: AppCenter.Charge.swift#20 */
+"Share This App" = "A faaite i tenei taupānga";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "Vahevahe";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
@@ -398,3 +406,9 @@
 "Waiting To Select ..." = "E tatari ana ki te whiriwhiri ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "He wera";
+/* Generated from genl10n: AppCenter.Charge.swift#17 */
+"Welcome Free Trial Pack" = "Welcome Welcome Pack";
+/* Generated from genl10n: AppCenter.Charge.swift#18 */
+"Write A Review" = "Tuhia he Arotake";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
+"You Can Renew Them Repeatedly." = "Ka taea e koe te Whakahou ano ia ratou.";

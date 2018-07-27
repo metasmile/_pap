@@ -212,6 +212,8 @@
 "Export Options" = "ወደ ውጪ መላኪያ አማራጮች";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "ወደውጪ ላክ";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
+"Extend Period of Free Use" = "በነጻ አጠቃቀም ጊዜ ያራዝሙ";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "ማጣሪያዎች";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -236,6 +238,8 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "ጂአይኤፍ ፈጣኝ ከፎቶዎች ወይም ቀጥታ ፎቶዎች ጋር GIF ምስሎችን ለተለያዩ አማራጮች ቀላል እና ፈጣን ለማድረግ ያስችላል! ከዚያ ቀጥታ ፎቶዎችን ወይም ቪዲዮዎችን ወደ ሁሉም ነገር ለመቀየር ወደ መቀየር መተግበሪያውን መክፈት ይችላሉ.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF ፈጣሪ";
+/* Generated from genl10n: AppCenter.Charge.swift#19 */
+"Give A Rating" = "ደረጃ ይስጡ";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "ደብቅ";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -340,8 +344,12 @@
 "Select Photos You Want To Grab Phone Numbers!" = "ስልክ ቁጥሮች ለመሰብሰብ የሚፈልጉት ፎቶዎችን ይምረጡ!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "ተመርጧል";
+/* Generated from genl10n: AppCenter.Charge.swift#21 */
+"Send Us Feedback" = "ግብረመልስ ይላኩልን";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "አንድ ኢሜይል ይላኩ";
+/* Generated from genl10n: AppCenter.Charge.swift#20 */
+"Share This App" = "ይህን መተግበሪያ አጋራ";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "አጋራ";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
@@ -398,3 +406,9 @@
 "Waiting To Select ..." = "ለመምረጥ በመጠበቅ ላይ ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "ጦርነት";
+/* Generated from genl10n: AppCenter.Charge.swift#17 */
+"Welcome Free Trial Pack" = "ነጻ የሙከራ መስጫ ሞያ ደህና መጡ";
+/* Generated from genl10n: AppCenter.Charge.swift#18 */
+"Write A Review" = "አንድ ግምገማ ጻፍ";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
+"You Can Renew Them Repeatedly." = "በተደጋጋሚ ልታደጋቸው ትችላለህ.";
