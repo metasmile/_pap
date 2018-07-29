@@ -6,7 +6,6 @@
 import Foundation
 
 struct AmountObject:Amount{
-    let uuid:String = UUID().uuidString
     private(set) var value:Double
     init(value: Double) {
         self.value = type(of: self).validate(value: value)
@@ -14,8 +13,6 @@ struct AmountObject:Amount{
 }
 
 class MutableAmountObject: MutableAmount{
-    lazy var uuid:String = UUID().uuidString
-
     private(set) var value: Double
 
     required init(value: Double){

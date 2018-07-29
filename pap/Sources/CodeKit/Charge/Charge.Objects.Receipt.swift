@@ -14,6 +14,7 @@ struct ChargeableReceipt: Codable, Chargeable, Hashable{
 
     let type: ChargeType
     let reward: RewardType
+    var amountValue:Double // remaining amountValue
 
     var dateData:Date?
     var stringData:String?
@@ -21,9 +22,10 @@ struct ChargeableReceipt: Codable, Chargeable, Hashable{
     var doubleData:Double?
     var dataData:Data?
 
-    init(chargeable:Chargeable, bankerVersion:Int){
-        self.type = chargeable.type
-        self.reward = chargeable.reward
+    init(charge:Charge, bankerVersion:Int){
+        self.type = charge.type
+        self.reward = charge.reward
+        self.amountValue = charge.priceAmount.value
         self.bankerVersion = bankerVersion
     }
 
@@ -34,6 +36,7 @@ struct ChargeableReceipt: Codable, Chargeable, Hashable{
 
         case type
         case reward
+        case amountValue
 
         case dateData
         case stringData
@@ -51,6 +54,7 @@ struct ChargeableReceipt: Codable, Chargeable, Hashable{
 
         try container.encode(type, forKey: .type)
         try container.encode(reward, forKey: .reward)
+        try container.encode(amountValue, forKey: .amountValue)
 
         try container.encode(dateData, forKey: .dateData)
         try container.encode(stringData, forKey: .stringData)

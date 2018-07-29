@@ -29,6 +29,7 @@ enum ChargeType:Int, Codable {
 enum RewardType:Int, Codable {
     //will be engaged only nonSelected
     case nonBlockOfUses
+    case nonBlockOfUsesByVersion
 
     //e.g. promotional
     case timeOfUsesByVersion // while uses on single version
@@ -78,7 +79,6 @@ protocol Amount: Codable{
     static var maxValue:Double{get}
     static var invalidatedValue:Double{get}
 
-    var uuid:String{get}
     var value:Double{get}
 
     init(value:Double)
@@ -122,7 +122,7 @@ protocol MutableAmount: Amount{
 
 extension MutableAmount{
     private func createSharesAmount(of amount:Amount, ratio:Double) -> Amount{
-        return type(of: amount).init(value: amount.getValueOfShares(inContainer: self) * ratio)
+        return AmountObject(value: amount.getValueOfShares(inContainer: self) * ratio)
     }
     
     @discardableResult

@@ -141,7 +141,7 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
     }
 
     private func createReceipt(for charge: Charge, balance: MutableAmount){
-        var receipt = ChargeableReceipt(chargeable: charge, bankerVersion: AppChargeBanker.version)
+        var receipt = ChargeableReceipt(charge: charge, bankerVersion: AppChargeBanker.version)
         receipt.dateData = Date()
         receiptStorage.addReceipt(receipt)
         synchronizeBalance(balance:balance)
@@ -150,7 +150,6 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
 
     @discardableResult
     private func synchronizeBalance(balance: MutableAmount) -> Amount{
-        let initialBalance = balance.value
         var removingReceipts = Set<ChargeableReceipt>()
 
         for (_, receipt) in receiptStorage.receipts { //TODO: improve performance - o.n -> o.1 avg.
@@ -163,40 +162,47 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
                 case .nonBlockOfUses:
                     break
 
-                case .timeOfUsesByVersion,
+                case .nonBlockOfUsesByVersion,
+                     .timeOfUsesByVersion,
                      .countOfUsesByVersion,
                      .ownedByVersion where appShortVersionDescription == .new:
                     removingReceipts.insert(receipt)
 
                 case .timeOfUses:
                     if let date = receipt.dateData{
-                        let newDate = Date()
-                        let totalRewardTime = type(of: self).Abs_TimeOfUses_Time * charge.priceAmount.value/type(of: balance).maxValue
-                        let spentRatio = normalize(newDate.timeIntervalSince(date), 0, totalRewardTime)
+                        let currentDate = Date()
+
+                        let totalOffset = type(of: self).Abs_TimeOfUses_Time * charge.priceAmount.value
+                        let offset = currentDate.timeIntervalSince(date)
+                        let amountValueOffsetRatio = offset/totalOffset
+
+                        let subtractingAmountValueInSelf = charge.priceAmount.value * amountValueOffsetRatio
+                        let subtractingAmountValueInBalance = charge.priceAmount.getValueOfShares(inContainer: balance) * amountValueOffsetRatio
+
+                        let remainingAmountValue = receipt.amountValue - subtractingAmountValueInSelf
 
                         var updatingReceipt = receipt
-                        updatingReceipt.dateData = newDate
+                        updatingReceipt.amountValue = remainingAmountValue
+                        updatingReceipt.dateData = currentDate
                         receiptStorage.updateReceipt(updatingReceipt)
 
-                        balance.subtractShares(of: charge.priceAmount, ratio: spentRatio)
-                        print("[i] Receipt type:\(receipt.type), reward:\(receipt.reward) did subtract - balance:", balance.value)
+                        if remainingAmountValue > 0{
+                            balance.subtract(AmountObject(value: subtractingAmountValueInBalance))
 
-                        if spentRatio >= 1{
+                            print("[i] Receipt type:\(receipt.type), reward:\(receipt.reward) did subtract - balance:", balance.value)
+                        }else{
                             removingReceipts.insert(receipt)
                         }
+
                     }
                 default:
                     assert(false, "[!] WARNING: \(receipt.reward) handling is not implemented yet.")
             }
         }
 
-        if initialBalance > 0 && balance.value==0{
-            removingReceipts = Set(receiptStorage.receipts.values)
-        }
-
         for r in removingReceipts {
             receiptStorage.removeReceipt(r.uuid)
-            print("[i] INFO: Removed Receipts: ", r.uuid)
+            print("[i] INFO: Removed Receipts: ", r, r.uuid)
         }
 
         DispatchQueue.global().async{
