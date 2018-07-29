@@ -335,7 +335,7 @@ class PHAssetGarbageDetector_Similarity: PHAssetGarbageDetector{
 
     static let samplingImageSize = CGSize(width:100,height:100)
     private let maxTimeRangeAsADay:TimeInterval = 60*60*24
-    private let similarityThreshold = 12 //TODO: users can select restricion ratio.
+    private let similarityThreshold = 16 //TODO: users can select restricion ratio.
 
     private var similarCache = [String:OSHashDistanceType]()
 

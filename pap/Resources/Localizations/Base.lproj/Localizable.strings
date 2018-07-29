@@ -86,7 +86,7 @@
 "%@ Day License" = "%@ Day License";
 /* Generated from genl10n: AppCenter.Charge.swift#51 */
 "%@ Day" = "%@ Day";
-/* Generated from genl10n: Finder.BApp.swift#1569, Cleaner.BApp.swift#722 */
+/* Generated from genl10n: Finder.BApp.swift#1569, Cleaner.BApp.swift#733 */
 "%@ might be found" = "%@ might be found";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#413 */
 "%@ will be hidden" = "%@ will be hidden";
@@ -158,7 +158,7 @@
 "Custom" = "Custom";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#229, Finder.BApp.swift#333, Finder.BApp.swift#433, Finder.BApp.swift#648, Finder.BApp.swift#766, Finder.BApp.swift#1218 */
 "Date" = "Date";
-/* Generated from genl10n: Cleaner.BApp.swift#516 */
+/* Generated from genl10n: Cleaner.BApp.swift#527 */
 "Deleting Targets" = "Deleting Targets";
 /* Generated from genl10n: Finder.BApp.swift#158 */
 "Detecting ... %@ " = "Detecting ... %@ ";
@@ -270,7 +270,7 @@
 "Privacy" = "Privacy";
 /* Generated from genl10n: Converter.AppDockContent.swift#133, GIFMaker.BApp.swift#589 */
 "Quality" = "Quality";
-/* Generated from genl10n: Finder.BApp.swift#1264, Cleaner.BApp.swift#453 */
+/* Generated from genl10n: Finder.BApp.swift#1264, Cleaner.BApp.swift#464 */
 "Quick Actions Only" = "Quick Actions Only";
 /* Generated from genl10n: GIFMaker.BApp.swift#558 */
 "Repeat" = "Repeat";
@@ -282,7 +282,7 @@
 "Rewind" = "Rewind";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "Save All Phone Numbers";
-/* Generated from genl10n: Finder.BApp.swift#1252, Cleaner.BApp.swift#441 */
+/* Generated from genl10n: Finder.BApp.swift#1252, Cleaner.BApp.swift#452 */
 "Save Found Contacts Directly" = "Save Found Contacts Directly";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift#63 */
 "Save and Share" = "Save and Share";
@@ -300,13 +300,13 @@
 "Screenshots" = "Screenshots";
 /* Generated from genl10n: Finder.BApp.swift#835 */
 "Search Flights" = "Search Flights";
-/* Generated from genl10n: Cleaner.BApp.swift#612 */
+/* Generated from genl10n: Cleaner.BApp.swift#623 */
 "Select Photos To Delete." = "Select Photos To Delete.";
 /* Generated from genl10n: Finder.BApp.swift#1430 */
 "Select Photos To Find Everything." = "Select Photos To Find Everything.";
 /* Generated from genl10n: PhoneCalls.swift#420 */
 "Select Photos You Want To Grab Phone Numbers!" = "Select Photos You Want To Grab Phone Numbers!";
-/* Generated from genl10n: Cleaner.BApp.swift#520 */
+/* Generated from genl10n: Cleaner.BApp.swift#531 */
 "Selected" = "Selected";
 /* Generated from genl10n: AppCenter.Charge.swift#21 */
 "Send Us Feedback" = "Send Us Feedback";
@@ -344,9 +344,9 @@
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Switch on any items you want to hide. The quality will entirely remain the same.";
 /* Generated from genl10n: PhoneCalls.swift#372, Finder.BApp.swift#1292 */
 "Take A Photo" = "Take A Photo";
-/* Generated from genl10n: Cleaner.BApp.swift#521 */
+/* Generated from genl10n: Cleaner.BApp.swift#532 */
 "Targeted" = "Targeted";
-/* Generated from genl10n: Cleaner.BApp.swift#362 */
+/* Generated from genl10n: Cleaner.BApp.swift#373 */
 "Targets" = "Targets";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them.";
@@ -356,7 +356,7 @@
 "Too Slow Shutter Speed" = "Too Slow Shutter Speed";
 /* Generated from genl10n: Stabilizer.swift#325 */
 "Translate" = "Translate";
-/* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1281, Cleaner.BApp.swift#498 */
+/* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1281, Cleaner.BApp.swift#509 */
 "Use Auto Selection Bot" = "Use Auto Selection Bot";
 /* Generated from genl10n: GIFMaker.BApp.swift#91 */
 "Video" = "Video";

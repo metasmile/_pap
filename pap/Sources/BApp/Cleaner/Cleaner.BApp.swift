@@ -78,20 +78,38 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     @objc dynamic
     public fileprivate (set) lazy var autoSelect: Bool = false
 
+    fileprivate static var DefaultEnabledGDTypes:[PHAssetGarbageDetector.Type]{
+        return [
+            PHAssetGarbageDetector_Similarity.self
+            , PHAssetGarbageDetector_Screenshots.self
+            , PHAssetGarbageDetector_Flashlight.self
+            , PHAssetGarbageDetector_SavedWithBuiltInCamera.self
+        ]
+    }
+
     fileprivate static let SupportingGDTypes:[PHAssetGarbageDetector.Type] = [
         PHAssetGarbageDetector_Similarity.self
-        , PHAssetGarbageDetector_Lockscreens.self
         , PHAssetGarbageDetector_Screenshots.self
-//        , PHAssetGarbageDetector_Blurry.self
         , PHAssetGarbageDetector_Flashlight.self
+        , PHAssetGarbageDetector_Lockscreens.self
+        , PHAssetGarbageDetector_SavedWithBuiltInCamera.self
+//        , PHAssetGarbageDetector_Blurry.self
         , PHAssetGarbageDetector_TooCloseupFace.self
         , PHAssetGarbageDetector_TooSlowShutterSpeed.self
         , PHAssetGarbageDetector_VideosWithoutSound.self
         , PHAssetGarbageDetector_VideosShorterThan1Sec.self
         , PHAssetGarbageDetector_VideosSavedbyInstagramApp.self
-        , PHAssetGarbageDetector_SavedWithBuiltInCamera.self
         , PHAssetGarbageDetector_SavedWithouttheCamera.self
-    ]
+
+    ].sorted { (similarityType1: PHAssetGarbageDetector.Type, similarityType2: PHAssetGarbageDetector.Type) -> Bool in
+        let containsDefaultEnabled1 = DefaultEnabledGDTypes.contains { _detectorType in
+            return _detectorType==similarityType1
+        } ? 1 : 0
+        let containsDefaultEnabled2 = DefaultEnabledGDTypes.contains { _detectorType in
+            return _detectorType==similarityType2
+        } ? 1 : 0
+        return containsDefaultEnabled1 > containsDefaultEnabled2
+    }
 
     fileprivate static let SupportingGDTypesKeys:[String:PHAssetGarbageDetector.Type]
             = SupportingGDTypes.dictionary { $0.identifier }
@@ -327,13 +345,6 @@ extension Defaults: CleanerAppDefaults {
 }
 
 private struct GDItem:Codable, Hashable {
-    private static var DefaultEnabledGDTypes:[PHAssetGarbageDetector.Type]{
-        return [
-            PHAssetGarbageDetector_Similarity.self
-            , PHAssetGarbageDetector_Lockscreens.self
-        ]
-    }
-
     fileprivate let gdIdentifier: String
     fileprivate let label: String
     fileprivate var iconImageName: String?
@@ -347,7 +358,7 @@ private struct GDItem:Codable, Hashable {
         self.label = gd.label
         self.iconImageName = gd.iconImageName
         self.iconImageShouldUseTintColor = gd.iconImageShouldUseTintColor
-        self.enabled = type(of: self).DefaultEnabledGDTypes.contains(where:{ $0 == gd })
+        self.enabled = CleanerApp.DefaultEnabledGDTypes.contains(where:{ $0 == gd })
     }
 
     var hashValue: Int {
