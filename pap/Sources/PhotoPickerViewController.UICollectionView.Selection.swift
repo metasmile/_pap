@@ -45,28 +45,15 @@ extension PhotoPickerViewController{
         self.deselectCollectionViewItems(indexPaths)
     }
 
-    @discardableResult
-    func deselectCollectionViewItem(at indexPath: IndexPath, animated:Bool=false) -> Bool {
-        if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == true {
-            photoCollectionView.deselectItem(at: indexPath, animated: animated)
-            collectionView(photoCollectionView, didDeselectItemAt: indexPath)
-        }
-
-        return true
-    }
-
     func deselectCollectionViewItems(_ items: [IndexPath], animated:Bool=false) {
-        for indexPath in items {
-            deselectCollectionViewItem(at: indexPath, animated: animated)
+        items.forEach { indexPath in
+            photoCollectionView.deselectItem(at: indexPath, animated: animated)
         }
 
-        let indexPaths = items.compactMap { PHAssets.fetched.asset(at: $0) }.compactMap { self.batchPreviewView.removeCollectionViewItem(with: $0) }
-
+        let assets = items.compactMap { PHAssets.fetched.asset(at: $0) }
+        batchPreviewView.removeCollectionViewItems(with: assets)
+        
         updateSelectedItemUIs()
-
-        if let indexPath = indexPaths.last {
-            batchPreviewView.scrollToNeareastItem(at: indexPath)
-        }
     }
 
     func deselectAllCollectionViewItems(){
@@ -77,7 +64,7 @@ extension PhotoPickerViewController{
         guard let indexPath = PHAssets.fetched.indexPath(of: asset) else { return }
 
         if photoCollectionView.delegate?.collectionView!(photoCollectionView, shouldSelectItemAt: indexPath) == false {
-            deselectCollectionViewItem(at: indexPath)
+            deselectCollectionViewItems([indexPath])
         }
         else {
             selectCollectionViewItem(at: indexPath)

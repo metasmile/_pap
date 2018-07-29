@@ -87,7 +87,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
         if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == true {
             vc.actionItems = [
                 UIPreviewAction(title: "Deselect this \(typeWord)".localized, style: .default) { action, controller in
-                    self.deselectCollectionViewItem(at:indexPath)
+                    self.deselectCollectionViewItems([indexPath])
                 },
                 UIPreviewAction(title: "Share".localized, style: .default) { action, controller in
                     item.asset.shareWithDefaultUIActivities()
@@ -126,7 +126,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
             vc.actionItems = [
                 editAction,
                 UIPreviewAction(title: "Deselect this \(typeWord)".localized, style: .default) { action, controller in
-                    self.deselectCollectionViewItem(at:indexPath)
+                    self.deselectCollectionViewItems([indexPath])
                 },
                 UIPreviewAction(title: "Share".localized, style: .default) { action, controller in
                     item.asset.shareWithDefaultUIActivities()

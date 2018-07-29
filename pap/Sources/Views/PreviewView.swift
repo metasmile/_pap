@@ -241,6 +241,20 @@ extension PreviewView {
         return indexPath
     }
     
+    func removeCollectionViewItems(with assets: [PHAsset]?) {
+        guard let _assets = assets else {
+            return
+        }
+        
+        let indexPaths = _assets.compactMap({ appAssetsSelected.remove(for:$0) })
+        
+        collectionView.reloadData() //INFO: for better performance and safety
+        
+        if let indexPath = indexPaths.first {
+            self.scrollToNeareastItem(at: indexPath)
+        }
+    }
+    
     func scrollToNeareastItem(at indexPath: IndexPath) {
         if appAssetsSelected.count > 0 {
             let nearestItem = indexPath.item < appAssetsSelected.count ? indexPath.item : max(min(indexPath.item - 1, appAssetsSelected.count - 1), 0)

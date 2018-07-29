@@ -587,9 +587,7 @@ class PhotoPickerViewController: AppDockViewController {
         }
 
         //remove preview items
-        for removedAsset in removedAssets {
-            self.batchPreviewView.removeCollectionViewItem(with: removedAsset)
-        }
+        self.batchPreviewView.removeCollectionViewItems(with: removedAssets)
         
         var indexPathToScroll: IndexPath?
         var needsToRestoreSelection = false
