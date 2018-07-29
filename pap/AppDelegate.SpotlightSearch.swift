@@ -93,6 +93,7 @@ class SpotlightSearchAppDelegate: NSObject, UIApplicationDelegate{
 
                     if let _ = CSSearchable.appBySearchable(activity: userActivity){
                         SpotlightSearchAppDelegate.selectedUserActivity = userActivity
+                        SpotlightSearchAppDelegate.launchAppIfNeededWithSearchable()
                         break
                     }
 
