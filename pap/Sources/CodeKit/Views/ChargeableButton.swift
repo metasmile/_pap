@@ -113,26 +113,26 @@ class ChargeableBadgeIcon: UIImage {
     static func `init`(_ image: UIImage, title: String, tintColor color: UIColor) -> UIImage {
         let attributes = [
             NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 10),
-            NSAttributedStringKey.foregroundColor: UIColor.white
+            NSAttributedStringKey.foregroundColor: color
         ]
         let renderText = NSString(string: "\(title)")
         let textSize = renderText.size(withAttributes: attributes)
         let badgePaddingTop: CGFloat = 2
-        let badgePaddingLeft: CGFloat = 6
+        let badgePaddingLeft: CGFloat = 2//6
         let badgeSize = UIEdgeInsetsInsetRect(CGRect(origin: .zero, size: textSize), UIEdgeInsets(top: -badgePaddingTop, left: -badgePaddingLeft, bottom: -badgePaddingTop, right: -badgePaddingLeft)).size
         
-        let badgeRect = CGRect(origin: .zero, size: badgeSize)
-        let roundedRectPath = UIBezierPath(roundedRect: badgeRect, cornerRadius: badgeSize.height / 2)
+//        let badgeRect = CGRect(origin: .zero, size: badgeSize)
+//        let roundedRectPath = UIBezierPath(roundedRect: badgeRect, cornerRadius: badgeSize.height / 2)
         
         guard let titleImage = UIGraphicsImageRenderer(size: badgeSize).imageWithCurrentContext(actions: { ctx in
-            ctx.setFillColor(color.cgColor)
-            ctx.addPath(roundedRectPath.cgPath)
-            ctx.fillPath()
+//            ctx.setFillColor(color.cgColor)
+//            ctx.addPath(roundedRectPath.cgPath)
+//            ctx.fillPath()
             
-            ctx.saveGState()
-            ctx.setBlendMode(.destinationOut)
+//            ctx.saveGState()
+//            ctx.setBlendMode(.destinationOut)
             renderText.draw(at: CGPoint(x: badgePaddingLeft, y: badgePaddingTop), withAttributes: attributes)
-            ctx.restoreGState()
+//            ctx.restoreGState()
         }) else { return image }
         
         let iconSize = image.size

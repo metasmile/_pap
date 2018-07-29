@@ -100,7 +100,7 @@ extension PhotoPickerViewController{
             let estimatedChargeableImage = ChargeableImage(balance: charge.priceAmount.value, fillMode: .fill, tintColor: view.tintColor, appearanceDelegate: PhotoPickerViewControllerChargeableAssets())
             
             if let icon = estimatedChargeableImage, let rewardText = charge.shortTitleWithReward {
-                badgeImage = ChargeableBadgeIcon(icon, title: rewardText, tintColor: view.tintColor)
+                badgeImage = ChargeableBadgeIcon(icon, title: "+\(rewardText)", tintColor: view.tintColor)
             }
             else {
                 badgeImage = estimatedChargeableImage
