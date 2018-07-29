@@ -130,13 +130,13 @@ extension PhotoPickerViewController{
                     }
                     action.setValue(badgeImage, forKey: "image")
                     alert.addAction(action)
-                case .socialShare:
+                case .socialShare where receipt == nil:
                     let action = UIAlertAction(title: charge.title, style: .default) { action in
                         AppCenter.charge.pay(for: OnSocialShare.self)
                     }
                     action.setValue(badgeImage, forKey: "image")
                     alert.addAction(action)
-                case .feedback:
+                case .feedback where receipt == nil:
                     let action = UIAlertAction(title: charge.title, style: .default) { action in
                         AppCenter.charge.pay(for: OnFeedback.self)
                     }

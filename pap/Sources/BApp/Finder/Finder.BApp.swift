@@ -1249,7 +1249,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
     private func createCellDescriber_SelectionPreset_contact_saveContactWithoutEdit() -> UITableViewSwitchCellDescriber{
         let celld = UITableViewSwitchCellDescriber()
         celld.itemIdentifier = FinderAppSettingCells.saveContactWithoutEdit.hashValue
-        celld.label = "Save Found Contacts Directly".localized
+        celld.label = "Save Contacts".localized
         celld.valueGetter = { FinderApp.privateDefaults.saveContactWithoutEdit }
         celld.valueHandler = {
             var defaults = FinderApp.privateDefaults
@@ -1261,7 +1261,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
     private func createCellDescriber_SelectionPreset_action_quickActionsOnly() -> UITableViewSwitchCellDescriber{
         let celld = UITableViewSwitchCellDescriber()
         celld.itemIdentifier = FinderAppSettingCells.quickActionOnly.hashValue
-        celld.label = "Quick Actions Only".localized
+        celld.label = "Enable Quick Actions".localized
         celld.valueGetter = { FinderApp.privateDefaults.quickActionOnly }
         celld.valueHandler = {
             var defaults = FinderApp.privateDefaults
@@ -1308,7 +1308,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         cell0.valueCollection = [
             (label:"Actions".localized,value: SelectionPreset.action.rawValue),
             (label:"Contacts".localized,value: SelectionPreset.contact.rawValue),
-            (label:"Plain Text".localized,value: SelectionPreset.plaintext.rawValue)
+            (label:"Text".localized,value: SelectionPreset.plaintext.rawValue)
         ]
         cell0.valueHandler = {
             let preset = $0 as! Int
