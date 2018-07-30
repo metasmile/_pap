@@ -1344,8 +1344,8 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
             let tableView = view as? UITableView
             tableView?.reloadData()
 
-            let d = Defaults.shared.shortVersionDescription
-            if (d == .new || d == .first) && (tableView?.numberOfSections ?? 0 > 1 && tableView?.numberOfRows(inSection: 1) ?? 0 > 1){
+            /*let d = Defaults.shared.shortVersionDescription*/
+            if /*(d == .new || d == .first) && */(tableView?.numberOfSections ?? 0 > 1 && tableView?.numberOfRows(inSection: 1) ?? 0 > 1){
                 tableView?.scrollToRow(at: IndexPath(item: 0, section: 1), at: .middle, animated: true)
             }
 
@@ -1479,10 +1479,8 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
             cell.textLabel?.text = item.label
             cell.switcher.setOn(value, animated: false)
             cell.switcher.onTintColor = self.view.tintColor
-            if let image = item.iconImage?.asUIImage{
-                cell.imageView?.image = image.withRenderingMode(.alwaysTemplate)
-                cell.imageView?.tintColor = self.view.tintColor
-            }
+            cell.imageView?.image = item.iconImage?.asUIImage?.withRenderingMode(.alwaysTemplate)
+            cell.imageView?.tintColor = self.view.tintColor
             cell.switchDidChange = item.valueHandler
             return cell
         }
