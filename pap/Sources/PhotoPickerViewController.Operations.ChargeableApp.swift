@@ -93,7 +93,7 @@ extension PhotoPickerViewController{
         alert.addAction(imageAction)
 
         for charge in AppCenter.charge.charges {
-            let receipt = AppCenter.charge.bank.getStoredReceipt(for: charge)
+            let receipt = AppCenter.charge.bank.getReceipt(for: charge)
             
             var badgeImage: UIImage?
             

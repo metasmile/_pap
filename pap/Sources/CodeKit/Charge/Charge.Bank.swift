@@ -6,25 +6,16 @@
 import Foundation
 import DefaultsKit
 
-protocol ChargeReceiptStorable where Self:ChargeBanker{
-    //INFO: WARNING: If storageIdentifier changed, existed receipt information will be destroyed.
-    var storageIdentifier:String{get}
-
-    func getReceipt(for chargeable:Chargeable) -> ChargeableReceipt?
-}
-
-extension ChargeBank{
-    func getStoredReceipt(for charge:Chargeable) -> ChargeableReceipt?{
-        return (self.banker as? ChargeReceiptStorable)?.getReceipt(for: charge)
-    }
-}
-
 protocol ChargeBanker {
     static var version:Int{get}
 
-    //INFO: setup something stuffs
-    func willInitialize(balance:MutableAmount) -> Amount
-    func didInitialize(balance:MutableAmount)
+    //INFO: WARNING: If receiptStorageIdentifier changed, existed receipt information will be destroyed.
+    var receiptStorageIdentifier:String{get}
+    func getReceipt(for chargeable:Chargeable) -> ChargeableReceipt?
+
+    //INFO: init balance.
+    func initializeBank() -> Amount
+    func didInitializeBank(balance:MutableAmount)
 
     //INFO: return ChargeBank. balanceValue - this method may call significantly.
     // handle carefully for maintaining high performance.
@@ -37,17 +28,16 @@ protocol ChargeBanker {
     init(registeredCharges:[Charge])
 }
 
-final class ChargeBank: NSObject, KeyPathWatchable {
-    private var defaults: ChargeDefaults = Defaults(userDefaults: UserDefaults(suiteName: String(describing: ChargeBank.self)+"UserDefaults") ?? UserDefaults.standard)
+extension ChargeBank{
+    func getReceipt(for charge:Chargeable) -> ChargeableReceipt?{
+        return self.banker.getReceipt(for: charge)
+    }
+}
 
+final class ChargeBank: NSObject, KeyPathWatchable {
     @discardableResult
     private func synchronizeBalanceValue() -> Double{
-        let finalValue = mutableBalance.set(banker.willSynchronizeBalanceValue(balance: mutableBalance)).value
-        if defaults.balanceValue != finalValue{
-            //commit
-            defaults.balanceValue = finalValue
-        }
-        return finalValue
+        return mutableBalance.set(banker.willSynchronizeBalanceValue(balance: mutableBalance)).value
     }
 
     private let mutableBalance:MutableAmountObject
@@ -68,10 +58,10 @@ final class ChargeBank: NSObject, KeyPathWatchable {
     required init(banker: ChargeBanker.Type, registeredCharges:[Charge]){
         self.banker = banker.init(registeredCharges:registeredCharges)
 
-        let amount = MutableAmountObject(value:defaults.balanceValue)
-        amount.set(self.banker.willInitialize(balance: amount))
+        let amount = MutableAmountObject(value:0)
+        amount.set(self.banker.initializeBank())
         self.mutableBalance = amount
-        self.banker.didInitialize(balance: self.mutableBalance)
+        self.banker.didInitializeBank(balance: self.mutableBalance)
     }
 
     func save(for charge:Charge){
@@ -82,21 +72,3 @@ final class ChargeBank: NSObject, KeyPathWatchable {
         banker.didSaveDeposit(for: charge, balance: mutableBalance)
     }
 }
-
-private protocol ChargeDefaults:DefaultsProperty{
-    var balanceValue: Double {set get}
-}
-
-extension Defaults: ChargeDefaults {
-    fileprivate var balanceValue: Double {
-        set{
-            if newValue>=0.0 && newValue<=1.0 {
-                set(newValue)
-            }else{
-                assert(false,"charged balance is allowed only 0...1")
-            }
-        }
-        get { return get(or:0) }
-    }
-}
-

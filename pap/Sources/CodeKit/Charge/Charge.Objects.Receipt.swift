@@ -12,8 +12,16 @@ struct ChargeableReceipt: Codable, Chargeable, Hashable{
     let createdDate:Date = Date()
     let bankerVersion:Int
 
-    let type: ChargeType
-    let reward: RewardType
+    private let typeRawValue: Int
+    var type: ChargeType{
+        return ChargeType(rawValue: typeRawValue) ?? .deprecated
+    }
+
+    private let rewardRawValue: Int
+    var reward: RewardType{
+        return RewardType(rawValue: rewardRawValue) ?? .deprecated
+    }
+
     var amountValue:Double // remaining amountValue
 
     var dateData:Date?
@@ -23,8 +31,8 @@ struct ChargeableReceipt: Codable, Chargeable, Hashable{
     var dataData:Data?
 
     init(charge:Charge, bankerVersion:Int){
-        self.type = charge.type
-        self.reward = charge.reward
+        self.typeRawValue = charge.type.rawValue
+        self.rewardRawValue = charge.reward.rawValue
         self.amountValue = charge.priceAmount.value
         self.bankerVersion = bankerVersion
     }
@@ -34,8 +42,8 @@ struct ChargeableReceipt: Codable, Chargeable, Hashable{
         case createdDate
         case bankerVersion
 
-        case type
-        case reward
+        case typeRawValue
+        case rewardRawValue
         case amountValue
 
         case dateData
@@ -52,8 +60,8 @@ struct ChargeableReceipt: Codable, Chargeable, Hashable{
         try container.encode(createdDate, forKey: .createdDate)
         try container.encode(bankerVersion, forKey: .bankerVersion)
 
-        try container.encode(type, forKey: .type)
-        try container.encode(reward, forKey: .reward)
+        try container.encode(typeRawValue, forKey: .typeRawValue)
+        try container.encode(rewardRawValue, forKey: .rewardRawValue)
         try container.encode(amountValue, forKey: .amountValue)
 
         try container.encode(dateData, forKey: .dateData)
@@ -84,9 +92,17 @@ final class ChargeReceiptStorage {
     private let receiptsStorage: ChargeReceiptAccessorStorage
     private(set) var receipts:[String: ChargeableReceipt]
 
-    init(accessor: ChargeReceiptStorable){
-        receiptsStorage = Defaults(userDefaults: UserDefaults(suiteName: String(describing: type(of: accessor))+String(describing: ChargeReceiptStorage.self)) ?? UserDefaults.standard)
+    init(banker: ChargeBanker){
+        receiptsStorage = Defaults(userDefaults: UserDefaults(suiteName: banker.receiptStorageIdentifier+String(describing: ChargeReceiptStorage.self)) ?? UserDefaults.standard)
         receipts = receiptsStorage.receipts.dictionary { $0.uuid }
+    }
+
+    var balanceAmountValue:Double{
+        var v = 0.0
+        for r in receipts{
+            v += r.value.amountValue
+        }
+        return v
     }
 
     func hasReceipt(by receiptUUID:String) -> Bool{

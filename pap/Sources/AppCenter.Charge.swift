@@ -94,13 +94,13 @@ ChargeableApp.charge? -> Purchase App -> Pricing VC/Alert
 ChargeableApp.charge! -> Pricing VC/Alert
 
 */
-private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
+private final class AppChargeBanker: ChargeBanker {
     fileprivate static let version:Int = 1
 
-    private(set) var storageIdentifier: String = "com.stells.AppChargeBanker.receiptStorage"
+    private(set) var receiptStorageIdentifier: String = "com.stells.AppChargeBanker.receiptStorage"
 
     private let appShortVersionDescription = Defaults.shared.shortVersionDescription
-    private lazy var receiptStorage = ChargeReceiptStorage(accessor:self)
+    private lazy var receiptStorage = ChargeReceiptStorage(banker:self)
 
     fileprivate static let Abs_TimeOfUses_DayTimeUnit:TimeInterval = 60*60*24
     fileprivate static let InitialTutorial_TimeOfUses_Day:TimeInterval = 3
@@ -120,11 +120,12 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
         self.registeredCharges = registeredCharges
     }
 
-    func willInitialize(balance: MutableAmount) -> Amount {
-        return self.synchronizeBalance(balance:balance)
+    func initializeBank() -> Amount {
+        let initialBalanceValue = clamp(receiptStorage.balanceAmountValue, MutableAmountObject.minValue, MutableAmountObject.maxValue)
+        return self.synchronizeBalance(balance:MutableAmountObject(value: initialBalanceValue))
     }
 
-    func didInitialize(balance: MutableAmount) {
+    func didInitializeBank(balance: MutableAmount) {
         switch appShortVersionDescription{
             case .first:
                 if let welcomeCharge = self.registeredCharges.first(where:{ charge in
@@ -168,7 +169,16 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
                 continue
             }
 
+            // expired on new version
             if appShortVersionDescription == .new && type(of: self).ChargeTypesAvailableOnlyCurrentVersion.contains(receipt.type){
+                balance.subtractShares(of: AmountObject(value:receipt.amountValue), ratio: 1)
+                removingReceipts.insert(receipt)
+                continue
+            }
+
+            //deprecated
+            if receipt.type == .deprecated || receipt.reward == .deprecated{
+                balance.subtractShares(of: AmountObject(value:receipt.amountValue), ratio: 1)
                 removingReceipts.insert(receipt)
                 continue
             }

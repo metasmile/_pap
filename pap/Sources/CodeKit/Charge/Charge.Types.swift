@@ -5,37 +5,42 @@
 
 import Foundation
 
-enum ChargeType:Int, Codable {
+//INFO: WARNING: rawValue is ID so they must be unique value forever. do not use same again.
+enum ChargeType:Int {
+    case deprecated = -1
+
     //promotional
-    case welcomeFreeTrial
-    case inStoreRating
-    case onPromptRating
-    case socialShare
-    case feedback
-    case ads
+    case welcomeFreeTrial = 100
+    case inStoreRating = 101
+    case onPromptRating = 102
+    case socialShare = 103
+    case feedback = 104
+    case ads = 105
 
     //very special promotional
-    case vipCode //it will match with new hash value for each new version
+    case vipCode = 200 //it will match with new hash value for each new version
 
     //paid
-    case nonConsumablePurchase
-    case consumablePurchase
-    case nonRenewingMonthlySubscription
-    case nonRenewingYearlySubscription
-    case renewableMonthlySubscription
-    case renewableYearlySubscription
+    case nonConsumablePurchase = 300
+    case consumablePurchase = 301
+    case nonRenewingMonthlySubscription = 302
+    case nonRenewingYearlySubscription = 303
+    case renewableMonthlySubscription = 304
+    case renewableYearlySubscription = 305
 }
 
-enum RewardType:Int, Codable {
+enum RewardType:Int {
+    case deprecated = -1
+
     //will be engaged only nonSelected
-    case nonBlockOfUses
+    case nonBlockOfUses = 100
 
     //e.g. promotional
-    case timeOfUses
-    case countOfUses
+    case timeOfUses = 200
+    case countOfUses = 201
 
     //e.g. paid or VIP code
-    case owned
+    case owned = 300
 }
 
 protocol Payable {
