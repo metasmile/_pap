@@ -48,8 +48,9 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
 
             photoCollectionView.isScrollEnabled = false
         case .changed:
-            drag(at: touchLocation, with: sender.selectionMode)
-            panWithDragging(at: touchLocation)
+            if !panWithDragging(at: touchLocation, with: sender.selectionMode) {
+                drag(at: touchLocation, with: sender.selectionMode)
+            }
         default:
             photoCollectionView.isScrollEnabled = true
             sender.reset()
@@ -59,9 +60,9 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
 
     private func drag(at location: CGPoint, with selectionMode: DragSelectionGestureRecognizer.DragSelectionMode) {
         guard
-                let beginLocation = dragSelectionGesture.beginLocation,
-                let beginIndexPath = dragSelectionGesture.beginIndexPath
-                else { return }
+            let beginLocation = dragSelectionGesture.beginLocation,
+            let beginIndexPath = dragSelectionGesture.beginIndexPath
+        else { return }
 
         var draggingArea = CGRect(x: min(beginLocation.x, location.x), y: min(beginLocation.y, location.y), width: (beginLocation.x - location.x).magnitude, height: (beginLocation.y - location.y).magnitude)
         draggingArea.origin.x = 0
@@ -134,9 +135,9 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
         if selectionMode == .select {
             photoCollectionView.indexPathsForSelectedItems?.forEach { indexPath in
                 guard
-                        dragSelectionGesture.ignoredIndexPaths?.contains(indexPath) == false,
-                        !groupedIndexPaths.contains(indexPath)
-                        else { return }
+                    dragSelectionGesture.ignoredIndexPaths?.contains(indexPath) == false,
+                    !groupedIndexPaths.contains(indexPath)
+                else { return }
 
                 ignoredIndexPaths.append(indexPath)
             }
@@ -179,14 +180,16 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
         }
     }
 
-    private func panWithDragging(at location: CGPoint) {
+    private func panWithDragging(at location: CGPoint, with selectionMode: DragSelectionGestureRecognizer.DragSelectionMode) -> Bool {
         let pointInScreen = photoCollectionView.convert(location, to: view)
         let boundingInsets = appDockInsets
         let boundingArea = UIEdgeInsetsInsetRect(photoCollectionView.frame, boundingInsets)
         guard !boundingArea.contains(pointInScreen) else {
             dragSelectionGesture.stopAutoPanning()
-            return
+            return false
         }
+        
+        let beginContentOffset = photoCollectionView.contentOffset
 
         var panVelocity: CGFloat = 0
         let scrollDirection: DragSelectionGestureRecognizer.AutoPanningDirection = (pointInScreen.y <= boundingArea.minY) ? .up : .down
@@ -203,6 +206,8 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
                 else {
                     collectionView.contentOffset.y = beginOfContentOffsetY
                 }
+                let diatanceY = collectionView.contentOffset.y - beginContentOffset.y
+                self?.drag(at: CGPoint(x: location.x, y: location.y + diatanceY), with: selectionMode)
             }
         case .down:
             panVelocity = (pointInScreen.y - boundingArea.maxY) / boundingInsets.bottom
@@ -216,9 +221,13 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
                 else {
                     collectionView.contentOffset.y = endOfContentOffsetY
                 }
+                let diatanceY = collectionView.contentOffset.y - beginContentOffset.y
+                self?.drag(at: CGPoint(x: location.x, y: location.y + diatanceY), with: selectionMode)
             }
         default:
             break
         }
+        
+        return true
     }
 }
