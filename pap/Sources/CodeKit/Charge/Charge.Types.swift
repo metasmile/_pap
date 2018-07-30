@@ -29,16 +29,12 @@ enum ChargeType:Int, Codable {
 enum RewardType:Int, Codable {
     //will be engaged only nonSelected
     case nonBlockOfUses
-    case nonBlockOfUsesByVersion
 
     //e.g. promotional
-    case timeOfUsesByVersion // while uses on single version
     case timeOfUses
-    case countOfUsesByVersion
     case countOfUses
 
     //e.g. paid or VIP code
-    case ownedByVersion
     case owned
 }
 

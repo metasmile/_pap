@@ -107,6 +107,11 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
     fileprivate static let Abs_TimeOfUses_Day:TimeInterval = 30
     fileprivate static let Abs_TimeOfUses_Time:TimeInterval = Abs_TimeOfUses_Day * Abs_TimeOfUses_DayTimeUnit
 
+    private static let ChargeTypesAvailableOnlyCurrentVersion = Set([
+        ChargeType.inStoreRating
+        , ChargeType.onPromptRating
+    ])
+
     fileprivate static let Abs_CountOfUses_Count = 50
 
     private let registeredCharges:[Charge]
@@ -153,6 +158,7 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
 
     @discardableResult
     private func synchronizeBalance(balance: MutableAmount) -> Amount{
+        let initialBalance = balance.value
         var removingReceipts = Set<ChargeableReceipt>()
         let syncDate = Date()
 
@@ -162,15 +168,14 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
                 continue
             }
 
+            if appShortVersionDescription == .new && type(of: self).ChargeTypesAvailableOnlyCurrentVersion.contains(receipt.type){
+                removingReceipts.insert(receipt)
+                continue
+            }
+
             switch receipt.reward{
                 case .nonBlockOfUses:
                     break
-
-                case .nonBlockOfUsesByVersion,
-                     .timeOfUsesByVersion,
-                     .countOfUsesByVersion,
-                     .ownedByVersion where appShortVersionDescription == .new:
-                    removingReceipts.insert(receipt)
 
                 case .timeOfUses:
                     if let date = receipt.dateData{
@@ -199,6 +204,11 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
                 default:
                     assert(false, "[!] WARNING: \(receipt.reward) handling is not implemented yet.")
             }
+        }
+
+        //INFO: safe reset for overvalued receipts (e.g. receipt value is remained but max balance is empty)
+        if initialBalance > 0 && balance.value==0{
+            removingReceipts = Set(receiptStorage.receipts.values)
         }
 
         for r in removingReceipts {
