@@ -133,28 +133,21 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
 
         var ignoredIndexPaths = [IndexPath]()
         if selectionMode == .select {
-            photoCollectionView.indexPathsForSelectedItems?.forEach { indexPath in
-                guard
-                    dragSelectionGesture.ignoredIndexPaths?.contains(indexPath) == false,
-                    !groupedIndexPaths.contains(indexPath)
-                else { return }
-
-                ignoredIndexPaths.append(indexPath)
-            }
+            ignoredIndexPaths.append(contentsOf: photoCollectionView.indexPathsForSelectedItems?.filter {
+                dragSelectionGesture.ignoredIndexPaths?.contains($0) == false && !groupedIndexPaths.contains($0)
+            } ?? [])
 
             dragDeselection(with: ignoredIndexPaths)
             dragSelection(with: groupedIndexPaths)
         }
         else if selectionMode == .deselect {
-            dragSelectionGesture.ignoredIndexPaths?.forEach { indexPath in
-                guard !groupedIndexPaths.contains(indexPath) else { return }
-                ignoredIndexPaths.append(indexPath)
-            }
-
-            photoCollectionView.indexPathsForSelectedItems?.forEach { indexPath in
-                guard !groupedIndexPaths.contains(indexPath), !ignoredIndexPaths.contains(indexPath) else { return }
-                ignoredIndexPaths.append(indexPath)
-            }
+            ignoredIndexPaths.append(contentsOf: dragSelectionGesture.ignoredIndexPaths?.filter {
+                !groupedIndexPaths.contains($0)
+            } ?? [])
+            
+            ignoredIndexPaths.append(contentsOf: photoCollectionView.indexPathsForSelectedItems?.filter {
+                !groupedIndexPaths.contains($0) && !ignoredIndexPaths.contains($0)
+            } ?? [])
 
             dragDeselection(with: groupedIndexPaths)
             dragSelection(with: ignoredIndexPaths)
@@ -207,7 +200,8 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
                     collectionView.contentOffset.y = beginOfContentOffsetY
                 }
                 let diatanceY = collectionView.contentOffset.y - beginContentOffset.y
-                self?.drag(at: CGPoint(x: location.x, y: location.y + diatanceY), with: selectionMode)
+                let estimatedTouchLocation = CGPoint(x: location.x, y: location.y + diatanceY)
+                self?.drag(at: estimatedTouchLocation, with: selectionMode)
             }
         case .down:
             panVelocity = (pointInScreen.y - boundingArea.maxY) / boundingInsets.bottom
@@ -222,7 +216,8 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
                     collectionView.contentOffset.y = endOfContentOffsetY
                 }
                 let diatanceY = collectionView.contentOffset.y - beginContentOffset.y
-                self?.drag(at: CGPoint(x: location.x, y: location.y + diatanceY), with: selectionMode)
+                let estimatedTouchLocation = CGPoint(x: location.x, y: location.y + diatanceY)
+                self?.drag(at: estimatedTouchLocation, with: selectionMode)
             }
         default:
             break
