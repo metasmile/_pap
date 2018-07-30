@@ -1106,7 +1106,7 @@ extension Defaults: FinderAppDefaults {
 
     fileprivate var selectionPreset: Int {
         set{ set(newValue) }
-        get{ return get(or: SelectionPreset.action.rawValue ) }
+        get{ return get(or: SelectionPreset.plaintext.rawValue ) }
     }
 
     fileprivate var saveContactWithoutEdit: Bool {
@@ -1341,7 +1341,13 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
                 self.settingCellDescribers.append(self.createCellDescriber_SelectionPreset_action_quickActionsOnly())
             }
 
-            (view as? UITableView)?.reloadData()
+            let tableView = view as? UITableView
+            tableView?.reloadData()
+
+            let d = Defaults.shared.shortVersionDescription
+            if (d == .new || d == .first) && (tableView?.numberOfSections ?? 0 > 1 && tableView?.numberOfRows(inSection: 1) ?? 0 > 1){
+                tableView?.scrollToRow(at: IndexPath(item: 0, section: 1), at: .middle, animated: true)
+            }
 
             // autoSelect turn off and restore
             cell1.valueHandler?(false)
@@ -1367,7 +1373,6 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
             tableView.allowsSelection = false
             tableView.allowsMultipleSelection = false
             tableView.register(Cell.self, forCellReuseIdentifier: FinderApp.info.identifier)
-
             for desc in settingCellDescribers {
                 tableView.register(describer: desc)
             }

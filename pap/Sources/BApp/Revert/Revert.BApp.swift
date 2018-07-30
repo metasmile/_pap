@@ -21,7 +21,7 @@ private protocol RevertAppDefaults: AppDefaults{
 extension Defaults: RevertAppDefaults {
     fileprivate var autoSelect: Bool {
         set{ set(newValue) }
-        get{ return get(or: false) }
+        get{ return get(or: true) }
     }
 }
 

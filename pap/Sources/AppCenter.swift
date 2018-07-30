@@ -71,14 +71,14 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             , TransformApp.self
             , FiltersApp.self
             , CameraApp.self
-            , RevertApp.self
-            , ConverterApp.self
-            , GIFMakerApp.self
             , PhoneCallsApp.self
+            , ConverterApp.self
+            , CleanerApp.self
+            , GIFMakerApp.self
+            , RevertApp.self
             , PDFactoryApp.self
             , AutoEditorApp.self
             , ExifGhostApp.self
-            , CleanerApp.self
             , Stabilizer.self
 
         ].sorted { (appType1: App.Type, appType2: App.Type) -> Bool in
