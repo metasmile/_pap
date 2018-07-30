@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     let spotlightSearchAppDelegate = SpotlightSearchAppDelegate()
+    let shortcutItemAppDelegate = ShortcutItemAppDelegate()
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         Defaults.shared.initVersionInfo()
@@ -46,6 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DispatchQueue.global(qos: .background).async{
             self.spotlightSearchAppDelegate.indexDefaultSearchableItems()
             self.spotlightSearchAppDelegate.application(application, didFinishLaunchingWithOptions: launchOptions)
+            self.shortcutItemAppDelegate.application(application, didFinishLaunchingWithOptions: launchOptions)
         }
         return true
     }
@@ -81,3 +83,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+extension AppDelegate {
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        DispatchQueue.global(qos: .background).async {
+            self.shortcutItemAppDelegate.application(application, performActionFor: shortcutItem, completionHandler: completionHandler)
+        }
+    }
+}

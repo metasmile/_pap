@@ -885,6 +885,9 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         updateVisibleCellsEnabled()
 
         updateAppDockViewProcessingEnd()
+        
+        //POLICY: add recently used shortcut item
+        ShortcutItemAppDelegate.appendShortcutItem(by: AppCenter.default.current)
     }
     
     private func updateAppDockViewProcessingStart() {
