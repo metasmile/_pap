@@ -7,6 +7,9 @@ import Foundation
 import DefaultsKit
 
 protocol ChargeReceiptStorable where Self:ChargeBanker{
+    //INFO: WARNING: If storageIdentifier changed, existed receipt information will be destroyed.
+    var storageIdentifier:String{get}
+
     func getReceipt(for chargeable:Chargeable) -> ChargeableReceipt?
 }
 

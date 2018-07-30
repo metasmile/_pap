@@ -70,13 +70,13 @@ struct ChargeableReceipt: Codable, Chargeable, Hashable{
 
 
 private protocol ChargeReceiptAccessorStorage:DefaultsProperty{
-    var receipts:[String: ChargeableReceipt] {set get} // receipt ID : object
+    var receipts:[ChargeableReceipt] {set get} // receipt ID : object
 }
 
 extension Defaults: ChargeReceiptAccessorStorage {
-    var receipts:[String: ChargeableReceipt]{
+    var receipts:[ChargeableReceipt]{
         set{ set(newValue) }
-        get{ return get(or:[String: ChargeableReceipt]()) }
+        get{ return get(or:[ChargeableReceipt]()) }
     }
 }
 
@@ -86,7 +86,7 @@ final class ChargeReceiptStorage {
 
     init(accessor: ChargeReceiptStorable){
         receiptsStorage = Defaults(userDefaults: UserDefaults(suiteName: String(describing: type(of: accessor))+String(describing: ChargeReceiptStorage.self)) ?? UserDefaults.standard)
-        receipts = receiptsStorage.receipts
+        receipts = receiptsStorage.receipts.dictionary { $0.uuid }
     }
 
     func hasReceipt(by receiptUUID:String) -> Bool{
@@ -100,6 +100,7 @@ final class ChargeReceiptStorage {
     }
 
     func addReceipt(_ receipt: ChargeableReceipt){
+        assert(!hasReceipt(by: receipt.uuid),"Given receipt, \(receipt) does already exist")
         if !hasReceipt(by: receipt.uuid){
             receipts[receipt.uuid] = receipt
         }
@@ -110,6 +111,7 @@ final class ChargeReceiptStorage {
     }
 
     func updateReceipt(_ receipt:ChargeableReceipt){
+        assert(hasReceipt(by: receipt.uuid), "Given receipt, \(receipt) does not exist")
         if hasReceipt(by: receipt.uuid){
             receipts[receipt.uuid] = receipt
         }
@@ -117,6 +119,6 @@ final class ChargeReceiptStorage {
 
     func commit(){
         var mutableReceiptsStorage = self.receiptsStorage
-        mutableReceiptsStorage.receipts = self.receipts
+        mutableReceiptsStorage.receipts = Array(self.receipts.values)
     }
 }

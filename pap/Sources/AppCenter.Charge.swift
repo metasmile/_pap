@@ -97,6 +97,8 @@ ChargeableApp.charge! -> Pricing VC/Alert
 private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
     fileprivate static let version:Int = 1
 
+    private(set) var storageIdentifier: String = "com.stells.AppChargeBanker.receiptStorage"
+
     private let appShortVersionDescription = Defaults.shared.shortVersionDescription
     private lazy var receiptStorage = ChargeReceiptStorage(accessor:self)
 
@@ -130,6 +132,7 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
                 }
 
             case .reversed, .unhandled:
+                assert(false, "Wrong version direction. Install new one.")
                 balance.set(AmountObject(value: 0))
                 synchronizeBalance(balance:balance)
 
@@ -151,6 +154,7 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
     @discardableResult
     private func synchronizeBalance(balance: MutableAmount) -> Amount{
         var removingReceipts = Set<ChargeableReceipt>()
+        let syncDate = Date()
 
         for (_, receipt) in receiptStorage.receipts { //TODO: improve performance - o.n -> o.1 avg.
 
@@ -170,24 +174,21 @@ private final class AppChargeBanker: ChargeBanker, ChargeReceiptStorable {
 
                 case .timeOfUses:
                     if let date = receipt.dateData{
-                        let currentDate = Date()
-
                         let totalOffset = type(of: self).Abs_TimeOfUses_Time * charge.priceAmount.value
-                        let offset = currentDate.timeIntervalSince(date)
+                        let offset = syncDate.timeIntervalSince(date)
                         let amountValueOffsetRatio = offset/totalOffset
+                        assert(amountValueOffsetRatio<=1)
 
                         let subtractingAmountValueInSelf = charge.priceAmount.value * amountValueOffsetRatio
-                        let subtractingAmountValueInBalance = charge.priceAmount.getValueOfShares(inContainer: balance) * amountValueOffsetRatio
-
                         let remainingAmountValue = receipt.amountValue - subtractingAmountValueInSelf
 
                         var updatingReceipt = receipt
                         updatingReceipt.amountValue = remainingAmountValue
-                        updatingReceipt.dateData = currentDate
+                        updatingReceipt.dateData = syncDate
                         receiptStorage.updateReceipt(updatingReceipt)
 
                         if remainingAmountValue > 0{
-                            balance.subtract(AmountObject(value: subtractingAmountValueInBalance))
+                            balance.subtractShares(of: charge.priceAmount, ratio: amountValueOffsetRatio)
 
                             print("[i] Receipt type:\(receipt.type), reward:\(receipt.reward) did subtract - balance:", balance.value)
                         }else{
