@@ -102,7 +102,7 @@ final class ChargeReceiptStorage {
         for r in receipts{
             v += r.value.amountValue
         }
-        return v
+        return clamp(v, AmountObject.minValue, AmountObject.maxValue)
     }
 
     func hasReceipt(by receiptUUID:String) -> Bool{

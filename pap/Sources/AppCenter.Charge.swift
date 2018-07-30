@@ -210,6 +210,12 @@ private final class AppChargeBanker: ChargeBanker {
                             removingReceipts.insert(receipt)
                         }
 
+                        //INFO: the sum of amountValue is not always 1.0 (time calculation)
+                        // Receipt == 0 >> Balance
+                        if removingReceipts.count>0 && receiptStorage.receipts.count==removingReceipts.count{
+                            balance.set(AmountObject(value: 0))
+                        }
+
                     }
                 default:
                     assert(false, "[!] WARNING: \(receipt.reward) handling is not implemented yet.")
@@ -217,6 +223,7 @@ private final class AppChargeBanker: ChargeBanker {
         }
 
         //INFO: safe reset for overvalued receipts (e.g. receipt value is remained but max balance is empty)
+        // Balance == 0 >> Receipt
         if initialBalance > 0 && balance.value==0{
             removingReceipts = Set(receiptStorage.receipts.values)
         }
@@ -226,9 +233,7 @@ private final class AppChargeBanker: ChargeBanker {
             print("[i] INFO: Removed Receipts: ", r, r.uuid)
         }
 
-        DispatchQueue.global().async{
-            self.receiptStorage.commit()
-        }
+        self.receiptStorage.commit()
         return balance
     }
 
