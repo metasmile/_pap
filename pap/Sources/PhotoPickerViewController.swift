@@ -248,7 +248,8 @@ class PhotoPickerViewController: AppDockViewController {
         appDockView?.reloadKeepingDrawerOpened()
         batchPreviewView.updatePreviews(forced: true)
 
-        updateDoneButtonState()
+        updateSelectedItemUIs()
+
         cancelPreheatingIfNeeded()
         performPrefetchIfNeeded(includingCurrentVisibleItems: true)
 
@@ -418,8 +419,7 @@ class PhotoPickerViewController: AppDockViewController {
 
     func updateSelectedItemUIs() {
         updateSelectedItemsTitle()
-        updateSelectedItemsControl()
-        updateDoneButtonState()
+        updateControlsReadyingToPerform()
     }
 
     //TODO: mod for all media types - numberOfPhotos + numberOfVideos
@@ -448,28 +448,9 @@ class PhotoPickerViewController: AppDockViewController {
         }
     }
 
-    private func updateSelectedItemsControl() {
+    private func updateControlsReadyingToPerform() {
 
-        switch updateRightButtonState(){
-
-            case .paidSelected, .unpaidSelected:
-                navigationItem.setLeftBarButton(self.cancelButton, animated: true)
-
-                if appDockView?.accessory == nil {
-                    appDockView?.accessory = batchPreviewView
-                }
-
-            case .unpaidDeselected:
-                navigationItem.setLeftBarButton(nil, animated: true)
-
-                if appDockView?.accessory != nil {
-                    appDockView?.accessory = nil
-                    batchPreviewView.reloadContent()
-                }
-        }
-    }
-    private func updateDoneButtonState() {
-
+        //update done button
         if AppCenter.default.current == nil{
             doneButton?.isEnabled = false
             doneButton?.title = nil
@@ -478,6 +459,22 @@ class PhotoPickerViewController: AppDockViewController {
 
             let definedTitle = AppCenter.default.currentInstanceAs(PhotoPickerViewControllerDelegatableApp.self)?.doneButtonTitle
             doneButton?.title = definedTitle ?? "Start".localized
+        }
+
+        //update done execution state
+        if updateDoneButtonChargeableState() {
+            navigationItem.setLeftBarButton(self.cancelButton, animated: true)
+
+            if appDockView?.accessory == nil {
+                appDockView?.accessory = batchPreviewView
+            }
+        }else {
+            navigationItem.setLeftBarButton(nil, animated: true)
+
+            if appDockView?.accessory != nil {
+                appDockView?.accessory = nil
+                batchPreviewView.reloadContent()
+            }
         }
     }
 

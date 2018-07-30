@@ -7,45 +7,39 @@ import Foundation
 import UIKit
 import Armchair
 
-enum PhotoPickerViewControllerRightBarButtonState {
-    case unpaidDeselected
-    case unpaidSelected
-    case paidSelected
-}
-
 extension PhotoPickerViewController{
 
     func initializeChargeWhenViewDidLoad(){
 
         AppCenter.charge.bank.watch(\.balanceValue) {
             print("[i] Updated balance:", AppCenter.charge.bank.balanceValue)
-            self.updateRightButtonState()
+            self.updateDoneButtonChargeableState()
         }
     }
 
     @discardableResult
-    func updateRightButtonState() -> PhotoPickerViewControllerRightBarButtonState {
+    func updateDoneButtonChargeableState() -> Bool {
 
         let selected = self.estimatedAvailableSelectedItems > 0
 
         if selected{
             let currentSyncedBalanceValue = AppCenter.charge.bank.balanceValue
 
+            assert(currentSyncedBalanceValue>=0, "current balance value synced with < 0")
+
             if currentSyncedBalanceValue > 0 {
                 navigationItem.setRightBarButton(self.doneButton, animated: true)
-                return .paidSelected
+
             } else if currentSyncedBalanceValue == 0 {
                 let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.chargeableButton
                 rightButtonItem.title = doneButton?.title
                 rightButtonItem.balance = AppCenter.charge.bank.balanceValue
                 rightButtonItem.target = self
                 rightButtonItem.action = #selector(self.chargeableButtonDidTap)
-                navigationItem.setRightBarButton(rightButtonItem, animated: true)
-                return .unpaidSelected
-
+                navigationItem.setRightBarButton(rightButtonItem, animated: false)
             }
-            assert(false, "current balance value synced with < 0")
-            return .paidSelected
+            
+            return true
         }
 
         let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.chargeableButton
@@ -54,7 +48,7 @@ extension PhotoPickerViewController{
         rightButtonItem.target = self
         rightButtonItem.action = #selector(self.chargeableButtonDidTap)
         navigationItem.setRightBarButton(rightButtonItem, animated: true)
-        return .unpaidDeselected
+        return false
     }
 
     @objc fileprivate func chargeableButtonDidTap(sender: Any) {

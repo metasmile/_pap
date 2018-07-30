@@ -122,7 +122,7 @@ private final class AppChargeBanker: ChargeBanker {
 
     func initializeBank() -> Amount {
         let initialBalanceValue = clamp(receiptStorage.balanceAmountValue, MutableAmountObject.minValue, MutableAmountObject.maxValue)
-        return self.synchronizeBalance(balance:MutableAmountObject(value: initialBalanceValue))
+        return self.synchronizeBalance(balance:MutableAmountObject(value: 0))
     }
 
     func didInitializeBank(balance: MutableAmount) {
