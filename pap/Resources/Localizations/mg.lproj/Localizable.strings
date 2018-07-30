@@ -150,10 +150,16 @@
 "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Apetaho ny sivana avo lenta amin'ny sary rehetra tianao. Tsy misy fetrany ny isan'ireo sary hanitsiana azy ireo.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Aspect Ratio";
+/* Generated from genl10n: AutoEditor.BApp.swift#172 */
+"Auto Crop" = "Auto Crop";
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
 "Auto Editor lets you edit automatically if your photos are needed to correct." = "Ny Auto Editor dia afaka mamolavola ho azy raha ilaina ny mombamomba anao.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Auto Editor";
+/* Generated from genl10n: AutoEditor.BApp.swift#170 */
+"Auto Enhance" = "Auto Enhance";
+/* Generated from genl10n: AutoEditor.BApp.swift#173 */
+"Auto Straighten" = "Auto Straighten";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Tebiteby";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,8 +176,6 @@
 "Choose An Export Option For %d Items" = "Safidio ny safidy fanodinana %d Items";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Safidio ny Akanjo ambany.";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Choose an Option To Convert" = "Safidio ny safidy mba hiova";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Ny Cleaner dia ahafahanao mahita sy mamafa ireo karazana sary tsy mety toy ny sary duplicate sy mitovy, sary akaiky na ny Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -208,6 +212,8 @@
 "E-mail Address" = "Adiresy mailaka";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost dia mamela anao hanaisotra ireo karazan-doka rehetra misy ny sarinao miaraka amin'ireo fampahalalana manokana.";
+/* Generated from genl10n: Finder.BApp.swift#1264 */
+"Enable Quick Actions" = "Hanaisotra hetsika haingana";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Safidy manondrana Export";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -246,6 +252,8 @@
 "Hiding Selected Items..." = "Hanafina singa voafaritra ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Quality Image";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+"Images" = "Images";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Import";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
@@ -254,6 +262,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Mitaky fahazoan-dàlana hidirana amin'ny fifandraisana aminao izany. Alefaso azafady ny fifandraisana amin'ny iOS Settings.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Items";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Landscape" = "Landscape";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Layout";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -292,14 +302,16 @@
 "Page Margin" = "Pejy Margin";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Pejy Size Preset";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+"Pages" = "Pages";
 /* Generated from genl10n: PhoneCalls.swift#57 */
 "Phone Calls" = "Calling Phone";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Nomeraon-telefaona";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Photos";
-/* Generated from genl10n: Finder.BApp.swift#1229 */
-"Plain Text" = "Lahatsoratra tsotra";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Portrait" = "Portrait";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -308,6 +320,8 @@
 "Quality" = "Quality";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "Hetsika fohy fotsiny";
+/* Generated from genl10n: AutoEditor.BApp.swift#171 */
+"Red-Eye Removal" = "Fanesorana mena";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Avereno";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -318,6 +332,8 @@
 "Rewind" = "Rewind";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "Save All Phone Numbers";
+/* Generated from genl10n: Finder.BApp.swift#1252 */
+"Save Contacts" = "Vonjeo ny fifandraisana";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "Hamonjy ny kaonty hita mivantana";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -336,6 +352,8 @@
 "Screenshots" = "sary";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Search Flights";
+/* Generated from genl10n: Converter.AppDockContent.swift#148 */
+"Select Format To Convert" = "Alefaso ny format izay tokony hiverina";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "Fidio ireo sary hamafana.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
@@ -384,6 +402,8 @@
 "Targeted" = "lasibatra";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "lasibatra";
+/* Generated from genl10n: Finder.BApp.swift#1311 */
+"Text" = "Text";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "Ity tsotra ity saingy ny fitaovana maivana indrindra dia afaka mamadika haingana sy mamaky lahatsary fampahalalam-baovao betsaka, anisan'izany ny Live Photos. Tsy misy fetran-dàlana ny isan'ireo sary hanitsiana azy ireo.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */

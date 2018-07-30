@@ -150,10 +150,16 @@
 "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Uporabite visoko kakovostne filtre na vseh vaših fotografijah, ki jih želite. Število fotografij za urejanje ni omejeno.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Razmerje";
+/* Generated from genl10n: AutoEditor.BApp.swift#172 */
+"Auto Crop" = "Auto Crop";
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
 "Auto Editor lets you edit automatically if your photos are needed to correct." = "Samodejni urejevalnik vam omogoča samodejno urejanje, če so vaše fotografije potrebne za odpravo.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Auto Editor";
+/* Generated from genl10n: AutoEditor.BApp.swift#170 */
+"Auto Enhance" = "Samodejno izboljšaj";
+/* Generated from genl10n: AutoEditor.BApp.swift#173 */
+"Auto Straighten" = "Samodejno poravnaj";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,8 +176,6 @@
 "Choose An Export Option For %d Items" = "Izberite možnost izvoza za elemente %d";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Izberite podukrep.";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Choose an Option To Convert" = "Izberite možnost za pretvorbo";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner vam omogoča iskanje in brisanje vseh nepravilnih fotografij, kot so podvojene in podobne slike, fotografije v velikih količinah ali posnetki Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -208,6 +212,8 @@
 "E-mail Address" = "Email naslov";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost vam omogoča odstranjevanje vseh vrst podatkov, ki vsebujejo vaše fotografije, vključno z zasebnimi informacijami.";
+/* Generated from genl10n: Finder.BApp.swift#1264 */
+"Enable Quick Actions" = "Omogoči hitre akcije";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Izvozne možnosti";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -246,6 +252,8 @@
 "Hiding Selected Items..." = "Skrivanje izbranih elementov ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Kvaliteta slike";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+"Images" = "Slike";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Uvozi";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
@@ -254,6 +262,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Zahteva dovoljenje za dostop do vaših stikov. Omogočite imenik v nastavitvah za iOS.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Elementi";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Landscape" = "Pokrajina";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Postavitev";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -292,14 +302,16 @@
 "Page Margin" = "Page Margin";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Page Size Preset";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+"Pages" = "Strani";
 /* Generated from genl10n: PhoneCalls.swift#57 */
 "Phone Calls" = "Telefonski klici";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Telefonska številka";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Fotografije";
-/* Generated from genl10n: Finder.BApp.swift#1229 */
-"Plain Text" = "Golo besedilo";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Portrait" = "Portret";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -308,6 +320,8 @@
 "Quality" = "Kakovost";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "Samo hitri ukrepi";
+/* Generated from genl10n: AutoEditor.BApp.swift#171 */
+"Red-Eye Removal" = "Odstranjevanje rdečih oči";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Ponovi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -318,6 +332,8 @@
 "Rewind" = "Rewind";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "Shrani vse telefonske številke";
+/* Generated from genl10n: Finder.BApp.swift#1252 */
+"Save Contacts" = "Shrani stike";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "Shrani najdene stike neposredno";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -336,6 +352,8 @@
 "Screenshots" = "Posnetki zaslona";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Iskanje letov";
+/* Generated from genl10n: Converter.AppDockContent.swift#148 */
+"Select Format To Convert" = "Izberite Oblika za pretvarjanje";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "Izberite fotografije za brisanje.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
@@ -384,6 +402,8 @@
 "Targeted" = "Ciljno";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Cilji";
+/* Generated from genl10n: Finder.BApp.swift#1311 */
+"Text" = "Besedilo";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "To preprosto, a najhitrejše orodje vam omogoča hitro vrtenje in flipping veliko medijskih datotek, vključno z živimi fotografijami. Privzeto ni omejitev števila fotografij za urejanje.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */

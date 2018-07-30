@@ -150,10 +150,16 @@
 "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "İstədiyiniz bütün fotoşəkillərinizə yüksək keyfiyyətli filtrelər tətbiq edin. Onları düzəldəcək fotoşəkillərin sayına heç bir məhdudiyyət yoxdur.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Aspekt nisbəti";
+/* Generated from genl10n: AutoEditor.BApp.swift#172 */
+"Auto Crop" = "Avtomatik bitki";
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
 "Auto Editor lets you edit automatically if your photos are needed to correct." = "Auto Editor, şəkillərinizin düzəlməsi üçün lazım olsa avtomatik olaraq redaktə etməyə imkan verir.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Auto redaktoru";
+/* Generated from genl10n: AutoEditor.BApp.swift#170 */
+"Auto Enhance" = "Avto Enhance";
+/* Generated from genl10n: AutoEditor.BApp.swift#173 */
+"Auto Straighten" = "Avtomatik Düzəldin";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,8 +176,6 @@
 "Choose An Export Option For %d Items" = "%d Məhsullara İxrac Seçimi Seçin";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Bir Sub Fəaliyyəti seçin.";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Choose an Option To Convert" = "Konvertasiya etmək üçün bir seçim seçin";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Təmiz, yinelenen və oxşar şəkillər, yaxın fotoşəkilləri və ya Lockscreen çekimləri kimi hər cür yanlış fotoşəkilləri tapmaq və silmək imkanı verir!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -208,6 +212,8 @@
 "E-mail Address" = "E-poçt ünvanı";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost, özəl məlumatlar daxil olmaqla, fotoşəkillərinizi ehtiva edən hər cür məlumatı ləğv etməyə imkan verir.";
+/* Generated from genl10n: Finder.BApp.swift#1264 */
+"Enable Quick Actions" = "Tez hərəkəti aktiv edin";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "İxrac Seçimləri";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -246,6 +252,8 @@
 "Hiding Selected Items..." = "Seçilən əşyaların gizlədilməsi ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Image keyfiyyəti";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+"Images" = "Şəkillər";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "İthalat";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
@@ -254,6 +262,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Kontaktlarınıza daxil olmaq üçün icazə tələb olunur. Xahiş edirik iOS Ayarlarında Əlaqə edin.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Məhsullar";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Landscape" = "Landşaft";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Layout";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -292,14 +302,16 @@
 "Page Margin" = "Səhifə Margin";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Səhifə ölçüsü Öncək";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+"Pages" = "Səhifələr";
 /* Generated from genl10n: PhoneCalls.swift#57 */
 "Phone Calls" = "Telefon zəngləri";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Telefon nömrəsi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Photos";
-/* Generated from genl10n: Finder.BApp.swift#1229 */
-"Plain Text" = "Sadə mətn";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Portrait" = "Portret";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Önayarlar";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -308,6 +320,8 @@
 "Quality" = "Keyfiyyət";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "Yalnızca Tez Tədbirlər";
+/* Generated from genl10n: AutoEditor.BApp.swift#171 */
+"Red-Eye Removal" = "Qırmızı Gözdən Təmizləmə";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Təkrarlamaq";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -318,6 +332,8 @@
 "Rewind" = "Rewind";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "Bütün Telefon nömrələrini Saxla";
+/* Generated from genl10n: Finder.BApp.swift#1252 */
+"Save Contacts" = "Əlaqə Saxla";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "Əlaqəli Əlaqələri tapın";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -336,6 +352,8 @@
 "Screenshots" = "Ekran görüntüləri";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Uçuş axtarışı";
+/* Generated from genl10n: Converter.AppDockContent.swift#148 */
+"Select Format To Convert" = "Dönüştürmək üçün Biçimi Seçin";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "Sil üçün Fotoları seçin.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
@@ -384,6 +402,8 @@
 "Targeted" = "Hedefli";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Hədəflər";
+/* Generated from genl10n: Finder.BApp.swift#1311 */
+"Text" = "Mətn";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "Bu sadə, lakin ən sürətli vasitə, Canlı Fotoşəkillər daxil olmaqla bir çox media faylını sürətlə çevirmə və çevirmə imkanı verir. Mənim cari olaraq, onları redaktə etmək üçün şəkil sayına heç bir məhdudiyyət yoxdur.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */

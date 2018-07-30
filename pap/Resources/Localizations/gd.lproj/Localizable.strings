@@ -150,10 +150,16 @@
 "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Cuir a-steach criathragan àrd-inbhe air na dealbhan a tha thu ag iarraidh. Chan eil cuingealachadh air an àireamh de dhealbhan gus an deasachadh.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Comharradh Cuspair";
+/* Generated from genl10n: AutoEditor.BApp.swift#172 */
+"Auto Crop" = "Bàrr fèin-ghluasadach";
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
 "Auto Editor lets you edit automatically if your photos are needed to correct." = "Leigidh Deasaiche fèin-ghluasad dhut a dheasachadh gu fèin-ghluasadach ma tha feum air do dhealbhan gus a cheartachadh.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Deasaiche Auto";
+/* Generated from genl10n: AutoEditor.BApp.swift#170 */
+"Auto Enhance" = "Leasachadh fèin-ghluasadach";
+/* Generated from genl10n: AutoEditor.BApp.swift#173 */
+"Auto Straighten" = "Air adhart gu clàr na làraich";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Sgaoileadh";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,8 +176,6 @@
 "Choose An Export Option For %d Items" = "Tagh Roghainnean As-mhalairt airson %d Earrannan";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Tagh Fo-ghnìomh.";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Choose an Option To Convert" = "Tagh Roghainn To Tionndadh";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Bidh an neach-glanaidh a 'toirt cothrom dhut a h-uile seòrsa de dhealbhan ceàrr a lorg agus a sguabadh às mar ìomhaighean dùbailte agus coltach, dealbhan dùinte no seallaidhean Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -208,6 +212,8 @@
 "E-mail Address" = "Seòladh puist-d";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "Tha EXIF ​​Ghost a 'leigeil leat gach seòrsa data anns a bheil na dealbhan agad a' gabhail a-steach fiosrachadh prìobhaideach.";
+/* Generated from genl10n: Finder.BApp.swift#1264 */
+"Enable Quick Actions" = "Cumasaich Gnìomhan Tarsainn";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Roghainnean Export";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -246,6 +252,8 @@
 "Hiding Selected Items..." = "A 'falach nam buill taghte ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Càileachd Ìomhaigh";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+"Images" = "Dealbhan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Import";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
@@ -254,6 +262,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Feumaidh e cead faighinn a-steach do na ceanglaichean agad. Leig le luchd-aithne a-steach air roghainnean iOS.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Items";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Landscape" = "Sealladh-tìre";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Layout";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -292,14 +302,16 @@
 "Page Margin" = "Page Margin";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Meud na Duilleagan Preset";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+"Pages" = "Duilleagan";
 /* Generated from genl10n: PhoneCalls.swift#57 */
 "Phone Calls" = "Fònaichean Fòn";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Àireamh fòn";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Dealbhan";
-/* Generated from genl10n: Finder.BApp.swift#1229 */
-"Plain Text" = "Teacsa Gnàthach";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Portrait" = "Dealbh";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Clàr-innse";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -308,6 +320,8 @@
 "Quality" = "Càileachd";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "Gnìomhan Luath a-mhàin";
+/* Generated from genl10n: AutoEditor.BApp.swift#171 */
+"Red-Eye Removal" = "Toirmeasg Dearg-Eye";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeat";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -318,6 +332,8 @@
 "Rewind" = "Rewind";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "Sàbhail na h-àireamhan fòn gu lèir";
+/* Generated from genl10n: Finder.BApp.swift#1252 */
+"Save Contacts" = "Sàbhail Caraidean";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "Sàbhail Fhuair iad fios gu dìreach";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -336,6 +352,8 @@
 "Screenshots" = "Dealbhan-camara";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Rannsaich Slighean";
+/* Generated from genl10n: Converter.AppDockContent.swift#148 */
+"Select Format To Convert" = "Tagh Format airson Tionndadh";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "Tagh Dealbhan gu Delete.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
@@ -384,6 +402,8 @@
 "Targeted" = "Cuimsichte";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Targaidean";
+/* Generated from genl10n: Finder.BApp.swift#1311 */
+"Text" = "Teacsa";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "Tha an t-inneal sìmplidh seo ach as luaithe a 'leigeil leat gluasad gu luath agus sgapadh tòrr de na faidhlichean mheadhanan, nam measg Dealbhan Beò. Gu bunaiteach, chan eil cuingealachadh air an àireamh de dhealbhan gus an deasachadh.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */

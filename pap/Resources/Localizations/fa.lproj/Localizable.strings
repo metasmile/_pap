@@ -150,10 +150,16 @@
 "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "فیلترهای با کیفیت بالا را روی تمام عکسهای مورد نظر خود اعمال کنید. برای تعدادی از عکس ها برای ویرایش آنها هیچ محدودیتی وجود ندارد.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "نسبت ابعاد";
+/* Generated from genl10n: AutoEditor.BApp.swift#172 */
+"Auto Crop" = "محصول خودکار";
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
 "Auto Editor lets you edit automatically if your photos are needed to correct." = "ویرایشگر خودکار اجازه می دهد تا به صورت خودکار ویرایش کنید اگر عکس های شما برای اصلاح مورد نیاز است.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "ویرایشگر خودکار";
+/* Generated from genl10n: AutoEditor.BApp.swift#170 */
+"Auto Enhance" = "افزایش خودکار";
+/* Generated from genl10n: AutoEditor.BApp.swift#173 */
+"Auto Straighten" = "صاف کردن خودکار";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "نرخ تار";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,8 +176,6 @@
 "Choose An Export Option For %d Items" = "انتخاب یک گزینه صادرات برای %d آیتم ها";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "یک اقدام زیر را انتخاب کنید";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Choose an Option To Convert" = "یک گزینه برای تبدیل را انتخاب کنید";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "تمیز کننده شما را قادر می سازد هر گونه عکس های نادرست مانند تصاویر تکراری و مشابه، عکس های نزدیک و یا عکس های Lockscreen را پیدا کنید و حذف کنید!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -208,6 +212,8 @@
 "E-mail Address" = "آدرس ایمیل";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost به شما اجازه می دهد تمام اطلاعاتی را که حاوی عکس هایتان از جمله اطلاعات خصوصی است حذف کنید.";
+/* Generated from genl10n: Finder.BApp.swift#1264 */
+"Enable Quick Actions" = "فعال کردن عملیات سریع";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "گزینه های صادرات";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -246,6 +252,8 @@
 "Hiding Selected Items..." = "پنهان کردن موارد انتخاب شده ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "کیفیت تصویر";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+"Images" = "تصاویر";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "وارد كردن";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
@@ -254,6 +262,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "برای دسترسی به مخاطبین خود مجوز لازم است. لطفا در تنظیمات iOS اجازه تماس بگیرید";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "موارد";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Landscape" = "چشم انداز";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "طرح";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -292,14 +302,16 @@
 "Page Margin" = "مارجین صفحه";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "مقدار پیش فرض صفحه";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+"Pages" = "صفحات";
 /* Generated from genl10n: PhoneCalls.swift#57 */
 "Phone Calls" = "تماس های تلفنی";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "شماره تلفن";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "عکس ها";
-/* Generated from genl10n: Finder.BApp.swift#1229 */
-"Plain Text" = "متن ساده";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Portrait" = "پرتره";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -308,6 +320,8 @@
 "Quality" = "کیفیت";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "فقط اقدامات سریع";
+/* Generated from genl10n: AutoEditor.BApp.swift#171 */
+"Red-Eye Removal" = "حذف قرمزی چشم";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "تکرار";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -318,6 +332,8 @@
 "Rewind" = "باز پیچی";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "صرفه جویی در تمام شماره تلفن";
+/* Generated from genl10n: Finder.BApp.swift#1252 */
+"Save Contacts" = "ذخیره اطلاعات تماس";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "صرفه جویی در تماس مستقیم با مخاطبین";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -336,6 +352,8 @@
 "Screenshots" = "تصاویری";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "جستجو پرواز";
+/* Generated from genl10n: Converter.AppDockContent.swift#148 */
+"Select Format To Convert" = "فرمت را برای تبدیل انتخاب کنید";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "برای حذف عکس ها را انتخاب کنید";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
@@ -384,6 +402,8 @@
 "Targeted" = "هدفمند";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "اهداف";
+/* Generated from genl10n: Finder.BApp.swift#1311 */
+"Text" = "متن";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "این ساده اما سریع ترین ابزار به شما اجازه می دهد تا به سرعت چرخاندن و تلنگر بسیاری از فایل های رسانه ای از جمله عکس های زنده. به طور پیش فرض، تعداد عکس ها برای ویرایش آنها محدود نیست.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */

@@ -150,10 +150,16 @@
 "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Aplique filtros de alta qualidade às suas fotos que você deseja. Não há limite para o número de fotos para editá-las.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Aspect Ratio";
+/* Generated from genl10n: AutoEditor.BApp.swift#172 */
+"Auto Crop" = "Colheita Auto";
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
 "Auto Editor lets you edit automatically if your photos are needed to correct." = "O Auto Editor permite que você edite automaticamente se suas fotos são necessárias para corrigir.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Editor auto";
+/* Generated from genl10n: AutoEditor.BApp.swift#170 */
+"Auto Enhance" = "Auto melhoramento";
+/* Generated from genl10n: AutoEditor.BApp.swift#173 */
+"Auto Straighten" = "Auto Endireitar";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Taxa de desfoque";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,8 +176,6 @@
 "Choose An Export Option For %d Items" = "Escolha uma opção de exportação para %d itens";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Escolha uma sub ação.";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Choose an Option To Convert" = "Escolha uma opção para converter";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "O Cleaner permite que você encontre e apague todos os tipos de fotos incorretas, como imagens duplicadas e similares, fotos em close-up ou fotos do Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -208,6 +212,8 @@
 "E-mail Address" = "Endereço de e-mail";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "O EXIF ​​Ghost permite remover todos os tipos de dados contendo suas fotos, incluindo informações privadas.";
+/* Generated from genl10n: Finder.BApp.swift#1264 */
+"Enable Quick Actions" = "Ativar ações rápidas";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Opções de Exportação";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -246,6 +252,8 @@
 "Hiding Selected Items..." = "Ocultar itens selecionados ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Qualidade da imagem";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+"Images" = "Imagens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Importar";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
@@ -254,6 +262,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Requer permissão para acessar seus contatos. Por favor, permita contatos em configurações do iOS.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Unid";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Landscape" = "Panorama";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Layout";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -292,14 +302,16 @@
 "Page Margin" = "Margem de página";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Predefinir o tamanho da página";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+"Pages" = "Páginas";
 /* Generated from genl10n: PhoneCalls.swift#57 */
 "Phone Calls" = "Telefonemas";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Número de telefone";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Fotos";
-/* Generated from genl10n: Finder.BApp.swift#1229 */
-"Plain Text" = "Texto simples";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Portrait" = "Retrato";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Predefinições";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -308,6 +320,8 @@
 "Quality" = "Qualidade";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "Apenas ações rápidas";
+/* Generated from genl10n: AutoEditor.BApp.swift#171 */
+"Red-Eye Removal" = "Remoção de olhos vermelhos";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repetir";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -318,6 +332,8 @@
 "Rewind" = "Rebobinar";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "Salvar todos os números de telefone";
+/* Generated from genl10n: Finder.BApp.swift#1252 */
+"Save Contacts" = "Salvar contatos";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "Salvar contatos encontrados diretamente";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -336,6 +352,8 @@
 "Screenshots" = "Screenshots";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Pesquisar voos";
+/* Generated from genl10n: Converter.AppDockContent.swift#148 */
+"Select Format To Convert" = "Selecione o formato para converter";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "Selecione Fotos para Excluir.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
@@ -384,6 +402,8 @@
 "Targeted" = "Visadas";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Alvos";
+/* Generated from genl10n: Finder.BApp.swift#1311 */
+"Text" = "Texto";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "Essa ferramenta simples, mas a mais rápida, permite girar e girar rapidamente vários arquivos de mídia, incluindo Live Photos. Por padrão, não há limite para o número de fotos para editá-las.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */

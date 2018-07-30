@@ -150,10 +150,16 @@
 "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "तपाईंले चाहानु भएको सबै फोटोहरूमा उच्च गुणस्तर फिल्टरहरू लागू गर्नुहोस्। त्यहाँ सम्पादन गर्न फोटोहरूको संख्यामा कुनै सीमा छैन।";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "आकार अनुपात";
+/* Generated from genl10n: AutoEditor.BApp.swift#172 */
+"Auto Crop" = "स्वत: फसल";
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
 "Auto Editor lets you edit automatically if your photos are needed to correct." = "स्वत: सम्पादकले तपाईंलाई स्वचालित रूपमा सम्पादन गर्न अनुमति दिन्छ यदि तपाईंको तस्बिरहरू सही गर्न आवश्यक छ।";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "स्वत: सम्पादक";
+/* Generated from genl10n: AutoEditor.BApp.swift#170 */
+"Auto Enhance" = "स्वत: सुधार";
+/* Generated from genl10n: AutoEditor.BApp.swift#173 */
+"Auto Straighten" = "स्वत: सीधा";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "धमिलो दर";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,8 +176,6 @@
 "Choose An Export Option For %d Items" = "%d वस्तुहरूको लागि निर्यात निर्यात छनौट गर्नुहोस्";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "एक उप कार्य छान्नुहोस्।";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Choose an Option To Convert" = "एउटा विकल्प छनौट गर्न छनौट गर्नुहोस्";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "क्लीनरले तपाईंलाई प्रत्येक प्रकारको गलत फोटोहरू फेला पार्न र हटाउन सक्षम पार्दछ जस्तै डुप्लिकेट र यस्तै छविहरू, बन्द-अप तस्बिरहरू वा लुकास्क्रिन दृश्यहरू!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -208,6 +212,8 @@
 "E-mail Address" = "इ - मेल ठेगाना";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF भूतले तपाईंलाई व्यक्तिगत जानकारी सहितका सबै प्रकारका फोटोहरू समावेश गर्न अनुमति दिन्छ।";
+/* Generated from genl10n: Finder.BApp.swift#1264 */
+"Enable Quick Actions" = "द्रुत कार्य सक्षम गर्नुहोस्";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "निर्यात विकल्पहरू";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -246,6 +252,8 @@
 "Hiding Selected Items..." = "लुकेका छनौट वस्तुहरू ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "छवि गुणस्तर";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+"Images" = "छविहरू";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Import";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
@@ -254,6 +262,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "यसले तपाईंको सम्पर्कहरू पहुँच गर्न अनुमति चाहिन्छ। कृपया आईओएस सेटिङ्हरूमा सम्पर्क अनुमति दिनुहोस्।";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "वस्तुहरू";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Landscape" = "ल्याण्डस्केप";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "लेआउट";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -292,14 +302,16 @@
 "Page Margin" = "पृष्ठ मार्जिन";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "पृष्ठ आकार पूर्वसेट";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+"Pages" = "पृष्ठहरु";
 /* Generated from genl10n: PhoneCalls.swift#57 */
 "Phone Calls" = "फोन कल";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "फोन नम्बर";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "तस्बिरहरू";
-/* Generated from genl10n: Finder.BApp.swift#1229 */
-"Plain Text" = "सादा पाठ";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Portrait" = "पोर्ट्रेट";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "प्रिसेटहरू";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -308,6 +320,8 @@
 "Quality" = "गुणस्तर";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "द्रुत कार्यहरू मात्र";
+/* Generated from genl10n: AutoEditor.BApp.swift#171 */
+"Red-Eye Removal" = "रातो आँखा हटाउने";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeat";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -318,6 +332,8 @@
 "Rewind" = "रिवाइन्ड";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "सबै फोन नम्बरहरू सुरक्षित गर्नुहोस्";
+/* Generated from genl10n: Finder.BApp.swift#1252 */
+"Save Contacts" = "सम्पर्कहरू बचत गर्नुहोस्";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "सुरक्षित सम्पर्क सम्पर्कहरू सुरक्षित गर्नुहोस्";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -336,6 +352,8 @@
 "Screenshots" = "स्क्रिनसटहरू";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "उडान खोज्नुहोस्";
+/* Generated from genl10n: Converter.AppDockContent.swift#148 */
+"Select Format To Convert" = "रूपान्तरण गर्न ढाँचा चयन गर्नुहोस्";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "तस्बिरहरू मेटाउन चयन गर्नुहोस्।";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
@@ -384,6 +402,8 @@
 "Targeted" = "लक्षित";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "लक्ष्यहरू";
+/* Generated from genl10n: Finder.BApp.swift#1311 */
+"Text" = "पाठ";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "यो सरल तर सबै भन्दा तेज उपकरणले तपाईंलाई छिटो घुमाउनुहोस् र लाइभ तस्बिरहरू सहित धेरै मिडिया फाइलहरू फ्लिप गर्न दिन्छ। पूर्वनिर्धारित रूपमा, तिनीहरू सम्पादन गर्न फोटोहरूको संख्यामा कुनै सीमा छैन।";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */

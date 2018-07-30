@@ -150,10 +150,16 @@
 "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Sebelisa lihlahisoa tse Phahameng ka ho Fetisisa litšoantšong tsohle tseo u li batlang. Ha ho na moeli palo ea lifoto ho li fetola.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Boemo ba Ponahalo";
+/* Generated from genl10n: AutoEditor.BApp.swift#172 */
+"Auto Crop" = "Ho ikotla";
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
 "Auto Editor lets you edit automatically if your photos are needed to correct." = "Auto Editor eu lumella ho fetola ka botlalo haeba litšoantšo tsa hau li hlokahala ho lokisa.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Auto Editor";
+/* Generated from genl10n: AutoEditor.BApp.swift#170 */
+"Auto Enhance" = "Ntlafatsa ka ho feletseng";
+/* Generated from genl10n: AutoEditor.BApp.swift#173 */
+"Auto Straighten" = "Fetoha ka tsela e itekanetseng";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,8 +176,6 @@
 "Choose An Export Option For %d Items" = "Khetha Kgetho ea ho Ikopisa ho ea ka %d Lintho";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Khetha Ketso e Ncha.";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Choose an Option To Convert" = "Khetha Khetho ho Fetola";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Mohloeki o nolofalletsa ho fumana le ho tlosa mefuta eohle ea litšoantšo tse sa nepahalang tse kang litšoantšo tse peli le tse tšoanang, litšoantšo tse haufi-ufi kapa li-lockscreen shots!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -208,6 +212,8 @@
 "E-mail Address" = "Aterese ea imeile";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "Moea oa EXIF ​​o u tlosa hore o tlose mefuta eohle ea dintlha e nang le litšoantšo tsa hau tse kenyeletsang boitsebiso ba hau.";
+/* Generated from genl10n: Finder.BApp.swift#1264 */
+"Enable Quick Actions" = "Numella Liketso Tse Potlakileng";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Khetho ea ho rekisa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -246,6 +252,8 @@
 "Hiding Selected Items..." = "Ho pata Lintho Tse Khethiloeng ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Boleng ba Setšoantšo";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+"Images" = "Litšoantšo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Kenya";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
@@ -254,6 +262,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "E hloka tumello ea ho fihlella batho bao u kopanang le bona. Ka kopo lumella Mecha ea Inthanete maemong a iOS.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Lintho";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Landscape" = "Landscape";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Lisebelisoa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -292,14 +302,16 @@
 "Page Margin" = "Margin ea Leqephe";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Boemo ba Preset ea Leqephe";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+"Pages" = "Maqephe";
 /* Generated from genl10n: PhoneCalls.swift#57 */
 "Phone Calls" = "Phone Calls";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Nomoro ea mohala";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Lifoto";
-/* Generated from genl10n: Finder.BApp.swift#1229 */
-"Plain Text" = "Text e hlakileng";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Portrait" = "Setšoantšo";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -308,6 +320,8 @@
 "Quality" = "Boleng";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "Liketso Tse Potlakileng Feela";
+/* Generated from genl10n: AutoEditor.BApp.swift#171 */
+"Red-Eye Removal" = "Ho tlosoa mahlo a khubelu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Pheta hape";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -318,6 +332,8 @@
 "Rewind" = "Khotsofatsa";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "Boloka Lipalo tsa Fono Tsohle";
+/* Generated from genl10n: Finder.BApp.swift#1252 */
+"Save Contacts" = "Boloka Metsoalle";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "Boloka Palo ea Metsoalle ka ho toba";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -336,6 +352,8 @@
 "Screenshots" = "Screenshots";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Batla Litlhaku";
+/* Generated from genl10n: Converter.AppDockContent.swift#148 */
+"Select Format To Convert" = "Khetha Format ho Fetola";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "Khetha Photos ho Tlosa.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
@@ -384,6 +402,8 @@
 "Targeted" = "E lebetsitsoe";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Liphephetso";
+/* Generated from genl10n: Finder.BApp.swift#1311 */
+"Text" = "Mongolo";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "Sesebelisoa sena se bonolo empa se lebelo ka ho fetisisa se u nolofalletsa ho potlakela ho potoloha le ho flipla lifaele tse ngata tsa mecha ea litaba tse akarelletsang Li-Live Photos Ka ho feletseng, ha ho na moeli palo ea lifoto ho li fetola.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */

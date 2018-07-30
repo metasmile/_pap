@@ -150,10 +150,16 @@
 "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Aplikatu kalitate handiko iragazkiak nahi dituzun argazkietan. Ez dago edonori editatzeko kopurua murrizteko.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Aspektu-erlazioa";
+/* Generated from genl10n: AutoEditor.BApp.swift#172 */
+"Auto Crop" = "Mozketa automatikoa";
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
 "Auto Editor lets you edit automatically if your photos are needed to correct." = "Auto-editoreak automatikoki editatzen uzten dizu zure argazkiak behar bezala zuzentzeko.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Auto editorea";
+/* Generated from genl10n: AutoEditor.BApp.swift#170 */
+"Auto Enhance" = "Auto-hobekuntza";
+/* Generated from genl10n: AutoEditor.BApp.swift#173 */
+"Auto Straighten" = "Auto estutu";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur tasa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,8 +176,6 @@
 "Choose An Export Option For %d Items" = "Aukeratu esportatzeko aukera bat %d Elementuetarako";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Aukeratu azpi ekintza bat.";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Choose an Option To Convert" = "Aukeratu Bihurtu Aukera";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner-ek argazki mota okerrak aurkitu eta ezabatu ahal izango dituzu, adibidez, irudiak bikoiztuak eta antzekoak, hurbileko argazkiak edo Blokeo-planoak!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -208,6 +212,8 @@
 "E-mail Address" = "Posta elektroniko helbidea";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost-ek zure argazkiarekin dituzun datu mota guztiak ezabatu ahal izango dituzu, informazio pribatua barne.";
+/* Generated from genl10n: Finder.BApp.swift#1264 */
+"Enable Quick Actions" = "Gaitu ekintza bizkorra";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Esportatu aukerak";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -246,6 +252,8 @@
 "Hiding Selected Items..." = "Ezkutatu hautatutako elementuak ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Irudiaren kalitatea";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+"Images" = "Irudiak";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Inportazio";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
@@ -254,6 +262,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Zure kontaktuetara sartzeko baimena behar da. Aukeratu Kontaktuak iOS ezarpenetan.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Items";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Landscape" = "Paisaia";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Layout";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -292,14 +302,16 @@
 "Page Margin" = "Orriaren marjina";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Orriaren tamaina aurrezarpenak";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+"Pages" = "orrialdeak";
 /* Generated from genl10n: PhoneCalls.swift#57 */
 "Phone Calls" = "Telefono deiak";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Telefono zenbakia";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Argazkiak";
-/* Generated from genl10n: Finder.BApp.swift#1229 */
-"Plain Text" = "Testu arrunta";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Portrait" = "erretratua";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -308,6 +320,8 @@
 "Quality" = "Kalitatea";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "Ekintza azkarrak soilik";
+/* Generated from genl10n: AutoEditor.BApp.swift#171 */
+"Red-Eye Removal" = "Red-Eye kentzea";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "errepikatu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -318,6 +332,8 @@
 "Rewind" = "Rewind";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "Gorde telefono zenbaki guztiak";
+/* Generated from genl10n: Finder.BApp.swift#1252 */
+"Save Contacts" = "Gorde kontaktuak";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "Gorde aurkitu kontaktuak zuzenean";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -336,6 +352,8 @@
 "Screenshots" = "Pantaila-";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Bilatu hegaldiak";
+/* Generated from genl10n: Converter.AppDockContent.swift#148 */
+"Select Format To Convert" = "Hautatu Bihurtu formatua";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "Hautatu argazkiak ezabatzeko.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
@@ -384,6 +402,8 @@
 "Targeted" = "Bideratutako";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Helburuak";
+/* Generated from genl10n: Finder.BApp.swift#1311 */
+"Text" = "Testua";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "Errazena tresna sinple baina azkarrena esker, azkar biratu eta irauli multimedia fitxategiak barne Live Argazkiak barne. Lehenespenez, ez dago edonori editatzeko kopurua murrizteko.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */

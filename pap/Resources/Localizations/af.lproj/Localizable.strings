@@ -150,10 +150,16 @@
 "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Pas hoë kwaliteit filters op al jou foto's wat jy wil hê. Daar is geen beperking op die aantal foto's om dit te wysig nie.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Aspect Ratio";
+/* Generated from genl10n: AutoEditor.BApp.swift#172 */
+"Auto Crop" = "Outomatiese Gewas";
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
 "Auto Editor lets you edit automatically if your photos are needed to correct." = "Outo-redigeerder laat jou toe om outomaties te wysig as jou foto's nodig is om reg te stel.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Outo-redigeerder";
+/* Generated from genl10n: AutoEditor.BApp.swift#170 */
+"Auto Enhance" = "Outomatiese Verbetering";
+/* Generated from genl10n: AutoEditor.BApp.swift#173 */
+"Auto Straighten" = "Outo reguit";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blurskoers";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,8 +176,6 @@
 "Choose An Export Option For %d Items" = "Kies 'n Uitvoeropsie vir %d Items";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Kies 'n subaksie.";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Choose an Option To Convert" = "Kies 'n opsie om te omskep";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Skoner kan u allerhande foutiewe foto's soos duplikaat- en soortgelyke beelde, close-upfoto's of Lockscreen-skote vind en uitvee!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -208,6 +212,8 @@
 "E-mail Address" = "E-pos adres";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost laat u toe om alle soorte data wat u foto's bevat, insluitend privaat inligting te verwyder.";
+/* Generated from genl10n: Finder.BApp.swift#1264 */
+"Enable Quick Actions" = "Aktiveer vinnige aksies";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Uitvoeropsies";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -246,6 +252,8 @@
 "Hiding Selected Items..." = "Versteek geselekteerde items ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Beeld kwaliteit";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+"Images" = "beelde";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "invoer";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
@@ -254,6 +262,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Dit vereis 'n toestemming om toegang tot u kontakte te verkry. Laat asseblief kontakte toe op iOS-instellings.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "items";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Landscape" = "landskap";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "uitleg";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -292,14 +302,16 @@
 "Page Margin" = "Bladsy Marge";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Page Size Preset";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+"Pages" = "bladsye";
 /* Generated from genl10n: PhoneCalls.swift#57 */
 "Phone Calls" = "Telefoonoproepe";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Telefoon nommer";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Fotos";
-/* Generated from genl10n: Finder.BApp.swift#1229 */
-"Plain Text" = "Gewone teks";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Portrait" = "Portret";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -308,6 +320,8 @@
 "Quality" = "Gehalte";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "Slegs vinnige aksies";
+/* Generated from genl10n: AutoEditor.BApp.swift#171 */
+"Red-Eye Removal" = "Rooi-oë-verwydering";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Herhaal";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -318,6 +332,8 @@
 "Rewind" = "Rewind";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "Stoor alle telefoonnommers";
+/* Generated from genl10n: Finder.BApp.swift#1252 */
+"Save Contacts" = "Stoor kontakte";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "Stoor gevind kontakte direk";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -336,6 +352,8 @@
 "Screenshots" = "Screenshots";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Soek vlugte";
+/* Generated from genl10n: Converter.AppDockContent.swift#148 */
+"Select Format To Convert" = "Kies formaat om te omskep";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "Kies Foto's om te verwyder.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
@@ -384,6 +402,8 @@
 "Targeted" = "Geteiken";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "teikens";
+/* Generated from genl10n: Finder.BApp.swift#1311 */
+"Text" = "teks";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "Hierdie eenvoudige maar die vinnigste hulpmiddel laat jou vinnig en vinnig draai met baie media lêers, insluitend Live Photos. Standaard is daar geen beperking op die aantal foto's om dit te wysig nie.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */

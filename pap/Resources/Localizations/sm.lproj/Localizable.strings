@@ -150,10 +150,16 @@
 "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Faʻaoga le Filipeli Maualuga-maualuga i au ata uma e te manaʻo ai. E leai se tapulaa i le numera o ata e faʻataʻitaʻia ai.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Vaaiga Faʻapitoa";
+/* Generated from genl10n: AutoEditor.BApp.swift#172 */
+"Auto Crop" = "Vaʻaia Aʻe";
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
 "Auto Editor lets you edit automatically if your photos are needed to correct." = "Faʻamaumauga a le Auto Editor e mafai ona e faʻasaʻo faʻapipiʻi pe a manaʻomia au ata e faasaʻo.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Faʻatonu Auto";
+/* Generated from genl10n: AutoEditor.BApp.swift#170 */
+"Auto Enhance" = "Faaleleia Atoa";
+/* Generated from genl10n: AutoEditor.BApp.swift#173 */
+"Auto Straighten" = "Faʻasaʻo saʻo";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,8 +176,6 @@
 "Choose An Export Option For %d Items" = "Filifili se Faʻataulaga Aiga mo le %d Aitema";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Filifili se Vaega Faifaʻatonu.";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Choose an Option To Convert" = "Filifili se Filifiliga e Suiga ai";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "O le mama e mafai ai e oe ona suʻe ma faʻamalo ituaiga uma o ata le saʻo e pei o ata faʻalua ma ata talitutusa, ata vavalalata poʻo Lockscreen ata!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -208,6 +212,8 @@
 "E-mail Address" = "Imeli tuatusi";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "E mafai e le EXIF ​​ona faʻatagaina oe e aveese ituaiga uma o faʻamaumauga e aofia ai au ata e aofia ai faʻamatalaga tumaoti.";
+/* Generated from genl10n: Finder.BApp.swift#1264 */
+"Enable Quick Actions" = "Faʻasologa Faʻatino Auai";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Filifiliga o Faʻataulaga";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -246,6 +252,8 @@
 "Hiding Selected Items..." = "Sueina o Aitema Filifilia ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Ata o Ata";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+"Images" = "Ata";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Import";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
@@ -254,6 +262,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "E manaʻomia se faʻatagaga e faʻafesoʻotaʻi ai au fesoʻotaʻiga. Faʻamolemole faʻatagaina Fesoʻotaʻiga i luga o iOS.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Aitema";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Landscape" = "Faʻafanua";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Lisi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -292,14 +302,16 @@
 "Page Margin" = "Itulau Faʻailoga";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Itulau Itulau Faʻasologa";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+"Pages" = "Itulau";
 /* Generated from genl10n: PhoneCalls.swift#57 */
 "Phone Calls" = "Telefoni Telefoni";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Numera telefoni";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Ata";
-/* Generated from genl10n: Finder.BApp.swift#1229 */
-"Plain Text" = "Faʻamatalaga Lelei";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Portrait" = "Ata";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Faʻasaga";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -308,6 +320,8 @@
 "Quality" = "Tulaga lelei";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "Faʻasalaga Faagaiga Naʻo";
+/* Generated from genl10n: AutoEditor.BApp.swift#171 */
+"Red-Eye Removal" = "Faʻafeiloaʻi i le Ulaula";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Toe faia";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -318,6 +332,8 @@
 "Rewind" = "Toe foʻi";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "Faasaoina Numera Numera";
+/* Generated from genl10n: Finder.BApp.swift#1252 */
+"Save Contacts" = "Faasao O Fesootai";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "Faʻasaoina Faʻafesoʻotaʻi Faʻamatalaga";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -336,6 +352,8 @@
 "Screenshots" = "Faʻafanua";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Saili Suʻega";
+/* Generated from genl10n: Converter.AppDockContent.swift#148 */
+"Select Format To Convert" = "Filifili le Faatulagaga Ina ia Liliu Mai";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "Filifili Ata e Avea.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
@@ -384,6 +402,8 @@
 "Targeted" = "Fuafuaina";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Manulauti";
+/* Generated from genl10n: Finder.BApp.swift#1311 */
+"Text" = "Tusitusiga";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "O lenei mea faigofie ae o le meafaigaluega sili ona vave e mafai ai e oe ona sui vave ma faʻalautele le tele o faila o le aufaasālalau e aofia ai le Live Photos. I le lē mafai, e leai se tapulaa i le numera o ata e faʻataʻitaʻia ai.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */

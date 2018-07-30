@@ -103,7 +103,7 @@ class PDFactoryAppAppDockContent: NSObject, AppDockContent, AppDockDelegate
         cell1.itemIdentifier = Cells.landscape.hashValue
         cell1.label = "Layout".localized
         cell1.valueGetter = { Int(self.defaults.landscape ? 1 : 0) }
-        cell1.valueCollection = ["Portrait": 0, "Landscape":1]
+        cell1.valueCollection = ["Portrait".localized: 0, "Landscape".localized:1]
         cell1.valueHandler = {
             self.defaults.landscape = ($0 as? Int ?? 0) == 0
         }

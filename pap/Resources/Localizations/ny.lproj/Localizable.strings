@@ -150,10 +150,16 @@
 "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Ikani Zosefera Zapamwamba pazithunzi zonse zomwe mukufuna. Palibe malire kwa chiwerengero cha zithunzi kuti muwasinthe.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Zotsatira zooneka";
+/* Generated from genl10n: AutoEditor.BApp.swift#172 */
+"Auto Crop" = "Kupanga Moyenera";
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
 "Auto Editor lets you edit automatically if your photos are needed to correct." = "Mkonzi Wowonongeka umakulolani kusinthira mosavuta ngati zithunzi zanu zikufunika kuti mukonze.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Okonza Auto";
+/* Generated from genl10n: AutoEditor.BApp.swift#170 */
+"Auto Enhance" = "Tsambitsani Magetsi";
+/* Generated from genl10n: AutoEditor.BApp.swift#173 */
+"Auto Straighten" = "Yambani Modzichepetsa";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Ndemanga ya Blur";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,8 +176,6 @@
 "Choose An Export Option For %d Items" = "Choose An Export Option For %d Items";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Sankhani Ntchito Yachigawo.";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Choose an Option To Convert" = "Sankhani Mwanjira Yomwe Mungasinthe";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Kuyeretsa kumakuthandizani kuti mupeze ndi kuchotsa mitundu yonse ya zithunzi zosalongosola monga zojambulazo ndi zithunzi zofananako, zithunzi zoyandikana kapena zofuula za Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -208,6 +212,8 @@
 "E-mail Address" = "Imelo adilesi";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "Mzimu EXIF ​​umakulepheretsani kuchotsa mitundu yonse ya data yomwe ili ndi zithunzi zanu kuphatikizapo zachinsinsi.";
+/* Generated from genl10n: Finder.BApp.swift#1264 */
+"Enable Quick Actions" = "Thandizani Zotsatira Zachangu";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Zosankha Zotsatsa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -246,6 +252,8 @@
 "Hiding Selected Items..." = "Kubisa Zinthu Zosankhidwa ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Quality Image";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+"Images" = "Zithunzi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Lowani";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
@@ -254,6 +262,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Imafuna chilolezo chofikira ojambula anu. Chonde lolani Makalata pazithunzi za iOS.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Zinthu";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Landscape" = "Malo";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Kuyika";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -292,14 +302,16 @@
 "Page Margin" = "Mtsinje wa Tsamba";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Kukula kwa Tsamba Kusankhidwa";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+"Pages" = "Masamba";
 /* Generated from genl10n: PhoneCalls.swift#57 */
 "Phone Calls" = "Mafoni Afoni";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Nambala yafoni";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Zithunzi";
-/* Generated from genl10n: Finder.BApp.swift#1229 */
-"Plain Text" = "Malemba Oyamba";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Portrait" = "Chithunzi";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Kukonzekera";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -308,6 +320,8 @@
 "Quality" = "Makhalidwe";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "Ntchito Zowonjezera Zokha";
+/* Generated from genl10n: AutoEditor.BApp.swift#171 */
+"Red-Eye Removal" = "Kuchotsa Maso Ofiira";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Bwerezani";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -318,6 +332,8 @@
 "Rewind" = "Pewani";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "Sungani Numeri Zonse Zam'manja";
+/* Generated from genl10n: Finder.BApp.swift#1252 */
+"Save Contacts" = "Sungani Othandizira";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "Sungani Kupeza Ocheza Mwachindunji";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -336,6 +352,8 @@
 "Screenshots" = "Zithunzi zojambula";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Fufuzani ndege";
+/* Generated from genl10n: Converter.AppDockContent.swift#148 */
+"Select Format To Convert" = "Sankhani Maonekedwe Kuti Musinthe";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "Sankhani Zithunzi Kuti Muchotse.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
@@ -384,6 +402,8 @@
 "Targeted" = "Zotsatira";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Zolinga";
+/* Generated from genl10n: Finder.BApp.swift#1311 */
+"Text" = "Malemba";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "Chida chosavuta koma chofulumira kwambiri chimakupangitsani mwamsanga kutembenuza ndi kujambula mafayilo ambiri a media kuphatikizapo zithunzi zamoyo. Mwachikhazikitso, palibe malire ku chiwerengero cha zithunzi kuti muwasinthe.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */

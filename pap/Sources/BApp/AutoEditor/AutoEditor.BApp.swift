@@ -167,10 +167,10 @@ private extension AutoEditorApp {
 
         static func aliasName(_ filterName: String?) -> String? {
             switch filterName {
-            case Enhance?: return "Auto Enhance"
-            case RedEye?: return "Auto Red-Eye Removal"
-            case Crop?: return "Auto Crop"
-            case Straighten?: return "Auto Straighten"
+            case Enhance?: return "Auto Enhance".localized
+            case RedEye?: return "Red-Eye Removal".localized
+            case Crop?: return "Auto Crop".localized
+            case Straighten?: return "Auto Straighten".localized
             default: return nil
             }
         }

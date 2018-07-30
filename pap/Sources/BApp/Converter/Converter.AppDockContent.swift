@@ -83,7 +83,7 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
         
         let from_to_cell = UITableViewMultiplePickerCellDescriber()
         from_to_cell.itemIdentifier = Cells.convertingDirection.hashValue
-        from_to_cell.label = "Convert".localized
+        from_to_cell.label = "Formats".localized
         from_to_cell.valueGetter = { (self.defaults.convertingDirection.from, self.defaults.convertingDirection.to) }
         from_to_cell.valueCollection = valueCollection
         from_to_cell.valueHandler = { value in
@@ -145,7 +145,7 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
         cellDescribers.append(qualityCell)
         
         cells = [
-            ("Choose an Option To Convert".localized, [from_to_cell], ""),
+            ("Select Format To Convert".localized, [from_to_cell], ""),
             ("Export Options".localized, [qualityCell], "")
         ]
 

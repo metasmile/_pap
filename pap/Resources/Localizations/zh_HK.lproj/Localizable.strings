@@ -150,10 +150,16 @@
 "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "在您想要的所有照片上應用高品質過濾器。編輯照片的數量沒有限制。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "縱橫比";
+/* Generated from genl10n: AutoEditor.BApp.swift#172 */
+"Auto Crop" = "自動裁剪";
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
 "Auto Editor lets you edit automatically if your photos are needed to correct." = "如果需要更正照片，“自動編輯器”可讓您自動編輯。";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "自動編輯器";
+/* Generated from genl10n: AutoEditor.BApp.swift#170 */
+"Auto Enhance" = "自動增強";
+/* Generated from genl10n: AutoEditor.BApp.swift#173 */
+"Auto Straighten" = "自動拉直";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "模糊率";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,8 +176,6 @@
 "Choose An Export Option For %d Items" = "為%d項目選擇導出選項";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "選擇一個子動作。";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Choose an Option To Convert" = "選擇要轉換的選項";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "清潔器使您能夠查找和刪除各種不正確的照片，如重複和類似的圖像，特寫照片或鎖屏拍攝！";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -208,6 +212,8 @@
 "E-mail Address" = "電子郵件地址";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost可讓您刪除包含照片的各種數據，包括私人信息。";
+/* Generated from genl10n: Finder.BApp.swift#1264 */
+"Enable Quick Actions" = "啟用快速操作";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "導出選項";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -246,6 +252,8 @@
 "Hiding Selected Items..." = "隱藏所選項目...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "畫面質量";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+"Images" = "圖片";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "進口";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
@@ -254,6 +262,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "它需要獲得訪問您的聯繫人的權限。請允許iOS設置上的聯繫人。";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "項目";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Landscape" = "景觀";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "佈局";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -292,14 +302,16 @@
 "Page Margin" = "頁邊距";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "頁面大小預設";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+"Pages" = "網頁";
 /* Generated from genl10n: PhoneCalls.swift#57 */
 "Phone Calls" = "電話";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "電話號碼";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "相片";
-/* Generated from genl10n: Finder.BApp.swift#1229 */
-"Plain Text" = "純文本";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Portrait" = "肖像";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "預置";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -308,6 +320,8 @@
 "Quality" = "質量";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "僅限快速操作";
+/* Generated from genl10n: AutoEditor.BApp.swift#171 */
+"Red-Eye Removal" = "消除紅眼";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "重複";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -318,6 +332,8 @@
 "Rewind" = "倒帶";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "保存所有電話號碼";
+/* Generated from genl10n: Finder.BApp.swift#1252 */
+"Save Contacts" = "保存聯繫人";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "直接保存找到的聯繫人";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -336,6 +352,8 @@
 "Screenshots" = "截圖";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "搜索航班";
+/* Generated from genl10n: Converter.AppDockContent.swift#148 */
+"Select Format To Convert" = "選擇要轉換的格式";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "選擇要刪除的照片。";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
@@ -384,6 +402,8 @@
 "Targeted" = "目標";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "目標";
+/* Generated from genl10n: Finder.BApp.swift#1311 */
+"Text" = "文本";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "這個簡單但速度最快的工具可讓您快速旋轉和翻轉包括Live Photos在內的大量媒體文件。默認情況下，編輯照片的數量沒有限制。";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */

@@ -150,10 +150,16 @@
 "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "በሁሉም ፎቶዎችዎ ላይ ከፍተኛ ጥራት ማጣሪያዎችን ይተግብሩ. እነሱን ለማርትዕ የፎቶዎች ብዛት ገደብ የለም.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "ምጥጥነ ገፅታ";
+/* Generated from genl10n: AutoEditor.BApp.swift#172 */
+"Auto Crop" = "በራስ ሰር ሰብስብ";
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
 "Auto Editor lets you edit automatically if your photos are needed to correct." = "ፎቶዎችዎን ለማስተካከል አስፈላጊ ከሆነ ራስ አርትዖት በራስ-ሰር እንዲያርትዑ ያስችልዎታል.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "ራስ አርታዒ";
+/* Generated from genl10n: AutoEditor.BApp.swift#170 */
+"Auto Enhance" = "ራስ-አሻሽል";
+/* Generated from genl10n: AutoEditor.BApp.swift#173 */
+"Auto Straighten" = "በራስ ቀጥል";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "የብዥታ ድግምግሞሽ መጠን";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,8 +176,6 @@
 "Choose An Export Option For %d Items" = "ለ %d ንጥሎች የማስጭ አማራጭን ይምረጡ";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "ንዑስ እርምጃ ይምረጡ.";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Choose an Option To Convert" = "ለመለወጥ አማራጭን ይምረጡ";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "ማጽጃ እንደ ማባዣ እና ተመሳሳይ ምስሎችን, ቅርብ ፎቶዎችን ወይም የመርገጫ ምስሎችን የመሳሰሉ ትክክል ያልሆኑ ማንኛውንም ዓይነት ፎቶዎችን ለማግኘት እና ለመሰርዝ ያስችልዎታል!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -208,6 +212,8 @@
 "E-mail Address" = "የ ኢሜል አድራሻ";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost የግል መረጃን ጨምሮ ፎቶዎችዎን የያዘ የውሂብ አይነት እንዲያስወግዱ ያስችልዎታል.";
+/* Generated from genl10n: Finder.BApp.swift#1264 */
+"Enable Quick Actions" = "ፈጣን እርምጃዎችን ያንቁ";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "ወደ ውጪ መላኪያ አማራጮች";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -246,6 +252,8 @@
 "Hiding Selected Items..." = "የተመረጡ ንጥሎችን በመደበቅ ላይ ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "የምስል ጥራት";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+"Images" = "ምስሎች";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "አስመጣ";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
@@ -254,6 +262,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "የእርስዎን እውቂያዎች ለመድረስ ፍቃድ ያስፈልገዋል. እባክዎ በ iOS ቅንብሮች ላይ እውቂያዎችን ይፍቀዱ.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "ንጥሎች";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Landscape" = "ውበት";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "አቀማመጥ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -292,14 +302,16 @@
 "Page Margin" = "የገጽ ዕዳ";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "የገጽ መጠን ቅድመ-ቅምጥ";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+"Pages" = "ገጾች";
 /* Generated from genl10n: PhoneCalls.swift#57 */
 "Phone Calls" = "የስልክ ጥሪዎች";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "ስልክ ቁጥር";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "ፎቶዎች";
-/* Generated from genl10n: Finder.BApp.swift#1229 */
-"Plain Text" = "በሚነበብ መልኩ";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Portrait" = "ፎቶግራፍ";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "ቅድመ-ቅምጦች";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -308,6 +320,8 @@
 "Quality" = "ጥራት";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "ፈጣን እርምጃዎች ብቻ";
+/* Generated from genl10n: AutoEditor.BApp.swift#171 */
+"Red-Eye Removal" = "ቀይ የዓይን ማስወገጃ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "ድገም";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -318,6 +332,8 @@
 "Rewind" = "ወደኋላ መልስ";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "ሁሉንም የስልክ ቁጥሮች አስቀምጥ";
+/* Generated from genl10n: Finder.BApp.swift#1252 */
+"Save Contacts" = "እውቂያዎችን አስቀምጥ";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "ተወዳጅ እውቂያዎችን በቀጥታ አስቀምጥ";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -336,6 +352,8 @@
 "Screenshots" = "ቅጽበታዊ ገጽ እይታዎች";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "የፍለጋ በረራዎች";
+/* Generated from genl10n: Converter.AppDockContent.swift#148 */
+"Select Format To Convert" = "ለመቀየር ቅርጸት ይምረጡ";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "ለመሰረዝ ፎቶዎችን ይምረጡ.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
@@ -384,6 +402,8 @@
 "Targeted" = "ኢላማ የተደረገ";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "ኢላማዎች";
+/* Generated from genl10n: Finder.BApp.swift#1311 */
+"Text" = "ጽሑፍ";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "ይሄ ቀላል ነገር ግን እጅግ ፈጣን መሳሪያ የቀጥታ ፎቶዎችን ጨምሮ ብዙ ማህደረ መረጃዎችን በፍጥነት እንዲያሽከረከሩ እና እንዲያሽከረከሩ ያስችልዎታል. በነባሪ, ለማረም የፎቶዎች ቁጥር ገደብ የለውም.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */

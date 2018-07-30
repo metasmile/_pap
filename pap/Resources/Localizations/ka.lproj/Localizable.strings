@@ -150,10 +150,16 @@
 "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "გამოიყენეთ მაღალი ხარისხის ფილტრები თქვენს ყველა ფოტოზე. ფოტოების რაოდენობა არ არის შეზღუდული მათი რედაქტირებისთვის.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "ასპექტის თანაფარდობა";
+/* Generated from genl10n: AutoEditor.BApp.swift#172 */
+"Auto Crop" = "ავტო მოსავალი";
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
 "Auto Editor lets you edit automatically if your photos are needed to correct." = "ავტომატური რედაქტორი საშუალებას მოგცემთ შეცვალოთ ავტომატურად, თუ თქვენი ფოტოები საჭიროა გამოსწორდეს.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "ავტო რედაქტორი";
+/* Generated from genl10n: AutoEditor.BApp.swift#170 */
+"Auto Enhance" = "ავტომატური გაძლიერება";
+/* Generated from genl10n: AutoEditor.BApp.swift#173 */
+"Auto Straighten" = "Auto Straighten";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,8 +176,6 @@
 "Choose An Export Option For %d Items" = "აირჩიეთ ექსპორტის ვარიანტი %d Items";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "აირჩიეთ ქვემოქმედება.";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Choose an Option To Convert" = "აირჩიეთ ვარიანტი კონვერტაციისთვის";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "გამწმენდი საშუალებას გაძლევთ იპოვოთ და წაშალოთ ყველა სახის არასწორი ფოტოები, როგორიცაა დუბლიკატი და მსგავსი გამოსახულებები, ახლო ფოტო ან ხმის გადაღების კადრები!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -208,6 +212,8 @@
 "E-mail Address" = "ელექტრონული მისამართი";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost გაძლევთ საშუალებას წაშალოთ ყველა სახის მონაცემები, რომელიც შეიცავს თქვენს ფოტოებს, მათ შორის კერძო ინფორმაციას.";
+/* Generated from genl10n: Finder.BApp.swift#1264 */
+"Enable Quick Actions" = "სწრაფი ქმედებების ჩართვა";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "ექსპორტის პარამეტრები";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -246,6 +252,8 @@
 "Hiding Selected Items..." = "შერჩეული ელემენტების დამალვა ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "სურათის ხარისხი";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+"Images" = "სურათები";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "იმპორტი";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
@@ -254,6 +262,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "ამას მოითხოვს თქვენი კონტაქტების წვდომის ნებართვა. გთხოვთ, დაურთოთ კონტაქტები iOS- ის პარამეტრებში.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "საქონელი";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Landscape" = "ლანდშაფტი";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "განლაგება";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -292,14 +302,16 @@
 "Page Margin" = "გვერდის ზღვარი";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "გვერდი ზომა Preset";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+"Pages" = "გვერდები";
 /* Generated from genl10n: PhoneCalls.swift#57 */
 "Phone Calls" = "სატელეფონო ზარები";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "ტელეფონის ნომერი";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "ფოტოები";
-/* Generated from genl10n: Finder.BApp.swift#1229 */
-"Plain Text" = "ჩვეულებრივი ტექსტი";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Portrait" = "პორტრეტი";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -308,6 +320,8 @@
 "Quality" = "ხარისხი";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "სწრაფი ქმედებები მხოლოდ";
+/* Generated from genl10n: AutoEditor.BApp.swift#171 */
+"Red-Eye Removal" = "წითელი თვალის მოცილება";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "გამეორება";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -318,6 +332,8 @@
 "Rewind" = "გადახვევა";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "შენახვა ყველა ტელეფონის ნომრები";
+/* Generated from genl10n: Finder.BApp.swift#1252 */
+"Save Contacts" = "კონტაქტები შენახვა";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "გადავარჩინოთ კონტაქტები პირდაპირ";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -336,6 +352,8 @@
 "Screenshots" = "სკრინშოტი";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "ძიება ფრენები";
+/* Generated from genl10n: Converter.AppDockContent.swift#148 */
+"Select Format To Convert" = "აირჩიეთ ფორმატი კონვერტაციისთვის";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "აირჩიეთ ფოტოები წაშლა.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
@@ -384,6 +402,8 @@
 "Targeted" = "მიზნობრივი";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "მიზანზე";
+/* Generated from genl10n: Finder.BApp.swift#1311 */
+"Text" = "ტექსტი";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "ეს მარტივი, მაგრამ სწრაფი ინსტრუმენტი საშუალებას გაძლევთ სწრაფად იმოძრაოთ და გადაათრიეთ ბევრი მედია ფაილები, მათ შორის ცოცხალი ფოტოები. ჩვეულებრივ, არ არის შეზღუდული ფოტოების რაოდენობა მათი რედაქტირებისთვის.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */

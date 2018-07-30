@@ -114,10 +114,16 @@
 "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them.";
 /* Generated from genl10n: GIFMaker.BApp.swift#481 */
 "Aspect Ratio" = "Aspect Ratio";
+/* Generated from genl10n: AutoEditor.BApp.swift#172 */
+"Auto Crop" = "Auto Crop";
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
 "Auto Editor lets you edit automatically if your photos are needed to correct." = "Auto Editor lets you edit automatically if your photos are needed to correct.";
 /* Generated from genl10n: AutoEditor.BApp.swift#50 */
 "Auto Editor" = "Auto Editor";
+/* Generated from genl10n: AutoEditor.BApp.swift#170 */
+"Auto Enhance" = "Auto Enhance";
+/* Generated from genl10n: AutoEditor.BApp.swift#173 */
+"Auto Straighten" = "Auto Straighten";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#469 */
 "Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift#89 */
@@ -134,8 +140,6 @@
 "Choose An Export Option For %d Items" = "Choose An Export Option For %d Items";
 /* Generated from genl10n: Finder.BApp.swift#312 */
 "Choose An Sub Action." = "Choose An Sub Action.";
-/* Generated from genl10n: Converter.AppDockContent.swift#148 */
-"Choose an Option To Convert" = "Choose an Option To Convert";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!";
 /* Generated from genl10n: Cleaner.BApp.swift#44 */
@@ -194,7 +198,7 @@
 "Flashlight" = "Flashlight";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#265, Finder.BApp.swift#1220 */
 "Flight Number" = "Flight Number";
-/* Generated from genl10n: Finder.BApp.swift#1306 */
+/* Generated from genl10n: Converter.AppDockContent.swift#86, Finder.BApp.swift#1306 */
 "Formats" = "Formats";
 /* Generated from genl10n: GIFMaker.BApp.swift#208 */
 "Forward" = "Forward";
@@ -212,6 +216,8 @@
 "Hiding Selected Items..." = "Hiding Selected Items...";
 /* Generated from genl10n: GIFMaker.BApp.swift#531, PDFactory.AppDockContent.swift#125 */
 "Image Quality" = "Image Quality";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+"Images" = "Images";
 /* Generated from genl10n: GIFMaker.BApp.swift#443 */
 "Import" = "Import";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
@@ -220,6 +226,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "It requires a permission to access your contacts. Please allow Contacts on iOS Settings.";
 /* Generated from genl10n: Finder.BApp.swift#1213 */
 "Items" = "Items";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Landscape" = "Landscape";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Layout";
 /* Generated from genl10n: GIFMaker.BApp.swift#90 */
@@ -258,12 +266,16 @@
 "Page Margin" = "Page Margin";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Page Size Preset";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+"Pages" = "Pages";
 /* Generated from genl10n: PhoneCalls.swift#60 */
 "Phone Calls" = "Phone Calls";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#210, Finder.BApp.swift#335, Finder.BApp.swift#1215 */
 "Phone Number" = "Phone Number";
 /* Generated from genl10n: GIFMaker.BApp.swift#88 */
 "Photos" = "Photos";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Portrait" = "Portrait";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#174 */
 "Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
@@ -272,6 +284,8 @@
 "Quality" = "Quality";
 /* Generated from genl10n: Cleaner.BApp.swift#464 */
 "Quick Actions Only" = "Quick Actions Only";
+/* Generated from genl10n: AutoEditor.BApp.swift#171 */
+"Red-Eye Removal" = "Red-Eye Removal";
 /* Generated from genl10n: GIFMaker.BApp.swift#558 */
 "Repeat" = "Repeat";
 /* Generated from genl10n: GIFMaker.BApp.swift#209 */
@@ -302,6 +316,8 @@
 "Screenshots" = "Screenshots";
 /* Generated from genl10n: Finder.BApp.swift#835 */
 "Search Flights" = "Search Flights";
+/* Generated from genl10n: Converter.AppDockContent.swift#148 */
+"Select Format To Convert" = "Select Format To Convert";
 /* Generated from genl10n: Cleaner.BApp.swift#623 */
 "Select Photos To Delete." = "Select Photos To Delete.";
 /* Generated from genl10n: Finder.BApp.swift#1435 */

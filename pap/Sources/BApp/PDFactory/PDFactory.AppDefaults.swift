@@ -62,8 +62,8 @@ struct PDFactoryAppSettings{
         case fillPage
 
         static let Labels = [
-            "Entire Image": PDFactoryAppSettings.ScaleMode.fitPage.rawValue
-            , "Fill Page": PDFactoryAppSettings.ScaleMode.fillPage.rawValue
+            "Images".localized: PDFactoryAppSettings.ScaleMode.fitPage.rawValue
+            , "Pages".localized: PDFactoryAppSettings.ScaleMode.fillPage.rawValue
         ]
     }
 

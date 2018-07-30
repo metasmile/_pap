@@ -150,10 +150,16 @@
 "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Ба филтрҳои баландсифат дар тамоми суратҳоятон хоҳед мурољиат кунед. Миқдори суратҳо барои вироиши онҳо маҳдуд нест.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Нишондиҳандаи асъор";
+/* Generated from genl10n: AutoEditor.BApp.swift#172 */
+"Auto Crop" = "Зироати худ";
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
 "Auto Editor lets you edit automatically if your photos are needed to correct." = "Таҳрири Автопазир ба шумо имкон медиҳад, ки сурати худро дуруст ислоҳ кардан лозим.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Таҳлилгари худ";
+/* Generated from genl10n: AutoEditor.BApp.swift#170 */
+"Auto Enhance" = "Рушди автоматӣ";
+/* Generated from genl10n: AutoEditor.BApp.swift#173 */
+"Auto Straighten" = "Худи автоматизатсия";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Меъёри танаффус";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,8 +176,6 @@
 "Choose An Export Option For %d Items" = "Choose An Export Option For %d Items";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Интихоби Фаъол.";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Choose an Option To Convert" = "Барои интихоби алтернативӣ интихоб кунед";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Тозакунӣ ба шумо имкон медиҳад, ки ҳар гуна суратҳои нодурустро ба даст оред, ба монанди тасвирҳои такрорӣ ва монанд, суратгирони наздик ё клавиатураи клавиатура!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -208,6 +212,8 @@
 "E-mail Address" = "Суроғаи электронӣ";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost ба шумо ҳамаи намудҳои маълумотро, ки дорои расмҳои шахсӣ мебошад, тоза кунед.";
+/* Generated from genl10n: Finder.BApp.swift#1264 */
+"Enable Quick Actions" = "Тоза кардани амалҳои фаъол";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Имкониятҳои содиротӣ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -246,6 +252,8 @@
 "Hiding Selected Items..." = "Пинҳон кардани ҷузъҳои интихобшуда ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Сифати тасвир";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+"Images" = "Тасвирҳо";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Воридот";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
@@ -254,6 +262,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Ин иҷозатро барои дастрасӣ ба мухотибон талаб мекунад. Лутфан, тамосҳо дар iOS Танзимотҳоро иҷозат диҳед";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Маводҳо";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Landscape" = "Замин";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Забон";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -292,14 +302,16 @@
 "Page Margin" = "Саҳифа";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Ҳаҷмии саҳифа";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+"Pages" = "Саҳифаҳо";
 /* Generated from genl10n: PhoneCalls.swift#57 */
 "Phone Calls" = "Зангҳои телефонӣ";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Рақами мобилӣ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Суратҳо";
-/* Generated from genl10n: Finder.BApp.swift#1229 */
-"Plain Text" = "Plain Text";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Portrait" = "Портрет";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -308,6 +320,8 @@
 "Quality" = "Сифат";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "Танҳо амалҳои зуд";
+/* Generated from genl10n: AutoEditor.BApp.swift#171 */
+"Red-Eye Removal" = "Тоза кардани сурх";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Такрор";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -318,6 +332,8 @@
 "Rewind" = "Решид";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "Ҳамаи рақамҳои телефонро захира кунед";
+/* Generated from genl10n: Finder.BApp.swift#1252 */
+"Save Contacts" = "Save Contacts";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "Ҷустуҷӯи мухтасарҳо";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -336,6 +352,8 @@
 "Screenshots" = "Суратҳо";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Файли ҷустуҷӯ";
+/* Generated from genl10n: Converter.AppDockContent.swift#148 */
+"Select Format To Convert" = "Форматро интихоб кунед";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "Барои нест кардани тасвирҳо интихоб кунед.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
@@ -384,6 +402,8 @@
 "Targeted" = "Мақсад";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Мақсадҳо";
+/* Generated from genl10n: Finder.BApp.swift#1311 */
+"Text" = "Матн";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "Ин оддӣ, вале воситаи зудтарин ба шумо ба зудӣ фишурдан ва фишурдани бисёр файлҳои медиа, аз ҷумла Live Photos. Бо нобаёнӣ, шумораи онҳое, ки онҳоро таҳрир мекунанд, маҳдуд нестанд.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */

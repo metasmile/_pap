@@ -150,10 +150,16 @@
 "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Pielietojiet augstas kvalitātes filtrus visiem jūsu paredzētajiem fotoattēliem. To rediģēšanai paredzēto fotoattēlu skaits nav ierobežots.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Aspect Ratio";
+/* Generated from genl10n: AutoEditor.BApp.swift#172 */
+"Auto Crop" = "Auto crop";
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
 "Auto Editor lets you edit automatically if your photos are needed to correct." = "Auto redaktors ļauj automātiski rediģēt, ja jūsu fotogrāfijas ir vajadzīgas, lai labotu.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "Auto redaktors";
+/* Generated from genl10n: AutoEditor.BApp.swift#170 */
+"Auto Enhance" = "Automātiskā uzlabošana";
+/* Generated from genl10n: AutoEditor.BApp.swift#173 */
+"Auto Straighten" = "Auto iztaisnot";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Izplūšanas ātrums";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,8 +176,6 @@
 "Choose An Export Option For %d Items" = "Izvēlieties eksporta opciju %d vienumiem";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Izvēlieties apakšpasākumu.";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Choose an Option To Convert" = "Izvēlieties iespēju konvertēt";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Apkopēja ļauj jums atrast un izdzēst jebkāda veida nepareizus fotoattēlus, piemēram, dublētus un līdzīgus attēlus, tuvplāna fotoattēlus vai Lockscreen shots!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -208,6 +212,8 @@
 "E-mail Address" = "Epasta adrese";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost ļauj noņemt visu veidu datus, kas satur jūsu fotoattēlus, tostarp privāto informāciju.";
+/* Generated from genl10n: Finder.BApp.swift#1264 */
+"Enable Quick Actions" = "Iespējot ātras darbības";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Eksporta iespējas";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -246,6 +252,8 @@
 "Hiding Selected Items..." = "Atlasīto vienumu slēpšana ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Attēla kvalitāte";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+"Images" = "Attēli";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Importēt";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
@@ -254,6 +262,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Tam nepieciešama atļauja, lai piekļūtu saviem kontaktiem. Lūdzu, atļaujiet kontaktpersonas lietotnē iOS iestatījumi.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Vienumi";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Landscape" = "Ainava";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Izkārtojums";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -292,14 +302,16 @@
 "Page Margin" = "Lapas marža";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "Page Size Preset";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+"Pages" = "Lapas";
 /* Generated from genl10n: PhoneCalls.swift#57 */
 "Phone Calls" = "Telefona zvani";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Telefona numurs";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Photos";
-/* Generated from genl10n: Finder.BApp.swift#1229 */
-"Plain Text" = "Vienkāršs teksts";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Portrait" = "Portrets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -308,6 +320,8 @@
 "Quality" = "Kvalitāte";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "Tikai ātras darbības";
+/* Generated from genl10n: AutoEditor.BApp.swift#171 */
+"Red-Eye Removal" = "Sarkano acu noņemšana";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Atkārtojiet";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -318,6 +332,8 @@
 "Rewind" = "Rewind";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "Saglabājiet visus tālruņu numurus";
+/* Generated from genl10n: Finder.BApp.swift#1252 */
+"Save Contacts" = "Saglabājiet kontaktpersonas";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "Saglabājiet tieši atrast kontaktpersonas";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -336,6 +352,8 @@
 "Screenshots" = "Ekrānuzņēmumi";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Meklēt lidojumus";
+/* Generated from genl10n: Converter.AppDockContent.swift#148 */
+"Select Format To Convert" = "Izvēlieties formātu konvertēšanai";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "Atlasiet Fotogrāfijas, lai izdzēstu.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
@@ -384,6 +402,8 @@
 "Targeted" = "Mērķtiecīga";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Mērķi";
+/* Generated from genl10n: Finder.BApp.swift#1311 */
+"Text" = "Teksts";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "Šis vienkāršais, bet ātrākais rīks ļauj ātri pagriezt un pārslēgt daudz multivides failus, tostarp Live Photos. Pēc noklusējuma fotogrāfiju skaits, lai tos rediģētu, nav ierobežots.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */

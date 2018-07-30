@@ -150,10 +150,16 @@
 "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "د ټولو کیفیت لرونکو فلټرونو پلي کول چې تاسو یې غواړئ. د تدوین لپاره د عکسونو شمیر ته هیڅ حد نشته.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "د اړخ اندازه";
+/* Generated from genl10n: AutoEditor.BApp.swift#172 */
+"Auto Crop" = "د آٹو فصل";
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
 "Auto Editor lets you edit automatically if your photos are needed to correct." = "د اتوماتیک مدیر ته اجازه درکوي چې تاسو خپل ځانونه سم کړئ که ستاسو عکسونه سمولو ته اړتیا وي.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "اتوماتیک مدیر";
+/* Generated from genl10n: AutoEditor.BApp.swift#170 */
+"Auto Enhance" = "اتومات لوړول";
+/* Generated from genl10n: AutoEditor.BApp.swift#173 */
+"Auto Straighten" = "اتوماتیک مستقیم";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "د غږ کچه";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -170,8 +176,6 @@
 "Choose An Export Option For %d Items" = "د صادراتو اختیار غوره کړئ %d توکي";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "د فرعي کړنې انتخاب کړئ.";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Choose an Option To Convert" = "د اختیار کولو لپاره یو اختیار غوره کړئ";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "کلینر تاسو ته توان ورکوي چې د هر ډول ناسم عکسونو موندلو او لرې کولو لپاره لکه نښې او ورته انځورونه، تړل شوي انځورونه یا د لوکسیچ شاټونه حذف کړئ!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -208,6 +212,8 @@
 "E-mail Address" = "بریښنالیک";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost تاسو ته اجازه درکوي چې ټول ډول معلومات چې ستاسو انځورونه پکې شامل وي شخصي معلومات په شمول.";
+/* Generated from genl10n: Finder.BApp.swift#1264 */
+"Enable Quick Actions" = "چټک فعالیتونه فعال کړئ";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "د صادرولو اختیارونه";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -246,6 +252,8 @@
 "Hiding Selected Items..." = "پټ شوي غوره توکي ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "د انځور کیفیت";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+"Images" = "انځورونه";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "واردات";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
@@ -254,6 +262,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "دا ستاسو د اړیکو د لاسرسي لپاره اجازه ته اړتیا لري. مهرباني وکړئ د iOS په سایټونو کې د اړیکو اجازه ورکړئ.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "توکي";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Landscape" = "لیدلوری";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "لیټ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -292,14 +302,16 @@
 "Page Margin" = "د پاڼې مارجې";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
 "Page Size Preset" = "د پاڼې کچه Preset";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+"Pages" = "پاڼې";
 /* Generated from genl10n: PhoneCalls.swift#57 */
 "Phone Calls" = "د تلیفون کالونه";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "د تلیفون شمیره";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "انځورونه";
-/* Generated from genl10n: Finder.BApp.swift#1229 */
-"Plain Text" = "ساده متن";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Portrait" = "پورټریټ";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "پریټونه";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -308,6 +320,8 @@
 "Quality" = "کیفیت";
 /* Generated from genl10n: Finder.BApp.swift#1197 */
 "Quick Actions Only" = "چټک فعالیت یواځې";
+/* Generated from genl10n: AutoEditor.BApp.swift#171 */
+"Red-Eye Removal" = "د سترګو لرې کول";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "تکرار کړئ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -318,6 +332,8 @@
 "Rewind" = "ریزورډ";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "د تلیفون ټول شمېره وساتئ";
+/* Generated from genl10n: Finder.BApp.swift#1252 */
+"Save Contacts" = "تماسونه خوندي کړئ";
 /* Generated from genl10n: Finder.BApp.swift#1185 */
 "Save Found Contacts Directly" = "په مستقیم ډول د اړیکو موندلو موندل";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -336,6 +352,8 @@
 "Screenshots" = "پردې شاټونه";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "د الوتکو لټون";
+/* Generated from genl10n: Converter.AppDockContent.swift#148 */
+"Select Format To Convert" = "شکل بدلولو لپاره غوره کړئ";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "انځورونه لرې کولو لپاره غوره کړه.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
@@ -384,6 +402,8 @@
 "Targeted" = "هدف شوی";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "اهداف";
+/* Generated from genl10n: Finder.BApp.swift#1311 */
+"Text" = "متن";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "دا ساده، مګر تر ټولو چټک وسیله تاسو ته په چټکۍ سره د رسنیو ډیری فایلونه ځړول او فلیپونو ته اجازه ورکوي. په ډیفالټ کې، د دوی د سمون لپاره د عکسونو شمیر ته محدودوالی شتون نلري.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
