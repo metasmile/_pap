@@ -237,13 +237,13 @@
 /* Generated from genl10n: Finder.BApp.swift#1224 */
 "Formats" = "formaatit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "Forward";
+"Forward" = "Eteenpäin";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Kehyksen viive";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker mahdollistaa helposti ja nopeasti GIF-kuvat valokuvista tai live-valokuvista, joissa on useita vaihtoehtoja! Ja sitten voit avata muunnossovelluksen muunnettavaksi kaiken, kuten Live-valokuvia tai videoita.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"GIF Maker" = "GIF-valmistaja";
+"GIF Maker" = "GIF Maker";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Anna luokitus";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -287,7 +287,7 @@
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"No loop" = "Ei silmukkaa";
+"No loop" = "No loop";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Avaa Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -318,8 +318,6 @@
 "Privacy" = "yksityisyys";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Laatu";
-/* Generated from genl10n: Finder.BApp.swift#1197 */
-"Quick Actions Only" = "Vain nopeat toimet";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Punasilmäisyyden poisto";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -334,8 +332,6 @@
 "Save All Phone Numbers" = "Tallenna kaikki puhelinnumerot";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "Tallenna yhteystietoja";
-/* Generated from genl10n: Finder.BApp.swift#1185 */
-"Save Found Contacts Directly" = "Tallenna löydetyt yhteystiedot suoraan";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Tallenna ja jaa";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */

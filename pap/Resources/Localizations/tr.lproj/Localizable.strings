@@ -89,7 +89,7 @@
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "PDF Sayfaları Oluşturuluyor ...";
 /*com.stells.pap.converter*/
-"Convert" = "Dönüştürmek";
+"Convert" = "Convert";
 /*CoreSpotligth keywords - localizable - marketing*/
 "cs_keyword_0" = "albüm";
 /*Translated from: camera*/
@@ -237,7 +237,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1224 */
 "Formats" = "Biçimleri";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "Forward";
+"Forward" = "ileri";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Çerçeve Gecikmesi";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
@@ -267,7 +267,7 @@
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "düzen";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Live Photo" = "Canlı Fotoğraf";
+"Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
 "Lockscreens" = "lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -305,7 +305,7 @@
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Sayfalar";
 /* Generated from genl10n: PhoneCalls.swift#57 */
-"Phone Calls" = "Telefon çağrıları";
+"Phone Calls" = "Phone Calls";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Telefon numarası";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -318,8 +318,6 @@
 "Privacy" = "Gizlilik";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Kalite";
-/* Generated from genl10n: Finder.BApp.swift#1197 */
-"Quick Actions Only" = "Sadece Hızlı Eylemler";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Kırmızı Göz Giderme";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -334,8 +332,6 @@
 "Save All Phone Numbers" = "Tüm Telefon Numaralarını Kaydet";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "Kişileri Kaydet";
-/* Generated from genl10n: Finder.BApp.swift#1185 */
-"Save Found Contacts Directly" = "Doğrudan Bulunan Kişileri Kaydetme";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Kaydet ve Paylaş";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */

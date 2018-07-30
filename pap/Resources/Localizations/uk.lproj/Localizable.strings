@@ -318,8 +318,6 @@
 "Privacy" = "Privacy";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Якість";
-/* Generated from genl10n: Finder.BApp.swift#1197 */
-"Quick Actions Only" = "Тільки швидкі дії";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Видалення 'червоних очей'";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -334,8 +332,6 @@
 "Save All Phone Numbers" = "Зберегти всі телефонні номери";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "Зберегти контакти";
-/* Generated from genl10n: Finder.BApp.swift#1185 */
-"Save Found Contacts Directly" = "Зберегти знайдені контакти безпосередньо";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Зберегти та поділитися";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */

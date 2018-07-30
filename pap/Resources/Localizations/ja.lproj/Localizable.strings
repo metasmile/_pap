@@ -318,8 +318,6 @@
 "Privacy" = "プライバシー";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "品質";
-/* Generated from genl10n: Finder.BApp.swift#1197 */
-"Quick Actions Only" = "クイックアクションのみ";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "赤目除去";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -334,8 +332,6 @@
 "Save All Phone Numbers" = "すべての電話番号を保存";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "連絡先を保存";
-/* Generated from genl10n: Finder.BApp.swift#1185 */
-"Save Found Contacts Directly" = "見つかった連絡先を直接保存する";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "保存と共有";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */

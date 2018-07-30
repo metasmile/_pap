@@ -449,7 +449,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
     private func createCellDescriber_SelectionPreset_contact_saveContactWithoutEdit() -> UITableViewSwitchCellDescriber{
         let celld = UITableViewSwitchCellDescriber()
         celld.itemIdentifier = CleanerAppSettingCells.saveContactWithoutEdit.hashValue
-        celld.label = "Save Found Contacts Directly".localized
+        celld.label = "Save Contacts".localized
         celld.valueGetter = { CleanerApp.privateDefaults.saveContactWithoutEdit }
         celld.valueHandler = {
             var defaults = CleanerApp.privateDefaults
@@ -461,7 +461,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
     private func createCellDescriber_SelectionPreset_action_quickActionsOnly() -> UITableViewSwitchCellDescriber{
         let celld = UITableViewSwitchCellDescriber()
         celld.itemIdentifier = CleanerAppSettingCells.quickActionOnly.hashValue
-        celld.label = "Quick Actions Only".localized
+        celld.label = "Enable Quick Actions".localized
         celld.valueGetter = { CleanerApp.privateDefaults.quickActionOnly }
         celld.valueHandler = {
             var defaults = CleanerApp.privateDefaults

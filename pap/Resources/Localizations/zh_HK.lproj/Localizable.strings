@@ -318,14 +318,12 @@
 "Privacy" = "隱私";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "質量";
-/* Generated from genl10n: Finder.BApp.swift#1197 */
-"Quick Actions Only" = "僅限快速操作";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "消除紅眼";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "重複";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "Reverse";
+"Reverse" = "相反";
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "還原應用程序允許快速將大量已編輯的照片恢復為原始照片。此外，它可以幫助您自動選擇！";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -334,8 +332,6 @@
 "Save All Phone Numbers" = "保存所有電話號碼";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "保存聯繫人";
-/* Generated from genl10n: Finder.BApp.swift#1185 */
-"Save Found Contacts Directly" = "直接保存找到的聯繫人";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "保存並分享";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */

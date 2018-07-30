@@ -315,27 +315,23 @@
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
-"Privacy" = "Privatsphäre";
+"Privacy" = "Privacy";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Qualität";
-/* Generated from genl10n: Finder.BApp.swift#1197 */
-"Quick Actions Only" = "Nur schnelle Aktionen";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Entfernung roter Augen";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Wiederholen";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "Reverse";
+"Reverse" = "Umkehren";
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Revert App ermöglicht es, eine Menge bearbeiteter Fotos schnell wiederherzustellen. Außerdem hilft es Ihnen bei der automatischen Auswahl!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "Rewind";
+"Rewind" = "Zurückspulen";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "Speichere alle Telefonnummern";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "Kontakte speichern";
-/* Generated from genl10n: Finder.BApp.swift#1185 */
-"Save Found Contacts Directly" = "Gefundene Kontakte direkt speichern";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Speichern und teilen";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */

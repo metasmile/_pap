@@ -285,7 +285,7 @@
 /* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
 "New Phone Number" = "Nomor Telepon Baru";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
-"No Crop" = "Tanpa Pangkas";
+"No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "No loop";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -305,7 +305,7 @@
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Halaman";
 /* Generated from genl10n: PhoneCalls.swift#57 */
-"Phone Calls" = "Panggilan telepon";
+"Phone Calls" = "Phone Calls";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Nomor telepon";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -318,8 +318,6 @@
 "Privacy" = "Pribadi";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Kualitas";
-/* Generated from genl10n: Finder.BApp.swift#1197 */
-"Quick Actions Only" = "Hanya Tindakan Cepat";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Penghilang Mata Merah";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -334,8 +332,6 @@
 "Save All Phone Numbers" = "Simpan Semua Nomor Telepon";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "Simpan Kontak";
-/* Generated from genl10n: Finder.BApp.swift#1185 */
-"Save Found Contacts Directly" = "Simpan Kontak Ditemukan Langsung";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Simpan dan Bagikan";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
