@@ -97,10 +97,6 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
         return [.showActions]
     }
 
-    public static var fixedContentLayout: Bool {
-        return true
-    }
-
     public func shouldSelect(item: AppAsset) -> Bool {
         return item.asset.mediaType == .image
     }
