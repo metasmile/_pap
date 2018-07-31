@@ -164,7 +164,7 @@ class PHAssetGarbageDetector_VideosWithoutSound: PHAssetGarbageDetector{
 
 class PHAssetGarbageDetector_VideosSavedbyInstagramApp: PHAssetGarbageDetector{
     override class var label:String{
-        return "Videos Saved by Instagram App".localized
+        return "Videos Saved by Instagram".localized
     }
 
     override func process(input: GarbageDetectorInput,_ asyncSignal: AsyncWaitSignalable) -> Bool? {

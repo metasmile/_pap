@@ -103,7 +103,7 @@
 /*Translated from: filter*/
 "cs_keyword_5" = "फिल्टर";
 /*Translated from: edit*/
-"cs_keyword_6" = "edit";
+"cs_keyword_6" = "Edit";
 /*Translated from: image*/
 "cs_keyword_7" = "छवि";
 /*Translated from: smart*/
@@ -269,7 +269,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "लाइव फोटो";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
-"Lockscreens" = "lockscreens";
+"Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "लूप";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -413,7 +413,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "वीडियो";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
-"Videos Saved by Instagram App" = "Instagram ऐप द्वारा सहेजे गए वीडियो";
+"Videos Saved by Instagram" = "Instagram द्वारा सहेजे गए वीडियो";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
 "Videos Shorter Than 1 Second" = "1 सेकंड से कम वीडियो";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */

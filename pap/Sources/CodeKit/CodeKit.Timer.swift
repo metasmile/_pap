@@ -28,4 +28,15 @@ extension Timer{
     open class func getScheduledTimer(identifier:String) -> Timer?{
         return Timers.timers[identifier]
     }
+    
+    @available(iOS 10.0, *)
+    @discardableResult
+    open class func removeScheduledTimer(identifier:String) -> Bool{
+        if let timer = getScheduledTimer(identifier:identifier){
+            timer.invalidate()
+            Timers.timers[identifier] = nil
+            return true
+        }
+        return false
+    }
 }

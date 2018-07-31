@@ -79,10 +79,11 @@ extension PhotoPickerViewController{
         alert.setValue(attributedTitle, forKey: "attributedTitle")
         
         let creditCardWidth = (alert.popoverPresentationController == nil ? view.bounds.width : 320) - 45
-        let creditCardSize = CGSize(width: creditCardWidth, height: creditCardWidth / 1.586) // credit card aspect ratio: 1.586
-        
+        let creditCardSize = CGSize(width: creditCardWidth, height: creditCardWidth / 2.2 /*iphone se + no scroll*/) // credit card aspect ratio: 1.586
+
         let imageAction = UIAlertAction(title: "", style: .default, handler: nil)
-        imageAction.setValue(UIImage(named: "AppIcon")?.crop(aspectFill: creditCardSize)?.rounded(radius: 10)?.withRenderingMode(.alwaysOriginal), forKey: "image") //TODO: replace to something promotional image
+
+        imageAction.accessoryImage = R.image.apps_collection()?.crop(aspectFill: creditCardSize)?/*.rounded(radius: 10)?*/.withRenderingMode(.alwaysOriginal)
         imageAction.isEnabled = false
         alert.addAction(imageAction)
 
@@ -116,25 +117,25 @@ extension PhotoPickerViewController{
                     let action = UIAlertAction(title: charge.title, style: .default) { action in
                         AppCenter.charge.pay(for: InAppStoreRating.self)
                     }
-                    action.setValue(badgeImage, forKey: "image")
+                    action.accessoryImage = badgeImage
                     alert.addAction(action)
                 case .onPromptRating where receipt != nil && !selected && charge.reward == .nonBlockOfUses:
                     let action = UIAlertAction(title: charge.title, style: .default) { action in
                         AppCenter.charge.pay(for: OnPromptRating.self)
                     }
-                    action.setValue(badgeImage, forKey: "image")
+                    action.accessoryImage = badgeImage
                     alert.addAction(action)
                 case .socialShare where receipt == nil:
                     let action = UIAlertAction(title: charge.title, style: .default) { action in
                         AppCenter.charge.pay(for: OnSocialShare.self)
                     }
-                    action.setValue(badgeImage, forKey: "image")
+                    action.accessoryImage = badgeImage
                     alert.addAction(action)
                 case .feedback where receipt == nil:
                     let action = UIAlertAction(title: charge.title, style: .default) { action in
                         AppCenter.charge.pay(for: OnFeedback.self)
                     }
-                    action.setValue(badgeImage, forKey: "image")
+                    action.accessoryImage = badgeImage
                     alert.addAction(action)
                 default:
                     break

@@ -63,6 +63,8 @@ extension PhotoPickerViewController{
 
         let signal = AsyncSignal()
 
+        let didPerformInCurrentCapturedCycle = PreheatingQueue.indexPathQueue.count>0
+
         func performNext() {
             PreheatingQueue.dispatchQueue.async {
                 guard let preheatingApp = AppCenter.default.currentInstanceAs(PreheatableApp.self) else {
@@ -72,6 +74,9 @@ extension PhotoPickerViewController{
 
                 guard let indexPath = PreheatingQueue.indexPathQueue.dequeue()
                 , let asset = PHAssets.fetched.asset(at: indexPath) else {
+                    if didPerformInCurrentCapturedCycle {
+                        preheatingApp.didFinishCurrentPreheatingCycle()
+                    }
                     return
                 }
                 PreheatingQueue.identifierSet.remove(asset.localIdentifier)
@@ -90,6 +95,7 @@ extension PhotoPickerViewController{
                 if PreheatingQueue.canceled{
                     PreheatingQueue.identifierSet.removeAll()
                     PreheatingQueue.indexPathQueue.dequeueAll()
+                    preheatingApp.didCancelPreheating()
                     return
                 }
 

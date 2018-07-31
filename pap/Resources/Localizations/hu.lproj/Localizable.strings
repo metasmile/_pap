@@ -9,7 +9,7 @@
 /*Translated from: Done*/
 "Done" = "Done";
 /*Translated from: Confirm*/
-"Confirm" = "megerősít";
+"Confirm" = "Megerősít";
 /*Translated from: Cancel*/
 "Cancel" = "Cancel";
 /*Translated from: Detail*/
@@ -91,33 +91,33 @@
 /*com.stells.pap.converter*/
 "Convert" = "Convert";
 /*CoreSpotligth keywords - localizable - marketing*/
-"cs_keyword_0" = "album";
+"cs_keyword_0" = "Album";
 /*Translated from: camera*/
-"cs_keyword_1" = "kamera";
+"cs_keyword_1" = "Kamera";
 /*Translated from: photos*/
-"cs_keyword_2" = "fotók";
+"cs_keyword_2" = "Fotók";
 /*Translated from: editor*/
-"cs_keyword_3" = "szerkesztő";
+"cs_keyword_3" = "Szerkesztő";
 /*Translated from: messenger*/
-"cs_keyword_4" = "hírnök";
+"cs_keyword_4" = "Hírnök";
 /*Translated from: filter*/
-"cs_keyword_5" = "szűrő";
+"cs_keyword_5" = "Szűrő";
 /*Translated from: edit*/
-"cs_keyword_6" = "edit";
+"cs_keyword_6" = "Edit";
 /*Translated from: image*/
-"cs_keyword_7" = "image";
+"cs_keyword_7" = "Image";
 /*Translated from: smart*/
-"cs_keyword_8" = "smart";
+"cs_keyword_8" = "Smart";
 /*Translated from: picture*/
-"cs_keyword_9" = "kép";
+"cs_keyword_9" = "Kép";
 /*Translated from: memory*/
-"cs_keyword_10" = "memória";
+"cs_keyword_10" = "Memória";
 /*Translated from: familiy*/
-"cs_keyword_11" = "család";
+"cs_keyword_11" = "Család";
 /*Translated from: friend*/
-"cs_keyword_12" = "barát";
+"cs_keyword_12" = "Barát";
 /*Translated from: lover*/
-"cs_keyword_13" = "lover";
+"cs_keyword_13" = "Lover";
 /* Generated from genl10n: AppCenter.Charge.swift#33 */
 "%@ Day License" = "%@ Napi licenc";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
@@ -227,7 +227,7 @@
 /* Generated from genl10n: Finder.BApp.swift#42 */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "A Finder lehetővé teszi minden fontos információ, például telefonszámok, címek, dátumok vagy URL-ek kivonását a fotókból, majd hívja fel, nyissa meg a térképeket vagy navigáljon a weboldalakon, még a keresési járatokon is!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
-"Finder" = "kereső";
+"Finder" = "Kereső";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "Kapcsolatok keresése ... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
@@ -235,7 +235,7 @@
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Járatszám";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
-"Formats" = "formátumok";
+"Formats" = "Formátumok";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Előre";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -253,15 +253,15 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Képminőség";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
-"Images" = "képek";
+"Images" = "Képek";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Import" = "import";
+"Import" = "Import";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
 "It could not be saved." = "Nem lehetett menteni.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Ehhez engedély szükséges a névjegyek eléréséhez. Engedélyezze a Kapcsolatok lehetőséget az iOS-beállításoknál.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
-"Items" = "példány";
+"Items" = "Példány";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Tájkép";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
@@ -309,9 +309,9 @@
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Telefonszám";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Photos" = "fotók";
+"Photos" = "Fotók";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
-"Portrait" = "portré";
+"Portrait" = "Portré";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -377,7 +377,7 @@
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilization Mode" = "Stabilizációs mód";
 /* Generated from genl10n: Stabilizer.swift */
-"Stabilize" = "stabilizálja";
+"Stabilize" = "Stabilizálja";
 /* Generated from genl10n: Stabilizer.swift */
 "Stabilizer" = "Stabilizátor";
 /* Generated from genl10n: Stabilizer.swift */
@@ -395,9 +395,9 @@
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "Fotózd le";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
-"Targeted" = "célzott";
+"Targeted" = "Célzott";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
-"Targets" = "célok";
+"Targets" = "Célok";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Szöveg";
 /* Generated from genl10n: Transform.BApp.swift#55 */
@@ -407,13 +407,13 @@
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "Túl lassú zársebesség";
 /* Generated from genl10n: Stabilizer.swift#325 */
-"Translate" = "fordít";
+"Translate" = "Fordít";
 /* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
 "Use Auto Selection Bot" = "Use Auto Selection Bot";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Videó";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
-"Videos Saved by Instagram App" = "Az Instagram App. Által mentett videók";
+"Videos Saved by Instagram" = "Az Instagram által mentett videók";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
 "Videos Shorter Than 1 Second" = "Videók rövidebb, mint 1 másodperc";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */

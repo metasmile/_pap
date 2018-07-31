@@ -27,7 +27,7 @@ struct PHAssetGCResult:AppTaskResultable {
 
 private typealias PHAssetID = String
 
-public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp, PHAssetCacheableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp, PreheatableApp {
+public class CleanerApp: NSObject, BApp, KeyPathWatchable, LaunchableApp, PHAssetFinalizableApp, PHAssetCacheableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp, PreheatableApp {
     public static let taskType: AppTaskable.Type = _CleanerAppTask.self
 
     public static let paramType: AppTaskParamable.Type = AppAsset.self
@@ -65,6 +65,14 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
             }
         }
         return options.nilEmpty
+    }
+
+    func didResign(current: App.Type?) {
+        self.didCancelPreheating()
+    }
+
+    func didLaunch(previous: App.Type?, withOption: AppLaunchOption?) {
+
     }
 
     public var titleWillFinalize: String? {
@@ -210,8 +218,19 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, PHAssetFinalizableApp
     public func performPreheating(item: PHAssetParamable,  _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
         guard self.autoSelect else { return nil }
 
+        (content as? PreheatableAppSubscribable)?.didStartPreheating()
+
         return gc(item: item, async).action == .delete ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
     }
+
+    public func didCancelPreheating() {
+        (content as? PreheatableAppSubscribable)?.didStopPreheating()
+    }
+
+    public func didFinishCurrentPreheatingCycle() {
+        (content as? PreheatableAppSubscribable)?.didStopPreheating()
+    }
+
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
         let items = result
@@ -832,5 +851,16 @@ private class Cell: UITableViewCell {
         super.tintColorDidChange()
 
         optionSwitch.onTintColor = tintColor
+    }
+}
+
+
+extension CleanerAppDockContent: PreheatableAppSubscribable{
+    func didStartPreheating() {
+        self.startSelectionBotIconAnimation(self.settingCellDescribers, CleanerAppSettingCells.autoSelect.hashValue)
+    }
+
+    func didStopPreheating() {
+        self.stopSelectionBotIconAnimation(self.settingCellDescribers, CleanerAppSettingCells.autoSelect.hashValue)
     }
 }

@@ -139,6 +139,18 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
                 groupedIndexPaths.reverse()
             }
 
+#if swift(>=4.2)
+            groupedIndexPaths.removeAll(where: { photoCollectionView.indexPathsForSelectedItems?.contains($0) == true })
+#else
+            //TODO: remove this block when after mainly use swift4.2
+            groupedIndexPaths = groupedIndexPaths.filter { photoCollectionView.indexPathsForSelectedItems?.contains($0) ?? true == false }
+#endif
+            
+            groupedIndexPaths.sort()
+            if groupDirection == .up {
+                groupedIndexPaths.reverse()
+            }
+
             dragDeselection(with: ignoredIndexPaths)
             dragSelection(with: groupedIndexPaths)
         }

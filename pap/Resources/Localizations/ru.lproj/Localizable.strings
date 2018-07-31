@@ -103,17 +103,17 @@
 /*Translated from: filter*/
 "cs_keyword_5" = "фильтр";
 /*Translated from: edit*/
-"cs_keyword_6" = "edit";
+"cs_keyword_6" = "Edit";
 /*Translated from: image*/
-"cs_keyword_7" = "image";
+"cs_keyword_7" = "Image";
 /*Translated from: smart*/
-"cs_keyword_8" = "smart";
+"cs_keyword_8" = "Smart";
 /*Translated from: picture*/
 "cs_keyword_9" = "картина";
 /*Translated from: memory*/
 "cs_keyword_10" = "Память";
 /*Translated from: familiy*/
-"cs_keyword_11" = "familiy";
+"cs_keyword_11" = "Familiy";
 /*Translated from: friend*/
 "cs_keyword_12" = "друг";
 /*Translated from: lover*/
@@ -413,7 +413,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Видео";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
-"Videos Saved by Instagram App" = "Видео, сохраненные приложением Instagram";
+"Videos Saved by Instagram" = "Видео, сохраненные Instagram";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
 "Videos Shorter Than 1 Second" = "Видеоролик короче 1 секунды";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */

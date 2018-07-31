@@ -33,7 +33,7 @@ public class ExifGhostApp: NSObject, KeyPathWatchable,BApp,
             , minOSVersion: nil
     )
 
-    public private(set) lazy var content: AppDockContent? = ExifGhostAppAppDockContent()
+    public private(set) lazy var content: AppDockContent? = ExifGhostAppDockContent()
 
     @objc dynamic
     public var autoSelect: Bool = false
@@ -53,6 +53,8 @@ public class ExifGhostApp: NSObject, KeyPathWatchable,BApp,
     public func performPreheating(item: PHAssetParamable,  _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
 
         if autoSelect && item.asset.mediaType == .image{
+            (content as? PreheatableAppSubscribable)?.didStartPreheating()
+
             var purged = false
             async.begin()
             PHImageManager.default().requestImageData(for: item.asset, options: nil) { data, s, orientation, dictionary in
@@ -65,6 +67,14 @@ public class ExifGhostApp: NSObject, KeyPathWatchable,BApp,
         }
 
         return nil
+    }
+
+    public func didCancelPreheating() {
+        (content as? PreheatableAppSubscribable)?.didStopPreheating()
+    }
+
+    public func didFinishCurrentPreheatingCycle() {
+        (content as? PreheatableAppSubscribable)?.didStopPreheating()
     }
 
     public var doneButtonTitle: String?{
@@ -104,7 +114,7 @@ private class _ExifGhostAppTask: AppTaskPrototype, AppTaskable {
                 , let metadata = data.getMetadata(){
 
                     var ghostedData:Data
-                    if let appContentAsExifGhostApp = AppCenter.default.currentInstanceAs(AppDockApp.self)?.content as? ExifGhostAppAppDockContent {
+                    if let appContentAsExifGhostApp = AppCenter.default.currentInstanceAs(AppDockApp.self)?.content as? ExifGhostAppDockContent {
                         if appContentAsExifGhostApp.shouldGhostAll{
                             ghostedData = data.setMetadata(with: nil)
 

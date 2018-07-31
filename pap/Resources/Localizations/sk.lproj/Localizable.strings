@@ -7,13 +7,13 @@
 /*Translated from: OK*/
 "OK" = "OK";
 /*Translated from: Done*/
-"Done" = "hotový";
+"Done" = "Hotový";
 /*Translated from: Confirm*/
-"Confirm" = "potvrdiť";
+"Confirm" = "Potvrdiť";
 /*Translated from: Cancel*/
 "Cancel" = "Zrušiť";
 /*Translated from: Detail*/
-"Detail" = "detail";
+"Detail" = "Detail";
 /*Translated from: Delete*/
 "Delete" = "Delete";
 /*Translated from: Sorry, something went wrong.*/
@@ -73,7 +73,7 @@
 /*Translated from: Edit %@ Items*/
 "Edit %d Items" = "Edit %@ Items";
 /*com.stells.pap.transform*/
-"Transform" = "premeniť";
+"Transform" = "Premeniť";
 /*com.stells.pap.photosfilter*/
 "Apply" = "platiť";
 /*com.stells.pap.revert*/
@@ -413,7 +413,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
-"Videos Saved by Instagram App" = "Videá uložené aplikáciou Instagram App";
+"Videos Saved by Instagram" = "Videá uložené spoločnosťou Instagram";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
 "Videos Shorter Than 1 Second" = "Videá kratšie ako 1 sekundu";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
