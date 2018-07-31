@@ -79,11 +79,11 @@ extension PhotoPickerViewController{
         alert.setValue(attributedTitle, forKey: "attributedTitle")
         
         let creditCardWidth = (alert.popoverPresentationController == nil ? view.bounds.width : 320) - 45
-        let creditCardSize = CGSize(width: creditCardWidth, height: creditCardWidth / 1.8) // credit card aspect ratio: 1.586
+        let creditCardSize = CGSize(width: creditCardWidth, height: creditCardWidth / 2.2 /*iphone se + no scroll*/) // credit card aspect ratio: 1.586
 
         let imageAction = UIAlertAction(title: "", style: .default, handler: nil)
 
-        imageAction.accessoryImage = R.image.apps_collection()?.crop(aspectFill: creditCardSize)?.rounded(radius: 10)?.withRenderingMode(.alwaysOriginal)
+        imageAction.accessoryImage = R.image.apps_collection()?.crop(aspectFill: creditCardSize)?/*.rounded(radius: 10)?*/.withRenderingMode(.alwaysOriginal)
         imageAction.isEnabled = false
         alert.addAction(imageAction)
 
