@@ -19,11 +19,9 @@ extension PhotoPickerViewController{
         if photoCollectionView.delegate?.collectionView!(photoCollectionView, shouldSelectItemAt: indexPath) == false {
             return false
         }
-
-        if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == false {
-            photoCollectionView.selectItem(at: indexPath, animated: animated, scrollPosition: [])
-            collectionView(photoCollectionView, didSelectItemAt: indexPath)
-        }
+        
+        photoCollectionView.selectItem(at: indexPath, animated: animated, scrollPosition: [])
+        collectionView(photoCollectionView, didSelectItemAt: indexPath)
 
         return true
     }

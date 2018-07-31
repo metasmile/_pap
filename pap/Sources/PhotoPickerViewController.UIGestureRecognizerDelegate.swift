@@ -147,9 +147,9 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
                 !groupedIndexPaths.contains($0)
             } ?? [])
             
-            ignoredIndexPaths.append(contentsOf: photoCollectionView.indexPathsForSelectedItems?.filter {
-                !groupedIndexPaths.contains($0) && !ignoredIndexPaths.contains($0)
-            } ?? [])
+//            ignoredIndexPaths.append(contentsOf: photoCollectionView.indexPathsForSelectedItems?.filter {
+//                !groupedIndexPaths.contains($0) && !ignoredIndexPaths.contains($0)
+//            } ?? [])
 
             dragDeselection(with: groupedIndexPaths)
             dragSelection(with: ignoredIndexPaths)
@@ -169,10 +169,8 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
     }
 
     private func dragDeselection(at indexPath: IndexPath) {
-        if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == true {
-            photoCollectionView.deselectItem(at: indexPath, animated: false)
-            collectionView(photoCollectionView, didDeselectItemAt: indexPath)
-        }
+        photoCollectionView.deselectItem(at: indexPath, animated: false)
+        collectionView(photoCollectionView, didDeselectItemAt: indexPath)
     }
 
     private func panWithDragging(at location: CGPoint, with selectionMode: DragSelectionGestureRecognizer.DragSelectionMode) -> Bool {
