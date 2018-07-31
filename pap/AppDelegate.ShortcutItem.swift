@@ -66,7 +66,7 @@ extension ShortcutItemAppDelegate {
         if let index = items.index(where: { item.type == $0.type }) {
             items.remove(at: index)
         }
-        items.append(item)
-        UIApplication.shared.shortcutItems = items
+        items.insert(item, at: 0)
+        UIApplication.shared.shortcutItems = Array(items[..<min(items.count, 4)])
     }
 }
