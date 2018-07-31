@@ -110,7 +110,7 @@ class ChargeableImage: UIImage {
 }
 
 class ChargeableBadgeIcon: UIImage {
-    static func `init`(_ image: UIImage, title: String, tintColor color: UIColor) -> UIImage {
+    static func landscapeBadgeIcon(_ image: UIImage, title: String, tintColor color: UIColor) -> UIImage {
         let attributes = [
             NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 10),
             NSAttributedStringKey.foregroundColor: color
@@ -119,12 +119,12 @@ class ChargeableBadgeIcon: UIImage {
         let textSize = renderText.size(withAttributes: attributes)
         let badgePaddingTop: CGFloat = 2
         let badgePaddingLeft: CGFloat = 2//6
-        let badgeSize = UIEdgeInsetsInsetRect(CGRect(origin: .zero, size: textSize), UIEdgeInsets(top: -badgePaddingTop, left: -badgePaddingLeft, bottom: -badgePaddingTop, right: -badgePaddingLeft)).size
+        let labelSize = UIEdgeInsetsInsetRect(CGRect(origin: .zero, size: textSize), UIEdgeInsets(top: -badgePaddingTop, left: -badgePaddingLeft, bottom: -badgePaddingTop, right: -badgePaddingLeft)).size
         
 //        let badgeRect = CGRect(origin: .zero, size: badgeSize)
 //        let roundedRectPath = UIBezierPath(roundedRect: badgeRect, cornerRadius: badgeSize.height / 2)
         
-        guard let titleImage = UIGraphicsImageRenderer(size: badgeSize).imageWithCurrentContext(actions: { ctx in
+        guard let titleImage = UIGraphicsImageRenderer(size: labelSize).imageWithCurrentContext(actions: { ctx in
 //            ctx.setFillColor(color.cgColor)
 //            ctx.addPath(roundedRectPath.cgPath)
 //            ctx.fillPath()
@@ -137,9 +137,35 @@ class ChargeableBadgeIcon: UIImage {
         
         let iconSize = image.size
         let iconLeftMargin: CGFloat = badgePaddingLeft / 2
-        return UIGraphicsImageRenderer(size: CGSize(width: badgeSize.width + iconSize.width + iconLeftMargin, height: iconSize.height)).imageWithCurrentContext { ctx in
+        return UIGraphicsImageRenderer(size: CGSize(width: labelSize.width + iconSize.width + iconLeftMargin, height: iconSize.height)).imageWithCurrentContext { ctx in
             image.draw(at: .zero)
-            titleImage.draw(at: CGPoint(x: iconSize.width + iconLeftMargin, y: (iconSize.height - badgeSize.height) / 2))
+            titleImage.draw(at: CGPoint(x: iconSize.width + iconLeftMargin, y: (iconSize.height - labelSize.height) / 2))
+        } ?? image
+    }
+    
+    static func portraitBadgeIcon(_ image: UIImage, title: String, tintColor color: UIColor) -> UIImage {
+        let attributes = [
+            NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 10),
+            NSAttributedStringKey.foregroundColor: color
+        ]
+        let imageInsets = image.alignmentRectInsets
+        
+        let renderText = NSString(string: "\(title)")
+        let textSize = renderText.size(withAttributes: attributes)
+        let badgePaddingTop: CGFloat = 2
+        let badgePaddingLeft: CGFloat = 2//6
+        let labelSize = UIEdgeInsetsInsetRect(CGRect(origin: .zero, size: textSize), UIEdgeInsets(top: -badgePaddingTop, left: -badgePaddingLeft, bottom: -badgePaddingTop, right: -badgePaddingLeft)).size
+        
+        guard let titleImage = UIGraphicsImageRenderer(size: labelSize).imageWithCurrentContext(actions: { ctx in
+            renderText.draw(at: CGPoint(x: badgePaddingLeft, y: badgePaddingTop), withAttributes: attributes)
+        }) else { return image }
+        
+        let iconSize = UIEdgeInsetsInsetRect(CGRect(origin: .zero, size: image.size), imageInsets).size
+        let scaledLabelSize = CGSize(width: iconSize.width, height: labelSize.height * (iconSize.width / labelSize.width))
+        return UIGraphicsImageRenderer(size: CGSize(width: iconSize.width, height: iconSize.height + scaledLabelSize.height)).imageWithCurrentContext { ctx in
+            image.draw(at: CGPoint(x: (iconSize.width - image.size.width) / 2, y: badgePaddingTop + (iconSize.height - image.size.height) / 2))
+            
+            titleImage.draw(in: CGRect(origin: CGPoint(x: (iconSize.width - scaledLabelSize.width) / 2, y: iconSize.height), size: scaledLabelSize))
         } ?? image
     }
 }
