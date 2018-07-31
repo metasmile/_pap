@@ -54,7 +54,7 @@ extension UIView {
 }
 
 class DragSelectionGestureRecognizer: UIPanGestureRecognizer {
-    static var kSTDragSelectionGestureRecognizerAutoPanningIncrement: CGFloat = 10
+    static var kSTDragSelectionGestureRecognizerAutoPanningIncrement: CGFloat = 12
 
     enum DragSelectionMode {
         case none
