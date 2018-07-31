@@ -101,7 +101,7 @@ private struct MetadataDictionary{
     fileprivate var items:[MetadataItem]
 }
 
-class ExifGhostAppAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
+class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
     fileprivate var cellDescribers = [UITableViewCellDefaultDescribable]()
 
     private var metadataCollection:[MetadataDictionary] = [
@@ -474,3 +474,14 @@ private class Cell: UITableViewCell {
         optionSwitch.onTintColor = tintColor
     }
 }
+
+//
+//extension ExifGhostAppDockContent: PreheatableAppSubscribable{
+//    func didStartPreheating() {
+//        self.startSelectionBotIconAnimation(self.cellDescribers, Cells.autoSelect.hashValue)
+//    }
+//
+//    func didStopPreheating() {
+//        self.stopSelectionBotIconAnimation(self.cellDescribers, Cells.autoSelect.hashValue)
+//    }
+//}

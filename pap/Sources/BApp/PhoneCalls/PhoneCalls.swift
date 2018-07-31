@@ -78,6 +78,7 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
 
     func didResign(current: App.Type?) {
         self.detector.reassignDetector()
+        self.didCancelPreheating()
     }
 
     private var importedLaunchOption:AppLaunchOption?
@@ -109,11 +110,21 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
             return nil
         }
 
+        (content as? PreheatableAppSubscribable)?.didStartPreheating()
+
         if self.detector.detectResult(asset: item.asset, async)?.phoneNumbers?.count ?? 0 == 0{
             return nil
         }
 
         return UICollectionViewPreheatableAppFinishAction.selectItem
+    }
+
+    public func didCancelPreheating() {
+        (content as? PreheatableAppSubscribable)?.didStopPreheating()
+    }
+
+    public func didFinishCurrentPreheatingCycle() {
+        (content as? PreheatableAppSubscribable)?.didStopPreheating()
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
@@ -560,5 +571,16 @@ fileprivate class PhoneCallsAppDockContent: NSObject, KeyPathWatchable,
 
             optionSwitch.onTintColor = tintColor
         }
+    }
+}
+
+
+extension PhoneCallsAppDockContent: PreheatableAppSubscribable{
+    func didStartPreheating() {
+        self.startSelectionBotIconAnimation(self.settingCellDescribers, PhoneCallsAppCells.autoSelect.hashValue)
+    }
+
+    func didStopPreheating() {
+        self.stopSelectionBotIconAnimation(self.settingCellDescribers, PhoneCallsAppCells.autoSelect.hashValue)
     }
 }

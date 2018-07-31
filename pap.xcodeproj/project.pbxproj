@@ -44,6 +44,7 @@
 		4F71D1C331AF594952BEECEC /* PhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DBB856ABD83409EE9D1F /* PhotoAlbumViewController.swift */; };
 		4F71D1CC347DF98722652FB0 /* PDFactory.AppDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8A24AFBF88E43089246 /* PDFactory.AppDefaults.swift */; };
 		4F71D1CEFF929A07E3AB0C00 /* Cleaner.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D964680143F9237CA854 /* Cleaner.BApp.swift */; };
+		4F71D1D8E88F48FFCBF0F3E3 /* BApp.Macro.AutoSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D93B1CA66EBF2AD9E5E4 /* BApp.Macro.AutoSelection.swift */; };
 		4F71D1EEBA7ED8C1BFC21EC0 /* App.Lib.Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2588E42F7B00E16E945 /* App.Lib.Parser.swift */; };
 		4F71D1F875B08E88EB8BC40D /* App.Chargeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5A902C8A1223C286310 /* App.Chargeable.swift */; };
 		4F71D1FF041181D0AD2BE1AE /* CodeKit.DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D333058F5CDA9A8C83D0 /* CodeKit.DispatchQueue.swift */; };
@@ -465,6 +466,7 @@
 		4F71D901FA7E5CD05A976B67 /* Converter.LivePhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.LivePhoto.swift; sourceTree = "<group>"; };
 		4F71D92382932E62756DD454 /* cell_icon_gif.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_icon_gif.png; sourceTree = "<group>"; };
 		4F71D930D023AA50424DCA3A /* CodeKit.String.NSRegularExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.String.NSRegularExpression.swift; sourceTree = "<group>"; };
+		4F71D93B1CA66EBF2AD9E5E4 /* BApp.Macro.AutoSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BApp.Macro.AutoSelection.swift; sourceTree = "<group>"; };
 		4F71D95EA729D50B6931A366 /* Filters.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Filters.jpg; sourceTree = "<group>"; };
 		4F71D95F9B95ED4848D18C35 /* AutoEditor.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoEditor.BApp.swift; sourceTree = "<group>"; };
 		4F71D964680143F9237CA854 /* Cleaner.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cleaner.BApp.swift; sourceTree = "<group>"; };
@@ -1668,6 +1670,7 @@
 				4F71D80ED7E61EF04AA8C835 /* PhoneCalls */,
 				4F71D3542D21ED43CC73917E /* Finder */,
 				514BBEE420F457E000B434E8 /* Camera */,
+				4F71D93B1CA66EBF2AD9E5E4 /* BApp.Macro.AutoSelection.swift */,
 			);
 			path = BApp;
 			sourceTree = "<group>";
@@ -2382,6 +2385,7 @@
 				4F71DFC7BA7C1674174CBF95 /* Charge.Bank.swift in Sources */,
 				4F71D742B9098EB6B9337844 /* Charge.Manager.Utils.swift in Sources */,
 				4F71DF60E96F066B0AFAB3AC /* ChargeableButton.swift in Sources */,
+				4F71D1D8E88F48FFCBF0F3E3 /* BApp.Macro.AutoSelection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

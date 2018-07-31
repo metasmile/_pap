@@ -27,3 +27,9 @@ extension PreheatableApp{
     public func didCancelPreheating(){}
     public func didFinishCurrentPreheatingCycle(){}
 }
+
+//INFO: utility
+protocol PreheatableAppSubscribable{
+    func didStartPreheating()
+    func didStopPreheating()
+}

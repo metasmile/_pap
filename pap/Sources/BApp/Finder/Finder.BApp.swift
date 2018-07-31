@@ -57,9 +57,9 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
     }
 
     func didResign(current: App.Type?) {
-
         //replace with new instance
         self.detector = FinderAppDetector()
+        self.didCancelPreheating()
     }
 
     private var importedLaunchOption:AppLaunchOption?
@@ -96,6 +96,8 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
             return nil
         }
 
+        (content as? PreheatableAppSubscribable)?.didStartPreheating()
+
         preheatingFrontQueueLabel = async.queueStack.first ?? DispatchQueue.currentLabel
 
         var preheatedResult:FinderAppResult?
@@ -112,6 +114,14 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
         return FinderAppDetector.isResultFilled(result: preheatedResult)
                 ? UICollectionViewPreheatableAppFinishAction.selectItem
                 : nil
+    }
+
+    public func didCancelPreheating() {
+        (content as? PreheatableAppSubscribable)?.didStopPreheating()
+    }
+    
+    public func didFinishCurrentPreheatingCycle() {
+        (content as? PreheatableAppSubscribable)?.didStopPreheating()
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
@@ -1630,5 +1640,15 @@ private class Cell: UITableViewCell {
         super.tintColorDidChange()
 
         optionSwitch.onTintColor = tintColor
+    }
+}
+
+extension FinderAppDockContent: PreheatableAppSubscribable{
+    func didStartPreheating() {
+        self.startSelectionBotIconAnimation(settingCellDescribers, FinderAppSettingCells.autoSelect.hashValue)
+    }
+
+    func didStopPreheating() {
+        self.stopSelectionBotIconAnimation(settingCellDescribers, FinderAppSettingCells.autoSelect.hashValue)
     }
 }

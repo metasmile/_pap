@@ -15,6 +15,10 @@ extension DispatchQueue {
         return DispatchQueue(label: self.currentLabel)
     }
 
+    public class var currentIsMain: Bool {
+        return currentLabel==main.label
+    }
+
     public class func mainAsyncIfNot(execute:@escaping () -> Void){
         if currentLabel==DispatchQueue.main.label{
             execute()
