@@ -160,9 +160,9 @@ class ChargeableButton: UIButton {
     var balance: Double? {
         didSet {
             let ratio: CGFloat = CGFloat(balance ?? 0)
-            let level: ChargeLevel = ChargeLevel(balance: ratio)
+            let level: ChargeLevel = ChargeLevel.init(balance: ratio)
             let color: UIColor = showsColorLevel ? level.representativeColor ?? tintColor : tintColor
-            let buttonImage = ChargeableImage(balance: balance ?? 0, fillMode: self.fillMode, tintColor: color, appearanceDelegate: appearanceDelegate)
+            let buttonImage = ChargeableImage.init(balance: balance ?? 0, fillMode: self.fillMode, tintColor: color, appearanceDelegate: appearanceDelegate)
 
             setImage(buttonImage, for: .normal)
 

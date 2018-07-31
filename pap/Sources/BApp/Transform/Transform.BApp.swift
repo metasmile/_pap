@@ -8,7 +8,6 @@ import QuartzCore
 import Photos
 import UIKit
 import MobileCoreServices
-import Crashlytics
 import DefaultsKit
 
 public class TransformAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttrributeValuable, AppConfigAdoptableValuable {

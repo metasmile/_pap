@@ -14,7 +14,7 @@ internal class AppDockDrawerView: DesignableView {
             drawerColor = tintColor
 
             switch tintColor {
-            case .white:
+            case UIColor.white:
                 drawerStrokeColor = UIColor(red: 212 / 255.0, green: 211 / 255.0, blue: 212 / 255.0, alpha: 1)
             default:
                 drawerStrokeColor = UIColor(red: 40 / 255.0, green: 40 / 255.0, blue: 40 / 255.0, alpha: 1)

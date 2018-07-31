@@ -8,8 +8,8 @@
 
 import UIKit
 import Firebase
-import Crashlytics
 import Fabric
+import Crashlytics
 import DefaultsKit
 import Armchair
 

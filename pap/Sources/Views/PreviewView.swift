@@ -8,7 +8,6 @@
 
 import UIKit
 import Photos
-import Crashlytics
 
 protocol PreviewViewDelegate {
     func batchPreviewView(_ view: PreviewView, didSelectItemAt indexPath: IndexPath)

@@ -29,14 +29,14 @@ public struct PHAssetItem: PHAssetParamable{ //Non-mutable PHAsset VO
     public let cachingRequestOptions: [PHAssetRequestOption]?
 
     public init(_ asset: PHAsset) {
-        self.init(asset)
+        self.init(asset:asset)
     }
 
     public init(_ asset: PHAsset, indexPath: IndexPath?) {
-        self.init(asset,indexPath:indexPath)
+        self.init(asset:asset,indexPath:indexPath)
     }
 
-    public init(_ asset: PHAsset, indexPath: IndexPath?=nil, requestIDs:[PHAssetRequestID]?=nil, cachingRequestOptions:[PHAssetRequestOption]?=nil) {
+    public init(asset: PHAsset, indexPath: IndexPath?=nil, requestIDs:[PHAssetRequestID]?=nil, cachingRequestOptions:[PHAssetRequestOption]?=nil) {
         self.asset = asset
         self.indexPath = indexPath
         self.requestIDs = requestIDs
