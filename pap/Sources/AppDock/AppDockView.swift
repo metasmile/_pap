@@ -437,18 +437,18 @@ extension AppDockView {
     }
 
     private var ConstAppContentViewMaximumHeight: CGFloat{
-        let TopMarginConstRatio:CGFloat = 0.84
+        let topOffset = DefaultPreferences.DrawerView.prominentHeight + DefaultPreferences.AppDockView.compactHeight + bottomAccessoryView.bounds.height
 
         if let rvc = UIViewController.root{
-            return (rvc.view.bounds.height - rvc.safeAreaInsets.top) * TopMarginConstRatio
+            return (rvc.view.bounds.height - rvc.safeAreaInsets.top - rvc.additionalSafeAreaInsets.top) - topOffset
         }
 
         if let h = self.superview?.bounds.height{
-            return h * TopMarginConstRatio
+            return h - topOffset
         }
 
         assert(false, "not found superview and rootViewController")
-        return UIScreen.main.bounds.height * TopMarginConstRatio
+        return UIScreen.main.bounds.height - topOffset
     }
     
     fileprivate func layoutDrawerView() {
