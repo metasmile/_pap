@@ -21,6 +21,7 @@ class AppUICameraView: UIView {
     lazy var cameraView: CameraView = {
         let cameraView = CameraView(frame: .zero)
         cameraView.backgroundColor = .black
+        cameraView.clipsToBounds = true
         cameraView.contentMode = .scaleAspectFill
         cameraView.setUp()
 
@@ -32,6 +33,7 @@ class AppUICameraView: UIView {
     private lazy var tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapToCapture))
 
     private var optionViewHeightLayout: NSLayoutConstraint?
+    private var controlViewHeightLayout: NSLayoutConstraint?
     private var cameraAspectRatioLayout: NSLayoutConstraint?
 
     fileprivate var primaryColor = UIColor(red:0.99, green:0.8, blue:0.2, alpha:1)
@@ -105,6 +107,9 @@ class AppUICameraView: UIView {
         cameraView.translatesAutoresizingMaskIntoConstraints = false
         cameraView.topAnchor.constraint(equalTo: optionView.bottomAnchor).isActive = true
         cameraView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        
+        let widthMaximumLayout = cameraView.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor)
+        widthMaximumLayout.isActive = true
 
         let widthLayout = cameraView.widthAnchor.constraint(equalTo: widthAnchor)
         widthLayout.priority = .defaultLow
@@ -150,6 +155,10 @@ class AppUICameraView: UIView {
         controlView.leadingAnchor.constraint(equalTo: cameraView.leadingAnchor).isActive = true
         controlView.trailingAnchor.constraint(equalTo: cameraView.trailingAnchor).isActive = true
         controlView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        
+        controlViewHeightLayout = controlView.heightAnchor.constraint(equalToConstant: 0)
+        controlViewHeightLayout?.priority = .defaultLow
+        controlViewHeightLayout?.isActive = true
 
         captureButton.addTarget(self, action: #selector(self.tapToCapture), for: .touchUpInside)
         captureButton.addTarget(self, action: #selector(self.tapDownToCapture), for: .touchDown)
@@ -283,14 +292,14 @@ class AppUICameraView: UIView {
 
     var isCompactMode: Bool = true {
         didSet {
-            optionViewHeightLayout?.isActive = false
             if isCompactMode {
                 optionViewHeightLayout?.constant = 0
+                controlViewHeightLayout?.constant = 0
             }
             else {
                 optionViewHeightLayout?.constant = 44
+                controlViewHeightLayout?.constant = 64
             }
-            optionViewHeightLayout?.isActive = true
 
             captureButton.isEnabled = !isCompactMode
 

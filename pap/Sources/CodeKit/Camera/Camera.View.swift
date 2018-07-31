@@ -10,7 +10,17 @@ import Photos
 import PhotosUI
 
 class CameraView: UIView {
-    private lazy var captureSession = AVCaptureSession()
+    private var captureSession: AVCaptureSession? {
+        set {
+            if let session = newValue {
+                cameraPreviewView.setSession(session)
+            }
+        }
+        
+        get {
+            return cameraPreviewView.session
+        }
+    }
     private lazy var capturePhotoOutput = AVCapturePhotoOutput()
     private lazy var currentPhotoSettings: AVCapturePhotoSettings = {
         let settings = AVCapturePhotoSettings()
@@ -61,9 +71,12 @@ class CameraView: UIView {
     }
 
     private func configureSession() {
+        captureSession = AVCaptureSession()
+        
         guard
             let videoDevice = AVCaptureDevice.default(for: .video),
             let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice),
+            let captureSession = captureSession,
             captureSession.canAddInput(videoDeviceInput)
         else { return }
 
@@ -97,23 +110,26 @@ class CameraView: UIView {
     func startSession() {
         deviceMotion.startUpdates(interval: 0.6)
         sessionQueue.async {
-            self.captureSession.startRunning()
+            if self.captureSession == nil {
+                self.configureSession()
+            }
+            self.captureSession?.startRunning()
         }
     }
 
     func stopSession() {
         deviceMotion.stopUpdates()
         sessionQueue.async {
-            self.captureSession.stopRunning()
+            self.captureSession?.stopRunning()
         }
     }
 
     func beginConfiguration() {
-        captureSession.beginConfiguration()
+        captureSession?.beginConfiguration()
     }
 
     func commitConfiguration() {
-        captureSession.commitConfiguration()
+        captureSession?.commitConfiguration()
         configurationDidUpdate?()
     }
 
@@ -164,7 +180,7 @@ class CameraView: UIView {
     }
 
     fileprivate func currentCaptureDeviceInput(for mediaType: AVMediaType) -> AVCaptureDeviceInput? {
-        let captureDeviceInputs = self.captureSession.inputs as? [AVCaptureDeviceInput]
+        let captureDeviceInputs = self.captureSession?.inputs as? [AVCaptureDeviceInput]
         return captureDeviceInputs?.first { $0.device.hasMediaType(mediaType) }
     }
 
@@ -197,13 +213,13 @@ class CameraView: UIView {
             let isLivePhotoEnabled = self.capturePhotoOutput.isLivePhotoCaptureEnabled
 
             self.beginConfiguration()
-            self.captureSession.removeInput(currentDevice)
+            self.captureSession?.removeInput(currentDevice)
 
-            if let newDevice = self.captureDevice(with: position), let deviceInput = try? AVCaptureDeviceInput(device: newDevice), self.captureSession.canAddInput(deviceInput) {
-                self.captureSession.addInput(deviceInput)
+            if let newDevice = self.captureDevice(with: position), let deviceInput = try? AVCaptureDeviceInput(device: newDevice), self.captureSession?.canAddInput(deviceInput) == true {
+                self.captureSession?.addInput(deviceInput)
             }
             else {
-                self.captureSession.addInput(currentDevice)
+                self.captureSession?.addInput(currentDevice)
             }
 
             //INFO: keep live photo settings
