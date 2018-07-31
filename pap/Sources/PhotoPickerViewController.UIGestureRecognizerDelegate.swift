@@ -131,8 +131,13 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
             ignoredIndexPaths.append(contentsOf: photoCollectionView.indexPathsForSelectedItems?.filter {
                 dragSelectionGesture.ignoredIndexPaths?.contains($0) == false && !groupedIndexPaths.contains($0)
             } ?? [])
-            
+
+#if swift(>=4.2)
             groupedIndexPaths.removeAll(where: { photoCollectionView.indexPathsForSelectedItems?.contains($0) == true })
+#else
+            //TODO: remove this block when after mainly use swift4.2
+            groupedIndexPaths = groupedIndexPaths.filter { photoCollectionView.indexPathsForSelectedItems?.contains($0) ?? true == false }
+#endif
             
             groupedIndexPaths.sort()
             if groupDirection == .up {
