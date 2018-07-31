@@ -46,12 +46,12 @@ class AppUIAssetView: AssetView {
         return label
     }()
     
-    private lazy var processingBlurView: UIVisualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.light))
     private lazy var processingView: UIView = {
         let view = UIView(frame: bounds)
         
-        view.addSubview(processingBlurView)
-        processingBlurView.fitConstraints(to: view)
+        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.light))
+        view.addSubview(blurView)
+        blurView.fitConstraints(to: view)
         
         return view
     }()
@@ -59,7 +59,6 @@ class AppUIAssetView: AssetView {
     var isProcessing: Bool = false {
         didSet {
             processingView.isHidden = !isProcessing
-            processingBlurView.effect = isProcessing ? UIBlurEffect(style: UIBlurEffectStyle.light) : nil
         }
     }
     
@@ -69,7 +68,7 @@ class AppUIAssetView: AssetView {
             return
         }
         
-        UIView.transition(with: processingView, duration: 0.3, options: .transitionCrossDissolve, animations: { [weak self] in
+        UIView.transition(with: self, duration: 0.3, options: .transitionCrossDissolve, animations: { [weak self] in
             self?.isProcessing = processing
         }, completion: nil)
     }
