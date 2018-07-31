@@ -9,8 +9,8 @@ target 'pap' do
   pod 'Firebase/MLVisionTextModel'
 
   # com.stells.pap.*
-  pod 'Fabric'
-  pod 'Crashlytics'
+#  pod 'Fabric'
+#  pod 'Crashlytics'
   pod 'R.swift', '4.0.0' #INFO: R.swift will major update soon : 5.0.0
   pod 'DefaultsKit', :git => "https://github.com/metasmile/DefaultsKit" #TODO: consider to get into CodeKit with Subfile
   pod 'SwiftyGif'
