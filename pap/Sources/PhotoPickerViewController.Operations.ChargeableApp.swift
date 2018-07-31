@@ -76,15 +76,14 @@ extension PhotoPickerViewController{
         attributedTitle.append(NSAttributedString(string: "Extend Period of Free Use".localized, attributes: [
             NSAttributedStringKey.font: UIFont.preferredFont(forTextStyle: .title2)
         ]))
-        alert.attributedTitle = attributedTitle
+        alert.setValue(attributedTitle, forKey: "attributedTitle")
         
         let creditCardWidth = (alert.popoverPresentationController == nil ? view.bounds.width : 320) - 45
         let creditCardSize = CGSize(width: creditCardWidth, height: creditCardWidth / 1.8) // credit card aspect ratio: 1.586
 
-        print(creditCardSize)
-        
         let imageAction = UIAlertAction(title: "", style: .default, handler: nil)
-        imageAction.accessoryImage = UIImage(named: "AppIcon")?.crop(aspectFill: creditCardSize)?.rounded(radius: 10)?.withRenderingMode(.alwaysOriginal)
+
+        imageAction.accessoryImage = R.image.apps_collection()?.crop(aspectFill: creditCardSize)?.rounded(radius: 10)?.withRenderingMode(.alwaysOriginal)
         imageAction.isEnabled = false
         alert.addAction(imageAction)
 

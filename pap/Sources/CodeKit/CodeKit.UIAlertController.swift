@@ -89,21 +89,4 @@ public extension UIAlertController{
         return true
     }
 
-    var attributedTitle: NSAttributedString? {
-        get {
-            if self.responds(to: Selector(Constants.attributedTitleKey)) {
-                return self.value(forKey: Constants.attributedTitleKey) as? NSAttributedString
-            }
-            return nil
-        }
-        set {
-            if self.responds(to: Selector(Constants.attributedTitleKey)) {
-                self.setValue(newValue, forKey: Constants.attributedTitleKey)
-            }
-        }
-    }
-
-    private struct Constants {
-        static var attributedTitleKey = "image"
-    }
 }
