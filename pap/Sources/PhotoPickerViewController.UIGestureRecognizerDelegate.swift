@@ -126,16 +126,18 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
             groupedIndexPaths.append(indexPath)
         }
         
-        groupedIndexPaths.sort()
-        if groupDirection == .up {
-            groupedIndexPaths.reverse()
-        }
-
         var ignoredIndexPaths = [IndexPath]()
         if selectionMode == .select {
             ignoredIndexPaths.append(contentsOf: photoCollectionView.indexPathsForSelectedItems?.filter {
                 dragSelectionGesture.ignoredIndexPaths?.contains($0) == false && !groupedIndexPaths.contains($0)
             } ?? [])
+            
+            groupedIndexPaths.removeAll(where: { photoCollectionView.indexPathsForSelectedItems?.contains($0) == true })
+            
+            groupedIndexPaths.sort()
+            if groupDirection == .up {
+                groupedIndexPaths.reverse()
+            }
 
             dragDeselection(with: ignoredIndexPaths)
             dragSelection(with: groupedIndexPaths)
