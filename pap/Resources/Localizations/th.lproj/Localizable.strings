@@ -99,17 +99,17 @@
 /*Translated from: editor*/
 "cs_keyword_3" = "บรรณาธิการ";
 /*Translated from: messenger*/
-"cs_keyword_4" = "messenger";
+"cs_keyword_4" = "Messenger";
 /*Translated from: filter*/
 "cs_keyword_5" = "กรอง";
 /*Translated from: edit*/
-"cs_keyword_6" = "edit";
+"cs_keyword_6" = "Edit";
 /*Translated from: image*/
 "cs_keyword_7" = "ภาพ";
 /*Translated from: smart*/
-"cs_keyword_8" = "smart";
+"cs_keyword_8" = "Smart";
 /*Translated from: picture*/
-"cs_keyword_9" = "picture";
+"cs_keyword_9" = "Picture";
 /*Translated from: memory*/
 "cs_keyword_10" = "หน่วยความจำ";
 /*Translated from: familiy*/
@@ -413,7 +413,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "วีดีโอ";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
-"Videos Saved by Instagram App" = "วิดีโอที่บันทึกไว้โดย Instagram App";
+"Videos Saved by Instagram" = "วิดีโอที่บันทึกโดย Instagram";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
 "Videos Shorter Than 1 Second" = "วิดีโอสั้นกว่า 1 วินาที";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */

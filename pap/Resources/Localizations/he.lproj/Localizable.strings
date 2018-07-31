@@ -99,21 +99,21 @@
 /*Translated from: editor*/
 "cs_keyword_3" = "עוֹרֵך";
 /*Translated from: messenger*/
-"cs_keyword_4" = "messenger";
+"cs_keyword_4" = "Messenger";
 /*Translated from: filter*/
-"cs_keyword_5" = "filter";
+"cs_keyword_5" = "Filter";
 /*Translated from: edit*/
-"cs_keyword_6" = "edit";
+"cs_keyword_6" = "Edit";
 /*Translated from: image*/
 "cs_keyword_7" = "תמונה";
 /*Translated from: smart*/
-"cs_keyword_8" = "smart";
+"cs_keyword_8" = "Smart";
 /*Translated from: picture*/
-"cs_keyword_9" = "picture";
+"cs_keyword_9" = "Picture";
 /*Translated from: memory*/
 "cs_keyword_10" = "זיכרון";
 /*Translated from: familiy*/
-"cs_keyword_11" = "familiy";
+"cs_keyword_11" = "Familiy";
 /*Translated from: friend*/
 "cs_keyword_12" = "חָבֵר";
 /*Translated from: lover*/
@@ -413,7 +413,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "וִידֵאוֹ";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
-"Videos Saved by Instagram App" = "וידאו שנשמר על ידי Instagram App";
+"Videos Saved by Instagram" = "סרטונים שנשמרו על ידי Instagram";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
 "Videos Shorter Than 1 Second" = "קטעי וידאו קצר יותר מ 1 Second";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */

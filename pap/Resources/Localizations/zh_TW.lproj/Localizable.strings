@@ -107,9 +107,9 @@
 /*Translated from: image*/
 "cs_keyword_7" = "圖片";
 /*Translated from: smart*/
-"cs_keyword_8" = "smart";
+"cs_keyword_8" = "Smart";
 /*Translated from: picture*/
-"cs_keyword_9" = "picture";
+"cs_keyword_9" = "Picture";
 /*Translated from: memory*/
 "cs_keyword_10" = "記憶";
 /*Translated from: familiy*/
@@ -413,7 +413,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "視頻";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
-"Videos Saved by Instagram App" = "Instagram應用程序保存的視頻";
+"Videos Saved by Instagram" = "Instagram保存的視頻";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
 "Videos Shorter Than 1 Second" = "短於1秒的視頻";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */

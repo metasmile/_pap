@@ -91,9 +91,9 @@
 /*com.stells.pap.converter*/
 "Convert" = "Convert";
 /*CoreSpotligth keywords - localizable - marketing*/
-"cs_keyword_0" = "album";
+"cs_keyword_0" = "Album";
 /*Translated from: camera*/
-"cs_keyword_1" = "kamera";
+"cs_keyword_1" = "Kamera";
 /*Translated from: photos*/
 "cs_keyword_2" = "foto";
 /*Translated from: editor*/
@@ -413,7 +413,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
-"Videos Saved by Instagram App" = "Video Disimpan oleh Aplikasi Instagram";
+"Videos Saved by Instagram" = "Video Disimpan oleh Instagram";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
 "Videos Shorter Than 1 Second" = "Video Lebih Pendek Dari 1 Detik";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */

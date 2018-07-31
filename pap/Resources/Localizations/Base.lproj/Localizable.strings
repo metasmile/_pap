@@ -67,20 +67,20 @@
 "Convert" = "Convert";
 
 /*CoreSpotligth keywords - localizable - marketing*/
-"cs_keyword_0" = "album";
-"cs_keyword_1" = "camera";
-"cs_keyword_2" = "photos";
-"cs_keyword_3" = "editor";
-"cs_keyword_4" = "messenger";
-"cs_keyword_5" = "filter";
-"cs_keyword_6" = "edit";
-"cs_keyword_7" = "image";
-"cs_keyword_8" = "smart";
-"cs_keyword_9" = "picture";
-"cs_keyword_10" = "memory";
-"cs_keyword_11" = "familiy";
-"cs_keyword_12" = "friend";
-"cs_keyword_13" = "lover";
+"cs_keyword_0" = "Album";
+"cs_keyword_1" = "Camera";
+"cs_keyword_2" = "Photos";
+"cs_keyword_3" = "Editor";
+"cs_keyword_4" = "Messenger";
+"cs_keyword_5" = "Filter";
+"cs_keyword_6" = "Edit";
+"cs_keyword_7" = "Image";
+"cs_keyword_8" = "Smart";
+"cs_keyword_9" = "Picture";
+"cs_keyword_10" = "Memory";
+"cs_keyword_11" = "Familiy";
+"cs_keyword_12" = "Friend";
+"cs_keyword_13" = "Lover";
 
 /* Generated from genl10n: AppCenter.Charge.swift#38 */
 "%@ Day License" = "%@ Day License";

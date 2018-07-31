@@ -91,33 +91,33 @@
 /*com.stells.pap.converter*/
 "Convert" = "Convertir";
 /*CoreSpotligth keywords - localizable - marketing*/
-"cs_keyword_0" = "album";
+"cs_keyword_0" = "Album";
 /*Translated from: camera*/
-"cs_keyword_1" = "caméra";
+"cs_keyword_1" = "Caméra";
 /*Translated from: photos*/
-"cs_keyword_2" = "photos";
+"cs_keyword_2" = "Photos";
 /*Translated from: editor*/
 "cs_keyword_3" = "éditeur";
 /*Translated from: messenger*/
 "cs_keyword_4" = "Messager";
 /*Translated from: filter*/
-"cs_keyword_5" = "filtre";
+"cs_keyword_5" = "Filtre";
 /*Translated from: edit*/
-"cs_keyword_6" = "edit";
+"cs_keyword_6" = "Edit";
 /*Translated from: image*/
-"cs_keyword_7" = "image";
+"cs_keyword_7" = "Image";
 /*Translated from: smart*/
-"cs_keyword_8" = "smart";
+"cs_keyword_8" = "Smart";
 /*Translated from: picture*/
-"cs_keyword_9" = "picture";
+"cs_keyword_9" = "Picture";
 /*Translated from: memory*/
 "cs_keyword_10" = "Mémoire";
 /*Translated from: familiy*/
-"cs_keyword_11" = "famille";
+"cs_keyword_11" = "Famille";
 /*Translated from: friend*/
-"cs_keyword_12" = "friend";
+"cs_keyword_12" = "Friend";
 /*Translated from: lover*/
-"cs_keyword_13" = "amoureux";
+"cs_keyword_13" = "Amoureux";
 /* Generated from genl10n: AppCenter.Charge.swift#33 */
 "%@ Day License" = "%@ Licence journalière";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
@@ -227,7 +227,7 @@
 /* Generated from genl10n: Finder.BApp.swift#42 */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Le Finder permet d'extraire toutes vos informations significatives telles que les numéros de téléphone, les adresses, les dates ou les URL de vos photos, puis d'appeler, d'ouvrir des cartes ou de naviguer sur des sites Web, même des vols de recherche!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
-"Finder" = "chercheur";
+"Finder" = "Chercheur";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "Trouver des contacts ... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
@@ -413,7 +413,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Vidéo";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
-"Videos Saved by Instagram App" = "Vidéos enregistrées par Instagram App";
+"Videos Saved by Instagram" = "Vidéos sauvegardées par Instagram";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
 "Videos Shorter Than 1 Second" = "Vidéos plus courtes que 1 seconde";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */

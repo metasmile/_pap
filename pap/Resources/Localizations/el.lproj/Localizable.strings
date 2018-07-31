@@ -93,23 +93,23 @@
 /*CoreSpotligth keywords - localizable - marketing*/
 "cs_keyword_0" = "άλμπουμ";
 /*Translated from: camera*/
-"cs_keyword_1" = "camera";
+"cs_keyword_1" = "Camera";
 /*Translated from: photos*/
 "cs_keyword_2" = "φωτογραφίες";
 /*Translated from: editor*/
-"cs_keyword_3" = "editor";
+"cs_keyword_3" = "Editor";
 /*Translated from: messenger*/
 "cs_keyword_4" = "αγγελιαφόρος";
 /*Translated from: filter*/
 "cs_keyword_5" = "φίλτρο";
 /*Translated from: edit*/
-"cs_keyword_6" = "edit";
+"cs_keyword_6" = "Edit";
 /*Translated from: image*/
 "cs_keyword_7" = "εικόνα";
 /*Translated from: smart*/
 "cs_keyword_8" = "έξυπνος";
 /*Translated from: picture*/
-"cs_keyword_9" = "picture";
+"cs_keyword_9" = "Picture";
 /*Translated from: memory*/
 "cs_keyword_10" = "μνήμη";
 /*Translated from: familiy*/
@@ -413,7 +413,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "βίντεο";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
-"Videos Saved by Instagram App" = "Videos Saved by Instagram App";
+"Videos Saved by Instagram" = "Τα βίντεο αποθηκεύτηκαν από το Instagram";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
 "Videos Shorter Than 1 Second" = "Βίντεο μικρότερη από 1 δευτερόλεπτο";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */

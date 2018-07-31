@@ -91,33 +91,33 @@
 /*com.stells.pap.converter*/
 "Convert" = "Converteren";
 /*CoreSpotligth keywords - localizable - marketing*/
-"cs_keyword_0" = "album";
+"cs_keyword_0" = "Album";
 /*Translated from: camera*/
-"cs_keyword_1" = "camera";
+"cs_keyword_1" = "Camera";
 /*Translated from: photos*/
-"cs_keyword_2" = "foto's";
+"cs_keyword_2" = "Foto's";
 /*Translated from: editor*/
-"cs_keyword_3" = "editor";
+"cs_keyword_3" = "Editor";
 /*Translated from: messenger*/
-"cs_keyword_4" = "boodschapper";
+"cs_keyword_4" = "Boodschapper";
 /*Translated from: filter*/
-"cs_keyword_5" = "filter";
+"cs_keyword_5" = "Filter";
 /*Translated from: edit*/
 "cs_keyword_6" = "Bewerk";
 /*Translated from: image*/
-"cs_keyword_7" = "image";
+"cs_keyword_7" = "Image";
 /*Translated from: smart*/
-"cs_keyword_8" = "smart";
+"cs_keyword_8" = "Smart";
 /*Translated from: picture*/
-"cs_keyword_9" = "picture";
+"cs_keyword_9" = "Picture";
 /*Translated from: memory*/
-"cs_keyword_10" = "geheugen";
+"cs_keyword_10" = "Geheugen";
 /*Translated from: familiy*/
-"cs_keyword_11" = "familie";
+"cs_keyword_11" = "Familie";
 /*Translated from: friend*/
-"cs_keyword_12" = "vriend";
+"cs_keyword_12" = "Vriend";
 /*Translated from: lover*/
-"cs_keyword_13" = "minnaar";
+"cs_keyword_13" = "Minnaar";
 /* Generated from genl10n: AppCenter.Charge.swift#33 */
 "%@ Day License" = "%@ Daglicentie";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
@@ -129,7 +129,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d keer";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
-"Actions" = "acties";
+"Actions" = "Acties";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
 "Add New Contact" = "Voeg nieuw contact toe";
 /* Generated from genl10n: Finder.BApp.swift#466 */
@@ -137,7 +137,7 @@
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Adres";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
-"Albums" = "albums";
+"Albums" = "Albums";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Alle contacten zijn succesvol opgeslagen.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
@@ -145,7 +145,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Geanimeerde GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Animation" = "animatie";
+"Animation" = "Animatie";
 /* Generated from genl10n: Filters.BApp.swift#76 */
 "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Pas hoogwaardige filters toe op alle foto's die u wilt. Er is geen limiet aan het aantal foto's om ze te bewerken.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -185,17 +185,17 @@
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats into every each other." = "Converter stelt u in staat alle media-indelingen in elkaar om te zetten.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
-"Converter" = "omvormer";
+"Converter" = "Omvormer";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "Copy";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Create" = "creëren";
+"Create" = "Creëren";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Bijsnijden";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Gewas";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
-"Custom" = "gewoonte";
+"Custom" = "Gewoonte";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Datum";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
@@ -221,13 +221,13 @@
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
 "Extend Period of Free Use" = "Verleng de periode van gratis gebruik";
 /* Generated from genl10n: Filters.BApp.swift#72 */
-"Filters" = "filters";
+"Filters" = "Filters";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "Vind";
 /* Generated from genl10n: Finder.BApp.swift#42 */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Finder maakt het mogelijk alle zinvolle informatie zoals telefoonnummers, adressen, datums of URL's uit uw foto's te extraheren en vervolgens te bellen, kaarten te openen of websites te doorzoeken, zelfs tijdens het zoeken naar vluchten!";
 /* Generated from genl10n: Finder.BApp.swift#40 */
-"Finder" = "vinder";
+"Finder" = "Vinder";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Finding Contacts ... %@ " = "Contactpersonen zoeken ... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
@@ -235,7 +235,7 @@
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Vluchtnummer";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
-"Formats" = "formats";
+"Formats" = "Formats";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Vooruit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -261,11 +261,11 @@
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Het vereist toestemming om toegang te krijgen tot uw contacten. Staat u Contactpersonen toe voor iOS-instellingen.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
-"Items" = "items";
+"Items" = "Items";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Landschap";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
-"Layout" = "lay-out";
+"Layout" = "Lay-out";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live foto";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -295,7 +295,7 @@
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "Open Web Page";
 /* Generated from genl10n: Filters.BApp.swift */
-"Original" = "origineel";
+"Original" = "Origineel";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory maakt een PDF-document van meerdere afbeeldingen met verschillende pagina-opties.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -309,11 +309,11 @@
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Telefoonnummer";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Photos" = "foto's";
+"Photos" = "Foto's";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "Portret";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
-"Presets" = "presets";
+"Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "Privacy";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
@@ -345,7 +345,7 @@
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
 "Scale To Fit" = "Scale To Fit";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
-"Screenshots" = "screenshots";
+"Screenshots" = "Screenshots";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Zoek vluchten";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
@@ -395,9 +395,9 @@
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "Maak een foto";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
-"Targeted" = "gerichte";
+"Targeted" = "Gerichte";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
-"Targets" = "targets";
+"Targets" = "Targets";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Tekst";
 /* Generated from genl10n: Transform.BApp.swift#55 */
@@ -413,7 +413,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
-"Videos Saved by Instagram App" = "Video's opgeslagen door Instagram App";
+"Videos Saved by Instagram" = "Video's opgeslagen door Instagram";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
 "Videos Shorter Than 1 Second" = "Video's korter dan 1 seconde";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
