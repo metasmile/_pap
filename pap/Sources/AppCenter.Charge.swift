@@ -205,7 +205,7 @@ private final class AppChargeBanker: ChargeBanker {
                         if remainingAmountValue > 0{
                             balance.subtractShares(of: charge.priceAmount, ratio: amountValueOffsetRatio)
 
-                            print("[i] Receipt type:\(receipt.type), reward:\(receipt.reward) did subtract - balance:", balance.value)
+                            print("[i] Consume - receipt type:\(receipt.type), reward:\(receipt.reward), created:\(receipt.createdDate) - balance:", balance.value)
                         }else{
                             removingReceipts.insert(receipt)
                         }
