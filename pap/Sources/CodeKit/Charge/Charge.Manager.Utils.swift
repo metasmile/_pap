@@ -27,14 +27,20 @@ extension ChargeManager{
     }
 
     func getChargesHasReceipt() -> [Charge]{
-        return charges.compactMap { charge -> Charge? in
-            return bank.getReceipt(for: charge) == nil ? nil : charge
+        return charges.filter { (charge: Charge) -> Bool in
+            return bank.getReceipt(for: charge) != nil
         }
     }
 
     func getChargesHasNotReceipt() -> [Charge]{
-        return charges.compactMap { charge -> Charge? in
-            return bank.getReceipt(for: charge) != nil ? nil : charge
+        return charges.filter { (charge: Charge) -> Bool in
+            return bank.getReceipt(for: charge) == nil
+        }
+    }
+
+    func getChargesHasNotReceiptButHasPriceAmount() -> [Charge]{
+        return charges.filter { (charge: Charge) -> Bool in
+            return bank.getReceipt(for: charge) == nil && charge.priceAmount.value > 0
         }
     }
 }

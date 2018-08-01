@@ -65,27 +65,44 @@ extension PhotoPickerViewController{
 
         //selected
         let selected = self.estimatedAvailableSelectedItems > 0
-        
-        let alert = UIAlertController.actionSheet(title: nil, message: "You Can Renew Them Repeatedly.".localized)
-        
+        let needToExtendPricingPeriod = AppCenter.charge.getChargesHasNotReceiptButHasPriceAmount().count > 0
+
+        let alert = UIAlertController.actionSheet(title: nil, message: nil)
+
+        let title:String
+        let subtitle:String
+        var titleImage:UIImage?
+
+        if needToExtendPricingPeriod{
+            title = "Extend Period of Free Use".localized
+            subtitle = "You Can Renew Them Repeatedly.".localized
+            titleImage = R.image.apps_collection.name.asUIImageContentOfFile //no cache
+
+        }else{
+            title = "This App Is Yours.".localized
+            subtitle = "Turn Your Opinion Into New Things.".localized
+            titleImage = R.image.join_us.name.asUIImageContentOfFile
+        }
+
         let attributedTitle = NSMutableAttributedString()
         attributedTitle.append(NSAttributedString(string: "\n", attributes: [
             NSAttributedStringKey.font: UIFont.preferredFont(forTextStyle: .body)
         ]))
-
-        attributedTitle.append(NSAttributedString(string: "Extend Period of Free Use".localized, attributes: [
+        attributedTitle.append(NSAttributedString(string: title, attributes: [
             NSAttributedStringKey.font: UIFont.preferredFont(forTextStyle: .title2)
         ]))
         alert.setValue(attributedTitle, forKey: "attributedTitle")
-        
-        let creditCardWidth = (alert.popoverPresentationController == nil ? view.bounds.width : 320) - 45
-        let creditCardSize = CGSize(width: creditCardWidth, height: creditCardWidth / 2.2 /*iphone se + no scroll*/) // credit card aspect ratio: 1.586
 
-        let imageAction = UIAlertAction(title: "", style: .default, handler: nil)
+        alert.message = subtitle
 
-        imageAction.accessoryImage = R.image.apps_collection()?.crop(aspectFill: creditCardSize)?/*.rounded(radius: 10)?*/.withRenderingMode(.alwaysOriginal)
-        imageAction.isEnabled = false
-        alert.addAction(imageAction)
+        if let titleImage = titleImage{
+            let creditCardWidth = (alert.popoverPresentationController == nil ? view.bounds.width : 320) - 45
+            let creditCardSize = CGSize(width: creditCardWidth, height: creditCardWidth / 2.2 /*iphone se + no scroll*/) // credit card aspect ratio: 1.586
+            let imageAction = UIAlertAction(title: "", style: .default, handler: nil)
+            imageAction.accessoryImage = titleImage.crop(aspectFill: creditCardSize)?/*.rounded(radius: 10)?*/.withRenderingMode(.alwaysOriginal)
+            imageAction.isEnabled = false
+            alert.addAction(imageAction)
+        }
 
         for charge in AppCenter.charge.charges {
             let receipt = AppCenter.charge.bank.getReceipt(for: charge)
