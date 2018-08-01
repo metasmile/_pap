@@ -65,7 +65,7 @@ extension PhotoPickerViewController{
 
         //selected
         let selected = self.estimatedAvailableSelectedItems > 0
-        let needToExtendPricingPeriod = AppCenter.charge.getChargesHasNotReceiptButHasPriceAmount().count > 0
+        let needToExtendPricingPeriod = AppCenter.charge.getChargesHasNotReceiptButHasPriceAmount(excludingTypes: Set([ChargeType.welcomeFreeTrial])).count > 0
 
         let alert = UIAlertController.actionSheet(title: nil, message: nil)
 

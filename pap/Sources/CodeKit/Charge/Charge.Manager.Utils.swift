@@ -26,20 +26,29 @@ extension ChargeManager{
         return cheapFirst ? remainingCharges : remainingCharges.reversed()
     }
 
-    func getChargesHasReceipt() -> [Charge]{
+    func getChargesHasReceipt(excludingTypes:Set<ChargeType>?=nil) -> [Charge]{
         return charges.filter { (charge: Charge) -> Bool in
+            if let excludingTypes = excludingTypes, excludingTypes.contains(charge.type){
+                return false
+            }
             return bank.getReceipt(for: charge) != nil
         }
     }
 
-    func getChargesHasNotReceipt() -> [Charge]{
+    func getChargesHasNotReceipt(excludingTypes:Set<ChargeType>?=nil) -> [Charge]{
         return charges.filter { (charge: Charge) -> Bool in
+            if let excludingTypes = excludingTypes, excludingTypes.contains(charge.type){
+                return false
+            }
             return bank.getReceipt(for: charge) == nil
         }
     }
 
-    func getChargesHasNotReceiptButHasPriceAmount() -> [Charge]{
+    func getChargesHasNotReceiptButHasPriceAmount(excludingTypes:Set<ChargeType>?=nil) -> [Charge]{
         return charges.filter { (charge: Charge) -> Bool in
+            if let excludingTypes = excludingTypes, excludingTypes.contains(charge.type){
+                return false
+            }
             return bank.getReceipt(for: charge) == nil && charge.priceAmount.value > 0
         }
     }
