@@ -45,7 +45,7 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
             dragSelection(with: [indexPath])
 
             dragSelectionGesture.ignoredIndexPaths = photoCollectionView.indexPathsForSelectedItems
-
+            
             photoCollectionView.isScrollEnabled = false
         case .changed:
             if !panWithDragging(at: touchLocation, with: sender.selectionMode) {
@@ -91,7 +91,7 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
             }
         }
 
-        var groupedIndexPaths = [IndexPath]()
+        let groupedIndexPaths = NSMutableOrderedSet()
         photoCollectionView.collectionViewLayout.layoutAttributesForElements(in: draggingArea)?.forEach { layoutAttributes in
             let indexPath = layoutAttributes.indexPath
 
@@ -123,41 +123,37 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
                     return
                 }
             }
-            groupedIndexPaths.append(indexPath)
+            groupedIndexPaths.add(indexPath)
         }
         
-        var ignoredIndexPaths = [IndexPath]()
+        let currentSelectionSet = Set<IndexPath>(photoCollectionView.indexPathsForSelectedItems ?? [])
+        
         if selectionMode == .select {
-            ignoredIndexPaths.append(contentsOf: photoCollectionView.indexPathsForSelectedItems?.filter {
-                dragSelectionGesture.ignoredIndexPaths?.contains($0) == false && !groupedIndexPaths.contains($0)
-            } ?? [])
-
-#if swift(>=4.2)
-            groupedIndexPaths.removeAll(where: { photoCollectionView.indexPathsForSelectedItems?.contains($0) == true })
-#else
-            //TODO: remove this block when after mainly use swift4.2
-            groupedIndexPaths = groupedIndexPaths.filter { photoCollectionView.indexPathsForSelectedItems?.contains($0) ?? true == false }
-#endif
+            let deselectedSet = currentSelectionSet.subtracting(groupedIndexPaths.set as! Set<IndexPath>)
+            let deselectedIndexPaths = Array(deselectedSet).filter { dragSelectionGesture.ignoredIndexPathInfo?[$0] != true }
             
-            groupedIndexPaths.sort()
+            groupedIndexPaths.minusSet(currentSelectionSet)
+            var selectedIndexPaths = groupedIndexPaths.compactMap { $0 as? IndexPath }
+            
+            selectedIndexPaths.sort()
             if groupDirection == .up {
-                groupedIndexPaths.reverse()
+                selectedIndexPaths.reverse()
             }
 
-            dragDeselection(with: ignoredIndexPaths)
-            dragSelection(with: groupedIndexPaths)
+            dragDeselection(with: deselectedIndexPaths)
+            dragSelection(with: selectedIndexPaths)
         }
         else if selectionMode == .deselect {
-            ignoredIndexPaths.append(contentsOf: dragSelectionGesture.ignoredIndexPaths?.filter {
-                !groupedIndexPaths.contains($0)
-            } ?? [])
+            var selectedIndexPaths = [IndexPath]()
+            if let ignoredSet = dragSelectionGesture.ignoredIndexPathSet {
+                let selectedSet = NSMutableOrderedSet(orderedSet: ignoredSet, copyItems: true)
+                selectedSet.minusSet(currentSelectionSet)
+                selectedSet.minusSet(groupedIndexPaths.set)
+                selectedIndexPaths.append(contentsOf: selectedSet.array.compactMap { $0 as? IndexPath })
+            }
             
-//            ignoredIndexPaths.append(contentsOf: photoCollectionView.indexPathsForSelectedItems?.filter {
-//                !groupedIndexPaths.contains($0) && !ignoredIndexPaths.contains($0)
-//            } ?? [])
-
-            dragDeselection(with: groupedIndexPaths)
-            dragSelection(with: ignoredIndexPaths)
+            dragDeselection(with: groupedIndexPaths.compactMap { $0 as? IndexPath })
+            dragSelection(with: selectedIndexPaths)
         }
     }
 
