@@ -54,8 +54,9 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
         default:
             photoCollectionView.isScrollEnabled = true
             sender.reset()
+            
+            batchPreviewView.updatePreviews(forced: true)
         }
-        updateSelectedItemUIs()
     }
 
     private func drag(at location: CGPoint, with selectionMode: DragSelectionGestureRecognizer.DragSelectionMode) {
