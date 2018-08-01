@@ -533,9 +533,10 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
             CleanerApp.privateDefaults.autoSelect = enabled
             self.startAutoSelectIfNeeded()
 
-            let tableView = (view as! UITableView)
-            for section in 1..<self.numberOfSections(in: tableView) {
-                tableView.reloadSections(IndexSet(integer: section), with: .none)
+            if let tableView = view as? UITableView{
+                for section in 1..<self.numberOfSections(in: tableView) {
+                    tableView.reloadSections(IndexSet(integer: section), with: .none)
+                }
             }
 
         }
@@ -613,7 +614,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
 
-        (view as! UITableView).reloadData()
+        (view as? UITableView)?.reloadData()
 
         startAutoSelectIfNeeded()
     }

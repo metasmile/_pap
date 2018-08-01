@@ -86,11 +86,11 @@
 "%@ Day License" = "%@ Day License";
 /* Generated from genl10n: AppCenter.Charge.swift#51 */
 "%@ Day" = "%@ Day";
-/* Generated from genl10n: Finder.BApp.swift#1582, Cleaner.BApp.swift#752 */
+/* Generated from genl10n: Finder.BApp.swift#1582, Cleaner.BApp.swift#753 */
 "%@ might be found" = "%@ might be found";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#413 */
 "%@ will be hidden" = "%@ will be hidden";
-/* Generated from genl10n: GIFMaker.BApp.swift#579 */
+/* Generated from genl10n: GIFMaker.BApp.swift#582 */
 "%d times" = "%d times";
 /* Generated from genl10n: Finder.BApp.swift#1319 */
 "Actions" = "Actions";
@@ -106,13 +106,13 @@
 "All contacts were successfully saved." = "All contacts were successfully saved.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "All" = "All";
-/* Generated from genl10n: GIFMaker.BApp.swift#458, GIFMaker.BApp.swift#459 */
+/* Generated from genl10n: GIFMaker.BApp.swift#461, GIFMaker.BApp.swift#462 */
 "Animated GIF" = "Animated GIF";
-/* Generated from genl10n: GIFMaker.BApp.swift#590 */
+/* Generated from genl10n: GIFMaker.BApp.swift#593 */
 "Animation" = "Animation";
 /* Generated from genl10n: Filters.BApp.swift#76 */
 "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them.";
-/* Generated from genl10n: GIFMaker.BApp.swift#481 */
+/* Generated from genl10n: GIFMaker.BApp.swift#484 */
 "Aspect Ratio" = "Aspect Ratio";
 /* Generated from genl10n: AutoEditor.BApp.swift#172 */
 "Auto Crop" = "Auto Crop";
@@ -154,7 +154,7 @@
 "Copy" = "Copy";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift#57 */
 "Create" = "Create";
-/* Generated from genl10n: GIFMaker.BApp.swift#495 */
+/* Generated from genl10n: GIFMaker.BApp.swift#498 */
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift#332, GIFMaker.BApp.swift#142 */
 "Crop" = "Crop";
@@ -162,13 +162,13 @@
 "Custom" = "Custom";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#229, Finder.BApp.swift#343, Finder.BApp.swift#443, Finder.BApp.swift#658, Finder.BApp.swift#776, Finder.BApp.swift#1228 */
 "Date" = "Date";
-/* Generated from genl10n: Cleaner.BApp.swift#546 */
+/* Generated from genl10n: Cleaner.BApp.swift#547 */
 "Deleting Targets" = "Deleting Targets";
 /* Generated from genl10n: Finder.BApp.swift#168 */
 "Detecting ... %@ " = "Detecting ... %@ ";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
 "Did not detect anything." = "Did not detect anything.";
-/* Generated from genl10n: GIFMaker.BApp.swift#545 */
+/* Generated from genl10n: GIFMaker.BApp.swift#548 */
 "Direction" = "Direction";
 /* Generated from genl10n: PhotoPickerViewController.swift#837 */
 "Downloading..." = "Downloading...";
@@ -178,9 +178,9 @@
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost lets you remove all kinds of data containing your photos including private information.";
 /* Generated from genl10n: Finder.BApp.swift#1274, Cleaner.BApp.swift#483 */
 "Enable Quick Actions" = "Enable Quick Actions";
-/* Generated from genl10n: Converter.AppDockContent.swift#149 */
+/* Generated from genl10n: Converter.AppDockContent.swift#152 */
 "Export Options" = "Export Options";
-/* Generated from genl10n: GIFMaker.BApp.swift#457 */
+/* Generated from genl10n: GIFMaker.BApp.swift#460 */
 "Export" = "Export";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#77 */
 "Extend Period of Free Use" = "Extend Period of Free Use";
@@ -198,15 +198,15 @@
 "Flashlight" = "Flashlight";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#265, Finder.BApp.swift#1230 */
 "Flight Number" = "Flight Number";
-/* Generated from genl10n: Converter.AppDockContent.swift#86, Finder.BApp.swift#1316 */
+/* Generated from genl10n: Converter.AppDockContent.swift#89, Finder.BApp.swift#1316 */
 "Formats" = "Formats";
 /* Generated from genl10n: GIFMaker.BApp.swift#208 */
 "Forward" = "Forward";
-/* Generated from genl10n: GIFMaker.BApp.swift#508 */
+/* Generated from genl10n: GIFMaker.BApp.swift#511 */
 "Frame Delay" = "Frame Delay";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos.";
-/* Generated from genl10n: GIFMaker.BApp.swift#265, GIFMaker.BApp.swift#588 */
+/* Generated from genl10n: GIFMaker.BApp.swift#265, GIFMaker.BApp.swift#591 */
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Give A Rating" = "Give A Rating";
@@ -214,11 +214,11 @@
 "Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift#85 */
 "Hiding Selected Items..." = "Hiding Selected Items...";
-/* Generated from genl10n: GIFMaker.BApp.swift#531, PDFactory.AppDockContent.swift#125 */
+/* Generated from genl10n: GIFMaker.BApp.swift#534, PDFactory.AppDockContent.swift#128 */
 "Image Quality" = "Image Quality";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
 "Images" = "Images";
-/* Generated from genl10n: GIFMaker.BApp.swift#443 */
+/* Generated from genl10n: GIFMaker.BApp.swift#446 */
 "Import" = "Import";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
 "It could not be saved." = "It could not be saved.";
@@ -226,15 +226,15 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "It requires a permission to access your contacts. Please allow Contacts on iOS Settings.";
 /* Generated from genl10n: Finder.BApp.swift#1223 */
 "Items" = "Items";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+/* Generated from genl10n: PDFactory.AppDockContent.swift#109 */
 "Landscape" = "Landscape";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+/* Generated from genl10n: PDFactory.AppDockContent.swift#107 */
 "Layout" = "Layout";
 /* Generated from genl10n: GIFMaker.BApp.swift#90 */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.GarbageDetector.Lockscreen.swift#42 */
 "Lockscreens" = "Lockscreens";
-/* Generated from genl10n: GIFMaker.BApp.swift#583 */
+/* Generated from genl10n: GIFMaker.BApp.swift#586 */
 "Loop" = "Loop";
 /* Generated from genl10n: GIFMaker.BApp.swift#276 */
 "Make GIF" = "Make GIF";
@@ -250,7 +250,7 @@
 "New Phone Number" = "New Phone Number";
 /* Generated from genl10n: Stabilizer.swift#333, GIFMaker.BApp.swift#141 */
 "No Crop" = "No Crop";
-/* Generated from genl10n: GIFMaker.BApp.swift#576 */
+/* Generated from genl10n: GIFMaker.BApp.swift#579 */
 "No loop" = "No loop";
 /* Generated from genl10n: Finder.BApp.swift#731 */
 "Open Apple Maps" = "Open Apple Maps";
@@ -262,9 +262,9 @@
 "Original" = "Original";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory makes PDF document from multiple images with various page options.";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+/* Generated from genl10n: PDFactory.AppDockContent.swift#117 */
 "Page Margin" = "Page Margin";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+/* Generated from genl10n: PDFactory.AppDockContent.swift#94 */
 "Page Size Preset" = "Page Size Preset";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Pages";
@@ -274,17 +274,17 @@
 "Phone Number" = "Phone Number";
 /* Generated from genl10n: GIFMaker.BApp.swift#88 */
 "Photos" = "Photos";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+/* Generated from genl10n: PDFactory.AppDockContent.swift#109 */
 "Portrait" = "Portrait";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#174 */
 "Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Privacy" = "Privacy";
-/* Generated from genl10n: Converter.AppDockContent.swift#133, GIFMaker.BApp.swift#589 */
+/* Generated from genl10n: Converter.AppDockContent.swift#136, GIFMaker.BApp.swift#592 */
 "Quality" = "Quality";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Red-Eye Removal";
-/* Generated from genl10n: GIFMaker.BApp.swift#558 */
+/* Generated from genl10n: GIFMaker.BApp.swift#561 */
 "Repeat" = "Repeat";
 /* Generated from genl10n: GIFMaker.BApp.swift#209 */
 "Reverse" = "Reverse";
@@ -306,21 +306,21 @@
 "Saved Without the Camera" = "Saved Without the Camera";
 /* Generated from genl10n: PhotoPickerViewController.swift#860 */
 "Saving Results..." = "Saving Results...";
-/* Generated from genl10n: Stabilizer.swift#414, PDFactory.AppDockContent.swift#138 */
+/* Generated from genl10n: Stabilizer.swift#414, PDFactory.AppDockContent.swift#141 */
 "Scale To Fit" = "Scale To Fit";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#67 */
 "Screenshots" = "Screenshots";
 /* Generated from genl10n: Finder.BApp.swift#845 */
 "Search Flights" = "Search Flights";
-/* Generated from genl10n: Converter.AppDockContent.swift#148 */
+/* Generated from genl10n: Converter.AppDockContent.swift#151 */
 "Select Format To Convert" = "Select Format To Convert";
-/* Generated from genl10n: Cleaner.BApp.swift#642 */
+/* Generated from genl10n: Cleaner.BApp.swift#643 */
 "Select Photos To Delete." = "Select Photos To Delete.";
 /* Generated from genl10n: Finder.BApp.swift#1445 */
 "Select Photos To Find Everything." = "Select Photos To Find Everything.";
-/* Generated from genl10n: PhoneCalls.swift#427 */
+/* Generated from genl10n: PhoneCalls.swift#431 */
 "Select Photos You Want To Grab Phone Numbers!" = "Select Photos You Want To Grab Phone Numbers!";
-/* Generated from genl10n: Cleaner.BApp.swift#550 */
+/* Generated from genl10n: Cleaner.BApp.swift#551 */
 "Selected" = "Selected";
 /* Generated from genl10n: AppCenter.Charge.swift#21 */
 "Send Us Feedback" = "Send Us Feedback";
@@ -332,7 +332,7 @@
 "Share" = "Share";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#316 */
 "Similarity" = "Similarity";
-/* Generated from genl10n: GIFMaker.BApp.swift#464, GIFMaker.BApp.swift#667, GIFMaker.BApp.swift#679, GIFMaker.BApp.swift#816 */
+/* Generated from genl10n: GIFMaker.BApp.swift#467, GIFMaker.BApp.swift#670, GIFMaker.BApp.swift#682, GIFMaker.BApp.swift#819 */
 "Size" = "Size";
 /* Generated from genl10n: Finder.BApp.swift#268 */
 "Some contacts were saved, but someones were not." = "Some contacts were saved, but someones were not.";
@@ -356,9 +356,9 @@
 "Starting to check edited photos..." = "Starting to check edited photos...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#298 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Switch on any items you want to hide. The quality will entirely remain the same.";
-/* Generated from genl10n: PhoneCalls.swift#379, Finder.BApp.swift#1302 */
+/* Generated from genl10n: PhoneCalls.swift#383, Finder.BApp.swift#1302 */
 "Take A Photo" = "Take A Photo";
-/* Generated from genl10n: Cleaner.BApp.swift#551 */
+/* Generated from genl10n: Cleaner.BApp.swift#552 */
 "Targeted" = "Targeted";
 /* Generated from genl10n: Cleaner.BApp.swift#392 */
 "Targets" = "Targets";
@@ -376,7 +376,7 @@
 "Translate" = "Translate";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#83 */
 "Turn Your Opinion Into New Things." = "Turn Your Opinion Into New Things.";
-/* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#366, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1291, Cleaner.BApp.swift#528 */
+/* Generated from genl10n: Revert.BApp.swift#189, PhoneCalls.swift#370, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1291, Cleaner.BApp.swift#528 */
 "Use Auto Selection Bot" = "Use Auto Selection Bot";
 /* Generated from genl10n: GIFMaker.BApp.swift#91 */
 "Video" = "Video";

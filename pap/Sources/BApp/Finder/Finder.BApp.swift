@@ -1416,7 +1416,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
             initialSelectedIndexPaths?.append(contentsOf: indexPaths)
         }
 
-        (view as! UITableView).reloadData()
+        (view as? UITableView)?.reloadData()
 
         initialSelectedIndexPaths = nil
     }

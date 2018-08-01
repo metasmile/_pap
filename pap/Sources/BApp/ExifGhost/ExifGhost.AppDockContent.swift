@@ -269,7 +269,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
             initialSelectedIndexPaths?.append(contentsOf: indexPaths)
         }
 
-        (view as! UITableView).reloadData()
+        (view as? UITableView)?.reloadData()
 
         initialSelectedIndexPaths = nil
     }

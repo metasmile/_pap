@@ -141,8 +141,11 @@ fileprivate class RevertAppDockContent: NSObject, KeyPathWatchable, AppDockConte
     lazy var view: UIView = UITableView()
 
     var preferences: AppDockContentPreferable? {
+        guard let tableView = view as? UITableView else{
+            return nil
+        }
         var preferences = AppDockContentPreferences()
-        preferences.preferredHeight = (view as! UITableView).rowHeight * CGFloat(1)
+        preferences.preferredHeight = tableView.rowHeight * CGFloat(1)
         return preferences
     }
 
@@ -161,7 +164,7 @@ fileprivate class RevertAppDockContent: NSObject, KeyPathWatchable, AppDockConte
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
         if options != nil{
-            (view as! UITableView).reloadData()
+            (view as? UITableView)?.reloadData()
         }
     }
 

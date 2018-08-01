@@ -267,8 +267,11 @@ class AutoEditorAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITa
     }()
 
     var preferences: AppDockContentPreferable? {
+        guard let tableView = view as? UITableView else{
+            return nil
+        }
         var preferences = AppDockContentPreferences()
-        preferences.preferredHeight = (view as! UITableView).rowHeight * CGFloat(autoAdjustmentOptionKeys.count)
+        preferences.preferredHeight = tableView.rowHeight * CGFloat(autoAdjustmentOptionKeys.count)
         return preferences
     }
 
@@ -286,7 +289,7 @@ class AutoEditorAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITa
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
         if options != nil{
-            (view as! UITableView).reloadData()
+            (view as? UITableView)?.reloadData()
         }
     }
     
@@ -294,7 +297,11 @@ class AutoEditorAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITa
     var options:[String: Any]? // Bool may be other custom Codable type instead of Any
     
     func switchOptions(_ options: [String: Any]?, animated: Bool) {
-        for (index, cell) in (view as! UITableView).visibleCells.enumerated() {
+        guard let tableView = self.view as? UITableView else{
+            return
+        }
+
+        for (index, cell) in tableView.visibleCells.enumerated() {
             let option = (options?[self.autoAdjustmentOptionKeys[index]] as? Bool) ?? false
             (cell as? Cell)?.optionSwitch.setOn(option, animated: animated)
         }
