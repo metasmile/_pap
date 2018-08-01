@@ -525,7 +525,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
 
         let cell1 = UITableViewSwitchCellDescriber()
         cell1.itemIdentifier = CleanerAppSettingCells.autoSelect.hashValue
-        cell1.label = "Use Auto Selection Bot".localized
+        cell1.label = "Auto Selection Bot".localized
         cell1.iconImage = R.image.commonIconRobot.name
         cell1.valueGetter = { CleanerApp.privateDefaults.autoSelect }
         cell1.valueHandler = { val in

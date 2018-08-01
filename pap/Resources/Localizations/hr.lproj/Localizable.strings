@@ -158,6 +158,8 @@
 "Auto Editor" = "Automatski uređivač";
 /* Generated from genl10n: AutoEditor.BApp.swift#170 */
 "Auto Enhance" = "Automatsko popravljanje";
+/* Generated from genl10n: Revert.BApp.swift#189 */
+"Auto Selection Bot" = "Auto Selection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "Automatsko izravnavanje";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
@@ -257,7 +259,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Uvoz";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
-"It could not be saved." = "Nije se moglo spasiti.";
+"It could not be stored." = "Nije se moglo pohraniti.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "To zahtijeva dopuštenje za pristup vašim kontaktima. Omogućite Kontakti na iOS Postavkama.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
@@ -400,6 +402,8 @@
 "Targets" = "ciljevi";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Tekst";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
+"This App Is Yours." = "Ova aplikacija je tvoja.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "Ovaj jednostavan, ali najbrži alat omogućuje brzo rotiranje i flip puno medijskih datoteka, uključujući Live Fotografije. Prema zadanim postavkama nema ograničenja broja fotografija za uređivanje.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
@@ -408,8 +412,8 @@
 "Too Slow Shutter Speed" = "Premala brzina zatvarača";
 /* Generated from genl10n: Stabilizer.swift#325 */
 "Translate" = "Prevedi";
-/* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
-"Use Auto Selection Bot" = "Koristite Auto Selection Bot";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#83 */
+"Turn Your Opinion Into New Things." = "Pretvori svoje mišljenje u nove stvari.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

@@ -19,7 +19,7 @@ struct AppMsg {
         }
 
         static var save:String{
-            return "It could not be saved.".localized
+            return "It could not be stored.".localized
         }
     }
 

@@ -158,6 +158,8 @@
 "Auto Editor" = "Editor automàtic";
 /* Generated from genl10n: AutoEditor.BApp.swift#170 */
 "Auto Enhance" = "Millora automàtica";
+/* Generated from genl10n: Revert.BApp.swift#189 */
+"Auto Selection Bot" = "Selecció automàtica Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "Autoextracció";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
@@ -257,7 +259,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Importació";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
-"It could not be saved." = "No s'ha pogut desar.";
+"It could not be stored." = "No es pot emmagatzemar.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Requereix un permís per accedir als vostres contactes. Permeteu contactes a la configuració de iOS.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
@@ -400,6 +402,8 @@
 "Targets" = "Objectius";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Text";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
+"This App Is Yours." = "Aquesta aplicació és vostra.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "Aquesta eina senzilla, però més ràpida, us permet girar i transferir ràpidament molts fitxers multimèdia, inclosos Live Photos. De manera predeterminada, no hi ha cap límit en la quantitat de fotos per editar-les.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
@@ -408,8 +412,8 @@
 "Too Slow Shutter Speed" = "Massa lenta velocitat de l'obturador";
 /* Generated from genl10n: Stabilizer.swift#325 */
 "Translate" = "Traduir";
-/* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
-"Use Auto Selection Bot" = "Use Auto Selection Bot";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#83 */
+"Turn Your Opinion Into New Things." = "Convertiu la vostra opinió en noves coses.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Vídeo";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

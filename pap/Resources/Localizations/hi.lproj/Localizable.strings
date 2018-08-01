@@ -158,6 +158,8 @@
 "Auto Editor" = "ऑटो संपादक";
 /* Generated from genl10n: AutoEditor.BApp.swift#170 */
 "Auto Enhance" = "स्वचलित बढत";
+/* Generated from genl10n: Revert.BApp.swift#189 */
+"Auto Selection Bot" = "ऑटो चयन बॉट";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "ऑटो सीधा";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
@@ -257,7 +259,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "आयात";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
-"It could not be saved." = "इसे सहेजा नहीं जा सका।";
+"It could not be stored." = "इसे संग्रहीत नहीं किया जा सका।";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "इसे आपके संपर्कों तक पहुंचने की अनुमति की आवश्यकता है। कृपया आईओएस सेटिंग्स पर संपर्कों की अनुमति दें।";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
@@ -400,6 +402,8 @@
 "Targets" = "लक्ष्य";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "टेक्स्ट";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
+"This App Is Yours." = "यह ऐप आपका है।";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "यह सरल लेकिन सबसे तेज़ टूल आपको लाइव फ़ोटो सहित कई मीडिया फ़ाइलों को तेज़ी से घूमने और फ़्लिप करने देता है। डिफ़ॉल्ट रूप से, उन्हें संपादित करने के लिए फ़ोटो की संख्या की कोई सीमा नहीं है।";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
@@ -408,8 +412,8 @@
 "Too Slow Shutter Speed" = "बहुत धीमी शटर गति";
 /* Generated from genl10n: Stabilizer.swift#325 */
 "Translate" = "अनुवाद करना";
-/* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
-"Use Auto Selection Bot" = "ऑटो चयन बॉट का प्रयोग करें";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#83 */
+"Turn Your Opinion Into New Things." = "नई राय में अपनी राय बारी।";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "वीडियो";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

@@ -186,7 +186,7 @@ fileprivate class RevertAppDockContent: NSObject, KeyPathWatchable, AppDockConte
         cell.imageView?.tintColor = primaryColor
         cell.imageView?.contentMode = .scaleAspectFit
 
-        cell.textLabel?.text = "Use Auto Selection Bot".localized
+        cell.textLabel?.text = "Auto Selection Bot".localized
         cell.imageView?.image = R.image.commonIconRobot()?.withRenderingMode(.alwaysTemplate)
         cell.imageView?.tintColor = primaryColor
 

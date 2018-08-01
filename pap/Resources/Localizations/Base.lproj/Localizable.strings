@@ -122,6 +122,8 @@
 "Auto Editor" = "Auto Editor";
 /* Generated from genl10n: AutoEditor.BApp.swift#170 */
 "Auto Enhance" = "Auto Enhance";
+/* Generated from genl10n: Revert.BApp.swift#189, PhoneCalls.swift#370, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1291, Cleaner.BApp.swift#528 */
+"Auto Selection Bot" = "Auto Selection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "Auto Straighten";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#469 */
@@ -221,7 +223,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift#446 */
 "Import" = "Import";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
-"It could not be saved." = "It could not be saved.";
+"It could not be stored." = "It could not be saved.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "It requires a permission to access your contacts. Please allow Contacts on iOS Settings.";
 /* Generated from genl10n: Finder.BApp.swift#1223 */
@@ -376,8 +378,6 @@
 "Translate" = "Translate";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#83 */
 "Turn Your Opinion Into New Things." = "Turn Your Opinion Into New Things.";
-/* Generated from genl10n: Revert.BApp.swift#189, PhoneCalls.swift#370, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1291, Cleaner.BApp.swift#528 */
-"Use Auto Selection Bot" = "Use Auto Selection Bot";
 /* Generated from genl10n: GIFMaker.BApp.swift#91 */
 "Video" = "Video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
