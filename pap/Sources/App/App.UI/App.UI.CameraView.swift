@@ -130,7 +130,7 @@ class AppUICameraView: UIView {
         backgroundView.trailingAnchor.constraint(equalTo: cameraView.trailingAnchor).isActive = true
 
         optionBackgroundView.clipsToBounds = true
-        optionBackgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        optionBackgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.1)
         addSubview(optionBackgroundView)
         optionBackgroundView.translatesAutoresizingMaskIntoConstraints = false
         optionBackgroundView.topAnchor.constraint(equalTo: topAnchor).isActive = true
@@ -310,23 +310,23 @@ class AppUICameraView: UIView {
 
     var isCompactMode: Bool = true {
         didSet {
-            let hasZeroOptionViewMargin = self.hasZeroOptionViewMargin
-
             if isCompactMode {
                 optionViewHeightLayout?.constant = 0
                 controlViewHeightLayout?.constant = 0
             }
             else {
                 controlViewHeightLayout?.constant = ControlViewHeightAnchorConstant
-                optionViewHeightLayout?.constant = hasZeroOptionViewMargin ? 0 : OptionViewHeightAnchorConstant
+                optionViewHeightLayout?.constant = self.hasZeroOptionViewMargin ? 0 : OptionViewHeightAnchorConstant
             }
 
+            let compactControlViewLayoutRequired = isCompactMode || optionViewHeightLayout?.constant ?? 0 > 0
+
             captureButton.isEnabled = !isCompactMode
-            captureButton.heightAnchor.constraint(lessThanOrEqualToConstant: ControlViewHeightAnchorConstant-(hasZeroOptionViewMargin ? 8 : 0)).isActive = true
+            captureButton.transform = compactControlViewLayoutRequired ? CGAffineTransform.identity : CGAffineTransform(scaleX: 0.8, y: 0.8)
 
             cameraPositionButton.setImage(devicePositionIcon, for: .normal)
 
-            optionBackgroundView.isHidden = isCompactMode || optionViewHeightLayout?.constant ?? 0 > 0
+            optionBackgroundView.isHidden = compactControlViewLayoutRequired
             backgroundView.isHidden = isCompactMode
             
             //TODO: ignore layer implicit animation

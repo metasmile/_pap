@@ -52,6 +52,9 @@ class CameraView: UIView {
     private func initialize() {
         addSubview(cameraPreviewView)
         cameraPreviewView.fitConstraints(to: self)
+#if targetEnvironment(simulator)
+        cameraPreviewView.previewLayer.backgroundColor = UIColor.green.cgColor
+#endif
     }
 
     func setUp() {
