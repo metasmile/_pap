@@ -69,7 +69,16 @@ class DragSelectionGestureRecognizer: UIPanGestureRecognizer {
     }
 
     var beginIndexPath: IndexPath?
-    var ignoredIndexPaths: [IndexPath]?
+    var ignoredIndexPaths: [IndexPath]? {
+        didSet {
+            ignoredIndexPathInfo = [:]
+            ignoredIndexPaths?.forEach { ignoredIndexPathInfo?[$0] = true }
+            
+            ignoredIndexPathSet = NSMutableOrderedSet(array: ignoredIndexPaths ?? [])
+        }
+    }
+    private(set) var ignoredIndexPathInfo: [IndexPath: Bool]?
+    private(set) var ignoredIndexPathSet: NSMutableOrderedSet?
     var beginLocation: CGPoint?
     var selectionMode = DragSelectionGestureRecognizer.DragSelectionMode.none
     var autoPanningTimer: CADisplayLink?
@@ -80,6 +89,8 @@ class DragSelectionGestureRecognizer: UIPanGestureRecognizer {
         beginIndexPath = nil
         beginLocation = nil
         ignoredIndexPaths = nil
+        ignoredIndexPathInfo = nil
+        ignoredIndexPathSet = nil
         selectionMode = .none
         stopAutoPanning()
     }
@@ -103,4 +114,3 @@ class DragSelectionGestureRecognizer: UIPanGestureRecognizer {
         self.panHandler?()
     }
 }
-
