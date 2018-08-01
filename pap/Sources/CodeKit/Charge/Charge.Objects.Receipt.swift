@@ -8,8 +8,8 @@ import DefaultsKit
 
 struct ChargeableReceipt: Codable, Chargeable, Hashable{
 
-    let uuid:String = UUID().uuidString
-    let createdDate:Date = Date()
+    let uuid:String
+    let createdDate:Date
     let bankerVersion:Int
 
     private let typeRawValue: Int
@@ -22,20 +22,38 @@ struct ChargeableReceipt: Codable, Chargeable, Hashable{
         return RewardType(rawValue: rewardRawValue) ?? .deprecated
     }
 
-    var amountValue:Double // remaining amountValue
+    init(uuid:String,
+         createdDate:Date,
+         typeRawValue:Int,
+         rewardRawValue:Int,
+         amountValue:Double,
+         bankerVersion:Int){
 
+        self.uuid = uuid
+        self.createdDate = createdDate
+        self.typeRawValue = typeRawValue
+        self.rewardRawValue = rewardRawValue
+        self.amountValue = amountValue
+        self.bankerVersion = bankerVersion
+    }
+
+    init(charge:Charge, bankerVersion:Int){
+        self.init(
+                uuid:UUID().uuidString,
+                createdDate:Date(),
+                typeRawValue: charge.type.rawValue,
+                rewardRawValue: charge.reward.rawValue,
+                amountValue: charge.priceAmount.value,
+                bankerVersion: bankerVersion
+        )
+    }
+
+    var amountValue:Double // remaining amountValue
     var dateData:Date?
     var stringData:String?
     var intData:Int?
     var doubleData:Double?
     var dataData:Data?
-
-    init(charge:Charge, bankerVersion:Int){
-        self.typeRawValue = charge.type.rawValue
-        self.rewardRawValue = charge.reward.rawValue
-        self.amountValue = charge.priceAmount.value
-        self.bankerVersion = bankerVersion
-    }
 
     private enum CodingKeys: Int, CodingKey {
         case uuid
@@ -53,6 +71,34 @@ struct ChargeableReceipt: Codable, Chargeable, Hashable{
         case dataData
     }
 
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//
+//        let uuid = try container.decode(String.self, forKey: .uuid)
+//        let createdDate = try container.decode(Date.self, forKey: .createdDate)
+//        let bankerVersion = try container.decode(Int.self, forKey: .bankerVersion)
+//
+//        let typeRawValue = try container.decode(Int.self, forKey: .typeRawValue)
+//        let rewardRawValue = try container.decode(Int.self, forKey: .rewardRawValue)
+//        let amountValue = try container.decode(Double.self, forKey: .amountValue)
+//
+//        self.init(
+//                uuid:uuid,
+//                createdDate: createdDate,
+//                typeRawValue: typeRawValue,
+//                rewardRawValue: rewardRawValue,
+//                amountValue: amountValue,
+//                bankerVersion: bankerVersion
+//        )
+//
+//        self.dateData = try container.decode(Date.self, forKey: .dateData)
+//        self.stringData = try container.decode(String.self, forKey: .stringData)
+//        self.intData = try container.decode(Int.self, forKey: .intData)
+//        self.doubleData = try container.decode(Double.self, forKey: .doubleData)
+//        self.dataData = try container.decode(Data.self, forKey: .dataData)
+//        print("---------------------------------",self)
+//    }
+    
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
 

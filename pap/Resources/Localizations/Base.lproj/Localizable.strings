@@ -82,9 +82,9 @@
 "cs_keyword_12" = "Friend";
 "cs_keyword_13" = "Lover";
 
-/* Generated from genl10n: AppCenter.Charge.swift#38 */
+/* Generated from genl10n: AppCenter.Charge.swift#39 */
 "%@ Day License" = "%@ Day License";
-/* Generated from genl10n: AppCenter.Charge.swift#51 */
+/* Generated from genl10n: AppCenter.Charge.swift#52 */
 "%@ Day" = "%@ Day";
 /* Generated from genl10n: Finder.BApp.swift#1582, Cleaner.BApp.swift#753 */
 "%@ might be found" = "%@ might be found";
@@ -184,7 +184,7 @@
 "Export Options" = "Export Options";
 /* Generated from genl10n: GIFMaker.BApp.swift#460 */
 "Export" = "Export";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#79 */
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#77 */
 "Extend Period of Free Use" = "Extend Period of Free Use";
 /* Generated from genl10n: Filters.BApp.swift#75 */
 "Filters" = "Filters";
@@ -210,7 +210,7 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos.";
 /* Generated from genl10n: GIFMaker.BApp.swift#265, GIFMaker.BApp.swift#591 */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: AppCenter.Charge.swift#18 */
+/* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Give A Rating";
 /* Generated from genl10n: ExifGhost.BApp.swift#81 */
 "Hide" = "Hide";
@@ -324,11 +324,11 @@
 "Select Photos You Want To Grab Phone Numbers!" = "Select Photos You Want To Grab Phone Numbers!";
 /* Generated from genl10n: Cleaner.BApp.swift#551 */
 "Selected" = "Selected";
-/* Generated from genl10n: AppCenter.Charge.swift#21 */
+/* Generated from genl10n: AppCenter.Charge.swift#22 */
 "Send Us Feedback" = "Send Us Feedback";
 /* Generated from genl10n: Finder.BApp.swift#606, Finder.BApp.swift#617, Finder.BApp.swift#627 */
 "Send an Email" = "Send an Email";
-/* Generated from genl10n: AppCenter.Charge.swift#20 */
+/* Generated from genl10n: AppCenter.Charge.swift#21 */
 "Share This App" = "Share This App";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#92, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#105, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#131, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#145, App.Finalizable.UIActivity.PHAsset.swift#60, PHAsset.UIAlertController.SynchronizablePresenter.swift#58, Finder.BApp.swift#375, Finder.BApp.swift#460, Finder.BApp.swift#545, Finder.BApp.swift#642, Finder.BApp.swift#760, Finder.BApp.swift#857 */
 "Share" = "Share";
@@ -366,7 +366,7 @@
 "Targets" = "Targets";
 /* Generated from genl10n: Finder.BApp.swift#1321 */
 "Text" = "Text";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#84 */
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
 "This App Is Yours." = "This App Is Yours.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them.";
@@ -376,7 +376,7 @@
 "Too Slow Shutter Speed" = "Too Slow Shutter Speed";
 /* Generated from genl10n: Stabilizer.swift#325 */
 "Translate" = "Translate";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#85 */
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#83 */
 "Turn Your Opinion Into New Things." = "Turn Your Opinion Into New Things.";
 /* Generated from genl10n: GIFMaker.BApp.swift#91 */
 "Video" = "Video";
@@ -392,7 +392,7 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#17 */
 "Welcome Free Trial Pack" = "Welcome Free Trial Pack";
-/* Generated from genl10n: AppCenter.Charge.swift#19 */
+/* Generated from genl10n: AppCenter.Charge.swift#20 */
 "Write A Review" = "Write A Review";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#80 */
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#78 */
 "You Can Renew Them Repeatedly." = "You Can Renew Them Repeatedly.";
