@@ -181,6 +181,7 @@ class ChargeableButton: UIButton {
     var fillMode: ChargeableFillMode = [.fill, .opacity]
     var showsColorLevel = true
     var showsAnimation = true
+    var showsPercentage = true
     private var levelAnimations = [ChargeLevel: CAAnimation]()
 
     var balance: Double? {
@@ -188,7 +189,16 @@ class ChargeableButton: UIButton {
             let ratio: CGFloat = CGFloat(balance ?? 0)
             let level: ChargeLevel = ChargeLevel.init(balance: ratio)
             let color: UIColor = showsColorLevel ? level.representativeColor ?? tintColor : tintColor
-            let buttonImage = ChargeableImage.init(balance: balance ?? 0, fillMode: self.fillMode, tintColor: color, appearanceDelegate: appearanceDelegate)
+            
+            var buttonImage: UIImage?
+            if let iconImage = ChargeableImage.init(balance: balance ?? 0, fillMode: self.fillMode, tintColor: color, appearanceDelegate: appearanceDelegate) {
+                if showsPercentage {
+                    buttonImage = ChargeableBadgeIcon.portraitBadgeIcon(iconImage, title: String(format: "%d%%", Int(ratio * 100)), tintColor: color)
+                }
+                else {
+                    buttonImage = iconImage
+                }
+            }
 
             setImage(buttonImage, for: .normal)
 
