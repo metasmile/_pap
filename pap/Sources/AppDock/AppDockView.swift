@@ -560,7 +560,7 @@ extension AppDockView: UICollectionViewDelegate {
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return !collectionView.isDecelerating
+        return !collectionView.isDecelerating && !collectionView.isBouncing
     }
     
     func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
@@ -569,6 +569,26 @@ extension AppDockView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
 //        items.swapAt(sourceIndexPath.item, destinationIndexPath.item)
+    }
+}
+
+extension UIScrollView {
+    var isBouncing: Bool {
+        return isBouncingTop || isBouncingLeft || isBouncingBottom || isBouncingRight
+    }
+    var isBouncingTop: Bool {
+        return contentOffset.y < -contentInset.top
+    }
+    var isBouncingLeft: Bool {
+        return contentOffset.x < -contentInset.left
+    }
+    var isBouncingBottom: Bool {
+        let contentFillsScrollEdges = floor(contentSize.height + contentInset.top + contentInset.bottom) >= floor(bounds.height)
+        return contentFillsScrollEdges && floor(contentOffset.y) > floor(contentSize.height - bounds.height + contentInset.bottom)
+    }
+    var isBouncingRight: Bool {
+        let contentFillsScrollEdges = floor(contentSize.width + contentInset.left + contentInset.right) >= floor(bounds.width)
+        return contentFillsScrollEdges && floor(contentOffset.x) > floor(contentSize.width - bounds.width + contentInset.right)
     }
 }
 
