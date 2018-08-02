@@ -144,9 +144,6 @@ class PhotoPickerViewController: AppDockViewController {
 
         //AppCenter.chargeManager related
         initializeChargeWhenViewDidLoad()
-
-        //INFO: maintain last
-        updateSelectedItemUIs()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -165,6 +162,8 @@ class PhotoPickerViewController: AppDockViewController {
         if let app = AppCenter.default.currentInstanceAs(EditableApp.self) {
             app.selectEditStateValue(app.defaultEditStateValue, in: (app as? AppDockApp)?.content)
         }
+
+        updateSelectedItemUIs()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
