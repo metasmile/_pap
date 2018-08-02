@@ -21,9 +21,10 @@ extension PhotoPickerViewController{
     func updateDoneButtonChargeableState() -> Bool {
 
         let selected = self.estimatedAvailableSelectedItems > 0
+        let balanceValue = AppCenter.charge.bank.balanceValue
 
         if selected{
-            let currentSyncedBalanceValue = AppCenter.charge.bank.balanceValue
+            let currentSyncedBalanceValue = balanceValue
 
             assert(currentSyncedBalanceValue>=0, "current balance value synced with < 0")
 
@@ -33,7 +34,7 @@ extension PhotoPickerViewController{
             } else if currentSyncedBalanceValue == 0 {
                 let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.chargeableButton
                 rightButtonItem.title = doneButton?.title
-                rightButtonItem.balance = AppCenter.charge.bank.balanceValue
+                rightButtonItem.balance = balanceValue
                 rightButtonItem.target = self
                 rightButtonItem.action = #selector(self.chargeableButtonDidTap)
                 navigationItem.setRightBarButton(rightButtonItem, animated: false)
@@ -44,7 +45,7 @@ extension PhotoPickerViewController{
 
         let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.chargeableButton
         rightButtonItem.title = nil
-        rightButtonItem.balance = AppCenter.charge.bank.balanceValue
+        rightButtonItem.balance = balanceValue
         rightButtonItem.target = self
         rightButtonItem.action = #selector(self.chargeableButtonDidTap)
         navigationItem.setRightBarButton(rightButtonItem, animated: true)
