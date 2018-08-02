@@ -41,7 +41,7 @@ extension PhotoPickerViewController{
         }
 
         batchPreviewView.removeAllCollectionViewItems()
-        updateSelectedItemUIs()
+        updateUIDisplays()
         updateVisibleCellsEnabled()
     }
 }

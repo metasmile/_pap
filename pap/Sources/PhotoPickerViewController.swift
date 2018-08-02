@@ -163,7 +163,7 @@ class PhotoPickerViewController: AppDockViewController {
             app.selectEditStateValue(app.defaultEditStateValue, in: (app as? AppDockApp)?.content)
         }
 
-        updateSelectedItemUIs()
+        updateUIDisplays()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -247,7 +247,7 @@ class PhotoPickerViewController: AppDockViewController {
         appDockView?.reloadKeepingDrawerOpened()
         batchPreviewView.updatePreviews(forced: true)
 
-        updateSelectedItemUIs()
+        updateUIDisplays()
 
         cancelPreheatingIfNeeded()
         performPrefetchIfNeeded(includingCurrentVisibleItems: true)
@@ -416,7 +416,7 @@ class PhotoPickerViewController: AppDockViewController {
         updateVisibleCellsEnabled()
     }
 
-    func updateSelectedItemUIs() {
+    func updateUIDisplays() { //INFO: Maintain with fast/light procedures.
         updateSelectedItemsTitle()
         updateControlsReadyingToPerform()
     }
@@ -643,7 +643,7 @@ class PhotoPickerViewController: AppDockViewController {
                 papLog.event.performWhenPhotoLibraryDidChanged()
             }else{
                 self.updateAllPhotosTitle()
-                self.updateSelectedItemUIs()
+                self.updateUIDisplays()
             }
             
             if let indexPathToScroll = indexPathToScroll {
@@ -867,7 +867,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         progressBar.isHidden = true
         
         updateAllPhotosTitle()
-        updateSelectedItemUIs()
+        updateUIDisplays()
         updateVisibleCellsEnabled()
         
         updateAppDockViewProcessingEnd()
@@ -880,7 +880,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         deselectAllCollectionViewItems()
 
         updateAllPhotosTitle()
-        updateSelectedItemUIs()
+        updateUIDisplays()
         updateVisibleCellsEnabled()
 
         updateAppDockViewProcessingEnd()
