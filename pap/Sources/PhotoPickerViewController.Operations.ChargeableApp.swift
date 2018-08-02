@@ -1,6 +1,6 @@
 //
 // Created by BL?ACKGENE on 19.07.18.
-// Copyright (c) 2018 Stells. All rights reserved.
+// C?opyright (c) 2018 Stells. All rights reserved.
 //
 
 import Foundation
@@ -65,21 +65,29 @@ extension PhotoPickerViewController{
         print("Unpaid Charges:", AppCenter.charge.getChargesHasNotReceipt() )
 
         //selected
-        let selected = self.estimatedAvailableSelectedItems > 0
+//        let selected = self.estimatedAvailableSelectedItems > 0
         let alert = UIAlertController.actionSheet(title: nil, message: nil)
 
         let title:String
         let subtitle:String
         var titleImage:UIImage?
 
-        let areAllChargesHasPriceAmountPaid = AppCenter.charge.areAllChargesHasPriceAmountPaid(excludingTypes: Set([ChargeType.welcomeFreeTrial]))
+        let allPaidCharges = AppCenter.charge.getChargesHasReceiptAlsoHasPriceAmount()
 
-        if areAllChargesHasPriceAmountPaid {
+        let areAllChargesHasPriceAmountPaid = AppCenter.charge.areAllChargesHasPriceAmountPaid(excludingTypes: Set([ChargeType.welcomeFreeTrial]))
+        let onlyWelcomeTutorialHasPaid = allPaidCharges.count==1 && allPaidCharges.contains { $0.type == .welcomeFreeTrial }
+
+        if onlyWelcomeTutorialHasPaid{
+            title = "Welcome on %@".localizedFormatted(Bundle.main.displayName ?? "Photo Apps")
+            subtitle = "Now Contribute And Get Free Use.".localized
+            titleImage = R.image.apps_collection.name.asUIImageContentOfFile //no cache
+        }
+        else if areAllChargesHasPriceAmountPaid {
             title = "This App Is Yours.".localized
             subtitle = "Turn Your Opinion Into New Things.".localized
             titleImage = R.image.join_us.name.asUIImageContentOfFile
-
-        }else{
+        }
+        else{
             title = "Extend Period of Free Use".localized
             subtitle = "You Can Renew Them Repeatedly.".localized
             titleImage = R.image.apps_collection.name.asUIImageContentOfFile //no cache
