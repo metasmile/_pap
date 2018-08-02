@@ -52,6 +52,9 @@ class CameraView: UIView {
     private func initialize() {
         addSubview(cameraPreviewView)
         cameraPreviewView.fitConstraints(to: self)
+#if targetEnvironment(simulator)
+        cameraPreviewView.previewLayer.backgroundColor = UIColor.green.cgColor
+#endif
     }
 
     func setUp() {
@@ -601,12 +604,11 @@ final class CaptureButton: UIControl {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        let scale = min(1, bounds.height / 72)
-
-        let inset = scale < 1 ? bounds.height * 0.1 : 0
-        let outerCircleLineWidth: CGFloat = scale < 1 ? 4 * scale : 6
+        let scale = remap(bounds.height, 0, 64, 0, 1)
+        let inset = remap(scale, 0, 1, bounds.height * 0.1, 0)
+        let outerCircleLineWidth: CGFloat = remap(scale, 0, 1, 0, 6)
         let outerCircleInset = outerCircleLineWidth / 2 + inset
-        let innerCircleInset = outerCircleLineWidth + (scale < 1 ? 3 * scale : 2) + inset
+        let innerCircleInset = outerCircleLineWidth + remap(scale, 0, 1, 0, 2) + inset
 
         let outerCircle = UIBezierPath(ovalIn: UIEdgeInsetsInsetRect(bounds, UIEdgeInsets(top: outerCircleInset, left: outerCircleInset, bottom: outerCircleInset, right: outerCircleInset)))
         let innerCircle = UIBezierPath(ovalIn: UIEdgeInsetsInsetRect(bounds, UIEdgeInsets(top: innerCircleInset, left: innerCircleInset, bottom: innerCircleInset, right: innerCircleInset)))

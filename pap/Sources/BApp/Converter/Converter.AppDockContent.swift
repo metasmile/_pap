@@ -39,8 +39,11 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
     lazy var view: UIView = UITableView(frame: .zero, style: .grouped)
 
     var preferences: AppDockContentPreferable? {
+        guard let tableView = view as? UITableView else{
+            return nil
+        }
         var preferences = AppDockContentPreferences()
-        preferences.preferredHeight = (self.view as! UITableView).rowHeight * 5
+        preferences.preferredHeight = tableView.rowHeight * 5
         return preferences
     }
 
@@ -153,7 +156,7 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
     }
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
-        (view as! UITableView).reloadData()
+        (view as? UITableView)?.reloadData()
     }
     
     func reloadSection(at section: Int) {

@@ -28,8 +28,11 @@ class PDFactoryAppAppDockContent: NSObject, AppDockContent, AppDockDelegate
     lazy var view: UIView = UITableView()
 
     var preferences: AppDockContentPreferable? {
+        guard let tableView = self.view as? UITableView else{
+            return nil
+        }
         var preferences = AppDockContentPreferences()
-        preferences.preferredHeight = (self.view as! UITableView).rowHeight * 5 - 2
+        preferences.preferredHeight = tableView.rowHeight * 5 - 2
         return preferences
     }
 
@@ -151,7 +154,7 @@ class PDFactoryAppAppDockContent: NSObject, AppDockContent, AppDockDelegate
     }
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
-        (view as! UITableView).reloadData()
+        (view as? UITableView)?.reloadData()
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {

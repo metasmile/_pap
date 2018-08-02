@@ -56,7 +56,11 @@ class AppUICameraView: UIView {
     private lazy var cameraPositionButton = UIButton(type: .system)
     private lazy var cameraFlashButton = UIButton(type: .system)
     private lazy var backgroundView = UIView(frame: .zero)
+    private lazy var optionBackgroundView = UIView(frame: .zero)
     private lazy var livePhotoButton = UIButton(type: .system)
+
+    private let OptionViewHeightAnchorConstant:CGFloat = 44 // top
+    private let ControlViewHeightAnchorConstant:CGFloat = 72 //bottom
 
     private func intialize(with defaults: AppUICameraViewOptions?=nil) {
         if let defaults = defaults{
@@ -119,11 +123,20 @@ class AppUICameraView: UIView {
         heightLayout.priority = .defaultLow
         heightLayout.isActive = true
 
-        cameraAspectRatioLayout = cameraView.heightAnchor.constraint(equalTo: cameraView.widthAnchor, multiplier: 1.3)
+        cameraAspectRatioLayout = cameraView.heightAnchor.constraint(equalTo: cameraView.widthAnchor, multiplier: 1.333333)
         cameraAspectRatioLayout?.isActive = true
 
         backgroundView.leadingAnchor.constraint(equalTo: cameraView.leadingAnchor).isActive = true
         backgroundView.trailingAnchor.constraint(equalTo: cameraView.trailingAnchor).isActive = true
+
+        optionBackgroundView.clipsToBounds = true
+        optionBackgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+        addSubview(optionBackgroundView)
+        optionBackgroundView.translatesAutoresizingMaskIntoConstraints = false
+        optionBackgroundView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        optionBackgroundView.leadingAnchor.constraint(equalTo: cameraView.leadingAnchor).isActive = true
+        optionBackgroundView.trailingAnchor.constraint(equalTo: cameraView.trailingAnchor).isActive = true
+        optionBackgroundView.heightAnchor.constraint(equalToConstant: OptionViewHeightAnchorConstant).isActive = true
 
         optionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         optionView.leadingAnchor.constraint(equalTo: cameraView.leadingAnchor).isActive = true
@@ -137,13 +150,13 @@ class AppUICameraView: UIView {
         livePhotoButton.contentVerticalAlignment = .fill
         livePhotoButton.setImage(livePhotoBadgeIcon, for: .normal)
         livePhotoButton.addTarget(self, action: #selector(self.toggleLivePhotoEnabled), for: .touchUpInside)
-        optionView.addSubview(livePhotoButton)
+        addSubview(livePhotoButton)
 
         livePhotoButton.translatesAutoresizingMaskIntoConstraints = false
-        livePhotoButton.centerXAnchor.constraint(equalTo: optionView.centerXAnchor).isActive = true
-        livePhotoButton.topAnchor.constraint(equalTo: optionView.topAnchor).isActive = true
-        livePhotoButton.bottomAnchor.constraint(equalTo: optionView.bottomAnchor).isActive = true
-        livePhotoButton.widthAnchor.constraint(equalTo: optionView.heightAnchor, multiplier: 1).isActive = true
+        livePhotoButton.topAnchor.constraint(greaterThanOrEqualTo: topAnchor).isActive = true
+        livePhotoButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        livePhotoButton.heightAnchor.constraint(equalToConstant: OptionViewHeightAnchorConstant).isActive = true
+        livePhotoButton.widthAnchor.constraint(equalTo: livePhotoButton.heightAnchor, multiplier: 1).isActive = true
 
         let controlView = UIView(frame: .zero)
         controlView.clipsToBounds = true
@@ -167,8 +180,8 @@ class AppUICameraView: UIView {
         captureButton.translatesAutoresizingMaskIntoConstraints = false
         captureButton.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor).isActive = true
         captureButton.centerXAnchor.constraint(equalTo: controlView.centerXAnchor).isActive = true
-        captureButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 44).isActive = true
-        captureButton.heightAnchor.constraint(lessThanOrEqualToConstant: 72).isActive = true
+        captureButton.heightAnchor.constraint(greaterThanOrEqualToConstant: OptionViewHeightAnchorConstant).isActive = true
+        captureButton.heightAnchor.constraint(lessThanOrEqualToConstant: ControlViewHeightAnchorConstant).isActive = true
         captureButton.widthAnchor.constraint(equalTo: captureButton.heightAnchor, multiplier: 1).isActive = true
 
         let captureButtonTopLayout = captureButton.topAnchor.constraint(equalTo: controlView.topAnchor)
@@ -188,7 +201,7 @@ class AppUICameraView: UIView {
         cameraPositionButton.translatesAutoresizingMaskIntoConstraints = false
         cameraPositionButton.topAnchor.constraint(greaterThanOrEqualTo: topAnchor).isActive = true
         cameraPositionButton.trailingAnchor.constraint(equalTo: cameraView.trailingAnchor, constant: -2).isActive = true
-        cameraPositionButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        cameraPositionButton.heightAnchor.constraint(equalToConstant: OptionViewHeightAnchorConstant).isActive = true
         cameraPositionButton.widthAnchor.constraint(equalTo: cameraPositionButton.heightAnchor, multiplier: 1).isActive = true
 
         let cameraPositionButtonCenterYLayout = cameraPositionButton.centerYAnchor.constraint(equalTo: optionView.centerYAnchor)
@@ -204,7 +217,7 @@ class AppUICameraView: UIView {
         cameraFlashButton.translatesAutoresizingMaskIntoConstraints = false
         cameraFlashButton.topAnchor.constraint(greaterThanOrEqualTo: topAnchor).isActive = true
         cameraFlashButton.leadingAnchor.constraint(equalTo: cameraView.leadingAnchor, constant: 2).isActive = true
-        cameraFlashButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        cameraFlashButton.heightAnchor.constraint(equalToConstant: OptionViewHeightAnchorConstant).isActive = true
         cameraFlashButton.widthAnchor.constraint(equalTo: cameraFlashButton.heightAnchor, multiplier: 1).isActive = true
 
         let cameraFlashButtonCenterYLayout = cameraFlashButton.centerYAnchor.constraint(equalTo: optionView.centerYAnchor)
@@ -290,6 +303,11 @@ class AppUICameraView: UIView {
         UISelectionFeedbackGenerator().selectionChanged()
     }
 
+    var hasZeroOptionViewMargin:Bool{
+        layoutIfNeeded()
+        return height-(cameraView.height + ControlViewHeightAnchorConstant) < OptionViewHeightAnchorConstant
+    }
+
     var isCompactMode: Bool = true {
         didSet {
             if isCompactMode {
@@ -297,14 +315,18 @@ class AppUICameraView: UIView {
                 controlViewHeightLayout?.constant = 0
             }
             else {
-                optionViewHeightLayout?.constant = 44
-                controlViewHeightLayout?.constant = 64
+                controlViewHeightLayout?.constant = ControlViewHeightAnchorConstant
+                optionViewHeightLayout?.constant = self.hasZeroOptionViewMargin ? 0 : OptionViewHeightAnchorConstant
             }
 
+            let compactControlViewLayoutRequired = isCompactMode || optionViewHeightLayout?.constant ?? 0 > 0
+
             captureButton.isEnabled = !isCompactMode
+            captureButton.transform = compactControlViewLayoutRequired ? CGAffineTransform.identity : CGAffineTransform(scaleX: 0.8, y: 0.8)
 
-            cameraPositionButton.setImage(self.devicePositionIcon, for: .normal)
+            cameraPositionButton.setImage(devicePositionIcon, for: .normal)
 
+            optionBackgroundView.isHidden = compactControlViewLayoutRequired
             backgroundView.isHidden = isCompactMode
             
             //TODO: ignore layer implicit animation

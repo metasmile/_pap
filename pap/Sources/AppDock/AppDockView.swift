@@ -81,6 +81,7 @@ class AppDockView: CustomView {
     @IBOutlet weak private var dockView: DockView!
     @IBOutlet weak private var dockViewHeightLayout: AppDockVoidableLayoutConatraint!
     @IBOutlet weak private var appCollectionView: UICollectionView!
+
     @IBOutlet weak private var appCollectionViewHeightLayout: AppDockVoidableLayoutConatraint!
     @IBOutlet weak private var bottomAccessoryView: UIView!
     
@@ -142,7 +143,11 @@ class AppDockView: CustomView {
     }
 
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIViewNoIntrinsicMetric, height: drawerViewHeightLayout.constant + appContentViewHeightLayout.constant + dockViewHeightLayout.constant + bottomAccessoryView.bounds.height)
+        return CGSize(width: UIViewNoIntrinsicMetric, height: drawerViewHeightLayout.constant + appContentViewHeightLayout.constant + dockViewHeightLayout.constant + bottomAccesoryViewSafeHeight)
+    }
+
+    private var bottomAccesoryViewSafeHeight: CGFloat{
+        return max(self.bottomAccessoryView.bounds.height, UIViewController.root?.safeAreaInsets.bottom ?? 0) //self.safeAreaInsets is lazy
     }
 
     private var _contentLayoutState: AppDockContentLayoutState = .neutralized
@@ -254,9 +259,9 @@ class AppDockView: CustomView {
 
                 setControllerView(view, animated: false)
 
-                DispatchQueue.main.async {
+//                DispatchQueue.main.async { //TODO: if not found any side-effect, remove async block
                     self.controller?.didSetContentView(view, dock:self)
-                }
+//                }
             }
             else {
                 controller?.willRemoveContentView()
@@ -326,9 +331,9 @@ class AppDockView: CustomView {
 
                 setTopAccessoryView(view, animated: true)
 
-                DispatchQueue.main.async{
-                    self.accessory?.didSetContentView(view, dock:self)
-                }
+//                DispatchQueue.main.async{ //TODO: if not found any side-effect, remove async block
+                self.accessory?.didSetContentView(view, dock:self)
+//                }
             }
             else {
                 accessory?.willRemoveContentView()
@@ -433,11 +438,7 @@ extension AppDockView {
     }
     
     fileprivate var preferredAppContentViewMaximumHeight: CGFloat {
-        return ConstAppContentViewMaximumHeight
-    }
-
-    private var ConstAppContentViewMaximumHeight: CGFloat{
-        let topOffset = DefaultPreferences.DrawerView.prominentHeight + DefaultPreferences.AppDockView.compactHeight + bottomAccessoryView.bounds.height
+        let topOffset = DefaultPreferences.DrawerView.prominentHeight + DefaultPreferences.AppDockView.compactHeight + bottomAccesoryViewSafeHeight
 
         if let rvc = UIViewController.root{
             return (rvc.view.bounds.height - rvc.safeAreaInsets.top - rvc.additionalSafeAreaInsets.top) - topOffset
@@ -447,7 +448,7 @@ extension AppDockView {
             return h - topOffset
         }
 
-        assert(false, "not found superview and rootViewController")
+        assert(false, "not found superview and rootViewController 🤔")
         return UIScreen.main.bounds.height - topOffset
     }
     

@@ -444,7 +444,7 @@ class StabilizerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppD
     }
     
     func didSetContentView(_ view:UIView, dock:AppDock) {
-        (view as! UITableView).reloadData()
+        (view as? UITableView)?.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -399,8 +399,11 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     }()
     
     var preferences: AppDockContentPreferable? {
+        guard let tableView = view as? UITableView else{
+            return nil
+        }
         var preferences = AppDockContentPreferences()
-        preferences.preferredHeight = (self.view as! UITableView).rowHeight * 5 + 27
+        preferences.preferredHeight = tableView.rowHeight * 5 + 27
         return preferences
     }
     
@@ -601,7 +604,7 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     }
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
-        (view as! UITableView).reloadData()
+        (view as? UITableView)?.reloadData()
         updateFrameDelayPreview()
     }
     
@@ -765,13 +768,13 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
     
     private func updateFrameDelayPreview(cell:UITableViewStepperCell?=nil) {
         guard let indexPath = indexPath(with: Cells.frameDelay.hashValue) else { return }
-        let cell = cell ?? (view as! UITableView).cellForRow(at: indexPath)
+        guard let cell = cell ?? (view as? UITableView)?.cellForRow(at: indexPath) else { return }
         
         let frames = 8
 
         let durationNeeded = TimeInterval(Double(frames) * self.defaults.frameDelay)
 
-        if let imageView = cell?.imageView, imageView.image?.duration != durationNeeded {
+        if let imageView = cell.imageView, imageView.image?.duration != durationNeeded {
 
             let images = [ // already cached by main bundle.
                 R.image.gifmaker_preview_frame_0()!,
@@ -787,12 +790,13 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
             imageView.image = UIImage.animatedImage(with: images, duration: durationNeeded)
         }
 
-        cell?.imageView?.startAnimating()
-        cell?.setNeedsLayout()
+        cell.imageView?.startAnimating()
+        cell.setNeedsLayout()
     }
     
     func pickerCell(_ cell: UITableViewPickerCell, didPick row: Int, value: Any) {
-        guard let indexPath = (view as! UITableView).indexPath(for: cell) else { return }
+        guard let indexPath = (view as? UITableView)?.indexPath(for: cell) else { return }
+
         let setting = sections[indexPath.section].1[indexPath.row]
         
         var needsToUpdateSizeCell = false
@@ -810,10 +814,10 @@ class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDoc
         }
         
         if needsToUpdateSizeCell, let indexPathOfSizeSetting = self.indexPath(with: Cells.size.hashValue) {
-            let sizeCell = (view as! UITableView).cellForRow(at: indexPathOfSizeSetting) as? UITableViewPickerCell
-            
-            let size = GIFMakerSettings.size.sizeWithAspectRatio()
-            sizeCell?.titleLabel.text = "\("Size".localized) (\(Int(size.width)) x \(Int(size.height)))"
+            if let sizeCell = (view as? UITableView)?.cellForRow(at: indexPathOfSizeSetting) as? UITableViewPickerCell{
+                let size = GIFMakerSettings.size.sizeWithAspectRatio()
+                sizeCell.titleLabel.text = "\("Size".localized) (\(Int(size.width)) x \(Int(size.height)))"
+            }
         }
     }
 }

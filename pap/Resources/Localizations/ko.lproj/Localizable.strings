@@ -158,6 +158,8 @@
 "Auto Editor" = "자동 편집기";
 /* Generated from genl10n: AutoEditor.BApp.swift#170 */
 "Auto Enhance" = "자동 향상";
+/* Generated from genl10n: Revert.BApp.swift#189 */
+"Auto Selection Bot" = "자동 선택 봇";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "자동 수평 보정";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
@@ -195,7 +197,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "자르기";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
-"Custom" = "관습";
+"Custom" = "사용자 정의";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "날짜";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
@@ -257,7 +259,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "가져오기";
 /* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
-"It could not be saved." = "알 수 없는 이유로 저장되지 못했습니다.";
+"It could not be stored." = "그것은 저장할 수 없습니다.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "연락처에 액세스하려면 권한이 필요합니다. iOS 설정에서 주소록을 허용하십시오.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
@@ -400,6 +402,8 @@
 "Targets" = "목표";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "일반 텍스트";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
+"This App Is Yours." = "이 응용 프로그램은 당신 것입니다.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "이 간단하면서도 빠른 도구를 사용하면 라이브 사진을 비롯한 많은 미디어 파일을 빠르게 회전하고 뒤집을 수 있습니다. 기본적으로 편집 할 사진 수에는 제한이 없습니다.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
@@ -408,8 +412,8 @@
 "Too Slow Shutter Speed" = "너무 느린 셔터 속도";
 /* Generated from genl10n: Stabilizer.swift#325 */
 "Translate" = "옮기다";
-/* Generated from genl10n: Revert.BApp.swift#186, PhoneCalls.swift#359, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1280, Cleaner.BApp.swift#488 */
-"Use Auto Selection Bot" = "자동 선택 봇 사용";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#83 */
+"Turn Your Opinion Into New Things." = "당신의 의견을 새로운 것으로 바꾸십시오.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "비디오";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

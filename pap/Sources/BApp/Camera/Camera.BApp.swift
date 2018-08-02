@@ -96,9 +96,7 @@ fileprivate class CameraAppDockContent: NSObject, KeyPathWatchable, AppDockConte
 
         cameraView?.startSession()
 
-        if let pref = preferences, view.bounds.height > pref.preferredHeight {
-            (view as? CameraAppView)?.isCompactMode = false
-        }
+        (view as? CameraAppView)?.isCompactMode = dock.contentLayoutState != .maximized
 
         cameraView?.capturedHandler = { succeed, results in
             if let results = results{

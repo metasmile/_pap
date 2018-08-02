@@ -525,7 +525,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
 
         let cell1 = UITableViewSwitchCellDescriber()
         cell1.itemIdentifier = CleanerAppSettingCells.autoSelect.hashValue
-        cell1.label = "Use Auto Selection Bot".localized
+        cell1.label = "Auto Selection Bot".localized
         cell1.iconImage = R.image.commonIconRobot.name
         cell1.valueGetter = { CleanerApp.privateDefaults.autoSelect }
         cell1.valueHandler = { val in
@@ -533,9 +533,10 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
             CleanerApp.privateDefaults.autoSelect = enabled
             self.startAutoSelectIfNeeded()
 
-            let tableView = (view as! UITableView)
-            for section in 1..<self.numberOfSections(in: tableView) {
-                tableView.reloadSections(IndexSet(integer: section), with: .none)
+            if let tableView = view as? UITableView{
+                for section in 1..<self.numberOfSections(in: tableView) {
+                    tableView.reloadSections(IndexSet(integer: section), with: .none)
+                }
             }
 
         }
@@ -613,7 +614,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
 
-        (view as! UITableView).reloadData()
+        (view as? UITableView)?.reloadData()
 
         startAutoSelectIfNeeded()
     }

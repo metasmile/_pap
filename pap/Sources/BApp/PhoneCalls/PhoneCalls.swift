@@ -349,8 +349,12 @@ fileprivate class PhoneCallsAppDockContent: NSObject, KeyPathWatchable,
     private var autoSelect:Bool = false
 
     var preferences: AppDockContentPreferable? {
+        guard let tableView = self.view as? UITableView else{
+            return nil
+        }
+
         var preferences = AppDockContentPreferences()
-        let view = (self.view as! UITableView)
+        let view = tableView
         preferences.preferredHeight = CGFloat(view.numberOfRows(inSection: 0))*view.rowHeight + 48
         return preferences
     }
@@ -363,7 +367,7 @@ fileprivate class PhoneCallsAppDockContent: NSObject, KeyPathWatchable,
 
         let cell1 = UITableViewSwitchCellDescriber()
         cell1.itemIdentifier = PhoneCallsAppCells.autoSelect.hashValue
-        cell1.label = "Use Auto Selection Bot".localized
+        cell1.label = "Auto Selection Bot".localized
         cell1.valueGetter = { self.autoSelect }
         cell1.iconImage = R.image.commonIconRobot.name
         cell1.valueHandler = { on in
@@ -404,7 +408,7 @@ fileprivate class PhoneCallsAppDockContent: NSObject, KeyPathWatchable,
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
         if options != nil{
-            (view as! UITableView).reloadData()
+            (view as? UITableView)?.reloadData()
         }
     }
 
