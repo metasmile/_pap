@@ -127,15 +127,22 @@ private final class AppChargeBanker: ChargeBanker {
 
         switch appShortVersionDescription{
             case .first:
+                //INFO: give tutorial balance 3 days
                 if let welcomeCharge = self.registeredCharges.first(where:{ charge in
                     return charge.type == .welcomeFreeTrial
                 }){
-                    //give tutorial balance 3 days
                     assert(initialBalance.value == 0, "User installs the app firstly but why balance is not 0?")
                     createOrReplaceReceipt(for:welcomeCharge)
                 }
 
+            case .new, .skippedNew:
+                //INFO: expired on new version
+                for r in receiptStorage.receipts where type(of: self).ChargeTypesAvailableOnlyCurrentVersion.contains(r.value.type){
+                    receiptStorage.removeReceipt(r.key)
+                }
+
             case .reversed, .unhandled:
+                //INFO: wrong binary protection
                 assert(false, "Wrong version direction. Install new one.")
                 for r in receiptStorage.receipts{
                     receiptStorage.removeReceipt(r.key)
@@ -181,12 +188,6 @@ private final class AppChargeBanker: ChargeBanker {
         for (_, receipt) in receiptStorage.receipts { //TODO: improve performance - o.n -> o.1 avg.
 
             guard let charge = registeredCharges.first(where:{ charge in charge.isEqualTo(other: receipt)}) else {
-                continue
-            }
-
-            // expired on new version
-            if appShortVersionDescription == .new && type(of: self).ChargeTypesAvailableOnlyCurrentVersion.contains(receipt.type){
-                removingReceipts.insert(receipt)
                 continue
             }
 
