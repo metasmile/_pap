@@ -190,16 +190,16 @@ class ChargeableButton: UIButton {
         }
     }
 
-    var normalizedBalance: Double? {
+    var normalizedValue: Double? {
         willSet {
             if let newValue = newValue{
-                assert(newValue>=0 && newValue<=1,"normalizedBalance is not allowed outside of 0...1")
+                assert(newValue>=0 && newValue<=1,"normalizedValue is not allowed outside of 0...1")
             }
         }
         didSet {
-            let normalizedBalance = clamp(self.normalizedBalance ?? 0,0,1)
+            let normalizedValue = clamp(self.normalizedValue ?? 0,0,1)
 
-            let ratio: CGFloat = CGFloat(normalizedBalance)
+            let ratio: CGFloat = CGFloat(normalizedValue)
             let percentageInt = Int(ratio * 100)
 
             guard self.percentageInt != percentageInt else{
@@ -212,7 +212,7 @@ class ChargeableButton: UIButton {
 
             autoreleasepool{
                 var buttonImage: UIImage?
-                if let iconImage = ChargeableImage(balance: normalizedBalance, fillMode: self.fillMode, tintColor: color, appearanceDelegate: appearanceDelegate) {
+                if let iconImage = ChargeableImage(balance: normalizedValue, fillMode: self.fillMode, tintColor: color, appearanceDelegate: appearanceDelegate) {
                     if showsPercentage {
                         buttonImage = ChargeableBadgeIcon.portraitBadgeIcon(iconImage, title: String(format: "%d%%", percentageInt), tintColor: color)
                     }
@@ -267,14 +267,14 @@ class ChargeableBarButtonItem: UIBarButtonItem {
         }
     }
 
-    var normalizedBalance: Double? {
+    var normalizedValue: Double? {
         set {
-            chargeableButton?.normalizedBalance = newValue
+            chargeableButton?.normalizedValue = newValue
             chargeableButton?.sizeToFit()
         }
 
         get {
-            return chargeableButton?.normalizedBalance
+            return chargeableButton?.normalizedValue
         }
     }
 

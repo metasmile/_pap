@@ -1,5 +1,5 @@
 //
-// Created by BLACKGE?NE ?on 24.07.18.
+// Created by BLACKGE?NE ??on 24.07.18.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
@@ -132,7 +132,7 @@ private final class AppChargeBanker: ChargeBanker {
                 }){
                     //give tutorial balance 3 days
                     assert(initialBalance.value == 0, "User installs the app firstly but why balance is not 0?")
-                    createReceipt(for:welcomeCharge)
+                    createOrReplaceReceipt(for:welcomeCharge)
                 }
 
             case .reversed, .unhandled:
@@ -154,10 +154,20 @@ private final class AppChargeBanker: ChargeBanker {
 
     }
 
-    private func createReceipt(for charge: Charge){
+    private func createOrReplaceReceipt(for charge: Charge){
         var receipt = ChargeableReceipt(charge: charge, bankerVersion: AppChargeBanker.version)
         receipt.dateData = Date()
-        receiptStorage.addReceipt(receipt)
+
+        if let existedReceiptItem = receiptStorage.receipts.first(where:{ key, value in
+            value.isEqualTo(other: charge)
+        }){
+            receiptStorage.removeReceipt(existedReceiptItem.value.uuid)
+            receiptStorage.addReceipt(receipt)
+
+        }else{
+            receiptStorage.addReceipt(receipt)
+        }
+
         print("[i] Receipt Saved: ", receipt, receipt.uuid)
     }
 
@@ -168,7 +178,7 @@ private final class AppChargeBanker: ChargeBanker {
 
         for (_, receipt) in receiptStorage.receipts { //TODO: improve performance - o.n -> o.1 avg.
 
-            guard let charge = registeredCharges.first(where:{ charge in charge.isEqual(other: receipt)}) else {
+            guard let charge = registeredCharges.first(where:{ charge in charge.isEqualTo(other: receipt)}) else {
                 continue
             }
 
@@ -194,26 +204,17 @@ private final class AppChargeBanker: ChargeBanker {
                         let offset = syncDate.timeIntervalSince(date)
                         let amountValueOffsetRatio = offset/totalOffset
 
-                        if amountValueOffsetRatio >= 1{
-                            print("[!] WARNING: \(receipt) is remained as too old or already deprecated.")
-                            removingReceipts.insert(receipt)
-
-                        }else{
-
-                            let subtractingAmountValueInSelf = charge.priceAmount.value * amountValueOffsetRatio
-                            let remainingAmountValue = receipt.amountValue - subtractingAmountValueInSelf
-
+                        let newAmountValue = receipt.amountValue - (charge.priceAmount.value * amountValueOffsetRatio)
+                        if newAmountValue > 0{
                             var updatingReceipt = receipt
-                            print(remainingAmountValue)
-                            updatingReceipt.amountValue = remainingAmountValue
+                            updatingReceipt.amountValue = newAmountValue
                             updatingReceipt.dateData = syncDate
                             receiptStorage.updateReceipt(updatingReceipt)
 
-                            if remainingAmountValue > 0{
-                                print("[i] Consume - receipt type:\(receipt.type), reward:\(receipt.reward), created:\(receipt.createdDate) - balance:", balance.value)
-                            }else{
-                                removingReceipts.insert(receipt)
-                            }
+                            print("[i] Updated Receipt: \ntype: \(receipt.type), \nreward: \(receipt.reward), \ncreated: \(receipt.createdDate)")
+                            print("[i] Balance:", balance.value)
+                        }else{
+                            removingReceipts.insert(receipt)
                         }
                     }
                 default:
@@ -240,7 +241,7 @@ private final class AppChargeBanker: ChargeBanker {
     }
 
     func willSaveDeposit(forPriceAmountOf charge: Charge, balance: Amount) -> Amount? {
-        createReceipt(for: charge)
+        createOrReplaceReceipt(for: charge)
         synchronizeBalance(balance:balance)
 
         return charge.priceAmount

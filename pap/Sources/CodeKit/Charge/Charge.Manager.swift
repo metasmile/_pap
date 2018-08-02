@@ -36,7 +36,7 @@ class ChargeManager{
 
     func getCharge(for chargeable: Chargeable) -> Charge?{
         let charge = charges.first { item in
-            return (item as Chargeable).isEqual(other: chargeable)
+            return (item as Chargeable).isEqualTo(other: chargeable)
         }
         assert(charge != nil, "\(String(describing: chargeable)) is not registered in ChargeableManager. Please register with initializer.")
         return charge
@@ -46,7 +46,7 @@ class ChargeManager{
         Payment
     */
     func pay(for payable: Payable.Type, _ asyncSignal:AsyncWaitSignalable=AsyncSignal()){
-        guard let charge = charges.first(where:{ $0.isEqual(other: payable.charge) }) else {
+        guard let charge = charges.first(where:{ $0.isEqualTo(other: payable.charge) }) else {
             return
         }
 

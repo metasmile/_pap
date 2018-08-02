@@ -1,5 +1,5 @@
 //
-// Created by BLAC?KGENE on 26.07.18.
+// Created by BL?AC?KGENE on 26.07.18.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
@@ -157,7 +157,7 @@ final class ChargeReceiptStorage {
 
     func getReceipt(for chargeable:Chargeable) -> ChargeableReceipt?{
         return receipts.values.first { receipt in
-            return receipt.isEqual(other: chargeable)
+            return receipt.isEqualTo(other: chargeable)
         }
     }
 
