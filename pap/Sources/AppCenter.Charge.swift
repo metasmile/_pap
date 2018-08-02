@@ -125,6 +125,8 @@ private final class AppChargeBanker: ChargeBanker {
 
         let initialBalance = AmountObject(value: clamp(receiptStorage.balanceAmountValue, AmountObject.minValue, AmountObject.maxValue))
 
+        print("initializeBank:appShortVersionDescription: ",appShortVersionDescription)
+
         switch appShortVersionDescription{
             case .first:
                 //INFO: give tutorial balance 3 days
@@ -177,7 +179,6 @@ private final class AppChargeBanker: ChargeBanker {
 
         assert(receiptStorage.receipts.filter({ key, value in value.isEqualTo(other: charge) }).count==1, "only one receipt is allowed for: createOrReplaceReceipt")
 
-        print("[i] Receipt Saved: ", receipt, receipt.uuid)
     }
 
     @discardableResult
@@ -214,7 +215,7 @@ private final class AppChargeBanker: ChargeBanker {
                             updatingReceipt.dateData = syncDate
                             receiptStorage.updateReceipt(updatingReceipt)
 
-                            print("[i] Updated Receipt: type: \(receipt.type), reward: \(receipt.reward), created: \(receipt.createdDate)")
+
                         }else{
                             removingReceipts.insert(receipt)
                         }
@@ -226,7 +227,6 @@ private final class AppChargeBanker: ChargeBanker {
 
         for r in removingReceipts {
             receiptStorage.removeReceipt(r.uuid)
-            print("[i] INFO: Removed Receipts: ", r, r.uuid)
         }
 
         self.receiptStorage.commit()
