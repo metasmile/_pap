@@ -86,13 +86,13 @@
 "%@ Day License" = "%@ Day License";
 /* Generated from genl10n: AppCenter.Charge.swift#52 */
 "%@ Day" = "%@ Day";
-/* Generated from genl10n: Finder.BApp.swift#1582, Cleaner.BApp.swift#753 */
+/* Generated from genl10n: Finder.BApp.swift#1585, Cleaner.BApp.swift#753 */
 "%@ might be found" = "%@ might be found";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#413 */
 "%@ will be hidden" = "%@ will be hidden";
 /* Generated from genl10n: GIFMaker.BApp.swift#582 */
 "%d times" = "%d times";
-/* Generated from genl10n: Finder.BApp.swift#1319 */
+/* Generated from genl10n: Finder.BApp.swift#1321 */
 "Actions" = "Actions";
 /* Generated from genl10n: Finder.BApp.swift#369, Finder.BApp.swift#436, Finder.BApp.swift#650, Finder.BApp.swift#768 */
 "Add New Contact" = "Add New Contact";
@@ -122,7 +122,7 @@
 "Auto Editor" = "Auto Editor";
 /* Generated from genl10n: AutoEditor.BApp.swift#170 */
 "Auto Enhance" = "Auto Enhance";
-/* Generated from genl10n: Revert.BApp.swift#189, PhoneCalls.swift#370, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1291, Cleaner.BApp.swift#528 */
+/* Generated from genl10n: Revert.BApp.swift#189, PhoneCalls.swift#370, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1293, Cleaner.BApp.swift#528 */
 "Auto Selection Bot" = "Auto Selection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "Auto Straighten";
@@ -146,7 +146,7 @@
 "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!";
 /* Generated from genl10n: Cleaner.BApp.swift#44 */
 "Cleaner" = "Cleaner";
-/* Generated from genl10n: Finder.BApp.swift#1320 */
+/* Generated from genl10n: Finder.BApp.swift#1322 */
 "Contacts" = "Contacts";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats into every each other." = "Converter enables you to convert every media formats into every each other.";
@@ -160,6 +160,8 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift#332, GIFMaker.BApp.swift#142 */
 "Crop" = "Crop";
+/* Generated from genl10n: Finder.BApp.swift#1246 */
+"Currently Our AI Text Recognition Model is Only Available for Alphanumeric and some special characters." = "Currently Our AI Text Recognition Model is Only Available for Alphanumeric and some special characters.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#179 */
 "Custom" = "Custom";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#229, Finder.BApp.swift#343, Finder.BApp.swift#443, Finder.BApp.swift#658, Finder.BApp.swift#776, Finder.BApp.swift#1228 */
@@ -178,9 +180,9 @@
 "E-mail Address" = "E-mail Address";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost lets you remove all kinds of data containing your photos including private information.";
-/* Generated from genl10n: Finder.BApp.swift#1274, Cleaner.BApp.swift#483 */
+/* Generated from genl10n: Finder.BApp.swift#1276, Cleaner.BApp.swift#483 */
 "Enable Quick Actions" = "Enable Quick Actions";
-/* Generated from genl10n: Converter.AppDockContent.swift#152 */
+/* Generated from genl10n: Converter.AppDockContent.swift#154 */
 "Export Options" = "Export Options";
 /* Generated from genl10n: GIFMaker.BApp.swift#460 */
 "Export" = "Export";
@@ -200,7 +202,7 @@
 "Flashlight" = "Flashlight";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#265, Finder.BApp.swift#1230 */
 "Flight Number" = "Flight Number";
-/* Generated from genl10n: Converter.AppDockContent.swift#89, Finder.BApp.swift#1316 */
+/* Generated from genl10n: Converter.AppDockContent.swift#91, Finder.BApp.swift#1318 */
 "Formats" = "Formats";
 /* Generated from genl10n: GIFMaker.BApp.swift#208 */
 "Forward" = "Forward";
@@ -284,7 +286,7 @@
 "Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Privacy" = "Privacy";
-/* Generated from genl10n: Converter.AppDockContent.swift#136, GIFMaker.BApp.swift#592 */
+/* Generated from genl10n: Converter.AppDockContent.swift#138, GIFMaker.BApp.swift#592 */
 "Quality" = "Quality";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Red-Eye Removal";
@@ -298,7 +300,7 @@
 "Rewind" = "Rewind";
 /* Generated from genl10n: PhoneCalls.swift#144 */
 "Save All Phone Numbers" = "Save All Phone Numbers";
-/* Generated from genl10n: Finder.BApp.swift#1262, Cleaner.BApp.swift#471 */
+/* Generated from genl10n: Finder.BApp.swift#1264, Cleaner.BApp.swift#471 */
 "Save Contacts" = "Save Contacts";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift#63 */
 "Save and Share" = "Save and Share";
@@ -316,11 +318,11 @@
 "Screenshots" = "Screenshots";
 /* Generated from genl10n: Finder.BApp.swift#845 */
 "Search Flights" = "Search Flights";
-/* Generated from genl10n: Converter.AppDockContent.swift#151 */
+/* Generated from genl10n: Converter.AppDockContent.swift#153 */
 "Select Format To Convert" = "Select Format To Convert";
 /* Generated from genl10n: Cleaner.BApp.swift#643 */
 "Select Photos To Delete." = "Select Photos To Delete.";
-/* Generated from genl10n: Finder.BApp.swift#1445 */
+/* Generated from genl10n: Finder.BApp.swift#1447 */
 "Select Photos To Find Everything." = "Select Photos To Find Everything.";
 /* Generated from genl10n: PhoneCalls.swift#431 */
 "Select Photos You Want To Grab Phone Numbers!" = "Select Photos You Want To Grab Phone Numbers!";
@@ -360,13 +362,13 @@
 "Starting to check edited photos..." = "Starting to check edited photos...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#298 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Switch on any items you want to hide. The quality will entirely remain the same.";
-/* Generated from genl10n: PhoneCalls.swift#383, Finder.BApp.swift#1302 */
+/* Generated from genl10n: PhoneCalls.swift#383, Finder.BApp.swift#1304 */
 "Take A Photo" = "Take A Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#552 */
 "Targeted" = "Targeted";
 /* Generated from genl10n: Cleaner.BApp.swift#392 */
 "Targets" = "Targets";
-/* Generated from genl10n: Finder.BApp.swift#1321 */
+/* Generated from genl10n: Finder.BApp.swift#1323 */
 "Text" = "Text";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#86 */
 "This App Is Yours." = "This App Is Yours.";
@@ -400,3 +402,5 @@
 "Write A Review" = "Write A Review";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#92 */
 "You Can Renew Them Repeatedly." = "You Can Renew Them Repeatedly.";
+/* Generated from genl10n: Converter.AppDockContent.swift#41 */
+"You can select only items that matched with starting format." = "You can select only items that matched with starting format.";

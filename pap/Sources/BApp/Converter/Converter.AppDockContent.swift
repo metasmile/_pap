@@ -38,6 +38,8 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
 
     lazy var view: UIView = UITableView(frame: .zero, style: .grouped)
 
+    lazy var footerView:UITextView = UITableView.createHeaderFooterViewForMessage(text:"You can select only items that matched with starting format.".localized)
+
     var preferences: AppDockContentPreferable? {
         guard let tableView = view as? UITableView else{
             return nil
@@ -177,6 +179,14 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         return cells[section].description
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return section == 1 ? footerView.height : 0
+    }
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return section == 1 ? footerView : nil
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

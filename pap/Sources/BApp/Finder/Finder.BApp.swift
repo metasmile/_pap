@@ -1243,6 +1243,8 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         return tableView
     }()
 
+    lazy var footerView:UITextView = UITableView.createHeaderFooterViewForMessage(text:"Currently, our AI text recognition model is only available for Alphanumeric and some special characters.".localized)
+
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
         preferences.preferredHeight = 300
@@ -1437,7 +1439,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0
+        return tableView.numberOfSections-1 == section ? footerView.height : 0
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -1447,7 +1449,8 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return nil
+        footerView.sizeThatFits(CGSize(width:tableView.width, height:footerView.height))
+        return tableView.numberOfSections-1 == section ? footerView : nil
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
