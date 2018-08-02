@@ -184,23 +184,45 @@ class ChargeableButton: UIButton {
     var showsPercentage = true
     private var levelAnimations = [ChargeLevel: CAAnimation]()
 
-    var balance: Double? {
+    private var percentageInt:Int = Int.max {
+        didSet{
+            assert(percentageInt>=0 && percentageInt<=100)
+        }
+    }
+
+    var normalizedBalance: Double? {
+        willSet {
+            if let newValue = newValue{
+                assert(newValue>=0 && newValue<=1,"normalizedBalance is not allowed outside of 0...1")
+            }
+        }
         didSet {
-            let ratio: CGFloat = CGFloat(balance ?? 0)
+            let normalizedBalance = clamp(self.normalizedBalance ?? 0,0,1)
+
+            let ratio: CGFloat = CGFloat(normalizedBalance)
+            let percentageInt = Int(ratio * 100)
+
+            guard self.percentageInt != percentageInt else{
+                return
+            }
+            self.percentageInt = percentageInt
+
             let level: ChargeLevel = ChargeLevel(balance: ratio)
             let color: UIColor = showsColorLevel ? level.representativeColor ?? tintColor : tintColor
-            
-            var buttonImage: UIImage?
-            if let iconImage = ChargeableImage(balance: balance ?? 0, fillMode: self.fillMode, tintColor: color, appearanceDelegate: appearanceDelegate) {
-                if showsPercentage {
-                    buttonImage = ChargeableBadgeIcon.portraitBadgeIcon(iconImage, title: String(format: "%d%%", Int(ratio * 100)), tintColor: color)
-                }
-                else {
-                    buttonImage = iconImage
-                }
-            }
 
-            setImage(buttonImage, for: .normal)
+            autoreleasepool{
+                var buttonImage: UIImage?
+                if let iconImage = ChargeableImage(balance: normalizedBalance, fillMode: self.fillMode, tintColor: color, appearanceDelegate: appearanceDelegate) {
+                    if showsPercentage {
+                        buttonImage = ChargeableBadgeIcon.portraitBadgeIcon(iconImage, title: String(format: "%d%%", percentageInt), tintColor: color)
+                    }
+                    else {
+                        buttonImage = iconImage
+                    }
+                }
+
+                setImage(buttonImage, for: .normal)
+            }
 
             if showsAnimation {
                 let animationKey = "chargeAnimation"
@@ -245,14 +267,14 @@ class ChargeableBarButtonItem: UIBarButtonItem {
         }
     }
 
-    var balance: Double? {
+    var normalizedBalance: Double? {
         set {
-            chargeableButton?.balance = newValue
+            chargeableButton?.normalizedBalance = newValue
             chargeableButton?.sizeToFit()
         }
 
         get {
-            return chargeableButton?.balance
+            return chargeableButton?.normalizedBalance
         }
     }
 

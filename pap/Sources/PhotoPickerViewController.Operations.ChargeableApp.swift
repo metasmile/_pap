@@ -34,7 +34,7 @@ extension PhotoPickerViewController{
             } else if currentSyncedBalanceValue == 0 {
                 let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.chargeableButton
                 rightButtonItem.title = doneButton?.title
-                rightButtonItem.balance = balanceValue
+                rightButtonItem.normalizedBalance = balanceValue
                 rightButtonItem.target = self
                 rightButtonItem.action = #selector(self.chargeableButtonDidTap)
                 navigationItem.setRightBarButton(rightButtonItem, animated: false)
@@ -45,7 +45,7 @@ extension PhotoPickerViewController{
 
         let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.chargeableButton
         rightButtonItem.title = nil
-        rightButtonItem.balance = balanceValue
+        rightButtonItem.normalizedBalance = balanceValue
         rightButtonItem.target = self
         rightButtonItem.action = #selector(self.chargeableButtonDidTap)
         navigationItem.setRightBarButton(rightButtonItem, animated: true)
@@ -199,6 +199,7 @@ private class PhotoPickerViewControllerChargeableAssets : ChargeableButtonAppear
         //TODO: apply true when some restrictful conditions (e.g. finished trial days) to induce for paying
         chargeableButton.showsColorLevel = false
         chargeableButton.showsAnimation = false
+        chargeableButton.showsPercentage = false
 
         chargeableButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
         chargeableButton.titleEdgeInsets.left = 2
