@@ -78,7 +78,7 @@ extension PhotoPickerViewController{
         let onlyWelcomeTutorialHasPaid = allPaidCharges.count==1 && allPaidCharges.contains { $0.type == .welcomeFreeTrial }
 
         if onlyWelcomeTutorialHasPaid{
-            title = "Welcome on %@".localizedFormatted(Bundle.main.displayName ?? "Photo Apps")
+            title = "Welcome on %@".localizedFormatted(papStrings.name)
             subtitle = "Now Contribute And Get Free Use.".localized
             titleImage = R.image.apps_collection.name.asUIImageContentOfFile //no cache
         }
@@ -269,15 +269,12 @@ private struct OnSocialShare:Payable{
     static let charge:Chargeable = AppChargeable(type: .socialShare, reward: .timeOfUses)
     
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
-        guard let appURL = URL(string: "https://get.apps.photo") else {
-            return false
-        }
 
         var paid = false
         asyncSignal.begin()
         
         DispatchQueue.main.async {
-            let shareActivity = UIActivityViewController(activityItems: [appURL], applicationActivities: nil)
+            let shareActivity = UIActivityViewController(activityItems: [papStrings.share.messageFirst], applicationActivities: nil)
             shareActivity.excludedActivityTypes = [.copyToPasteboard, .addToReadingList, .addToReminder, .addToNote]
             shareActivity.completionWithItemsHandler = { activityType, completed, returnedItems, error in
                 paid = completed
@@ -314,8 +311,8 @@ private class OnFeedback: NSObject, Payable, MFMailComposeViewControllerDelegate
         DispatchQueue.main.async {
             let mailComposer = MFMailComposeViewController()
             mailComposer.mailComposeDelegate = self
-            mailComposer.setToRecipients(["feedback@apps.photo"])
-            mailComposer.setSubject("👋 My Feedback for \(Bundle.main.displayName ?? "our app") ✍️")
+            mailComposer.setToRecipients([papStrings.feedback.email])
+            mailComposer.setSubject("👋 " + "My Feedback on %@".localizedFormatted(papStrings.name))
             mailComposer.popoverPresentationController?.sourceView = UIViewController.root?.view
             
             self.mailComposerCompletionBlock = { sent in

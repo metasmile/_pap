@@ -135,8 +135,8 @@ class SpotlightSearchAppDelegate: NSObject, UIApplicationDelegate{
 
         //main item
         let csItemAttr = CSSearchableItemAttributeSet(itemContentType: UTI.image.rawValue)
-        csItemAttr.title = Bundle.main.displayName
-        csItemAttr.contentDescription = "Do Anything At Once."
+        csItemAttr.title = papStrings.name
+        csItemAttr.contentDescription = papStrings.title
         csItemAttr.keywords = Array(0 ... LocalizableKeywordLastIndexNumber).map { e -> String in
             return (LocalizableKeywordPrefix+String(e)).localized
         }

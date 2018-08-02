@@ -204,7 +204,7 @@
 "Deleting Targets" = "Deleting Targets";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "Detecting ... %@";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+/* Generated from genl10n: AppStrings.swift#17 */
 "Did not detect anything." = "Did not detect anything.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
@@ -258,7 +258,7 @@
 "Images" = "Images";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Import";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+/* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "It could not be saved.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "It requires a permission to access your contacts. Please allow Contacts on iOS Settings.";

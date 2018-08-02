@@ -204,7 +204,7 @@
 "Deleting Targets" = "Διαγραφή στόχων";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "Ανίχνευση ... %@";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+/* Generated from genl10n: AppStrings.swift#17 */
 "Did not detect anything." = "Δεν ανίχνευσε τίποτα.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Κατεύθυνση";
@@ -258,7 +258,7 @@
 "Images" = "Εικόνες";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Εισαγωγή";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+/* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "Δεν θα μπορούσε να αποθηκευτεί.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Απαιτεί άδεια πρόσβασης στις επαφές σας. Επιτρέψτε στις Επαφές στις Ρυθμίσεις iOS.";

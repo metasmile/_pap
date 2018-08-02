@@ -204,7 +204,7 @@
 "Deleting Targets" = "刪除目標";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "檢測... %@";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+/* Generated from genl10n: AppStrings.swift#17 */
 "Did not detect anything." = "沒有發現任何東西。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "方向";
@@ -258,7 +258,7 @@
 "Images" = "圖片";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "進口";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+/* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "它無法存儲。";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "它需要獲得訪問您的聯繫人的權限。請允許iOS設置上的聯繫人。";

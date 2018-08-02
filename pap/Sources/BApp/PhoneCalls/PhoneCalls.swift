@@ -219,7 +219,7 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
 
             asyncSignal.begin()
             DispatchQueue.main.async {
-                UIAlertController.alert(AppMsg.cannot.detect.information, completion:{ _ in
+                UIAlertController.alert(AppStrings.cannot.detect.information, completion:{ _ in
                     asyncSignal.end()
                 })
             }

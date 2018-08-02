@@ -204,7 +204,7 @@
 "Deleting Targets" = "लक्ष्य हटाया जा रहा है";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "पता लगा रहा है ... %@";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+/* Generated from genl10n: AppStrings.swift#17 */
 "Did not detect anything." = "कुछ भी पता नहीं लगाया।";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "दिशा";
@@ -258,7 +258,7 @@
 "Images" = "इमेजिस";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "आयात";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+/* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "इसे संग्रहीत नहीं किया जा सका।";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "इसे आपके संपर्कों तक पहुंचने की अनुमति की आवश्यकता है। कृपया आईओएस सेटिंग्स पर संपर्कों की अनुमति दें।";

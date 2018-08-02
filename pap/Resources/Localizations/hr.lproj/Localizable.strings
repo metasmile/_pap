@@ -204,7 +204,7 @@
 "Deleting Targets" = "Brisanje ciljeva";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "Otkrivanje ... %@";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+/* Generated from genl10n: AppStrings.swift#17 */
 "Did not detect anything." = "Nisu otkrili ništa.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Smjer";
@@ -258,7 +258,7 @@
 "Images" = "slike";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Uvoz";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+/* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "Nije se moglo pohraniti.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "To zahtijeva dopuštenje za pristup vašim kontaktima. Omogućite Kontakti na iOS Postavkama.";

@@ -204,7 +204,7 @@
 "Deleting Targets" = "Видалення цілей";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "Виявлення ... %@";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+/* Generated from genl10n: AppStrings.swift#17 */
 "Did not detect anything." = "Не виявив нічого.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Напрямок";
@@ -258,7 +258,7 @@
 "Images" = "Зображення";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Імпортувати";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+/* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "Не вдалося зберегти.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Для цього потрібен дозвіл на доступ до ваших контактів. Дозвольте дозволити контактам в налаштуваннях iOS.";

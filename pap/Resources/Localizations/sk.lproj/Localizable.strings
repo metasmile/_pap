@@ -204,7 +204,7 @@
 "Deleting Targets" = "Odstránenie cieľov";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "Zisťovanie ... %@";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+/* Generated from genl10n: AppStrings.swift#17 */
 "Did not detect anything." = "Nenašiel nič.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "smer";
@@ -258,7 +258,7 @@
 "Images" = "snímky";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "import";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+/* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "Nemohol byť uložený.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Vyžaduje si povolenie na prístup k vašim kontaktom. Povoľte Kontakty v nastaveniach systému iOS.";

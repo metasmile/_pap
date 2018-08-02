@@ -210,7 +210,7 @@ extension FinderApp{
             return nil
         }
 
-        return AppMsg.cannot.detect.information
+        return AppStrings.cannot.detect.information
     }
 
     fileprivate func finalize_contact(items _items: [FinderAppResult], _ asyncSignal: AsyncWaitSignalable) -> String?{
@@ -224,12 +224,12 @@ extension FinderApp{
         var canSaveContract = items.count > 0
 
         if false == canSaveContract{
-            return AppMsg.cannot.detect.information
+            return AppStrings.cannot.detect.information
         }
 
         canSaveContract = ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal)
 
-        let errorMessage:String = AppMsg.cannot.save
+        let errorMessage:String = AppStrings.cannot.save
 
         if false == canSaveContract{
             return errorMessage
@@ -735,7 +735,7 @@ extension FinderApp{
                     let param_googlemap = [
                         "q":addressString
                         , "x-success": Bundle.main.schemes?.first ?? ""
-                        , "x-source":Bundle.main.displayName ?? ""
+                        , "x-source": papStrings.name
                     ].urlQueryString
 
                     let url_googlemap = URL(string: "comgooglemaps-x-callback://?\(param_googlemap)")
@@ -903,7 +903,7 @@ extension FinderApp{
             return nil
         }
 
-        return AppMsg.cannot.detect.information
+        return AppStrings.cannot.detect.information
     }
 
 }

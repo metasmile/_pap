@@ -86,12 +86,16 @@
 "%@ Day License" = "%@ Day License";
 /* Generated from genl10n: AppCenter.Charge.swift#52 */
 "%@ Day" = "%@ Day";
+/* Generated from genl10n: pap.Strings.swift#41 */
+"%@ Download now for FREE!" = "%@ Download now for FREE!";
 /* Generated from genl10n: Finder.BApp.swift#1585, Cleaner.BApp.swift#753 */
 "%@ might be found" = "%@ might be found";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#413 */
 "%@ will be hidden" = "%@ will be hidden";
 /* Generated from genl10n: GIFMaker.BApp.swift#582 */
 "%d times" = "%d times";
+/* Generated from genl10n: pap.Strings.swift#32 */
+"A photos app, but contains a lot of sub-apps in its own." = "A photos app, but contains a lot of sub-apps in its own.";
 /* Generated from genl10n: Finder.BApp.swift#1321 */
 "Actions" = "Actions";
 /* Generated from genl10n: Finder.BApp.swift#369, Finder.BApp.swift#436, Finder.BApp.swift#650, Finder.BApp.swift#768 */
@@ -161,7 +165,7 @@
 /* Generated from genl10n: Stabilizer.swift#332, GIFMaker.BApp.swift#142 */
 "Crop" = "Crop";
 /* Generated from genl10n: Finder.BApp.swift#1246 */
-"Currently Our AI Text Recognition Model is Only Available for Alphanumeric and some special characters." = "Currently Our AI Text Recognition Model is Only Available for Alphanumeric and some special characters.";
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "Currently, our AI text recognition model is only available for Alphanumeric and some special characters.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#179 */
 "Custom" = "Custom";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#229, Finder.BApp.swift#343, Finder.BApp.swift#443, Finder.BApp.swift#658, Finder.BApp.swift#776, Finder.BApp.swift#1228 */
@@ -170,10 +174,12 @@
 "Deleting Targets" = "Deleting Targets";
 /* Generated from genl10n: Finder.BApp.swift#168 */
 "Detecting ... %@ " = "Detecting ... %@ ";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+/* Generated from genl10n: AppStrings.swift#20 */
 "Did not detect anything." = "Did not detect anything.";
 /* Generated from genl10n: GIFMaker.BApp.swift#548 */
 "Direction" = "Direction";
+/* Generated from genl10n: pap.Strings.swift#45 */
+"Download now for FREE at %@" = "Download now for FREE at %@";
 /* Generated from genl10n: PhotoPickerViewController.swift#836 */
 "Downloading..." = "Downloading...";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#202, Finder.BApp.swift#659, Finder.BApp.swift#1226 */
@@ -224,7 +230,7 @@
 "Images" = "Images";
 /* Generated from genl10n: GIFMaker.BApp.swift#446 */
 "Import" = "Import";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+/* Generated from genl10n: AppStrings.swift#25 */
 "It could not be stored." = "It could not be stored.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "It requires a permission to access your contacts. Please allow Contacts on iOS Settings.";
@@ -246,6 +252,8 @@
 "Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift#258 */
 "My Albums" = "My Albums";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#315 */
+"My Feedback on %@" = "My Feedback on %@";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "New Contact";
 /* Generated from genl10n: Finder.BApp.swift#503 */

@@ -5,12 +5,15 @@
 
 import Foundation
 
-// scheme: AppMsg.{verb/how}.{sub-verb/to act}.{noun-what(category/detail/situation)}.?{adverb}
-// scheme: AppMsg.{verb/how}.{noun-what(category/detail/situation)}.?{adverb}
-// scheme: AppMsg.{noun-what(category/detail/situation)}.?{adverb}
+// scheme: Strings.{verb/how}.{sub-verb/to act}.{noun-what(category/detail/situation)}.?{adverb}
+// scheme: Strings.{verb/how}.{noun-what(category/detail/situation)}.?{adverb}
+// scheme: Strings.{noun-what(category/detail/situation)}.?{adverb}
 
-//INFO: Common message only.
-struct AppMsg {
+//INFO: Common message only for pap.
+//WARNING: DO NOT USE on CodeKit, Sources/App or independent codes.
+
+struct AppStrings {
+
     struct cannot{
         struct detect {
             static var information:String{

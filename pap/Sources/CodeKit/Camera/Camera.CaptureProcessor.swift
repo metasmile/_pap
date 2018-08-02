@@ -59,7 +59,7 @@ class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
         */
         var metadata = photo.metadata
         //TODO: should add CLLocation but currently hold on
-        if let displayName = Bundle.main.displayName{
+        if let displayName = Bundle.main.displayName {
             metadata = metadata.updateMetadata(
                     dictionary: ImageMetadata.Dictionary.TIFF
                     , property: ImageMetadata.Property.TIFFSoftware

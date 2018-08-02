@@ -181,7 +181,7 @@ class PhotoPickerViewController: AppDockViewController {
     private func loadPhotoLibraryInCurrentCollection(){
         if self.collection == nil {
             self.collection = self.defaultCollection
-            self.titleFade = self.collection?.localizedTitle ?? Bundle.main.displayName
+            self.titleFade = self.collection?.localizedTitle ?? papStrings.name
         }
 
         //QA: attach initial progress activity view + non-mainqueue.async
@@ -204,7 +204,7 @@ class PhotoPickerViewController: AppDockViewController {
         })
 
         //navigation controller accessories
-        self.title = self.collection?.localizedTitle ?? Bundle.main.displayName
+        self.title = self.collection?.localizedTitle ?? papStrings.name
     }
 
     private func flushQueuedPhotoLibraryChanges(){
@@ -392,7 +392,7 @@ class PhotoPickerViewController: AppDockViewController {
     private func showAndRevertTitleByCurrentAppIfNeeded(){
         let timerId = "picker_title_change_timer"
         if self.selectedAssetsInCollectionView?.count ?? 0 == 0 {
-            let defaultTitle = self.collection?.localizedTitle ?? Bundle.main.displayName
+            let defaultTitle = self.collection?.localizedTitle ?? papStrings.name
             let revertingTitle = self.title == defaultTitle ? self.title : defaultTitle
             self.titleFade = AppCenter.default.current?.info.displayName
             Timer.scheduledTimer(identifier: timerId, withTimeInterval: 2, repeats: false) { timer in
@@ -429,7 +429,7 @@ class PhotoPickerViewController: AppDockViewController {
         let numberOfItems = numberOfPhotos + numberOfVideos
 
         if numberOfItems == 0 {
-            title = self.collection?.localizedTitle ?? Bundle.main.displayName
+            title = self.collection?.localizedTitle ?? papStrings.name
         }
         else {
             if numberOfPhotos > 0 && numberOfVideos == 0 {
