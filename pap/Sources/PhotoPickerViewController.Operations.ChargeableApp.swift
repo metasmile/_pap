@@ -66,23 +66,23 @@ extension PhotoPickerViewController{
 
         //selected
         let selected = self.estimatedAvailableSelectedItems > 0
-        let needToExtendPricingPeriod = AppCenter.charge.getChargesHasNotReceiptButHasPriceAmount(excludingTypes: Set([ChargeType.welcomeFreeTrial])).count > 0
-
         let alert = UIAlertController.actionSheet(title: nil, message: nil)
 
         let title:String
         let subtitle:String
         var titleImage:UIImage?
 
-        if needToExtendPricingPeriod{
-            title = "Extend Period of Free Use".localized
-            subtitle = "You Can Renew Them Repeatedly.".localized
-            titleImage = R.image.apps_collection.name.asUIImageContentOfFile //no cache
+        let areAllChargesHasPriceAmountPaid = AppCenter.charge.areAllChargesHasPriceAmountPaid(excludingTypes: Set([ChargeType.welcomeFreeTrial]))
 
-        }else{
+        if areAllChargesHasPriceAmountPaid {
             title = "This App Is Yours.".localized
             subtitle = "Turn Your Opinion Into New Things.".localized
             titleImage = R.image.join_us.name.asUIImageContentOfFile
+
+        }else{
+            title = "Extend Period of Free Use".localized
+            subtitle = "You Can Renew Them Repeatedly.".localized
+            titleImage = R.image.apps_collection.name.asUIImageContentOfFile //no cache
         }
 
         let attributedTitle = NSMutableAttributedString()
@@ -106,7 +106,7 @@ extension PhotoPickerViewController{
         }
 
         for charge in AppCenter.charge.charges {
-            let receipt = AppCenter.charge.bank.getReceipt(for: charge)
+//            let receipt = AppCenter.charge.bank.getReceipt(for: charge)
             
             var badgeImage: UIImage?
             
@@ -121,35 +121,37 @@ extension PhotoPickerViewController{
 
             switch charge.type {
 
-                    // charge.reward == .nonBlockOfUses, first touch -> Immediately popup.
-                case .inStoreRating where receipt == nil && !selected && charge.reward == .nonBlockOfUses:
-                    AppCenter.charge.pay(for: InAppStoreRating.self)
-                    return
+//                    // charge.reward == .nonBlockOfUses, first touch -> Immediately popup.
+//                case .inStoreRating where receipt == nil && !selected && charge.reward == .nonBlockOfUses:
+//                    AppCenter.charge.pay(for: InAppStoreRating.self)
+//                    return
+//
+//                case .onPromptRating where receipt == nil && !selected && charge.reward == .nonBlockOfUses:
+//                    AppCenter.charge.pay(for: OnPromptRating.self)
+//                    return
 
-                case .onPromptRating where receipt == nil && !selected && charge.reward == .nonBlockOfUses:
-                    AppCenter.charge.pay(for: OnPromptRating.self)
-                    return
 
                     // charge.reward == .nonBlockOfUses, second touch -> Contained by menu.
-                case .inStoreRating where receipt != nil && !selected && charge.reward == .nonBlockOfUses:
+                case .inStoreRating: //where receipt != nil && !selected && charge.reward == .nonBlockOfUses:
                     let action = UIAlertAction(title: charge.title, style: .default) { action in
                         AppCenter.charge.pay(for: InAppStoreRating.self)
                     }
                     action.accessoryImage = badgeImage
                     alert.addAction(action)
-                case .onPromptRating where receipt != nil && !selected && charge.reward == .nonBlockOfUses:
+                case .onPromptRating: //where receipt != nil && !selected && charge.reward == .nonBlockOfUses:
                     let action = UIAlertAction(title: charge.title, style: .default) { action in
                         AppCenter.charge.pay(for: OnPromptRating.self)
                     }
                     action.accessoryImage = badgeImage
                     alert.addAction(action)
-                case .socialShare where receipt == nil:
+
+                case .socialShare:
                     let action = UIAlertAction(title: charge.title, style: .default) { action in
                         AppCenter.charge.pay(for: OnSocialShare.self)
                     }
                     action.accessoryImage = badgeImage
                     alert.addAction(action)
-                case .feedback where receipt == nil:
+                case .feedback:
                     let action = UIAlertAction(title: charge.title, style: .default) { action in
                         AppCenter.charge.pay(for: OnFeedback.self)
                     }

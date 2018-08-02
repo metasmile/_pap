@@ -168,6 +168,8 @@ private final class AppChargeBanker: ChargeBanker {
             receiptStorage.addReceipt(receipt)
         }
 
+        assert(receiptStorage.receipts.filter({ key, value in value.isEqualTo(other: charge) }).count==1, "only one receipt is allowed for: createOrReplaceReceipt")
+
         print("[i] Receipt Saved: ", receipt, receipt.uuid)
     }
 
@@ -211,8 +213,7 @@ private final class AppChargeBanker: ChargeBanker {
                             updatingReceipt.dateData = syncDate
                             receiptStorage.updateReceipt(updatingReceipt)
 
-                            print("[i] Updated Receipt: \ntype: \(receipt.type), \nreward: \(receipt.reward), \ncreated: \(receipt.createdDate)")
-                            print("[i] Balance:", balance.value)
+                            print("[i] Updated Receipt: type: \(receipt.type), reward: \(receipt.reward), created: \(receipt.createdDate)")
                         }else{
                             removingReceipts.insert(receipt)
                         }
@@ -229,7 +230,9 @@ private final class AppChargeBanker: ChargeBanker {
 
         self.receiptStorage.commit()
 
-        return AmountObject(value:receiptStorage.balanceAmountValue)
+        let balance = AmountObject(value:receiptStorage.balanceAmountValue)
+        print("[i] Balance:", balance.value)
+        return balance
     }
 
     func getReceipt(for chargeable: Chargeable) -> ChargeableReceipt? {
