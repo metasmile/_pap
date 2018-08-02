@@ -221,7 +221,7 @@ class ChargeableButton: UIButton {
                     }
                 }
 
-                setImage(buttonImage, for: .normal)
+                setImage(buttonImage?.withRenderingMode(.automatic), for: .normal)
             }
 
             if showsAnimation {
