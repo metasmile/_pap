@@ -144,6 +144,9 @@ class PhotoPickerViewController: AppDockViewController {
 
         //AppCenter.chargeManager related
         initializeChargeWhenViewDidLoad()
+
+        //INFO: maintain last
+        updateSelectedItemUIs()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -162,14 +165,20 @@ class PhotoPickerViewController: AppDockViewController {
         if let app = AppCenter.default.currentInstanceAs(EditableApp.self) {
             app.selectEditStateValue(app.defaultEditStateValue, in: (app as? AppDockApp)?.content)
         }
-
-        updateUIDisplays()
+        
+        registerChargeObservingTimer()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
         cancelPreheatingIfNeeded()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        unregisterChargeObservingTimer()
     }
     
     override func viewWillLayoutSubviews() {
@@ -181,7 +190,7 @@ class PhotoPickerViewController: AppDockViewController {
     private func loadPhotoLibraryInCurrentCollection(){
         if self.collection == nil {
             self.collection = self.defaultCollection
-            self.titleFade = self.collection?.localizedTitle ?? papStrings.name
+            self.titleFade = self.collection?.localizedTitle ?? Bundle.main.displayName
         }
 
         //QA: attach initial progress activity view + non-mainqueue.async
@@ -204,7 +213,7 @@ class PhotoPickerViewController: AppDockViewController {
         })
 
         //navigation controller accessories
-        self.title = self.collection?.localizedTitle ?? papStrings.name
+        self.title = self.collection?.localizedTitle ?? Bundle.main.displayName
     }
 
     private func flushQueuedPhotoLibraryChanges(){
@@ -247,7 +256,7 @@ class PhotoPickerViewController: AppDockViewController {
         appDockView?.reloadKeepingDrawerOpened()
         batchPreviewView.updatePreviews(forced: true)
 
-        updateUIDisplays()
+        updateSelectedItemUIs()
 
         cancelPreheatingIfNeeded()
         performPrefetchIfNeeded(includingCurrentVisibleItems: true)
@@ -392,7 +401,7 @@ class PhotoPickerViewController: AppDockViewController {
     private func showAndRevertTitleByCurrentAppIfNeeded(){
         let timerId = "picker_title_change_timer"
         if self.selectedAssetsInCollectionView?.count ?? 0 == 0 {
-            let defaultTitle = self.collection?.localizedTitle ?? papStrings.name
+            let defaultTitle = self.collection?.localizedTitle ?? Bundle.main.displayName
             let revertingTitle = self.title == defaultTitle ? self.title : defaultTitle
             self.titleFade = AppCenter.default.current?.info.displayName
             Timer.scheduledTimer(identifier: timerId, withTimeInterval: 2, repeats: false) { timer in
@@ -416,7 +425,7 @@ class PhotoPickerViewController: AppDockViewController {
         updateVisibleCellsEnabled()
     }
 
-    func updateUIDisplays() { //INFO: Maintain with fast/light procedures.
+    func updateSelectedItemUIs() {
         updateSelectedItemsTitle()
         updateControlsReadyingToPerform()
     }
@@ -429,7 +438,7 @@ class PhotoPickerViewController: AppDockViewController {
         let numberOfItems = numberOfPhotos + numberOfVideos
 
         if numberOfItems == 0 {
-            title = self.collection?.localizedTitle ?? papStrings.name
+            title = self.collection?.localizedTitle ?? Bundle.main.displayName
         }
         else {
             if numberOfPhotos > 0 && numberOfVideos == 0 {
@@ -643,7 +652,7 @@ class PhotoPickerViewController: AppDockViewController {
                 papLog.event.performWhenPhotoLibraryDidChanged()
             }else{
                 self.updateAllPhotosTitle()
-                self.updateUIDisplays()
+                self.updateSelectedItemUIs()
             }
             
             if let indexPathToScroll = indexPathToScroll {
@@ -867,7 +876,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         progressBar.isHidden = true
         
         updateAllPhotosTitle()
-        updateUIDisplays()
+        updateSelectedItemUIs()
         updateVisibleCellsEnabled()
         
         updateAppDockViewProcessingEnd()
@@ -880,7 +889,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         deselectAllCollectionViewItems()
 
         updateAllPhotosTitle()
-        updateUIDisplays()
+        updateSelectedItemUIs()
         updateVisibleCellsEnabled()
 
         updateAppDockViewProcessingEnd()

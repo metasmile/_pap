@@ -16,6 +16,22 @@ extension PhotoPickerViewController{
             self.updateDoneButtonChargeableState()
         }
     }
+    
+    private var chargeObservingTimerId: String {
+        return "\(#file)_chargeObservingTimer"
+    }
+    
+    internal func registerChargeObservingTimer() {
+        // every 30 sec ?
+        Timer.getScheduledTimer(identifier: chargeObservingTimerId)?.invalidate()
+        Timer.scheduledTimer(identifier: chargeObservingTimerId, withTimeInterval: 30, repeats: true) { timer in
+            self.updateDoneButtonChargeableState()
+        }
+    }
+    
+    internal func unregisterChargeObservingTimer() {
+        Timer.getScheduledTimer(identifier: chargeObservingTimerId)?.invalidate()
+    }
 
     @discardableResult
     func updateDoneButtonChargeableState() -> Bool {
