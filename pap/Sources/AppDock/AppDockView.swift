@@ -867,7 +867,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
 
 // MARK: -
 
-extension AppDockView: UIScrollViewDelegate {
+extension AppDockView {
     func zoomInAppCollectionView() {
         guard let fromLayout = appCollectionView.collectionViewLayout as? AppCollectionViewLayout, fromLayout.layoutMetrics == .compact else { return }
         
@@ -877,16 +877,17 @@ extension AppDockView: UIScrollViewDelegate {
         let touchRatio = convert(touchLocation, from: appCollectionView).x / appCollectionView.bounds.width
         let targetIndexPath = appCollectionView.indexPathForItem(at: touchLocation)
         
-        appCollectionViewHeightLayout.constant = AppCollectionViewLayout.LayoutConstants.prominentHeight
+        self.appCollectionView.setCollectionViewLayout(toLayout, animated: false)
         
-        UIView.animate(withDuration: 0.3, delay: 0, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
-            self.appCollectionView.superview?.layoutIfNeeded()
-            self.appCollectionView.setCollectionViewLayout(toLayout, animated: false)
-            
-            if let indexPath = targetIndexPath, let attributes = toLayout.layoutAttributesForItem(at: indexPath) {
-                let offsetX = min(max(0, attributes.center.x - touchRatio * self.appCollectionView.bounds.width), toLayout.collectionViewContentSize.width - self.appContentView.bounds.width)
-                self.appCollectionView.setContentOffset(CGPoint(x: offsetX, y: self.appCollectionView.contentOffset.y), animated: false)
-            }
+        if let indexPath = targetIndexPath, let attributes = toLayout.layoutAttributesForItem(at: indexPath) {
+            let offsetX = min(max(0, attributes.center.x - touchRatio * self.appCollectionView.bounds.width), toLayout.collectionViewContentSize.width - self.appContentView.bounds.width)
+            let targetOffset = CGPoint(x: offsetX, y: self.appCollectionView.contentOffset.y)
+            self.appCollectionView.setContentOffset(targetOffset, animated: false)
+        }
+        
+        appCollectionViewHeightLayout.constant = AppCollectionViewLayout.LayoutConstants.prominentHeight
+        UIView.animateAsSpring(options: [.allowUserInteraction, .beginFromCurrentState, .overrideInheritedOptions], animations: {
+            self.dockView.layoutIfNeeded()
         }, completion: nil)
         
         reorderAppGesture?.isEnabled = true
@@ -905,22 +906,33 @@ extension AppDockView: UIScrollViewDelegate {
     private func showAppCollectionZoomOutAnimation() {
         guard reorderAppGesture?.state != .changed || reorderAppGesture?.state != .began else { return }
         
-        let toLayout = AppCollectionViewLayout(layoutMetrics: .compact)
+        let centerIndexPath = appCollectionView.indexPathForItem(at: dockView.convert(appCollectionView.center, to: appCollectionView))
         
-        let offsetXRatio = (appCollectionView.contentOffset.x + appCollectionView.contentInset.left) / appCollectionView.collectionViewLayout.collectionViewContentSize.width
+        let toLayout = AppCollectionViewLayout(layoutMetrics: .compact)
+        self.appCollectionView.setCollectionViewLayout(toLayout, animated: false)
+        
+        let targetOffset: CGPoint
+        if let indexPath = centerIndexPath, let attributes = appCollectionView.layoutAttributesForItem(at: indexPath) {
+            let offsetX = min(attributes.center.x - appContentView.bounds.width / 2, toLayout.collectionViewContentSize.width - self.appContentView.bounds.width)
+            targetOffset = CGPoint(x: offsetX, y: self.appCollectionView.contentOffset.y)
+        }
+        else {
+            let centerXOfCollectionView = dockView.convert(appCollectionView.center, to: appCollectionView).x - appContentView.bounds.width / 2
+            let offsetX = min(centerXOfCollectionView, toLayout.collectionViewContentSize.width - self.appContentView.bounds.width)
+            targetOffset = CGPoint(x: offsetX, y: self.appCollectionView.contentOffset.y)
+        }
+        self.appCollectionView.setContentOffset(targetOffset, animated: false)
         
         self.appCollectionViewHeightLayout.constant = AppCollectionViewLayout.LayoutConstants.compactHeight
-        UIView.animateAsSpring(0.4, delay: 0, animations: {
-            self.appCollectionView.superview?.layoutIfNeeded()
-            self.appCollectionView.setCollectionViewLayout(toLayout, animated: false)
-            
-            let offsetX = min(offsetXRatio * toLayout.collectionViewContentSize.width - self.appCollectionView.contentInset.left, toLayout.collectionViewContentSize.width - self.appContentView.bounds.width)
-            self.appCollectionView.contentOffset.x = offsetX
+        UIView.animateAsSpring(options: [.allowUserInteraction, .beginFromCurrentState, .overrideInheritedOptions], animations: {
+            self.dockView.layoutIfNeeded()
         }, completion: nil)
         
         reorderAppGesture?.isEnabled = false
     }
-    
+}
+
+extension AppDockView: UIScrollViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         if scrollView.isTracking, scrollView.isDragging {
             zoomInAppCollectionView()
