@@ -1115,17 +1115,17 @@ extension Defaults: FinderAppDefaults {
     }
 
     fileprivate var selectionPreset: Int {
-        set{ set(newValue); papLog.app.defaults.logFilePrivate(value: newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value: newValue) }
         get{ return get(or: SelectionPreset.plaintext.rawValue ) }
     }
 
     fileprivate var saveContactWithoutEdit: Bool {
-        set{ set(newValue); papLog.app.defaults.logFilePrivate(value:newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: false ) }
     }
 
     fileprivate var quickActionOnly: Bool {
-        set{ set(newValue); papLog.app.defaults.logFilePrivate(value:newValue)  }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue)  }
         get{ return get(or: false ) }
     }
 }
@@ -1594,7 +1594,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
             AppCenter.default.currentInstanceAs(FinderApp.self)?.disposePreheatingCache()
 
             if on{
-                papLog.app.defaults.logFilePrivate(value: String(describing: dict.items[indexPath.item].key))
+                papLog.app.defaults.log(value: String(describing: dict.items[indexPath.item].key))
                 FinderApp.privateDefaults.addHandledProperty(dict.key, dict.items[indexPath.item].key)
             }else{
                 FinderApp.privateDefaults.removeHandledProperty(dict.key, dict.items[indexPath.item].key)

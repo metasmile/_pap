@@ -37,17 +37,17 @@ private protocol ExifGhostAppAppDefaults: AppDefaults{
 
 extension Defaults: ExifGhostAppAppDefaults {
     fileprivate var ghostedImageMetadataCollection: ImageMetadataPropertyCollection {
-        set{ set(newValue) }
+        set{ set(newValue);  }
         get{ return get(or: ImageMetadata.Collection.DefaultSensitivity) }
     }
 
     fileprivate var selectionPreset: Int {
-        set{ set(newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: SelectionPresets.privacy.rawValue ) }
     }
 
     fileprivate var removeOriginal: Bool {
-        set{ set(newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: false ) }
     }
 }

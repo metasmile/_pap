@@ -20,7 +20,7 @@ private protocol RevertAppDefaults: AppDefaults{
 
 extension Defaults: RevertAppDefaults {
     fileprivate var autoSelect: Bool {
-        set{ set(newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: true) }
     }
 }

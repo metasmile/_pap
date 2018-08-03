@@ -35,22 +35,18 @@ struct papLog: Loggable {
 
     struct app: Loggable {
         // app common
-        static func enableAutoSelectionBot(){ log() }
-        static func disableAutoSelectionBot(){ log() }
-
-        static func launchWithOption(){ log() }
-
-        static func appDockMaximize(){ log() }
-        static func appDockMinimize(){ log() }
-
-        struct option: Loggable {
-            static func set(name:String){ log(parameters: [kOption:name]) }
-            static func unset(name:String){ log(parameters: [kOption:name]) }
+        static func launch(with option:AppLaunchOption?){
+            if let option = option, let identifierToReturn = option.identifierToReturn{
+                log(parameters:["identifierToReturn":identifierToReturn])
+            }else{
+                log()
+            }
         }
 
-        struct defaults: Loggable {
+        static func minimizeAppDockDrawer(){ log() }
+        static func maximizeAppDockDrawer(){ log() }
 
-        }
+        struct defaults: Loggable {}
     }
 
     struct error {

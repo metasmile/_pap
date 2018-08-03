@@ -74,6 +74,19 @@ class batchTests: XCTestCase {
 }
 
 
+import DefaultsKit
+
+public protocol TransformAppDefaults: AppDefaults{
+    var transform:Int? {set get}
+}
+
+extension Defaults: TransformAppDefaults {
+    public var transform: Int? {
+        set{ set(newValue) } get{ return get() }
+    }
+}
+
+
 //TODO: >> CodeTestKit
 class PHAssetsXCTestCase: XCTestCase {
 

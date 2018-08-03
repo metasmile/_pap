@@ -687,11 +687,21 @@ extension AppDockView: UIGestureRecognizerDelegate {
             
             if contentLayoutState != .minimized && sender.beginDrawerOffset - translation.y < 0 {
                 closeDrawer()
+
+                if contentLayoutState == .minimized{
+                    papLog.app.minimizeAppDockDrawer()
+                }
+
                 sender.isEnabled = false
                 sender.isEnabled = true
             }
             else if contentLayoutState != .maximized && sender.beginDrawerOffset - translation.y > DefaultPreferences.DrawerView.prominentHeight * 2 {
                 openDrawer()
+
+                if contentLayoutState == .maximized{
+                    papLog.app.maximizeAppDockDrawer()
+                }
+
                 sender.isEnabled = false
                 sender.isEnabled = true
             }

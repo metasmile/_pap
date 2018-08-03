@@ -15,8 +15,8 @@ extension Loggable{
     }
 
     //custom
-    static func logFilePrivate(_file:String=#file, _function:String=#function, value:Any){
-        log(self.createIdentifier(withFile: _file), parameters: [_function.loggableFunctionName:value])
+    static func log(domain:String=#file, key:String=#function, value:Any){
+        log(self.createIdentifier(withFile: domain), parameters: [key.loggableFunctionName:value])
     }
 
     static func createIdentifier(with name: String=#function) -> String {

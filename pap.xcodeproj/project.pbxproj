@@ -79,7 +79,6 @@
 		4F71D40522F7D0A17236CBE4 /* Filters.BApp.Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7C7C2C6686F86A92277 /* Filters.BApp.Contents.swift */; };
 		4F71D4153D97A1F440C3291F /* CodeKit.UIAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4D8D08CB1574BE2B3B9 /* CodeKit.UIAlertAction.swift */; };
 		4F71D41EE4FDCF600C6EB54C /* App.Launchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DCE3A0EB7D65562E4AA8 /* App.Launchable.swift */; };
-		4F71D42227168FB960E8292F /* Transform.BApp.Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB8E5FCA799070C9CE26 /* Transform.BApp.Defaults.swift */; };
 		4F71D44CDCBAB74BF0580746 /* auto_redeye.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D7487B34C1969FB174FE /* auto_redeye.png */; };
 		4F71D466EFAA7A462A5C0945 /* AppDockViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D4D7D1C9F3CFA4EA5D6B /* AppDockViewCell.xib */; };
 		4F71D470CB2DA2A48F4ACBB7 /* PHAsset.Editable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5F742AD0E3ACDE89B67 /* PHAsset.Editable.swift */; };
@@ -503,7 +502,6 @@
 		4F71DB341620B5007A7F6B60 /* ApplicationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationTests.swift; sourceTree = "<group>"; };
 		4F71DB44F9359202952BB3D3 /* CodeKit.AVAssetExportSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.AVAssetExportSession.swift; sourceTree = "<group>"; };
 		4F71DB4D5CDB2550372D4509 /* ImageIO.Metadata.Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.Metadata.Data.swift; sourceTree = "<group>"; };
-		4F71DB8E5FCA799070C9CE26 /* Transform.BApp.Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.BApp.Defaults.swift; sourceTree = "<group>"; };
 		4F71DB9A2D6C0695C47433B7 /* AppDockView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppDockView.xib; sourceTree = "<group>"; };
 		4F71DBB856ABD83409EE9D1F /* PhotoAlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAlbumViewController.swift; sourceTree = "<group>"; };
 		4F71DBB8908DF3CC41DA982B /* CodeKit.Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Math.swift; sourceTree = "<group>"; };
@@ -1293,7 +1291,6 @@
 			children = (
 				4F71D9FA96D3866E152A9B2B /* Transform.BApp.swift */,
 				4F71D59BE451048768EE797F /* Transform.BApp.Contents.swift */,
-				4F71DB8E5FCA799070C9CE26 /* Transform.BApp.Defaults.swift */,
 				4F71D590D9C96E96C3ED6669 /* Transform.BApp.Public.Contents.swift */,
 				A0453C6120A33EA100F9BA29 /* Transform.BApp.Assets.xcassets */,
 			);
@@ -1715,9 +1712,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0ABFCF8A1F14B65C0078A583 /* Build configuration list for PBXNativeTarget "pap" */;
 			buildPhases = (
+				A0C4010420D160E500F0919C /* ShellScript */,
 				9FF1A055D87F28B3A17235D3 /* [CP] Check Pods Manifest.lock */,
 				A0CFD8C72052C6990007041B /* ShellScript */,
-				A0C4010420D160E500F0919C /* ShellScript */,
 				0ABFCF741F14B65C0078A583 /* Sources */,
 				0ABFCF751F14B65C0078A583 /* Frameworks */,
 				0ABFCF761F14B65C0078A583 /* Resources */,
@@ -2322,7 +2319,6 @@
 				4F71D0A68DA33F404A17C2F5 /* Stabilizer.swift in Sources */,
 				4F71D807BB06FA9489D34086 /* Transform.BApp.swift in Sources */,
 				4F71D329367C50ED1F136630 /* Transform.BApp.Contents.swift in Sources */,
-				4F71D42227168FB960E8292F /* Transform.BApp.Defaults.swift in Sources */,
 				4F71DC16226B8D70AE6BE82F /* Transform.BApp.Public.Contents.swift in Sources */,
 				4F71D7B31CEE30B075DFF30C /* App.Finalizable.PHAsset.swift in Sources */,
 				4F71D299F2A20F87807CE9CE /* App.PhotoEditorViewControllerDelegatable.swift in Sources */,
