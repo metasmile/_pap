@@ -184,13 +184,16 @@ extension PhotoPickerViewController{
             }
         }
 
-        alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel))
+        alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel){ action in
+            papLog.charge.cancelled()
+        })
         
         if let popover =  alert.popoverPresentationController {
             popover.barButtonItem = navigationItem.rightBarButtonItem
         }
 
         UIViewController.root?.present(alert, animated: true)
+        papLog.charge.opened()
     }
 }
 

@@ -252,6 +252,10 @@ private final class AppChargeBanker: ChargeBanker {
     }
 
     func didSaveDeposit(for charge: Charge, balance: Amount) {
+        papLog.charge.paid(type: charge.type)
+    }
 
+    func didDeclineDeposit(for charge: Charge) {
+        papLog.charge.unpaid(type: charge.type)
     }
 }

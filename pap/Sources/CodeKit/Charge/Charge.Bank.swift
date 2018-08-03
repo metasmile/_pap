@@ -25,6 +25,8 @@ protocol ChargeBanker {
     func willSaveDeposit(forPriceAmountOf charge:Charge, balance:Amount) -> Amount?
     func didSaveDeposit(for charge:Charge, balance:Amount)
 
+    func didDeclineDeposit(for charge:Charge)
+
     init(registeredCharges:[Charge])
 }
 
@@ -64,5 +66,9 @@ final class ChargeBank: NSObject, KeyPathWatchable {
             balanceValue = synchronizedBalance.value
             banker.didSaveDeposit(for: charge, balance: synchronizedBalance)
         }
+    }
+
+    func cancelToSave(for charge:Charge){
+        banker.didDeclineDeposit(for: charge)
     }
 }

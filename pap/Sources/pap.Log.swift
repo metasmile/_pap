@@ -6,35 +6,54 @@
 import Foundation
 import Firebase
 
-public struct papLog{
-    public struct event {
-        public static func appSelected(){
-            Analytics.logWithCurrentApp()
+struct papLog:Analyzable{
+
+    struct charge:Analyzable {
+        static func opened(){
+            log()
         }
 
-        public static func cancelWhileSelecting(){
-            Analytics.logWithCurrentApp()
+        static func cancelled(){
+            log()
         }
 
-        public static func cancelWhilePerforming(){
-            Analytics.logWithCurrentApp()
+        static func paid(type:ChargeType){
+            log(parameters: ["chargeType":String(describing: type)])
         }
 
-        public static func performFromUser(){
-            Analytics.logWithCurrentApp()
-        }
-
-        public static func performWhenPhotoLibraryDidChanged(){
-            Analytics.logWithCurrentApp()
-        }
-
-        public static func allTasksAreFinished(){
-            Analytics.logWithCurrentApp()
+        static func unpaid(type:ChargeType){
+            log(parameters: ["chargeType":String(describing: type)])
         }
     }
 
-    public struct error {
-        public static func recordedError(_ e:Error, parameters:[String:Any]?=nil){
+    struct event:Analyzable {
+        static func appSelected(){
+            log()
+        }
+
+        static func cancelWhileSelecting(){
+            log()
+        }
+
+        static func cancelWhilePerforming(){
+            log()
+        }
+
+        static func performFromUser(){
+            log()
+        }
+
+        static func performWhenPhotoLibraryDidChanged(){
+            log()
+        }
+
+        static func allTasksAreFinished(){
+            log()
+        }
+    }
+
+    struct error {
+        static func recordedError(_ e:Error, parameters:[String:Any]?=nil){
             var paramToCommit = [
                 "errorDescription": e.localizedDescription
             ] as [String:Any]
@@ -45,21 +64,28 @@ public struct papLog{
                 }
             }
 
-            Analytics.logWithCurrentApp(parameters: paramToCommit)
+            log(parameters: paramToCommit)
         }
     }
 }
 
-fileprivate extension Analytics{
-    fileprivate class func _logEvent(_ name: String, parameters: [String : Any]?){
+fileprivate protocol Analyzable{
+    static func log(_ name:String, parameters:[String:Any]?)
+}
+
+extension Analyzable{
+
+    fileprivate static func _log(_ identifier: String, parameters: [String : Any]?){
 #if !DEBUG
-        self.logEvent(name, parameters: parameters)
+        Analytics.logEvent(identifier, parameters: parameters)
 #endif
     }
 
-    fileprivate static func logWithCurrentApp(_ name:String=#function, parameters:[String:Any]?=nil){
-        let name = name.replace(")","_").replace("(","_")
-
+    fileprivate static func log(_ localName:String=#function, parameters:[String:Any]?=nil){
+        let SP = "."
+        let localName = localName.replaceIfMatched(withPattern: "\\(.*$", replace: "")
+        let identifier = "\(String(describing: self))\(SP)\(localName)"
+        
         DispatchQueue.global(qos: .background).async {
             guard let app = AppCenter.default.current else{
                 return
@@ -74,7 +100,7 @@ fileprivate extension Analytics{
                     paramToCommit[o.key] = o.value
                 }
             }
-            self._logEvent(name, parameters: paramToCommit)
+            _log(identifier, parameters: paramToCommit)
         }
     }
 }
