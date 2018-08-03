@@ -1,1 +1,53 @@
+Photo Apps (PA) - A photos app but contains a lot of sub-apps on its own.
 
+With a familiar and standard iOS experience, PA is not only a single app, but also a new shape for dealing with Photos. It can be contained limitless various kinds of functionalities to practically help your everyday life, enjoy and share your moments.
+
+An extensive purpose app based on large-scale batch image editing, effects applying and manipulating to share on your Instagram, phone number grabbing and calling, photo library cleaning, selective EXIF data sweeping, GIF and Live Photo making and converting each other. We would also provide various funniest tools and productive AR utility in the future updates.
+
+Now message us with your wishes and ideas. It will be soon added as a new feature on PA in updates:
+Email: my@apps.photo
+Twitter: @AppsForPhoto
+
+
+Finder
+Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!
+
+Cleaner
+Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!
+
+Transform
+This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them.
+
+Filters
+Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them.
+
+Camera
+Robust Standard Built-In Camera for Capturing Live Photos.
+
+Cleaner
+Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!
+
+Revert
+Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!
+
+Converter
+Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other.
+
+GIF Maker
+GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos.
+
+Phone Calls
+Phone Calls lets you grab phone numbers accurately in your multiple photos. Then you simply start calling!
+
+PDFactory
+PDFactory makes PDF document from multiple images with various page options.
+
+Auto Editor
+Auto Editor lets you edit automatically if your photos are needed to correct.
+
+EXIF Ghost
+EXIF Ghost lets you remove all kinds of data containing your photos including private information.
+
+And Finally ... Introducing "Auto Selection Bot (ASB)"
+ASB is a multi-purpose assistant engine for choosing the right items in the current context of the functionality of each app. Currently, several apps, Finder, Cleaner, EXIF Ghost, Phone Calls, and Revery app are supporting it.
+Now switch on the control panel of each app!
