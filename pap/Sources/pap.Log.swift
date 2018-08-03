@@ -49,9 +49,7 @@ struct papLog: Loggable {
         }
 
         struct defaults: Loggable {
-            static func set(_function:String=#function, _ value:Any){
-                log(_function, parameters: [kValue:value])
-            }
+
         }
     }
 
