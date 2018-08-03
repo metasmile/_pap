@@ -108,7 +108,7 @@ class PhotoPickerViewController: AppDockViewController {
                 FileManager.default.clearTemporaryDirectory()
             }
 
-            papLog.event.allTasksAreFinished()
+            papLog.allTasksAreFinished()
         }
 
         //check photo library permission and load
@@ -645,7 +645,7 @@ class PhotoPickerViewController: AppDockViewController {
         }, completion: { _ in
             if tasksWereRanAndRemoved {
                 AppCenter.default.task.perform(self.batchPreviewView.createTaskReaction())
-                papLog.event.performWhenPhotoLibraryDidChanged()
+                papLog.performWhenPhotoLibraryDidChanged()
             }else{
                 self.updateAllPhotosTitle()
                 self.updateUIDisplays()

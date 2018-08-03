@@ -5,50 +5,53 @@
 
 import Foundation
 import Firebase
+import DefaultsKit
 
-struct papLog:Analyzable{
+//INFO: It is recommended that inserted into only UI actions.
 
-    struct charge:Analyzable {
-        static func opened(){
-            log()
-        }
+struct papLog: Loggable {
+    private static var kOption:String{ return #function }
+    private static var kValue:String{ return #function }
 
-        static func cancelled(){
-            log()
-        }
+    //common
+    static func appSelected(){ log() }
+    static func cancelWhileSelecting(){ log() }
+    static func cancelWhilePerforming(){ log() }
+    static func performFromUser(){ log() }
+    static func performWhenPhotoLibraryDidChanged(){ log() }
+    static func allTasksAreFinished(){ log() }
 
-        static func paid(type:ChargeType){
-            log(parameters: ["chargeType":String(describing: type)])
-        }
+    struct charge: Loggable {
+        private static var kChargeType:String{ return #function }
 
-        static func unpaid(type:ChargeType){
-            log(parameters: ["chargeType":String(describing: type)])
-        }
+        static func opened(){ log() }
+        static func cancelled(){ log() }
+        static func openedInWelcomeTutorial(){ log() }
+        static func openedInAllPaid(){ log() }
+        static func openedInNeedToPay(){ log() }
+        static func paid(type:ChargeType){ log(parameters: [kChargeType:String(describing: type)]) }
+        static func unpaid(type:ChargeType){ log(parameters: [kChargeType:String(describing: type)]) }
     }
 
-    struct event:Analyzable {
-        static func appSelected(){
-            log()
+    struct app: Loggable {
+        // app common
+        static func enableAutoSelectionBot(){ log() }
+        static func disableAutoSelectionBot(){ log() }
+
+        static func launchWithOption(){ log() }
+
+        static func appDockMaximize(){ log() }
+        static func appDockMinimize(){ log() }
+
+        struct option: Loggable {
+            static func set(name:String){ log(parameters: [kOption:name]) }
+            static func unset(name:String){ log(parameters: [kOption:name]) }
         }
 
-        static func cancelWhileSelecting(){
-            log()
-        }
-
-        static func cancelWhilePerforming(){
-            log()
-        }
-
-        static func performFromUser(){
-            log()
-        }
-
-        static func performWhenPhotoLibraryDidChanged(){
-            log()
-        }
-
-        static func allTasksAreFinished(){
-            log()
+        struct defaults: Loggable {
+            static func set(_function:String=#function, _ value:Any){
+                log(_function, parameters: [kValue:value])
+            }
         }
     }
 
@@ -69,30 +72,16 @@ struct papLog:Analyzable{
     }
 }
 
-fileprivate protocol Analyzable{
-    static func log(_ name:String, parameters:[String:Any]?)
-}
 
-extension Analyzable{
-
-    fileprivate static func _log(_ identifier: String, parameters: [String : Any]?){
-#if !DEBUG
-        Analytics.logEvent(identifier, parameters: parameters)
-#endif
-    }
-
-    fileprivate static func log(_ localName:String=#function, parameters:[String:Any]?=nil){
-        let SP = "."
-        let localName = localName.replaceIfMatched(withPattern: "\\(.*$", replace: "")
-        let identifier = "\(String(describing: self))\(SP)\(localName)"
-        
+extension Loggable {
+    static func log(_ functionName:String=#function, parameters:[String:Any]?=nil){
         DispatchQueue.global(qos: .background).async {
             guard let app = AppCenter.default.current else{
                 return
             }
 
             var paramToCommit = [
-                "appidentifier": app.info.identifier
+                "appIdentifier": app.info.identifier
             ] as [String:Any]
 
             if let parameters = parameters{
@@ -100,7 +89,12 @@ extension Analyzable{
                     paramToCommit[o.key] = o.value
                 }
             }
-            _log(identifier, parameters: paramToCommit)
+
+            let identifier = createIdentifier(withFunction: functionName)
+            print("[i] Logged: ",identifier, parameters ?? "")
+#if !DEBUG
+            Analytics.logEvent(identifier, parameters: parameters)
+#endif
         }
     }
 }

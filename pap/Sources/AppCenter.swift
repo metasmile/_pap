@@ -22,7 +22,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             Defaults.shared.appIdentifier = target.currentIdentifier
             print("Current App: \(Defaults.shared.appIdentifier ?? "nil")")
 
-            papLog.event.appSelected()
+            papLog.appSelected()
         }
 
         if let configuredAppIdentifier = Defaults.shared.appIdentifier

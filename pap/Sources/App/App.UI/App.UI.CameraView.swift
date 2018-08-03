@@ -66,7 +66,7 @@ class AppUICameraView: UIView {
             // ... 6/7/8 Plus //
             0.461822660098522, // w/h iphone x (longest)
             54,
-            74
+            72
     )
     private lazy var CaptureButtonMinHeightAnchorConstant:CGFloat = self.ControlViewHeightAnchorConstant/1.5 //compact size
 

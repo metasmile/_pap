@@ -1125,11 +1125,10 @@ extension Defaults: FinderAppDefaults {
     }
 
     fileprivate var quickActionOnly: Bool {
-        set{ set(newValue) }
+        set{ set(newValue); papLog.app.defaults.set(newValue)  }
         get{ return get(or: false ) }
     }
 }
-
 
 extension FinderAppDefaults{
     fileprivate func addHandledProperty(_ dictionary:ParserDictionary.Key, _ property:ParserItem.Key){

@@ -95,16 +95,22 @@ extension PhotoPickerViewController{
             title = "Welcome on %@".localizedFormatted(papStrings.name)
             subtitle = "Now Contribute And Get Free Use.".localized
             titleImage = R.image.apps_collection.name.asUIImageContentOfFile //no cache
+
+            papLog.charge.openedInWelcomeTutorial()
         }
         else if areAllChargesHasPriceAmountPaid {
             title = "This App Is Yours.".localized
             subtitle = "Turn Your Opinion Into New Things.".localized
             titleImage = R.image.join_us.name.asUIImageContentOfFile
+
+            papLog.charge.openedInAllPaid()
         }
         else{
             title = "Extend Period of Free Use".localized
             subtitle = "You Can Renew Them Repeatedly.".localized
             titleImage = R.image.apps_collection.name.asUIImageContentOfFile //no cache
+
+            papLog.charge.openedInNeedToPay()
         }
 
         let attributedTitle = NSMutableAttributedString()
