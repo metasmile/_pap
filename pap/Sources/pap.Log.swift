@@ -67,8 +67,20 @@ struct papLog: Loggable {
 }
 
 
+private struct LoggableTime{
+    static var latestDate = [String:Date]()
+}
+
 extension Loggable {
     static func log(_ functionName:String=#function, parameters:[String:Any]?=nil){
+        let identifier = createIdentifier(withFunction: functionName)
+
+        let logginDate = Date()
+        if let latest = LoggableTime.latestDate[identifier], logginDate.timeIntervalSince(latest) <= 1.0 {
+            return
+        }
+        LoggableTime.latestDate[identifier] = logginDate
+
         DispatchQueue.global(qos: .background).async {
             guard let app = AppCenter.default.current else{
                 return
