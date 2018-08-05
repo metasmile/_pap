@@ -32,18 +32,18 @@ enum ChargeLevel: CGFloat {
     case high = 0.8
     case full = 1
     
-    static func `init`(balance: CGFloat) -> ChargeLevel {
+    init(balance: CGFloat) {
         if balance < ChargeLevel.warning.rawValue {
-            return ChargeLevel.warning
+            self = .warning
         }
         else if balance < ChargeLevel.low.rawValue {
-            return ChargeLevel.low
+            self = .low
         }
-//            else if ratio == ChargeLevel.full.rawValue {
-//                return ChargeLevel.full
-//            }
+//        else if ratio == ChargeLevel.full.rawValue {
+//            self = .full
+//        }
         else {
-            return ChargeLevel.high
+            self = .high
         }
     }
     
@@ -80,13 +80,13 @@ enum ChargeLevel: CGFloat {
 }
 
 class ChargeableImage: UIImage {
-    static func `init`(balance: Double, fillMode: ChargeableFillMode = .fill, tintColor color: UIColor, appearanceDelegate: ChargeableButtonAppearance?) -> UIImage? {
+    convenience init(balance: Double, fillMode: ChargeableFillMode = .fill, tintColor color: UIColor, appearanceDelegate: ChargeableButtonAppearance?) {
         let ratio: CGFloat = CGFloat(balance)
         
-        guard let iconImage = appearanceDelegate?.filledImage?.tintColor(color) else { return nil }
+        guard let iconImage = appearanceDelegate?.filledImage?.tintColor(color) else { self.init(); return }
         
         let imageBounds = CGRect(origin: .zero, size: iconImage.size)
-        return UIGraphicsImageRenderer(bounds: imageBounds).imageWithCurrentContext { (ctx) in
+        guard let cgImage = UIGraphicsImageRenderer(bounds: imageBounds).imageWithCurrentContext(actions: { (ctx) in
             if fillMode.contains(.opacity) {
                 iconImage.draw(at: .zero, blendMode: .normal, alpha: ratio == 1 ? 1 : ratio / 2 + 0.1)
             }
@@ -105,7 +105,9 @@ class ChargeableImage: UIImage {
             appearanceDelegate?.emptyImage?.tintColor(UIColor.black).draw(at: .zero)
             ctx.setBlendMode(.multiply)
             appearanceDelegate?.emptyImage?.tintColor(color).draw(at: .zero)
-        }?.withRenderingMode(.alwaysOriginal)
+        })?.withRenderingMode(.alwaysOriginal).cgImage else { self.init(); return }
+        
+        self.init(cgImage: cgImage, scale: UIScreen.main.scale, orientation: .up)
     }
 }
 
@@ -212,13 +214,12 @@ class ChargeableButton: UIButton {
 
             autoreleasepool{
                 var buttonImage: UIImage?
-                if let iconImage = ChargeableImage(balance: normalizedValue, fillMode: self.fillMode, tintColor: color, appearanceDelegate: appearanceDelegate) {
-                    if showsPercentage {
-                        buttonImage = ChargeableBadgeIcon.portraitBadgeIcon(iconImage, title: String(format: "%d%%", percentageInt), tintColor: color)
-                    }
-                    else {
-                        buttonImage = iconImage
-                    }
+                let iconImage = ChargeableImage(balance: normalizedValue, fillMode: self.fillMode, tintColor: color, appearanceDelegate: appearanceDelegate)
+                if showsPercentage {
+                    buttonImage = ChargeableBadgeIcon.portraitBadgeIcon(iconImage, title: String(format: "%d%%", percentageInt), tintColor: color)
+                }
+                else {
+                    buttonImage = iconImage
                 }
 
                 setImage(buttonImage?.withRenderingMode(.automatic), for: .normal)
