@@ -1,5 +1,5 @@
 //
-// Created by BLACKGE?NE ?on 24.07.18.
+// Created by BLACKGE?NE ??on 24.07.18.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
@@ -122,64 +122,78 @@ private final class AppChargeBanker: ChargeBanker {
     }
 
     func initializeBank() -> Amount {
-        let initialBalanceValue = clamp(receiptStorage.balanceAmountValue, MutableAmountObject.minValue, MutableAmountObject.maxValue)
-        return self.synchronizeBalance(balance:MutableAmountObject(value: initialBalanceValue))
-    }
 
-    func didInitializeBank(balance: MutableAmount) {
+        let initialBalance = AmountObject(value: clamp(receiptStorage.balanceAmountValue, AmountObject.minValue, AmountObject.maxValue))
+
+        print("initializeBank:appShortVersionDescription: ",appShortVersionDescription)
+
         switch appShortVersionDescription{
             case .first:
+                //INFO: give tutorial balance 3 days
                 if let welcomeCharge = self.registeredCharges.first(where:{ charge in
                     return charge.type == .welcomeFreeTrial
                 }){
-                    //give tutorial balance 3 days
-                    assert(balance.value==0, "User installs the app firstly but why balance is not 0?")
-                    balance.add(welcomeCharge.priceAmount)
-                    createReceipt(for:welcomeCharge, balance:balance)
+                    assert(initialBalance.value == 0, "User installs the app firstly but why balance is not 0?")
+                    createOrReplaceReceipt(for:welcomeCharge)
+                }
+
+            case .new, .skippedNew:
+                //INFO: expired on new version
+                for r in receiptStorage.receipts where type(of: self).ChargeTypesAvailableOnlyCurrentVersion.contains(r.value.type){
+                    receiptStorage.removeReceipt(r.key)
                 }
 
             case .reversed, .unhandled:
+                //INFO: wrong binary protection
                 assert(false, "Wrong version direction. Install new one.")
-                balance.set(AmountObject(value: 0))
-                synchronizeBalance(balance:balance)
+                for r in receiptStorage.receipts{
+                    receiptStorage.removeReceipt(r.key)
+                }
 
             default:
                 break
         }
 
-        print("[i] \(String(describing: type(of: self))) Initializd. Balace: ", balance.value)
+        print("[i] \(String(describing: type(of: self))) Initializd. Balance: ", initialBalance.value)
+
+        return self.synchronizeBalance(balance:initialBalance)
     }
 
-    private func createReceipt(for charge: Charge, balance: MutableAmount){
+    func didInitializeBank(balance: Amount) {
+
+    }
+
+    private func createOrReplaceReceipt(for charge: Charge){
         var receipt = ChargeableReceipt(charge: charge, bankerVersion: AppChargeBanker.version)
         receipt.dateData = Date()
-        receiptStorage.addReceipt(receipt)
-        synchronizeBalance(balance:balance)
-        print("[i] Receipt Saved: ", receipt, receipt.uuid)
+
+        if let existedReceiptItem = receiptStorage.receipts.first(where:{ key, value in
+            value.isEqualTo(other: charge)
+        }){
+            receiptStorage.removeReceipt(existedReceiptItem.value.uuid)
+            receiptStorage.addReceipt(receipt)
+
+        }else{
+            receiptStorage.addReceipt(receipt)
+        }
+
+        assert(receiptStorage.receipts.filter({ key, value in value.isEqualTo(other: charge) }).count==1, "only one receipt is allowed for: createOrReplaceReceipt")
+
     }
 
     @discardableResult
-    private func synchronizeBalance(balance: MutableAmount) -> Amount{
-        let initialBalance = balance.value
+    private func synchronizeBalance(balance: Amount) -> Amount{
         var removingReceipts = Set<ChargeableReceipt>()
         let syncDate = Date()
 
         for (_, receipt) in receiptStorage.receipts { //TODO: improve performance - o.n -> o.1 avg.
 
-            guard let charge = registeredCharges.first(where:{ charge in charge.isEqual(other: receipt)}) else {
-                continue
-            }
-
-            // expired on new version
-            if appShortVersionDescription == .new && type(of: self).ChargeTypesAvailableOnlyCurrentVersion.contains(receipt.type){
-                balance.subtractShares(of: AmountObject(value:receipt.amountValue), ratio: 1)
-                removingReceipts.insert(receipt)
+            guard let charge = registeredCharges.first(where:{ charge in charge.isEqualTo(other: receipt)}) else {
                 continue
             }
 
             //deprecated
             if receipt.type == .deprecated || receipt.reward == .deprecated{
-                balance.subtractShares(of: AmountObject(value:receipt.amountValue), ratio: 1)
                 removingReceipts.insert(receipt)
                 continue
             }
@@ -193,48 +207,32 @@ private final class AppChargeBanker: ChargeBanker {
                         let totalOffset = type(of: self).Abs_TimeOfUses_Time * charge.priceAmount.value
                         let offset = syncDate.timeIntervalSince(date)
                         let amountValueOffsetRatio = offset/totalOffset
-                        assert(amountValueOffsetRatio<=1)
 
-                        let subtractingAmountValueInSelf = charge.priceAmount.value * amountValueOffsetRatio
-                        let remainingAmountValue = receipt.amountValue - subtractingAmountValueInSelf
+                        let newAmountValue = receipt.amountValue - (charge.priceAmount.value * amountValueOffsetRatio)
+                        if newAmountValue > 0{
+                            var updatingReceipt = receipt
+                            updatingReceipt.amountValue = newAmountValue
+                            updatingReceipt.dateData = syncDate
+                            receiptStorage.updateReceipt(updatingReceipt)
 
-                        var updatingReceipt = receipt
-                        updatingReceipt.amountValue = remainingAmountValue
-                        updatingReceipt.dateData = syncDate
-                        receiptStorage.updateReceipt(updatingReceipt)
 
-                        if remainingAmountValue > 0{
-                            balance.subtractShares(of: charge.priceAmount, ratio: amountValueOffsetRatio)
-
-                            print("[i] Consume - receipt type:\(receipt.type), reward:\(receipt.reward), created:\(receipt.createdDate) - balance:", balance.value)
                         }else{
                             removingReceipts.insert(receipt)
                         }
-
-                        //INFO: the sum of amountValue is not always 1.0 (time calculation)
-                        // Receipt == 0 >> Balance
-                        if removingReceipts.count>0 && receiptStorage.receipts.count==removingReceipts.count{
-                            balance.set(AmountObject(value: 0))
-                        }
-
                     }
                 default:
                     assert(false, "[!] WARNING: \(receipt.reward) handling is not implemented yet.")
             }
         }
 
-        //INFO: safe reset for overvalued receipts (e.g. receipt value is remained but max balance is empty)
-        // Balance == 0 >> Receipt
-        if initialBalance > 0 && balance.value==0{
-            removingReceipts = Set(receiptStorage.receipts.values)
-        }
-
         for r in removingReceipts {
             receiptStorage.removeReceipt(r.uuid)
-            print("[i] INFO: Removed Receipts: ", r, r.uuid)
         }
 
         self.receiptStorage.commit()
+
+        let balance = AmountObject(value:receiptStorage.balanceAmountValue)
+        print("[i] Balance:", balance.value)
         return balance
     }
 
@@ -242,15 +240,22 @@ private final class AppChargeBanker: ChargeBanker {
         return receiptStorage.getReceipt(for: chargeable)
     }
 
-    func willSynchronizeBalanceValue(balance: MutableAmount) -> Amount {
+    func synchronizeBalanceValue(balance: Amount) -> Amount {
         return synchronizeBalance(balance:balance)
     }
 
-    func willSaveDeposit(forPriceAmountOf charge: Charge, balance: MutableAmount) -> Amount? {
+    func willSaveDeposit(forPriceAmountOf charge: Charge, balance: Amount) -> Amount? {
+        createOrReplaceReceipt(for: charge)
+        synchronizeBalance(balance:balance)
+
         return charge.priceAmount
     }
 
-    func didSaveDeposit(for charge: Charge, balance: MutableAmount) {
-        createReceipt(for: charge, balance:balance)
+    func didSaveDeposit(for charge: Charge, balance: Amount) {
+        papLog.charge.paid(type: charge.type)
+    }
+
+    func didDeclineDeposit(for charge: Charge) {
+        papLog.charge.unpaid(type: charge.type)
     }
 }

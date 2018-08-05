@@ -204,7 +204,7 @@
 "Deleting Targets" = "Memadamkan Sasaran";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "Mengesan ... %@";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+/* Generated from genl10n: AppStrings.swift#17 */
 "Did not detect anything." = "Tidak mengesan apa-apa.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Arah";
@@ -258,7 +258,7 @@
 "Images" = "Imej";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Import";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+/* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "Ia tidak boleh disimpan.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Ia memerlukan kebenaran untuk mengakses kenalan anda. Sila benarkan Kenalan pada Tetapan iOS.";

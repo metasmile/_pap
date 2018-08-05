@@ -57,14 +57,14 @@ protocol Chargeable {
 }
 
 extension Chargeable{
-    func isEqual(other:Chargeable) -> Bool{
+    func isEqualTo(other:Chargeable) -> Bool{
         return reward==other.reward && type==other.type
     }
 }
 
 extension Equatable where Self:Chargeable{
     static func ==(lhs: Self, rhs: Self) -> Bool {
-        return lhs.isEqual(other:rhs)
+        return lhs.isEqualTo(other:rhs)
     }
 }
 

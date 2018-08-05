@@ -35,42 +35,42 @@ protocol GIFMakerDefaults: AppDefaults{
 
 extension Defaults: GIFMakerDefaults {
     var sourceType: Int {
-        set { set(newValue) }
+        set { set(newValue); papLog.app.defaults.log(value:newValue) }
         get { return get(or: 0) }
     }
     
     var aspectRatio: Double {
-        set{ set(newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: 1) }
     }
     
     var contentMode: Int {
-        set{ set(newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: PHImageContentMode.aspectFill.rawValue ) }
     }
     
     var frameDelay: Double {
-        set { set(newValue) }
+        set { set(newValue); papLog.app.defaults.log(value:newValue) }
         get { return get(or: 0.05)}
     }
     
     var size: Double {
-        set{ set(newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: 640 ) }
     }
     
     var direction: Int {
-        set { set(newValue) }
+        set { set(newValue); papLog.app.defaults.log(value:newValue) }
         get { return get(or: 0) }
     }
     
     var gifQuality: Double {
-        set{ set(newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: 0.8) }
     }
     
     var loopCount: Int {
-        set { set(newValue) }
+        set { set(newValue); papLog.app.defaults.log(value:newValue) }
         get { return get(or: 0)}
     }
 }

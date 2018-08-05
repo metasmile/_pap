@@ -343,22 +343,22 @@ extension Defaults: CleanerAppDefaults {
     }
 
     fileprivate var deletingTarget: Int {
-        set{ set(newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: DeletingTarget.selected.rawValue ) }
     }
 
     fileprivate var saveContactWithoutEdit: Bool {
-        set{ set(newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: false ) }
     }
 
     fileprivate var quickActionOnly: Bool {
-        set{ set(newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: false ) }
     }
 
     fileprivate var autoSelect: Bool {
-        set{ set(newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: false ) }
     }
 }
@@ -770,6 +770,8 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
             //set enable
             var collection = self.defaultCollections
             collection[dictIndex].items[indexPath.item].enabled = on
+
+            papLog.app.defaults.log(key:gdIdentifier, value:on)
             
 //            //configure relative options
 //            if identifier==PHAssetGarbageDetector_FlashlightAndCloseupFace.identifier{

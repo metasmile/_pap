@@ -6,6 +6,8 @@
 import Foundation
 import Photos
 
+//TODO: later change to instance copying style instead of sync+singleton.
+
 public final class PHAssets: NSObject, KeyPathWatchable {
     public static let fetched = PHAssets()
 
@@ -43,8 +45,15 @@ public final class PHAssets: NSObject, KeyPathWatchable {
 
     private override init() {}
 
+    private let syncQueueGetAsset = DispatchQueue(label: #file+"syncQueueGetAsset", qos: .userInteractive)
+
     public func asset(at indexPath: IndexPath) -> PHAsset? {
-        return results?[safe: indexPath.section]?[indexPath.item]
+        return syncQueueGetAsset.sync{
+            if let section = results?[safe: indexPath.section], indexPath.item < section.count{
+                return section[indexPath.item]
+            }
+            return nil
+        }
     }
 
     public func isContained(section:Int) -> Bool{

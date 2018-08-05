@@ -1,5 +1,5 @@
 //
-// Created by BLAC?KGENE on 26.07.18.
+// Created by BL?AC?KGENE on 26.07.18.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
@@ -157,7 +157,7 @@ final class ChargeReceiptStorage {
 
     func getReceipt(for chargeable:Chargeable) -> ChargeableReceipt?{
         return receipts.values.first { receipt in
-            return receipt.isEqual(other: chargeable)
+            return receipt.isEqualTo(other: chargeable)
         }
     }
 
@@ -165,17 +165,21 @@ final class ChargeReceiptStorage {
         assert(!hasReceipt(by: receipt.uuid),"Given receipt, \(receipt) does already exist")
         if !hasReceipt(by: receipt.uuid){
             receipts[receipt.uuid] = receipt
+            print("[i] Receipt Added: ", receipt, receipt.uuid)
         }
     }
 
     func removeReceipt(_ receiptId:String){
+        assert(hasReceipt(by: receiptId), "Given id of receipt, already \(receiptId) does not exist")
         receipts[receiptId] = nil
+        print("[i] INFO: Receipt Removed: ", receipts[receiptId] ?? "", receiptId)
     }
 
     func updateReceipt(_ receipt:ChargeableReceipt){
         assert(hasReceipt(by: receipt.uuid), "Given receipt, \(receipt) does not exist")
         if hasReceipt(by: receipt.uuid){
             receipts[receipt.uuid] = receipt
+            print("[i] Receipt Updated: type: \(receipt.type), reward: \(receipt.reward), created: \(receipt.createdDate)")
         }
     }
 

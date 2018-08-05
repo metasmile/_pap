@@ -5,36 +5,52 @@
 
 import Foundation
 import Firebase
+import DefaultsKit
 
-public struct papLog{
-    public struct event {
-        public static func appSelected(){
-            Analytics.logWithCurrentApp()
-        }
+//INFO: It is recommended that inserted into only UI actions.
 
-        public static func cancelWhileSelecting(){
-            Analytics.logWithCurrentApp()
-        }
+struct papLog: Loggable {
+    private static var kOption:String{ return #function }
+    private static var kValue:String{ return #function }
 
-        public static func cancelWhilePerforming(){
-            Analytics.logWithCurrentApp()
-        }
+    //common
+    static func appSelected(){ log() }
+    static func cancelWhileSelecting(){ log() }
+    static func cancelWhilePerforming(){ log() }
+    static func performFromUser(){ log() }
+    static func performWhenPhotoLibraryDidChanged(){ log() }
+    static func allTasksAreFinished(){ log() }
 
-        public static func performFromUser(){
-            Analytics.logWithCurrentApp()
-        }
+    struct charge: Loggable {
+        private static var kChargeType:String{ return #function }
 
-        public static func performWhenPhotoLibraryDidChanged(){
-            Analytics.logWithCurrentApp()
-        }
-
-        public static func allTasksAreFinished(){
-            Analytics.logWithCurrentApp()
-        }
+        static func opened(){ log() }
+        static func cancelled(){ log() }
+        static func openedInWelcomeTutorial(){ log() }
+        static func openedInAllPaid(){ log() }
+        static func openedInNeedToPay(){ log() }
+        static func paid(type:ChargeType){ log(parameters: [kChargeType:String(describing: type)]) }
+        static func unpaid(type:ChargeType){ log(parameters: [kChargeType:String(describing: type)]) }
     }
 
-    public struct error {
-        public static func recordedError(_ e:Error, parameters:[String:Any]?=nil){
+    struct app: Loggable {
+        // app common
+        static func launch(with option:AppLaunchOption?){
+            if let option = option, let identifierToReturn = option.identifierToReturn{
+                log(parameters:["identifierToReturn":identifierToReturn])
+            }else{
+                log()
+            }
+        }
+
+        static func minimizeAppDockDrawer(){ log() }
+        static func maximizeAppDockDrawer(){ log() }
+
+        struct defaults: Loggable {}
+    }
+
+    struct error {
+        static func recordedError(_ e:Error, parameters:[String:Any]?=nil){
             var paramToCommit = [
                 "errorDescription": e.localizedDescription
             ] as [String:Any]
@@ -45,20 +61,25 @@ public struct papLog{
                 }
             }
 
-            Analytics.logWithCurrentApp(parameters: paramToCommit)
+            log(parameters: paramToCommit)
         }
     }
 }
 
-fileprivate extension Analytics{
-    fileprivate class func _logEvent(_ name: String, parameters: [String : Any]?){
-#if !DEBUG
-        self.logEvent(name, parameters: parameters)
-#endif
-    }
 
-    fileprivate static func logWithCurrentApp(_ name:String=#function, parameters:[String:Any]?=nil){
-        let name = name.replace(")","_").replace("(","_")
+private struct LoggableVar {
+    static var latestDate = [String:Date]()
+}
+
+extension Loggable {
+    static func log(_ functionName:String=#function, parameters:[String:Any]?=nil){
+        let identifier = createIdentifier(withFunction: functionName)
+
+        let logginDate = Date()
+        if let latest = LoggableVar.latestDate[identifier], logginDate.timeIntervalSince(latest) <= 1.0 {
+            return
+        }
+        LoggableVar.latestDate[identifier] = logginDate
 
         DispatchQueue.global(qos: .background).async {
             guard let app = AppCenter.default.current else{
@@ -66,7 +87,7 @@ fileprivate extension Analytics{
             }
 
             var paramToCommit = [
-                "appidentifier": app.info.identifier
+                "appIdentifier": app.info.identifier
             ] as [String:Any]
 
             if let parameters = parameters{
@@ -74,7 +95,12 @@ fileprivate extension Analytics{
                     paramToCommit[o.key] = o.value
                 }
             }
-            self._logEvent(name, parameters: paramToCommit)
+
+            let identifier = createIdentifier(withFunction: functionName)
+            print("[i] Logged: ",identifier, parameters ?? "")
+#if !DEBUG
+            Analytics.logEvent(identifier, parameters: parameters)
+#endif
         }
     }
 }

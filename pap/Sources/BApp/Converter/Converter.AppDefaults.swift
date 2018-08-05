@@ -13,8 +13,8 @@ protocol ConverterAppDefaults: AppDefaults{
 
 extension Defaults: ConverterAppDefaults {
     var convertingDirection: ConvertingDirection {
-        set { set(newValue) }
-        get { return get(or: ConvertingDirection(from: .mov, to: .livephoto)) }
+        set { set(newValue); papLog.app.defaults.log(value:newValue.identifier) }
+        get { return get(or: ConvertingDirection(from: .livephoto, to: .gif)) }
     }
     
     var convertingQuality: ConvertingQuality {

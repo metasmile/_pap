@@ -60,7 +60,15 @@ class AppUICameraView: UIView {
     private lazy var livePhotoButton = UIButton(type: .system)
 
     private let OptionViewHeightAnchorConstant:CGFloat = 44 // top
-    private let ControlViewHeightAnchorConstant:CGFloat = 72 //bottom
+    private let ControlViewHeightAnchorConstant:CGFloat = remapClamp(
+            UIScreen.main.bounds.width/UIScreen.main.bounds.height,
+            0.562218890554723, // w/h iphone 6/se (widest)
+            // ... 6/7/8 Plus //
+            0.461822660098522, // w/h iphone x (longest)
+            54,
+            72
+    )
+    private lazy var CaptureButtonMinHeightAnchorConstant:CGFloat = self.ControlViewHeightAnchorConstant/1.5 //compact size
 
     private func intialize(with defaults: AppUICameraViewOptions?=nil) {
         if let defaults = defaults{
@@ -180,7 +188,7 @@ class AppUICameraView: UIView {
         captureButton.translatesAutoresizingMaskIntoConstraints = false
         captureButton.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor).isActive = true
         captureButton.centerXAnchor.constraint(equalTo: controlView.centerXAnchor).isActive = true
-        captureButton.heightAnchor.constraint(greaterThanOrEqualToConstant: OptionViewHeightAnchorConstant).isActive = true
+        captureButton.heightAnchor.constraint(greaterThanOrEqualToConstant: CaptureButtonMinHeightAnchorConstant).isActive = true
         captureButton.heightAnchor.constraint(lessThanOrEqualToConstant: ControlViewHeightAnchorConstant).isActive = true
         captureButton.widthAnchor.constraint(equalTo: captureButton.heightAnchor, multiplier: 1).isActive = true
 
@@ -322,7 +330,7 @@ class AppUICameraView: UIView {
             let compactControlViewLayoutRequired = isCompactMode || optionViewHeightLayout?.constant ?? 0 > 0
 
             captureButton.isEnabled = !isCompactMode
-            captureButton.transform = compactControlViewLayoutRequired ? CGAffineTransform.identity : CGAffineTransform(scaleX: 0.8, y: 0.8)
+            captureButton.transform = compactControlViewLayoutRequired ? CGAffineTransform.identity : CGAffineTransform(scaleX: 0.9, y: 0.9)
 
             cameraPositionButton.setImage(devicePositionIcon, for: .normal)
 

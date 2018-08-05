@@ -204,7 +204,7 @@
 "Deleting Targets" = "대상 삭제";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "감지 중 ... %@";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+/* Generated from genl10n: AppStrings.swift#17 */
 "Did not detect anything." = "아무것도 발견하지 못했습니다.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "방향";
@@ -258,7 +258,7 @@
 "Images" = "이미지";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "가져오기";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+/* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "그것은 저장할 수 없습니다.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "연락처에 액세스하려면 권한이 필요합니다. iOS 설정에서 주소록을 허용하십시오.";

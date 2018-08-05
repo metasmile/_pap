@@ -1,6 +1,6 @@
 //
 // Created by BL?ACKGENE on 19.07.18.
-// Copyright (c) 2018 Stells. All rights reserved.
+// C?opyright (c) 2018 Stells. All rights reserved.
 //
 
 import Foundation
@@ -22,24 +22,23 @@ extension PhotoPickerViewController{
     }
     
     internal func registerChargeObservingTimer() {
-        // every 30 sec ?
-        Timer.getScheduledTimer(identifier: chargeObservingTimerId)?.invalidate()
         Timer.scheduledTimer(identifier: chargeObservingTimerId, withTimeInterval: 30, repeats: true) { timer in
             self.updateDoneButtonChargeableState()
         }
     }
     
     internal func unregisterChargeObservingTimer() {
-        Timer.getScheduledTimer(identifier: chargeObservingTimerId)?.invalidate()
+        Timer.removeScheduledTimer(identifier: chargeObservingTimerId)
     }
 
     @discardableResult
     func updateDoneButtonChargeableState() -> Bool {
 
         let selected = self.estimatedAvailableSelectedItems > 0
+        let balanceValue = AppCenter.charge.bank.balanceValue
 
         if selected{
-            let currentSyncedBalanceValue = AppCenter.charge.bank.balanceValue
+            let currentSyncedBalanceValue = balanceValue
 
             assert(currentSyncedBalanceValue>=0, "current balance value synced with < 0")
 
@@ -49,7 +48,7 @@ extension PhotoPickerViewController{
             } else if currentSyncedBalanceValue == 0 {
                 let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.chargeableButton
                 rightButtonItem.title = doneButton?.title
-                rightButtonItem.balance = AppCenter.charge.bank.balanceValue
+                rightButtonItem.normalizedValue = balanceValue
                 rightButtonItem.target = self
                 rightButtonItem.action = #selector(self.chargeableButtonDidTap)
                 navigationItem.setRightBarButton(rightButtonItem, animated: false)
@@ -60,7 +59,7 @@ extension PhotoPickerViewController{
 
         let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.chargeableButton
         rightButtonItem.title = nil
-        rightButtonItem.balance = AppCenter.charge.bank.balanceValue
+        rightButtonItem.normalizedValue = balanceValue
         rightButtonItem.target = self
         rightButtonItem.action = #selector(self.chargeableButtonDidTap)
         navigationItem.setRightBarButton(rightButtonItem, animated: true)
@@ -80,24 +79,38 @@ extension PhotoPickerViewController{
         print("Unpaid Charges:", AppCenter.charge.getChargesHasNotReceipt() )
 
         //selected
-        let selected = self.estimatedAvailableSelectedItems > 0
-        let needToExtendPricingPeriod = AppCenter.charge.getChargesHasNotReceiptButHasPriceAmount(excludingTypes: Set([ChargeType.welcomeFreeTrial])).count > 0
-
+//        let selected = self.estimatedAvailableSelectedItems > 0
         let alert = UIAlertController.actionSheet(title: nil, message: nil)
 
         let title:String
         let subtitle:String
         var titleImage:UIImage?
 
-        if needToExtendPricingPeriod{
+        let allPaidCharges = AppCenter.charge.getChargesHasReceiptAlsoHasPriceAmount()
+
+        let areAllChargesHasPriceAmountPaid = AppCenter.charge.areAllChargesHasPriceAmountPaid(excludingTypes: Set([ChargeType.welcomeFreeTrial]))
+        let onlyWelcomeTutorialHasPaid = allPaidCharges.count==1 && allPaidCharges.contains { $0.type == .welcomeFreeTrial }
+
+        if onlyWelcomeTutorialHasPaid{
+            title = "Welcome on %@".localizedFormatted(papStrings.name)
+            subtitle = "Now Contribute And Get Free Use.".localized
+            titleImage = R.image.apps_collection.name.asUIImageContentOfFile //no cache
+
+            papLog.charge.openedInWelcomeTutorial()
+        }
+        else if areAllChargesHasPriceAmountPaid {
+            title = "This App Is Yours.".localized
+            subtitle = "Turn Your Opinion Into New Things.".localized
+            titleImage = R.image.join_us.name.asUIImageContentOfFile
+
+            papLog.charge.openedInAllPaid()
+        }
+        else{
             title = "Extend Period of Free Use".localized
             subtitle = "You Can Renew Them Repeatedly.".localized
             titleImage = R.image.apps_collection.name.asUIImageContentOfFile //no cache
 
-        }else{
-            title = "This App Is Yours.".localized
-            subtitle = "Turn Your Opinion Into New Things.".localized
-            titleImage = R.image.join_us.name.asUIImageContentOfFile
+            papLog.charge.openedInNeedToPay()
         }
 
         let attributedTitle = NSMutableAttributedString()
@@ -121,7 +134,7 @@ extension PhotoPickerViewController{
         }
 
         for charge in AppCenter.charge.charges {
-            let receipt = AppCenter.charge.bank.getReceipt(for: charge)
+//            let receipt = AppCenter.charge.bank.getReceipt(for: charge)
             
             var badgeImage: UIImage?
             
@@ -136,35 +149,37 @@ extension PhotoPickerViewController{
 
             switch charge.type {
 
-                    // charge.reward == .nonBlockOfUses, first touch -> Immediately popup.
-                case .inStoreRating where receipt == nil && !selected && charge.reward == .nonBlockOfUses:
-                    AppCenter.charge.pay(for: InAppStoreRating.self)
-                    return
+//                    // charge.reward == .nonBlockOfUses, first touch -> Immediately popup.
+//                case .inStoreRating where receipt == nil && !selected && charge.reward == .nonBlockOfUses:
+//                    AppCenter.charge.pay(for: InAppStoreRating.self)
+//                    return
+//
+//                case .onPromptRating where receipt == nil && !selected && charge.reward == .nonBlockOfUses:
+//                    AppCenter.charge.pay(for: OnPromptRating.self)
+//                    return
 
-                case .onPromptRating where receipt == nil && !selected && charge.reward == .nonBlockOfUses:
-                    AppCenter.charge.pay(for: OnPromptRating.self)
-                    return
 
                     // charge.reward == .nonBlockOfUses, second touch -> Contained by menu.
-                case .inStoreRating where receipt != nil && !selected && charge.reward == .nonBlockOfUses:
+                case .inStoreRating: //where receipt != nil && !selected && charge.reward == .nonBlockOfUses:
                     let action = UIAlertAction(title: charge.title, style: .default) { action in
                         AppCenter.charge.pay(for: InAppStoreRating.self)
                     }
                     action.accessoryImage = badgeImage
                     alert.addAction(action)
-                case .onPromptRating where receipt != nil && !selected && charge.reward == .nonBlockOfUses:
+                case .onPromptRating: //where receipt != nil && !selected && charge.reward == .nonBlockOfUses:
                     let action = UIAlertAction(title: charge.title, style: .default) { action in
                         AppCenter.charge.pay(for: OnPromptRating.self)
                     }
                     action.accessoryImage = badgeImage
                     alert.addAction(action)
-                case .socialShare where receipt == nil:
+
+                case .socialShare:
                     let action = UIAlertAction(title: charge.title, style: .default) { action in
                         AppCenter.charge.pay(for: OnSocialShare.self)
                     }
                     action.accessoryImage = badgeImage
                     alert.addAction(action)
-                case .feedback where receipt == nil:
+                case .feedback:
                     let action = UIAlertAction(title: charge.title, style: .default) { action in
                         AppCenter.charge.pay(for: OnFeedback.self)
                     }
@@ -175,13 +190,16 @@ extension PhotoPickerViewController{
             }
         }
 
-        alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel))
+        alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel){ action in
+            papLog.charge.cancelled()
+        })
         
         if let popover =  alert.popoverPresentationController {
             popover.barButtonItem = navigationItem.rightBarButtonItem
         }
 
         UIViewController.root?.present(alert, animated: true)
+        papLog.charge.opened()
     }
 }
 
@@ -214,6 +232,7 @@ private class PhotoPickerViewControllerChargeableAssets : ChargeableButtonAppear
         //TODO: apply true when some restrictful conditions (e.g. finished trial days) to induce for paying
         chargeableButton.showsColorLevel = false
         chargeableButton.showsAnimation = false
+        chargeableButton.showsPercentage = false
 
         chargeableButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
         chargeableButton.titleEdgeInsets.left = 2
@@ -273,15 +292,12 @@ private struct OnSocialShare:Payable{
     static let charge:Chargeable = AppChargeable(type: .socialShare, reward: .timeOfUses)
     
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
-        guard let appURL = URL(string: "https://get.apps.photo") else {
-            return false
-        }
 
         var paid = false
         asyncSignal.begin()
         
         DispatchQueue.main.async {
-            let shareActivity = UIActivityViewController(activityItems: [appURL], applicationActivities: nil)
+            let shareActivity = UIActivityViewController(activityItems: [papStrings.share.messageFirst], applicationActivities: nil)
             shareActivity.excludedActivityTypes = [.copyToPasteboard, .addToReadingList, .addToReminder, .addToNote]
             shareActivity.completionWithItemsHandler = { activityType, completed, returnedItems, error in
                 paid = completed
@@ -318,8 +334,8 @@ private class OnFeedback: NSObject, Payable, MFMailComposeViewControllerDelegate
         DispatchQueue.main.async {
             let mailComposer = MFMailComposeViewController()
             mailComposer.mailComposeDelegate = self
-            mailComposer.setToRecipients(["feedback@apps.photo"])
-            mailComposer.setSubject("👋 My Feedback for \(Bundle.main.displayName ?? "our app") ✍️")
+            mailComposer.setToRecipients([papStrings.feedback.email])
+            mailComposer.setSubject("👋 " + "My Feedback on %@".localizedFormatted(papStrings.name))
             mailComposer.popoverPresentationController?.sourceView = UIViewController.root?.view
             
             self.mailComposerCompletionBlock = { sent in

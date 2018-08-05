@@ -204,7 +204,7 @@
 "Deleting Targets" = "การลบเป้าหมาย";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "กำลังตรวจจับ ... %@";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+/* Generated from genl10n: AppStrings.swift#17 */
 "Did not detect anything." = "ไม่พบอะไร";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "ทิศทาง";
@@ -258,7 +258,7 @@
 "Images" = "ภาพ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "นำเข้า";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+/* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "ไม่สามารถจัดเก็บได้";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "ต้องมีสิทธิ์เข้าถึงที่อยู่ติดต่อของคุณ โปรดอนุญาตให้ผู้ติดต่อในการตั้งค่า iOS";

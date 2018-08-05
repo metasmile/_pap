@@ -204,7 +204,7 @@
 "Deleting Targets" = "Kohdeiden poistaminen";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "Havaitsemalla ... %@";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+/* Generated from genl10n: AppStrings.swift#17 */
 "Did not detect anything." = "Ei havaittu mitään.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Suunta";
@@ -258,7 +258,7 @@
 "Images" = "kuvat";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Tuonti";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+/* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "Sitä ei voitu tallentaa.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Se edellyttää lupaa käyttää yhteystietoja. Ota Yhteystietoja iOS-asetuksissa.";

@@ -210,7 +210,7 @@ extension FinderApp{
             return nil
         }
 
-        return AppMsg.cannot.detect.information
+        return AppStrings.cannot.detect.information
     }
 
     fileprivate func finalize_contact(items _items: [FinderAppResult], _ asyncSignal: AsyncWaitSignalable) -> String?{
@@ -224,12 +224,12 @@ extension FinderApp{
         var canSaveContract = items.count > 0
 
         if false == canSaveContract{
-            return AppMsg.cannot.detect.information
+            return AppStrings.cannot.detect.information
         }
 
         canSaveContract = ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal)
 
-        let errorMessage:String = AppMsg.cannot.save
+        let errorMessage:String = AppStrings.cannot.save
 
         if false == canSaveContract{
             return errorMessage
@@ -735,7 +735,7 @@ extension FinderApp{
                     let param_googlemap = [
                         "q":addressString
                         , "x-success": Bundle.main.schemes?.first ?? ""
-                        , "x-source":Bundle.main.displayName ?? ""
+                        , "x-source": papStrings.name
                     ].urlQueryString
 
                     let url_googlemap = URL(string: "comgooglemaps-x-callback://?\(param_googlemap)")
@@ -903,7 +903,7 @@ extension FinderApp{
             return nil
         }
 
-        return AppMsg.cannot.detect.information
+        return AppStrings.cannot.detect.information
     }
 
 }
@@ -1115,21 +1115,20 @@ extension Defaults: FinderAppDefaults {
     }
 
     fileprivate var selectionPreset: Int {
-        set{ set(newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value: newValue) }
         get{ return get(or: SelectionPreset.plaintext.rawValue ) }
     }
 
     fileprivate var saveContactWithoutEdit: Bool {
-        set{ set(newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: false ) }
     }
 
     fileprivate var quickActionOnly: Bool {
-        set{ set(newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue)  }
         get{ return get(or: false ) }
     }
 }
-
 
 extension FinderAppDefaults{
     fileprivate func addHandledProperty(_ dictionary:ParserDictionary.Key, _ property:ParserItem.Key){
@@ -1242,6 +1241,8 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         tableView.tintColor = tintColor
         return tableView
     }()
+
+    lazy var footerView:UITextView = UITableView.createHeaderFooterViewForMessage(text:"Currently, our AI text recognition model is only available for Alphanumeric and some special characters.".localized)
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
@@ -1437,7 +1438,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0
+        return tableView.numberOfSections-1 == section ? footerView.height : 0
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -1447,7 +1448,8 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return nil
+        footerView.sizeThatFits(CGSize(width:tableView.width, height:footerView.height))
+        return tableView.numberOfSections-1 == section ? footerView : nil
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -1592,6 +1594,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
             AppCenter.default.currentInstanceAs(FinderApp.self)?.disposePreheatingCache()
 
             if on{
+                papLog.app.defaults.log(value: String(describing: dict.items[indexPath.item].key))
                 FinderApp.privateDefaults.addHandledProperty(dict.key, dict.items[indexPath.item].key)
             }else{
                 FinderApp.privateDefaults.removeHandledProperty(dict.key, dict.items[indexPath.item].key)

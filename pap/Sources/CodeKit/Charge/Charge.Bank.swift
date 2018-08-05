@@ -15,15 +15,17 @@ protocol ChargeBanker {
 
     //INFO: init balance.
     func initializeBank() -> Amount
-    func didInitializeBank(balance:MutableAmount)
+    func didInitializeBank(balance:Amount)
 
     //INFO: return ChargeBank. balanceValue - this method may call significantly.
     // handle carefully for maintaining high performance.
-    func willSynchronizeBalanceValue(balance:MutableAmount) -> Amount
+    func synchronizeBalanceValue(balance:Amount) -> Amount
 
     //INFO: return charged price amount or nil.
-    func willSaveDeposit(forPriceAmountOf charge:Charge, balance:MutableAmount) -> Amount?
-    func didSaveDeposit(for charge:Charge, balance:MutableAmount)
+    func willSaveDeposit(forPriceAmountOf charge:Charge, balance:Amount) -> Amount?
+    func didSaveDeposit(for charge:Charge, balance:Amount)
+
+    func didDeclineDeposit(for charge:Charge)
 
     init(registeredCharges:[Charge])
 }
@@ -35,40 +37,38 @@ extension ChargeBank{
 }
 
 final class ChargeBank: NSObject, KeyPathWatchable {
-    @discardableResult
-    private func synchronizeBalanceValue() -> Double{
-        return mutableBalance.set(banker.willSynchronizeBalanceValue(balance: mutableBalance)).value
-    }
+    private var synchronizedBalance:Amount
 
-    private let mutableBalance:MutableAmountObject
-
-    fileprivate var balance:Amount{
-        synchronizeBalanceValue()
-        return mutableBalance
+    private func synchronizeBalanceValue() {
+        synchronizedBalance = banker.synchronizeBalanceValue(balance: synchronizedBalance)
     }
 
     @objc dynamic
     private(set) var balanceValue:Double{
-        set{} //only for broadcasting
-        get{ return balance.value }
+        set{ } //only for broadcasting
+        get{
+            synchronizeBalanceValue()
+            return synchronizedBalance.value
+        }
     }
 
     private let banker: ChargeBanker
 
     required init(banker: ChargeBanker.Type, registeredCharges:[Charge]){
         self.banker = banker.init(registeredCharges:registeredCharges)
-
-        let amount = MutableAmountObject(value:0)
-        amount.set(self.banker.initializeBank())
-        self.mutableBalance = amount
-        self.banker.didInitializeBank(balance: self.mutableBalance)
+        self.synchronizedBalance = self.banker.initializeBank()
+        self.banker.didInitializeBank(balance: self.synchronizedBalance)
     }
 
     func save(for charge:Charge){
-        if let priceAmount = banker.willSaveDeposit(forPriceAmountOf: charge, balance: mutableBalance){
-            mutableBalance.add(priceAmount)
-            balanceValue = synchronizeBalanceValue()
+        if let _ = banker.willSaveDeposit(forPriceAmountOf: charge, balance: synchronizedBalance){
+            synchronizeBalanceValue()
+            balanceValue = synchronizedBalance.value
+            banker.didSaveDeposit(for: charge, balance: synchronizedBalance)
         }
-        banker.didSaveDeposit(for: charge, balance: mutableBalance)
+    }
+
+    func cancelToSave(for charge:Charge){
+        banker.didDeclineDeposit(for: charge)
     }
 }

@@ -309,12 +309,12 @@ protocol StabilizerAppDefaults: AppDefaults{
 
 extension Defaults: StabilizerAppDefaults {
     var stabilizationMode: Int {
-        set { set(newValue) }
+        set { set(newValue); papLog.app.defaults.log(value:newValue) }
         get { return get(or: 0) }
     }
     
     var crop: Bool {
-        set { set(newValue) }
+        set { set(newValue); papLog.app.defaults.log(value:newValue) }
         get { return get(or: true) }
     }
 }

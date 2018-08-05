@@ -51,7 +51,7 @@ extension PhotoPickerViewController{
         let assets = items.compactMap { PHAssets.fetched.asset(at: $0) }
         batchPreviewView.removeCollectionViewItems(with: assets)
         
-        updateSelectedItemUIs()
+        updateUIDisplays()
     }
 
     func deselectAllCollectionViewItems(){

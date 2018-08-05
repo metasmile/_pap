@@ -204,7 +204,7 @@
 "Deleting Targets" = "Sletning af mål";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "Opdage ... %@";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#17 */
+/* Generated from genl10n: AppStrings.swift#17 */
 "Did not detect anything." = "Ikke registreret noget.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Retning";
@@ -258,7 +258,7 @@
 "Images" = "Billeder";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Importere";
-/* Generated from genl10n: App.Lib.LocalizedString.swift#22 */
+/* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "Det kunne ikke gemmes.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Det kræver en tilladelse til at få adgang til dine kontakter. Tillad venligst kontakter på iOS-indstillinger.";

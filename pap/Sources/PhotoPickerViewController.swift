@@ -108,7 +108,7 @@ class PhotoPickerViewController: AppDockViewController {
                 FileManager.default.clearTemporaryDirectory()
             }
 
-            papLog.event.allTasksAreFinished()
+            papLog.allTasksAreFinished()
         }
 
         //check photo library permission and load
@@ -146,7 +146,7 @@ class PhotoPickerViewController: AppDockViewController {
         initializeChargeWhenViewDidLoad()
 
         //INFO: maintain last
-        updateSelectedItemUIs()
+        updateUIDisplays()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -165,22 +165,18 @@ class PhotoPickerViewController: AppDockViewController {
         if let app = AppCenter.default.currentInstanceAs(EditableApp.self) {
             app.selectEditStateValue(app.defaultEditStateValue, in: (app as? AppDockApp)?.content)
         }
-        
+
+        updateUIDisplays()
         registerChargeObservingTimer()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
+        unregisterChargeObservingTimer()
         cancelPreheatingIfNeeded()
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        unregisterChargeObservingTimer()
-    }
-    
+
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
@@ -256,7 +252,7 @@ class PhotoPickerViewController: AppDockViewController {
         appDockView?.reloadKeepingDrawerOpened()
         batchPreviewView.updatePreviews(forced: true)
 
-        updateSelectedItemUIs()
+        updateUIDisplays()
 
         cancelPreheatingIfNeeded()
         performPrefetchIfNeeded(includingCurrentVisibleItems: true)
@@ -425,7 +421,7 @@ class PhotoPickerViewController: AppDockViewController {
         updateVisibleCellsEnabled()
     }
 
-    func updateSelectedItemUIs() {
+    func updateUIDisplays() {
         updateSelectedItemsTitle()
         updateControlsReadyingToPerform()
     }
@@ -649,10 +645,10 @@ class PhotoPickerViewController: AppDockViewController {
         }, completion: { _ in
             if tasksWereRanAndRemoved {
                 AppCenter.default.task.perform(self.batchPreviewView.createTaskReaction())
-                papLog.event.performWhenPhotoLibraryDidChanged()
+                papLog.performWhenPhotoLibraryDidChanged()
             }else{
                 self.updateAllPhotosTitle()
-                self.updateSelectedItemUIs()
+                self.updateUIDisplays()
             }
             
             if let indexPathToScroll = indexPathToScroll {
@@ -876,7 +872,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         progressBar.isHidden = true
         
         updateAllPhotosTitle()
-        updateSelectedItemUIs()
+        updateUIDisplays()
         updateVisibleCellsEnabled()
         
         updateAppDockViewProcessingEnd()
@@ -889,7 +885,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         deselectAllCollectionViewItems()
 
         updateAllPhotosTitle()
-        updateSelectedItemUIs()
+        updateUIDisplays()
         updateVisibleCellsEnabled()
 
         updateAppDockViewProcessingEnd()

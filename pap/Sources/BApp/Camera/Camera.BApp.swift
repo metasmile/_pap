@@ -19,17 +19,17 @@ protocol CameraAppDefaults: AppDefaults, AppUICameraViewOptions {
 
 extension Defaults: CameraAppDefaults {
     var isLivePhotoEnabled: Bool {
-        set { set(newValue) }
+        set { set(newValue); papLog.app.defaults.log(value:newValue) }
         get { return get(or: false) }
     }
 
     var cameraPosition: AVCaptureDevice.Position {
-        set { set(newValue.rawValue) }
+        set { set(newValue.rawValue); papLog.app.defaults.log(value:newValue.rawValue) }
         get { return AVCaptureDevice.Position(rawValue: get(or: AVCaptureDevice.Position.back.rawValue)) ?? .back }
     }
 
     var cameraFlashMode: AVCaptureDevice.FlashMode {
-        set { set(newValue.rawValue) }
+        set { set(newValue.rawValue); papLog.app.defaults.log(value:newValue.rawValue) }
         get { return AVCaptureDevice.FlashMode(rawValue: get(or: AVCaptureDevice.FlashMode.off.rawValue)) ?? .off }
     }
 }
@@ -68,6 +68,8 @@ class CameraApp: NSObject, KeyPathWatchable, BApp, LaunchableApp, AppDockApp, Ph
 
     func didLaunch(previous: App.Type?, withOption: AppLaunchOption?) {
         importedLaunchOption = withOption
+
+        papLog.app.launch(with: withOption)
     }
 }
 
