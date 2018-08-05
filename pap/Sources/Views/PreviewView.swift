@@ -179,8 +179,6 @@ class PreviewView: CustomView, AppDockContentTransition {
     }
     
     public func setPreviewLayout(with height: CGFloat) {
-        guard (collectionView.collectionViewLayout as? PreviewCollectionLayout)?.previewHeight != height else { return }
-        
         let toLayout = PreviewCollectionLayout(previewHeight: height)
         
         let touchedIndexPath = collectionView.indexPathForItem(at: transitionBeginLocation)
