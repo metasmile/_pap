@@ -44,14 +44,24 @@ class DesignableView: UIView {
 }
 
 class RoundedView: DesignableView {
+    internal class ExplicitAnimatableLayer: CALayer {
+        override func action(forKey event: String) -> CAAction? {
+            switch event {
+            case "position", "onOrderIn", "onOrderOut", "hidden": return NSNull()
+            default: return super.action(forKey: event)
+            }
+        }
+    }
+    
+    class override var layerClass: AnyClass {
+        return ExplicitAnimatableLayer.self
+    }
+    
     @IBInspectable
     var cornerRadius: CGFloat = 6 {
         didSet {
-            let disabledActions = CATransaction.disableActions()
-            CATransaction.setDisableActions(true)
             layer.masksToBounds = true
             layer.cornerRadius = cornerRadius
-            CATransaction.setDisableActions(disabledActions)
         }
     }
     
