@@ -39,7 +39,7 @@
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UCP-jh-aet">
                     <rect key="frame" x="4" y="4" width="157" height="149"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ves-sw-8ql">
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ves-sw-8ql">
                             <rect key="frame" x="0.0" y="145" width="157" height="0.0"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRa-PA-hEW" customClass="AppStatusIconView" customModule="pap" customModuleProvider="target">
