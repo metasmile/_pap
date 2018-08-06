@@ -298,7 +298,7 @@ private struct OnSocialShare:Payable{
         
         DispatchQueue.main.async {
             let shareActivity = UIActivityViewController(activityItems: [papStrings.share.messageFirst], applicationActivities: nil)
-            shareActivity.excludedActivityTypes = [.copyToPasteboard, .addToReadingList, .addToReminder, .addToNote]
+            shareActivity.excludedActivityTypes = [.copyToPasteboard, .addToReadingList, .addToReminder, .addToNote, .addToiCloudDrive]
             shareActivity.completionWithItemsHandler = { activityType, completed, returnedItems, error in
                 paid = completed
                 asyncSignal.end()
@@ -314,6 +314,7 @@ private struct OnSocialShare:Payable{
 extension UIActivityType {
     static let addToReminder = UIActivityType("com.apple.reminders.RemindersEditorExtension")
     static let addToNote = UIActivityType("com.apple.mobilenotes.SharingExtension")
+    static let addToiCloudDrive = UIActivityType("com.apple.CloudDocsUI.AddToiCloudDrive") //TODO: not work excluding this
 }
 
 import MessageUI
