@@ -14,6 +14,7 @@
                 <outlet property="appContentView" destination="UCP-jh-aet" id="9bu-0v-nz4"/>
                 <outlet property="appIconImageView" destination="Nvb-sf-iia" id="yiu-xF-Qh2"/>
                 <outlet property="appIconView" destination="Qed-pi-RuU" id="A7a-fC-iE8"/>
+                <outlet property="appIconViewTopLayout" destination="gnc-la-ytS" id="wPp-FG-ePZ"/>
                 <outlet property="appIconViewWidthLayout" destination="daS-M8-P8X" id="iDU-rJ-XNg"/>
                 <outlet property="appInfoView" destination="Ves-sw-8ql" id="xue-zU-2fX"/>
                 <outlet property="appInfoViewHeightLayout" destination="3T6-MZ-Jtz" id="hyL-Jh-hB7"/>
@@ -36,11 +37,11 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UCP-jh-aet">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UCP-jh-aet">
                     <rect key="frame" x="4" y="4" width="157" height="149"/>
                     <subviews>
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ves-sw-8ql">
-                            <rect key="frame" x="0.0" y="145" width="157" height="0.0"/>
+                            <rect key="frame" x="0.0" y="78" width="157" height="0.0"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRa-PA-hEW" customClass="AppStatusIconView" customModule="pap" customModuleProvider="target">
                                     <rect key="frame" x="68.5" y="-4" width="8" height="8"/>
@@ -68,41 +69,30 @@
                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WIe-oe-nYa" secondAttribute="trailing" constant="2" id="ygl-6z-AO0"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rqf-yk-rc2">
-                            <rect key="frame" x="4" y="4" width="149" height="141"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qed-pi-RuU" customClass="AppIconRoundedView" customModule="pap" customModuleProvider="target">
+                            <rect key="frame" x="28.5" y="3" width="100" height="75"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qed-pi-RuU" customClass="AppIconRoundedView" customModule="pap" customModuleProvider="target">
-                                    <rect key="frame" x="24.5" y="33" width="100" height="75"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nvb-sf-iia">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="75"/>
-                                        </imageView>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstItem="Nvb-sf-iia" firstAttribute="top" secondItem="Qed-pi-RuU" secondAttribute="top" id="BGR-MA-eKe"/>
-                                        <constraint firstItem="Nvb-sf-iia" firstAttribute="leading" secondItem="Qed-pi-RuU" secondAttribute="leading" id="MWQ-hs-cf6"/>
-                                        <constraint firstAttribute="trailing" secondItem="Nvb-sf-iia" secondAttribute="trailing" id="TiK-bo-fc5"/>
-                                        <constraint firstAttribute="bottom" secondItem="Nvb-sf-iia" secondAttribute="bottom" id="Upv-XU-vXC"/>
-                                        <constraint firstAttribute="width" constant="100" id="daS-M8-P8X"/>
-                                        <constraint firstAttribute="width" secondItem="Qed-pi-RuU" secondAttribute="height" multiplier="1.333" id="eIk-Ui-iwP"/>
-                                    </constraints>
-                                </view>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nvb-sf-iia">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="75"/>
+                                </imageView>
                             </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="Qed-pi-RuU" firstAttribute="centerX" secondItem="Rqf-yk-rc2" secondAttribute="centerX" id="1Rl-5h-AGK"/>
-                                <constraint firstItem="Qed-pi-RuU" firstAttribute="centerY" secondItem="Rqf-yk-rc2" secondAttribute="centerY" id="1iq-6r-FUu"/>
+                                <constraint firstItem="Nvb-sf-iia" firstAttribute="top" secondItem="Qed-pi-RuU" secondAttribute="top" id="BGR-MA-eKe"/>
+                                <constraint firstItem="Nvb-sf-iia" firstAttribute="leading" secondItem="Qed-pi-RuU" secondAttribute="leading" id="MWQ-hs-cf6"/>
+                                <constraint firstAttribute="trailing" secondItem="Nvb-sf-iia" secondAttribute="trailing" id="TiK-bo-fc5"/>
+                                <constraint firstAttribute="bottom" secondItem="Nvb-sf-iia" secondAttribute="bottom" id="Upv-XU-vXC"/>
+                                <constraint firstAttribute="width" constant="100" id="daS-M8-P8X"/>
+                                <constraint firstAttribute="width" secondItem="Qed-pi-RuU" secondAttribute="height" multiplier="1.333" id="eIk-Ui-iwP"/>
                             </constraints>
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="Ves-sw-8ql" firstAttribute="top" secondItem="Rqf-yk-rc2" secondAttribute="bottom" id="9MY-Q3-S5H"/>
-                        <constraint firstItem="Rqf-yk-rc2" firstAttribute="top" secondItem="UCP-jh-aet" secondAttribute="top" constant="4" id="WpW-nt-8oX"/>
+                        <constraint firstItem="Ves-sw-8ql" firstAttribute="top" secondItem="Qed-pi-RuU" secondAttribute="bottom" id="GyF-Mk-pDR"/>
+                        <constraint firstItem="Qed-pi-RuU" firstAttribute="centerX" secondItem="UCP-jh-aet" secondAttribute="centerX" id="Pqt-ZO-g7F"/>
                         <constraint firstAttribute="trailing" secondItem="Ves-sw-8ql" secondAttribute="trailing" id="bL9-ak-KmJ"/>
-                        <constraint firstAttribute="trailing" secondItem="Rqf-yk-rc2" secondAttribute="trailing" constant="4" id="daa-Wx-G6Z"/>
-                        <constraint firstAttribute="bottom" secondItem="Ves-sw-8ql" secondAttribute="bottom" constant="4" id="e9b-o0-5ae"/>
+                        <constraint firstItem="Qed-pi-RuU" firstAttribute="top" secondItem="UCP-jh-aet" secondAttribute="top" constant="3" id="gnc-la-ytS"/>
                         <constraint firstItem="Ves-sw-8ql" firstAttribute="leading" secondItem="UCP-jh-aet" secondAttribute="leading" id="n4v-Od-nQG"/>
-                        <constraint firstItem="Rqf-yk-rc2" firstAttribute="leading" secondItem="UCP-jh-aet" secondAttribute="leading" constant="4" id="y4X-g3-Ra1"/>
                     </constraints>
                 </view>
             </subviews>

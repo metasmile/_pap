@@ -44,7 +44,7 @@ class DesignableView: UIView {
 }
 
 class RoundedView: DesignableView {
-    internal class ExplicitAnimatableLayer: CALayer {
+    internal class DisableImplicitAnimatableLayer: CALayer {
         override func action(forKey event: String) -> CAAction? {
             switch event {
             case "position", "onOrderIn", "onOrderOut", "hidden": return NSNull()
@@ -54,7 +54,7 @@ class RoundedView: DesignableView {
     }
     
     class override var layerClass: AnyClass {
-        return ExplicitAnimatableLayer.self
+        return DisableImplicitAnimatableLayer.self
     }
     
     @IBInspectable
