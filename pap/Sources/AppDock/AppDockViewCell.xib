@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,7 +13,8 @@
             <connections>
                 <outlet property="appContentView" destination="UCP-jh-aet" id="9bu-0v-nz4"/>
                 <outlet property="appIconImageView" destination="Nvb-sf-iia" id="yiu-xF-Qh2"/>
-                <outlet property="appIconView" destination="Rqf-yk-rc2" id="ww6-Oe-XKL"/>
+                <outlet property="appIconView" destination="Qed-pi-RuU" id="A7a-fC-iE8"/>
+                <outlet property="appIconViewWidthLayout" destination="daS-M8-P8X" id="iDU-rJ-XNg"/>
                 <outlet property="appInfoView" destination="Ves-sw-8ql" id="xue-zU-2fX"/>
                 <outlet property="appInfoViewHeightLayout" destination="3T6-MZ-Jtz" id="hyL-Jh-hB7"/>
                 <outlet property="appStatusIconView" destination="kRa-PA-hEW" id="Mva-PU-BTu"/>
@@ -38,11 +39,11 @@
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UCP-jh-aet">
                     <rect key="frame" x="4" y="4" width="157" height="149"/>
                     <subviews>
-                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ves-sw-8ql">
-                            <rect key="frame" x="0.0" y="149" width="157" height="0.0"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ves-sw-8ql">
+                            <rect key="frame" x="0.0" y="145" width="157" height="0.0"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRa-PA-hEW" customClass="AppStatusIconView" customModule="pap" customModuleProvider="target">
-                                    <rect key="frame" x="69" y="-4" width="8" height="8"/>
+                                    <rect key="frame" x="68.5" y="-4" width="8" height="8"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="8" id="PgV-ZN-Qud"/>
@@ -50,7 +51,7 @@
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIe-oe-nYa">
-                                    <rect key="frame" x="79" y="0.0" width="0.0" height="0.0"/>
+                                    <rect key="frame" x="78.5" y="0.0" width="0.0" height="4"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -62,40 +63,46 @@
                                 <constraint firstItem="WIe-oe-nYa" firstAttribute="centerX" secondItem="Ves-sw-8ql" secondAttribute="centerX" id="9Bt-z9-VUA"/>
                                 <constraint firstItem="WIe-oe-nYa" firstAttribute="leading" secondItem="kRa-PA-hEW" secondAttribute="trailing" constant="2" id="Gqo-vM-LWH"/>
                                 <constraint firstItem="WIe-oe-nYa" firstAttribute="top" secondItem="Ves-sw-8ql" secondAttribute="top" id="XYy-rk-aDq"/>
-                                <constraint firstItem="WIe-oe-nYa" firstAttribute="centerY" secondItem="Ves-sw-8ql" secondAttribute="centerY" id="oSD-eF-9U4"/>
+                                <constraint firstItem="WIe-oe-nYa" firstAttribute="centerY" secondItem="Ves-sw-8ql" secondAttribute="centerY" constant="2" id="oSD-eF-9U4"/>
                                 <constraint firstItem="kRa-PA-hEW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ves-sw-8ql" secondAttribute="leading" constant="2" id="tZc-9X-hCe"/>
-                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WIe-oe-nYa" secondAttribute="trailing" id="ygl-6z-AO0"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WIe-oe-nYa" secondAttribute="trailing" constant="2" id="ygl-6z-AO0"/>
                             </constraints>
                         </view>
-                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rqf-yk-rc2" customClass="RoundedView" customModule="pap" customModuleProvider="target">
-                            <rect key="frame" x="-15.5" y="4" width="188" height="141"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rqf-yk-rc2">
+                            <rect key="frame" x="4" y="4" width="149" height="141"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nvb-sf-iia">
-                                    <rect key="frame" x="-0.5" y="0.0" width="188" height="141"/>
-                                </imageView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qed-pi-RuU" customClass="AppIconRoundedView" customModule="pap" customModuleProvider="target">
+                                    <rect key="frame" x="24.5" y="33" width="100" height="75"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nvb-sf-iia">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="75"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="Nvb-sf-iia" firstAttribute="top" secondItem="Qed-pi-RuU" secondAttribute="top" id="BGR-MA-eKe"/>
+                                        <constraint firstItem="Nvb-sf-iia" firstAttribute="leading" secondItem="Qed-pi-RuU" secondAttribute="leading" id="MWQ-hs-cf6"/>
+                                        <constraint firstAttribute="trailing" secondItem="Nvb-sf-iia" secondAttribute="trailing" id="TiK-bo-fc5"/>
+                                        <constraint firstAttribute="bottom" secondItem="Nvb-sf-iia" secondAttribute="bottom" id="Upv-XU-vXC"/>
+                                        <constraint firstAttribute="width" constant="100" id="daS-M8-P8X"/>
+                                        <constraint firstAttribute="width" secondItem="Qed-pi-RuU" secondAttribute="height" multiplier="1.333" id="eIk-Ui-iwP"/>
+                                    </constraints>
+                                </view>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="Nvb-sf-iia" secondAttribute="trailing" id="CmO-RZ-EEV"/>
-                                <constraint firstAttribute="bottom" secondItem="Nvb-sf-iia" secondAttribute="bottom" id="IMi-VA-1Dp"/>
-                                <constraint firstItem="Nvb-sf-iia" firstAttribute="leading" secondItem="Rqf-yk-rc2" secondAttribute="leading" id="ODk-pM-pft"/>
-                                <constraint firstAttribute="width" secondItem="Rqf-yk-rc2" secondAttribute="height" multiplier="1.333:1" id="ewO-Dv-5eK"/>
-                                <constraint firstItem="Nvb-sf-iia" firstAttribute="top" secondItem="Rqf-yk-rc2" secondAttribute="top" id="l2x-x2-xmW"/>
+                                <constraint firstItem="Qed-pi-RuU" firstAttribute="centerX" secondItem="Rqf-yk-rc2" secondAttribute="centerX" id="1Rl-5h-AGK"/>
+                                <constraint firstItem="Qed-pi-RuU" firstAttribute="centerY" secondItem="Rqf-yk-rc2" secondAttribute="centerY" id="1iq-6r-FUu"/>
                             </constraints>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="10"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="Ves-sw-8ql" firstAttribute="top" secondItem="Rqf-yk-rc2" secondAttribute="bottom" constant="4" id="9MY-Q3-S5H"/>
+                        <constraint firstItem="Ves-sw-8ql" firstAttribute="top" secondItem="Rqf-yk-rc2" secondAttribute="bottom" id="9MY-Q3-S5H"/>
                         <constraint firstItem="Rqf-yk-rc2" firstAttribute="top" secondItem="UCP-jh-aet" secondAttribute="top" constant="4" id="WpW-nt-8oX"/>
                         <constraint firstAttribute="trailing" secondItem="Ves-sw-8ql" secondAttribute="trailing" id="bL9-ak-KmJ"/>
-                        <constraint firstAttribute="bottom" secondItem="Ves-sw-8ql" secondAttribute="bottom" id="e9b-o0-5ae"/>
+                        <constraint firstAttribute="trailing" secondItem="Rqf-yk-rc2" secondAttribute="trailing" constant="4" id="daa-Wx-G6Z"/>
+                        <constraint firstAttribute="bottom" secondItem="Ves-sw-8ql" secondAttribute="bottom" constant="4" id="e9b-o0-5ae"/>
                         <constraint firstItem="Ves-sw-8ql" firstAttribute="leading" secondItem="UCP-jh-aet" secondAttribute="leading" id="n4v-Od-nQG"/>
-                        <constraint firstItem="Rqf-yk-rc2" firstAttribute="centerX" secondItem="UCP-jh-aet" secondAttribute="centerX" id="xSM-FD-hDI"/>
+                        <constraint firstItem="Rqf-yk-rc2" firstAttribute="leading" secondItem="UCP-jh-aet" secondAttribute="leading" constant="4" id="y4X-g3-Ra1"/>
                     </constraints>
                 </view>
             </subviews>

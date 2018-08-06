@@ -916,25 +916,11 @@ extension AppDockView {
     private func showAppCollectionZoomOutAnimation() {
         guard reorderAppGesture?.state != .changed || reorderAppGesture?.state != .began else { return }
         
-        let centerIndexPath = appCollectionView.indexPathForItem(at: dockView.convert(appCollectionView.center, to: appCollectionView))
-        
         let toLayout = AppCollectionViewLayout(layoutMetrics: .compact)
-        self.appCollectionView.setCollectionViewLayout(toLayout, animated: false)
-        
-        let targetOffset: CGPoint
-        if let indexPath = centerIndexPath, let attributes = appCollectionView.layoutAttributesForItem(at: indexPath) {
-            let offsetX = min(attributes.center.x - appContentView.bounds.width / 2, toLayout.collectionViewContentSize.width - self.appContentView.bounds.width)
-            targetOffset = CGPoint(x: offsetX, y: self.appCollectionView.contentOffset.y)
-        }
-        else {
-            let centerXOfCollectionView = dockView.convert(appCollectionView.center, to: appCollectionView).x - appContentView.bounds.width / 2
-            let offsetX = min(centerXOfCollectionView, toLayout.collectionViewContentSize.width - self.appContentView.bounds.width)
-            targetOffset = CGPoint(x: offsetX, y: self.appCollectionView.contentOffset.y)
-        }
-        self.appCollectionView.setContentOffset(targetOffset, animated: false)
         
         self.appCollectionViewHeightLayout.constant = AppCollectionViewLayout.LayoutConstants.compactHeight
         UIView.animateAsSpring(options: [.allowUserInteraction, .beginFromCurrentState, .overrideInheritedOptions], animations: {
+            self.appCollectionView.setCollectionViewLayout(toLayout, animated: false)
             self.dockView.layoutIfNeeded()
         }, completion: nil)
         
@@ -1064,11 +1050,25 @@ class AppCollectionViewLayout: UICollectionViewLayout {
 
 // MARK: -
 
+class AppIconRoundedView: RoundedView {
+    override func initialize() {
+        super.initialize()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        cornerRadius = bounds.height / 2
+    }
+}
+
 internal class AppDockViewCell: CustomCollectionViewCell {
     @IBOutlet weak private var selectedStateView: RoundedView!
     
     @IBOutlet weak private var appContentView: UIView!
-    @IBOutlet weak private var appIconView: RoundedView!
+    @IBOutlet weak private var appIconView: AppIconRoundedView!
+    @IBOutlet weak private var appIconViewWidthLayout: NSLayoutConstraint!
+    
     @IBOutlet weak private var appIconImageView: UIImageView!
     
     @IBOutlet weak var appInfoView: UIView!
@@ -1082,17 +1082,17 @@ internal class AppDockViewCell: CustomCollectionViewCell {
         let iconBorderColor: UIColor
         if AppCollectionViewLayout.LayoutConstants.compactHeight == layoutAttributes.frame.height {
             appInfoViewHeightLayout.constant = 0
+            appIconViewWidthLayout.constant = layoutAttributes.frame.width - 20
+            
             iconBorderColor = UIColor(red: 218 / 255.0, green: 218 / 255.0, blue: 218 / 255.0, alpha: 1)
         }
         else {
             appInfoViewHeightLayout.constant = 20
+            appIconViewWidthLayout.constant = layoutAttributes.frame.width - 30
+            
             iconBorderColor = UIColor(red: 208 / 255.0, green: 208 / 255.0, blue: 208 / 255.0, alpha: 1)
         }
         
-        let margin: CGFloat = 4
-        let contentBounds = UIEdgeInsetsInsetRect(layoutAttributes.frame, UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin))
-        
-        appIconView.cornerRadius = ((contentBounds.height - margin * 2) - appInfoViewHeightLayout.constant) * 0.5
         appIconView.layer.borderColor = iconBorderColor.cgColor
         appIconView.layer.borderWidth = 1 / UIScreen.main.scale
     }
