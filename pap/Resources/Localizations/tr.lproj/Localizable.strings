@@ -122,14 +122,20 @@
 "%@ Day License" = "%@ Gün Lisansı";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Gün";
+/* Generated from genl10n: pap.Strings.swift#41 */
+"%@ Download now for FREE!" = "%@ Hemen ÜCRETSİZ indir!";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ bulunabilir";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
 "%@ will be hidden" = "%@ gizlenecek";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d kez";
+/* Generated from genl10n: pap.Strings.swift#32 */
+"A photos app, but contains a lot of sub-apps in its own." = "Bir fotoğraf uygulaması, ancak kendi başına bir sürü alt uygulama içeriyor.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Eylemler";
+/* Generated from genl10n: PhoneCalls.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
+"Activating Current Visible Items ..." = "Mevcut Görünür Öğelerin Etkinleştirilmesi ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
 "Add New Contact" = "Yeni Kişi Ekle";
 /* Generated from genl10n: Finder.BApp.swift#466 */
@@ -140,6 +146,8 @@
 "Albums" = "albümler";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Tüm kişiler başarıyla kaydedildi.";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"All not taken with Camera" = "Kamera Olmadan Kaydedildi";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "All";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -147,7 +155,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animasyon";
 /* Generated from genl10n: Filters.BApp.swift#76 */
-"Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "İstediğiniz tüm fotoğraflarınıza Yüksek Kaliteli filtreler uygulayın. Düzenlenecek fotoğrafların sayısı için bir sınırlama yoktur.";
+"Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "İstediğiniz tüm fotoğraflarınıza Yüksek Kaliteli filtreler uygulayın. Bu toplu işleme aracının, filtreleri uygulamak için fotoğraf sayısına sınırı yoktur.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "En boy oranı";
 /* Generated from genl10n: AutoEditor.BApp.swift#172 */
@@ -179,13 +187,13 @@
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Bir Alt Eylem seçin.";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
-"Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Temizleyici, çift ve benzer resimler, yakın fotoğraflar veya Lockscreen çekimleri gibi her türlü yanlış fotoğrafı bulup silmenizi sağlar!";
+"Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Temizleyici, örneğin çift ve benzer resimler, yakın fotoğraflar veya Lockscreen çekimleriyle eşleştiğinde çeşitli yanlış fotoğrafları bulup silmenizi sağlar!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "temizleyici";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "İletişim";
 /* Generated from genl10n: Converter.BApp.swift#42 */
-"Converter enables you to convert every media formats into every each other." = "Dönüştürücü, her medya formatını birbirinize dönüştürmenizi sağlar.";
+"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Dönüştürücü, Videolar, Canlı Fotoğraflar, GIF'ler gibi her medya formatını birbirinize dönüştürmenizi sağlar.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "Dönüştürücü";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
@@ -196,6 +204,8 @@
 "Crop to Fit" = "Sığacak şekilde kırp";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
+/* Generated from genl10n: Finder.BApp.swift#1245 */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "Şu anda bizim AI metin tanıma modelimiz sadece Alfanümerik ve bazı özel karakterler için kullanılabilir.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "görenek";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -208,6 +218,8 @@
 "Did not detect anything." = "Hiçbir şey tespit etmedi.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
+/* Generated from genl10n: pap.Strings.swift#45 */
+"Download now for FREE at %@" = "Şimdi %@ adresinden ÜCRETSİZ indirin";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "İndiriliyor ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -226,8 +238,8 @@
 "Filters" = "Filtreler";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "bulmak";
-/* Generated from genl10n: Finder.BApp.swift#42 */
-"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Bulucu, fotoğraflarınızdaki telefon numaraları, adresler, tarihler veya URL'ler gibi her anlamlı bilgiyi ayıklamak ve ardından arama yapmak, haritaları açmak veya web sitelerinde gezinmek bile arama uçuşlarında arama yapmanıza olanak tanır!";
+/* Generated from genl10n: Finder.BApp.swift#44 */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Bulucu, fotoğraflarınızdaki telefon numaraları, adresler, tarihler veya URL'ler gibi her anlamlı bilgiyi ayıklamak ve ardından arama yapmak, haritaları açmak veya web sitelerinde gezinmek için bile arama uçuşlarında arama yapmanıza olanak tanır. Ayrıca hepsini tamamen boş metin olarak kaydedebilirsiniz.";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "Bulucu";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -280,6 +292,8 @@
 "Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Albümlerim";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
+"My Feedback on %@" = "%@ İle ilgili görüşlerim";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "Yeni bağlantı";
 /* Generated from genl10n: Finder.BApp.swift#435 */
@@ -290,6 +304,10 @@
 "No Crop" = "Kırpma Yok";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Döngü yok";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
+"Now Contribute And Get Free Use." = "Şimdi Katkıda Bulun ve Ücretsiz Kullanın.";
+/* Generated from genl10n: PhoneCalls.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
+"On Standby" = "Beklemede";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Apple Haritalar'ı aç";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -330,6 +348,10 @@
 "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Geri Döndür uygulaması, düzenlenmiş fotoğrafların bir miktarını orijinaline hızlıca geri yüklemeyi sağlar. Ayrıca, otomatik seçim ile size yardımcı olur!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Geri sarma";
+/* Generated from genl10n: Transform.BApp.swift#70 */
+"Rotate" = "Döndürme";
+/* Generated from genl10n: Transform.BApp.swift#54 */
+"Rotation" = "rotasyon";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "Tüm Telefon Numaralarını Kaydet";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
@@ -340,8 +362,6 @@
 "Save" = "Save";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "Dahili Kamerayla Kaydedildi";
-/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
-"Saved Without the Camera" = "Kamera Olmadan Kaydedildi";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Sonuçları Kaydetme ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
@@ -405,7 +425,7 @@
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
 "This App Is Yours." = "Bu uygulama sizin.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
-"This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "Bu basit ancak en hızlı araç, Canlı Fotoğraflar dahil olmak üzere birçok medya dosyasını hızlı bir şekilde döndürmenizi ve çevirmenizi sağlar. Varsayılan olarak, bunları düzenlemek için fotoğraf sayısı sınırlıdır.";
+"This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Bu basit ancak büyük ölçekli toplu resim dönüştürme aracı, Canlı Fotoğraflar da dahil olmak üzere birçok medya dosyasını hızlıca döndürmenizi ve çevirmenizi sağlar. Düzenlenecek fotoğrafların sayısı için bir sınırlama yoktur.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "Çok Yakın Yüz";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
@@ -428,7 +448,11 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#17 */
 "Welcome Free Trial Pack" = "Hoş Geldiniz Ücretsiz Deneme Paketi";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#95 */
+"Welcome on %@" = "%@ 'Ye hoş geldiniz";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "Bir değerlendirme yazın";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
 "You Can Renew Them Repeatedly." = "Onları tekrar tekrar yenileyebilirsiniz.";
+/* Generated from genl10n: Converter.AppDockContent.swift#41 */
+"You can select only items that matched with starting format." = "Sadece başlangıç ​​formatıyla eşleşen öğeleri seçebilirsiniz.";

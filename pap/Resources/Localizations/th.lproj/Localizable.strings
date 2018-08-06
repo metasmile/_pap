@@ -122,14 +122,20 @@
 "%@ Day License" = "%@ ใบอนุญาตวัน";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ วัน";
+/* Generated from genl10n: pap.Strings.swift#41 */
+"%@ Download now for FREE!" = "%@ ดาวน์โหลดได้ฟรี!";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "อาจพบ %@";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
 "%@ will be hidden" = "%@ จะถูกซ่อนไว้";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d ครั้ง";
+/* Generated from genl10n: pap.Strings.swift#32 */
+"A photos app, but contains a lot of sub-apps in its own." = "แอปรูปภาพ แต่มีแอปย่อยจำนวนมากอยู่ด้วยตัวเอง";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "การปฏิบัติ";
+/* Generated from genl10n: PhoneCalls.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
+"Activating Current Visible Items ..." = "กำลังเปิดใช้งานรายการที่มองเห็นได้ปัจจุบัน ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
 "Add New Contact" = "เพิ่มผู้ติดต่อใหม่";
 /* Generated from genl10n: Finder.BApp.swift#466 */
@@ -140,6 +146,8 @@
 "Albums" = "อัลบัม";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "บันทึกรายชื่อติดต่อทั้งหมดเรียบร้อยแล้ว";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"All not taken with Camera" = "บันทึกโดยไม่มีกล้อง";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "All";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -147,7 +155,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "นิเมชั่น";
 /* Generated from genl10n: Filters.BApp.swift#76 */
-"Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "ใช้ตัวกรองคุณภาพสูงกับรูปภาพทั้งหมดที่คุณต้องการ ไม่ จำกัด จำนวนภาพถ่ายที่จะแก้ไขได้";
+"Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "ใช้ตัวกรองคุณภาพสูงกับรูปภาพทั้งหมดที่คุณต้องการ เครื่องมือการประมวลผลชุดนี้ไม่ จำกัด จำนวนรูปภาพที่จะใช้ตัวกรอง";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "อัตราส่วนภาพ";
 /* Generated from genl10n: AutoEditor.BApp.swift#172 */
@@ -179,13 +187,13 @@
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "เลือกการกระทำย่อย";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
-"Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner ช่วยให้คุณค้นหาและลบรูปภาพที่ไม่ถูกต้องทุกรูปแบบเช่นภาพที่ซ้ำกันและภาพใกล้เคียงหรือภาพ Lockscreen!";
+"Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner ช่วยให้คุณสามารถค้นหาและลบรูปภาพประเภทต่างๆที่ไม่ถูกต้องหากจับคู่กันได้เช่นภาพที่ซ้ำกันและภาพใกล้เคียงกันหรือภาพ Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "ทำความสะอาด";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Contacts";
 /* Generated from genl10n: Converter.BApp.swift#42 */
-"Converter enables you to convert every media formats into every each other." = "Converter ช่วยให้คุณสามารถแปลงรูปแบบสื่อทุกรูปแบบในแต่ละรูปแบบได้";
+"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter ช่วยให้คุณสามารถแปลงรูปแบบสื่อทุกรูปแบบเช่นวิดีโอ, รูปถ่ายสด, GIFs ลงในแต่ละอื่น ๆ";
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "แปลง";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
@@ -196,6 +204,8 @@
 "Crop to Fit" = "ครอบตัดให้พอดี";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "พืชผล";
+/* Generated from genl10n: Finder.BApp.swift#1245 */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "ขณะนี้รูปแบบการจดจำข้อความ AI ของเรามีให้สำหรับตัวอักษรและตัวเลขเท่านั้นและอักขระพิเศษบางตัว";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "กำหนดเอง";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -208,6 +218,8 @@
 "Did not detect anything." = "ไม่พบอะไร";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "ทิศทาง";
+/* Generated from genl10n: pap.Strings.swift#45 */
+"Download now for FREE at %@" = "ดาวน์โหลดเดี๋ยวนี้ฟรีที่ %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "ดาวน์โหลด ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -226,8 +238,8 @@
 "Filters" = "ฟิลเตอร์";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "หา";
-/* Generated from genl10n: Finder.BApp.swift#42 */
-"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Finder ช่วยให้สามารถดึงข้อมูลที่มีความหมายทุกอย่างเช่นหมายเลขโทรศัพท์ที่อยู่วันที่หรือ URL จากภาพถ่ายของคุณแล้วเรียกเปิดแผนที่หรือนำทางเว็บไซต์ได้แม้กระทั่งการค้นหาเที่ยวบิน!";
+/* Generated from genl10n: Finder.BApp.swift#44 */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder ช่วยให้สามารถดึงข้อมูลที่มีความหมายทุกอย่างเช่นหมายเลขโทรศัพท์ที่อยู่วันที่หรือ URL จากภาพถ่ายของคุณจากนั้นเรียกใช้เปิดแผนที่หรือนำทางเว็บไซต์ได้แม้กระทั่งการค้นหาเที่ยวบิน นอกจากนี้คุณยังสามารถบันทึกข้อมูลทั้งหมดเป็นข้อความดิบ";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "Finder";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -280,6 +292,8 @@
 "Modify" = "แก้ไข";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "อัลบั้มของฉัน";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
+"My Feedback on %@" = "คำติชมของฉันเกี่ยวกับ %@";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "ที่ติดต่อใหม่";
 /* Generated from genl10n: Finder.BApp.swift#435 */
@@ -290,6 +304,10 @@
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "ไม่มีลูป";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
+"Now Contribute And Get Free Use." = "มีส่วนร่วมและใช้งานฟรี";
+/* Generated from genl10n: PhoneCalls.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
+"On Standby" = "เมื่อสแตนด์บาย";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "เปิดแอปเปิ้ลแผนที่";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -330,6 +348,10 @@
 "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "แอปพลิเคชันเปลี่ยนกลับช่วยให้สามารถคืนค่ารูปภาพที่แก้ไขไปเป็นภาพเดิมได้อย่างรวดเร็ว นอกจากนี้ยังช่วยคุณในการเลือกอัตโนมัติ!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "ม้วนกลับ";
+/* Generated from genl10n: Transform.BApp.swift#70 */
+"Rotate" = "หมุน";
+/* Generated from genl10n: Transform.BApp.swift#54 */
+"Rotation" = "การหมุน";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "บันทึกหมายเลขโทรศัพท์ทั้งหมด";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
@@ -340,8 +362,6 @@
 "Save" = "Save";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "บันทึกด้วยกล้องในตัว";
-/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
-"Saved Without the Camera" = "บันทึกโดยไม่มีกล้อง";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "กำลังบันทึกผลลัพธ์ ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
@@ -405,7 +425,7 @@
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
 "This App Is Yours." = "App นี้เป็นของคุณ";
 /* Generated from genl10n: Transform.BApp.swift#55 */
-"This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "นี้เป็นเครื่องมือที่ง่าย แต่เร็วที่สุดช่วยให้คุณสามารถหมุนและพลิกไฟล์มีเดียมากมายรวมถึง Live Photos โดยค่าเริ่มต้นจะไม่มีการ จำกัด จำนวนรูปภาพที่จะแก้ไข";
+"This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "เครื่องมือแปลงไฟล์ชุดภาพที่ซับซ้อนและตรงไปตรงมานี้ช่วยให้คุณสามารถหมุนและพลิกไฟล์มีเดียมากมายรวมถึงรูปภาพสดได้อย่างรวดเร็ว ไม่ จำกัด จำนวนภาพถ่ายที่จะแก้ไขได้";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "Too Close-up Face";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
@@ -428,7 +448,11 @@
 "Warp" = "วิปริต";
 /* Generated from genl10n: AppCenter.Charge.swift#17 */
 "Welcome Free Trial Pack" = "แพ็คเกจทดลองใช้ฟรี";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#95 */
+"Welcome on %@" = "ยินดีต้อนรับสู่ %@";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "แสดงความคิดเห็น";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
 "You Can Renew Them Repeatedly." = "คุณสามารถต่ออายุได้อีกครั้ง";
+/* Generated from genl10n: Converter.AppDockContent.swift#41 */
+"You can select only items that matched with starting format." = "คุณสามารถเลือกเฉพาะรายการที่ตรงกับรูปแบบเริ่มต้น";

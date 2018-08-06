@@ -122,14 +122,20 @@
 "%@ Day License" = "%@ Άδεια ημέρας";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Ημέρα";
+/* Generated from genl10n: pap.Strings.swift#41 */
+"%@ Download now for FREE!" = "%@ Κάντε λήψη τώρα ΔΩΡΕΑΝ!";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ μπορεί να βρεθεί";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
 "%@ will be hidden" = "%@ θα είναι κρυμμένο";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d times";
+/* Generated from genl10n: pap.Strings.swift#32 */
+"A photos app, but contains a lot of sub-apps in its own." = "Μια εφαρμογή φωτογραφιών, αλλά περιέχει πολλές υποεπιλογές από τη δική της.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Ενέργειες";
+/* Generated from genl10n: PhoneCalls.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
+"Activating Current Visible Items ..." = "Ενεργοποίηση τωρινών ορατών στοιχείων ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
 "Add New Contact" = "Προσθήκη νέας επαφής";
 /* Generated from genl10n: Finder.BApp.swift#466 */
@@ -140,6 +146,8 @@
 "Albums" = "Άλμπουμ";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Όλες οι επαφές αποθηκεύτηκαν με επιτυχία.";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"All not taken with Camera" = "Αποθηκεύθηκε χωρίς τη φωτογραφική μηχανή";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "Ολα";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -147,7 +155,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animation";
 /* Generated from genl10n: Filters.BApp.swift#76 */
-"Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Εφαρμόστε φίλτρα υψηλής ποιότητας σε όλες τις φωτογραφίες που θέλετε. Δεν υπάρχει όριο στον αριθμό των φωτογραφιών για την επεξεργασία τους.";
+"Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "Εφαρμόστε φίλτρα υψηλής ποιότητας σε όλες τις φωτογραφίες που θέλετε. Αυτό το εργαλείο επεξεργασίας παρτίδας δεν έχει όριο στον αριθμό των φωτογραφιών για την εφαρμογή φίλτρων.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Αναλογία απεικόνισης";
 /* Generated from genl10n: AutoEditor.BApp.swift#172 */
@@ -179,13 +187,13 @@
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Επιλέξτε μια υπο-ενέργεια.";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
-"Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner σάς δίνει τη δυνατότητα να εντοπίσετε και να διαγράψετε κάθε είδους λανθασμένες φωτογραφίες, όπως διπλές και παρόμοιες εικόνες, κοντινές φωτογραφίες ή λήψεις Lockscreen!";
+"Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner σάς δίνει τη δυνατότητα να βρείτε και να διαγράψετε διάφορα είδη λανθασμένων φωτογραφιών, αν έχουν αντιστοιχιστεί, για παράδειγμα, διπλότυπα και παρόμοιες εικόνες, φωτογραφίες κοντά στο σκοτάδι ή λήψεις Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Καθαριστής";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Επαφές";
 /* Generated from genl10n: Converter.BApp.swift#42 */
-"Converter enables you to convert every media formats into every each other." = "Ο μετατροπέας σάς επιτρέπει να μετατρέπετε κάθε μορφότυπο μέσου σε κάθε ένα από το άλλο.";
+"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter σας επιτρέπει να μετατρέψετε κάθε μορφή μέσων όπως Βίντεο, Live Photos, GIF σε κάθε ένα από το άλλο.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "Μετατροπέας";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
@@ -196,6 +204,8 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
+/* Generated from genl10n: Finder.BApp.swift#1245 */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "Προς το παρόν, το μοντέλο αναγνώρισης κειμένου AI είναι διαθέσιμο μόνο για αλφαριθμητικά και μερικούς ειδικούς χαρακτήρες.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Εθιμο";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -208,6 +218,8 @@
 "Did not detect anything." = "Δεν ανίχνευσε τίποτα.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Κατεύθυνση";
+/* Generated from genl10n: pap.Strings.swift#45 */
+"Download now for FREE at %@" = "Κατεβάστε τώρα δωρεάν στο %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Λήψη ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -226,8 +238,8 @@
 "Filters" = "Φίλτρα";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "Εύρημα";
-/* Generated from genl10n: Finder.BApp.swift#42 */
-"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Το Finder επιτρέπει την εξαγωγή κάθε σημαντικής πληροφορίας, όπως αριθμούς τηλεφώνου, διευθύνσεις, ημερομηνίες ή διευθύνσεις URL από τις φωτογραφίες σας, και στη συνέχεια να καλέσετε, να ανοίξετε τους χάρτες ή να περιηγηθείτε σε ιστότοπους, ακόμη και να αναζητήσετε πτήσεις!";
+/* Generated from genl10n: Finder.BApp.swift#44 */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Το Finder επιτρέπει την εξαγωγή κάθε σημαντικής πληροφορίας, όπως αριθμούς τηλεφώνου, διευθύνσεις, ημερομηνίες ή διευθύνσεις URL από τις φωτογραφίες σας, και στη συνέχεια να καλέσετε, να ανοίξετε τους χάρτες ή να περιηγηθείτε σε ιστότοπους, ακόμη και να αναζητήσετε πτήσεις. Μπορείτε επίσης να τα αποθηκεύσετε ως ακατέργαστο κείμενο.";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "Finder";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -280,6 +292,8 @@
 "Modify" = "Τροποποιώ";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Τα λευκώματά μου";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
+"My Feedback on %@" = "Τα σχόλιά μου σχετικά με %@";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "Νέα επαφή";
 /* Generated from genl10n: Finder.BApp.swift#435 */
@@ -290,6 +304,10 @@
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "No loop";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
+"Now Contribute And Get Free Use." = "Τώρα συμβάλλετε και αποκτήστε δωρεάν χρήση.";
+/* Generated from genl10n: PhoneCalls.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
+"On Standby" = "Σε αναμονή";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Ανοίξτε τους Χάρτες Apple";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -330,6 +348,10 @@
 "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Η εφαρμογή 'Επαναφορά' επιτρέπει την γρήγορη επαναφορά μιας ποσότητας επεξεργασμένων φωτογραφιών στην αρχική. Επιπλέον, σας βοηθά με την αυτόματη επιλογή!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Αναδίπλωση";
+/* Generated from genl10n: Transform.BApp.swift#70 */
+"Rotate" = "Γυρίζω";
+/* Generated from genl10n: Transform.BApp.swift#54 */
+"Rotation" = "Περιστροφή";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "Αποθήκευση όλων των αριθμών τηλεφώνου";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
@@ -340,8 +362,6 @@
 "Save" = "Save";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "Αποθηκευμένη με ενσωματωμένη κάμερα";
-/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
-"Saved Without the Camera" = "Αποθηκεύθηκε χωρίς τη φωτογραφική μηχανή";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Αποθήκευση αποτελεσμάτων ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
@@ -405,7 +425,7 @@
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
 "This App Is Yours." = "Αυτή η εφαρμογή είναι δική σας.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
-"This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "Αυτό το απλό αλλά πιο γρήγορο εργαλείο σάς επιτρέπει να περιστρέφετε γρήγορα και να αναστρέφετε πολλά αρχεία πολυμέσων, όπως τα Live Photos. Από προεπιλογή, δεν υπάρχει όριο στον αριθμό των φωτογραφιών για την επεξεργασία τους.";
+"This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Αυτό το απλό αλλά μεγάλης κλίμακας εργαλείο μετασχηματισμού εικόνας παρτίδας σάς επιτρέπει να περιστρέφετε γρήγορα και να αναστρέφετε πολλά αρχεία πολυμέσων, συμπεριλαμβανομένων των Live Photos. Δεν υπάρχει όριο στον αριθμό των φωτογραφιών για την επεξεργασία τους.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "Πάρα πολύ κοντινή όψη";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
@@ -428,7 +448,11 @@
 "Warp" = "Στημόνι";
 /* Generated from genl10n: AppCenter.Charge.swift#17 */
 "Welcome Free Trial Pack" = "Καλώς ήρθατε δωρεάν δοκιμαστικό πακέτο";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#95 */
+"Welcome on %@" = "Καλώς ήρθατε στο %@";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "Γράψτε μια κριτική";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
 "You Can Renew Them Repeatedly." = "Μπορείτε να τους επαναλάβετε επανειλημμένα.";
+/* Generated from genl10n: Converter.AppDockContent.swift#41 */
+"You can select only items that matched with starting format." = "Μπορείτε να επιλέξετε μόνο στοιχεία που ταιριάζουν με τη μορφή εκκίνησης.";

@@ -241,7 +241,7 @@ class PHAssetGarbageDetector_VideosShorterThan1Sec: PHAssetGarbageDetector{
 
 class PHAssetGarbageDetector_SavedWithouttheCamera: PHAssetGarbageDetector{
     override class var label:String{
-        return "Saved Without the Camera".localized
+        return "All not taken with Camera".localized
     }
 
     override func process(input: GarbageDetectorInput,_ asyncSignal: AsyncWaitSignalable) -> Bool? {

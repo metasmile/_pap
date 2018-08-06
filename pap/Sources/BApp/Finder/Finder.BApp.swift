@@ -41,7 +41,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
             , phase: .release
             , appType: FinderApp.self
             , displayName: "Finder".localized
-            , description: "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!".localized
+            , description: "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text.".localized
             , keywords: ["Date", "Address", "Maps", "Location","URL","Flight","E-Mail", "Call", "Phone Number", "Contacts","Text","Detection","Information", "Search","Find","Recognization"]
             , iconBundleName: R.image.finderBAppIcon.name
             , policy: AppPolicy.default

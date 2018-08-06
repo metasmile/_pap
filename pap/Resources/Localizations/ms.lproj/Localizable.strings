@@ -122,14 +122,20 @@
 "%@ Day License" = "%@ Lesen Hari";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Hari";
+/* Generated from genl10n: pap.Strings.swift#41 */
+"%@ Download now for FREE!" = "%@ Muat turun sekarang secara PERCUMA!";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ boleh dijumpai";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
 "%@ will be hidden" = "%@ akan disembunyikan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d kali";
+/* Generated from genl10n: pap.Strings.swift#32 */
+"A photos app, but contains a lot of sub-apps in its own." = "Apl foto, tetapi mengandungi banyak sub-aplikasi sendiri.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Tindakan";
+/* Generated from genl10n: PhoneCalls.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
+"Activating Current Visible Items ..." = "Mengaktifkan Item Terkini Terkini ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
 "Add New Contact" = "Tambah Kenalan Baru";
 /* Generated from genl10n: Finder.BApp.swift#466 */
@@ -140,6 +146,8 @@
 "Albums" = "Album";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Semua kenalan berjaya disimpan.";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"All not taken with Camera" = "Disimpan Tanpa Kamera";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "Semua";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -147,7 +155,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animasi";
 /* Generated from genl10n: Filters.BApp.swift#76 */
-"Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Gunakan penapis Berkualiti Tinggi pada semua foto yang anda mahu. Tiada had untuk bilangan foto untuk mengeditnya.";
+"Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "Gunakan penapis Berkualiti Tinggi pada semua foto yang anda mahu. Alat pemprosesan batch ini tidak mempunyai had kepada bilangan foto untuk memohon penapis.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Nisbah aspek";
 /* Generated from genl10n: AutoEditor.BApp.swift#172 */
@@ -179,13 +187,13 @@
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Pilih Satu Tindakan Sub.";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
-"Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Pembersih membolehkan anda mencari dan memadam semua jenis gambar yang salah seperti pendua dan imej yang serupa, foto rapat atau tangkapan skrin Kunci!";
+"Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Pembersih membolehkan anda mencari dan memadam pelbagai jenis gambar yang salah jika mereka telah dipadankan sebagai contoh pendua dan imej yang serupa, gambar rapat atau tangkapan skrin Kunci!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Bersih";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Kenalan";
 /* Generated from genl10n: Converter.BApp.swift#42 */
-"Converter enables you to convert every media formats into every each other." = "Penukar membolehkan anda menukar semua format media ke dalam setiap satu sama lain.";
+"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Penukar membolehkan anda menukar semua format media seperti Video, Foto Langsung, GIF ke dalam setiap satu sama lain.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "Penukar";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
@@ -196,6 +204,8 @@
 "Crop to Fit" = "Tanam untuk Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
+/* Generated from genl10n: Finder.BApp.swift#1245 */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "Pada masa ini, model pengenalan teks AI kami hanya tersedia untuk abjad angka dan beberapa aksara khas.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -208,6 +218,8 @@
 "Did not detect anything." = "Tidak mengesan apa-apa.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Arah";
+/* Generated from genl10n: pap.Strings.swift#45 */
+"Download now for FREE at %@" = "Muat turun sekarang secara PERCUMA di %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Memuat turun ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -226,8 +238,8 @@
 "Filters" = "Penapis";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "Cari";
-/* Generated from genl10n: Finder.BApp.swift#42 */
-"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Finder membolehkan mengekstrak setiap maklumat yang bermakna seperti nombor telefon, alamat, tarikh atau URL dari foto anda, dan kemudian memanggil, membuka peta atau menavigasi laman web walaupun mencari penerbangan!";
+/* Generated from genl10n: Finder.BApp.swift#44 */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder membolehkan mengekstrak setiap maklumat yang bermakna seperti nombor telefon, alamat, tarikh atau URL dari foto anda, dan kemudian memanggil, membuka peta atau menavigasi laman web walaupun mencari penerbangan. Anda juga boleh menyimpannya sebagai teks mentah.";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "Finder";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -280,6 +292,8 @@
 "Modify" = "Ubah suai";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Album saya";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
+"My Feedback on %@" = "Maklum balas saya mengenai %@";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "Kenalan baru";
 /* Generated from genl10n: Finder.BApp.swift#435 */
@@ -290,6 +304,10 @@
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Tiada gelung";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
+"Now Contribute And Get Free Use." = "Kini Sumbang Dan Dapatkan Penggunaan Percuma.";
+/* Generated from genl10n: PhoneCalls.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
+"On Standby" = "Bersiap sedia";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Buka Peta Apple";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -330,6 +348,10 @@
 "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Mengembalikan aplikasi membolehkan memulihkan sejumlah besar foto yang diedit dengan yang asal dengan cepat. Tambahan pula, ia membantu anda dengan pemilihan automatik!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Rewind";
+/* Generated from genl10n: Transform.BApp.swift#70 */
+"Rotate" = "Putar";
+/* Generated from genl10n: Transform.BApp.swift#54 */
+"Rotation" = "Putaran";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "Simpan Semua Nombor Telefon";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
@@ -340,8 +362,6 @@
 "Save" = "Simpan";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "Disimpan Dengan Kamera Terbina Dalam";
-/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
-"Saved Without the Camera" = "Disimpan Tanpa Kamera";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Menyimpan Keputusan ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
@@ -405,7 +425,7 @@
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
 "This App Is Yours." = "App Ini Adakah Anda.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
-"This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "Ini mudah tetapi alat terpantas membolehkan anda dengan cepat memutar dan flip banyak fail media termasuk Live Photos. Secara lalai, tiada had bilangan foto untuk mengeditnya.";
+"This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Alat transformasi imej batch yang mudah tetapi berskala besar ini membolehkan anda memutar dan memutar banyak fail media termasuk Foto Langsung. Tiada had untuk bilangan foto untuk mengeditnya.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "Terlalu Tutup Face";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
@@ -428,7 +448,11 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#17 */
 "Welcome Free Trial Pack" = "Pek Percubaan Percuma Selamat Datang";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#95 */
+"Welcome on %@" = "Selamat datang di %@";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "Menulis ulasan";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
 "You Can Renew Them Repeatedly." = "Anda Boleh Membaharui Mereka Berulang.";
+/* Generated from genl10n: Converter.AppDockContent.swift#41 */
+"You can select only items that matched with starting format." = "Anda hanya boleh memilih item yang dipadankan dengan format permulaan.";

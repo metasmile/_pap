@@ -122,14 +122,20 @@
 "%@ Day License" = "%@日許可證";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@天";
+/* Generated from genl10n: pap.Strings.swift#41 */
+"%@ Download now for FREE!" = "%@立即免費下載！";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "可能會找到%@";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
 "%@ will be hidden" = "%@將被隱藏";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d次";
+/* Generated from genl10n: pap.Strings.swift#32 */
+"A photos app, but contains a lot of sub-apps in its own." = "一個照片應用程序，但它自己包含很多子應用程序。";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "操作";
+/* Generated from genl10n: PhoneCalls.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
+"Activating Current Visible Items ..." = "激活當前可見項目......";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
 "Add New Contact" = "添加新聯繫人";
 /* Generated from genl10n: Finder.BApp.swift#466 */
@@ -140,6 +146,8 @@
 "Albums" = "相冊";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "所有聯繫人都已成功保存。";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"All not taken with Camera" = "沒有相機保存";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "所有";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -147,7 +155,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "動畫";
 /* Generated from genl10n: Filters.BApp.swift#76 */
-"Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "在您想要的所有照片上應用高品質過濾器。編輯照片的數量沒有限制。";
+"Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "在您想要的所有照片上應用高品質過濾器。此批處理工具對應用過濾器的照片數量沒有限制。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "縱橫比";
 /* Generated from genl10n: AutoEditor.BApp.swift#172 */
@@ -179,13 +187,13 @@
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "選擇一個子動作。";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
-"Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "清潔器使您能夠查找和刪除各種不正確的照片，如重複和類似的圖像，特寫照片或鎖屏拍攝！";
+"Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "清潔器使您能夠查找和刪除各種不正確的照片，如果他們匹配了例如重複和類似的圖像，特寫照片或鎖屏拍攝！";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "清潔器";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "往來";
 /* Generated from genl10n: Converter.BApp.swift#42 */
-"Converter enables you to convert every media formats into every each other." = "Converter允許您將每種媒體格式轉換為彼此。";
+"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter允許您將每種媒體格式（如視頻，實時照片，GIF）轉換為彼此。";
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "變流器";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
@@ -196,6 +204,8 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "作物";
+/* Generated from genl10n: Finder.BApp.swift#1245 */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "目前，我們的AI文本識別模型僅適用於字母數字和一些特殊字符。";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "習慣";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -208,6 +218,8 @@
 "Did not detect anything." = "沒有發現任何東西。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "方向";
+/* Generated from genl10n: pap.Strings.swift#45 */
+"Download now for FREE at %@" = "立即免費下載%@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "下載...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -226,8 +238,8 @@
 "Filters" = "過濾器";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "找";
-/* Generated from genl10n: Finder.BApp.swift#42 */
-"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Finder可以從您的照片中提取每個有意義的信息，如電話號碼，地址，日期或URL，然後撥打電話，打開地圖或瀏覽網站甚至搜索航班！";
+/* Generated from genl10n: Finder.BApp.swift#44 */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder可以從您的照片中提取每個有意義的信息，如電話號碼，地址，日期或URL，然後撥打電話，打開地圖或瀏覽網站甚至搜索航班。您也可以將它們全部保存為原始文本。";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "發現者";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -280,6 +292,8 @@
 "Modify" = "修改";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "我的相冊";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
+"My Feedback on %@" = "我對%@的反饋";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "新聯繫人";
 /* Generated from genl10n: Finder.BApp.swift#435 */
@@ -290,6 +304,10 @@
 "No Crop" = "沒有作物";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "沒有循環";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
+"Now Contribute And Get Free Use." = "現在貢獻並獲得免費使用。";
+/* Generated from genl10n: PhoneCalls.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
+"On Standby" = "隨時待命";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "打開Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -330,6 +348,10 @@
 "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "還原應用程序允許快速將大量已編輯的照片恢復為原始照片。此外，它可以幫助您自動選擇！";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "倒帶";
+/* Generated from genl10n: Transform.BApp.swift#70 */
+"Rotate" = "旋轉";
+/* Generated from genl10n: Transform.BApp.swift#54 */
+"Rotation" = "迴轉";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "保存所有電話號碼";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
@@ -340,8 +362,6 @@
 "Save" = "保存";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "內置攝像頭保存";
-/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
-"Saved Without the Camera" = "沒有相機保存";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "保存結果...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
@@ -405,7 +425,7 @@
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
 "This App Is Yours." = "這個應用程序是你的。";
 /* Generated from genl10n: Transform.BApp.swift#55 */
-"This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "這個簡單但速度最快的工具可讓您快速旋轉和翻轉包括Live Photos在內的大量媒體文件。默認情況下，編輯照片的數量沒有限制。";
+"This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "這種直觀但大規模的批量圖像變換工具可讓您快速旋轉和翻轉包括實時照片在內的大量媒體文件。編輯照片的數量沒有限制。";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "太近距離的臉";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
@@ -428,7 +448,11 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#17 */
 "Welcome Free Trial Pack" = "歡迎免費試用包";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#95 */
+"Welcome on %@" = "歡迎來到%@";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "寫評論";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
 "You Can Renew Them Repeatedly." = "你可以反復更新它們。";
+/* Generated from genl10n: Converter.AppDockContent.swift#41 */
+"You can select only items that matched with starting format." = "您只能選擇與起始格式匹配的項目。";

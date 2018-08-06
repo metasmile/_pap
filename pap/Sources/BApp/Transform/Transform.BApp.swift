@@ -51,8 +51,8 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
             , version: "1.0"
             , phase: .release
             , appType: TransformApp.self
-            , displayName: "Transform".localized
-            , description: "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them.".localized
+            , displayName: "Rotation".localized
+            , description: "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them.".localized
             , keywords: ["Transformation", "Rotation","Flip","Vertical","Editor"]
             , iconBundleName: R.image.transformBAppIcon.name
             , policy: AppPolicy.default
@@ -66,6 +66,8 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
             self.updateControllerView()
         }
     }
+
+    public private(set) var doneButtonTitle: String? = "Rotate".localized
 
     public static var fixedContentLayout: Bool {
         return true

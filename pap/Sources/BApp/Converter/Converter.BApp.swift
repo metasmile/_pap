@@ -39,7 +39,7 @@ public class ConverterApp: BApp,
             , phase: .release
             , appType: ConverterApp.self
             , displayName: "Converter".localized
-            , description: "Converter enables you to convert every media formats into every each other.".localized
+            , description: "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other.".localized
             , keywords: ["GIF Converter", "Live Photos", "GIF Editor", "GIF", "Video Converter", "Mp4", "MOV", "Movie File", "Video Quality","Burst Photos","Animated GIF", "Animation"]
             , iconBundleName: R.image.converterBAppIcon.name
             , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)

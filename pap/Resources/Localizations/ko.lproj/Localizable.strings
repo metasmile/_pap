@@ -122,14 +122,20 @@
 "%@ Day License" = "%@ 일 라이센스";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ 일";
+/* Generated from genl10n: pap.Strings.swift#41 */
+"%@ Download now for FREE!" = "%@ 지금 무료로 다운로드하십시오!";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@을 (를) 찾을 수 있습니다.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
 "%@ will be hidden" = "%@이 (가) 숨겨집니다.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d 회";
+/* Generated from genl10n: pap.Strings.swift#32 */
+"A photos app, but contains a lot of sub-apps in its own." = "사진 앱이지만 자체적으로 많은 하위 앱이 포함되어 있습니다.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "액션";
+/* Generated from genl10n: PhoneCalls.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
+"Activating Current Visible Items ..." = "현재 표시되는 항목 활성화 중 ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
 "Add New Contact" = "새 연락처 추가";
 /* Generated from genl10n: Finder.BApp.swift#466 */
@@ -140,6 +146,8 @@
 "Albums" = "앨범";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "모든 연락처가 성공적으로 저장되었습니다.";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"All not taken with Camera" = "카메라없이 저장 됨";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "모든";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -147,7 +155,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "에니메이션";
 /* Generated from genl10n: Filters.BApp.swift#76 */
-"Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "원하는 모든 사진에 고품질 필터를 적용하십시오. 편집 할 사진 수에는 제한이 없습니다.";
+"Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "원하는 모든 사진에 고품질 필터를 적용하십시오. 이 일괄 처리 도구는 필터를 적용 할 사진 수에 제한이 없습니다.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "종횡비";
 /* Generated from genl10n: AutoEditor.BApp.swift#172 */
@@ -179,13 +187,13 @@
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "하위 작업을 선택하십시오.";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
-"Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "클리너를 사용하면 복제되거나 유사한 이미지, 클로즈업 사진 또는 잠금 화면 샷과 같은 모든 종류의 잘못된 사진을 찾아서 삭제할 수 있습니다!";
+"Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "클리너를 사용하면 여러 종류의 부정확 한 사진을 찾거나 삭제할 수 있습니다 (예 : 중복되거나 유사한 이미지, 근접 사진 또는 잠금 화면 샷).";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "클리너";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "연락처";
 /* Generated from genl10n: Converter.BApp.swift#42 */
-"Converter enables you to convert every media formats into every each other." = "변환기를 사용하면 모든 미디어 형식을 서로간에 변환 할 수 있습니다.";
+"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter를 사용하면 비디오, 라이브 사진, GIF와 같은 모든 미디어 형식을 서로 변환 할 수 있습니다.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "변환기";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
@@ -196,6 +204,8 @@
 "Crop to Fit" = "자르기";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "자르기";
+/* Generated from genl10n: Finder.BApp.swift#1245 */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "현재 AI 텍스트 인식 모델은 영숫자 및 일부 특수 문자에만 사용할 수 있습니다.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "사용자 정의";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -208,6 +218,8 @@
 "Did not detect anything." = "아무것도 발견하지 못했습니다.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "방향";
+/* Generated from genl10n: pap.Strings.swift#45 */
+"Download now for FREE at %@" = "%@에서 지금 무료로 다운로드하십시오.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "다운로드 중 ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -226,8 +238,8 @@
 "Filters" = "필터";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "발견";
-/* Generated from genl10n: Finder.BApp.swift#42 */
-"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Finder를 사용하면 사진에서 전화 번호, 주소, 날짜 또는 URL과 같은 모든 의미있는 정보를 추출한 다음 전화를 걸거나지도를 열고 웹 사이트를 탐색 할 수 있습니다!";
+/* Generated from genl10n: Finder.BApp.swift#44 */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder를 사용하면 사진에서 전화 번호, 주소, 날짜 또는 URL과 같은 모든 의미있는 정보를 추출한 다음 전화를 걸거나지도를 열고 웹 사이트를 탐색 할 수 있습니다. 또한 모두 원시 텍스트로 저장할 수 있습니다.";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "파인더";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -280,6 +292,8 @@
 "Modify" = "수정";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "내 앨범";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
+"My Feedback on %@" = "%@에 대한 내 의견";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "새 연락처";
 /* Generated from genl10n: Finder.BApp.swift#435 */
@@ -290,6 +304,10 @@
 "No Crop" = "자르지 않음";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "루프 없음";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
+"Now Contribute And Get Free Use." = "이제 공헌하고 무료 사용하십시오.";
+/* Generated from genl10n: PhoneCalls.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
+"On Standby" = "대기";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Apple지도 열기";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -330,6 +348,10 @@
 "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "되돌리기 앱을 사용하면 여러 장의 사진을 원래 사진으로 빠르게 복원 할 수 있습니다. 또한, 그것은 자동 선택으로 당신을 도와줍니다!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "되감기";
+/* Generated from genl10n: Transform.BApp.swift#70 */
+"Rotate" = "회전";
+/* Generated from genl10n: Transform.BApp.swift#54 */
+"Rotation" = "회전";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "모든 전화 번호 저장";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
@@ -340,8 +362,6 @@
 "Save" = "저장";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "내장 카메라로 저장";
-/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
-"Saved Without the Camera" = "카메라없이 저장 됨";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "결과 저장 중 ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
@@ -405,7 +425,7 @@
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
 "This App Is Yours." = "이 응용 프로그램은 당신 것입니다.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
-"This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "이 간단하면서도 빠른 도구를 사용하면 라이브 사진을 비롯한 많은 미디어 파일을 빠르게 회전하고 뒤집을 수 있습니다. 기본적으로 편집 할 사진 수에는 제한이 없습니다.";
+"This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "이 간단하지만 대규모 배치 이미지 변환 도구를 사용하면 라이브 사진을 비롯한 많은 미디어 파일을 신속하게 회전하고 뒤집을 수 있습니다. 편집 할 사진 수에는 제한이 없습니다.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "너무 근접 촬영 얼굴";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
@@ -428,7 +448,11 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#17 */
 "Welcome Free Trial Pack" = "무료 시험판에 오신 것을 환영합니다.";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#95 */
+"Welcome on %@" = "%@에 오신 것을 환영합니다.";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "리뷰를 작성";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
 "You Can Renew Them Repeatedly." = "반복해서 갱신 할 수 있습니다.";
+/* Generated from genl10n: Converter.AppDockContent.swift#41 */
+"You can select only items that matched with starting format." = "시작 형식과 일치하는 항목 만 선택할 수 있습니다.";

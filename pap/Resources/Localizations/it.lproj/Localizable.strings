@@ -122,14 +122,20 @@
 "%@ Day License" = "%@ Licenza diurna";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Giorno";
+/* Generated from genl10n: pap.Strings.swift#41 */
+"%@ Download now for FREE!" = "%@ Scarica ora GRATIS!";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ potrebbe essere trovato";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
 "%@ will be hidden" = "%@ sarà nascosto";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d volte";
+/* Generated from genl10n: pap.Strings.swift#32 */
+"A photos app, but contains a lot of sub-apps in its own." = "Un'app fotografica, ma contiene molte sotto-app a sé stanti.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Azioni";
+/* Generated from genl10n: PhoneCalls.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
+"Activating Current Visible Items ..." = "Attivazione di articoli visibili correnti ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
 "Add New Contact" = "Aggiungi nuovo contatto";
 /* Generated from genl10n: Finder.BApp.swift#466 */
@@ -140,6 +146,8 @@
 "Albums" = "Album";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Tutti i contatti sono stati salvati correttamente.";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"All not taken with Camera" = "Salvato senza fotocamera";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "Tutti";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -147,7 +155,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animazione";
 /* Generated from genl10n: Filters.BApp.swift#76 */
-"Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Applicare filtri di alta qualità su tutte le foto che si desidera. Non c'è limite al numero di foto per modificarle.";
+"Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "Applicare filtri di alta qualità su tutte le foto che si desidera. Questo strumento di elaborazione batch non ha limiti al numero di foto da applicare ai filtri.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Aspect Ratio";
 /* Generated from genl10n: AutoEditor.BApp.swift#172 */
@@ -179,13 +187,13 @@
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Scegli una Sottoazione.";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
-"Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner ti consente di trovare ed eliminare ogni tipo di foto non corrette, ad esempio immagini duplicate e simili, foto ravvicinate o foto Lockscreen!";
+"Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner ti consente di trovare ed eliminare vari tipi di foto errate se corrispondono ad esempio a immagini duplicate e simili, foto ravvicinate o scatti di Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Cleaner";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Contatti";
 /* Generated from genl10n: Converter.BApp.swift#42 */
-"Converter enables you to convert every media formats into every each other." = "Il convertitore consente di convertire tutti i formati multimediali in ogni altro.";
+"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Il convertitore consente di convertire tutti i formati multimediali come video, foto dal vivo, GIF in ogni altro.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "Converter";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
@@ -196,6 +204,8 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
+/* Generated from genl10n: Finder.BApp.swift#1245 */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "Attualmente, il nostro modello di riconoscimento del testo AI è disponibile solo per caratteri alfanumerici e alcuni caratteri speciali.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "costume";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -208,6 +218,8 @@
 "Did not detect anything." = "Non ha rilevato nulla.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direzione";
+/* Generated from genl10n: pap.Strings.swift#45 */
+"Download now for FREE at %@" = "Scarica ora GRATUITAMENTE su %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Download in corso ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -226,8 +238,8 @@
 "Filters" = "filtri";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "Trova";
-/* Generated from genl10n: Finder.BApp.swift#42 */
-"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Finder consente di estrarre tutte le informazioni significative come numeri di telefono, indirizzi, date o URL dalle tue foto, quindi chiamare, aprire mappe o navigare tra i siti Web anche sui voli di ricerca!";
+/* Generated from genl10n: Finder.BApp.swift#44 */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder consente di estrarre tutte le informazioni significative come numeri di telefono, indirizzi, date o URL dalle tue foto, quindi chiamare, aprire mappe o navigare tra i siti Web anche i voli di ricerca. Puoi anche salvarli tutti come testo non elaborato.";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "mirino";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -280,6 +292,8 @@
 "Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "I miei album";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
+"My Feedback on %@" = "Il mio feedback su %@";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "Nuovo contatto";
 /* Generated from genl10n: Finder.BApp.swift#435 */
@@ -290,6 +304,10 @@
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Nessun ciclo";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
+"Now Contribute And Get Free Use." = "Ora contribuisci e ottieni l'uso gratuito.";
+/* Generated from genl10n: PhoneCalls.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
+"On Standby" = "In attesa";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Apri le mappe di Apple";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -330,6 +348,10 @@
 "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "L'app Revert consente di ripristinare rapidamente una quantità di foto modificate rispetto a quella originale. Inoltre, ti aiuta con la selezione automatica!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "riavvolgere";
+/* Generated from genl10n: Transform.BApp.swift#70 */
+"Rotate" = "Ruotare";
+/* Generated from genl10n: Transform.BApp.swift#54 */
+"Rotation" = "Rotazione";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "Salva tutti i numeri di telefono";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
@@ -340,8 +362,6 @@
 "Save" = "Salvare";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "Salvato con la fotocamera integrata";
-/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
-"Saved Without the Camera" = "Salvato senza fotocamera";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Salvataggio dei risultati ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
@@ -405,7 +425,7 @@
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
 "This App Is Yours." = "Questa App è la tua.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
-"This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "Questo semplice ma veloce strumento ti consente di ruotare e capovolgere rapidamente molti file multimediali, tra cui le Live Photos. Per impostazione predefinita, non vi è alcun limite al numero di foto per modificarle.";
+"This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Questo semplice strumento per trasformare le immagini in lotti su larga scala consente di ruotare e capovolgere rapidamente molti file multimediali, tra cui le Live Photos. Non c'è limite al numero di foto per modificarle.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "Troppo faccia da vicino";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
@@ -428,7 +448,11 @@
 "Warp" = "Ordito";
 /* Generated from genl10n: AppCenter.Charge.swift#17 */
 "Welcome Free Trial Pack" = "Pacchetto di prova gratuito di benvenuto";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#95 */
+"Welcome on %@" = "Benvenuto su %@";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "Scrivere una recensione";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
 "You Can Renew Them Repeatedly." = "Puoi rinnovarli ripetutamente.";
+/* Generated from genl10n: Converter.AppDockContent.swift#41 */
+"You can select only items that matched with starting format." = "È possibile selezionare solo gli elementi che corrispondono al formato iniziale.";
