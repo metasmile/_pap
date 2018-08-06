@@ -24,6 +24,7 @@ extension UITableViewCellDescribable {
 
 public protocol UITableViewCellAppearanceDescribable {
     var label:String {set get}
+    var detailedLabel:String? {set get}
     var iconImage:ImageSourceable? {set get}
 }
 
@@ -71,6 +72,7 @@ public class UITableViewCellDescriber: UITableViewCellDefaultDescribable {
     public lazy var itemIdentifier:Int = Int.max
 
     public var label: String = "Untitled"
+    public var detailedLabel:String?
     public var iconImage: ImageSourceable?
 
     public var valueGetter: () -> Any? = { nil }
@@ -104,6 +106,10 @@ public class UITableViewMultiplePickerCellDescriber: UITableViewCellDescriber, U
 
 public class UITableViewSwitchCellDescriber: UITableViewCellDescriber {
     public override var cellClass:Swift.AnyClass { return UITableViewSwitchCell.self }
+}
+
+public class UITableViewSwitchSubtitleCellDescriber: UITableViewSwitchCellDescriber {
+    public override var cellClass:Swift.AnyClass { return UITableViewSwitchSubtitleCell.self }
 }
 
 public class UITableViewSegmentControlCellDescriber: UITableViewCellDescriber, UITableViewCellMultipleValueDescribable {

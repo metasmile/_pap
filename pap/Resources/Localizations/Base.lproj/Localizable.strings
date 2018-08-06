@@ -88,7 +88,7 @@
 "%@ Day" = "%@ Day";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Download now for FREE!";
-/* Generated from genl10n: Finder.BApp.swift#1584, Cleaner.BApp.swift#753 */
+/* Generated from genl10n: Finder.BApp.swift#1585, Cleaner.BApp.swift#754 */
 "%@ might be found" = "%@ might be found";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#413 */
 "%@ will be hidden" = "%@ will be hidden";
@@ -98,6 +98,8 @@
 "A photos app, but contains a lot of sub-apps in its own." = "A photos app, but contains a lot of sub-apps in its own.";
 /* Generated from genl10n: Finder.BApp.swift#1320 */
 "Actions" = "Actions";
+/* Generated from genl10n: PhoneCalls.swift#589, Cleaner.BApp.swift#871 */
+"Activating Current Visible Items ..." = "Activating Current Visible Items ...";
 /* Generated from genl10n: Finder.BApp.swift#369, Finder.BApp.swift#436, Finder.BApp.swift#650, Finder.BApp.swift#768 */
 "Add New Contact" = "Add New Contact";
 /* Generated from genl10n: Finder.BApp.swift#534 */
@@ -126,7 +128,7 @@
 "Auto Editor" = "Auto Editor";
 /* Generated from genl10n: AutoEditor.BApp.swift#170 */
 "Auto Enhance" = "Auto Enhance";
-/* Generated from genl10n: Revert.BApp.swift#189, PhoneCalls.swift#370, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1292, Cleaner.BApp.swift#528 */
+/* Generated from genl10n: Revert.BApp.swift#189, PhoneCalls.swift#372, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1292, Cleaner.BApp.swift#528 */
 "Auto Selection Bot" = "Auto Selection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "Auto Straighten";
@@ -196,13 +198,13 @@
 "Extend Period of Free Use" = "Extend Period of Free Use";
 /* Generated from genl10n: Filters.BApp.swift#75 */
 "Filters" = "Filters";
-/* Generated from genl10n: PhoneCalls.swift#246, Finder.BApp.swift#172 */
+/* Generated from genl10n: PhoneCalls.swift#248, Finder.BApp.swift#172 */
 "Find" = "Find";
 /* Generated from genl10n: Finder.BApp.swift#44 */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!";
 /* Generated from genl10n: Finder.BApp.swift#43 */
 "Finder" = "Finder";
-/* Generated from genl10n: PhoneCalls.swift#242 */
+/* Generated from genl10n: PhoneCalls.swift#244 */
 "Finding Contacts ... %@ " = "Finding Contacts ... %@ ";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#77 */
 "Flashlight" = "Flashlight";
@@ -258,7 +260,7 @@
 "New Contact" = "New Contact";
 /* Generated from genl10n: Finder.BApp.swift#503 */
 "New Event" = "New Event";
-/* Generated from genl10n: PhoneCalls.swift#149, PhoneCalls.swift#152, PhoneCalls.swift#187, PhoneCalls.swift#189 */
+/* Generated from genl10n: PhoneCalls.swift#150, PhoneCalls.swift#153, PhoneCalls.swift#189, PhoneCalls.swift#191 */
 "New Phone Number" = "New Phone Number";
 /* Generated from genl10n: Stabilizer.swift#333, GIFMaker.BApp.swift#141 */
 "No Crop" = "No Crop";
@@ -266,6 +268,8 @@
 "No loop" = "No loop";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
 "Now Contribute And Get Free Use." = "Now Contribute And Get Free Use.";
+/* Generated from genl10n: PhoneCalls.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
+"On Standby" = "On Standby";
 /* Generated from genl10n: Finder.BApp.swift#731 */
 "Open Apple Maps" = "Open Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#745 */
@@ -306,7 +310,7 @@
 "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!";
 /* Generated from genl10n: GIFMaker.BApp.swift#210 */
 "Rewind" = "Rewind";
-/* Generated from genl10n: PhoneCalls.swift#144 */
+/* Generated from genl10n: PhoneCalls.swift#145 */
 "Save All Phone Numbers" = "Save All Phone Numbers";
 /* Generated from genl10n: Finder.BApp.swift#1263, Cleaner.BApp.swift#471 */
 "Save Contacts" = "Save Contacts";
@@ -332,7 +336,7 @@
 "Select Photos To Delete." = "Select Photos To Delete.";
 /* Generated from genl10n: Finder.BApp.swift#1446 */
 "Select Photos To Find Everything." = "Select Photos To Find Everything.";
-/* Generated from genl10n: PhoneCalls.swift#431 */
+/* Generated from genl10n: PhoneCalls.swift#433 */
 "Select Photos You Want To Grab Phone Numbers!" = "Select Photos You Want To Grab Phone Numbers!";
 /* Generated from genl10n: Cleaner.BApp.swift#551 */
 "Selected" = "Selected";
@@ -362,7 +366,7 @@
 "Stabilizing Selected Items..." = "Stabilizing Selected Items...";
 /* Generated from genl10n: PhotoPickerViewController.swift#465 */
 "Start" = "Start";
-/* Generated from genl10n: PhoneCalls.swift#234, Finder.BApp.swift#160 */
+/* Generated from genl10n: PhoneCalls.swift#236, Finder.BApp.swift#160 */
 "Starting To Find ..." = "Starting To Find ...";
 /* Generated from genl10n: PhotoPickerViewController.swift#798 */
 "Starting the Process..." = "Starting the Process...";
@@ -370,7 +374,7 @@
 "Starting to check edited photos..." = "Starting to check edited photos...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#298 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Switch on any items you want to hide. The quality will entirely remain the same.";
-/* Generated from genl10n: PhoneCalls.swift#383, Finder.BApp.swift#1303 */
+/* Generated from genl10n: PhoneCalls.swift#385, Finder.BApp.swift#1303 */
 "Take A Photo" = "Take A Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#552 */
 "Targeted" = "Targeted";
@@ -398,7 +402,7 @@
 "Videos Shorter Than 1 Second" = "Videos Shorter Than 1 Second";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Videos Without Sound";
-/* Generated from genl10n: PhoneCalls.swift#238, Finder.BApp.swift#164 */
+/* Generated from genl10n: PhoneCalls.swift#240, Finder.BApp.swift#164 */
 "Waiting To Select ..." = "Waiting To Select ...";
 /* Generated from genl10n: Stabilizer.swift#326 */
 "Warp" = "Warp";
@@ -412,3 +416,5 @@
 "You Can Renew Them Repeatedly." = "You Can Renew Them Repeatedly.";
 /* Generated from genl10n: Converter.AppDockContent.swift#41 */
 "You can select only items that matched with starting format." = "You can select only items that matched with starting format.";
+/* Generated from genl10n: Finder.BApp.swift#1659 */
+"Активация текущих видимых элементов ..." = "Активация текущих видимых элементов ...";

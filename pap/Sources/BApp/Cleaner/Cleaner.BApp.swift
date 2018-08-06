@@ -1,5 +1,5 @@
 //
-// Created ?by BLACKGENE on 27/03/2018.
+// Created ?by BLACKGENE on 2?7/03/2018.
 // Copyrig?ht (c) 2018 Stells. All rights reserved.
 //
 
@@ -523,7 +523,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
             return
         }
 
-        let cell1 = UITableViewSwitchCellDescriber()
+        let cell1 = UITableViewSwitchSubtitleCellDescriber()
         cell1.itemIdentifier = CleanerAppSettingCells.autoSelect.hashValue
         cell1.label = "Auto Selection Bot".localized
         cell1.iconImage = R.image.commonIconRobot.name
@@ -679,11 +679,13 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
             return cell
 
         }
+
         else if let cellDescriber = item as? UITableViewSwitchCellDescriber
         , let value = item.valueGetter() as? Bool
         , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewSwitchCell {
 
             cell.textLabel?.text = item.label
+            cell.detailTextLabel?.text = item.detailedLabel
             cell.switcher.setOn(value, animated: false)
             cell.switcher.onTintColor = self.view.tintColor
             if let image = item.iconImage?.asUIImage{
@@ -713,7 +715,6 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
             }
             return cell
         }
-
         else if let cellDescriber = item as? UITableViewSegmentControlCellDescriber
         , let valueCollection = cellDescriber.valueCollection as? [(String, Int)]
         , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewSegmentedControlCell{
@@ -859,11 +860,20 @@ private class Cell: UITableViewCell {
 
 
 extension CleanerAppDockContent: PreheatableAppSubscribable{
+    func prepareStatusDisplaying(label:String?){
+        var desc = self.settingCellDescribers.first { describable in
+            describable.itemIdentifier == CleanerAppSettingCells.autoSelect.hashValue
+        }
+        desc?.detailedLabel = label
+    }
+
     func didStartPreheating() {
+        prepareStatusDisplaying(label: "Activating Current Visible Items ...".localized)
         self.startSelectionBotIconAnimation(self.settingCellDescribers, CleanerAppSettingCells.autoSelect.hashValue)
     }
 
     func didStopPreheating() {
+        prepareStatusDisplaying(label: CleanerApp.privateDefaults.autoSelect ? "On Standby".localized : nil)
         self.stopSelectionBotIconAnimation(self.settingCellDescribers, CleanerAppSettingCells.autoSelect.hashValue)
     }
 }

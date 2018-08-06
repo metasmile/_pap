@@ -141,25 +141,27 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
             return result.phoneNumbers?.reduce([],+)
         }.reduce([],+)))
 
-        alert.addAction(UIAlertAction(title: "Save All Phone Numbers".localized, style: . default, handler: { action in
-            if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal) {
+        if numbers.count > 0{
+            alert.addAction(UIAlertAction(title: "Save All Phone Numbers".localized, style: . default, handler: { action in
+                if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal) {
 
-                let contact = CNMutableContact()
-                contact.contactType = .person
-                contact.givenName = "New Phone Number".localized
+                    let contact = CNMutableContact()
+                    contact.contactType = .person
+                    contact.givenName = "New Phone Number".localized
 
-                for number in numbers{
-                    let value = CNLabeledValue(label: "New Phone Number".localized, value: CNPhoneNumber(stringValue: number))
-                    contact.phoneNumbers.append(value)
+                    for number in numbers{
+                        let value = CNLabeledValue(label: "New Phone Number".localized, value: CNPhoneNumber(stringValue: number))
+                        contact.phoneNumbers.append(value)
+                    }
+
+                    DispatchQueue.main.async {
+                        CNContactViewController.presentDialog(newContact: contact)
+                    }
+
+                    asyncSignal.end()
                 }
-
-                DispatchQueue.main.async {
-                    CNContactViewController.presentDialog(newContact: contact)
-                }
-
-                asyncSignal.end()
-            }
-        }))
+            }))
+        }
 
         for phoneNumber in numbers {
 
@@ -365,7 +367,7 @@ fileprivate class PhoneCallsAppDockContent: NSObject, KeyPathWatchable,
             return
         }
 
-        let cell1 = UITableViewSwitchCellDescriber()
+        let cell1 = UITableViewSwitchSubtitleCellDescriber()
         cell1.itemIdentifier = PhoneCallsAppCells.autoSelect.hashValue
         cell1.label = "Auto Selection Bot".localized
         cell1.valueGetter = { self.autoSelect }
@@ -576,11 +578,22 @@ fileprivate class PhoneCallsAppDockContent: NSObject, KeyPathWatchable,
 
 
 extension PhoneCallsAppDockContent: PreheatableAppSubscribable{
+    func prepareStatusDisplaying(label:String?){
+        var desc = self.settingCellDescribers.first { describable in
+            describable.itemIdentifier == PhoneCallsAppCells.autoSelect.hashValue
+        }
+        desc?.detailedLabel = label
+    }
+
     func didStartPreheating() {
+        prepareStatusDisplaying(label: "Activating Current Visible Items ...".localized)
         self.startSelectionBotIconAnimation(self.settingCellDescribers, PhoneCallsAppCells.autoSelect.hashValue)
     }
 
     func didStopPreheating() {
+
+        prepareStatusDisplaying(label: self.autoSelect ? "On Standby".localized : nil)
         self.stopSelectionBotIconAnimation(self.settingCellDescribers, PhoneCallsAppCells.autoSelect.hashValue)
     }
+
 }
