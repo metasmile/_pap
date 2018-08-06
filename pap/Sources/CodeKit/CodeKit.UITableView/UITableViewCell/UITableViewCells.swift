@@ -55,6 +55,16 @@ class UITableViewSwitchCell: UITableViewCell /*UITableViewCellWithInclusiveHitTe
     }
 }
 
+class UITableViewSwitchSubtitleCell: UITableViewSwitchCell /*UITableViewCellWithInclusiveHitTestSubview*/ {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+    }
+
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
 class UITableViewSimpleValueCell: UITableViewCell {
     var valueLabelText: String?{
         didSet {

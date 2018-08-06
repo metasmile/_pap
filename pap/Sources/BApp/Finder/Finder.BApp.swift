@@ -41,7 +41,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
             , phase: .release
             , appType: FinderApp.self
             , displayName: "Finder".localized
-            , description: "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!".localized
+            , description: "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text.".localized
             , keywords: ["Date", "Address", "Maps", "Location","URL","Flight","E-Mail", "Call", "Phone Number", "Contacts","Text","Detection","Information", "Search","Find","Recognization"]
             , iconBundleName: R.image.finderBAppIcon.name
             , policy: AppPolicy.default
@@ -1287,7 +1287,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
             return
         }
 
-        let cell1 = UITableViewSwitchCellDescriber()
+        let cell1 = UITableViewSwitchSubtitleCellDescriber()
         cell1.itemIdentifier = FinderAppSettingCells.autoSelect.hashValue
         cell1.label = "Auto Selection Bot".localized
         cell1.valueGetter = { self.autoSelect }
@@ -1489,6 +1489,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewSwitchCell {
 
             cell.textLabel?.text = item.label
+            cell.detailTextLabel?.text = item.detailedLabel
             cell.switcher.setOn(value, animated: false)
             cell.switcher.onTintColor = self.view.tintColor
             cell.imageView?.image = item.iconImage?.asUIImage?.withRenderingMode(.alwaysTemplate)
@@ -1647,11 +1648,21 @@ private class Cell: UITableViewCell {
 }
 
 extension FinderAppDockContent: PreheatableAppSubscribable{
+    func prepareStatusDisplaying(label:String?){
+        var desc = self.settingCellDescribers.first { describable in
+            describable.itemIdentifier == FinderAppSettingCells.autoSelect.hashValue
+        }
+        desc?.detailedLabel = label
+    }
+
     func didStartPreheating() {
-        self.startSelectionBotIconAnimation(settingCellDescribers, FinderAppSettingCells.autoSelect.hashValue)
+        prepareStatusDisplaying(label: "Activating Current Visible Items ...".localized)
+        self.startSelectionBotIconAnimation(self.settingCellDescribers, FinderAppSettingCells.autoSelect.hashValue)
     }
 
     func didStopPreheating() {
-        self.stopSelectionBotIconAnimation(settingCellDescribers, FinderAppSettingCells.autoSelect.hashValue)
+
+        prepareStatusDisplaying(label: self.autoSelect ? "On Standby".localized : nil)
+        self.stopSelectionBotIconAnimation(self.settingCellDescribers, FinderAppSettingCells.autoSelect.hashValue)
     }
 }

@@ -122,14 +122,20 @@
 "%@ Day License" = "%@ Dagslicens";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Dag";
+/* Generated from genl10n: pap.Strings.swift#41 */
+"%@ Download now for FREE!" = "%@ Ladda ner nu GRATIS!";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ kan hittas";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
 "%@ will be hidden" = "%@ kommer att döljas";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d gånger";
+/* Generated from genl10n: pap.Strings.swift#32 */
+"A photos app, but contains a lot of sub-apps in its own." = "En bilderapp, men innehåller många delprogram i sig.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Handlingar";
+/* Generated from genl10n: PhoneCalls.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
+"Activating Current Visible Items ..." = "Aktiverar nuvarande synliga föremål ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
 "Add New Contact" = "Lägg till ny kontakt";
 /* Generated from genl10n: Finder.BApp.swift#466 */
@@ -140,6 +146,8 @@
 "Albums" = "album";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Alla kontakter har sparats.";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"All not taken with Camera" = "Sparade utan kameran";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "Allt";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -147,7 +155,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animation";
 /* Generated from genl10n: Filters.BApp.swift#76 */
-"Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Applicera filter med hög kvalitet på alla dina foton. Det finns ingen gräns för antalet foton att redigera dem.";
+"Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "Applicera filter med hög kvalitet på alla dina foton. Det här batchbehandlingsverktyget har ingen gräns för antalet bilder som ska appliceras på filter.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Bildförhållande";
 /* Generated from genl10n: AutoEditor.BApp.swift#172 */
@@ -179,13 +187,13 @@
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Välj en underåtgärd.";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
-"Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner gör att du kan hitta och ta bort alla typer av felaktiga bilder, t.ex. dubbletter och liknande bilder, närbilder eller Lockscreen-bilder!";
+"Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner gör att du kan hitta och ta bort olika typer av felaktiga foton om de har matchat till exempel dubbla och liknande bilder, närbilder eller Lockscreen-bilder!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Cleaner";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Kontakter";
 /* Generated from genl10n: Converter.BApp.swift#42 */
-"Converter enables you to convert every media formats into every each other." = "Converter gör att du kan konvertera alla medieformat till varandra.";
+"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter gör att du kan konvertera alla medieformat som Video, Live Photos, GIFs till alla varandra.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "Omvandlare";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
@@ -196,6 +204,8 @@
 "Crop to Fit" = "Skörda att passa";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Beskära";
+/* Generated from genl10n: Finder.BApp.swift#1245 */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "För närvarande är vår AI-textigenkänningsmodell endast tillgänglig för alfanumeriska och några specialtecken.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -208,6 +218,8 @@
 "Did not detect anything." = "Detekterade inte något.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Riktning";
+/* Generated from genl10n: pap.Strings.swift#45 */
+"Download now for FREE at %@" = "Hämta nu gratis på %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Hämtar ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -226,8 +238,8 @@
 "Filters" = "filter";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
 "Find" = "Hitta";
-/* Generated from genl10n: Finder.BApp.swift#42 */
-"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Finder gör det möjligt att extrahera alla meningsfulla uppgifter som telefonnummer, adresser, datum eller webbadresser från dina bilder och sedan ringa, öppna kartor eller navigera webbplatser även sökflyg!";
+/* Generated from genl10n: Finder.BApp.swift#44 */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder gör det möjligt att extrahera alla meningsfulla uppgifter som telefonnummer, adresser, datum eller webbadresser från dina bilder och sedan ringa, öppna kartor eller navigera webbplatser även sökflyg. Du kan också spara dem alla som rå text.";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "Finder";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
@@ -280,6 +292,8 @@
 "Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Mina album";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
+"My Feedback on %@" = "Min feedback om %@";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "Ny kontakt";
 /* Generated from genl10n: Finder.BApp.swift#435 */
@@ -290,6 +304,10 @@
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "No loop";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
+"Now Contribute And Get Free Use." = "Bidra nu och få fri användning.";
+/* Generated from genl10n: PhoneCalls.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
+"On Standby" = "I vänteläge";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Öppna Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -330,6 +348,10 @@
 "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Återställ app gör det möjligt att snabbt återställa en massa mängd redigerade foton till originalet. Dessutom hjälper det dig med det automatiska valet!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Spola tillbaka";
+/* Generated from genl10n: Transform.BApp.swift#70 */
+"Rotate" = "Rotera";
+/* Generated from genl10n: Transform.BApp.swift#54 */
+"Rotation" = "Rotation";
 /* Generated from genl10n: PhoneCalls.swift#137 */
 "Save All Phone Numbers" = "Spara alla telefonnummer";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
@@ -340,8 +362,6 @@
 "Save" = "Spara";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "Sparad med inbyggd kamera";
-/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
-"Saved Without the Camera" = "Sparade utan kameran";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Spara resultat ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
@@ -405,7 +425,7 @@
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
 "This App Is Yours." = "Denna app är din.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
-"This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "Med det här enkla men snabbaste verktyget kan du snabbt rotera och flipa många mediefiler, inklusive Live Photos. Som standard finns det ingen gräns för antalet bilder att redigera dem.";
+"This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Det här enkla men stora batchbildtransformverktyget gör det möjligt att snabbt rotera och flipa många mediefiler, inklusive Live Photos. Det finns ingen gräns för antalet foton att redigera dem.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "För nära ansikte";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
@@ -428,7 +448,11 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#17 */
 "Welcome Free Trial Pack" = "Välkommen gratis provpaket";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#95 */
+"Welcome on %@" = "Välkommen till %@";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "Skriva en recension";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
 "You Can Renew Them Repeatedly." = "Du kan förnya dem upprepade gånger.";
+/* Generated from genl10n: Converter.AppDockContent.swift#41 */
+"You can select only items that matched with starting format." = "Du kan bara välja objekt som matchade startformatet.";

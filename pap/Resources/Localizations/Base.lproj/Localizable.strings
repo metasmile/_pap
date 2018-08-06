@@ -88,7 +88,7 @@
 "%@ Day" = "%@ Day";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Download now for FREE!";
-/* Generated from genl10n: Finder.BApp.swift#1584, Cleaner.BApp.swift#753 */
+/* Generated from genl10n: Finder.BApp.swift#1585, Cleaner.BApp.swift#754 */
 "%@ might be found" = "%@ might be found";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#413 */
 "%@ will be hidden" = "%@ will be hidden";
@@ -98,6 +98,8 @@
 "A photos app, but contains a lot of sub-apps in its own." = "A photos app, but contains a lot of sub-apps in its own.";
 /* Generated from genl10n: Finder.BApp.swift#1320 */
 "Actions" = "Actions";
+/* Generated from genl10n: PhoneCalls.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
+"Activating Current Visible Items ..." = "Activating Current Visible Items ...";
 /* Generated from genl10n: Finder.BApp.swift#369, Finder.BApp.swift#436, Finder.BApp.swift#650, Finder.BApp.swift#768 */
 "Add New Contact" = "Add New Contact";
 /* Generated from genl10n: Finder.BApp.swift#534 */
@@ -108,6 +110,8 @@
 "Albums" = "Albums";
 /* Generated from genl10n: Finder.BApp.swift#266 */
 "All contacts were successfully saved." = "All contacts were successfully saved.";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"All not taken with Camera" = "All not taken with Camera";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "All" = "All";
 /* Generated from genl10n: GIFMaker.BApp.swift#461, GIFMaker.BApp.swift#462 */
@@ -115,7 +119,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift#593 */
 "Animation" = "Animation";
 /* Generated from genl10n: Filters.BApp.swift#76 */
-"Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them." = "Apply High-Quality filters on your all photos you want. There is no limit to the number of photos to edit them.";
+"Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters.";
 /* Generated from genl10n: GIFMaker.BApp.swift#484 */
 "Aspect Ratio" = "Aspect Ratio";
 /* Generated from genl10n: AutoEditor.BApp.swift#172 */
@@ -126,7 +130,7 @@
 "Auto Editor" = "Auto Editor";
 /* Generated from genl10n: AutoEditor.BApp.swift#170 */
 "Auto Enhance" = "Auto Enhance";
-/* Generated from genl10n: Revert.BApp.swift#189, PhoneCalls.swift#370, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1292, Cleaner.BApp.swift#528 */
+/* Generated from genl10n: Revert.BApp.swift#189, PhoneCalls.swift#372, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1292, Cleaner.BApp.swift#528 */
 "Auto Selection Bot" = "Auto Selection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "Auto Straighten";
@@ -147,13 +151,13 @@
 /* Generated from genl10n: Finder.BApp.swift#322 */
 "Choose An Sub Action." = "Choose An Sub Action.";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
-"Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner enables you to find and delete every kind of incorrect photos such as duplicate and similar images, close-up photos or Lockscreen shots!";
+"Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!";
 /* Generated from genl10n: Cleaner.BApp.swift#44 */
 "Cleaner" = "Cleaner";
 /* Generated from genl10n: Finder.BApp.swift#1321 */
 "Contacts" = "Contacts";
 /* Generated from genl10n: Converter.BApp.swift#42 */
-"Converter enables you to convert every media formats into every each other." = "Converter enables you to convert every media formats into every each other.";
+"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "Converter";
 /* Generated from genl10n: Finder.BApp.swift#371, Finder.BApp.swift#456, Finder.BApp.swift#538, Finder.BApp.swift#635, Finder.BApp.swift#753, Finder.BApp.swift#850 */
@@ -196,13 +200,13 @@
 "Extend Period of Free Use" = "Extend Period of Free Use";
 /* Generated from genl10n: Filters.BApp.swift#75 */
 "Filters" = "Filters";
-/* Generated from genl10n: PhoneCalls.swift#246, Finder.BApp.swift#172 */
+/* Generated from genl10n: PhoneCalls.swift#248, Finder.BApp.swift#172 */
 "Find" = "Find";
 /* Generated from genl10n: Finder.BApp.swift#44 */
-"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!" = "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights!";
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text.";
 /* Generated from genl10n: Finder.BApp.swift#43 */
 "Finder" = "Finder";
-/* Generated from genl10n: PhoneCalls.swift#242 */
+/* Generated from genl10n: PhoneCalls.swift#244 */
 "Finding Contacts ... %@ " = "Finding Contacts ... %@ ";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#77 */
 "Flashlight" = "Flashlight";
@@ -258,7 +262,7 @@
 "New Contact" = "New Contact";
 /* Generated from genl10n: Finder.BApp.swift#503 */
 "New Event" = "New Event";
-/* Generated from genl10n: PhoneCalls.swift#149, PhoneCalls.swift#152, PhoneCalls.swift#187, PhoneCalls.swift#189 */
+/* Generated from genl10n: PhoneCalls.swift#150, PhoneCalls.swift#153, PhoneCalls.swift#189, PhoneCalls.swift#191 */
 "New Phone Number" = "New Phone Number";
 /* Generated from genl10n: Stabilizer.swift#333, GIFMaker.BApp.swift#141 */
 "No Crop" = "No Crop";
@@ -266,6 +270,8 @@
 "No loop" = "No loop";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
 "Now Contribute And Get Free Use." = "Now Contribute And Get Free Use.";
+/* Generated from genl10n: PhoneCalls.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
+"On Standby" = "On Standby";
 /* Generated from genl10n: Finder.BApp.swift#731 */
 "Open Apple Maps" = "Open Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#745 */
@@ -306,7 +312,11 @@
 "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!";
 /* Generated from genl10n: GIFMaker.BApp.swift#210 */
 "Rewind" = "Rewind";
-/* Generated from genl10n: PhoneCalls.swift#144 */
+/* Generated from genl10n: Transform.BApp.swift#70 */
+"Rotate" = "Rotate";
+/* Generated from genl10n: Transform.BApp.swift#54 */
+"Rotation" = "Rotation";
+/* Generated from genl10n: PhoneCalls.swift#145 */
 "Save All Phone Numbers" = "Save All Phone Numbers";
 /* Generated from genl10n: Finder.BApp.swift#1263, Cleaner.BApp.swift#471 */
 "Save Contacts" = "Save Contacts";
@@ -316,8 +326,6 @@
 "Save" = "Save";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "Saved With Built-in Camera";
-/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
-"Saved Without the Camera" = "Saved Without the Camera";
 /* Generated from genl10n: PhotoPickerViewController.swift#864 */
 "Saving Results..." = "Saving Results...";
 /* Generated from genl10n: Stabilizer.swift#414, PDFactory.AppDockContent.swift#141 */
@@ -332,7 +340,7 @@
 "Select Photos To Delete." = "Select Photos To Delete.";
 /* Generated from genl10n: Finder.BApp.swift#1446 */
 "Select Photos To Find Everything." = "Select Photos To Find Everything.";
-/* Generated from genl10n: PhoneCalls.swift#431 */
+/* Generated from genl10n: PhoneCalls.swift#433 */
 "Select Photos You Want To Grab Phone Numbers!" = "Select Photos You Want To Grab Phone Numbers!";
 /* Generated from genl10n: Cleaner.BApp.swift#551 */
 "Selected" = "Selected";
@@ -362,7 +370,7 @@
 "Stabilizing Selected Items..." = "Stabilizing Selected Items...";
 /* Generated from genl10n: PhotoPickerViewController.swift#465 */
 "Start" = "Start";
-/* Generated from genl10n: PhoneCalls.swift#234, Finder.BApp.swift#160 */
+/* Generated from genl10n: PhoneCalls.swift#236, Finder.BApp.swift#160 */
 "Starting To Find ..." = "Starting To Find ...";
 /* Generated from genl10n: PhotoPickerViewController.swift#798 */
 "Starting the Process..." = "Starting the Process...";
@@ -370,7 +378,7 @@
 "Starting to check edited photos..." = "Starting to check edited photos...";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#298 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Switch on any items you want to hide. The quality will entirely remain the same.";
-/* Generated from genl10n: PhoneCalls.swift#383, Finder.BApp.swift#1303 */
+/* Generated from genl10n: PhoneCalls.swift#385, Finder.BApp.swift#1303 */
 "Take A Photo" = "Take A Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#552 */
 "Targeted" = "Targeted";
@@ -380,8 +388,8 @@
 "Text" = "Text";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#102 */
 "This App Is Yours." = "This App Is Yours.";
-/* Generated from genl10n: Transform.BApp.swift#54 */
-"This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them." = "This simple but the fastest tool lets you quickly rotate and flip a lot of media files including Live Photos. By default, there is no limit to the number of photos to edit them.";
+/* Generated from genl10n: Transform.BApp.swift#55 */
+"This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "Too Close-up Face";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
@@ -398,7 +406,7 @@
 "Videos Shorter Than 1 Second" = "Videos Shorter Than 1 Second";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Videos Without Sound";
-/* Generated from genl10n: PhoneCalls.swift#238, Finder.BApp.swift#164 */
+/* Generated from genl10n: PhoneCalls.swift#240, Finder.BApp.swift#164 */
 "Waiting To Select ..." = "Waiting To Select ...";
 /* Generated from genl10n: Stabilizer.swift#326 */
 "Warp" = "Warp";
