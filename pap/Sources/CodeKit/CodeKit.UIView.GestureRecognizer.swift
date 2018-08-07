@@ -53,7 +53,15 @@ extension UIView {
 
 }
 
-class DragSelectionGestureRecognizer: UIPanGestureRecognizer {
+class ImmediatePanGestureRecognizer: UIPanGestureRecognizer {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent) {
+        super.touchesBegan(touches, with: event)
+        
+        self.state = .began
+    }
+}
+
+class DragSelectionGestureRecognizer: ImmediatePanGestureRecognizer {
     static var kSTDragSelectionGestureRecognizerAutoPanningIncrement: CGFloat = 12
 
     enum DragSelectionMode {
