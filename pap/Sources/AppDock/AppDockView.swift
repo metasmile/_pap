@@ -890,8 +890,15 @@ extension AppDockView {
         
         appCollectionViewHeightLayout.constant = AppCollectionViewLayout.LayoutConstants.prominentHeight
         
-        UIView.animateAsSpring(options: [.allowUserInteraction, .beginFromCurrentState], animations: {
+        self.appCollectionView.visibleCells.forEach {
+            ($0 as? AppDockViewCell)?.showsInfoView = false
+        }
+        
+        UIView.animateAsSpring(options: [.allowUserInteraction], animations: {
             self.dockView.layoutIfNeeded()
+            self.appCollectionView.visibleCells.forEach {
+                ($0 as? AppDockViewCell)?.showsInfoView = true
+            }
         }, completion: nil)
         
         reorderAppGesture?.isEnabled = true
@@ -912,10 +919,18 @@ extension AppDockView {
         
         let toLayout = AppCollectionViewLayout(layoutMetrics: .compact)
         
+        self.appCollectionView.visibleCells.forEach {
+            ($0 as? AppDockViewCell)?.showsInfoView = true
+        }
+        
         self.appCollectionViewHeightLayout.constant = AppCollectionViewLayout.LayoutConstants.compactHeight
         UIView.animateAsSpring(options: [.allowUserInteraction], animations: {
             self.appCollectionView.setCollectionViewLayout(toLayout, animated: false)
             self.dockView.layoutIfNeeded()
+            
+            self.appCollectionView.visibleCells.forEach {
+                ($0 as? AppDockViewCell)?.showsInfoView = false
+            }
         }, completion: nil)
         
         reorderAppGesture?.isEnabled = false
@@ -1076,7 +1091,7 @@ internal class AppDockViewCell: CustomCollectionViewCell {
         
         let iconBorderColor: UIColor
         if AppCollectionViewLayout.LayoutConstants.compactHeight == layoutAttributes.frame.height {
-            appInfoViewHeightLayout.constant = 0
+            showsInfoView = false
             
             appIconViewWidthLayout.constant = layoutAttributes.frame.width - 20
             appIconViewTopLayout.constant = 3.5
@@ -1084,7 +1099,7 @@ internal class AppDockViewCell: CustomCollectionViewCell {
             iconBorderColor = UIColor(red: 218 / 255.0, green: 218 / 255.0, blue: 218 / 255.0, alpha: 1)
         }
         else {
-            appInfoViewHeightLayout.constant = 20
+            showsInfoView = true
             
             appIconViewWidthLayout.constant = layoutAttributes.frame.width - 26
             appIconViewTopLayout.constant = 4
@@ -1119,6 +1134,12 @@ internal class AppDockViewCell: CustomCollectionViewCell {
         super.prepareForReuse()
         
         isSelected = false
+    }
+    
+    var showsInfoView: Bool = true {
+        didSet {
+            appInfoView.alpha = showsInfoView ? 1 : 0
+        }
     }
     
     override var isSelected: Bool {
