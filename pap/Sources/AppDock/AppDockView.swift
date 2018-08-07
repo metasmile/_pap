@@ -1079,15 +1079,15 @@ internal class AppDockViewCell: CustomCollectionViewCell {
             appInfoViewHeightLayout.constant = 0
             
             appIconViewWidthLayout.constant = layoutAttributes.frame.width - 20
-            appIconViewTopLayout.constant = 4
+            appIconViewTopLayout.constant = 3.5
             
             iconBorderColor = UIColor(red: 218 / 255.0, green: 218 / 255.0, blue: 218 / 255.0, alpha: 1)
         }
         else {
             appInfoViewHeightLayout.constant = 20
             
-            appIconViewWidthLayout.constant = layoutAttributes.frame.width - 30
-            appIconViewTopLayout.constant = 6
+            appIconViewWidthLayout.constant = layoutAttributes.frame.width - 26
+            appIconViewTopLayout.constant = 4
             
             iconBorderColor = UIColor(red: 208 / 255.0, green: 208 / 255.0, blue: 208 / 255.0, alpha: 1)
         }
