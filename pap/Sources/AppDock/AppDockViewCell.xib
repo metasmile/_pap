@@ -41,10 +41,10 @@
                     <rect key="frame" x="4" y="4" width="157" height="149"/>
                     <subviews>
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ves-sw-8ql">
-                            <rect key="frame" x="0.0" y="78" width="157" height="0.0"/>
+                            <rect key="frame" x="0.0" y="78" width="157" height="20"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRa-PA-hEW" customClass="AppStatusIconView" customModule="pap" customModuleProvider="target">
-                                    <rect key="frame" x="68.5" y="-2" width="8" height="8"/>
+                                    <rect key="frame" x="68.5" y="8" width="8" height="8"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="8" id="PgV-ZN-Qud"/>
@@ -52,14 +52,14 @@
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIe-oe-nYa">
-                                    <rect key="frame" x="78.5" y="0.0" width="0.0" height="4"/>
+                                    <rect key="frame" x="78.5" y="0.0" width="0.0" height="24"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="height" id="3T6-MZ-Jtz"/>
+                                <constraint firstAttribute="height" constant="20" id="3T6-MZ-Jtz"/>
                                 <constraint firstItem="WIe-oe-nYa" firstAttribute="centerX" secondItem="Ves-sw-8ql" secondAttribute="centerX" id="9Bt-z9-VUA"/>
                                 <constraint firstItem="WIe-oe-nYa" firstAttribute="leading" secondItem="kRa-PA-hEW" secondAttribute="trailing" constant="2" id="Gqo-vM-LWH"/>
                                 <constraint firstItem="WIe-oe-nYa" firstAttribute="top" secondItem="Ves-sw-8ql" secondAttribute="top" id="XYy-rk-aDq"/>
