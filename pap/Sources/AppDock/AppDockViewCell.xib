@@ -44,7 +44,7 @@
                             <rect key="frame" x="0.0" y="78" width="157" height="0.0"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRa-PA-hEW" customClass="AppStatusIconView" customModule="pap" customModuleProvider="target">
-                                    <rect key="frame" x="68.5" y="-4" width="8" height="8"/>
+                                    <rect key="frame" x="68.5" y="-2" width="8" height="8"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="8" id="PgV-ZN-Qud"/>
@@ -60,11 +60,11 @@
                             </subviews>
                             <constraints>
                                 <constraint firstAttribute="height" id="3T6-MZ-Jtz"/>
-                                <constraint firstItem="kRa-PA-hEW" firstAttribute="centerY" secondItem="Ves-sw-8ql" secondAttribute="centerY" id="5PA-Sd-xVF"/>
                                 <constraint firstItem="WIe-oe-nYa" firstAttribute="centerX" secondItem="Ves-sw-8ql" secondAttribute="centerX" id="9Bt-z9-VUA"/>
                                 <constraint firstItem="WIe-oe-nYa" firstAttribute="leading" secondItem="kRa-PA-hEW" secondAttribute="trailing" constant="2" id="Gqo-vM-LWH"/>
                                 <constraint firstItem="WIe-oe-nYa" firstAttribute="top" secondItem="Ves-sw-8ql" secondAttribute="top" id="XYy-rk-aDq"/>
                                 <constraint firstItem="WIe-oe-nYa" firstAttribute="centerY" secondItem="Ves-sw-8ql" secondAttribute="centerY" constant="2" id="oSD-eF-9U4"/>
+                                <constraint firstItem="WIe-oe-nYa" firstAttribute="centerY" secondItem="kRa-PA-hEW" secondAttribute="centerY" id="tFG-nE-Xo1"/>
                                 <constraint firstItem="kRa-PA-hEW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ves-sw-8ql" secondAttribute="leading" constant="2" id="tZc-9X-hCe"/>
                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WIe-oe-nYa" secondAttribute="trailing" constant="2" id="ygl-6z-AO0"/>
                             </constraints>
