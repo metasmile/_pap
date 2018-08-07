@@ -115,10 +115,10 @@ extension PhotoPickerViewController{
 
         let attributedTitle = NSMutableAttributedString()
         attributedTitle.append(NSAttributedString(string: "\n", attributes: [
-            NSAttributedStringKey.font: UIFont.preferredFont(forTextStyle: .body)
+            NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)
         ]))
         attributedTitle.append(NSAttributedString(string: title, attributes: [
-            NSAttributedStringKey.font: UIFont.preferredFont(forTextStyle: .title2)
+            NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .title2)
         ]))
         alert.setValue(attributedTitle, forKey: "attributedTitle")
 
@@ -311,10 +311,10 @@ private struct OnSocialShare:Payable{
     }
 }
 
-extension UIActivityType {
-    static let addToReminder = UIActivityType("com.apple.reminders.RemindersEditorExtension")
-    static let addToNote = UIActivityType("com.apple.mobilenotes.SharingExtension")
-    static let addToiCloudDrive = UIActivityType("com.apple.CloudDocsUI.AddToiCloudDrive") //TODO: not work excluding this
+extension UIActivity.ActivityType {
+    static let addToReminder = UIActivity.ActivityType("com.apple.reminders.RemindersEditorExtension")
+    static let addToNote = UIActivity.ActivityType("com.apple.mobilenotes.SharingExtension")
+    static let addToiCloudDrive = UIActivity.ActivityType("com.apple.CloudDocsUI.AddToiCloudDrive") //TODO: not work excluding this
 }
 
 import MessageUI

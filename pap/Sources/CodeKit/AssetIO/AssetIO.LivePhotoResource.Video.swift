@@ -17,7 +17,7 @@ public class LivePhotoVideoResourceWriter: NSObject {
 
     public lazy var writeQueue = DispatchQueue(label: "com.stells.LivePhotoMovieResourceWriter.write")
 
-    static let dummyTimeRange = CMTimeRangeMake(CMTimeMake(0, 1000), CMTimeMake(200, 3000))
+    static let dummyTimeRange = CMTimeRangeMake(start: CMTimeMake(value: 0, timescale: 1000), duration: CMTimeMake(value: 200, timescale: 3000))
 
     private lazy var asset: AVURLAsset = {
         return AVURLAsset(url: URL(fileURLWithPath: self.path))
@@ -94,7 +94,7 @@ public class LivePhotoVideoResourceWriter: NSObject {
             // --------------------------------------------------
             writer.startWriting()
             reader.startReading()
-            writer.startSession(atSourceTime: kCMTimeZero)
+            writer.startSession(atSourceTime: CMTime.zero)
 
             // write metadata track
             adapter.append(
@@ -166,7 +166,7 @@ public class LivePhotoVideoResourceWriter: NSObject {
         ]
 
         var desc: CMFormatDescription? = nil
-        CMMetadataFormatDescriptionCreateWithMetadataSpecifications(kCFAllocatorDefault, kCMMetadataFormatType_Boxed, [spec] as CFArray, &desc)
+        CMMetadataFormatDescriptionCreateWithMetadataSpecifications(allocator: kCFAllocatorDefault, metadataType: kCMMetadataFormatType_Boxed, metadataSpecifications: [spec] as CFArray, formatDescriptionOut: &desc)
 
         let input = AVAssetWriterInput(mediaType: AVMediaType.metadata,
                 outputSettings: nil, sourceFormatHint: desc)

@@ -115,7 +115,7 @@ extension PHAssetFinalizableApp {
 
                 DispatchQueue.main.async {
                     let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
-                    activityViewController.completionWithItemsHandler = { (activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, activityError: Error?) in
+                    activityViewController.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, activityError: Error?) in
                         asyncSignal.end()
                     }
                     rootVC.present(activityViewController, animated: true, completion: nil)

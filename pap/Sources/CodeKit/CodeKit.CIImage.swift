@@ -24,7 +24,7 @@ extension CIImage{
             try CIContext().writeJPEGRepresentation(of: self
                     , to:to
                     , colorSpace: defaultColorSpace
-                    , options: options)
+                    , options: options as! [CIImageRepresentationOption : Any])
 
             return true
 

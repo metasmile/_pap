@@ -54,7 +54,7 @@ class JpgConverter_ScreenshotPng: OptionableConverterBase<JpgConverterOption>, J
 
                     do{
                         if let image = UIImage(data: data)
-                        , let imageData = UIImageJPEGRepresentation(image, quality){
+                        , let imageData = image.jpegData(compressionQuality: quality){
                             try? FileManager.default.removeItem(at: fileURL)
                             try imageData.write(to: fileURL)
                             result = fileURL

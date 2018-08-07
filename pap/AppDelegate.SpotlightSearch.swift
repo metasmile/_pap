@@ -57,7 +57,7 @@ extension CSSearchable{
                 if let rImage = image.rounded(radius: image.size.height/2){
                     thumbnailImage = rImage
                 }
-                csItemAttr.thumbnailData = UIImagePNGRepresentation(thumbnailImage)
+                csItemAttr.thumbnailData = thumbnailImage.pngData()
             }
         }
         self.init(suffix: app.info.identifier, domain: String(describing: App.self), attributeSet: csItemAttr)
@@ -84,9 +84,9 @@ class SpotlightSearchAppDelegate: NSObject, UIApplicationDelegate{
     static var selectedUserActivity:NSUserActivity?
 
     @discardableResult
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        if let activityDictionary = launchOptions?[UIApplicationLaunchOptionsKey.userActivityDictionary] as? [AnyHashable: Any] { //Universal link
+        if let activityDictionary = launchOptions?[UIApplication.LaunchOptionsKey.userActivityDictionary] as? [AnyHashable: Any] { //Universal link
 
             for key in activityDictionary.keys {
                 if let userActivity = activityDictionary[key] as? NSUserActivity {
@@ -106,7 +106,7 @@ class SpotlightSearchAppDelegate: NSObject, UIApplicationDelegate{
     }
 
     @discardableResult
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         SpotlightSearchAppDelegate.selectedUserActivity = userActivity
         SpotlightSearchAppDelegate.launchAppIfNeededWithSearchable()
         return true

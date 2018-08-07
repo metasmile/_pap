@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let spotlightSearchAppDelegate = SpotlightSearchAppDelegate()
     let shortcutItemAppDelegate = ShortcutItemAppDelegate()
 
-    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         Defaults.shared.initVersionInfo()
         print("Version: ", Bundle.main.shortVersionString ?? "No version info")
         print("Version Distance: ",Defaults.shared.shortVersionDistance ?? "nil")
@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return false
     }
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         #if !DEBUG
 //        Fabric.with([Crashlytics.self])
         #endif
@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
 
         spotlightSearchAppDelegate.application(application, continue: userActivity, restorationHandler: restorationHandler)
         return false

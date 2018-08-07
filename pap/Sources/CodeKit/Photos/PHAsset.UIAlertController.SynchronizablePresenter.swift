@@ -33,8 +33,8 @@ extension PHAssetUIAlertControllerSynchronizablePresenter {
 
         func presentShareAndAsyncSignalEnd(){
             let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
-            activityViewController.excludedActivityTypes = [UIActivityType.saveToCameraRoll]
-            activityViewController.completionWithItemsHandler = { (activityType:UIActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
+            activityViewController.excludedActivityTypes = [UIActivity.ActivityType.saveToCameraRoll]
+            activityViewController.completionWithItemsHandler = { (activityType:UIActivity.ActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
                 asyncSignal.end()
             }
 

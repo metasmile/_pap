@@ -757,9 +757,9 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
         let image = dataItem.iconImageName?.asUIImageNamed
 
         if dataItem.iconImageShouldUseTintColor{
-            cell.imageView?.image = image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+            cell.imageView?.image = image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
         }else{
-            cell.imageView?.image = image?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+            cell.imageView?.image = image?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
         }
 
         cell.detailTextLabel?.textColor = UIColor.gray
@@ -837,7 +837,7 @@ private class Cell: UITableViewCell {
         switchDidChange = nil
     }
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
 
         accessoryView = optionSwitch

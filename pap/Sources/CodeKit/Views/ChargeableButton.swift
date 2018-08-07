@@ -114,14 +114,14 @@ class ChargeableImage: UIImage {
 class ChargeableBadgeIcon: UIImage {
     static func landscapeBadgeIcon(_ image: UIImage, title: String, tintColor color: UIColor) -> UIImage {
         let attributes = [
-            NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 10),
-            NSAttributedStringKey.foregroundColor: color
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 10),
+            NSAttributedString.Key.foregroundColor: color
         ]
         let renderText = NSString(string: "\(title)")
         let textSize = renderText.size(withAttributes: attributes)
         let badgePaddingTop: CGFloat = 2
         let badgePaddingLeft: CGFloat = 2//6
-        let labelSize = UIEdgeInsetsInsetRect(CGRect(origin: .zero, size: textSize), UIEdgeInsets(top: -badgePaddingTop, left: -badgePaddingLeft, bottom: -badgePaddingTop, right: -badgePaddingLeft)).size
+        let labelSize = CGRect(origin: .zero, size: textSize).inset(by: UIEdgeInsets(top: -badgePaddingTop, left: -badgePaddingLeft, bottom: -badgePaddingTop, right: -badgePaddingLeft)).size
         
 //        let badgeRect = CGRect(origin: .zero, size: badgeSize)
 //        let roundedRectPath = UIBezierPath(roundedRect: badgeRect, cornerRadius: badgeSize.height / 2)
@@ -147,8 +147,8 @@ class ChargeableBadgeIcon: UIImage {
     
     static func portraitBadgeIcon(_ image: UIImage, title: String, tintColor color: UIColor) -> UIImage {
         let attributes = [
-            NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 10),
-            NSAttributedStringKey.foregroundColor: color
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 10),
+            NSAttributedString.Key.foregroundColor: color
         ]
         let imageInsets = image.alignmentRectInsets
         
@@ -156,13 +156,13 @@ class ChargeableBadgeIcon: UIImage {
         let textSize = renderText.size(withAttributes: attributes)
         let badgePaddingTop: CGFloat = 2
         let badgePaddingLeft: CGFloat = 2//6
-        let labelSize = UIEdgeInsetsInsetRect(CGRect(origin: .zero, size: textSize), UIEdgeInsets(top: -badgePaddingTop, left: -badgePaddingLeft, bottom: -badgePaddingTop, right: -badgePaddingLeft)).size
+        let labelSize = CGRect(origin: .zero, size: textSize).inset(by: UIEdgeInsets(top: -badgePaddingTop, left: -badgePaddingLeft, bottom: -badgePaddingTop, right: -badgePaddingLeft)).size
         
         guard let titleImage = UIGraphicsImageRenderer(size: labelSize).imageWithCurrentContext(actions: { ctx in
             renderText.draw(at: CGPoint(x: badgePaddingLeft, y: badgePaddingTop), withAttributes: attributes)
         }) else { return image }
         
-        let iconSize = UIEdgeInsetsInsetRect(CGRect(origin: .zero, size: image.size), imageInsets).size
+        let iconSize = CGRect(origin: .zero, size: image.size).inset(by: imageInsets).size
         let scaledLabelSize = CGSize(width: iconSize.width, height: labelSize.height * (iconSize.width / labelSize.width))
         return UIGraphicsImageRenderer(size: CGSize(width: iconSize.width, height: iconSize.height + scaledLabelSize.height)).imageWithCurrentContext { ctx in
             image.draw(at: CGPoint(x: (iconSize.width - image.size.width) / 2, y: badgePaddingTop + (iconSize.height - image.size.height) / 2))
@@ -175,7 +175,7 @@ class ChargeableBadgeIcon: UIImage {
 class ChargeableButton: UIButton {
     private var appearanceDelegate: ChargeableButtonAppearance?
 
-    convenience init(type buttonType: UIButtonType, appearance: ChargeableButtonAppearance){
+    convenience init(type buttonType: UIButton.ButtonType, appearance: ChargeableButtonAppearance){
         self.init(type: buttonType)
         appearanceDelegate = appearance
     }

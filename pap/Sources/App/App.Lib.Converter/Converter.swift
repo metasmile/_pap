@@ -268,7 +268,7 @@ extension Converter{
                 let response = asset.requestImage(targetSize: targetSize, contentMode: param.contentMode, options: PHAsset.highQualityImageRequestOptions)
 
                 var resultUrl: URL? = nil
-                if let image = response.1, let data = UIImageJPEGRepresentation(image, CGFloat(imageQuality)) {
+                if let image = response.1, let data = image.jpegData(compressionQuality: CGFloat(imageQuality)) {
 
                     let identifier = "\(param.filenamePrefix)_\(source.asset.localIdentifierWithoutSplitter)_burst_\(idx)"
                     let url = FileURL.temp(identifier, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())

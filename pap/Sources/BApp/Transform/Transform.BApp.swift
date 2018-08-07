@@ -108,7 +108,7 @@ private extension TransformApp{
         let view = AppUICollectionStackView(items: items)
         view.cellSize = CGSize(width: 44, height: 44)
         view.cellSpacing = 2
-        view.cellImageInsets = UIEdgeInsetsMake(8, 10, 10, 10)
+        view.cellImageInsets = UIEdgeInsets.init(top: 8, left: 10, bottom: 10, right: 10)
         
         var preferences = AppDockContentPreferences()
         preferences.preferredHeight = 52
@@ -150,7 +150,7 @@ private class _TransfromAppTask: AppTaskPrototype, AppTaskable {
                 AppAssetItemProgressNotification.update(item: assetItem, progress: progress)
             }) { (asset, contentEditingOutput) in
                 if let asset = asset, let contentEditingOutput = contentEditingOutput {
-                    contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: FiltersApp.self, editInfo: ["transform": NSStringFromCGAffineTransform(assetItem.editState.transform)], from: asset)
+                    contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: FiltersApp.self, editInfo: ["transform": NSCoder.string(for: assetItem.editState.transform)], from: asset)
                     
                     result = PHAssetResultItem(
                             asset: asset,

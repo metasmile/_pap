@@ -143,7 +143,7 @@ class AppDockView: CustomView {
     }
 
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIViewNoIntrinsicMetric, height: drawerViewHeightLayout.constant + appContentViewHeightLayout.constant + dockViewHeightLayout.constant + bottomAccesoryViewSafeHeight)
+        return CGSize(width: UIView.noIntrinsicMetric, height: drawerViewHeightLayout.constant + appContentViewHeightLayout.constant + dockViewHeightLayout.constant + bottomAccesoryViewSafeHeight)
     }
 
     private var bottomAccesoryViewSafeHeight: CGFloat{
@@ -793,9 +793,9 @@ extension AppDockView: UIGestureRecognizerDelegate {
         }
 
         if reloadDockContentViews {
-            (accessory?.view as? AppDockContentView)?.reloadContentThatFits(size:CGSize(width: UIViewNoIntrinsicMetric, height: accessoryLayoutConstant))
+            (accessory?.view as? AppDockContentView)?.reloadContentThatFits(size:CGSize(width: UIView.noIntrinsicMetric, height: accessoryLayoutConstant))
 
-            (controller?.view as? AppDockContentView)?.reloadContentThatFits(size:CGSize(width: UIViewNoIntrinsicMetric, height: controllerLayoutConstant))
+            (controller?.view as? AppDockContentView)?.reloadContentThatFits(size:CGSize(width: UIView.noIntrinsicMetric, height: controllerLayoutConstant))
         }
         
         delegate?.appDockView(self, didOpenDrawer: true)

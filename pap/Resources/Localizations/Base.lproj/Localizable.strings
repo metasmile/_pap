@@ -256,7 +256,7 @@
 "Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift#258 */
 "My Albums" = "My Albums";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#339 */
 "My Feedback on %@" = "My Feedback on %@";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "New Contact";
@@ -312,9 +312,9 @@
 "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!";
 /* Generated from genl10n: GIFMaker.BApp.swift#210 */
 "Rewind" = "Rewind";
-/* Generated from genl10n: Transform.BApp.swift#70 */
+/* Generated from genl10n: Transform.BApp.swift#69 */
 "Rotate" = "Rotate";
-/* Generated from genl10n: Transform.BApp.swift#54 */
+/* Generated from genl10n: Transform.BApp.swift#53 */
 "Rotation" = "Rotation";
 /* Generated from genl10n: PhoneCalls.swift#145 */
 "Save All Phone Numbers" = "Save All Phone Numbers";
@@ -388,7 +388,7 @@
 "Text" = "Text";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#102 */
 "This App Is Yours." = "This App Is Yours.";
-/* Generated from genl10n: Transform.BApp.swift#55 */
+/* Generated from genl10n: Transform.BApp.swift#54 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "Too Close-up Face";
