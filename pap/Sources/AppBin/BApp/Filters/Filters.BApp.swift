@@ -100,8 +100,8 @@ PhotoEditorViewControllerDelegatableApp {
         return [.modify]
     }
 
-    public static var fixingContentLayout: AppDockContentLayoutState? {
-        return .neutralized
+    public static var fixedContentLayout: Bool {
+        return true
     }
     
     public func setConfigValues<T: AppConfigValuable>(_ config:T){

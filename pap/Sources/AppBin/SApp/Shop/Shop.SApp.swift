@@ -52,9 +52,7 @@ public class ShopApp: NSObject
         launchedOption = withOption
     }
 
-    public static var fixingContentLayout: AppDockContentLayoutState? {
-        return .maximized
-    }
+    public private(set) static var fixedContentLayout: Bool = true
 
     fileprivate static let SupportingPayTypes:[Payable.Type] = [
         PayOnFeedback.self
@@ -307,7 +305,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
-        preferences.preferredHeight = 300
+        preferences.preferredHeight = AppDockContentPreferences.GreatestHeight
         return preferences
     }
 

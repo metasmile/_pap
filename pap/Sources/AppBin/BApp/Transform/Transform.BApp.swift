@@ -68,8 +68,8 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
 
     public private(set) var doneButtonTitle: String? = "Rotate".localized
 
-    public static var fixingContentLayout: AppDockContentLayoutState? {
-        return .neutralized
+    public static var fixedContentLayout: Bool {
+        return true
     }
 
     public func setConfigValues<T: AppConfigValuable>(_ config:T){

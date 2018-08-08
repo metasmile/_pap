@@ -60,13 +60,19 @@ class AppDockView: CustomView {
 
         struct DrawerView {
             static let compactDisabledHeight: CGFloat = 14
+            static let compactDisabledTopMargin = prominentHeight - compactDisabledHeight
+
             static let compactHeight: CGFloat = 22
+            static let compactTopMargin = prominentHeight - compactHeight
+
             static let topMargin: CGFloat = 5
             static let prominentHeight: CGFloat = 49
         }
 
         static let Accessory = AppDockContentPreferences(preferredHeight: 44)
         static let Control = AppDockContentPreferences(preferredHeight: 44)
+
+        static let ControlMaxPreferredHeight:CGFloat = 250
     }
 
     @IBOutlet weak private var backgroundView: UIView!
@@ -170,7 +176,7 @@ class AppDockView: CustomView {
             // POLICY END
 
             if let state = committingLayoutState {
-                //commit state when !conformsPreviewable
+                //commit state when !isNeedingFixedContentLayout
                 Defaults.shared.appDockContentLayoutState = state.rawValue
             }
         }
@@ -183,25 +189,14 @@ class AppDockView: CustomView {
 
             // POLICY BEGIN:
             // app supports previewable
-            else if let fixedLayoutState = self.neededFixingContentLayout {
-
-                switch(fixedLayoutState){
-                    case .neutralized:
-                        if _contentLayoutState == .maximized { //INFO: this is different with "state == .maximized && !hasAppAccessoryAsLayout"
-                            if !hasAppAccessoryAsLayout {
-                                _contentLayoutState = .neutralized // force: .maximized -> .neutralized
-                            }
-                        }
-                        else if _contentLayoutState == .minimized {
-                            _contentLayoutState = .neutralized // force: .minimized -> .neutralized
-                        }
-
-                    case .maximized:
-                        _contentLayoutState = .maximized // force: .maximized
-
-                    default:
-                        assert(false, "Not supported yet for given layoutState \(fixedLayoutState)")
-                        break
+            else if isNeedingFixedContentLayout {
+                if _contentLayoutState == .maximized { //INFO: this is different with "state == .maximized && !hasAppAccessoryAsLayout"
+                    if !hasAppAccessoryAsLayout {
+                        _contentLayoutState = .neutralized // force: .maximized -> .neutralized
+                    }
+                }
+                else if _contentLayoutState == .minimized {
+                    _contentLayoutState = .neutralized // force: .minimized -> .neutralized
                 }
             }
             // POLICY END
@@ -287,11 +282,7 @@ class AppDockView: CustomView {
     }
 
     var isNeedingFixedContentLayout:Bool{
-        return neededFixingContentLayout != nil
-    }
-
-    var neededFixingContentLayout:AppDockContentLayoutState? {
-        return (AppCenter.default.current as? AppDockApp.Type)?.fixingContentLayout
+        return (AppCenter.default.current as? AppDockApp.Type)?.fixedContentLayout ?? false
     }
 
     private func hasControlView(_ view: UIView?) -> Bool {
@@ -310,7 +301,7 @@ class AppDockView: CustomView {
                 view.topAnchor.constraint(equalTo: controllerView.topAnchor).isActive = true
                 view.leadingAnchor.constraint(equalTo: controllerView.leadingAnchor).isActive = true
                 view.trailingAnchor.constraint(equalTo: controllerView.trailingAnchor).isActive = true
-                view.heightAnchor.constraint(equalToConstant: controller?.preferences?.preferredHeight ?? 0).isActive = true
+                view.heightAnchor.constraint(equalToConstant: preferredControllerViewHeight).isActive = true
             }
             else {
                 view.fitConstraints(to: controllerView)
@@ -447,7 +438,19 @@ extension AppDockView {
     
     fileprivate var preferredControllerViewHeight: CGFloat {
         if let control = self.controller {
-            return control.preferences?.preferredHeight ?? DefaultPreferences.Control.preferredHeight
+            let preferredHeight = control.preferences?.preferredHeight ?? DefaultPreferences.Control.preferredHeight
+
+            if preferredHeight == AppDockContentPreferences.GreatestHeight{
+                if isNeedingFixedContentLayout {
+                    return min(preferredHeight, preferredAppContentViewMaximumHeight + DefaultPreferences.DrawerView.compactDisabledTopMargin)
+                }else{
+
+                    return min(preferredHeight, preferredAppContentViewMaximumHeight - DefaultPreferences.DrawerView.topMargin*2)
+                }
+            }else{
+                return min(preferredHeight,DefaultPreferences.ControlMaxPreferredHeight)
+            }
+
         }
         return AppDockView.VoidLayoutValue
     }
