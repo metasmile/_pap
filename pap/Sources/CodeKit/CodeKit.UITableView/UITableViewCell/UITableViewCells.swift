@@ -40,7 +40,7 @@ class UITableViewSwitchCell: UITableViewCell /*UITableViewCellWithInclusiveHitTe
         switchDidChange = nil
     }
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         accessoryView = switcher
@@ -56,7 +56,7 @@ class UITableViewSwitchCell: UITableViewCell /*UITableViewCellWithInclusiveHitTe
 }
 
 class UITableViewSwitchSubtitleCell: UITableViewSwitchCell /*UITableViewCellWithInclusiveHitTestSubview*/ {
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
     }
 
@@ -80,7 +80,7 @@ class UITableViewSimpleValueCell: UITableViewCell {
         return label
     }()
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         accessoryView = valueLabel
@@ -97,7 +97,7 @@ class UITableViewSimpleValueCell: UITableViewCell {
 }
 
 class UITableViewActionSheetCell: UITableViewSimpleValueCell {
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
 
         let g = UITapGestureRecognizer(target: self, action: #selector(tapped))
@@ -157,7 +157,7 @@ class UITableViewStepperCell: UITableViewCellWithInclusiveHitTestSubview {
         didChangeValue = nil
     }
 
-    override public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
 
         stepper.addTarget(self, action: #selector(self.valueDidChange), for: .valueChanged)
@@ -195,7 +195,7 @@ class UITableViewButtonCell: UITableViewCell {
         didTap = nil
     }
 
-    override public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
 
         button.addTarget(self, action: #selector(self.buttonDidTap), for: .touchUpInside)
@@ -221,7 +221,7 @@ class UITableViewButtonCell: UITableViewCell {
 
     override open func layoutSubviews() {
         button.sizeToFit()
-        button.frame = button.frame.inset(by: UIEdgeInsets.init(top: 5, left: 5, bottom: 5, right: 5))
+        button.frame = UIEdgeInsetsInsetRect(button.frame, UIEdgeInsetsMake(5, 5, 5, 5))
 
         super.layoutSubviews()
     }
@@ -246,7 +246,7 @@ class UITableViewSegmentedControlCell: UITableViewCellWithInclusiveHitTestSubvie
         didChangeValue = nil
     }
 
-    override public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
 
         accessoryView = segmentedControl
@@ -340,7 +340,7 @@ class UITableViewMultiplePickerCell: UITableViewCell, UITableViewExpandableCell,
         pickerDidChange = nil
     }
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         clipsToBounds = true

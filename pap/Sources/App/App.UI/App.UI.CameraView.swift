@@ -100,7 +100,7 @@ class AppUICameraView: UIView {
 
         tintColor = UIColor.white
 
-        let buttonImageInsets = UIEdgeInsets.init(top: 4, left: 4, bottom: 4, right: 4)
+        let buttonImageInsets = UIEdgeInsetsMake(4, 4, 4, 4)
 
         backgroundView.backgroundColor = .black
         addSubview(backgroundView)

@@ -10,7 +10,7 @@ import Photos
 
 extension UIActivityViewController{
 
-    public static func share(activityItems:[Any], excludedActivityTypes: [UIActivity.ActivityType]?=nil, completionHandler:UIKit.UIActivityViewController.CompletionWithItemsHandler?=nil){
+    public static func share(activityItems:[Any], excludedActivityTypes: [UIActivityType]?=nil, completionHandler:UIKit.UIActivityViewControllerCompletionWithItemsHandler?=nil){
         let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
         activityViewController.completionWithItemsHandler = completionHandler
 

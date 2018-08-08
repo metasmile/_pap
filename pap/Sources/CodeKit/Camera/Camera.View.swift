@@ -240,7 +240,7 @@ class CameraView: UIView {
         }
     }
 
-    override var contentMode: UIView.ContentMode {
+    override var contentMode: UIViewContentMode {
         didSet {
             cameraPreviewView.contentMode = contentMode
         }
@@ -433,7 +433,7 @@ extension CameraView {
         CATransaction.begin()
         
         CATransaction.setAnimationDuration(0.2)
-        CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut))
+        CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut))
         
         CATransaction.setCompletionBlock {
             if shapeLayer.superlayer != nil {
@@ -456,7 +456,7 @@ extension CameraView {
         disappearOpacityAnimation.fromValue = 1.0
         disappearOpacityAnimation.toValue = 0.0
         disappearOpacityAnimation.beginTime = CACurrentMediaTime() + 0.8
-        disappearOpacityAnimation.fillMode = CAMediaTimingFillMode.forwards
+        disappearOpacityAnimation.fillMode = kCAFillModeForwards
         disappearOpacityAnimation.isRemovedOnCompletion = false
         shapeLayer.add(disappearOpacityAnimation, forKey: "opacity")
         
@@ -534,14 +534,14 @@ fileprivate class CameraPreviewView: UIView {
         return layer as! CameraPreviewLayer
     }
 
-    override var contentMode: UIView.ContentMode {
+    override var contentMode: UIViewContentMode {
         didSet {
             switch contentMode {
             case .scaleAspectFit:
-                previewLayer.contentsGravity = CALayerContentsGravity.resizeAspect
+                previewLayer.contentsGravity = kCAGravityResizeAspect
                 previewLayer.videoGravity = .resizeAspect
             case .scaleAspectFill:
-                previewLayer.contentsGravity = CALayerContentsGravity.resizeAspectFill
+                previewLayer.contentsGravity = kCAGravityResizeAspectFill
                 previewLayer.videoGravity = .resizeAspectFill
             default: break
             }
@@ -610,8 +610,8 @@ final class CaptureButton: UIControl {
         let outerCircleInset = outerCircleLineWidth / 2 + inset
         let innerCircleInset = outerCircleLineWidth + remap(scale, 0, 1, 0, 2) + inset
 
-        let outerCircle = UIBezierPath(ovalIn: bounds.inset(by: UIEdgeInsets(top: outerCircleInset, left: outerCircleInset, bottom: outerCircleInset, right: outerCircleInset)))
-        let innerCircle = UIBezierPath(ovalIn: bounds.inset(by: UIEdgeInsets(top: innerCircleInset, left: innerCircleInset, bottom: innerCircleInset, right: innerCircleInset)))
+        let outerCircle = UIBezierPath(ovalIn: UIEdgeInsetsInsetRect(bounds, UIEdgeInsets(top: outerCircleInset, left: outerCircleInset, bottom: outerCircleInset, right: outerCircleInset)))
+        let innerCircle = UIBezierPath(ovalIn: UIEdgeInsetsInsetRect(bounds, UIEdgeInsets(top: innerCircleInset, left: innerCircleInset, bottom: innerCircleInset, right: innerCircleInset)))
 
         outerCircleLayer.lineWidth = outerCircleLineWidth
         outerCircleLayer.path = outerCircle.cgPath

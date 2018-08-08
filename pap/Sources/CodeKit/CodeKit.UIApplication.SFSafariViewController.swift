@@ -26,7 +26,7 @@ private final class SFSafariViewControllerDelegator: Object, KeyPathWatchable, S
         @result Returns an array of any UIActivityType that you want to be excluded from the UIActivityViewController.
      */
     @available(iOS 11.0, *)
-    func safariViewController(_ controller: SFSafariViewController, excludedActivityTypesFor URL: URL, title: String?) -> [UIActivity.ActivityType]{
+    func safariViewController(_ controller: SFSafariViewController, excludedActivityTypesFor URL: URL, title: String?) -> [UIActivityType]{
         return []
     }
 

@@ -30,7 +30,7 @@ extension UITableView{
                 text: text
                 , fontSize: UIFont.smallSystemFontSize
                 , fontColor: UIColor.lightGray
-                , inset: UIEdgeInsets.init(top: 10, left: 15, bottom: 20, right: 10)
+                , inset: UIEdgeInsetsMake(10, 15, 20, 10)
         )
     }
 }

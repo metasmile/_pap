@@ -103,7 +103,7 @@ internal class PreviewCollectionLayout: UICollectionViewLayout {
         let contentInset = collectionView.contentInset
         let maximumHeight = min(previewHeight, collectionView.bounds.width)
         
-        let contentSize = CGRect(origin: .zero, size: CGSize(width: maximumHeight, height: maximumHeight)).inset(by: contentInset).size
+        let contentSize = UIEdgeInsetsInsetRect(CGRect(origin: .zero, size: CGSize(width: maximumHeight, height: maximumHeight)), contentInset).size
         let boundingSize = CGSize(width: contentSize.height, height: contentSize.height)
         let photoSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight).aspectFit(in: boundingSize)
         let cellSize = photoSize.applying(AppAssets.selected.at(indexPath.item).editState.transform).magnitude
@@ -434,7 +434,7 @@ public struct PreviewProcessingQueue {
     fileprivate static func cacheImage(_ image: UIImage, targetSize: CGSize, with item: AppAsset) {
         guard let identifier = cacheIdentifier(with: item, targetSize: targetSize) else { return }
         let url = FileURL.temp(identifier, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
-        if cachedPreviewImages[identifier] == nil, let data = image.jpegData(compressionQuality: 0.7), (try? data.write(to: url)) != nil {
+        if cachedPreviewImages[identifier] == nil, let data = UIImageJPEGRepresentation(image, 0.7), (try? data.write(to: url)) != nil {
             cachedPreviewImages[identifier] = url
         }
     }

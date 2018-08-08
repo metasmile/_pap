@@ -194,10 +194,10 @@ public final class LivePhotoWriter {
         generator.appliesPreferredTrackTransform = true
 
         let destExtractedImagePath = self.tempWritingPathByAppedingSuffix(lastPathComponent: (videoPath as NSString).lastPathComponent, suffix: "_extracted_image", ext: "jpg").path
-        let time = CMTimeMakeWithSeconds(CMTimeGetSeconds(asset.duration) * (timeLocationOfTitle), preferredTimescale: asset.duration.timescale)
+        let time = CMTimeMakeWithSeconds(CMTimeGetSeconds(asset.duration) * (timeLocationOfTitle), asset.duration.timescale)
         
         if let image = try? generator.copyCGImage(at: time, actualTime: nil),
-            let data = UIImage(cgImage: image).jpegData(compressionQuality: jpegQuality) {
+            let data = UIImageJPEGRepresentation(UIImage(cgImage: image), jpegQuality) {
             try? FileManager.default.removeItem(atPath: destExtractedImagePath)
             try? data.write(to: URL(fileURLWithPath: destExtractedImagePath))
             writeLivePhoto(photoPath: destExtractedImagePath, withVideo: videoPath, completion: completion)

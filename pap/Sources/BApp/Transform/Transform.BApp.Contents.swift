@@ -45,7 +45,7 @@ extension _TransformAppAsset: PHAssetImageEditable {
                 // renderedContentURL supports only JPEG and MOV ...
                 // so... always export JPEG
                 //TODO: investigate PHAssetChangeRequest.creationRequestForAssetFromImage(url)
-                let outputData = image.jpegData(compressionQuality: 1)
+                let outputData = UIImageJPEGRepresentation(image, 1)
 
                 guard (try? outputData?.write(to: item.output.renderedContentURL, options: .atomic)) != nil else {
                     completionHandler(nil, nil)
@@ -192,7 +192,7 @@ extension _TransformAppAsset: PHAssetVideoEditable {
 
             let videoComposition = AVMutableVideoComposition(propertiesOf: video)
             videoComposition.renderSize = videoTrack.naturalSize.applying(self.editState.transform).magnitude
-            videoComposition.frameDuration = CMTimeMake(value: 1, timescale: videoTrack.naturalTimeScale)
+            videoComposition.frameDuration = CMTimeMake(1, videoTrack.naturalTimeScale)
             
             self.exportSession = AVAssetExportSession.export(asset: video, videoComposition: videoComposition, outputURL: item.output.renderedContentURL, progressHandler: progressHandler, completionHandler: { (success) in
                 if success {

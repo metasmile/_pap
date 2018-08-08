@@ -1799,7 +1799,7 @@
 				TargetAttributes = {
 					0ABFCF771F14B65C0078A583 = {
 						CreatedOnToolsVersion = 8.3.3;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -1812,7 +1812,6 @@
 					};
 					A0F086BF20AC6C9B00E74025 = {
 						CreatedOnToolsVersion = 9.3;
-						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 0ABFCF771F14B65C0078A583;
 					};
@@ -2929,7 +2928,8 @@
 				PROVISIONING_PROFILE_SPECIFIER = "com.stells.pap Development 1530104209";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -2953,7 +2953,8 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "9feb2654-45ae-49f0-a275-9e905554b9e0";
 				PROVISIONING_PROFILE_SPECIFIER = "com.stells.pap AppStore 1530104143";
-				SWIFT_VERSION = 4.2;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

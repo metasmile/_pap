@@ -55,7 +55,7 @@ final class PhotosManager: NSObject, KeyPathWatchable, PHPhotoLibraryChangeObser
     private func showPhotoLibrarySettingsAlert() {
         let alert = UIAlertController(title: "Photos Access Disabled".localized, message: "Please open settings and allow access to your photos".localized, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Open Settings".localized, style: .default, handler: { (action) in
-            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
+            UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
         }))
         alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
 
@@ -129,9 +129,4 @@ private class _PHCachingImageManager_Debug: PHCachingImageManager {
         registerTargetSize(by: nil, targetSize: nil)
         super.stopCachingImagesForAllAssets()
     }
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

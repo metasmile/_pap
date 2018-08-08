@@ -145,7 +145,7 @@ class PDFactoryAppAppDockContent: NSObject, AppDockContent, AppDockDelegate
             self.defaults.scaleMode = Array(PDFactoryAppSettings.ScaleMode.Labels.values)[$0 as? Int ?? 0]
 
             if let index = (self.cellDescribers.index { item in item.itemIdentifier == Cells.margin.hashValue }) {
-                (self.view as? UITableView)?.reloadRows(at: [IndexPath(row: index, section: 0)], with: UITableView.RowAnimation.automatic)
+                (self.view as? UITableView)?.reloadRows(at: [IndexPath(row: index, section: 0)], with: UITableViewRowAnimation.automatic)
             }
         }
         cellDescribers.append(cell4)
