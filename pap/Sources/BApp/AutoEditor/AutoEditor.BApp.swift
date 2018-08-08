@@ -146,8 +146,9 @@ class CIAutoAdjustmentFilter: CIFilter {
     
     override var outputImage: CIImage? {
         guard var image = value(forKey: kCIInputImageKey) as? CIImage else { return nil }
+        guard let options = options?.map({ (key, value) in (CIImageAutoAdjustmentOption(rawValue: key), value) }) else { return image }
         
-        for filter in image.autoAdjustmentFilters(options: convertToOptionalCIImageAutoAdjustmentOptionDictionary(options)) {
+        for filter in image.autoAdjustmentFilters(options: Dictionary(uniqueKeysWithValues: options)) {
             filter.setValue(image, forKey: kCIInputImageKey)
             if let result = filter.outputImage {
                 image = result
@@ -160,10 +161,10 @@ class CIAutoAdjustmentFilter: CIFilter {
 
 private extension AutoEditorApp {
     struct AutoAdjustments {
-        static let Enhance = convertFromCIImageAutoAdjustmentOption(CIImageAutoAdjustmentOption.enhance)
-        static let RedEye = convertFromCIImageAutoAdjustmentOption(CIImageAutoAdjustmentOption.redEye)
-        static let Crop = convertFromCIImageAutoAdjustmentOption(CIImageAutoAdjustmentOption.crop)
-        static let Straighten = convertFromCIImageAutoAdjustmentOption(CIImageAutoAdjustmentOption.level)
+        static let Enhance = CIImageAutoAdjustmentOption.enhance.rawValue
+        static let RedEye = CIImageAutoAdjustmentOption.redEye.rawValue
+        static let Crop = CIImageAutoAdjustmentOption.crop.rawValue
+        static let Straighten = CIImageAutoAdjustmentOption.level.rawValue
 
         static func aliasName(_ filterName: String?) -> String? {
             switch filterName {
@@ -383,16 +384,4 @@ class AutoEditorAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITa
             textLabel?.textColor = tintColor
         }
     }
-}
-
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToOptionalCIImageAutoAdjustmentOptionDictionary(_ input: [String: Any]?) -> [CIImageAutoAdjustmentOption: Any]? {
-	guard let input = input else { return nil }
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (CIImageAutoAdjustmentOption(rawValue: key), value)})
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromCIImageAutoAdjustmentOption(_ input: CIImageAutoAdjustmentOption) -> String {
-	return input.rawValue
 }
