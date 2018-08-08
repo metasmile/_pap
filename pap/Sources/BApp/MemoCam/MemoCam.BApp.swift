@@ -24,7 +24,7 @@ class MemoCamApp: NSObject, KeyPathWatchable, BApp, LaunchableApp, AppDockApp, P
     }
     
     static var taskType: AppTaskable.Type = _MemoCamAppTask.self
-    static var paramType: AppTaskParamable.Type = PHAssetItem<ImageEditStateValue>.self
+    static var paramType: AppTaskParamable.Type = AppAsset.self
     
     public private(set) lazy var dockContent: AppDockContent? = MemoCamAppDockContent()
     
