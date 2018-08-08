@@ -81,8 +81,8 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
         self.didCancelPreheating()
     }
 
-    private var importedLaunchOption:AppLaunchOption?
-    func didLaunch(previous: App.Type?, withOption: AppLaunchOption?) {
+    private var importedLaunchOption: AppLaunchOptions?
+    func didLaunch(previous: App.Type?, withOption: AppLaunchOptions?) {
         importedLaunchOption = withOption
     }
 
@@ -385,7 +385,7 @@ fileprivate class PhoneCallsAppDockContent: NSObject, KeyPathWatchable,
         cell_b.label = "Take A Photo".localized
         cell_b.buttonImageName = R.image.systemIconCamera.name
         cell_b.valueHandler = { _ in
-            var option = AppLaunchOption()
+            var option = AppLaunchOptions()
             option.identifierToReturn = PhoneCallsApp.info.identifier
 
             AppCenter.default.openApp(identifier:"com.stells.pap.camera", options:option)
@@ -469,7 +469,9 @@ fileprivate class PhoneCallsAppDockContent: NSObject, KeyPathWatchable,
             cell.textLabel?.text = item.label
 
             if let buttonAsImage = cellDescriber.buttonImageName?.asUIImage{
+                cell.buttonFrameInset = UIEdgeInsetsMake(5, 5, 5, 5)
                 cell.button.setImage(buttonAsImage.withRenderingMode(.alwaysTemplate), for: .normal)
+
             }else if let buttonAsText = cellDescriber.buttonTitleLabel {
                 cell.button.setTitle(buttonAsText, for: .normal)
                 cell.button.setTitleColor(self.view.tintColor, for: .selected)

@@ -30,11 +30,6 @@ extension AppDockDelegate{
 }
 
 // AppDock Window
-public enum AppDockContentDisplayMode: Int{
-    case none
-    case pinned
-}
-
 public enum AppDockContentLayoutState: Int{
     case minimized
     case neutralized
@@ -48,17 +43,9 @@ public protocol AppDockContentPreferable {
 }
 
 public struct AppDockContentPreferences: AppDockContentPreferable {
-    private var _actualHeight: CGFloat = AppDockContentPreferences.kPreferredHeightLimitation
-    private static let kPreferredHeightLimitation: CGFloat = 250
-    public var preferredHeight: CGFloat {
-        set {
-            _actualHeight = min(AppDockContentPreferences.kPreferredHeightLimitation, newValue)
-        }
-        
-        get {
-            return _actualHeight
-        }
-    }
+    public static let GreatestHeight = CGFloat.greatestFiniteMagnitude
+
+    public var preferredHeight: CGFloat = 0
 
     init(){}
 

@@ -35,8 +35,8 @@ struct papLog: Loggable {
 
     struct app: Loggable {
         // app common
-        static func launch(with option:AppLaunchOption?){
-            if let option = option, let identifierToReturn = option.identifierToReturn{
+        static func launch(with option: AppLaunchOptions?){
+            if let option = option, let identifierToReturn = option.identifierToReturn {
                 log(parameters:["identifierToReturn":identifierToReturn])
             }else{
                 log()

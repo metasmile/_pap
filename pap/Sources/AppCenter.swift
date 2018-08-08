@@ -81,10 +81,14 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             , ExifGhostApp.self
             , Stabilizer.self
 
+            //SApp
+            , ShopApp.self
+
         ].sorted { (appType1: App.Type, appType2: App.Type) -> Bool in
 
             return appType1.info.phase.rawValue > appType2.info.phase.rawValue
                     || papCount.app.countPerformed(app: appType1) > papCount.app.countPerformed(app: appType2)
+                    || appType1 is BApp && appType2 is SApp
         }
 
         config.appCollection = defaultAppCollection

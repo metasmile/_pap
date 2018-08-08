@@ -60,12 +60,15 @@ final class ChargeBank: NSObject, KeyPathWatchable {
         self.banker.didInitializeBank(balance: self.synchronizedBalance)
     }
 
-    func save(for charge:Charge){
+    @discardableResult
+    func save(for charge:Charge) -> Bool{
         if let _ = banker.willSaveDeposit(forPriceAmountOf: charge, balance: synchronizedBalance){
             synchronizeBalanceValue()
             balanceValue = synchronizedBalance.value
             banker.didSaveDeposit(for: charge, balance: synchronizedBalance)
+            return true
         }
+        return false
     }
 
     func cancelToSave(for charge:Charge){

@@ -9,5 +9,5 @@ protocol ChargeableApp{
 
     //INFO:
     // nil -> free
-    var requiredCharge:Chargeable?{get}
+    var chargesRequired:[Chargeable]?{get}
 }

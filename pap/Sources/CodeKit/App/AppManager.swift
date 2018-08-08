@@ -82,9 +82,9 @@ open class AppManager: NSObject, SelectableCollection {
     @objc dynamic
     public private(set) var currentIdentifier: String?
 
-    private var currentLaunchOption:AppLaunchOption?
+    private var currentLaunchOption: AppLaunchOptions?
 
-    public func setCurrent(current:App.Type, with launchOption:AppLaunchOption){
+    public func setCurrent(current:App.Type, with launchOption: AppLaunchOptions){
         self.currentLaunchOption = launchOption
         self.current = current
     }

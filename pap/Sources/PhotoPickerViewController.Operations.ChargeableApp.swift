@@ -135,12 +135,12 @@ extension PhotoPickerViewController{
 
         for charge in AppCenter.charge.charges {
 //            let receipt = AppCenter.charge.bank.getReceipt(for: charge)
-            
+
             var badgeImage: UIImage?
-            
+
             let estimatedChargeableImage = ChargeableImage(balance: charge.priceAmount.value, fillMode: .fill, tintColor: view.tintColor, appearanceDelegate: PhotoPickerViewControllerChargeableAssets()).withAlignmentRectInsets(UIEdgeInsets(top: -4, left: -4, bottom: -4, right: -4))
-            
-            if let rewardText = charge.shortTitleWithReward {
+
+            if let rewardText = charge.shortRewardDescription {
                 badgeImage = ChargeableBadgeIcon.portraitBadgeIcon(estimatedChargeableImage, title: "+\(rewardText)", tintColor: view.tintColor)
             }
             else {
@@ -162,26 +162,26 @@ extension PhotoPickerViewController{
                     // charge.reward == .nonBlockOfUses, second touch -> Contained by menu.
                 case .inStoreRating: //where receipt != nil && !selected && charge.reward == .nonBlockOfUses:
                     let action = UIAlertAction(title: charge.title, style: .default) { action in
-                        AppCenter.charge.pay(for: InAppStoreRating.self)
+                        AppCenter.charge.pay(for: PayInAppStoreRating.self)
                     }
                     action.accessoryImage = badgeImage
                     alert.addAction(action)
                 case .onPromptRating: //where receipt != nil && !selected && charge.reward == .nonBlockOfUses:
                     let action = UIAlertAction(title: charge.title, style: .default) { action in
-                        AppCenter.charge.pay(for: OnPromptRating.self)
+                        AppCenter.charge.pay(for: PayOnPromptRating.self)
                     }
                     action.accessoryImage = badgeImage
                     alert.addAction(action)
 
                 case .socialShare:
                     let action = UIAlertAction(title: charge.title, style: .default) { action in
-                        AppCenter.charge.pay(for: OnSocialShare.self)
+                        AppCenter.charge.pay(for: PayOnSocialShare.self)
                     }
                     action.accessoryImage = badgeImage
                     alert.addAction(action)
                 case .feedback:
                     let action = UIAlertAction(title: charge.title, style: .default) { action in
-                        AppCenter.charge.pay(for: OnFeedback.self)
+                        AppCenter.charge.pay(for: PayOnFeedback.self)
                     }
                     action.accessoryImage = badgeImage
                     alert.addAction(action)
@@ -193,13 +193,18 @@ extension PhotoPickerViewController{
         alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel){ action in
             papLog.charge.cancelled()
         })
-        
+
         if let popover =  alert.popoverPresentationController {
             popover.barButtonItem = navigationItem.rightBarButtonItem
         }
 
-        UIViewController.root?.present(alert, animated: true)
-        papLog.charge.opened()
+        var launchOption = AppLaunchOptions()
+        launchOption.identifierToReturn = AppCenter.default.current?.info.identifier
+
+        if AppCenter.default.openApp(identifier:ShopApp.info.identifier, options: launchOption){
+            papLog.charge.opened()
+        }
+
     }
 }
 
@@ -246,114 +251,5 @@ private class PhotoPickerViewControllerChargeableAssets : ChargeableButtonAppear
     }
     var filledImage: UIImage? {
         return R.image.systemIconFavoriteFill()
-    }
-}
-
-private struct InAppStoreRating:Payable{
-    static let charge:Chargeable = AppChargeable(type: .inStoreRating, reward: .nonBlockOfUses)
-
-    func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
-        var paid = false
-        asyncSignal.begin()
-
-        Armchair.onDidDismissModalView { b in
-            paid = true
-            asyncSignal.end()
-            Armchair.onDidDismissModalView(nil)
-        }
-        DispatchQueue.main.async{
-            Armchair.rateApp()
-        }
-        asyncSignal.waitUntilEnd()
-        return paid
-    }
-}
-
-private struct OnPromptRating:Payable{
-    static let charge:Chargeable = AppChargeable(type: .onPromptRating, reward: .nonBlockOfUses)
-
-    func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
-        var paid = false
-        asyncSignal.begin()
-
-        DispatchQueue.main.async{
-            Armchair.showPrompt { info in
-                paid = true
-                asyncSignal.end()
-                return true
-            }
-        }
-        asyncSignal.waitUntilEnd()
-        return paid
-    }
-}
-
-private struct OnSocialShare:Payable{
-    static let charge:Chargeable = AppChargeable(type: .socialShare, reward: .timeOfUses)
-    
-    func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
-
-        var paid = false
-        asyncSignal.begin()
-        
-        DispatchQueue.main.async {
-            let shareActivity = UIActivityViewController(activityItems: [papStrings.share.messageFirst], applicationActivities: nil)
-            shareActivity.excludedActivityTypes = [.copyToPasteboard, .addToReadingList, .addToReminder, .addToNote, .addToiCloudDrive]
-            shareActivity.completionWithItemsHandler = { activityType, completed, returnedItems, error in
-                paid = completed
-                asyncSignal.end()
-            }
-            shareActivity.popoverPresentationController?.sourceView = UIViewController.root?.view
-            UIViewController.root?.present(shareActivity, animated: true, completion: nil)
-        }
-        asyncSignal.waitUntilEnd()
-        return paid
-    }
-}
-
-extension UIActivityType {
-    static let addToReminder = UIActivityType("com.apple.reminders.RemindersEditorExtension")
-    static let addToNote = UIActivityType("com.apple.mobilenotes.SharingExtension")
-    static let addToiCloudDrive = UIActivityType("com.apple.CloudDocsUI.AddToiCloudDrive") //TODO: not work excluding this
-}
-
-import MessageUI
-
-private class OnFeedback: NSObject, Payable, MFMailComposeViewControllerDelegate {
-    static let charge:Chargeable = AppChargeable(type: .feedback, reward: .timeOfUses)
-    
-    private var mailComposerCompletionBlock: ((_ sent: Bool) -> Void)?
-    
-    required override init() {}
-    
-    func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
-        guard MFMailComposeViewController.canSendMail() else { return false }
-        
-        var paid = false
-        asyncSignal.begin()
-        
-        DispatchQueue.main.async {
-            let mailComposer = MFMailComposeViewController()
-            mailComposer.mailComposeDelegate = self
-            mailComposer.setToRecipients([papStrings.feedback.email])
-            mailComposer.setSubject("👋 " + "My Feedback on %@".localizedFormatted(papStrings.name))
-            mailComposer.popoverPresentationController?.sourceView = UIViewController.root?.view
-            
-            self.mailComposerCompletionBlock = { sent in
-                paid = sent
-                asyncSignal.end()
-            }
-            UIViewController.root?.present(mailComposer, animated: true, completion: nil)
-        }
-        
-        asyncSignal.waitUntilEnd()
-        return paid
-    }
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        mailComposerCompletionBlock?(result == .sent)
-        mailComposerCompletionBlock = nil
-        
-        controller.dismiss(animated: true, completion: nil)
     }
 }

@@ -64,9 +64,9 @@ class CameraApp: NSObject, KeyPathWatchable, BApp, LaunchableApp, AppDockApp, Ph
 
     }
 
-    fileprivate var importedLaunchOption: AppLaunchOption? = nil
+    fileprivate var importedLaunchOption: AppLaunchOptions? = nil
 
-    func didLaunch(previous: App.Type?, withOption: AppLaunchOption?) {
+    func didLaunch(previous: App.Type?, withOption: AppLaunchOptions?) {
         importedLaunchOption = withOption
 
         papLog.app.launch(with: withOption)
@@ -102,20 +102,25 @@ fileprivate class CameraAppDockContent: NSObject, KeyPathWatchable, AppDockConte
 
         cameraView?.capturedHandler = { succeed, results in
             if let results = results{
-                let data = [
-                    AppLaunchOptionsKey.PhotoURL: results[CaptureProcessorResultKey.photoURL]
-                    , AppLaunchOptionsKey.PairedVideoURL: results[CaptureProcessorResultKey.pairedVideoURL]
-                ]
+
+                var data = [AppLaunchOptionsKey:Any]()
+                if let photoUrl = results[CaptureProcessorResultKey.photoURL]{
+                    data[AppLaunchOptionsKey.PhotoURL] = photoUrl
+                }
+                if let pairedVideoURL = results[CaptureProcessorResultKey.pairedVideoURL]{
+                    data[AppLaunchOptionsKey.PairedVideoURL] = pairedVideoURL
+                }
+
                 self.didCaptured(with:data)
             }
         }
     }
     
-    func didCaptured(with data:[AppLaunchOptionsKey:Any?]){
+    func didCaptured(with data:[AppLaunchOptionsKey:Any]){
         if let option = AppCenter.default.currentInstanceAs(CameraApp.self)?.importedLaunchOption
-            , let id = option.identifierToReturn{
+            , let id = option.identifierToReturn {
 
-            AppCenter.default.openApp(identifier: id, options:AppLaunchOption(options: data), animation:true)
+            AppCenter.default.openApp(identifier: id, options: AppLaunchOptions(options: data), animation:true)
         }
     }
 

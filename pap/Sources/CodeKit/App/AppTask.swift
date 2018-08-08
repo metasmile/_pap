@@ -97,6 +97,11 @@ public class AppTaskPrototype: Item<AppTaskInfo> {
     }
 }
 
+public class AppVoidTask: AppTaskPrototype, AppTaskable {
+    public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? { return nil }
+    public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) {}
+}
+
 public typealias AppTaskRequest = AppTaskRequestable<App.Type, AppTaskParamable, AppTaskRespondable>
 
 public final class AppTaskRequestable<AppType, ParameterType, ResponseType>: ItemObject {
@@ -137,6 +142,8 @@ public final class AppTaskRequestable<AppType, ParameterType, ResponseType>: Ite
  */
 
 public protocol AppTaskParamable {}
+
+struct AppTaskVoidParameter: AppTaskParamable{}
 
 
 //internal

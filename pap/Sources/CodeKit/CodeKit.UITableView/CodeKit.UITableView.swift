@@ -25,12 +25,12 @@ extension UITableView{
         return label
     }
 
-    class func createHeaderFooterViewForMessage(text:String) -> UITextView{
+    class func createHeaderFooterViewForSmallMessage(text:String) -> UITextView{
         return self.createHeaderFooterTextView(
                 text: text
                 , fontSize: UIFont.smallSystemFontSize
                 , fontColor: UIColor.lightGray
-                , inset: UIEdgeInsetsMake(10, 15, 20, 10)
+                , inset: UIEdgeInsetsMake(10, 10, 20, 10)
         )
     }
 }

@@ -63,25 +63,30 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         guard !AppCenter.default.task.isRunning else { return false }
 
-        if let collectableApp = collectionViewDisplayableApp
-            , let asset = PHAssets.fetched.asset(at: indexPath)
-            , let item = AppAssets.selected.at(unsafeIndex:indexPath.item) ?? AppAsset.create(for:asset) {
+        // Scope that able to handle Asset if not -> Selection will be disabled.
+        if let asset = PHAssets.fetched.asset(at: indexPath)
+        , let item = AppAssets.selected.at(unsafeIndex:indexPath.item) ?? AppAsset.create(for:asset){
 
-            if collectableApp.shouldSelect(item: item) == false{
-                return false
-            }
+            // Scope that able to customize for controlling collection view.
+            if let collectableApp = collectionViewDisplayableApp {
+                if collectableApp.shouldSelect(item: item) == false{
+                    return false
+                }
 
-            if let allowedNumberOfItems = collectableApp.numberOfItemsShouldSelect
+                if let allowedNumberOfItems = collectableApp.numberOfItemsShouldSelect
                 , let selectedItems = collectionView.indexPathsForSelectedItems{
 
-                if selectedItems.count > allowedNumberOfItems{
-                    return selectedItems[0..<allowedNumberOfItems].contains(indexPath)
-                } else if selectedItems.count == allowedNumberOfItems{
-                    return selectedItems.contains(indexPath)
+                    if selectedItems.count > allowedNumberOfItems{
+                        return selectedItems[0..<allowedNumberOfItems].contains(indexPath)
+                    } else if selectedItems.count == allowedNumberOfItems{
+                        return selectedItems.contains(indexPath)
+                    }
                 }
             }
+            return true
         }
-        return true
+
+        return false
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {

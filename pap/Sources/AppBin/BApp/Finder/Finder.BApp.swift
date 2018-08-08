@@ -62,8 +62,8 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
         self.didCancelPreheating()
     }
 
-    private var importedLaunchOption:AppLaunchOption?
-    func didLaunch(previous: App.Type?, withOption: AppLaunchOption?) {
+    private var importedLaunchOption: AppLaunchOptions?
+    func didLaunch(previous: App.Type?, withOption: AppLaunchOptions?) {
         importedLaunchOption = withOption
     }
 
@@ -1242,7 +1242,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         return tableView
     }()
 
-    lazy var footerView:UITextView = UITableView.createHeaderFooterViewForMessage(text:"Currently, our AI text recognition model is only available for Alphanumeric and some special characters.".localized)
+    lazy var footerView:UITextView = UITableView.createHeaderFooterViewForSmallMessage(text:"Currently, our AI text recognition model is only available for Alphanumeric and some special characters.".localized)
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
@@ -1303,7 +1303,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         cell_b.label = "Take A Photo".localized
         cell_b.buttonImageName = R.image.systemIconCamera.name
         cell_b.valueHandler = { _ in
-            var option = AppLaunchOption()
+            var option = AppLaunchOptions()
             option.identifierToReturn = FinderApp.info.identifier
 
             AppCenter.default.openApp(identifier:"com.stells.pap.camera", options:option)
@@ -1504,6 +1504,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
             cell.textLabel?.text = item.label
 
             if let buttonAsImage = cellDescriber.buttonImageName?.asUIImage{
+                cell.buttonFrameInset = UIEdgeInsetsMake(5, 5, 5, 5)
                 cell.button.setImage(buttonAsImage.withRenderingMode(.alwaysTemplate), for: .normal)
             }else if let buttonAsText = cellDescriber.buttonTitleLabel {
                 cell.button.setTitle(buttonAsText, for: .normal)

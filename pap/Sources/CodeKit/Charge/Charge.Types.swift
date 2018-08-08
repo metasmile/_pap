@@ -44,7 +44,9 @@ enum RewardType:Int {
 }
 
 protocol Payable {
-    static var charge: Chargeable {get}
+    static var chargeable: Chargeable {get}
+
+    static var payingLabel:String {get}
 
     func pay(_ asyncSignal:AsyncWaitSignalable) -> Bool
 
@@ -58,7 +60,11 @@ protocol Chargeable {
 
 extension Chargeable{
     func isEqualTo(other:Chargeable) -> Bool{
-        return reward==other.reward && type==other.type
+        return other.identifier == identifier
+    }
+
+    var identifier:String{
+        return String(describing: Chargeable.self) + "type\(type)reward\(reward)"
     }
 }
 
@@ -68,6 +74,8 @@ extension Equatable where Self:Chargeable{
     }
 }
 
+//INFO: It is not recommended what use a type Charge directly outside of Bank.
+// Use "AppCenter.charge.getCharge(for: chargeable)"
 protocol Charge: Chargeable {
     var priceAmount: Amount {get}
 

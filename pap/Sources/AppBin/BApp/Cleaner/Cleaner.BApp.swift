@@ -71,7 +71,7 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, LaunchableApp, PHAsse
         self.didCancelPreheating()
     }
 
-    func didLaunch(previous: App.Type?, withOption: AppLaunchOption?) {
+    func didLaunch(previous: App.Type?, withOption: AppLaunchOptions?) {
 
     }
 

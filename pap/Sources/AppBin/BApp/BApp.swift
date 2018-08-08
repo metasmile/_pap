@@ -22,4 +22,4 @@ Identifier (Optional): "com.stells.pap.{displayname-lowercase}"
 
 */
 
-protocol BApp: App, PersistableApp{}
+protocol BApp: TaskApp, PersistableApp{}

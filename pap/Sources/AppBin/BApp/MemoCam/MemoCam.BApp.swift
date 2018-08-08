@@ -49,9 +49,9 @@ class MemoCamApp: NSObject, KeyPathWatchable, BApp, LaunchableApp, AppDockApp, P
         
     }
     
-    fileprivate var importedLaunchOption: AppLaunchOption? = nil
+    fileprivate var importedLaunchOption: AppLaunchOptions? = nil
     
-    func didLaunch(previous: App.Type?, withOption: AppLaunchOption?) {
+    func didLaunch(previous: App.Type?, withOption: AppLaunchOptions?) {
         importedLaunchOption = withOption
     }
 }
