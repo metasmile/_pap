@@ -83,7 +83,9 @@ class DragSelectionGestureRecognizer: UIPanGestureRecognizer {
     var selectionMode = DragSelectionGestureRecognizer.DragSelectionMode.none
     var autoPanningTimer: CADisplayLink?
 
-    @objc func reset() {
+    override func reset() {
+        super.reset()
+        
         beginIndexPath = nil
         beginLocation = nil
         ignoredIndexPaths = nil

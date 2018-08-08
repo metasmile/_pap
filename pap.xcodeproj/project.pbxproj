@@ -85,6 +85,7 @@
 		4F71D4153D97A1F440C3291F /* CodeKit.UIAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4D8D08CB1574BE2B3B9 /* CodeKit.UIAlertAction.swift */; };
 		4F71D41A81D16C12BB590B69 /* Transform.BApp.Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7527A6619FFA2F0BEC1 /* Transform.BApp.Contents.swift */; };
 		4F71D41EE4FDCF600C6EB54C /* App.Launchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DCE3A0EB7D65562E4AA8 /* App.Launchable.swift */; };
+		4F71D42D37917B52DB68D096 /* MemoCam.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D886210610B2463DCA2A /* MemoCam.BApp.swift */; };
 		4F71D466EFAA7A462A5C0945 /* AppDockViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D4D7D1C9F3CFA4EA5D6B /* AppDockViewCell.xib */; };
 		4F71D470CB2DA2A48F4ACBB7 /* PHAsset.Editable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5F742AD0E3ACDE89B67 /* PHAsset.Editable.swift */; };
 		4F71D49A025B0DE5358DEF78 /* Charge.Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D53F0A7FD6B2CD5F9AE7 /* Charge.Types.swift */; };
@@ -474,6 +475,7 @@
 		4F71D85980FE87C2FB5A2398 /* AppTaskRespondable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTaskRespondable.swift; sourceTree = "<group>"; };
 		4F71D8698EAC3EA68C658ECE /* CodeKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKitTests.swift; sourceTree = "<group>"; };
 		4F71D86FB9BF4682C854417F /* gifmaker_preview_frame_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gifmaker_preview_frame_1.png; sourceTree = "<group>"; };
+		4F71D886210610B2463DCA2A /* MemoCam.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoCam.BApp.swift; sourceTree = "<group>"; };
 		4F71D88756315BEB67DAEDB2 /* ImageIO.Metadata.Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.Metadata.Dictionary.swift; sourceTree = "<group>"; };
 		4F71D89C31B1B675AF430B77 /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		4F71D89EAAA3533CDB7FEE6F /* PhotoPickerViewController.UICollectionView.Selection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.UICollectionView.Selection.swift; sourceTree = "<group>"; };
@@ -754,6 +756,7 @@
 				4F71D34F3236621C9E52A2C7 /* Finder */,
 				4F71DE5D930C3172986E0CC8 /* Camera */,
 				4F71DF7B34D37303C0742610 /* BApp.Macro.AutoSelection.swift */,
+				4F71D76065E035A54AE614D3 /* MemoCam */,
 			);
 			path = BApp;
 			sourceTree = "<group>";
@@ -1097,6 +1100,14 @@
 				4F71D93194BD75FB4B17AAC0 /* Filters.jpg */,
 			);
 			path = Filters;
+			sourceTree = "<group>";
+		};
+		4F71D76065E035A54AE614D3 /* MemoCam */ = {
+			isa = PBXGroup;
+			children = (
+				4F71D886210610B2463DCA2A /* MemoCam.BApp.swift */,
+			);
+			path = MemoCam;
 			sourceTree = "<group>";
 		};
 		4F71D7D846B6A5D3E2D9CFE6 /* Views */ = {
@@ -1745,8 +1756,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0ABFCF8A1F14B65C0078A583 /* Build configuration list for PBXNativeTarget "pap" */;
 			buildPhases = (
-				A0C4010420D160E500F0919C /* ShellScript */,
 				9FF1A055D87F28B3A17235D3 /* [CP] Check Pods Manifest.lock */,
+				A0C4010420D160E500F0919C /* ShellScript */,
 				A0CFD8C72052C6990007041B /* ShellScript */,
 				0ABFCF741F14B65C0078A583 /* Sources */,
 				0ABFCF751F14B65C0078A583 /* Frameworks */,
@@ -2084,7 +2095,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 4de4dac2f8e69777783b1df21877e32171c4d237 d0dda26417dac7e85551b4a5e1c153dd51ca24de84ead30fc9cb38f344295de5";
+			shellScript = "#\"${PODS_ROOT}/Fabric/run\" 4de4dac2f8e69777783b1df21877e32171c4d237 d0dda26417dac7e85551b4a5e1c153dd51ca24de84ead30fc9cb38f344295de5\n";
 		};
 		A0C4010420D160E500F0919C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2097,7 +2108,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/pre-build.sh\"";
+			shellScript = "\"${SRCROOT}/pre-build.sh\"\n";
 		};
 		A0CFD8C72052C6990007041B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2447,6 +2458,7 @@
 				4F71D55035FDEBDEDE636A04 /* Shop.SApp.swift in Sources */,
 				4F71DB8751248946212A908C /* SApp.swift in Sources */,
 				4F71D406A172F105246FCB03 /* Shop.Payables.swift in Sources */,
+				4F71D42D37917B52DB68D096 /* MemoCam.BApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

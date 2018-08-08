@@ -175,7 +175,7 @@ extension CIImage {
         return (Kernels.homographic?.apply(extent: extent, roiCallback: { index, rect in
             return rect
         }, image: self, arguments: [
-            CIVector(float3x3: matrix),
+            CIVector.init(float3x3: matrix),
             CIVector(x: -clamp.x, y: -clamp.y),
             CIVector(x: clamp.x, y: clamp.y)
         ]) ?? self).transformed(by: transform)
