@@ -85,7 +85,8 @@ fileprivate class CameraAppDockContent: NSObject, KeyPathWatchable, AppDockConte
     }
 
     var preferences: AppDockContentPreferable? {
-        let pref = AppDockContentPreferences()
+        var pref = AppDockContentPreferences()
+        pref.preferredHeight = 300
         return pref
     }
 
