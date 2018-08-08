@@ -198,9 +198,10 @@ extension PhotoPickerViewController{
             popover.barButtonItem = navigationItem.rightBarButtonItem
         }
 
-//        UIViewController.root?.present(alert, animated: true)
+        var launchOption = AppLaunchOptions()
+        launchOption.identifierToReturn = AppCenter.default.current?.info.identifier
 
-        if AppCenter.default.openApp(identifier:ShopApp.info.identifier){
+        if AppCenter.default.openApp(identifier:ShopApp.info.identifier, options: launchOption){
             papLog.charge.opened()
         }
 

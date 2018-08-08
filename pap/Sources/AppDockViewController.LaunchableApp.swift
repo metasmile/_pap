@@ -1,5 +1,5 @@
 //
-// Created by BLACKGENE on ?14.07.18.
+// Created by BLACKGENE o??n ?14.07.18.
 // Copyr?ight (c) 2018 Stells. All rights reserved.
 //
 
@@ -19,7 +19,7 @@ private extension AppDockViewController {
 
 extension AppCenter{
     @discardableResult
-    func openCurrentApp(options: AppLaunchOption?=nil, animation:Bool=false) -> Bool{
+    func openCurrentApp(options: AppLaunchOptions?=nil, animation:Bool=false) -> Bool{
         return self.openApp(identifier: AppCenter.default.current?.info.identifier ?? "", options: options, animation: animation)
     }
 
@@ -28,7 +28,7 @@ extension AppCenter{
     e.g. - AppCenter.default.openApp(identifier:"com.stells.pap.camera")
     */
     @discardableResult
-    func openApp(identifier:String, options: AppLaunchOption?=nil, animation:Bool=false) -> Bool{
+    func openApp(identifier:String, options: AppLaunchOptions?=nil, animation:Bool=false) -> Bool{
         if identifier.trimmed.nilEmpty != nil
         , let matchedApp = AppCenter.default.apps().first(where:{ $0.info.identifier==identifier }){
             var mutableOption = options
@@ -47,9 +47,9 @@ extension AppCenter{
     }
 
     @discardableResult
-    private func selectApp(_ app:App.Type, options: AppLaunchOption?=nil, animation:Bool=false) -> Bool{
+    private func selectApp(_ app:App.Type, options: AppLaunchOptions?=nil, animation:Bool=false) -> Bool{
         guard let rootVc = UIApplication.shared.keyWindow?.rootViewController as? AppDockNavigationController
-        , let appDockVc = rootVc.visibleViewController as? AppDockViewController else {
+        , let appDockVc = rootVc.viewControllers.first(where:{ $0 is AppDockViewController }) as? AppDockViewController else {
             return false
         }
 

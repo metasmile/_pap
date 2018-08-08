@@ -13,7 +13,7 @@ public struct AppLaunchOptionsKey: Hashable, Equatable, RawRepresentable {
     }
 }
 
-public struct AppLaunchOption {
+public struct AppLaunchOptions {
     var options:[AppLaunchOptionsKey:Any]?
     init(options:[AppLaunchOptionsKey:Any]?=nil){
         self.options = options
@@ -26,5 +26,5 @@ protocol LaunchableApp where Self:App {
     // use this for a situation for example it should remove temp resources in current running cycle.
     func didResign(current:App.Type?)
 
-    func didLaunch(previous:App.Type?, withOption: AppLaunchOption?)
+    func didLaunch(previous:App.Type?, withOption: AppLaunchOptions?)
 }

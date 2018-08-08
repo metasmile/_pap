@@ -62,8 +62,8 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
         self.didCancelPreheating()
     }
 
-    private var importedLaunchOption:AppLaunchOption?
-    func didLaunch(previous: App.Type?, withOption: AppLaunchOption?) {
+    private var importedLaunchOption: AppLaunchOptions?
+    func didLaunch(previous: App.Type?, withOption: AppLaunchOptions?) {
         importedLaunchOption = withOption
     }
 
@@ -1303,7 +1303,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         cell_b.label = "Take A Photo".localized
         cell_b.buttonImageName = R.image.systemIconCamera.name
         cell_b.valueHandler = { _ in
-            var option = AppLaunchOption()
+            var option = AppLaunchOptions()
             option.identifierToReturn = FinderApp.info.identifier
 
             AppCenter.default.openApp(identifier:"com.stells.pap.camera", options:option)

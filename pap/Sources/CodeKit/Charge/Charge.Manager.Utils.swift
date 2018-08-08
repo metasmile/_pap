@@ -6,6 +6,13 @@
 import Foundation
 
 extension ChargeManager{
+    func isPaid(payable:Payable.Type) -> Bool{
+        if let receipt = bank.getReceipt(for: payable.chargeable){
+            return receipt.amountValue > 0
+        }
+        return false
+    }
+
     func getChargesHasPricingInBalance(cheapFirst:Bool=false) -> [Charge]{
         if self.bank.balanceValue == 1{
             return []

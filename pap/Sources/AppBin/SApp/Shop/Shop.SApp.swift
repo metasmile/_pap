@@ -47,7 +47,9 @@ public class ShopApp: NSObject
 
     }
 
-    func didLaunch(previous: App.Type?, withOption: AppLaunchOption?) {
+    fileprivate var launchedOption: AppLaunchOptions?
+    func didLaunch(previous: App.Type?, withOption: AppLaunchOptions?) {
+        launchedOption = withOption
     }
 
     public static var fixingContentLayout: AppDockContentLayoutState? {
@@ -284,7 +286,7 @@ private struct SettingsItem {
     fileprivate var iconImageName:String?
 }
 
-fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
+fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource{
     private lazy var tintColor = UIColor(red:0.31, green:0.44, blue:0.84, alpha:1)
 
     fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
@@ -486,23 +488,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     func settings_tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = self.settingCellDescribers[indexPath.item]
 
-        if let cellDescriber = item as? UITableViewPickerCellDescriber
-        , let valueCollection = cellDescriber.valueCollection as? [String]
-        , let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewPickerCell {
-
-            cell.values = valueCollection
-            cell.delegate = self
-            if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
-                cell.selectedRow = index
-            } else{
-                cell.selectedRow = 0
-            }
-            cell.titleLabel.text = item.label
-            return cell
-
-        }
-
-        else if let cellDescriber = item as? UITableViewSwitchCellDescriber
+        if let cellDescriber = item as? UITableViewSwitchCellDescriber
         , let value = item.valueGetter() as? Bool
         , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewSwitchCell {
 
@@ -569,7 +555,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         let dict = defaultCollections[dictIndex]
 
         let dataItem = dict.items[indexPath.item]
-        let selected = dataItem.enabled
+//        let selected = dataItem.enabled
 
         let cell = tableView.dequeueReusableCell(withIdentifier: ShopApp.info.identifier) as! UITableViewButtonCell
         cell.textLabel?.text = dataItem.label
@@ -585,25 +571,30 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             cell.imageView?.image = image?.asUIImage?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         }
 
+        //TODO: display already paid
+        cell.enable(!AppCenter.charge.isPaid(payable: dataItem.payable))
         cell.button.setImage(cell.imageView?.image, for: .normal)
         cell.didTap = {
-            AppCenter.charge.pay(for: dataItem.payable) { succeed in
-                //TODO: success cell display
-            }
-
-//            tableView.reloadRows(at: [indexPath], with: .fade)
+            self.didTapPayButton(item: dataItem)
+            tableView.reloadRows(at: [indexPath], with: .fade)
         }
-
-//        cell.enable(self.autoSelectedEnabled)
-
         return cell
     }
 
-    func pickerCell(_ cell: UITableViewPickerCell, didPick row: Int, value: Any) {
+    func didTapPayButton(item:PayItem){
+        AppCenter.charge.pay(for: item.payable) { succeed in
+            //TODO: success cell display
 
+            print(succeed, AppCenter.default.currentInstanceAs(ShopApp.self)?.launchedOption?.identifierToReturn)
+
+            if succeed, let rid = AppCenter.default.currentInstanceAs(ShopApp.self)?.launchedOption?.identifierToReturn{
+                DispatchQueue.main.async{
+                    AppCenter.default.openApp(identifier: rid)
+                }
+            }
+        }
     }
 }
-
 
 
 extension ShopAppDockContent: PreheatableAppSubscribable{
