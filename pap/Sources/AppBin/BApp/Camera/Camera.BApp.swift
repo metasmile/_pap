@@ -102,16 +102,21 @@ fileprivate class CameraAppDockContent: NSObject, KeyPathWatchable, AppDockConte
 
         cameraView?.capturedHandler = { succeed, results in
             if let results = results{
-                let data = [
-                    AppLaunchOptionsKey.PhotoURL: results[CaptureProcessorResultKey.photoURL]
-                    , AppLaunchOptionsKey.PairedVideoURL: results[CaptureProcessorResultKey.pairedVideoURL]
-                ]
+
+                var data = [AppLaunchOptionsKey:Any]()
+                if let photoUrl = results[CaptureProcessorResultKey.photoURL]{
+                    data[AppLaunchOptionsKey.PhotoURL] = photoUrl
+                }
+                if let pairedVideoURL = results[CaptureProcessorResultKey.pairedVideoURL]{
+                    data[AppLaunchOptionsKey.PairedVideoURL] = pairedVideoURL
+                }
+
                 self.didCaptured(with:data)
             }
         }
     }
     
-    func didCaptured(with data:[AppLaunchOptionsKey:Any?]){
+    func didCaptured(with data:[AppLaunchOptionsKey:Any]){
         if let option = AppCenter.default.currentInstanceAs(CameraApp.self)?.importedLaunchOption
             , let id = option.identifierToReturn{
 

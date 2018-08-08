@@ -135,11 +135,11 @@ extension PhotoPickerViewController{
 
         for charge in AppCenter.charge.charges {
 //            let receipt = AppCenter.charge.bank.getReceipt(for: charge)
-            
+
             var badgeImage: UIImage?
-            
+
             let estimatedChargeableImage = ChargeableImage(balance: charge.priceAmount.value, fillMode: .fill, tintColor: view.tintColor, appearanceDelegate: PhotoPickerViewControllerChargeableAssets()).withAlignmentRectInsets(UIEdgeInsets(top: -4, left: -4, bottom: -4, right: -4))
-            
+
             if let rewardText = charge.shortTitleWithReward {
                 badgeImage = ChargeableBadgeIcon.portraitBadgeIcon(estimatedChargeableImage, title: "+\(rewardText)", tintColor: view.tintColor)
             }
@@ -193,13 +193,17 @@ extension PhotoPickerViewController{
         alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel){ action in
             papLog.charge.cancelled()
         })
-        
+
         if let popover =  alert.popoverPresentationController {
             popover.barButtonItem = navigationItem.rightBarButtonItem
         }
 
-        UIViewController.root?.present(alert, animated: true)
-        papLog.charge.opened()
+//        UIViewController.root?.present(alert, animated: true)
+
+        if AppCenter.default.openApp(identifier:ShopApp.info.identifier, options:nil){
+            papLog.charge.opened()
+        }
+
     }
 }
 

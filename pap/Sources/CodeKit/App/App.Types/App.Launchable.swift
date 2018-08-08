@@ -14,8 +14,8 @@ public struct AppLaunchOptionsKey: Hashable, Equatable, RawRepresentable {
 }
 
 public struct AppLaunchOption {
-    var options:[AppLaunchOptionsKey:Any?]?
-    init(options:[AppLaunchOptionsKey:Any?]?=nil){
+    var options:[AppLaunchOptionsKey:Any]?
+    init(options:[AppLaunchOptionsKey:Any]?=nil){
         self.options = options
     }
     var identifierToReturn:String?
