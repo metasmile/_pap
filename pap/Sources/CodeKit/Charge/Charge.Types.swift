@@ -44,7 +44,7 @@ enum RewardType:Int {
 }
 
 protocol Payable {
-    static var charge: Chargeable {get}
+    static var chargeable: Chargeable {get}
 
     func pay(_ asyncSignal:AsyncWaitSignalable) -> Bool
 
@@ -72,6 +72,8 @@ extension Equatable where Self:Chargeable{
     }
 }
 
+//INFO: It is not recommended what use a type Charge directly outside of Bank.
+// Use "AppCenter.charge.getCharge(for: chargeable)"
 protocol Charge: Chargeable {
     var priceAmount: Amount {get}
 

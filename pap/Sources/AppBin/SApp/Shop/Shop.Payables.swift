@@ -9,7 +9,7 @@ import UIKit
 import MessageUI
 
 struct PayInAppStoreRating:Payable{
-    static let charge:Chargeable = AppChargeable(type: .inStoreRating, reward: .nonBlockOfUses)
+    static let chargeable:Chargeable = AppChargeable(type: .inStoreRating, reward: .nonBlockOfUses)
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
         var paid = false
@@ -29,7 +29,7 @@ struct PayInAppStoreRating:Payable{
 }
 
 struct PayOnPromptRating:Payable{
-    static let charge:Chargeable = AppChargeable(type: .onPromptRating, reward: .nonBlockOfUses)
+    static let chargeable:Chargeable = AppChargeable(type: .onPromptRating, reward: .nonBlockOfUses)
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
         var paid = false
@@ -48,7 +48,7 @@ struct PayOnPromptRating:Payable{
 }
 
 struct PayOnSocialShare:Payable{
-    static let charge:Chargeable = AppChargeable(type: .socialShare, reward: .timeOfUses)
+    static let chargeable:Chargeable = AppChargeable(type: .socialShare, reward: .timeOfUses)
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
 
@@ -78,7 +78,7 @@ extension UIActivityType {
 
 
 class PayOnFeedback: NSObject, Payable, MFMailComposeViewControllerDelegate {
-    static let charge:Chargeable = AppChargeable(type: .feedback, reward: .timeOfUses)
+    static let chargeable:Chargeable = AppChargeable(type: .feedback, reward: .timeOfUses)
 
     private var mailComposerCompletionBlock: ((_ sent: Bool) -> Void)?
 

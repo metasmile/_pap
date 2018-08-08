@@ -66,7 +66,7 @@ AppContent
 */
 
 private protocol ShopAppDefaults: AppDefaults{
-    var selectedCollection: [PayDictionary] {get set}
+//    var selectedCollection: [PayDictionary] {get set}
     var deletingTarget: Int {get set}
     var saveContactWithoutEdit:Bool {get set}
     var quickActionOnly:Bool {get set}
@@ -74,50 +74,50 @@ private protocol ShopAppDefaults: AppDefaults{
 }
 
 extension Defaults: ShopAppDefaults {
-    fileprivate var selectedCollection: [PayDictionary] {
-        set{ set(newValue) }
-        get{
-            let defaultCollection = PayDictionary.DefaultCollection
-            let collection = get(or: defaultCollection )
-
-            //diff == 0 return
-            if defaultCollection == collection{
-                return collection
-            }
-
-            //if not -> migrate
-            var migratedCollection = [PayDictionary]()
-            let keyedCollection = collection.dictionary { $0.key }
-
-            var modCount = 0
-            for ddict in defaultCollection {
-                guard let ndict = keyedCollection[ddict.key] else {
-                    migratedCollection.append(ddict)
-                    continue
-                }
-
-                var m_dict = ddict
-                let oPayIds = ddict.itemsChargeIdentifiers
-                let nPayIds = ndict.itemsChargeIdentifiers
-
-                for nPayId in nPayIds{
-                    if let oindex = oPayIds.index(of: nPayId)
-                    , let nindex = nPayIds.index(of: nPayId){
-                        m_dict.items[oindex] = ndict.items[nindex]
-                        modCount += 1
-                    }
-                }
-                migratedCollection.append(m_dict)
-            }
-
-            if modCount > 0{
-                let mSelf = self
-                mSelf.selectedCollection = migratedCollection
-            }
-
-            return migratedCollection
-        }
-    }
+//    fileprivate var selectedCollection: [PayDictionary] {
+//        set{ set(newValue) }
+//        get{
+//            let defaultCollection = PayDictionary.DefaultCollection
+//            let collection = get(or: defaultCollection )
+//
+//            //diff == 0 return
+//            if defaultCollection == collection{
+//                return collection
+//            }
+//
+//            //if not -> migrate
+//            var migratedCollection = [PayDictionary]()
+//            let keyedCollection = collection.dictionary { $0.key }
+//
+//            var modCount = 0
+//            for ddict in defaultCollection {
+//                guard let ndict = keyedCollection[ddict.key] else {
+//                    migratedCollection.append(ddict)
+//                    continue
+//                }
+//
+//                var m_dict = ddict
+//                let oPayIds = ddict.itemsChargeIdentifiers
+//                let nPayIds = ndict.itemsChargeIdentifiers
+//
+//                for nPayId in nPayIds{
+//                    if let oindex = oPayIds.index(of: nPayId)
+//                    , let nindex = nPayIds.index(of: nPayId){
+//                        m_dict.items[oindex] = ndict.items[nindex]
+//                        modCount += 1
+//                    }
+//                }
+//                migratedCollection.append(m_dict)
+//            }
+//
+//            if modCount > 0{
+//                let mSelf = self
+//                mSelf.selectedCollection = migratedCollection
+//            }
+//
+//            return migratedCollection
+//        }
+//    }
 
     fileprivate var deletingTarget: Int {
         set{ set(newValue); papLog.app.defaults.log(value:newValue) }
@@ -140,28 +140,94 @@ extension Defaults: ShopAppDefaults {
     }
 }
 
-private struct PayItem:Codable, Hashable {
+private class PhotoPickerViewControllerChargeableAssets : ChargeableButtonAppearance{
+    static let shared: PhotoPickerViewControllerChargeableAssets = PhotoPickerViewControllerChargeableAssets()
+
+    fileprivate lazy var inStoreRatingButton = UIBarButtonItem(image: R.image.systemIconFavoriteLine(), style: .plain, target: self, action: nil)
+
+    fileprivate lazy var onPromptRatingButton = UIBarButtonItem(image: R.image.systemIconFavoriteLine(), style: .plain, target: self, action: nil)
+
+    fileprivate lazy var socialShareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: nil)
+
+    fileprivate lazy var feedbackButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
+
+    fileprivate lazy var chargeableButton = makeChargeableBarButtonItem()
+
+    func makeChargeableBarButtonItem() -> ChargeableBarButtonItem{
+        let chargeableButton = ChargeableButton(type: .system, appearance: self)
+        chargeableButton.imageView?.contentMode = .scaleAspectFit
+        chargeableButton.imageEdgeInsets = UIEdgeInsets(top: 2, left: 0, bottom: 2, right: 0)
+
+        chargeableButton.fillMode = [.fill]
+
+        //TODO: apply true when some restrictful conditions (e.g. finished trial days) to induce for paying
+        chargeableButton.showsColorLevel = false
+        chargeableButton.showsAnimation = false
+        chargeableButton.showsPercentage = false
+
+        chargeableButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
+        chargeableButton.titleEdgeInsets.left = 2
+        chargeableButton.titleEdgeInsets.right = -2
+
+        return ChargeableBarButtonItem(button:chargeableButton)
+    }
+
+    var emptyImage: UIImage? {
+        return R.image.systemIconFavoriteLine()
+    }
+    var filledImage: UIImage? {
+        return R.image.systemIconFavoriteFill()
+    }
+}
+
+
+private struct PayItem: Hashable, Equatable {
+    fileprivate let chargeable:Chargeable
+    fileprivate let payable:Payable.Type
     fileprivate let chargeIdentifier: String
     fileprivate let label: String
-    fileprivate var iconImageName: String?
+
+    fileprivate func getIconImage(tintColor:UIColor) -> ImageSourceable? {
+
+        if let charge = AppCenter.charge.getCharge(for: self.chargeable){
+            var badgeImage: UIImage?
+            let estimatedChargeableImage = ChargeableImage(balance: charge.priceAmount.value, fillMode: .fill, tintColor: tintColor, appearanceDelegate: PhotoPickerViewControllerChargeableAssets()).withAlignmentRectInsets(UIEdgeInsets(top: -4, left: -4, bottom: -4, right: -4))
+
+            if let rewardText = charge.shortTitleWithReward {
+                badgeImage = ChargeableBadgeIcon.portraitBadgeIcon(estimatedChargeableImage, title: "+\(rewardText)", tintColor: tintColor)
+            }
+            else {
+                badgeImage = estimatedChargeableImage
+            }
+            return badgeImage
+        }
+
+        return nil
+    }
+
     fileprivate var iconImageShouldUseTintColor: Bool
-    fileprivate var enabled: Bool
+    fileprivate var enabled: Bool = true
 
     init(payable: Payable.Type) {
-        self.chargeIdentifier = payable.charge.identifier
-        self.label = AppCenter.charge.getCharge(for: payable.charge)?.title ?? "Untitled"
-//        self.iconImageName = payable.iconImageName
+        self.payable = payable
+        self.chargeable = payable.chargeable
+        self.chargeIdentifier = payable.chargeable.identifier
+        self.label = AppCenter.charge.getCharge(for: payable.chargeable)?.title ?? "Untitled"
         self.iconImageShouldUseTintColor = true
-        self.enabled = false
     }
 
     var hashValue: Int {
         return chargeIdentifier.hashValue
     }
+
+    public static func == (lhs: PayItem, rhs: PayItem) -> Bool{
+        return lhs.hashValue == rhs.hashValue
+    }
+
 }
 
-private struct PayDictionary:Codable, Hashable {
-    static let DefaultCollection: [PayDictionary] = [
+private struct PayDictionary:Hashable {
+    static let Default: [PayDictionary] = [
         PayDictionary(
                 key: .Default
                 , label: "Targets".localized
@@ -222,7 +288,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
 
     private var defaultCollections:[PayDictionary] {
-        return ShopApp.privateDefaults.selectedCollection
+        return PayDictionary.Default
     }
 
     required public override init() {
@@ -265,11 +331,11 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         return celld
     }
 
-    private var isActivatedAtLeastOne:Bool{
-        return self.defaultCollections.compactMap { dictionary -> PayDictionary? in
-            return dictionary.items.compactMap { $0.enabled ? $0 : nil }.count > 0 ? dictionary : nil
-        }.count > 0
-    }
+//    private var isActivatedAtLeastOne:Bool{
+//        return self.defaultCollections.compactMap { dictionary -> PayDictionary? in
+//            return dictionary.items.compactMap { $0.enabled ? $0 : nil }.count > 0 ? dictionary : nil
+//        }.count > 0
+//    }
 
     func willSetContentView(_ view: UIView, dock: AppDock) {
 
@@ -506,26 +572,26 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         cell.detailTextLabel?.text = selected ? "%@ might be found".localizedFormatted("").trimmed : nil
 
         cell.imageView?.tintColor = self.view.tintColor
-        let image = dataItem.iconImageName?.asUIImageNamed
+        let image = dataItem.getIconImage(tintColor:view.tintColor)
 
         if dataItem.iconImageShouldUseTintColor{
-            cell.imageView?.image = image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+            cell.imageView?.image = image?.asUIImage?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         }else{
-            cell.imageView?.image = image?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+            cell.imageView?.image = image?.asUIImage?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         }
 
         cell.detailTextLabel?.textColor = UIColor.gray
         cell.optionSwitch.setOn(selected, animated: false)
 
         cell.switchDidChange = { on in
-            let chargeIdentifier = dataItem.chargeIdentifier
+//            let chargeIdentifier = dataItem.chargeIdentifier
 
             //set enable
             var collection = self.defaultCollections
             collection[dictIndex].items[indexPath.item].enabled = on
 
             //commit
-            ShopApp.privateDefaults.selectedCollection = collection
+//            ShopApp.privateDefaults.selectedCollection = collection
 
             tableView.reloadRows(at: [indexPath], with: .fade)
         }

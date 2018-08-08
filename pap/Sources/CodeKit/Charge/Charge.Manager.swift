@@ -46,7 +46,7 @@ class ChargeManager{
         Payment
     */
     func pay(for payable: Payable.Type, _ asyncSignal:AsyncWaitSignalable=AsyncSignal()){
-        guard let charge = charges.first(where:{ $0.isEqualTo(other: payable.charge) }) else {
+        guard let charge = charges.first(where:{ $0.isEqualTo(other: payable.chargeable) }) else {
             return
         }
 
