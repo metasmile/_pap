@@ -94,7 +94,7 @@
 		4F71D4EDFB81D8C50B0AF3E9 /* CodeKit.UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3172139CC55C5AEEAEA /* CodeKit.UITableViewCell.swift */; };
 		4F71D515FC2A5004283B8875 /* Converter.Mp4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D605DE80A5FB8CD97923 /* Converter.Mp4.swift */; };
 		4F71D53D8666AAD3A454B3C4 /* CodeKit.CMMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3CF7C5B48D7CFC73BCC /* CodeKit.CMMotionManager.swift */; };
-		4F71D55035FDEBDEDE636A04 /* Purchase.SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4884D683710D4B95189 /* Purchase.SApp.swift */; };
+		4F71D55035FDEBDEDE636A04 /* Shop.SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4884D683710D4B95189 /* Shop.SApp.swift */; };
 		4F71D5523A1C92C67FD2E376 /* PDFactory.AppDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4F254C90792D44FF14D /* PDFactory.AppDefaults.swift */; };
 		4F71D58C2B40BC3B670A6A85 /* Transform.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D5366E28E479C8B0D7D4 /* Transform.BApp.Assets.xcassets */; };
 		4F71D5983139B58F7B26FB8F /* PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF0023CBC4BE3200C204 /* PHAsset.swift */; };
@@ -394,7 +394,7 @@
 		4F71D45063F327509DB10F71 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		4F71D46453DF01671E19C90F /* ImageIO.GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.GIF.swift; sourceTree = "<group>"; };
 		4F71D47F20EC723F99C7D8F4 /* PhotoEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoEditViewController.swift; sourceTree = "<group>"; };
-		4F71D4884D683710D4B95189 /* Purchase.SApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Purchase.SApp.swift; sourceTree = "<group>"; };
+		4F71D4884D683710D4B95189 /* Shop.SApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.SApp.swift; sourceTree = "<group>"; };
 		4F71D489CB86B80D005FDC3C /* bath01.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bath01.gif; sourceTree = "<group>"; };
 		4F71D495C6A50C4C97D67231 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4F71D4D7D1C9F3CFA4EA5D6B /* AppDockViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppDockViewCell.xib; sourceTree = "<group>"; };
@@ -942,12 +942,12 @@
 			path = Finder;
 			sourceTree = "<group>";
 		};
-		4F71D384E82677E370069EFF /* Purchase */ = {
+		4F71D384E82677E370069EFF /* Shop */ = {
 			isa = PBXGroup;
 			children = (
-				4F71D4884D683710D4B95189 /* Purchase.SApp.swift */,
+				4F71D4884D683710D4B95189 /* Shop.SApp.swift */,
 			);
-			path = Purchase;
+			path = Shop;
 			sourceTree = "<group>";
 		};
 		4F71D3F573FA49160F93E076 /* Stabilizer */ = {
@@ -1296,7 +1296,7 @@
 		4F71DD5C3DB03CE185970D15 /* SApp */ = {
 			isa = PBXGroup;
 			children = (
-				4F71D384E82677E370069EFF /* Purchase */,
+				4F71D384E82677E370069EFF /* Shop */,
 				4F71D560E1FB6A785B514D8F /* SApp.swift */,
 			);
 			path = SApp;
@@ -2440,7 +2440,7 @@
 				4F71DF970A25BD69A64B2854 /* Finder.BApp.swift in Sources */,
 				4F71DAFB85C473BC71266EDB /* Camera.BApp.swift in Sources */,
 				4F71D297B39DB140B876FDC4 /* BApp.Macro.AutoSelection.swift in Sources */,
-				4F71D55035FDEBDEDE636A04 /* Purchase.SApp.swift in Sources */,
+				4F71D55035FDEBDEDE636A04 /* Shop.SApp.swift in Sources */,
 				4F71DB8751248946212A908C /* SApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
