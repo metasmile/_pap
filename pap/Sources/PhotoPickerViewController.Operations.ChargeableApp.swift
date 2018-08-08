@@ -200,7 +200,7 @@ extension PhotoPickerViewController{
 
 //        UIViewController.root?.present(alert, animated: true)
 
-        if AppCenter.default.openApp(identifier:ShopApp.info.identifier, options:nil){
+        if AppCenter.default.openApp(identifier:ShopApp.info.identifier){
             papLog.charge.opened()
         }
 

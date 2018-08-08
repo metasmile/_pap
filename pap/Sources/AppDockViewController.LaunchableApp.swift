@@ -23,6 +23,10 @@ extension AppCenter{
         return self.openApp(identifier: AppCenter.default.current?.info.identifier ?? "", options: options, animation: animation)
     }
 
+    /* INFO:
+    When set "identifier" in App internal code, use string literal instead of reference.
+    e.g. - AppCenter.default.openApp(identifier:"com.stells.pap.camera")
+    */
     @discardableResult
     func openApp(identifier:String, options: AppLaunchOption?=nil, animation:Bool=false) -> Bool{
         if identifier.trimmed.nilEmpty != nil

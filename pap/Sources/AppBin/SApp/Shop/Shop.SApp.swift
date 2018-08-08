@@ -20,9 +20,9 @@ public class ShopApp: NSObject
         , AppDockApp
         , LaunchableApp {
 
+    fileprivate static var privateDefaults = ShopApp.defaults as! ShopAppDefaults
+    
     public private(set) lazy var content: AppDockContent? = ShopAppDockContent()
-
-    fileprivate static let privateDefaults = ShopApp.defaults as! ShopAppDefaults
 
     public static let info = AppInfo(
             identifier: "com.stells.pap.shop"
@@ -47,9 +47,144 @@ public class ShopApp: NSObject
 
     func didLaunch(previous: App.Type?, withOption: AppLaunchOption?) {
     }
+
+    fileprivate static let SupportingPayTypes:[Payable.Type] = [
+        PayOnFeedback.self
+        , PayOnPromptRating.self
+        , PayOnSocialShare.self
+        , PayInAppStoreRating.self
+
+    ].sorted { (payType1: Payable.Type, payType2: Payable.Type) -> Bool in
+        return false
+    }
 }
 
+/*
 
+AppContent
+
+*/
+
+private protocol ShopAppDefaults: AppDefaults{
+    var selectedCollection: [PayDictionary] {get set}
+    var deletingTarget: Int {get set}
+    var saveContactWithoutEdit:Bool {get set}
+    var quickActionOnly:Bool {get set}
+    var autoSelect:Bool {get set}
+}
+
+extension Defaults: ShopAppDefaults {
+    fileprivate var selectedCollection: [PayDictionary] {
+        set{ set(newValue) }
+        get{
+            let defaultCollection = PayDictionary.DefaultCollection
+            let collection = get(or: defaultCollection )
+
+            //diff == 0 return
+            if defaultCollection == collection{
+                return collection
+            }
+
+            //if not -> migrate
+            var migratedCollection = [PayDictionary]()
+            let keyedCollection = collection.dictionary { $0.key }
+
+            var modCount = 0
+            for ddict in defaultCollection {
+                guard let ndict = keyedCollection[ddict.key] else {
+                    migratedCollection.append(ddict)
+                    continue
+                }
+
+                var m_dict = ddict
+                let oPayIds = ddict.itemsChargeIdentifiers
+                let nPayIds = ndict.itemsChargeIdentifiers
+
+                for nPayId in nPayIds{
+                    if let oindex = oPayIds.index(of: nPayId)
+                    , let nindex = nPayIds.index(of: nPayId){
+                        m_dict.items[oindex] = ndict.items[nindex]
+                        modCount += 1
+                    }
+                }
+                migratedCollection.append(m_dict)
+            }
+
+            if modCount > 0{
+                let mSelf = self
+                mSelf.selectedCollection = migratedCollection
+            }
+
+            return migratedCollection
+        }
+    }
+
+    fileprivate var deletingTarget: Int {
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
+        get{ return get(or: DeletingTarget.selected.rawValue ) }
+    }
+
+    fileprivate var saveContactWithoutEdit: Bool {
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
+        get{ return get(or: false ) }
+    }
+
+    fileprivate var quickActionOnly: Bool {
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
+        get{ return get(or: false ) }
+    }
+
+    fileprivate var autoSelect: Bool {
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
+        get{ return get(or: false ) }
+    }
+}
+
+private struct PayItem:Codable, Hashable {
+    fileprivate let chargeIdentifier: String
+    fileprivate let label: String
+    fileprivate var iconImageName: String?
+    fileprivate var iconImageShouldUseTintColor: Bool
+    fileprivate var enabled: Bool
+
+    init(payable: Payable.Type) {
+        self.chargeIdentifier = payable.charge.identifier
+        self.label = AppCenter.charge.getCharge(for: payable.charge)?.title ?? "Untitled"
+//        self.iconImageName = payable.iconImageName
+        self.iconImageShouldUseTintColor = true
+        self.enabled = false
+    }
+
+    var hashValue: Int {
+        return chargeIdentifier.hashValue
+    }
+}
+
+private struct PayDictionary:Codable, Hashable {
+    static let DefaultCollection: [PayDictionary] = [
+        PayDictionary(
+                key: .Default
+                , label: "Targets".localized
+                , items: ShopApp.SupportingPayTypes.map { PayItem(payable: $0) }
+        )
+    ]
+
+    enum Key: Int, Codable {
+        case Default
+    }
+
+    fileprivate var key:Key
+    fileprivate var label:String
+    fileprivate var items:[PayItem]
+    fileprivate var itemsChargeIdentifiers:[String]{
+        return items.map { $0.chargeIdentifier }
+
+    }
+
+    var hashValue: Int{
+        return key.rawValue
+    }
+}
 
 
 /*
@@ -58,18 +193,17 @@ AppContent
 
 */
 
-private enum SelectionPreset:Int{
-    case action
-    case contact
-    case plaintext
+private enum DeletingTarget:Int{
+    case selected
+    case targeted
 }
 
 private enum ShopAppSettingCells {
-    case takePhoto
-    case presets
+    case deletingTarget
     case autoSelect
     case saveContactWithoutEdit
     case quickActionOnly
+//    case delete
 }
 
 private struct SettingsItem {
@@ -82,140 +216,18 @@ private struct SettingsItem {
     fileprivate var iconImageName:String?
 }
 
-private protocol ShopAppDefaults: AppDefaults{
-    var selectedParserCollection: ParserCollection {get set}
-    var selectionPreset: Int {get set}
-    var saveContactWithoutEdit:Bool {get set}
-    var quickActionOnly:Bool {get set}
-}
-
-extension Defaults: ShopAppDefaults {
-    fileprivate var selectedParserCollection: ParserCollection {
-        set{ set(newValue) }
-        get{ return get(or: ParserDictionary.DefaultCollection) }
-    }
-
-    fileprivate var selectionPreset: Int {
-        set{ set(newValue); papLog.app.defaults.log(value: newValue) }
-        get{ return get(or: SelectionPreset.plaintext.rawValue ) }
-    }
-
-    fileprivate var saveContactWithoutEdit: Bool {
-        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
-        get{ return get(or: false ) }
-    }
-
-    fileprivate var quickActionOnly: Bool {
-        set{ set(newValue); papLog.app.defaults.log(value:newValue)  }
-        get{ return get(or: false ) }
-    }
-}
-
-extension ShopAppDefaults{
-    fileprivate func addHandledProperty(_ dictionary:ParserDictionary.Key, _ property:ParserItem.Key){
-
-        var immutableSelf = self
-        if immutableSelf.selectedParserCollection[dictionary] == nil{
-            immutableSelf.selectedParserCollection = ParserCollection()
-            var p = immutableSelf.selectedParserCollection
-            p[dictionary] = [property]
-            immutableSelf.selectedParserCollection = p
-        }else{
-            if selectedParserCollection[dictionary]?.contains(property) == false{
-                var p = immutableSelf.selectedParserCollection
-                p[dictionary]?.append(property)
-                immutableSelf.selectedParserCollection = p
-            }
-        }
-    }
-
-    fileprivate func removeHandledProperty(_ dictionary:ParserDictionary.Key, _ property:ParserItem.Key){
-
-        if let index = selectedParserCollection[dictionary]?.index(of: property){
-            var immutableSelf = self
-            var p = immutableSelf.selectedParserCollection
-            p[dictionary]?.remove(at: index)
-            immutableSelf.selectedParserCollection = p
-        }
-    }
-}
-
-private typealias ParserCollection = [ParserDictionary.Key: [ParserItem.Key]]
-
-private struct ParserItem {
-    enum Key: Int, Codable {
-        case PhoneNumber
-        case EmailAddress
-        case Address
-
-        case Date
-        case URL
-
-        case FlightNumber
-        case GPSCoordinates
-    }
-
-    fileprivate var key:Key
-    fileprivate var label:String
-    fileprivate var iconImageBundleName:String?
-}
-
-private struct ParserDictionary {
-
-    static let DefaultCollection: ParserCollection = [
-        ParserDictionary.Key.Information: [
-            ParserItem.Key.PhoneNumber
-            ,ParserItem.Key.EmailAddress
-            ,ParserItem.Key.Address
-
-            ,ParserItem.Key.Date
-            ,ParserItem.Key.URL
-            ,ParserItem.Key.FlightNumber
-        ]
-    ]
-
-    enum Key: Int, Codable {
-        case Information
-    }
-
-    fileprivate var key:Key
-    fileprivate var label:String
-    fileprivate var items:[ParserItem]
-}
-
 fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
-    private lazy var tintColor = UIColor(red:0.36, green:0.31, blue:0.71, alpha:1)
+    private lazy var tintColor = UIColor(red:0.31, green:0.44, blue:0.84, alpha:1)
 
     fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
 
-    private var parserCollection:[ParserDictionary] {
-        get{
-            if ShopApp.privateDefaults.selectionPreset == SelectionPreset.plaintext.rawValue{
-                return []
-            }
-
-            return type(of: self).defaultParserCollection
-        }
+    private var defaultCollections:[PayDictionary] {
+        return ShopApp.privateDefaults.selectedCollection
     }
-
-    fileprivate static let defaultParserCollection:[ParserDictionary] = [
-
-        ParserDictionary(key: ParserDictionary.Key.Information, label: "Items".localized,
-                items: [
-                    ParserItem(key: ParserItem.Key.PhoneNumber, label:"Phone Number".localized, iconImageBundleName:R.image.ico_action_phonenumber.name)
-                    ,ParserItem(key: ParserItem.Key.EmailAddress, label:"E-mail Address".localized, iconImageBundleName:R.image.ico_action_email.name)
-                    ,ParserItem(key: ParserItem.Key.Address, label:"Address".localized, iconImageBundleName:R.image.ico_action_address.name)
-                    ,ParserItem(key: ParserItem.Key.Date, label:"Date".localized, iconImageBundleName:R.image.ico_action_date.name)
-                    ,ParserItem(key: ParserItem.Key.URL, label:"URL", iconImageBundleName:R.image.ico_action_url.name)
-                    ,ParserItem(key: ParserItem.Key.FlightNumber, label:"Flight Number".localized, iconImageBundleName:R.image.ico_action_flightnumber.name)
-                ])
-    ]
 
     required public override init() {
         super.init()
     }
-
-    private var initialSelectedIndexPaths:[IndexPath]?
 
     lazy var view: UIView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -223,22 +235,11 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         return tableView
     }()
 
-    lazy var footerView:UITextView = UITableView.createHeaderFooterViewForSmallMessage(text:"Currently, our AI text recognition model is only available for Alphanumeric and some special characters.".localized)
-
-    lazy var headerView:UITextView = UITableView.createHeaderFooterViewForSmallMessage(text:"This is small text view")
-
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
         preferences.preferredHeight = 300
         return preferences
     }
-
-    private var selectedParserCollection: ParserCollection{
-        return ShopApp.privateDefaults.selectedParserCollection
-    }
-
-    private var autoSelect:Bool = false
-
 
     private func createCellDescriber_SelectionPreset_contact_saveContactWithoutEdit() -> UITableViewSwitchCellDescriber{
         let celld = UITableViewSwitchCellDescriber()
@@ -264,6 +265,12 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         return celld
     }
 
+    private var isActivatedAtLeastOne:Bool{
+        return self.defaultCollections.compactMap { dictionary -> PayDictionary? in
+            return dictionary.items.compactMap { $0.enabled ? $0 : nil }.count > 0 ? dictionary : nil
+        }.count > 0
+    }
+
     func willSetContentView(_ view: UIView, dock: AppDock) {
 
         if settingCellDescribers.count>0{
@@ -273,87 +280,75 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         let cell1 = UITableViewSwitchSubtitleCellDescriber()
         cell1.itemIdentifier = ShopAppSettingCells.autoSelect.hashValue
         cell1.label = "Auto Selection Bot".localized
-        cell1.valueGetter = { self.autoSelect }
         cell1.iconImage = R.image.commonIconRobot.name
-//        cell1.valueHandler = {
-//
-//        }
-        settingCellDescribers.append(cell1)
+        cell1.valueGetter = { ShopApp.privateDefaults.autoSelect }
+        cell1.valueHandler = { val in
+            let enabled = val as? Bool ?? false
+            ShopApp.privateDefaults.autoSelect = enabled
 
-        let cell_b = UITableViewButtonCellDescriber()
-        cell_b.itemIdentifier = ShopAppSettingCells.takePhoto.hashValue
-        cell_b.label = "Take A Photo".localized
-        cell_b.buttonImageName = R.image.systemIconCamera.name
-        cell_b.valueHandler = { _ in
-            var option = AppLaunchOption()
-            option.identifierToReturn = ShopApp.info.identifier
-
-            AppCenter.default.openApp(identifier:"com.stells.pap.camera", options:option)
+            if let tableView = view as? UITableView{
+                for section in 1..<self.numberOfSections(in: tableView) {
+                    tableView.reloadSections(IndexSet(integer: section), with: .none)
+                }
+            }
 
         }
-        settingCellDescribers.append(cell_b)
-
+        settingCellDescribers.append(cell1)
 
         let cell0 = UITableViewSegmentControlCellDescriber()
-        cell0.itemIdentifier = ShopAppSettingCells.presets.hashValue
-        cell0.label = "Formats".localized
-        cell0.valueGetter = { ShopApp.privateDefaults.selectionPreset }
+        cell0.itemIdentifier = ShopAppSettingCells.deletingTarget.hashValue
+        cell0.label = "Deleting Targets".localized
+        cell0.valueGetter = { ShopApp.privateDefaults.deletingTarget
+        }
         cell0.valueCollection = [
-            (label:"Actions".localized,value: SelectionPreset.action.rawValue),
-            (label:"Contacts".localized,value: SelectionPreset.contact.rawValue),
-            (label:"Text".localized,value: SelectionPreset.plaintext.rawValue)
+            (label:"Selected".localized,value: DeletingTarget.selected.rawValue),
+            (label:"Targeted".localized,value: DeletingTarget.targeted.rawValue)
         ]
         cell0.valueHandler = {
             let preset = $0 as! Int
 
             var defaults = ShopApp.privateDefaults
-            defaults.selectionPreset = preset
+            defaults.deletingTarget = preset
 
             // selectionPreset changed -> other self.parserCollection getter will be returned.
             (view as? UITableView)?.reloadData()
 
 
-            [
-                ShopAppSettingCells.saveContactWithoutEdit.hashValue
-                , ShopAppSettingCells.quickActionOnly.hashValue
-            ].forEach { hashValue in
-
-                if let index = self.settingCellDescribers.index(where:{ describable in
-                    return describable.itemIdentifier == hashValue
-                }){
-                    self.settingCellDescribers.remove(at: index)
-                }
-            }
+//            [
+//                ShopAppSettingCells.saveContactWithoutEdit.hashValue
+//                , ShopAppSettingCells.quickActionOnly.hashValue
+//            ].forEach { hashValue in
+//
+//                if let index = self.settingCellDescribers.index(where:{ describable in
+//                    return describable.itemIdentifier == hashValue
+//                }){
+//                    self.settingCellDescribers.remove(at: index)
+//                }
+//            }
 
             //saveContactWithoutEdit
-            if preset == SelectionPreset.contact.rawValue{
-                self.settingCellDescribers.append(self.createCellDescriber_SelectionPreset_contact_saveContactWithoutEdit())
-            }
+//            if preset == DeletingTarget.matched.rawValue{
+//                self.settingCellDescribers.append(self.createCellDescriber_SelectionPreset_contact_saveContactWithoutEdit())
+//            }
+//
+//            if preset == DeletingTarget.selected.rawValue{
+//                self.settingCellDescribers.append(self.createCellDescriber_SelectionPreset_action_quickActionsOnly())
+//            }
 
-            if preset == SelectionPreset.action.rawValue{
-                self.settingCellDescribers.append(self.createCellDescriber_SelectionPreset_action_quickActionsOnly())
-            }
-
-            let tableView = view as? UITableView
-            tableView?.reloadData()
-
-            /*let d = Defaults.shared.shortVersionDescription*/
-            if /*(d == .new || d == .first) && */(tableView?.numberOfSections ?? 0 > 1 && tableView?.numberOfRows(inSection: 1) ?? 0 > 1){
-                tableView?.scrollToRow(at: IndexPath(item: 0, section: 1), at: .middle, animated: true)
-            }
+            (view as? UITableView)?.reloadData()
 
             // autoSelect turn off and restore
-            cell1.valueHandler?(false)
+//            cell1.valueHandler?(false)
 
         }
-        settingCellDescribers.append(cell0)
+//        settingCellDescribers.append(cell0)
 
         //auto save
-        if ShopApp.privateDefaults.selectionPreset == SelectionPreset.contact.rawValue{
-            settingCellDescribers.append(createCellDescriber_SelectionPreset_contact_saveContactWithoutEdit())
+        if ShopApp.privateDefaults.deletingTarget == DeletingTarget.targeted.rawValue{
+//            settingCellDescribers.append(createCellDescriber_SelectionPreset_contact_saveContactWithoutEdit())
         }
-        else if ShopApp.privateDefaults.selectionPreset == SelectionPreset.action.rawValue{
-            settingCellDescribers.append(createCellDescriber_SelectionPreset_action_quickActionsOnly())
+        else if ShopApp.privateDefaults.deletingTarget == DeletingTarget.selected.rawValue{
+//            settingCellDescribers.append(createCellDescriber_SelectionPreset_action_quickActionsOnly())
         }
 
         if let tableView = view as? UITableView{
@@ -363,6 +358,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             tableView.allowsSelection = false
             tableView.allowsMultipleSelection = false
             tableView.register(Cell.self, forCellReuseIdentifier: ShopApp.info.identifier)
+
             for desc in settingCellDescribers {
                 tableView.register(describer: desc)
             }
@@ -371,34 +367,8 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
 
-        let defaultsCollection = ShopApp.privateDefaults.selectedParserCollection
-
-        //get indexes
-        let sections = self.parserCollection.enumerated().compactMap { (section, dictionary) -> [IndexPath]? in
-            if let handledItems = defaultsCollection[dictionary.key]{
-
-                return handledItems.compactMap { key -> IndexPath? in
-                    guard let item = dictionary.items.index(where: { item -> Bool in
-                        return key == item.key
-                    }) else{
-                        return nil
-                    }
-                    return IndexPath(item: item, section: 1+section)
-                }
-            }
-            return nil
-        }
-
-
-        //init initialSelectedIndexPaths
-        initialSelectedIndexPaths = [IndexPath]()
-        for indexPaths in sections{
-            initialSelectedIndexPaths?.append(contentsOf: indexPaths)
-        }
-
         (view as? UITableView)?.reloadData()
 
-        initialSelectedIndexPaths = nil
     }
 
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -409,35 +379,29 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1 + parserCollection.count
+        return 1 + defaultCollections.count
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50 + (section == 0 ? headerView.height : 0)
+        return 50
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return tableView.numberOfSections-1 == section ? footerView.height : 0
+        return 0
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
-        let label_section0 = "Select Photos To Find Everything.".localized
-        return section == 0 ? label_section0 : parserCollection[section-1].label
-    }
-
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        headerView.sizeThatFits(CGSize(width:tableView.width, height:headerView.height))
-        return section == 0 ? headerView : nil
+        let label_section0 = "Select Photos To Delete.".localized
+        return section == 0 ? label_section0 : defaultCollections[section-1].label
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        footerView.sizeThatFits(CGSize(width:tableView.width, height:footerView.height))
-        return tableView.numberOfSections-1 == section ? footerView : nil
+        return nil
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? settingCellDescribers.count : parserCollection[section-1].items.count
+        return section == 0 ? settingCellDescribers.count : defaultCollections[section-1].items.count
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -445,7 +409,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = indexPath.section == 0 ? settings_tableView(tableView, cellForRowAt: indexPath) : parserCollection_tableView(tableView, cellForRowAt: IndexPath(item: indexPath.item, section: indexPath.section))
+        let cell = indexPath.section == 0 ? settings_tableView(tableView, cellForRowAt: indexPath) : itemCollection_tableView(tableView, cellForRowAt: IndexPath(item: indexPath.item, section: indexPath.section))
         return cell
     }
 
@@ -476,31 +440,11 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             cell.detailTextLabel?.text = item.detailedLabel
             cell.switcher.setOn(value, animated: false)
             cell.switcher.onTintColor = self.view.tintColor
-            cell.imageView?.image = item.iconImage?.asUIImage?.withRenderingMode(.alwaysTemplate)
-            cell.imageView?.tintColor = self.view.tintColor
+            if let image = item.iconImage?.asUIImage{
+                cell.imageView?.image = image.withRenderingMode(.alwaysTemplate)
+                cell.imageView?.tintColor = self.view.tintColor
+            }
             cell.switchDidChange = item.valueHandler
-            return cell
-        }
-
-        else if let cellDescriber = item as? UITableViewButtonCellDescriber
-        , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewButtonCell {
-
-            cell.textLabel?.text = item.label
-
-            if let buttonAsImage = cellDescriber.buttonImageName?.asUIImage{
-                cell.button.setImage(buttonAsImage.withRenderingMode(.alwaysTemplate), for: .normal)
-            }else if let buttonAsText = cellDescriber.buttonTitleLabel {
-                cell.button.setTitle(buttonAsText, for: .normal)
-                cell.button.setTitleColor(self.view.tintColor, for: .selected)
-                cell.button.setTitleColor(self.view.tintColor, for: .highlighted)
-            }
-            cell.button.tintColor = self.view.tintColor
-            cell.imageView?.image = item.iconImage?.asUIImage?.withRenderingMode(.alwaysTemplate)
-            cell.imageView?.tintColor = self.view.tintColor
-            cell.didTap = {
-                cellDescriber.valueHandler?(true)
-            }
-            cell.button.layoutIfNeeded()
             return cell
         }
 
@@ -523,7 +467,6 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             }
             return cell
         }
-
         else if let cellDescriber = item as? UITableViewSegmentControlCellDescriber
         , let valueCollection = cellDescriber.valueCollection as? [(String, Int)]
         , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewSegmentedControlCell{
@@ -550,41 +493,45 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         return cell
     }
 
-    func parserCollection_tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func itemCollection_tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let dict = self.parserCollection[indexPath.section-1]
-
-        var selected = false
-        if let _ = initialSelectedIndexPaths?.index(of: indexPath) {
-            selected = true
-        }
-        if let _ = ShopApp.privateDefaults.selectedParserCollection[dict.key]?.index(of: dict.items[indexPath.item].key){
-            selected = true
-        }
+        let dictIndex = indexPath.section-1
+        let dict = defaultCollections[dictIndex]
 
         let dataItem = dict.items[indexPath.item]
+        let selected = dataItem.enabled
 
         let cell = tableView.dequeueReusableCell(withIdentifier: ShopApp.info.identifier) as! Cell
         cell.textLabel?.text = dataItem.label
         cell.detailTextLabel?.text = selected ? "%@ might be found".localizedFormatted("").trimmed : nil
 
         cell.imageView?.tintColor = self.view.tintColor
-        let image = dataItem.iconImageBundleName?.asUIImageNamed
-        cell.imageView?.image = image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        let image = dataItem.iconImageName?.asUIImageNamed
+
+        if dataItem.iconImageShouldUseTintColor{
+            cell.imageView?.image = image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        }else{
+            cell.imageView?.image = image?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        }
 
         cell.detailTextLabel?.textColor = UIColor.gray
         cell.optionSwitch.setOn(selected, animated: false)
-        cell.switchDidChange = { on in
 
-            if on{
-                papLog.app.defaults.log(value: String(describing: dict.items[indexPath.item].key))
-                ShopApp.privateDefaults.addHandledProperty(dict.key, dict.items[indexPath.item].key)
-            }else{
-                ShopApp.privateDefaults.removeHandledProperty(dict.key, dict.items[indexPath.item].key)
-            }
+        cell.switchDidChange = { on in
+            let chargeIdentifier = dataItem.chargeIdentifier
+
+            //set enable
+            var collection = self.defaultCollections
+            collection[dictIndex].items[indexPath.item].enabled = on
+
+            //commit
+            ShopApp.privateDefaults.selectedCollection = collection
 
             tableView.reloadRows(at: [indexPath], with: .fade)
         }
+
+//        cell.enable(self.autoSelectedEnabled)
+
         return cell
     }
 
@@ -629,6 +576,7 @@ private class Cell: UITableViewCell {
     }
 }
 
+
 extension ShopAppDockContent: PreheatableAppSubscribable{
     func prepareStatusDisplaying(label:String?){
         var desc = self.settingCellDescribers.first { describable in
@@ -643,8 +591,7 @@ extension ShopAppDockContent: PreheatableAppSubscribable{
     }
 
     func didStopPreheating() {
-
-        prepareStatusDisplaying(label: self.autoSelect ? "On Standby".localized : nil)
+        prepareStatusDisplaying(label: ShopApp.privateDefaults.autoSelect ? "On Standby".localized : nil)
         self.stopSelectionBotIconAnimation(self.settingCellDescribers, ShopAppSettingCells.autoSelect.hashValue)
     }
 }

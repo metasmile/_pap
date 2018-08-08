@@ -58,7 +58,11 @@ protocol Chargeable {
 
 extension Chargeable{
     func isEqualTo(other:Chargeable) -> Bool{
-        return reward==other.reward && type==other.type
+        return other.identifier == identifier
+    }
+
+    var identifier:String{
+        return String(describing: Chargeable.self) + "type\(type)reward\(reward)"
     }
 }
 
