@@ -66,11 +66,11 @@ PODS:
   - PhoneNumberKit/PhoneNumberKitCore (2.1.0)
   - PhoneNumberKit/UIKit (2.1.0):
     - PhoneNumberKit/PhoneNumberKitCore
-  - Protobuf (3.6.0)
+  - Protobuf (3.6.1)
   - R.swift (4.0.0):
     - R.swift.Library (~> 4.0.0)
   - R.swift.Library (4.0.0)
-  - SwiftLint (0.26.0)
+  - SwiftLint (0.27.0)
   - SwiftyGif (4.1.0)
   - TPPDF (1.2.0):
     - SwiftLint
@@ -124,7 +124,7 @@ CHECKOUT OPTIONS:
     :commit: f7ed2b2063ef40028e3916c43db9b0df7b15ad55
     :git: https://github.com/UrbanApps/Armchair
   CocoaImageHashing:
-    :commit: 31361e85a6d32778c4c54b19e63f1fa3e05547d3
+    :commit: cb1ecc794ff8bdf1fd75bad08a33209d9eae4237
     :git: https://github.com/ameingast/cocoaimagehashing
   DefaultsKit:
     :commit: 2c2d4effb9b620eb91ba15a20e74fcc2f9d017dc
@@ -148,13 +148,13 @@ SPEC CHECKSUMS:
   Hero: 3eecd3fd62dd2425cbc7e35505c557b86d5a379e
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   PhoneNumberKit: 62003f40ff75315fd3738286558bc365365ac222
-  Protobuf: 0fc0ad8bec688b2a3017a139953e01374fedbd5f
+  Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
-  SwiftLint: f6b83e8d95ee1e91e11932d843af4fdcbf3fc764
+  SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   SwiftyGif: d36c6dfb52e2ca1e48fe349d225f50ec4123ec85
   TPPDF: 11ed6f19782bc0aa66b86085fa952b68a00d931e
 
-PODFILE CHECKSUM: ace262b4af0432ac25c9cbceadc165d59a6f00a1
+PODFILE CHECKSUM: 1cf551e766a5e8ae94b759681e9a0b22fb4c329a
 
 COCOAPODS: 1.5.3
