@@ -42,7 +42,6 @@ public class AppAssetItem<StateValueType:Hashable>: ItemObject, PHAssetParamable
             return item
 
         } else{
-            assert(false, "[!] Unable to create, or does not implement yet for param type of \(app.info.appType)")
             return nil
         }
     }
