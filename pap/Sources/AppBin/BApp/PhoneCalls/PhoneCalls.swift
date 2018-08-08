@@ -469,7 +469,9 @@ fileprivate class PhoneCallsAppDockContent: NSObject, KeyPathWatchable,
             cell.textLabel?.text = item.label
 
             if let buttonAsImage = cellDescriber.buttonImageName?.asUIImage{
+                cell.buttonFrameInset = UIEdgeInsetsMake(5, 5, 5, 5)
                 cell.button.setImage(buttonAsImage.withRenderingMode(.alwaysTemplate), for: .normal)
+
             }else if let buttonAsText = cellDescriber.buttonTitleLabel {
                 cell.button.setTitle(buttonAsText, for: .normal)
                 cell.button.setTitleColor(self.view.tintColor, for: .selected)

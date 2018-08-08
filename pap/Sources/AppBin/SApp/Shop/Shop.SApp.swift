@@ -216,7 +216,7 @@ private struct PayItem: Hashable, Equatable {
         self.chargeable = payable.chargeable
         self.chargeIdentifier = payable.chargeable.identifier
         self.label = AppCenter.charge.getCharge(for: payable.chargeable)?.title ?? "Untitled"
-        self.rewardLabel = AppCenter.charge.getCharge(for: payable.chargeable)?.rewardDescription ?? "Unknown Reward"
+        self.rewardLabel = AppCenter.charge.getCharge(for: payable.chargeable)?.rewardDescription ?? "Undefined Reward"
         self.iconImageShouldUseTintColor = true
     }
 
@@ -234,7 +234,7 @@ private struct PayDictionary:Hashable {
     static let Default: [PayDictionary] = [
         PayDictionary(
                 key: .Default
-                , label: "Targets".localized
+                , label: "Available Purchasing Methods".localized
                 , items: ShopApp.SupportingPayTypes.map { PayItem(payable: $0) }
         )
     ]
@@ -462,8 +462,8 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
-        let label_section0 = "Select Photos To Delete.".localized
-        return section == 0 ? label_section0 : defaultCollections[section-1].label
+        let label_section0 = "Settings".localized
+        return section == 0 ? defaultCollections[section].label : label_section0
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -471,7 +471,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? settingCellDescribers.count : defaultCollections[section-1].items.count
+        return section == 0 ? defaultCollections[section].items.count : settingCellDescribers.count
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -480,8 +480,8 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = indexPath.section == 0
-                ? settings_tableView(tableView, cellForRowAt: indexPath)
-                : itemCollection_tableView(tableView, cellForRowAt: IndexPath(item: indexPath.item, section: indexPath.section))
+                ? itemCollection_tableView(tableView, cellForRowAt: IndexPath(item: indexPath.item, section: indexPath.section))
+                : settings_tableView(tableView, cellForRowAt: indexPath)
         return cell
     }
 
@@ -551,7 +551,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
     func itemCollection_tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let dictIndex = indexPath.section-1
+        let dictIndex = indexPath.section
         let dict = defaultCollections[dictIndex]
 
         let dataItem = dict.items[indexPath.item]
@@ -573,7 +573,8 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
         //TODO: display already paid
         cell.enable(!AppCenter.charge.isPaid(payable: dataItem.payable))
-        cell.button.setImage(cell.imageView?.image, for: .normal)
+        cell.button.setTitle(dataItem.payable.payingLabel, for: .normal)
+        cell.button.setTitleColor(self.view.tintColor, for: .normal)
         cell.didTap = {
             self.didTapPayButton(item: dataItem)
             tableView.reloadRows(at: [indexPath], with: .fade)
@@ -583,9 +584,6 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
     func didTapPayButton(item:PayItem){
         AppCenter.charge.pay(for: item.payable) { succeed in
-            //TODO: success cell display
-
-            print(succeed, AppCenter.default.currentInstanceAs(ShopApp.self)?.launchedOption?.identifierToReturn)
 
             if succeed, let rid = AppCenter.default.currentInstanceAs(ShopApp.self)?.launchedOption?.identifierToReturn{
                 DispatchQueue.main.async{

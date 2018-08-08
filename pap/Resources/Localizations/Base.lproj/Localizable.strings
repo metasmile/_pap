@@ -88,7 +88,7 @@
 "%@ Day" = "%@ Day";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Download now for FREE!";
-/* Generated from genl10n: Finder.BApp.swift#1585, Cleaner.BApp.swift#754 */
+/* Generated from genl10n: Finder.BApp.swift#1586, Cleaner.BApp.swift#754 */
 "%@ might be found" = "%@ might be found";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#413 */
 "%@ will be hidden" = "%@ will be hidden";
@@ -98,7 +98,7 @@
 "A photos app, but contains a lot of sub-apps in its own." = "A photos app, but contains a lot of sub-apps in its own.";
 /* Generated from genl10n: Finder.BApp.swift#1320 */
 "Actions" = "Actions";
-/* Generated from genl10n: Shop.SApp.swift#609, PhoneCalls.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
+/* Generated from genl10n: Shop.SApp.swift#607, PhoneCalls.swift#591, Finder.BApp.swift#1660, Cleaner.BApp.swift#871 */
 "Activating Current Visible Items ..." = "Activating Current Visible Items ...";
 /* Generated from genl10n: Finder.BApp.swift#369, Finder.BApp.swift#436, Finder.BApp.swift#650, Finder.BApp.swift#768 */
 "Add New Contact" = "Add New Contact";
@@ -134,6 +134,8 @@
 "Auto Selection Bot" = "Auto Selection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "Auto Straighten";
+/* Generated from genl10n: Shop.SApp.swift#237 */
+"Available Purchasing Methods" = "Available Purchasing Methods";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#469 */
 "Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift#89 */
@@ -258,7 +260,7 @@
 "Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift#258 */
 "My Albums" = "My Albums";
-/* Generated from genl10n: Shop.Payables.swift#97 */
+/* Generated from genl10n: Shop.Payables.swift#113 */
 "My Feedback on %@" = "My Feedback on %@";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "New Contact";
@@ -272,7 +274,7 @@
 "No loop" = "No loop";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
 "Now Contribute And Get Free Use." = "Now Contribute And Get Free Use.";
-/* Generated from genl10n: Shop.SApp.swift#614, PhoneCalls.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
+/* Generated from genl10n: Shop.SApp.swift#612, PhoneCalls.swift#597, Finder.BApp.swift#1666, Cleaner.BApp.swift#876 */
 "On Standby" = "On Standby";
 /* Generated from genl10n: Finder.BApp.swift#731 */
 "Open Apple Maps" = "Open Apple Maps";
@@ -304,6 +306,8 @@
 "Privacy" = "Privacy";
 /* Generated from genl10n: Converter.AppDockContent.swift#138, GIFMaker.BApp.swift#592 */
 "Quality" = "Quality";
+/* Generated from genl10n: Shop.Payables.swift#15, Shop.Payables.swift#39 */
+"Rate It" = "Rate It";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Red-Eye Removal";
 /* Generated from genl10n: GIFMaker.BApp.swift#561 */
@@ -338,7 +342,7 @@
 "Search Flights" = "Search Flights";
 /* Generated from genl10n: Converter.AppDockContent.swift#153 */
 "Select Format To Convert" = "Select Format To Convert";
-/* Generated from genl10n: Shop.SApp.swift#465, Cleaner.BApp.swift#643 */
+/* Generated from genl10n: Cleaner.BApp.swift#643 */
 "Select Photos To Delete." = "Select Photos To Delete.";
 /* Generated from genl10n: Finder.BApp.swift#1446 */
 "Select Photos To Find Everything." = "Select Photos To Find Everything.";
@@ -350,9 +354,11 @@
 "Send Us Feedback" = "Send Us Feedback";
 /* Generated from genl10n: Finder.BApp.swift#606, Finder.BApp.swift#617, Finder.BApp.swift#627 */
 "Send an Email" = "Send an Email";
+/* Generated from genl10n: Shop.SApp.swift#465 */
+"Settings" = "Settings";
 /* Generated from genl10n: AppCenter.Charge.swift#21 */
 "Share This App" = "Share This App";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#92, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#105, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#131, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#145, App.Finalizable.UIActivity.PHAsset.swift#60, PHAsset.UIAlertController.SynchronizablePresenter.swift#58, Finder.BApp.swift#375, Finder.BApp.swift#460, Finder.BApp.swift#545, Finder.BApp.swift#642, Finder.BApp.swift#760, Finder.BApp.swift#857 */
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#92, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#105, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#131, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#145, App.Finalizable.UIActivity.PHAsset.swift#60, PHAsset.UIAlertController.SynchronizablePresenter.swift#58, Shop.Payables.swift#62, Finder.BApp.swift#375, Finder.BApp.swift#460, Finder.BApp.swift#545, Finder.BApp.swift#642, Finder.BApp.swift#760, Finder.BApp.swift#857 */
 "Share" = "Share";
 /* Generated from genl10n: Shop.SApp.swift#34 */
 "Shop" = "Shop";
@@ -386,7 +392,7 @@
 "Take A Photo" = "Take A Photo";
 /* Generated from genl10n: Shop.SApp.swift#375, Cleaner.BApp.swift#552 */
 "Targeted" = "Targeted";
-/* Generated from genl10n: Shop.SApp.swift#237, Cleaner.BApp.swift#392 */
+/* Generated from genl10n: Cleaner.BApp.swift#392 */
 "Targets" = "Targets";
 /* Generated from genl10n: Finder.BApp.swift#1322 */
 "Text" = "Text";
@@ -420,6 +426,8 @@
 "Welcome on %@" = "Welcome on %@";
 /* Generated from genl10n: AppCenter.Charge.swift#20 */
 "Write A Review" = "Write A Review";
+/* Generated from genl10n: Shop.Payables.swift#96 */
+"Write" = "Write";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#110 */
 "You Can Renew Them Repeatedly." = "You Can Renew Them Repeatedly.";
 /* Generated from genl10n: Converter.AppDockContent.swift#41 */

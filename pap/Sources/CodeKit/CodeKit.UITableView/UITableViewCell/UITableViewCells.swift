@@ -188,6 +188,7 @@ class UITableViewButtonCell: UITableViewCell {
 
     var touchAreaOnlyButton:Bool = false
     var didTap: (() -> ())?
+    var buttonFrameInset:UIEdgeInsets?
 
     override open func prepareForReuse() {
         super.prepareForReuse()
@@ -221,7 +222,9 @@ class UITableViewButtonCell: UITableViewCell {
 
     override open func layoutSubviews() {
         button.sizeToFit()
-        button.frame = UIEdgeInsetsInsetRect(button.frame, UIEdgeInsetsMake(5, 5, 5, 5))
+        if let inset = self.buttonFrameInset {
+            button.frame = UIEdgeInsetsInsetRect(button.frame, inset)
+        }
 
         super.layoutSubviews()
     }

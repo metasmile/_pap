@@ -46,6 +46,8 @@ enum RewardType:Int {
 protocol Payable {
     static var chargeable: Chargeable {get}
 
+    static var payingLabel:String {get}
+
     func pay(_ asyncSignal:AsyncWaitSignalable) -> Bool
 
     init()
