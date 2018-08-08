@@ -31,10 +31,10 @@ extension CGRect {
 
     func normalized(by size:CGSize) -> CGRect{
         return CGRect(
-                x:normalize(origin.x, 0, size.width)
-                ,y:normalize(origin.y, 0, size.height)
-                ,width:normalize(size.width, 0, size.width)
-                ,height: normalize(size.width, 0, size.height)
+                x:normalize(self.origin.x, 0, size.width)
+                ,y:normalize(self.origin.y, 0, size.height)
+                ,width:normalize(self.size.width, 0, size.width)
+                ,height: normalize(self.size.width, 0, size.height)
         )
     }
 }

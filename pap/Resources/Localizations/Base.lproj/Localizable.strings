@@ -122,17 +122,17 @@
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters.";
 /* Generated from genl10n: GIFMaker.BApp.swift#484 */
 "Aspect Ratio" = "Aspect Ratio";
-/* Generated from genl10n: AutoEditor.BApp.swift#172 */
+/* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Crop" = "Auto Crop";
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
 "Auto Editor lets you edit automatically if your photos are needed to correct." = "Auto Editor lets you edit automatically if your photos are needed to correct.";
 /* Generated from genl10n: AutoEditor.BApp.swift#50 */
 "Auto Editor" = "Auto Editor";
-/* Generated from genl10n: AutoEditor.BApp.swift#170 */
+/* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Auto Enhance" = "Auto Enhance";
 /* Generated from genl10n: Revert.BApp.swift#189, PhoneCalls.swift#372, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1292, Cleaner.BApp.swift#528 */
 "Auto Selection Bot" = "Auto Selection Bot";
-/* Generated from genl10n: AutoEditor.BApp.swift#173 */
+/* Generated from genl10n: AutoEditor.BApp.swift#174 */
 "Auto Straighten" = "Auto Straighten";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#469 */
 "Blur Rate" = "Blur Rate";
@@ -252,6 +252,8 @@
 "Loop" = "Loop";
 /* Generated from genl10n: GIFMaker.BApp.swift#276 */
 "Make GIF" = "Make GIF";
+/* Generated from genl10n: MemoCam.BApp.swift#36 */
+"Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift#58 */
 "Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift#258 */
@@ -302,7 +304,7 @@
 "Privacy" = "Privacy";
 /* Generated from genl10n: Converter.AppDockContent.swift#138, GIFMaker.BApp.swift#592 */
 "Quality" = "Quality";
-/* Generated from genl10n: AutoEditor.BApp.swift#171 */
+/* Generated from genl10n: AutoEditor.BApp.swift#172 */
 "Red-Eye Removal" = "Red-Eye Removal";
 /* Generated from genl10n: GIFMaker.BApp.swift#561 */
 "Repeat" = "Repeat";
