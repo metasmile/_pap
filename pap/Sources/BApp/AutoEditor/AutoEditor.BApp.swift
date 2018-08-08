@@ -146,9 +146,8 @@ class CIAutoAdjustmentFilter: CIFilter {
     
     override var outputImage: CIImage? {
         guard var image = value(forKey: kCIInputImageKey) as? CIImage else { return nil }
-        guard let options = options?.map({ (key, value) in (CIImageAutoAdjustmentOption(rawValue: key), value) }) else { return image }
         
-        for filter in image.autoAdjustmentFilters(options: Dictionary(uniqueKeysWithValues: options)) {
+        for filter in image.autoAdjustmentFilters(options: options) {
             filter.setValue(image, forKey: kCIInputImageKey)
             if let result = filter.outputImage {
                 image = result
@@ -161,10 +160,10 @@ class CIAutoAdjustmentFilter: CIFilter {
 
 private extension AutoEditorApp {
     struct AutoAdjustments {
-        static let Enhance = CIImageAutoAdjustmentOption.enhance.rawValue
-        static let RedEye = CIImageAutoAdjustmentOption.redEye.rawValue
-        static let Crop = CIImageAutoAdjustmentOption.crop.rawValue
-        static let Straighten = CIImageAutoAdjustmentOption.level.rawValue
+        static let Enhance = kCIImageAutoAdjustEnhance
+        static let RedEye = kCIImageAutoAdjustRedEye
+        static let Crop = kCIImageAutoAdjustCrop
+        static let Straighten = kCIImageAutoAdjustLevel
 
         static func aliasName(_ filterName: String?) -> String? {
             switch filterName {
@@ -354,7 +353,7 @@ class AutoEditorAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITa
             switchDidChange = nil
         }
         
-        override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
             
             accessoryView = optionSwitch
@@ -385,3 +384,4 @@ class AutoEditorAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITa
         }
     }
 }
+

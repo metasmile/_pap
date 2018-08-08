@@ -14,8 +14,8 @@ extension UIApplicationShortcutItem {
 
 class ShortcutItemAppDelegate: NSObject, UIApplicationDelegate {
     @discardableResult
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        if let shortcutItem = launchOptions?[UIApplication.LaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
             if shortcutItem.type.hasPrefix(UIApplicationShortcutItem.prefix) {
                 ShortcutItemAppDelegate.launchAppIfNeededWithShortcutItem(shortcutItem)
             }

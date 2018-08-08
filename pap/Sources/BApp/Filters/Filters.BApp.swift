@@ -195,7 +195,7 @@ fileprivate class FiltersAppDockContent: NSObject, KeyPathWatchable, AppDockCont
         let view = AppUICollectionView(items: items)
         view.cellSize = CGSize(width: 80, height: 120)
         view.cellSpacing = 2
-        view.cellImageInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 4, right: 0)
+        view.cellImageInsets = UIEdgeInsetsMake(0, 0, 4, 0)
         
         return view
     }()

@@ -111,7 +111,7 @@ public final class TimelapsVideoBuilder: NSObject {
             videoWriter.add(videoWriterInput)
 
             if videoWriter.startWriting() {
-                videoWriter.startSession(atSourceTime: CMTime.zero)
+                videoWriter.startSession(atSourceTime: kCMTimeZero)
                 assert(pixelBufferAdaptor.pixelBufferPool != nil)
 
                 let media_queue = DispatchQueue(label: "mediaInputQueue")
@@ -126,8 +126,8 @@ public final class TimelapsVideoBuilder: NSObject {
                         let nextPhotoURL = remainingPhotoURLs.remove(at: 0)
                         
                         let fps: Int32 = self.fpsEachImages[nextPhotoURL] ?? self.fps
-                        let frameDuration = CMTimeMake(value: 1, timescale: fps)
-                        let lastFrameTime = CMTimeMake(value: frameCount, timescale: fps)
+                        let frameDuration = CMTimeMake(1, fps)
+                        let lastFrameTime = CMTimeMake(frameCount, fps)
                         let presentationTime = frameCount == 0 ? lastFrameTime : CMTimeAdd(lastFrameTime, frameDuration)
 
                         if !self.appendPixelBufferForImageAtURL(nextPhotoURL, pixelBufferAdaptor: pixelBufferAdaptor, presentationTime: presentationTime) {

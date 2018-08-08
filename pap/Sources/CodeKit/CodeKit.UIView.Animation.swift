@@ -23,11 +23,11 @@ extension UIView{
     public func animateAsFade(_ duration:CFTimeInterval, forKey:String="\(#file)\(#function)\(#line)"){
         let fadeTextAnimation = CATransition()
         fadeTextAnimation.duration = duration
-        fadeTextAnimation.type = CATransitionType.fade
+        fadeTextAnimation.type = kCATransitionFade
         self.layer.add(fadeTextAnimation, forKey: forKey)
     }
 
-    public static func animateAsSpring(_ duration: TimeInterval = 0.45, delay: TimeInterval = 0.0, options: UIView.AnimationOptions = [.beginFromCurrentState, .allowUserInteraction], animations: @escaping () -> Void, completion: ((Bool) -> Void)? = nil) {
+    public static func animateAsSpring(_ duration: TimeInterval = 0.45, delay: TimeInterval = 0.0, options: UIViewAnimationOptions = [.beginFromCurrentState, .allowUserInteraction], animations: @escaping () -> Void, completion: ((Bool) -> Void)? = nil) {
         UIView.animate(withDuration: duration, delay: delay, usingSpringWithDamping: 0.8, initialSpringVelocity: 6.0, options: options, animations: animations, completion: completion)
     }
 

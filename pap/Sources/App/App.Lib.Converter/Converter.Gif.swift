@@ -123,13 +123,13 @@ class GifConverter_Mov: OptionableConverterBase<GifConverterDefaultOption>, GifC
         
         let imageGenerator = AVAssetImageGenerator(asset: video)
         imageGenerator.appliesPreferredTrackTransform = true
-        imageGenerator.requestedTimeToleranceBefore = CMTime.zero
-        imageGenerator.requestedTimeToleranceAfter = CMTime.zero
+        imageGenerator.requestedTimeToleranceBefore = kCMTimeZero
+        imageGenerator.requestedTimeToleranceAfter = kCMTimeZero
         imageGenerator.maximumSize = gifOptions.sizeWithAspectRatio()
         
         var times = [NSValue]()
         let tick = CMTime(seconds: gifOptions.frameDelay, preferredTimescale: video.duration.timescale)
-        var time = CMTime.zero
+        var time = kCMTimeZero
         while time <= video.duration {
             times.append(NSValue(time: time))
             time = CMTimeAdd(time, tick)
@@ -237,10 +237,10 @@ struct LocalCachedAsset {
         var fileExtension = "jpg"
         switch asset?.uniformTypeIdentifier {
             case UTCoreTypes.PNG?:
-                data = imageToWrite.pngData()
+                data = UIImagePNGRepresentation(imageToWrite)
                 fileExtension = "png"
             default:
-                data = imageToWrite.jpegData(compressionQuality: imageQuality)
+                data = UIImageJPEGRepresentation(imageToWrite, imageQuality)
         }
         
         let identifier = asset?.localIdentifierWithoutSplitter ?? UUID().uuidString

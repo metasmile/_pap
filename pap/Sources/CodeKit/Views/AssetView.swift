@@ -28,14 +28,14 @@ class AssetVideoView: UIView {
         }
     }
     
-    override var contentMode: UIView.ContentMode {
+    override var contentMode: UIViewContentMode {
         didSet {
             switch contentMode {
             case .scaleAspectFill:
-                (layer as? AVPlayerLayer)?.contentsGravity = CALayerContentsGravity.resizeAspectFill
+                (layer as? AVPlayerLayer)?.contentsGravity = kCAGravityResizeAspectFill
                 (layer as? AVPlayerLayer)?.videoGravity = .resizeAspectFill
             default:
-                (layer as? AVPlayerLayer)?.contentsGravity = CALayerContentsGravity.resizeAspect
+                (layer as? AVPlayerLayer)?.contentsGravity = kCAGravityResizeAspect
                 (layer as? AVPlayerLayer)?.videoGravity = .resizeAspect
             }
         }
@@ -98,7 +98,7 @@ class AssetView: UIView {
         livePhotoView.frame = bounds
     }
     
-    override var contentMode: UIView.ContentMode {
+    override var contentMode: UIViewContentMode {
         didSet {
             imageView.contentMode = contentMode
             videoView.contentMode = contentMode
@@ -222,7 +222,7 @@ class AssetView: UIView {
     }
     
     var seekTime: CMTime {
-        return playerItem?.currentTime() ?? CMTime.zero
+        return playerItem?.currentTime() ?? kCMTimeZero
     }
     
     fileprivate var playerLoopingObserver: Any?
@@ -422,7 +422,7 @@ extension AssetView {
         addVideoLooping()
     }
     
-    func startVideo(to seekTime: CMTime = CMTime.zero) {
+    func startVideo(to seekTime: CMTime = kCMTimeZero) {
         guard !isVideoPlaying else { return }
         seekVideo(to: seekTime)
         videoView.player?.play()
@@ -436,17 +436,17 @@ extension AssetView {
     
     func stopVideo() {
         pauseVideo()
-        seekVideo(to: CMTime.zero)
+        seekVideo(to: kCMTimeZero)
     }
     
-    func seekVideo(to: CMTime, toleranceBefore: CMTime = CMTime.zero, toleranceAfter: CMTime = CMTime.zero, completionHandler: ((Bool) -> Void)? = nil) {
+    func seekVideo(to: CMTime, toleranceBefore: CMTime = kCMTimeZero, toleranceAfter: CMTime = kCMTimeZero, completionHandler: ((Bool) -> Void)? = nil) {
         playerItem?.seek(to: to, toleranceBefore: toleranceBefore, toleranceAfter: toleranceAfter, completionHandler: completionHandler)
     }
     
     private func addVideoLooping() {
         if let playerItem = playerItem {
             playerLoopingObserver = NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: playerItem, queue: OperationQueue.main, using: { [weak self] (notification) in
-                self?.startVideo(to: CMTime.zero)
+                self?.startVideo(to: kCMTimeZero)
             })
         }
     }

@@ -25,8 +25,8 @@ extension PHAssetUIActivityFinalizableApp{
                 let activities = self.finalizingActions.map { PHAssetFinalizingActivity($0, finalizingActivityItems: shareItems) }
 
                 let activityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: activities)
-                activityViewController.excludedActivityTypes = [UIActivity.ActivityType.saveToCameraRoll, UIActivity.ActivityType.copyToPasteboard, UIActivity.ActivityType.print, UIActivity.ActivityType.assignToContact]
-                activityViewController.completionWithItemsHandler = { (activityType:UIActivity.ActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
+                activityViewController.excludedActivityTypes = [UIActivityType.saveToCameraRoll, UIActivityType.copyToPasteboard, UIActivityType.print, UIActivityType.assignToContact]
+                activityViewController.completionWithItemsHandler = { (activityType:UIActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
                     asyncSignal.end()
                 }
                 activityViewController.popoverPresentationController?.sourceView=rootViewController.view
@@ -41,7 +41,7 @@ extension PHAssetUIActivityFinalizableApp{
 }
 
 internal class PHAssetFinalizingActivity: UIActivity {
-    override class var activityCategory: UIActivity.Category {
+    override class var activityCategory: UIActivityCategory {
         return .action
     }
 
@@ -62,8 +62,8 @@ internal class PHAssetFinalizingActivity: UIActivity {
         }
     }
 
-    override var activityType: UIActivity.ActivityType? {
-        return UIActivity.ActivityType(rawValue: (Bundle.main.bundleIdentifier ?? "") + (activityTitle ?? ""))
+    override var activityType: UIActivityType? {
+        return UIActivityType(rawValue: (Bundle.main.bundleIdentifier ?? "") + (activityTitle ?? ""))
     }
 
     private var presets: PHAssetFinalizingAction?
@@ -138,8 +138,8 @@ extension PHAssetFinalizingActivity {
 //        asyncSignal.begin()
         DispatchQueue.main.async {
             let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: items.compactMap({ $0.output?.resources }).reduce([],+).map { $0.url }, applicationActivities: nil)
-            activityViewController.excludedActivityTypes = [UIActivity.ActivityType.saveToCameraRoll]
-            activityViewController.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, activityError: Error?) in
+            activityViewController.excludedActivityTypes = [UIActivityType.saveToCameraRoll]
+            activityViewController.completionWithItemsHandler = { (activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, activityError: Error?) in
 //                asyncSignal.end()
             }
 

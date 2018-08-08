@@ -135,7 +135,7 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         updateImageViewContentMode()
         
         let imageSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight)
-        imageViewSize = (imageContentMode == .aspectFit ? AVMakeRect(aspectRatio: imageSize, insideRect: bounds.inset(by: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))) : bounds).size
+        imageViewSize = (imageContentMode == .aspectFit ? AVMakeRect(aspectRatio: imageSize, insideRect: UIEdgeInsetsInsetRect(bounds, UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))) : bounds).size
     }
     
     private func updateDecorationContents(with asset: PHAsset) {

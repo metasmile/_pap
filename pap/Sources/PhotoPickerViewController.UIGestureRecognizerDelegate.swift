@@ -178,7 +178,7 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
     private func panWithDragging(at location: CGPoint, with selectionMode: DragSelectionGestureRecognizer.DragSelectionMode) -> Bool {
         let pointInScreen = photoCollectionView.convert(location, to: view)
         let boundingInsets = appDockInsets
-        let boundingArea = photoCollectionView.frame.inset(by: boundingInsets)
+        let boundingArea = UIEdgeInsetsInsetRect(photoCollectionView.frame, boundingInsets)
         guard !boundingArea.contains(pointInScreen) else {
             dragSelectionGesture.stopAutoPanning()
             return false

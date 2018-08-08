@@ -373,7 +373,7 @@ extension FinderApp{
                             asyncSignal.end()
                         }),
                         UIAlertAction(title: "Share".localized, style: .default, handler: { action in
-                            UIActivityViewController.share(activityItems: [phoneNumber], excludedActivityTypes: [UIActivity.ActivityType.copyToPasteboard]) { type, b, anies, error in
+                            UIActivityViewController.share(activityItems: [phoneNumber], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
                                 asyncSignal.end()
                             }
                         })
@@ -458,7 +458,7 @@ extension FinderApp{
                             asyncSignal.end()
                         }),
                         UIAlertAction(title: "Share".localized, style: .default, handler: { action in
-                            UIActivityViewController.share(activityItems: [url], excludedActivityTypes: [UIActivity.ActivityType.copyToPasteboard]) { type, b, anies, error in
+                            UIActivityViewController.share(activityItems: [url], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
                                 asyncSignal.end()
                             }
                         })
@@ -543,7 +543,7 @@ extension FinderApp{
 
                     _actions.append(
                             UIAlertAction(title: "Share".localized, style: .default, handler: { action in
-                                UIActivityViewController.share(activityItems: [dateString], excludedActivityTypes: [UIActivity.ActivityType.copyToPasteboard]) { type, b, anies, error in
+                                UIActivityViewController.share(activityItems: [dateString], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
                                     asyncSignal.end()
                                 }
                             })
@@ -640,7 +640,7 @@ extension FinderApp{
 
                     _actions.append(
                             UIAlertAction(title: "Share".localized, style: .default, handler: { action in
-                                UIActivityViewController.share(activityItems: [email], excludedActivityTypes: [UIActivity.ActivityType.copyToPasteboard]) { type, b, anies, error in
+                                UIActivityViewController.share(activityItems: [email], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
                                     asyncSignal.end()
                                 }
                             })
@@ -758,7 +758,7 @@ extension FinderApp{
 
                     _actions.append(
                             UIAlertAction(title: "Share".localized, style: .default, handler: { action in
-                                UIActivityViewController.share(activityItems: [addressString], excludedActivityTypes: [UIActivity.ActivityType.copyToPasteboard]) { type, b, anies, error in
+                                UIActivityViewController.share(activityItems: [addressString], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
                                     asyncSignal.end()
                                 }
                             })
@@ -855,7 +855,7 @@ extension FinderApp{
 
                     _actions.append(
                             UIAlertAction(title: "Share".localized, style: .default, handler: { action in
-                                UIActivityViewController.share(activityItems: [flightString], excludedActivityTypes: [UIActivity.ActivityType.copyToPasteboard]) { type, b, anies, error in
+                                UIActivityViewController.share(activityItems: [flightString], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
                                     asyncSignal.end()
                                 }
                             })
@@ -1586,7 +1586,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
         cell.imageView?.tintColor = self.view.tintColor
         let image = dataItem.iconImageBundleName?.asUIImageNamed
-        cell.imageView?.image = image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        cell.imageView?.image = image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
 
         cell.detailTextLabel?.textColor = UIColor.gray
         cell.optionSwitch.setOn(selected, animated: false)
@@ -1626,7 +1626,7 @@ private class Cell: UITableViewCell {
         switchDidChange = nil
     }
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
 
         accessoryView = optionSwitch
