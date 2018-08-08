@@ -223,7 +223,9 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         return tableView
     }()
 
-    lazy var footerView:UITextView = UITableView.createHeaderFooterViewForMessage(text:"Currently, our AI text recognition model is only available for Alphanumeric and some special characters.".localized)
+    lazy var footerView:UITextView = UITableView.createHeaderFooterViewForSmallMessage(text:"Currently, our AI text recognition model is only available for Alphanumeric and some special characters.".localized)
+
+    lazy var headerView:UITextView = UITableView.createHeaderFooterViewForSmallMessage(text:"This is small text view")
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
@@ -411,7 +413,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return 50 + (section == 0 ? headerView.height : 0)
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -422,6 +424,11 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
         let label_section0 = "Select Photos To Find Everything.".localized
         return section == 0 ? label_section0 : parserCollection[section-1].label
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        headerView.sizeThatFits(CGSize(width:tableView.width, height:headerView.height))
+        return section == 0 ? headerView : nil
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

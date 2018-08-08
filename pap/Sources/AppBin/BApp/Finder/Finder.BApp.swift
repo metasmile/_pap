@@ -1242,7 +1242,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         return tableView
     }()
 
-    lazy var footerView:UITextView = UITableView.createHeaderFooterViewForMessage(text:"Currently, our AI text recognition model is only available for Alphanumeric and some special characters.".localized)
+    lazy var footerView:UITextView = UITableView.createHeaderFooterViewForSmallMessage(text:"Currently, our AI text recognition model is only available for Alphanumeric and some special characters.".localized)
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()

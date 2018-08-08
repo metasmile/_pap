@@ -38,7 +38,7 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
 
     lazy var view: UIView = UITableView(frame: .zero, style: .grouped)
 
-    lazy var footerView:UITextView = UITableView.createHeaderFooterViewForMessage(text:"You can select only items that matched with starting format.".localized)
+    lazy var footerView:UITextView = UITableView.createHeaderFooterViewForSmallMessage(text:"You can select only items that matched with starting format.".localized)
 
     var preferences: AppDockContentPreferable? {
         guard let tableView = view as? UITableView else{
