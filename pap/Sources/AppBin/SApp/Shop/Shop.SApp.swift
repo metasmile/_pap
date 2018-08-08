@@ -18,12 +18,7 @@ public class ShopApp: NSObject
         , KeyPathWatchable
         , SApp
         , AppDockApp
-        , PhotoPickerCollectionViewDisplayableApp
         , LaunchableApp {
-
-    public static let taskType: AppTaskable.Type = AppVoidTask.self
-
-    public static let paramType: AppTaskParamable.Type = AppTaskVoidParameter.self
 
     public private(set) lazy var content: AppDockContent? = ShopAppDockContent()
 
@@ -44,10 +39,6 @@ public class ShopApp: NSObject
 
     public required override init() {
 
-    }
-
-    func shouldSelect(item: AppAsset) -> Bool {
-        return false
     }
 
     func didResign(current: App.Type?) {

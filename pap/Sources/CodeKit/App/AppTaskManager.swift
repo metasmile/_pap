@@ -54,12 +54,15 @@ public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDe
         let appType = request.appType
         let appInfo = appType.info
 
-        if false == appType.isInstanceAcquired{
+        guard appType.isInstanceAcquired else {
             assert(false, "Task Creation was failed for an App \(request.appType)")
             return nil
         }
 
-        let taskType = appInfo.appType.taskType
+        guard let taskType = (appInfo.appType as? TaskApp.Type)?.taskType else {
+            return nil
+        }
+
         let taskInfo = AppTaskInfo(request.token, request.param, taskType.self, request.appType)
 
         if let taskPolicy = request.taskPolicy{

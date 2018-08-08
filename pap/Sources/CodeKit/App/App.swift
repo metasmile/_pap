@@ -10,6 +10,9 @@ public protocol App {
     init()
 
     static var info: AppInfo { get }
+}
+
+public protocol TaskApp: App{
 
     //taskType can be changed by config
     static var taskType: AppTaskable.Type { get }

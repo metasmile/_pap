@@ -37,7 +37,7 @@ public class AppAssetItem<StateValueType:Hashable>: ItemObject, PHAssetParamable
     public class func create(for asset: PHAsset, manager:AppManager=AppCenter.default) -> AppAssetItem<StateValueType>? {
         guard let app = manager.current else { return nil }
 
-        if let itemType = app.paramType as? PHAssetParamable.Type
+        if let itemType = (app as? TaskApp.Type)?.paramType as? PHAssetParamable.Type
         , let item = itemType.init(asset) as? AppAssetItem<StateValueType> {
             return item
 
