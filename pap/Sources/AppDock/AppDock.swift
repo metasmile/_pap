@@ -30,11 +30,6 @@ extension AppDockDelegate{
 }
 
 // AppDock Window
-public enum AppDockContentDisplayMode: Int{
-    case none
-    case pinned
-}
-
 public enum AppDockContentLayoutState: Int{
     case minimized
     case neutralized

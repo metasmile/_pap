@@ -9,12 +9,12 @@ import UIKit
 public protocol AppDockApp: class, App {
     var content: AppDockContent? {get}
 
-    static var fixedContentLayout:Bool {get}
+    static var fixingContentLayout:AppDockContentLayoutState? {get}
 }
 
 extension AppDockApp {
-    public static var fixedContentLayout: Bool {
-        return false
+    public static var fixingContentLayout: AppDockContentLayoutState? {
+        return nil
     }
 
     public var content: AppDockContent? {

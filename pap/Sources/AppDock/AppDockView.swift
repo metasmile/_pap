@@ -164,7 +164,7 @@ class AppDockView: CustomView {
             }
 
             // POLICY BEGIN:
-            else if conformsPreviewable {
+            else if isNeedingFixedContentLayout {
                 committingLayoutState = nil
             }
             // POLICY END
@@ -183,14 +183,25 @@ class AppDockView: CustomView {
 
             // POLICY BEGIN:
             // app supports previewable
-            else if conformsPreviewable{
-                if _contentLayoutState == .maximized { //INFO: this is different with "state == .maximized && !hasAppAccessoryAsLayout"
-                    if !hasAppAccessoryAsLayout {
-                        _contentLayoutState = .neutralized // force: .maximized -> .neutralized
-                    }
-                }
-                else if _contentLayoutState == .minimized {
-                    _contentLayoutState = .neutralized // force: .minimized -> .neutralized
+            else if let fixedLayoutState = self.neededFixingContentLayout {
+
+                switch(fixedLayoutState){
+                    case .neutralized:
+                        if _contentLayoutState == .maximized { //INFO: this is different with "state == .maximized && !hasAppAccessoryAsLayout"
+                            if !hasAppAccessoryAsLayout {
+                                _contentLayoutState = .neutralized // force: .maximized -> .neutralized
+                            }
+                        }
+                        else if _contentLayoutState == .minimized {
+                            _contentLayoutState = .neutralized // force: .minimized -> .neutralized
+                        }
+
+                    case .maximized:
+                        _contentLayoutState = .maximized // force: .maximized
+
+                    default:
+                        assert(false, "Not supported yet for given layoutState \(fixedLayoutState)")
+                        break
                 }
             }
             // POLICY END
@@ -214,7 +225,7 @@ class AppDockView: CustomView {
             return false
         }
 
-        if conformsPreviewable{
+        if isNeedingFixedContentLayout {
             return hasAppAccessoryAsLayout
         }else{
             return hasAppControllerAsLayout
@@ -275,8 +286,12 @@ class AppDockView: CustomView {
         }
     }
 
-    var conformsPreviewable:Bool{
-        return (AppCenter.default.current as? AppDockApp.Type)?.fixedContentLayout ?? false
+    var isNeedingFixedContentLayout:Bool{
+        return neededFixingContentLayout != nil
+    }
+
+    var neededFixingContentLayout:AppDockContentLayoutState? {
+        return (AppCenter.default.current as? AppDockApp.Type)?.fixingContentLayout
     }
 
     private func hasControlView(_ view: UIView?) -> Bool {
@@ -290,7 +305,7 @@ class AppDockView: CustomView {
         if let view = view {
             controllerView.addSubview(view)
 
-            if conformsPreviewable {
+            if isNeedingFixedContentLayout {
                 view.translatesAutoresizingMaskIntoConstraints = false
                 view.topAnchor.constraint(equalTo: controllerView.topAnchor).isActive = true
                 view.leadingAnchor.constraint(equalTo: controllerView.leadingAnchor).isActive = true
@@ -481,7 +496,7 @@ extension AppDockView {
             appContentViewHeightLayout.constant = preferredAppContentViewMaximumHeight
             
             let contentLayoutConstant = appContentViewHeightLayout.constant
-            let controllerLayoutConstant = conformsPreviewable ? preferredControllerViewHeight : contentLayoutConstant - max(0, preferredAccessoryViewHeight)
+            let controllerLayoutConstant = isNeedingFixedContentLayout ? preferredControllerViewHeight : contentLayoutConstant - max(0, preferredAccessoryViewHeight)
             controllerViewHeightLayout.constant = controllerLayoutConstant
         case .neutralized:
             drawerViewHeightLayout.constant = preferredDrawerViewHeight
@@ -656,11 +671,11 @@ extension AppDockView: UIGestureRecognizerDelegate {
                     return limitation * (1 + log10(yPosition/limitation))
                 }
                 let offset = sender.beginAppContentViewOffset - translation.y
-                return isContentLayoutMaximized || (conformsPreviewable && contentLayoutState != .minimized && !hasAppAccessoryAsLayout) ? logConstraintValueForYPoisition(offset, limitation: sender.beginAppContentViewOffset) : offset
+                return isContentLayoutMaximized || (isNeedingFixedContentLayout && contentLayoutState != .minimized && !hasAppAccessoryAsLayout) ? logConstraintValueForYPoisition(offset, limitation: sender.beginAppContentViewOffset) : offset
             }()
 
             appContentViewHeightLayout.constant = max(preferredAccessoryViewHeight, appContentViewHeight)
-            controllerViewHeightLayout.constant = (conformsPreviewable && contentLayoutState != .minimized) ? preferredControllerViewHeight : appContentViewHeightLayout.constant - max(0, preferredAccessoryViewHeight)
+            controllerViewHeightLayout.constant = (isNeedingFixedContentLayout && contentLayoutState != .minimized) ? preferredControllerViewHeight : appContentViewHeightLayout.constant - max(0, preferredAccessoryViewHeight)
             
             if contentLayoutState == .maximized {
                 drawerView.handleOpeningProgress = remapNormalizeClamp(delta, minHeight, maxHeight)
@@ -670,7 +685,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
                 drawerViewHeightLayout.constant = min(DefaultPreferences.DrawerView.prominentHeight, max(DefaultPreferences.DrawerView.compactHeight, delta))
             }
             
-            if conformsPreviewable && (contentLayoutState == .maximized || sender.beginContentLayoutState == .neutralized) {
+            if isNeedingFixedContentLayout && (contentLayoutState == .maximized || sender.beginContentLayoutState == .neutralized) {
                 let draggingRatio = (translation.y / sender.beginAppContentViewOffset) * 0.5
                 let scale = max(1 - draggingRatio, 1)
                 topAccessoryView.transform = CGAffineTransform(scaleX: scale, y: scale)
@@ -756,7 +771,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
     }
     
     var shouldMaximizeDrawer: Bool {
-        return !(conformsPreviewable && !hasAppAccessoryAsLayout)
+        return !(isNeedingFixedContentLayout && !hasAppAccessoryAsLayout)
     }
 
     private func maximizeDrawer(reloadDockContentViews: Bool? = nil) {
@@ -777,8 +792,8 @@ extension AppDockView: UIGestureRecognizerDelegate {
         appContentViewHeightLayout.constant = preferredAppContentViewMaximumHeight
         
         let contentLayoutConstant = appContentViewHeightLayout.constant
-        let controllerLayoutConstant = conformsPreviewable ? preferredControllerViewHeight : contentLayoutConstant - max(0, preferredAccessoryViewHeight)
-        let accessoryLayoutConstant = conformsPreviewable ? contentLayoutConstant - max(0, preferredControllerViewHeight) : preferredAccessoryViewHeight
+        let controllerLayoutConstant = isNeedingFixedContentLayout ? preferredControllerViewHeight : contentLayoutConstant - max(0, preferredAccessoryViewHeight)
+        let accessoryLayoutConstant = isNeedingFixedContentLayout ? contentLayoutConstant - max(0, preferredControllerViewHeight) : preferredAccessoryViewHeight
         controllerViewHeightLayout.constant = controllerLayoutConstant
         
         invalidateIntrinsicContentSize()

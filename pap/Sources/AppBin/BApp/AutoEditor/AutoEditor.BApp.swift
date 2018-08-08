@@ -100,8 +100,8 @@ public class AutoEditorApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _
         return "Apply".localized
     }
 
-    public static var fixedContentLayout: Bool {
-        return true
+    public static var fixingContentLayout: AppDockContentLayoutState? {
+        return .neutralized
     }
 
     public func shouldSelect(item: AppAsset) -> Bool {
