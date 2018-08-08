@@ -45,7 +45,7 @@ class ChargeManager{
     /*
         Payment
     */
-    func pay(for payable: Payable.Type, _ asyncSignal:AsyncWaitSignalable=AsyncSignal()){
+    func pay(for payable: Payable.Type, _ asyncSignal:AsyncWaitSignalable=AsyncSignal(), completion:((_ succeed:Bool) -> ())?=nil){
         guard let charge = charges.first(where:{ $0.isEqualTo(other: payable.chargeable) }) else {
             return
         }
@@ -53,11 +53,13 @@ class ChargeManager{
         payingQueue.async{
             if payable.init().pay(asyncSignal){
                 DispatchQueue.main.async{
-                    self.bank.save(for: charge)
+                    let result = self.bank.save(for: charge)
+                    completion?(result)
                 }
             }else{
                 DispatchQueue.main.async{
                     self.bank.cancelToSave(for: charge)
+                    completion?(false)
                 }
                 print("[i] INFO: payment failed \(String(describing: payable))")
             }

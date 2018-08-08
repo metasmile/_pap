@@ -191,7 +191,7 @@ private struct PayItem: Hashable, Equatable {
                 return image
             }
 
-            var badgeImage: UIImage = ChargeableImage(balance: charge.priceAmount.value, fillMode: .fill, tintColor: tintColor, appearanceDelegate: ShopAppChargeableAssets()).withAlignmentRectInsets(UIEdgeInsets(top: -4, left: -4, bottom: -4, right: -4))
+            let badgeImage: UIImage = ChargeableImage(balance: charge.priceAmount.value, fillMode: .fill, tintColor: tintColor, appearanceDelegate: ShopAppChargeableAssets()).withAlignmentRectInsets(UIEdgeInsets(top: -4, left: -4, bottom: -4, right: -4))
 
 //            if let rewardText = charge.shortTitleWithReward {
 //                badgeImage = ChargeableBadgeIcon.portraitBadgeIcon(badgeImage, title: "\(rewardText)", tintColor: tintColor)
@@ -207,12 +207,14 @@ private struct PayItem: Hashable, Equatable {
     fileprivate var iconImageShouldUseTintColor: Bool
     fileprivate var enabled: Bool = true
     fileprivate let label:String
+    fileprivate let rewardLabel:String
 
     init(payable: Payable.Type) {
         self.payable = payable
         self.chargeable = payable.chargeable
         self.chargeIdentifier = payable.chargeable.identifier
         self.label = AppCenter.charge.getCharge(for: payable.chargeable)?.title ?? "Untitled"
+        self.rewardLabel = AppCenter.charge.getCharge(for: payable.chargeable)?.rewardDescription ?? "Unknown Reward"
         self.iconImageShouldUseTintColor = true
     }
 
@@ -423,7 +425,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             tableView.rowHeight = 44
             tableView.allowsSelection = false
             tableView.allowsMultipleSelection = false
-            tableView.register(Cell.self, forCellReuseIdentifier: ShopApp.info.identifier)
+            tableView.register(UITableViewButtonCell.self, forCellReuseIdentifier: ShopApp.info.identifier)
 
             for desc in settingCellDescribers {
                 tableView.register(describer: desc)
@@ -569,9 +571,10 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         let dataItem = dict.items[indexPath.item]
         let selected = dataItem.enabled
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: ShopApp.info.identifier) as! Cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ShopApp.info.identifier) as! UITableViewButtonCell
         cell.textLabel?.text = dataItem.label
-        cell.detailTextLabel?.text = selected ? "%@ might be found".localizedFormatted("").trimmed : nil
+        cell.detailTextLabel?.text = dataItem.rewardLabel
+        cell.detailTextLabel?.textColor = UIColor.gray
 
         cell.imageView?.tintColor = self.view.tintColor
         let image = dataItem.getIconImage(tintColor:view.tintColor)
@@ -582,20 +585,13 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             cell.imageView?.image = image?.asUIImage?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         }
 
-        cell.detailTextLabel?.textColor = UIColor.gray
-        cell.optionSwitch.setOn(selected, animated: false)
+        cell.button.setImage(cell.imageView?.image, for: .normal)
+        cell.didTap = {
+            AppCenter.charge.pay(for: dataItem.payable) { succeed in
+                //TODO: success cell display
+            }
 
-        cell.switchDidChange = { on in
-//            let chargeIdentifier = dataItem.chargeIdentifier
-
-            //set enable
-            var collection = self.defaultCollections
-            collection[dictIndex].items[indexPath.item].enabled = on
-
-            //commit
-//            ShopApp.privateDefaults.selectedCollection = collection
-
-            tableView.reloadRows(at: [indexPath], with: .fade)
+//            tableView.reloadRows(at: [indexPath], with: .fade)
         }
 
 //        cell.enable(self.autoSelectedEnabled)
@@ -608,41 +604,6 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 }
 
-private class Cell: UITableViewCell {
-    lazy var optionSwitch: UISwitch = {
-        let view = UISwitch()
-        view.addTarget(self, action: #selector(self.cellSwitchDidChange), for: .valueChanged)
-        return view
-    }()
-
-    var switchDidChange: ((Bool) -> Void)?
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-
-        switchDidChange = nil
-    }
-
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-
-        accessoryView = optionSwitch
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    @objc func cellSwitchDidChange(sender: UISwitch) {
-        switchDidChange?(sender.isOn)
-    }
-
-    override func tintColorDidChange() {
-        super.tintColorDidChange()
-
-        optionSwitch.onTintColor = tintColor
-    }
-}
 
 
 extension ShopAppDockContent: PreheatableAppSubscribable{

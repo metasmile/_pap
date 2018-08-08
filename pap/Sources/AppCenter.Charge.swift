@@ -25,33 +25,47 @@ private final class AppChargeManager: ChargeManager{
 }
 
 extension Charge{
-    private var daysFormattedStringWithPriceAmount:String?{
-        return (self.priceAmount.value * AppChargeBanker.Abs_TimeOfUses_Day).roundedString(toPlaces: 1, trimTrailingZeros: true)
-    }
-
-    var titleWithReward:String {
-        guard let daysString = daysFormattedStringWithPriceAmount else{
-            return self.title
-        }
-
-        switch (self.reward) {
+    private var rewardUnit:String?{
+        switch (self.reward){
             case .timeOfUses:
-                return "\(self.title) (\("%@ Day License".localizedFormatted(daysString)))"
+                return (self.priceAmount.value * AppChargeBanker.Abs_TimeOfUses_Day).roundedString(toPlaces: 1, trimTrailingZeros: true)
             default:
-                return self.title
+                return nil
         }
     }
-    
-    var shortTitleWithReward:String? {
-        guard let daysString = daysFormattedStringWithPriceAmount else{
+
+    var rewardDescription:String? {
+        guard let unit = rewardUnit else{
             return nil
         }
 
         switch (self.reward) {
             case .timeOfUses:
-                return "%@ Day".localizedFormatted(daysString)
+                return "%@ Day License".localizedFormatted(unit)
             default:
                 return nil
+        }
+    }
+
+    var shortRewardDescription:String? {
+        guard let unit = rewardUnit else{
+            return nil
+        }
+
+        switch (self.reward) {
+            case .timeOfUses:
+                return "%@ Day".localizedFormatted(unit)
+            default:
+                return nil
+        }
+    }
+
+    var titleWithReward:String {
+        switch (self.reward) {
+            case .timeOfUses:
+                return "\(self.title) \(self.rewardDescription ?? "")"
+            default:
+                return self.title
         }
     }
 }
