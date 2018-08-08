@@ -24,6 +24,8 @@ public class ShopApp: NSObject
     
     public private(set) lazy var content: AppDockContent? = ShopAppDockContent()
 
+    fileprivate lazy var contentImageCache:NSCache = NSCache<NSString, UIImage>()
+
     public static let info = AppInfo(
             identifier: "com.stells.pap.shop"
             , version: "1.0"
@@ -33,7 +35,7 @@ public class ShopApp: NSObject
             , description: nil
             , keywords: nil
             , iconBundleName: nil
-            , policy: AppPolicy.default
+            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: .default)
             , minOSVersion: nil
     )
 
@@ -46,6 +48,10 @@ public class ShopApp: NSObject
     }
 
     func didLaunch(previous: App.Type?, withOption: AppLaunchOption?) {
+    }
+
+    public static var fixingContentLayout: AppDockContentLayoutState? {
+        return .maximized
     }
 
     fileprivate static let SupportingPayTypes:[Payable.Type] = [
@@ -140,17 +146,7 @@ extension Defaults: ShopAppDefaults {
     }
 }
 
-private class PhotoPickerViewControllerChargeableAssets : ChargeableButtonAppearance{
-    static let shared: PhotoPickerViewControllerChargeableAssets = PhotoPickerViewControllerChargeableAssets()
-
-    fileprivate lazy var inStoreRatingButton = UIBarButtonItem(image: R.image.systemIconFavoriteLine(), style: .plain, target: self, action: nil)
-
-    fileprivate lazy var onPromptRatingButton = UIBarButtonItem(image: R.image.systemIconFavoriteLine(), style: .plain, target: self, action: nil)
-
-    fileprivate lazy var socialShareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: nil)
-
-    fileprivate lazy var feedbackButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
-
+private class ShopAppChargeableAssets : ChargeableButtonAppearance{
     fileprivate lazy var chargeableButton = makeChargeableBarButtonItem()
 
     func makeChargeableBarButtonItem() -> ChargeableBarButtonItem{
@@ -185,20 +181,23 @@ private struct PayItem: Hashable, Equatable {
     fileprivate let chargeable:Chargeable
     fileprivate let payable:Payable.Type
     fileprivate let chargeIdentifier: String
-    fileprivate let label: String
 
     fileprivate func getIconImage(tintColor:UIColor) -> ImageSourceable? {
 
-        if let charge = AppCenter.charge.getCharge(for: self.chargeable){
-            var badgeImage: UIImage?
-            let estimatedChargeableImage = ChargeableImage(balance: charge.priceAmount.value, fillMode: .fill, tintColor: tintColor, appearanceDelegate: PhotoPickerViewControllerChargeableAssets()).withAlignmentRectInsets(UIEdgeInsets(top: -4, left: -4, bottom: -4, right: -4))
+        let iconImageCache = AppCenter.default.currentInstanceAs(ShopApp.self)?.contentImageCache
 
-            if let rewardText = charge.shortTitleWithReward {
-                badgeImage = ChargeableBadgeIcon.portraitBadgeIcon(estimatedChargeableImage, title: "+\(rewardText)", tintColor: tintColor)
+        if let charge = AppCenter.charge.getCharge(for: self.chargeable){
+            if let image = iconImageCache?.object(forKey: charge.identifier as NSString){
+                return image
             }
-            else {
-                badgeImage = estimatedChargeableImage
-            }
+
+            var badgeImage: UIImage = ChargeableImage(balance: charge.priceAmount.value, fillMode: .fill, tintColor: tintColor, appearanceDelegate: ShopAppChargeableAssets()).withAlignmentRectInsets(UIEdgeInsets(top: -4, left: -4, bottom: -4, right: -4))
+
+//            if let rewardText = charge.shortTitleWithReward {
+//                badgeImage = ChargeableBadgeIcon.portraitBadgeIcon(badgeImage, title: "\(rewardText)", tintColor: tintColor)
+//            }
+
+            iconImageCache?.setObject(badgeImage, forKey: charge.identifier as NSString)
             return badgeImage
         }
 
@@ -207,6 +206,7 @@ private struct PayItem: Hashable, Equatable {
 
     fileprivate var iconImageShouldUseTintColor: Bool
     fileprivate var enabled: Bool = true
+    fileprivate let label:String
 
     init(payable: Payable.Type) {
         self.payable = payable
@@ -359,7 +359,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             }
 
         }
-        settingCellDescribers.append(cell1)
+//        settingCellDescribers.append(cell1)
 
         let cell0 = UITableViewSegmentControlCellDescriber()
         cell0.itemIdentifier = ShopAppSettingCells.deletingTarget.hashValue
@@ -475,7 +475,9 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = indexPath.section == 0 ? settings_tableView(tableView, cellForRowAt: indexPath) : itemCollection_tableView(tableView, cellForRowAt: IndexPath(item: indexPath.item, section: indexPath.section))
+        let cell = indexPath.section == 0
+                ? settings_tableView(tableView, cellForRowAt: indexPath)
+                : itemCollection_tableView(tableView, cellForRowAt: IndexPath(item: indexPath.item, section: indexPath.section))
         return cell
     }
 
