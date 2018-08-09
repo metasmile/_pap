@@ -111,6 +111,8 @@ class AppDockViewController: UIViewController {
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = doneButton
         
+        installAppDockItems()
+        
         appDockView?.dataSource = self
         appDockView?.reloadData()
     }
@@ -167,6 +169,8 @@ class AppDockViewController: UIViewController {
     var appDockItems: [AppDockItem] {
         return []
     }
+    
+    internal var appDockItemGroups = [[AppDockItem]]()
 
     @objc func cancelButtonDidTap(sender: Any) {
         if appDockView?.isContentLayoutMaximized == true {
@@ -194,12 +198,45 @@ class AppDockViewController: UIViewController {
 }
 
 extension AppDockViewController: AppDockViewDataSource {
-    func numberOfItems(in view: AppDockView) -> Int {
-        return appDockItems.count
+    fileprivate func installAppDockItems() {
+        appDockItemGroups = Array<[AppDockItem]>(repeating: [], count: numberOfAppTypes)
+        
+        for item in appDockItems {
+            let section = selectedSection(of: item.app, in: appDockItemGroups.count)
+            appDockItemGroups[section].append(item)
+        }
     }
     
-    func appDockView(_ view: AppDockView, itemAt index: Int) -> AppDockItem? {
-        return appDockItems[safe: index]
+    private func selectedSection(of app: App.Type, in numberOfAppTypes: Int) -> Int {
+        if numberOfAppTypes > 1 {
+            if app is SApp.Type {
+                return 0
+            }
+            else {
+                return 1
+            }
+        }
+        else {
+            return 0
+        }
+    }
+    
+    private var numberOfAppTypes: Int {
+        let hasSApp = appDockItems.contains(where: { $0.app is SApp.Type })
+        let hasBApp = appDockItems.contains(where: { $0.app is BApp.Type })
+        return hasSApp && hasBApp ? 2 : 1
+    }
+    
+    func numberOfSections(in view: AppDockView) -> Int {
+        return appDockItemGroups.count
+    }
+    
+    func appDockView(_ view: AppDockView, numbefOfItemsInSection section: Int) -> Int {
+        return appDockItemGroups[section].count
+    }
+    
+    func appDockView(_ view: AppDockView, itemAt indexPath: IndexPath) -> AppDockItem? {
+        return appDockItemGroups[safe: indexPath.section]?[safe: indexPath.item]
     }
 }
 

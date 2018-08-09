@@ -7,13 +7,20 @@ import Foundation
 import UIKit
 
 private extension AppDockViewController {
-    func selectCurrentAppIfExist(animation: Bool = true) {
-        guard let currentApp = AppCenter.default.current
-        , let indexOfCurrentApp = appDockItems.index(where: { $0.app == currentApp }), indexOfCurrentApp != NSNotFound else {
-            return
+    private var indexPathOfCurrentApp: IndexPath? {
+        guard let currentApp = AppCenter.default.current else { return nil }
+        for (section, group) in appDockItemGroups.enumerated() {
+            if let item = group.index(where: { $0.app == currentApp }), item != NSNotFound {
+                return IndexPath(item: item, section: section)
+            }
         }
-
-        appDockView?.selectItem(at: IndexPath(item: indexOfCurrentApp, section: 0), animated: animation)
+        return nil
+    }
+    
+    func selectCurrentAppIfExist(animation: Bool = true) {
+        guard let selectedIndexPath = indexPathOfCurrentApp else { return }
+        print(selectedIndexPath, appDockItems)
+        appDockView?.selectItem(at: selectedIndexPath, animated: animation)
     }
 }
 
@@ -49,7 +56,7 @@ extension AppCenter{
     @discardableResult
     private func selectApp(_ app:App.Type, options: AppLaunchOptions?=nil, animation:Bool=false) -> Bool{
         guard let rootVc = UIApplication.shared.keyWindow?.rootViewController as? AppDockNavigationController
-        , let appDockVc = rootVc.viewControllers.first(where:{ $0 is AppDockViewController }) as? AppDockViewController else {
+            , let appDockVc = rootVc.visibleViewController as? AppDockViewController else { //INFO: current modal or vc (for photo editor)
             return false
         }
 

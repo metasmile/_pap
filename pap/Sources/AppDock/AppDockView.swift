@@ -20,8 +20,9 @@ struct AppDockItem {
 // MARK: -
 
 protocol AppDockViewDataSource {
-    func numberOfItems(in view: AppDockView) -> Int
-    func appDockView(_ view: AppDockView, itemAt index: Int) -> AppDockItem?
+    func numberOfSections(in view: AppDockView) -> Int
+    func appDockView(_ view: AppDockView, numbefOfItemsInSection section: Int) -> Int
+    func appDockView(_ view: AppDockView, itemAt indexPath: IndexPath) -> AppDockItem?
     func content(in view: AppDockView) -> AppDockContent?
 }
 
@@ -126,6 +127,7 @@ class AppDockView: CustomView {
         appCollectionView.contentInset.top = 0
         appCollectionView.contentInset.bottom = 0
         appCollectionView.register(AppDockViewCell.self, forCellWithReuseIdentifier: String(describing: AppDockViewCell.self))
+        appCollectionView.register(AppDockViewGroupSeparator.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: String(describing: AppDockViewGroupSeparator.self))
 
         drawerView.topMargin = DefaultPreferences.DrawerView.topMargin
 
@@ -216,7 +218,7 @@ class AppDockView: CustomView {
     }
 
     private var shouldDrawerBarEnable: Bool {
-        if !hasAppContentAsLayout || dataSource?.numberOfItems(in: self) == 0{
+        if !hasAppContentAsLayout || dataSource?.numberOfSections(in: self) == 0 {
             return false
         }
 
@@ -243,10 +245,6 @@ class AppDockView: CustomView {
         if self.controller?.view != controller?.view{
             self.controller = controller
         }
-    }
-    
-    var selectedIndex: Int? {
-        return appCollectionView.indexPathsForSelectedItems?.first?.item
     }
 
     /*
@@ -426,7 +424,7 @@ extension AppDockView {
     }
     
     fileprivate var preferredDockViewHeight: CGFloat {
-        return dataSource?.numberOfItems(in: self) ?? 0 > 1 ? DefaultPreferences.AppDockView.compactHeight : AppDockView.VoidLayoutValue
+        return dataSource?.numberOfSections(in: self) ?? 0 > 1 ? DefaultPreferences.AppDockView.compactHeight : AppDockView.VoidLayoutValue
     }
     
     fileprivate var preferredAccessoryViewHeight: CGFloat {
@@ -523,11 +521,11 @@ extension AppDockView {
     }
     
     func selectItem(at indexPath: IndexPath, animated: Bool = false) {
-        guard indexPath.item < dataSource?.numberOfItems(in: self) ?? 0 else { return }
+        guard indexPath.item < dataSource?.appDockView(self, numbefOfItemsInSection: indexPath.section) ?? 0 else { return }
         appCollectionView.selectItem(at: indexPath, animated: animated, scrollPosition: .centeredHorizontally)
         zoomOutAppCollectionView(delay: 0)
         
-        if let item = dataSource?.appDockView(self, itemAt: indexPath.item) {
+        if let item = dataSource?.appDockView(self, itemAt: indexPath) {
             delegate?.appDockView(self, didSelectItemWith: item)
         }
     }
@@ -536,14 +534,18 @@ extension AppDockView {
 // MARK: -
 
 extension AppDockView: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return dataSource?.numberOfSections(in: self) ?? 0
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource?.numberOfItems(in: self) ?? 0
+        return dataSource?.appDockView(self, numbefOfItemsInSection: section) ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.nib.appDockViewCell.name, for: indexPath) as! AppDockViewCell
         
-        if let item = dataSource?.appDockView(self, itemAt: indexPath.item) {
+        if let item = dataSource?.appDockView(self, itemAt: indexPath) {
             cell.setAppInfo(item.app, at: indexPath)
         }
 
@@ -556,6 +558,11 @@ extension AppDockView: UICollectionViewDataSource {
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: AppDockViewGroupSeparator.self), for: indexPath)
+        return view
+    }
 }
 
 extension AppDockView: UICollectionViewDelegate {
@@ -565,7 +572,7 @@ extension AppDockView: UICollectionViewDelegate {
 
         UISelectionFeedbackGenerator().selectionChanged()
         
-        if let item = dataSource?.appDockView(self, itemAt: indexPath.item) {
+        if let item = dataSource?.appDockView(self, itemAt: indexPath) {
             delegate?.appDockView(self, didSelectItemWith: item)
         }
     }
@@ -941,6 +948,11 @@ extension AppDockView {
             ($0 as? AppDockViewCell)?.showsInfoView = true
         }
         
+        let selectedIndexPath = appCollectionView.indexPathsForSelectedItems?.first
+        if let indexPath = selectedIndexPath {
+            appCollectionView.deselectItem(at: indexPath, animated: false)
+        }
+        
         self.appCollectionViewHeightLayout.constant = AppCollectionViewLayout.LayoutConstants.compactHeight
         UIView.animateAsSpring(options: [.allowUserInteraction], animations: {
             self.appCollectionView.setCollectionViewLayout(toLayout, animated: false)
@@ -949,7 +961,11 @@ extension AppDockView {
             self.appCollectionView.visibleCells.forEach {
                 ($0 as? AppDockViewCell)?.showsInfoView = false
             }
-        }, completion: nil)
+            
+            if let indexPath = selectedIndexPath {
+                self.appCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+            }
+        })
         
         reorderAppGesture?.isEnabled = false
     }
@@ -1015,8 +1031,8 @@ class AppCollectionViewLayout: UICollectionViewLayout {
         super.init(coder: aDecoder)
     }
     
-    private var numberOfItems: Int {
-        return collectionView?.numberOfItems(inSection: 0) ?? 0
+    private var numberOfSections: Int {
+        return collectionView?.numberOfSections ?? 0
     }
     
     private var collectionViewSize: CGSize {
@@ -1035,6 +1051,9 @@ class AppCollectionViewLayout: UICollectionViewLayout {
     }
     
     private var minimumSpacing: CGFloat = 1
+    private var sectionSpacing: CGFloat {
+        return layoutMetrics == .prominent ? 10 : 5
+    }
     
     override func prepare() {
         super.prepare()
@@ -1043,12 +1062,32 @@ class AppCollectionViewLayout: UICollectionViewLayout {
         
         var itemPosition: CGPoint = .zero
         
-        for indexPath in (0 ..< numberOfItems).map({ IndexPath(item: $0, section: 0) }) {
-            let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
-            attributes.frame = CGRect(origin: itemPosition, size: itemSize(with: layoutMetrics))
-            itemPosition.x += itemSize(with: layoutMetrics).width + minimumSpacing
+        for section in (0 ..< numberOfSections) {
+            for indexPath in (0 ..< (collectionView?.numberOfItems(inSection: section) ?? 0)).map({ IndexPath(item: $0, section: section) }) {
+                let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+                attributes.frame = CGRect(origin: itemPosition, size: itemSize(with: layoutMetrics))
+                itemPosition.x += itemSize(with: layoutMetrics).width + minimumSpacing
+                
+                cache[.item]?[indexPath] = attributes
+            }
             
-            cache[.item]?[indexPath] = attributes
+            if section < numberOfSections - 1 {
+                //add section footer
+                let indexPath = IndexPath(item: 0, section: section)
+                let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, with: indexPath)
+                let itemSize = self.itemSize(with: layoutMetrics)
+                let footerSize = CGSize(width: 2, height: itemSize.height * (layoutMetrics == .prominent ? 0.7 : 0.6))
+                
+                itemPosition.x += sectionSpacing
+                
+                var footerPosition = itemPosition
+                footerPosition.x -= footerSize.width / 2
+                footerPosition.y += (itemSize.height - footerSize.height) / 2
+                attributes.frame = CGRect(origin: footerPosition, size: footerSize)
+                cache[.footer]?[indexPath] = attributes
+                
+                itemPosition.x += sectionSpacing
+            }
         }
     }
     
@@ -1056,8 +1095,14 @@ class AppCollectionViewLayout: UICollectionViewLayout {
         return cache[.item]?[indexPath]
     }
     
+    override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        return cache[.footer]?[indexPath]
+    }
+    
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        return cache[.item]?.compactMap({ rect.intersects($0.value.frame) ? $0.value : nil })
+        let items = cache[.item]?.compactMap({ rect.intersects($0.value.frame) ? $0.value : nil }) ?? []
+        let footers = cache[.footer]?.compactMap({ rect.intersects($0.value.frame) ? $0.value : nil }) ?? []
+        return items + footers
     }
     
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
@@ -1065,7 +1110,12 @@ class AppCollectionViewLayout: UICollectionViewLayout {
     }
     
     var contentSize: CGSize {
-        let contentsWidth = (CGFloat(numberOfItems) * itemSize(with: layoutMetrics).width) + (CGFloat(numberOfItems - 1) * minimumSpacing)
+        var contentsWidth: CGFloat = 0
+        for section in (0 ..< numberOfSections) {
+            let numberOfItems = (collectionView?.numberOfItems(inSection: section) ?? 0)
+            contentsWidth += (CGFloat(numberOfItems) * itemSize(with: layoutMetrics).width) + (CGFloat(numberOfItems - 1) * minimumSpacing) + sectionSpacing
+        }
+        
         return CGSize(width: contentsWidth, height: itemSize(with: layoutMetrics).height)
     }
     
@@ -1086,6 +1136,30 @@ class AppIconRoundedView: RoundedView {
         super.layoutSubviews()
         
         cornerRadius = bounds.height / 2
+    }
+}
+
+internal class AppDockViewGroupSeparator: UICollectionReusableView {
+    private lazy var seperateView: RoundedView = {
+        let view = RoundedView(frame: .zero)
+        view.backgroundColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 0.5)
+        view.cornerRadius = 1
+        return view
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initialize()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        initialize()
+    }
+    
+    private func initialize() {
+        addSubview(seperateView)
+        seperateView.fitConstraints(to: self)
     }
 }
 
