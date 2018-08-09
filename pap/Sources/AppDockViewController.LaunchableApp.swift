@@ -72,7 +72,7 @@ extension AppCenter{
             if willChange{
                 appDockVc.appDidChange()
             }
-            self.appDidReturnIfNeeded(with: app.info.identifier)
+            self.stopAppToReturnSessionIfNeeded(with: app.info.identifier)
         }
         return true
     }

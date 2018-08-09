@@ -83,20 +83,28 @@ open class AppManager: NSObject, SelectableCollection {
     public private(set) var currentIdentifier: String?
     
     private var currentIdentifierToReturn: String?
-    internal func appDidReturnIfNeeded(with appIdentifier: String?) {
+    internal func stopAppToReturnSessionIfNeeded(with appIdentifier: String?) {
         guard appIdentifier == currentIdentifierToReturn else { return }
+        stopAppToReturnSession()
+    }
+    
+    internal func startAppToReturnSession(with appIdentifier: String?) {
+        currentIdentifierToReturn = appIdentifier
+    }
+    
+    internal func stopAppToReturnSession() {
         currentIdentifierToReturn = nil
     }
 
     private var currentLaunchOption: AppLaunchOptions?
 
     public func setCurrent(current:App.Type, with launchOption: AppLaunchOptions){
-        self.currentIdentifierToReturn = launchOption.identifierToReturn
+        self.startAppToReturnSession(with: launchOption.identifierToReturn)
         self.currentLaunchOption = launchOption
         self.current = current
     }
     
-    public var hasCurrentLaunchOptionAppToReturn: Bool {
+    public var hasAppToReturnSession: Bool {
         return currentIdentifierToReturn != nil
     }
 
@@ -137,7 +145,7 @@ open class AppManager: NSObject, SelectableCollection {
             // #8 - discard currentLaunchOption already passed
             self.currentLaunchOption = nil
             
-            self.appDidReturnIfNeeded(with: currentIdentifier)
+            self.stopAppToReturnSessionIfNeeded(with: currentIdentifier)
         }
     }
 

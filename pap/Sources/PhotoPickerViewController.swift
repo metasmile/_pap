@@ -236,7 +236,7 @@ class PhotoPickerViewController: AppDockViewController {
     override func appDidChange() {
         super.appDidChange()
         
-        if !AppCenter.default.hasCurrentLaunchOptionAppToReturn {
+        if !AppCenter.default.hasAppToReturnSession {
             AppAssets.selected.reloadAll()
             
             if let app = AppCenter.default.currentInstanceAs(EditableApp.self) {
@@ -249,16 +249,16 @@ class PhotoPickerViewController: AppDockViewController {
             }
             
             redisplayVisibleCellsEnabled()
+            
+            appDockView?.reloadKeepingDrawerOpened()
+            batchPreviewView.updatePreviews(forced: true)
         }
         else {
             updateVisibleCellsEnabled()
         }
         
-        showAndRevertTitleByCurrentAppIfNeeded()
-        appDockView?.reloadKeepingDrawerOpened()
-        batchPreviewView.updatePreviews(forced: true)
-
         updateUIDisplays()
+        showAndRevertTitleByCurrentAppIfNeeded()
 
         cancelPreheatingIfNeeded()
         performPrefetchIfNeeded(includingCurrentVisibleItems: true)
@@ -477,6 +477,9 @@ class PhotoPickerViewController: AppDockViewController {
 
             if appDockView?.accessory == nil {
                 appDockView?.accessory = batchPreviewView
+            }
+            else if let appDockApp = AppCenter.default.currentInstanceAs(AppDockApp.self), appDockApp.content?.preferences?.preferredHeight == AppDockContentPreferences.GreatestHeight, (AppCenter.default.current as? AppDockApp.Type)?.fixedContentLayout == true {
+                appDockView?.accessory = nil
             }
         }else {
             navigationItem.setLeftBarButton(nil, animated: true)
@@ -928,8 +931,9 @@ extension PhotoPickerViewController: AppDockViewDelegate{
         AppCenter.default.current = item.app
 
         view.loadControllerContentIfNeeded()
-
+        
         if willAppChange {
+            AppCenter.default.stopAppToReturnSession() //INFO: force remove returning session
             appDidChange()
         }
         else {
