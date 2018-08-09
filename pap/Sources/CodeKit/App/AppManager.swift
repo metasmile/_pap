@@ -82,30 +82,40 @@ open class AppManager: NSObject, SelectableCollection {
     @objc dynamic
     public private(set) var currentIdentifier: String?
     
-    private var currentIdentifierToReturn: String?
+    private struct AppToReturnSession {
+        var identifier: String
+        var editState: ImageEditStateValue? = nil
+        
+        init(identifier: String) {
+            self.identifier = identifier
+        }
+    }
+    
+    private var currentAppToReturnSession: AppToReturnSession?
     internal func stopAppToReturnSessionIfNeeded(with appIdentifier: String?) {
-        guard appIdentifier == currentIdentifierToReturn else { return }
+        guard appIdentifier == currentAppToReturnSession?.identifier else { return }
         stopAppToReturnSession()
     }
     
-    internal func startAppToReturnSession(with appIdentifier: String?) {
-        currentIdentifierToReturn = appIdentifier
+    private func startAppToReturnSession(with launchOption: AppLaunchOptions?) -> AppToReturnSession? {
+        guard let identifier = launchOption?.identifierToReturn else { return nil }
+        return AppToReturnSession(identifier: identifier)
     }
     
     internal func stopAppToReturnSession() {
-        currentIdentifierToReturn = nil
+        currentAppToReturnSession = nil
     }
 
     private var currentLaunchOption: AppLaunchOptions?
 
     public func setCurrent(current:App.Type, with launchOption: AppLaunchOptions){
-        self.startAppToReturnSession(with: launchOption.identifierToReturn)
+        self.currentAppToReturnSession = startAppToReturnSession(with: launchOption)
         self.currentLaunchOption = launchOption
         self.current = current
     }
     
     public var hasAppToReturnSession: Bool {
-        return currentIdentifierToReturn != nil
+        return currentAppToReturnSession != nil
     }
 
     public var current: App.Type?
