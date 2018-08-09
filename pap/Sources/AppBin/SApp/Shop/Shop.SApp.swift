@@ -71,23 +71,28 @@ private struct PayDictionary:Hashable {
                     , PayForMonthlyAllApps.self
                     , PayForYearlyAllApps.self
 
-                ].sorted(by:{ (payType1: Payable.Type, payType2: Payable.Type) -> Bool in
-                    return false
-                }).map { PayItem(payable:$0) }
-        ),
-        PayDictionary(
-                key: .Default
-                , label: "Available Engaging Methods".localized
-                , items: [
-                    PayOnFeedback.self
-                    , PayOnPromptRating.self
-                    , PayOnSocialShare.self
-                    , PayInAppStoreRating.self
+            , PayOnFeedback.self
+            , PayOnPromptRating.self
+            , PayOnSocialShare.self
+            , PayInAppStoreRating.self
 
                 ].sorted(by:{ (payType1: Payable.Type, payType2: Payable.Type) -> Bool in
                     return false
                 }).map { PayItem(payable:$0) }
         )
+//        , PayDictionary(
+//                key: .Default
+//                , label: "Available Engaging Methods".localized
+//                , items: [
+//                    PayOnFeedback.self
+//                    , PayOnPromptRating.self
+//                    , PayOnSocialShare.self
+//                    , PayInAppStoreRating.self
+//
+//                ].sorted(by:{ (payType1: Payable.Type, payType2: Payable.Type) -> Bool in
+//                    return false
+//                }).map { PayItem(payable:$0) }
+//        )
     ]
 
     enum Key: Int, Codable {
