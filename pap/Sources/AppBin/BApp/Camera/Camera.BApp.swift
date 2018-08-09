@@ -34,7 +34,7 @@ extension Defaults: CameraAppDefaults {
     }
 }
 
-class CameraApp: NSObject, KeyPathWatchable, BApp, LaunchableApp, AppDockApp, PhotoPickerCollectionViewDisplayableApp {
+class CameraApp: NSObject, KeyPathWatchable, SApp, LaunchableApp, AppDockApp, PhotoPickerCollectionViewDisplayableApp {
     public static let taskType: AppTaskable.Type = _CameraAppTask.self
     
     public static let paramType: AppTaskParamable.Type = AppAsset.self

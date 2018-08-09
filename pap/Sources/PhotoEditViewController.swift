@@ -54,8 +54,6 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     }()
     
     override func viewDidLoad() {
-        self.appDockView?.delegate = self
-
         super.viewDidLoad()
 
         title = "Edit".localized
@@ -81,6 +79,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         photoZoomingView.maximumZoomScale = 4
         
         appDockView?.barStyle = .black
+        appDockView?.delegate = self
 
         doneButton?.title = "Done".localized
         
