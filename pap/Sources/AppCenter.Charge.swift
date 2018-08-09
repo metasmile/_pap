@@ -14,13 +14,23 @@ extension AppCenter{
 
 private final class AppChargeManager: ChargeManager{
     fileprivate static let shared = AppChargeManager(charges:[
+        // Initial
         AppCharge(type: .welcomeFreeTrial, reward: .timeOfUses,  priceAmount: AmountObject(value:AppChargeBanker.InitialTutorial_TimeOfUses_Day/AppChargeBanker.Abs_TimeOfUses_Day), title:"Welcome Free Trial Pack".localized, description:nil)
 
+        // Engagement
         , AppCharge(type: .onPromptRating, reward: .nonBlockOfUses, priceAmount: AmountObject(value:0.0), title:"Give A Rating".localized, description:nil)
         , AppCharge(type: .inStoreRating, reward: .nonBlockOfUses,  priceAmount: AmountObject(value:0.0), title:"Write A Review".localized, description:nil)
         , AppCharge(type: .socialShare, reward: .timeOfUses, priceAmount: AmountObject(value:0.5), title:"Share This App".localized, description:nil)
         , AppCharge(type: .feedback, reward: .timeOfUses, priceAmount: AmountObject(value:0.5), title:"Send Us Feedback".localized, description:nil)
-        /* .... */
+
+        // Store Purchase
+        , AppCharge(type: .nonConsumablePurchase, reward: .owned, priceAmount: AmountObject.max, title:"Give A Rating".localized, description:nil)
+        , AppCharge(type: .consumablePurchase, reward: .owned, priceAmount: AmountObject.max, title:"Give A Rating".localized, description:nil)
+        , AppCharge(type: .nonRenewingMonthlySubscription, reward: .owned,  priceAmount: AmountObject.max, title:"Write A Review".localized, description:nil)
+        , AppCharge(type: .nonRenewingYearlySubscription, reward: .owned, priceAmount: AmountObject.max, title:"Share This App".localized, description:nil)
+        , AppCharge(type: .renewableMonthlySubscription, reward: .owned, priceAmount: AmountObject.max, title:"Send Us Feedback".localized, description:nil)
+        , AppCharge(type: .renewableYearlySubscription, reward: .owned, priceAmount: AmountObject.max, title:"Share This App".localized, description:nil)
+
     ], banker: AppChargeBanker.self)
 }
 

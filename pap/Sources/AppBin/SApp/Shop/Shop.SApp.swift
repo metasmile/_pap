@@ -53,16 +53,110 @@ public class ShopApp: NSObject
     }
 
     public private(set) static var fixedContentLayout: Bool = true
+}
 
-    fileprivate static let SupportingPayTypes:[Payable.Type] = [
-        PayOnFeedback.self
-        , PayOnPromptRating.self
-        , PayOnSocialShare.self
-        , PayInAppStoreRating.self
 
-    ].sorted { (payType1: Payable.Type, payType2: Payable.Type) -> Bool in
-        return false
+private struct PayDictionary:Hashable {
+    static let Default: [PayDictionary] = [
+        PayDictionary(
+                key: .Default
+                , label: "Available Purchasing Methods".localized
+                , items: [
+                    PayForAllTimeAllApps.self
+                    //, PayForAllTimeOneApp // dynamically insert by launchOption
+
+                    , PayForOneMonthAllApps.self
+                    , PayForOneYearAllApps.self
+
+                    , PayForMonthlyAllApps.self
+                    , PayForYearlyAllApps.self
+
+                ].sorted(by:{ (payType1: Payable.Type, payType2: Payable.Type) -> Bool in
+                    return false
+                }).map { PayItem(payable:$0) }
+        ),
+        PayDictionary(
+                key: .Default
+                , label: "Available Engaging Methods".localized
+                , items: [
+                    PayOnFeedback.self
+                    , PayOnPromptRating.self
+                    , PayOnSocialShare.self
+                    , PayInAppStoreRating.self
+
+                ].sorted(by:{ (payType1: Payable.Type, payType2: Payable.Type) -> Bool in
+                    return false
+                }).map { PayItem(payable:$0) }
+        )
+    ]
+
+    enum Key: Int, Codable {
+        case Default
     }
+
+    fileprivate var key:Key
+    fileprivate var label:String
+    fileprivate var items:[PayItem]
+    fileprivate var itemsChargeIdentifiers:[String]{
+        return items.map { $0.chargeIdentifier }
+
+    }
+
+    var hashValue: Int{
+        return key.rawValue
+    }
+}
+
+
+private struct PayItem: Hashable, Equatable {
+    fileprivate let chargeable:Chargeable
+    fileprivate let payable:Payable.Type
+    fileprivate let chargeIdentifier: String
+
+    fileprivate func getIconImage(tintColor:UIColor) -> ImageSourceable? {
+
+        let iconImageCache = AppCenter.default.currentInstanceAs(ShopApp.self)?.contentImageCache
+
+        if let charge = AppCenter.charge.getCharge(for: self.chargeable){
+            if let image = iconImageCache?.object(forKey: charge.identifier as NSString){
+                return image
+            }
+
+            let badgeImage: UIImage = ChargeableImage(balance: charge.priceAmount.value, fillMode: .fill, tintColor: tintColor, appearanceDelegate: ShopAppChargeableAssets()).withAlignmentRectInsets(UIEdgeInsets(top: -4, left: -4, bottom: -4, right: -4))
+
+//            if let rewardText = charge.shortTitleWithReward {
+//                badgeImage = ChargeableBadgeIcon.portraitBadgeIcon(badgeImage, title: "\(rewardText)", tintColor: tintColor)
+//            }
+
+            iconImageCache?.setObject(badgeImage, forKey: charge.identifier as NSString)
+            return badgeImage
+        }
+
+        return nil
+    }
+
+    fileprivate var iconImageShouldUseTintColor: Bool
+    fileprivate var enabled: Bool = true
+    fileprivate let label:String
+    fileprivate let rewardLabel:String
+
+    init(payable: Payable.Type) {
+        self.payable = payable
+        self.chargeable = payable.chargeable
+        self.chargeIdentifier = payable.chargeable.identifier
+        self.label = AppCenter.charge.getCharge(for: payable.chargeable)?.title ?? "Untitled"
+        self.rewardLabel = AppCenter.charge.getCharge(for: payable.chargeable)?.rewardDescription ?? "Undefined Reward"
+        self.iconImageShouldUseTintColor = true
+    }
+
+    var hashValue: Int {
+        return chargeIdentifier.hashValue
+    }
+
+    public static func == (lhs: PayItem, rhs: PayItem) -> Bool{
+        return lhs.hashValue == rhs.hashValue
+    }
+
 }
 
 /*
@@ -177,82 +271,6 @@ private class ShopAppChargeableAssets : ChargeableButtonAppearance{
 }
 
 
-private struct PayItem: Hashable, Equatable {
-    fileprivate let chargeable:Chargeable
-    fileprivate let payable:Payable.Type
-    fileprivate let chargeIdentifier: String
-
-    fileprivate func getIconImage(tintColor:UIColor) -> ImageSourceable? {
-
-        let iconImageCache = AppCenter.default.currentInstanceAs(ShopApp.self)?.contentImageCache
-
-        if let charge = AppCenter.charge.getCharge(for: self.chargeable){
-            if let image = iconImageCache?.object(forKey: charge.identifier as NSString){
-                return image
-            }
-
-            let badgeImage: UIImage = ChargeableImage(balance: charge.priceAmount.value, fillMode: .fill, tintColor: tintColor, appearanceDelegate: ShopAppChargeableAssets()).withAlignmentRectInsets(UIEdgeInsets(top: -4, left: -4, bottom: -4, right: -4))
-
-//            if let rewardText = charge.shortTitleWithReward {
-//                badgeImage = ChargeableBadgeIcon.portraitBadgeIcon(badgeImage, title: "\(rewardText)", tintColor: tintColor)
-//            }
-
-            iconImageCache?.setObject(badgeImage, forKey: charge.identifier as NSString)
-            return badgeImage
-        }
-
-        return nil
-    }
-
-    fileprivate var iconImageShouldUseTintColor: Bool
-    fileprivate var enabled: Bool = true
-    fileprivate let label:String
-    fileprivate let rewardLabel:String
-
-    init(payable: Payable.Type) {
-        self.payable = payable
-        self.chargeable = payable.chargeable
-        self.chargeIdentifier = payable.chargeable.identifier
-        self.label = AppCenter.charge.getCharge(for: payable.chargeable)?.title ?? "Untitled"
-        self.rewardLabel = AppCenter.charge.getCharge(for: payable.chargeable)?.rewardDescription ?? "Undefined Reward"
-        self.iconImageShouldUseTintColor = true
-    }
-
-    var hashValue: Int {
-        return chargeIdentifier.hashValue
-    }
-
-    public static func == (lhs: PayItem, rhs: PayItem) -> Bool{
-        return lhs.hashValue == rhs.hashValue
-    }
-
-}
-
-private struct PayDictionary:Hashable {
-    static let Default: [PayDictionary] = [
-        PayDictionary(
-                key: .Default
-                , label: "Available Purchasing Methods".localized
-                , items: ShopApp.SupportingPayTypes.map { PayItem(payable: $0) }
-        )
-    ]
-
-    enum Key: Int, Codable {
-        case Default
-    }
-
-    fileprivate var key:Key
-    fileprivate var label:String
-    fileprivate var items:[PayItem]
-    fileprivate var itemsChargeIdentifiers:[String]{
-        return items.map { $0.chargeIdentifier }
-
-    }
-
-    var hashValue: Int{
-        return key.rawValue
-    }
-}
 
 
 /*

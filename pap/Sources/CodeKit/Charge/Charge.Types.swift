@@ -60,6 +60,8 @@ protocol StorePayable {
 protocol Chargeable {
     var type: ChargeType {get}
     var reward: RewardType {get}
+
+    var identifier:String {get}
 }
 
 extension Chargeable{
@@ -86,6 +88,17 @@ protocol Charge: Chargeable {
     var title:String {get}
     var description:String? {get}
 }
+
+//extension Charge{
+//    var identifier:String{
+//        return String(describing: Charge.self) +
+//                "type\(type)" +
+//                "reward\(reward)" +
+//                "priceAmount\(String(describing: priceAmount))" +
+//                "title\(title)" +
+//                "description\(description)"
+//    }
+//}
 
 protocol Amount: Codable{
     static var minValue:Double{get}

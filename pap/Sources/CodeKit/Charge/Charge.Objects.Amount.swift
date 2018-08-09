@@ -10,6 +10,14 @@ struct AmountObject:Amount{
     init(value: Double) {
         self.value = type(of: self).validate(value: value)
     }
+
+    static var max:AmountObject{
+        return AmountObject(value: AmountObject.maxValue)
+    }
+
+    static var min:AmountObject{
+        return AmountObject(value: AmountObject.minValue)
+    }
 }
 
 class MutableAmountObject: MutableAmount{
