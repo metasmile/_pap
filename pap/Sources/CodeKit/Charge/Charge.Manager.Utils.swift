@@ -1,5 +1,5 @@
 //
-// Created by BLACKGENE on 26.07.18.
+// Created? by BLACKGENE on 26.07.18.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
@@ -7,7 +7,8 @@ import Foundation
 
 extension ChargeManager{
     func isPaid(payable:Payable.Type) -> Bool{
-        if let receipt = bank.getReceipt(for: payable.chargeable){
+        if let charge = charges.first(where: { $0.payment == payable })
+        , let receipt = bank.getReceipt(for: charge){
             return receipt.amountValue > 0
         }
         return false

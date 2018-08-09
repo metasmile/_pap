@@ -6,11 +6,12 @@
 import Foundation
 import DefaultsKit
 
-struct ChargeableReceipt: Codable, Chargeable, Hashable{
+struct ChargeableReceipt: Codable, Hashable{
 
     let uuid:String
     let createdDate:Date
     let bankerVersion:Int
+    let chargeableIdentifier:String
 
     private let typeRawValue: Int
     var type: ChargeType{
@@ -27,7 +28,8 @@ struct ChargeableReceipt: Codable, Chargeable, Hashable{
          typeRawValue:Int,
          rewardRawValue:Int,
          amountValue:Double,
-         bankerVersion:Int){
+         bankerVersion:Int,
+         chargeableIdentifier:String){
 
         self.uuid = uuid
         self.createdDate = createdDate
@@ -35,6 +37,7 @@ struct ChargeableReceipt: Codable, Chargeable, Hashable{
         self.rewardRawValue = rewardRawValue
         self.amountValue = amountValue
         self.bankerVersion = bankerVersion
+        self.chargeableIdentifier = chargeableIdentifier
     }
 
     init(charge:Charge, bankerVersion:Int){
@@ -44,7 +47,8 @@ struct ChargeableReceipt: Codable, Chargeable, Hashable{
                 typeRawValue: charge.type.rawValue,
                 rewardRawValue: charge.reward.rawValue,
                 amountValue: charge.priceAmount.value,
-                bankerVersion: bankerVersion
+                bankerVersion: bankerVersion,
+                chargeableIdentifier: charge.identifier
         )
     }
 
@@ -59,6 +63,7 @@ struct ChargeableReceipt: Codable, Chargeable, Hashable{
         case uuid
         case createdDate
         case bankerVersion
+        case chargeableIdentifier
 
         case typeRawValue
         case rewardRawValue
@@ -70,34 +75,6 @@ struct ChargeableReceipt: Codable, Chargeable, Hashable{
         case doubleData
         case dataData
     }
-
-//    init(from decoder: Decoder) throws {
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//
-//        let uuid = try container.decode(String.self, forKey: .uuid)
-//        let createdDate = try container.decode(Date.self, forKey: .createdDate)
-//        let bankerVersion = try container.decode(Int.self, forKey: .bankerVersion)
-//
-//        let typeRawValue = try container.decode(Int.self, forKey: .typeRawValue)
-//        let rewardRawValue = try container.decode(Int.self, forKey: .rewardRawValue)
-//        let amountValue = try container.decode(Double.self, forKey: .amountValue)
-//
-//        self.init(
-//                uuid:uuid,
-//                createdDate: createdDate,
-//                typeRawValue: typeRawValue,
-//                rewardRawValue: rewardRawValue,
-//                amountValue: amountValue,
-//                bankerVersion: bankerVersion
-//        )
-//
-//        self.dateData = try container.decode(Date.self, forKey: .dateData)
-//        self.stringData = try container.decode(String.self, forKey: .stringData)
-//        self.intData = try container.decode(Int.self, forKey: .intData)
-//        self.doubleData = try container.decode(Double.self, forKey: .doubleData)
-//        self.dataData = try container.decode(Data.self, forKey: .dataData)
-//        print("---------------------------------",self)
-//    }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
@@ -105,6 +82,7 @@ struct ChargeableReceipt: Codable, Chargeable, Hashable{
         try container.encode(uuid, forKey: .uuid)
         try container.encode(createdDate, forKey: .createdDate)
         try container.encode(bankerVersion, forKey: .bankerVersion)
+        try container.encode(chargeableIdentifier, forKey: .chargeableIdentifier)
 
         try container.encode(typeRawValue, forKey: .typeRawValue)
         try container.encode(rewardRawValue, forKey: .rewardRawValue)
@@ -119,6 +97,10 @@ struct ChargeableReceipt: Codable, Chargeable, Hashable{
 
     var hashValue: Int {
         return self.uuid.hashValue
+    }
+
+    func isFrom(charge:Chargeable) -> Bool{
+        return charge.identifier == chargeableIdentifier
     }
 }
 
@@ -157,7 +139,7 @@ final class ChargeReceiptStorage {
 
     func getReceipt(for chargeable:Chargeable) -> ChargeableReceipt?{
         return receipts.values.first { receipt in
-            return receipt.isEqualTo(other: chargeable)
+            return receipt.chargeableIdentifier == chargeable.identifier
         }
     }
 

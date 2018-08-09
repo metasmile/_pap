@@ -27,7 +27,6 @@ private enum StoreProduct: String {
 struct PayForAllTimeAllApps:Payable, StorePayable {
     fileprivate static var storeProduct:StoreProduct{ return .pap_xapp_AllTimeAllApps_nonConsumablePurchase_owned }
 
-    private(set) static var chargeable: Chargeable = AppChargeable(type: .nonConsumablePurchase, reward: .owned)
     private(set) static var payingLabel: String = "Purchase".localized
 
     func pay(_ signal: AsyncWaitSignalable) -> Bool {
@@ -41,7 +40,7 @@ struct PayForAllTimeAllApps:Payable, StorePayable {
                     productId: r.product.identifier,
                     inReceipt: r.receipt) {
 
-                case .purchased(let _):
+            case .purchased( _):
                     return true
                 default:
                     return false
@@ -54,7 +53,6 @@ struct PayForAllTimeAllApps:Payable, StorePayable {
 struct PayForAllTimeOneApp:Payable, StorePayable {
     fileprivate static var storeProduct:StoreProduct{ return .pap_xapp_AllTimeOneApp_nonConsumablePurchase_owned }
 
-    private(set) static var chargeable: Chargeable = AppChargeable(type: .nonConsumablePurchase, reward: .owned)
     private(set) static var payingLabel: String = "Purchase".localized
 
     func pay(_ signal: AsyncWaitSignalable) -> Bool {
@@ -68,8 +66,8 @@ struct PayForAllTimeOneApp:Payable, StorePayable {
                     productId: r.product.identifier,
                     inReceipt: r.receipt) {
 
-                case .purchased(let _):
-                    return true
+                case .purchased( _):
+                        return true
                 default:
                     return false
             }
@@ -81,7 +79,6 @@ struct PayForAllTimeOneApp:Payable, StorePayable {
 struct PayForOneMonthAllApps:Payable, StorePayable {
     fileprivate static var storeProduct:StoreProduct{ return .pap_xapp_OneMonthAllApps_nonRenewingMonthlySubscription_owned }
 
-    private(set) static var chargeable: Chargeable = AppChargeable(type: .nonRenewingMonthlySubscription, reward: .owned)
     private(set) static var payingLabel: String = "Purchase".localized
 
     func pay(_ signal: AsyncWaitSignalable) -> Bool {
@@ -95,7 +92,7 @@ struct PayForOneMonthAllApps:Payable, StorePayable {
                     productId: r.product.identifier,
                     inReceipt: r.receipt){
 
-                case .purchased(let _, let _):
+            case .purchased( _, _):
                     return true
                 default:
                     return false
@@ -108,7 +105,6 @@ struct PayForOneMonthAllApps:Payable, StorePayable {
 struct PayForOneYearAllApps:Payable, StorePayable {
     fileprivate static var storeProduct:StoreProduct{ return .pap_xapp_OneYearAllApps_nonRenewingYearlySubscription_owned }
 
-    private(set) static var chargeable: Chargeable = AppChargeable(type: .nonRenewingYearlySubscription, reward: .owned)
     private(set) static var payingLabel: String = "Purchase".localized
 
     func pay(_ signal: AsyncWaitSignalable) -> Bool {
@@ -123,7 +119,7 @@ struct PayForOneYearAllApps:Payable, StorePayable {
                     productId: r.product.identifier,
                     inReceipt: r.receipt){
 
-                case .purchased(let _, let _):
+            case .purchased( _):
                     return true
                 default:
                     return false
@@ -136,7 +132,6 @@ struct PayForOneYearAllApps:Payable, StorePayable {
 struct PayForMonthlyAllApps:Payable, StorePayable {
     fileprivate static var storeProduct:StoreProduct{ return .pap_xapp_MonthlyAllApps_renewableMonthlySubscription_owned }
 
-    private(set) static var chargeable: Chargeable = AppChargeable(type: .renewableMonthlySubscription, reward: .owned)
     private(set) static var payingLabel: String = "Subscribe".localized
 
     func pay(_ signal: AsyncWaitSignalable) -> Bool {
@@ -151,7 +146,7 @@ struct PayForMonthlyAllApps:Payable, StorePayable {
                     productId: r.product.identifier,
                     inReceipt: r.receipt){
 
-                case .purchased(let _, let _):
+            case .purchased( _, _):
                     return true
 
                 default:
@@ -166,7 +161,6 @@ struct PayForMonthlyAllApps:Payable, StorePayable {
 struct PayForYearlyAllApps:Payable, StorePayable {
     fileprivate static var storeProduct:StoreProduct{ return .pap_xapp_YearlyAllApps_renewableYearlySubscription_owned }
 
-    private(set) static var chargeable: Chargeable = AppChargeable(type: .renewableYearlySubscription, reward: .owned)
     private(set) static var payingLabel: String = "Subscribe".localized
 
     func pay(_ signal: AsyncWaitSignalable) -> Bool {
@@ -180,7 +174,7 @@ struct PayForYearlyAllApps:Payable, StorePayable {
                     productId: r.product.identifier,
                     inReceipt: r.receipt){
 
-                case .purchased(let _, let _):
+            case .purchased( _, _):
                     return true
 
                 default:

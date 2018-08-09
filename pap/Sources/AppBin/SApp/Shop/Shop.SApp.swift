@@ -97,10 +97,6 @@ private struct PayDictionary:Hashable {
     fileprivate var key:Key
     fileprivate var label:String
     fileprivate var items:[PayItem]
-    fileprivate var itemsChargeIdentifiers:[String]{
-        return items.map { $0.chargeIdentifier }
-
-    }
 
     var hashValue: Int{
         return key.rawValue
@@ -109,15 +105,13 @@ private struct PayDictionary:Hashable {
 
 
 private struct PayItem: Hashable, Equatable {
-    fileprivate let chargeable:Chargeable
     fileprivate let payable:Payable.Type
-    fileprivate let chargeIdentifier: String
 
     fileprivate func getIconImage(tintColor:UIColor) -> ImageSourceable? {
 
         let iconImageCache = AppCenter.default.currentInstanceAs(ShopApp.self)?.contentImageCache
 
-        if let charge = AppCenter.charge.getCharge(for: self.chargeable){
+        if let charge = AppCenter.charge.getCharge(for: payable){
             if let image = iconImageCache?.object(forKey: charge.identifier as NSString){
                 return image
             }
@@ -142,15 +136,13 @@ private struct PayItem: Hashable, Equatable {
 
     init(payable: Payable.Type) {
         self.payable = payable
-        self.chargeable = payable.chargeable
-        self.chargeIdentifier = payable.chargeable.identifier
-        self.label = AppCenter.charge.getCharge(for: payable.chargeable)?.title ?? "Untitled"
-        self.rewardLabel = AppCenter.charge.getCharge(for: payable.chargeable)?.rewardDescription ?? "Undefined Reward"
+        self.label = AppCenter.charge.getCharge(for: payable)?.title ?? "Untitled"
+        self.rewardLabel = AppCenter.charge.getCharge(for: payable)?.rewardDescription ?? "Undefined Reward"
         self.iconImageShouldUseTintColor = true
     }
 
     var hashValue: Int {
-        return chargeIdentifier.hashValue
+        return String(describing: self.payable).hashValue
     }
 
     public static func == (lhs: PayItem, rhs: PayItem) -> Bool{

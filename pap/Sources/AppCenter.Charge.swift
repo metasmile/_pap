@@ -15,21 +15,21 @@ extension AppCenter{
 private final class AppChargeManager: ChargeManager{
     fileprivate static let shared = AppChargeManager(charges:[
         // Initial
-        AppCharge(type: .welcomeFreeTrial, reward: .timeOfUses,  priceAmount: AmountObject(value:AppChargeBanker.InitialTutorial_TimeOfUses_Day/AppChargeBanker.Abs_TimeOfUses_Day), title:"Welcome Free Trial Pack".localized, description:nil)
+        AppCharge(type: .welcomeFreeTrial, reward: .timeOfUses, payment:PayOfInitialTutorial.self, priceAmount: AmountObject(value:AppChargeBanker.InitialTutorial_TimeOfUses_Day/AppChargeBanker.Abs_TimeOfUses_Day), title:"Welcome Free Trial Pack".localized, description:nil)
 
         // Engagement
-        , AppCharge(type: .onPromptRating, reward: .nonBlockOfUses, priceAmount: AmountObject(value:0.0), title:"Give A Rating".localized, description:nil)
-        , AppCharge(type: .inStoreRating, reward: .nonBlockOfUses,  priceAmount: AmountObject(value:0.0), title:"Write A Review".localized, description:nil)
-        , AppCharge(type: .socialShare, reward: .timeOfUses, priceAmount: AmountObject(value:0.5), title:"Share This App".localized, description:nil)
-        , AppCharge(type: .feedback, reward: .timeOfUses, priceAmount: AmountObject(value:0.5), title:"Send Us Feedback".localized, description:nil)
+        , AppCharge(type: .onPromptRating, reward: .nonBlockOfUses, payment:PayOnPromptRating.self, priceAmount: AmountObject(value:0.0), title:"Give A Rating".localized, description:nil)
+        , AppCharge(type: .inStoreRating, reward: .nonBlockOfUses,  payment:PayInAppStoreRating.self, priceAmount: AmountObject(value:0.0), title:"Write A Review".localized, description:nil)
+        , AppCharge(type: .socialShare, reward: .timeOfUses, payment:PayOnSocialShare.self, priceAmount: AmountObject(value:0.5), title:"Share This App".localized, description:nil)
+        , AppCharge(type: .feedback, reward: .timeOfUses, payment:PayOnFeedback.self, priceAmount: AmountObject(value:0.5), title:"Send Us Feedback".localized, description:nil)
 
         // Store Purchase
-        , AppCharge(type: .nonConsumablePurchase, reward: .owned, priceAmount: AmountObject.max, title:"Give A Rating".localized, description:nil)
-        , AppCharge(type: .consumablePurchase, reward: .owned, priceAmount: AmountObject.max, title:"Give A Rating".localized, description:nil)
-        , AppCharge(type: .nonRenewingMonthlySubscription, reward: .owned,  priceAmount: AmountObject.max, title:"Write A Review".localized, description:nil)
-        , AppCharge(type: .nonRenewingYearlySubscription, reward: .owned, priceAmount: AmountObject.max, title:"Share This App".localized, description:nil)
-        , AppCharge(type: .renewableMonthlySubscription, reward: .owned, priceAmount: AmountObject.max, title:"Send Us Feedback".localized, description:nil)
-        , AppCharge(type: .renewableYearlySubscription, reward: .owned, priceAmount: AmountObject.max, title:"Share This App".localized, description:nil)
+        , AppCharge(type: .nonConsumablePurchase, reward: .owned, payment:PayForAllTimeAllApps.self, priceAmount: AmountObject.max, title:"Give A Rating".localized, description:nil)
+        , AppCharge(type: .consumablePurchase, reward: .owned, payment:PayForAllTimeOneApp.self, priceAmount: AmountObject.max, title:"Give A Rating".localized, description:nil)
+        , AppCharge(type: .nonRenewingMonthlySubscription, reward: .owned, payment:PayForOneMonthAllApps.self, priceAmount: AmountObject.max, title:"Write A Review".localized, description:nil)
+        , AppCharge(type: .nonRenewingYearlySubscription, reward: .owned, payment:PayForOneYearAllApps.self, priceAmount: AmountObject.max, title:"Share This App".localized, description:nil)
+        , AppCharge(type: .renewableMonthlySubscription, reward: .owned, payment:PayForMonthlyAllApps.self, priceAmount: AmountObject.max, title:"Send Us Feedback".localized, description:nil)
+        , AppCharge(type: .renewableYearlySubscription, reward: .owned, payment:PayForYearlyAllApps.self, priceAmount: AmountObject.max, title:"Share This App".localized, description:nil)
 
     ], banker: AppChargeBanker.self)
 }
@@ -83,21 +83,13 @@ extension Charge{
 private struct AppCharge: Charge {
     var type: ChargeType
     var reward: RewardType
+    let payment:Payable.Type
 
     let priceAmount:Amount
     let title: String
     let description: String?
 }
 
-struct AppChargeable: Chargeable{
-    let type: ChargeType
-    let reward: RewardType
-
-    init(type:ChargeType, reward:RewardType){
-        self.type = type
-        self.reward = reward
-    }
-}
 
 /*
 POLICY
@@ -192,7 +184,7 @@ private final class AppChargeBanker: ChargeBanker {
         receipt.dateData = Date()
 
         if let existedReceiptItem = receiptStorage.receipts.first(where:{ key, value in
-            value.isEqualTo(other: charge)
+            value.isFrom(charge: charge)
         }){
             receiptStorage.removeReceipt(existedReceiptItem.value.uuid)
             receiptStorage.addReceipt(receipt)
@@ -201,7 +193,7 @@ private final class AppChargeBanker: ChargeBanker {
             receiptStorage.addReceipt(receipt)
         }
 
-        assert(receiptStorage.receipts.filter({ key, value in value.isEqualTo(other: charge) }).count==1, "only one receipt is allowed for: createOrReplaceReceipt")
+        assert(receiptStorage.receipts.filter({ key, value in value.isFrom(charge: charge) }).count==1, "only one receipt is allowed for: createOrReplaceReceipt")
 
     }
 
@@ -212,7 +204,7 @@ private final class AppChargeBanker: ChargeBanker {
 
         for (_, receipt) in receiptStorage.receipts { //TODO: improve performance - o.n -> o.1 avg.
 
-            guard let charge = registeredCharges.first(where:{ charge in charge.isEqualTo(other: receipt)}) else {
+            guard let charge = registeredCharges.first(where:{ charge in charge.identifier == receipt.chargeableIdentifier }) else {
                 continue
             }
 

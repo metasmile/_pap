@@ -42,11 +42,19 @@ class ChargeManager{
         return charge
     }
 
+    func getCharge(for payable: Payable.Type) -> Charge?{
+        let charge = charges.first { item in
+            return item.payment == payable
+        }
+        assert(charge != nil, "\(String(describing: payable)) is not registered in ChargeableManager. Please register with initializer.")
+        return charge
+    }
+
     /*
         Payment
     */
     func pay(for payable: Payable.Type, _ asyncSignal:AsyncWaitSignalable=AsyncSignal(), completion:((_ succeed:Bool) -> ())?=nil){
-        guard let charge = charges.first(where:{ $0.isEqualTo(other: payable.chargeable) }) else {
+        guard let charge = charges.first(where:{ $0.payment == payable }) else {
             return
         }
 

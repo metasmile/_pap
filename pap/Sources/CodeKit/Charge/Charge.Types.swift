@@ -44,8 +44,6 @@ enum RewardType:Int {
 }
 
 protocol Payable {
-    static var chargeable: Chargeable {get}
-
     static var payingLabel:String {get}
 
     func pay(_ asyncSignal:AsyncWaitSignalable) -> Bool
@@ -60,7 +58,7 @@ protocol StorePayable {
 protocol Chargeable {
     var type: ChargeType {get}
     var reward: RewardType {get}
-
+    var payment:Payable.Type {get}
     var identifier:String {get}
 }
 
@@ -68,9 +66,11 @@ extension Chargeable{
     func isEqualTo(other:Chargeable) -> Bool{
         return other.identifier == identifier
     }
-
     var identifier:String{
-        return String(describing: Chargeable.self) + "type\(type)reward\(reward)"
+        return String(describing: Chargeable.self) +
+                "type\(type)" +
+                "reward\(reward)" +
+                "payment\(String(describing: self.payment))"
     }
 }
 
@@ -88,17 +88,6 @@ protocol Charge: Chargeable {
     var title:String {get}
     var description:String? {get}
 }
-
-//extension Charge{
-//    var identifier:String{
-//        return String(describing: Charge.self) +
-//                "type\(type)" +
-//                "reward\(reward)" +
-//                "priceAmount\(String(describing: priceAmount))" +
-//                "title\(title)" +
-//                "description\(description)"
-//    }
-//}
 
 protocol Amount: Codable{
     static var minValue:Double{get}
