@@ -7,6 +7,8 @@ target 'pap' do
   pod 'Firebase/Core', '5.2.0' #TODO: when it disappears memory leak issue since 5.3+0.10 version set, use latest version
   pod 'Firebase/MLVision'
   pod 'Firebase/MLVisionTextModel'
+  pod 'SwiftyStoreKit' #TODO: Life is short. SwiftyStoreKit has broad test coverage. Try and import internally.
+
 
   # com.stells.pap.*
 #  pod 'Fabric'

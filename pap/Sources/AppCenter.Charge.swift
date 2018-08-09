@@ -216,6 +216,9 @@ private final class AppChargeBanker: ChargeBanker {
                 case .nonBlockOfUses:
                     break
 
+                case .owned:
+                    break
+
                 case .timeOfUses:
                     if let date = receipt.dateData{
                         let totalOffset = type(of: self).Abs_TimeOfUses_Time * charge.priceAmount.value

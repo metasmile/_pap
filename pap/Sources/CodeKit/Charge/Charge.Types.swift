@@ -53,6 +53,10 @@ protocol Payable {
     init()
 }
 
+protocol StorePayable {
+    func verify(_ asyncSignal: AsyncWaitSignalable) -> Bool? // nil == error, true purchase, false, not purchased/expired
+}
+
 protocol Chargeable {
     var type: ChargeType {get}
     var reward: RewardType {get}
