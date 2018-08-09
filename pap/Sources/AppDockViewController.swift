@@ -199,16 +199,21 @@ class AppDockViewController: UIViewController {
 
 extension AppDockViewController: AppDockViewDataSource {
     fileprivate func installAppDockItems() {
-        appDockItemGroups = Array<[AppDockItem]>(repeating: [], count: numberOfAppTypes)
+        appDockItemGroups = Array<[AppDockItem]>(repeating: [], count: numberOfAppGroups)
         
         for item in appDockItems {
-            let section = selectedSection(of: item.app, in: appDockItemGroups.count)
+            let section = groupSection(of: item.app, in: appDockItemGroups.count)
             appDockItemGroups[section].append(item)
         }
     }
     
-    private func selectedSection(of app: App.Type, in numberOfAppTypes: Int) -> Int {
-        if numberOfAppTypes > 1 {
+    //INFO: App Dock Group Policy
+    // draft:
+    //  0 - system
+    //  1 - user
+    //  n - beta, develop
+    private func groupSection(of app: App.Type, in numberOfAppGroups: Int) -> Int {
+        if numberOfAppGroups > 1 {
             if app is SApp.Type {
                 return 0
             }
@@ -221,10 +226,11 @@ extension AppDockViewController: AppDockViewDataSource {
         }
     }
     
-    private var numberOfAppTypes: Int {
-        let hasSApp = appDockItems.contains(where: { $0.app is SApp.Type })
-        let hasBApp = appDockItems.contains(where: { $0.app is BApp.Type })
-        return hasSApp && hasBApp ? 2 : 1
+    private var numberOfAppGroups: Int {
+        var numberOfGroups = 0
+        numberOfGroups += appDockItems.contains(where: { $0.app is SApp.Type }) ? 1 : 0
+        numberOfGroups += appDockItems.contains(where: { $0.app is BApp.Type }) ? 1 : 0
+        return max(numberOfGroups, 1)
     }
     
     func numberOfSections(in view: AppDockView) -> Int {
