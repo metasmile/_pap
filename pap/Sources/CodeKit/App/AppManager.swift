@@ -81,12 +81,23 @@ open class AppManager: NSObject, SelectableCollection {
 
     @objc dynamic
     public private(set) var currentIdentifier: String?
+    
+    private var currentIdentifierToReturn: String?
+    internal func appDidReturnIfNeeded(with appIdentifier: String?) {
+        guard appIdentifier == currentIdentifierToReturn else { return }
+        currentIdentifierToReturn = nil
+    }
 
     private var currentLaunchOption: AppLaunchOptions?
 
     public func setCurrent(current:App.Type, with launchOption: AppLaunchOptions){
+        self.currentIdentifierToReturn = launchOption.identifierToReturn
         self.currentLaunchOption = launchOption
         self.current = current
+    }
+    
+    public var hasCurrentLaunchOptionAppToReturn: Bool {
+        return currentIdentifierToReturn != nil
     }
 
     public var current: App.Type?
@@ -125,6 +136,8 @@ open class AppManager: NSObject, SelectableCollection {
 
             // #8 - discard currentLaunchOption already passed
             self.currentLaunchOption = nil
+            
+            self.appDidReturnIfNeeded(with: currentIdentifier)
         }
     }
 

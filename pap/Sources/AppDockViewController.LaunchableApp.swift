@@ -19,7 +19,6 @@ private extension AppDockViewController {
     
     func selectCurrentAppIfExist(animation: Bool = true) {
         guard let selectedIndexPath = indexPathOfCurrentApp else { return }
-        print(selectedIndexPath, appDockItems)
         appDockView?.selectItem(at: selectedIndexPath, animated: animation)
     }
 }
@@ -73,6 +72,7 @@ extension AppCenter{
             if willChange{
                 appDockVc.appDidChange()
             }
+            self.appDidReturnIfNeeded(with: app.info.identifier)
         }
         return true
     }

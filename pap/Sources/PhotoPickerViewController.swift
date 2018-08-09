@@ -236,18 +236,24 @@ class PhotoPickerViewController: AppDockViewController {
     override func appDidChange() {
         super.appDidChange()
         
-        AppAssets.selected.reloadAll()
-        
-        if let app = AppCenter.default.currentInstanceAs(EditableApp.self) {
-            let value = app.defaultEditStateValue
-            if let value = value {
-                AppAssets.selected.appendValue(value)
+        if !AppCenter.default.hasCurrentLaunchOptionAppToReturn {
+            AppAssets.selected.reloadAll()
+            
+            if let app = AppCenter.default.currentInstanceAs(EditableApp.self) {
+                let value = app.defaultEditStateValue
+                if let value = value {
+                    AppAssets.selected.appendValue(value)
+                }
+                
+                app.selectEditStateValue(value, in: (app as? AppDockApp)?.content)
             }
             
-            app.selectEditStateValue(value, in: (app as? AppDockApp)?.content)
+            redisplayVisibleCellsEnabled()
+        }
+        else {
+            updateVisibleCellsEnabled()
         }
         
-        redisplayVisibleCellsEnabled()
         showAndRevertTitleByCurrentAppIfNeeded()
         appDockView?.reloadKeepingDrawerOpened()
         batchPreviewView.updatePreviews(forced: true)
@@ -406,7 +412,7 @@ class PhotoPickerViewController: AppDockViewController {
                 }
             }
         }else{
-            Timer.getScheduledTimer(identifier: timerId)?.invalidate()
+            Timer.removeScheduledTimer(identifier: timerId)
         }
     }
 
