@@ -52,7 +52,7 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
         
     }
 
-    class func didConfigurate(with manager: AppManager) {
+    class func didConfigure(with manager: AppManager) {
 
     }
 

@@ -14,10 +14,6 @@ protocol AppManagerConfigurable where Self:AppManager {
     func configure() -> AppManagerConfig?
 }
 
-protocol AppManagerConfigurableApp where Self:App {
-    static func didConfigurate(with manager:AppManager)
-}
-
 open class AppManager: NSObject, SelectableCollection {
 
     override init(){
@@ -50,10 +46,10 @@ open class AppManager: NSObject, SelectableCollection {
         assert(_apps.count == Set(_apps.map({ $0.info.identifier })).count, "[!] Duplicated App Identifier Found.")
 
         //boot with appManager
-        for appManagedApp in _apps.compactMap ({ app -> AppManagerConfigurableApp? in
-            return app as? AppManagerConfigurableApp
+        for appManagedApp in _apps.compactMap ({ app -> ManagerConfigurableApp? in
+            return app as? ManagerConfigurableApp
         }){
-            type(of: appManagedApp).didConfigurate(with: self)
+            type(of: appManagedApp).didConfigure(with: self)
         }
 
         //finally select default app if possible

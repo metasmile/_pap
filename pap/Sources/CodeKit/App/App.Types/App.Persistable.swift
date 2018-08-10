@@ -24,7 +24,7 @@ public enum AppPersistedStatus {
     case used
 }
 
-public protocol PersistableApp{
+public protocol PersistableApp: App{
     static var defaults:AppDefaults {get}
     static var status: AppPersistedStatus {get}
 }
@@ -34,7 +34,7 @@ private struct _AppDefaultsCollection {
     fileprivate var collection = [String:AppDefaults]()
 }
 
-extension PersistableApp where Self:App{
+extension PersistableApp{
     public static var status: AppPersistedStatus {
         let touchedVersion = self.defaults.touchedVersion
         if self.info.phase == .release{

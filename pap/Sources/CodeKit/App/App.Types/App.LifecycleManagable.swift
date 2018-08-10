@@ -5,7 +5,7 @@
 
 import Foundation
 
-protocol LifecycleManageableApp where Self:App {
+protocol LifecycleManageableApp :App {
     func willAcquire() -> Bool
     func willDiscard() -> Bool
 }

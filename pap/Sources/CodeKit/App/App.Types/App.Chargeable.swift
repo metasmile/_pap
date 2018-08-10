@@ -5,7 +5,7 @@
 
 import Foundation
 
-protocol ChargeableApp{
+protocol ChargeableApp :App{
 
     //INFO:
     // nil -> free

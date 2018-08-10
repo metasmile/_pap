@@ -21,7 +21,7 @@ public struct AppLaunchOptions {
     var identifierToReturn:String?
 }
 
-protocol LaunchableApp where Self:App {
+protocol LaunchableApp :App {
     // didResign called after an other app assigned to AppManager.current, OR discard Self instance if needed when App.info.policy.lifeCycle.instance == .availability
     // use this for a situation for example it should remove temp resources in current running cycle.
     func didResign(current:App.Type?)

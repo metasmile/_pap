@@ -71,7 +71,7 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
     }
 
 //    static var callProviderDelegate:CallProviderDelegate?
-    class func didConfigurate(with manager: AppManager) {
+    class func didConfigure(with manager: AppManager) {
 //        callProviderDelegate = CallProviderDelegate(callManager: CallManager.shared)
     }
 
