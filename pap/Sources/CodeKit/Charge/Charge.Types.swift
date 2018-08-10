@@ -41,6 +41,14 @@ enum RewardType:Int {
 
     //e.g. paid or VIP code
     case owned = 300
+    case rented = 301
+}
+
+protocol RewardDescribable{
+    var rewardTitle:String? {get}
+    var rewardShortTitle:String? {get}
+    var rewardDescription:String? {get}
+    var rewardUnit:String? {get}
 }
 
 protocol Payable {
@@ -51,7 +59,7 @@ protocol Payable {
     init()
 }
 
-protocol StorePayable {
+protocol StorePayable: Payable {
     func verify(_ asyncSignal: AsyncWaitSignalable) -> Bool? // nil == error, true purchase, false, not purchased/expired
 }
 
@@ -87,6 +95,8 @@ protocol Charge: Chargeable {
 
     var title:String {get}
     var description:String? {get}
+
+    var rewardDescribable:RewardDescribable? {get}
 }
 
 protocol Amount: Codable{

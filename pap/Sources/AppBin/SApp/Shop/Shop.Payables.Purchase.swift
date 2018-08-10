@@ -24,7 +24,7 @@ private enum StoreProduct: String {
     }
 }
 
-struct PayForAllTimeAllApps:Payable, StorePayable {
+struct PayForAllTimeAllApps:StorePayable {
     fileprivate static var storeProduct:StoreProduct{ return .pap_xapp_AllTimeAllApps_nonConsumablePurchase_owned }
 
     private(set) static var payingLabel: String = "Purchase".localized
@@ -50,7 +50,7 @@ struct PayForAllTimeAllApps:Payable, StorePayable {
     }
 }
 
-struct PayForAllTimeOneApp:Payable, StorePayable {
+struct PayForAllTimeOneApp:StorePayable {
     fileprivate static var storeProduct:StoreProduct{ return .pap_xapp_AllTimeOneApp_nonConsumablePurchase_owned }
 
     private(set) static var payingLabel: String = "Purchase".localized
@@ -76,7 +76,7 @@ struct PayForAllTimeOneApp:Payable, StorePayable {
     }
 }
 
-struct PayForOneMonthAllApps:Payable, StorePayable {
+struct PayForOneMonthAllApps:StorePayable {
     fileprivate static var storeProduct:StoreProduct{ return .pap_xapp_OneMonthAllApps_nonRenewingMonthlySubscription_owned }
 
     private(set) static var payingLabel: String = "Purchase".localized
@@ -102,7 +102,7 @@ struct PayForOneMonthAllApps:Payable, StorePayable {
     }
 }
 
-struct PayForOneYearAllApps:Payable, StorePayable {
+struct PayForOneYearAllApps:StorePayable {
     fileprivate static var storeProduct:StoreProduct{ return .pap_xapp_OneYearAllApps_nonRenewingYearlySubscription_owned }
 
     private(set) static var payingLabel: String = "Purchase".localized
@@ -129,7 +129,7 @@ struct PayForOneYearAllApps:Payable, StorePayable {
     }
 }
 
-struct PayForMonthlyAllApps:Payable, StorePayable {
+struct PayForMonthlyAllApps:StorePayable {
     fileprivate static var storeProduct:StoreProduct{ return .pap_xapp_MonthlyAllApps_renewableMonthlySubscription_owned }
 
     private(set) static var payingLabel: String = "Subscribe".localized
@@ -158,7 +158,7 @@ struct PayForMonthlyAllApps:Payable, StorePayable {
 }
 
 
-struct PayForYearlyAllApps:Payable, StorePayable {
+struct PayForYearlyAllApps:StorePayable {
     fileprivate static var storeProduct:StoreProduct{ return .pap_xapp_YearlyAllApps_renewableYearlySubscription_owned }
 
     private(set) static var payingLabel: String = "Subscribe".localized
@@ -187,7 +187,7 @@ struct PayForYearlyAllApps:Payable, StorePayable {
 
 //INFO: Common Utility
 extension StoreProduct {
-    private static let ReceiptSecretKey = "pap-StoreProduct-ReceiptSecretKey-2C59B669-ADBD-462F-8C2A-CE452234BBE4"
+    private static let ReceiptSecretKey = "791f81382c464b78803b22eba4fb2cde" // pap specific Aug 10, 2018
 
     func pay(_ signal: AsyncWaitSignalable) -> Bool {
 

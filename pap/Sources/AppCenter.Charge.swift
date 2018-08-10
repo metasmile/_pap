@@ -9,7 +9,9 @@ import DefaultsKit
 
 
 extension AppCenter{
-    static let charge:ChargeManager = AppChargeManager.shared
+    static var charge:ChargeManager{
+        return AppChargeManager.shared
+    }
 }
 
 private final class AppChargeManager: ChargeManager{
@@ -20,74 +22,101 @@ private final class AppChargeManager: ChargeManager{
         // Engagement
         , AppCharge(type: .onPromptRating, reward: .nonBlockOfUses, payment:PayOnPromptRating.self, priceAmount: AmountObject(value:0.0), title:"Give A Rating".localized, description:nil)
         , AppCharge(type: .inStoreRating, reward: .nonBlockOfUses,  payment:PayInAppStoreRating.self, priceAmount: AmountObject(value:0.0), title:"Write A Review".localized, description:nil)
+
         , AppCharge(type: .socialShare, reward: .timeOfUses, payment:PayOnSocialShare.self, priceAmount: AmountObject(value:0.5), title:"Share This App".localized, description:nil)
         , AppCharge(type: .feedback, reward: .timeOfUses, payment:PayOnFeedback.self, priceAmount: AmountObject(value:0.5), title:"Send Us Feedback".localized, description:nil)
 
         // Store Purchase
-        , AppCharge(type: .nonConsumablePurchase, reward: .owned, payment:PayForAllTimeAllApps.self, priceAmount: AmountObject.max, title:"Give A Rating".localized, description:nil)
-        , AppCharge(type: .consumablePurchase, reward: .owned, payment:PayForAllTimeOneApp.self, priceAmount: AmountObject.max, title:"Give A Rating".localized, description:nil)
-        , AppCharge(type: .nonRenewingMonthlySubscription, reward: .owned, payment:PayForOneMonthAllApps.self, priceAmount: AmountObject.max, title:"Write A Review".localized, description:nil)
-        , AppCharge(type: .nonRenewingYearlySubscription, reward: .owned, payment:PayForOneYearAllApps.self, priceAmount: AmountObject.max, title:"Share This App".localized, description:nil)
-        , AppCharge(type: .renewableMonthlySubscription, reward: .owned, payment:PayForMonthlyAllApps.self, priceAmount: AmountObject.max, title:"Send Us Feedback".localized, description:nil)
-        , AppCharge(type: .renewableYearlySubscription, reward: .owned, payment:PayForYearlyAllApps.self, priceAmount: AmountObject.max, title:"Share This App".localized, description:nil)
+        , AppCharge(type: .nonConsumablePurchase, reward: .owned, payment:PayForAllTimeAllApps.self, priceAmount: AmountObject.max, title:"Permanent Use Of All Apps".localized, description:nil)
+        , AppCharge(type: .consumablePurchase, reward: .owned, payment:PayForAllTimeOneApp.self, priceAmount: AmountObject.max, title:"Permanent Use Of One App".localized, description:nil)
+
+        , AppCharge(type: .nonRenewingMonthlySubscription, reward: .rented, payment:PayForOneMonthAllApps.self, priceAmount: AmountObject.max, title:"Write A Review".localized, description:nil)
+        , AppCharge(type: .nonRenewingYearlySubscription, reward: .rented, payment:PayForOneYearAllApps.self, priceAmount: AmountObject.max, title:"Share This App".localized, description:nil)
+        , AppCharge(type: .renewableMonthlySubscription, reward: .rented, payment:PayForMonthlyAllApps.self, priceAmount: AmountObject.max, title:"Send Us Feedback".localized, description:nil)
+        , AppCharge(type: .renewableYearlySubscription, reward: .rented, payment:PayForYearlyAllApps.self, priceAmount: AmountObject.max, title:"Share This App".localized, description:nil)
 
     ], banker: AppChargeBanker.self)
 }
 
-extension Charge{
-    private var rewardUnit:String?{
-        switch (self.reward){
-            case .timeOfUses:
-                return (self.priceAmount.value * AppChargeBanker.Abs_TimeOfUses_Day).roundedString(toPlaces: 1, trimTrailingZeros: true)
-            default:
-                return nil
-        }
-    }
-
-    var rewardDescription:String? {
-        guard let unit = rewardUnit else{
-            return nil
-        }
-
-        switch (self.reward) {
-            case .timeOfUses:
-                return "%@ Day License".localizedFormatted(unit)
-            default:
-                return nil
-        }
-    }
-
-    var shortRewardDescription:String? {
-        guard let unit = rewardUnit else{
-            return nil
-        }
-
-        switch (self.reward) {
-            case .timeOfUses:
-                return "%@ Day".localizedFormatted(unit)
-            default:
-                return nil
-        }
-    }
-
-    var titleWithReward:String {
-        switch (self.reward) {
-            case .timeOfUses:
-                return "\(self.title) \(self.rewardDescription ?? "")"
-            default:
-                return self.title
-        }
-    }
-}
-
-private struct AppCharge: Charge {
-    var type: ChargeType
-    var reward: RewardType
+//INFO: maintain like a black box
+private class AppCharge: Charge {
+    let type: ChargeType
+    let reward: RewardType
     let payment:Payable.Type
 
     let priceAmount:Amount
     let title: String
-    let description: String?
+
+    var description: String?
+    lazy var rewardDescribable:RewardDescribable? = self //Auto Default
+
+    init(type: ChargeType,
+         reward: RewardType,
+         payment:Payable.Type,
+         priceAmount:Amount,
+         title: String,
+         description: String?=nil,
+         rewardDescribable:RewardDescribable?=nil){
+
+        self.type = type
+        self.reward = reward
+        self.payment = payment
+        self.priceAmount = priceAmount
+        self.title = title
+        self.description = description
+
+        //if custom defined
+        if rewardDescribable != nil{
+            self.rewardDescribable = rewardDescribable
+        }
+    }
+}
+
+private struct AppRewardDescription:RewardDescribable{
+    private(set) var rewardTitle: String? = nil
+    private(set) var rewardShortTitle: String? = nil
+    private(set) var rewardDescription: String? = nil
+    private(set) var rewardUnit: String? = nil
+}
+
+extension AppCharge: RewardDescribable{
+    var rewardTitle:String? {
+        switch (self.reward) {
+        case .timeOfUses:
+            if let unit = rewardUnit {
+                return "%@ Day License".localizedFormatted(unit)
+            }
+        default:
+            break
+        }
+        return nil
+    }
+
+    var rewardShortTitle:String? {
+        switch (self.reward) {
+        case .timeOfUses:
+            if let unit = rewardUnit {
+                return "%@ Day".localizedFormatted(unit)
+            }
+        default:
+            break
+        }
+
+        return nil
+    }
+
+    var rewardDescription: String? {
+        return nil
+    }
+
+    var rewardUnit:String?{
+        switch (self.reward){
+        case .timeOfUses:
+            return (priceAmount.value * AppChargeBanker.Abs_TimeOfUses_Day).roundedString(toPlaces: 1, trimTrailingZeros: true)
+        default:
+            return nil
+        }
+    }
 }
 
 
@@ -215,10 +244,7 @@ private final class AppChargeBanker: ChargeBanker {
             }
 
             switch receipt.reward{
-                case .nonBlockOfUses:
-                    break
-
-                case .owned:
+                case .nonBlockOfUses, .owned, .rented:
                     break
 
                 case .timeOfUses:
