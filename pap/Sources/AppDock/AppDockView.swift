@@ -73,7 +73,7 @@ class AppDockView: CustomView {
         static let Accessory = AppDockContentPreferences(preferredHeight: 44)
         static let Control = AppDockContentPreferences(preferredHeight: 44)
 
-        static let ControlMaxPreferredHeight:CGFloat = 250
+        static let ControlMaxPreferredHeight:CGFloat = UIScreen.main.bounds.height/3
     }
 
     @IBOutlet weak private var backgroundView: UIView!
