@@ -1,6 +1,6 @@
 //
 // Created by BL?ACKGENE on 19.07.18.
-// C?opyright (c) 2018 Stells. All rights reserved.
+// C??opyright (c) 2018 Stells. All rights reserved.
 //
 
 import Foundation
@@ -36,6 +36,7 @@ extension PhotoPickerViewController{
 
         let selected = self.estimatedAvailableSelectedItems > 0
         let balanceValue = AppCenter.charge.bank.balanceValue
+
 
         if selected{
             let currentSyncedBalanceValue = balanceValue
@@ -133,63 +134,6 @@ extension PhotoPickerViewController{
             alert.addAction(imageAction)
         }
 
-        for charge in AppCenter.charge.charges {
-//            let receipt = AppCenter.charge.bank.getReceipt(for: charge)
-
-            var badgeImage: UIImage?
-
-            let estimatedChargeableImage = ChargeableImage(balance: charge.priceAmount.value, fillMode: .fill, tintColor: view.tintColor, appearanceDelegate: PhotoPickerViewControllerChargeableAssets()).withAlignmentRectInsets(UIEdgeInsets(top: -4, left: -4, bottom: -4, right: -4))
-
-            if let rewardText = charge.rewardDescribable?.rewardTitle {
-                badgeImage = ChargeableBadgeIcon.portraitBadgeIcon(estimatedChargeableImage, title: "+\(rewardText)", tintColor: view.tintColor)
-            }
-            else {
-                badgeImage = estimatedChargeableImage
-            }
-
-            switch charge.type {
-
-//                    // charge.reward == .nonBlockOfUses, first touch -> Immediately popup.
-//                case .inStoreRating where receipt == nil && !selected && charge.reward == .nonBlockOfUses:
-//                    AppCenter.charge.pay(for: InAppStoreRating.self)
-//                    return
-//
-//                case .onPromptRating where receipt == nil && !selected && charge.reward == .nonBlockOfUses:
-//                    AppCenter.charge.pay(for: OnPromptRating.self)
-//                    return
-
-
-                    // charge.reward == .nonBlockOfUses, second touch -> Contained by menu.
-                case .inStoreRating: //where receipt != nil && !selected && charge.reward == .nonBlockOfUses:
-                    let action = UIAlertAction(title: charge.title, style: .default) { action in
-                        AppCenter.charge.pay(for: PayInAppStoreRating.self)
-                    }
-                    action.accessoryImage = badgeImage
-                    alert.addAction(action)
-                case .onPromptRating: //where receipt != nil && !selected && charge.reward == .nonBlockOfUses:
-                    let action = UIAlertAction(title: charge.title, style: .default) { action in
-                        AppCenter.charge.pay(for: PayOnPromptRating.self)
-                    }
-                    action.accessoryImage = badgeImage
-                    alert.addAction(action)
-
-                case .socialShare:
-                    let action = UIAlertAction(title: charge.title, style: .default) { action in
-                        AppCenter.charge.pay(for: PayOnSocialShare.self)
-                    }
-                    action.accessoryImage = badgeImage
-                    alert.addAction(action)
-                case .feedback:
-                    let action = UIAlertAction(title: charge.title, style: .default) { action in
-                        AppCenter.charge.pay(for: PayOnFeedback.self)
-                    }
-                    action.accessoryImage = badgeImage
-                    alert.addAction(action)
-                default:
-                    break
-            }
-        }
-
         alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel){ action in
             papLog.charge.cancelled()
         })
@@ -214,7 +158,7 @@ extension PhotoPickerViewController: PricingViewControllerDelegate {
     }
 }
 
-private class PhotoPickerViewControllerChargeableAssets : ChargeableButtonAppearance{
+private class PhotoPickerViewControllerChargeableAssets{
     static let shared: PhotoPickerViewControllerChargeableAssets = PhotoPickerViewControllerChargeableAssets()
 
     fileprivate lazy var inStoreRatingButton = UIBarButtonItem(image: R.image.systemIconFavoriteLine(), style: .plain, target: self, action: nil)
@@ -224,11 +168,40 @@ private class PhotoPickerViewControllerChargeableAssets : ChargeableButtonAppear
     fileprivate lazy var socialShareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: nil)
 
     fileprivate lazy var feedbackButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
-    
-    fileprivate lazy var chargeableButton = makeChargeableBarButtonItem()
-    
-    func makeChargeableBarButtonItem() -> ChargeableBarButtonItem{
-        let chargeableButton = ChargeableButton(type: .system, appearance: self)
+
+    fileprivate var chargeableButton:ChargeableBarButtonItem{
+        for c in AppCenter.charge.getChargesHasReceipt(){
+            if c.reward.isNonConsumable{
+                return chargeableButtonCharging
+            }
+        }
+        return chargeableButtonNormal
+    }
+
+    fileprivate lazy var chargeableButtonNormal = makeChargeableBarButtonItem(appearance:normal())
+
+    fileprivate lazy var chargeableButtonCharging = makeChargeableBarButtonItem(appearance:charging())
+
+    private struct normal: ChargeableButtonAppearance{
+        var emptyImage: UIImage? {
+            return R.image.systemIconFavoriteLine()
+        }
+        var filledImage: UIImage? {
+            return R.image.systemIconFavoriteFill()
+        }
+    }
+
+    private struct charging: ChargeableButtonAppearance{
+        var emptyImage: UIImage? {
+            return R.image.systemIconFavoriteLineCharging()
+        }
+        var filledImage: UIImage? {
+            return R.image.systemIconFavoriteFill()
+        }
+    }
+
+    func makeChargeableBarButtonItem(appearance:ChargeableButtonAppearance) -> ChargeableBarButtonItem{
+        let chargeableButton = ChargeableButton(type: .system, appearance: appearance)
         chargeableButton.imageView?.contentMode = .scaleAspectFit
         chargeableButton.imageEdgeInsets = UIEdgeInsets(top: 2, left: 0, bottom: 2, right: 0)
 
@@ -244,12 +217,5 @@ private class PhotoPickerViewControllerChargeableAssets : ChargeableButtonAppear
         chargeableButton.titleEdgeInsets.right = -2
 
         return ChargeableBarButtonItem(button:chargeableButton)
-    }
-
-    var emptyImage: UIImage? {
-        return R.image.systemIconFavoriteLine()
-    }
-    var filledImage: UIImage? {
-        return R.image.systemIconFavoriteFill()
     }
 }

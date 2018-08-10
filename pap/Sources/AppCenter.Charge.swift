@@ -343,10 +343,11 @@ private final class AppChargeBanker: ChargeBanker {
                 continue
             }
 
-            switch receipt.reward{
-                case .nonBlockOfUses, .owned, .rented:
-                    break
+            if receipt.reward.isNonConsumable{
+                continue
+            }
 
+            switch receipt.reward{
                 case .timeOfUses:
                     if let date = receipt.dateData{
                         let totalOffset = type(of: self).Abs_TimeOfUses_Time * charge.priceAmount.value

@@ -121,11 +121,10 @@ private struct PayItem: Hashable, Equatable {
                 return image
             }
 
-            let badgeImage: UIImage = ChargeableImage(balance: charge.priceAmount.value, fillMode: .fill, tintColor: tintColor, appearanceDelegate: ShopAppChargeableAssets()).withAlignmentRectInsets(UIEdgeInsets(top: -4, left: -4, bottom: -4, right: -4))
+            let badgeImage: UIImage = ChargeableImage(balance: charge.priceAmount.value, fillMode: .fill, tintColor: tintColor, appearanceDelegate: ShopAppChargeableAssets(charge:charge))
+                    .withAlignmentRectInsets(UIEdgeInsets(top: -4, left: -4, bottom: -4, right: -4))
 
-//            if let rewardText = charge.shortTitleWithReward {
-//                badgeImage = ChargeableBadgeIcon.portraitBadgeIcon(badgeImage, title: "\(rewardText)", tintColor: tintColor)
-//            }
+//            badgeImage = ChargeableBadgeIcon.portraitBadgeIcon(badgeImage, title: "\(charge.rewardDescribable?.rewardShortTitle ?? "                         ")", tintColor: tintColor)
 
             iconImageCache?.setObject(badgeImage, forKey: charge.identifier as NSString)
             return badgeImage
@@ -237,30 +236,37 @@ extension Defaults: ShopAppDefaults {
     }
 }
 
-private class ShopAppChargeableAssets : ChargeableButtonAppearance{
-    fileprivate lazy var chargeableButton = makeChargeableBarButtonItem()
+private struct ShopAppChargeableAssets : ChargeableButtonAppearance{
+    let charge:Charge
 
-    func makeChargeableBarButtonItem() -> ChargeableBarButtonItem{
-        let chargeableButton = ChargeableButton(type: .system, appearance: self)
-        chargeableButton.imageView?.contentMode = .scaleAspectFit
-        chargeableButton.imageEdgeInsets = UIEdgeInsets(top: 2, left: 0, bottom: 2, right: 0)
-
-        chargeableButton.fillMode = [.fill]
-
-        //TODO: apply true when some restrictful conditions (e.g. finished trial days) to induce for paying
-        chargeableButton.showsColorLevel = false
-        chargeableButton.showsAnimation = false
-        chargeableButton.showsPercentage = false
-
-        chargeableButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
-        chargeableButton.titleEdgeInsets.left = 2
-        chargeableButton.titleEdgeInsets.right = -2
-
-        return ChargeableBarButtonItem(button:chargeableButton)
-    }
+//    fileprivate lazy var chargeableButton = makeChargeableBarButtonItem()
+//
+//    func makeChargeableBarButtonItem() -> ChargeableBarButtonItem{
+//        let chargeableButton = ChargeableButton(type: .system, appearance: self)
+//        chargeableButton.imageView?.contentMode = .scaleAspectFit
+//        chargeableButton.imageEdgeInsets = UIEdgeInsets(top: 2, left: 0, bottom: 2, right: 0)
+//
+//        chargeableButton.fillMode = [.fill]
+//
+//        //TODO: apply true when some restrictful conditions (e.g. finished trial days) to induce for paying
+//        chargeableButton.showsColorLevel = false
+//        chargeableButton.showsAnimation = false
+//        chargeableButton.showsPercentage = false
+//
+//        chargeableButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
+//        chargeableButton.titleEdgeInsets.left = 2
+//        chargeableButton.titleEdgeInsets.right = -2
+//
+//        return ChargeableBarButtonItem(button:chargeableButton)
+//    }
 
     var emptyImage: UIImage? {
-        return R.image.systemIconFavoriteLine()
+        switch charge.reward{
+            case .owned, .rented:
+                return R.image.systemIconFavoriteLineCharging()
+            default:
+                return R.image.systemIconFavoriteLine()
+        }
     }
     var filledImage: UIImage? {
         return R.image.systemIconFavoriteFill()
@@ -564,6 +570,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 //        let selected = dataItem.enabled
 
         let cell = tableView.dequeueReusableCell(withIdentifier: ShopApp.info.identifier) as! UITableViewButtonCell
+        cell.buttonFrameInset = nil
         cell.textLabel?.text = dataItem.label
         cell.detailTextLabel?.text = dataItem.rewardLabel
         cell.detailTextLabel?.textColor = UIColor.gray
@@ -579,8 +586,9 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
         //TODO: display already paid
         cell.enable(!AppCenter.charge.isPaid(payable: dataItem.payable))
-        cell.button.setTitle(dataItem.payable.payingLabel, for: .normal)
-        cell.button.setTitleColor(self.view.tintColor, for: .normal)
+        cell.button.setImage(cell.imageView?.image, for: .normal)
+//        cell.button.setTitle(dataItem.payable.payingLabel, for: .normal)
+//        cell.button.setTitleColor(self.view.tintColor, for: .normal)
         cell.didTap = {
             self.didTapPayButton(item: dataItem)
             tableView.reloadRows(at: [indexPath], with: .fade)

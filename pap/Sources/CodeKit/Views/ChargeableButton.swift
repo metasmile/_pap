@@ -97,7 +97,7 @@ class ChargeableImage: UIImage {
                 ctx.addRect(CGRect(x: 0, y: imageBounds.height - imageBounds.height * ratio, width: imageBounds.width, height: imageBounds.height * ratio))
                 ctx.clip(using: .evenOdd)
                 
-                iconImage.draw(at: .zero, blendMode: .multiply, alpha: 0.3)
+                iconImage.draw(at: .zero, blendMode: .multiply, alpha: 0.2)
                 
                 ctx.restoreGState()
             }
