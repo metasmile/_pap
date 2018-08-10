@@ -60,7 +60,7 @@ private struct PayDictionary:Hashable {
     static let Default: [PayDictionary] = [
         PayDictionary(
                 key: .Default
-                , label: "Available Purchasing Methods".localized
+                , label: "%@ Passes".localizedFormatted(papStrings.name)
                 , items: [
                     PayForAllTimeAllApps.self
                     //, PayForAllTimeOneApp // dynamically insert by launchOption
@@ -77,7 +77,7 @@ private struct PayDictionary:Hashable {
         )
         , PayDictionary(
                 key: .Default
-                , label: "Available Engaging Methods".localized
+                , label: "FreeCharge Methods".localized
                 , items: [
                     PayOnFeedback.self
                     , PayOnPromptRating.self

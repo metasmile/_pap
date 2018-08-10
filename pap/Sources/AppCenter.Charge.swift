@@ -17,23 +17,85 @@ extension AppCenter{
 private final class AppChargeManager: ChargeManager{
     fileprivate static let shared = AppChargeManager(charges:[
         // Initial
-        AppCharge(type: .welcomeFreeTrial, reward: .timeOfUses, payment:PayOfInitialTutorial.self, priceAmount: AmountObject(value:AppChargeBanker.InitialTutorial_TimeOfUses_Day/AppChargeBanker.Abs_TimeOfUses_Day), title:"Welcome Free Trial Pack".localized, description:nil)
+        AppCharge(type: .welcomeFreeTrial
+                , reward: .timeOfUses
+                , payment:PayOfInitialTutorial.self
+                , priceAmount: AmountObject(value:AppChargeBanker.InitialTutorial_TimeOfUses_Day/AppChargeBanker.Abs_TimeOfUses_Day)
+                , title:"Welcome Free Trial Pack".localized
+        )
 
         // Engagement
-        , AppCharge(type: .onPromptRating, reward: .nonBlockOfUses, payment:PayOnPromptRating.self, priceAmount: AmountObject(value:0.0), title:"Give A Rating".localized, description:nil)
-        , AppCharge(type: .inStoreRating, reward: .nonBlockOfUses,  payment:PayInAppStoreRating.self, priceAmount: AmountObject(value:0.0), title:"Write A Review".localized, description:nil)
+        , AppCharge(type: .onPromptRating
+                , reward: .nonBlockOfUses
+                , payment:PayOnPromptRating.self
+                , priceAmount: AmountObject(value:0.0)
+                , title:"Give A Rating".localized
+        )
 
-        , AppCharge(type: .socialShare, reward: .timeOfUses, payment:PayOnSocialShare.self, priceAmount: AmountObject(value:0.5), title:"Share This App".localized, description:nil)
-        , AppCharge(type: .feedback, reward: .timeOfUses, payment:PayOnFeedback.self, priceAmount: AmountObject(value:0.5), title:"Send Us Feedback".localized, description:nil)
+        , AppCharge(type: .inStoreRating
+                , reward: .nonBlockOfUses
+                ,  payment:PayInAppStoreRating.self
+                , priceAmount: AmountObject(value:0.0)
+                , title:"Write A Review".localized
+        )
+
+        , AppCharge(type: .socialShare
+                , reward: .timeOfUses
+                , payment:PayOnSocialShare.self
+                , priceAmount: AmountObject(value:0.5)
+                , title:"Share This App".localized
+        )
+
+        , AppCharge(type: .feedback
+                , reward: .timeOfUses
+                , payment:PayOnFeedback.self
+                , priceAmount: AmountObject(value:0.5)
+                , title:"Send Us Feedback".localized
+        )
 
         // Store Purchase
-        , AppCharge(type: .nonConsumablePurchase, reward: .owned, payment:PayForAllTimeAllApps.self, priceAmount: AmountObject.max, title:"Permanent Use Of All Apps".localized, description:nil)
-        , AppCharge(type: .consumablePurchase, reward: .owned, payment:PayForAllTimeOneApp.self, priceAmount: AmountObject.max, title:"Permanent Use Of One App".localized, description:nil)
+        , AppCharge(type: .nonConsumablePurchase
+                , reward: .owned, payment:PayForAllTimeAllApps.self
+                , priceAmount: AmountObject.max
+                , title:"Purchase All At Once".localized
+                , rewardDescribable:AppRewardDescription(rewardTitle: "Permanent Use of Apps Including All New", rewardShortTitle: "Permanent Apps License", rewardDescription: nil, rewardUnit: nil)
+        )
 
-        , AppCharge(type: .nonRenewingMonthlySubscription, reward: .rented, payment:PayForOneMonthAllApps.self, priceAmount: AmountObject.max, title:"Write A Review".localized, description:nil)
-        , AppCharge(type: .nonRenewingYearlySubscription, reward: .rented, payment:PayForOneYearAllApps.self, priceAmount: AmountObject.max, title:"Share This App".localized, description:nil)
-        , AppCharge(type: .renewableMonthlySubscription, reward: .rented, payment:PayForMonthlyAllApps.self, priceAmount: AmountObject.max, title:"Send Us Feedback".localized, description:nil)
-        , AppCharge(type: .renewableYearlySubscription, reward: .rented, payment:PayForYearlyAllApps.self, priceAmount: AmountObject.max, title:"Share This App".localized, description:nil)
+        , AppCharge(type: .consumablePurchase
+                , reward: .owned
+                , payment:PayForAllTimeOneApp.self
+                , priceAmount: AmountObject.max
+                , title:"Purchase A Single App".localized
+                , rewardDescribable:AppRewardDescription(rewardTitle: "Permanent Use of This Including All Updates", rewardShortTitle: "Permanent Single App License", rewardDescription: nil, rewardUnit: nil)
+        )
+
+        , AppCharge(type: .renewableMonthlySubscription
+                , reward: .rented, payment:PayForMonthlyAllApps.self
+                , priceAmount: AmountObject.max
+                , title:"Monthly Pass".localized
+                , rewardDescribable:AppRewardDescription(rewardTitle: "Constant Use of Apps Including All New", rewardShortTitle: "Yearly Apps License", rewardDescription: nil, rewardUnit: nil)
+        )
+        , AppCharge(type: .renewableYearlySubscription
+                , reward: .rented
+                , payment:PayForYearlyAllApps.self
+                , priceAmount: AmountObject.max
+                , title:"Annual Pass".localized
+                , rewardDescribable:AppRewardDescription(rewardTitle: "Constant Use of Apps Including All New", rewardShortTitle: "Yearly Apps License", rewardDescription: nil, rewardUnit: nil)
+        )
+
+        , AppCharge(type: .nonRenewingMonthlySubscription
+                , reward: .rented
+                , payment:PayForOneMonthAllApps.self
+                , priceAmount: AmountObject.max
+                , title:"1-Month Pass".localized
+                , rewardDescribable:AppRewardDescription(rewardTitle: "A Month of Apps Including All New", rewardShortTitle: "1-Month Apps License", rewardDescription: nil, rewardUnit: nil)
+        )
+        , AppCharge(type: .nonRenewingYearlySubscription
+                , reward: .rented, payment:PayForOneYearAllApps.self
+                , priceAmount: AmountObject.max
+                , title:"1-Year Pass".localized
+                , rewardDescribable:AppRewardDescription(rewardTitle: "A Year of Apps Including All New", rewardShortTitle: "1-Year Apps License", rewardDescription: nil, rewardUnit: nil)
+        )
 
     ], banker: AppChargeBanker.self)
 }
