@@ -251,10 +251,13 @@ public class GIFMakerApp: BApp,
     public static let taskType: AppTaskable.Type = _GIFMakerAppTask.self
     public static let paramType: AppTaskParamable.Type = _GIFMakerAppAsset.self
     
-    public static var configure:(() -> GIFMakerAppConfigValue)?
-    
+
     @objc dynamic
-    public private(set) lazy var config: GIFMakerAppConfigValue? = GIFMakerApp.configure?()
+    public private(set) lazy var config: GIFMakerAppConfigValue? = {
+        let config = GIFMakerAppConfigValue()
+        config.tintColor = .black
+        return config
+    }()
     public private(set) lazy var content: AppDockContent? = GIFMakerAppDockContent()
     
     public static let info = AppInfo(

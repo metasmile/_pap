@@ -36,34 +36,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
 
     func configure() -> AppManagerConfig? {
 
-        TransformApp.configure = {
-            let config = TransformAppConfigValue()
-            config.tintColor = UIColor(red:0.75, green:0.31, blue:0.8, alpha:1)
-            return config
-        }
-        
-        FiltersApp.configure = {
-            let config = FiltersAppConfigValue()
-            config.tintColor = .black
-            return config
-        }
-        
-        Stabilizer.configure = {
-            let config = StabilizerAppConfigValue()
-            config.tintColor = .black
-            return config
-        }
-        
-        GIFMakerApp.configure = {
-            let config = GIFMakerAppConfigValue()
-            config.tintColor = .black
-            return config
-        }
-
         var config = AppManagerConfig()
-        //TODO: append/remove dynamically
-        //TODO: Reorder via icon DnD
-        //TODO: batchOS essential/settings app (it cannot be removed)
 
         let defaultAppCollection:[App.Type] = [
             MemoCamApp.self

@@ -23,8 +23,6 @@ public struct AppConfigUIAttrribute: AppConfigUIAttrributeValuable{
 public protocol _ConfigurableApp{
     associatedtype T: AppConfigValuable
 
-    static var configure:(() -> T)? {set get}
-
     var config: T? { get }
 }
 

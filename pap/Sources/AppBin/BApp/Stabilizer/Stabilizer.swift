@@ -64,10 +64,13 @@ public class Stabilizer: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, Phot
 
     public static let paramType: AppTaskParamable.Type = _StabilizerAppAsset.self
     
-    public static var configure:(() -> StabilizerAppConfigValue)?
-    
+
     @objc dynamic
-    public private(set) lazy var config: StabilizerAppConfigValue? = Stabilizer.configure?()
+    public private(set) lazy var config: StabilizerAppConfigValue? = {
+        let config = StabilizerAppConfigValue()
+        config.tintColor = .black
+        return config
+    }()
     public private(set) lazy var content: AppDockContent? = StabilizerAppDockContent()
 
     public static let info = AppInfo(

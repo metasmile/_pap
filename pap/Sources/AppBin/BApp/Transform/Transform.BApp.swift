@@ -37,10 +37,13 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
 
     public static let paramType: AppTaskParamable.Type = _TransformAppAsset.self
 
-    public static var configure:(() -> TransformAppConfigValue)?
 
     @objc dynamic
-    public private(set) lazy var config: TransformAppConfigValue? = TransformApp.configure?()
+    public private(set) lazy var config: TransformAppConfigValue? = {
+        let config = TransformAppConfigValue()
+        config.tintColor = UIColor(red:0.75, green:0.31, blue:0.8, alpha:1)
+        return config
+    }()
 
     public private(set) lazy var content: AppDockContent? = createController()
     public private(set) lazy var photoEditorDockContent: AppDockContent? = createController()

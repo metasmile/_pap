@@ -54,11 +54,13 @@ public class FiltersApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _Con
 PhotoEditorViewControllerDelegatableApp {
     public static let taskType: AppTaskable.Type = _FiltersAppTask.self
     public static let paramType: AppTaskParamable.Type = _FiltersAppAsset.self
-    
-    public static var configure:(() -> FiltersAppConfigValue)?
-    
+
     @objc dynamic
-    public private(set) lazy var config: FiltersAppConfigValue? = FiltersApp.configure?()
+    public private(set) lazy var config: FiltersAppConfigValue? = {
+        let config = FiltersAppConfigValue()
+        config.tintColor = .black
+        return config
+    }()
     public private(set) lazy var content: AppDockContent? = FiltersAppDockContent()
     public private(set) lazy var photoEditorDockContent: AppDockContent? = FiltersAppDockContent()
     

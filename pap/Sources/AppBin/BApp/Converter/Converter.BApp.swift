@@ -26,7 +26,6 @@ public class ConverterApp: BApp,
     public static let taskType: AppTaskable.Type = ConverterAppTask.self
     public static let paramType: AppTaskParamable.Type = AppAsset.self
 
-    public static var configure:(() -> ConverterAppConfigValue)?
 
     @objc dynamic
     public private(set) lazy var config: ConverterAppConfigValue? = ConverterAppConfigValue()
