@@ -76,12 +76,13 @@ struct PayForAllTimeAllApps: VerifiablePayable {
                     productId: r.product.identifier,
                     inReceipt: r.receipt) {
 
-            case .purchased( _):
+                case .purchased( _):
                     return true
                 default:
                     return false
             }
         }
+
         return nil
     }
 }
@@ -280,13 +281,15 @@ extension StoreProduct {
     }
 
     func verifyReceipt(completion: @escaping (VerifyReceiptResult) -> Void) {
-
-        let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: type(of: self).ReceiptSecretKey)
+        var verificationType = AppleReceiptValidator.VerifyReceiptURLType.production
+#if DEBUG
+        verificationType = .sandbox
+#endif
+        let appleValidator = AppleReceiptValidator(service: verificationType, sharedSecret: type(of: self).ReceiptSecretKey)
         SwiftyStoreKit.verifyReceipt(using: appleValidator, completion: completion)
     }
 
     func verify(_ signal: AsyncWaitSignalable) -> (product: StoreProduct, receipt:ReceiptInfo)? {
-
         var r:(product: StoreProduct, receipt:ReceiptInfo)?
 
         signal.begin()
@@ -296,6 +299,7 @@ extension StoreProduct {
                     r = (product:self, receipt:receipt)
 
                 case .error:
+                    print("[!] WARNING: verifyReceipt error:", result)
                     r = nil
             }
             signal.end()

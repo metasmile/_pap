@@ -259,9 +259,9 @@ private final class AppChargeBanker: ChargeBanker {
 
             default:
 #if DEBUG
-            for r in receiptStorage.receipts{
-                receiptStorage.removeReceipt(r.key)
-            }
+//            for r in receiptStorage.receipts{
+//                receiptStorage.removeReceipt(r.key)
+//            }
 #endif
                 break
         }
@@ -278,7 +278,7 @@ private final class AppChargeBanker: ChargeBanker {
     private func verifyReceipts(){
         let currentQueue = DispatchQueue.current
 
-        DispatchQueue.global().async{
+        DispatchQueue.global(qos: .background).async{
             let asyncSignal = AsyncSignal()
 
             for c in self.registeredCharges{
@@ -287,16 +287,20 @@ private final class AppChargeBanker: ChargeBanker {
                     , let vPayable = c.payment as? VerifiablePayable.Type {
 
                     if let vResult = vPayable.init().verify(asyncSignal){
+
+                        // Detected InValid Receipt
                         if vResult == false{
                             currentQueue.async(flags:.barrier){
                                 self.receiptStorage.removeReceipt(vReceipt.uuid)
                             }
-                            print("[i] INFO: Receipt Verification succeed -> InValid Receipt: \(String(describing: vPayable))")
+                            print("[i] INFO: Receipt Verification SUCCEED -> InValid Receipt: \(String(describing: vPayable))")
                         }else{
-                            print("[i] INFO: Receipt Verification succeed -> Valid Receipt: \(String(describing: vPayable))")
+                            print("[i] INFO: Receipt Verification SUCCEED -> Valid Receipt: \(String(describing: vPayable))")
                         }
                     }else{
-                        print("[!] WARNING: Receipt Verification failed for \(String(describing: vPayable))")
+                        print("[!] WARNING: Receipt Verification FAILED for \(String(describing: vPayable))." +
+                                "\n1. Check network status or Validator's URL whether is for production (https://buy.itunes.apple.com/verifyReceipt) or sandbox (https://sandbox.itunes.apple.com/verifyReceipt). " +
+                                "\n2. Check 'NSAppTransportSecurity' in Info.plist for 'apple.com' \n ")
                     }
                 }
 
