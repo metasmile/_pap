@@ -60,7 +60,7 @@ struct StorePayableConfigurator{
     }
 }
 
-struct PayForAllTimeAllApps:StorePayable {
+struct PayForAllTimeAllApps: VerifiablePayable {
     fileprivate static var storeProduct:StoreProduct{ return .pap_xapp_AllTimeAllApps_nonConsumablePurchase_owned }
 
     private(set) static var payingLabel: String = "Purchase".localized
@@ -86,7 +86,7 @@ struct PayForAllTimeAllApps:StorePayable {
     }
 }
 
-struct PayForAllTimeOneApp:StorePayable {
+struct PayForAllTimeOneApp: VerifiablePayable {
     fileprivate static var storeProduct:StoreProduct{ return .pap_xapp_AllTimeOneApp_nonConsumablePurchase_owned }
 
     private(set) static var payingLabel: String = "Purchase".localized
@@ -112,7 +112,7 @@ struct PayForAllTimeOneApp:StorePayable {
     }
 }
 
-struct PayForOneMonthAllApps:StorePayable {
+struct PayForOneMonthAllApps: VerifiablePayable {
     fileprivate static var storeProduct:StoreProduct{ return .pap_xapp_OneMonthAllApps_nonRenewingMonthlySubscription_owned }
 
     private(set) static var payingLabel: String = "Purchase".localized
@@ -138,7 +138,7 @@ struct PayForOneMonthAllApps:StorePayable {
     }
 }
 
-struct PayForOneYearAllApps:StorePayable {
+struct PayForOneYearAllApps: VerifiablePayable {
     fileprivate static var storeProduct:StoreProduct{ return .pap_xapp_OneYearAllApps_nonRenewingYearlySubscription_owned }
 
     private(set) static var payingLabel: String = "Purchase".localized
@@ -165,7 +165,7 @@ struct PayForOneYearAllApps:StorePayable {
     }
 }
 
-struct PayForMonthlyAllApps:StorePayable {
+struct PayForMonthlyAllApps: VerifiablePayable {
     fileprivate static var storeProduct:StoreProduct{ return .pap_xapp_MonthlyAllApps_renewableMonthlySubscription_owned }
 
     private(set) static var payingLabel: String = "Subscribe".localized
@@ -194,7 +194,7 @@ struct PayForMonthlyAllApps:StorePayable {
 }
 
 
-struct PayForYearlyAllApps:StorePayable {
+struct PayForYearlyAllApps: VerifiablePayable {
     fileprivate static var storeProduct:StoreProduct{ return .pap_xapp_YearlyAllApps_renewableYearlySubscription_owned }
 
     private(set) static var payingLabel: String = "Subscribe".localized

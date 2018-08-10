@@ -16,22 +16,17 @@ class ChargeManager{
     private(set) var bank: ChargeBank
 
     init(charges:[Charge], banker: ChargeBanker.Type){
-        self.charges = charges
-        self.bank = ChargeBank(banker: banker, registeredCharges: self.charges)
+        //Validation
+        var initializingCharges = [Charge]()
+        var initializingChargeIdSet = Set<String>()
+        for c in charges where initializingChargeIdSet.contains(c.identifier) == false{
+            initializingChargeIdSet.insert(c.identifier)
+            initializingCharges.append(c)
+        }
+        assert(charges.count == initializingCharges.count, "Duplicated charges have same identifiers. \(Set(charges.map{ $0.identifier }).symmetricDifference(Set(initializingCharges.map{ $0.identifier })))")
 
-//        //validation
-//        var initCharges = [Charge]()
-//        let bankMaxValue = type(of: self.bank.balance).maxValue
-//        var sumOfPriceAmount = 0.0
-//        for c in charges{
-//            sumOfPriceAmount += c.priceAmount.value
-//            if sumOfPriceAmount > bankMaxValue{
-//                assert(false, "Sum of priceAmount must be same or lower than maxValue of given Bank \(bankMaxValue). It overflowed with \(sumOfPriceAmount-bankMaxValue).")
-//                break
-//            }
-//            initCharges.append(c)
-//        }
-//        self.charges = initCharges
+        self.charges = initializingCharges
+        self.bank = ChargeBank(banker: banker, registeredCharges: self.charges)
     }
 
     func getCharge(for chargeable: Chargeable) -> Charge?{

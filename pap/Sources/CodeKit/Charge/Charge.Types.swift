@@ -59,8 +59,12 @@ protocol Payable {
     init()
 }
 
-protocol StorePayable: Payable {
-    func verify(_ asyncSignal: AsyncWaitSignalable) -> Bool? // nil == error, true purchase, false, not purchased/expired
+protocol VerifiablePayable: Payable {
+    //INFO:
+    // nil: error or it can not handle currently. usually should handle later.
+    // true: purchase
+    // false: clearly not purchased/expired
+    func verify(_ asyncSignal: AsyncWaitSignalable) -> Bool?
 }
 
 protocol Chargeable {

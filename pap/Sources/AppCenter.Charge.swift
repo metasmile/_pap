@@ -258,6 +258,11 @@ private final class AppChargeBanker: ChargeBanker {
                 }
 
             default:
+#if DEBUG
+            for r in receiptStorage.receipts{
+                receiptStorage.removeReceipt(r.key)
+            }
+#endif
                 break
         }
 
@@ -268,6 +273,13 @@ private final class AppChargeBanker: ChargeBanker {
 
     func didInitializeBank(balance: Amount) {
 
+//        let currentQueue = DispatchQueue.current
+//        let asyncSignal = AsyncSignal()
+//
+//        DispatchQueue.global().async{
+//
+//
+//        }
     }
 
     private func createOrReplaceReceipt(for charge: Charge){
