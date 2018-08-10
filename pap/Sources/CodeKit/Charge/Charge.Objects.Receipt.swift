@@ -153,8 +153,8 @@ final class ChargeReceiptStorage {
 
     func removeReceipt(_ receiptId:String){
         assert(hasReceipt(by: receiptId), "Given id of receipt, already \(receiptId) does not exist")
+        print("[i] INFO: Receipt Removed:", receipts[receiptId] ?? "", receiptId)
         receipts[receiptId] = nil
-        print("[i] INFO: Receipt Removed: ", receipts[receiptId] ?? "", receiptId)
     }
 
     func updateReceipt(_ receipt:ChargeableReceipt){

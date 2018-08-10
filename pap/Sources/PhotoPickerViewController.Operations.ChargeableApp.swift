@@ -170,10 +170,8 @@ private class PhotoPickerViewControllerChargeableAssets{
     fileprivate lazy var feedbackButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
 
     fileprivate var chargeableButton:ChargeableBarButtonItem{
-        for c in AppCenter.charge.getChargesHasReceipt(){
-            if c.reward.isNonConsumable{
-                return chargeableButtonCharging
-            }
+        for c in AppCenter.charge.getChargesHasReceiptAlsoHasPriceAmount() where c.reward.isNonConsumable{
+            return chargeableButtonCharging
         }
         return chargeableButtonNormal
     }

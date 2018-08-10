@@ -272,19 +272,41 @@ private final class AppChargeBanker: ChargeBanker {
     }
 
     func didInitializeBank(balance: Amount) {
-        verifyReceipts()
+        validateReceipts()
     }
 
-    private func verifyReceipts(){
+    private func validateReceipts(){
         let currentQueue = DispatchQueue.current
 
         DispatchQueue.global(qos: .background).async{
             let asyncSignal = AsyncSignal()
 
             for c in self.registeredCharges{
+                guard let vReceipt = self.receiptStorage.getReceipt(for: c) else {
+                    continue
+                }
+                /*
+                   Incorrect Receipt
+                */
 
-                if let vReceipt = self.receiptStorage.getReceipt(for: c)
-                    , let vPayable = c.payment as? VerifiablePayable.Type {
+                // - amountValue is incorrect
+                if vReceipt.amountValue < 0{
+                    currentQueue.async(flags:.barrier){
+                        self.receiptStorage.removeReceipt(vReceipt.uuid)
+                    }
+                }
+
+                // NonConsumable must be higher than 0 of its amountValue
+                if vReceipt.reward.isNonConsumable && vReceipt.amountValue == 0{
+                    currentQueue.async(flags:.barrier){
+                        self.receiptStorage.removeReceipt(vReceipt.uuid)
+                    }
+                }
+
+                /*
+                    Verify Payment
+                */
+                if let vPayable = c.payment as? VerifiablePayable.Type {
 
                     if let vResult = vPayable.init().verify(asyncSignal){
 
