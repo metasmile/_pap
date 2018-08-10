@@ -18,7 +18,8 @@ public class ShopApp: NSObject
         , KeyPathWatchable
         , SApp
         , AppDockApp
-        , LaunchableApp {
+        , LaunchableApp
+        , ManagerConfigurableApp {
 
     fileprivate static var privateDefaults = ShopApp.defaults as! ShopAppDefaults
     
@@ -41,6 +42,10 @@ public class ShopApp: NSObject
 
     public required override init() {
 
+    }
+
+    static func didConfigure(with manager: AppManager) {
+        StorePayableConfigurator.configure()
     }
 
     func didResign(current: App.Type?) {

@@ -9,4 +9,4 @@ import Foundation
 SApp naming basic rule is following BApp
 */
 
-protocol SApp: App, PersistableApp{}
+protocol SApp: PersistableApp{}

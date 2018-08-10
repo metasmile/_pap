@@ -46,10 +46,10 @@ open class AppManager: NSObject, SelectableCollection {
         assert(_apps.count == Set(_apps.map({ $0.info.identifier })).count, "[!] Duplicated App Identifier Found.")
 
         //boot with appManager
-        for appManagedApp in _apps.compactMap ({ app -> ManagerConfigurableApp? in
-            return app as? ManagerConfigurableApp
+        for appManagedAppType in _apps.compactMap ({ app -> ManagerConfigurableApp.Type? in
+            return app as? ManagerConfigurableApp.Type
         }){
-            type(of: appManagedApp).didConfigure(with: self)
+            appManagedAppType.didConfigure(with: self)
         }
 
         //finally select default app if possible

@@ -24,6 +24,42 @@ private enum StoreProduct: String {
     }
 }
 
+struct StorePayableConfigurator{
+    static func configure(){
+
+        SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
+
+            for purchase in purchases {
+                switch purchase.transaction.transactionState {
+                case .purchased, .restored:
+                    let downloads = purchase.transaction.downloads
+                    if !downloads.isEmpty {
+                        SwiftyStoreKit.start(downloads)
+                    } else if purchase.needsFinishTransaction {
+                        // Deliver content from server, then:
+                        SwiftyStoreKit.finishTransaction(purchase.transaction)
+                    }
+                    print("\(purchase.transaction.transactionState.debugDescription): \(purchase.productId)")
+
+                case .failed, .purchasing, .deferred:
+                    print("[!] WARNING: \(purchase.transaction.transactionState.debugDescription): \(purchase.productId)")
+                    break // do nothing
+                }
+            }
+        }
+
+        SwiftyStoreKit.updatedDownloadsHandler = { downloads in
+
+            // contentURL is not nil if downloadState == .finished
+            let contentURLs = downloads.compactMap { $0.contentURL }
+            if contentURLs.count == downloads.count {
+                print("Saving: \(contentURLs)")
+                SwiftyStoreKit.finishTransaction(downloads[0].transaction)
+            }
+        }
+    }
+}
+
 struct PayForAllTimeAllApps:StorePayable {
     fileprivate static var storeProduct:StoreProduct{ return .pap_xapp_AllTimeAllApps_nonConsumablePurchase_owned }
 
