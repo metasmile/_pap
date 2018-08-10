@@ -12,9 +12,21 @@ extension AppCenter{
     static var charge:ChargeManager{
         return AppChargeManager.shared
     }
+
+    static var defaultPaidAppChargeable:Chargeable{
+        return AppChargeManager.DefaultPaidAppChargeable
+    }
 }
 
 private final class AppChargeManager: ChargeManager{
+    static let DefaultPaidAppChargeable:Charge = AppCharge(type: .consumablePurchase
+            , reward: .owned
+            , payment:PayForAllTimeOneApp.self
+            , priceAmount: AmountObject.max
+            , title:"Purchase A Single App".localized
+            , rewardDescribable:AppRewardDescription(rewardTitle: "Permanent Use of This Including All Updates", rewardShortTitle: "Permanent Single App License", rewardDescription: nil, rewardUnit: nil)
+    )
+
     fileprivate static let shared = AppChargeManager(charges:[
         // Initial
         AppCharge(type: .welcomeFreeTrial
@@ -61,13 +73,7 @@ private final class AppChargeManager: ChargeManager{
                 , rewardDescribable:AppRewardDescription(rewardTitle: "Permanent Use of Apps Including All New", rewardShortTitle: "Permanent Apps License", rewardDescription: nil, rewardUnit: nil)
         )
 
-        , AppCharge(type: .consumablePurchase
-                , reward: .owned
-                , payment:PayForAllTimeOneApp.self
-                , priceAmount: AmountObject.max
-                , title:"Purchase A Single App".localized
-                , rewardDescribable:AppRewardDescription(rewardTitle: "Permanent Use of This Including All Updates", rewardShortTitle: "Permanent Single App License", rewardDescription: nil, rewardUnit: nil)
-        )
+        , DefaultPaidAppChargeable
 
         , AppCharge(type: .renewableMonthlySubscription
                 , reward: .rented, payment:PayForMonthlyAllApps.self

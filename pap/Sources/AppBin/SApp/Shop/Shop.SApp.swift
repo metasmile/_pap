@@ -57,6 +57,10 @@ public class ShopApp: NSObject
         launchedOption = withOption
     }
 
+    var sourceAppType:App.Type?{
+        return self.launchedOption?.options?[.SourceAppType] as? App.Type
+    }
+    
     public private(set) static var fixedContentLayout: Bool = true
 }
 
@@ -64,11 +68,10 @@ public class ShopApp: NSObject
 private struct PayDictionary:Hashable {
     static let Default: [PayDictionary] = [
         PayDictionary(
-                key: .Default
+                key: .Purchase
                 , label: "%@ Passes".localizedFormatted(papStrings.name)
                 , items: [
                     PayForAllTimeAllApps.self
-                    //, PayForAllTimeOneApp // dynamically insert by launchOption
 
                     , PayForOneMonthAllApps.self
                     , PayForOneYearAllApps.self
@@ -81,7 +84,7 @@ private struct PayDictionary:Hashable {
                 }).map { PayItem(payable:$0) }
         )
         , PayDictionary(
-                key: .Default
+                key: .FreeCharge
                 , label: "FreeCharge Methods".localized
                 , items: [
                     PayOnFeedback.self
@@ -96,7 +99,9 @@ private struct PayDictionary:Hashable {
     ]
 
     enum Key: Int, Codable {
-        case Default
+        case Purchase
+        case FreeCharge
+        case Promotion
     }
 
     fileprivate var key:Key
@@ -121,13 +126,21 @@ private struct PayItem: Hashable, Equatable {
                 return image
             }
 
-            let badgeImage: UIImage = ChargeableImage(balance: charge.priceAmount.value, fillMode: .fill, tintColor: tintColor, appearanceDelegate: ShopAppChargeableAssets(charge:charge))
-                    .withAlignmentRectInsets(UIEdgeInsets(top: -4, left: -4, bottom: -4, right: -4))
+            var iconImage: UIImage?
 
-//            badgeImage = ChargeableBadgeIcon.portraitBadgeIcon(badgeImage, title: "\(charge.rewardDescribable?.rewardShortTitle ?? "                         ")", tintColor: tintColor)
+            if let chargeableAppType = AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType as? ChargeableApp.Type{
+                iconImage = chargeableAppType.info.iconBundleName?.asUIImage
 
-            iconImageCache?.setObject(badgeImage, forKey: charge.identifier as NSString)
-            return badgeImage
+            }else{
+                iconImage = ChargeableImage(balance: charge.priceAmount.value, fillMode: .fill, tintColor: tintColor, appearanceDelegate: ShopAppChargeableAssets(charge:charge))
+                        .withAlignmentRectInsets(UIEdgeInsets(top: -4, left: -4, bottom: -4, right: -4))
+//            iconImage = ChargeableBadgeIcon.portraitBadgeIcon(badgeImage, title: "\(charge.rewardDescribable?.rewardShortTitle ?? "                         ")", tintColor: tintColor)
+            }
+
+            if let iconImage = iconImage{
+                iconImageCache?.setObject(iconImage, forKey: charge.identifier as NSString)
+            }
+            return iconImage
         }
 
         return nil
@@ -305,13 +318,28 @@ private struct SettingsItem {
     fileprivate var iconImageName:String?
 }
 
-fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource{
+fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, AppLifecycleManagerAllowingInstanceAccessor{
     private lazy var tintColor = UIColor(red:0.31, green:0.44, blue:0.84, alpha:1)
 
     fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
 
     private var defaultCollections:[PayDictionary] {
-        return PayDictionary.Default
+        var defaultCollection = PayDictionary.Default
+
+        if let appType = AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType as? ChargeableApp.Type{
+            if let _ = (appType.getInstance(user: ShopAppDockContent.self) as? ChargeableApp)?.chargesRequired?.contains(where: { c -> Bool in
+                return c.isEqualTo(other: AppCenter.defaultPaidAppChargeable)
+            }){
+                if let purchaseDir = defaultCollection.first (where:{ dictionary in
+                    return dictionary.key == .Purchase
+                }){
+                    var _purchaseDir = purchaseDir
+                    _purchaseDir.items.insert(PayItem(payable: AppCenter.defaultPaidAppChargeable.payment), at: 0)
+                    defaultCollection[0] = _purchaseDir
+                }
+            }
+        }
+        return defaultCollection
     }
 
     required public override init() {

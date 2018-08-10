@@ -18,6 +18,7 @@ public class ConverterAppConfigValue: NSObject, KeyPathWatchable, AppConfigValua
 public class ConverterApp: BApp,
         AppDockApp,
         ConfigurableApp, _ConfigurableApp,
+        ChargeableApp,
         FinalizableApp,
         PHAssetUIAlertControllerSynchronizablePresenter,
         PhotoPickerCollectionViewDisplayableApp,
@@ -47,6 +48,10 @@ public class ConverterApp: BApp,
 
     required public init() {
         content = ConverterAppDockContent(app:self)
+    }
+
+    var chargesRequired: [Chargeable]? {
+        return [AppCenter.defaultPaidAppChargeable]
     }
 
     public var doneButtonTitle: String? {

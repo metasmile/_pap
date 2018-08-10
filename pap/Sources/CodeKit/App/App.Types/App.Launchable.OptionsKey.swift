@@ -9,7 +9,7 @@ import Foundation
     App, AppInfo
 */
 extension AppLaunchOptionsKey {
-    //value type: PHAsset
+    //value type: App.Type
     static let SourceAppType = AppLaunchOptionsKey(rawValue:0)
 }
 
