@@ -71,28 +71,23 @@ private struct PayDictionary:Hashable {
                     , PayForMonthlyAllApps.self
                     , PayForYearlyAllApps.self
 
-            , PayOnFeedback.self
-            , PayOnPromptRating.self
-            , PayOnSocialShare.self
-            , PayInAppStoreRating.self
+                ].sorted(by:{ (payType1: Payable.Type, payType2: Payable.Type) -> Bool in
+                    return false
+                }).map { PayItem(payable:$0) }
+        )
+        , PayDictionary(
+                key: .Default
+                , label: "Available Engaging Methods".localized
+                , items: [
+                    PayOnFeedback.self
+                    , PayOnPromptRating.self
+                    , PayOnSocialShare.self
+                    , PayInAppStoreRating.self
 
                 ].sorted(by:{ (payType1: Payable.Type, payType2: Payable.Type) -> Bool in
                     return false
                 }).map { PayItem(payable:$0) }
         )
-//        , PayDictionary(
-//                key: .Default
-//                , label: "Available Engaging Methods".localized
-//                , items: [
-//                    PayOnFeedback.self
-//                    , PayOnPromptRating.self
-//                    , PayOnSocialShare.self
-//                    , PayInAppStoreRating.self
-//
-//                ].sorted(by:{ (payType1: Payable.Type, payType2: Payable.Type) -> Bool in
-//                    return false
-//                }).map { PayItem(payable:$0) }
-//        )
     ]
 
     enum Key: Int, Codable {
@@ -366,14 +361,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         cell1.iconImage = R.image.commonIconRobot.name
         cell1.valueGetter = { ShopApp.privateDefaults.autoSelect }
         cell1.valueHandler = { val in
-            let enabled = val as? Bool ?? false
-            ShopApp.privateDefaults.autoSelect = enabled
 
-            if let tableView = view as? UITableView{
-                for section in 1..<self.numberOfSections(in: tableView) {
-                    tableView.reloadSections(IndexSet(integer: section), with: .none)
-                }
-            }
 
         }
 //        settingCellDescribers.append(cell1)
@@ -476,7 +464,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
         let label_section0 = "Settings".localized
-        return section == 0 ? defaultCollections[section].label : label_section0
+        return section < defaultCollections.count ? defaultCollections[section].label : label_section0
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -484,7 +472,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? defaultCollections[section].items.count : settingCellDescribers.count
+        return section < defaultCollections.count ? defaultCollections[section].items.count : settingCellDescribers.count
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -492,7 +480,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = indexPath.section == 0
+        let cell = indexPath.section < defaultCollections.count
                 ? itemCollection_tableView(tableView, cellForRowAt: IndexPath(item: indexPath.item, section: indexPath.section))
                 : settings_tableView(tableView, cellForRowAt: indexPath)
         return cell

@@ -167,11 +167,6 @@ private final class AppChargeBanker: ChargeBanker {
                 }
 
             default:
-                //TODO: ////////////////////// FOR DEBUG
-                for r in receiptStorage.receipts{
-                    receiptStorage.removeReceipt(r.key)
-                }
-                ////////////////////// FOR DEBUG
                 break
         }
 
