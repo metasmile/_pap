@@ -69,3 +69,47 @@ class ChargeManager{
         }
     }
 }
+
+final class ChargeBank: NSObject, KeyPathWatchable {
+    private var synchronizedBalance:Amount
+
+    private func synchronizeBalanceValue() {
+        synchronizedBalance = banker.synchronizeBalanceValue(balance: synchronizedBalance)
+    }
+
+    @objc dynamic
+    private(set) var balanceValue:Double{
+        set{ } //only for broadcasting
+        get{
+            synchronizeBalanceValue()
+            return synchronizedBalance.value
+        }
+    }
+
+    private let banker: ChargeBanker
+
+    required init(banker: ChargeBanker.Type, registeredCharges:[Charge]){
+        self.banker = banker.init(registeredCharges:registeredCharges)
+        self.synchronizedBalance = self.banker.initializeBank()
+        self.banker.didInitializeBank(balance: self.synchronizedBalance)
+    }
+
+    func getReceipt(for charge:Chargeable) -> ChargeableReceipt?{
+        return self.banker.getReceipt(for: charge)
+    }
+
+    @discardableResult
+    fileprivate func save(for charge:Charge) -> Bool{
+        if let _ = banker.willSaveDeposit(forPriceAmountOf: charge, balance: synchronizedBalance){
+            synchronizeBalanceValue()
+            balanceValue = synchronizedBalance.value
+            banker.didSaveDeposit(for: charge, balance: synchronizedBalance)
+            return true
+        }
+        return false
+    }
+
+    fileprivate func cancelToSave(for charge:Charge){
+        banker.didDeclineDeposit(for: charge)
+    }
+}
