@@ -272,14 +272,36 @@ private final class AppChargeBanker: ChargeBanker {
     }
 
     func didInitializeBank(balance: Amount) {
+        verifyReceipts()
+    }
 
-//        let currentQueue = DispatchQueue.current
-//        let asyncSignal = AsyncSignal()
-//
-//        DispatchQueue.global().async{
-//
-//
-//        }
+    private func verifyReceipts(){
+        let currentQueue = DispatchQueue.current
+
+        DispatchQueue.global().async{
+            let asyncSignal = AsyncSignal()
+
+            for c in self.registeredCharges{
+
+                if let vReceipt = self.receiptStorage.getReceipt(for: c)
+                    , let vPayable = c.payment as? VerifiablePayable.Type {
+
+                    if let vResult = vPayable.init().verify(asyncSignal){
+                        if vResult == false{
+                            currentQueue.async(flags:.barrier){
+                                self.receiptStorage.removeReceipt(vReceipt.uuid)
+                            }
+                            print("[i] INFO: Receipt Verification succeed -> InValid Receipt: \(String(describing: vPayable))")
+                        }else{
+                            print("[i] INFO: Receipt Verification succeed -> Valid Receipt: \(String(describing: vPayable))")
+                        }
+                    }else{
+                        print("[!] WARNING: Receipt Verification failed for \(String(describing: vPayable))")
+                    }
+                }
+
+            }
+        }
     }
 
     private func createOrReplaceReceipt(for charge: Charge){
