@@ -56,7 +56,7 @@ extension AppCenter{
     @discardableResult
     private func selectApp(_ app:App.Type, options: AppLaunchOptions?=nil, animation:Bool=false) -> Bool{
         guard let rootVc = UIApplication.shared.keyWindow?.rootViewController as? AppDockNavigationController
-            , let appDockVc = rootVc.visibleViewController as? AppDockViewController else { //INFO: current modal or vc (for photo editor)
+            , let appDockVc = (rootVc.viewControllers + [rootVc.visibleViewController ?? rootVc]).first(where:{ $0 is AppDockViewController }) as? AppDockViewController else {
             return false
         }
 

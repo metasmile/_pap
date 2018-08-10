@@ -185,6 +185,7 @@ class PreviewView: CustomView, AppDockContentTransition {
         
         collectionViewHeightLayout.constant = height
         collectionView.layoutIfNeeded()
+        //FIXME: A strange main queue BAD_EXEC crash: https://www.evernote.com/l/AEGXgIlYWZhOyp29B4mJH804vQ1tZaVWS7wB/image.png
         collectionView.setCollectionViewLayout(toLayout, animated: false)
         
         if appAssetsSelected.count > 0, let indexPath = touchedIndexPath {
