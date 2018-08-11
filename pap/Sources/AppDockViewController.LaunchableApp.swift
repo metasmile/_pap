@@ -55,8 +55,19 @@ extension AppCenter{
 
     @discardableResult
     private func selectApp(_ app:App.Type, options: AppLaunchOptions?=nil, animation:Bool=false) -> Bool{
-        guard let rootVc = UIApplication.shared.keyWindow?.rootViewController as? AppDockNavigationController
-            , let appDockVc = (rootVc.viewControllers + [rootVc.visibleViewController ?? rootVc]).first(where:{ $0 is AppDockViewController }) as? AppDockViewController else {
+        guard let rootVc = UIApplication.shared.keyWindow?.rootViewController as? AppDockNavigationController else {
+            return false
+        }
+
+        var _appDockVc:AppDockViewController?
+        if let vc = rootVc.visibleViewController as? AppDockViewController{
+            _appDockVc = vc
+        }else if let vc = rootVc.viewControllers.first(where:{ $0 is AppDockViewController }) as? AppDockViewController {
+            // for a case what visibleViewController is not, and other vc was stacked(or pending animations to dismiss) for a moment, but openApp immediately called before.
+            _appDockVc = vc
+        }
+        guard let appDockVc = _appDockVc else {
+            assert(false, "Not found AppDockViewController while try to open app.")
             return false
         }
 

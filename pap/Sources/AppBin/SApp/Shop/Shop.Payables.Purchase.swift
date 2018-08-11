@@ -11,7 +11,7 @@ import SwiftyStoreKit
 
 private enum StoreProduct: String {
     case pap_xapp_AllTimeAllApps_nonConsumablePurchase_owned
-    case pap_xapp_AllTimeOneApp_nonConsumablePurchase_owned
+    case pap_xapp_AllTimeOneApp_nonConsumablePurchase_owned //Required IDs by each apps
 
     case pap_xapp_OneMonthAllApps_nonRenewingMonthlySubscription_owned
     case pap_xapp_OneYearAllApps_nonRenewingYearlySubscription_owned
