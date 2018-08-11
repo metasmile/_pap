@@ -16,14 +16,16 @@ public class AutoEditorApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _
 
     public static let taskType: AppTaskable.Type = _AutoEditorAppTask.self
     public static let paramType: AppTaskParamable.Type = _AutoEditorAppAsset.self
-    
 
-    @objc dynamic
-    public private(set) lazy var config: FiltersAppConfigValue? = {
+    public static var defaultConfigValue: AppConfigValuable {
         let config = FiltersAppConfigValue()
         config.tintColor = .black
         return config
-    }()
+    }
+
+    @objc dynamic
+    public private(set) lazy var config: FiltersAppConfigValue? = type(of:self).defaultConfigValue as? FiltersAppConfigValue
+
     public private(set) lazy var content: AppDockContent? = AutoEditorAppDockContent()
     public private(set) lazy var photoEditorDockContent: AppDockContent? = AutoEditorAppDockContent()
     

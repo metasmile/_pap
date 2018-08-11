@@ -30,7 +30,7 @@ public extension StateValueSet where T: ImageEditStateValue {
     }
 }
 
-public class FiltersAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttrributeValuable, AppConfigAdoptableValuable {
+public class FiltersAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttributeValuable, AppConfigAdoptableValuable {
     @objc dynamic
     public var tintColor: UIColor?
     
@@ -38,7 +38,7 @@ public class FiltersAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttrr
     public var filter: ImageEditStateValue?
     
     public func adoptValues(fromOther: AppConfigValuable) {
-        if let other = fromOther as? AppConfigUIAttrributeValuable {
+        if let other = fromOther as? AppConfigUIAttributeValuable {
             self.tintColor = other.tintColor
         }
         
@@ -55,12 +55,15 @@ PhotoEditorViewControllerDelegatableApp {
     public static let taskType: AppTaskable.Type = _FiltersAppTask.self
     public static let paramType: AppTaskParamable.Type = _FiltersAppAsset.self
 
-    @objc dynamic
-    public private(set) lazy var config: FiltersAppConfigValue? = {
+    public static var defaultConfigValue: AppConfigValuable {
         let config = FiltersAppConfigValue()
         config.tintColor = .black
         return config
-    }()
+    }
+
+    @objc dynamic
+    public private(set) lazy var config: FiltersAppConfigValue? = type(of:self).defaultConfigValue as? FiltersAppConfigValue
+
     public private(set) lazy var content: AppDockContent? = FiltersAppDockContent()
     public private(set) lazy var photoEditorDockContent: AppDockContent? = FiltersAppDockContent()
     

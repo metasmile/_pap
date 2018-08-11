@@ -224,7 +224,7 @@ struct GIFMakerSettings {
 
 //MARK: -
 
-public class GIFMakerAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttrributeValuable, AppConfigAdoptableValuable {
+public class GIFMakerAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttributeValuable, AppConfigAdoptableValuable {
     @objc dynamic
     public var tintColor: UIColor?
 
@@ -232,7 +232,7 @@ public class GIFMakerAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttr
     public var sourceType: Int = Int.max
     
     public func adoptValues(fromOther: AppConfigValuable) {
-        if let other = fromOther as? AppConfigUIAttrributeValuable {
+        if let other = fromOther as? AppConfigUIAttributeValuable {
             self.tintColor = other.tintColor
         }
     }
@@ -250,14 +250,16 @@ public class GIFMakerApp: BApp,
 
     public static let taskType: AppTaskable.Type = _GIFMakerAppTask.self
     public static let paramType: AppTaskParamable.Type = _GIFMakerAppAsset.self
-    
 
-    @objc dynamic
-    public private(set) lazy var config: GIFMakerAppConfigValue? = {
+    public static var defaultConfigValue: AppConfigValuable {
         let config = GIFMakerAppConfigValue()
         config.tintColor = .black
         return config
-    }()
+    }
+
+    @objc dynamic
+    public private(set) lazy var config: GIFMakerAppConfigValue? = type(of: self).defaultConfigValue as? GIFMakerAppConfigValue
+
     public private(set) lazy var content: AppDockContent? = GIFMakerAppDockContent()
     
     public static let info = AppInfo(

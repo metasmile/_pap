@@ -10,7 +10,7 @@ import UIKit
 import MobileCoreServices
 import DefaultsKit
 
-public class TransformAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttrributeValuable, AppConfigAdoptableValuable {
+public class TransformAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttributeValuable, AppConfigAdoptableValuable {
     @objc dynamic
     public var tintColor: UIColor?
 
@@ -18,7 +18,7 @@ public class TransformAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAtt
     public var transform: ImageEditStateValue?
 
     public func adoptValues(fromOther: AppConfigValuable) {
-        if let other = fromOther as? AppConfigUIAttrributeValuable {
+        if let other = fromOther as? AppConfigUIAttributeValuable {
             self.tintColor = other.tintColor
         }
 
@@ -37,13 +37,14 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
 
     public static let paramType: AppTaskParamable.Type = _TransformAppAsset.self
 
-
-    @objc dynamic
-    public private(set) lazy var config: TransformAppConfigValue? = {
+    public static var defaultConfigValue: AppConfigValuable {
         let config = TransformAppConfigValue()
         config.tintColor = UIColor(red:0.75, green:0.31, blue:0.8, alpha:1)
         return config
-    }()
+    }
+
+    @objc dynamic
+    public private(set) lazy var config: TransformAppConfigValue? = type(of:self).defaultConfigValue as? TransformAppConfigValue
 
     public private(set) lazy var content: AppDockContent? = createController()
     public private(set) lazy var photoEditorDockContent: AppDockContent? = createController()

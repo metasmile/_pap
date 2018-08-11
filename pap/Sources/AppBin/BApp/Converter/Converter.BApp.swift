@@ -27,9 +27,12 @@ public class ConverterApp: BApp,
     public static let taskType: AppTaskable.Type = ConverterAppTask.self
     public static let paramType: AppTaskParamable.Type = AppAsset.self
 
+    public static var defaultConfigValue: AppConfigValuable {
+        return ConverterAppConfigValue()
+    }
 
     @objc dynamic
-    public private(set) lazy var config: ConverterAppConfigValue? = ConverterAppConfigValue()
+    public private(set) lazy var config: ConverterAppConfigValue? = type(of:self).defaultConfigValue as? ConverterAppConfigValue
 
     public private(set) var content: AppDockContent?
 

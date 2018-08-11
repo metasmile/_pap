@@ -12,11 +12,11 @@ public protocol AppConfigAdoptableValuable: AppConfigValuable {
     func adoptValues(fromOther:AppConfigValuable)
 }
 
-public protocol AppConfigUIAttrributeValuable: AppConfigValuable {
+public protocol AppConfigUIAttributeValuable: AppConfigValuable {
     var tintColor:UIColor? { set get }
 }
 
-public struct AppConfigUIAttrribute: AppConfigUIAttrributeValuable{
+public struct AppConfigUIAttribute: AppConfigUIAttributeValuable {
     public var tintColor: UIColor?
 }
 
@@ -27,6 +27,8 @@ public protocol _ConfigurableApp{
 }
 
 public protocol ConfigurableApp: App {
+    static var defaultConfigValue: AppConfigValuable { get }
+
     func setConfigValues<T: AppConfigValuable>(_ config:T)
 }
 

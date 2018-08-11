@@ -727,7 +727,7 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
             present(navigationController, animated: true) {
                 self.photoEditorTransitionContext?.sourceView.isHidden = false
                 
-                AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttrribute(tintColor: .white))
+                AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttribute(tintColor: .white))
             }
         }
     }
@@ -747,8 +747,10 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
             }
         }
 
-        AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttrribute(tintColor: .black))
-        
+        let tintColorToRestore = ((AppCenter.default.current as? ConfigurableApp.Type)?.defaultConfigValue as? AppConfigUIAttributeValuable)?.tintColor
+
+        AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttribute(tintColor: tintColorToRestore))
+
         appDockView?.setDrawerDisplay(forState: appDockContentLayoutStateRestoringAfterProcessing ?? .neutralized, reloadDockContentViews: true)
         
         if let transitionContext = photoEditorTransitionContext {

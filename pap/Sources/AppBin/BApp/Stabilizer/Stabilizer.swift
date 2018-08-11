@@ -40,7 +40,7 @@ public extension StateValueSet where T: ImageEditStateValue {
     }
 }
 
-public class StabilizerAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttrributeValuable, AppConfigAdoptableValuable {
+public class StabilizerAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttributeValuable, AppConfigAdoptableValuable {
     @objc dynamic
     public var tintColor: UIColor?
     
@@ -48,7 +48,7 @@ public class StabilizerAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAt
     public var stabilizationMode: ImageEditStateValue?
     
     public func adoptValues(fromOther: AppConfigValuable) {
-        if let other = fromOther as? AppConfigUIAttrributeValuable {
+        if let other = fromOther as? AppConfigUIAttributeValuable {
             self.tintColor = other.tintColor
         }
         
@@ -63,14 +63,16 @@ public class Stabilizer: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, Phot
     public static let taskType: AppTaskable.Type = StabilizerTask.self
 
     public static let paramType: AppTaskParamable.Type = _StabilizerAppAsset.self
-    
 
-    @objc dynamic
-    public private(set) lazy var config: StabilizerAppConfigValue? = {
+    public static var defaultConfigValue: AppConfigValuable {
         let config = StabilizerAppConfigValue()
         config.tintColor = .black
         return config
-    }()
+    }
+
+    @objc dynamic
+    public private(set) lazy var config: StabilizerAppConfigValue? = type(of:self).defaultConfigValue as? StabilizerAppConfigValue
+
     public private(set) lazy var content: AppDockContent? = StabilizerAppDockContent()
 
     public static let info = AppInfo(
