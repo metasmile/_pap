@@ -6,226 +6,21 @@
 import Foundation
 import SwiftyStoreKit
 
-//INFO: Following string literal(==rawValue) is product ID
-//INFO: {pap(Photo Apps)}_{xapp(all app class including BApp,..XApp)}_{product ref. name}_{charge type}_{reward type}
+/*
+INFO: Rules of Product IDs
 
-private enum StoreProduct: String {
-    case pap_xapp_AllTimeAllApps_nonConsumablePurchase_owned
-    case pap_xapp_AllTimeOneApp_nonConsumablePurchase_owned //Required IDs by each apps
+- Format: {pap(Photo Apps)}_{bundle id suffix(pap.{*}) or app class including BApp,..*App}_{product ref. name}_{charge type}_{reward type}
+e.g. Converter specific -> pap_converter_*
+e.g. All CApp class -> pap_capp_*
 
-    case pap_xapp_OneMonthAllApps_nonRenewingMonthlySubscription_owned
-    case pap_xapp_OneYearAllApps_nonRenewingYearlySubscription_owned
+- Code: Following string literal(==rawValue) is product ID
+*/
 
-    case pap_xapp_MonthlyAllApps_renewableMonthlySubscription_owned
-    case pap_xapp_YearlyAllApps_renewableYearlySubscription_owned
-
-    var identifier:String{
-        return self.rawValue
-    }
+protocol StoreProduct {
+    var identifier:String {get}
 }
 
-struct StorePayableConfigurator{
-    static func configure(){
-
-        SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
-
-            for purchase in purchases {
-                switch purchase.transaction.transactionState {
-                case .purchased, .restored:
-                    let downloads = purchase.transaction.downloads
-                    if !downloads.isEmpty {
-                        SwiftyStoreKit.start(downloads)
-                    } else if purchase.needsFinishTransaction {
-                        // Deliver content from server, then:
-                        SwiftyStoreKit.finishTransaction(purchase.transaction)
-                    }
-                    print("\(purchase.transaction.transactionState.debugDescription): \(purchase.productId)")
-
-                case .failed, .purchasing, .deferred:
-                    print("[!] WARNING: \(purchase.transaction.transactionState.debugDescription): \(purchase.productId)")
-                    break // do nothing
-                }
-            }
-        }
-
-        SwiftyStoreKit.updatedDownloadsHandler = { downloads in
-
-            // contentURL is not nil if downloadState == .finished
-            let contentURLs = downloads.compactMap { $0.contentURL }
-            if contentURLs.count == downloads.count {
-                print("Saving: \(contentURLs)")
-                SwiftyStoreKit.finishTransaction(downloads[0].transaction)
-            }
-        }
-    }
-}
-
-struct PayForAllTimeAllApps: VerifiablePayable {
-    fileprivate static var storeProduct:StoreProduct{ return .pap_xapp_AllTimeAllApps_nonConsumablePurchase_owned }
-
-    private(set) static var payingLabel: String = "Purchase".localized
-
-    func pay(_ signal: AsyncWaitSignalable) -> Bool {
-        return type(of: self).storeProduct.pay(signal)
-    }
-
-    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
-        if let r = type(of: self).storeProduct.verify(signal) {
-
-            switch SwiftyStoreKit.verifyPurchase(
-                    productId: r.product.identifier,
-                    inReceipt: r.receipt) {
-
-                case .purchased( _):
-                    return true
-                default:
-                    return false
-            }
-        }
-
-        return nil
-    }
-}
-
-struct PayForAllTimeOneApp: VerifiablePayable {
-    fileprivate static var storeProduct:StoreProduct{ return .pap_xapp_AllTimeOneApp_nonConsumablePurchase_owned }
-
-    private(set) static var payingLabel: String = "Purchase".localized
-
-    func pay(_ signal: AsyncWaitSignalable) -> Bool {
-        return type(of: self).storeProduct.pay(signal)
-    }
-
-    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
-        if let r = type(of: self).storeProduct.verify(signal){
-
-            switch SwiftyStoreKit.verifyPurchase(
-                    productId: r.product.identifier,
-                    inReceipt: r.receipt) {
-
-                case .purchased( _):
-                        return true
-                default:
-                    return false
-            }
-        }
-        return nil
-    }
-}
-
-struct PayForOneMonthAllApps: VerifiablePayable {
-    fileprivate static var storeProduct:StoreProduct{ return .pap_xapp_OneMonthAllApps_nonRenewingMonthlySubscription_owned }
-
-    private(set) static var payingLabel: String = "Purchase".localized
-
-    func pay(_ signal: AsyncWaitSignalable) -> Bool {
-        return type(of: self).storeProduct.pay(signal)
-    }
-
-    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
-        if let r = type(of: self).storeProduct.verify(signal){
-            switch SwiftyStoreKit.verifySubscription(
-                    ofType: .nonRenewing(validDuration: 60),
-                    productId: r.product.identifier,
-                    inReceipt: r.receipt){
-
-            case .purchased( _, _):
-                    return true
-                default:
-                    return false
-            }
-        }
-        return nil
-    }
-}
-
-struct PayForOneYearAllApps: VerifiablePayable {
-    fileprivate static var storeProduct:StoreProduct{ return .pap_xapp_OneYearAllApps_nonRenewingYearlySubscription_owned }
-
-    private(set) static var payingLabel: String = "Purchase".localized
-
-    func pay(_ signal: AsyncWaitSignalable) -> Bool {
-        return type(of: self).storeProduct.pay(signal)
-    }
-
-    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
-        if let r = type(of: self).storeProduct.verify(signal){
-
-            switch SwiftyStoreKit.verifySubscription(
-                    ofType: .nonRenewing(validDuration: 60),
-                    productId: r.product.identifier,
-                    inReceipt: r.receipt){
-
-            case .purchased( _):
-                    return true
-                default:
-                    return false
-            }
-        }
-        return nil
-    }
-}
-
-struct PayForMonthlyAllApps: VerifiablePayable {
-    fileprivate static var storeProduct:StoreProduct{ return .pap_xapp_MonthlyAllApps_renewableMonthlySubscription_owned }
-
-    private(set) static var payingLabel: String = "Subscribe".localized
-
-    func pay(_ signal: AsyncWaitSignalable) -> Bool {
-        return type(of: self).storeProduct.pay(signal)
-    }
-
-    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
-        if let r = type(of: self).storeProduct.verify(signal){
-
-            switch SwiftyStoreKit.verifySubscription(
-                    ofType: .autoRenewable,
-                    productId: r.product.identifier,
-                    inReceipt: r.receipt){
-
-            case .purchased( _, _):
-                    return true
-
-                default:
-                    return false
-            }
-        }
-        return nil
-    }
-}
-
-
-struct PayForYearlyAllApps: VerifiablePayable {
-    fileprivate static var storeProduct:StoreProduct{ return .pap_xapp_YearlyAllApps_renewableYearlySubscription_owned }
-
-    private(set) static var payingLabel: String = "Subscribe".localized
-
-    func pay(_ signal: AsyncWaitSignalable) -> Bool {
-        return type(of: self).storeProduct.pay(signal)
-    }
-
-    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
-        if let r = type(of: self).storeProduct.verify(signal){
-            switch SwiftyStoreKit.verifySubscription(
-                    ofType: .autoRenewable,
-                    productId: r.product.identifier,
-                    inReceipt: r.receipt){
-
-            case .purchased( _, _):
-                    return true
-
-                default:
-                    return false
-            }
-        }
-        return nil
-    }
-}
-
-//INFO: Common Utility
 extension StoreProduct {
-    private static let ReceiptSecretKey = "791f81382c464b78803b22eba4fb2cde" // pap specific Aug 10, 2018
-
     func pay(_ signal: AsyncWaitSignalable) -> Bool {
 
         var paid = false
@@ -285,7 +80,7 @@ extension StoreProduct {
 #if DEBUG
         verificationType = .sandbox
 #endif
-        let appleValidator = AppleReceiptValidator(service: verificationType, sharedSecret: type(of: self).ReceiptSecretKey)
+        let appleValidator = AppleReceiptValidator(service: verificationType, sharedSecret: StoreRootProducts.ReceiptSecretKey)
         SwiftyStoreKit.verifyReceipt(using: appleValidator, completion: completion)
     }
 
@@ -295,12 +90,12 @@ extension StoreProduct {
         signal.begin()
         verifyReceipt { result in
             switch result {
-                case .success(let receipt):
-                    r = (product:self, receipt:receipt)
+            case .success(let receipt):
+                r = (product:self, receipt:receipt)
 
-                case .error:
-                    print("[!] WARNING: verifyReceipt error:", result)
-                    r = nil
+            case .error:
+                print("[!] WARNING: verifyReceipt error:", result)
+                r = nil
             }
             signal.end()
         }
@@ -308,6 +103,225 @@ extension StoreProduct {
         return r
     }
 }
+
+private enum StoreRootProducts: String, StoreProduct {
+    fileprivate static let ReceiptSecretKey = "791f81382c464b78803b22eba4fb2cde" // pap specific Aug 10, 2018
+
+    case pap_xapp_AllTimeAllApps_nonConsumablePurchase_owned
+
+    case pap_xapp_OneMonthAllApps_nonRenewingMonthlySubscription_owned
+    case pap_xapp_OneYearAllApps_nonRenewingYearlySubscription_owned
+
+    case pap_xapp_MonthlyAllApps_renewableMonthlySubscription_owned
+    case pap_xapp_YearlyAllApps_renewableYearlySubscription_owned
+
+    var identifier:String{
+        return self.rawValue
+    }
+}
+
+struct StorePayableConfigurator{
+    static func configure(){
+
+        SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
+
+            for purchase in purchases {
+                switch purchase.transaction.transactionState {
+                case .purchased, .restored:
+                    let downloads = purchase.transaction.downloads
+                    if !downloads.isEmpty {
+                        SwiftyStoreKit.start(downloads)
+                    } else if purchase.needsFinishTransaction {
+                        // Deliver content from server, then:
+                        SwiftyStoreKit.finishTransaction(purchase.transaction)
+                    }
+                    print("\(purchase.transaction.transactionState.debugDescription): \(purchase.productId)")
+
+                case .failed, .purchasing, .deferred:
+                    print("[!] WARNING: \(purchase.transaction.transactionState.debugDescription): \(purchase.productId)")
+                    break // do nothing
+                }
+            }
+        }
+
+        SwiftyStoreKit.updatedDownloadsHandler = { downloads in
+
+            // contentURL is not nil if downloadState == .finished
+            let contentURLs = downloads.compactMap { $0.contentURL }
+            if contentURLs.count == downloads.count {
+                print("Saving: \(contentURLs)")
+                SwiftyStoreKit.finishTransaction(downloads[0].transaction)
+            }
+        }
+    }
+}
+
+//struct AppPayment<T:ChargeableApp>: VerifiablePayable, StoreProduct {
+//    static var payingLabel: String {
+//        return "Purchase".localized
+//    }
+//
+//    let identifier: String = T.info.identifier
+//
+//    func pay(_ signal: AsyncWaitSignalable) -> Bool {
+//        return type(of: self).storeProduct.pay(signal)
+//    }
+//
+//    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
+//        if let r = type(of: self).storeProduct.verify(signal){
+//
+//            switch SwiftyStoreKit.verifyPurchase(
+//                    productId: r.product.identifier,
+//                    inReceipt: r.receipt) {
+//
+//            case .purchased( _):
+//                return true
+//            default:
+//                return false
+//            }
+//        }
+//        return nil
+//    }
+//}
+
+struct PayForAllTimeAllApps: VerifiablePayable {
+    fileprivate static var storeProduct: StoreProduct { return StoreRootProducts.pap_xapp_AllTimeAllApps_nonConsumablePurchase_owned }
+
+    private(set) static var payingLabel: String = "Purchase".localized
+
+    func pay(_ signal: AsyncWaitSignalable) -> Bool {
+        return type(of: self).storeProduct.pay(signal)
+    }
+
+    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
+        if let r = type(of: self).storeProduct.verify(signal) {
+
+            switch SwiftyStoreKit.verifyPurchase(
+                    productId: r.product.identifier,
+                    inReceipt: r.receipt) {
+
+                case .purchased( _):
+                    return true
+                default:
+                    return false
+            }
+        }
+
+        return nil
+    }
+}
+
+
+struct PayForOneMonthAllApps: VerifiablePayable {
+    fileprivate static var storeProduct: StoreProduct { return StoreRootProducts.pap_xapp_OneMonthAllApps_nonRenewingMonthlySubscription_owned }
+
+    private(set) static var payingLabel: String = "Purchase".localized
+
+    func pay(_ signal: AsyncWaitSignalable) -> Bool {
+        return type(of: self).storeProduct.pay(signal)
+    }
+
+    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
+        if let r = type(of: self).storeProduct.verify(signal){
+            switch SwiftyStoreKit.verifySubscription(
+                    ofType: .nonRenewing(validDuration: 60),
+                    productId: r.product.identifier,
+                    inReceipt: r.receipt){
+
+            case .purchased( _, _):
+                    return true
+                default:
+                    return false
+            }
+        }
+        return nil
+    }
+}
+
+struct PayForOneYearAllApps: VerifiablePayable {
+    fileprivate static var storeProduct: StoreProduct { return StoreRootProducts.pap_xapp_OneYearAllApps_nonRenewingYearlySubscription_owned }
+
+    private(set) static var payingLabel: String = "Purchase".localized
+
+    func pay(_ signal: AsyncWaitSignalable) -> Bool {
+        return type(of: self).storeProduct.pay(signal)
+    }
+
+    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
+        if let r = type(of: self).storeProduct.verify(signal){
+
+            switch SwiftyStoreKit.verifySubscription(
+                    ofType: .nonRenewing(validDuration: 60),
+                    productId: r.product.identifier,
+                    inReceipt: r.receipt){
+
+            case .purchased( _):
+                    return true
+                default:
+                    return false
+            }
+        }
+        return nil
+    }
+}
+
+struct PayForMonthlyAllApps: VerifiablePayable {
+    fileprivate static var storeProduct: StoreProduct { return StoreRootProducts.pap_xapp_MonthlyAllApps_renewableMonthlySubscription_owned }
+
+    private(set) static var payingLabel: String = "Subscribe".localized
+
+    func pay(_ signal: AsyncWaitSignalable) -> Bool {
+        return type(of: self).storeProduct.pay(signal)
+    }
+
+    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
+        if let r = type(of: self).storeProduct.verify(signal){
+
+            switch SwiftyStoreKit.verifySubscription(
+                    ofType: .autoRenewable,
+                    productId: r.product.identifier,
+                    inReceipt: r.receipt){
+
+            case .purchased( _, _):
+                    return true
+
+                default:
+                    return false
+            }
+        }
+        return nil
+    }
+}
+
+
+struct PayForYearlyAllApps: VerifiablePayable {
+    fileprivate static var storeProduct: StoreProduct { return StoreRootProducts.pap_xapp_YearlyAllApps_renewableYearlySubscription_owned }
+
+    private(set) static var payingLabel: String = "Subscribe".localized
+
+    func pay(_ signal: AsyncWaitSignalable) -> Bool {
+        return type(of: self).storeProduct.pay(signal)
+    }
+
+    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
+        if let r = type(of: self).storeProduct.verify(signal){
+            switch SwiftyStoreKit.verifySubscription(
+                    ofType: .autoRenewable,
+                    productId: r.product.identifier,
+                    inReceipt: r.receipt){
+
+            case .purchased( _, _):
+                    return true
+
+                default:
+                    return false
+            }
+        }
+        return nil
+    }
+}
+
+
 
 
 

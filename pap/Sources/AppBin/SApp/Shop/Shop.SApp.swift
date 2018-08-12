@@ -327,14 +327,12 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         var defaultCollection = PayDictionary.Default
 
         if let appType = AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType as? ChargeableApp.Type{
-            if let _ = (appType.getInstance(user: ShopAppDockContent.self) as? ChargeableApp)?.chargesRequired?.contains(where: { c -> Bool in
-                return c.isEqualTo(other: AppCenter.defaultPaidAppChargeable)
-            }){
-                if let purchaseDir = defaultCollection.first (where:{ dictionary in
+            for c in appType.localCharges ?? []{
+                 if let purchaseDir = defaultCollection.first (where:{ dictionary in
                     return dictionary.key == .Purchase
                 }){
                     var _purchaseDir = purchaseDir
-                    _purchaseDir.items.insert(PayItem(payable: AppCenter.defaultPaidAppChargeable.payment), at: 0)
+                    _purchaseDir.items.insert(PayItem(payable: c.payment), at: 0)
                     defaultCollection[0] = _purchaseDir
                 }
             }

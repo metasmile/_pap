@@ -18,7 +18,7 @@ public class ConverterAppConfigValue: NSObject, KeyPathWatchable, AppConfigValua
 public class ConverterApp: BApp,
         AppDockApp,
         ConfigurableApp, _ConfigurableApp,
-        ChargeableApp,
+//        ChargeableApp,
         FinalizableApp,
         PHAssetUIAlertControllerSynchronizablePresenter,
         PhotoPickerCollectionViewDisplayableApp,
@@ -53,9 +53,15 @@ public class ConverterApp: BApp,
         content = ConverterAppDockContent(app:self)
     }
 
-    var chargesRequired: [Chargeable]? {
-        return [AppCenter.defaultPaidAppChargeable]
-    }
+//    static let localCharges: [Charge]? = [
+//        AppCharge(type: .consumablePurchase
+//            , reward: .owned
+//            , payment:PayForAllTimeOneApp.self
+//            , priceAmount: AmountObject.max
+//            , title:"Purchase \(info.displayName)".localized
+//            , rewardDescribable:AppRewardDescription(rewardTitle: "Permanent Use of This Including All Updates", rewardShortTitle: "Permanent Single App License", rewardDescription: nil, rewardUnit: nil)
+//        )
+//    ]
 
     public var doneButtonTitle: String? {
         return "Convert".localized
