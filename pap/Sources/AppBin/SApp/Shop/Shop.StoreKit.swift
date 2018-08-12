@@ -52,8 +52,11 @@ struct StorePayableConfigurator{
     }
 }
 
-
 extension StorePayable{
+    static var payingLabel:String {
+        return "Purchase".localized
+    }
+
     func pay(_ signal: AsyncWaitSignalable) -> Bool {
         return type(of: self).product.purchase(signal)
     }
@@ -66,10 +69,6 @@ extension StorePayable{
 
 protocol NonConsumablePurchasingPayable:StorePayable{}
 extension NonConsumablePurchasingPayable{
-    static var payingLabel:String {
-        return "Purchase".localized
-    }
-
     func verify(_ signal: AsyncWaitSignalable) -> Bool? {
         if let r = type(of: self).product.verify(signal) {
 

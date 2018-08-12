@@ -53,15 +53,11 @@ public class ConverterApp: BApp,
         content = ConverterAppDockContent(app:self)
     }
 
-//    static let localCharges: [Charge]? = [
-//        AppCharge(type: .consumablePurchase
-//            , reward: .owned
-//            , payment:PayForAllTimeOneApp.self
-//            , priceAmount: AmountObject.max
-//            , title:"Purchase \(info.displayName)".localized
-//            , rewardDescribable:AppRewardDescription(rewardTitle: "Permanent Use of This Including All Updates", rewardShortTitle: "Permanent Single App License", rewardDescription: nil, rewardUnit: nil)
-//        )
-//    ]
+    static var localCharges: [Charge]? {
+        return [
+            AppCharge.createCharge(of: self, as: .nonConsumablePurchase)
+        ].compactMap { $0 }.nilEmpty
+    }
 
     public var doneButtonTitle: String? {
         return "Convert".localized

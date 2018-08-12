@@ -84,6 +84,10 @@ protocol StorePayableProduct {
     var identifier:String {get}
 }
 
+struct StoreProduct:StorePayableProduct {
+    let identifier:String
+}
+
 protocol Chargeable {
     var type: ChargeType {get}
     var reward: RewardType {get}

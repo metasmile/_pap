@@ -82,9 +82,9 @@
 "cs_keyword_12" = "Friend";
 "cs_keyword_13" = "Lover";
 
-/* Generated from genl10n: AppCenter.Charge.swift#145 */
+/* Generated from genl10n: AppCenter.Charge.swift#194 */
 "%@ Day License" = "%@ Day License";
-/* Generated from genl10n: AppCenter.Charge.swift#157 */
+/* Generated from genl10n: AppCenter.Charge.swift#206 */
 "%@ Day" = "%@ Day";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Download now for FREE!";
@@ -302,6 +302,8 @@
 "Page Size Preset" = "Page Size Preset";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Pages";
+/* Generated from genl10n: AppCenter.Charge.swift#168 */
+"Permanent Use of Including All Updates" = "Permanent Use of Including All Updates";
 /* Generated from genl10n: PhoneCalls.BApp.swift#60 */
 "Phone Calls" = "Phone Calls";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#210, Finder.BApp.swift#345, Finder.BApp.swift#1224 */
@@ -314,9 +316,11 @@
 "Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Privacy" = "Privacy";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Purchase %@" = "Purchase %@";
 /* Generated from genl10n: AppCenter.Charge.swift#64 */
 "Purchase All At Once" = "Purchase All At Once";
-/* Generated from genl10n: Shop.StoreKit.swift#70 */
+/* Generated from genl10n: Shop.StoreKit.swift#57 */
 "Purchase" = "Purchase";
 /* Generated from genl10n: Converter.AppDockContent.swift#138, GIFMaker.BApp.swift#597 */
 "Quality" = "Quality";
@@ -400,7 +404,7 @@
 "Starting the Process..." = "Starting the Process...";
 /* Generated from genl10n: Revert.BApp.swift#109 */
 "Starting to check edited photos..." = "Starting to check edited photos...";
-/* Generated from genl10n: Shop.StoreKit.swift#93, Shop.StoreKit.swift#118 */
+/* Generated from genl10n: Shop.StoreKit.swift#92, Shop.StoreKit.swift#117 */
 "Subscribe" = "Subscribe";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#298 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Switch on any items you want to hide. The quality will entirely remain the same.";
