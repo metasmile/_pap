@@ -18,7 +18,7 @@ public class ConverterAppConfigValue: NSObject, KeyPathWatchable, AppConfigValua
 public class ConverterApp: BApp,
         AppDockApp,
         ConfigurableApp, _ConfigurableApp,
-//        ChargeableApp,
+        ChargeableApp,
         FinalizableApp,
         PHAssetUIAlertControllerSynchronizablePresenter,
         PhotoPickerCollectionViewDisplayableApp,

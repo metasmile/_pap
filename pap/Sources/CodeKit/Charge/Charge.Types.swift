@@ -101,9 +101,9 @@ extension Chargeable{
     }
     var identifier:String{
         return String(describing: Chargeable.self) +
-                "type\(type)" +
-                "reward\(reward)" +
-                "payment\(String(describing: self.payment))"
+                "-type_\(type)" +
+                "-reward_\(reward)" +
+                "-payment_\(String(describing: self.payment))"
     }
 }
 

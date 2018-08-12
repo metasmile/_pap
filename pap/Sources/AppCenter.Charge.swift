@@ -18,8 +18,8 @@ private final class AppChargeManager: ChargeManager{
         let localChargesOfEachApps = AppCenter.default.apps(by: AppQuery.default).compactMap { appType -> [Charge]? in
             return (appType as? ChargeableApp.Type)?.localCharges
         }.reduce([], +).nilEmpty
-
-        return AppChargeManager(charges:[
+        
+        let rootCharges = [
             // Initial
             AppCharge(type: .welcomeFreeTrial
                     , reward: .timeOfUses
@@ -92,8 +92,9 @@ private final class AppChargeManager: ChargeManager{
                     , title:"1-Year Pass".localized
                     , rewardDescribable:AppRewardDescription(rewardTitle: "A Year Use of Apps Including All New", rewardShortTitle: "1-Year Apps License", rewardDescription: nil, rewardUnit: nil)
             )
+        ]
 
-        ] + (localChargesOfEachApps ?? []), banker: AppChargeBanker.self)
+        return AppChargeManager(charges:rootCharges + (localChargesOfEachApps ?? []), banker: AppChargeBanker.self)
     }
 }
 
@@ -271,6 +272,12 @@ private final class AppChargeBanker: ChargeBanker {
 
     init(registeredCharges: [Charge]) {
         self.registeredCharges = registeredCharges
+
+        #if DEBUG
+        for c in self.registeredCharges{
+            print("[i] Registered Charge at \(String(describing: AppChargeBanker.self)), localIdentifier :", c.identifier)
+        }
+        #endif
     }
 
     func initializeBank() -> Amount {
