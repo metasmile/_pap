@@ -76,13 +76,13 @@ private final class AppChargeManager: ChargeManager{
         , DefaultPaidAppChargeable
 
         , AppCharge(type: .renewableMonthlySubscription
-                , reward: .rented, payment:PayForMonthlyAllApps.self
+                , reward: .owned, payment:PayForMonthlyAllApps.self
                 , priceAmount: AmountObject.max
                 , title:"Monthly Pass".localized
                 , rewardDescribable:AppRewardDescription(rewardTitle: "Constant Use of Apps Including All New", rewardShortTitle: "Yearly Apps License", rewardDescription: nil, rewardUnit: nil)
         )
         , AppCharge(type: .renewableYearlySubscription
-                , reward: .rented
+                , reward: .owned
                 , payment:PayForYearlyAllApps.self
                 , priceAmount: AmountObject.max
                 , title:"Annual Pass".localized
@@ -90,14 +90,14 @@ private final class AppChargeManager: ChargeManager{
         )
 
         , AppCharge(type: .nonRenewingMonthlySubscription
-                , reward: .rented
+                , reward: .owned
                 , payment:PayForOneMonthAllApps.self
                 , priceAmount: AmountObject.max
                 , title:"1-Month Pass".localized
                 , rewardDescribable:AppRewardDescription(rewardTitle: "A Month of Apps Including All New", rewardShortTitle: "1-Month Apps License", rewardDescription: nil, rewardUnit: nil)
         )
         , AppCharge(type: .nonRenewingYearlySubscription
-                , reward: .rented, payment:PayForOneYearAllApps.self
+                , reward: .owned, payment:PayForOneYearAllApps.self
                 , priceAmount: AmountObject.max
                 , title:"1-Year Pass".localized
                 , rewardDescribable:AppRewardDescription(rewardTitle: "A Year of Apps Including All New", rewardShortTitle: "1-Year Apps License", rewardDescription: nil, rewardUnit: nil)

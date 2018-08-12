@@ -41,11 +41,10 @@ enum RewardType:Int {
 
     //e.g. paid or VIP code
     case owned = 300
-    case rented = 301
 
     var isNonConsumable:Bool{
         switch self{
-            case .owned, .rented, .nonBlockOfUses:
+            case .owned, .nonBlockOfUses:
                  return true
             default:
                 break

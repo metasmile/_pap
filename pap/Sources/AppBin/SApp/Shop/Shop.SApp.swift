@@ -275,7 +275,7 @@ private struct ShopAppChargeableAssets : ChargeableButtonAppearance{
 
     var emptyImage: UIImage? {
         switch charge.reward{
-            case .owned, .rented:
+            case .owned:
                 return R.image.systemIconFavoriteLineCharging()
             default:
                 return R.image.systemIconFavoriteLine()
