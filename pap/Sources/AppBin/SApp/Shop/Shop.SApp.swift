@@ -71,13 +71,13 @@ private struct PayDictionary:Hashable {
                 key: .Purchase
                 , label: "%@ Passes".localizedFormatted(papStrings.name)
                 , items: [
-                    PayForAllTimeAllApps.self
+                    AllTimeAllAppsPayment.self
 
-                    , PayForOneMonthAllApps.self
-                    , PayForOneYearAllApps.self
+                    , OneMonthAllAppsPayment.self
+                    , OneYearAllAppsPayment.self
 
-                    , PayForMonthlyAllApps.self
-                    , PayForYearlyAllApps.self
+                    , MonthlyAllAppsPayment.self
+                    , YearlyAllAppsPayment.self
 
                 ].sorted(by:{ (payType1: Payable.Type, payType2: Payable.Type) -> Bool in
                     return false

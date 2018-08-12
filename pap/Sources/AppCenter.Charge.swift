@@ -59,21 +59,21 @@ private final class AppChargeManager: ChargeManager{
 
             // Store Purchase
             , AppCharge(type: .nonConsumablePurchase
-                    , reward: .owned, payment:PayForAllTimeAllApps.self
+                    , reward: .owned, payment: AllTimeAllAppsPayment.self
                     , priceAmount: AmountObject.max
                     , title:"Purchase All At Once".localized
                     , rewardDescribable:AppRewardDescription(rewardTitle: "Permanent Use of Apps Including All New.", rewardShortTitle: "Permanent Apps License", rewardDescription: nil, rewardUnit: nil)
             )
 
             , AppCharge(type: .renewableMonthlySubscription
-                    , reward: .owned, payment:PayForMonthlyAllApps.self
+                    , reward: .owned, payment: MonthlyAllAppsPayment.self
                     , priceAmount: AmountObject.max
                     , title:"Monthly Pass".localized
                     , rewardDescribable:AppRewardDescription(rewardTitle: "Constant Use of Apps Including All New", rewardShortTitle: "Yearly Apps License", rewardDescription: nil, rewardUnit: nil)
             )
             , AppCharge(type: .renewableYearlySubscription
                     , reward: .owned
-                    , payment:PayForYearlyAllApps.self
+                    , payment: YearlyAllAppsPayment.self
                     , priceAmount: AmountObject.max
                     , title:"Annual Pass".localized
                     , rewardDescribable:AppRewardDescription(rewardTitle: "Constant Use of Apps Including All New", rewardShortTitle: "Yearly Apps License", rewardDescription: nil, rewardUnit: nil)
@@ -81,13 +81,13 @@ private final class AppChargeManager: ChargeManager{
 
             , AppCharge(type: .nonRenewingMonthlySubscription
                     , reward: .owned
-                    , payment:PayForOneMonthAllApps.self
+                    , payment: OneMonthAllAppsPayment.self
                     , priceAmount: AmountObject.max
                     , title:"1-Month Pass".localized
                     , rewardDescribable:AppRewardDescription(rewardTitle: "A Month Use of Apps Including All New", rewardShortTitle: "1-Month Apps License", rewardDescription: nil, rewardUnit: nil)
             )
             , AppCharge(type: .nonRenewingYearlySubscription
-                    , reward: .owned, payment:PayForOneYearAllApps.self
+                    , reward: .owned, payment: OneYearAllAppsPayment.self
                     , priceAmount: AmountObject.max
                     , title:"1-Year Pass".localized
                     , rewardDescribable:AppRewardDescription(rewardTitle: "A Year Use of Apps Including All New", rewardShortTitle: "1-Year Apps License", rewardDescription: nil, rewardUnit: nil)
@@ -143,15 +143,15 @@ extension AppCharge{
         var payable:StorePayable.Type?
         switch chargeType{
             case .nonConsumablePurchase:
-                payable = NonConsumablePurchasingAppPayment<A>.self
+                payable = AllTimeAppPayment<A>.self
             case .nonRenewingMonthlySubscription:
-                payable = NonRenewingSubscribingAppPayment<A>.self
+                payable = OneMonthAppPayment<A>.self
             case .nonRenewingYearlySubscription:
-                payable = NonRenewingSubscribingAppPayment<A>.self
+                payable = OneYearAppPayment<A>.self
             case .renewableMonthlySubscription:
-                payable = AutoRenewableSubscribingAppPayment<A>.self
+                payable = MonthlyAppPayment<A>.self
             case .renewableYearlySubscription:
-                payable = AutoRenewableSubscribingAppPayment<A>.self
+                payable = YearlyAppPayment<A>.self
             default:
                 break
         }
@@ -168,22 +168,6 @@ extension AppCharge{
                 , title:"Purchase %@".localizedFormatted(app.info.displayName)
                 , rewardDescribable: rewardDescription ?? AppRewardDescription(rewardTitle: "Permanent Use of Including All Updates".localized, rewardShortTitle: "Permanent Single App License", rewardDescription: nil, rewardUnit: nil)
         )
-    }
-
-    private struct NonConsumablePurchasingAppPayment<T:App>: NonConsumablePurchasingPayable{
-        static var product: StorePayableProduct {
-            return StoreProduct(identifier: T.info.identifier)
-        }
-    }
-    private struct AutoRenewableSubscribingAppPayment<T:App>: AutoRenewableSubscribingPayable{
-        static var product: StorePayableProduct {
-            return StoreProduct(identifier: T.info.identifier)
-        }
-    }
-    private struct NonRenewingSubscribingAppPayment<T:App>: NonRenewingSubscribingPayable{
-        static var product: StorePayableProduct {
-            return StoreProduct(identifier: T.info.identifier)
-        }
     }
 }
 
